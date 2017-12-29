@@ -100,22 +100,22 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Görevler listesini temizlemek için `app.setUserTasks` öğesini boş bir diziyle çağırmanız yeterlidir:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Kullanıcı görevleri, uygulamanız kapandıktan sonra bile gösterilir, bu nedenle simge ve bir görev için belirtilen program yolu, uygulamanız bitene kadar var olmalıdır. kaldırıldı.
 
 ## Küçük resim araç çubukları
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çubuğu ekleyebilirsiniz bir uygulama penceresinin düzeni. It provides users a way to access to a particular window's command without restoring or activating the window.
 
 From MSDN, it's illustrated:
 
-> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. Vardır En fazla yedi buton. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
