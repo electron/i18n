@@ -45,9 +45,9 @@ your-app/
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+نکته: اگر فیلد `main` در پکیج `package.json` نیست، الکترون `index.js` را لود خواهد کرد.
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js` پنجره ها را می‌سازد و رویداد های سیستم را مدیریت می‌کند، یک مثال معمول وجود دارد:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
