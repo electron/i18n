@@ -71,7 +71,7 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
   - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
 9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
 
-### Tips for fixing compilation errors
+### Derleme hatalarını düzeltmek için ipuçları
 
 - Önce yapılandırma hatalarını düzelt
 - Önemli hataları düzelttin, eksik dosya ve derleyici ile ilgili hatalar gibi bayraklar veya tanımlar
@@ -82,11 +82,11 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
 
 Electron'un bir Hata Ayıklama derlemesi başarılı olduğunda, sınamaları çalıştırın: `$ ./script/test.py` Başarısız testleri düzeltin.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Desteklenen tüm platformlarda Electron kodunu düzeltmek için yukarıdaki adımları izleyin.
 
-## Updating Crashpad
+## Hata yolu güncelleştiriliyor
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
+Hata yolu ile ilgili herhangi bir derleme hatası varsa, muhtemelen ayrılmayı yeni bir revizyonla güncellemeniz gerekir. Gör [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) Bunun nasıl yapılacağı ile ilgili talimatlar için.
 
 ## NodeJS güncelleniyor
 
@@ -132,4 +132,4 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Chromium konu takip](https://bugs.chromium.org/p/chromium)
