@@ -1,33 +1,33 @@
 # Masaüstü Ortam Entegrasyonu
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Farklı işletim sistemlerini masaüstünü entegre etmek için farklı özellikler sunar uygulamaları masaüstü ortamlarına dönüştürür. Örneğin, Windows'ta, uygulama kısayollarını görev çubuğunun görev listesine koyabilir ve Mac'te uygulamaları, dock menüsüne özel bir menüye yerleştirebilir.
 
 Bu bölüm, uygulamanızı masaüstü ortamınıza entegre etmek için Electron API'lerinin nasıl kullanılacağını açıklayacaktır.
 
 ## Bildirimler
 
-See [Notifications](notifications.md)
+Bakınız [Notifications](notifications.md)
 
 ## Şuan ki Dökümanlar (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows ve MacOS, tarafından açılan son belgelerin bir listesine kolay erişim sağlar. sırasıyla görev listesi veya dock menüsü aracılığıyla uygulama.
 
-**JumpList:**
+**Görev Listesi:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Görev listesi Son Dosyalar listesi](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **Uygulama kesinti menüsü:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Yeni belgelere dosya eklemek için, [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+Ve boşaltmak için [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API'sını kullanabilirsiniz son belgeler listesi:
 
 ```javascript
 const {app} = require('electron')
