@@ -129,11 +129,11 @@ Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecuta
 
 Evalúa el `código` en la página.
 
-En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Setting `userGesture` to `true` will remove this limitation.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Devuelve el `Objecto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -141,14 +141,14 @@ Returns `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Devuelve un objeto que describe la información de uso de las cachés de memoria interna de Blink.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Esto generará:
 
 ```javascript
 {
@@ -166,6 +166,6 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Intenta liberar memoria que ya no se usa (como las imágenes de una navegación anterior).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Tenga en cuenta que llamar ciegamente este método probablemente haga que Electron sea más lento, ya que tendrá que volver a llenar estos cachés vacíos, solo debe llamarlo si ha ocurrido un evento en su aplicación que le haga pensar que su página está usando menos memoria (es decir, ha navegado desde una página muy pesada a una casi vacía, y tiene la intención de permanecer allí).
