@@ -158,22 +158,21 @@
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+शीर्षक `###` या `####`-स्तर हो सकता है, जो कि इस बात पर निर्भर करता है कि वह एक मोड्यूल का इवेंट है या एक क्लास का |
 
-The arguments of an event follow the same rules as methods.
+एक इवेंट के आर्गुमेंट्स, मेथड्स के नियमों का ही पालन करते हैं |
 
-### Properties
+### गुण
 
-The properties chapter must be in following form:
+गुण अध्याय निम्नलिखित रूप में होना चाहिये:
 
 ```markdown
-### session.defaultSession
-
+### सेशन.डिफ़ॉल्ट सेशन 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+शीर्षक `###` या `####`-स्तर हो सकता है, जो कि इस बात पर निर्भर करता है कि वह एक मोड्यूल का गुण है या एक क्लास का |
 
-## Documentation Translations
+## दस्तावेज़ीकरण अनुवाद
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+[इलेक्ट्रॉन/इलेक्ट्रॉन-i18n](https://github.com/electron/electron-i18n#readme) देखें
