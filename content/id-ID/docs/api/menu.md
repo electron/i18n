@@ -74,45 +74,45 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   #### `menu.append(menuItem)`
   
-  * ` menuItem </ 0> MenuItem</li>
-</ul>
-
-<p>Appends the <code>menuItem` to the menu.</p> 
-    #### `menu.insert(pos, menuItem)`
-    
-    * `pos` Integer
-    * ` menuItem </ 0> MenuItem</li>
-</ul>
-
-<p>Sisipkan <code>menuItem` ke posisi `pos` pada menu.</p> 
-      ### Instance Properties
-      
-      `menu` objek juga memiliki properti berikut:
-      
-      #### `menu.items`
-      
-      A `MenuItem[]` array containing the menu's items.
-      
-      Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
-      
-      ## Contoh
-      
-      Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
-      
-      ### Proses utama
-      
-      Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
-      
-      ```javascript
+  * `menuItem` MenuItem
+  
+  Appends the `menuItem` to the menu.
+  
+  #### `menu.insert(pos, menuItem)`
+  
+  * `pos` Integer
+  * `menuItem` MenuItem
+  
+  Sisipkan `menuItem` ke posisi `pos` pada menu.
+  
+  ### Instance Properties
+  
+  `menu` objek juga memiliki properti berikut:
+  
+  #### `menu.items`
+  
+  A `MenuItem[]` array containing the menu's items.
+  
+  Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
+  
+  ## Contoh
+  
+  Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
+  
+  ### Proses utama
+  
+  Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
+  
+  ```javascript
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
-  
-  ### Render proses
-  
-  Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
-  
-  ```html
+
+### Render proses
+
+Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
+
+```html
 <!-- index.html -->
 <script>
 const {remote} = require('electron')
