@@ -42,7 +42,7 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. Makinenizin kendi repo'sunda libcc kurulmuşsa, Elektron'a şunu kullanmasını söyle: 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
@@ -51,20 +51,20 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
 
 3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - Libcc alt modülünün(`vendor/libchromiumcontent`) işaret ettiğinden emin olun doğru revizyon
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. Sürüm ile eşleşecek şekilde ayarlayın `CLANG_REVISION` in `script/update-clang.sh` Chromium kullanıyor.
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - Konumlanmış `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
-5. Checkout Chromium if you haven't already:
+5. Chromium kontrolü henüz yapmadıysanız:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
+    - (Yukarıdaki url'de ` {VERSION} ` yer tutucusunu Chromium ile değiştirin sürüm libcc kullanır.)
 6. Electron kurmak. 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
-7. Fix compilation and linking errors
+  - Önce hata yakalama sürümünü oluşturmayı deneyin: `$ ./script/build.py -c D`
+  - Testleri çalıştırmak için ihtiyacınız olacak
+7. Derleme ve bağlantı hatalarını düzeltme
 8. Ensure that Release build can be built too 
   - `$ ./script/build.py -c R`
   - Often the Release build will have different linking errors that you'll need to fix.
