@@ -1,4 +1,4 @@
-# CertificatePrincipal Object
+# Sertifika Ana Objesi
 
 * `commonName` String - Ortak İsim
 * `organizations` String[] - Organization names
