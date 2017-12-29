@@ -6,16 +6,16 @@
 
 `net` 模块是一个发送 HTTP(S) 请求的客户端API。 它类似于Node.js的[HTTP](https://nodejs.org/api/http.html) 和 [HTTPS](https://nodejs.org/api/https.html) 模块 ，但它使用的是Chromium原生网络库来替代Node.js的实现，提供更好的网络代理支持。 
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+下面是一个非详尽的列表, 用于说明为什么使用 ` net ` 模块而不是原生Node. js 模块:
 
 * 系统代理配置的自动管理, 支持 wpad 协议和代理 pac 配置文件。
 * HTTPS 请求的自动隧道。
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* 支持使用basic、digest、NTLM、Kerberos 或协商身份验证方案对代理进行身份验证。
+* 支持传输监控代理: 类似于Fiddler代理，用于访问控制和监视。
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+` net ` 模块 api 被专门设计为尽可能地模仿的Node. js api。 API 组件 (包括classes、methods、properties和event names) 与Nodejs中常用的类似。
 
-For instance, the following example quickly shows how the `net` API might be used:
+例如, 下面的示例快速显示如何使用 ` net ` API:
 
 ```javascript
 const {app} = require('electron')
