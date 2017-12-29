@@ -4,7 +4,7 @@
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-The `shell`> modul menyediakan fungsi yang berkaitan dengan integrasi desktop.
+The `shell` modul menyediakan fungsi yang berkaitan dengan integrasi desktop.
 
 Contoh membuka URL di browser default pengguna:
 
