@@ -1,18 +1,18 @@
-# process
+# 进程
 
 > Extensions to process object.
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
 ## 事件
 
 ### Event: 'loaded'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+当Electron加载了它的内部初始化脚本并且是正要开始加载网页或主脚本时触发。
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+当node集成被关闭时，预加载脚本可以使用它将删除的 Node global symbols 添加回全局范围：
 
 ```javascript
 // preload.js
