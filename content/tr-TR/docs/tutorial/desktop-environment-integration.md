@@ -82,9 +82,9 @@ Windows'ta, Görev listesi'nin `Tasks` kategorisinde özel eylemler belirtebilir
 
 ![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+Gerçek bir menü olan macOS'taki dock menüsünün aksine, Windows'daki kullanıcı görevleri kullanıcı bir görevi tıkladığında programın uygulama kısayolları gibi belirtilen argümanlarla yürütülür.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Uygulamanızın kullanıcı görevlerini ayarlamak için şunları kullanabilirsiniz: [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
 
 ```javascript
 const {app} = require('electron')
