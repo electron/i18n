@@ -5,8 +5,8 @@
   * `separator` - Standart `Tasks` kategorisindeki öğeleri ayırmak için kullanılabilir.
   * `file` - Dosya uzantısı uygulamayı kullanarak Atlama Listesini oluşturan dosyayı açacak, bunun uygulamayı çalıştırması için bir dosya türü işleyicisi olarak kaydedilmesi gerekir (ancak varsayılan işleyici olmasına gerek yoktur).
 * `path` Dize (opsiyonel) - Açılacak dosyanın yolu, sadece `type` `file` ise ayarlanmalıdır.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
-* `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
+* `program` Dize (opsiyonel) - Yürütülecek programın yolu, genellikle geçerli programı açan `process.execPath` belirtmelisiniz. Sadece `type` `task` ise ayarlanmalıdır.
+* `args` Dize (opsiyonel) - `program` yürütüldüğü sıradaki komut satırı argümanları. Sadece `type` `task` ise ayarlanmalıdır.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
 * `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
