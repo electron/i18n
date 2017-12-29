@@ -1,4 +1,4 @@
-## Kelas: nampan
+## Class: Tray
 
 > Tambahkan ikon dan menu konteks ke area pemberitahuan sistem.
 
@@ -172,7 +172,7 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
           * `always` - Always highlight the tray icon.
           * `never` - Never highlight the tray icon.
         
-        Sets when the tray's icon background becomes highlighted (in blue).
+        Menyetel saat latar belakang ikon baki disorot (berwarna biru).
         
         **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
         
