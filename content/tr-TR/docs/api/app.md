@@ -29,13 +29,13 @@ Dönüşler:
 
 * ` launchInfo ` Nesne * macOS *
 
-Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, ` launchInfo `, Bildirim Merkezi'nden başlatıldığı takdirde, uygulamayı açmak için kullanılan ` NSUserNotification ` öğesinin ` kullanıcı bilgisi `'ni tutar. You can call `app.isReady()` to check if this event has already fired.
+Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, ` launchInfo `, Bildirim Merkezi'nden başlatıldığı takdirde, uygulamayı açmak için kullanılan ` NSUserNotification ` öğesinin ` kullanıcı bilgisi `'ni tutar. Bu etkinliğin zaten başlayıp başlamadığını kontrol etmek için ` app.isReady () ` 'i arayabilirsiniz.
 
-### Event: 'window-all-closed'
+### Olay: 'Tüm-pencereler-kapalı'
 
-Emitted when all windows have been closed.
+Tüm pencereler kapatıldığında ortaya çıkar.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davranış, uygulamadan çıkmaktır; ancak, abone olursanız, uygulamanın sona erip ermeyeceğini kontrol edersiniz. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
 ### Event: 'before-quit'
 
