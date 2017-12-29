@@ -22,9 +22,9 @@ Cambia el factor de zoom al factor especificado. El factor de zoom es el porcent
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Devuelve `Número` - El factor de zoom actual.
 
-### `webFrame.setZoomLevel(level)`
+### `webFrame.setZoomLevel(nivel)`
 
 * `level` Number - Zoom level
 
