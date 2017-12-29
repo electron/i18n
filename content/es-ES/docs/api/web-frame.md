@@ -46,16 +46,16 @@ Devuelve `Número` - El nivel de zoom actual.
 * `minimumLevel` Número
 * `maximumLevel` Número
 
-Sets the maximum and minimum pinch-to-zoom level.
+Establecer el nivel de máximo y mínimo pizca de zoom.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Número
+* `maximumLevel` Número
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
 
-### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
+### `webFrame.setSpellCheckProvider (Idioma, autoCorrectorPalabra, proveedor)`
 
 * `language` String
 * `autoCorrectWord` Boolean
