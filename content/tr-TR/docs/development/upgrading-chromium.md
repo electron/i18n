@@ -19,13 +19,13 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
 2. Chromium anlık görüntüsünü güncelle 
   - Bir sürüm numarası seçin [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `SÜRÜM` Bu dosya ile 
     - Bu, tarayıcıda manuel olarak OmahaProxy'yi ziyaret ederek veya otomatik olarak yapılabilir:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
+    - En son kararlı mac sürümü için: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
+    - En yeni win64 beta sürümü için: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
+  - çalıştır `$ ./script/update` 
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
+3. Klasör`*.patch` files in the `patches/` and `patches-mas/` düzenleme.
+4. (Tercihe bağlı) `komut/güncelleme` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
