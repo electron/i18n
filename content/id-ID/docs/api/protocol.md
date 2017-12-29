@@ -136,7 +136,7 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <li><code>sesi` Objek (opsional)
                 * `uploadData` Objek (opsional) 
                   * `contentType` String - jenis konten MIME.
-                  * `data` String - Content to be sent.
+                  * `data` String - Konten yang akan dikirim.
           * `penyelesaian` Fungsi (opsional) 
             * ` error </ 0> Kesalahan</li>
 </ul></li>
@@ -203,7 +203,7 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 </ul>
 
 <p>Sisipkan <code>skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.</p> 
-                                  ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
+                                  ### `protocol.interceptBufferProtocol(skema, handler[, completion])`
                                   
                                   * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
@@ -214,14 +214,14 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <li><code>uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
-                                        * `buffer` Buffer (optional)
+                                        * `penyangga` Buffer (opsional)
                                     * `penyelesaian` Fungsi (opsional) 
                                       * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
 <p>Sisipkan <code>skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.</p> 
-                                        ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
+                                        ### `protocol.interceptHttpProtocol (skema, handler [, completion])`
                                         
                                         * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
