@@ -26,7 +26,7 @@ SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symb
 
 ## Troubleshooting: Symbols will not load
 
-Type the following commands in Windbg to print why symbols are not loading:
+Sembollerin neden yüklenmediğini yazdırmak için Windbg'yi aşağıdaki komuta yazın:
 
 ```powershell
 > !sym noisy
