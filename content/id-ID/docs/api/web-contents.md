@@ -748,7 +748,7 @@ Salin gambar pada posisi yang diberikan ke clipboard.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+Jalankan perintah pengeditan `paste` di halaman web.
 
 #### `contents.pasteAndMatchStyle()`
 
