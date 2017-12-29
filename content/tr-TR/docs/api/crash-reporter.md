@@ -95,7 +95,7 @@ Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 * `value` Katar - Parametre değeri, 64 karakterden az olmalıdır. `null` veya `undefined` girildiği durumda ek parametrelerden anahtar silinir.
 
-Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. Burada verilmiş değerler, `start` çağırıldığında `ekstra` tarafından belirlenir ve ek olarak yollanır. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. Burada verilmiş değerler, `start` çağırıldığında `ekstra` tarafından belirlenir ve ek olarak yollanır. Bu API sadece macOS için mevcuttur. Eğer Linux ve Windows için de ek parametre ekleme/düzenlemek istiyorsanız, `start`'tan sonra yeniden düzenlenmiş `ekstra` seçeneği ile `start`'ı tekrar başlatın.
 
 ## Çökme Raporu verisi
 
