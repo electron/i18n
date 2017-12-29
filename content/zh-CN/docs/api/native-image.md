@@ -47,11 +47,11 @@ Check the *Size requirements* section in [this article](https://msdn.microsoft.c
 
 ## 高分辨率
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+在具有高 DPI 支持的平台 (如 Apple 视网膜显示器) 上, 可以在图像的基本文件名之后追加 ` @ 2x ` 以将其标记为高分辨率图像。
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+例如, 如果 ` icon. png ` 是具有标准分辨率的普通图像, 而 ` icon@2x. png ` 将被视为具有两倍 DPI 密度的高分辨率图像。
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+如果希望同时支持不同 dpi 密度的显示器, 可以将不同大小的图像放在同一文件夹中, 并使用没有 dpi 后缀的文件名。例如:
 
 ```text
 images/
