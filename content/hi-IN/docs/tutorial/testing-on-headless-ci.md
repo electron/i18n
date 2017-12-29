@@ -39,4 +39,4 @@
 
 ### एप्पवेयोर
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+एप्पवेयोर विंडोज पर चलता है, सेलेनियम, क्रोमियम, इलेक्ट्रॉन और ऐसे ही अन्य टूल्स को सीधे ही सपोर्ट करता है - किसी कॉन्फ़िगरेशन की ज़रुरत नहीं है |
