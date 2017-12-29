@@ -13,16 +13,16 @@
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * ` role ` String (可选)-定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
+  * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
+  * ` label `String (可选)
+  * `sublabel` String - (可选)
+  * `accelerator` [Accelerator](accelerator.md) (可选)
+  * `icon` ([NativeImage](native-image.md) | String) (可选)
+  * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
+  * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
+  * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (可选) - 应该为 `submenu` 类型菜单项指定。 如果设置了 ` submenu `, 则 ` type: 'submenu' `配置可以省略。 如果该值不是 ` Menu `, 则它将使用 ` Menu. buildFromTemplate ` 自动转换。
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
