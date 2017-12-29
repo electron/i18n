@@ -25,13 +25,13 @@ powerSaveBlocker.stop(id)
   * ` prevent-app-suspension `-防止应用程序被挂起。保持系统处于活动状态, 但允许关闭屏幕。 示例用例: 下载文件或播放音频。
   * ` prevent-display-sleep `-防止显示器进入休眠状态。保持系统和屏幕处于活动状态。 示例用例: 播放视频。
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker
+Returns ` Integer `-指派给此电源拦截器的 ID
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+开始阻止系统进入低功耗模式。返回一个整数的拦截器标识（identifying）
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
+** 注意: **`prevent-display-sleep ` 比 ` prevent-app-suspension ` 具有更高的优先级。 只有最高优先类型才能生效。 换言之, ` prevent-display-sleep ` 始终优先于 ` prevent-app-suspension `。
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
+例如, 一个 API 调用 ` prevent-app-suspension ` 请求A, 另一个调用 ` prevent-display-sleep ` 请求B。 `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
 
 ### `powerSaveBlocker.stop(id)`
 
