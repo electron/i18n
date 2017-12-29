@@ -529,7 +529,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+Dönüşler:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -542,7 +542,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Olay: 'did-fail-load'
 
-Returns:
+Dönüşler:
 
 * `errorCode` Tamsayı
 * `errorDescription` Koşul
@@ -553,7 +553,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Olay: 'did-frame-finish-load'
 
-Returns:
+Dönüşler:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Olay: 'did-get-response-details'
 
-Returns:
+Dönüşler:
 
 * `status` Boolean
 * `newURL` Dize
@@ -584,7 +584,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Olay: 'did-get-redirect-request'
 
-Returns:
+Dönüşler:
 
 * `oldURL` Dize
 * `newURL` Dize
@@ -598,7 +598,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+Dönüşler:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +607,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Olay: 'page-favicon-updated'
 
-Returns:
+Dönüşler:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +623,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+Dönüşler:
 
 * `level` Integer
 * `message` String
@@ -643,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Etkinlik: 'sayfa içinde kurmak'
 
-Returns:
+Dönüşler:
 
 * `sonuç` Nesne 
   * `requestId` Integer
@@ -666,7 +666,7 @@ console.log(requestId)
 
 ### Olay: 'new-window'
 
-Returns:
+Dönüşler:
 
 * `url` String
 * `frameName` Dize
@@ -691,7 +691,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Olay: 'will-navigate'
 
-Returns:
+Dönüşler:
 
 * `url` String
 
@@ -705,7 +705,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Olay: 'did-navigate'
 
-Returns:
+Dönüşler:
 
 * `url` String
 
@@ -715,7 +715,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 ### Olay: 'did-navigate-in-page'
 
-Returns:
+Dönüşler:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+Dönüşler:
 
 * `channel` String
 * `args` Array
@@ -776,7 +776,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+Dönüşler:
 
 * `name` String
 * `version` String
@@ -797,7 +797,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+Dönüşler:
 
 * `themeColor` String
 
@@ -809,7 +809,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+Dönüşler:
 
 * `url` String
 
