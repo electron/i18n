@@ -1,30 +1,30 @@
 # Notification
 
-> Create OS desktop notifications
+> 创建OS(操作系统)桌面通知
 
 线程：[主线程](../glossary.md#main-process)
 
-## Using in the renderer process
+## 在渲染进程中使用
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+如果要显示来自渲染进程的通知, 你应该使用 [ HTML5 Notification API ](../tutorial/notifications.md)
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> 创建OS(操作系统)桌面通知
 
 线程：[主线程](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` 是 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)
 
-It creates a new `Notification` with native properties as set by the `options`.
+通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
 ### 静态方法
 
-The `Notification` class has the following static methods:
+`Notification` 类有以下静态方法：
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 ### `new Notification([options])` *Experimental*
 
