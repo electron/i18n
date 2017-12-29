@@ -174,7 +174,7 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
         
         Menyetel saat latar belakang ikon baki disorot (berwarna biru).
         
-        **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+        **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
         
         ```javascript
 const {BrowserWindow, Tray} = require('electron')
