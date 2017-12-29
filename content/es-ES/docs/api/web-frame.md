@@ -85,34 +85,34 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 Registra el `esquema` como esquema seguro.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Los esquemas seguros no activan advertencias de contenido mixto. Por ejemplo, `https` y `datos` son esquemas seguros porque no pueden ser dañados por atacantes de red activos.
 
-### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
+### `webFrame.registerURLSchemeAsBypassingCSP(esquema)`
 
-* `scheme` String
+* `esquema` Cadena
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Los recursos se cargarán desde este `esquema` independientemente de la Política de Seguridad de Contenido de la página actual.
 
-### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
+### `webFrame.registerURLSchemeAsPrivileged(esquema[, opciones])`
 
-* `scheme` String
-* `options` Object (optional) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+* `esquema` Cadena
+* `opciones` Objecto (opcional) 
+  * ` seguro` Boolean - (opcional) Predeterminado verdadero.
+  * `bypassCSP` Boolean - (opcional) Predeterminado verdadero.
+  * `allowServiceWorkers` Boolean - Predeterminado verdadero (opcional).
+  * `supportFetchAPI` Boolean - Predeterminado verdadero (opcional).
+  * `corsEnabled` Boolean - Predeterminado verdadero (opcional).
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Registra el `esquema` como seguro, omite la política de seguridad de contenido para los recursos, permite el registro de ServiceWorker y admite la API de recuperación.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Especifique una opción con el valor de `falso` para omitirla del registro. Un ejemplo de registro de un esquema con privilegios, sin eludir la Política de Seguridad de Contenido:
 
 ```javascript
 const {webFrame} = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
-### `webFrame.insertText(text)`
+### `webFrame.insertText(texto)`
 
 * `texto` String
 
