@@ -79,7 +79,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+Kayıt işlemini tüm süreçlerde durdurur.
 
 Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
