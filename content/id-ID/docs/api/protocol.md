@@ -49,7 +49,7 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
 
 ### `protocol.registerServiceWorkerSchemes (skema)`
 
-* `skema` String [] - Skema kustom untuk didaftarkan untuk menangani pekerja layanan.
+* `skema` String[] - Skema kustom untuk didaftarkan untuk menangani pekerja layanan.
 ### `protocol.registerFileProtocol (skema, handler [, completion])`
 
 * ` skema </ 0>  String</li>
@@ -120,10 +120,10 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <p>Mendaftarkan protokol <code>skema` yang akan mengirim `String` sebagai tanggapan.</p> 
           Penggunaan adalah sama dengan `registerFileProtocol`, kecuali bahwa `callback` harus disebut dengan baik `String` atau sebuah benda yang memiliki `Data`, `mimeType`, dan `charset` properti.
           
-          ### `protocol.registerHttpProtocol (skema, handler [, completion])`
+          ### `protocol.registerHttpProtocol(skema, handler[, completion])`
           
-          * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+          * `skema` String
+          * `handler` Fungsi 
             * `permintaan` Obyek 
               * ` url </ 0>  String</li>
 <li><code>pengarah` String
@@ -245,10 +245,10 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 </ul>
 
 <p>Sisipkan <code>skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.</p> 
-                                              ### `protocol.uninterceptProtocol (skema [, penyelesaian])`
+                                              ### `protocol.uninterceptProtocol(skema[, penyelesaian])`
                                               
-                                              * ` skema </ 0>  String</li>
-<li><code>penyelesaian` Fungsi (opsional) 
+                                              * `skema` String
+                                              * `penyelesaian` Fungsi (opsional) 
                                                 * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
