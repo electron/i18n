@@ -63,29 +63,26 @@ const {app} = require ('electron')
 app.commandLine.appendSwitch ('proxy-bypass-list', '<local>; * google.com; * foo.com; 1.2.3.4: 5678')
 ```
 
-Akan menggunakan server proxy untuk semua host kecuali untuk alamat lokal (` localhost `, ` 127.0.0.1` dll.), ` google.com` subdomain, host yang berisi akhiran ` foo.com ` dan apa saja di `1.2.3.4:5678`.
+Akan menggunakan proxy server untuk semua host kecuali alamat lokal (`localhost`, `127.0.0.1` dll), `google.com` subdomain, host yang mengandung akhiran `foo.com` dan apa-apa di `1.2.3.4:5678`.
 
-## --proxy-pac-url =`url`
+## --proxy-pac-url = `url`
 
-Menggunakan script PAC di`url`yang ditentukan.
+Menggunakan PAC script ditentukan `url`.
 
 ## --no-proxy-server
 
-Jangan menggunakan server proxy dan selalu melakukan koneksi langsung. Menimpa yang lain flag server proxy yang dilewatkan.
+Jangan menggunakan proxy server dan selalu membuat koneksi langsung. Mengabaikan setiap bendera server proxy lain yang disampaikan.
 
-## --host-rules =` rules `
+## --host-aturan = `aturan`
 
-Daftar aturan`yang dipisahkan koma yang mengontrol bagaimana nama host dipetakan.
- .</p>
+Dipisahkan dengan koma daftar `aturan` yang mengontrol bagaimana hostname dipetakan.
 
-<p>Sebagai contoh:</p>
+Sebagai contoh:
 
-<ul>
-<li><code> MAP * 127.0.0.1`Memaksa semua nama host yang akan dipetakan ke 127.0.0.1</li> 
-
+* ` MAP * 127.0.0.1`Memaksa semua nama host yang akan dipetakan ke 127.0.0.1
 * `MAP *.google.com proxy ` Memaksa semua subdomain google.com untuk dipecahkan "proxy".
 * `MAP test.com [:: 1]: 77 ` Memaksa "test.com" untuk mengatasi loopback IPv6. Akan Juga paksa port dari alamat soket yang dihasilkan menjadi 77.
-* `MAP * baz, EXCLUDE www.google.com`Kembalikan semuanya ke "baz", kecuali untuk "www.google.com".</ul> 
+* `MAP * baz, EXCLUDE www.google.com`Kembalikan semuanya ke "baz", kecuali untuk "www.google.com".
 
 Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP dan resolver host dalam koneksi langsung, dan ` CONNECT ` di proxy HTTP koneksi, dan host titik akhir dalam koneksi proxy ` SOCKS `).
 
@@ -99,18 +96,18 @@ Daftar server yang dipisahkan koma yang otentikasinya telah diaktifkan.
 
 Sebagai contoh:
 
-    --auth-server-whitelist = '* example.com, * foobar.com, * baz'
+    --auth-server-whitelist='*example.com, * foobar.com, * baz'
     
 
-maka setiap`url` yang diakhiri dengan `example.com `,` foobar.com `,` baz`akan dipertimbangkan untuk otentikasi terpadu. Tanpa awalan`*`url harus sesuai persis.  .
+kemudian setiap `url` yang berakhir dengan `example.com`, `foobar.com`, `baz` akan dipertimbangkan untuk otentikasi Terpadu. Tanpa `*` awalan url yang sama persis.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-Daftar server yang dipisahkan koma yang diperlukan oleh pendelegasian mandat pengguna. Tanpa awalan `*` url harus sesuai persis.
+Dipisahkan dengan koma daftar server yang delegasi kredensial pengguna diperlukan. Tanpa `*` awalan url yang sama persis.
 
-## -- kesalahan sertifikat-kesalahan
+## --mengabaikan-sertifikat-kesalahan
 
-Mengabaikan kesalahan terkait sertifikat
+Mengabaikan sertifikat terkait kesalahan.
 
 ## --ppapi-flash-jalan = `path`
 
@@ -122,32 +119,30 @@ Menetapkan `Versi` plugin flash lada.
 
 ## --log-net-log = `path`
 
-Mengaktifkan aktivitas log bersih untuk disimpan dan menuliskannya ke ` path </ 0> .</p>
+Memungkinkan bersih log peristiwa untuk diselamatkan dan menulis mereka ke `jalan`.
 
-<h2>--disable-renderer-backgrounding</h2>
+## --disable-renderer-backgrounding
 
-<p>Mencegah Chromium menurunkan prioritas proses perender halaman yang tak terlihat.</p>
+Mencegah Kromium menurunkan prioritas proses renderer kelihatan halaman.
 
-<p>Flag ini bersifat global untuk semua proses renderer, jika Anda hanya ingin menonaktifkan throttling dalam satu jendela, Anda bisa melakukan hack
- <a href="https://github.com/atom/atom/pull/9485/files"> bermain audio sunyi </ 0> .</p>
+Bendera ini global untuk semua proses renderer, jika Anda hanya ingin menonaktifkan throttling dalam satu jendela, Anda dapat mengambil hack bermain [diam audio](https://github.com/atom/atom/pull/9485/files).
 
-<h2>--enable-logging</h2>
+## --enable-logging
 
-<p>Mencetak Chrome masuk ke konsol.</p>
+Cetakan Kromium login ke konsol.
 
-<p>Peralihan ini tidak dapat digunakan di <code> app.commandLine.appendSwitch </ 0> karena diurai lebih awal dari aplikasi pengguna yang dimuat, namun Anda dapat mengatur 
-variabel lingkungan <code> ELECTRON_ENABLE_LOGGING </ 0> untuk mencapai efek yang sama. .</p>
+Switch ini tidak dapat digunakan di `app.commandLine.appendSwitch` karena parsing lebih awal dari pengguna aplikasi dimuat, tetapi Anda dapat mengatur variabel lingkungan `ELECTRON_ENABLE_LOGGING` untuk mencapai efek yang sama.
 
-<h2>--v = <code>log_level`</h2> 
+## --v = `log_level`
 
-Memberikan level maximum V-logging default maksimal; 0 adalah default Biasanya nilai positif digunakan untuk tingkat V-logging.
+Memberikan standar maksimal aktif V-tingkat pendataan; 0 adalah default. Nilai-nilai positif biasanya digunakan untuk tingkat V-logging.
 
 Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
 
 ## -vmodule = `pola`
 
-Memberikan level maksimal V-logging per modul untuk mengesampingkan nilai yang diberikan oleh `-v `. Misalnya `my_module = 2, foo * = 3` akan mengubah tingkat pendataan untuk semua kode dalam sumber file `my_module.*` dan `foo *. *`.
+Memberikan setiap modul tingkat V-logging maksimal untuk menimpa nilai yang diberikan oleh `-v`. Misalnya `my_module = 2, foo * = 3` akan mengubah tingkat pendataan untuk semua kode dalam sumber file `my_module.*` dan `foo *. *`.
 
-Setiap pola yang mengandung garis miring ke depan atau ke belakang akan diuji terhadap seluruh pathname dan bukan hanya modulnya. Misalnya `* / foo/bar / * = 2` akan mengubah tingkat pendataan untuk semua kode dalam sumber file di bawah direktori `foo bar`.
+Setiap pola yang mengandung garis miring maju atau mundur akan diuji terhadap seluruh nama path dan tidak hanya modul. Misalnya `* / foo/bar / * = 2` akan mengubah tingkat pendataan untuk semua kode dalam sumber file di bawah direktori `foo bar`.
 
-Peralihan ini hanya berfungsi saat`- enable-logging `juga dilewatkan.
+Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
