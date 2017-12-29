@@ -38,14 +38,14 @@
 
 ## शब्द चुनना
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* जब परिणाम का वर्णन कर रहे हों, तो "विल" की जगह "वुड" का प्रयोग करें |
+* "__प्रक्रिया के ऊपर" की बजाये "__प्रक्रिया के अन्दर" को तरजीह दें |
 
-## API references
+## ऐपीआई रेफरेंस
 
-The following rules only apply to the documentation of APIs.
+निम्नलिखित नियम केवल ऐपीआई के दस्तावेज़ीकरण के लिए मान्य हैं |
 
-### Page title
+### पेज शीर्षक
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
