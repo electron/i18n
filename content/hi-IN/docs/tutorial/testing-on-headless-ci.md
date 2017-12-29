@@ -6,16 +6,16 @@
 
 पहले, [एक्स वी ऍफ़ बी](https://en.wikipedia.org/wiki/Xvfb) इनस्टॉल करें | यह एक वर्चुअल फ्रेमबफर है, जो कि x11 डिस्प्ले सर्वर प्रोटोकॉल का इस्तेमाल करता है - यह बिना कोई स्क्रीन आउटपुट दिखाये सभी ग्राफिकल प्रक्रियाओं को मेमोरी में क्रियान्वित करता है, और हमे यही चाहिये |
 
-उसके बाद, एक वर्चुअल एक्स वी ऍफ़ बी स्क्रीन बनायें और एक डिस्प्ले नामक एनवायरनमेंट वेरिएबल को एस्पोर्ट करें जो उसकी तरफ इशारा करता हो | इलेक्ट्रॉन में मौज़ूद क्रोमियम स्वतः ही `$DISPLAY` को ढूंढ लेगा, तो इसलिए आपकी एप्प को और कोई कॉन्फ़िगरेशन की ज़रुरत नहीं पड़ेगी | This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will simply do nothing.
+उसके बाद, एक वर्चुअल एक्स वी ऍफ़ बी स्क्रीन बनायें और एक डिस्प्ले नामक एनवायरनमेंट वेरिएबल को एस्पोर्ट करें जो उसकी तरफ इशारा करता हो | इलेक्ट्रॉन में मौज़ूद क्रोमियम स्वतः ही `$DISPLAY` को ढूंढ लेगा, तो इसलिए आपकी एप्प को और कोई कॉन्फ़िगरेशन की ज़रुरत नहीं पड़ेगी | इस स्टेप को पॉल बेट्ट्स के [एक्स वी ऍफ़ बी-शायद](https://github.com/paulcbetts/xvfb-maybe) से स्वचालित किया जा सकता है: अपने परिक्षण निर्देशों को `एक्स वी ऍफ़ बी-शायद` से प्रीपेंड करें और यह छोटा सा टूल एक्स वी ऍफ़ बी को स्वतः ही कॉन्फ़िगर कर देगा, अगर मौजूदा सिस्टम को इसकी आवश्यकता है | विंडोज या मैकओएस पर, यह कुछ नहीं करेगा |
 
 ```sh
-## On Windows or macOS, this just invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
-xvfb-maybe electron-mocha ./test/*.js
+## विंडोज या मैकओएस पर, यह सिर्फ इलेक्ट्रॉन-मोका को इनवोक करेगा 
+## लिनक्स पर, अगर हम एक हेडलेस एनवायरनमेंट में हैं, तो यह समकक्ष होगा 
+## एक्स वी ऍफ़ बी-रन इलेक्ट्रॉन-मोका ./परिक्षण/*.जेएस के 
+एक्स वी ऍफ़ बी-शायद इलेक्ट्रॉन-मोका ./परिक्षण/*.जेएस
 ```
 
-### Travis CI
+### त्रविस सीआई
 
 On Travis, your `.travis.yml` should look roughly like this:
 
