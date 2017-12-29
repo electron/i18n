@@ -1,6 +1,6 @@
-# Saklar Baris Perintah Chrome yang Didukung
+# Didukung saklar baris perintah Chrome
 
-> Beralih baris perintah yang didukung oleh Elektron .
+> Saklar baris perintah yang didukung oleh elektron.
 
 Anda dapat menggunakan [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) untuk menambahkan mereka di app's script utama sebelum acara [siap](app.md#event-ready) modul [app](app.md) dibunyikan:
 
@@ -16,44 +16,45 @@ app.on ('siap', () = > {
 
 ## --ignore-connections-limit = ` domain `
 
-Abaikan batas koneksi untuk ` domain ` yang dipisahkan oleh `, `.
+Mengabaikan batas koneksi untuk daftar `domain` yang dipisahkan oleh `,`.
 
-## --disable-http-cache
+## --menonaktifkan-http-cache
 
-Menonaktifkan cache disk untuk permintaan HTTP.
+Menonaktifkan disk cache untuk permintaan HTTP.
 
-## --disable-http2
+## --menonaktifkan-http2
 
-Nonaktifkan protokol HTTP / 2 dan SPDY / 3.1.
+Menonaktifkan protokol HTTP/2 dan SPDY 3.1.
 
-## periksa =` port ` dan --inspect-brk =` port `</0>
+## --memeriksa = `port` dan--memeriksa-brk = `port`
 
-Bendera yang terkait dengan Debug, lihat panduan [ Debugging Main Process ](../tutorial/debugging-main-process.md) untuk rinciannya.
+Bendera terkait debug, lihat panduan [Debugging proses utama](../tutorial/debugging-main-process.md) untuk rincian.
 
 ## --remote-debugging-port = ` port `
 
-Mengaktifkan debugging jarak jauh melalui HTTP pada port ` yang ditentukan `.
+Memungkinkan remote debugging atas HTTP pada `port` tertentu.
 
-## --disk-cache-size =`ukuran`
+## --ukuran disk cache = `ukuran`
 
-Memaksa ruang disk maksimum yang akan digunakan oleh cache disk, dalam bytes.
+Pasukan ruang disk maksimum yang akan digunakan oleh cache disk, dalam bytes.
 
-## --js-flags =`flags`
+## --js-bendera `bendera` =
 
-Menentukan bendera yang dilewatkan ke mesin Node JS. Itu harus berlalu ketika mulai Electron jika Anda ingin mengaktifkan ` bendera </ 0> dalam proses utama.</p>
+Menentukan bendera dilewatkan ke mesin Node JS. Itu harus disampaikan ketika mulai elektron jika Anda ingin mengaktifkan `bendera` dalam proses utama.
 
-<pre><code class="bash">$ electron --js-flags = "- harmony_proxies --harmony_collections" your-app
-`</pre> 
+```bash
+$ elektron--js-bendera = "--harmony_proxies--harmony_collections" Anda-app
+```
 
-Lihat dokumentasi[Node](https://nodejs.org/api/cli.html)atau jalankan`node --help `di terminal Anda untuk daftar flag yang tersedia. Selain itu, jalan `node --v8-options`untuk melihat daftar flag yang secara khusus merujuk ke mesin JavaScript Vtp Node.
+Lihat [dokumentasi Node](https://nodejs.org/api/cli.html) atau menjalankan `simpul--bantuan` di terminal Anda untuk daftar tersedia bendera. Selain itu, menjalankan `simpul--v8-opsi` untuk melihat daftar bendera yang secara khusus mengacu pada mesin V8 JavaScript Node.
 
 ## --proxy-server =`alamat: port`
 
-Gunakan server proxy tertentu, yang menggantikan pengaturan sistem. Saklar ini hanya memengaruhi permintaan dengan protokol HTTP, termasuk HTTPS dan WebSocket permintaan. Perlu dicatat juga bahwa tidak semua server proxy mendukung HTTPS dan Permintaan WebSocket.
+Menggunakan server proxy tertentu, yang menimpa pengaturan sistem. Switch ini hanya mempengaruhi permintaan dengan protokol HTTP, termasuk HTTPS dan WebSocket permintaan. Hal ini juga perlu dicatat bahwa tidak semua server proxy dukungan HTTPS dan WebSocket permintaan.
 
 ## --proxy-bypass-list =`host`
 
-Instruksikan Elektron untuk memotong server proxy untuk semi-colon-separated yang diberikan daftar host Bendera ini hanya memiliki efek jika digunakan bersamaan ` - proxy-server `.
+Memerintahkan elektron untuk mem-bypass server proxy untuk daftar dipisahkan semi-auto-colon tertentu semesta alam. Bendera ini memiliki efek hanya jika digunakan bersamaan dengan `--proxy server`.
 
 Sebagai contoh:
 
@@ -90,7 +91,7 @@ Pemetaan ini berlaku untuk host titik akhir dalam permintaan bersih (koneksi TCP
 
 ## aturan host-resolver = ``
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Seperti `--host-aturan` tetapi `aturan` ini hanya berlaku untuk pemisah tuan rumah.
 
 ## --auth-server-whitelist =`url`
 
@@ -111,15 +112,15 @@ Daftar server yang dipisahkan koma yang diperlukan oleh pendelegasian mandat pen
 
 Mengabaikan kesalahan terkait sertifikat
 
-## --ppapi-flash-path=`path`
+## --ppapi-flash-jalan = `path`
 
-Sets the `path` of the pepper flash plugin.
+Set `path` plugin flash lada.
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+Menetapkan `Versi` plugin flash lada.
 
-## --log-net-log=`path`
+## --log-net-log = `path`
 
 Mengaktifkan aktivitas log bersih untuk disimpan dan menuliskannya ke ` path </ 0> .</p>
 
@@ -137,16 +138,16 @@ Mengaktifkan aktivitas log bersih untuk disimpan dan menuliskannya ke ` path </ 
 <p>Peralihan ini tidak dapat digunakan di <code> app.commandLine.appendSwitch </ 0> karena diurai lebih awal dari aplikasi pengguna yang dimuat, namun Anda dapat mengatur 
 variabel lingkungan <code> ELECTRON_ENABLE_LOGGING </ 0> untuk mencapai efek yang sama. .</p>
 
-<h2>--v=<code>log_level`</h2> 
+<h2>--v = <code>log_level`</h2> 
 
 Memberikan level maximum V-logging default maksimal; 0 adalah default Biasanya nilai positif digunakan untuk tingkat V-logging.
 
-This switch only works when `--enable-logging` is also passed.
+Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
 
-## --vmodule=`pattern`
+## -vmodule = `pola`
 
-Memberikan level maksimal V-logging per modul untuk mengesampingkan nilai yang diberikan oleh `-v `. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Memberikan level maksimal V-logging per modul untuk mengesampingkan nilai yang diberikan oleh `-v `. Misalnya `my_module = 2, foo * = 3` akan mengubah tingkat pendataan untuk semua kode dalam sumber file `my_module.*` dan `foo *. *`.
 
-Setiap pola yang mengandung garis miring ke depan atau ke belakang akan diuji terhadap seluruh pathname dan bukan hanya modulnya. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Setiap pola yang mengandung garis miring ke depan atau ke belakang akan diuji terhadap seluruh pathname dan bukan hanya modulnya. Misalnya `* / foo/bar / * = 2` akan mengubah tingkat pendataan untuk semua kode dalam sumber file di bawah direktori `foo bar`.
 
 Peralihan ini hanya berfungsi saat`- enable-logging `juga dilewatkan.
