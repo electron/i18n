@@ -685,7 +685,7 @@ Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-ma
 * `panggilan balik` Fungsi 
   * `zoomLevel` Number
 
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Mengirimkan permintaan untuk mendapatkan tingkat pembesaran saat ini, panggilan balik ` `akan dipanggil dengan `callback(zoomLevel)`.
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
