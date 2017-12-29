@@ -121,13 +121,14 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional)   
- `width` Integer (optional) - Required for bitmap buffers.   
- `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `width` Integer (optional) - Required for bitmap buffers.
+ * `height` Integer (optional) - Required for bitmap buffers.
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -135,7 +136,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+从 ` dataURL ` 创建新的 ` NativeImage ` 实例。
 
 ## Class: NativeImage
 
@@ -145,11 +146,12 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 ### 实例方法
 
-The following methods are available on instances of the `NativeImage` class:
+以下方法可用于 ` NativeImage ` 类的实例:
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
 
@@ -161,19 +163,22 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 
