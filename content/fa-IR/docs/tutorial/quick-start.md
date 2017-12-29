@@ -159,9 +159,9 @@ $ .\node_modules\.bin\electron .
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### دانلود دستی باینری الکترون
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+اگر شما به صورت جدا الکترون را دانلود کرده اید، می‌توانید از باینری موجود برای اجرای برنامه خود به صورت مستقیم استفاده کنید.
 
 #### مک‌اواس
 
@@ -181,9 +181,9 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+این `Electron.app` بخشی از پکیج اجرایی الکترون است که می توانید از [اینجا](https://github.com/electron/electron/releases) دانلودش کنید.
 
-### Run as a distribution
+### اجرا به عنوان یک توزیع
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
