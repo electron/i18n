@@ -87,7 +87,7 @@ Bila atribut ini hadir, kontainer `webview` akan secara otomatis diubah ukuranny
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi simpul dan dapat menggunakan API simpul seperti` memerlukan ` dan `proses` untuk mengakses sumber daya sistem tingkat rendah. Integrasi Node dinonaktifkan secara default di halaman tamu.
 
 ### `plugins`
 
