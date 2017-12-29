@@ -2,8 +2,8 @@
 
 * `type` Dize (opsiyonel) - Aşağıdakilerden biri: 
   * `tasks` - Bu kategorideki maddeler `Tasks` kategorisi içinde yer alacak. Böyle sadece bir kategori olabilir, ve her zaman Atlama Listesinin en altında görüntülenir.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
+  * `frequent` - Uygulama tarafından sıklıkla açılan dosyaların listesini görüntüler, kategori ismi ve maddeleri Windows tarafından ayarlanır.
+  * `recent` - Uygulama tarafından en son açılan dosyaların listesini görüntüler, kategori ismi ve maddeleri Windows tarafından ayarlanır. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
   * `custom` - Displays tasks or file links, `name` must be set by the app.
 * `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
 * `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
