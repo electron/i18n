@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Tüm uygulama pencerelerini simge durumuna küçültmeksizin gizle.
 
 ### `app.show()` *macOS*
 
@@ -728,7 +728,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
   * `credits` String (optional) - Credit information.
   * `version` String (optional) - The app's build version number.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
