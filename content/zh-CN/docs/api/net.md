@@ -1,10 +1,10 @@
-# net
+# 网络
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> 使用Chromium的原生网络库发出HTTP / HTTPS请求
 
 线程：[主线程](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+`net` 模块是一个发送 HTTP(S) 请求的客户端API。 It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
 
 The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
 
