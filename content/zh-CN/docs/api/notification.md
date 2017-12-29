@@ -41,7 +41,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 ### 事件
 
-Objects created with `new Notification` emit the following events:
+用 `new Notification` 创建对象将触发以下事件：
 
 ** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
@@ -51,7 +51,7 @@ Objects created with `new Notification` emit the following events:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+当通知向用户显示时触发, 请注意, 这可能会多次触发, 因为「通知」可以通过 ` show() ` 方法多次显示。
 
 #### Event: 'click'
 
@@ -59,7 +59,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+在用户单击通知时触发。
 
 #### 事件：close
 
@@ -67,7 +67,7 @@ Emitted when the notification is clicked by the user.
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+当用户手动关闭通知时触发
 
 This event is not guarunteed to be emitted in all cases where the notification is closed.
 
