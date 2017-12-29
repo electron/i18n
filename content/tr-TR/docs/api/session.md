@@ -62,7 +62,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 #### Etkinlik: 'indirilecek'
 
-* `event` Event
+* `olay` Olay
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
