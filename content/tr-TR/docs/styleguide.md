@@ -150,7 +150,7 @@ Metodların bölümü aşağıdaki formda olmak zorundadır:
 
 Bir modülün veya bir sınıfın bir metodu olup olmadığına bağlı olarak başlık `###` veya `####` olabilir.
 
-Modüller için `objectName` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
+Modüller için `nesneİsmi` modülün adıdır. Sınıflar için, sınıf örneğinin adı olmalı ve modül adı ile aynı olmamalıdır.
 
 Örneğin, `Session`modülü altındaki `session` oturum sınıfının yöntemleri `objectName` olarak `ses` kullanmalıdır.
 
