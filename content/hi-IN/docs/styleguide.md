@@ -31,12 +31,12 @@
 
 ## मार्कडाउन नियम
 
-* कोड खण्डों में `cmd` की जगह `sh` का प्रयोग करें (सिंटेक्स हाइलाइटर के कारण) |
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* कोड खण्डों में `cmd` की जगह `sh` का प्रयोग करें (सिंटेक्स हाइलाइटर के कारण)|
+* 80 कॉलमस पर पंक्तियाँ व्रैप की जानी चाहिये |
+* कोई भी नेस्टिंग सूची 2 स्तर से ज्यादा नहीं होनी चाहिये (मार्कडाउन रेंदेरेर के कारण) |
+* सभी `जेएस` और `जावास्क्रिप्ट` कोड खंड [मानक-मार्कडाउन](http://npm.im/standard-markdown) से सूचीबद्ध हैं |
 
-## Picking words
+## शब्द चुनना
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
