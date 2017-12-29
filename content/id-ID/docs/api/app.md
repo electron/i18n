@@ -759,19 +759,19 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 <p>Mengembalikan <code> Objek </ 0> :</p>
 
 <ul>
-<li><code>openAtLogin` Boolean - `true` if the app is set to open at login.
+<li><code>openAtLogin` Aljabar Boolean - `benar` jika app diatur untuk membuka di login.
                                               * ` openAsHidden </ 0>  Boolean - <code> true </ 0> jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macos .</li>
 <li><code> isOpenedAtLogin </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka saat masuk secara otomatis. Pengaturan ini hanya didukung pada macos .</li>
 <li><code>wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. Pengaturan ini hanya didukung pada macos .
                                               * ` restoreState </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macos .</li>
 </ul>
 
-<p><strong>Note:</strong> This API has no effect on <a href="../tutorial/mac-app-store-submission-guide.md">MAS builds</a>.</p>
+<p><strong>Catatan:</strong> API ini tidak berpengaruh pada <a href="../tutorial/mac-app-store-submission-guide.md">MAS membangun</a>.</p>
 
 <h3><code> app.setLoginItemSettings (pengaturan) </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
 
 <ul>
-<li><code>settings` Obyek 
+<li><code>pengaturan` Obyek 
                                                 * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
 <li><code> openAsHidden </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi sebagai tersembunyi. Default ke
  <code> false </ 0> . Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi
@@ -824,36 +824,36 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <p>Tambahkan peralihan (dengan <code> nilai opsional </ 0> ) ke baris perintah Chromium.</p>
 
-<p><strong>Note:</strong> This will not affect <code>process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.</p> 
-                                                      ### `app.commandLine.appendArgument(value)`
+<p><strong>Catatan:</strong> Ini tidak akan mempengaruhi <code>process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.</p> 
+                                                      ### `app.commandLine.appendArgument (nilai)`
                                                       
-                                                      * `value` String - The argument to append to the command line
+                                                      * `nilai` String - argumen untuk menambahkan ke baris perintah
                                                       
                                                       Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
                                                       
-                                                      **Note:** This will not affect `process.argv`.
+                                                      **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
                                                       
-                                                      ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+                                                      ### `app.enableMixedSandbox()` *macOS* *Windows*
                                                       
                                                       Mengaktifkan mode kotak pasir campuran di aplikasi.
                                                       
                                                       Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
                                                       
-                                                      ### `app.dock.bounce([type])` *macOS*
+                                                      ### `app.dock.bounce()` *macOS*
                                                       
-                                                      * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+                                                      * `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
                                                       
-                                                      When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+                                                      Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
                                                       
-                                                      When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+                                                      Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
                                                       
-                                                      Returns `Integer` an ID representing the request.
+                                                      Mengembalikan `Integer` ID yang mewakili permintaan.
                                                       
-                                                      ### `app.dock.cancelBounce(id)` *macOS*
+                                                      ### `app.dock.cancelBounce(id)` Linux *macOS*
                                                       
-                                                      * `id` Integer
+                                                      * `identitas` Integer
                                                       
-                                                      Cancel the bounce of `id`.
+                                                      Membatalkan bouncing `id`.
                                                       
                                                       ### `app.dock.downloadFinished(filePath)` *macOS*
                                                       
