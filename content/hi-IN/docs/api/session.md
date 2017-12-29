@@ -18,7 +18,7 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Methods
+## मेथड्स
 
 The `session` module has the following methods:
 
