@@ -110,17 +110,15 @@
 मेथड्स अध्याय निम्नलिखित रूप में होना चाहिये:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `ऑब्जेक्ट नाम. मेथड नाम(ज़रूरी[, वैकल्पिक]))` 
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `ज़रूरी` वाक्य - एक पैरामीटर विवरण | 
+* `वैकल्पिक` इन्टिजर (वैकल्पिक) - एक और पैरामीटर विवरण | ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+शीर्षक `###` या `####`-स्तर हो सकता है, जो कि इस बात पर निर्भर करता है कि वह एक मोड्यूल का मेथड है या एक क्लास का |
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+मोडयुल्स के लिए, `ऑब्जेक्ट नाम` ही मोड्यूल का नाम है | क्लासेज के लिए, वह क्लास का इंस्टैंस होना चाहिए, और मोड्यूल के नाम के समान नहीं होनी चाहिये |
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
