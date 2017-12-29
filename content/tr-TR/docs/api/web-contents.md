@@ -197,7 +197,7 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
@@ -235,7 +235,7 @@ Emitted when the renderer process crashes or is killed.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `name` String
 * `version` String
 
@@ -249,7 +249,7 @@ Emitted when `webContents` is destroyed.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -292,7 +292,7 @@ Emitted when DevTools is focused / opened.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
@@ -307,7 +307,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -321,7 +321,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `istek` Nesne 
   * `method` String
   * `url` URL
@@ -344,7 +344,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `sonuç` Nesne 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -374,7 +374,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `url` String
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
@@ -383,7 +383,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -398,7 +398,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `params` Nesne 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -440,7 +440,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
@@ -470,7 +470,7 @@ app.on('ready', () => {
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -494,7 +494,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
