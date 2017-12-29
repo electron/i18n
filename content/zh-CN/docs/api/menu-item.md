@@ -57,7 +57,7 @@
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
 
-The following additional roles are available on macOS:
+macOS 上提供了以下附加角色:
 
 * `about` - Map to the `orderFrontStandardAboutPanel` action
 * `hide` - Map to the `hide` action
