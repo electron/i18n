@@ -120,12 +120,12 @@
 
 मोडयुल्स के लिए, `ऑब्जेक्ट नाम` ही मोड्यूल का नाम है | क्लासेज के लिए, वह क्लास का इंस्टैंस होना चाहिए, और मोड्यूल के नाम के समान नहीं होनी चाहिये |
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+उदाहरण के लिए, `सेशन` मोड्यूल के अंतर्गत `सेशन` क्लास के मेथड्स को `ऑब्जेक्टनाम` के तौर पर `सेस` का इस्तेमाल करना चाहिये |
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+वकैल्पिक आर्गुमेंट्स को घेरे हुए स्क्वायर ब्रैकेट्स `[]`, वकैल्पिक आर्गुमेंट्स को चिन्हित करने के लिए इस्तेमाल किये जाते हैं | साथ ही अगर इस वकैल्पिक आर्गुमेंट के बाद एक और आर्गुमेंट आता है तो इसके लिए कोमा का भी इस्तेमाल ज़रूरी है |
 
 ```sh
-required[, optional]
+ज़रूरी[, वैकल्पिक]
 ```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
