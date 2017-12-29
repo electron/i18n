@@ -42,13 +42,13 @@ Bir kullanıcı Görev Listesi'nden bir dosyayı tıkladığında, uygulamanız�
 
 ### macOS Notları
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Son belgeler menüsünden bir dosya istediğinde, `open-file` event of `app` modülü yayınlanacaktır.
 
-## Custom Dock Menu (macOS)
+## Özel Dock Menüsü (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+macOS, geliştiricilerin dock için özel bir menü belirlemelerini sağlar; bu genellikle uygulamanızın yaygın olarak kullanılan özellikleri için kısayollar içerir:
 
-**Dock menu of Terminal.app:**
+**Dock menü Terminal.app:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
@@ -72,11 +72,11 @@ app.dock.setMenu(dockMenu)
 
 ## Kullanıcı görevleri (windows)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows'ta, Görev listesi'nin `Tasks` kategorisinde özel eylemler belirtebilirsiniz, MSDN'den aktarılan gibi:
 
-> Uygulamalar görevleri program özelliklerine ve önemli şeylere göre tanımlar kullanıcının bunlara göre yapması beklenir. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Uygulamalar görevleri program özelliklerine ve önemli şeylere göre tanımlar kullanıcının bunlara göre yapması beklenir. Görevler bağlam içermemeli, uygulamanın çalışması için çalışıyor olması gerekmez. Onlar normal bir kullanıcının yapacağı istatistiksel olarak en yaygın işlemler olmalıdır bir e-posta mesajı oluşturmak veya bir e-posta mesajı oluşturmak gibi bir uygulamada posta programındaki takvim, bir kelime işlemcide yeni bir belge oluşturun, bir uygulamayı belirli bir modda açabilir veya alt komutlarından birini başlatabilirsiniz. Bir uygulamanın, menüyü standart olan gelişmiş özelliklerle karmaşıklaştırmaması gerekir Kullanıcıların kayıt gibi bir kereye mahsus işlem yapmasına gerek yoktur. Görevleri kullanmayın yükseltmeler veya özel teklifler gibi promosyon amaçlı ürünler için.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. Görev listesini dinamik olarak değiştirebilirsiniz, ancak bazı kullanıcıların beklenmedik görev listesi değişiklikleriyle karıştırılabileceğini düşünmelisiniz.
+> Görev listesinin statik olması şiddetle önerilir. It should remain the same regardless of the state or status of the application. Görev listesini dinamik olarak değiştirebilirsiniz, ancak bazı kullanıcıların beklenmedik görev listesi değişiklikleriyle karıştırılabileceğini düşünmelisiniz.
 
 **Internet Explorer'ın görevi:**
 
