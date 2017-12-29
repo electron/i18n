@@ -853,9 +853,9 @@ win.setSheetOffset(toolbarRect.height)
                     
                     #### `win.getRepresentedFilename()` *macOS*
                     
-                    Mengembalikan ` String </ 0> - Pathname dari file yang diwakili jendela.</p>
-
-<h4><code>win.setDocumentEdited(edited)` *macOS*</h4> 
+                    Mengembalikan ` String ` - Pathname dari file yang diwakili jendela.
+                    
+                    #### `win.setDocumentEdited(edited)` *macOS*
                     
                     * ` diedit </ 0> Boolean</li>
 </ul>
@@ -885,13 +885,13 @@ bar will become gray when set to <code>true`.</p>
 <li><code>pilihan` Objek (opsional) 
                             * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
 <li><code> userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
-<li><code> extraHeaders </ 0>  String (opsional) - Header ekstra yang dipisahkan oleh " \ n "</li>
-<li><code> postData </ 0> ( <a href="structures/upload-raw-data.md"> UploadRawData [] </ 1> | <a href="structures/upload-file.md"> UploadFile [] </ 2> | <a href="structures/upload-file-system.md"> UploadFileSystem [] </ 3> | <a href="structures/upload-blob.md"> UploadBlob [] </ 4> ) - (opsional)</li>
+<li><code> extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
+                            * ` postData </ 0> ( <a href="structures/upload-raw-data.md"> UploadRawData [] </ 1> | <a href="structures/upload-file.md"> UploadFile [] </ 2> | <a href="structures/upload-file-system.md"> UploadFileSystem [] </ 3> | <a href="structures/upload-blob.md"> UploadBlob [] </ 4> ) - (opsional)</li>
 <li><code> baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. This is needed only if the specified <code>url` is a data url and needs to load other files.
                           
-                          Sama seperti ` webContents.loadURL (url [, options]) </ 0> .</p>
-
-<p>The <code>url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+                          Sama seperti ` webContents.loadURL (url [, options]) `.
+                          
+                          The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
                           
                           Untuk memastikan bahwa file URL diformat, dianjurkan untuk menggunakan Node ini ` url.format </ 0> 
 Metode:</p>
@@ -923,19 +923,19 @@ win.loadURL(url)
                           
                           * `menu` Menu | null
                           
-                          Menetapkan ` menu </ 0> bar menu jendela, pengaturan untuk <code> nol </ 0> akan menghapus menu bar.</p>
-
-<h4><code>win.setProgressBar (kemajuan [, pilihan])`</h4> 
+                          Menetapkan ` menu ` bar menu jendela, pengaturan untuk ` nol ` akan menghapus menu bar.
                           
-                          * ` kemajuan </ 0>  Double</li>
-<li><code>pilihan` Objek (opsional) 
+                          #### `win.setProgressBar (kemajuan [, pilihan])`
+                          
+                          * ` kemajuan ` Double
+                          * `pilihan` Objek (opsional) 
                             * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
                           
                           Menetapkan nilai kemajuan di bilah kemajuan. Kisaran valid adalah [0, 1.0].
                           
                           Hapus bilah kemajuan saat kemajuan <0; Ubah ke mode tak tentu saat mencapai kemajuan> 1.
                           
-                          Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` * .desktop </ 0> ke <code> desktopName </ 0> di <code> package.json </ 0> . Secara default, ini akan mengasumsikan <code> app.getName (). Desktop </ 0> .</p>
+                          Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` *.desktop ` ke ` desktopName ` di ` package.json `. Secara default, ini akan mengasumsikan ` app.getName (). Desktop </ 0> .</p>
 
 <p>Pada Windows , mode bisa dilewati. Accepted values are <code>none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
                           
