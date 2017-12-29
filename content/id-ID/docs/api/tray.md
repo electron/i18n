@@ -226,4 +226,4 @@ win.on('hide', () => {
         
         #### `tray.isDestroyed()`
         
-        Returns `Boolean` - Whether the tray icon is destroyed.
+        Mengembalikan `Boolean` - Apakah ikon baki rusak.
