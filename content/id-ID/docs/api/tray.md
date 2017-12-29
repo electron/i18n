@@ -197,32 +197,33 @@ win.on('hide', () => {
     
     * `pilihan` Obyek 
       * `icon` ([NativeImage](native-image.md) | String) - (optional)
-      * `title` String - (optional)
-      * `content` String - (optional)
-    
-    Displays a tray balloon.
-    
-    #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-    
-    * ` teks ` String (opsional)
-    * `position` [Point](structures/point.md) (optional) - The pop up position.
-    
-    Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
-    
-    The `position` is only available on Windows, and it is (0, 0) by default.
-    
-    #### `tray.setContextMenu(menu)`
-    
-    * ` menu </ 0> Menu</li>
+      * ` title </ 0> String - (contoh)</li>
+<li><code> konten </ 0> String - (contoh)</li>
+</ul></li>
+</ul>
+
+<p>Displays a tray balloon.</p>
+
+<h4><code>tray.popUpContextMenu([menu, position])` *macOS* *Windows*</h4> 
+        * ` teks ` String (opsional)
+        * `position` [Point](structures/point.md) (optional) - The pop up position.
+        
+        Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+        
+        The `position` is only available on Windows, and it is (0, 0) by default.
+        
+        #### `tray.setContextMenu(menu)`
+        
+        * ` menu </ 0> Menu</li>
 </ul>
 
 <p>Sets the context menu for this icon.</p>
 
 <h4><code>tray.getBounds()` *macOS* *Windows*</h4> 
-      Returns [`Rectangle`](structures/rectangle.md)
-      
-      The `bounds` of this tray icon as `Object`.
-      
-      #### `tray.isDestroyed()`
-      
-      Returns `Boolean` - Whether the tray icon is destroyed.
+          Returns [`Rectangle`](structures/rectangle.md)
+          
+          The `bounds` of this tray icon as `Object`.
+          
+          #### `tray.isDestroyed()`
+          
+          Returns `Boolean` - Whether the tray icon is destroyed.
