@@ -1015,7 +1015,7 @@ win.loadURL(url)
                                 
                                 #### `win.showDefinitionForSelection()` *macOS*
                                 
-                                Same as `webContents.showDefinitionForSelection()`.
+                                Sama seperti `webContents.showDefinitionForSelection()`.
                                 
                                 #### `win.setIcon(icon)` *Windows* *Linux*
                                 
@@ -1073,7 +1073,7 @@ win.loadURL(url)
                                   
                                   Mencegah isi jendela ditangkap oleh aplikasi lain.
                                   
-                                  On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+                                  On macOS itu set NSWindow sharingType untuk NSWindowSharingNone. Pada Windows itu panggilan SetWindowDisplayAffinity dengan `WDA_MONITOR`.
                                   
                                   #### `win.setFocusable(focusable)` *Windows*
                                   
@@ -1085,11 +1085,11 @@ win.loadURL(url)
                                   
                                   * `orang tua` BrowserWindow
                                   
-                                  Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+                                  Set `orangtua` sebagai jendela aktif jendela induk, melewati `null` akan mengubah jendela ke jendela di tingkat atas.
                                   
                                   #### `win.getParentWindow()`
                                   
-                                  Returns `BrowserWindow` - The parent window.
+                                  Kembali `[BrowserWindow]` - semua jendela anak.
                                   
                                   #### `win.getChildWindows()`
                                   
@@ -1107,7 +1107,7 @@ win.loadURL(url)
                                   
                                   Menambahkan efek semangat ke jendela browser. Melewati `null` atau string kosong akan menghapus semangat efek pada jendela.
                                   
-                                  #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+                                  #### `win.setTouchBar(touchBar)` *macOS* *Linux*
                                   
                                   * `touchBar` TouchBar
                                   
