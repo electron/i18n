@@ -30,7 +30,7 @@
 
 可以通过角色来为menu添加预定义行为。
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+最好给任何一个菜单指定 ` role `去匹配一个标准角色, 而不是尝试在 ` click ` 函数中手动实现该行为。 内置的 ` role ` 行为将提供最佳的原生体验。
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
