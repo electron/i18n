@@ -29,7 +29,7 @@ app.on('ready', () => {
 })
 ```
 
-## Methods
+## मेथड्स
 
 The `contentTracing` module has the following methods:
 
