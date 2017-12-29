@@ -170,7 +170,7 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
                                 
                                 Agar POST meminta objek `uploadData` harus disediakan.
                                 
-                                ### `protocol.unregisterProtocol(scheme[, completion])`
+                                ### `protocol.uninterceptProtocol (skema [, penyelesaian])`
                                 
                                 * ` skema </ 0>  String</li>
 <li><code>penyelesaian` Fungsi (opsional) 
@@ -179,7 +179,7 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 </ul>
 
 <p>Unregisters protokol kustom <code>skema`.</p> 
-                                    ### `protocol.isProtocolHandled(scheme, callback)`
+                                    ### `protocol.isProtocolHandled(scheme, panggilan kembali)`
                                     
                                     * ` skema </ 0>  String</li>
 <li><code>callback` Fungsi 
@@ -194,52 +194,37 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 <li><code>handler` Fungsi 
                                           * `permintaan` Obyek 
                                             * ` url </ 0>  String</li>
-<li><code>referrer` String
+<li><code>pengarah` String
                                             * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                                           * `callback` Fungsi 
-                                            * `filePath` String
+                                            * `fullPath` String
                                         * `penyelesaian` Fungsi (opsional) 
                                           * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
 <p>Sisipkan <code>skema` dan gunakan ` handler ` sebagai penangan baru protokol yang mengirimkan file sebagai tanggapan.</p> 
-                                            ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
+                                            ### `protocol.interceptFileProtocol(skema, handler[,completion])`
                                             
                                             * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
                                               * `permintaan` Obyek 
                                                 * ` url </ 0>  String</li>
-<li><code>referrer` String
+<li><code>pengarah` String
                                                 * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                                               * `callback` Fungsi 
-                                                * `data` String (optional)
-                                            * `penyelesaian` Fungsi (opsional) 
-                                              * ` error </ 0> Kesalahan</li>
+                                                * ` rtf </ 0> String (opsional)</li>
 </ul></li>
-</ul>
-
-<p>Sisipkan <code>skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.</p> 
-                                                ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
-                                                
-                                                * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
-                                                  * `permintaan` Obyek 
-                                                    * ` url </ 0>  String</li>
-<li><code>referrer` String
-                                                    * ` method </ 0>  String</li>
-<li><code>uploadData` [UploadData[]](structures/upload-data.md)
-                                                  * `callback` Fungsi 
-                                                    * `buffer` Buffer (optional)
-                                                * `penyelesaian` Fungsi (opsional) 
+</ul></li>
+<li><code>penyelesaian` Fungsi (opsional) 
                                                   * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Sisipkan <code>skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.</p> 
-                                                    ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
+<p>Sisipkan <code>skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.</p> 
+                                                    ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
                                                     
                                                     * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
@@ -248,29 +233,46 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 <li><code>referrer` String
                                                         * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
-                                                      * `panggilan balik` Fungsi 
-                                                        * `redirectRequest` Sasaran 
-                                                          * ` url </ 0>  String</li>
+                                                      * `callback` Fungsi 
+                                                        * `buffer` Buffer (optional)
+                                                    * `penyelesaian` Fungsi (opsional) 
+                                                      * ` error </ 0> Kesalahan</li>
+</ul></li>
+</ul>
+
+<p>Sisipkan <code>skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.</p> 
+                                                        ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
+                                                        
+                                                        * ` skema </ 0>  String</li>
+<li><code>handler` Fungsi 
+                                                          * `permintaan` Obyek 
+                                                            * ` url </ 0>  String</li>
+<li><code>referrer` String
+                                                            * ` method </ 0>  String</li>
+<li><code>uploadData` [UploadData[]](structures/upload-data.md)
+                                                          * `panggilan balik` Fungsi 
+                                                            * `redirectRequest` Sasaran 
+                                                              * ` url </ 0>  String</li>
 <li><code> method </ 0>  String</li>
 <li><code> sesi </ 0> Objek (opsional)</li>
 <li><code>uploadData` Objek (pilihan) 
-                                                            * ` contentType </ 0>  String - jenis konten MIME.</li>
+                                                                * ` contentType </ 0>  String - jenis konten MIME.</li>
 <li><code> data </ 0>  String - Konten yang akan dikirim</li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
 <li><code>penyelesaian` Fungsi (opsional) 
-                                                              * ` error </ 0> Kesalahan</li>
+                                                                  * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
 <p>Sisipkan <code> skema </ 0> dan gunakan <code> handler </ 0> sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.</p>
 
 <h3><code>protocol.uninterceptProtocol (skema [, penyelesaian])`</h3> 
-                                                                * ` skema </ 0>  String</li>
+                                                                    * ` skema </ 0>  String</li>
 <li><code>penyelesaian` Fungsi (opsional) 
-                                                                  *  error </ 0> Kesalahan</li>
+                                                                      *  error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
