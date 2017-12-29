@@ -150,7 +150,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+Bu özellik mevcut olduğunda tüm sayfaların yeni bir pencere açmasına izin verir. Açılır pencereler varsayılan olarak devre dışıdır.
 
 ### `webpreferences`
 
