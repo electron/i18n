@@ -1,14 +1,14 @@
-# Electron Documentation Styleguide
+# इलेक्ट्रॉन दस्तावेज़ीकरण स्टाइलगाइड
 
-These are the guidelines for writing Electron documentation.
+ये इलेक्ट्रॉन दस्तावेज़ीकरण के लिए दिशानिर्देश हैं ।
 
-## Titles
+## शीर्षक
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* प्रत्येक पेज के शीर्ष पर एकल `#`-स्तर का शीर्षक होना आवश्यक है |
+* एक ही पेज पर मौज़ूद अध्यायों के `##`-स्तर के शीर्षक होने आवश्यक हैं ।
+* उप-अध्यायों को अपनी नेस्टिंग की गहराई के अनुसार शीर्षक में `#` की संख्या बढ़ाने की जरूरत होगी |
+* "की" और "और" जैसे संयोजनों को छोड़कर, पेज के शीर्षक में मौज़ूद सभी शब्दों को कैपिटल में होना चाहिए ।
+* अध्याय शीर्षक का केवल पहला शब्द ही कैपिटल में होना चाहिये |
 
 Using `Quick Start` as example:
 
