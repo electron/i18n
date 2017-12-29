@@ -93,7 +93,7 @@ Item menu `kotak centang` akan beralih `memeriksa` properti on dan off ketika di
 
 `Radio` menu item akan menyala `memeriksa` properti ketika diklik, dan akan menonaktifkan properti itu untuk semua item yang berdekatan di menu yang sama.
 
-Anda dapat menambahkan fungsi `Klik` untuk perilaku tambahan.
+Anda dapat menambahkan sebuah `klik` fungsi untuk perilaku tambahan.
 
 #### `menuItem.label`
 
