@@ -65,7 +65,7 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
   - Önce hata yakalama sürümünü oluşturmayı deneyin: `$ ./script/build.py -c D`
   - Testleri çalıştırmak için ihtiyacınız olacak
 7. Derleme ve bağlantı hatalarını düzeltme
-8. Ensure that Release build can be built too 
+8. Serbest bırakma derlemesininde oluşturulabileceğinden emin olun 
   - `$ ./script/build.py -c R`
   - Often the Release build will have different linking errors that you'll need to fix.
   - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
@@ -73,14 +73,14 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
 
 ### Tips for fixing compilation errors
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Önce yapılandırma hatalarını düzelt
+- Önemli hataları düzelttin, eksik dosya ve derleyici ile ilgili hatalar gibi bayraklar veya tanımlar
+- Karmaşık hataları mümkün olan en kısa sürede saptamaya çalışın. 
+  - Onları nasıl düzelteceğinizden emin değilseniz yardım isteyin
+- Tüm Electron özelliklerini devre dışı bırakın, yapıyı düzeltin, sonra özellikleri tek tek etkinleştirin
+- Oluşturma zamanında özellikleri devre dışı bırakmak için daha fazla yapı bayrağı ekleyin.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Electron'un bir Hata Ayıklama derlemesi başarılı olduğunda, sınamaları çalıştırın: `$ ./script/test.py` Başarısız testleri düzeltin.
 
 Follow all the steps above to fix Electron code on all supported platforms.
 
