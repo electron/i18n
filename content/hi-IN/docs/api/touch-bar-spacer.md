@@ -6,7 +6,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSpacer(options)` *Experimental*
 
-* `options` Object 
+* `options` ऑब्जेक्ट 
   * `size` String (optional) - Size of spacer, possible values are: 
     * `small` - Small space between items.
     * `large` - Large space between items.
