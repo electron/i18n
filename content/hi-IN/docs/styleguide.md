@@ -80,9 +80,9 @@
 * [स्थिर मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) एक `### स्थिर मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
 * [इंस्टैंस मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) एक `### इंस्टैंस मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
 * वे सभी मेथड्स जिनके पास एक रिटर्न वैल्यू है, उनका विवरण शुरू होना चाहिये "रिटर्न्स `[TYPE]` - रिटर्न विवरण" से | 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
+  * अगर मेथड `ऑब्जेक्ट` रिटर्न करता है, एक कोलन और उसके बाद एक नयी लाइन से उसकी सरंचना निर्दिष्ट की जा सकती है; तो गुणों की एक अव्यवस्थित सूची फंक्शन पैरामीटर्स के जैसे स्टाइल |
+* इंस्टैंस इवेंट्स एक `### इंस्टैंस इवेंट्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
+* इंस्टैंस गुण एक ### इंस्टैंस गुण `अध्याय के अंतर्गत ही` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
