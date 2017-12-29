@@ -14,7 +14,7 @@ const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWind
 
 ## Metode
 
-Modul `sesi` memiliki metode berikut:
+Modul ` sesi ` memiliki metode berikut:
 
 ### `sesi.daripartisi(partisi[, pilihan])`
 
@@ -46,9 +46,7 @@ Proses: [Utama](../glossary.md#main-process)
 Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 
 ```javascript
-const {sesi} = memerlukan('electron')
-const ses = sesi.daripartisi('pertahanan:nama')
-console.log(ses.getUserAgent())
+const {session} = require('electron') const ses = session.fromPartition('persist:name') console.log(ses.getUserAgent())
 ```
 
 ### Perihal contoh
@@ -66,13 +64,7 @@ Terpencar ketika Elektron akan men-download `barang` di `webContents`.
 Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` tidak akan tersedia dari tikungan berikutnya prosesnya.
 
 ```javascript
-const {sesi} = memerlukan('electron')
-sesi.defaultSesi.pada('akan-mendownload', (agenda, barang, webContents) => {
-  peristiwa.mencegahDefault()
-  memerlukan('permintaan')(barang.getURL(), (data) => {
-    memerlukan('fs').writeFileSync('/ehtahdimana', data)
-  })
-})
+const {session} = require('electron') session.defaultSession.on (' akan-download', (acara, item, webContents) = > {event.preventDefault() require('request')(item.getURL(), (data) = > {require('fs').writeFileSync ('/ di suatu tempat', data)})})
 ```
 
 ### Metode Contoh
@@ -181,7 +173,7 @@ Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `ca
 
 Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
-#### `ses.enableNetworkEmulation(options)`
+#### `ses.enableNetworkEmulation (pilihan)`
 
 * `pilihan` Obyek 
   * `offline` Boolean (opsional) - Apakah untuk meniru jaringan listrik. Default ke false.
@@ -211,7 +203,7 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
   * `permintaan` Obyek 
     * `hostname` String
     * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
-<li><code>error` String - Verification result from chromium.
+<li><code>kesalahan` String - hasil verifikasi dari kromium.
   * `callback` Fungsi 
     * `verificationResult` Integer - Nilai bisa menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
       * `` - menunjukkan keberhasilan dan menonaktifkan verifikasi sertifikat Transperancy.
@@ -241,13 +233,13 @@ const {session} = require('electron') session.fromPartition('some-partition').se
   } callback(true)})
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache ([callback])`
 
 * `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
 Menghapus cache resolver host.
 
-#### `ses.allowNTLMCredentialsForDomains(domains)`
+#### `ses.allowNTLMCredentialsForDomains(domain)`
 
 * `domain` String - daftar dipisahkan koma server untuk otentikasi Terpadu yang diaktifkan.
 
@@ -315,7 +307,7 @@ Sebuah objek [cookie](cookies.md) sesi ini.
 
 Sebuah objek [WebRequest](web-request.md) sesi ini.
 
-#### `ses.protocol`
+#### `ses.Protocol`
 
 Sebuah objek [protokol](protocol.md) untuk sesi ini.
 
