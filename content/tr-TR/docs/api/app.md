@@ -19,34 +19,33 @@ app.on('window-all-closed', () => {
 
 ### Olay: 'will-finish-launching'
 
-Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, ` bitiş başlatma ` olayı, ` hazır ` etkinliği ile aynıdır; macOS'ta bu olay, ` NSApplication ` 'in ` applicationWillFinishLaunching ` bildirimini temsil eder. Genellikle, ` açık dosya ` ve ` açık-url ` olayları için dinleyicileri ayarlarsınız ve çökme muhabirini ve otomatik güncelleyiciyi başlatırsınız.
+Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, `bitiş başlatma` olayı, `hazır` etkinliği ile aynıdır; macOS'ta bu olay, `NSApplication` 'in `applicationWillFinishLaunching` bildirimini temsil eder. Genellikle, `açık dosya` ve `açık-url` olayları için dinleyicileri ayarlarsınız ve çökme muhabirini ve otomatik güncelleyiciyi başlatırsınız.
 
-Çoğu durumda, her şeyi yalnızca ` hazır ` olay işleyicisinde yapmalısınız.
+Çoğu durumda, her şeyi yalnızca `hazır` olay işleyicisinde yapmalısınız.
 
 ### Etkinlik: 'hazır'
 
 Dönüşler:
 
-* ` launchInfo ` Nesne * macOS *
+* `launchInfo` Nesne *macOS*
 
-Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, ` launchInfo `, Bildirim Merkezi'nden başlatıldığı takdirde, uygulamayı açmak için kullanılan ` NSUserNotification ` öğesinin ` kullanıcı bilgisi `'ni tutar. Bu etkinliğin zaten başlayıp başlamadığını kontrol etmek için ` app.isReady () ` 'i arayabilirsiniz.
+Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, `launchInfo`, Bildirim Merkezi'nden başlatıldığı takdirde, uygulamayı açmak için kullanılan `NSUserNotification` öğesinin `kullanıcı bilgisi`'ni tutar. Bu etkinliğin zaten başlayıp başlamadığını kontrol etmek için `app.isReady()` 'i arayabilirsiniz.
 
 ### Olay: 'Tüm-pencereler-kapalı'
 
 Tüm pencereler kapatıldığında ortaya çıkar.
 
-Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davranış, uygulamadan çıkmaktır; ancak, abone olursanız, uygulamanın sona erip ermeyeceğini kontrol edersiniz. Kullanıcı ` Cmd + Q ` tuşlarına basarsa veya geliştirici ` app.quit () `'i çağırırsa, Electron önce tüm pencereleri kapatmaya ve ardından ` will-quit ` olayını yayınlamaya çalışacaktır ve bu durumda ` Tüm-Pencereler-Kapalı/0> olayı yayınlanmayacaktır.</p>
+Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davranış, uygulamadan çıkmaktır; ancak, abone olursanız, uygulamanın sona erip ermeyeceğini kontrol edersiniz. Kullanıcı `Cmd + Q` tuşlarına basarsa veya geliştirici `app.quit()`'i çağırırsa, Electron önce tüm pencereleri kapatmaya ve ardından `will-quit` olayını yayınlamaya çalışacaktır ve bu durumda `Tüm-Pencereler-Kapalı` olayı yayınlanmayacaktır.
 
-<h3>Olay: 'çıkıştan-önce'</h3>
+### Olay: 'çıkıştan-önce'
 
-<p>Dönüşler:</p>
+Dönüşler:
 
-<ul>
-<li><code>olay` Olay</li> </ul> 
+* `olay` Olay
 
-Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. ` event.preventDefault () ` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
+Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. `event.preventDefault()` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Not:**Uygulama bırakma işlemi`autoUpdater.quitAndInstall()` tarafından başlatılmışsa, tüm pencerelerde `kapanış` olayını yayan</em> sonra* yayınlanır ve kapanır.</p> 
 
 ### Etkinlik: 'çıkış-yapılacak'
 
@@ -54,9 +53,9 @@ Dönüşler:
 
 * `olay` Olay
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Tüm pencereler kapatıldığında ve uygulamadan çıkıldığında ortaya çıkar. `event.preventDefault()` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Arasındaki farklar için `tüm-pencereler-kapalı` olayının açıklamasına bakın `will-quit` ve `tüm-pencereler-kapalı` olayları.
 
 ### Etkinlik: 'çıkış'
 
@@ -65,16 +64,16 @@ Dönüşler:
 * `olay` Olay
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Uygulama kesildiğinde ortaya çıkar.
 
-### Event: 'open-file' *macOS*
+### Etkinlik: 'open-file' *macOS*
 
 Dönüşler:
 
 * `olay` Olay
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Kullanıcı uygulama ile bir dosya açmak istediğinde ortaya çıkar. `open-file` olayı genellikle uygulama zaten açık olduğunda ve OS dosyayı açmak için uygulamayı tekrar kullanmak istediğinde yayınlanır. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
