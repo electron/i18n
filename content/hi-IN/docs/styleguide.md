@@ -82,46 +82,32 @@
 * वे सभी मेथड्स जिनके पास एक रिटर्न वैल्यू है, उनका विवरण शुरू होना चाहिये "रिटर्न्स `[TYPE]` - रिटर्न विवरण" से | 
   * अगर मेथड `ऑब्जेक्ट` रिटर्न करता है, एक कोलन और उसके बाद एक नयी लाइन से उसकी सरंचना निर्दिष्ट की जा सकती है; तो गुणों की एक अव्यवस्थित सूची फंक्शन पैरामीटर्स के जैसे स्टाइल |
 * इंस्टैंस इवेंट्स एक `### इंस्टैंस इवेंट्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
-* इंस्टैंस गुण एक ### इंस्टैंस गुण `अध्याय के अंतर्गत ही` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* इंस्टैंस गुण एक ### इंस्टैंस गुण `अध्याय के अंतर्गत ही` सूचीबद्ध होने चाहियें| 
+  * इंस्टैंस गुण "एक [गुण प्रकार]..." से ही शुरू होने चाहियें |
 
-Using the `Session` and `Cookies` classes as an example:
+उदहारण के रूप में `सेशन` और `कूकीज़` क्लासेज का उपयोग:
 
 ```markdown
-# session
-
-## Methods
-
-### session.fromPartition(partition)
-
-## Properties
-
-### session.defaultSession
-
-## Class: Session
-
-### Instance Events
-
-#### Event: 'will-download'
-
-### Instance Methods
-
-#### `ses.getCacheSize(callback)`
-
-### Instance Properties
-
-#### `ses.cookies`
-
-## Class: Cookies
-
-### Instance Methods
-
-#### `cookies.get(filter, callback)`
+# सेशन 
+## मेथड्स 
+### सेशन.(पार्टीशन) पार्टीशन से 
+## गुण 
+### सेशन.डिफ़ॉल्ट सेशन 
+## क्लास:सेशन 
+### इंस्टैंस इवेंट्स 
+#### इवेंट:'डाउनलोड-करूँगा' 
+### इंस्टैंस मेथड्स 
+#### `सेस.गेट कैश साइज़(कालबैक)` 
+### इंस्टैंस गुण
+#### `सेस.कूकीज` 
+## क्लास:कूकीज 
+### इंस्टैंस मेथड्स 
+#### `कूकीज.गेट(फ़िल्टर, कालबैक)`
 ```
 
-### Methods
+### मेथड्स
 
-The methods chapter must be in the following form:
+मेथड्स अध्याय निम्नलिखित रूप में होना चाहिये:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
