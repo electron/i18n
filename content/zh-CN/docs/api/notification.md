@@ -41,7 +41,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 ### 事件
 
-用 `new Notification` 创建对象将触发以下事件：
+用 `new Notification` 创建的对象触发以下事件：
 
 ** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
@@ -78,7 +78,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 * `event` Event
 * ` reply `String-用户在内联答复字段中输入的字符串
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
 #### Event: 'action' *macOS*
 
@@ -89,7 +89,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 ### 实例方法
 
-Objects created with `new Notification` have the following instance methods:
+用`new Notification` 创建的对象有以下实例方法：
 
 #### `notification.show()`
 
