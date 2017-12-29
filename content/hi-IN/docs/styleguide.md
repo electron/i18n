@@ -47,23 +47,22 @@
 
 ### पेज शीर्षक
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+प्रत्येक पेज का शीर्षक उस वास्तविक ऑब्जेक्ट का नाम होना चाहिये जो कि `रिक़ुआइर('इलेक्ट्रॉन')` द्वारा भेजा गया हो, जैसे कि `ब्राउज़रविंडो`, `स्वतःअपडेटर`, और `सेशन` |
 
-Under the page title must be a one-line description starting with `>`.
+पेज शीर्षक के नीचे एक पंक्ति का विवरण होना चाहिये जो कि `>` से शुरू होता हो |
 
-Using `session` as example:
+उदहारण के रूप में `सेशन` का उपयोग:
 
 ```markdown
-# session
-
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+#सेशन
+> ब्राउज़र सेशन का प्रबंधन, कूकीज, कैश, प्रॉक्सी सेटिंग्स आदि |
 ```
 
-### Module methods and events
+### मोड्यूल विधि और इवेंट्स
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+वे मोडयुल्स जो कि क्लासेज नहीं हैं, उनके मेथड्स और इवेंट्स `## मेथड्स` और `## इवेंट्स` अध्याय के नीचे सूचीबद्ध होने चाहियें |
 
-Using `autoUpdater` as an example:
+उदहारण के रूप में `स्वतः अपडेटर` का उपयोग:
 
 ```markdown
 # autoUpdater
