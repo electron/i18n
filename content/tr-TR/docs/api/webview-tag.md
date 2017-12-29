@@ -115,7 +115,7 @@ Konuk sayfasında hiçbir düğüm entegrasyonu yoksa, bu komut dosyası tüm D�
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+Tüm sayfalar için yönlendiren URL'yi ayarlayın.
 
 ### `useragent`
 
