@@ -10,4 +10,4 @@
 * `title` Dize (opsiyonel) - Atlama Listesindeki öğe için gösterilecek olan metin. Sadece `type` `task` ise ayarlanmalıdır.
 * `description` Dize (opsiyonel) - Görev tanımı (bir ipucunda gösterilen). Sadece `type` `task` ise ayarlanmalıdır.
 * `iconPath` Dize (opsiyonel) - Bir Atlama Listesinde gösterilen bir simgenin mutlak yolu, bir simge içeren rastgele bir kaynak dosyası olabilir (örn. `.ico`, `.exe`, `.dll`). Genellikle program simgesini göstermek için `process.execPath` belirtebilirsiniz.
-* `iconIndex` Sayı (opsiyonel) - Kaynak dosyadaki simgenin dizini. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
+* `iconIndex` Sayı (opsiyonel) - Kaynak dosyadaki simgenin dizini. Eğer bir kaynak dosyası birçok simge içeriyorsa bu değer bu görev için gösterilmesi gereken simgenin sıfır-tabanlı dizinini belirtmek için kullanılabilir. Bir kaynak dosyası sadece bir simge içeriyorsa, bu özellik sıfır olarak ayarlanmalıdır.
