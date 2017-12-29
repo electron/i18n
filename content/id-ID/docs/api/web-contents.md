@@ -387,22 +387,22 @@ Pengembalian:
       * `frameURL` String - URL subframe yang diikuti menu konteks.
       * `srcURL` String - URL Sumber untuk elemen yang menu konteksnya dipanggil. Elemen dengan URL sumber adalah gambar, audio dan video.
       * `mediaType` String - Type of the node the context menu was invoked on. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
-      * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-      * `isEditable` Boolean - Whether the context is editable.
-      * `selectionText` String - Text of the selection that the context menu was invoked on.
-      * `titleText` String - Title or alt text of the selection that the context was invoked on.
-      * `misspelledWord` String - The misspelled word under the cursor, if any.
-      * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-      * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+      * `hasImageContents` Boolean - Apakah menu konteks dipanggil pada gambar yang isinya tidak kosong.
+      * `isEditable` Boolean - Apakah konteks dapat diedit.
+      * `selectionText` String - Teks pilihan bahwa menu konteks dipanggil.
+      * `titleText` String - Judul atau teks alt dari pilihan yang konteksnya dipanggil.
+      * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
+      * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
+      * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `none`, `plainText`, `kata sandi`, `lainnya`.
       * `menuSourceType` String - Input source yang memanggil menu konteks. Bisa ` tidak ada `,` mouse `,` keyboard `,` sentuh `,`sentuhMenu`.
       * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
-        * `inError` Boolean - Whether the media element has crashed.
-        * `isPaused` Boolean - Whether the media element is paused.
-        * `isMuted` Boolean - Whether the media element is muted.
-        * `hasAudio` Boolean - Whether the media element has audio.
-        * `isLooping` Boolean - Whether the media element is looping.
-        * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-        * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+        * `inError` Boolean - Apakah elemen media telah jatuh.
+        * `isPaused` Boolean - Apakah elemen media dijeda.
+        * `isMuted` Boolean - Apakah elemen media dimatikan.
+        * `hasAudio` Boolean - Apakah elemen media memiliki audio.
+        * `isLooping` Boolean - Apakah elemen media adalah perulangan.
+        * `isControlsVisible` Boolean - Apakah kontrol elemen media terlihat.
+        * `canToggleControls` Boolean - Apakah kontrol elemen media dapat dialihkan.
         * `canRotate` Boolean - Whether the media element can be rotated.
       * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
         * `canUndo` Boolean - Whether the renderer believes it can undo.
