@@ -551,7 +551,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `originalURL` String
       * `httpResponseCode` Integer
       * `requestMethod` String
-      * `referrer` String
+      * `pengarah` String
       * `headers` Obyek
       * `Jenissumberdaya` String
       
