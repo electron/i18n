@@ -57,17 +57,18 @@ Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no 
 
 ### `webFrame.setSpellCheckProvider (Idioma, autoCorrectorPalabra, proveedor)`
 
-* `language` String
-* `autoCorrectWord` Boolean
-* `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
-    * `texto` String
+* `idioma` Cadena
+* `autoCorrectorPalabra` Boolean
+* `proveedor` Objeto 
+  * `Corrector Ortográfico
+` Función - Devoluciones `Boolean` 
+    * `texto` Cadena
 
-Sets a provider for spell checking in input fields and text areas.
+Establece un proveedor para la corrección ortográfica en campos de entrada y áreas de texto.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+El `proveedor` debe ser un objeto que tenga un método de `corrección ortográfica` que devuelva si la palabra aprobada está escrita correctamente.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Un ejemplo de uso de [node-spellchecker](https://github.com/atom/node-spellchecker) como proveedor:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -78,11 +79,11 @@ webFrame.setSpellCheckProvider('en-US', true, {
 })
 ```
 
-### `webFrame.registerURLSchemeAsSecure(scheme)`
+### `webFrame.registerURLSchemeAsSecure(esquema)`
 
-* `scheme` String
+* `esquema` Cadena
 
-Registers the `scheme` as secure scheme.
+Registra el `esquema` como esquema seguro.
 
 Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
 
