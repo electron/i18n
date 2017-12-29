@@ -75,7 +75,7 @@ Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
-## Methods
+## मेथड्स
 
 The `autoUpdater` object has the following methods:
 
