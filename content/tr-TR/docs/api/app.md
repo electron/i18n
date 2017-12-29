@@ -19,7 +19,7 @@ app.on('window-all-closed', () => {
 
 ### Olay: 'will-finish-launching'
 
-Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, ` bitiş başlatma ` olayı, ` hazır ` etkinliği ile aynıdır; macOS'ta bu olay, ` NSApplication ` 'in ` applicationWillFinishLaunching ` bildirimini temsil eder. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
