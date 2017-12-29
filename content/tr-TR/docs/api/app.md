@@ -35,15 +35,16 @@ Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, ` launchInfo `, Bi
 
 Tüm pencereler kapatıldığında ortaya çıkar.
 
-Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davranış, uygulamadan çıkmaktır; ancak, abone olursanız, uygulamanın sona erip ermeyeceğini kontrol edersiniz. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davranış, uygulamadan çıkmaktır; ancak, abone olursanız, uygulamanın sona erip ermeyeceğini kontrol edersiniz. Kullanıcı ` Cmd + Q ` tuşlarına basarsa veya geliştirici ` app.quit () `'i çağırırsa, Electron önce tüm pencereleri kapatmaya ve ardından ` will-quit ` olayını yayınlamaya çalışacaktır ve bu durumda ` Tüm-Pencereler-Kapalı/0> olayı yayınlanmayacaktır.</p>
 
-### Event: 'before-quit'
+<h3>Olay: 'çıkıştan-önce'</h3>
 
-Dönüşler:
+<p>Dönüşler:</p>
 
-* `event` Event
+<ul>
+<li><code>olay` Olay</li> </ul> 
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. ` event.preventDefault () ` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
@@ -51,7 +52,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -61,7 +62,7 @@ See the description of the `window-all-closed` event for the differences between
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `exitCode` Integer
 
 Emitted when the application is quitting.
@@ -70,7 +71,7 @@ Emitted when the application is quitting.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `path` String
 
 Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
@@ -83,7 +84,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `url` String
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
@@ -94,7 +95,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `hasVisibleWindows` Boolean
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
@@ -103,7 +104,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contains app-specific state stored by the activity on another device.
 
@@ -115,7 +116,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
@@ -123,7 +124,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
@@ -132,7 +133,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
@@ -141,7 +142,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `window` BrowserWindow
 
 Emitted when a new [browserWindow](browser-window.md) is created.
@@ -150,7 +151,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` WebContents
 
 Emitted when a new [webContents](web-contents.md) is created.
@@ -159,7 +160,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - The error code
@@ -187,7 +188,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -211,7 +212,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` [WebContents](web-contents.md)
 * `istek` Nesne 
   * `method` String
@@ -244,7 +245,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
@@ -253,7 +254,7 @@ Emitted when the gpu process crashes or is killed.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. See https://www.chromium.org/developers/design-documents/accessibility for more details.
