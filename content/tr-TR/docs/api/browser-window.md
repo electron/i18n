@@ -225,7 +225,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
@@ -234,7 +234,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -338,7 +338,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -372,7 +372,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
