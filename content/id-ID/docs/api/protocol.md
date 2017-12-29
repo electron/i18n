@@ -24,11 +24,9 @@ Modul ` protocol ` memiliki beberapa metode berikut:
 </ul></li>
 </ul>
 
-<p>Skema standar mematuhi apa yang RFC 3986 memanggil <a href="https://tools.ietf.org/html/rfc3986#section-3"> sintaks URI generik </ 0> . Misalnya <code> http </ 0> dan
- <code> https </ 0> adalah skema standar, sedangkan <code> file </ 0> tidak.</p>
-
-<p>Mendaftarkan skema sebagai standar, akan memungkinkan sumber daya relatif dan absolut untuk diselesaikan dengan benar saat disajikan. Jika tidak, skema akan berperilaku seperti
- protokol <code>file`, namun tanpa kemampuan untuk menyelesaikan URL relatif.</p> 
+<p>Skema standar mematuhi apa yang RFC 3986 memanggil <a href="https://tools.ietf.org/html/rfc3986#section-3">sintaks URI generik</a>. Misalnya <code>http` dan `https` adalah skema standar, sedangkan `file` tidak.</p> 
+    Mendaftarkan skema sebagai standar, akan memungkinkan sumber daya relatif dan absolut untuk diselesaikan dengan benar saat disajikan. Jika tidak, skema akan berperilaku seperti protokol `file`, namun tanpa kemampuan untuk menyelesaikan URL relatif.
+    
     Misalnya saat Anda memuat halaman berikut dengan protokol kustom tanpa mendaftarkannya sebagai skema standar, gambar tidak akan dimuat karena skema non-standar tidak dapat mengenali URL relatif:
     
     ```html
