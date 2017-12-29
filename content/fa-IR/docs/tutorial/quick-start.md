@@ -107,7 +107,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 ```
 
-Finally the `index.html` is the web page you want to show:
+در نهایت `index.html` است که می‌خواهید نمایش داده شود:
 
 ```html
 <!DOCTYPE html>
@@ -125,9 +125,9 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## اجرای برنامه خود
+## اجرای برنامه
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+وقتی که شما فایلهای `main.js` ، `index.html` و `package.json` اولیه خود را ایجاد کردید، احتمالا تلاش می‌کنید که آپ خود را به صورت لوکال اجرا و تست کنید و مطمئن شوید که طبق انتظار کار می‌کند.
 
 ### `electron`
 
