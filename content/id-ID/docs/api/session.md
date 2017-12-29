@@ -6,16 +6,10 @@ Proses: [Utama](../glossary.md#main-process)
 
 Modul ` sesi ` dapat digunakan untuk membuat objek ` Sesi ` baru.
 
-Anda juga dapat mengakses `sesi</> dari halaman yang ada dengan menggunakan properti <code>sesi` dari [` WebContents `](web-contents.md), atau dari modul `sesi`.
+Anda juga dapat mengakses `sesi` laman yang ada dengan menggunakan properti `sesi` [`WebContents`](web-contents.md), atau dari modul `sesi`.
 
 ```javascript
-const {BrowserWindow} = membutuhkan('elektron')
-
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('http://github.com')
-
-const ses = win.webContents.session
-console.log (ses.getUserAgent())
+const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow({width: 800, height: 600}) baru win.loadURL ('http://github.com') const ses = win.webContents.session console.log(ses.getUserAgent())
 ```
 
 ## Metode
@@ -326,16 +320,5 @@ Sebuah objek [WebRequest](web-request.md) sesi ini.
 Sebuah objek [protokol](protocol.md) untuk sesi ini.
 
 ```javascript
-const {app, session} = require('electron')
-const path = require('path')
-
-app.on('ready', function () {
-  const protocol = session.fromPartition('some-partition').protocol
-  protocol.registerFileProtocol('atom', function (request, callback) {
-    var url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
-  }, function (error) {
-    if (error) console.error('Failed to register protocol')
-  })
-})
+const {app, session} = require('electron') const path = require('path') app.on ('siap', function {const protokol = session.fromPartition('some-partition').protocol protocol.registerFileProtocol ('atom', fungsi (permintaan, callback) {var url = Request.Url.substr(7) callback ({jalan: path.normalize('${__dirname}/${url}')})}, fungsi (error) {jika (error) console.error ('gagal untuk mendaftarkan protokol')})})
 ```
