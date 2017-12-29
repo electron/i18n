@@ -185,7 +185,7 @@ $ .\electron\electron.exe your-app\
 
 ### اجرا به عنوان یک توزیع
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+بعد از اینکه شما آپ خود را نوشتید، می توانید با استفاده از راهنمای [Application Distribution](./application-distribution.md) توزیع بسازید و سپس اجرا کنید.
 
 ### این مثال را امتحان کنید
 
