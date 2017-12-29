@@ -40,12 +40,11 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+`Boolean` 类型，控制是否将弃用警告打印到`stderr`。将其设置为`true`会使弃用警告无效。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+` String ` 类型， 表示资源目录的路径。
 
 ### `process.throwDeprecation`
 
@@ -77,11 +76,11 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## 方法
 
-The `process` object has the following methods:
+` process ` 对象具有以下方法:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+引起当前进程的主线程崩溃。
 
 ### `process.getCPUUsage()`
 
@@ -95,12 +94,12 @@ Returns [`IOCounters`](structures/io-counters.md)
 
 返回 ` Object `:
 
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `workingSetSize` Integer- 当前占用的物理内存RAM总量
+* `peakWorkingSetSize` Integer - 已被占用的物理内存最大值。
+* `privateBytes` Integer - 独占内存，不被其他进程（如JavaScript堆或者HTML内容）共享的内存数量
+* `sharedBytes` Integer -共享内存，在进程之间共享的内存数量，通常是Electron自身消耗的内存量
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
+返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
 ### `process.getSystemMemoryInfo()`
 
