@@ -74,7 +74,7 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
 ### Derleme hatalarını düzeltmek için ipuçları
 
 - Önce yapılandırma hatalarını düzelt
-- Önemli hataları düzelttin, eksik dosya ve derleyici ile ilgili hatalar gibi bayraklar veya tanımlar
+- Önemli hataları düzelttin, eksik dosya ve derleyici ile ilgili hataları bayrakla veya tanımla
 - Karmaşık hataları mümkün olan en kısa sürede saptamaya çalışın. 
   - Onları nasıl düzelteceğinizden emin değilseniz yardım isteyin
 - Tüm Electron özelliklerini devre dışı bırakın, yapıyı düzeltin, sonra özellikleri tek tek etkinleştirin
