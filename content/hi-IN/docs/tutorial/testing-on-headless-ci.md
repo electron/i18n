@@ -17,27 +17,26 @@
 
 ### त्रविस सीआई
 
-On Travis, your `.travis.yml` should look roughly like this:
+त्रविस पर, आपकी `.त्रविस.वायएमएल` कुछ इस तरह से लगनी चाहिये:
 
 ```yml
-addons:
-  apt:
-    packages:
-      - xvfb
-
-install:
-  - export DISPLAY=':99.0'
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+ऐडओंस:
+   ऐपीटी:
+     पैकेज:
+       - एक्सवीऍफ़बी
+ इनस्टॉल:
+   - एक्सपोर्ट डिस्प्ले=':99.0'
+   - एक्सवीऍफ़बी :99 -स्क्रीन 0 1024x768x24 > /डेव/नल्ल 2>&1 &
 ```
 
-### Jenkins
+### जेन्किन्स
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+जेन्किन्स के लिए, एक [एक्सवीऍफ़बी प्लगइन उपलब्ध है](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin) |
 
-### Circle CI
+### सर्किल सीआई
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+सर्किल सीआई अद्भुत है और इसमें एक्सवीऍफ़बी और `$DISPLAY` पहले से ही [सेटअप है, इसलिए इसमें और किसी कॉन्फ़िगरेशन की ज़रुरत ही नहीं है](https://circleci.com/docs/environment#browsers) |
 
-### AppVeyor
+### एप्पवेयोर
 
 AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
