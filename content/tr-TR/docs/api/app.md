@@ -19,17 +19,17 @@ app.on('window-all-closed', () => {
 
 ### Olay: 'will-finish-launching'
 
-Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, ` bitiş başlatma ` olayı, ` hazır ` etkinliği ile aynıdır; macOS'ta bu olay, ` NSApplication ` 'in ` applicationWillFinishLaunching ` bildirimini temsil eder. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, ` bitiş başlatma ` olayı, ` hazır ` etkinliği ile aynıdır; macOS'ta bu olay, ` NSApplication ` 'in ` applicationWillFinishLaunching ` bildirimini temsil eder. Genellikle, ` açık dosya ` ve ` açık-url ` olayları için dinleyicileri ayarlarsınız ve çökme muhabirini ve otomatik güncelleyiciyi başlatırsınız.
 
-In most cases, you should just do everything in the `ready` event handler.
+Çoğu durumda, her şeyi yalnızca ` hazır ` olay işleyicisinde yapmalısınız.
 
 ### Etkinlik: 'hazır'
 
-Returns:
+Dönüşler:
 
-* `launchInfo` Object *macOS*
+* ` launchInfo ` Nesne * macOS *
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, ` launchInfo `, Bildirim Merkezi'nden başlatıldığı takdirde, uygulamayı açmak için kullanılan ` NSUserNotification ` öğesinin ` kullanıcı bilgisi `'ni tutar. You can call `app.isReady()` to check if this event has already fired.
 
 ### Event: 'window-all-closed'
 
@@ -39,7 +39,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 ### Event: 'before-quit'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 
@@ -49,7 +49,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Etkinlik: 'çıkış-yapılacak'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 
@@ -59,7 +59,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Etkinlik: 'çıkış'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `exitCode` Integer
@@ -68,7 +68,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `path` String
@@ -81,7 +81,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `url` String
@@ -92,7 +92,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -101,7 +101,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -113,7 +113,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Dönüşler:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `window` BrowserWindow
@@ -130,7 +130,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### olay: 'tarayıcı-pencere-odak'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `window` BrowserWindow
@@ -139,7 +139,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `window` BrowserWindow
@@ -148,7 +148,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `webContents` WebContents
@@ -157,7 +157,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -185,7 +185,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -209,7 +209,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Etkinlik: 'giriş'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -242,7 +242,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `killed` Boolean
@@ -251,7 +251,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
