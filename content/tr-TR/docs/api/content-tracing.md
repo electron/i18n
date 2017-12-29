@@ -114,7 +114,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 * `callback` Function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+Geçerli izleme verilerini alın.
 
 Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
