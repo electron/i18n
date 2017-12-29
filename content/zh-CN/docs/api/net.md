@@ -4,12 +4,12 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-`net` 模块是一个发送 HTTP(S) 请求的客户端API。 It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+`net` 模块是一个发送 HTTP(S) 请求的客户端API。 它类似于Node.js的[HTTP](https://nodejs.org/api/http.html) 和 [HTTPS](https://nodejs.org/api/https.html) 模块 ，但它使用的是Chromium原生网络库来替代Node.js的实现，提供更好的网络代理支持。 
 
 The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
+* 系统代理配置的自动管理, 支持 wpad 协议和代理 pac 配置文件。
+* HTTPS 请求的自动隧道。
 * Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
 * Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
 
