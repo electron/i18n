@@ -36,13 +36,13 @@ app.on('ready', () => {
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+顺便一提, 它几乎与你经常使用的Node.js的 [ HTTP ](https://nodejs.org/api/http.html)/[ HTTPS ](https://nodejs.org/api/https.html) 模块完全相同。
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+只有在应用程序发出 ` ready ` 事件之后, 才能使用 ` net ` API。尝试在 ` ready ` 事件之前使用该模块将抛出一个错误。
 
 ## 方法
 
-The `net` module has the following methods:
+` net ` 模块具有以下方法:
 
 ### `net.request(options)`
 
@@ -50,4 +50,4 @@ The `net` module has the following methods:
 
 Returns [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+使用 ` options ` 创建 [` ClientRequest `](./client-request.md) 实例, 这些选项直接转发到 ` ClientRequest ` 的构造函数。 ` net.request ` 方法将根据 ` options ` 对象中的指定协议方案, 去发送安全和不安全的 HTTP 请求（ both secure and insecure HTTP requests）。
