@@ -2,9 +2,9 @@
 
 The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
 
-## How to install native modules
+## Yerel modüller nasıl kurulabilir
 
-Three ways to install native modules:
+Yerel modülleri kurmanın üç yolu:
 
 ### `npm` kullanılıyor
 
@@ -28,7 +28,7 @@ export npm_config_build_from_source=true
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### Modülleri kurma ve Elektron için yeniden inşa etme
 
 You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
 
@@ -44,7 +44,7 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### Elektron için manuel olarak inşa
 
 If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
 
