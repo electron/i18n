@@ -256,24 +256,20 @@ harus disebut dengan baik <code> String </ 0> atau sebuah benda yang memiliki <c
 <li><code> method </ 0>  String</li>
 <li><code> sesi </ 0> Objek (opsional)</li>
 <li><code>uploadData` Objek (pilihan) 
-                                                                * ` contentType </ 0>  String - jenis konten MIME.</li>
-<li><code> data </ 0>  String - Konten yang akan dikirim</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><code>penyelesaian` Fungsi (opsional) 
-                                                                  * ` error </ 0> Kesalahan</li>
+                                                                * `contentType` String - jenis konten MIME.
+                                                                * `data` String - Konten yang akan dikirim.
+                                                        * `penyelesaian` Fungsi (opsional) 
+                                                          * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Sisipkan <code> skema </ 0> dan gunakan <code> handler </ 0> sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.</p>
-
-<h3><code>protocol.uninterceptProtocol (skema [, penyelesaian])`</h3> 
-                                                                    * ` skema </ 0>  String</li>
+<p>Sisipkan <code>skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.</p> 
+                                                            ### `protocol.uninterceptProtocol (skema [, penyelesaian])`
+                                                            
+                                                            * ` skema </ 0>  String</li>
 <li><code>penyelesaian` Fungsi (opsional) 
-                                                                      *  error </ 0> Kesalahan</li>
+                                                              * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
 
-<p>Hapus interceptor dipasang untuk <code> skema </ 0> dan mengembalikan handler aslinya.</p>
+<p>Remove the interceptor installed for <code>scheme` and restore its original handler.</p>
