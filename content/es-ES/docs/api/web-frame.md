@@ -114,22 +114,22 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(texto)`
 
-* `texto` String
+* `texto` Cadena
 
-Inserts `text` to the focused element.
+Inserta `texto` en el elemento enfocado.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `codigo` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
-  * `result` Any
+* `código` Cadena
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+  * `resultado` Cualquiera
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
 
-Evaluates `code` in page.
+Evalúa el `código` en la página.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Setting `userGesture` to `true` will remove this limitation.
 
 ### `webFrame.getResourceUsage()`
 
