@@ -529,7 +529,7 @@ Shows and gives focus to the window.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Pencereyi gösterir, ancak üzerine odaklanmaz.
 
 #### `win.hide()`
 
