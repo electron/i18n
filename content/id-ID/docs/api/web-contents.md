@@ -194,22 +194,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
       
       ```javascript
-const {BrowserWindow, dialog} = require('electron')
-const win = new BrowserWindow({width: 800, height: 600})
-win.webContents.on('will-prevent-unload', (event) => {
-  const choice = dialog.showMessageBox(win, {
-    type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
-    defaultId: 0,
-    cancelId: 1
-  })
-  const leave = (choice === 0)
-  if (leave) {
-    event.preventDefault()
-  }
-})
+const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWindow ({width: 800, height: 600}) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
 ```
   
   #### Event: 'jatuh'
@@ -469,7 +454,7 @@ Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code>dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* `gambar` [NativeImage](native-image.md) - Data gambar dari keseluruhan frame.
 
 Emitted ketika bingkai baru dihasilkan. Hanya area kotor yang dilewati di penyangga.
 
