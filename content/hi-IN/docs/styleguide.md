@@ -65,22 +65,18 @@
 उदहारण के रूप में `स्वतः अपडेटर` का उपयोग:
 
 ```markdown
-# autoUpdater
-
-## Events
-
-### Event: 'error'
-
-## Methods
-
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+# स्वतः अपडेटर 
+## इवेंट्स 
+### इवेंट: 'त्रुटी' 
+## मेथड्स 
+### `स्वतः अपडेटर.सेटफीडयुआरएल([युआरएल[, रिक्वेस्टहैडरस])`
 ```
 
-### Classes
+### क्लास
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
+* ऐपीआई क्लासेज या क्लासेज जो कि मोडयुल्स का हिस्सा हैं, वे `## क्लास: क्लासनाम` अध्याय के तहत सूचीबद्ध होनी चाहियें |
+* एक पेज पर कई सारी क्लासेज हो सकती हैं |
+* कन्स्ट्रकट्र `###`-स्तर शीर्षक के साथ सूचीबद्ध होने चाहियें |
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
