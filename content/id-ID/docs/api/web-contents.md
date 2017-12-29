@@ -1,6 +1,6 @@
-# kontenWeb
+# webContents
 
-> Kontrol dan render halaman web.
+> Render dan kontrol halaman web.
 
 Proses: [utama](../glossary.md#main-process)
 
@@ -93,8 +93,8 @@ Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menun
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>oldURL` String
+* `event` Acara
+* `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
 * `httpResponseCode` Integer
