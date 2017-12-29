@@ -73,13 +73,13 @@ Linux では、自動アップデーターの組み込みサポートがない�
 
 更新プログラムがダウンロードされているときに出力されます。
 
-Windows `releaseName` のみ利用可能です。
+Windowsでは `releaseName` のみ利用可能です。
 
 ## メソッド
 
-`自動アップデーター` オブジェクトには、次のメソッドがあります。
+`autoUpdater` オブジェクトには以下のメソッドがあります
 
-### `autoUpdater.setFeedURL (url [, requestHeaders])`
+### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
 * `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。
