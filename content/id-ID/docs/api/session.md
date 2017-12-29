@@ -201,11 +201,11 @@ Nonaktifkan emulasi jaringan yang sudah aktif untuk `sesi`. Turun ke konfigurasi
 
 * `proc` Fungsi 
   * `permintaan` Obyek 
-    * `hostname` String
+    * `nama host` String
     * ` sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
 <li><code>kesalahan` String - hasil verifikasi dari kromium.
   * `callback` Fungsi 
-    * `verificationResult` Integer - Nilai bisa menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
+    * `verificationResult` Bulat - nilai dapat menjadi salah satu kode kesalahan sertifikat dari [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Terlepas dari kode kesalahan sertifikat, kode khusus berikut dapat digunakan. 
       * `` - menunjukkan keberhasilan dan menonaktifkan verifikasi sertifikat Transperancy.
       * `-2` - menunjukkan kegagalan.
       * `-3` - menggunakan hasil verifikasi dari kromium.
