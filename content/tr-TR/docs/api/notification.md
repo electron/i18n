@@ -49,7 +49,7 @@ Objects created with `new Notification` emit the following events:
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
@@ -57,7 +57,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the notification is clicked by the user.
 
@@ -65,7 +65,7 @@ Emitted when the notification is clicked by the user.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -75,7 +75,7 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilme
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `reply` String - The string the user entered into the inline reply field
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
@@ -84,7 +84,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `index` Number - The index of the action that was activated
 
 ### Örnek yöntemleri
