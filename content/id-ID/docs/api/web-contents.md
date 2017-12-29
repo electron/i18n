@@ -403,7 +403,7 @@ Pengembalian:
         * `isLooping` Boolean - Apakah elemen media adalah perulangan.
         * `isControlsVisible` Boolean - Apakah kontrol elemen media terlihat.
         * `canToggleControls` Boolean - Apakah kontrol elemen media dapat dialihkan.
-        * `canRotate` Boolean - Whether the media element can be rotated.
+        * `canRotate` Boolean - Apakah elemen media dapat diputar.
       * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
         * `canUndo` Boolean - Whether the renderer believes it can undo.
         * `canRedo` Boolean - Whether the renderer believes it can redo.
