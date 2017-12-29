@@ -32,9 +32,9 @@
 
 最好给任何一个菜单指定 ` role `去匹配一个标准角色, 而不是尝试在 ` click ` 函数中手动实现该行为。 内置的 ` role ` 行为将提供最佳的原生体验。
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+使用 ` role ` 时, ` label ` 和 ` accelerator ` 值是可选的, 并为每个平台，将默认为适当值。
 
-The `role` property can have following values:
+`role ` 属性可以具有以下值:
 
 * `undo`
 * `redo`
