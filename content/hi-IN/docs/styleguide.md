@@ -137,27 +137,24 @@
 * [`बूलियन`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * या इलेक्ट्रॉन के [`वेबकंटेंट`](api/web-contents.md) की तरह एक कस्टम प्रकार
 
-अगर एक आर्गुमेंट या एक मेथड कुछ ख़ास प्लेटफॉर्म्स के लिए ही है, तो वे प्लेटफार्म डाटा प्रकार के बाद एक स्पेस-डीलिमितिड इटैलिक सूची का इस्तेमाल करके चिन्हित किये जा सकते हैं | Values can be `macOS`, `Windows`, or `Linux`.
+अगर एक आर्गुमेंट या एक मेथड कुछ ख़ास प्लेटफॉर्म्स के लिए ही है, तो वे प्लेटफार्म डाटा प्रकार के बाद एक स्पेस-डीलिमितिड इटैलिक सूची का इस्तेमाल करके चिन्हित किये जा सकते हैं | वैल्यू `मैकओएस`, `विंडोज`, या `लिनक्स` हो सकती है |
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `एनिमेट` बूलियन (वैकल्पिक) _मैकओएस_ _विंडोज_ - चीज़ को एनिमेट करें|
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`ऐरे` प्रकार के आर्गुमेंट को नीचे दिए गये विवरण में यह निर्दिष्ट करना होगा कि ऐरे में कौन से तत्व आ सकते हैं |
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`फंक्शन` प्रकार के आर्गुमेंट्स के विवरण में यह स्पष्ट होना चाहिये कि उसे कैसे कॉल किया सकता है और साथ ही पैरामीटर के कौन से प्रकार उसमे पास किया जा सकते हैं |
 
-### Events
+### इवेंट्स
 
-The events chapter must be in following form:
+इवेंट्स अध्याय निम्नलिखित रूप में होना चाहिये:
 
 ```markdown
-### Event: 'wake-up'
-
-Returns:
-
-* `time` String
-
+### इवेंट:'उठो' 
+रिटर्न करे: 
+* `समय` स्ट्रिंग 
 ...
 ```
 
