@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## इवेंट्स
 
 The `app` object emits the following events:
 
