@@ -69,14 +69,14 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 当用户手动关闭通知时触发
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+当通知关闭后，这个事件不能保证在所有情况下都会触发。
 
 #### Event: 'reply' *macOS*
 
 返回:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field
+* ` reply `String-用户在内联答复字段中输入的字符串
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
