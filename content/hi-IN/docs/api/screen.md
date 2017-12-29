@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## इवेंट्स
 
 The `screen` module emits the following events:
 
