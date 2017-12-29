@@ -29,15 +29,15 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 ### `new Notification([options])` *Experimental*
 
 * `options` Object 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * ` title `String - 通知的标题, 将在通知窗口的顶部显示
+  * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
+  * ` body `String 通知的正文文本, 将显示在标题或副标题下面
+  * ` silent `Boolean (可选) 在显示通知时是否发出 OS 提示音
+  * ` icon`[ NativeImage ](native-image.md) (可选) 该通知的图标
+  * ` hasReply `Boolean (可选) 是否向通知中添加内联答复选项。 * macOS *
+  * ` replyPlaceholder `String (可选) 内联答复输入字段中的占位符。* macOS *
+  * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
+  * ` actions `[ NotificationAction [] ](structures/notification-action.md) (可选) 要添加到通知中的操作。 请在 ` NotificationAction ` 文档 中的查看可用操作和限制* macOS *
 
 ### 事件
 
