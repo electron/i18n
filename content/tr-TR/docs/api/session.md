@@ -119,7 +119,7 @@ Writes any unwritten DOMStorage data to disk.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
 * `callback` Function - Called when operation is done.
 
-Sets the proxy settings.
+Proxy ayarlarını yap.
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
