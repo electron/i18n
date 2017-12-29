@@ -1,6 +1,6 @@
-## Class: MenuItem
+## 菜单项
 
-> Add items to native application menus and context menus.
+> 添加菜单项到应用程序菜单和上下文菜单中
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -9,7 +9,7 @@
 ### `new MenuItem(options)`
 
 * `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
