@@ -4,12 +4,13 @@
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-The ` shell </ 0> modul menyediakan fungsi yang berkaitan dengan integrasi desktop.</p>
+The `shell`> modul menyediakan fungsi yang berkaitan dengan integrasi desktop.
 
-<p>Contoh membuka URL di browser default pengguna:</p>
+Contoh membuka URL di browser default pengguna:
 
-<pre><code class="javascript">const {shell} = require('electron') shell.openExternal ('https://github.com')
-`</pre> 
+```javascript
+const {shell} = require('electron') shell.openExternal ('https://github.com')
+```
 
 ## Metode
 
