@@ -131,15 +131,15 @@ app.on('activate', () => {
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) یک ماژول `npm` است که شامل نسخه های کامل شده قبلی الکترون هم می‌باشد.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+اگر شما `npm` را به صورت global نصب دارید، فقط لازم است که طبق سورس دایرکتوری موجود آپ خود را اجرا کنید.
 
 ```sh
-الکترون .
+electron .
 ```
 
-If you've installed it locally, then run:
+اگر به صورت لوکال نصب دارید، آن وقت کد های زیر را اجرا کنید:
 
 #### مک‌اواس / لینوکس
 
@@ -153,7 +153,7 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### نود ورژن 8.2.0 و بالاتر
 
 ```sh
 $ npx electron .
