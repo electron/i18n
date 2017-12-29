@@ -485,11 +485,11 @@ API использует внутренний реестр Windows и LSCopyDefa
 * `fileTypeRegistrationError` - была сделана попытка добавить ссылку на файл в Jump List для типа файла, который в приложении не зарегистрирован для обработки.
 * `customCategoryAccessDeniedError` - пользовательские категории не могут быть добавлены в Jump List из-за ограничений конфиденциальности пользователей или групповой политики.
 
-Если `categories` - `null`, то ранее установленный пользовательский Jump List(если таковой имеется) будет заменён стандартным Jump List для приложения(управляется Windows).
+Если `categories` - `null`, то ранее установленный пользовательский Jump List (если таковой имеется) будет заменён стандартным Jump List для приложения (управляется Windows).
 
-**Примечание:** Если объект `JumpListCategory` не имеет свойства `type` или `name` то его `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, то `type` считается `custom`.
+**Примечание:** Если объект `JumpListCategory` не имеет свойства `type` или `name`, то его `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, то `type` считается `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
+**Примечание:** Пользователи могут удалять элементы из пользовательских категорий, но Windows не будет позволять возвращать удаленный элемент в пользовательскую категорию до **последующего** удачного вызова `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
 Вот очень простой способ, как создать пользовательский Jump List:
 
