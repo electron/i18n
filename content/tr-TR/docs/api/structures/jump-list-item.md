@@ -1,4 +1,4 @@
-# JumpListItem Object
+# AtlamaListesiÖgesi Nesnesi
 
 * `type` Dize (opsiyonel) - Aşağıdakilerden biri: 
   * `task` - A task will launch an app with specific arguments.
