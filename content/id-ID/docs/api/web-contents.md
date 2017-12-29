@@ -397,7 +397,7 @@ Pengembalian:
       * `misspelledWord` String - The misspelled word under the cursor, if any.
       * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
       * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-      * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+      * `menuSourceType` String - Input source yang memanggil menu konteks. Bisa ` tidak ada `,` mouse `,` keyboard `,` sentuh `,`sentuhMenu`.
       * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
         * `inError` Boolean - Whether the media element has crashed.
         * `isPaused` Boolean - Whether the media element is paused.
