@@ -48,9 +48,9 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 
 ```js
  const args = [
-   `--reporter-url=${submitURL}`,
-   `--application-name=${productName}`,
-   `--crashes-directory=${crashesDirectory}`
+   `--reporter-url=${gonderilecekURL}`,
+   `--application-name=${urunIsmi}`,
+   `--crashes-directory=${cokmeRaporuDizini}`
  ]
  const env = {
    ELECTRON_INTERNAL_CRASH_SERVICE: 1
@@ -61,7 +61,8 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
  })
 ```
 
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**Not:** macOS üzerinde Electron, çökme raporu toplama ve raporlama için `crashpad` istemcisi kullanır. Çökme raporlamayı aktif hale getirmek için, `crashpad<code>'i ana süreç içerisinden -hangi süreçten çökmeleri toplayacağınızdan bağımsız olarak-
+ <0>crashReporter.start` ile başlatmanız gerekir. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
 ### `crashReporter.getLastCrashReport()`
 
