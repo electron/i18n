@@ -38,14 +38,14 @@ Por ejemplo, supongamos que tenemos un archivo `ejemplo.asar` en `/ruta/a</ 0>:<
 /static/jquery.min.js
 `</pre> 
 
-Read a file in the `asar` archive:
+Lea una ficha en el archivo `asar`:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Lista de todos las fichas debajo de la raíz del archivo:
 
 ```javascript
 const fs = require('fs')
