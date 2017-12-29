@@ -6,23 +6,23 @@ Bu, Electron'un (GUI) kütüphaneleri grafiksel kullanıcı arayüzüne JavaScri
 
 ### Ana Süreç
 
-Electron'da ` package.json ` 'ın ` ana ` komut dosyasını çalıştıran süreç ** ana süreç ** olarak adlandırılır. Ana süreçte çalışan komut dosyası web sayfaları oluşturarak bir GUI görüntüleyebilir.
+Electron'da `package.json` 'ın `ana` komut dosyasını çalıştıran süreç **ana süreç** olarak adlandırılır. Ana süreçte çalışan komut dosyası web sayfaları oluşturarak bir GUI görüntüleyebilir.
 
 ### Oluşturucu işlemi
 
-Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası ** oluşturucu işlemi ** olarak adlandırılan kendi işlemini çalıştırır.
+Electron, web sayfalarını görüntülemek için Chromium kullandığından Chromium'un çoklu işlem mimarisi de kullanılır. Electron'daki her web sayfası **oluşturucu işlemi** olarak adlandırılan kendi işlemini çalıştırır.
 
 Normal tarayıcılarda, web sayfaları genellikle korumalı bir ortamda çalışır ve yerel kaynaklara erişilmesine izin vermez. Bununla birlikte, Electron kullanıcıları, daha düşük seviyedeki işletim sistemi etkileşimlerine izin veren web sayfalarında Node.js API'lerini kullanma gücüne sahiptir.
 
 ### Ana İşlem ve Oluşturucu İşlem Arasındaki Farklar
 
-Ana işlem ` TarayıcıPenceresi ` örnekleri oluşturarak web sayfaları oluşturur. Her ` TarayıcıPenceresi ` örneği, web sayfasını kendi oluşturucu işleminde çalıştırır. `TarayıcıPenceresi` örneği yok edildiğinde, ilgili oluşturucu işlemi de sonlandırılır.
+Ana işlem `TarayıcıPenceresi` örnekleri oluşturarak web sayfaları oluşturur. Her ` TarayıcıPenceresi ` örneği, web sayfasını kendi oluşturucu işleminde çalıştırır. `TarayıcıPenceresi` örneği yok edildiğinde, ilgili oluşturucu işlemi de sonlandırılır.
 
 Ana süreç, tüm web sayfalarını ve bunlara karşılık gelen oluşturucuyu yönetir. Her oluşturucu işlemi izoledir ve yalnızca içinde çalışan web sayfasıyla ilgilenir.
 
 Web sayfalarında yerel GUI kaynaklarını web sayfalarındaki yönetmek çok tehlikeli ve kaynakların sızdırılması kolay olduğu için yerel GUI ile ilgili API'lerin çağrılmasına izin verilmez. Bir web sayfasında GUI işlemlerini gerçekleştirmek isterseniz, oluşturucu ana işlemin bu işlemleri gerçekleştirmesini istemek için web sayfasının süreci ana süreçle iletişim kurmalıdır.
 
-Electron'da, ana süreç ve oluşturucu işlemleri arasında iletişim kurmanın birkaç yolu var. Tıpkı mesaj göndermek için [` ipcRenderer `](../api/ipc-renderer.md) ve [`ipcMain`](../api/ipc-main.md) modülleri ve RPC stili iletişim için [remote](../api/remote.md) modülü gibi. Aynı zamanda [web sayfaları arasında nasıl veri paylaşılır](../faq.md#how-to-share-data-between-web-pages)'da bir SSS girdisi vardır.
+Electron'da, ana süreç ve oluşturucu işlemleri arasında iletişim kurmanın birkaç yolu var. Tıpkı mesaj göndermek için [`ipcRenderer`](../api/ipc-renderer.md) ve [`ipcMain`](../api/ipc-main.md) modülleri ve RPC stili iletişim için [remote](../api/remote.md) modülü gibi. Aynı zamanda [web sayfaları arasında nasıl veri paylaşılır](../faq.md#how-to-share-data-between-web-pages)'da bir SSS girdisi vardır.
 
 ## İlk Electron Uygulamanı Yaz
 
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-` package.json ` biçimi Düğüm modüllerinin biçimiyle tamamen aynıdır ve ana süreci başlatacak ` ana ` alanıyla belirtilen komut dosyası uygulamanızın başlangıç ​​komut dosyasıdır. ` package.json ` öğesinin bir örneği şu şekilde görünebilir:
+`package.json` biçimi Düğüm modüllerinin biçimiyle tamamen aynıdır ve ana süreci başlatacak `ana` alanıyla belirtilen komut dosyası uygulamanızın başlangıç ​​komut dosyasıdır. `package.json` öğesinin bir örneği şu şekilde görünebilir:
 
 ```json
 {
