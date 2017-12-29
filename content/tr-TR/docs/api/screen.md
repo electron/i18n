@@ -57,7 +57,7 @@ The `screen` module emits the following events:
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
@@ -66,7 +66,7 @@ Emitted when `newDisplay` has been added.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
@@ -75,7 +75,7 @@ Emitted when `oldDisplay` has been removed.
 
 Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
