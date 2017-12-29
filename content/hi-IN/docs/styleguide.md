@@ -58,7 +58,7 @@
 > ब्राउज़र सेशन का प्रबंधन, कूकीज, कैश, प्रॉक्सी सेटिंग्स आदि |
 ```
 
-### मोड्यूल विधि और इवेंट्स
+### मोड्यूल मेथड्स और इवेंट्स
 
 वे मोडयुल्स जो कि क्लासेज नहीं हैं, उनके मेथड्स और इवेंट्स `## मेथड्स` और `## इवेंट्स` अध्याय के नीचे सूचीबद्ध होने चाहियें |
 
@@ -67,7 +67,7 @@
 ```markdown
 # स्वतः अपडेटर 
 ## इवेंट्स 
-### इवेंट: 'त्रुटी' 
+### इवेंट:'त्रुटी' 
 ## मेथड्स 
 ### `स्वतः अपडेटर.सेटफीडयुआरएल([युआरएल[, रिक्वेस्टहैडरस])`
 ```
@@ -77,9 +77,9 @@
 * ऐपीआई क्लासेज या क्लासेज जो कि मोडयुल्स का हिस्सा हैं, वे `## क्लास: क्लासनाम` अध्याय के तहत सूचीबद्ध होनी चाहियें |
 * एक पेज पर कई सारी क्लासेज हो सकती हैं |
 * कन्स्ट्रकट्र `###`-स्तर शीर्षक के साथ सूचीबद्ध होने चाहियें |
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* [स्थिर मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) एक `### स्थिर मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
+* [इंस्टैंस मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) एक `### इंस्टैंस मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
+* वे सभी मेथड्स जिनके पास एक रिटर्न वैल्यू है, उनका विवरण शुरू होना चाहिये "रिटर्न्स `[TYPE]` - रिटर्न विवरण" से | 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
