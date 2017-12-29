@@ -1,10 +1,10 @@
-# powerMonitor
+# 电源监视器
 
 > Monitor power state changes.
 
 线程：[主线程](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
 
 例如：
 
@@ -21,20 +21,20 @@ app.on('ready', () => {
 
 ## 事件
 
-The `powerMonitor` module emits the following events:
+` powerMonitor ` 模块触发以下事件:
 
 ### Event: 'suspend'
 
-Emitted when the system is suspending.
+在系统挂起时触发。
 
 ### Event: 'resume'
 
-Emitted when system is resuming.
+在系统恢复时触发。
 
 ### Event: 'on-ac' *Windows*
 
-Emitted when the system changes to AC power.
+当系统变为交流电源时触发。
 
 ### Event: 'on-battery' *Windows*
 
-Emitted when system changes to battery power.
+当系统更改为电池电量时触发。
