@@ -4,7 +4,7 @@
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
