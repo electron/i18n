@@ -665,13 +665,13 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Event: 'baru-jendela'
 
 Pengembalian:
 
 * ` url </ 0>  String</li>
 <li><code>frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
@@ -690,7 +690,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Event: 'akan navigasi'
 
 Pengembalian:
 
@@ -705,18 +705,17 @@ the <code>window.location` object is changed or a user clicks a link in the page
   
   Calling `event.preventDefault()` does **NOT** have any effect.
   
-  ### Event: 'did-navigate'
+  ### Event: 'melakukan navigasi'
   
   Pengembalian:
   
   * ` url </ 0>  String</li>
 </ul>
 
-<p>Emitted when a navigation is done.</p>
+<p>Dibunyikan apabila navigasi dilakukan.</p>
 
-<p>This event is not emitted for in-page navigations, such as clicking anchor links
-or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
-    ### Event: 'did-navigate-in-page'
+<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
+    ### Event: 'Apakah-menavigasi-di halaman'
     
     Pengembalian:
     
@@ -771,7 +770,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Event: 'jatuh'
 
 Fired when the renderer process is crashed.
 
@@ -779,16 +778,16 @@ Fired when the renderer process is crashed.
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### Event: 'plugin-jatuh'
 
 Pengembalian:
 
 * ` nama </ 0>  String</li>
-<li><code>version` String
+<li><code>Versi` String
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### Event: 'menghancurkan'
 
 Fired when the WebContents is destroyed.
 
