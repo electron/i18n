@@ -97,7 +97,7 @@ Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi
 
 Bila atribut ini menampilkan halaman tamu di `webview` akan dapat menggunakan plugin browser. Plugin dinonaktifkan secara default.
 
-### `preload`
+### `pramuat`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -107,7 +107,7 @@ Menentukan sebuah skrip yang akan dimuat sebelum menjalankan skrip lainnya di ha
 
 Ketika halaman tamu tidak memiliki integrasi node script ini masih akan memiliki akses ke semua Node api, tetapi benda-benda global yang disuntikkan oleh Node akan dihapus setelah script ini selesai mengeksekusi.
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**Catatan:** Opsi ini akan muncul sebagai `preloadURL` (bukan `preload`) di `webPreferences` yang ditentukan ke` akan-melampirkan-webview` event.
 
 ### `httpreferrer`
 
