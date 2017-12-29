@@ -383,10 +383,11 @@ Pengembalian:
     * ` event </ 0>  Acara</li>
 <li><code>params` Obyek 
       * `x` Integer - x coordinate
-      * `y` Integer - y coordinate
-      * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-      * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-      * `pageURL` String - URL of the top level page that the context menu was invoked on.
+      * ` y </ 0>  Koordinat integer</li>
+<li><code> linkURL </ 0>  String - URL tautan yang membungkus node menu konteks dipanggil.</li>
+<li><code> linkText </ 0>  String - Teks yang terkait dengan tautan. Mungkin berupa string kosong
+ jika isi link adalah gambar.</li>
+<li><code> pageURL ` String - URL halaman tingkat atas yang diikuti menu konteks.
       * `frameURL` String - URL of the subframe that the context menu was invoked on.
       * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
       * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
