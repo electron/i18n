@@ -71,7 +71,7 @@ Mengembalikan URL. yang terlihat Menulis ke atribut ini memulai navigasi tingkat
 
 Menetapkan `src` nilainya akan memuat ulang halaman ini.
 
-Atribut `src` juga dapat menerima URL data, seperti data`:teks/polos, Halo, dunia! `.
+The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
 ### `autosize`
 
