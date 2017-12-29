@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+还支持 DPI 的以下后缀:
 
 * `@1x`
 * `@1.25x`
@@ -82,26 +82,26 @@ Following suffixes for DPI are also supported:
 
 ## Template Image
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template image由黑色和清晰的颜色 (和 alpha 通道) 组成。 Template images不打算用作独立图像, 通常与其他内容混合, 以创建所需的最终外观。
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+最常见的情况是使用Template image的菜单栏图标, 使它可以适应浅色和深色菜单栏。
 
-**Note:** Template image is only supported on macOS.
+** 注意: **仅在 macOS 上支持Template image。
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+若要将图像标记为Template image, 其文件名应以` Template ` 结尾。例如:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## 方法
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+` nativeImage ` 模块具有以下方法, 它们都返回 ` nativeImage ` 类的实例:
 
 ### `nativeImage.createEmpty()`
 
 Returns `NativeImage`
 
-Creates an empty `NativeImage` instance.
+创建一个空的 ` NativeImage ` 实例。
 
 ### `nativeImage.createFromPath(path)`
 
@@ -109,7 +109,7 @@ Creates an empty `NativeImage` instance.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+从位于 ` path ` 的文件创建新的 ` NativeImage ` 实例。 如果 ` path ` 不存在，方法将返回空图像，无法读取或不是有效图像, 。
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -121,7 +121,9 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional)   
+ `width` Integer (optional) - Required for bitmap buffers.   
+ `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `NativeImage`
 
