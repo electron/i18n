@@ -67,9 +67,9 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+Mengembalikan URL. yang terlihat Menulis ke atribut ini memulai navigasi tingkat atas.
 
-Assigning `src` its own value will reload the current page.
+Menetapkan `src` nilainya akan memuat ulang halaman ini.
 
 The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
