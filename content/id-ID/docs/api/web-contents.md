@@ -108,17 +108,15 @@ Emitted ketika redirect diterima saat meminta resource.
 
 Pengembalian:
 
+* `event` Acara
+
+Emitted saat dokumen dalam bingkai yang diberikan dimuat.
+
+#### Event: 'halaman-favicon-updated '
+
+Pengembalian:
+
 * ` event </ 0>  Acara</li>
-</ul>
-
-<p>Emitted saat dokumen dalam bingkai yang diberikan dimuat.</p>
-
-<h4>Event: 'halaman-favicon-updated '</h4>
-
-<p>Pengembalian:</p>
-
-<ul>
-<li><code> event </ 0>  Acara</li>
 <li><code>FAVICONS` String [] - serangkaian URL
 
 Dibunyikan saat halaman menerima url favicon.
@@ -242,13 +240,11 @@ const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWind
   Untuk hanya mencegah menu cara pintas, menggunakan [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
   
   ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = require ('electron') 
 
-let win = new BrowserWindow({width: 800, height: 600})
+misalkan win = new BrowserWindow ({width: 800, height: 600}) 
 
-win.webContents.on('before-input-event', (event, input) => {
-  // For example, only enable application menu keyboard shortcuts when
-  // Ctrl/Cmd are down.
+win.webContents.on ('before-input-event', (event, input) => { // Sebagai contoh, aktifkan pintasan keyboard menu aplikasi saat // Ctrl/Cmd sedang down.
   win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
@@ -382,15 +378,15 @@ Pengembalian:
     
     * ` event </ 0>  Acara</li>
 <li><code>params` Obyek 
-      * `x` Integer - x coordinate
+      * `x` koordinat Integer - x
       * ` y </ 0>  Koordinat integer</li>
 <li><code> linkURL </ 0>  String - URL tautan yang membungkus node menu konteks dipanggil.</li>
 <li><code> linkText </ 0>  String - Teks yang terkait dengan tautan. Mungkin berupa string kosong
  jika isi link adalah gambar.</li>
 <li><code> pageURL ` String - URL halaman tingkat atas yang diikuti menu konteks.
-      * `frameURL` String - URL of the subframe that the context menu was invoked on.
-      * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-      * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+      * `frameURL` String - URL subframe yang diikuti menu konteks.
+      * `srcURL` String - URL Sumber untuk elemen yang menu konteksnya dipanggil. Elemen dengan URL sumber adalah gambar, audio dan video.
+      * `mediaType` String - Type of the node the context menu was invoked on. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
       * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
       * `isEditable` Boolean - Whether the context is editable.
       * `selectionText` String - Text of the selection that the context menu was invoked on.
