@@ -119,38 +119,32 @@ Pengembalian:
 
 <ul>
 <li><code> event </ 0>  Acara</li>
-<li><code>favicons` String[] - Array of URLs
+<li><code>FAVICONS` String [] - serangkaian URL
 
 Dibunyikan saat halaman menerima url favicon.
 
-#### Event: 'new-window'
+#### Event: 'baru-jendela'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code> url </ 0>  String</li>
 <li><code>frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
-* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
+* `pilihan` Objek - pilihan yang akan digunakan untuk menciptakan baru `BrowserWindow`.
+* `additionalFeatures` String [] - fitur non-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `window.open()`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Dibunyikan apabila halaman yang permintaan untuk membuka jendela baru `url`. Itu bisa saja diminta oleh `window.open` atau link eksternal seperti `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Secara default baru `BrowserWindow` akan diciptakan untuk `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Sebagai contoh:
+Memanggil `event.preventDefault()` akan mencegah elektron dari secara otomatis menciptakan baru `BrowserWindow`. Jika Anda menelepon `event.preventDefault()` dan manual membuat baru `BrowserWindow` maka Anda harus mengatur `event.newGuest` ke referensi contoh `BrowserWindow` baru, gagal untuk melakukannya dapat mengakibatkan perilaku tak terduga. Sebagai contoh:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url) => {
-  event.preventDefault()
-  const win = new BrowserWindow({show: false})
-  win.once('ready-to-show', () => win.show())
-  win.loadURL(url)
-  event.newGuest = win
-})
+myBrowserWindow.webContents.on ('window baru ', (acara, url) = > {event.preventDefault() const menang = baru BrowserWindow({show: false}) win.once (' siap-untuk-menunjukkan ', () = > win.show()) win.loadURL(url) event.newGuest = menang})
 ```
 
-#### Event: 'will-navigate'
+#### Event: 'akan navigasi'
 
 Pengembalian:
 
@@ -162,11 +156,11 @@ Pengembalian:
 the <code>window.location` object is changed or a user clicks a link in the page.</p> 
   Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
   
-  It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
   
-  Calling `event.preventDefault()` will prevent the navigation.
+  Memanggil `event.preventDefault()` akan mencegah navigasi.
   
-  #### Event: 'did-navigate'
+  #### Event: 'melakukan navigasi'
   
   Pengembalian:
   
@@ -174,11 +168,10 @@ the <code>window.location` object is changed or a user clicks a link in the page
 <li><code> url </ 0>  String</li>
 </ul>
 
-<p>Emitted when a navigation is done.</p>
+<p>Dibunyikan apabila navigasi dilakukan.</p>
 
-<p>This event is not emitted for in-page navigations, such as clicking anchor links
-or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
-    #### Event: 'did-navigate-in-page'
+<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
+    #### Event: 'Apakah-menavigasi-di halaman'
     
     Pengembalian:
     
@@ -190,15 +183,15 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     
     Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
     
-    #### Event: 'will-prevent-unload'
+    #### Event: 'akan-mencegah-membongkar'
     
     Pengembalian:
     
     * ` event </ 0>  Acara</li>
 </ul>
 
-<p>Emitted when a <code>beforeunload` event handler is attempting to cancel a page unload.</p> 
-      Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+<p>Dibunyikan apabila <code>beforeunload` event handler adalah mencoba untuk membatalkan halaman membongkar.</p> 
+      Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
       
       ```javascript
 const {BrowserWindow, dialog} = require('electron')
@@ -219,7 +212,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
   
-  #### Event: 'crashed'
+  #### Event: 'jatuh'
   
   Pengembalian:
   
@@ -229,39 +222,39 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 <p>Emitted ketika proses renderer crash atau terbunuh.</p>
 
-<h4>Event: 'plugin-crashed'</h4>
+<h4>Event: 'plugin-jatuh'</h4>
 
 <p>Pengembalian:</p>
 
 <ul>
 <li><code> event </ 0>  Acara</li>
 <li><code> nama </ 0>  String</li>
-<li><code>version` String
+<li><code>Versi` String
   
   Dibunyikan ketika proses plugin telah jatuh.
   
-  #### Event: 'destroyed'
+  #### Event: 'menghancurkan'
   
-  Emitted when `webContents` is destroyed.
+  Dibunyikan apabila `webContents` dihancurkan.
   
-  #### Event: 'before-input-event'
+  #### Acara: 'sebelum-masukan-event'
   
   Pengembalian:
   
   * ` event </ 0>  Acara</li>
-<li><code>input` Object - Input properties 
-    * `type` String - Either `keyUp` or `keyDown`
-    * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+<li><code>masukan` Obyek - Input properti 
+    * `jenis` String - baik `keyUp` atau `keyDown`
+    * `kunci` String - setara dengan [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+    * `kode` String - setara dengan [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+    * `isAutoRepeat` Boolean - setara dengan [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+    * `pergeseran` Boolean - setara dengan [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+    * `kontrol` Boolean - setara dengan [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+    * `Alt` Boolean - setara dengan [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+    * `meta` Boolean - setara dengan [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   
-  Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+  Dipancarkan sebelum membuat acara `keydown` dan `keyup` di halaman. Memanggil `event.preventDefault` akan mencegah halaman `keydown` / `keyup` peristiwa dan menu cara pintas.
   
-  To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+  Untuk hanya mencegah menu cara pintas, menggunakan [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
   
   ```javascript
 const {BrowserWindow} = require('electron')
@@ -382,23 +375,23 @@ Pengembalian:
 
 <p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
 
-<h4>Event: 'cursor-changed'</h4>
+<h4>Event: 'kursor-berubah'</h4>
 
 <p>Pengembalian:</p>
 
 <ul>
 <li><code> event </ 0>  Acara</li>
-<li><code>type` String
-    * `image` NativeImage (optional)
-    * `scale` Float (optional) - scaling factor for the custom cursor
-    * `size` [Size](structures/size.md) (optional) - the size of the `image`
-    * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+<li><code>jenis` String
+    * `gambar` NativeImage (opsional)
+    * `skala` Mengambang (opsional) - skala faktor untuk kursor kustom
+    * `ukuran` [Ukuran](structures/size.md) (opsional) - ukuran `gambar`
+    * `hotspot` [Titik](structures/point.md) (opsional) - koordinat kursor kustom Hotspot
     
     Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
     
     Jika `jenis` parameternya `custom`, itu `gambar` Parameter akan menahan custom gambar kursor dalam `GambarAsli`, dan `skala`, `size` and `hotspot` akan memegang informasi tambahan tentang kursor khusus.
     
-    #### Event: 'context-menu'
+    #### Event: 'menu konteks'
     
     Pengembalian:
     
@@ -494,19 +487,19 @@ win.loadURL('http://github.com')
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Event: 'akan-melampirkan-webview'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code>webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+<li><code>webPreferences` Objek - preferensi web yang akan digunakan oleh semua halaman. Objek ini dapat dimodifikasi untuk menyesuaikan preferensi untuk semua halaman.
+* `params` Obyek - `<webview>`parameter lain seperti `src` URL. Objek ini dapat dimodifikasi untuk menyesuaikan parameter halaman tamu.
 
-Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
+Dipancarkan ketika `<webview>`isi web yang melekat pada isi web ini. Memanggil `event.preventDefault()` akan menghancurkan semua halaman.
 
-This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
+Acara ini dapat digunakan untuk mengkonfigurasi `webPreferences` untuk `webContents` dari `<webview>`sebelum dimuat, dan menyediakan kemampuan untuk mengatur pengaturan yang tidak dapat diatur melalui `<webview>`atribut.
 
-**Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+**Catatan:** Opsi script tertentu `preload` akan muncul sebagai `preloadURL` (tidak `preload`) di objek `webPreferences` yang dipancarkan dengan acara ini.
 
 ### Metode Instance
 
@@ -744,7 +737,7 @@ Executes the editing command `cut` in web page.
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+Jalankan perintah pengeditan `copy` di halaman web.
 
 #### `contents.copyImageAt(x, y)`
 
