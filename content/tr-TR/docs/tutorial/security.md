@@ -1,4 +1,4 @@
-# Security, Native Capabilities, and Your Responsibility
+# Güvenlik, Yerli Yetenekler ve Sorumluluklarınız
 
 Web geliştiricileri olarak, genellikle tarayıcının güçlü güvenlik ağının tadını çıkarırız - Yazdığımız kodla ilişkili riskler nispeten azdır. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
 
