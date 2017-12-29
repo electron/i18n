@@ -25,7 +25,7 @@ Modul ` protocol ` memiliki beberapa metode berikut:
 </ul>
 
 <p>Skema standar mematuhi apa yang RFC 3986 memanggil <a href="https://tools.ietf.org/html/rfc3986#section-3">sintaks URI generik</a>. Misalnya <code>http` dan `https` adalah skema standar, sedangkan `file` tidak.</p> 
-    Mendaftarkan skema sebagai standar, akan memungkinkan sumber daya relatif dan absolut untuk diselesaikan dengan benar saat disajikan. Jika tidak, skema akan berperilaku seperti protokol `file`, namun tanpa kemampuan untuk menyelesaikan URL relatif.
+    Mendaftarkan skema sebagai standar, akan memungkinkan sumber daya relatif dan absolut untuk diselesaikan dengan benar saat disajikan. Jika tidak, skema akan berperilaku seperti `file` protocol, namun tanpa kemampuan untuk menyelesaikan URL relatif.
     
     Misalnya saat Anda memuat halaman berikut dengan protokol kustom tanpa mendaftarkannya sebagai skema standar, gambar tidak akan dimuat karena skema non-standar tidak dapat mengenali URL relatif:
     
@@ -67,8 +67,8 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
 </ul></li>
 </ul>
 
-<p>Mendaftarkan protokol <code>skema` yang akan mengirim file sebagai tanggapan. `handler` akan disebut dengan `handler (permintaan, callback)` ketika `permintaan` akan dibuat dengan `skema`. `selesai` akan dipanggil dengan `completion (null)` ketika `skema` berhasil didaftarkan atau `selesai (error)` ketika gagal.</p> 
-      Untuk menangani `permintaan`, `panggilan balik` harus dipanggil dengan file path atau objek yang memiliki properti `path`, mis. `callback (filePath)` atau `callback ({path: filePath})`.
+<p>Mendaftarkan protokol <code>skema` yang akan mengirim file sebagai tanggapan. `handler` akan disebut dengan `handler(permintaan, callback)` ketika `permintaan` akan dibuat dengan `skema`. `selesai` akan dipanggil dengan `selesai (null)` ketika `skema` berhasil didaftarkan atau `selesai(error)` ketika gagal.</p> 
+      Untuk menangani `permintaan`, `panggilan balik` harus dipanggil dengan jalur file atau objek yang memiliki properti `path`, misalnya `callback (filePath)` atau `callback({path: filePath})`.
       
       Ketika `callback` dipanggil tanpa nomor, angka, atau objek yang memiliki properti `kesalahan`, `permintaan` akan gagal dengan `kesalahan` nomor yang Anda tentukan. Untuk nomor kesalahan yang tersedia, lihat daftar kesalahan [net](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
       
