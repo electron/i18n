@@ -26,25 +26,25 @@ Devuelve `Número` - El factor de zoom actual.
 
 ### `webFrame.setZoomLevel(nivel)`
 
-* `level` Number - Zoom level
+* `nivel` Número - Nivel de Zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Devuelve `Número` - El nivel de zoom actual.
 
-### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
+### `webFrame.setZoomLevelLimits (minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Número
+* `maximumLevel` Número
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Obsoleto:** Llamar al `setVisualZoomLevelLimits` en su lugar para establecer los límites del nivel de zoom visual. Este método se eliminará en Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Número
+* `maximumLevel` Número
 
 Sets the maximum and minimum pinch-to-zoom level.
 
