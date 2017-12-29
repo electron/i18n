@@ -1,18 +1,18 @@
-## Kelas: Menu Item
+## Kelas: MenuItem
 
-> Tambahkan item ke menu aplikasi asli dan menu konteks.
+> Menambahkan item ke menu aplikasi asli dan menu konteks.
 
-Proses:  Utama </ 0></p> 
+Proses: [utama](../glossary.md#main-process)
 
-Lihat ` Menu </ 0> untuk contohnya.</p>
+Melihat [`Menu`](menu.md) untuk contoh.
 
-<h3><code>MenuItem baru (pilihan)`</h3> 
+### `MenuItem baru (pilihan)`
 
 * `pilihan` Objek 
-  * `klik` Fungsi (opsional) - Akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
-    * ` menuItem </ 0> MenuItem</li>
-<li><code> jendela browser </ 0>jendela Browser</li>
-<li><code> event </ 0>  Acara</li>
+  * `klik` Fungsi (opsional) - akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
+    * `menuItem` MenuItem
+    * `browserWindow` BrowserWindow
+    * ` event </ 0>  Acara</li>
 </ul></li>
 <li><code> peran </ 0>  String (opsional) - Tentukan tindakan item menu, bila ditentukan properti
  <code> klik </ 0> akan diabaikan. Lihat <a href="#roles"> peran </ 1> .</li>
@@ -73,16 +73,16 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
 <li><code> tentang </ 0> - Peta ke <code> orderFrontStandardAboutPanel </ 0> tindakan</li>
 <li><code> menyembunyikan </ 0> - Peta ke <code> menyembunyikan </ 0> tindakan</li>
 <li><code> menyembunyi lain </ 0> - Peta ke <code> menyembunyikan aplikasi lain</ 0> tindakan</li>
-<li><code>unhide` - Map to the `unhideAllApplications` action
-    * `startspeaking` - Map to the `startSpeaking` action
-    * `stopspeaking` - Map to the `stopSpeaking` action
+<li><code>unhide` - peta tindakan `unhideAllApplications`
+    * `startspeaking` - peta tindakan `startSpeaking`
+    * `stopspeaking` - peta tindakan `stopSpeaking`
     * `depan` - Peta ke `arrangeInFront` tindakan
     * `zoom` - Peta ke `performZoom` tindakan
-    * `window` - The submenu is a "Window" menu
-    * `help` - The submenu is a "Help" menu
-    * `services` - The submenu is a "Services" menu
+    * `jendela` - submenu adalah menu "Jendela"
+    * `membantu` - submenu adalah menu "Bantuan"
+    * `Layanan` - submenu adalah menu "Layanan"
     
-    When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+    Ketika menentukan `peran` pada macOS, `label` dan `akselerator` adalah satu-satunya pilihan yang akan mempengaruhi menu item. Semua pilihan lain akan diabaikan.
     
     ### Instance Properties
     
@@ -98,7 +98,7 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     #### `menuItem.checked`
     
-    A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+    `Boolean` menunjukkan apakah item dicentang, properti ini dapat secara dinamis berubah.
     
     Sebuah `centang` item menu akan beralih `diperiksa` properti dan mematikan saat dipilih.
     
@@ -108,8 +108,8 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
     
     #### `menuItem.label`
     
-    A `String` representing the menu items visible label
+    Sebuah `String` yang mewakili label terlihat item menu
     
     #### `menuItem.click`
     
-    A `Function` that is fired when the MenuItem receives a click event
+    `Fungsi` yang dipecat ketika MenuItem menerima event klik
