@@ -95,7 +95,7 @@ Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+Bila atribut ini menampilkan halaman tamu di `webview` akan dapat menggunakan plugin browser. Plugin dinonaktifkan secara default.
 
 ### `preload`
 
