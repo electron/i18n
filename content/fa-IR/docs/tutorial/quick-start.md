@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+فرمت `package.json` دقیقا مشابه ماژول های نود است و اسکریپت ها به وسیله فیلد `main` که شروع کننده اسکریپت آپ شما است، مشخص می‌شوند، که پروسه اصلی را اجرا خواهند کرد. برای مثال در `package.json` احتمالا چیزی شبیه این ببینید:
 
 ```json
 {
