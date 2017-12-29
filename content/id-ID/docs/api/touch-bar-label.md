@@ -4,23 +4,20 @@
 
 Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
-### ` TouchBarLabel baru (pilihan) </ 0>  <em> Eksperimental </ 1></h3>
+### `TouchBarLabel baru (pilihan)` *Eksperimental*
 
-<ul>
-<li><code>pilihan` Obyek 
+* `pilihan` Obyek 
+  * `label` String (opsional) - Teks untuk ditampilkan.
+  * `textColor` String (opsional) - Hex warna teks, i.e `#ABCDEF`.
 
-* ` label </ 0>  String (opsional) - Teks untuk ditampilkan.</li>
-<li><code> textColor </ 0>  String (opsional) - Hex warna teks, yaitu <code> #ABCDEF </ 0> .</li>
-</ul></li>
-</ul>
+### Instance Properties
 
-<h3>Instance Properties</h3>
+Properti berikut tersedia pada contoh `TouchBarLabel`:
 
-<p>Properti berikut tersedia pada contoh <code> TouchBarLabel </ 0> :</p>
+#### `sentuhBarLabel.label`
 
-<h4><code>sentuhBarLabel.label`</h4> 
-  A ` String </ 0> yang mewakili teks label saat ini. Mengubah nilai ini segera memperbarui label di panel sentuh.</p>
+A `String` yang mewakili teks label saat ini. Mengubah nilai ini segera memperbarui label panel sentuh.
 
-<h4><code>sentuhBarLabel.textColor`</h4> 
-  
-  Sebuah  String </ 0> kode hex mewakili warna teks label saat ini. Mengubah nilai ini segera memperbarui label di panel sentuh.</p>
+#### `sentuhBarLabel.textColor`
+
+Kode `String` hex yang mewakili warna teks label saat ini. Mengubah nilai ini segera update label di bilah sentuh.
