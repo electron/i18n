@@ -520,7 +520,7 @@ Kembali `Boolean` - Apakah bingkai utama (dan bukan hanya iframes atau bingkai d
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Mengembalikan `Boolean` - Apakah halaman web menunggu tanggapan pertama dari utama sumber halaman.
 
 #### `contents.stop()`
 
@@ -536,29 +536,29 @@ Muat ulang halaman ini dan mengabaikan cache.
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+Mengembalikan `Boolean` - Apakah browser dapat kembali ke halaman web sebelumnya.
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+Mengembalikan `Boolean` - Apakah browser dapat maju ke halaman web berikutnya.
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the web page can go to `offset`.
+Mengembalikan `Boolean` - Apakah halaman web bisa masuk ke `offset`.
 
 #### `contents.clearHistory()`
 
 Menghapus sejarah navigasi.
 
-#### `contents.goBack()`
+#### `isi.goBack()`
 
-Makes the browser go back a web page.
+Membuat browser kembali menjadi halaman web.
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+Membuat browser maju ke depan halaman web.
 
 #### `contents.goToIndex(index)`
 
