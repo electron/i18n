@@ -386,7 +386,7 @@ Pengembalian:
 <li><code> pageURL ` String - URL halaman tingkat atas yang diikuti menu konteks.
       * `frameURL` String - URL subframe yang diikuti menu konteks.
       * `srcURL` String - URL Sumber untuk elemen yang menu konteksnya dipanggil. Elemen dengan URL sumber adalah gambar, audio dan video.
-      * `mediaType` String - Type of the node the context menu was invoked on. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
+      * `mediaType` String - jenis node menu konteks dipanggil pada. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
       * `hasImageContents` Boolean - Apakah menu konteks dipanggil pada gambar yang isinya tidak kosong.
       * `isEditable` Boolean - Apakah konteks dapat diedit.
       * `selectionText` String - Teks pilihan bahwa menu konteks dipanggil.
@@ -405,69 +405,48 @@ Pengembalian:
         * `canToggleControls` Boolean - Apakah kontrol elemen media dapat dialihkan.
         * `canRotate` Boolean - Apakah elemen media dapat diputar.
       * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
-        * `canUndo` Boolean - Whether the renderer believes it can undo.
-        * `canRedo` Boolean - Whether the renderer believes it can redo.
-        * `canCut` Boolean - Whether the renderer believes it can cut.
-        * `canCopy` Boolean - Whether the renderer believes it can copy
-        * `canPaste` Boolean - Whether the renderer believes it can paste.
-        * `canDelete` Boolean - Whether the renderer believes it can delete.
-        * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+        * `canUndo` Boolean - Apakah renderer percaya itu dapat membatalkan.
+        * `canRedo` Boolean - Apakah renderer percaya itu dapat mengulang.
+        * `canCut` Boolean - Apakah renderer percaya dapat memotong.
+        * `canCopy` Boolean - Apakah renderer percaya itu dapat menyalin
+        * `canPaste` Boolean - Apakah renderer percaya itu dapat menyisipkan.
+        * `canDelete` Boolean - Apakah renderer percaya itu dapat menghapus.
+        * `canSelectAll` Boolean - Apakah renderer percaya itu dapat memilih semua.
     
     Emitted saat ada menu konteks baru yang perlu ditangani.
     
-    #### Event: 'select-bluetooth-device'
+    #### Event: 'Pilih--perangkat bluetooth'
     
     Pengembalian:
     
     * ` event </ 0>  Acara</li>
-<li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
+<li><code>perangkat` [[BluetoothDevice]](structures/bluetooth-device.md)
     * `callback` Fungsi 
       * `deviceId` String
     
-    Dipancarkan saat perangkat bluetooth perlu dipilih saat dihubungi `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+    Dipancarkan saat perangkat bluetooth perlu dipilih saat dihubungi `navigator.bluetooth.requestDevice`. Menggunakan `navigator.bluetooth` api `webBluetooth` harus diaktifkan. Jika `event.preventDefault` tidak disebut, perangkat tersedia pertama akan dipilih. `callback` harus disebut dengan `deviceId` untuk dipilih, melewati string kosong ke `callback` akan membatalkan permintaan.
     
     ```javascript
-const {app, webContents} = require('electron')
-app.commandLine.appendSwitch('enable-web-bluetooth')
-
-app.on('ready', () => {
-  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
-    event.preventDefault()
-    let result = deviceList.find((device) => {
-      return device.deviceName === 'test'
-    })
-    if (!result) {
-      callback('')
-    } else {
-      callback(result.deviceId)
-    }
-  })
-})
+const {app, webContents} = require('electron') app.commandLine.appendSwitch('enable-web-bluetooth') app.on ('siap', () = > {webContents.on (' perangkat pilih bluetooth', (acara, deviceList, callback) = > {event.preventDefault() membiarkan hasil = deviceList.find((device) = > {kembali device.deviceName === 'test'}) jika (! hasil) {callback('')} lain {callback(result.deviceId)}})})
 ```
 
-#### Event: 'paint'
+#### Event: 'cat'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code>dirtyRect` [Rectangle](structures/rectangle.md)
+<li><code>dirtyRect` [Persegi panjang](structures/rectangle.md)
 * `gambar` [NativeImage](native-image.md) - Data gambar dari keseluruhan frame.
 
 Emitted ketika bingkai baru dihasilkan. Hanya area kotor yang dilewati di penyangga.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-
-let win = new BrowserWindow({webPreferences: {offscreen: true}})
-win.webContents.on('paint', (event, dirty, image) => {
-  // updateBitmap(dirty, image.getBitmap())
-})
-win.loadURL('http://github.com')
+const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow baru ({webPreferences: {offscreen: true}}) win.webContents.on ('cat', (acara, kotor, gambar) = > {/ / updateBitmap (kotor, image.getBitmap())}) win.loadURL ('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Event: 'devtools-reload-halaman'
 
-Emitted when the devtools window instructs the webContents to reload
+Dibunyikan apabila jendela devtools memerintahkan webContents untuk reload
 
 #### Event: 'akan-melampirkan-webview'
 
@@ -485,22 +464,20 @@ Acara ini dapat digunakan untuk mengkonfigurasi `webPreferences` untuk `webConte
 
 ### Metode Instance
 
-#### `contents.loadURL(url[, options])`
+#### `contents.loadURL (url [, opsi])`
 
 * ` url </ 0>  String</li>
 <li><code>pilihan` Objek (opsional) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `httpReferrer` String (opsional) - url perujuk HTTP.
+  * `userAgent` String (opsional) - agen pengguna berasal permintaan.
+  * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
+  * `postData` ([[UploadRawData]](structures/upload-raw-data.md) | [[UploadFile]](structures/upload-file.md) | [[UploadFileSystem]](structures/upload-file-system.md) | [[UploadBlob]](structures/upload-blob.md)) -(opsional)
+  * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
 
-Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
+Beban `url` di jendela. `Url` harus mengandung prefiks protokol, misalnya `http://` atau `file://`. Jika beban harus mem-bypass http cache kemudian menggunakan `pragma` header untuk mencapainya.
 
 ```javascript
-const {webContents} = require('electron')
-const options = {extraHeaders: 'pragma: no-cache\n'}
-webContents.loadURL('https://github.com', options)
+const {webContents} = require('electron') opsi const = {extraHeaders: ' pragma: no-cache\n'} webContents.loadURL ('https://github.com', opsi)
 ```
 
 #### `contents.downloadURL(url)`
@@ -508,31 +485,26 @@ webContents.loadURL('https://github.com', options)
 * ` url </ 0>  String</li>
 </ul>
 
-<p>Initiates a download of the resource at <code>url` without navigating. The `will-download` event of `session` will be triggered.</p> 
+<p>Memulai download dari sumber daya di <code>url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.</p> 
   #### `contents.getURL()`
   
-  Returns `String` - The URL of the current web page.
+  Mengembalikan `String` - URL laman web saat ini.
   
   ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('http://github.com')
-
-let currentURL = win.webContents.getURL()
-console.log(currentURL)
+const {BrowserWindow} = require('electron') membiarkan memenangkan = baru BrowserWindow({width: 800, height: 600}) win.loadURL ('http://github.com') Biarkan currentURL = win.webContents.getURL() console.log(currentURL)
 ```
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Mengembalikan `String` - judul halaman web sekarang.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Kembali `Boolean` - Apakah halaman web dihancurkan.
 
-#### `contents.focus()`
+#### `contents.Focus()`
 
-Focuses the web page.
+Berfokus halaman web.
 
 #### `contents.isFocused()`
 
@@ -1041,7 +1013,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 * `onlyDirty` Boolean (optional) - Defaults to `false`
 * `callback` Fungsi 
   * `frameBuffer` Buffer
-  * `dirtyRect` [Rectangle](structures/rectangle.md)
+  * `dirtyRect` [Persegi panjang](structures/rectangle.md)
 
 Mulailah berlangganan untuk acara presentasi dan bingkai yang diambil, `callback` akan dipanggil dengan `callback(frameBuffer, dirtyRect)` bila ada acara presentasi.
 
