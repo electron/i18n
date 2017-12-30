@@ -304,7 +304,7 @@ Returns `String` - The user agent for guest page.
 
 ### `<webview>.insertCSS(css)`
 
-* `css` String
+* String `css`
 
 Injects CSS into the guest page.
 
