@@ -16,10 +16,10 @@ docs:
   api_reference: API 参考
   advanced: 高级选项
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: 改进此文档
+    version_history: 版本历史记录
+    translate: 翻译此文档
+    view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
   translation_progress: 翻译进度
