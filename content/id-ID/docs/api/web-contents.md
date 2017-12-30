@@ -560,23 +560,23 @@ Membuat browser kembali menjadi halaman web.
 
 Membuat browser maju ke depan halaman web.
 
-#### `contents.goToIndex(index)`
+#### `contents.goToIndex(indeks)`
 
-* `index` Integer
+* `indeks` Integer
 
 Menavigasi browser ke indeks halaman web absolut yang ditentukan.
 
-#### `contents.goToOffset(offset)`
+#### `contents.goToOffset (offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Arahkan ke offset yang ditentukan dari "entri saat ini".
 
 #### `contents.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
 
-#### `contents.setUserAgent(userAgent)`
+#### `contents.setUserAgent (userAgent)`
 
 * `userAgent` String
 
@@ -584,28 +584,28 @@ Mengganti agen pengguna untuk halaman web ini.
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+Mengembalikan `String` - Agen pengguna untuk halaman web ini.
 
-#### `contents.insertCSS(css)`
+#### `isi.insertCSS(css)`
 
 * `css` String
 
 Menyuntikkan CSS ke dalam halaman web saat ini.
 
-#### `contents.executeJavaScript(code[, userGesture, callback])`
+#### `contents.executeJavaScript(kode[, userGesture, callback])`
 
 * ` kode </ 0> String</li>
-<li><code>userGesture` Boolean (optional) - Default is `false`.
+<li><code>userGesture` Boolean (opsional) - Default adalah `false`.
 * `panggilan balik` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Mengembalikan `Janji` - Janji yang diselesaikan dengan hasil kode yang dijalankan atau ditolak jika hasil dari kode tersebut adalah janji yang ditolak.
 
-Evaluates `code` in page.
+Evaluasi `kode` di halaman.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+Jika hasil dari kode yang dieksekusi adalah janji maka hasil callback akan menjadi terselesaikan nilai dari janji. Sebaiknya gunakan Janji yang dikembalikan untuk menangani kode yang menghasilkan Janji.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -614,7 +614,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts (abaikan)` * Eksperimental*
 
 * `ignore` Boolean
 
