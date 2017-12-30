@@ -34,14 +34,14 @@ Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size i
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+`Number` döndürür - Geçerli yakınlaştırma seviyesi.
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Kullanım dışı:** Bunun yerine, görsel yakınlaştırma seviye sınırlarını ayarlamak için `setVisualZoomLevelLimits` 'i çağırın. Bu yöntem Elektron 2.0'da kaldırılacaktır.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -61,8 +61,8 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `sağlayıcı` Nesne 
-  * `spellCheck` İşlev - döner `Boole değeri` 
+* `provider` Object 
+  * `spellCheck` Function - döner `Boolean` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -97,12 +97,12 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Obje (isteğe bağlı) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+* `options` Object (isteğe bağlı) 
+  * `secure` Boolean - (isteğe bağlı) Varsayılan true.
+  * `bypassCSP` Boolean - (isteğe bağlı) Varsayılan true.
+  * `allowServiceWorkers` Boolean - (isteğe bağlı) Varsayılan true.
+  * `supportFetchAPI` Boolean - (isteğe bağlı) Varsayılan true.
+  * `corsEnabled` Boolean - (isteğe bağlı) Varsayılan true.
 
 Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
