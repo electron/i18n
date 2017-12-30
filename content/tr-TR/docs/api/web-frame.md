@@ -20,7 +20,7 @@ webFrame.setZoomFactor(2)
 
 * `factor` Number - Yakınlaştırma faktörü.
 
-Yakınlaştırma faktörü belirtilen faktöre değişir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
+Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
 ### `webFrame.getZoomFactor()`
 
@@ -48,7 +48,7 @@ Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size i
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
