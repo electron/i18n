@@ -1,6 +1,6 @@
 # Uygulama Dağıtımı
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuilt binaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör ` app ` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
 
 On macOS:
 
