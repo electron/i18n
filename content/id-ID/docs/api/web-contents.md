@@ -322,10 +322,10 @@ Pengembalian:
         
         * ` event </ 0>  Acara</li>
 <li><code>hasil` Obyek 
-          * `Idpermintaan` IntegerId
-          * `aktifSesuaiOrdinal` Integer - Posisi pertandingan aktif.
-          * `cocokdengan` Integer - Jumlah yang Cocok.
-          * `seleksiArea` Objek - Koordinat wilayah pertandingan pertama.
+          * `requestId` Bilangan bulat
+          * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
+          * `pertandingan` Bulat - jumlah pertandingan.
+          * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
           * `finalUpdate` Boolean
         
         Dipancarkan saat hasilnya tersedia [`webContents.findInPage`] permintaan.
@@ -393,8 +393,8 @@ Pengembalian:
       * `titleText` String - Judul atau teks alt dari pilihan yang konteksnya dipanggil.
       * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
       * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
-      * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `none`, `plainText`, `kata sandi`, `lainnya`.
-      * `menuSourceType` String - Input source yang memanggil menu konteks. Bisa ` tidak ada `,` mouse `,` keyboard `,` sentuh `,`sentuhMenu`.
+      * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `tidak ada` `plainText`, `sandi`, `lain`.
+      * `menuSourceType` String - sumber Input yang dipanggil menu konteks. Bisa `tidak`, `mouse`, `keyboard`, `menyentuh`, `touchMenu`.
       * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
         * `inError` Boolean - Apakah elemen media telah jatuh.
         * `isPaused` Boolean - Apakah elemen media dijeda.
@@ -508,15 +508,15 @@ Berfokus halaman web.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Kembali `Boolean` - Apakah halaman web yang terfokus.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Kembali `Boolean` - Apakah halaman web masih sedang loading sumber daya.
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Kembali `Boolean` - Apakah bingkai utama (dan bukan hanya iframes atau bingkai di dalamnya) masih sedang loading.
 
 #### `contents.isWaitingForResponse()`
 
@@ -645,7 +645,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `tingkat` Nomor - tingkat Zoom
 
 Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
 
@@ -753,31 +753,25 @@ Starts a request to find all matches for the `text` in the web page and returns 
 #### `contents.stopFindInPage(action)`
 
 * `action` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+  * `clearSelection` - jelas pilihan.
+  * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
+  * `activateSelection` - fokus dan klik seleksi simpul.
 
-Stops any `findInPage` request for the `webContents` with the provided `action`.
+Berhenti setiap permintaan `findInPage` untuk `webContents` dengan disediakan `tindakan`.
 
 ```javascript
-const {webContents} = require('electron')
-webContents.on('found-in-page', (event, result) => {
-  if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
-})
-
-const requestId = webContents.findInPage('api')
-console.log(requestId)
+const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman ', (acara, hasil) = > {jika webContents.stopFindInPage('clearSelection') (result.finalUpdate)}) const requestId = webContents.findInPage('api') console.log(requestId)
 ```
 
-#### `contents.capturePage([rect, ]callback)`
+#### `contents.capturePage ([rect,] callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap
 * `callback` Fungsi 
   * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
-<p>Captures a snapshot of the page within <code>rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
+<p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. `Gambar` adalah instance dari [NativeImage](native-image.md) yang menyimpan data dari snapshot. Menghilangkan `rect` akan menangkap halaman seluruh terlihat.</p> 
     #### `contents.hasServiceWorker(callback)`
     
     * `callback` Fungsi 
@@ -906,12 +900,12 @@ win.webContents.on('devtools-opened', () => {
     
     Toggles the developer tools.
     
-    #### `contents.inspectElement(x, y)`
+    #### `contents.inspectElement (x, y)`
     
     * `x` Integer
     * `y` Integer
     
-    Starts inspecting element at position (`x`, `y`).
+    Mulai memeriksa elemen pada posisi (`x`, `y`).
     
     #### `contents.inspectServiceWorker()`
     
@@ -1019,7 +1013,7 @@ Mulailah berlangganan untuk acara presentasi dan bingkai yang diambil, `callback
 
 The `frameBuffer` is a `Buffer` that contains raw pixel data. Pada kebanyakan mesin, data pixel secara efektif disimpan dalam format BGRA 32bit, namun sebenarnya Representasi tergantung pada endianitas prosesor (paling modern Prosesornya sedikit-endian, pada mesin dengan prosesor big-endian data ada dalam format ARGB 32bit).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. Jika `onlyDirty` diatur ke `true`, `frameBuffer` akan hanya berisi daerah repainted. `onlyDirty` default ke `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1132,18 +1126,18 @@ Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
       
       #### `contents.session`
       
-      A [`Session`](session.md) used by this webContents.
+      [`Sesi`](session.md) digunakan oleh webContents ini.
       
       #### `contents.hostWebContents`
       
-      A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+      Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebContents`.
       
       #### `contents.devToolsWebContents`
       
-      A `WebContents` of DevTools for this `WebContents`.
+      `WebContents` dari DevTools untuk ini `WebContents`.
       
-      **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+      **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
       
       #### `contents.debugger`
       
-      A [Debugger](debugger.md) instance for this webContents.
+      Contoh [Debugger](debugger.md) untuk webContents ini.
