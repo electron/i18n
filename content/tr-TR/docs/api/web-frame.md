@@ -92,7 +92,7 @@ Güvenli scheme'lar karışık içerik uyarılarını tetiklemiyor. Örneğin, `
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Geçerli sayfanın İçerik Güvenliği Politikası ne olursa olsun kaynaklar bu `scheme`'dan yüklenecektir.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
@@ -104,9 +104,9 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
   * `supportFetchAPI` Boolean - (isteğe bağlı) Varsayılan true.
   * `corsEnabled` Boolean - (isteğe bağlı) Varsayılan true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+`Scheme`'i güvenli olarak kaydeder, kaynaklar için içerik güvenliği ilkesini atlar, ServiceWorker'ı kaydettirmenize izin verir ve getirme API'sini destekler.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Kayıttan çıkarmak için `false` değerine sahip bir seçenek belirtin. İçerik Güvenliği Politikasını atlamaksızın ayrıcalıklı bir şemanın kaydedilmesine bir örnek:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -117,7 +117,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Odaklanmış öğeye `metin` ekler.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
