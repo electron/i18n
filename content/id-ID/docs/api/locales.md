@@ -347,18 +347,18 @@
 </tr>
 <tr>
   <td>nn</td>
-  <td>Norwegian (Nynorsk)</td>
+  <td>Norwegia (Nynorsk)</td>
 </tr>
 <tr>
-  <td>no</td>
-  <td>Norwegian</td>
+  <td>tidak</td>
+  <td>Bahasa Norwegia</td>
 </tr>
 <tr>
   <td>oc</td>
   <td>Occitan</td>
 </tr>
 <tr>
-  <td>om</td>
+  <td>tentang</td>
   <td>Oromo</td>
 </tr>
 <tr>
@@ -366,7 +366,7 @@
   <td>Oriya</td>
 </tr>
 <tr>
-  <td>pa</td>
+  <td>baiklah</td>
   <td>Punjabi</td>
 </tr>
 <tr>
