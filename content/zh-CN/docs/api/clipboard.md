@@ -11,7 +11,7 @@ const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+在 X Window 系统上还有一个` selection clipboard `。对其复制时需要传递<0> selection </0> 参数到每个函数：
 
 ```javascript
 const {clipboard} = require('electron')
