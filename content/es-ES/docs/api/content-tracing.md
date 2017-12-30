@@ -81,42 +81,42 @@ La opción de rastreo se restablecerá primero a la opción predeterminada (`rec
 
 Dejar de grabar en todos los procesos.
 
-Los procesos secundarios típicamente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
+Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
 
 Una vez que todos los procesos secundarios hayan confirmado la solicitud `stopRecording`, se llamará a `callback` con un archivo que contiene los datos rastreados.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Los datos de rastreo se escribirán en `resultFilePath` si no está vacío o en un archivo temporal. La ruta real del archivo se pasará a `callback` si no es `null`.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Object 
+* `options` Objecto 
   * `categoryFilter` Cadena
   * `traceOptions` Cadena
 * `callback` Función
 
-Start monitoring on all processes.
+Comience a monitorear en todos los procesos.
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+El monitoreo se inicia de inmediatamente de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud `startMonitoring`.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+Una vez que todos los procesos secundarios hayan confirmado la solicitud `startMonitoring` se llamará al `callback`.
 
 ### `contentTracing.stopMonitoring(callback)`
 
 * `callback` Función
 
-Stop monitoring on all processes.
+Detener monitoreo en todos los procesos.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Una vez que todos los procesos secundarios han confirmado la solicitud `stopMonitoring`, se llama al `callback`.
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
-* `resultFilePath` String
+* `resultFilePath` Cadena
 * `callback` Función 
-  * `resultFilePath` String
+  * `resultFilePath` Cadena
 
-Get the current monitoring traced data.
+Obtenga los datos de monitoreo actualizados.
 
-Los procesos secundarios típicamente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto se debe a que puede ser una operación costosa enviar los datos de rastreo a través de IPC y nos gustaría evitar el seguimiento del tiempo de ejecución innecesario. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
