@@ -55,7 +55,7 @@ Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-M aksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
+Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
@@ -106,7 +106,7 @@ Geçerli sayfanın İçerik Güvenliği Politikası ne olursa olsun kaynaklar bu
 
 `Scheme`'i güvenli olarak kaydeder, kaynaklar için içerik güvenliği ilkesini atlar, ServiceWorker'ı kaydettirmenize izin verir ve getirme API'sini destekler.
 
-Kayıttan çıkarmak için `false` değerine sahip bir seçenek belirtin. İçerik Güvenliği Politikasını atlamaksızın ayrıcalıklı bir şemanın kaydedilmesine bir örnek:
+Kayıttan çıkarmak için `false` değerine sahip bir seçenek belirtin. İçerik Güvenliği Politikasını atlamaksızın ayrıcalıklı bir scheme'nin kaydedilmesine bir örnek:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -167,6 +167,6 @@ Bu oluşturur:
 
 ### `webFrame.clearCache()`
 
-Artık kullanılmayan belleği boşa çıkarmaya çalışıyor (ör. önceki gezinmeden fotoğraflar).
+Artık kullanılmayan belleği boşa çıkarmaya çalışır (ör. önceki gezinmeden fotoğraflar).
 
 Boşu boşuna bu metodu çağırmanın muhtemelen Electron'u yavaşlatacağını unutmayın çünkü boşalan önbellekleri tekrar doldurmak zorunda kalacaktır, sadece uygulamanızda sayfanın aslında daha az bellek kullandığını düşündüğünüz bir olay varsa bunu çağırmalısınız (örneğin, çok yoğun bir sayfadan çoğunlukla boş olan bir sayfaya gidiyorsanız ve orada kalmak niyetindeyseniz).
