@@ -36,24 +36,24 @@ El módulo `contentTracing` tiene los siguientes métodos:
 ### `contentTracing.getCategories(callback)`
 
 * `callback` Función 
-  * `categories` String[]
+  * `categories` Cadena[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Obtener un conjunto de grupos de categorías. Los grupos de categorías pueden cambiar a medida que se alcanzan nuevas rutas de código.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Una vez que todos los procesos secundarios han confirmado la solicitud de `getCategories` se solicita el `callback` con una matriz de grupos de categorías.
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+* `opciones` Objecto 
+  * `categoryFilter` Cadena
+  * `traceOptions` Cadena
+* `callback` Función
 
-Start recording on all processes.
+Iniciar la grabación en todos los procesos.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+La grabación se inicia de manera inmediata de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud de habilitación de grabación. Se llamará al `callback` una vez que todos los procesos secundarios hayan confirmado la solicitud `startRecording`.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` es un filtro para controlar qué grupos de categorías se deben rastrear. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
 Ejemplos:
 
@@ -90,9 +90,9 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+  * `categoryFilter` Cadena
+  * `traceOptions` Cadena
+* `callback` Función
 
 Start monitoring on all processes.
 
@@ -102,7 +102,7 @@ Once all child processes have acknowledged the `startMonitoring` request the `ca
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Function
+* `callback` Función
 
 Stop monitoring on all processes.
 
