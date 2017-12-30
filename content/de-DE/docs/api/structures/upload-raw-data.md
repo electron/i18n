@@ -1,4 +1,4 @@
-# UploadRawData Object
+# UploadData Objekt
 
-* `type` String - `rawData`.
-* `bytes` Buffer - Data to be uploaded.
+* `Typ` String - `Passwort`.
+* ` Bytes ` Puffer Daten, die hochgeladen werden sollen.
