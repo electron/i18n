@@ -142,7 +142,7 @@ String mengikuti format yang sama sebagai string fitur dalam `window.open`. Nama
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
 ### `disableblinkfeatures`
 
@@ -248,7 +248,7 @@ Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Muat ulang laman tamu dan mengabaikan cache.
 
 ### `<webview>.canGoBack()`
 
@@ -274,13 +274,13 @@ Makes the guest page go back.
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+Membuat halaman tamu maju.
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-Navigates to the specified absolute index.
+Menavigasi browser ke indeks halaman web absolut yang ditentukan.
 
 ### `<webview>.goToOffset(offset)`
 
@@ -296,7 +296,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+Mengganti agen pengguna untuk halaman web ini.
 
 ### `<webview>.getUserAgent()`
 
@@ -319,7 +319,7 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Membuka jendela DevTools untuk halaman tamu.
 
 ### `<webview>.closeDevTools()`
 
@@ -342,7 +342,7 @@ Starts inspecting element at position (`x`, `y`) of guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
-Opens the DevTools for the service worker context present in the guest page.
+Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
 
 ### `<webview>.setAudioMuted(muted)`
 
@@ -418,23 +418,23 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Memulai permintaan untuk mencari semua kecocokan teks pada halaman web dan memunculkan kembali Id peminta untuk permintaan. Hasil permintaan dapat diperoleh dengan menandai halaman yang ditemukan.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `action` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
 
 ### `<webview>.print([options])`
 
 * `pilihan` Objek (opsional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `deviceName` String (opsional) - mengatur printer nama perangkat untuk menggunakan. Default adalah `"`.
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
 
@@ -468,7 +468,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
-      See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+      Melihat [](web-contents.md#webcontentssendchannel-args)Menu untuk contoh.
       
       ### `<webview>.sendInputEvent(event)`
       
