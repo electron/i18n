@@ -166,7 +166,7 @@ untuk informasi lebih lanjut.</p>
 
 Anda dapat menggunakan `posisi` dan `id` untuk mengontrol bagaimana item akan ditempatkan ketika membangun sebuah menu dengan `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+Atribut ` posisi ` dari ` MenuItem ` memiliki form ` [placement] = [id] `, di mana ` penempatan ` adalah salah satu dari ` sebelum `, ` setelah `, atau ` endof ` dan ` id ` adalah unik ID dari item yang ada di menu:
 
 * `sebelum` - Menyisipkan item ini sebelum item yang diacu id. Jika Item yang direferensikan tidak ada barang akan disisipkan pada akhir menu.
 * `setelah` - Menyisipkan item ini setelah item id direferensikan. Jika direferensikan item tidak ada item akan disisipkan di akhir menu.
@@ -201,12 +201,12 @@ Template:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  {label: 'a', posisi: 'endof = letters'},
+  {label: '1', posisi: 'endof = numbers'},
+  {label: 'b', posisi: 'endof = letters'},
+  {label: '2', posisi: 'endof = numbers'},
+  {label: 'c', posisi: 'endof = letters'},
+  {label: '3', posisi: 'endof = numbers'}
 ]
 ```
 
