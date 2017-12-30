@@ -616,23 +616,23 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.setIgnoreMenuShortcuts (abaikan)` * Eksperimental*
 
-* `ignore` Boolean
+* `abaikan` Boolean
 
 Abaikan shortcut menu aplikasi sementara konten web ini difokuskan.
 
-#### `contents.setAudioMuted(muted)`
+#### `contents.setAudioMuted(dibungkam)`
 
-* `muted` Boolean
+* `dibungkam` Boolean
 
 Sesuaikan render halaman web saat ini.
 
-#### `contents.isAudioMuted()`
+#### `isi.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+Mengembalikan `Boolean` - Apakah halaman ini telah dibungkam.
 
-#### `contents.setZoomFactor(factor)`
+#### `contents.setZoomFactor(faktor)`
 
-* `factor` Number - Zoom factor.
+* `faktor` Angka - Faktor zoom.
 
 Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
 
@@ -743,16 +743,16 @@ Inserts `text` to the focused element.
 * `text` String - Content to be searched, must not be empty.
 * `pilihan` Objek (opsional) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
+  * `findNext` Boolean - (opsional) Apakah operasi tersebut merupakan permintaan pertama atau tindak lanjut, default ke `false`.
+  * `matchCase` Boolean - (opsional) Apakah pencarian harus sensitif huruf, default ke `false`.
+  * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
+  * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
 
 Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
-#### `contents.stopFindInPage(action)`
+#### `contents.stopFindInPage(tindakan)`
 
-* `action` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] request. 
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] request. 
   * `clearSelection` - jelas pilihan.
   * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
   * `activateSelection` - fokus dan klik seleksi simpul.
@@ -772,7 +772,7 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
 </ul>
 
 <p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. `Gambar` adalah instance dari [NativeImage](native-image.md) yang menyimpan data dari snapshot. Menghilangkan `rect` akan menangkap halaman seluruh terlihat.</p> 
-    #### `contents.hasServiceWorker(callback)`
+    #### `isi.hasServiceWorker(callback)`
     
     * `callback` Fungsi 
       * `hasWorker` Boolean
