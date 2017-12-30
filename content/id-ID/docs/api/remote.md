@@ -112,30 +112,30 @@ misalnya
     
 
 ```js
-// main process: main/index.js
-const {app} = require('electron')
-app.on('ready', () => { /* ... */ })
+// proses utama: main / index.js
+const {app} = require ('electron')
+app.on ('siap', () = > {/ * ... * /})
 ```
 
 ```js
-// some relative module: main/foo.js
+// beberapa modul relatif: main / foo.js
 module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
-const foo = require('electron').remote.require('./foo') // bar
+// proses renderer: renderer / index.js
+const foo = require ('electron'). remote.require ('./ foo') // bar
 ```
 
-### `remote.getCurrentWindow()`
+### `remote.getCurrentWindow ()`
 
 Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web ini milik.
 
-### `remote.getCurrentWebContents()`
+### `remote.getCurrentWebContents ()`
 
 Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
-### `remote.getGlobal(name)`
+### `remote.getGlobal (nama)`
 
 * ` nama </ 0>  String</li>
 </ul>
@@ -145,4 +145,4 @@ Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
     
     ### `remote.process`
     
-    The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+    Objek ` proses ` dalam proses utama. Ini sama dengan ` remote.getGlobal ('proses') ` namun di-cache.
