@@ -6,21 +6,21 @@ En Electron usted puede usar el plugin de Widevine CDM conectado con el navegado
 
 Electrón no entrega con conectores Widevine CDM por razones de licencia, para obtenerlo, necesita instalar la versión oficial del navegador Chrome primero, que debe coincidir con la arquitectura y la versión de Chrome que la su construcción en Electron usa.
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**Nota:** La mayor versión del navegador Chrome tiene que ser la misma versión usada por Electron, de otra manera la conección no trabajará. `navigator.plugins` le mostrará que ha sido cargado.
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
+Abre `chrome://components/` en el navegador Chrome, encuentra `WidevineCdm` y asegurese de que está actualizada,, luego puede encontrar todos los conectores binarios del directorio `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/`.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` es la ubicación en el sistema designada para almacenar los datos de las aplicaciones, en windows es `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` es la cadena de versión del plugin Widevine CDM, como `1.4.8.866`. `PLATFORM` es `mac` o `win`. `ARCH` es `x86` o `x64`.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+En Windows los requerimientos binarios son `widevinecdm.dll` y `widevinecdmadapter.dll`, en macOS son 0>libwidevinecdm.dylib</code> y `widevinecdmadapter.plugin`. Los puede copiar a cualquier lugar que quiera, pero tienen que estar juntos.
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+En Linux los conectores binarios son entregados juntos con el navegador Chrome, los puede encontrar por `/opt/google/chrome`, los nombres de los archivos son `libwidevinecdm.so` y `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## Usando los conectores
 
 After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
 
