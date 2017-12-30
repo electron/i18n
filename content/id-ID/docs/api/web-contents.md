@@ -526,7 +526,7 @@ Mengembalikan `Boolean` - Apakah halaman web menunggu tanggapan pertama dari uta
 
 Menghentikan navigasi yang tertunda.
 
-#### `contents.reload()`
+#### `isi.reload()`
 
 Muat ulang halaman web saat ini.
 
@@ -556,7 +556,7 @@ Menghapus sejarah navigasi.
 
 Membuat browser kembali menjadi halaman web.
 
-#### `contents.goForward()`
+#### `isi.goForward()`
 
 Membuat browser maju ke depan halaman web.
 
