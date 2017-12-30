@@ -588,7 +588,7 @@ Mengembalikan `String` - Agen pengguna untuk halaman web ini.
 
 #### `isi.insertCSS(css)`
 
-* String `css`
+* `css` String
 
 Menyuntikkan CSS ke dalam halaman web saat ini.
 
@@ -597,7 +597,7 @@ Menyuntikkan CSS ke dalam halaman web saat ini.
 * ` kode </ 0> String</li>
 <li><code>userGesture` Boolean (opsional) - Default adalah `false`.
 * `panggilan balik` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
-  * `result` Any
+  * `hasil` Ada
 
 Mengembalikan `Janji` - Janji yang diselesaikan dengan hasil kode yang dijalankan atau ditolak jika hasil dari kode tersebut adalah janji yang ditolak.
 
@@ -679,15 +679,15 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+Jalankan perintah pengeditan `undo` di halaman web.
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+Jalankan perintah pengeditan `ulangi` di halaman web.
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+Jalankan perintah pengeditan `potong` di halaman web.
 
 #### `contents.copy()`
 
@@ -706,21 +706,21 @@ Jalankan perintah pengeditan `paste` di halaman web.
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+Jalankan perintah pengeditan `pasteAndMatchStyle` di halaman web.
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+Jalankan perintah pengeditan `hapus` di halaman web.
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+Jalankan perintah pengeditan `selectAll` di halaman web.
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
 
-#### `contents.replace(text)`
+#### `isi.replace(teks)`
 
 * `text` String
 
