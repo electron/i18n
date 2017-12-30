@@ -8,7 +8,7 @@ Para instalar os binários do Electro, use o [`npm`](https://docs.npmjs.com/). O
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Veja a documentação de versionamento do Electron para informação de como gerenciar as versões em seus aplicativos.
 
 ## Instalação Global
 
