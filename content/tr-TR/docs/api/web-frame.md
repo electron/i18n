@@ -30,7 +30,7 @@ Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma
 
 * `level` Number - Yakınlaştırma seviyesi
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
 
 ### `webFrame.getZoomLevel()`
 
