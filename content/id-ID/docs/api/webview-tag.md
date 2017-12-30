@@ -136,7 +136,7 @@ Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan ole
 
 String mengikuti format yang sama sebagai string fitur dalam `window.open`. Nama itu sendiri diberikan nilai boolean `benar`. Preferensi dapat diatur untuk nilai lain termasuk `=`, diikuti oleh nilai. Nilai-nilai khusus `ya` dan `1` ditafsirkan sebagai `benar`, sementara `tidak ada` dan `` ditafsirkan sebagai `palsu`.
 
-### `blinkfeatures`
+### `berkedip`
 
 ```html
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
@@ -197,9 +197,9 @@ win.on('resize', () => {
 
 ## Metode
 
-The `webview` tag has the following methods:
+Tag ` webview ` memiliki metode berikut:
 
-**Note:** The webview element must be loaded before using the methods.
+** Catatan: ** Elemen webview harus dimuat sebelum menggunakan metode.
 
 **Contoh**
 
@@ -220,11 +220,11 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([[UploadRawData]](structures/upload-raw-data.md) | [[UploadFile]](structures/upload-file.md) | [[UploadFileSystem]](structures/upload-file-system.md) | [[UploadBlob]](structures/upload-blob.md)) -(opsional)
   * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
 
-Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
+Memuat ` url ` di webview, ` url ` harus berisi awalan protokol, misalnya file ` http://` atau `://`.
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+Mengembalikan ` String ` - URL halaman tamu.
 
 ### `<webview>.getTitle()`
 
@@ -232,7 +232,7 @@ Returns `String` - The title of guest page.
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+Pengembalian ` Boolean ` - Apakah halaman tamu masih memuat sumber daya.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -406,13 +406,13 @@ Executes editing command `replaceMisspelling` in page.
 
 * `text` String
 
-Inserts `text` to the focused element.
+Sisipan `teks` ke elemen yang terfokus.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - Konten yang akan dicari, tidak boleh kosong.
 * `pilihan` Objek (opsional) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
+  * `forward` Boolean - (opsional) Baik untuk mencari maju atau mundur, default ke `true`.
   * `findNext` Boolean - (opsional) Apakah operasi tersebut merupakan permintaan pertama atau tindak lanjut, default ke `false`.
   * `matchCase` Boolean - (opsional) Apakah pencarian harus sensitif huruf, default ke `false`.
   * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
