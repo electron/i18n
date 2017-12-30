@@ -1,10 +1,10 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> Geçerli web sayfasının görünümünü özelleştirin.
 
-Process: [Renderer](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Geçerli sayfayı% 200'e yakınlaştırmaya bir örnek.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,23 +14,23 @@ webFrame.setZoomFactor(2)
 
 ## Metodlar
 
-The `webFrame` module has the following methods:
+`webFrame` modülü aşağıdaki metodları içerir:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Yakınlaştırma faktörü.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma faktörü belirtilen faktöre değişir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+`Number` döndürür - Geçerli yakınlaştırma faktörü.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - Yakınlaştırma seviyesi
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `webFrame.getZoomLevel()`
 
