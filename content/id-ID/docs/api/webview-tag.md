@@ -234,9 +234,9 @@ Returns `String` - The title of guest page.
 
 Pengembalian ` Boolean ` - Apakah halaman tamu masih memuat sumber daya.
 
-### `<webview>.isWaitingForResponse()`
+### `<webview>.isWaitingForResponse ()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+Mengembalikan ` Boolean ` - Apakah halaman tamu menunggu tanggapan pertama untuk sumber utama halaman.
 
 ### `<webview>.stop()`
 
