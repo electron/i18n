@@ -423,9 +423,9 @@ Memulai permintaan untuk mencari semua kecocokan teks pada halaman web dan memun
 ### `<webview>.stopFindInPage(action)`
 
 * `action` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+  * `clearSelection` - jelas pilihan.
+  * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
+  * `activateSelection` - fokus dan klik seleksi simpul.
 
 Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
 
@@ -454,7 +454,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap
 * `callback` Fungsi 
   * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
@@ -486,7 +486,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       ### `<webview>.setZoomLevel(level)`
       
-      * `level` Number - Zoom level
+      * `tingkat` Nomor - tingkat Zoom
       
       Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
       
@@ -621,10 +621,10 @@ webview.addEventListener('console-message', (e) => {
   Pengembalian:
   
   * `hasil` Obyek 
-    * `Idpermintaan` IntegerId
-    * `aktifSesuaiOrdinal` Integer - Posisi pertandingan aktif.
-    * `cocokdengan` Integer - Jumlah yang Cocok.
-    * `seleksiArea` Objek - Koordinat wilayah pertandingan pertama.
+    * `requestId` Bilangan bulat
+    * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
+    * `pertandingan` Bulat - jumlah pertandingan.
+    * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
     * `finalUpdate` Boolean
   
   Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
