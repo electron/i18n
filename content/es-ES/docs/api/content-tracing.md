@@ -53,7 +53,7 @@ Iniciar la grabación en todos los procesos.
 
 La grabación se inicia de manera inmediata de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud de habilitación de grabación. Se llamará al `callback` una vez que todos los procesos secundarios hayan confirmado la solicitud `startRecording`.
 
-`categoryFilter` es un filtro para controlar qué grupos de categorías se deben rastrear. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` es un filtro para controlar qué grupos de categorías se deben rastrear. Un filtro puede tener un prefijo `-` opcional para excluir los grupos de categorías que contienen una categoría coincidente. No se admiten los patrones de categoría incluidos y excluidos en la misma lista.
 
 Ejemplos:
 
@@ -61,7 +61,7 @@ Ejemplos:
 * `test_MyTest*,test_OtherStuff`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` controla qué tipo de rastreo está habilitado, es una lista delimitada por comas. Las posibles opciones son:
 
 * `record-until-full`
 * `record-continuously`
@@ -69,21 +69,21 @@ Ejemplos:
 * `enable-sampling`
 * `enable-systrace`
 
-The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+Las primeras 3 opciones son modos de registro de rastreo y, por lo tanto, son mutuamente excluyentes. Si aparecen más de un modo de registro de rastreo en la cadena `traceOptions`, el último tiene prioridad. Si no se especifica ninguno de los modos de grabación de rastreo, el modo de grabación es `record-until-full`.
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+La opción de rastreo se restablecerá primero a la opción predeterminada (`record_mode` establecido en `record-until-full`, `enable_sampling` y `enable_systrace` configurado a `falso`) antes de que se apliquen las opciones analizadas desde `traceOptions`.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
-* `resultFilePath` String
+* `resultFilePath` Cadena
 * `callback` Función 
-  * `resultFilePath` String
+  * `resultFilePath` Cadena
 
-Stop recording on all processes.
+Dejar de grabar en todos los procesos.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Los procesos secundarios típicamente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto ayuda a minimizar la sobrecarga de tiempo de ejecución del rastreo ya que el envío de datos de rastreo a través de IPC puede ser una operación costosa. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Una vez que todos los procesos secundarios hayan confirmado la solicitud `stopRecording`, se llamará a `callback` con un archivo que contiene los datos rastreados.
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
 
@@ -116,7 +116,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 
 Get the current monitoring traced data.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Los procesos secundarios típicamente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
