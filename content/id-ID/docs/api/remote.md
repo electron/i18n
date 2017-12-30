@@ -9,9 +9,9 @@ The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar p
 Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya Dari proses renderer, `ipc` modul diperlukan untuk mengirim antar proses pesan ke proses utama. Dengan `remote` modul, Anda dapat memanggil metode dari objek proses utama tanpa secara eksplisit mengirim pesan antar proses, mirip dengan Java [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). Contoh membuat jendela browser dari a Proses renderer:
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('https://github.com')
+const {BrowserWindow} = membutuhkan ('elektron'). remote
+let win = new BrowserWindow ({width: 800, height: 600})
+win.loadURL ('https://github.com')
 ```
 
 **Note:** Untuk kebalikannya (akses proses renderer dari proses utama), Kamu dapat memakai [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
@@ -43,13 +43,13 @@ Pertama, untuk menghindari kebuntuan, callback masuk ke proses utama disebut asy
 Misalnya Anda tidak dapat menggunakan fungsi dari proses renderer di a `Array.map` disebut dalam proses utama:
 
 ```javascript
-// main process mapNumbers.js
-exports.withRendererCallback = (mapper) => {
-  return [1, 2, 3].map(mapper)
+// peta proses utamaNumbers.js
+export.withRendererCallback = (mapper) = > {
+  kembali [1, 2, 3] .map (mapper)
 }
 
-exports.withLocalCallback = () => {
-  return [1, 2, 3].map(x => x + 1)
+export.withLocalCallback = () = > {
+  kembali [1, 2, 3] .map (x = > x + 1)
 }
 ```
 
@@ -70,8 +70,8 @@ Kedua, callback yang lolos ke proses utama akan bertahan sampai Proses utama sam
 Misalnya, kode berikut sepertinya tidak bersalah pada pandangan pertama. Ini menginstal a callback untuk `close` acara pada objek remote:
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+membutuhkan ('elektron'). remote.getCurrentWindow () pada ('close', () = > {
+  // jendela ditutup ...
 })
 ```
 
@@ -94,21 +94,21 @@ console.log(app)
 
 Itu `jarak jauh` modul memiliki metode berikut:
 
-### `remote.require(module)`
+### `remote.require (modul)`
 
-* `module` String
+* ` modul ` String
 
 Mengembalikan `sembarang` - Objek dikembalikan oleh `require (module)` pada proses utama. Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk dari proses utama.
 
 misalnya
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
+    proyek/
+    ├── utama
+    │ ├── foo.js
+    │ └── index.js
     ├── package.json
     └── renderer
-        └── index.js
+        └── index.js
     
 
 ```js
