@@ -777,7 +777,7 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     * `callback` Fungsi 
       * `hasWorker` Boolean
     
-    Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
+    Memeriksa apakah ada ServiceWorker yang terdaftar dan mengembalikan boolean sebagai respon terhadap `callback`.
     
     #### `contents.unregisterServiceWorker(callback)`
     
@@ -795,31 +795,31 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     #### `contents.print([options])`
     
     * `pilihan` Objek (opsional) 
-      * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-      * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-      * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+      * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
+      * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
+      * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
     
-    Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+    Mencetak halaman web jendela. Bila `diam` diatur ke `true`, Elektron akan memilih printer default sistem jika `deviceName` kosong dan pengaturan default untuk dicetak.
     
     Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
     
-    Use `page-break-before: always;` CSS style to force to print to a new page.
+    Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
     
-    #### `contents.printToPDF(options, callback)`
+    #### `contents.printToPDF(pilihan, callback)`
     
     * `pilihan` Obyek 
-      * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-      * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-      * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-      * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-      * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+      * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
+      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+      * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
+      * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
+      * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
     * `callback` Fungsi 
       * ` error </ 0> Kesalahan</li>
 <li><code>data` Buffer
     
-    Prints window's web page as PDF with Chromium's preview printing custom settings.
+    Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
     
-    The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+    The `callback` akan dipanggil dengan ` callback (error, data)` saat selesai. Itu `data` adalah `Buffer` yang berisi data PDF yang dihasilkan.
     
     The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
     
@@ -834,7 +834,7 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
 
 An example of `webContents.printToPDF`:
 
