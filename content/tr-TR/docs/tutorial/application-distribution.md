@@ -54,42 +54,44 @@ Uygulamanızı Electron'da topladıktan sonra, Electron'u kullanıcılara dağı
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+` Electron.app ` 'yi istediğiniz herhangi bir adla yeniden adlandırabilir ayrıca yeniden adlandırma alanındaki ` CFBundleDisplayName `, ` CFBundleIdentifier ` ve ` CFBundleName ` dosyalar aşağıdadır:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
 You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
 
-The structure of a renamed app would be like:
+Yeniden adlandırılan bir uygulamanın yapısı aşağıdaki gibi olur:
 
 ```text
+For Translation
+
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     ├── MyApp Helper EH.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper EH
+    |       └── MyApp Helper EH
     ├── MyApp Helper NP.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper NP
+    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+` elektron ` yürütülebilir dosyasını istediğiniz herhangi bir adla yeniden adlandırabilirsiniz.
 
 ## Paketleme araçları
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Uygulamanızı manuel olarak paketlemenin yanı sıra, üçüncü parti aracıların sizin için paketleme araçları:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
