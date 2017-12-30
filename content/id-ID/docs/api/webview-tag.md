@@ -346,7 +346,7 @@ Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
 
 ### `<webview>.setAudioMuted(muted)`
 
-* `muted` Boolean
+* `dibungkam` Boolean
 
 Set guest page muted.
 
@@ -413,16 +413,16 @@ Inserts `text` to the focused element.
 * `text` String - Content to be searched, must not be empty.
 * `pilihan` Objek (opsional) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
+  * `findNext` Boolean - (opsional) Apakah operasi tersebut merupakan permintaan pertama atau tindak lanjut, default ke `false`.
+  * `matchCase` Boolean - (opsional) Apakah pencarian harus sensitif huruf, default ke `false`.
+  * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
+  * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
 
 Memulai permintaan untuk mencari semua kecocokan teks pada halaman web dan memunculkan kembali Id peminta untuk permintaan. Hasil permintaan dapat diperoleh dengan menandai halaman yang ditemukan.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
   * `clearSelection` - jelas pilihan.
   * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
   * `activateSelection` - fokus dan klik seleksi simpul.
@@ -480,7 +480,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       ### `<webview>.setZoomFactor(factor)`
       
-      * `factor` Number - Zoom factor.
+      * `faktor` Angka - Faktor zoom.
       
       Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
       
