@@ -278,7 +278,7 @@ Membuat halaman tamu maju.
 
 ### `<webview>.goToIndex(index)`
 
-* `index` Integer
+* `indeks` Integer
 
 Menavigasi browser ke indeks halaman web absolut yang ditentukan.
 
@@ -286,11 +286,11 @@ Menavigasi browser ke indeks halaman web absolut yang ditentukan.
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Arahkan ke offset yang ditentukan dari "entri saat ini".
 
 ### `<webview>.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
 
 ### `<webview>.setUserAgent(userAgent)`
 
@@ -315,7 +315,7 @@ Injects CSS into the guest page.
 * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `result` Any
 
-Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
