@@ -14,7 +14,7 @@ To get started, you first need to deploy a server that the [autoUpdater](../api/
     - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
     -  Nucleus </ 0> - Atlassian tarafından tutulan Electron uygulamaları için eksiksiz bir güncelleme sunucusu . Supports multiple applications and channels; uses a static file store to minify server cost.</li> </ul> 
         
-        If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
+        Uygulamanız [electron-builder](https://github.com/electron-userland/electron-builder) ile paketlendiyse, bir sunucu gerektirmeyen ve S3, GitHub veya başka bir statik dosya barındırıcısı güncellemelerine izin veren [electron-updater](https://www.electron.build/auto-update) modülünü kullanabilirsiniz.
         
         ## Uygulamanızda güncellemeleri uygulama
         
