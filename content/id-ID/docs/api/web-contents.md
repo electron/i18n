@@ -724,25 +724,25 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
 
 * `text` String
 
-Executes the editing command `replace` in web page.
+Jalankan perintah pengeditan `ganti` di halaman web.
 
-#### `contents.replaceMisspelling(text)`
+#### `contents.replaceMisspelling(teks)`
 
 * `text` String
 
-Executes the editing command `replaceMisspelling` in web page.
+Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
 
 #### `contents.insertText(text)`
 
 * `text` String
 
-Inserts `text` to the focused element.
+Sisipan `teks` ke elemen yang terfokus.
 
-#### `contents.findInPage(text[, options])`
+#### `contents.findInPage(teks[, pilihan])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - Konten yang akan dicari, tidak boleh kosong.
 * `pilihan` Objek (opsional) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
+  * `forward` Boolean - (opsional) Baik untuk mencari maju atau mundur, default ke `true`.
   * `findNext` Boolean - (opsional) Apakah operasi tersebut merupakan permintaan pertama atau tindak lanjut, default ke `false`.
   * `matchCase` Boolean - (opsional) Apakah pencarian harus sensitif huruf, default ke `false`.
   * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
@@ -949,16 +949,16 @@ app.on('ready', () => {
 </html>
 ```
 
-#### `contents.enableDeviceEmulation(parameters)`
+#### `contents.enableDeviceEmulation(parameter)`
 
-* `parameters` Obyek 
-  * `screenPosition` String - Specify the screen type to emulate (default: `Desktop`) 
-    * `desktop` - Desktop screen type
-    * `mobile` - Mobile screen type
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
+* `parameter` Obyek 
+  * `screenPosition` String - Tentukan jenis layar yang akan ditiru (default: `Desktop`) 
+    * `desktop` - Jenis layar desktop
+    * `ponsel` - Jenis layar seluler
+  * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: ``)
+  * `viewSize` [Ukuran](structures/size.md) - Menetapkan ukuran tampilan yang ditiru (berarti kosong tidak menggantikan)
   * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
   * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
