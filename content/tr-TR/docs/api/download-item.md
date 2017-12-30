@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`DownloadItem` elektron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
+`DownloadItem` Electron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
 
 ```javascript
 // Ana işlem içinde.
@@ -39,7 +39,7 @@ Kaydetme yolunu ayarlayın ve Electron'un bir kaydetme istememesi için yol gös
 
 #### Event: 'updated'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `state` String
@@ -53,7 +53,7 @@ Returns:
 
 #### Event: 'done'
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `state` String
