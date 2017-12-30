@@ -55,7 +55,7 @@ Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+M aksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
@@ -65,11 +65,11 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
   * `spellCheck` Function - döner `Boolean` 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+`Provider` kelimenin doğru yazılıp yazılmadığını döndüren, `spellCheck` metoduna sahip bir nesne olmalıdır.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Provider gibi [node-spellchecker](https://github.com/atom/node-spellchecker) kullanılarak bir örnek:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -84,9 +84,9 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+`scheme`'yı güvenli scheme olarak kaydeder.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Güvenli scheme'lar karışık içerik uyarılarını tetiklemiyor. Örneğin, `https` ve `veri` güvenli scheme'lardır, çünkü bunlar etkin ağ saldırganları tarafından bozulamazlar.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
