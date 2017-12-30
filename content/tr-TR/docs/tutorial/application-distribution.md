@@ -97,11 +97,11 @@ Uygulamanızı manuel olarak paketlemenin yanı sıra, üçüncü parti aracıla
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Elekctron'u Kaynaktan Yeniden Yapılandırma
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Electron'u, ürün adını değiştirerek yeniden markalamak da mümkündür. onu kaynaktan inşa etmek için ` atom.gyp ` dosyasını değiştirmeniz ve temiz bir yeniden yapılandırma gerekir.
 
-### Creating a Custom Electron Fork
+### Özel bir Electron Çatısı Oluşturma
 
 Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
