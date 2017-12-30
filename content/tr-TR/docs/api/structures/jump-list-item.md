@@ -1,4 +1,4 @@
-# AtlamaListesiÖgesi Nesnesi
+# AtlamaListesiÖğesi Nesnesi
 
 * `type` Dize (opsiyonel) - Aşağıdakilerden biri: 
   * `task` - Bir görev özel argümanlarla bir uygulamayı açacak.
