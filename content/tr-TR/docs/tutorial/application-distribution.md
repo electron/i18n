@@ -1,8 +1,8 @@
 # Uygulama Dağıtımı
 
-Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuilt binaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör ` app ` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuilt binaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör ` app ` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde ` elektron / ` ile altında gösterilir.
 
-On macOS:
+MacOS üzerinde:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -28,7 +28,7 @@ Apart from shipping your app by copying all of its source files, you can also pa
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+MacOS üzerinde:
 
 ```text
 electron/Electron.app/Contents/Resources/
@@ -42,7 +42,7 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Daha fazla detay [Application packaging](application-packaging.md) içinde bulunabilir.
 
 ## Rebranding with Downloaded Binaries
 
