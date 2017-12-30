@@ -4,19 +4,19 @@
 
 Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
-使用 ` webview ` 标签在Electron 应用中嵌入 "外来" 内容 (如 网页)。"外来" 内容包含在 ` webview ` 容器中。 应用中的嵌入页面可以控制"外来" 内容的布局和重绘。
+使用 ` webview ` 标签在Electron 应用中嵌入 "外来" 内容 (如 网页)。外来"内容包含在 ` webview ` 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
 与 ` iframe ` 不同, ` webview ` 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
 
 ## 例子
 
-若要在应用程序中嵌入网页, 请将 ` webview ` 标签添加到应用程序的被嵌入页面中 (这是将显示 "外来"内容的应用程序页)。 在最简单的例子中, ` webview ` 标签包括网页的 ` src ` 和控制 ` webview ` 容器外观的 css 样式:
+若要在应用程序中嵌入网页, 请将 ` webview ` 标签添加到应用程序的被嵌入页面中 (这是将显示外来内容的应用程序页)。 在最简单的例子中, ` webview ` 标签包括网页的 ` src ` 和控制 ` webview ` 容器外观的 css 样式:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-如果要以任何方式控制 "外来" 内容, 则可以写用于侦听 ` webview ` 事件的 JavaScript, 并使用 ` webview ` 方法响应这些事件。 Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
+如果要以任何方式控制外来内容, 则可以写用于侦听 ` webview ` 事件的 JavaScript, 并使用 ` webview ` 方法响应这些事件。 下面是包含两个事件侦听器的示例代码: 一个侦听网页开始加载, 另一个用于网页停止加载, 并在加载时显示 "loading..." 消息:
 
 ```html
 <script>
