@@ -588,7 +588,7 @@ Mengembalikan `String` - Agen pengguna untuk halaman web ini.
 
 #### `isi.insertCSS(css)`
 
-* `css` String
+* String `css`
 
 Menyuntikkan CSS ke dalam halaman web saat ini.
 
@@ -608,9 +608,9 @@ Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipa
 Jika hasil dari kode yang dieksekusi adalah janji maka hasil callback akan menjadi terselesaikan nilai dari janji. Sebaiknya gunakan Janji yang dikembalikan untuk menangani kode yang menghasilkan Janji.
 
 ```js
-contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
-  .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+isi.executeJavaScript('ambil("https://jsonplaceholder.typicode.com/users/1"). kemudian (resp => resp.json())', true)
+  .Kemudian ((hasil) => {
+    console.log (result) // Akan menjadi objek JSON dari fetch call
   })
 ```
 
@@ -639,9 +639,9 @@ Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom pe
 #### `contents.getZoomFactor(callback)`
 
 * `callback` Fungsi 
-  * `zoomFactor` Number
+  * `zoomFactor` Nomor
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+Mengirim permintaan untuk mendapatkan faktor pembesaran saat ini, `panggilan balik` akan dipanggil `callback (zoomFactor)`.
 
 #### `contents.setZoomLevel(level)`
 
@@ -652,28 +652,28 @@ Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-ma
 #### `contents.getZoomLevel(callback)`
 
 * `panggilan balik` Fungsi 
-  * `zoomLevel` Number
+  * `zoomLevel` Nomor
 
 Mengirimkan permintaan untuk mendapatkan tingkat pembesaran saat ini, panggilan balik ` `akan dipanggil dengan `callback(zoomLevel)`.
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Nomor
+* `maximumLevel` Nomor
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Tidak berlaku lagi:** Panggil `setVisualZoomLevelLimits` untuk mengatur zoom visual batas tingkat Metode ini akan dihapus di Electron 2.0.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Nomor
+* `maximumLevel` Nomor
 
 Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Nomor
+* `maximumLevel` Nomor
 
 Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
 
