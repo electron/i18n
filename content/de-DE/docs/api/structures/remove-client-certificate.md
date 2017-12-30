@@ -1,4 +1,4 @@
-# RemoveClientCertificate Object
+# RemoveClientCertificate Objekt
 
-* `type` String - `clientCertificate`.
-* `origin` String - Origin of the server whose associated client certificate must be removed from the cache.
+* `Typ` String - `ClientCertificate`.
+* `Herkunft` String - Ursprung des Servers, dessen damit verbundenen Client-Zertifikat aus dem Cache entfernt werden muss.
