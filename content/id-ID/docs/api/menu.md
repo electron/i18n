@@ -213,7 +213,7 @@ Template:
 Menu:
 
     <br />- ---
-    - a
+    - Sebuah
     - b
     - c
     - ---
