@@ -57,6 +57,6 @@ app.on('ready', () => {
 
 Para verificar si el conector funciona, se pueden usar los siguientes métodos:
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Abrir las devtools y ver si `navigator.plugins` incluye el conector de Widevine CDM.
+* Abrir https://shaka-player-demo.appspot.com/ y cargar un manifiesto que use `Widevine`.
+* Abrir http://www.dash-player.com/demo/drm-test-area/, confirmar que la página diga `bitdash usa Widevine en su navegador`, luego reproducir el video.
