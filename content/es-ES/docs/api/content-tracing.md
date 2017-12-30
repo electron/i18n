@@ -118,12 +118,12 @@ Obtenga los datos de monitoreo actualizados.
 
 Los procesos secundarios normalmente almacenan en caché los datos de rastreo y solo raramente limpian y envían datos de rastreo al proceso principal. Esto se debe a que puede ser una operación costosa enviar los datos de rastreo a través de IPC y nos gustaría evitar el seguimiento del tiempo de ejecución innecesario. Por lo tanto, para finalizar el rastreo, debemos pedir asincrónicamente a todos los procesos secundarios que eliminen cualquier dato de rastreo pendiente.
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Una vez que todos los procesos secundarios hayan confirmado la solicitud `captureMonitoringSnapshot`, se llamará al `callback` con un archivo que contiene los datos rastreados.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `callback` Función 
-  * `value` Number
-  * `percentage` Number
+  * `value` Número
+  * `percentage` Número
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+Obtenga el máximo uso en los procesos de búfer de rastreo como un porcentaje del estado completo. Cuando se determina el valor de TraceBufferUsage, el `callback` es llamado.
