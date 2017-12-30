@@ -1,10 +1,10 @@
 # `<webview>`标签
 
-> Display external web content in an isolated frame and process.
+> 在一个独立的 frame 和进程里显示外部 web 内容。
 
 Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
-Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
+使用 ` webview ` 标签在Electron 应用中嵌入 "外来的" 内容 (如 网页)。"外来的" 内容包含在 ` webview ` 容器中。 An embedded page within your app controls how the guest content is laid out and rendered.
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
