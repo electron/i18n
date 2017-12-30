@@ -46,11 +46,11 @@ Daha fazla detay [Application packaging](application-packaging.md) içinde bulun
 
 ## Rebranding with Downloaded Binaries
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Uygulamanızı Electron'da topladıktan sonra, Electron'u kullanıcılara dağıtmadan önce yeniden markalamak isteyeceksiniz.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+` electron.exe ` adını istediğiniz herhangi bir adla yeniden adlandırabilir simgesini ve diğer simgelerini düzenleyebilirsiniz, araçlar hakkında bilgi [ rcedit ](https://github.com/atom/rcedit).
 
 ### macOS
 
