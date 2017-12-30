@@ -496,7 +496,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       ### `<webview>.getWebContents()`
       
-      Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+      Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
       
       ## DOM events
       
@@ -513,7 +513,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       ### Event: 'Apakah-selesai-load'
       
-      Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+      Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
       
       ### Event: 'Apakah-gagal-load'
       
@@ -524,7 +524,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `validatedURL` String
       * `isMainFrame` Boolean
       
-      This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+      Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
       
       ### Event: 'Apakah-frame-selesai-load'
       
@@ -555,7 +555,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `headers` Obyek
       * `Jenissumberdaya` String
       
-      Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+      Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
       
       ### Event: 'apakah-mendapatkan-redirect-permintaan'
       
@@ -565,7 +565,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `newURL` String
       * `isMainFrame` Boolean
       
-      Fired when a redirect was received while requesting a resource.
+      Emitted ketika redirect diterima saat meminta resource.
       
       ### Event: 'dom-siap'
       
@@ -584,9 +584,9 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       Kembali
       
-      * `favicons` String[] - Array of URLs.
+      * `FAVICONS` String [] - serangkaian URL.
       
-      Fired when page receives favicon urls.
+      Dibunyikan saat halaman menerima url favicon.
       
       ### Acara : 'enter-html-full-screen'
       
@@ -627,32 +627,31 @@ webview.addEventListener('console-message', (e) => {
     * `seleksiArea` Objek - Koordinat wilayah pertandingan pertama.
     * `finalUpdate` Boolean
   
-  Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
-  
-  ```javascript
-const webview = document.querySelector('webview')
+  Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
+
+<pre><code class="javascript">const webview = document.querySelector('webview')
 webview.addEventListener('found-in-page', (e) => {
   webview.stopFindInPage('keepSelection')
 })
 
 const requestId = webview.findInPage('test')
 console.log(requestId)
-```
-
-### Event: 'baru-jendela'
-
-Pengembalian:
-
-* ` url </ 0>  String</li>
+`</pre> 
+  
+  ### Event: 'baru-jendela'
+  
+  Pengembalian:
+  
+  * ` url </ 0>  String</li>
 <li><code>frameName` String
-* `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
-* `options` Object - The options which should be used for creating the new `BrowserWindow`.
-
-Fired when the guest page attempts to open a new browser window.
-
-The following example code opens the new url in system's default browser.
-
-```javascript
+  * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
+  * `options` Object - The options which should be used for creating the new `BrowserWindow`.
+  
+  Fired when the guest page attempts to open a new browser window.
+  
+  The following example code opens the new url in system's default browser.
+  
+  ```javascript
 const {shell} = require('electron')
 const webview = document.querySelector('webview')
 
@@ -673,9 +672,9 @@ Pengembalian:
 
 <p>Emitted when a user or the page wants to start navigation. It can happen when
 the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-  This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+  Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
   
-  It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
   
   Calling `event.preventDefault()` does **NOT** have any effect.
   
@@ -748,7 +747,7 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### Event: 'jatuh'
 
 Fired when the gpu process is crashed.
 
@@ -759,7 +758,7 @@ Pengembalian:
 * ` nama </ 0>  String</li>
 <li><code>Versi` String
 
-Fired when a plugin process is crashed.
+Dibunyikan ketika proses plugin telah jatuh.
 
 ### Event: 'menghancurkan'
 
@@ -779,7 +778,7 @@ Pengembalian:
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
