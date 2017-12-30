@@ -137,22 +137,22 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
   
   Itu `net` modul memiliki metode berikut:
   
-  #### `tray.destroy()`
+  #### `tray.destroy ()`
   
-  Destroys the tray icon immediately.
+  Segera hancurkan ikon baki.
   
   #### `tray.setImage(image)`
   
   * ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
 </ul>
 
-<p>Sets the <code>image` associated with this tray icon.</p> 
-    #### `tray.setPressedImage(image)` *macOS*
+<p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini.</p> 
+    #### ` tray.setPressedImage (gambar) ` * macos *
     
     * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul>
 
-<p>Sets the <code>image` associated with this tray icon when pressed on macOS.</p> 
+<p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.</p> 
       #### `tray.setToolTip(toolTip)`
       
       * `toolTip` String
