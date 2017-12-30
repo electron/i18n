@@ -1,7 +1,7 @@
-# UploadFileSystem Object
+# DateiSystemhochladen Objekt
 
-* `type` String - `fileSystem`.
-* `filsSystemURL` String - FileSystem url to read data for upload.
-* `offset` Integer - Defaults to ``.
-* `length` Integer - Number of bytes to read from `offset`. Defaults to ``.
-* `modificationTime` Double - Last Modification time in number of seconds sine the UNIX epoch.
+* ` Typ ` String-` Dateisystem `.
+* ` filsSystemURL ` String - Dateisystem url zum Lesen von Daten für den Upload.
+* ` Offset ` Integer - Standards to ` 0 `.
+* ` Länge ` Integer-Anzahl der Bytes, die aus ` Offset ` gelesen werden sollen. Defaults to ` 0 `.
+* ` Modifikations ` Doppel-letzte Änderungszeit in Anzahl der Sekunden Sinus der UNIX Epoche.
