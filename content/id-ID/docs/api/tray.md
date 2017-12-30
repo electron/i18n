@@ -155,58 +155,58 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
 <p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.</p> 
       #### `tray.setToolTip(toolTip)`
       
-      * `toolTip` String
+      * ` toolTip ` String
       
-      Sets the hover text for this tray icon.
+      Menyetel teks hover untuk ikon baki ini.
       
-      #### `tray.setTitle(title)` *macOS*
+      #### ` tray.setTitle (judul) ` * macos *
       
       * ` title </ 0>  String</li>
 </ul>
 
-<p>Sets the title displayed aside of the tray icon in the status bar.</p>
+<p>Menetapkan judul yang ditampilkan di samping ikon baki di bilah status.</p>
 
-<h4><code>tray.setHighlightMode(mode)` *macOS*</h4> 
-        * `modus` String - Highlight mode with one of the following values: 
-          * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-          * `always` - Always highlight the tray icon.
-          * `never` - Never highlight the tray icon.
+<h4><code> tray.setHighlightMode (mode) ` * macos *</h4> 
+        * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
+          * ` selection ` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
+          * ` selalu ` - Selalu sorot ikon baki.
+          * ` tidak pernah ` - Jangan menyorot ikon baki.
         
         Menyetel saat latar belakang ikon baki disorot (berwarna biru).
         
         **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
         
         ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const {BrowserWindow, Tray} = require ('electron')
 
-const win = new BrowserWindow({width: 800, height: 600})
-const tray = new Tray('/path/to/my/icon')
+const win = new BrowserWindow ({width: 800, height: 600})
+const tray = new Tray ('/ path / to / my / icon')
 
-tray.on('click', () => {
-  win.isVisible() ? win.hide() : win.show()
+tray.on ('klik', () = > {
+  win.isVisible ()? win.hide (): win.show ()
 })
-win.on('show', () => {
-  tray.setHighlightMode('always')
+win.on ('show', () = > {
+  tray.setHighlightMode ('selalu')
 })
-win.on('hide', () => {
-  tray.setHighlightMode('never')
+win.on ('hide', () = > {
+  tray.setHighlightMode ('tidak pernah')
 })
 ```
     
     #### `tray.displayBalloon(options)` *Windows*
     
     * `pilihan` Obyek 
-      * `icon` ([NativeImage](native-image.md) | String) - (optional)
+      * ` ikon ` ([ NativeImage ](native-image.md) | String) - (opsional)
       * ` title </ 0> String - (contoh)</li>
 <li><code> konten </ 0> String - (contoh)</li>
 </ul></li>
 </ul>
 
-<p>Displays a tray balloon.</p>
+<p>Menampilkan balon baki.</p>
 
 <h4><code>tray.popUpContextMenu([menu, position])` *macOS* *Windows*</h4> 
         * ` teks ` String (opsional)
-        * `position` [Point](structures/point.md) (optional) - The pop up position.
+        * ` posisi ` [ Titik ](structures/point.md) (opsional) - Posisi pop up.
         
         Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
         
