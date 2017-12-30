@@ -304,7 +304,7 @@ Returns `String` - The user agent for guest page.
 
 ### `<webview>.insertCSS(css)`
 
-* String `css`
+* `css` String
 
 Injects CSS into the guest page.
 
@@ -313,7 +313,7 @@ Injects CSS into the guest page.
 * ` kode </ 0> String</li>
 <li><code>userGesture` Boolean - Default `false`.
 * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
-  * `result` Any
+  * `hasil` Ada
 
 Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
