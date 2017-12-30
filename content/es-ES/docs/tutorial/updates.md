@@ -51,11 +51,11 @@ Ahora que ha configurado los mecanismos básicos de actualización para su aplic
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
   const dialogOpts = {
-    type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Reiniciar la aplicación para aplicar las actualizaciones .'
+    type: 'información',
+    buttons: ['Reiniciar', 'Despues'],
+    title: 'Actualización de aplicación',
+    message: process.platform === 'win32' ? lanzamiento de notas: Lanzamiento de nombre
+Detalles: Una nueva versión ha sido descargada. Reiniciar la aplicación para aplicar las actualizaciones .'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
