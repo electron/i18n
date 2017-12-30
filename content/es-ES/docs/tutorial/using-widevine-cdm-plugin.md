@@ -22,9 +22,9 @@ En Linux los conectores binarios son entregados juntos con el navegador Chrome, 
 
 ## Usando los conectores
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+Después de obtener los archivos conectores, usted debe pasar la ruta de `widevinecdmadapter` a electron con el comando de cambio lineal `--widevine-cdm-path` y las versiones de los conectores con `--widevine-cdm-version`.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**Nota:** A pesar de que solamente el `widevinecdmadapter` binario es pasado a Electron, el `widevinecdm` binario tiene que ponerse al lado.
 
 The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
 
