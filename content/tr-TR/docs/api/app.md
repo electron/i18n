@@ -703,7 +703,7 @@ const appFolder = path.dirname(process.execPath)
 const updateExe = path.resolve(appFolder, '..', 'Update.exe')
 const exeName = path.basename(process.execPath)
 
-app.setLoginItemSettings({
+  app.setLoginItemSettings({
   openAtLogin: true,
   path: updateExe,
   args: [
