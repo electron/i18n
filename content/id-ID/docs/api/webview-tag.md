@@ -432,8 +432,8 @@ Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
 ### `<webview>.print([options])`
 
 * `pilihan` Objek (opsional) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
+  * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
+  * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
   * `deviceName` String (opsional) - mengatur printer nama perangkat untuk menggunakan. Default adalah `"`.
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
@@ -441,11 +441,11 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 ### `<webview>.printToPDF(options, callback)`
 
 * `pilihan` Obyek 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+  * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
+  * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
+  * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
+  * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
 * `callback` Fungsi 
   * ` error </ 0> Kesalahan</li>
 <li><code>data` Buffer
