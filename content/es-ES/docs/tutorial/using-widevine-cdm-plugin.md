@@ -26,26 +26,26 @@ Después de obtener los archivos conectores, usted debe pasar la ruta de `widevi
 
 **Nota:** A pesar de que solamente el `widevinecdmadapter` binario es pasado a Electron, el `widevinecdm` binario tiene que ponerse al lado.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+El comando de los interruptores de línea tiene que ser pasado antes que el `ready` del módulo de `app` sea emitido, y que la página que usa el conector tenga el conector activado.
 
-Example code:
+Código de ejemplo:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
+// Tiene que pasa el nombre del archivo de`widevinecdmadapter` equí, es
+// * `widevinecdmadapter.plugin` en macOS,
+// * `libwidevinecdmadapter.so` en Linux,
+// * `widevinecdmadapter.dll` en Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// La versión del conector puede ser obtenida de la página `chrome://plugins`en Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
 app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
-      // The `plugins` have to be enabled.
+      // El conector tiene que ser activado.
       plugins: true
     }
   })
@@ -53,9 +53,9 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## Verificando el Conector
 
-To verify whether the plugin works, you can use following ways:
+Para verificar si el conector funciona, se pueden usar los siguientes métodos:
 
 * Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
 * Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
