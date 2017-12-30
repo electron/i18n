@@ -20,32 +20,32 @@ The ` globalShortcut </ 0> modul dapat mendaftarkan / unregister shortcut keyboa
    }
 
    / / Periksa apakah jalan pintas sudah terdaftar.
-  console.log(globalShortcut.isRegistered('CommandOrControl+X'))
+  console.log (globalShortcut.isRegistered ('CommandOrControl + X'))
 })
 
-app.on('will-quit', () => {
-  // Unregister a shortcut.
-  globalShortcut.unregister('CommandOrControl+X')
+app.on ('will-quit', () = > {
+  // Unregister shortcut.
+  globalShortcut.unregister ('CommandOrControl + X')
 
-  // Unregister all shortcuts.
-  globalShortcut.unregisterAll()
+  // Unregister semua jalan pintas.
+  globalShortcut.unregisterAll ()
 })
 `</pre> 
 
 ## Metode
 
-The `globalShortcut` module has the following methods:
+Modul ` globalShortcut ` memiliki metode berikut:
 
-### `globalShortcut.register(accelerator, callback)`
+### `globalShortcut.register (akselerator, callback)`
 
-* `accelerator` [Accelerator](accelerator.md)
+* ` akselerator ` [ Accelerator ](accelerator.md)
 * `callback ` Fungsi
 
 Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
 
 <p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini akan diam-diam gagal. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
-<h3><code>globalShortcut.isRegistered(accelerator)`</h3> 
+<h3><code>globalShortcut.isRegistered (akselerator)`</h3> 
 
 * ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
 </ul>
@@ -54,11 +54,11 @@ Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> dis
 
 <p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini tetap akan kembali <code> salah</ 0> . Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
-<h3><code>globalShortcut.unregister(accelerator)`</h3> 
-    * `accelerator` [Accelerator](accelerator.md)
+<h3><code>globalShortcut.unregister (akselerator)`</h3> 
+    * ` akselerator ` [ Accelerator ](accelerator.md)
     
     Unregisters jalan pintas global ` akselerator </ 0> .</p>
 
-<h3><code>globalShortcut.unregisterAll()`</h3> 
+<h3><code>globalShortcut.unregisterAll ()`</h3> 
     
     Unregisters semua jalan pintas global.
