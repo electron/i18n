@@ -22,7 +22,7 @@ electron/resources/app
 
 Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
 
-## Packaging Your App into a File
+## Uygulamanızı Bir Dosyaya Paketleme
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
@@ -105,7 +105,7 @@ Electron'u, ürün adını değiştirerek yeniden markalamak da mümkündür. on
 
 Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
 
 #### Creating a Custom Release with surf-build
 
@@ -133,4 +133,4 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Yapılandırmanın tamamlanması için çok, çok uzun süre bekleyin.
