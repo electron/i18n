@@ -869,21 +869,21 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
                                                         
                                                         ### `app.dock.getBadge()` *macos*
                                                         
-                                                        Returns `String` - The badge string of the dock.
+                                                        Mengembalikan `String` - String badge dari dok.
                                                         
                                                         ### `app.dock.hide()` *macOS*
                                                         
                                                         Sembunyikan ikon dok.
                                                         
-                                                        ### `app.dock.show()` *macOS*
+                                                        ### `app.dock.show()` *macos*
                                                         
                                                         Tampilkan ikon dok.
                                                         
-                                                        ### `app.dock.isVisible()` *macOS*
+                                                        ### `app.dock.isVisible()` *macos*
                                                         
-                                                        Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+                                                        Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
                                                         
-                                                        ### `app.dock.setMenu(menu)` *macOS*
+                                                        ### `app.dock.setMenu (menu)` *macos*
                                                         
                                                         * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
 </ul>
@@ -896,4 +896,4 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 <li><code> gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
 </ul>
 
-<p>Sets the <code>image` associated with this dock icon.</p>
+<p>Menetapkan <code>gambar` yang terkait dengan ikon dermaga ini.</p>
