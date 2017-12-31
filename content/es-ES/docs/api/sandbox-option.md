@@ -1,8 +1,8 @@
 # Opciones de la `caja de arena`
 
-> Crea una ventana en el navegador con un renderizador que corra dentro de la caja de arena del sistema operativo de Chromium. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
+> Crea una ventana en el navegador con un renderizador que corra dentro de la caja de arena del sistema operativo de Chromium. Con esta opción activada, la renderización debe comunicarse vía IPC al procesador principal para poder acceder a los nodos API. Sin embargo, con el fin de activar la caja de arena de Chromium OS, Electron debe ser ejecutado con el argumento del comando de linea `--enable-sandbox`.
 
-One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Una de las características clave de la seguridad de Chromium es que toda la renderización y el código de JavaScript es ejecutado dentro d una caja de arena. Esta caja de area usa características específicas para cada OS para asegurar que un explosivo en el proceso de renderización no pueda lastimar al sistema.
 
 In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) more information about the sandbox.
 
