@@ -13,7 +13,7 @@
 
 In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
-* アプリを署名します。
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* アプリは署名済みである
+* アプリ内の `info.plist` の `NSUserNotificationAlertStyle` が `alert` に設定されている
 
-If either of these requirements are not met the button simply won't appear.
+以上の要件が満たされていないとボタンは表示されません
