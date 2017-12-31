@@ -71,7 +71,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+İzleme seçeneği ilk olarak varsayılan seçeneğe (`record_mode` başlamak `record-until-full`, `enable_sampling` ve `enable_systrace`, `traceOptions`'dan ayrıştırılan seçeneklerin üzerine uygulanmadan önce `false`) olarak ayarlanır.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
