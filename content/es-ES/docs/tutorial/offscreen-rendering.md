@@ -12,7 +12,7 @@ Se pueden usar dos modos de representación y solo se pasa el área sucia en el 
 
 La representación acelerada de GPU significa que la GPU se usa para la composición. Debido a eso, el cuadro debe copiarse de la GPU, que requiere más rendimiento, por lo que este modo es bastante más lento que el otro. El beneficio de este modo es que las animaciones WebGL y 3D CSS son compatibles.
 
-### Software output device
+### Dispositivo de salida de software
 
 This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
 
