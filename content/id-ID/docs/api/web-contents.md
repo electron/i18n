@@ -931,12 +931,12 @@ app.on('ready', () => {
     * `desktop` - Jenis layar desktop
     * `ponsel` - Jenis layar seluler
   * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile)
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
+  * `viewPosition` [Point](structures/point.md) - Posisikan tampilan di layar (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: ``)
   * `viewSize` [Ukuran](structures/size.md) - Menetapkan ukuran tampilan yang ditiru (berarti kosong tidak menggantikan)
-  * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
-  * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+  * `fitToView` Boolean - Apakah pandangan yang ditiru harus diperkecil jika diperlukan agar sesuai dengan ruang yang tersedia (default: `false`)
+  * `offset` [Point](structures/point.md) - Offset tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: `{x: 0, y: 0}`)
+  * `skala` Float - Skala tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: ` 1 `)
 
 Aktifkan emulasi perangkat dengan parameter yang diberikan.
 
@@ -950,9 +950,9 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+Mengirim masukan `event` ke halaman. **Catatan:** `BrowserWindow` yang berisi konten perlu difokuskan untuk `sendInputEvent ()` untuk bekerja.
 
-For keyboard events, the `event` object also have following properties:
+Untuk acara keyboard, objek `event` juga memiliki properti berikut:
 
 * `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
 
