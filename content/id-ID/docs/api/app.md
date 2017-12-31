@@ -862,12 +862,12 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <p>Memantapkan Download stack jika filePath ada di dalam folder Downloads.</p>
 
-<h3><code>app.dock.setBadge(text)` *macOS*</h3> 
-                                                        * `text` String
+<h3><code>app.dock.setBadge (teks)` *macOS*</h3> 
+                                                        * `teks` String
                                                         
                                                         Menetapkan string yang akan ditampilkan di area badging dermaga.
                                                         
-                                                        ### `app.dock.getBadge()` *macOS*
+                                                        ### `app.dock.getBadge()` *macos*
                                                         
                                                         Returns `String` - The badge string of the dock.
                                                         
