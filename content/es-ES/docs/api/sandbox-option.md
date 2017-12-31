@@ -12,11 +12,11 @@ Usualmente esto no es un problema para aplicaciones de escritorio ya que el cód
 
 Un renderizador en una caja de arena no tiene un ambiente de node.js ejecutandose y no expone el node.js JavaScript API al código del cliente. La única excepción es el script precargado, que tiene el acceso al subset de los renderizadores API de electron.
 
-Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+Otra diferencia es que los renderizadores en caja de arena no modifican ninguno de los JavaScript APIs que está por defecto. En consecuencia, algunos APIs como `window.open` trabajarán como lo harían en chromium (i.e ellos no regresan a `BrowserWindowProxy`).
 
 ## Ejemplo
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+Para crear una ventana de caja de arena, simplemente pase `sandbox: true` a `webPreferences`:
 
 ```js
 let win
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+En el código anterior el `BrowserWindow` que fue creado tiene el node.jsdeshabilitado y puede comunicarse solo via IPC. El uso de esta opción detiene a Electron de crear un node.js en el tiempo de corrida dentro del renderizador. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
 
 It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
 
