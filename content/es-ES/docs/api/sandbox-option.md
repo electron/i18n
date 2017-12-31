@@ -30,11 +30,11 @@ app.on('ready', () => {
 })
 ```
 
-En el código anterior el `BrowserWindow` que fue creado tiene el node.jsdeshabilitado y puede comunicarse solo via IPC. El uso de esta opción detiene a Electron de crear un node.js en el tiempo de corrida dentro del renderizador. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+En el código anterior el `BrowserWindow` que fue creado tiene el node.jsdeshabilitado y puede comunicarse solo via IPC. El uso de esta opción detiene a Electron de crear un node.js en el tiempo de corrida dentro del renderizador. También, en esta nueva ventana `window.open` sigue el comportamiento nativo (por defecto Electron crea un `BrowserWindow` y regresa un proxy a este via `window.open`).
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+Es importante notar que esta opción sola no va a habilitar la caja de arena impuesta por el OS. Para activar esta característica, el argumento de linea de comando `--enable-sandbox` debe ser pasado a Electron, que lo forzará `sandbox: true` por todas `BrowserWindow` instancias.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+Para habilitar la caja de arena impuesta por el OS en `BrowserWindow` o por el proceso `webview` con `sandbox:true` sin mover toda la aplicación en la caja de arena, el argumento de comando de linea `--enable-mixed-sandbox` debe ser pasado por Electron. Esta opción está actualmente soportado en macOS y Windows.
 
 ```js
 let win
