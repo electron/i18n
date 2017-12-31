@@ -855,37 +855,37 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
                                                       
                                                       Membatalkan bouncing `id`.
                                                       
-                                                      ### `app.dock.downloadFinished(filePath)` *macOS*
+                                                      ### `app.dock.downloadFinished(filePath)` *Windows*
                                                       
-                                                      * `filePath` String
-                                                      
-                                                      Memantapkan Download stack jika filePath ada di dalam folder Downloads.
-                                                      
-                                                      ### `app.dock.setBadge(text)` *macOS*
-                                                      
-                                                      * `text` String
-                                                      
-                                                      Menetapkan string yang akan ditampilkan di area badging dermaga.
-                                                      
-                                                      ### `app.dock.getBadge()` *macOS*
-                                                      
-                                                      Returns `String` - The badge string of the dock.
-                                                      
-                                                      ### `app.dock.hide()` *macOS*
-                                                      
-                                                      Sembunyikan ikon dok.
-                                                      
-                                                      ### `app.dock.show()` *macOS*
-                                                      
-                                                      Tampilkan ikon dok.
-                                                      
-                                                      ### `app.dock.isVisible()` *macOS*
-                                                      
-                                                      Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
-                                                      
-                                                      ### `app.dock.setMenu(menu)` *macOS*
-                                                      
-                                                      * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
+                                                      * ` format </ 0> String</li>
+</ul>
+
+<p>Memantapkan Download stack jika filePath ada di dalam folder Downloads.</p>
+
+<h3><code>app.dock.setBadge(text)` *macOS*</h3> 
+                                                        * `text` String
+                                                        
+                                                        Menetapkan string yang akan ditampilkan di area badging dermaga.
+                                                        
+                                                        ### `app.dock.getBadge()` *macOS*
+                                                        
+                                                        Returns `String` - The badge string of the dock.
+                                                        
+                                                        ### `app.dock.hide()` *macOS*
+                                                        
+                                                        Sembunyikan ikon dok.
+                                                        
+                                                        ### `app.dock.show()` *macOS*
+                                                        
+                                                        Tampilkan ikon dok.
+                                                        
+                                                        ### `app.dock.isVisible()` *macOS*
+                                                        
+                                                        Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+                                                        
+                                                        ### `app.dock.setMenu(menu)` *macOS*
+                                                        
+                                                        * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
 </ul>
 
 <p>Mengatur aplikasi <a href="https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103"> dock menu </ 0>.</p>
