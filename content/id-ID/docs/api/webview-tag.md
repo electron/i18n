@@ -305,7 +305,7 @@ Returns `String` - The user agent for guest page.
 
 Injects CSS into the guest page.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript (code, userGesture, callback)`
 
 * ` kode </ 0> String</li>
 <li><code>userGesture` Boolean - Default `false`.
@@ -328,7 +328,7 @@ Returns `Boolean` - Whether guest page has a DevTools window attached.
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Whether DevTools window of guest page is focused.
+Returns `Boolean` - Whether DevTools window of guest page is dedicated.
 
 ### `<webview>.inspectElement(x, y)`
 
