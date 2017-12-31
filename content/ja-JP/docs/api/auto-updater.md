@@ -1,6 +1,6 @@
 # autoUpdater
 
-> アプリを自動的に更新することができます。
+> アプリを自動的に更新させられます。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -13,7 +13,7 @@
 * [リスの更新サーバー](https://github.com/Aluxian/squirrel-updates-server): *Squirrel.Mac と Squirrel.Windows GitHub のリリースを使用しての簡単な node.js サーバー*
 * [リス リリース サーバー](https://github.com/Arcath/squirrel-release-server): 1 A フォルダーから更新プログラムを読み取り、Squirrel.Windows の単純な PHP アプリケーション。 デルタ更新プログラムをサポートしています</em>。
 
-## プラットフォーム通知
+## プラットフォームごとの通知
 
 `自動アップデーター` は、異なるプラットフォームの統一 API を提供しています、上はまだいくつかの微妙な違い各プラットフォームです。
 
