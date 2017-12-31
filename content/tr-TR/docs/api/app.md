@@ -105,28 +105,28 @@ Dönüşler:
 
 * `olay` Olay
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `userInfo` Object - Etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı geliştirici Ekip ID'si olan ve etkinliğin türünü destekleyen bir uygulamada devam edilebilir. Desteklenen etkinlik türleri, uygulamanın `Info.plist` öğesinde `NSUserActivityTypes` anahtarının altında belirtilir.
 
-### Event: 'new-window-for-tab' *macOS*
+### Olay: 'new-window-for-tab' *macOS*
 
 Dönüşler:
 
 * `olay` Olay
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Kullanıcı yerel macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin bir `tabbingIdentifier`'ı varsa görünür olur
 
-### Event: 'browser-window-blur'
+### Olay: 'browser-window-blur'
 
 Dönüşler:
 
 * `olay` Olay
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
 ### olay: 'tarayıcı-pencere-odak'
 
@@ -135,7 +135,7 @@ Dönüşler:
 * `olay` Olay
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 
 ### Event: 'browser-window-created'
 
@@ -144,7 +144,7 @@ Dönüşler:
 * `olay` Olay
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
 ### Event: 'web-contents-created'
 
