@@ -1,5 +1,5 @@
-# UploadData Object
+# Veri Nesnesini Karşıya Yükle
 
-* `bytes` Buffer - Content being sent.
-* `file` String - Path of file being uploaded.
-* `blobUUID` String - UUID of blob data. Use [ses.getBlobData](../session.md#sesgetblobdataidentifier-callback) method to retrieve the data.
+* `bitler` Tampon - Gönderilen içerik.
+* `dosya` Dizi - Karşıya yüklenen dosya yolu.
+* `blobUUID` Dizi - UUID blob verisi. [ses.getBlobData](../session.md#sesgetblobdataidentifier-callback) kullanarak veriyi geri getir.
