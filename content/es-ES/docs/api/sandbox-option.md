@@ -126,11 +126,11 @@ Se pueden agregar más si se necesitan para exponer más APIs de Electron en la 
 
 ## Estado
 
-Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. Todavía no estamos seguros de las implicaciones de seguridad de exponer algunos renderizadores API de Electron a un script precargado, pero aquí hay algunas cosas a considerar antes de renderizar contenido no confiable:
 
-- A preload script can accidentaly leak privileged APIs to untrusted code.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
+- Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
+- Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+Dado que renderizar contenido no confiable en Electron es un territorio inexplorado, las APIs expuestas a los script de la caja de arena precargada deben ser considerados más inestables que el resto de las APIs de Electron, y debe tener cambios radicales para arreglar los problemas de seguridad.
 
 One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
