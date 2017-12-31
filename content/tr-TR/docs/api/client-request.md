@@ -1,6 +1,6 @@
-## Class: ClientRequest
+## Sınıf: Webİsteği
 
-> Make HTTP/HTTPS requests.
+> HTTP/HTTPS isteklerini yap.
 
 Süreç: [Ana](../glossary.md#main-process)
 
