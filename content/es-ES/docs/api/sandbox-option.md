@@ -99,11 +99,11 @@ window.open = customWindowOpen
 
 Cosas importantes que notar en el script precargado:
 
-- Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
+- A pesar de que el renderizador en la caja de arena no tiene un node.js corriendo, todavía tiene acceso a un ambiente limitado parecido a uno nodal: `Buffer`, `process`, `setImmediate` y `require` están disponibles.
+- El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`. Así es como `fs` (usado arriba) y otros módulos son implementados: Son proxies de las contrapartes remotas en el proceso principal.
+- El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. De hecho, browserify ya está siendo usada por Electron para proveer un ambiente parecido al nodal para el script precargado.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 
     browserify preload/index.js \
       -x electron \
@@ -111,7 +111,7 @@ To create a browserify bundle and use it as a preload script, something like the
       --insert-global-vars=__filename,__dirname -o preload.js
     
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expuesto en un ambiente precargado, y le dice a browserify que use la función que la encierra `require` para ello. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
 
 Currently the `require` function provided in the preload scope exposes the following modules:
 
