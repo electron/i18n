@@ -11,12 +11,12 @@ nav:
   code_of_conduct: Kode etik
 docs:
   title: Dokumentasi Elektron
-  description: Lihat semua <a href="/docs/all"> dokumen pada satu laman </a> atau lihat <a href="/docs/faq"> FAQ </a>.
+  description: Lihat semua <a href="/dokumen/semua"> dokumen pada satu laman </a> atau lihat <a href="/dokumen/format"> FORMAT </a>.
   guides: Panduan
   api_reference: Referensi API
-  advanced: Maju
+  advanced: Peningkatan
   footer:
-    propose_change: Meningkatkan doc ini
+    propose_change: Meningkatkan sebuah dokumen
     version_history: Riwayat Versi
     translate: Terjamahkan Aplikasi ini
     view_all_docs: Semua dokumen pada satu halaman
