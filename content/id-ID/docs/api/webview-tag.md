@@ -178,10 +178,7 @@ const {webContents} = require('electron')
 // We assume that `win` points to a `BrowserWindow` instance containing a
 // `<webview>` with `disableguestresize`.
 
-win.on('resize', () => {
-  const [width, height] = win.getContentSize()
-  for (let wc of webContents.getAllWebContents()) {
-    // Check if `wc` belongs to a webview in the `win` window.
+win.on ('resize', () = > {const [width, height] = win.getContentSize () for (let wc of webContents.getAllWebContents ()) {// Check if `wc` belongs to a webview in the `win` window.
     if (wc.hostWebContents &&
         wc.hostWebContents.id === win.webContents.id) {
       wc.setSize({
@@ -252,7 +249,7 @@ Muat ulang laman tamu dan mengabaikan cache.
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+Returns `Boolean ` - Whether the guest page can go back.
 
 ### `<webview>.canGoForward()`
 
@@ -315,9 +312,9 @@ Injects CSS into the guest page.
 * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
   * `hasil` Ada
 
-Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
 
-### `<webview>.openDevTools()`
+### `<webview>.openDevTools ()`
 
 Membuka jendela DevTools untuk halaman tamu.
 
