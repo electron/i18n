@@ -929,7 +929,7 @@ win.loadURL(url)
                           
                           * ` kemajuan ` Double
                           * `pilihan` Objek (opsional) 
-                            * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+                            * `mode` String *Windows* - Mode untuk progress bar. Bisa `tidak ada`, `normal`, `tak tentu`, `kesalahan`, atau `dijeda`.
                           
                           Menetapkan nilai kemajuan di bilah kemajuan. Kisaran valid adalah [0, 1.0].
                           
@@ -937,30 +937,30 @@ win.loadURL(url)
                           
                           Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` *.desktop ` ke ` desktopName ` di ` package.json `. Secara default, ini akan mengasumsikan ` app.getName (). Desktop </ 0> .</p>
 
-<p>Pada Windows , mode bisa dilewati. Accepted values are <code>none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+<p>Pada Windows , mode bisa dilewati. Nilai yang diterima adalah <code>none`, `normal`, `tak tentu`, `kesalahan`, dan `dijeda`. Jika Anda memanggil `setProgressBar` tanpa a mode set (tapi dengan nilai dalam kisaran yang valid), `normal` akan diasumsikan.
                           
-                          #### `win.setOverlayIcon(overlay, description)` *Windows*
+                          #### `win.setOverlayIcon (overlay, deskripsi)` *Windows*
                           
-                          * `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-                          * `description` String - a description that will be provided to Accessibility screen readers
+                          * `overlay` [NativeImage](native-image.md) - ikon untuk ditampilkan di bagian bawah sudut kanan ikon taskbar. Jika parameter ini `null`, hamparannya dibersihkan
+                          * `deskripsi` String - deskripsi yang akan diberikan pada Aksesibilitas pembaca layar
                           
-                          Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+                          Mengatur 16 x 16 piksel overlay ke ikon taskbar saat ini, biasanya digunakan untuk sampaikan semacam status aplikasi atau secara pasif memberitahukan pengguna.
                           
-                          #### `win.setHasShadow(hasShadow)` *macOS*
+                          #### `win.setHasShadow (hasShadow)` *macos*
                           
                           * `hasShadow` Boolean
                           
                           Menetapkan apakah jendela harus memiliki bayangan. Pada Windows dan Linux tidak melakukan apapun.
                           
-                          #### `win.hasShadow()` *macOS*
+                          #### `win.hasShadow()` *macos *
                           
-                          Returns `Boolean` - Whether the window has a shadow.
+                          Mengembalikan `Boolean` - Apakah jendela memiliki bayangan.
                           
-                          On Windows and Linux always returns `true`.
+                          Pada Windows dan Linux selalu kembali `benar`.
                           
-                          #### `win.setThumbarButtons(buttons)` *Windows*
+                          #### `win.setThumbarButtons (tombol)` *Windows*
                           
-                          * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
+                          * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
                           
                           Returns `Boolean` - Whether the buttons were added successfully
                           
