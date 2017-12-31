@@ -705,10 +705,7 @@ diklik atau saat event hash <code>hashchange` dipicu.</p>
       The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
       
       ```javascript
-const webview = document.querySelector('webview')
-webview.addEventListener('close', () => {
-  webview.src = 'about:blank'
-})
+const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
 ```
   
   ### Event: 'ipc-message'
@@ -718,26 +715,16 @@ webview.addEventListener('close', () => {
   * ` saluran </ 0>  String</li>
 <li><code>args` Array
   
-  Fired when the guest page has sent an asynchronous message to embedder page.
+  Fired when the guest page has sent an asynchronous message to the embedder page.
   
   With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
   
   ```javascript
-// In embedder page.
-const webview = document.querySelector('webview')
-webview.addEventListener('ipc-message', (event) => {
-  console.log(event.channel)
-  // Prints "pong"
-})
-webview.send('ping')
+// In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
 ```
 
 ```javascript
-// In guest page.
-const {ipcRenderer} = require('electron')
-ipcRenderer.on('ping', () => {
-  ipcRenderer.sendToHost('pong')
-})
+// In guest page. const {ipcRenderer} = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
 ```
 
 ### Event: 'jatuh'
