@@ -1,13 +1,13 @@
-# Debugging the Main Process in VSCode
+# VSCode da ki Ana Sürecin Hata Ayıklaması
 
-### 1. Open an Electron project in VSCode.
+### VSCode içinde bir Electron projesi aç.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### Takip edilen ayarları uygulayarak `.vscode/launch.json` bir dosya ekle:
 
 ```json
 {
