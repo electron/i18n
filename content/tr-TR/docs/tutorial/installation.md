@@ -40,16 +40,16 @@ Bir vekil sunucu kullanmaya ihtiyacınız varsa [ bu çevre değişkenleri ayarl
 
 `npm yükle electron` bazen çalıştırılırken bazı kullanıcılar hatayla karşılaşmaktadırlar.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Genelde bütün durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi ile ilişkili olmayan hatalar sonucudur. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ve `ETIMEDOUT` gibi hatalar, ağ bağıntı hatalarının belirtisidir. Ağ ayarlarını değiştirmek ya da biraz bekleyip tekrar kurmayı denemek en iyi çözümdür.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Eğer `npm` ile yükleme başarısız oluyorsa, Electron'u doğrudan [electron/electron/releases](https://github.com/electron/electron/releases) ' den indirebilirsiniz.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Yükleme `EACCESS` ile başarısız oluyorsa [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions) gerekebilir.
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Üstteki devam ediyorsa, [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) bayrağının Doğru olarak ayarlanması gerekebilir:
 
 ```sh
-sudo npm install electron --unsafe-perm=true
+sudo npm install electron --unsafe-perm= doğru
 ```
 
 On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
