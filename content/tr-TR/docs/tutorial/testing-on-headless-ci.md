@@ -1,12 +1,12 @@
 # Testing on Headless CI Systems (Travis CI, Jenkins)
 
-Chronium'a dayanan Electron'un, çalışması için bir ekran sürücüsü gerekir. If Chromium can't find a display driver, Electron will simply fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+Chronium'a dayanan Electron'un, çalışması için bir ekran sürücüsü gerekir. Chromium bir ekran sürücüsü bulamazsa, Electron'un çalıştırılması başarısız olur - ve bu nedenle testlerinizi nasıl çalıştırdığınıza bakılmaksızın herhangi bir testi çalıştırmaz. Travis, Circle, Jenkins veya benzeri sistemlerdeki Elektron tabanlı uygulamaların test edilmesi bu nedenle biraz yapılandırma gerektirir. Özünde, bir sanal ekran sürücüsü kullanmamız gerekir.
 
 ## Sanal Ekran Sunucusunu Yapılandırma
 
 Önce  Xvfb'yi </ 0> yükleyin. X11, ekran sunucusu protokolünü uygulayan sanal çerçeve tampon belleğidir - ekran görüntüsü göstermeden bellekteki tüm grafik işlemleri gerçekleştirir; tam da ihtiyacımız olan şey budur.</p> 
 
-Ardından, bir sanal xvfb ekranı oluşturun ve ona işaret eden DISPLAY adlı bir çevre değişkenini verin. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will simply do nothing.
+Ardından, bir sanal xvfb ekranı oluşturun ve ona işaret eden DISPLAY adlı bir çevre değişkenini verin. Electron'da Chromium otomatik olarak `$DISPLAY` arar, bu nedenle uygulamanıza başka bir yapılandırma gerekli değildir. Bu adım, Paul Betts'in [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe)'si ile otomatik hale getirilebilir: Test komutlarınızı `xvfb-maybe` ile birlikte ekleyin ve küçük araç, mevcut sistem tarafından isteniyorsa, xvfb'yi otomatik olarak yapılandıracaktır. Windows veya macOS'ta, hiçbir şey yapmaz.
 
 ```sh
 ## On Windows or macOS, this just invokes electron-mocha
