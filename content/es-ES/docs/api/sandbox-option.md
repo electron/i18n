@@ -133,4 +133,4 @@ Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una 
 
 Dado que renderizar contenido no confiable en Electron es un territorio inexplorado, las APIs expuestas a los script de la caja de arena precargada deben ser considerados más inestables que el resto de las APIs de Electron, y debe tener cambios radicales para arreglar los problemas de seguridad.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Una mejora planificada que debería incrementar mucho la seguridad es bloquear los mensajes IPC de los renderizadores de la caja de arena por defecto, permitiendo al proceso principal definir un grupo de mensajes que el renderizador está autorizado para enviar.
