@@ -855,7 +855,7 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
 
 <h4><code>contents.openDevTools([options])`</h4> 
     * `pilihan` Objek (opsional) 
-      * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Defaults to last used dock state. Pada mode `undocked`, mungkin untuk kembali ke dermaga. In `detach` mode it's not.
     
     Opens the devtools.
     
@@ -884,16 +884,16 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     
     #### `contents.inspectServiceWorker()`
     
-    Opens the developer tools for the service worker context.
+    Membuka alat pengembang untuk konteks pekerja layanan.
     
-    #### `contents.send(channel[, arg1][, arg2][, ...])`
+    #### `contents.send (saluran [, arg1][, arg2][, ...])`
     
     * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
-      The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+      Proses renderer dapat menangani pesan dengan mendengarkan `channel` dengan modul `ipcRenderer`.
       
       Contoh pengiriman pesan dari proses utama ke proses renderer:
       
