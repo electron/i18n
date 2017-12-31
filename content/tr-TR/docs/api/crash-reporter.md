@@ -44,7 +44,7 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 
 **Not:** Çocuk süreçlerden çökme raporlarını toplamak için, bu ek kodu da eklemelisiniz. Bu çökmeleri dinleyen ve yollayan süreci başlatır. `submitURL`'i, `productName` ve `crashesDirectory`'i uygun değerlerle değiştirin.
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `setExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Not:** İlk çağrı `başlatma` sonrasında ek/güncellenmiş `ekstra` parametrelerini göndermeniz gerekiyorsa, macOS'ta `setExtraParameter`'i çağırabilirsiniz veya Linux ve Windows'ta yeni/güncellenmiş `ekstra` parametreleriyle tekrar `Başlat`'ı çağırın.
 
 ```js
  const args = [
