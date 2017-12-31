@@ -954,9 +954,9 @@ Mengirim masukan `event` ke halaman. **Catatan:** `BrowserWindow` yang berisi ko
 
 Untuk acara keyboard, objek `event` juga memiliki properti berikut:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` String (**required**) - Karakter yang akan dikirim sebagai acara keyboard. Sebaiknya gunakan kode kunci yang valid di [Accelerator](accelerator.md).
 
-For mouse events, the `event` object also have following properties:
+Untuk acara mouse, objek `event` juga memiliki properti berikut:
 
 * `x` Integer (**required**)
 * `y` Integer (**required**)
@@ -967,7 +967,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-For the `mouseWheel` event, the `event` object also have following properties:
+Untuk event `mouseWheel`, objek `event` juga memiliki properti berikut:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -979,16 +979,16 @@ For the `mouseWheel` event, the `event` object also have following properties:
 * `canScroll` Boolean
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (opsional) - Default ke `false`
 * `callback` Fungsi 
   * `frameBuffer` Buffer
   * `dirtyRect` [Persegi panjang](structures/rectangle.md)
 
 Mulailah berlangganan untuk acara presentasi dan bingkai yang diambil, `callback` akan dipanggil dengan `callback(frameBuffer, dirtyRect)` bila ada acara presentasi.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. Pada kebanyakan mesin, data pixel secara efektif disimpan dalam format BGRA 32bit, namun sebenarnya Representasi tergantung pada endianitas prosesor (paling modern Prosesornya sedikit-endian, pada mesin dengan prosesor big-endian data ada dalam format ARGB 32bit).
+`frameBuffer` adalah `Buffer` yang berisi data piksel mentah. Pada kebanyakan mesin, data pixel secara efektif disimpan dalam format BGRA 32bit, namun sebenarnya Representasi tergantung pada endianitas prosesor (paling modern Prosesornya sedikit-endian, pada mesin dengan prosesor big-endian data ada dalam format ARGB 32bit).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. Jika `onlyDirty` diatur ke `true`, `frameBuffer` akan hanya berisi daerah repainted. `onlyDirty` default ke `false`.
+`dirtyRect` adalah objek dengan properti `x, y, width, height` yang menggambarkan bagian mana dari halaman yang dicat ulang. Jika `onlyDirty` diatur ke `true`, `frameBuffer` akan hanya berisi daerah repainted. `onlyDirty` default ke `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1000,7 +1000,7 @@ Akhiri berlangganan untuk presentasi peristiwa.
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
@@ -1014,18 +1014,9 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 </ul></li>
 </ul>
 
-<p>Returns <code>Boolean` - true if the process of saving page has been initiated successfully.</p> 
+<p>Mengembalikan <code>Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.</p> 
     ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-
-win.loadURL('https://github.com')
-
-win.webContents.on('did-finish-load', () => {
-  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
-  })
-})
+const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
 ```
 
 #### `contents.showDefinitionForSelection()` *macOS*
