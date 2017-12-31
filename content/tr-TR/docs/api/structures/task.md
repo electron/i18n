@@ -1,7 +1,7 @@
-# Task Object
+# Görev Objesi
 
-* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
-* `arguments` String - The command line arguments when `program` is executed.
+* `program` Dizi - Yürütülecek programın yolunu `process.execPath` mevcut programı açan yolu seçmelisiniz.
+* `argümanlar` Dizi - Yorum satırı argümanları `program` çalıştığında açılır.
 * `title` String - The string to be displayed in a JumpList.
 * `description` String - Description of this task.
 * `iconPath` String - The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. You can usually specify `process.execPath` to show the icon of the program.
