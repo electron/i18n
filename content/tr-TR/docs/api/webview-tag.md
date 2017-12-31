@@ -531,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 * `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
@@ -668,7 +668,7 @@ console.log(requestId)
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
@@ -693,7 +693,7 @@ webview.addEventListener('new-window', (e) => {
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
@@ -707,7 +707,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Bir gezinme yapıldığında ortaya çıkar.
 
@@ -718,7 +718,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 Dönüşler:
 
 * `isMainFrame` Boolean
-* `url` String
+* `url` Dize
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
@@ -811,7 +811,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
