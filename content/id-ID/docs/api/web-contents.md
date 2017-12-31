@@ -1,10 +1,10 @@
 # webContents
 
-> Render dan kontrol halaman web.
+> Render and control web pages.
 
-Proses: [utama](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-`webContents` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ini bertanggung jawab untuk render dan mengendalikan halaman web dan properti objek [`BrowserWindow`](browser-window.md). Contoh untuk mengakses objek `webContents`:
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
 ```javascript
 const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow({width: 800, height: 1500}) win.loadURL ('http://github.com') Biarkan isi baru = win.webContents console.log(contents)
@@ -1063,7 +1063,7 @@ Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
       
       * `fps` Integer
       
-      Jika *offscreen rendering* diaktifkan, setel frame rate ke nomor yang ditentukan. Hanya nilai antara 1 dan 60 yang diterima.
+      If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
       
       #### `contents.getFrameRate()`
       
