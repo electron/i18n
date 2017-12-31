@@ -52,7 +52,7 @@ benefits:
   automatic_updates: Pembaruan otomatis
   native_menus_and_notifications: Menu asli dan pemberitahuan
   crash_reporting: Laporan Masalah
-  debugging_and_profiling: Debugging & profil
+  debugging_and_profiling: Debugging dan profil
   windows_installers: Windows Installer
 get_started:
   title: Memulai
@@ -70,7 +70,7 @@ quick_start:
   install_deps: Install dependensi dan jalankan
   dive_deeper: Atau menyelam lebih dalam dan membaca <a href='/docs'> dokumentasi</a>.
 need_help:
-  title: Perlu Bantuan?
+  title: Perlu bantuan?
   description: 'Ajukan pertanyaan di forum <a href=''https://discuss.atom.io/c/electron''> Diskusikan </a> atau <a href = ''http: //atom-slack.herokuapp.com/'' kami > Slack </a> saluran. Ikuti <a href="https://twitter.com/electronjs"> @electronjs </a> di Twitter untuk pengumuman penting. Perlu untuk secara pribadi menjangkau? Email <a href="mailto:electron@github.com"> electron@github.com </a>.'
 headings:
   languages: bahasa
