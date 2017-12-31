@@ -1002,13 +1002,13 @@ Akhiri berlangganan untuk presentasi peristiwa.
 
 Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage (fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
+* `fullPath` String - Jalur file lengkap.
 * `saveType` String - Specify the save type. 
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
+  * `HTMLOnly` - Simpan hanya HTML halaman.
+  * `HTMLComplete` - Simpan halaman lengkap-html.
+  * `MHTML` - Simpan halaman lengkap-html sebagai MHTML.
 * `callback` Function - `(error) => {}`. 
   * ` error </ 0> Kesalahan</li>
 </ul></li>
@@ -1019,7 +1019,7 @@ Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file
 const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` *macos*
 
 Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
 
@@ -1058,7 +1058,7 @@ Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
       
       #### `contents.getFrameRate()`
       
-      Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+      Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
       
       #### `contents.invalidate()`
       
@@ -1068,27 +1068,27 @@ Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
       
       #### `contents.getWebRTCIPHandlingPolicy()`
       
-      Returns `String` - Returns the WebRTC IP Handling Policy.
+      Mengembalikan `String` - Mengembalikan Kebijakan Penanganan IP WebRTC.
       
       #### `contents.setWebRTCIPHandlingPolicy(policy)`
       
       * `policy` String - Specify the WebRTC IP Handling Policy. 
         * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
         * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
-        * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
-        * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+        * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
+        * `disable_non_proxied_udp` - Tidak mengekspos IP publik atau lokal. Saat kebijakan ini digunakan, WebRTC hanya boleh menggunakan TCP untuk menghubungi teman sebaya atau server kecuali jika server proxy mendukung UDP.
       
       Menetapkan kebijakan penanganan IP WebRTC memungkinkan Anda mengendalikan IP mana saja terpapar melalui WebRTC. Lihat [BrowserLeaks](https://browserleaks.com/webrtc) untuk keterangan lebih lanjut.
       
       #### `contents.getOSProcessId()`
       
-      Returns `Integer` - The `pid` of the associated renderer process.
+      Mengembalikan `Integer` - `pid` dari proses renderer yang terkait.
       
       ### Instance Properties
       
       #### `contents.id`
       
-      A `Integer` representing the unique ID of this WebContents.
+      A `Integer` mewakili ID unik dari Konten Web ini.
       
       #### `contents.session`
       
