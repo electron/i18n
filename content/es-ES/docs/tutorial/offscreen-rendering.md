@@ -2,15 +2,15 @@
 
 La representación fuera de pantalla le permite obtener el contenido de una ventana del navegador en un mapa de bits, por lo que se puede representar en cualquier lugar, por ejemplo, en una textura en una escena 3D. La representación fuera de pantalla en Electron utiliza un enfoque similar al del proyecto [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Se pueden usar dos modos de renderizado y solo se pasa el área sucia en el evento `"pintar"` para que sea más eficiente. La renderización se puede detener, continuar y se puede establecer la velocidad de cuadros. La velocidad de fotogramas especificada es un valor límite superior, cuando no ocurre nada en una página web, no se generan marcos. La velocidad máxima de cuadros es 60, porque por encima de eso no hay beneficio, solo pérdida de rendimiento.
+Se pueden usar dos modos de representación y solo se pasa el área sucia en el evento `"pintar"` para que sea más eficiente. La representación se puede detener, continuar y se puede establecer la velocidad de cuadros. La velocidad de fotogramas especificada es un valor límite superior, cuando no ocurre nada en una página web, no se generan marcos. La velocidad máxima de cuadros es 60, porque por encima de eso no hay beneficio, solo pérdida de rendimiento.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Nota:** siempre se crea una ventana fuera de pantalla como [Frameless Window](../api/frameless-window.md).
 
-## Two modes of rendering
+## Dos modos de representación
 
-### GPU accelerated
+### GPU acelerado
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+La representación acelerada de GPU significa que la GPU se usa para la composición. Debido a eso, el cuadro debe copiarse de la GPU, que requiere más rendimiento, por lo que este modo es bastante más lento que el otro. El beneficio de este modo es que las animaciones WebGL y 3D CSS son compatibles.
 
 ### Software output device
 
