@@ -2,25 +2,25 @@
 
 > Electron'u yüklemek için ipuçları
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Önceden yapılandırılmış Electron ikilileri, kullan [`npm`](https://docs.npmjs.com/). Tercih edilen Electronu geliştirme özgürlüğüyle sizin için kurmaktır:
 
 ```sh
-npm install electron --save-dev
+npm yükle electron --kaydet-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Electron versiyon dökümanını [Gör](electron-versioning.md) Electron versiyonlarını nasıl yöneteceğinizin bilgisi uygulamanızda.
 
 ## Genel kurulum
 
-You can also install the `electron` command globally in your `$PATH`:
+`electron` komutunu genel `$PATH` 'nıza da yükleyebilirsiniz:
 
 ```sh
-npm install electron -g
+npm yükle electron -g
 ```
 
 ## Özelleştirme
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Eğer bu makinedeki yüklenen mimariyi değiştirmek istiyorsanız (örneğin. `ia32` bir `x64` makinede), `--arch` kullanabilirsin npm yükle ile birlikte ayarla `npm_ayar_arch` çevre değeri ile:
 
 ```shell
 npm install --arch=ia32 electron
