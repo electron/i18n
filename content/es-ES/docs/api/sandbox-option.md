@@ -54,9 +54,9 @@ No es posible tener el OS caja de arena activo solo por algunos renderizadores, 
 
 Si usted necesita mezclar renderizadores dentro y fuera de la caja de arena en una aplicación simplemente omita el argumento `--enable-sandbox`. Sin este argumento, ventanas creadas con `sandbox: true` todavía tendrán deshabilitado node.js y podrán comunicarse solo via IPC, que ya es una ganancia de seguridad POV en si misma.
 
-## Preload
+## Precargado
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Una aplicación puede hacer personalizaciones a los renderizadores de las cajas de arena usando un script precargado. Aquí hay un ejemplo:
 
 ```js
 let win
