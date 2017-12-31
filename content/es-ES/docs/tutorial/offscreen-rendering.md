@@ -14,11 +14,11 @@ La representación acelerada de GPU significa que la GPU se usa para la composic
 
 ### Dispositivo de salida de software
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Este modo utiliza un dispositivo de salida de software para la representación en la CPU, por lo que la generación de cuadros es mucho más rápida, por lo tanto, este modo es preferible a la GPU acelerada.
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Para habilitar este modo, la aceleración de la GPU debe desactivarse llamando la API [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration).
 
-## Usage
+## Uso
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
