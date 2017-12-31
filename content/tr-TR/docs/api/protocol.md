@@ -155,7 +155,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+`callback`, `url` olan bir `redirectRequest` nesnesi ile çağrılması dışında, `registerFileProtocol` ile kullanımı aynıdır. `method`, url ` referrer `, `uploadData` ve `session` özelliklerine sahiptir.
 
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
