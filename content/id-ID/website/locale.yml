@@ -114,7 +114,7 @@ pages:
     title: Tutorial
     description: Panduan dan tutorial untuk rilis Elektron terbaru
   '/blog':
-    title: Blog elektron
+    title: Halaman elektron
     description: Semua berita terbaru dari tim dan komunitas Elektron.
   '/community':
     title: Komunitas
