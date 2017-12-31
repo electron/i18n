@@ -71,16 +71,16 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+y preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// Este archivo se carga cada vez que se crea un contexto de javascript. Corre en un
+// enlace privado que puede acceder al a la selección de renderizadores APIs de Electron. Debemos ser
+// cuidadosos de no dejar salir ningún objeto en el ámbito global!
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
-// read a configuration file using the `fs` module
+// Lea un archivo de configuración usando el módulo "fs"
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -97,7 +97,7 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Cosas importantes que notar en el script precargado:
 
 - Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
