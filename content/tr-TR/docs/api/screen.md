@@ -1,6 +1,6 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
