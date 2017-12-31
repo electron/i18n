@@ -7,6 +7,6 @@
 * `subject` [CertificatePrincipal](certificate-principal.md) - Konu başlığı
 * `subjectName` String - Konunun Ortak Adı
 * `serialNumber` String - Hex value represented string
-* `validStart` Number - Geçerli olan sertifikanın başlangıç tarihi
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `validStart` Number - Geçerli olan sertifikanın başlangıç tarihi( saniye olarak)
+* `validExpiry` Number - Geçerli olan sertifikanın bitiş tarihi(saniye olarak)
+* `fingerprint` String - Sertifkanın parmak izi
