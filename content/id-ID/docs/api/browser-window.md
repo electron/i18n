@@ -845,26 +845,26 @@ win.setSheetOffset(toolbarRect.height)
 
 <p>Lepaskan semua pesan di jendela.</p>
 
-<h4><code>win.setRepresentedFilename(filename)` *macOS*
+<h4><code>win.setRepresentedFilename (filename)` *macos*
                     
                     * `filename` String
                     
                     Menetapkan nama path dari file yang diwakili jendela, dan ikon file akan muncul di bilah judul jendela.
                     
-                    #### `win.getRepresentedFilename()` *macOS*
+                    #### `win.getRepresentedFilename()` *macos*
                     
                     Mengembalikan ` String ` - Pathname dari file yang diwakili jendela.
                     
-                    #### `win.setDocumentEdited(edited)` *macOS*
+                    #### `win.setDocumentEdited(diedit)` *macos*
                     
                     * ` diedit </ 0> Boolean</li>
 </ul>
 
 <p>Specifies whether the window’s document has been edited, and the icon in title
 bar will become gray when set to <code>true`.</p> 
-                      #### `win.isDocumentEdited()` *macOS*
+                      #### `win.isDocumentEdited()` *macos*
                       
-                      Returns `Boolean` - Whether the window's document has been edited.
+                      Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
                       
                       #### `win.focusOnWebView ()`
                       
@@ -878,7 +878,7 @@ bar will become gray when set to <code>true`.</p>
 </ul></li>
 </ul>
 
-<p>Same as <code>webContents.capturePage([rect, ]callback)`.</p> 
+<p>Sama seperti <code>webContents.capturePage ([rect,]callback)`.</p> 
                           #### `win.loadURL (url [, options])`
                           
                           * ` url </ 0>  String</li>
@@ -891,15 +891,15 @@ bar will become gray when set to <code>true`.</p>
                           
                           Sama seperti ` webContents.loadURL (url [, options]) `.
                           
-                          The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+                          `url` dapat berupa alamat jauh (misalnya `http://`) atau jalur ke lokal File HTML menggunakan protokol `file://`.
                           
                           Untuk memastikan bahwa file URL diformat, dianjurkan untuk menggunakan Node ini ` url.format </ 0> 
 Metode:</p>
 
-<pre><code class="javascript">let url = require('url').format({
-  protocol: 'file',
-  slashes: true,
-  pathname: require('path').join(__dirname, 'index.html')
+<pre><code class="javascript">biarkan url = require('url').format({
+  protokol: 'file',
+  garis miring: benar,
+  pathname: require ('path'). join(__ dirname, 'index.html')
 })
 
 win.loadURL(url)
@@ -921,7 +921,7 @@ win.loadURL(url)
 
 <h4><code>win.setMenu(menu)` *Linux* *Windows*</h4> 
                           
-                          * `menu` Menu | null
+                          * `menu` Menu | batal
                           
                           Menetapkan ` menu ` bar menu jendela, pengaturan untuk ` nol ` akan menghapus menu bar.
                           
