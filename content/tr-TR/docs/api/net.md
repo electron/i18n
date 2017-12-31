@@ -1,6 +1,6 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Chromium'un yerel ağ kütüphanesini kullanarak HTTP/HTTPS isteklerini yayınla
 
 Süreç: [Ana](../glossary.md#main-process)
 
