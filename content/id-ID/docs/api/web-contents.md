@@ -801,7 +801,7 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     
     Mencetak halaman web jendela. Bila `diam` diatur ke `true`, Elektron akan memilih printer default sistem jika `deviceName` kosong dan pengaturan default untuk dicetak.
     
-    Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+    Memanggil `window.print()` di halaman web sama dengan memanggil `webContents.print ({silent: false, printBackground: false, deviceName: ''})`.
     
     Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
     
