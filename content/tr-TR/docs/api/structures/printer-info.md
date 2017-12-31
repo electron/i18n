@@ -7,7 +7,7 @@
 
 ## Örnek
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Aşağıda belirtilen ek seçeneklerden bazılarına örnek verilmiştir: her platformda farklı olabilir.
 
 ```javascript
 {
@@ -38,5 +38,4 @@ Below is an example of some of the additional options that may be set which may 
     'printer-uri-supported': 'ipp://localhost/printers/Zebra_LP2844',
     system_driverinfo: 'Z'
   }
-}
 ```
