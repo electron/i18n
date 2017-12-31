@@ -75,20 +75,20 @@ Dönüşler:
 
 Kullanıcı uygulama ile bir dosya açmak istediğinde ortaya çıkar. `open-file` olayı genellikle uygulama zaten açık olduğunda ve OS dosyayı açmak için uygulamayı tekrar kullanmak istediğinde yayınlanır. Dock'a bir dosya düştüğünde ve uygulama henüz çalışmadığında da `open-file` yayınlanır. Bu olayı işlemek için (`hazır` olayı yayından önce bile olsa), uygulamanın başlangıç ​​işleminin çok erken bir aşamasında `açık dosya` olayını dinlediğinizden emin olun.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+Windows'ta, dosya yolunu almak için (ana süreçte) `process.argv` ayrıştırmanız gerekir.
 
-### Event: 'open-url' *macOS*
+### Olay: 'open-url' *macOS*
 
 Dönüşler:
 
 * `olay` Olay
-* `url` String
+* `url` Dize
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
 ### Event: 'activate' *macOS*
 
@@ -161,7 +161,7 @@ Dönüşler:
 
 * `olay` Olay
 * `webContents` [WebContents](web-contents.md)
-* `url` String
+* `url` Dize
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
