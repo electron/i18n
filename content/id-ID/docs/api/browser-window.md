@@ -962,16 +962,16 @@ win.loadURL(url)
                           
                           * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
                           
-                          Returns `Boolean` - Whether the buttons were added successfully
+                          Mengembalikan `Boolean` - Apakah tombol berhasil ditambahkan
                           
-                          Tambahkan toolbar thumbnail dengan serangkaian tombol yang ditentukan ke gambar thumbnail sebuah jendela di tata letak tombol taskbar. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+                          Tambahkan toolbar thumbnail dengan serangkaian tombol yang ditentukan ke gambar thumbnail sebuah jendela di tata letak tombol taskbar. Mengembalikan objek `Boolean` apakah thumbnail telah berhasil ditambahkan.
                           
                           Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena terbatasnya ruang. Setelah Anda menyiapkan toolbar thumbnail, toolbar tidak dapat dihapus karena keterbatasan platform. Tapi Anda bisa memanggil API dengan array kosong untuk membersihkan tombol.
                           
-                          The `buttons` is an array of `Button` objects:
+                          `Tombol` adalah array dari objek `Button`:
                           
-                          * `Button` Obyek 
-                            * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+                          * `Tombol` Obyek 
+                            * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
                             * ` klik </ 0> Fungsi</li>
 <li><code> tooltip </ 0>  String (opsional) - Teks tooltip tombol.</li>
 <li><code> flag </ 0>  String [] (opsional) - Mengontrol keadaan dan perilaku tombol tertentu. Secara default, itu adalah <code> ['enabled'] </ 0> .</li>
@@ -989,8 +989,8 @@ win.loadURL(url)
 <li><code> noninteraktif </ 0> - Tombol diaktifkan tapi tidak interaktif; tidak ada tombol tekan yang ditarik. Nilai ini ditujukan untuk contoh di mana tombol digunakan dalam pemberitahuan.</li>
 </ul>
 
-<h4><code>win.setThumbnailClip(region)` *Windows*</h4> 
-                              * `region` [Rectangle](structures/rectangle.md) - Region of the window
+<h4><code>win.setThumbnailClip (wilayah)` *Windows*</h4> 
+                              * `wilayah` [Rectangle](structures/rectangle.md) - Wilayah jendela
                               
                               Mengatur area jendela untuk ditampilkan saat gambar thumbnail ditampilkan saat melayang di atas jendela di taskbar. Anda dapat menyetel thumbnail untuk seluruh jendela dengan menentukan daerah kosong: `{x: 0, y: 0, lebar: 0, tinggi: 0}`.
                               
@@ -1115,7 +1115,7 @@ win.loadURL(url)
                                   
                                   **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
                                   
-                                  #### `win.setBrowserView(browserView)` *Experimental*
+                                  #### `win.setBrowserView (browserView)` *Eksperimental*
                                   
                                   * `browserView` [BrowserView](browser-view.md)
                                   
