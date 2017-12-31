@@ -1,8 +1,8 @@
-# Notifications (Windows, Linux, macOS)
+# Notificaciones (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Los tres sistemas operativos proporcionan medios para que las aplicaciones envíen notificaciones al usuario. Electron permite convenientemente a los desarrolladores enviar notificaciones con la [API de Notificaciones de HTML5](https://notifications.spec.whatwg.org/), utilizando las API de notificaciones nativas del sistema operativo que se están ejecutando actualmente para mostrarlas.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Nota:** dado que se trata de una API HTML5, solo está disponible en el proceso de renderizado. Si desea mostrar notificaciones en el proceso principal, consulte el módulo [Notificación](../api/notification.md).
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,12 +14,12 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Si bien el código y la experiencia del usuario en los sistemas operativos son similares, existen diferencias sutiles.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
+* En Windows 10, las notificaciones "solo funcionan".
+* En Windows 8.1 y Windows 8, se debe instalar un acceso directo a su aplicación, con un [ID del Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) en la pantalla de inicio. Note, however, that it does not need to be pinned to the Start screen.
 * On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
 Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
