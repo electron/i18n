@@ -722,19 +722,19 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
 
 #### `isi.replace(teks)`
 
-* `text` String
+* `teks` String
 
 Jalankan perintah pengeditan `ganti` di halaman web.
 
 #### `contents.replaceMisspelling(teks)`
 
-* `text` String
+* `teks` String
 
 Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
 
 #### `contents.insertText(text)`
 
-* `text` String
+* `teks` String
 
 Sisipan `teks` ke elemen yang terfokus.
 
