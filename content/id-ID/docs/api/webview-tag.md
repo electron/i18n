@@ -433,7 +433,7 @@ Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
   * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
   * `deviceName` String (opsional) - mengatur printer nama perangkat untuk menggunakan. Default adalah `"`.
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+Prints `webview` 's web page. Same as `webContents.print ([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
@@ -447,7 +447,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * ` error </ 0> Kesalahan</li>
 <li><code>data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
