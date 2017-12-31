@@ -31,12 +31,12 @@ community:
   boilerplates: Piring boiler
   components: Komponen
   videos: Video
-  meetups: Meetups
-  awesome_notice: Daftar ini dihasilkan dari gudang <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron </a>. <br> ada yang hilang <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Buat permintaan tarik </a>.
-  meetup_notice: Untuk menambahkan meetup, edit <code> data / meetups.json </ code> dan <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> buat permintaan tarik </a>
+  meetups: Bertemu
+  awesome_notice: Daftar ini dihasilkan dari gudang <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's mengagumkan elektron </a>. <br> ada yang hilang <a href="https://github.com/sindresorhus/mengagumkan-elektron/blob/master/contributing.md"> Buat permintaan tarik </a>.
+  meetup_notice: Untuk menambahkan pertemuan, edit <code> data / meetups.json </ code> dan <a href="https://github.com/electron/electronjs.org/tree/master/data/pertemuan.json"> buat permintaan tarik </a>
 electron_is_easy:
-  title: Lebih mudah daripada yang Anda pikirkan
-  description: Jika Anda dapat membangun sebuah situs web, Anda dapat membangun sebuah aplikasi desktop. elektron adalah suatu kerangka kerja untuk menciptakan aplikasi asli dengan teknologi web seperti JavaScript, HTML, dan CSS. Itu membutuhkan perawatan dari bagian sulit sehingga anda dapat fokus pada inti dari aplikasi anda.
+  title: Lebih mudah dari pada yang Anda pikirkan
+  description: Jika Anda bisa membangun sebuah website, Anda bisa membangun aplikasi desktop. Elektron adalah kerangka kerja untuk membuat aplikasi asli dengan teknologi web seperti JavaScript, HTML, dan CSS. Ini mengurus bagian-bagian yang sulit sehingga Anda dapat fokus pada inti aplikasi Anda.
   video_link: Tonton video
 web_technologies:
   title: Teknologi web
