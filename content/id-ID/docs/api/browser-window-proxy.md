@@ -2,7 +2,7 @@
 
 > Memanipulasi jendela browser anak
 
-Process: [Renderer](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 Objek ` BrowserWindowProxy </ 0> dikembalikan dari <code> window.open </ 0> dan menyediakan
 fungsi terbatas dengan jendela anak.</p>
