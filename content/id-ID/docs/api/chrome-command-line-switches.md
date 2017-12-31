@@ -101,7 +101,7 @@ Sebagai contoh:
 
 kemudian setiap `url` yang berakhir dengan `example.com`, `foobar.com`, `baz` akan dipertimbangkan untuk otentikasi Terpadu. Tanpa `*` awalan url yang sama persis.
 
-## --auth-negotiate-delegate-whitelist=`url`
+## --auth-negotiate-delegate-whitelist =`url`
 
 Dipisahkan dengan koma daftar server yang delegasi kredensial pengguna diperlukan. Tanpa `*` awalan url yang sama persis.
 
@@ -113,7 +113,7 @@ Mengabaikan sertifikat terkait kesalahan.
 
 Set `path` plugin flash lada.
 
-## --ppapi-flash-version=`version`
+## --ppapi-flash-version=`versi`
 
 Menetapkan `Versi` plugin flash lada.
 
@@ -121,7 +121,7 @@ Menetapkan `Versi` plugin flash lada.
 
 Memungkinkan bersih log peristiwa untuk diselamatkan dan menulis mereka ke `jalan`.
 
-## --disable-renderer-backgrounding
+## -disable-renderer-backgrounding
 
 Mencegah Kromium menurunkan prioritas proses renderer kelihatan halaman.
 
