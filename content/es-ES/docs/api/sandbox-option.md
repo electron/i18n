@@ -111,20 +111,20 @@ Para crear un paquete browserify y usarlo como un script precargado, algo como l
       --insert-global-vars=__filename,__dirname -o preload.js
     
 
-La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expuesto en un ambiente precargado, y le dice a browserify que use la función que la encierra `require` para ello. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expuesto en un ambiente precargado, y le dice a browserify que use la función que la encierra `require` para ello. `--insert-global-vars` Asegurará que `process`, `Buffer` y `setImmediate` también sean llevado para el ambiente cerrado (normalmente browsefiry inyecta códigos para ellos).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Actualmente la function `require` proveída en el ambiente de precargado expone los siguiente módulos:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `electron` (crashReporter, remoto and ipcRenderer)
 - `fs`
 - `os`
-- `timers`
+- `contadores`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+Se pueden agregar más si se necesitan para exponer más APIs de Electron en la caja de arena, pero cualquier módulo en el proceso principar ya puede ser usado a través de `electron.remote.require`.
 
-## Status
+## Estado
 
 Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
