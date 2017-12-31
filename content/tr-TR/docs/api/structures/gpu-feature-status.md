@@ -25,5 +25,5 @@ Olası değerler:
 * `enabled_readback` - Donanım hızlandırılmış ama performans azalmış (sarı)
 * `enabled_force` - Donanım tüm sayfalarda hızlandırılmış (yeşil)
 * `enabled` - Donanım hızlandırılmış (yeşil)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on` - Force enabled (green)
+* `enabled_on` - Etkin (yeşil)
+* `enabled_force_on` - Etkinleştirmeye zorla (yeşil)
