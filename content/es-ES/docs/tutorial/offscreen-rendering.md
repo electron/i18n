@@ -1,8 +1,8 @@
-# Representación fuera de la pantalla
+# Representación fuera de pantalla
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+La representación fuera de pantalla le permite obtener el contenido de una ventana del navegador en un mapa de bits, por lo que se puede representar en cualquier lugar, por ejemplo, en una textura en una escena 3D. La representación fuera de pantalla en Electron utiliza un enfoque similar al del proyecto [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+Se pueden usar dos modos de renderizado y solo se pasa el área sucia en el evento `"pintar"` para que sea más eficiente. La renderización se puede detener, continuar y se puede establecer la velocidad de cuadros. La velocidad de fotogramas especificada es un valor límite superior, cuando no ocurre nada en una página web, no se generan marcos. La velocidad máxima de cuadros es 60, porque por encima de eso no hay beneficio, solo pérdida de rendimiento.
 
 **Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
