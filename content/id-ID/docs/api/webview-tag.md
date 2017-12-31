@@ -389,19 +389,19 @@ Executes editing command `unselect` in page.
 
 ### `<webview>.replace(text)`
 
-* `text` String
+* `teks` String
 
 Executes editing command `replace` in page.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` String
+* `teks` String
 
 Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.insertText(text)`
 
-* `text` String
+* `teks` String
 
 Sisipan `teks` ke elemen yang terfokus.
 
