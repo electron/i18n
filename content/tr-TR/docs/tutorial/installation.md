@@ -52,10 +52,10 @@ Yükleme `EACCESS` ile başarısız oluyorsa [fix your npm permissions](https://
 sudo npm install electron --unsafe-perm= doğru
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+İnternet erişiminiz yavaşsa `--verbose` indirme sürecinizde tavsiye edilir:
 
 ```sh
-npm install --verbose electron
+npm yükle --verbose electron
 ```
 
 If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.
