@@ -293,7 +293,7 @@ Emitted when DevTools is focused / opened.
 Dönüşler:
 
 * `olay` Olay
-* `url` String
+* `url` Dize
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -375,7 +375,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 Dönüşler:
 
 * `olay` Olay
-* `url` String
+* `url` Dize
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
@@ -508,7 +508,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
+* `url` Dize
 * `options` Obje (isteğe bağlı) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
@@ -526,7 +526,7 @@ webContents.loadURL('https://github.com', options)
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* `url` Dize
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
