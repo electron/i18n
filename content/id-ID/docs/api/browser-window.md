@@ -783,14 +783,14 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
                         Perubahan titik lampiran untuk lembar on macOS. Secara default, lembar yang terpasang di bawah bingkai jendela, tetapi Anda mungkin ingin menampilkan mereka di bawah toolbar HTML yang diberikan. Sebagai contoh:
                         
                         ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
+const {BrowserWindow} = membutuhkan ('elektron')
+biarkan menang = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
+biarkan toolbarRect = document.getElementById ('toolbar').getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
 ```
                     
-                    #### `win.flashFrame(flag)`
+                    #### `win.flashFrame(bendera)`
                     
                     * `bendera` Boolean
                     
@@ -831,7 +831,7 @@ win.setSheetOffset(toolbarRect.height)
 <li><code> pesan </ 0> Integer</li>
 </ul>
 
-<p>Returns <code>Boolean` - `true` or `false` depending on whether the message is hooked.
+<p>Mengembalikan <code>Boolean` - `true` atau `false` tergantung pada apakah pesan itu ketagihan.
                     
                     #### ` win.unhookWindowMessage (pesan) </ 0>  <em> Windows </ 1></h4>
 
