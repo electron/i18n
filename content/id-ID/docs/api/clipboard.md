@@ -157,7 +157,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <ul>
 <li><code> format </ 0>  String</li>
-<li><code>buffer` Buffer</li> 
+<li><code>penyangga` Buffer</li> 
                     
                     * ` ketik </ 0>  String (opsional)</li>
 </ul>
