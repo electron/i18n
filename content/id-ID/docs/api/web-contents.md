@@ -834,37 +834,17 @@ Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halam
 An example of `webContents.printToPDF `:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-const fs = require('fs')
-
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('http://github.com')
-
-win.webContents.on('did-finish-load', () => {
-  // Use default printing options
-  win.webContents.printToPDF({}, (error, data) => {
-    if (error) throw error
-    fs.writeFile('/tmp/print.pdf', data, (error) => {
-      if (error) throw error
-      console.log('Write PDF successfully.')
-    })
-  })
-})
+const {BrowserWindow} = require ('electron') const fs = require ('fs') let win = new BrowserWindow ({width: 800, height: 600}) win.loadURL ('http://github.com') win.webContents.on ('did-finish-load', () = > {// Use default printing options win.webContents.printToPDF ({}, (error, data) = > {if (error) throw error fs.writeFile ('/ tmp / print.pdf', data, (error) = > {if (error) throw error console.log ('Write PDF successfully.')})})})
 ```
 
-#### `contents.addWorkSpace(path)`
+#### `contents.addWorkSpace (path)`
 
 * ` path </ 0>  String</li>
 </ul>
 
-<p>Adds the specified path to DevTools workspace. Must be used after DevTools
-creation:</p>
+<p>Adds the specified path to DevTools workspace. Must be used after DevTools creation:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.webContents.on('devtools-opened', () => {
-  win.webContents.addWorkSpace(__dirname)
-})
+<pre><code class="javascript">const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.webContents.on ('devtools-opened', () = > {win.webContents.addWorkSpace (__ dirname)})
 `</pre> 
   #### `contents.removeWorkSpace(path)`
   
