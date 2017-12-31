@@ -6,11 +6,11 @@ Una de las características clave de la seguridad de Chromium es que toda la ren
 
 En otras palabras, cuando la caja de arena está activada, los renderizadores solamente pueden hacer cambios al sistema delegando tareas al proceso principal via IPC. [aquí](https://www.chromium.org/developers/design-documents/sandbox) hay más información sobre las cajas de arena.
 
-Puesto que la mayor característica de Electron es la habilidad de ejecutar node.js en el proceso de renderizado (haciendo más fácil el desarrollo de aplicaciones de escritorio usando tecnologías web), la caja de arena está deshabilitada por Electron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+Puesto que la mayor característica de Electron es la habilidad de ejecutar node.js en el proceso de renderizado (haciendo más fácil el desarrollo de aplicaciones de escritorio usando tecnologías web), la caja de arena está deshabilitada por Electron. Esto se debe a que la mayoría de los API de node.js requieren acceso al sistema. `require()` por ejemplo, no es posible si el permiso del sistema, el cual no está disponible en un ambiente de caja de arena.
 
-Usually this is not a problem for desktop applications since the code is always trusted, but it makes electron less secure than chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+Usualmente esto no es un problema para aplicaciones de escritorio ya que el código siempre es confiable, pero hace Electron menos seguro que Chromium para abrir contenido web sospechoso. Para aplicaciones que requieren más seguridad, la bandera de `sandbox` forzará a Electrón a iniciar una renderización de Chomium clásica que es compatible con la caja de arena.
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
+Un renderizador en una caja de arena no tiene un ambiente de node.js ejecutandose y no expone el node.js JavaScript API al código del cliente. La única excepción es el script precargado, que tiene el acceso al subset de los renderizadores API de electron.
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
