@@ -2,7 +2,7 @@
 
 * `commonName` String - Ortak İsim
 * `organizations` String[] - Organizasyon adları
-* `organizationUnits` String[] - Organization Unit names
-* `locality` String - Locality
-* `state` String - State or province
-* `country` String - Country or region
+* `organizationUnits` String[] - Organizasyon Birim Adları
+* `locality` String - yer
+* `state` String - Eyalet ve ya il
+* `country` String - Ülke ve ya bölge
