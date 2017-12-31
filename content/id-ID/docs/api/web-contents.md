@@ -826,17 +826,12 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     By default, an empty `options` will be regarded as:
     
     ```javascript
-{
-  marginsType: 0,
-  printBackground: false,
-  printSelectionOnly: false,
-  landscape: false
-}
+{marginsType: 0, printBackground: false, printSelectionOnly: false, landscape: false}
 ```
 
 Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
 
-An example of `webContents.printToPDF`:
+An example of `webContents.printToPDF `:
 
 ```javascript
 const {BrowserWindow} = require('electron')
