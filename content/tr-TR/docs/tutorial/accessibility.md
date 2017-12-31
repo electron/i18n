@@ -1,6 +1,6 @@
 # Erişilebilirlik
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+Erişilebilir uygulamalar yapmak önemlidir ve geliştiricilere uygulamalarını herkes için daha iyi hale getirme olanağı veren [Devtron](https://electron.atom.io/devtron) ve [Spectron](https://electron.atom.io/spectron)'e yeni işlevler sunmaktan mutluluk duyuyoruz.
 
 * * *
 
