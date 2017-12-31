@@ -439,7 +439,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 * `pilihan` Obyek 
   * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
-  * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
   * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
   * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
@@ -506,7 +506,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * ` url </ 0>  String</li>
 <li><code>isMainFrame` Boolean
       
-      Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+      Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
       
       ### Event: 'Apakah-selesai-load'
       
@@ -702,7 +702,7 @@ diklik atau saat event hash <code>hashchange` dipicu.</p>
       
       Fired when the guest page attempts to close itself.
       
-      The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+      The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
       
       ```javascript
 const webview = document.querySelector('webview')
