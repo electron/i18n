@@ -153,7 +153,7 @@ Dönüşler:
 * `olay` Olay
 * `webContents` WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
 
 ### Event: 'certificate-error'
 
@@ -196,7 +196,7 @@ Dönüşler:
 
 Emitted when a client certificate is requested.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url`, istemci sertifikasını isteyen gezinme girişine karşılık gelir ve listeden filtrelenmiş bir girdi ile `callback` çağrılabilir. `event.preventDefault()` öğesinin kullanılması, uygulamanın mağazadaki ilk sertifikayı kullanmasını engeller.
 
 ```javascript
 const {app} = require('electron')
