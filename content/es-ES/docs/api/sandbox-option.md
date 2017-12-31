@@ -45,14 +45,14 @@ app.on('ready', () => {
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+Note que esto no es suficiente para llamar `app.commandLine.appendSwitch('--enable-sandbox')` como Electron/nodo código de inicio corre después si es posible para hacer cambios a la configuración de la caja de aren de Chromium. El cambio debe ser pasado por la linea de comando de electron:
 
     electron --enable-sandbox app.js
     
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
+No es posible tener el OS caja de arena activo solo por algunos renderizadores, si `--enable-sandbox` está habilitado, no se puede crear una ventana normal de Electron.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+Si usted necesita mezclar renderizadores dentro y fuera de la caja de arena en una aplicación simplemente omita el argumento `--enable-sandbox`. Sin este argumento, ventanas creadas con `sandbox: true` todavía tendrán deshabilitado node.js y podrán comunicarse solo via IPC, que ya es una ganancia de seguridad POV en si misma.
 
 ## Preload
 
