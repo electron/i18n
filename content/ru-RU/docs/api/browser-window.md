@@ -25,7 +25,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Frameless window
 
-Для создания окна без Хрома, а так-же прозрачное окно произвольной формы, можно использовать [Frameless Window](frameless-window.md) API.
+Для создания окна без хрома, а также прозрачное окно произвольной формы, можно использовать [Frameless Window](frameless-window.md) API.
 
 ## Изящный показ окон
 
