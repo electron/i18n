@@ -9,8 +9,8 @@ Jendela buram tanpa bingkai adalah jendela yang tidak memiliki  krom </ 0> , bag
 <p>Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
  <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
+<pre><code class="javascript">const {BrowserWindow} = membutuhkan ('elektron')
+let win = new BrowserWindow ({width: 800, height: 600, frame: false})
 win.show()
 `</pre> 
 
