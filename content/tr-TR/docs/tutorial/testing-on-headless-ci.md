@@ -36,7 +36,7 @@ Jenkins için, bir [Xvfb girişi mevcuttur](https://wiki.jenkins-ci.org/display/
 
 ### CI Döngüsü
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Circle CI müthiş ve xvfb'ye sahip ve `$DISPLAY` [zaten kurulu, dolayısıyla başka bir yapılandırmaya gerek yok](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
