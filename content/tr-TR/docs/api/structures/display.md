@@ -9,4 +9,4 @@
 * `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-`Display` nesnesi sisteme bağlanmış fiziksel bir ekranı temsil eder. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+`Display` nesnesi sisteme bağlanmış fiziksel bir ekranı temsil eder. Sahte bir `Display` monitörsüz bir sistemde mevcut olabilir, ya da bir `Display` uzak, sanal bir ekrana karşılık gelebilir.
