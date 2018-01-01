@@ -27,53 +27,53 @@ console.log(clipboard.readText('selection'))
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (опционально)
 
-Возвращает `String` - содержимое в буфере обмена в виде обычного текста.
+Возвращает `String` — содержимое в буфере обмена в виде обычного текста.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (опционально)
 
 Записывает `text` в буфер обмена как обычный текст.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` String (опционально)
 
 Возвращает `String` - содержимое в буфере обмена в виде разметки.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (опционально)
 
 Записывает `markup` в буфер обмена.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` String (опционально)
 
 Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (опционально)
 
 Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (опционально)
 
 Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (опционально)
 
 Writes the `text` into the clipboard in RTF.
 
@@ -90,7 +90,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` String
-* `type` String (optional)
+* `type` String (опционально)
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (опционально)
 
 Очищает содержимое буфера обмена.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (опционально)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` String (опционально)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (опционально)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (опционально)
 
 ```javascript
 const {clipboard} = require('electron')
