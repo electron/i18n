@@ -4,7 +4,7 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Los siguientes ejemplos muestran como salir de la aplicación cuando la última ventana está cerrada:
 
 ```javascript
 const {app} = require('electron')
@@ -15,13 +15,13 @@ app.on('window-all-closed', () => {
 
 ## Eventos
 
-The `app` object emits the following events:
+El objeto `app` emite los siguientes eventos:
 
 ### Evento: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Generalmente configurará escuchas para los eventos `open-file` y `open-url` aquí, y empieza la alerta de accidente y la actualización automática.
 
-In most cases, you should just do everything in the `ready` event handler.
+En la mayoría de los casos, usted debe hacer todo en el controlador del evento `ready`.
 
 ### Evento: 'ready'
 
@@ -29,7 +29,7 @@ Devuelve:
 
 * `launchInfo` Objecto *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emitido cuando Electron se ha terminado de iniciar. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
 
 ### Evento: 'window-all-closed'
 
