@@ -39,22 +39,22 @@ Libchromiumcontent oluşturmak güçlü bir makineye ihtiyaç duyar ve uzun sür
 
 ## Krom git önbellek
 
-`depot_tools`, geliştiricinin Chromium + bağımlılıklarının tüm git nesneleri için genel bir önbellek ayarlamasına izin veren belgelenmemiş bir seçeneğe sahiptir. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
+`depot_tools`, geliştiricinin Chromium + bağımlılıklarının tüm git nesneleri için genel bir önbellek ayarlamasına izin veren belgelenmemiş bir seçeneğe sahiptir. Bu seçenek, aynı depoların birden fazla klonunda bant genişliğini/alanı korumak için `git clone --shared` kullanır.
 
-On electron/libchromiumcontent, this option is exposed through the `LIBCHROMIUMCONTENT_GIT_CACHE` environment variable. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. Örneğin:
+Elektron/libchromiumcontent üzerinde, bu seçenek `LIBCHROMIUMCONTENT_GIT_CACHE` çevre değişkeniyle gösterilir. Aynı makinede birkaç libchromiumcontent ağacı inşa etmeyi düşünüyorsanız (örneğin farklı dallarda çalışmak için), Chromium kaynağının indirilmesini hızlandırmak için değişken ayarlamanız önerilir. Örneğin:
 
 ```sh
 $ mkdir ~/.chromium-git-cache
 $ LIBCHROMIUMCONTENT_GIT_CACHE=~/.chromium-git-cache ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, delete the files ending in `.lock`:
+Git önbelleğini kullanırken önyükleme komut dosyası kesilirse, önbelleği kilitli bırakır. Kilidi kaldırmak için `.lock` ile biten dosyaları silin:
 
 ```sh
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 ```
 
-It is possible to share this directory with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Git-cache komut dosyası tarafından oluşturulan kilitler bunu önlemeye çalışacaktır, ancak ağda mükemmel çalışmayabilir.
+Bu dizini linux'te SMB paylaşımı olarak dışa aktararak diğer makinelerle paylaşmak mümkündür, ancak tek seferde sadece bir işlem/makine önbellek kullanabilir. Git-cache komut dosyası tarafından oluşturulan kilitler bunu önlemeye çalışacaktır, ancak ağda mükemmel çalışmayabilir.
 
 Windows'ta, SMBv2'de git ile ilgili sorunlara neden olacak bir dizin önbellek vardır Önbellek komut dosyası, bu nedenle kayıt defteri anahtarını ayarlayarak devre dışı bırakmak gerekir
 
