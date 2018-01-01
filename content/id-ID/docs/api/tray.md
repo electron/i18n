@@ -196,7 +196,7 @@ win.on ('hide', () = > {
     #### `tray.displayBalloon(options)` *Windows*
     
     * `pilihan` Obyek 
-      * ` ikon ` ([ NativeImage ](native-image.md) | String) - (opsional)
+      * `ikon` ([NativeImage](native-image.md) | String) - (opsional)
       * ` title </ 0> String - (contoh)</li>
 <li><code> konten </ 0> String - (contoh)</li>
 </ul></li>
@@ -206,7 +206,7 @@ win.on ('hide', () = > {
 
 <h4><code>tray.popUpContextMenu([menu, position])` *macOS* *Windows*</h4> 
         * ` teks ` String (opsional)
-        * ` posisi ` [ Titik ](structures/point.md) (opsional) - Posisi pop up.
+        * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
         
         Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
         
