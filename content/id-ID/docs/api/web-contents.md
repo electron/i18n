@@ -869,7 +869,7 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     
     #### `contents.isDevToolsFocused()`
     
-    Returns `Boolean` - Whether the devtools view is focused .
+    Mengembalikan `Boolean` - Apakah tampilan devtools terfokus.
     
     #### `contents.toggleDevTools()`
     
