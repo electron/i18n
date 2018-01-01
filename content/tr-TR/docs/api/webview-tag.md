@@ -632,7 +632,7 @@ Dönüşler:
 
 Fired when the guest window logs a console message.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+Aşağıdaki kod örneği, günlük düzeyi veya diğer özellikleri ne olursa olsun tüm günlük iletilerini karıştırıcı konsola iletir.
 
 ```javascript
 const webview = document.querySelector('webview')
