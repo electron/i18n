@@ -10,7 +10,7 @@ Since a major feature in electron is the ability to run node.js in the renderer 
 
 Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her zaman güvenilir, ancak güvenilmeyen web içeriğini görüntülemek için elektronları kromdan daha az güvenli hale getirir. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
+A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. Tek istisna, electron API oluşturucularının alt kümesine erişimi olan, önceden yüklenmiş komut dosyasıdır.
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
