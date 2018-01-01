@@ -1,4 +1,4 @@
-## Class: TouchBarLabel
+## Sınıf: DokunmatikÇubukEtiketi
 
 > Create a label in the touch bar for native macOS applications
 
