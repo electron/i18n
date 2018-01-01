@@ -70,7 +70,7 @@ Kedua, callback yang lolos ke proses utama akan bertahan sampai Proses utama sam
 Misalnya, kode berikut sepertinya tidak bersalah pada pandangan pertama. Ini menginstal a callback untuk `close` acara pada objek remote:
 
 ```javascript
-membutuhkan ('elektron'). remote.getCurrentWindow () pada ('close', () = > {
+membutuhkan ('elektron'). remote.getCurrentWindow().pada ('close', () => {
   // jendela ditutup ...
 })
 ```
