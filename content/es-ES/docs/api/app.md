@@ -35,7 +35,7 @@ Emitido cuando Electron se ha terminado de iniciar. En macOS, `launchInfo` sopor
 
 Emitido cuando todas las ventanas han sido cerradas.
 
-Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación de cierra o no. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación de cierra o no. Si el usuario presionó `Cmd + Q`, o el desarrollador llamó a `app.quit()`, Electron primero tratará de cerrar todas las ventanas y emitir el evento `will-quit`, y en este caso el evento `window-all-closed` no será emitido.
 
 ### Evento: 'before-quit'
 
@@ -43,9 +43,9 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamar a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Nota:** Si aplicación cerrar fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitida *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
 ### Evento: 'will-quit'
 
@@ -53,9 +53,9 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará. Llamando `event.preventDefault()` se evitará el comportamiento por defecto, que es cerrar la aplicación.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Consulte la descripción del evento `window-all-closed` por las diferencias con los eventos `will-quit` y `window-all-closed`.
 
 ### Evento: 'quit'
 
@@ -73,7 +73,7 @@ Devuelve:
 * `evento` Evento
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Emitido cuando el usuario quiere abrir un archivo con la aplicación. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
