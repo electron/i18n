@@ -173,10 +173,7 @@ Ketika atribut ini hadir isi `webview` akan dicegah dari Resize ketika elemen `w
 Ini dapat digunakan dalam kombinasi dengan [`webContents.setSize`](web-contents.md#contentssetsizeoptions) untuk secara manual mengubah ukuran isi webview sebagai reaksi terhadap perubahan ukuran jendela. Ini dapat membuat ukuran lebih cepat dibandingkan dengan mengandalkan webview elemen batas-batas untuk secara otomatis mengubah ukuran isi.
 
 ```javascript
-const {webContents} = require('electron')
-
-// We assume that `win` points to a `BrowserWindow` instance containing a
-// `<webview>` with `disableguestresize`.
+const {webContents} = require ('electron') // Kami berasumsi bahwa `win` menunjuk ke instance` BrowserWindow` yang berisi // <webview>` dengan `disableguestresize`.
 
 win.on ('resize', () = > {const [width, height] = win.getContentSize () for (let wc of webContents.getAllWebContents ()) {// Check if `wc` belongs to a webview in the `win` window.
     if (wc.hostWebContents &&
@@ -297,7 +294,7 @@ Mengganti agen pengguna untuk halaman web ini.
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+Mengembalikan `String` - Agen pengguna untuk halaman tamu.
 
 ### `<webview>.insertCSS(css)`
 
@@ -335,7 +332,7 @@ Returns `Boolean` - Whether DevTools window of guest page is dedicated.
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`) of guest page.
+Mulai memeriksa elemen pada posisi (`x`,`y`) dari halaman tamu.
 
 ### `<webview>.inspectServiceWorker()`
 
