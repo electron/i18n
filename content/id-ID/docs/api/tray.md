@@ -146,8 +146,8 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
   * ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
 </ul>
 
-<p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini.</p> 
-    #### ` tray.setPressedImage (gambar) ` * macos *
+<p>Mengatur <code>gambar` yang terkait dengan ikon baki ini.</p> 
+    #### `tray.setPressedImage(gambar) ` *macos*
     
     * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul>
@@ -155,22 +155,22 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
 <p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.</p> 
       #### `tray.setToolTip(toolTip)`
       
-      * ` toolTip ` String
+      * `toolTip` String
       
       Menyetel teks hover untuk ikon baki ini.
       
-      #### ` tray.setTitle (judul) ` * macos *
+      #### `tray.setTitle(judul) ` *macos*
       
       * ` title </ 0>  String</li>
 </ul>
 
 <p>Menetapkan judul yang ditampilkan di samping ikon baki di bilah status.</p>
 
-<h4><code> tray.setHighlightMode (mode) ` * macos *</h4> 
+<h4><code>tray.setHighlightMode(mode)` * macos*</h4> 
         * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
-          * ` selection ` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
-          * ` selalu ` - Selalu sorot ikon baki.
-          * ` tidak pernah ` - Jangan menyorot ikon baki.
+          * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
+          * `selalu` - Selalu sorot ikon baki.
+          * `tidak pernah` - Jangan menyorot ikon baki.
         
         Menyetel saat latar belakang ikon baki disorot (berwarna biru).
         
