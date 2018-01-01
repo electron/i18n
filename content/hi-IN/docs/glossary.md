@@ -4,13 +4,13 @@
 
 ### ऐ एस ऐ आर
 
-ऐ एस ऐ आर का मतलब है एटम शैल आर्काइव फॉर्मेट | An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ऐ एस ऐ आर का मतलब है एटम शैल आर्काइव फॉर्मेट | एक [ऐ एस ऐ आर](https://github.com/electron/asar) आर्काइव, `टार`-जैसा एक सरल फॉर्मेट है जो कि बहुत सारी फाइल्स को एक ही फाइल में जोड़ देता है | इससे इलेक्ट्रॉन बिना पूरी फाइल खोले किसी भी तरह से फाइल्स को पढ़ सकता है |
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+ऐ एस ऐ आर फॉर्मेट मुख्य रूप से विंडोज पर प्रदर्शन सुधारने के लिए बनाया गया था.... करना है
 
-### Brightray
+### ब्राइटरे
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+ब्राइटरे एक स्थिर लाइब्रेरी [थी](https://github.com/electron-archive/brightray) जिसने [लिब क्रोमियम कंटेंट](#libchromiumcontent) का एप्लीकेशनस में इस्तेमाल करना आसान बनाया था | It is now deprecated and has been merged into Electron's codebase.
 
 ### CRT
 
