@@ -29,13 +29,13 @@ Devuelve:
 
 * `launchInfo` Objecto *macOS*
 
-Emitido cuando Electron se ha terminado de iniciar. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emitido cuando Electron se ha terminado de iniciar. En macOS, `launchInfo` soporta el `userInfo</0 de <code>NSUserNotification` que fue usado para abrir la aplicación, si fue lanzado con el centro de notificaciones. Puede usar `app.isReady()` para verificar si el evento ya fue disparado.
 
 ### Evento: 'window-all-closed'
 
-Emitted when all windows have been closed.
+Emitido cuando todas las ventanas han sido cerradas.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación de cierra o no. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
 ### Evento: 'before-quit'
 
