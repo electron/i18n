@@ -26,15 +26,15 @@
 
 ### आईपीसी
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+आईपीसी का मतलब है अंतर-प्रक्रिया संवाद | इलेक्ट्रॉन आईपीसी का इस्तेमाल [मेन](#main-process) और [रेंदेरेर](#renderer-process) प्रक्रियाओं के बीच श्रृंखलाबद्ध जेएसओएन सन्देश भेजने के लिए करता है |
 
-### libchromiumcontent
+### लिब क्रोमियम कंटेंट
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+एक साझा लाइब्रेरी जो [क्रोमियम कंटेंट मोड्यूल](https://www.chromium.org/developers/content-module) और उसके सभी आश्रितों (जैसे कि ब्लिंक, [वी8](#v8) आदि) को समेटे हुए है | इसे "लिबसीसी" के नाम से भी जाना जाता है |
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### मुख्य प्रक्रिया
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
