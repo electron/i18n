@@ -20,10 +20,10 @@ The ` globalShortcut </ 0> modul dapat mendaftarkan / unregister shortcut keyboa
    }
 
    / / Periksa apakah jalan pintas sudah terdaftar.
-  console.log (globalShortcut.isRegistered ('CommandOrControl + X'))
+  console.log (globalShortcut.isRegistered ('CommandOrControl+X'))
 })
 
-app.on ('will-quit', () = > {
+app.on ('will-quit', () => {
   // Unregister shortcut.
   globalShortcut.unregister ('CommandOrControl + X')
 
