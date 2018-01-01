@@ -454,8 +454,8 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
 </ul></li>
 </ul>
 
-<p>Captures a snapshot of the <code>webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.</p> 
-    ### `<webview>.send(channel[, arg1][, arg2][, ...])`
+<p>Menangkap cuplikan halaman <code>webview`. Sama seperti `webContents.capturePage ([rect,] callback) `.</p> 
+    ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
     
     * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
@@ -494,7 +494,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       ## DOM events
       
-      The following DOM events are available to the `webview` tag:
+      Peristiwa DOM berikut tersedia untuk tag `webview`:
       
       ### Event: 'load-commit'
       
@@ -572,7 +572,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       * ` title </ 0>  String</li>
 <li><code>explicitSet` Boolean
       
-      Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+      Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
       
       ### Event: 'halaman-favicon-updated '
       
@@ -584,7 +584,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       ### Acara : 'enter-html-full-screen'
       
-      Fired when page enters fullscreen triggered by HTML API.
+      Dipecat saat halaman memasuki layar penuh yang dipicu oleh HTML API.
       
       ### Acara : 'leave-html-full-screen'
       
@@ -601,13 +601,10 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Fired when the guest window logs a console message.
       
-      The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+      Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
       
       ```javascript
-const webview = document.querySelector('webview')
-webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
-})
+const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
 ```
   
   ### Event: 'ditemukan-di-halaman'
@@ -623,13 +620,7 @@ webview.addEventListener('console-message', (e) => {
   
   Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
 
-<pre><code class="javascript">const webview = document.querySelector('webview')
-webview.addEventListener('found-in-page', (e) => {
-  webview.stopFindInPage('keepSelection')
-})
-
-const requestId = webview.findInPage('test')
-console.log(requestId)
+<pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
 `</pre> 
   
   ### Event: 'baru-jendela'
@@ -643,18 +634,10 @@ console.log(requestId)
   
   Fired when the guest page attempts to open a new browser window.
   
-  The following example code opens the new url in system's default browser.
+  Contoh kode berikut membuka url baru di browser default sistem.
   
   ```javascript
-const {shell} = require('electron')
-const webview = document.querySelector('webview')
-
-webview.addEventListener('new-window', (e) => {
-  const protocol = require('url').parse(e.url).protocol
-  if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
-  }
-})
+const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
 ```
 
 ### Event: 'akan navigasi'
@@ -670,7 +653,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
   
   Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
   
-  Calling `event.preventDefault()` does **NOT** have any effect.
+  Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
   
   ### Event: 'melakukan navigasi'
   
@@ -697,7 +680,7 @@ navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
 diklik atau saat event hash <code>hashchange` dipicu.</p> 
       ### Acara : 'dekat'
       
-      Fired when the guest page attempts to close itself.
+      Dipecat saat halaman tamu mencoba menutup diri.
       
       The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
       
@@ -726,7 +709,7 @@ const webview = document.querySelector ('webview') webview.addEventListener ('cl
 
 ### Event: 'jatuh'
 
-Fired when the renderer process is crashed.
+Dipecat saat proses renderer jatuh.
 
 ### Event: 'jatuh'
 
@@ -743,7 +726,7 @@ Dibunyikan ketika proses plugin telah jatuh.
 
 ### Event: 'menghancurkan'
 
-Fired when the WebContents is destroyed.
+Dipecat saat WebContents hancur.
 
 ### Event: 'media-mulai-bermain''
 
