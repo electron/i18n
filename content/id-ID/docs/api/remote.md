@@ -112,18 +112,18 @@ misalnya
     
 
 ```js
-// proses utama: main / index.js
-const {app} = require ('electron')
-app.on ('siap', () = > {/ * ... * /})
+// proses utama: main/index.js
+const {app} = require('electron')
+app.on('siap', () => {/ * ... * /})
 ```
 
 ```js
-// beberapa modul relatif: main / foo.js
+// beberapa modul relatif: main/foo.js
 module.exports = 'bar'
 ```
 
 ```js
-// proses renderer: renderer / index.js
+// proses renderer: renderer/index.js
 const foo = require ('electron'). remote.require ('./ foo') // bar
 ```
 
