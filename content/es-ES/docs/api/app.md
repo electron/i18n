@@ -109,7 +109,7 @@ Devuelve:
 
 Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+La actividad de un usuario puede ser continuada solo en una aplicación que tenga la misma identificación de equipo de desarrolladores como la la aplicación fuente de las actividades y que soporte los tipos de actividad. Los tipos de actividades soportadas están en el `Info.plist` de la aplicación bajo la llave `NSUserActivityTypes`.
 
 ### Evento: 'new-window-for-tab' *macOS*
 
@@ -117,34 +117,34 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
-
-Devuelve:
-
-* `evento` Evento
-* `window` BrowserWindow
-
-Emitted when a [browserWindow](browser-window.md) gets blurred.
-
-### Event: 'browser-window-focus'
+### Evento: 'browser-window-blur'
 
 Devuelve:
 
 * `evento` Evento
-* `window` BrowserWindow
+* `window` Navegador Windows
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
-### Event: 'browser-window-created'
+### Evento: 'browser-window-focus'
 
 Devuelve:
 
 * `evento` Evento
-* `window` BrowserWindow
+* `window` Navegador Windows
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Emitido cuando se enfoca un [browserWindow](browser-window.md).
+
+### Evento: 'browser-window-created'
+
+Devuelve:
+
+* `evento` Evento
+* `window` Navegador Windows
+
+Emitido cuando se crea un [browserWindow](browser-window.md).
 
 ### Event: 'web-contents-created'
 
