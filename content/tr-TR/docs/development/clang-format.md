@@ -12,9 +12,9 @@ Değiştirilen kodunuzu biçimlendirmek için iş akışı:
 
 1. Elektron deposunda kod değişiklikleri yapın.
 2. Çalıştır `git add your_changed_file.cc`.
-3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
-5. Now the branch is ready to be opened as a pull request.
+3. `git-clang-format` çalıştırın ve muhtemelen `your_changed_file.cc`'de değişiklikler göreceksiniz, bu değişiklikler `clang-format`'dan üretilir.
+4. `git add your_changed_file.cc` çalıştırın ve değişikliğinizi yapın.
+5. Şimdi dal bir çekme isteği olarak açılmaya hazır.
 
 If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
 
