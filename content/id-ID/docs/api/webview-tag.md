@@ -468,7 +468,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       * `event` Objek
       
-      Sends an input `event` to the page.
+      Mengirim masukan `event` ke halaman.
       
       See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
       
