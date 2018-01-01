@@ -2,16 +2,16 @@
 
 [`clang-format`](http://clang.llvm.org/docs/ClangFormat.html), C/C++/Objective-C kodlarını otomatik olarak biçimlendiren bir araçtır, böylelikle kod incelemesi sırasında stil sorunları hakkında endişelenmenize gerek kalmaz.
 
-It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
+Çekilen istekleri açmadan önce değiştirilen C++ kodunuzu formatlamanız şiddetle tavsiye edilir; bu da sizi ve incelemecilerin zamanını kurtaracaktır.
 
-You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
+`npm install -g clang-format` vasıtasıyla `clang-format` ve `git-clang-format` kurabilirsiniz.
 
-To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Bir dosyayı Electron C++ kod stiline göre otomatik olarak biçimlendirmek için `clang-format -i path/to/electron/file.cc`'yi çalıştırmanız yeterlidir. MacOS/Linux/Windows üzerinde çalışmalıdır.
 
-The workflow to format your changed code:
+Değiştirilen kodunuzu biçimlendirmek için iş akışı:
 
-1. Make codes changes in Electron repository.
-2. Run `git add your_changed_file.cc`.
+1. Elektron deposunda kod değişiklikleri yapın.
+2. Çalıştır `git add your_changed_file.cc`.
 3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
 4. Run `git add your_changed_file.cc`, and commit your change.
 5. Now the branch is ready to be opened as a pull request.
