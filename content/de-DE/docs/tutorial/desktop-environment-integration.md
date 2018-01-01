@@ -109,9 +109,9 @@ app.setUserTasks([])
 
 Die Aufgaben werden auch nachdem Ihre Anwendung geschlossen wurde zu sehen sein, so dass das Symbol und der Pfad der Anwendung bestehen bleiben sollten bis die App deinstalliert wird.
 
-## Bildvorschau in der Taskleiste
+## Miniaturansicht-Symbolleisten
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. Es bietet den Nutzern eine Möglichkeit auf bestimmte Funktionen eines Fensters zuzugreifen ohne das Fenster zu aktivieren.
 
 From MSDN, it's illustrated:
 
@@ -119,11 +119,11 @@ From MSDN, it's illustrated:
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Miniaturansicht-Symbolleiste von Windows Media Player:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+Sie können [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) benutzen um die Miniaturansicht-Symbolleiste in ihrer Anwendung festzulegen:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Um die Miniaturansicht-Symbolleiste Knöpfe zu löschen, rufen sie `BrowserWindow.setThumbarButtons` mit einem lehren Feld als Parameter auf:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,7 +157,7 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Unity Launcher Verknüpfungen (Linux)
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
