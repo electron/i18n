@@ -446,7 +446,7 @@ Prints `webview` 's web page. Same as `webContents.print ([options])`.
 
 Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
 
-### `<webview>.capturePage([rect, ]callback)`
+### `<webview>.capturePage ([rect,] callback)`
 
 * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap
 * `callback` Fungsi 
@@ -466,7 +466,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       ### `<webview>.sendInputEvent(event)`
       
-      * `event` Object
+      * `event` Objek
       
       Sends an input `event` to the page.
       
@@ -713,7 +713,7 @@ Dipecat saat proses renderer jatuh.
 
 ### Event: 'jatuh'
 
-Fired when the gpu process is crashed.
+Dipecat saat proses gpu jatuh.
 
 ### Event: 'plugin-jatuh'
 
