@@ -145,4 +145,4 @@ Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
     
     ### `remote.process`
     
-    Objek ` proses ` dalam proses utama. Ini sama dengan ` remote.getGlobal ('proses') ` namun di-cache.
+    Objek `proses` dalam proses utama. Ini sama dengan `remote.getGlobal('proses')` namun di-cache.
