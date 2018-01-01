@@ -37,11 +37,11 @@ Primary value types like strings and numbers, however, are sent by copy.
 
 ## Passing callbacks to the main process
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+主进程中的代码可以接受来自渲染器的回调 - 例如`remote`模块 - 但使用此功能时应该非常小心。
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+首先，为了避免死锁，传递给主进程的回调被异步调用。 您不应该期望主进程获得传递回调的返回值。
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+例如，您不能在主进程中调用的` Array.map `中使用来自渲染器进程的函数：
 
 ```javascript
 // main process mapNumbers.js
@@ -66,9 +66,9 @@ console.log(withRendererCb, withLocalCb)
 
 As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+其次，传递给主进程的回调将持续到主进程垃圾回收。
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+例如，下面的代码乍一看似乎是无辜的。 它为远程对象上的` close `事件安装一个回调：
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
