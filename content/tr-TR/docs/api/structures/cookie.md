@@ -6,6 +6,6 @@
 * `hostOnly` Boolean (opsiyonel) - Çerezin bir host-only çerezi olup olmadığı.
 * `path` Dize (opsiyonel) - Çerezin yolu.
 * `secure` Boolean (opsiyonel) - Çerezin güvenli olarak işaretlenip işaretlenmediği.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
+* `httpOnly` Boolean (opsiyonel) - Çerezin sadece HTTP olarak işaretlenip işaretlenmediği.
+* `session` Boolean (opsiyonel) - Çerezin bir oturum çerezi mi ya da son kullanma tarihi olan kalıcı bir çerez mi olduğu.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
