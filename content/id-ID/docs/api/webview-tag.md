@@ -222,7 +222,7 @@ Mengembalikan ` String ` - URL halaman tamu.
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+Mengembalikan `String` - Judul halaman tamu.
 
 ### `<webview>.isLoading()`
 
