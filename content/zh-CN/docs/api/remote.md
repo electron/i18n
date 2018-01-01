@@ -21,13 +21,13 @@ win.loadURL('https://github.com')
 
 ` remote ` 模块返回的每个对象 (包括函数) 表示主进程中的一个对象 (我们称它为远程对象或远程函数)。 当调用远程对象的方法时, 调用远程函数, 或者使用远程构造函数 (函数) 创建新对象时, 实际上是在发送同步进程消息。
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+在上面的示例中, ` BrowserWindow ` 和 ` win ` 都是远程对象, 并且 ` new BrowserWindow ` 在渲染进程中没有创建 ` BrowserWindow ` 对象。 取而代之的是，它在主进程中创建了一个 `BrowserWindow`对象，并且在渲染进程中返回相应的远程对象，即` win </ 0>对象。</p>
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+<p><strong>注意： </strong>当远程对象被第一次引用时，只有<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举的属性</a>可以通过远程访问。</p>
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+<p><strong>注意：</strong> 当通过<code> remote `模块访问时，数组和缓冲区在IPC上复制。 在渲染进程中修改它们不会在主进程中修改它们，反之亦然。
 
-## Lifetime of Remote Objects
+## 远程对象的生命周期
 
 Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
