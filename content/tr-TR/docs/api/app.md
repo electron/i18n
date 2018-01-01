@@ -128,7 +128,7 @@ Dönüşler:
 
 Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
-### olay: 'tarayıcı-pencere-odak'
+### Olay: 'tarayıcı-pencere-odak'
 
 Dönüşler:
 
