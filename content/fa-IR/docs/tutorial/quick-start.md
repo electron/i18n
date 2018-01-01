@@ -204,4 +204,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+برای برنامه های مثالی بیشتر، [list of boilerplates](https://electronjs.org/community#boilerplates) را ببینید که به وسیله جامعه فوق العاده electron ساخته شده است.
