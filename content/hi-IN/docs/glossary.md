@@ -58,7 +58,7 @@
 
 ### एनएसआईएस
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+नल्लसॉफ्ट स्क्रिप्टएबल इनस्टॉल सिस्टम, माइक्रोसॉफ्ट विंडोज के लिए एक स्क्रिप्ट-संचालित इंस्टालर ऑथरिंग टूल है | It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
 ### OSR
 
