@@ -1,8 +1,8 @@
-# Çerez objesi
+# Çerez Nesnesi
 
-* `name` Dizisi - Çerezin adı.
-* `value` Dizisi - Çerezin değeri.
-* `domain` String (optional) - The domain of the cookie.
+* `name` Dizi - Çerezin ismi.
+* `value` Dizi - Çerezin değeri.
+* `domain` Dize (opsiyonel) - Çerezin alan adı.
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
 * `path` String (optional) - The path of the cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
