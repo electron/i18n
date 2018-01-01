@@ -2,13 +2,13 @@
 
 > Krom hakkında öğrenme ve gelişimi izleme için kaynak topluluğu
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- Slack üzerinde [chromiumdev](https://chromiumdev-slack.herokuapp.com)
+- Twitter üzerinde [@ChromiumDev](https://twitter.com/ChromiumDev)
+- Twitter üzerinde [@googlechrome](https://twitter.com/googlechrome)
 - [Blog](https://blog.chromium.org)
 - [Kod Arama](https://cs.chromium.org/)
 - [Kaynak Kodu](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
+- [Geliştirme Takvimi ve Yayın Bilgisi](https://www.chromium.org/developers/calendar)
 - [Tartışma grupları](http://www.chromium.org/developers/discussion-groups)
 
 Ayrıca bkz: [V8 geliştirme](v8-development.md)
