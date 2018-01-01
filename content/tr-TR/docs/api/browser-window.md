@@ -419,7 +419,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 Adds Chrome extension located at `path`, and returns extension's name.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -445,7 +445,7 @@ Adds DevTools extension located at `path`, and returns extension's name.
 
 The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
