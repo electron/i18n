@@ -1,4 +1,4 @@
-# ScrubberItem Object
+# TemizleyiciMadde Nesnesi
 
-* `label` String - (optional) The text to appear in this item
-* `icon` NativeImage - (optional) The image to appear in this item
+* `label` Dize - (opsiyonel) Bu maddede görünecek metin
+* `icon` DoğalResim - (opsiyonel) Bu maddede görünecek resim
