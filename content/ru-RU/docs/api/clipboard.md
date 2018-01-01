@@ -2,20 +2,20 @@
 
 > Выполняет копирование и вставку в буфер обмена системы.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+Следующий пример показывает, как записать строку в буфер обмена:
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String')
+clipboard.writeText('Пример строки')
 ```
 
 On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('Пример строки', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
@@ -23,7 +23,7 @@ console.log(clipboard.readText('selection'))
 
 Модуль `clipboard` имеет следующие методы:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Примечание:** Экспериментальные API помечены и могут быть удалены в будущем.
 
 ### `clipboard.readText([type])`
 
