@@ -189,9 +189,9 @@ $ .\electron\electron.exe your-app\
 
 ### این مثال را امتحان کنید
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+کدهایی که در آموزش [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) استفاده شد را از مخزن کلون و اجرا کنید.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**نکته**: اجرای برنامه روی سیستم شما نیازمند [Git](https://git-scm.com) و [Node.js](https://nodejs.org/en/download/) (که شامل [npm](https://npmjs.org) هم می‌شود، است.
 
 ```sh
 # Clone the repository
