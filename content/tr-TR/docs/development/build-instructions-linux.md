@@ -172,9 +172,9 @@ $ ./script/build.py -c R
 
 ### `clang` dışında derleyicileri kullanarak
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+`g++` gibi derleyicilerle Electron kurmak için öncelikle `-disable_clang` anahtarıyla `clang`'ı devre dışı bırakmanız ve ardından `CC` ve `CXX` çevre değişkenlerini istediğinize ayarlamanız gerekmektedir.
 
-For example building with GCC toolchain:
+Örneğin GCC araç zinciri ile oluşturma:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Ortam Değişkenleri
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+`CC` ve `CXX` dışında, inşaa konfigrasyonlarını özelleştirmek için aşağıdaki ortam değişkenlerini de ayarlayabilirsiniz:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
