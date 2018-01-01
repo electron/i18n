@@ -256,7 +256,7 @@ Returns `Boolean` - Whether the guest page can go forward.
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+Mengembalikan `Boolean` - Apakah halaman tamu bisa masuk ke `offset`.
 
 ### `<webview>.clearHistory()`
 
@@ -382,19 +382,19 @@ Executes editing command `selectAll` in page.
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+Jalankan perintah pengeditan `batalkan pilihan` di halaman.
 
 ### `<webview>.replace(text)`
 
 * `teks` String
 
-Executes editing command `replace` in page.
+Jalankan perintah pengeditan `ganti` di halaman.
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `teks` String
 
-Executes editing command `replaceMisspelling` in page.
+Jalankan perintah pengeditan `replaceMisspelling` di halaman.
 
 ### `<webview>.insertText(text)`
 
@@ -588,7 +588,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       ### Acara : 'leave-html-full-screen'
       
-      Fired when page leaves fullscreen triggered by HTML API.
+      Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
       
       ### Event: 'console-message'
       
@@ -599,7 +599,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
 <li><code>line` Integer
       * `sourceId` String
       
-      Fired when the guest window logs a console message.
+      Dipecat saat jendela tamu membuka pesan konsol.
       
       Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
       
