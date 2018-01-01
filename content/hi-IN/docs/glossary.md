@@ -52,11 +52,11 @@
 
 मूल मोडयुल्स (नोड.जेएस में इन्हें [ऐडओंन्स](https://nodejs.org/api/addons.html) भी कहा जाता है) सी या सी++ में लिखे वे मोडयुल्स हैं, जो रेकुआयर() फंक्शन का इस्तेमाल करके नोड.जेएस या इलेक्ट्रॉन में लोड किये जा सकते हैं, और उसी तरह से इस्तेमाल किये जाते हैं जैसे कि कोई सामान्य नोड.जेएस मोड्यूल हो | वे मुख्यतः नोड.जेएस और सी/सी++ लाइब्रेरीज में चल रही जावास्क्रिप्ट को इंटरफ़ेस प्रदान करने के लिए इस्तेमाल किये जाते हैं |
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+मूल नोड मोडयुल्स इलेक्ट्रॉन द्वारा समर्थित हैं, पर चूँकि इस बात की काफी सम्भावना है कि इलेक्ट्रॉन आपके सिस्टम में इन्स्टाल नोड बाइनरी से अलग वी8 संस्करण इस्तेमाल करता हो; इसलिए मूल मोडयुल्स का निर्माण करते वक़्त आपको मैन्युअली ही इलेक्ट्रॉन के हेडर्स की लोकेशन निर्दिष्ट करनी होगी |
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+इसे भी देखें: [मूल नोड मोडयुल्स का इस्तेमाल करना](tutorial/using-native-node-modules.md) |
 
-### NSIS
+### एनएसआईएस
 
 Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
 
