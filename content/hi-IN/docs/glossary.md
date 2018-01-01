@@ -50,7 +50,7 @@
 
 ### मूल मोडयुल्स
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+मूल मोडयुल्स (नोड.जेएस में इन्हें [ऐडओंन्स](https://nodejs.org/api/addons.html) भी कहा जाता है) सी या सी++ में लिखे वे मोडयुल्स हैं, जो रेकुआयर() फंक्शन का इस्तेमाल करके नोड.जेएस या इलेक्ट्रॉन में लोड किये जा सकते हैं, और उसी तरह से इस्तेमाल किये जाते हैं जैसे कि कोई सामान्य नोड.जेएस मोड्यूल हो | वे मुख्यतः नोड.जेएस और सी/सी++ लाइब्रेरीज में चल रही जावास्क्रिप्ट को इंटरफ़ेस प्रदान करने के लिए इस्तेमाल किये जाते हैं |
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
