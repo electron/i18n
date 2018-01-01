@@ -44,12 +44,12 @@ Misalnya Anda tidak dapat menggunakan fungsi dari proses renderer di a `Array.ma
 
 ```javascript
 // peta proses utamaNumbers.js
-export.withRendererCallback = (mapper) = > {
-  kembali [1, 2, 3] .map (mapper)
+export.withRendererCallback = (mapper) => {
+  kembali [1, 2, 3] .map(mapper)
 }
 
 export.withLocalCallback = () = > {
-  kembali [1, 2, 3] .map (x = > x + 1)
+  kembali [1, 2, 3] .map(x => x + 1)
 }
 ```
 
