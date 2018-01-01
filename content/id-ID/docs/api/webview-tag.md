@@ -193,7 +193,7 @@ win.on ('resize', () = > {const [width, height] = win.getContentSize () for (let
 
 Tag ` webview ` memiliki metode berikut:
 
-** Catatan: ** Elemen webview harus dimuat sebelum menggunakan metode.
+**Catatan:** Elemen webview harus dimuat sebelum menggunakan metode.
 
 **Contoh**
 
@@ -214,7 +214,7 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([[UploadRawData]](structures/upload-raw-data.md) | [[UploadFile]](structures/upload-file.md) | [[UploadFileSystem]](structures/upload-file-system.md) | [[UploadBlob]](structures/upload-blob.md)) -(opsional)
   * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
 
-Memuat ` url ` di webview, ` url ` harus berisi awalan protokol, misalnya file ` http://` atau `://`.
+Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
 ### `<webview>.getURL()`
 
