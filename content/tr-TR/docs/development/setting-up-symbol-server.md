@@ -2,7 +2,7 @@
 
 Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. Simge sunucusu, hata ayıklayıcıya büyük dosyaları indirmeden uygun sembolleri, ikili dosyaları ve kaynakları otomatik olarak yüklemesine izin verir. The server functions like [Microsoft's symbol server](http://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Note that because released Electron builds are heavily optimized, debugging is not always easy. Hata ayıklayıcı, tüm değişkenlerin içeriğini görüntüleyemez ve yürütme yolu, satır içi yerleştirme, kuyruğu çağırma ve diğer çizicileri optimize etme nedeniyle garip görünebilir. The only workaround is to build an unoptimized local build.
 
 The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
 
