@@ -29,9 +29,9 @@ win.loadURL('https://github.com')
 
 ## 远程对象的生命周期
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Electron 确保只要渲染进程中的远程对象存在（换句话说，没有被垃圾收集），主进程中的相应对象将不会被释放。 当远程对象被垃圾回收后，主进程中的相应对象将被解除引用。
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+如果远程对象在渲染进程中泄露（例如存储在映射中，但从未释放），则主进程中的相应对象也将被泄漏，所以您应该非常小心，不要泄漏远程对象。
 
 Primary value types like strings and numbers, however, are sent by copy.
 
