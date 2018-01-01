@@ -1,18 +1,18 @@
 ## Sınıf: DokunmatikÇubukEtiketi
 
-> Create a label in the touch bar for native macOS applications
+> Dokunmatik çubukta yerel macOS uygulamaları için bir etiket oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `yeni DokunmatikÇubukEtiketi(seçenekler)` *Deneysel*
 
-* `options` Nesne 
-  * `label` String (optional) - Text to display.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+* `seçenekler` Nesne 
+  * `label` Dize (opsiyonel) - Görüntülenecek metin.
+  * `textColor` Dize (opsiyonel) - Metinin Hex rengi, örn `#ABCDEF`.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
-The following properties are available on instances of `TouchBarLabel`:
+Aşağıdaki özellikler `TouchBarLabel` örnekleri için uygundur:
 
 #### `touchBarLabel.label`
 
