@@ -159,13 +159,13 @@ win.setThumbarButtons([])
 
 ## Unity Launcher Verknüpfungen (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+In Unity, können sie selbst erstellte Einträge in den Launcher einfügen indem sie die `.desktop` Datei modifizieren, siehe [Shortcuts zu einem Launcher hinzufügen](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Launcher Shortcuts von Audacious:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Fortschrittsanzeige in der Taskleiste (Windows, macOS, Unity)
 
 On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
