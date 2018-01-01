@@ -16,8 +16,8 @@ Aşağıdaki özellikler `TouchBarLabel` örnekleri için uygundur:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Etiketin geçerli metnini temsil eden bir `String`. Bu değeri değiştirmek dokunmatik çubuktaki etiketi hemen güncelleştirir.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Etiketin geçerli rengini değiştiren bir `String` hex kodu. Bu değeri değiştirmek dokunmatik çubuktaki etiketi hemen güncelleştirir.
