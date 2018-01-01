@@ -18,13 +18,13 @@
 
 ### डीएमजी
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+एप्पल डिस्क इमेज एक पैकेजिंग फॉर्मेट है जो मैकओएस द्वारा इस्तेमाल किया जाता है | डीएमजी फाइल्स अक्सर एप्लीकेशन "इनस्टॉलर्स" का वितरण करने के लिए इस्तेमाल की जाती हैं | [इलेक्ट्रॉन -बिल्डर](https://github.com/electron-userland/electron-builder), `डीएमजी` का एक निर्माण लक्ष्य के रूप में समर्थन करता है |
 
-### IME
+### आईएमई
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+इनपुट मेथड एडिटर | एक ऐसा प्रोग्राम, जो उपयोगकर्ताओं को उन करैक्टर्स और सिम्बल्स को इस्तेमाल करने की सुविधा देता है, जो कि उनके कीबोर्ड पर उपलब्ध नहीं होते | उदहारण के लिए, ये लैटिन कीबोर्ड के उपयोगकर्ताओं को चीनी, जापानी और इंडिक करैक्टरर्स को इस्तेमाल करने की सुविधा देता है |
 
-### IPC
+### आईपीसी
 
 IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
