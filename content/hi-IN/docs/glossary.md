@@ -36,7 +36,7 @@
 
 ### मुख्य प्रक्रिया
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+मुख्य प्रक्रिया, सामान्यतः `मेन.जेएस` नामक एक फाइल है, जो कि हर इलेक्ट्रॉन एप्प का प्रवेश द्वार है | यह एक एप्प के जीवन को नियंत्रित करता है, शुरू से अंत तक | या मेन्यु, मेन्यु बार, डॉक, ट्रे, आदि जैसे मूल तत्वों को भी प्रबंधित करता है | एप्प में हर नयी रेंदेरेर प्रक्रिया को निर्मित करने के लिए मुख्य प्रक्रिया जिम्मेदार है | पूर्ण नोड ऐपीआई इसमें पूर्व निर्मित है |
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
