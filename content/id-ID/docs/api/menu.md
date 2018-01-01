@@ -166,7 +166,7 @@ untuk informasi lebih lanjut.</p>
 
 Anda dapat menggunakan `posisi` dan `id` untuk mengontrol bagaimana item akan ditempatkan ketika membangun sebuah menu dengan `Menu.buildFromTemplate`.
 
-Atribut ` posisi ` dari ` MenuItem ` memiliki form ` [placement] = [id] `, di mana ` penempatan ` adalah salah satu dari ` sebelum `, ` setelah `, atau ` endof ` dan ` id ` adalah unik ID dari item yang ada di menu:
+Atribut `posisi` dari `MenuItem` memiliki form ` [placement] = [id] `, di mana `penempatan` adalah salah satu dari `sebelum`, `setelah`, atau ` endof` dan` id ` adalah unik ID dari item yang ada di menu:
 
 * `sebelum` - Menyisipkan item ini sebelum item yang diacu id. Jika Item yang direferensikan tidak ada barang akan disisipkan pada akhir menu.
 * `setelah` - Menyisipkan item ini setelah item id direferensikan. Jika direferensikan item tidak ada item akan disisipkan di akhir menu.
