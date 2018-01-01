@@ -921,7 +921,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 
 #### `win.setProgressBar(progress[, options])`
 
-* `ilerleme` çift
+* `progress` çift
 * `options` Obje (isteğe bağlı) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
