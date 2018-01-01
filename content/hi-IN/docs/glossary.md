@@ -38,17 +38,17 @@
 
 मुख्य प्रक्रिया, सामान्यतः `मेन.जेएस` नामक एक फाइल है, जो कि हर इलेक्ट्रॉन एप्प का प्रवेश द्वार है | यह एक एप्प के जीवन को नियंत्रित करता है, शुरू से अंत तक | या मेन्यु, मेन्यु बार, डॉक, ट्रे, आदि जैसे मूल तत्वों को भी प्रबंधित करता है | एप्प में हर नयी रेंदेरेर प्रक्रिया को निर्मित करने के लिए मुख्य प्रक्रिया जिम्मेदार है | पूर्ण नोड ऐपीआई इसमें पूर्व निर्मित है |
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+हर एप्प की मुख्य प्रक्रिया फाइल, `पैकेज.जेएसओएन` में `मेन` गुण में निर्दिष्ट है | इस तरह से `इलेक्ट्रॉन.` को पता चलता है कि स्टार्टउप के समय कौन सी फाइल को चलाना है |
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+क्रोमियम में, इस प्रक्रिया को "ब्राउज़र प्रक्रिया" के नाम से जाना जाता है | इलेक्ट्रॉन में इसका नाम बदल दिया गया है ताकि रेंदेरेर प्रक्रिया से भ्रमित न हो जाये |
 
-See also: [process](#process), [renderer process](#renderer-process)
+इसे भी देखें: [प्रक्रिया](#process), [रेंदेरेर प्रक्रिया](#renderer-process)
 
-### MAS
+### एमऐएस
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+इसका मतलब है मैक एप्पल स्टोर | एमऐएस पर अपनी एप्प सबमिट करने के लिए, [मैक एप्पल स्टोर सबमिशन गाइड](tutorial/mac-app-store-submission-guide.md) गाइड देखें |
 
-### native modules
+### मूल मोडयुल्स
 
 Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
 
