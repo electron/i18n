@@ -38,7 +38,7 @@ Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 </script>
 ```
 
-## CSS Styling Notes
+## CSS 样式说明
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
