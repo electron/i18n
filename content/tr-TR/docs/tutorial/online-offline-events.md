@@ -1,8 +1,8 @@
 # Çevrimiçi/Çevrimdışı Olay Algılama
 
-[Online ve offline etkinlik](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) algılama, standart HTML5 API'sinin bir parçası olan [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) özelliğini kullanarak oluşturucu işleminde uygulanabilir. The `navigator.onLine` attribute returns `false` if any network requests are guaranteed to fail i.e. definitely offline (disconnected from the network). It returns `true` in all other cases. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+[Online ve offline etkinlik](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) algılama, standart HTML5 API'sinin bir parçası olan [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) özelliğini kullanarak oluşturucu işleminde uygulanabilir. The `navigator.onLine` attribute returns `false` if any network requests are guaranteed to fail i.e. definitely offline (disconnected from the network). It returns `true` in all other cases. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Bilgisayarda, her zaman "bağlı" olan sanal eternet bağdaştırıcılarına sahip bir sanallaştırma yazılımı çalıştırıldığı gibi durumlarda, gerçekten Electron'un internet erişim durumunu belirlemek istiyorsanız, kontrol için ek araçlar geliştirmelisiniz.
 
-Example:
+Örneğin:
 
 *main.js*
 
