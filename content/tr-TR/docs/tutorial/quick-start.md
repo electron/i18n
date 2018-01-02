@@ -124,7 +124,7 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## Run your app
+## Uygulamanı çalıştır
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
