@@ -1,6 +1,6 @@
-## Class: Tray
+## 托盘
 
-> Add icons and context menus to the system's notification area.
+> 添加图标和上下文菜单到系统通知区
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -23,9 +23,9 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**平台限制：**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
+* 在Linux上，如果支持，就使用应用程序指示器，否则将使用` GtkStatusIcon `。
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * App indicator will only be shown when it has a context menu.
 * When app indicator is used on Linux, the `click` event is ignored.
