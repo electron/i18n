@@ -632,7 +632,7 @@ Dönüşler:
 
 Fired when the guest window logs a console message.
 
-Aşağıdaki kod örneği, günlük düzeyi veya diğer özellikleri ne olursa olsun tüm günlük iletilerini karıştırıcı konsola iletir.
+Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
 
 ```javascript
 const webview = document.querySelector('webview')
