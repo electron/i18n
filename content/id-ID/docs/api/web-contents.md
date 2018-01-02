@@ -819,7 +819,7 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     
     Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
     
-    The `callback` akan dipanggil dengan `callback (error, data)` saat selesai. Itu `data` adalah `Buffer` yang berisi data PDF yang dihasilkan.
+    The `callback` akan dipanggil dengan `callback(error, data)` saat selesai. Itu `data` adalah `Buffer` yang berisi data PDF yang dihasilkan.
     
     The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
     
