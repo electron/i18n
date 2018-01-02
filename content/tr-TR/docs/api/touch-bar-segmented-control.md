@@ -1,4 +1,4 @@
-## Class: TouchBarSegmentedControl
+## Sınıf: DokunmatikBarBölünmüşKontrol
 
 > Create a segmented control (a button group) where one button has a selected state
 
