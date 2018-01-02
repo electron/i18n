@@ -21,18 +21,18 @@
     * `multiple` - Bir kerede birden fazla öge seçilebilir.
     * `buttons` - Segmentlerin buton gibi davranmasını sağlar, her segment tıklanabilir ve bırakılabilir fakat hiçbir zaman aktif olarak işaretlenmez.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Bu denetimin içine yerleştirilmiş bir dizi segment.
-  * `selectedIndex` Tamsayı (opsiyonel) - Hali hazırda seçili olan segmentin dizini, kullanıcı etkileşimi ile otomatik olarak güncelleyecek. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment 
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+  * `selectedIndex` Tamsayı (opsiyonel) - Hali hazırda seçili olan segmentin dizini, kullanıcı etkileşimi ile otomatik olarak güncelleyecek. Mod çoklu olduğunda o son seçilen öge olacak.
+  * `change` Fonksiyon - Kullanıcı yeni bir segment seçtiğinde çağırılır 
+    * `selectedIndex` Tamsayı - Kullanıcının seçtiği segmentin dizini.
+    * `isSelected` Boole - Kullanıcı seçiminin sonucu olarak segmentin seçilip seçilmediği.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Aşağıdaki özellikler `TouchBarSegmentedControl` örnekleri olarak uygundur:
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Denetimin geçerli segment biçimini temsil eden bir `String`. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir.
 
 #### `touchBarSegmentedControl.segments`
 
