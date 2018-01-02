@@ -15,10 +15,10 @@
     * `textured-square` - Denetim dokulu kare biçim kullanılarak görüntülenir.
     * `capsule` - Denetim kapsül biçimi kullanılarak görüntülenir
     * `small-square` - Denetim küçük kare biçim kullanılarak görüntülenir.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String - (optional) The selection mode of the control: 
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
+    * `separated` - Denetimdeki segmentler birbirlerine çok yakın fakat değmeden görüntülenir.
+  * `mod` Dize - (opsiyonel) Denetimin seçme modu: 
+    * `single` - Varsayılan. Bir kerede bir öge seçilir, birini seçmek önceki seçilmiş ögeyi iptal eder.
+    * `multiple` - Bir kerede birden fazla öge seçilebilir.
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
   * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
