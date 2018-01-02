@@ -1,6 +1,6 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Emitir solicitudes HTTP/HTTPS usando la biblioteca de red nativa de Chromium
 
 Proceso: [Principal](../glossary.md#main-process)
 
