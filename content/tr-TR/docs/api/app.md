@@ -164,7 +164,7 @@ Dönüşler:
 * `url` Dize
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Fonksiyon 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
@@ -191,7 +191,7 @@ Dönüşler:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Fonksiyon 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitted when a client certificate is requested.
@@ -223,7 +223,7 @@ Dönüşler:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Fonksiyon 
   * `username` String
   * `password` String
 
@@ -240,7 +240,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Olay: 'gpu-process-crashed' 
 
 Dönüşler:
 
@@ -341,21 +341,21 @@ You can request the following paths by the name:
 * `desktop` The current user's Desktop directory.
 * `documents` Directory for a user's "My Documents".
 * `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
+* `Müzik` kullanıcının müzik klasörü.
+* `fotoğraflar` kullanıcının fotoğraf klasörü.
 * `videos` Directory for a user's videos.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Obje (isteğe bağlı) 
-  * `size` Dize 
-    * `small` - 16x16
+* `ayarlar` Obje (isteğe bağlı) 
+  * `boyut` Dize 
+    * `küçük` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Function 
-  * `error` Error
+    * `büyük` - *Linux'ta* 48x48, *Windows'ta*32x32, *macOS'de* desteklenmemektedir.
+* `callback` Fonksiyon 
+  * `error` Hata 
   * `icon` [NativeImage](native-image.md)
 
 Fetches a path's associated icon.
@@ -363,7 +363,7 @@ Fetches a path's associated icon.
 On *Windows*, there a 2 kinds of icons:
 
 * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Dosyanın içerisindeki ikonlar şu şekildedir `.exe`, `.dll`, `.ico`.
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
@@ -378,7 +378,8 @@ You can only override paths of a `name` defined in `app.getPath`.
 
 By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
-### `app.getVersion()`
+### `app.getVersion()
+`
 
 Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
 
@@ -386,13 +387,13 @@ Returns `String` - The version of the loaded application. If no version is found
 
 Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. Genel olarak `productName` belirtmelisiniz, bu da uygulamanızın üst karakterle yazılmış hali olmalıdır ve Electron'un belirlediği `isimden` çok tercih edilecektir.
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` Satır
 
-Overrides the current application's name.
+Mevcut uygulamanın ismini geçersiz kılar.
 
 ### `app.getLocale()`
 
@@ -412,7 +413,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Yakın zamandaki dokümentasyon listesini temizler.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -446,7 +447,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean`
+`Boolean` döndürür
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -479,7 +480,7 @@ Returns `Object`:
 
 Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
-* `ok` - Nothing went wrong.
+* `ok` - Hiç bir şey yanlış gitmedi.
 * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
 * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
@@ -553,7 +554,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Fonksiyon 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -616,17 +617,17 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Function 
+* `callback` Fonksiyon 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Mevcut uygulama için donanımsal hızlandırmayı iptal eder.
 
 This method can only be called before app is ready.
 
@@ -636,7 +637,7 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 This method can only be called before app is ready.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *Kullanımdan Kaldırıldı*
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
