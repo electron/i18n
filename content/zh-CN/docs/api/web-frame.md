@@ -116,7 +116,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+插入`text` 到焦点元素
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
@@ -129,7 +129,7 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 
 Evaluates `code` in page.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
 ### `webFrame.getResourceUsage()`
 
@@ -166,6 +166,6 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+尝试释放不再使用的内存 (如以前导航中的图像)。
 
 Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
