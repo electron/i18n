@@ -1,6 +1,6 @@
-# globalShortcut
+# evrenselKısayol
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Uygulamanın klavye odağı olmadığı zaman klavye etkinliklerini algılar.
 
 Süreç: [Ana](../glossary.md#main-process)
 
