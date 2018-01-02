@@ -1,6 +1,6 @@
 # Setting Up Symbol Server in Debugger
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. Hata bulucu, büyük dosyaları indirmeden önce uygun sembolleri, ikili dosyaları ve kaynakları otomatik olarak yükler. The server functions like [Microsoft's symbol server](http://support.microsoft.com/kb/311503) so the documentation there can be useful.
+Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. Bir sembol sunucu doğru sembolleri, ikili dosyaları ve kaynakları otomatik olarak yüklemek için hata ayıklayıcı kullanıcıları, büyük hata ayıklama dosyalarını indirmeye zorlar. The server functions like [Microsoft's symbol server](http://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
 Note that because released Electron builds are heavily optimized, debugging is not always easy. Hata ayıklayıcı, tüm değişkenlerin içeriğini görüntüleyemez ve yürütme yolu, satır içi yerleştirme, kuyruğu çağırma ve diğer çizicileri optimize etme nedeniyle garip görünebilir. The only workaround is to build an unoptimized local build.
 
