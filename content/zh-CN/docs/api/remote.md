@@ -78,11 +78,11 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 但请记住, 回调是由主进程引用的, 直到你显式卸载它。 如果不这样做, 每次重新加载窗口时这个回调将再次被安装, 每次重启时都会泄漏一个回调。
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+更糟的是, 由于以前安装的回调的上下文已释放, 因此在发出 ` close ` 事件时, 将在主进程中引发异常。
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+为了避免这个问题，请确保清除对传递给主进程的渲染器回调的引用。 This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
 
-## Accessing built-in modules in the main process
+## 访问主进程中的内置模块
 
 The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
 
