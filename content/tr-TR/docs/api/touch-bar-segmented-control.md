@@ -8,13 +8,13 @@
 
 * `seçenekler` Nesne 
   * `segmentStyle` Dize - (opsiyonel) Segmentlerin biçimi: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style
-    * `small-square` - The control is displayed using the small square style.
+    * `automatic` - Varsayılan. Parçalı denetimin görünümü denetimin görüntüleneceği pencerenin türüne ve penceredeki konumuna göre otomatik olarak belirlenir.
+    * `rounded` - Denetim yuvarlak biçim kullanılarak görüntülenir.
+    * `textured-rounded` - Denetim dokulu yuvarlak biçim kullanılarak görüntülenir.
+    * `round-rect` - Denetim yuvarlak dik biçim kullanılarak görüntülenir.
+    * `textured-square` - Denetim dokulu kare biçim kullanılarak görüntülenir.
+    * `capsule` - Denetim kapsül biçimi kullanılarak görüntülenir
+    * `small-square` - Denetim küçük kare biçim kullanılarak görüntülenir.
     * `separated` - The segments in the control are displayed very close to each other but not touching.
   * `mode` String - (optional) The selection mode of the control: 
     * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
