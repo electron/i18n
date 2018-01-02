@@ -62,11 +62,11 @@
 
 ### ओएसआर
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+ओएसआर (ऑफ-स्क्रीन रेंडरिंग) का इस्तेमाल बैकग्राउंड में भारी पेज लोड करने के लिए और फिर बाद में उसे डिस्प्ले करने के लिए (वह और भी तेज़ हो जायेगा) किया जा सकता है| यह आपको स्क्रीन पर दिखाये बिना रेंडर करने की अनुमति देता है |
 
-### process
+### प्रक्रिया
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+प्रक्रिया, कंप्यूटर प्रोग्राम का वह रूप है जो उस समय चल रहा होता है | Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
