@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> 使用默认应用程序管理文件和 url。
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
-The `shell` module provides functions related to desktop integration.
+` shell ` 模块提供与桌面集成相关的功能。
 
-An example of opening a URL in the user's default browser:
+在用户的默认浏览器中打开 URL 的示例:
 
 ```javascript
 const {shell} = require('electron')
@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 ## 方法
 
-The `shell` module has the following methods:
+` shell ` 模块具有以下方法:
 
 ### `shell.showItemInFolder(fullPath)`
 
@@ -24,7 +24,7 @@ The `shell` module has the following methods:
 
 Returns `Boolean` - Whether the item was successfully shown
 
-Show the given file in a file manager. If possible, select the file.
+在文件管理器中显示给定的文件。如果可以, 选中该文件。
 
 ### `shell.openItem(fullPath)`
 
@@ -32,7 +32,7 @@ Show the given file in a file manager. If possible, select the file.
 
 Returns `Boolean` - Whether the item was successfully opened.
 
-Open the given file in the desktop's default manner.
+以桌面的默认方式打开给定的文件。
 
 ### `shell.openExternal(url[, options, callback])`
 
@@ -44,7 +44,7 @@ Open the given file in the desktop's default manner.
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+以桌面的默认方式打开给定的外部协议URL。 （例如，在用户的默认邮件代理中打开 mailto: URLs）。
 
 ### `shell.moveItemToTrash(fullPath)`
 
@@ -52,7 +52,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 Returns `Boolean` - Whether the item was successfully moved to the trash
 
-Move the given file to trash and returns a boolean status for the operation.
+将给定的文件移动到垃圾箱，并返回操作的布尔状态。
 
 ### `shell.beep()`
 
@@ -69,7 +69,7 @@ Play the beep sound.
 
 Returns `Boolean` - Whether the shortcut was created successfully
 
-Creates or updates a shortcut link at `shortcutPath`.
+在`shortcutPath`位置创建或更新一个快捷连接
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
