@@ -7,7 +7,7 @@
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
 * `seçenekler` Nesne 
-  * `segmentStyle` String - (optional) Style of the segments: 
+  * `segmentStyle` Dize - (opsiyonel) Segmentlerin biçimi: 
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
     * `rounded` - The control is displayed using the rounded style.
     * `textured-rounded` - The control is displayed using the textured rounded style.
