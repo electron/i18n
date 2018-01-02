@@ -23,25 +23,25 @@ $ ./script/bootstrap.py -d --build_debug_libcc
 
 Esto descargará y creará libchromiumcontent localmente, de forma similar a `-build_release_libcc`, pero creará una biblioteca compartida compilada de libchromiumcontent y no eliminará ningún símbolo, lo que lo hace ideal para la depuración.
 
-When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
+Cuando se compila de esta manera, puede realizar cambios en los archivos en `vendor/libchromiumcontent/src` y reconstruirlos rápidamente con:
 
 ```sh
 $ ./script/build.py -c D --libcc
 ```
 
-When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+Al desarrollar en Linux con gdb, se recomienda agregar un índice gdb para acelerar la carga de símbolos. Esto no necesita ejecutarse en cada compilación, pero se recomienda hacerlo al menos una vez para indexar la mayoría de las bibliotecas compartidas:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+La creación de libchromiumcontent requiere una máquina poderosa y lleva mucho tiempo (aunque la reconstrucción incremental del componente de la biblioteca compartida es rápida). Con una CPU Ryzen 1700 de 8 núcleos / 16 hilos con frecuencia de 3 ghz, SSD rápido y 32 GB de RAM, debería llevar unos 40 minutos. No se recomienda construir con menos de 16 GB de RAM.
 
-## Chromium git cache
+## Caché de git de Chromium
 
-`depot_tools` has an undocumented option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
+`depot_tools` tiene una opción no documentada que permite al desarrollador establecer un caché global para todos los objetos git de Chromium + dependencias. Esta opción usa `git clone --shared` para ahorrar ancho de banda y espacio en múltiples clones de los mismos repositorios.
 
-On electron/libchromiumcontent, this option is exposed through the `LIBCHROMIUMCONTENT_GIT_CACHE` environment variable. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. For example:
+En electron/libchromiumcontent, esta opción se expone a través de la variable de entorno `LIBCHROMIUMCONTENT_GIT_CACHE`. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. For example:
 
 ```sh
 $ mkdir ~/.chromium-git-cache
