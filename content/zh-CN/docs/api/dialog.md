@@ -31,8 +31,8 @@ console.log(dialog)
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `properties` String[] (可选) -包含对话框应用的功能。支持以下值: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
+    * `openFile` - 允许选择文件
+    * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * ` createDirectory `-允许从对话框创建新目录。* macOS *
