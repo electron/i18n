@@ -62,26 +62,26 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+Utilise le serveur proxy pour tous les hôtes sauf les adresses locales (`localhost`, `127.0.0.1`, etc.), les sous-domaines `google.com`, les hôtes qui contiennent le suffixe `foo. com` et tout ce qui est à `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Utilise le script PAC à l'`url` spécifiée.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+N'utilise pas de serveur proxy et établit toujours des connexions directes. Remplace les autres les drapeaux du serveur proxy qui sont passés.
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Une liste séparée par des virgules de `rules` qui contrôle comment les noms d'hôtes sont mappés.
 
 Par exemple :
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP * 127.0.0.1` Force tous les noms d'hôtes à être mappés à 127.0.0.1
+* `MAP *.google.com proxy` Force tous les sous-domaines google.com à être résolus à "proxy".
+* `MAP test.com [::1]:77` Force "test. com" à résoudre en boucle IPv6. Forcera également le port de l'adresse socket à 77.
+* `MAP * baz, EXCLUDE www.google.com` Remappe tout à "baz", sauf pour "www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
