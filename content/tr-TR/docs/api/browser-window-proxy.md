@@ -16,7 +16,7 @@ Odağı alt penceresinden kaldır.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Alt ekranlardan bir tanesini kapatma olayını gerçekleştirmeden zorla kapatır.
 
 #### `win.eval(code)`
 
@@ -26,7 +26,7 @@ Evaluates the code in the child window.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Alt pencereye odaklanır. (pencereyi öne getirir).
 
 #### `win.print()`
 
