@@ -6,22 +6,22 @@
 - [@ChromiumDev](https://twitter.com/ChromiumDev) en Twitter
 - [@googlechrome](https://twitter.com/googlechrome) en Twitter
 - [Blog](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
-- [Source Code](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
+- [Búsqueda de Código](https://cs.chromium.org/)
+- [Código Fuente](https://cs.chromium.org/chromium/src/)
+- [Calendario de Desarrollo e Información de Lanzamiento](https://www.chromium.org/developers/calendar)
+- [Grupos de Discusión](http://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+Ver también [Desarrollo V8](v8-development.md)
 
-# Chromium development with Electron
+# Desarrollo de Chromium con Electron
 
-It is possible to debug Chromium with Electron by passing `--build_debug_libcc` to the bootstrap script:
+Es posible depurar Chromium con Electron pasando `--build_debug_libcc` al script bootstrap:
 
 ```sh
 $ ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-This will download and build libchromiumcontent locally, similarly to the `--build_release_libcc`, but it will create a shared library build of libchromiumcontent and won't strip any symbols, making it ideal for debugging.
+Esto descargará y creará libchromiumcontent localmente, de forma similar a `-build_release_libcc`, pero creará una biblioteca compartida compilada de libchromiumcontent y no eliminará ningún símbolo, lo que lo hace ideal para la depuración.
 
 When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
 
