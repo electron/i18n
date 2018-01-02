@@ -20,7 +20,7 @@ Si desea formatear el código modificado en su último commit de git (HEAD), pue
 
 ## Integración del Editor
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+También puede integrar `clang-format` directamente en sus editores favoritos. Para obtener más información sobre cómo configurar la integración del editor, consulte estas páginas:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
