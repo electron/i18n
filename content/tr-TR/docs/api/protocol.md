@@ -66,16 +66,16 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `filePath` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
@@ -88,16 +88,16 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
@@ -118,16 +118,16 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `data` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Registers a protocol of `scheme` that will send a `String` as a response.
 
@@ -136,13 +136,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
       * `method` String
@@ -151,7 +151,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
 
@@ -165,76 +165,76 @@ For POST requests the `uploadData` object must be provided.
 
 * `scheme` String
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Function 
-  * `error` Error
+* `callback` Fonksiyon 
+  * `error` Hata 
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `filePath` String
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `data` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `buffer` Buffer (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
       * `method` String
@@ -243,7 +243,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
@@ -251,6 +251,6 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Remove the interceptor installed for `scheme` and restore its original handler.
