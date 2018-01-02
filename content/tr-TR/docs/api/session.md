@@ -86,7 +86,7 @@ The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
+* `callback` Fonksiyon 
   * `size` Integer - Cache size used in bytes.
 
 Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
@@ -175,7 +175,7 @@ The `proxyRules` has to follow the rules below:
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Function 
+* `callback` Fonksiyon 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
@@ -214,12 +214,12 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Fonksiyon 
   * `istek` Nesne 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Verification result from chromium.
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
@@ -245,10 +245,10 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function 
+* `handler` Fonksiyon 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `callback` Fonksiyon 
     * `permissionGranted` Boolean - Allow or deny the permission
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
@@ -304,7 +304,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `callback` Fonksiyon 
   * `result` Buffer - Blob data.
 
 Returns `Blob` - The blob data associated with the `identifier`.
