@@ -8,4 +8,4 @@
 * [Derleyiciyi en iyi duruma getirme](https://github.com/v8/v8/wiki/TurboFan)
 * [V8 GDB hata ayıklanıyor](https://github.com/v8/v8/wiki/GDB-JIT-Interface)
 
-See also [Chromium Development](chromium-development.md)
+Ayrıca bkz: [Chromium Development](chromium-development.md)
