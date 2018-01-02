@@ -52,7 +52,7 @@ Dönüşler:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Fonksiyon 
   * `username` String
   * `password` String
 
