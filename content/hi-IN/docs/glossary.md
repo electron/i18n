@@ -94,14 +94,14 @@
 
 वी8 गूगल का मुक्त स्त्रोत जावास्क्रिप्ट इंजन है | यह सी++ में लिखा गया है और गूगल क्रोम में इस्तेमाल होता है | वी8 अकेला चल सकता है, या किसी भी सी++ एप्लीकेशन में डाला जा सकता है |
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+इलेक्ट्रॉन वी8 का निर्माण क्रोमियम के हिस्से के रूप में करता है और फ़िर निर्माण करने के दौरान नोड का उस वी8 की तरफ इशारा कर देता है |
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+वी8 की संस्करण संख्या हमेशा गूगल क्रोम की संस्करण संख्या समान होती है | क्रोम 59 शामिल करता है वी8 5.9, क्रोम 58 शामिल करता है वी8 5.8, आदि |
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
-### webview
+### वेबव्यू
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`वेबव्यू` टैग्स का इस्तेमाल 'मेहमान' सामग्री (जैसे कि बाहरी वेब पेजेस) को आपकी इलेक्ट्रॉन एप्प में शामिल करने के लिए होता है | ये `आईफ्रेम` के जैसे होते हैं, पर अंतर यह होता है कि ये एक अलग प्रक्रिया में चलते हैं | इसके पास आपके वेब पेज जैसी अनुमतियाँ नहीं होती हैं और आपकी एप्प और शामिल कंटेंट के बीच सभी इंटरेक्शन बिना ताल-मेल के होगी | इससे आपकी एप्प, शामिल सामग्री से सुरक्षित रहती है |
