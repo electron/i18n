@@ -1,4 +1,4 @@
-## 托盘
+## 任务栏
 
 > 添加图标和上下文菜单到系统通知区
 
@@ -26,7 +26,7 @@ app.on('ready', () => {
 **平台限制：**
 
 * 在Linux上，如果支持，就使用应用程序指示器，否则将使用` GtkStatusIcon `。
-* 在仅支持应用程序指标的Linux发行版中，必须安装` libappindicator1 `才能使托盘图标正常工作。
+* 在仅支持应用程序指标的Linux发行版中，必须安装` libappindicator1 `才能使任务栏图标正常工作。
 * 应用程序指标只有当它有一个上下文菜单时才会显示。
 * 当在Linux上使用应用程序指标时，它的 `click`事件将被忽略
 * 在Linux上，为了改变单独的` MenuItem `，你必须再次调用` setContextMenu `。 例如：
@@ -52,13 +52,13 @@ app.on('ready', () => {
 
 * 在 Windows 上, 建议使用 ` ICO ` 图标来获得最佳视觉效果。
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+如果要在所有平台上保持完全相同的行为, 则不应依赖 ` click ` 事件, 并且始终将上下文菜单附加到任务栏图标。
 
 ### `new Tray(image)`
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Creates a new tray icon associated with the `image`.
+创建与` image `关联的新任务栏图标。
 
 ### 事件
 
@@ -73,7 +73,7 @@ The `Tray` module emits the following events:
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
-Emitted when the tray icon is clicked.
+当该图标被点击时触发。
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -84,7 +84,7 @@ Emitted when the tray icon is clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
-Emitted when the tray icon is right clicked.
+当该图标被右击时触发。
 
 #### Event: 'double-click' *macOS* *Windows*
 
@@ -95,7 +95,7 @@ Emitted when the tray icon is right clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
 
-Emitted when the tray icon is double clicked.
+当该图标被双击时触发。
 
 #### Event: 'balloon-show' *Windows*
 
@@ -111,7 +111,7 @@ Emitted when the tray balloon is closed because of timeout or user manually clos
 
 #### Event: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+当有任何拖动项拖到该任务栏图标上时，触发该事件。
 
 #### Event: 'drop-files' *macOS*
 
@@ -167,7 +167,7 @@ The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+立即销毁该任务栏图标
 
 #### `tray.setImage(image)`
 
