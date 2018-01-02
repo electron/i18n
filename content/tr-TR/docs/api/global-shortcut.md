@@ -63,4 +63,4 @@ Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı 
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Bütün evrensel kısayol kayıtlarını siler.
