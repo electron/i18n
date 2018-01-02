@@ -51,15 +51,15 @@ Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı 
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+`Boolean`'a döner - Bu uygulamanın `accelerator`'ü kaydedip kaydetmediğine göre.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı hala `false`'a dönecektir. Bu davranış işletim sistemleri tarafından seçilmiştir, uygulamaların evrensel kısayollarla uğraşmasını istemedikleri için.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+`accelerator` evrensel kısayolunun kaydını siler.
 
 ### `globalShortcut.unregisterAll()`
 
