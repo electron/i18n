@@ -38,11 +38,11 @@ Główne zmiany wchodzą z wersją `v1.0.0`. Jeśli nie używasz tej wersji prog
 
 ## Główne założenia
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Aby zachować niewielki (rozmiar pliku) oraz zrównoważony ( ilość zależności oraz APIs) projekt, ogranicza się on do głównych funkcjonalności.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Na przykład, Electron wykorzystuje tylko biblioteki do renderowania z Chromium zamiast całego Chromium. To powoduje, że łatwiej jest zaktualizować Chromium, ale oznacza również, że niektóre funkcjonalności z Google Chrome nie istnieją w Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Nowe funkcjonalności dodawane w Electron powinny przede wszystkim być natywnymi API. Jeśli funkcja należy do modułu Node.js, prawdopodobnie powinna tam być. Spójrz na [narzędzia zbudowane przez społeczeństwo](https://electronjs.org/community).
 
 ## Historia
 
