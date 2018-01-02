@@ -16,11 +16,11 @@ Değiştirilen kodunuzu biçimlendirmek için iş akışı:
 4. `git add your_changed_file.cc` çalıştırın ve değişikliğinizi yapın.
 5. Şimdi dal bir çekme isteği olarak açılmaya hazır.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Değiştirilen kodu en son git commit'inizde (HEAD) biçimlendirmek istiyorsanız, `git-clang-format HEAD~1`'i çalıştırabilirsiniz. Daha fazla ayrıntı için `git-clang-format -h` bölümüne bakın.
 
 ## Editör Tümleştirme
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+Ayrıca `clang-formatını` doğrudan en sevdiğiniz editörlerinize entegre edebilirsiniz. Editör entegrasyonu hakkında daha fazla bilgi için şu sayfalara bakın:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim amp; Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
