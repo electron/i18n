@@ -26,7 +26,7 @@
 
 ### आईपीसी
 
-आईपीसी का मतलब है अंतर-प्रक्रिया संवाद | इलेक्ट्रॉन आईपीसी का इस्तेमाल [मेन](#main-process) और [रेंदेरेर](#renderer-process) प्रक्रियाओं के बीच श्रृंखलाबद्ध जेएसओएन सन्देश भेजने के लिए करता है |
+आईपीसी का मतलब है अंतर-प्रक्रिया संवाद | इलेक्ट्रॉन आईपीसी का इस्तेमाल [मुख्य](#main-process) और [रेंदेरेर](#renderer-process) प्रक्रियाओं के बीच श्रृंखलाबद्ध जेएसओएन सन्देश भेजने के लिए करता है |
 
 ### लिब क्रोमियम कंटेंट
 
@@ -66,17 +66,17 @@
 
 ### प्रक्रिया
 
-प्रक्रिया, कंप्यूटर प्रोग्राम का वह रूप है जो उस समय चल रहा होता है | इलेक्ट्रॉन एप्प्स जो [मेन](#main-process) और एक या कई [रेंदेरेर](#renderer-process) प्रक्रियाओं का इस्तेमाल करती हैं, वे असल में बहुत सारे प्रोग्रम्म्स को एक साथ चला रही होती हैं |
+प्रक्रिया, कंप्यूटर प्रोग्राम का वह रूप है जो उस समय चल रहा होता है | इलेक्ट्रॉन एप्प्स जो [मुख्य](#main-process) और एक या कई [रेंदेरेर](#renderer-process) प्रक्रियाओं का इस्तेमाल करती हैं, वे असल में बहुत सारे प्रोग्रम्म्स को एक साथ चला रही होती हैं |
 
-नोड.जेएस और इलेक्ट्रॉन में, हर चलती प्रक्रिया के पास एक `प्रोसेस` ऑब्जेक्ट होता है | This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+नोड.जेएस और इलेक्ट्रॉन में, हर चलती प्रक्रिया के पास एक `प्रोसेस` ऑब्जेक्ट होता है | यह ऑब्जेक्ट एक वैश्विक होता है, और यह वर्तमान प्रोसेस की जानकारी और उस पर नियंत्रण देता है | चूँकि यह एक वैश्विक है, इसलिए यह सभी एप्लीकेशनस को बिना रेकुआयर() के उपलब्ध होता है |
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+इसे भी देखें: [मुख्य प्रक्रिया](#main-process), [रेंदेरेर प्रक्रिया](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+रेंदेरेर प्रक्रिया आपकी एप्प में एक ब्राउज़र विंडो है |मुख्य प्रक्रिया के विपरीत, ये कई सारी हो सकती हैं और हर एक रेंदेरेर प्रक्रिया एक अलग प्रक्रिया में चलती है | इन्हें छुपाया भी जा सकता है |
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+सामान्य ब्राउज़र्स में, वेब पेजेस अक्सर सैंडबॉक्स वातावरण में चलते हैं और इन्हें मूल संसाधनों तक पहुँच उपलब्ध नहीं होती | Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
 See also: [process](#process), [main process](#main-process)
 
