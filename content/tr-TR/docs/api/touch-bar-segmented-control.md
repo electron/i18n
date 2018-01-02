@@ -19,9 +19,9 @@
   * `mod` Dize - (opsiyonel) Denetimin seçme modu: 
     * `single` - Varsayılan. Bir kerede bir öge seçilir, birini seçmek önceki seçilmiş ögeyi iptal eder.
     * `multiple` - Bir kerede birden fazla öge seçilebilir.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
+    * `buttons` - Segmentlerin buton gibi davranmasını sağlar, her segment tıklanabilir ve bırakılabilir fakat hiçbir zaman aktif olarak işaretlenmez.
+  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Bu denetimin içine yerleştirilmiş bir dizi segment.
+  * `selectedIndex` Tamsayı (opsiyonel) - Hali hazırda seçili olan segmentin dizini, kullanıcı etkileşimi ile otomatik olarak güncelleyecek. When the mode is multiple it will be the last selected item.
   * `change` Function - Called when the user selects a new segment 
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
