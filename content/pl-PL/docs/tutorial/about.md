@@ -46,13 +46,13 @@ Nowe funkcjonalności dodawane w Electron powinny przede wszystkim być natywnym
 
 ## Historia
 
-Below are milestones in Electron's history.
+Poniżej przedstawiona jest historia Electron.
 
 | :calendar:        | :tada:                                                                                                              |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **Kwiecień 2013** | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
-| **Maj 2014**      | [Atom Shell is open sourced](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                          |
-| **Kwiecień 2015** | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                                  |
-| **Maj 2016**      | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
-| **Maj 2016**      | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **Sierpień 2016** | [Windows Store support for Electron apps](https://electronjs.org/docs/tutorial/windows-store-guide).                |
+| **Kwiecień 2013** | [Atom Shell](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).                 |
+| **Maj 2014**      | [Atom Shell jako projekt open source](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                 |
+| **Kwiecień 2015** | [Zmiana nazwy z Atom Shell na Electron](https://github.com/electron/electron/pull/1389).                            |
+| **Maj 2016**      | [Wypuszczenie wersji `v1.00`](https://electronjs.org/blog/electron-1-0).                                            |
+| **Maj 2016**      | [Kompatybilność Electron app z Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
+| **Sierpień 2016** | [Wsparcie Electron app przez Windows Store](https://electronjs.org/docs/tutorial/windows-store-guide).              |
