@@ -8,9 +8,9 @@ Od tamtego momentu, Electron stał się popularnym narzędziem, używanym przez 
 
 Kontynuuj czytanie, aby dowiedzieć się więcej o darczyńcach oraz wydaniach Electrona, albo zacznij tworzyć aplikacje z [Szybkim Startem](quick-start.md) Electrona.
 
-## Core Team and Contributors
+## Zespół oraz współtwórcy
 
-Electron jest rozwijany przez zespół Github i grupę [aktywnych kontrybutorów](https://github.com/electron/electron/graphs/contributors) ze społeczności. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Poczytaj więcej o [współtworzeniu Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron jest rozwijany przez zespół Github i grupę [aktywnych kontrybutorów](https://github.com/electron/electron/graphs/contributors) ze społeczności. Niektórzy z twórców są to niezależne osoby pozostali pracują w większych firmach rozwijających produkt Electron. We're happy to add frequent contributors to the project as maintainers. Dowiedz się więcej o [współtworzeniu Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Wydania
 
