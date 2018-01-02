@@ -34,10 +34,10 @@ Elektron farklı bir kullanıcı hesabı altında çalışıyorsa, ` Tüm kullan
 
 Ana süreç içinde çalıştırılan kod (yani, ana JavaScript dosyanız tarafından bulunan veya sonuçta çalışan kod) yanı sıra uzaktan kumanda kullanılarak (` require ('electron'). Remote `) ana işlemin içinde çalışırken, diğer kodu ilgili oluşturucu işleminde yürütülecektir.
 
-Hata ayıklarken birden çok program eklenebilir, ancak yalnızca bir program aynı anda etkin olabilir. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Hata ayıklarken birden çok program eklenebilir, ancak yalnızca bir program aynı anda etkin olabilir. Etkin programı `Debug Location` araç çubuğunda veya `Processes window`'da ayarlayabilirsiniz.
 
-## Using ProcMon to Observe a Process
+## ProcMon'u Bir Süreci Gözlemek İçin Kullanma
 
-Visual Studio spesifik kod yollarını incelemek için harika olsa da, ProcMon'un gücü gerçekten uygulamanızın işletim sistemi ile yaptıklarını gözlemlemektir - süreçlerinizin Dosya, Kayıt Defteri, Ağ, İ şlem, ve Profil detaylarını yakalar. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Visual Studio spesifik kod yollarını incelemek için harika olsa da, ProcMon'un gücü gerçekten uygulamanızın işletim sistemi ile yaptıklarını gözlemlemektir - süreçlerinizin Dosya, Kayıt Defteri, Ağ, İ şlem, ve Profil detaylarını yakalar. **all** olayları ortaya çıkarmaya çalışır ve oldukça bunaltıcı olabilir, ancak uygulamanızın işletim sistemine ne yaptığını ve nasıl davrandığını anlamaya çalışırsanız değerli bir kaynak olabilir.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+ProcMon'un temel ve gelişmiş hata ayıklama özelliklerine giriş için, Microsoft tarafından sağlanan [bu video öğreticisi](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor)'ne bakın.
