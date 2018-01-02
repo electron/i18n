@@ -22,17 +22,17 @@ Electron Chromium jest zazwyczaj aktualizowana w ciągu jednego lub dwóch tygod
 
 Po wydaniu nowej wersji Node.js, Electron zazwyczaj czeka około miesiąca za aktualizacją w celu wydania bardziej stabilnej wersji.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Electron, Node.js oraz Chromium używają pojedyńczej instancji V8 - zazwyczaj wersji, którą używa Chromium. Większość czasu *działa*, ale czasami oznacza łatanie Node.js.
 
-### Numery Wersji
+### Wersja
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Od wersji Electron 2.0 [śledzi`semver`](http://semver.org). Dla większości aplikacji użycie dowolnej najnowszej wersji npm, uruchomienie `$ npm install electron` wystraczy, aby działał poprawnie.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Proces aktualizacji jest dokładnie opisany w naszej [Specyfikacji wersji](electron-versioning.md).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Nie istnieje aktualnie długoterminowe wsparcie do starszych wersji Electrona. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
