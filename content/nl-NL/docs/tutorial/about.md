@@ -14,7 +14,7 @@ Electron wordt onderhouden door een team bij GitHub en door een groep [actieve b
 
 ## Releases
 
-[Electron relast](https://github.com/electron/electron/releases) regelmatig. We releasen wanneer er belangrijke bug fixes zijn, nieuwe API's of versies updaten van Chronium of Node.js.
+[Electron releast](https://github.com/electron/electron/releases) regelmatig. We brengen een nieuwe release wanneer er belangrijke bugfixes zijn, nieuwe API's of bijgewerkte versies van Chronium of Node.js.
 
 ### Bijwerken van afhankelijkheden
 
@@ -26,17 +26,17 @@ In Electron delen Node.js en Chromium een enkel V8 exemplaar—meestal de versie
 
 ### Versies
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Vanaf versie 2.0 volgt Electron [`semver`](http://semver.org). Voor de meeste applicaties is het voldoende om `$ npm install electron` uit te voeren met een recente versie van npm.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Het versieupdateproces is in detail beschreven in onze [Versiebeheer Doc](electron-versioning.md).
 
 ### LTS
 
-Lange termijn support van oudere versies van Electron bestaat momenteel niet. Als je huidige versie van Electron voor jou werkt, kun je er op blijven zolang je wilt. Als je gebruik wilt maken van nieuwe features wanneer deze beschikbaar zijn, moet je upgraden naar een nieuwere versie.
+Langetermijnondersteuning van oudere versies van Electron bestaat momenteel niet. Als je huidige versie van Electron voor jou werkt, kun je er op blijven zolang je wilt. Als je gebruik wilt maken van nieuwe features wanneer deze beschikbaar zijn, moet je upgraden naar een nieuwere versie.
 
 Er kwam een grote update met versie `v1.0.0`. Als je deze versie nog niet gebruikt, moet je [meer lezen over de `v1.0.0` wijzigingen](https://electronjs.org/blog/electron-1-0).
 
-## Kern filosofie
+## Kernfilosofie
 
 Om Electron klein te houden (bestandsgrootte) en onderhoudbaar (de spreiding van afhankelijkheden en API's) houdt het project het werkterrein van de het kernproject gelimiteerd.
 
@@ -50,8 +50,8 @@ Hieronder zijn mijlpalen in de geschiedenis van Electron.
 
 | :calendar:      | :tada:                                                                                                              |
 | --------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is gestart](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
-| **May 2014**    | [Atom Shell is open sourced](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                          |
+| **april 2013**  | [Atom Shell is gestart](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
+| **mei 2016**    | [Atom Shell is open sourced](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                          |
 | **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                                  |
 | **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                             |
 | **May 2016**    | [Electron apps compatible with Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
