@@ -65,7 +65,7 @@ Geçerli karenin argümanlarını ve yerel değişkenlerini göstermek için uyg
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Seçili iş parçasında bir kaynak seviyesi tek adım yapmak için `step` (veya `s`) uygulayın. Bu sizi `name_override_.empty()`'e götürür. Devam etmek ve bir adım ileri atmak için `next`(veya `n`)'i çalıştırın.
 
 ```sh
 (lldb) step
@@ -81,7 +81,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). Bu komut, geçerli karede 100 satıra erişine kadar iş parçacığını çalıştırır veya geçerli kareden çıkmaya çalışır.
+Bu noktada hata ayıklamayı bitirmek için `process continue` komutunu çalıştırın. Bu iş parçacığına belirli bir satıra gelene kadar da devam edebilirsiniz (`thread until 100`). Bu komut, geçerli karede 100 satıra erişine kadar iş parçacığını çalıştırır veya geçerli kareden çıkmaya çalışır.
 
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
