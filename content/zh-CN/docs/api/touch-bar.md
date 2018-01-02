@@ -1,6 +1,6 @@
 ## Class: TouchBar
 
-> Create TouchBar layouts for native macOS applications
+> 为原生macOS应用创建TouchBar布局
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 
