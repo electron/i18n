@@ -24,7 +24,7 @@ Po wydaniu nowej wersji Node.js, Electron zazwyczaj czeka około miesiąca za ak
 
 Electron, Node.js oraz Chromium używają pojedyńczej instancji V8 - zazwyczaj wersji, którą używa Chromium. Większość czasu *działa*, ale czasami oznacza łatanie Node.js.
 
-### Wersja
+### Numer Wersji
 
 Od wersji Electron 2.0 [śledzi`semver`](http://semver.org). Dla większości aplikacji użycie dowolnej najnowszej wersji npm, uruchomienie `$ npm install electron` wystraczy, aby działał poprawnie.
 
