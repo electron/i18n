@@ -11,7 +11,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Słownik Terminów](glossary.md)
 * [Wspierane Platformy](tutorial/supported-platforms.md)
 * [Bezpieczeństwo](tutorial/security.md)
-* [Numery Wersji](tutorial/electron-versioning.md)
+* [Wersja](tutorial/electron-versioning.md)
 * [Dystrybuowanie Aplikacji](tutorial/application-distribution.md)
 * [Dodawanie aplikacji do Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Dodawanie aplikacji do Windows Store](tutorial/windows-store-guide.md)
