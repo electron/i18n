@@ -81,7 +81,7 @@ The first 3 options are trace recording modes and hence mutually exclusive. If m
 
 Kayıt işlemini tüm süreçlerde durdurur.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. Bu, çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerinin IPC vasıtasıyla gönderilmesinden itibaren yapılan araştırmalardan daha maliyetli bir işlem olabilir. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Child processes typically cache trace data and only rarely flush and send trace data back to the main process. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
 
