@@ -6,7 +6,7 @@ Erişilebilir uygulamalar yapmak önemlidir ve geliştiricilere uygulamalarını
 
 Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
-Bununla birlikte, yeni yetenekler bu inceleme araçlarını Electron uygulamanıza getirir. Testlerinize denetimler eklemek için Spectron'u seçebilir veya DevTools'da Devtron'u kullanabilirsiniz. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+Bu yeni özellikler, denetim araçlarını electron uygulamanıza getirir. Spectron'la testlerinize denetimler eklemeyi veya Devtron ile DevTools'ta denetimleri kullanmayı seçebilirsiniz. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
 
 ## Spectron
 
