@@ -86,9 +86,9 @@
 
 ### यूजरलैंड
 
-यह शब्द यूनिक्स समुदाय में उत्पन्न हुआ था, जहाँ "यूजरलैंड" या "यूजरस्पेस" उन प्रोग्रम्म्स को कहते थे जो ऑपरेटिंग सिस्टम कर्नेल के बाहर चलते थे | More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+यह शब्द यूनिक्स समुदाय में उत्पन्न हुआ था, जहाँ "यूजरलैंड" या "यूजरस्पेस" उन प्रोग्रम्म्स को कहते थे जो ऑपरेटिंग सिस्टम कर्नेल के बाहर चलते थे | बड़े "यूजर" समुदाय द्वारा हाल ही में, यह शब्द "नोड कोर" और एनपीएम रजिस्ट्री में प्रकाशित पैकेजेस में मौज़ूद सुविधाओं के बीच अंतर करने के लिए नोड और एनपीएम समुदायों में काफी मशहूर किया गया है |
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+नोड ही की तरह, इलेक्ट्रॉन का ध्यान भी ऐपीआई का एक छोटा सा सेट रखने पर केन्द्रित है जो बहु-प्लेटफार्म डेस्कटॉप एप्लीकेशनस का विकास करने के लिए सभी ज़रूरी प्रिमिटिव्स प्रदान कर सके | This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 
