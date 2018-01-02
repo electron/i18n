@@ -1,85 +1,99 @@
-# autoUpdater
+# automatischerUpdater
 
-> Enable apps to automatically update themselves.
+> Aktivieren Sie Apps, um sich automatisch zu aktualisieren.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+Das ` autoUpdater </ 0> -Modul bietet eine Schnittstelle für das
+ <a href="https://github.com/Squirrel"> Squirrel </ 1> -Framewor</p>
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+<p>Sie können schnell einen Multi-Plattform-Release-Server zum Verteilen Ihrer Anwendung mithilfe eines dieser Projekte starten:</p>
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+<ul>
+<li><a href="https://github.com/GitbookIO/nuts"> Nüsse </ 0> : <em> Ein intelligenter Freigabeserver für Ihre Anwendungen, der GitHub als Backend verwendet. Automatische Updates mit Squirrel (Mac & amp;  Windows ) </ 1></li>
+<li><a href="https://github.com/ArekSredzki/electron-release-server"> electron -release-server </ 0> : <em> Ein voll ausgestatteter, selbst gehosteter Release-Server für elektronische Anwendungen, kompatibel mit Auto-Updater </ 1></li>
+<li><a href="https://github.com/Aluxian/squirrel-updates-server"> squirrel-updates-server </ 0> : <em> Ein einfacher node.js-Server für Squirrel.Mac und Squirrel.Windows, der GitHub-Releases verwendet </ 1></li>
+<li><a href="https://github.com/Arcath/squirrel-release-server"> squirrel-release-server </ 0> : <em> Eine einfache PHP-Anwendung für Squirrel.Windows, die Updates von einem Ordner liest. Unterstützt Delta-Updates. </ 0></li>
+</ul>
 
-## Platform notices
+<h2>Plattformhinweise</h2>
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+<p>Obwohl <code> autoUpdater </ 0> eine einheitliche API für verschiedene Plattformen bietet, gibt es auf jeder Plattform noch einige feine Unterschiede.</p>
 
-### macOS
+<h3>macOS</h3>
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+<p>macOS , die <code> AutoUpdater </ 0> Modul wird auf gebaut <a href="https://github.com/Squirrel/Squirrel.Mac"> Squirrel.Mac </ 1> , Sie keine spezifische Softwareinstallation erforderlich bedeutet es funktioniert. Für serverseitige Anforderungen können Sie <a href="https://github.com/Squirrel/Squirrel.Mac#server-support"> Serverunterstützung </ 0> lesen . Beachten Sie, dass <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35"> App-Transportsicherheit </ 0> (ATS) für alle Anforderungen gilt, die im Rahmen des Aktualisierungsprozesses vorgenommen werden. Apps, die ATS deaktivieren müssen, können den Schlüssel <code> NSAllowsArbitraryLoads </ 0> zu ihrer App hinzufügen
+ .</p>
 
-**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
+<p><strong> Hinweis: </ 0> Ihre Anwendung muss für automatische Updates auf macOS signiert sein . Dies ist eine Voraussetzung von <code> Squirrel.Mac </ 1> .</p>
 
-### Windows
+<h3>Windows</h3>
 
-On Windows, you have to install your app into a user's machine before you can use the `autoUpdater`, so it is recommended that you use the [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) or the [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) package to generate a Windows installer.
+<p>Unter Windows müssen Sie Ihre App auf dem Computer eines Benutzers installieren, bevor Sie den <code> autoUpdater </ 0> verwenden können. Daher wird empfohlen, das
+ <a href="https://github.com/electron/windows-installer"> Elektron-winstaller </ 1> , <a href="https://github.com/electron-userland/electron-forge"> Elektron zu verwenden -forge </ 2> oder das <a href="https://github.com/electron/grunt-electron-installer"> grunt-electron-installer </ 3> -Paket, um ein Windows- Installationsprogramm zu generieren .</p>
 
-When using [electron-winstaller](https://github.com/electron/windows-installer) or [electron-forge](https://github.com/electron-userland/electron-forge) make sure you do not try to update your app [the first time it runs](https://github.com/electron/windows-installer#handling-squirrel-events) (Also see [this issue for more info](https://github.com/electron/electron/issues/7155)). It's also recommended to use [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) to get desktop shortcuts for your app.
+<p>Wenn Sie <a href="https://github.com/electron/windows-installer"> electron-winstaller </ 0> oder <a href="https://github.com/electron-userland/electron-forge"> electron-forge </ 1> verwenden , versuchen Sie nicht, Ihre App <a href="https://github.com/electron/windows-installer#handling-squirrel-events"> beim ersten Mal zu aktualisieren </ 2> (Siehe auch <3 > dieses Problem für weitere Informationen </ 3> ).
+ Es wird auch empfohlen, <a href="https://github.com/mongodb-js/electron-squirrel-startup"> electron-squirrel-startup </ 0> zu verwenden, um Desktop-Verknüpfungen für Ihre App zu erhalten.</p>
 
-The installer generated with Squirrel will create a shortcut icon with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) in the format of `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, examples are `com.squirrel.slack.Slack` and `com.squirrel.code.Code`. You have to use the same ID for your app with `app.setAppUserModelId` API, otherwise Windows will not be able to pin your app properly in task bar.
+<p>Das mit Squirrel erstellte Installationsprogramm erstellt ein Verknüpfungssymbol mit einer
+ <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx"> Anwendungsbenutzermodell-ID </ 0> im Format
+ <code> com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE </ 1> , Beispiele sind
+ <code> com.squirrel .slack.Schwarz </ 1> und <code> com.squirrel.code.Code </ 1> . Sie müssen dieselbe ID für Ihre App mit der <code> app.setAppUserModelId </ 0>  API verwenden , da Windows sonst Ihre App nicht ordnungsgemäß in der Taskleiste anheften kann .</p>
 
-Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
+<p>Im Gegensatz zu Squirrel.Mac kann Windows Updates auf S3 oder einem anderen statischen Dateihost hosten.
+Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Windows"> Squirrel.Windows </ 0> lesen , um mehr über die Funktionsweise von Squirrel.Windows zu erfahren.</p>
 
-### Linux
+<h3>Linux</h3>
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+<p>Es gibt keine integrierte Unterstützung für automatische Aktualisierung unter Linux. Daher wird empfohlen, den Paketmanager der Distribution zu verwenden, um Ihre App zu aktualisieren.</p>
 
-## Ereignisse
+<h2>Veranstaltungen</h2>
 
-The `autoUpdater` object emits the following events:
+<p>Das <code> autoUpdater </ 0> -Objekt gibt die folgenden Ereignisse aus:</p>
 
-### Event: 'error'
+<h3>Ereignis : "Fehler</h3>
 
-Rückgabewert:
+<p>Kehrt zurück:</p>
 
-* `error` Error
+<ul>
+<li><code> Fehler </ 0> Fehler</li>
+</ul>
 
-Emitted when there is an error while updating.
+<p>Wird gesendet, wenn beim Aktualisieren ein Fehler auftritt.</p>
 
-### Event: 'checking-for-update'
+<h3>Ereignis : "Nach Updates suchen"</h3>
 
-Emitted when checking if an update has started.
+<p>Wird gesendet, wenn geprüft wird, ob ein Update gestartet wurde.</p>
 
-### Event: 'update-available'
+<h3>Ereignis : 'Update-verfügbar'</h3>
 
-Emitted when there is an available update. The update is downloaded automatically.
+<p>Wird gesendet, wenn ein Update verfügbar ist. Das Update wird automatisch heruntergeladen.</p>
 
-### Event: 'update-not-available'
+<h3>Ereignis : "Update nicht verfügbar"</h3>
 
-Emitted when there is no available update.
+<p>Wird gesendet, wenn kein Update verfügbar ist.</p>
 
-### Event: 'update-downloaded'
+<h3>Ereignis : 'Update-Download'</h3>
 
-Rückgabewert:
+<p>Kehrt zurück:</p>
 
-* `event` Event
-* `releaseNotes` String
-* `releaseName` String
-* `releaseDate` Date
-* `updateURL` String
+<ul>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code> Release Notes </ 0>  String</li>
+<li><code> releaseName </ 0>  String</li>
+<li><code> releaseDate </ 0> Datum</li>
+<li><code> updateURL </ 0>  String</li>
+</ul>
 
-Emitted when an update has been downloaded.
+<p>Wird gesendet, wenn ein Update heruntergeladen wurde.</p>
 
-On Windows only `releaseName` is available.
+<p>Unter Windows ist nur <code> releaseName </ 0> verfügbar.</p>
 
-## Methoden
+<h2>Methoden</h2>
 
-The `autoUpdater` object has the following methods:
+<p>Das Objekt <code> autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+<h3><code>autoUpdater.setFeedURL (url [, requestHeaders])`</h3> 
 
 * `url` String
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
