@@ -57,9 +57,9 @@ Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 </style>
 ```
 
-## Tag Attributes
+## 标签属性
 
-The `webview` tag has the following attributes:
+`webview` 标签有一下属性：
 
 ### `src`
 
@@ -71,7 +71,7 @@ Returns the visible URL. Writing to this attribute initiates top-level navigatio
 
 Assigning `src` its own value will reload the current page.
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+` src ` 属性还可以接受数据 url, 如 ` data:text/plain, Hellp,world! `。
 
 ### `autosize`
 
