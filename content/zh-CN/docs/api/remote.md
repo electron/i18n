@@ -37,7 +37,7 @@ Primary value types like strings and numbers, however, are sent by copy.
 
 ## Passing callbacks to the main process
 
-主进程中的代码可以接受来自渲染器的回调 - 例如`remote`模块 - 但使用此功能时应该非常小心。
+主进程中的代码可以接受来自渲染进程的回调 - 例如`remote`模块 - 但使用此功能时应该非常小心。
 
 首先，为了避免死锁，传递给主进程的回调被异步调用。 您不应该期望主进程获得传递回调的返回值。
 
