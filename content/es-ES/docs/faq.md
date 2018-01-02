@@ -51,10 +51,10 @@ Esto sucede cuando la variable que es usada para almacenar la ventana/bandeja se
 
 Si encuentra este problema, los siguientes artículos pudiesen resultar útiles:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gestión de la Memoria](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Ámbito de la variable](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Si quiere una solución rápida, puede volver sus variables globales cambiando su código de este:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+a este:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,9 +75,9 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## No puedo usar jQuery/RequireJS/Meteor/AngularJS en Electron.
 
-Debido a la integración de Node.js de Electron, hay algunos símbolos extras insertados en la DOM como `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Debido a la integración de Node.js de Electron, hay algunos símbolos extras insertados en la DOM como `module`, `exports`, `require`. Esto causa problemas para algunas librerías dado que ellas quieren insertar símbolos con los mismos nombres.
 
 Para solucionar esto, puede desactivar la integración del nodo en Electron:
 
@@ -112,24 +112,24 @@ Cuando se utiliza el módulo de Electron puede encontrar un error como este:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Uncaught TypeError: No puede leer apropiadamente 'setZoomLevel' del indefinido
 ```
 
 Esto es porque tienes la module</a> de `electron` de npm instalada localmente o globalmente, que reemplaza el módulo incorporado del Electron.</p> 
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Para verificar si usted está usando módulo constructor correcto, puede imprimir la ruta del módulo `electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+y luego verifique si es de la siguiente forma:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Si es algo como `node_modules/electron/index.js`, entonces tiene o que remover el módulo npm `electron`, o cambiarle el nombre.
 
 ```sh
 npm uninstall electron
