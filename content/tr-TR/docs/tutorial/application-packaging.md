@@ -2,7 +2,7 @@
 
 Windows'ta uzun yol adları etrafındaki [issues](https://github.com/joyent/node/issues/6960) azaltmak için `require`’ı biraz hızlandırın ve kaynak kodunuzu muayene işleminden gizleyin, uygulamanızı, kaynak kodunuzda ufak değişiklikler yaparak bir [asar](https://github.com/electron/asar) arşivine paketlemeyi seçebilirsiniz.
 
-## Generating `asar` Archive
+## `asar` Arşivi Oluşturuluyor
 
 An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
