@@ -20,11 +20,11 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 ### Kesme noktalarını ayarlama
 
-LLDB güçlü bir araçtır ve kod denetimi için birden fazla stratejiyi desteklemektedir. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDB güçlü bir araçtır ve kod denetimi için birden fazla stratejiyi desteklemektedir. Bu temel giriş için, JavaScript'ten doğru şekilde davranmayan bir komut çağırdığınızı varsayalım -bu nedenle, bu komutun Electron kaynağı içindeki C++ muadili parçasını kırmak istiyorsunuz.
 
 İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `. Eğer kararlı iseniz, Açıkçası ` chromium_src ` 'da bulunan Chromium'u doğrudan hata ayıklayabilirsiniz.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+`browser.cc`'da `Browser:: SetName()` olarak tanımlanan `app.setName()`'i hata ayıklamak istediğinizi varsayalım. Devre dışı bırakılacak dosya ve satırı belirterek, kesme noktasını `breakpoint` komutunu kullanarak ayarlayın:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
@@ -37,7 +37,7 @@ Then, start Electron:
 (lldb) Çalıştır
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Electron, uygulamanın adını başlattığında ayarladığından, uygulama hemen duraklatılır:
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+Geçerli karenin argümanlarını ve yerel değişkenlerini göstermek için uygulamanın şu anda adı "Electron" olarak ayarladığını gösterecek `frame variable` (veya `fr v`)'yi çalıştırın".
 
 ```sh
 (lldb) frame variable
