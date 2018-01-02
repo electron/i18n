@@ -66,9 +66,9 @@
 
 ### प्रक्रिया
 
-प्रक्रिया, कंप्यूटर प्रोग्राम का वह रूप है जो उस समय चल रहा होता है | Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+प्रक्रिया, कंप्यूटर प्रोग्राम का वह रूप है जो उस समय चल रहा होता है | इलेक्ट्रॉन एप्प्स जो [मेन](#main-process) और एक या कई [रेंदेरेर](#renderer-process) प्रक्रियाओं का इस्तेमाल करती हैं, वे असल में बहुत सारे प्रोग्रम्म्स को एक साथ चला रही होती हैं |
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+नोड.जेएस और इलेक्ट्रॉन में, हर चलती प्रक्रिया के पास एक `प्रोसेस` ऑब्जेक्ट होता है | This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
