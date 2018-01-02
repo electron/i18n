@@ -182,7 +182,7 @@ npm run merge-release -- 1-7-x
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
-## Publish to npm
+## npm'e yayımla
 
 Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
 
@@ -205,6 +205,7 @@ git checkout vTHE.RELEASE.VERSION
 
 # Explicitly allow overwritting a published release.
 ./script/upload.py --overwrite
+
 ```
 
 After re-uploading all distributions, publish again to upload the checksum file:
