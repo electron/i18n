@@ -12,7 +12,7 @@
 
 对于某些事件, ` listener ` 是通过 ` callback` 传递的, 当 `listener ` 完成其工作时, 应使用 ` response ` 对象进行调用。
 
-An example of adding `User-Agent` header for requests:
+为 requests 添加 `User-Agent` 头的示例：
 
 ```javascript
 const {session} = require('electron')
@@ -30,12 +30,12 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### 实例方法
 
-The following methods are available on instances of `WebRequest`:
+以下方法可用于 ` WebRequest ` 的实例:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -49,7 +49,7 @@ The following methods are available on instances of `WebRequest`:
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+当请求即将发生时，调用`listener(details, callback)`。
 
 The `uploadData` is an array of `UploadData` objects.
 
@@ -58,7 +58,7 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
@@ -80,7 +80,7 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -95,7 +95,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
@@ -120,7 +120,7 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -138,7 +138,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function 
   * `details` Object 
     * `id` String
@@ -157,7 +157,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
@@ -175,7 +175,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - 用于过滤出与URL模式不匹配的请求的URL模式数组。
 * `listener` Function 
   * `details` Object 
     * `id` Integer
