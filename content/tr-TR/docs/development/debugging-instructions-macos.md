@@ -4,13 +4,13 @@ Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electr
 
 ## Gereksinimler
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
+* **Electron'un bir hata ayıklama yapısı**: En kolay yol, genellikle [macOS için yapı talimatları](build-instructions-osx.md)'nda listelenen araçları ve ön koşulları kullanarak onu kendiniz kurmanızdır. Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
 
 * **Xcode**: Xcode'a ek olarak, ayrıca Xcode'un komut satırı araçlarını da yükler. Mac OS X'de Xcode'ın varsayılan hata ayıklayıcısı olan LLDB'yi içerirler. C, Objective-C ve C++ masaüstünde ve iOS aygıtlarında ve simülatöründe hata ayıklamayı destekler.
 
 ## Electron'da ekleme yapma ve hata ayıklama
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+Bir hata ayıklama oturumu başlatmak için, Terminal'i açın ve `lldb`'yi başlatın; bir parametre olarak Electron'un hata ayıklama derlemesini geçirin.
 
 ```sh
 $ lldb ./out/D/Electron.app
