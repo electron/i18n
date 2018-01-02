@@ -209,9 +209,9 @@ const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['Çık', 'Kal'],
+    title: 'Siteden çıkmak istediğinize emin misiniz?',
+    message: 'Yaptığınız değişikliler kaydedilmeyecektir.',
     defaultId: 0,
     cancelId: 1
   })
@@ -236,8 +236,8 @@ Emitted when the renderer process crashes or is killed.
 Dönüşler:
 
 * `olay` Olay
-* `name` String
-* `version` String
+* `isim` String
+* `versiyon` String
 
 Emitted when a plugin process has crashed.
 
