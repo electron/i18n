@@ -2,11 +2,11 @@
 
 > Uygulamanın klavye odağı olmadığı zaman klavye etkinliklerini algılar.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+`globalShortcut` modülü bir evrensel kısayolu işletim sistemi ile kaydedebilir/kaydetmeyebilir bu sayede çeşitli kısayollar için işlemleri özelleştirebilirsiniz.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Note:** Kısayol evrenseldir; uygulamanın klavye odağı olmasa bile çalışacaktır. You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
