@@ -629,13 +629,13 @@ Imports the certificate in pkcs12 format into the platform certificate store. `c
 
 Mevcut uygulama için donanımsal hızlandırmayı iptal eder.
 
-This method can only be called before app is ready.
+Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-This method can only be called before app is ready.
+Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
 ### `app.getAppMemoryInfo()` *Kullanımdan Kaldırıldı*
 
@@ -671,7 +671,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Obje (isteğe bağlı) 
+* `ayarlar` Obje (isteğe bağlı) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -691,11 +691,11 @@ Returns `Object`:
 
 * `settings` Nesne 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Varsayılan olarak `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Bu ayar sadece macOS'de desteklenir.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
-Set the app's login item settings.
+Uygulamanın giriş seçeneklerini ayarlayın.
 
 To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Örneğin:
 
@@ -722,14 +722,14 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
   * `credits` String (optional) - Credit information.
   * `version` String (optional) - The app's build version number.
 
-Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -752,7 +752,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
 ### `app.dock.bounce([type])` *macOS*
 
