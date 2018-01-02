@@ -1,22 +1,22 @@
 # デスクトップ環境の統合
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+アプリケーションをOSのデスクトップ環境に統合するための機能は、OSによって異なりますが、様々なものが用意されています。 例えば、Windows においてはアプリケーションはタスクバーのジャンプリスト内にショートカットを配置できます。また、 macOS においてはアプリケーションは Dock メニュー内にカスタムメニューを配置できます。
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Notifications
+## 通知
 
-See [Notifications](notifications.md)
+[通知](notifications.md) に関するドキュメントを参照してください。
 
-## Recent documents (Windows & macOS)
+## 最近使ったファイル (Windows, macOS)
 
 Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
 
-**JumpList:**
+**ジャンプ リスト:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**アプリケーションの Dock メニュー:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
@@ -44,7 +44,7 @@ When a user clicks a file from the JumpList, a new instance of your application 
 
 When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
 
-## Custom Dock Menu (macOS)
+## カスタム Dock メニュー (macOS)
 
 macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
 

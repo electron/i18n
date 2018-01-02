@@ -68,7 +68,7 @@ app.on('ready', () => {
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -81,16 +81,16 @@ Registers a protocol of `scheme` that will send the file as a response. The `han
 
 To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({path: filePath})`.
 
-When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. Mevcut hata numaraları için lütfen bakın [net hataların listesi](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`, so you probably want to call `protocol.registerStandardSchemes` to have your scheme treated as a standard scheme.
+Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI söz dizimini" izleyen protokollerden farklı olarak ayrıştırılır "` dosyası gibi: `, bu nedenle, şemanızın standart bir şema olarak işlenmesi için muhtemelen `protocol.registerStandardSchemes` 'i çağırmak istiyorsunuz.
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -120,7 +120,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -138,13 +138,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Nesne 
-      * `url` String
+      * `url` Dize
       * `method` String
       * `session` Object (optional)
       * `uploadData` Obje (isteğe bağlı) 
@@ -155,7 +155,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+`callback`, `url` olan bir `redirectRequest` nesnesi ile çağrılması dışında, `registerFileProtocol` ile kullanımı aynıdır. `method`, url ` referrer `, `uploadData` ve `session` özelliklerine sahiptir.
 
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
@@ -182,7 +182,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -198,7 +198,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -214,7 +214,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -230,13 +230,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `scheme` String
 * `handler` Function 
   * `istek` Nesne 
-    * `url` String
+    * `url` Dize
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Nesne 
-      * `url` String
+      * `url` Dize
       * `method` String
       * `session` Object (optional)
       * `uploadData` Obje (isteğe bağlı) 

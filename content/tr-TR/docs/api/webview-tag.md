@@ -40,7 +40,7 @@ If you want to control the guest content in any way, you can write JavaScript th
 
 ## CSS stil notları
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Ürünün tam yüksekliğini ve genişliğini doldurmasını sağlamak için `display:flex;` `object` `webview` etiket stilini kullanır `webview` kapsayıcısı geleneksel sürüm ve flexbox planları birlikte kullanıldığında (v0.36.11'den beri) dahili olarak bulunduğunu lütfen dikkate alın. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
 `webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
 
@@ -105,7 +105,7 @@ When this attribute is present the guest page in `webview` will be able to use b
 
 Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
 
-When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
+Konuk sayfasında hiçbir düğüm entegrasyonu yoksa, bu komut dosyası tüm Düğüm api'lerine yine de erişime sahip olacak, ama düğüm tarafından enjekte edilen genel nesneler, bu komut dosyası çalışmayı bitirdikten sonra silinecek.
 
 **Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
@@ -115,7 +115,7 @@ When the guest page doesn't have node integration this script will still have ac
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+Tüm sayfalar için yönlendiren URL'yi ayarlayın.
 
 ### `useragent`
 
@@ -150,7 +150,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+Bu özellik mevcut olduğunda tüm sayfaların yeni bir pencere açmasına izin verir. Açılır pencereler varsayılan olarak devre dışıdır.
 
 ### `webpreferences`
 
@@ -243,7 +243,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
@@ -529,9 +529,9 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+Dönüşler:
 
-* `url` String
+* `url` Dize
 * `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
@@ -542,7 +542,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Olay: 'did-fail-load'
 
-Returns:
+Dönüşler:
 
 * `errorCode` Tamsayı
 * `errorDescription` Koşul
@@ -553,7 +553,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Olay: 'did-frame-finish-load'
 
-Returns:
+Dönüşler:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Olay: 'did-get-response-details'
 
-Returns:
+Dönüşler:
 
 * `status` Boolean
 * `newURL` Dize
@@ -584,7 +584,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Olay: 'did-get-redirect-request'
 
-Returns:
+Dönüşler:
 
 * `oldURL` Dize
 * `newURL` Dize
@@ -598,7 +598,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+Dönüşler:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +607,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Olay: 'page-favicon-updated'
 
-Returns:
+Dönüşler:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +623,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+Dönüşler:
 
 * `level` Integer
 * `message` String
@@ -632,7 +632,7 @@ Returns:
 
 Fired when the guest window logs a console message.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -643,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Etkinlik: 'sayfa içinde kurmak'
 
-Returns:
+Dönüşler:
 
 * `sonuç` Nesne 
   * `requestId` Integer
@@ -666,9 +666,9 @@ console.log(requestId)
 
 ### Olay: 'new-window'
 
-Returns:
+Dönüşler:
 
-* `url` String
+* `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
@@ -691,9 +691,9 @@ webview.addEventListener('new-window', (e) => {
 
 ### Olay: 'will-navigate'
 
-Returns:
+Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
@@ -705,9 +705,9 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Olay: 'did-navigate'
 
-Returns:
+Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Bir gezinme yapıldığında ortaya çıkar.
 
@@ -715,10 +715,10 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 ### Olay: 'did-navigate-in-page'
 
-Returns:
+Dönüşler:
 
 * `isMainFrame` Boolean
-* `url` String
+* `url` Dize
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+Dönüşler:
 
 * `channel` String
 * `args` Array
@@ -776,10 +776,10 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+Dönüşler:
 
 * `name` String
-* `version` String
+* `versiyon` String
 
 Fired when a plugin process is crashed.
 
@@ -797,7 +797,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+Dönüşler:
 
 * `themeColor` String
 
@@ -809,9 +809,9 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+Dönüşler:
 
-* `url` String
+* `url` Dize
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 

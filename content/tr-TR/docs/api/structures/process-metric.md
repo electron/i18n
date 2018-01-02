@@ -1,6 +1,6 @@
 # ProcessMetric Object
 
 * `pid` Tam sayı -İşlemcinin işlemci kimliği.
-* `type` String - Process type (Browser or Tab or GPU etc).
-* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
-* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `type` String - Süreç türü (Tarayıcı ve ya Sekme ve ya GPU vb.).
+* `memory` [MemoryInfo](memory-info.md) - İşlemin bellek bilgisi.
+* `cpu` [CPUUsage](cpu-usage.md) - İşlemin CPU kullanımı.

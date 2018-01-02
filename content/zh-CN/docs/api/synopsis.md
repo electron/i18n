@@ -1,14 +1,14 @@
 # 简介
 
-> How to use Node.js and Electron APIs.
+> 如何使用 Node.js 和 Electron APIs
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+所有 [ Node. js 的内置模块 ](https://nodejs.org/api/) 都可用在 Electron 和第三方 node 模块中, 也完全支持 (包括 [ 原生模块 ](../tutorial/using-native-node-modules.md))。
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Electron 还为开发原生桌面应用程序提供了一些额外的内置模块。 某些模块仅在主进程中可用, 有些仅在渲染进程 (web 页) 中可用, 而有些在这两个进程中都可以使用。
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
+基本规则是: 如果一个模块是 [ GUI ](https://en.wikipedia.org/wiki/Graphical_user_interface) 或底层系统相关的, 那么它应该只在主进程中可用。 您需要熟悉 [主流程 vs 渲染流程 ](../tutorial/quick-start.md#main-process)脚本的概念，才能使用这些模块。
 
-The main process script is just like a normal Node.js script:
+主进程脚本就像一个普通的Node. js 脚本:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+渲染进程除了额外能够使用node模块的能力外，与普通网页没有什么区别
 
 ```html
 <!DOCTYPE html>
@@ -34,11 +34,11 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+要运行你的app, 请阅读 [ Run your app ](../tutorial/quick-start.md#run-your-app)。
 
 ## Destructuring assignment
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+从0.37开始，可以使用 [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) (es6解构赋值)来使内置模块更容易使用。
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+如果您需要整个 ` electron ` 模块, 则可以`require`它, 然后使用 destructuring 从 ` electron ` 访问各个模块。
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+这等效于以下代码:
 
 ```javascript
 const electron = require('electron')

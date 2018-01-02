@@ -1,21 +1,21 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Emitir solicitudes HTTP/HTTPS usando la biblioteca de red nativa de Chromium
 
 Proceso: [Principal](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+El módulo `net` es un lado del cliente API para tratar pedidos HTTP(S). Si es similar a los módulos [HTTP](https://nodejs.org/api/http.html) y [HTTPS](https://nodejs.org/api/https.html) de Node.js pero usa la biblioteca de la red nativa de Chromium en vez de las aplicaciones Node.js, ofreciendo un mejor soporte a los proxies de la web.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+La siguiente es una lista no completa de por qué debería considerar usar el módulo `net` en vez de los módulos nativos Node.js:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Gestión automática del sistema de configuración de proxy, soporte del protocolo wpad y el paquete de archivos de configuración del proxy.
+* Túnel automático para peticiones HTTPS.
+* Soportar los proxies de autentificación usando basic, digest, NTLM, Kerberos, o negociar esquemas de autentificación.
+* Soporta proxies para monitoreo de tráfico: Fiddler como proxies usados para el acceso, el control y el monitoreo.
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+El módulo API `net` ha sido diseñado específicamente para parecerse lo más posible al API familiar al Node.js. Los componentes API incluyen clases, métodos, propiedades y eventos. Nombres son parecidos a esos usados comúnmente en Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Por ejemplo, el siguiente ejemplo mostrádo rápidamente muestra como la API `net` debe ser usada:
 
 ```javascript
 const {app} = require('electron')
@@ -36,18 +36,18 @@ app.on('ready', () => {
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+Por cierto, es casi idéntico a como usted usaría normalmente los módulos de Node.js [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html)
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+La API `net` puede ser usada solo después de que la aplicación emite el evento `ready`. Tratar de usar el módulo antes del evento `ready` arrojará un error.
 
 ## Métodos
 
-The `net` module has the following methods:
+El módulo `net` tiene los siguientes métodos:
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `opciones` (Objecto | cadena) - Las opiniones de constructor `ClientRequest`.
 
-Returns [`ClientRequest`](./client-request.md)
+Devuelve [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Crea una instancia [`ClientRequest`](./client-request.md) usando la `options` proveída la cual son directamente reenviadas al constructor `ClientRequest`. El método `net.request` será usado para emitir solicitudes HTTP tanto seguras como inseguras dependiendo de lo especificado en el esquema de protocolo en el objeto `options`.

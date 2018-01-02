@@ -1,12 +1,12 @@
-# globalShortcut
+# evrenselKısayol
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Uygulamanın klavye odağı olmadığı zaman klavye etkinliklerini algılar.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+`globalShortcut` modülü bir evrensel kısayolu işletim sistemi ile kaydedebilir/kaydetmeyebilir bu sayede çeşitli kısayollar için işlemleri özelleştirebilirsiniz.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Note:** Kısayol evrenseldir; uygulamanın klavye odağı olmasa bile çalışacaktır. Uygulamanın modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -34,33 +34,33 @@ app.on('will-quit', () => {
 })
 ```
 
-## Metodlar
+## Yöntemler
 
-The `globalShortcut` module has the following methods:
+`globalShortcut` modülü aşağıdaki yöntemlere sahiptir:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+`accelerator`'ün bir evrensel kısayolunu kaydeder. `callback` kaydedilen kısayol kullanıcı tarafından tıklandığı zaman çağırılır.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı sessizce başarısız olacaktır. Bu davranış işletim sistemleri tarafından seçilmiştir, uygulamaların evrensel kısayollarla uğraşmasını istemedikleri için.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+`Boolean`'a döner - Bu uygulamanın `accelerator`'ü kaydedip kaydetmediğine göre.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Hızlandırıcı zaten diğer uygulamalar tarafından alınmışsa, bu çağrı hala `false`'a dönecektir. Bu davranış işletim sistemleri tarafından seçilmiştir, uygulamaların evrensel kısayollarla uğraşmasını istemedikleri için.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+`accelerator` evrensel kısayolunun kaydını siler.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Bütün evrensel kısayol kayıtlarını siler.

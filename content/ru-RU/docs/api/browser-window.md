@@ -8,7 +8,7 @@ Process: [Main](../glossary.md#main-process)
 // В основном процессе.
 const {BrowserWindow} = require('electron')
 
-// Или используйте 'remote' в renderer процессе.
+// Или используйте 'remote' из renderer процесса.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -25,7 +25,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Frameless window
 
-Для создания окна без Хрома, а так-же прозрачное окно произвольной формы, можно использовать [Frameless Window](frameless-window.md) API.
+Для создания окна без хрома, а также прозрачное окно произвольной формы, можно использовать [Frameless Window](frameless-window.md) API.
 
 ## Изящный показ окон
 

@@ -1,214 +1,178 @@
-# Electron Documentation Styleguide
+# इलेक्ट्रॉन दस्तावेज़ीकरण स्टाइलगाइड
 
-These are the guidelines for writing Electron documentation.
+ये इलेक्ट्रॉन दस्तावेज़ीकरण के लिए दिशानिर्देश हैं ।
 
-## Titles
+## शीर्षक
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* प्रत्येक पेज के शीर्ष पर एकल `#`-स्तर का शीर्षक होना आवश्यक है |
+* एक ही पेज पर मौज़ूद अध्यायों के `##`-स्तर के शीर्षक होने आवश्यक हैं ।
+* उप-अध्यायों को अपनी नेस्टिंग की गहराई के अनुसार शीर्षक में `#` की संख्या बढ़ाने की जरूरत होगी |
+* "की" और "और" जैसे संयोजनों को छोड़कर, पेज के शीर्षक में मौज़ूद सभी शब्दों को कैपिटल में होना चाहिए ।
+* अध्याय शीर्षक का केवल पहला शब्द ही कैपिटल में होना चाहिये |
 
-Using `Quick Start` as example:
+उदहारण के रूप में `त्वरित प्रारंभ` का उपयोग:
 
 ```markdown
-# Quick Start
-
+# त्वरित प्रारंभ 
+... 
+## मुख्य प्रक्रिया
+... 
+## रेंदेरेर प्रक्रिया
+... 
+## अपनी एप्प चलायें 
+... 
+### वितरण की तरह चलायें 
 ...
-
-## Main process
-
-...
-
-## Renderer process
-
-...
-
-## Run your app
-
-...
-
-### Run as a distribution
-
-...
-
-### Manually downloaded Electron binary
-
+ ### इलेक्ट्रॉन बाइनरी मैन्युअली डाउनलोड की गयी
 ...
 ```
 
-For API references, there are exceptions to this rule.
+ऐपीआई रेफरेन्सेस के लिए, इस नियम के कुछ अपवाद हैं |
 
-## Markdown rules
+## मार्कडाउन नियम
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* कोड खण्डों में `cmd` की जगह `sh` का प्रयोग करें (सिंटेक्स हाइलाइटर के कारण)|
+* 80 कॉलमस पर पंक्तियाँ व्रैप की जानी चाहिये |
+* कोई भी नेस्टिंग सूची 2 स्तर से ज्यादा नहीं होनी चाहिये (मार्कडाउन रेंदेरेर के कारण) |
+* सभी `जेएस` और `जावास्क्रिप्ट` कोड खंड [मानक-मार्कडाउन](http://npm.im/standard-markdown) से सूचीबद्ध हैं |
 
-## Picking words
+## शब्द चुनना
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* जब परिणाम का वर्णन कर रहे हों, तो "विल" की जगह "वुड" का प्रयोग करें |
+* "__प्रक्रिया के ऊपर" की बजाये "__प्रक्रिया के अन्दर" को तरजीह दें |
 
-## API references
+## ऐपीआई रेफरेंस
 
-The following rules only apply to the documentation of APIs.
+निम्नलिखित नियम केवल ऐपीआई के दस्तावेज़ीकरण के लिए मान्य हैं |
 
-### Page title
+### पेज शीर्षक
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+प्रत्येक पेज का शीर्षक उस वास्तविक ऑब्जेक्ट का नाम होना चाहिये जो कि `रिक़ुआइर('इलेक्ट्रॉन')` द्वारा भेजा गया हो, जैसे कि `ब्राउज़रविंडो`, `स्वतःअपडेटर`, और `सेशन` |
 
-Under the page title must be a one-line description starting with `>`.
+पेज शीर्षक के नीचे एक पंक्ति का विवरण होना चाहिये जो कि `>` से शुरू होता हो |
 
-Using `session` as example:
-
-```markdown
-# session
-
-> Manage browser sessions, cookies, cache, proxy settings, etc.
-```
-
-### Module methods and events
-
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
-
-Using `autoUpdater` as an example:
+उदहारण के रूप में `सेशन` का उपयोग:
 
 ```markdown
-# autoUpdater
-
-## Events
-
-### Event: 'error'
-
-## Methods
-
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+#सेशन
+> ब्राउज़र सेशन का प्रबंधन, कूकीज, कैश, प्रॉक्सी सेटिंग्स आदि |
 ```
 
-### Classes
+### मोड्यूल मेथड्स और इवेंट्स
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+वे मोडयुल्स जो कि क्लासेज नहीं हैं, उनके मेथड्स और इवेंट्स `## मेथड्स` और `## इवेंट्स` अध्याय के नीचे सूचीबद्ध होने चाहियें |
 
-Using the `Session` and `Cookies` classes as an example:
+उदहारण के रूप में `स्वतः अपडेटर` का उपयोग:
 
 ```markdown
-# session
-
-## Methods
-
-### session.fromPartition(partition)
-
-## Properties
-
-### session.defaultSession
-
-## Class: Session
-
-### Instance Events
-
-#### Event: 'will-download'
-
-### Instance Methods
-
-#### `ses.getCacheSize(callback)`
-
-### Instance Properties
-
-#### `ses.cookies`
-
-## Class: Cookies
-
-### Instance Methods
-
-#### `cookies.get(filter, callback)`
+# स्वतः अपडेटर 
+## इवेंट्स 
+### इवेंट:'त्रुटी' 
+## मेथड्स 
+### `स्वतः अपडेटर.सेटफीडयुआरएल([युआरएल[, रिक्वेस्टहैडरस])`
 ```
 
-### Methods
+### क्लास
 
-The methods chapter must be in the following form:
+* ऐपीआई क्लासेज या क्लासेज जो कि मोडयुल्स का हिस्सा हैं, वे `## क्लास: क्लासनाम` अध्याय के तहत सूचीबद्ध होनी चाहियें |
+* एक पेज पर कई सारी क्लासेज हो सकती हैं |
+* कन्स्ट्रकट्र `###`-स्तर शीर्षक के साथ सूचीबद्ध होने चाहियें |
+* [स्थिर मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) एक `### स्थिर मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
+* [इंस्टैंस मेथड्स](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) एक `### इंस्टैंस मेथड्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
+* वे सभी मेथड्स जिनके पास एक रिटर्न वैल्यू है, उनका विवरण शुरू होना चाहिये "रिटर्न्स `[TYPE]` - रिटर्न विवरण" से | 
+  * अगर मेथड `ऑब्जेक्ट` रिटर्न करता है, एक कोलन और उसके बाद एक नयी लाइन से उसकी सरंचना निर्दिष्ट की जा सकती है; तो गुणों की एक अव्यवस्थित सूची फंक्शन पैरामीटर्स के जैसे स्टाइल |
+* इंस्टैंस इवेंट्स एक `### इंस्टैंस इवेंट्स` अध्याय के अंतर्गत ही सूचीबद्ध होने चाहियें|
+* इंस्टैंस गुण एक ### इंस्टैंस गुण `अध्याय के अंतर्गत ही` सूचीबद्ध होने चाहियें| 
+  * इंस्टैंस गुण "एक [गुण प्रकार]..." से ही शुरू होने चाहियें |
+
+उदहारण के रूप में `सेशन` और `कूकीज़` क्लासेज का उपयोग:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
-
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+# सेशन 
+## मेथड्स 
+### सेशन.(पार्टीशन) पार्टीशन से 
+## गुण 
+### सेशन.डिफ़ॉल्ट सेशन 
+## क्लास:सेशन 
+### इंस्टैंस इवेंट्स 
+#### इवेंट:'डाउनलोड-करूँगा' 
+### इंस्टैंस मेथड्स 
+#### `सेस.गेट कैश साइज़(कालबैक)` 
+### इंस्टैंस गुण
+#### `सेस.कूकीज` 
+## क्लास:कूकीज 
+### इंस्टैंस मेथड्स 
+#### `कूकीज.गेट(फ़िल्टर, कालबैक)`
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+### मेथड्स
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+मेथड्स अध्याय निम्नलिखित रूप में होना चाहिये:
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+```markdown
+### `ऑब्जेक्ट नाम. मेथड नाम(ज़रूरी[, वैकल्पिक]))` 
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+* `ज़रूरी` वाक्य - एक पैरामीटर विवरण | 
+* `वैकल्पिक` इन्टिजर (वैकल्पिक) - एक और पैरामीटर विवरण | ...
+```
+
+शीर्षक `###` या `####`-स्तर हो सकता है, जो कि इस बात पर निर्भर करता है कि वह एक मोड्यूल का मेथड है या एक क्लास का |
+
+मोडयुल्स के लिए, `ऑब्जेक्ट नाम` ही मोड्यूल का नाम है | क्लासेज के लिए, वह क्लास का इंस्टैंस होना चाहिए, और मोड्यूल के नाम के समान नहीं होनी चाहिये |
+
+उदाहरण के लिए, `सेशन` मोड्यूल के अंतर्गत `सेशन` क्लास के मेथड्स को `ऑब्जेक्टनाम` के तौर पर `सेस` का इस्तेमाल करना चाहिये |
+
+वकैल्पिक आर्गुमेंट्स को घेरे हुए स्क्वायर ब्रैकेट्स `[]`, वकैल्पिक आर्गुमेंट्स को चिन्हित करने के लिए इस्तेमाल किये जाते हैं | साथ ही अगर इस वकैल्पिक आर्गुमेंट के बाद एक और आर्गुमेंट आता है तो इसके लिए कोमा का भी इस्तेमाल ज़रूरी है |
 
 ```sh
-required[, optional]
+ज़रूरी[, वैकल्पिक]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+मेथड के नीचे प्रत्येकआर्गुमेंट की और भी विस्तृत जानकारी होगी | आर्गुमेंट के प्रकार को इनमे से किसी भी सामान्य प्रकार से चिन्हित किया जा सकता है:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* [`स्ट्रिंग`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`नंबर`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`ऑब्जेक्ट`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`ऐरे`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`बूलियन`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* या इलेक्ट्रॉन के [`वेबकंटेंट`](api/web-contents.md) की तरह एक कस्टम प्रकार
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+अगर एक आर्गुमेंट या एक मेथड कुछ ख़ास प्लेटफॉर्म्स के लिए ही है, तो वे प्लेटफार्म डाटा प्रकार के बाद एक स्पेस-डीलिमितिड इटैलिक सूची का इस्तेमाल करके चिन्हित किये जा सकते हैं | वैल्यू `मैकओएस`, `विंडोज`, या `लिनक्स` हो सकती है |
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `एनिमेट` बूलियन (वैकल्पिक) _मैकओएस_ _विंडोज_ - चीज़ को एनिमेट करें|
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`ऐरे` प्रकार के आर्गुमेंट को नीचे दिए गये विवरण में यह निर्दिष्ट करना होगा कि ऐरे में कौन से तत्व आ सकते हैं |
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`फंक्शन` प्रकार के आर्गुमेंट्स के विवरण में यह स्पष्ट होना चाहिये कि उसे कैसे कॉल किया सकता है और साथ ही पैरामीटर के कौन से प्रकार उसमे पास किया जा सकते हैं |
 
-### Events
+### इवेंट्स
 
-The events chapter must be in following form:
+इवेंट्स अध्याय निम्नलिखित रूप में होना चाहिये:
 
 ```markdown
-### Event: 'wake-up'
-
-Returns:
-
-* `time` String
-
+### इवेंट:'उठो' 
+रिटर्न करे: 
+* `समय` स्ट्रिंग 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+शीर्षक `###` या `####`-स्तर हो सकता है, जो कि इस बात पर निर्भर करता है कि वह एक मोड्यूल का इवेंट है या एक क्लास का |
 
-The arguments of an event follow the same rules as methods.
+एक इवेंट के आर्गुमेंट्स, मेथड्स के नियमों का ही पालन करते हैं |
 
-### Properties
+### गुण
 
-The properties chapter must be in following form:
+गुण अध्याय निम्नलिखित रूप में होना चाहिये:
 
 ```markdown
-### session.defaultSession
-
+### सेशन.डिफ़ॉल्ट सेशन 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+शीर्षक `###` या `####`-स्तर हो सकता है, जो कि इस बात पर निर्भर करता है कि वह एक मोड्यूल का गुण है या एक क्लास का |
 
-## Documentation Translations
+## दस्तावेज़ीकरण अनुवाद
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+[इलेक्ट्रॉन/इलेक्ट्रॉन-i18n](https://github.com/electron/electron-i18n#readme) देखें

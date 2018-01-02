@@ -1,6 +1,6 @@
-## Class: MenuItem
+## 菜单项
 
-> Add items to native application menus and context menus.
+> 添加菜单项到应用程序菜单和上下文菜单中
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -9,32 +9,32 @@
 ### `new MenuItem(options)`
 
 * `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * ` role ` String (可选)-定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
+  * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
+  * ` label `String (可选)
+  * `sublabel` String - (可选)
+  * `accelerator` [Accelerator](accelerator.md) (可选)
+  * `icon` ([NativeImage](native-image.md) | String) (可选)
+  * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
+  * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
+  * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (可选) - 应该为 `submenu` 类型菜单项指定。 如果设置了 ` submenu `, 则 ` type: 'submenu' `配置可以省略。 如果该值不是 ` Menu `, 则它将使用 ` Menu. buildFromTemplate ` 自动转换。
+  * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
+  * ` position `String (可选)-此字段允许对给定菜单中的特定位置进行 fine-grained（细粒度） 定义。
 
 ### Roles
 
 可以通过角色来为menu添加预定义行为。
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+最好给任何一个菜单指定 ` role `去匹配一个标准角色, 而不是尝试在 ` click ` 函数中手动实现该行为。 内置的 ` role ` 行为将提供最佳的原生体验。
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+使用 ` role ` 时, ` label ` 和 ` accelerator ` 值是可选的, 并为每个平台，将默认为适当值。
 
-The `role` property can have following values:
+`role ` 属性可以具有以下值:
 
 * `undo`
 * `redo`
@@ -57,7 +57,7 @@ The `role` property can have following values:
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
 
-The following additional roles are available on macOS:
+macOS 上提供了以下附加角色:
 
 * `about` - Map to the `orderFrontStandardAboutPanel` action
 * `hide` - Map to the `hide` action

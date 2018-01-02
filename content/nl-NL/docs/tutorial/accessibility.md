@@ -1,16 +1,16 @@
 # Accessibility
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+Het toegankelijk maken van applicaties is belangrijk en we zijn blij om nieuwe functionaliteit te introduceren bij Devtron</ 0> en Spectron</ 1> waarmee ontwikkelaars hun apps voor iedereen beter kunnen maken.</p> 
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Toegankelijkheidsuitdagingen in Electron-applicaties zijn vergelijkbaar met die van websites, omdat ze beide uiteindelijk HTML zijn. Bij Electron-apps kunt u echter de online tests voor toegankelijkheidsaudits echter niet gebruiken omdat uw app geen URL heeft om de auditor naar te verwijzen.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+Deze nieuwe functies brengen die auditing-tools naar uw Electron-app. U kunt ervoor kiezen om audits toe te voegen aan uw tests met Spectron of ze te gebruiken in DevTools met Devtron. Lees verder voor een overzicht van de tools of bekijk onze [toegankelijkheidsdocumentatie](https://electronjs.org/docs/tutorial/accessibility) voor meer informatie.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+In het testframework Spectron kunt u nu elk venster en `<webview>`-tag in uw applicatie controleren. Bijvoorbeeld:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,31 +20,31 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+U kunt meer over deze functie lezen in [Spectron's documentatie](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+In Devtron is er een nieuw accessibility-tabblad, die een pagina in uw app laat controleren en de resultaten laat sorteren en filteren.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![devtron-schermafdruk](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Beide tools zijn gemaakt met behulp van de [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) van Google voor Chrome. U kunt meer lezen over toegankelijkheidsauditregels die deze bibliotheek gebruikt op de [wiki van het repository](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+Als u andere geweldige toegankelijkheidstools voor Electron kent, voegt u deze toe aan de [toegankelijkheidsdocumentatie](https://electronjs.org/docs/tutorial/accessibility) met een pull-request.
 
-## Enabling Accessibility
+## Toegankelijkheid beschikbaar maken
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Elektron-apps houden toegankelijkheid standaard uitgeschakeld om prestatieredenen, maar er zijn meerdere manieren om dit in te schakelen.
 
-### Inside Application
+### In de applicatie
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Met behulp van [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), kunt u de toegankelijkheidsopties aanbieden in de gebruikersvoorkeuren van de applicatie. Gebruikersondersteunende hulpprogramma's hebben voorrang boven deze instelling en overschrijft het.
 
-### Assistive Technology
+### Hulptechnologie
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+De Electron-applicatie zal toegankelijkheidopties automatisch inschakelen wanneer het assistive-hulptechnologie (Windows) of VoiceOver (macOS) detecteert. Zie Chrome's [toegankelijkheidsdocumentatie](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) voor meer details.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Op macOS kan hulptechnologie van derden de toegankelijkheidsopties in Electron-applicaties aanzetten door het kenmerk `AXManualAccessibility` programmaticaal te wijzigen:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

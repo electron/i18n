@@ -2,13 +2,13 @@
 
 > Krom hakkında öğrenme ve gelişimi izleme için kaynak topluluğu
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- Slack üzerinde [chromiumdev](https://chromiumdev-slack.herokuapp.com)
+- Twitter üzerinde [@ChromiumDev](https://twitter.com/ChromiumDev)
+- Twitter üzerinde [@googlechrome](https://twitter.com/googlechrome)
 - [Blog](https://blog.chromium.org)
 - [Kod Arama](https://cs.chromium.org/)
 - [Kaynak Kodu](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
+- [Geliştirme Takvimi ve Yayın Bilgisi](https://www.chromium.org/developers/calendar)
 - [Tartışma grupları](http://www.chromium.org/developers/discussion-groups)
 
 Ayrıca bkz: [V8 geliştirme](v8-development.md)
@@ -21,40 +21,40 @@ Krom elektron ile ileterek hata ayıklamak mümkündür `--build_debug_libcc` ö
 $ ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-This will download and build libchromiumcontent locally, similarly to the `--build_release_libcc`, but it will create a shared library build of libchromiumcontent and won't strip any symbols, making it ideal for debugging.
+Bu, libchromium içeriğini yerel olarak `-build_release_libcc` 'e benzer şekilde indirir ve oluşturur, ancak libchromiumcontent'in paylaşılan bir kütüphane derlemesi oluşturur ve hata ayıklama için ideal hale getiren herhangi bir sembolü çıkarmaz.
 
-When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
+Bu şekilde oluşturulduğunda, `vendor/libchromiumcontent/src` dosyalarındaki değişiklikleri yapabilir ve hızlıca yeniden yapılandırabilirsiniz:
 
 ```sh
 $ ./script/build.py -c D --libcc
 ```
 
-When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. Her dosya üzerinde çalıştırılmasına gerek yoktur, ancak en çok paylaşılan kütüphaneleri dizinlemek için bunu en az bir kez yapmak önerilir:
+Gdb ile linux üzerinde geliştirirken, simgeleri yüklemeyi hızlandırmak için bir gdb dizini eklenmesi önerilir. Her dosya üzerinde çalıştırılmasına gerek yoktur, ancak en çok paylaşılan kütüphaneleri dizinlemek için bunu en az bir kez yapmak önerilir:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+Libchromiumcontent oluşturmak güçlü bir makineye ihtiyaç duyar ve uzun sürer (ancak artan paylaşımlı kütüphane bileşeninin yeniden oluşturulması hızlıdır). 3ghz, hızlı SSD ve 32GB RAM bulunan 8-core/16-thread Ryzen 1700 CPU ile yaklaşık 40 dakika sürüyor. 16GB'dan daha az RAM ile oluşturulması önerilmez.
 
 ## Krom git önbellek
 
-`depot_tools` has an undocumented option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
+`depot_tools`, geliştiricinin Chromium + bağımlılıklarının tüm git nesneleri için genel bir önbellek ayarlamasına izin veren belgelenmemiş bir seçeneğe sahiptir. Bu seçenek, aynı depoların birden fazla klonunda bant genişliğini/alanı korumak için `git clone --shared` kullanır.
 
-On electron/libchromiumcontent, this option is exposed through the `LIBCHROMIUMCONTENT_GIT_CACHE` environment variable. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. Örneğin:
+Elektron/libchromiumcontent üzerinde, bu seçenek `LIBCHROMIUMCONTENT_GIT_CACHE` çevre değişkeniyle gösterilir. Aynı makinede birkaç libchromiumcontent ağacı inşa etmeyi düşünüyorsanız (örneğin farklı dallarda çalışmak için), Chromium kaynağının indirilmesini hızlandırmak için değişken ayarlamanız önerilir. Örneğin:
 
 ```sh
 $ mkdir ~/.chromium-git-cache
 $ LIBCHROMIUMCONTENT_GIT_CACHE=~/.chromium-git-cache ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, delete the files ending in `.lock`:
+Git önbelleğini kullanırken önyükleme komut dosyası kesilirse, önbelleği kilitli bırakır. Kilidi kaldırmak için `.lock` ile biten dosyaları silin:
 
 ```sh
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 ```
 
-It is possible to share this directory with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Git-cache komut dosyası tarafından oluşturulan kilitler bunu önlemeye çalışacaktır, ancak ağda mükemmel çalışmayabilir.
+Bu dizini linux'te SMB paylaşımı olarak dışa aktararak diğer makinelerle paylaşmak mümkündür, ancak tek seferde sadece bir işlem/makine önbellek kullanabilir. Git-cache komut dosyası tarafından oluşturulan kilitler bunu önlemeye çalışacaktır, ancak ağda mükemmel çalışmayabilir.
 
 Windows'ta, SMBv2'de git ile ilgili sorunlara neden olacak bir dizin önbellek vardır Önbellek komut dosyası, bu nedenle kayıt defteri anahtarını ayarlayarak devre dışı bırakmak gerekir
 

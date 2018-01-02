@@ -1,10 +1,10 @@
-# Upgrading Node
+# Actualización del nodo
 
-## Discussion
+## Discusión
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. This is important because upstream Node and [libchromiumcontent](upgrading-chrome.md) both use their own versions of V8.
+Un problema para la actualización es construir todo Electrón solo con una copia de V8 para asegurar la compatibilidad. Esto es importante porque tanto el nodo ascendente como el contenido de ibchromium usan sus propias versiones de V8.
 
-Upgrading Node is much easier than upgrading libchromiumcontent, so fewer conflicts arise if one upgrades libchromiumcontent first, then chooses the upstream Node release whose V8 is closest to it.
+Actualizar el Nodo es mucho más fácil que actualizar el contenido de Libchromium, por lo que se producen menos problemas si se actualiza primero el contenido de Libchromium, y luego se elige la versión del Nodo ascendente cuyo V8 está más cerca de él.
 
 Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
 

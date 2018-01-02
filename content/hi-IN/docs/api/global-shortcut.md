@@ -34,7 +34,7 @@ app.on('will-quit', () => {
 })
 ```
 
-## Methods
+## मेथड्स
 
 The `globalShortcut` module has the following methods:
 

@@ -47,16 +47,5 @@ Aplikasi elektronika akan memungkinkan aksesibilitas secara otomatis saat mendet
 Pada macOS, teknologi bantu pihak ketiga dapat mengalihkan aksesibilitas di dalam aplikasi Elektron dengan menetapkan atribut ` AXManualAccessibility ` secara terprogram:
 
 ```objc
-CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
-
-+ (void)enableAccessibility:(BOOL)enable inElectronApplication:(NSRunningApplication *)app
-{
-    AXUIElementRef appRef = AXUIElementCreateApplication(app.processIdentifier);
-    if (appRef == nil)
-        return;
-
-    CFBooleanRef value = enable ? kCFBooleanTrue : kCFBooleanFalse;
-    AXUIElementSetAttributeValue(appRef, kAXManualAccessibility, value);
-    CFRelease(appRef);
-}
+CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");  + enableAccessibility (void): (BOOL) mengaktifkan inElectronApplication:(NSRunningApplication *) app {AXUIElementRef appRef = AXUIElementCreateApplication(app.processIdentifier);     Jika (appRef == nil) kembali;      Nilai CFBooleanRef = Aktifkan? kCFBooleanTrue: kCFBooleanFalse;     AXUIElementSetAttributeValue (appRef, kAXManualAccessibility, nilai);     CFRelease(appRef); }
 ```

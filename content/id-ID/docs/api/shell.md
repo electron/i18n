@@ -4,34 +4,35 @@
 
 Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-The ` shell </ 0> modul menyediakan fungsi yang berkaitan dengan integrasi desktop.</p>
+The `shell` modul menyediakan fungsi yang berkaitan dengan integrasi desktop.
 
-<p>Contoh membuka URL di browser default pengguna:</p>
+Contoh membuka URL di browser default pengguna:
 
-<pre><code class="javascript">const {shell} = require('electron') shell.openExternal ('https://github.com')
-`</pre> 
+```javascript
+const {shell} = require('electron') shell.openExternal ('https://github.com')
+```
 
 ## Metode
 
-The ` shell </ 0> modul memiliki metode berikut:</p>
+The `shell` modul memiliki metode berikut:
 
-<h3><code>shell.showItemInFolder(fullPath)`</h3> 
-
-* `fullPath` String
-
-Mengembalikan ` Boolean </ 0> - Apakah item berhasil ditampilkan</p>
-
-<p>Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.</p>
-
-<h3><code>shell.openItem(fullPath)`</h3> 
+### `shell.showItemInFolder(fullPath)`
 
 * `fullPath` String
 
-Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka.</p>
+Mengembalikan `Boolean` - Apakah item berhasil ditampilkan
 
-<p>Buka file yang diberikan dengan cara default desktop.</p>
+Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.
 
-<h3><code>shell.openExternal (url [, pilihan, callback])`</h3> 
+### `shell.openItem(fullPath)`
+
+* `fullPath` String
+
+Mengembalikan `Boolean` - Apakah item berhasil dibuka.
+
+Buka file yang diberikan dengan cara default desktop.
+
+### `shell.openExternal (url [, pilihan, callback])`
 
 * ` url </ 0> String</li>
 <li><code>pilihan` Objek (opsional) *macOS* 
@@ -41,11 +42,11 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka.</p>
 </ul></li>
 </ul>
 
-<p>Mengembalikan <code> Boolean </ 0> - Apakah sebuah aplikasi tersedia untuk membuka URL. Jika callback ditentukan, selalu mengembalikan true.</p>
-
-<p>Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalnya, mailto: URL di agen email default pengguna).</p>
-
-<h3><code>shell.moveItemToTrash(fullPath)`</h3> 
+<p>Mengembalikan <code>Boolean` - Apakah sebuah aplikasi tersedia untuk membuka URL. Jika callback ditentukan, selalu mengembalikan true.</p> 
+    Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalnya, mailto: URL di agen email default pengguna).
+    
+    ### `shell.moveItemToTrash(fullPath)`
+    
     * `fullPath` String
     
     Kembali `Boolean` - Apakah item berhasil dipindahkan ke tempat sampah
@@ -67,7 +68,7 @@ Mengembalikan ` Boolean </ 0> - Apakah item berhasil dibuka.</p>
     
     Kembali `Boolean` - Apakah cara pintas telah dibuat berhasil
     
-    Menciptakan atau update link pintasan di `shortcutPath`.
+    Membuat atau memperbarui tautan pintasan di `shortcutPath`.
     
     ### `shell.readShortcutLink(shortcutPath)` *Windows*
     

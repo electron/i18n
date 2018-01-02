@@ -10,7 +10,7 @@ The ASAR Format diciptakan terutama untuk meningkatkan kinerja pada Windows ... 
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Sekarang sudah tidak berlaku lagi dan telah digabungkan ke dalam basis kode Elektron.
+Brightray [adalah](https://github.com/electron-archive/brightray) sebuah perpustakaan statis yang membuat [libchromiumcontent](#libchromiumcontent) lebih mudah untuk menggunakan dalam aplikasi. Sekarang sudah tidak berlaku lagi dan telah digabungkan ke dalam basis kode Elektron.
 
 ### CRT
 
@@ -18,7 +18,7 @@ C Run-time Library (CRT) adalah bagian dari C++ Standard Library itu menggabungk
 
 ### DMG
 
-Image Disk Apple adalah format kemasan yang digunakan oleh macos . File DMG biasanya digunakan untuk mendistribusikan aplikasi "installer". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Image Disk Apple adalah format kemasan yang digunakan oleh macos . File DMG biasanya digunakan untuk mendistribusikan aplikasi "installer". [elektron-builder](https://github.com/electron-userland/electron-builder) mendukung Nsis sebagai target membangun.
 
 ### IME
 

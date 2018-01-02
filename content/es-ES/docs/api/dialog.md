@@ -1,17 +1,17 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Mostrar diálogos del sistema nativo para abrir y salvar archivos, alertas, etc.
 
 Proceso: [Principal](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Un ejemplo de mostrar un cuadro de diálogo para seleccionar múltiples archivos y directorios:
 
 ```javascript
 const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+El dialogo es abierto en el proceso principal de Electron. Si quiere usar el objeto diálogo para un proceso renderizado, recuerde accederlo usando el comando remoto:
 
 ```javascript
 const {dialog} = require('electron').remote
@@ -20,24 +20,24 @@ console.log(dialog)
 
 ## Métodos
 
-The `dialog` module has the following methods:
+El módulo `dialogo` tiene los siguientes métodos:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
-* `options` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+* `browserWindow` Buscador Windows (opcional)
+* `opciones` Object 
+  * `título` cadena (opcional)
+  * `defaultPath` Cadena (optional)
+  * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `propiedades` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
+  * `propiedades` Cadena[] (optional) - Contiene cuales característica de dialogo deben usarse. Los siguientes valores pueden ser utilizados: 
+    * `openFile` - Le permite a los archivos ser seleccionados.
+    * `openDirectory` - Le permite a los directorios ser seleccionados.
+    * `multiSelections` - Permite que varios caminos sean seleccionados.
+    * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
+    * `createDirectory` - Permite crear nuevos directorios en un cuadro de diálogo. *macOS*
+    * `promptToCreate` - símbolo del sistema para la creación si no existe la ruta del archivo en el cuadro de diálogo. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación. *Windows*
+    * `noResolveAliases` - Desactiva el camino de resolición automático del alias (symlink). Alias seleccionados regresará a su ruta en vez de seguir por su ruta destino. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
 * `callback` Function (optional) 
@@ -68,11 +68,11 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Buscador Windows (opcional)
 * `options` Object 
-  * `title` String (optional)
+  * `título` cadena (opcional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
@@ -127,11 +127,11 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Buscador Windows (opcional)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
-* `callback` Function
+* `callback` Función
 
 On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
 

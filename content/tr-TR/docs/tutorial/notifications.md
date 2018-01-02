@@ -54,4 +54,4 @@ Bu, bildirimin görüntülenip görüntülenmeyeceğini önceden tespit etmenize
 
 ## Linux
 
-Bildirimler, ` libnotify ` kullanılarak gönderilir; bunlar herhangi birinde bildirim gösterebilir [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Bildirimler, `libnotify` kullanılarak gönderilir; bunlar herhangi birinde bildirim gösterebilir [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), Cinnamon, Enlightenment, Unity, GNOME, KDE.

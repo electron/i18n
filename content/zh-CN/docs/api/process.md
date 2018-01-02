@@ -1,18 +1,18 @@
-# process
+# 进程
 
 > Extensions to process object.
 
 进程： [Main](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) 进程
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
 ## 事件
 
 ### Event: 'loaded'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+当Electron加载了它的内部初始化脚本并且是正要开始加载网页或主脚本时触发。
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+当node集成被关闭时，预加载脚本可以使用它将删除的 Node global symbols 添加回全局范围：
 
 ```javascript
 // preload.js
@@ -28,24 +28,23 @@ process.once('loaded', () => {
 
 ### `process.defaultApp`
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+`Boolean`类型， 当作为参数传递给默认应用程序启动应用时，该属性在主进程中为` true `，否则为` undefined `。
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+` Boolean `类型，为 Mac App Store 生成, 此属性为 ` true `, 对于其他生成，则为 ` undefined `。
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+` Boolean `类型, 用于控制应用程序内的 ASAR 支持。将此设置为 ` true ` 将在Node的内置模块中禁用对 ` asar ` 的支持。
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+`Boolean` 类型，控制是否将弃用警告打印到`stderr`。将其设置为`true`会使弃用警告无效。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+` String ` 类型， 表示资源目录的路径。
 
 ### `process.throwDeprecation`
 
@@ -77,11 +76,11 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## 方法
 
-The `process` object has the following methods:
+` process ` 对象具有以下方法:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+引起当前进程的主线程崩溃。
 
 ### `process.getCPUUsage()`
 
@@ -95,12 +94,12 @@ Returns [`IOCounters`](structures/io-counters.md)
 
 返回 ` Object `:
 
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `workingSetSize` Integer- 当前占用的物理内存RAM总量
+* `peakWorkingSetSize` Integer - 已被占用的物理内存最大值。
+* `privateBytes` Integer - 独占内存，不被其他进程（如JavaScript堆或者HTML内容）共享的内存数量
+* `sharedBytes` Integer -共享内存，在进程之间共享的内存数量，通常是Electron自身消耗的内存量
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
+返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
 ### `process.getSystemMemoryInfo()`
 

@@ -6,12 +6,12 @@ Proses: [Renderer](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
-Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya dari proses renderer, modul `ipc` diperlukan untuk mengirim pesan antar proses ke proses utama. Dengan modul `remote`, Anda dapat memanggil metode dari objek proses utama tanpa secara eksplisit mengirim pesan antar proses, mirip dengan Java [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). Contoh membuat jendela browser dari a Proses renderer:
+Di Elektron, modul yang berhubungan dengan GUI (seperti `dialog`,`menu` etc.) hanya tersedia dalam proses utama, bukan dalam proses renderer. Untuk menggunakannya Dari proses renderer, `ipc` modul diperlukan untuk mengirim antar proses pesan ke proses utama. Dengan `remote` modul, Anda dapat memanggil metode dari objek proses utama tanpa secara eksplisit mengirim pesan antar proses, mirip dengan Java [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). Contoh membuat jendela browser dari a Proses renderer:
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('https://github.com')
+const {BrowserWindow} = membutuhkan ('elektron'). remote
+let win = new BrowserWindow ({width: 800, height: 600})
+win.loadURL ('https://github.com')
 ```
 
 **Note:** Untuk kebalikannya (akses proses renderer dari proses utama), Kamu dapat memakai [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
@@ -20,11 +20,11 @@ win.loadURL('https://github.com')
 
 Setiap objek (termasuk fungsi) dikembalikan oleh `remote` modul mewakili sebuah Objek dalam proses utama (kita menyebutnya remote object atau remote function). Saat Anda memanggil metode objek jarak jauh, panggil fungsi remote, atau buat Sebuah objek baru dengan konstruktor jarak jauh (fungsi), sebenarnya Anda mengirim pesan inter-proses sinkron.
 
-Dalam contoh di atas, baik `BrowserWindow` dan `menang` adalah objek remote dan `BrowserWindow baru` tidak membuat `BrowserWindow` objek dalam proses renderer. Sebagai gantinya, ia menciptakan objek `BrowserWindow` dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu objek `win`.
+Dalam contoh di atas, baik `BrowserWindow` dan `menang` adalah objek remote dan `BrowserWindow baru` tidak membuat `BrowserWindow` objek dalam proses renderer. Sebagai gantinya, ia menciptakan `BrowserWindow` objek dalam proses utama dan mengembalikan objek remote yang sesuai dalam proses renderer, yaitu `menang` objek.
 
-**Catatan:** Hanya [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) yang hadir saat objek jarak jauh pertama kali direferensikan dapat diakses melalui remote.
+**Catatan:** Hanya [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) yang ada Bila objek remote pertama direferensikan bisa diakses via remote.
 
-**Catatan:** Array dan Buffer disalin melalui IPC saat diakses melalui modul `remote`. Memodifikasi mereka dalam proses renderer tidak memodifikasinya dalam proses utama dan sebaliknya.
+**Catatan:** Array dan Buffer disalin melalui IPC saat diakses melalui `remote` modul. Mengubahnya dalam proses renderer tidak mengubahnya menjadi yang utama proses dan sebaliknya.
 
 ## Lifetime dari Remote Objects
 
@@ -43,13 +43,13 @@ Pertama, untuk menghindari kebuntuan, callback masuk ke proses utama disebut asy
 Misalnya Anda tidak dapat menggunakan fungsi dari proses renderer di a `Array.map` disebut dalam proses utama:
 
 ```javascript
-// main process mapNumbers.js
-exports.withRendererCallback = (mapper) => {
-  return [1, 2, 3].map(mapper)
+// peta proses utamaNumbers.js
+export.withRendererCallback = (mapper) => {
+  kembali [1, 2, 3] .map(mapper)
 }
 
-exports.withLocalCallback = () => {
-  return [1, 2, 3].map(x => x + 1)
+export.withLocalCallback = () = > {
+  kembali [1, 2, 3] .map(x => x + 1)
 }
 ```
 
@@ -70,8 +70,8 @@ Kedua, callback yang lolos ke proses utama akan bertahan sampai Proses utama sam
 Misalnya, kode berikut sepertinya tidak bersalah pada pandangan pertama. Ini menginstal a callback untuk `close` acara pada objek remote:
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+membutuhkan ('elektron'). remote.getCurrentWindow().pada ('close', () => {
+  // jendela ditutup ...
 })
 ```
 
@@ -83,7 +83,7 @@ Untuk menghindari masalah ini, pastikan Anda membersihkan rujukan ke callback re
 
 ## Mengakses modul built-in dalam proses utama
 
-Modul built-in dalam proses utama ditambahkan sebagai getter di modul `remote`, sehingga Anda dapat menggunakannya secara langsung seperti modul `elektron`.
+Modul built-in dalam proses utama ditambahkan sebagai getter di `remote` modul, sehingga Anda dapat menggunakannya secara langsung seperti modul `elektron`.
 
 ```javascript
 const app = require('electron').remote.app
@@ -94,55 +94,55 @@ console.log(app)
 
 Itu `jarak jauh` modul memiliki metode berikut:
 
-### `remote.require(module)`
+### `remote.require (modul)`
 
-* `module` String
+* ` modul ` String
 
-Mengembalikan `sembarang` - Objek dikembalikan oleh `require(module)` pada proses utama. Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk proses utama.
+Mengembalikan `sembarang` - Objek dikembalikan oleh `require (module)` pada proses utama. Modul yang ditentukan oleh jalur relatif mereka akan mengatasi relatif terhadap titik masuk dari proses utama.
 
 misalnya
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
+    proyek/
+    ├── utama
+    │ ├── foo.js
+    │ └── index.js
     ├── package.json
     └── renderer
-        └── index.js
+        └── index.js
     
 
 ```js
-// main process: main/index.js
+// proses utama: main/index.js
 const {app} = require('electron')
-app.on('ready', () => { /* ... */ })
+app.on('siap', () => {/ * ... * /})
 ```
 
 ```js
-// some relative module: main/foo.js
+// beberapa modul relatif: main/foo.js
 module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
-const foo = require('electron').remote.require('./foo') // bar
+// proses renderer: renderer/index.js
+const foo = require ('electron'). remote.require ('./ foo') // bar
 ```
 
-### `remote.getCurrentWindow()`
+### `remote.getCurrentWindow ()`
 
-Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web ini berada.
+Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web ini milik.
 
-### `remote.getCurrentWebContents()`
+### `remote.getCurrentWebContents ()`
 
 Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
-### `remote.getGlobal(name)`
+### `remote.getGlobal (nama)`
 
 * ` nama </ 0>  String</li>
 </ul>
 
-<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) dalam proses utama.</p> 
+<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p> 
     ## properti
     
     ### `remote.process`
     
-    The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+    Objek `proses` dalam proses utama. Ini sama dengan `remote.getGlobal('proses')` namun di-cache.

@@ -49,11 +49,11 @@ The `filters` menentukan kumpulan jenis file yang dapat ditampilkan atau dipilih
 
 ```javascript
 {
-  filters: [
+  filter: [
     {name: 'Images', extensions: ['jpg', 'png', 'gif']},
     {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', extensions: ['as']},
-    {name: 'All Files', extensions: ['*']}
+    {name: 'Custom File Type', ekstensi: ['as']},
+    {name: 'All Files', ekstensi: ['*']}
   ]
 }
 ```
@@ -90,16 +90,16 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
 
 * ` jendela browser </ 0> jendela Browser(opsional)</li>
 <li><code>pilihan` Obyek 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. Pada Windows, `"question"` menampilkan ikon yang sama dengan `"info"`, kecuali jika Anda menyetel ikon menggunakan opsi ` "icon" `. Pada macos, keduanya `"warning"` dan `"error"` menampilkan ikon peringatan yang sama.
+  * `ketik` String (opsional) - Bisa jadi `"none"`, `"info"`, `"error"`, `"pertanyaan"` atau `"peringatan"`. Pada Windows, `"question"` menampilkan ikon yang sama dengan `"info"`, kecuali jika Anda menyetel ikon menggunakan opsi ` "icon" `. Pada macos, keduanya `"warning"` dan `"error"` menampilkan ikon peringatan yang sama.
   * `tombol` String[] (opsional) - Array teks untuk tombol. Pada Windows, sebuah array kosong akan menghasilkan satu tombol berlabel "OK".
   * `defaultId` Integer (opsional) - Indeks tombol pada susunan tombol yang akan dipilih secara default saat kotak pesan terbuka.
   * `title` String (opsional) - Judul kotak pesan, beberapa platform tidak akan menampilkannya.
   * `pesan` String - Isi kotak pesan.
   * `detail` String (opsional) - Informasi tambahan dari pesan.
-  * `kotak centangLabel` String (opsional) - Jika tersedia, kotak pesan akan menyertakan kotak centang dengan label yang diberikan. Status kotak centang hanya bisa diperiksa bila menggunakan `callback`.
-  * `checkboxChecked` Boolean (opsional) - Status checkbox awal dicentang. `false` secara default.
-  * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `` akan digunakan sebagai nilai balik atau respons balik. Pilihan ini diabaikan pada Windows.
+  * `kotak centangLabe` String (opsional) - Jika tersedia, kotak pesan akan sertakan kotak centang dengan label yang diberikan. Kotak centangnya bisa jadi diperiksa hanya saat menggunakan `callback`.
+  * `checkboxChecked` Boolean (opsional) - Status pemeriksaan awal dari kotak centang. `false` secara default.
+  * `ikon` [NativeImage](native-image.md) (opsional)
+  * `cancelId` Integer (opsional) - Indeks tombol yang akan digunakan untuk membatalkan dialog, melalui tombol `Esc`. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `` akan digunakan sebagai nilai balik atau respons balik. Pilihan ini diabaikan pada Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (opsional) - Menormalisasi tombol akses keyboard. Defaultnya adalah ` false </ 0> . Mengaktifkan asumsi ini <code>&` digunakan pada label tombol untuk penempatan tombol akses pintas keyboard dan label akan dikonversi sehingga bekerja dengan benar pada setiap platform, `&` karakter dihapus di macos, dikonversi ke `_` di Linux, dan tidak tersentuh pada Windows. Misalnya, label tombol `Vie&w` akan dikonversi ke `Vie_w` di Linux dan ` View ` di macos dan dapat dipilih melalui `Alt-W` pada Windows dan Linux.
 * `callback` Fungsi (opsional) 

@@ -195,9 +195,9 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 #### Event: 'will-prevent-unload'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -209,9 +209,9 @@ const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+    buttons: ['Çık', 'Kal'],
+    title: 'Siteden çıkmak istediğinize emin misiniz?',
+    message: 'Yaptığınız değişikliler kaydedilmeyecektir.',
     defaultId: 0,
     cancelId: 1
   })
@@ -224,20 +224,20 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Etkinlik: 'çöktü'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `name` String
-* `version` String
+* `olay` Olay
+* `isim` String
+* `versiyon` String
 
 Emitted when a plugin process has crashed.
 
@@ -247,9 +247,9 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -290,10 +290,10 @@ Emitted when DevTools is focused / opened.
 
 #### Event: 'certificate-error'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `olay` Olay
+* `url` Dize
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -305,9 +305,9 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### Event: 'select-client-certificate'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -319,9 +319,9 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 #### Etkinlik: 'giriş'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `istek` Nesne 
   * `method` String
   * `url` URL
@@ -342,9 +342,9 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Etkinlik: 'sayfa içinde kurmak'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `sonuç` Nesne 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -372,18 +372,18 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `olay` Olay
+* `url` Dize
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -392,13 +392,13 @@ Returns:
 
 Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+`type` parametre `custom` ise, `image` değişken özel imleç görüntüsünü `NativeImage` 'de ve `scale`, `size` ve `hotspot` özel imleç hakkında ek bilgi tutacaktır.
 
 #### Event: 'context-menu'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `params` Nesne 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -438,9 +438,9 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
@@ -468,9 +468,9 @@ app.on('ready', () => {
 
 #### Etkinlik: 'boya'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -492,9 +492,9 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -508,12 +508,12 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
+* `url` Dize
 * `options` Obje (isteğe bağlı) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -526,7 +526,7 @@ webContents.loadURL('https://github.com', options)
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* `url` Dize
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
@@ -1026,7 +1026,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 #### `contents.sendInputEvent(event)`
 
 * `event` Nesne 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
+  * `type` String (**required**) -Olabilir, olayın türü `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
 Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
@@ -1161,7 +1161,7 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 * `policy` String - Specify the WebRTC IP Handling Policy. 
   * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
   * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. Ayrıca, varsayılan özel adresini de gösterir. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
 Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.

@@ -2,7 +2,7 @@
 
 > Berkomunikasi secara asynchronous dari proses renderer ke proses utama.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 The ` ipcRenderer </ 0> modul adalah turunan dari
  <a href="https://nodejs.org/api/events.html#events_class_eventemitter"> acara Emitter </ 1> kelas. Ini menyediakan beberapa metode sehingga Anda dapat mengirim pesan sinkron dan asinkron dari proses render (halaman web) ke proses utama.  Anda juga bisa menerima balasan dari proses utama.</p>

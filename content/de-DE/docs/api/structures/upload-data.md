@@ -1,5 +1,5 @@
-# UploadData Object
+# UploadData Objekt
 
-* `bytes` Buffer - Content being sent.
-* `file` String - Path of file being uploaded.
-* `blobUUID` String - UUID of blob data. Use [ses.getBlobData](../session.md#sesgetblobdataidentifier-callback) method to retrieve the data.
+* ` Bytes ` Pufferinhalt wird gesendet.
+* `-Datei ` String-Pfad der Datei, die hochgeladen wird.
+* ` blobUUID ` String-UUID von BLOB-Daten. Verwenden Sie [ SES. getBlobData ](../session.md#sesgetblobdataidentifier-callback)-Methode um die Daten abzurufen.

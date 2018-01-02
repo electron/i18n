@@ -1,10 +1,10 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> Geçerli web sayfasının görünümünü özelleştirin.
 
-Process: [Renderer](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Geçerli sayfayı% 200'e yakınlaştırmaya bir örnek.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,62 +14,62 @@ webFrame.setZoomFactor(2)
 
 ## Metodlar
 
-The `webFrame` module has the following methods:
+`webFrame` modülü aşağıdaki metodları içerir:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Yakınlaştırma faktörü.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+`Number` döndürür - Geçerli yakınlaştırma faktörü.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - Yakınlaştırma seviyesi
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+`Number` döndürür - Geçerli yakınlaştırma seviyesi.
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Kullanım dışı:** Bunun yerine, görsel yakınlaştırma seviye sınırlarını ayarlamak için `setVisualZoomLevelLimits` 'i çağırın. Bu yöntem Elektron 2.0'da kaldırılacaktır.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `sağlayıcı` Nesne 
-  * `spellCheck` İşlev - döner `Boole değeri` 
+* `provider` Object 
+  * `spellCheck` Function - döner `Boolean` 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+`Provider` kelimenin doğru yazılıp yazılmadığını döndüren, `spellCheck` metoduna sahip bir nesne olmalıdır.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Provider gibi [node-spellchecker](https://github.com/atom/node-spellchecker) kullanılarak bir örnek:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -84,29 +84,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+`scheme`'yı güvenli scheme olarak kaydeder.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Güvenli scheme'lar karışık içerik uyarılarını tetiklemiyor. Örneğin, `https` ve `veri` güvenli scheme'lardır, çünkü bunlar etkin ağ saldırganları tarafından bozulamazlar.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Geçerli sayfanın İçerik Güvenliği Politikası ne olursa olsun kaynaklar bu `scheme`'dan yüklenecektir.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Obje (isteğe bağlı) 
-  * `secure` Boolean - (optional) Default true.
-  * `bypassCSP` Boolean - (optional) Default true.
-  * `allowServiceWorkers` Boolean - (optional) Default true.
-  * `supportFetchAPI` Boolean - (optional) Default true.
-  * `corsEnabled` Boolean - (optional) Default true.
+* `options` Object (isteğe bağlı) 
+  * `secure` Boolean - (isteğe bağlı) Varsayılan true.
+  * `bypassCSP` Boolean - (isteğe bağlı) Varsayılan true.
+  * `allowServiceWorkers` Boolean - (isteğe bağlı) Varsayılan true.
+  * `supportFetchAPI` Boolean - (isteğe bağlı) Varsayılan true.
+  * `corsEnabled` Boolean - (isteğe bağlı) Varsayılan true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+`Scheme`'i güvenli olarak kaydeder, kaynaklar için içerik güvenliği ilkesini atlar, ServiceWorker'ı kaydettirmenize izin verir ve getirme API'sini destekler.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Kayıttan çıkarmak için `false` değerine sahip bir seçenek belirtin. İçerik Güvenliği Politikasını atlamaksızın ayrıcalıklı bir scheme'nin kaydedilmesine bir örnek:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -117,24 +117,24 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Odaklanmış öğeye `metin` ekler.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+* `callback` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+`Promise` döndürür - çalışan kodun sonucuyla çözülen bir söz veya kodun sonucu reddedilen bir söz ise reddedilir.
 
-Evaluates `code` in page.
+Sayfadaki `code`'u ölçer.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+`Object` döndürür:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -142,7 +142,7 @@ Returns `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Blink'in dahili belleğinin önbelleklerinin kullanım bilgilerini açıklayan bir nesne döndürür.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -167,6 +167,6 @@ Bu oluşturur:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Artık kullanılmayan belleği boşa çıkarmaya çalışır (ör. önceki gezinmeden fotoğraflar).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Boşu boşuna bu metodu çağırmanın muhtemelen Electron'u yavaşlatacağını unutmayın çünkü boşalan önbellekleri tekrar doldurmak zorunda kalacaktır, sadece uygulamanızda sayfanın aslında daha az bellek kullandığını düşündüğünüz bir olay varsa bunu çağırmalısınız (örneğin, çok yoğun bir sayfadan çoğunlukla boş olan bir sayfaya gidiyorsanız ve orada kalmak niyetindeyseniz).

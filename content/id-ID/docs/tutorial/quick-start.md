@@ -156,7 +156,7 @@ $ .\node_modules\.bin\electron .
 #### Node v8.2.0 dan yang lebih baru
 
 ```sh
-$ npx electron .
+$ npx electron.
 ```
 
 ### Mengunduh Binari Electron secara Manual

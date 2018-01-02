@@ -1,11 +1,11 @@
-# Çerez objesi
+# Çerez Nesnesi
 
-* `name` Dizisi - Çerezin adı.
-* `value` Dizisi - Çerezin değeri.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `name` Dizi - Çerezin ismi.
+* `value` Dizi - Çerezin değeri.
+* `domain` Dize (opsiyonel) - Çerezin alan adı.
+* `hostOnly` Boole (opsiyonel) - Çerezin bir host-only çerezi olup olmadığı.
+* `path` Dize (opsiyonel) - Çerezin yolu.
+* `secure` Boole (opsiyonel) - Çerezin güvenli olarak işaretlenip işaretlenmediği.
+* `httpOnly` Boole (opsiyonel) - Çerezin sadece HTTP olarak işaretlenip işaretlenmediği.
+* `session` Boole (opsiyonel) - Çerezin bir oturum çerezi mi ya da son kullanma tarihi olan kalıcı bir çerez mi olduğu.
+* `expirationDate` Çift (opsiyonel) - Çerezin UNIX döneminden beri geçen saniye sayısı olarak son kullanma tarihi. Oturum çerezleri için sağlanmamıştır.

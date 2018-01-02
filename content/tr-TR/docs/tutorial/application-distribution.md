@@ -1,8 +1,8 @@
 # Uygulama Dağıtımı
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuilt binaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör ` app ` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde ` elektron / ` ile altında gösterilir.
 
-On macOS:
+MacOS üzerinde:
 
 ```text
 electron/Electron.app/Contents/Resources/app/
@@ -22,13 +22,13 @@ electron/resources/app
 
 Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
 
-## Packaging Your App into a File
+## Uygulamanızı Bir Dosyaya Paketleme
 
 Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+MacOS üzerinde:
 
 ```text
 electron/Electron.app/Contents/Resources/
@@ -42,68 +42,70 @@ electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Daha fazla detay [Application packaging](application-packaging.md) içinde bulunabilir.
 
 ## Rebranding with Downloaded Binaries
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Uygulamanızı Electron'da topladıktan sonra, Electron'u kullanıcılara dağıtmadan önce yeniden markalamak isteyeceksiniz.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+` electron.exe ` adını istediğiniz herhangi bir adla yeniden adlandırabilir simgesini ve diğer simgelerini düzenleyebilirsiniz, araçlar hakkında bilgi [ rcedit ](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+` Electron.app ` 'yi istediğiniz herhangi bir adla yeniden adlandırabilir ayrıca yeniden adlandırma alanındaki ` CFBundleDisplayName `, ` CFBundleIdentifier ` ve ` CFBundleName ` dosyalar aşağıdadır:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
 You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
 
-The structure of a renamed app would be like:
+Yeniden adlandırılan bir uygulamanın yapısı aşağıdaki gibi olur:
 
 ```text
+For Translation
+
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     ├── MyApp Helper EH.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper EH
+    |       └── MyApp Helper EH
     ├── MyApp Helper NP.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper NP
+    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+` elektron ` yürütülebilir dosyasını istediğiniz herhangi bir adla yeniden adlandırabilirsiniz.
 
 ## Paketleme araçları
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Uygulamanızı manuel olarak paketlemenin yanı sıra, üçüncü parti aracıların sizin için paketleme araçları:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Elekctron'u Kaynaktan Yeniden Yapılandırma
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Electron'u, ürün adını değiştirerek yeniden markalamak da mümkündür. onu kaynaktan inşa etmek için ` atom.gyp ` dosyasını değiştirmeniz ve temiz bir yeniden yapılandırma gerekir.
 
-### Creating a Custom Electron Fork
+### Özel bir Electron Çatısı Oluşturma
 
 Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
 
 #### Creating a Custom Release with surf-build
 
@@ -117,18 +119,18 @@ You need to fork Electron when you have custom C++ code that you have patched di
   - dist/
 ```
 
-3. Set the following Environment Variables:
+3. Aşağıdaki Ortam Değişkenlerini ayarlayın:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
+* `ELECTRON_GITHUB_TOKEN` - GitHub'da sürümler oluşturabilen bir simge
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - node.js başlıklarını ve sembolleri yükleyeceğiniz yer
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
+* `GITHUB_TOKEN` - aynı değerle ayarla `ELECTRON_GITHUB_TOKEN`
+* `SURF_TEMP` - yolun çok uzun sürmesini önlemek için Windows'ta `C:\Temp` olarak ayarlayın
 * `TARGET_ARCH` - set to `ia32` or `x64`
 
 1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Yapılandırmanın tamamlanması için çok, çok uzun süre bekleyin.

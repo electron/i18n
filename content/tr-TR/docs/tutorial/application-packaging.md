@@ -1,8 +1,8 @@
 # Uygulama Paketleme
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Windows'ta uzun yol adları etrafındaki [issues](https://github.com/joyent/node/issues/6960) azaltmak için `require`’ı biraz hızlandırın ve kaynak kodunuzu muayene işleminden gizleyin, uygulamanızı, kaynak kodunuzda ufak değişiklikler yaparak bir [asar](https://github.com/electron/asar) arşivine paketlemeyi seçebilirsiniz.
 
-## Generating `asar` Archive
+## `asar` Arşivi Oluşturuluyor
 
 An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 
@@ -114,7 +114,7 @@ Though `asar` archives are treated as directories, there are no actual directori
 
 ### Extra Unpacking on Some APIs
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Çoğu `fs` API'si bir dosyayı okuyabilir veya paketten çıkarmadan bir dosya bilgisini `asar` arşivlerinden alabilir ancak gerçek dosya yolunu temel alınan sistem çağrılarına geçirmeye dayanan bazı API'ler için, Electron gerekli dosyayı geçici bir dosyaya çıkaracaktır ve geçici dosyanın yolunu API'lara çalışması için iletirler. This adds a little overhead for those APIs.
 
 APIs that requires extra unpacking are:
 

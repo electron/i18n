@@ -1,47 +1,47 @@
 # Notification
 
-> Create OS desktop notifications
+> 创建OS(操作系统)桌面通知
 
 线程：[主线程](../glossary.md#main-process)
 
-## Using in the renderer process
+## 在渲染进程中使用
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+如果要显示来自渲染进程的通知, 你应该使用 [ HTML5 Notification API ](../tutorial/notifications.md)
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> 创建OS(操作系统)桌面通知
 
 线程：[主线程](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` 是 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)
 
-It creates a new `Notification` with native properties as set by the `options`.
+通过 ` options ` 来设置的一个新的原生 ` Notification `。
 
 ### 静态方法
 
-The `Notification` class has the following static methods:
+`Notification` 类有以下静态方法：
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 ### `new Notification([options])` *Experimental*
 
 * `options` Object 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * ` title `String - 通知的标题, 将在通知窗口的顶部显示
+  * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
+  * ` body `String 通知的正文文本, 将显示在标题或副标题下面
+  * ` silent `Boolean (可选) 在显示通知时是否发出 OS 提示音
+  * ` icon`[ NativeImage ](native-image.md) (可选) 该通知的图标
+  * ` hasReply `Boolean (可选) 是否向通知中添加内联答复选项。 * macOS *
+  * ` replyPlaceholder `String (可选) 内联答复输入字段中的占位符。* macOS *
+  * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
+  * ` actions `[ NotificationAction [] ](structures/notification-action.md) (可选) 要添加到通知中的操作。 请在 ` NotificationAction ` 文档 中的查看可用操作和限制* macOS *
 
 ### 事件
 
-Objects created with `new Notification` emit the following events:
+用 `new Notification` 创建的对象触发以下事件：
 
 ** 注意: **某些事件仅在特定的操作系统上可用, 这些方法会被标记出来。
 
@@ -51,7 +51,7 @@ Objects created with `new Notification` emit the following events:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+当通知向用户显示时触发, 请注意, 这可能会多次触发, 因为「通知」可以通过 ` show() ` 方法多次显示。
 
 #### Event: 'click'
 
@@ -59,7 +59,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+在用户单击通知时触发。
 
 #### 事件：close
 
@@ -67,18 +67,18 @@ Emitted when the notification is clicked by the user.
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+当用户手动关闭通知时触发
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+当通知关闭后，这个事件不能保证在所有情况下都会触发。
 
 #### Event: 'reply' *macOS*
 
 返回:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field
+* ` reply `String-用户在内联答复字段中输入的字符串
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+当用户单击 ` hasReply: true ` 的通知上的 "Reply" 按钮时触发。
 
 #### Event: 'action' *macOS*
 
@@ -89,19 +89,19 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 ### 实例方法
 
-Objects created with `new Notification` have the following instance methods:
+用`new Notification` 创建的对象有以下实例方法：
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+立即显示通知给用户，请注意这一点不同于 HTML5通知实现，只实例化一个 `new Notification` 不会马上显示给用户，你需要在OS将要显示它之前调用这个方法将显示它。
 
 ### Playing Sounds
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除了自定义声音文件之外, 还可以使用任何默认声音 ("系统首选项" > "声音")。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+有关详细信息, 请参见 [` NSSound `](https://developer.apple.com/documentation/appkit/nssound) 文档。

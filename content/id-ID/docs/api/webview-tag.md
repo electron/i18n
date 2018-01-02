@@ -1,10 +1,10 @@
 # `<webview>`Tag
 
-> Tampilkan konten web eksternal dalam bingkai dan proses yang terisolasi.
+> Menampilkan konten web eksternal dalam bingkai terisolasi dan proses.
 
-Proses: [ Renderer ](../tutorial/quick-start.md#renderer-process)
+Proses: [Renderer](../tutorial/quick-start.md#renderer-process)
 
-Gunakan tag ` webview ` untuk menyematkan 'guest' content (seperti halaman web) di aplikasi Elektron Anda. Konten tamu terdapat dalam wadah ` webview `. Laman tersemat dalam aplikasi Anda mengontrol bagaimana konten tamu ditata dan ditampilkan.
+Gunakan `webview` tag untuk menanamkan konten 'tamu' (seperti halaman web) di app elektron. Konten tamu terkandung dalam wadah `webview`. Halaman tertanam dalam aplikasi Anda mengontrol bagaimana konten tamu ditata dan diberikan.
 
 Tidak seperti ` iframe `, tampilan ` webview ` berjalan dalam proses terpisah dari aplikasi Anda. Ini tidak memiliki izin yang sama seperti halaman web Anda dan semua interaksi antara aplikasi dan konten tertanam Anda akan menjadi asinkron. Ini membuat aplikasi Anda tetap aman dari konten yang disematkan. **Catatan:** Sebagian besar metode yang disebut pada webview dari halaman host memerlukan panggilan sinkron ke proses utama.
 
@@ -19,47 +19,22 @@ Untuk menyematkan laman web di aplikasi Anda, tambahkan tag ` webview ` ke halam
 Jika Anda ingin mengontrol konten tamu dengan cara apa pun, Anda dapat menulis JavaScript yang mendengarkan acara ` webview ` dan merespons kejadian tersebut dengan menggunakan metode ` webview `. Berikut contoh kode dengan dua pendengar acara: yang mendengarkan halaman web untuk mulai memuat, yang lainnya untuk halaman web berhenti memuat, dan menampilkan pesan "loading..." selama waktu muat:
 
 ```html
-<script>
-  onload = () => {
-    const webview = document.querySelector('webview')
-    const indicator = document.querySelector('.indicator')
-
-    const loadstart = () => {
-      indicator.innerText = 'loading...'
-    }
-
-    const loadstop = () => {
-      indicator.innerText = ''
-    }
-
-    webview.addEventListener('did-start-loading', loadstart)
-    webview.addEventListener('did-stop-loading', loadstop)
-  }
-</script>
+<script>onload = () = > {const webview = indikator const document.querySelector('webview') = document.querySelector('.indicator') const loadstart = () = > {indicator.innerText = 'memuat...'}      Const loadstop = () = > {indicator.innerText = ''} webview.addEventListener (' lakukan-mulai-loading', loadstart) webview.addEventListener (' lakukan-stop-loading', loadstop)}</script>
 ```
 
 ## Catatan Styling CSS
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Tolong jangan menimpa properti default ` display: flex; ` CSS, kecuali menentukan tampilan `: inline-flex; ` untuk tata letak inline.
+Harap dicatat bahwa `webview` tag menggunakan `tampilan: flex;` internal untuk memastikan anak `objek` elemen mengisi penuh tinggi dan lebar dari wadah `webview` bila digunakan dengan tradisional dan flexbox layout (sejak v0.36.11). Tolong jangan menimpa properti default ` display: flex; ` CSS, kecuali menentukan tampilan `: inline-flex; ` untuk tata letak inline.
 
-` webview ` memiliki masalah yang tersembunyi menggunakan atribut ` hidden ` atau menggunakan ` display: none; `. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. Pendekatan yang direkomendasikan adalah untuk menyembunyikan `webview` menggunakan `visibilitas: tersembunyi`.
+`WebView` memiliki masalah yang menggunakan atribut `tersembunyi` tersembunyi atau menggunakan `menampilkan: none;`. Ini dapat menyebabkan perilaku render yang tidak biasa dalam anaknya `browserplugin` objek dan halaman web reloaded ketika `webview` un tersembunyi. Pendekatan yang direkomendasikan adalah untuk menyembunyikan `webview` menggunakan `visibilitas: tersembunyi`.
 
 ```html
-<style>
-  webview {
-    display:inline-flex;
-    width:640px;
-    height:480px;
-  }
-  webview.hide {
-    visibility: hidden;
-  }
-</style>
+<style>webview {menampilkan: inline-flex;     Lebar: 640px;     tinggi: 480px;   } webview.hide {visibility: hidden;   } </style>
 ```
 
-## Tag Attributes
+## Atribut tag
 
-The `webview` tag has the following attributes:
+`Webview` tag memiliki atribut berikut:
 
 ### `src`
 
@@ -67,11 +42,11 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+Mengembalikan URL. yang terlihat Menulis ke atribut ini memulai navigasi tingkat atas.
 
-Assigning `src` its own value will reload the current page.
+Menetapkan `src` nilainya akan memuat ulang halaman ini.
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+Atribut `src` juga dapat menerima URL data, seperti data`:teks/polos, Halo, dunia!`.
 
 ### `autosize`
 
@@ -79,7 +54,7 @@ The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, w
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-When this attribute is present the `webview` container will automatically resize within the bounds specified by the attributes `minwidth`, `minheight`, `maxwidth`, and `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
+Bila atribut ini hadir, kontainer `webview` akan secara otomatis diubah ukurannya dalam batas yang ditentukan oleh atribut ` minwidth `,`minheight`,`maxwidth`, dan `maxheight`. Kendala ini tidak berdampak pada`webview`kecuali`autosize` diaktifkan. Bila `autosize` diaktifkan, ukuran wadah`webview` tidak boleh kurang dari nilai minimum atau lebih besar dari jumlah maksimum.
 
 ### `nodeintegration`
 
@@ -87,7 +62,7 @@ When this attribute is present the `webview` container will automatically resize
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi simpul dan dapat menggunakan API simpul seperti` memerlukan ` dan `proses` untuk mengakses sumber daya sistem tingkat rendah. Node integrasi dinonaktifkan secara default pada semua halaman.
 
 ### `plugins`
 
@@ -95,7 +70,7 @@ When this attribute is present the guest page in `webview` will have node integr
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+Bila atribut ini menampilkan halaman tamu di `webview` akan dapat menggunakan plugin browser. Plugin dinonaktifkan secara default.
 
 ### `preload`
 
@@ -103,11 +78,11 @@ When this attribute is present the guest page in `webview` will be able to use b
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Menentukan sebuah skrip yang akan dimuat sebelum menjalankan skrip lainnya di halaman tamu. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
+Menentukan sebuah skrip yang akan dimuat sebelum menjalankan skrip lainnya di halaman tamu. Protokol script URL harus berupa `berkas:` atau `asar:`, karena itu akan dimuat oleh `memerlukan` di semua halaman di bawah tenda.
 
 Ketika halaman tamu tidak memiliki integrasi node script ini masih akan memiliki akses ke semua Node api, tetapi benda-benda global yang disuntikkan oleh Node akan dihapus setelah script ini selesai mengeksekusi.
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**Catatan:** Opsi ini akan muncul sebagai `preloadURL` (bukan `preload`) di `webPreferences` yang ditentukan ke` akan-melampirkan-webview` event.
 
 ### `httpreferrer`
 
@@ -123,7 +98,7 @@ Menetapkan URL pengarah untuk semua halaman.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+Menetapkan agen pengguna untuk halaman tamu sebelum halaman dinavigasi. Setelah halaman dimuat, gunakan metode `setUserAgent` untuk mengubah agen pengguna.
 
 ### `disablewebsecurity`
 
@@ -133,14 +108,13 @@ Sets the user agent for the guest page before the page is navigated to. Once the
 
 Ketika atribut ini hadir semua halaman akan memiliki web keamanan dinonaktifkan. Keamanan web diaktifkan secara default.
 
-### `partition`
+### `partisi`
 
 ```html
-<webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://github.com" partition="persist:github"></webview> <webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
-Menetapkan sesi yang digunakan oleh halaman. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. If the `partition` is unset then default session of the app will be used.
+Menetapkan sesi yang digunakan oleh halaman. Jika `partisi` diawali dengan `bertahan:`, halaman akan menggunakan sesi terus-menerus tersedia untuk semua halaman di app dengan `partisi` yang sama. jika tidak ada `bertahan:` awalan, halaman akan menggunakan sesi di memori. Dengan menugaskan yang sama `partisi`, beberapa halaman dapat berbagi sesi yang sama. Jika `partisi` disetel maka sesi app default akan digunakan.
 
 Nilai ini hanya dapat diubah sebelum navigasi pertama, sejak sidang proses aktif renderer tidak mengubah. Upaya berikutnya untuk mengubah nilai akan gagal dengan pengecualian DOM.
 
@@ -158,17 +132,17 @@ Ketika atribut ini hadir semua halaman akan diizinkan untuk membuka jendela baru
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
+Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung preferensi string dapat ditemukan di [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `` are interpreted as `false`.
+String mengikuti format yang sama sebagai string fitur dalam `window.open`. Nama itu sendiri diberikan nilai boolean `benar`. Preferensi dapat diatur untuk nilai lain termasuk `=`, diikuti oleh nilai. Nilai-nilai khusus `ya` dan `1` ditafsirkan sebagai `benar`, sementara `tidak ada` dan `` ditafsirkan sebagai `palsu`.
 
-### `blinkfeatures`
+### `berkedip`
 
 ```html
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
 ### `disableblinkfeatures`
 
@@ -176,7 +150,7 @@ A list of strings which specifies the blink features to be enabled separated by 
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
 ### `guestinstance`
 
@@ -184,9 +158,9 @@ A list of strings which specifies the blink features to be disabled separated by
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+Sebuah nilai yang menghubungkan webview ke webContents tertentu. Ketika webview pertama memuat webContents baru dibuat dan atribut ini diatur ke pengenal contoh nya. Pengaturan atribut ini pada webview baru atau yang ada menghubungkan itu ke webContents yang sudah ada yang sedang menuliskan di webview berbeda.
 
-The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
+Webview yang tersedia akan melihat `menghancurkan` dan kemudian akan menciptakan webContents baru ketika url yang baru termuat.
 
 ### `disableguestresize`
 
@@ -194,20 +168,14 @@ The existing webview will see the `destroy` event and will then create a new web
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+Ketika atribut ini hadir isi `webview` akan dicegah dari Resize ketika elemen `webview` itu sendiri diubah ukurannya.
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. Ini dapat membuat ukuran lebih cepat dibandingkan dengan mengandalkan webview elemen batas-batas untuk secara otomatis mengubah ukuran isi.
+Ini dapat digunakan dalam kombinasi dengan [`webContents.setSize`](web-contents.md#contentssetsizeoptions) untuk secara manual mengubah ukuran isi webview sebagai reaksi terhadap perubahan ukuran jendela. Ini dapat membuat ukuran lebih cepat dibandingkan dengan mengandalkan webview elemen batas-batas untuk secara otomatis mengubah ukuran isi.
 
 ```javascript
-const {webContents} = require('electron')
+const {webContents} = require ('electron') // Kami berasumsi bahwa `win` menunjuk ke instance` BrowserWindow` yang berisi // <webview>` dengan `disableguestresize`.
 
-// We assume that `win` points to a `BrowserWindow` instance containing a
-// `<webview>` with `disableguestresize`.
-
-win.on('resize', () => {
-  const [width, height] = win.getContentSize()
-  for (let wc of webContents.getAllWebContents()) {
-    // Check if `wc` belongs to a webview in the `win` window.
+win.on ('resize', () = > {const [width, height] = win.getContentSize () for (let wc of webContents.getAllWebContents ()) {// Check if `wc` belongs to a webview in the `win` window.
     if (wc.hostWebContents &&
         wc.hostWebContents.id === win.webContents.id) {
       wc.setSize({
@@ -223,9 +191,9 @@ win.on('resize', () => {
 
 ## Metode
 
-The `webview` tag has the following methods:
+Tag ` webview ` memiliki metode berikut:
 
-**Note:** The webview element must be loaded before using the methods.
+**Catatan:** Elemen webview harus dimuat sebelum menggunakan metode.
 
 **Contoh**
 
@@ -240,33 +208,33 @@ webview.addEventListener('dom-ready', () => {
 
 * ` url </ 0> URL</li>
 <li><code>pilihan` Objek (pilihan) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `httpReferrer` String (opsional) - url perujuk HTTP.
+  * `userAgent` String (opsional) - agen pengguna berasal permintaan.
+  * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
+  * `postData` ([[UploadRawData]](structures/upload-raw-data.md) | [[UploadFile]](structures/upload-file.md) | [[UploadFileSystem]](structures/upload-file-system.md) | [[UploadBlob]](structures/upload-blob.md)) -(opsional)
+  * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
 
-Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
+Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+Mengembalikan ` String ` - URL halaman tamu.
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+Mengembalikan `String` - Judul halaman tamu.
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+Pengembalian ` Boolean ` - Apakah halaman tamu masih memuat sumber daya.
 
-### `<webview>.isWaitingForResponse()`
+### `<webview>.isWaitingForResponse ()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+Mengembalikan ` Boolean ` - Apakah halaman tamu menunggu tanggapan pertama untuk sumber utama halaman.
 
 ### `<webview>.stop()`
 
-Stops any pending navigation.
+Menghentikan navigasi yang tertunda.
 
 ### `<webview>.reload()`
 
@@ -274,11 +242,11 @@ Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Muat ulang laman tamu dan mengabaikan cache.
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+Returns `Boolean ` - Whether the guest page can go back.
 
 ### `<webview>.canGoForward()`
 
@@ -288,11 +256,11 @@ Returns `Boolean` - Whether the guest page can go forward.
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+Mengembalikan `Boolean` - Apakah halaman tamu bisa masuk ke `offset`.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+Menghapus sejarah navigasi.
 
 ### `<webview>.goBack()`
 
@@ -300,33 +268,33 @@ Makes the guest page go back.
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+Membuat halaman tamu maju.
 
 ### `<webview>.goToIndex(index)`
 
-* `index` Integer
+* `indeks` Integer
 
-Navigates to the specified absolute index.
+Menavigasi browser ke indeks halaman web absolut yang ditentukan.
 
 ### `<webview>.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Arahkan ke offset yang ditentukan dari "entri saat ini".
 
 ### `<webview>.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
 
 ### `<webview>.setUserAgent(userAgent)`
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+Mengganti agen pengguna untuk halaman web ini.
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+Mengembalikan `String` - Agen pengguna untuk halaman tamu.
 
 ### `<webview>.insertCSS(css)`
 
@@ -334,18 +302,18 @@ Returns `String` - The user agent for guest page.
 
 Injects CSS into the guest page.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript (code, userGesture, callback)`
 
 * ` kode </ 0> String</li>
 <li><code>userGesture` Boolean - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
-  * `result` Any
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+  * `hasil` Ada
 
-Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
 
-### `<webview>.openDevTools()`
+### `<webview>.openDevTools ()`
 
-Opens a DevTools window for guest page.
+Membuka jendela DevTools untuk halaman tamu.
 
 ### `<webview>.closeDevTools()`
 
@@ -357,22 +325,22 @@ Returns `Boolean` - Whether guest page has a DevTools window attached.
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Whether DevTools window of guest page is focused.
+Returns `Boolean` - Whether DevTools window of guest page is dedicated.
 
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`) of guest page.
+Mulai memeriksa elemen pada posisi (`x`,`y`) dari halaman tamu.
 
 ### `<webview>.inspectServiceWorker()`
 
-Opens the DevTools for the service worker context present in the guest page.
+Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
 
 ### `<webview>.setAudioMuted(muted)`
 
-* `muted` Boolean
+* `dibungkam` Boolean
 
 Set guest page muted.
 
@@ -414,119 +382,119 @@ Executes editing command `selectAll` in page.
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+Jalankan perintah pengeditan `batalkan pilihan` di halaman.
 
 ### `<webview>.replace(text)`
 
-* `text` String
+* `teks` String
 
-Executes editing command `replace` in page.
+Jalankan perintah pengeditan `ganti` di halaman.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` String
+* `teks` String
 
-Executes editing command `replaceMisspelling` in page.
+Jalankan perintah pengeditan `replaceMisspelling` di halaman.
 
 ### `<webview>.insertText(text)`
 
-* `text` String
+* `teks` String
 
-Inserts `text` to the focused element.
+Sisipan `teks` ke elemen yang terfokus.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - Konten yang akan dicari, tidak boleh kosong.
 * `pilihan` Objek (opsional) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `forward` Boolean - (opsional) Baik untuk mencari maju atau mundur, default ke `true`.
+  * `findNext` Boolean - (opsional) Apakah operasi tersebut merupakan permintaan pertama atau tindak lanjut, default ke `false`.
+  * `matchCase` Boolean - (opsional) Apakah pencarian harus sensitif huruf, default ke `false`.
+  * `wordStart` Boolean - (opsional) Baik untuk melihat hanya pada awal kata-kata. default ke `false`.
+  * `medialCapitalAsWordStart` Boolean - (opsional) Bila digabungkan dengan `wordStart`, menerima sebuah pertandingan di tengah sebuah kata jika pertandingan dimulai dengan sebuah huruf besar diikuti huruf kecil atau huruf non. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Memulai permintaan untuk mencari semua kecocokan teks pada halaman web dan memunculkan kembali Id peminta untuk permintaan. Hasil permintaan dapat diperoleh dengan menandai halaman yang ditemukan.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+  * `clearSelection` - jelas pilihan.
+  * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
+  * `activateSelection` - fokus dan klik seleksi simpul.
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+Berhenti permintaan `findInPage` `webview` dengan disediakan `tindakan`.
 
 ### `<webview>.print([options])`
 
 * `pilihan` Objek (opsional) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
+  * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
+  * `deviceName` String (opsional) - mengatur printer nama perangkat untuk menggunakan. Default adalah `"`.
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+Prints `webview` 's web page. Same as `webContents.print ([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
 * `pilihan` Obyek 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+  * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
+  * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+  * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
+  * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
+  * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
 * `callback` Fungsi 
   * ` error </ 0> Kesalahan</li>
 <li><code>data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
 
-### `<webview>.capturePage([rect, ]callback)`
+### `<webview>.capturePage ([rect,] callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap
 * `callback` Fungsi 
   * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
-<p>Captures a snapshot of the <code>webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.</p> 
-    ### `<webview>.send(channel[, arg1][, arg2][, ...])`
+<p>Menangkap cuplikan halaman <code>webview`. Sama seperti `webContents.capturePage ([rect,] callback) `.</p> 
+    ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
     
     * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Send an asynchronous message to renderer process via <code>channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
-      See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+<p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.</p> 
+      Melihat [](web-contents.md#webcontentssendchannel-args)Menu untuk contoh.
       
       ### `<webview>.sendInputEvent(event)`
       
-      * `event` Object
+      * `event` Objek
       
-      Sends an input `event` to the page.
+      Mengirim masukan `event` ke halaman.
       
       See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
       
       ### `<webview>.setZoomFactor(factor)`
       
-      * `factor` Number - Zoom factor.
+      * `faktor` Angka - Faktor zoom.
       
-      Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+      Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
       
       ### `<webview>.setZoomLevel(level)`
       
-      * `level` Number - Zoom level
+      * `tingkat` Nomor - tingkat Zoom
       
-      Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+      Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
       
       ### `<webview>.showDefinitionForSelection()` *macOS*
       
-      Shows pop-up dictionary that searches the selected word on the page.
+      Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
       
       ### `<webview>.getWebContents()`
       
-      Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+      Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
       
       ## DOM events
       
-      The following DOM events are available to the `webview` tag:
+      Peristiwa DOM berikut tersedia untuk tag `webview`:
       
       ### Event: 'load-commit'
       
@@ -535,11 +503,11 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * ` url </ 0>  String</li>
 <li><code>isMainFrame` Boolean
       
-      Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+      Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
       
       ### Event: 'Apakah-selesai-load'
       
-      Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+      Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
       
       ### Event: 'Apakah-gagal-load'
       
@@ -550,7 +518,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `validatedURL` String
       * `isMainFrame` Boolean
       
-      This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+      Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
       
       ### Event: 'Apakah-frame-selesai-load'
       
@@ -558,15 +526,15 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       
       * `isMainFrame` Boolean
       
-      Fired when a frame has done navigation.
+      Dibunyikan apabila bingkai telah melakukan navigasi.
       
       ### Event: 'Apakah-mulai-loading'
       
-      Corresponds to the points in time when the spinner of the tab starts spinning.
+      Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
       
       ### Event: 'Apakah-stop-loading'
       
-      Corresponds to the points in time when the spinner of the tab stops spinning.
+      Sesuai dengan poin pada saat pemintal tab berhenti berputar.
       
       ### Event: 'Apakah-mendapatkan-tanggapan-rincian'
       
@@ -577,11 +545,11 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `originalURL` String
       * `httpResponseCode` Integer
       * `requestMethod` String
-      * `referrer` String
+      * `pengarah` String
       * `headers` Obyek
       * `Jenissumberdaya` String
       
-      Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+      Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
       
       ### Event: 'apakah-mendapatkan-redirect-permintaan'
       
@@ -591,11 +559,11 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * `newURL` String
       * `isMainFrame` Boolean
       
-      Fired when a redirect was received while requesting a resource.
+      Emitted ketika redirect diterima saat meminta resource.
       
       ### Event: 'dom-siap'
       
-      Fired when document in the given frame is loaded.
+      Emitted saat dokumen dalam bingkai yang diberikan dimuat.
       
       ### Acara : 'halaman-judul-diperbarui'
       
@@ -604,23 +572,23 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
       * ` title </ 0>  String</li>
 <li><code>explicitSet` Boolean
       
-      Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+      Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
       
       ### Event: 'halaman-favicon-updated '
       
-      Pengembalian:
+      Kembali
       
-      * `favicons` String[] - Array of URLs.
+      * `FAVICONS` String [] - serangkaian URL.
       
-      Fired when page receives favicon urls.
+      Dibunyikan saat halaman menerima url favicon.
       
       ### Acara : 'enter-html-full-screen'
       
-      Fired when page enters fullscreen triggered by HTML API.
+      Dipecat saat halaman memasuki layar penuh yang dipicu oleh HTML API.
       
       ### Acara : 'leave-html-full-screen'
       
-      Fired when page leaves fullscreen triggered by HTML API.
+      Dipecat saat halaman daun layar penuh dipicu oleh HTML API.
       
       ### Event: 'console-message'
       
@@ -631,15 +599,12 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 <li><code>line` Integer
       * `sourceId` String
       
-      Fired when the guest window logs a console message.
+      Dipecat saat jendela tamu membuka pesan konsol.
       
-      The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+      Contoh kode berikut meneruskan semua pesan log ke konsol embedder tanpa memperhatikan tingkat log atau properti lainnya.
       
       ```javascript
-const webview = document.querySelector('webview')
-webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
-})
+const webview = document.querySelector ('webview') webview.addEventListener ('console-message', (e) = > {console.log ('Halaman tamu mencatat pesan:', e.message)})
 ```
   
   ### Event: 'ditemukan-di-halaman'
@@ -647,50 +612,35 @@ webview.addEventListener('console-message', (e) => {
   Pengembalian:
   
   * `hasil` Obyek 
-    * `Idpermintaan` IntegerId
-    * `aktifSesuaiOrdinal` Integer - Posisi pertandingan aktif.
-    * `cocokdengan` Integer - Jumlah yang Cocok.
-    * `seleksiArea` Objek - Koordinat wilayah pertandingan pertama.
+    * `requestId` Bilangan bulat
+    * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
+    * `pertandingan` Bulat - jumlah pertandingan.
+    * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
     * `finalUpdate` Boolean
   
-  Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
+  Dipancarkan saat hasilnya tersedia [webContents.findInPage`] permintaan.</p>
+
+<pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
+`</pre> 
+  
+  ### Event: 'baru-jendela'
+  
+  Pengembalian:
+  
+  * ` url </ 0>  String</li>
+<li><code>frameName` String
+  * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
+  * `options` Object - The options which should be used for creating the new `BrowserWindow`.
+  
+  Fired when the guest page attempts to open a new browser window.
+  
+  Contoh kode berikut membuka url baru di browser default sistem.
   
   ```javascript
-const webview = document.querySelector('webview')
-webview.addEventListener('found-in-page', (e) => {
-  webview.stopFindInPage('keepSelection')
-})
-
-const requestId = webview.findInPage('test')
-console.log(requestId)
+const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
 ```
 
-### Event: 'new-window'
-
-Pengembalian:
-
-* ` url </ 0>  String</li>
-<li><code>frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which should be used for creating the new `BrowserWindow`.
-
-Fired when the guest page attempts to open a new browser window.
-
-The following example code opens the new url in system's default browser.
-
-```javascript
-const {shell} = require('electron')
-const webview = document.querySelector('webview')
-
-webview.addEventListener('new-window', (e) => {
-  const protocol = require('url').parse(e.url).protocol
-  if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
-  }
-})
-```
-
-### Event: 'will-navigate'
+### Event: 'akan navigasi'
 
 Pengembalian:
 
@@ -699,24 +649,23 @@ Pengembalian:
 
 <p>Emitted when a user or the page wants to start navigation. It can happen when
 the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-  This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+  Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
   
-  It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
   
-  Calling `event.preventDefault()` does **NOT** have any effect.
+  Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
   
-  ### Event: 'did-navigate'
+  ### Event: 'melakukan navigasi'
   
   Pengembalian:
   
   * ` url </ 0>  String</li>
 </ul>
 
-<p>Emitted when a navigation is done.</p>
+<p>Dibunyikan apabila navigasi dilakukan.</p>
 
-<p>This event is not emitted for in-page navigations, such as clicking anchor links
-or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
-    ### Event: 'did-navigate-in-page'
+<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
+    ### Event: 'Apakah-menavigasi-di halaman'
     
     Pengembalian:
     
@@ -724,22 +673,19 @@ or updating the <code>window.location.hash`. Use `did-navigate-in-page` event fo
     * ` url </ 0>  String</li>
 </ul>
 
-<p>Emitted when an in-page navigation happened.</p>
+<p>Dibunyikan saat navigasi dalam halaman terjadi.</p>
 
-<p>When in-page navigation happens, the page URL changes but does not cause
-navigation outside of the page. Examples of this occurring are when anchor links
-are clicked or when the DOM <code>hashchange` event is triggered.</p> 
+<p>Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
+navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
+diklik atau saat event hash <code>hashchange` dipicu.</p> 
       ### Acara : 'dekat'
       
-      Fired when the guest page attempts to close itself.
+      Dipecat saat halaman tamu mencoba menutup diri.
       
-      The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+      The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
       
       ```javascript
-const webview = document.querySelector('webview')
-webview.addEventListener('close', () => {
-  webview.src = 'about:blank'
-})
+const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
 ```
   
   ### Event: 'ipc-message'
@@ -749,48 +695,38 @@ webview.addEventListener('close', () => {
   * ` saluran </ 0>  String</li>
 <li><code>args` Array
   
-  Fired when the guest page has sent an asynchronous message to embedder page.
+  Fired when the guest page has sent an asynchronous message to the embedder page.
   
   With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
   
   ```javascript
-// In embedder page.
-const webview = document.querySelector('webview')
-webview.addEventListener('ipc-message', (event) => {
-  console.log(event.channel)
-  // Prints "pong"
-})
-webview.send('ping')
+// In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
 ```
 
 ```javascript
-// In guest page.
-const {ipcRenderer} = require('electron')
-ipcRenderer.on('ping', () => {
-  ipcRenderer.sendToHost('pong')
-})
+// In guest page. const {ipcRenderer} = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
 ```
 
-### Event: 'crashed'
+### Event: 'jatuh'
 
-Fired when the renderer process is crashed.
+Dipecat saat proses renderer jatuh.
 
-### Event: 'gpu-crashed'
+### Event: 'jatuh'
 
-Fired when the gpu process is crashed.
+Dipecat saat proses gpu jatuh.
 
-### Event: 'plugin-crashed'
+### Event: 'plugin-jatuh'
 
 Pengembalian:
 
 * ` nama </ 0>  String</li>
-<li><code>version` String
+<li><code>Versi` String
 
-Fired when a plugin process is crashed.
+Dibunyikan ketika proses plugin telah jatuh.
 
-### Event: 'destroyed'
+### Event: 'menghancurkan'
 
-Fired when the WebContents is destroyed.
+Dipecat saat WebContents hancur.
 
 ### Event: 'media-mulai-bermain''
 
@@ -806,7 +742,7 @@ Pengembalian:
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>

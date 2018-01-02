@@ -82,14 +82,14 @@ Writes the `text` into the clipboard in RTF.
 Returns `Object`:
 
 * `title` String
-* `url` String
+* `url` Dize
 
 Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
-* `url` String
+* `url` Dize
 * `type` String (optional)
 
 Writes the `title` and `url` into the clipboard as a bookmark.

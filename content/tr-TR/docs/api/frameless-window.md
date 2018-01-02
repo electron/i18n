@@ -16,7 +16,7 @@ win.show()
 
 ### macOs üzerindeki alternatifler
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Başlık çubuğunu ve pencere denetimlerini devre dışı bırakan `frame` ‘yi `false` olarak ayarlamak yerine, başlık çubuğunu gizli tutmak isteyebilirsiniz ve içeriğiniz tam pencere boyutuna kadar uzatılabilir, ancak standart pencere işlemleri için pencere kontrollerini ("trafik ışıkları") hala koruyabilirsiniz. You can do so by specifying the `titleBarStyle` option:
 
 #### `hidden`
 
@@ -64,7 +64,7 @@ win.show()
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
-* On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
+* GPU'yu devre dışı bırakmak ve ARGB'ın şeffaf pencere açmasına izin vermek için Linux kullanıcıları komut satırına `--enable-transparent-visuals --disable-gpu ` değerini koymalıdırlar; bunun nedeni bir akış hatası olan [Alfa kanalı, Linux'daki bazı NVidia sürücüleri üzerinde çalışmaz](https://code.google.com/p/chromium/issues/detail?id=369209).
 * On Mac the native window shadow will not be shown on a transparent window.
 
 ## Click-through window
@@ -79,7 +79,7 @@ win.setIgnoreMouseEvents(true)
 
 ## Sürüklenebilir bölge
 
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+By default, the frameless window is non-draggable. Uygulamalar hangi bölgelerin sürüklenebilir olduğunu (OS'nin standart başlık çubuğu gibi) Elektron'a bildirmek için CSS'de `-webkit-app-region: drag` belirtmelidir ve uygulamalar da `-webkit-app-region: no-drag` sürüklenemez alanı sürüklenebilir bölgeden çıkarmak için kullanabilir. Note that only rectangular shapes are currently supported.
 
 Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 

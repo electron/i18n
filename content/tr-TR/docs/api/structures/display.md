@@ -1,12 +1,12 @@
 # Görüntüleme Nesnesi
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
-* `scaleFactor` Number - Output device's pixel scale factor.
-* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
+* `id` Sayı - Ekranla ilgili benzersiz tanımlayıcı.
+* `rotation` Sayı - 0, 90, 180, 270 olabilir, ekranın saat yönündeki dönüş derecesini temsil eder.
+* `scaleFactor` Sayı - Çıktı cihazının piksel ölçeği çarpanı.
+* `touchSupport` Dize - `available`, `unavailable`, `unknown` olabilir.
 * `bounds` [Rectangle](rectangle.md)
-* `boyut` [Boyut](size.md)
-* `Çalışma Alanı` [Dikdörtgen](rectangle.md)
+* `size` [Size](size.md)
+* `workArea` [Rectangle](rectangle.md)
 * `workAreaSize` [Size](size.md)
 
-The `Display` object represents a physical display connected to the system. A fake `Display` may exist on a headless system, or a `Display` may correspond to a remote, virtual display.
+`Display` nesnesi sisteme bağlanmış fiziksel bir ekranı temsil eder. Sahte bir `Display` monitörsüz bir sistemde mevcut olabilir, ya da bir `Display` uzak, sanal bir ekrana karşılık gelebilir.

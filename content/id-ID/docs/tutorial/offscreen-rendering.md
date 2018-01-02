@@ -21,21 +21,7 @@ Dua mode rendering dapat digunakan dan hanya daerah kotor dilewatkan dalam ` 'ca
 
 <h2>Pemakaian</h2>
 
-<pre><code class="javascript">const {app, BrowserWindow} = require('electron')
-
-app.disableHardwareAcceleration()
-
-let win
-app.once('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
+<pre><code class="javascript">const {app, BrowserWindow} = require('electron') app.disableHardwareAcceleration() membiarkan memenangkan app.once ('siap', () = > {memenangkan = BrowserWindow baru ({webPreferences: {
       offscreen: true
-    }
-  })
-  win.loadURL('http://github.com')
-  win.webContents.on('paint', (event, dirty, image) => {
-    // updateBitmap(dirty, image.getBitmap())
-  })
-  win.webContents.setFrameRate(30)
-})
+    }}) win.webContents.on win.loadURL ('http://github.com') ('cat', (acara, kotor, gambar) = > {/ / updateBitmap (kotor, image.getBitmap())}) win.webContents.setFrameRate(30)})
 `</pre>

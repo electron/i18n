@@ -6,7 +6,7 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 ## How to Submit Your App
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+Aşağıdaki adımlar, uygulamanızı Mac App Store'a göndermenin basit bir yolunu sunar. Her ne kadar, bu adımlar uygulamanızın Apple tarafından onaylanmasını sağlamasada; Mac App Store gereksinimlerini nasıl karşılanacağına ilişkin hala Apple'ın [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) kılavuzunu okumanız gerekir.
 
 ### Sertifika edin
 
@@ -134,7 +134,7 @@ Also note that native modules may have intermediate files produced which should 
 
 ### Uygulamanı yükle
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+Uygulamanızı imzaladıktan sonra, yüklemeden önce [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)’a sahip olduğunuzdan emin olmak ve iTunes Connect'e yazılım yüklemek için uygulama yükleyicisi'ni kullanabilirsiniz.
 
 ### Submit Your App for Review
 
@@ -235,4 +235,4 @@ Electron uses following cryptographic algorithms:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](http://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+ERN onayını nasıl alacağınız,[Şifreleme kullandığında (veya bir ERN'nin nasıl elde edileceği), yasal olarak Apple'ın App Store'a bir uygulama nasıl bildirileceği konusunda, makaleye bakabilirsiniz:](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

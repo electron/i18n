@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Les versions d'Electron antérieure à la version *< 2.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. Bien que pratiques pour les développeurs pour merger des fonctionnalités, cela créer des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longue et la stabilité est un résultat très attendu. Il y a de grandes chances d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
+Les versions d'Electron antérieure à la version *< 2.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. Bien que pratiques pour les développeurs pour implémenter des fonctionnalités, cela créer des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longue et la stabilité est un résultat très attendu. Il y a de grandes chances d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
 
 Voici un exemple de la stratégie 1.x :
 

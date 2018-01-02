@@ -335,30 +335,30 @@
 </tr>
 <tr>
   <td>nb</td>
-  <td>Norwegian (Bokmal)</td>
+  <td>Norwegia (Bokmal)</td>
 </tr>
 <tr>
   <td>ne</td>
-  <td>Nepali</td>
+  <td>Orang Nepal</td>
 </tr>
 <tr>
   <td>nl</td>
-  <td>Dutch</td>
+  <td>Belanda</td>
 </tr>
 <tr>
   <td>nn</td>
-  <td>Norwegian (Nynorsk)</td>
+  <td>Norwegia (Nynorsk)</td>
 </tr>
 <tr>
-  <td>no</td>
-  <td>Norwegian</td>
+  <td>tidak</td>
+  <td>Bahasa Norwegia</td>
 </tr>
 <tr>
   <td>oc</td>
   <td>Occitan</td>
 </tr>
 <tr>
-  <td>om</td>
+  <td>tentang</td>
   <td>Oromo</td>
 </tr>
 <tr>
@@ -366,7 +366,7 @@
   <td>Oriya</td>
 </tr>
 <tr>
-  <td>pa</td>
+  <td>baiklah</td>
   <td>Punjabi</td>
 </tr>
 <tr>
@@ -383,11 +383,11 @@
 </tr>
 <tr>
   <td>pt-BR</td>
-  <td>Portuguese (Brazil)</td>
+  <td>Portugis (Brasil)</td>
 </tr>
 <tr>
   <td>pt-PT</td>
-  <td>Portuguese (Portugal)</td>
+  <td>Portugis (Portugal)</td>
 </tr>
 <tr>
   <td>qu</td>
@@ -399,11 +399,11 @@
 </tr>
 <tr>
   <td>ro</td>
-  <td>Romanian</td>
+  <td>Rumania</td>
 </tr>
 <tr>
   <td>ru</td>
-  <td>Russian</td>
+  <td>Rusia</td>
 </tr>
 <tr>
   <td>sd</td>

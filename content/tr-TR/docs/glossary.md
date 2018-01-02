@@ -10,15 +10,15 @@ ASAR biçimi öncelikle Windows'daki performansı artırmak için oluşturuldu..
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Şimdi kullanımdan kaldırıldı ve Electron'un kod tablasına birleştirildi.
+Brightray [was](https://github.com/electron-archive/brightray) statik kitaplığı [libchromiumcontent](#libchromiumcontent) uygulamalarda daha kolay kullanılabilir hale getirdi. Şimdi kullanımdan kaldırıldı ve Electron'un kod tablasına birleştirildi.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C Çalışma Zamanı Kitaplığı (CRT) C ++ Standart Kitaplığı'nın bir parçasıdır. ISO C99 standart kütüphanesini içerir. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
-Bir Apple Disk Görüntüsü, macOS tarafından kullanılan bir paketleme biçimidir. DMG dosyaları uygulama "kurulumcularını" dağıtmak için yaygın olarak kullanılır. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Bir Apple Disk Görüntüsü, macOS tarafından kullanılan bir paketleme biçimidir. DMG dosyaları uygulama "kurulumcularını" dağıtmak için yaygın olarak kullanılır. [electron-builder](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak `dmg` destekler.
 
 ### IME
 
@@ -50,15 +50,15 @@ Apple'ın Mac App Store'un kısaltması. Uygulamanızı, MAS'a gönderme ile ilg
 
 ### yerel modüller
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
+Native modülleri (ayrıca Node.js'de [addons](https://nodejs.org/api/addons.html) olarak adlandırılır) require() işlevini kullanarak Node.js veya Electron'a yüklenebilen C veya C++ olarak yazılan modüllerdir ve sanki bir sıradan Node.js modülü gibi kullanılırlar. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Yerel Node modülleri Electron tarafından desteklenmektedir, ancak Electron'un sisteminizde kurulu olan Node ikilisinden farklı bir V8 versiyonu kullanması muhtemel olduğundan, yerli modülleri oluştururken Electron'un üstbilgilerinin konumunu elle belirtmeniz gerekir.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Ayrıca bakınız: [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [electron-builder](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
+Nullsoft Scriptable Install System, Microsoft Windows için komut dosyası çalıştıran bir Installer yazma aracıdır. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [electron-builder](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
 
 ### OSR
 

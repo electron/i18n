@@ -19,149 +19,149 @@ app.on('window-all-closed', () => {
 
 ### Olay: 'will-finish-launching'
 
-Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, `bitiş başlatma` olayı, `hazır` etkinliği ile aynıdır; macOS'ta bu olay, `NSApplication` 'in `applicationWillFinishLaunching` bildirimini temsil eder. Genellikle, `açık dosya` ve `açık-url` olayları için dinleyicileri ayarlarsınız ve çökme muhabirini ve otomatik güncelleyiciyi başlatırsınız.
 
-In most cases, you should just do everything in the `ready` event handler.
+Çoğu durumda, her şeyi yalnızca `hazır` olay işleyicisinde yapmalısınız.
 
 ### Etkinlik: 'hazır'
 
-Returns:
+Dönüşler:
 
-* `launchInfo` Object *macOS*
+* `launchInfo` Nesne *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Elektron başlatmayı bitirdiğinde ortaya çıkar. MacOS'ta, `launchInfo`, Bildirim Merkezi'nden başlatıldığı takdirde, uygulamayı açmak için kullanılan `NSUserNotification` öğesinin `kullanıcı bilgisi`'ni tutar. Bu etkinliğin zaten başlayıp başlamadığını kontrol etmek için `app.isReady()` 'i arayabilirsiniz.
 
-### Event: 'window-all-closed'
+### Olay: 'Tüm-pencereler-kapalı'
 
-Emitted when all windows have been closed.
+Tüm pencereler kapatıldığında ortaya çıkar.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davranış, uygulamadan çıkmaktır; ancak, abone olursanız, uygulamanın sona erip ermeyeceğini kontrol edersiniz. Kullanıcı `Cmd + Q` tuşlarına basarsa veya geliştirici `app.quit()`'i çağırırsa, Electron önce tüm pencereleri kapatmaya ve ardından `will-quit` olayını yayınlamaya çalışacaktır ve bu durumda `Tüm-Pencereler-Kapalı` olayı yayınlanmayacaktır.
 
-### Event: 'before-quit'
+### Olay: 'çıkıştan-önce'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. `event.preventDefault()` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Not:**Uygulama bırakma işlemi`autoUpdater.quitAndInstall()` tarafından başlatılmışsa, tüm pencerelerde `kapanış` olayını yayan</em> sonra* yayınlanır ve kapanır.</p> 
 
 ### Etkinlik: 'çıkış-yapılacak'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Tüm pencereler kapatıldığında ve uygulamadan çıkıldığında ortaya çıkar. `event.preventDefault()` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Arasındaki farklar için `tüm-pencereler-kapalı` olayının açıklamasına bakın `will-quit` ve `tüm-pencereler-kapalı` olayları.
 
 ### Etkinlik: 'çıkış'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Uygulama kesildiğinde ortaya çıkar.
 
-### Event: 'open-file' *macOS*
+### Etkinlik: 'open-file' *macOS*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Kullanıcı uygulama ile bir dosya açmak istediğinde ortaya çıkar. `open-file` olayı genellikle uygulama zaten açık olduğunda ve OS dosyayı açmak için uygulamayı tekrar kullanmak istediğinde yayınlanır. Dock'a bir dosya düştüğünde ve uygulama henüz çalışmadığında da `open-file` yayınlanır. Bu olayı işlemek için (`hazır` olayı yayından önce bile olsa), uygulamanın başlangıç ​​işleminin çok erken bir aşamasında `açık dosya` olayını dinlediğinizden emin olun.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+Windows'ta, dosya yolunu almak için (ana süreçte) `process.argv` ayrıştırmanız gerekir.
 
-### Event: 'open-url' *macOS*
+### Olay: 'open-url' *macOS*
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `url` String
+* `olay` Olay
+* `url` Dize
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Kullanıcı uygulama ile bir url açmak istediğinde ortaya çıkar. Uygulamanızın `Info.plist` dosyası, `CFBundleURLTypes` anahtarının içinde url düzenini tanımlamalı ve `NSPrincipalClass` 'ı `AtomApplication` olarak ayarlamalıdır.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Uygulama etkinleştirildiğinde ortaya çıkar. Uygulamayı ilk kez başlatmak, uygulamayı zaten çalıştırırken yeniden başlatmaya çalışmak veya uygulamanın yükleme istasyonu veya görev çubuğu simgesini tıklatmak gibi çeşitli eylemler bu olayı tetikleyebilir.
 
-### Event: 'continue-activity' *macOS*
+### Olay: 'continue-activity' *macOS*
 
-Returns:
+Dönüşler:
 
-* `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `olay` Olay
+* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* `userInfo` Object - Etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı geliştirici Ekip ID'si olan ve etkinliğin türünü destekleyen bir uygulamada devam edilebilir. Desteklenen etkinlik türleri, uygulamanın `Info.plist` öğesinde `NSUserActivityTypes` anahtarının altında belirtilir.
 
-### Event: 'new-window-for-tab' *macOS*
+### Olay: 'new-window-for-tab' *macOS*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Kullanıcı yerel macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin bir `tabbingIdentifier`'ı varsa görünür olur
 
-### Event: 'browser-window-blur'
+### Olay: 'browser-window-blur'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
-### olay: 'tarayıcı-pencere-odak'
+### Olay: 'tarayıcı-pencere-odak'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
 
 ### Event: 'certificate-error'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` [WebContents](web-contents.md)
-* `url` String
+* `url` Dize
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -185,9 +185,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -196,7 +196,7 @@ Returns:
 
 Emitted when a client certificate is requested.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url`, istemci sertifikasını isteyen gezinme girişine karşılık gelir ve listeden filtrelenmiş bir girdi ile `callback` çağrılabilir. `event.preventDefault()` öğesinin kullanılması, uygulamanın mağazadaki ilk sertifikayı kullanmasını engeller.
 
 ```javascript
 const {app} = require('electron')
@@ -209,9 +209,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Etkinlik: 'giriş'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `webContents` [WebContents](web-contents.md)
 * `istek` Nesne 
   * `method` String
@@ -242,18 +242,18 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. See https://www.chromium.org/developers/design-documents/accessibility for more details.
@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Tüm uygulama pencerelerini simge durumuna küçültmeksizin gizle.
 
 ### `app.show()` *macOS*
 
@@ -561,7 +561,7 @@ Returns `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
@@ -703,7 +703,7 @@ const appFolder = path.dirname(process.execPath)
 const updateExe = path.resolve(appFolder, '..', 'Update.exe')
 const exeName = path.basename(process.execPath)
 
-app.setLoginItemSettings({
+  app.setLoginItemSettings({
   openAtLogin: true,
   path: updateExe,
   args: [
@@ -728,7 +728,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
   * `credits` String (optional) - Credit information.
   * `version` String (optional) - The app's build version number.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 

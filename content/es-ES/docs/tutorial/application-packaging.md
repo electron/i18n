@@ -38,14 +38,14 @@ Por ejemplo, supongamos que tenemos un archivo `ejemplo.asar` en `/ruta/a</ 0>:<
 /static/jquery.min.js
 `</pre> 
 
-Read a file in the `asar` archive:
+Lea una ficha en el archivo `asar`:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Lista de todos las fichas debajo de la raíz del archivo:
 
 ```javascript
 const fs = require('fs')
@@ -68,9 +68,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+En una página web, las fichas en un archivo pueden solicitarse con el protocolo `file:`. Al igual que la API del nodo, los archivos `asar` se tratan como directorios.
 
-For example, to get a file with `$.get`:
+Por ejemplo, para obtener un fichero con `$,obtenga`:
 
 ```html
 <script>
@@ -81,9 +81,9 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Tratamiento de un archivo `asar` como una ficha normal
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Para algunos casos, como verificar la suma de comprobación del archivo `asar`, necesitamos leer el contenido de un archivo `asar` como una ficha. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
 
 ```javascript
 const originalFs = require('original-fs')
@@ -98,11 +98,11 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Limitaciones de la API de nodo
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Aunque tratamos de hacer que los archivos `asar` en la API de nodo funcionaran como directorios tanto como sea posible, todavía hay limitaciones debido a la naturaleza de bajo nivel de la API de nodo.
 
-### Archives Are Read-only
+### Archivos de solo lectura
 
 The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
 

@@ -1,59 +1,50 @@
-## Kelas: Menu Item
+## Kelas: MenuItem
 
-> Tambahkan item ke menu aplikasi asli dan menu konteks.
+> Menambahkan item ke menu aplikasi asli dan menu konteks.
 
-Proses:  Utama </ 0></p> 
+Proses: [utama](../glossary.md#main-process)
 
-Lihat ` Menu </ 0> untuk contohnya.</p>
+Melihat [`Menu`](menu.md) untuk contoh.
 
-<h3><code>MenuItem baru (pilihan)`</h3> 
+### `MenuItem baru (pilihan)`
 
 * `pilihan` Objek 
-  * `klik` Fungsi (opsional) - Akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
-    * ` menuItem </ 0> MenuItem</li>
-<li><code> jendela browser </ 0>jendela Browser</li>
-<li><code> event </ 0>  Acara</li>
-</ul></li>
-<li><code> peran </ 0>  String (opsional) - Tentukan tindakan item menu, bila ditentukan properti
- <code> klik </ 0> akan diabaikan. Lihat <a href="#roles"> peran </ 1> .</li>
-<li><code> ketik </ 0>  String (opsional) - Dapat <code> normal </ 0> , <code> pemisah </ 0> , <code> submenu </ 0> , <code> kotak centang </ 0> atau
- <code> radio </ 0> .</li>
-<li><code> label </ 0>  String - (opsional)</li>
-<li><code> sublabel </ 0>  String - (opsional)</li>
-<li><code> akselerator </ 0>  <a href="accelerator.md"> Accelerator </ 1> (opsional)</li>
-<li><code> ikon </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String ) (opsional)</li>
-<li><code> diaktifkan </ 0>  Boolean (opsional) - Jika salah, item menu akan diklik dan tidak dapat diklik.</li>
-<li><code> terlihat </ 0>  Boolean (opsional) - Jika salah, item menu akan seluruhnya tersembunyi.</li>
-<li><code> diperiksa </ 0>  Boolean (opsional) - Sebaiknya hanya ditentukan untuk item menu jenis <code> kotak centang </ 0> atau <code> radio </ 0> .</li>
-<li><code> submenu </ 0> (MenuItemConstructorOptions [] | Menu) (opsional) - Harus ditentukan untuk <code> submenu </ 0> ketik item menu. Jika
- <code> submenu </ 0> ditentukan, tipe <code> : 'submenu' </ 0> dapat diabaikan. Jika nilainya bukan <code> Menu </ 0> maka otomatis akan dikonversi menjadi satu dengan
- <code> Menu.buildFromTemplate </ 0> .</li>
-<li><code> id </ 0>  String (opsional) - Unik dalam satu menu. Jika di definisikan maka bisa dijadikan acuan untuk item ini dengan atribut posisi.</li>
-<li><code> posisi </ 0>  String (opsional) - Bidang ini memungkinkan definisi lokasi yang spesifik dalam menu tertentu.</li>
-</ul></li>
-</ul>
+  * `klik` Fungsi (opsional) - akan dipanggil dengan `klik (menuItem, jendela browser, acara )` saat item menu diklik. 
+    * `menuItem` MenuItem
+    * `browserWindow` BrowserWindow
+    * `peristiwa` Peristiwa
+  * `peran` String (opsional) - menentukan tindakan menu item, bila ditentukan `Klik` properti akan diabaikan. Melihat [peran](#roles).
+  * `jenis` String (opsional) - dapat `normal`, `pemisah`, `submenu`, `kotak centang` atau `radio`.
+  * `label` String - (opsional)
+  * `sublabel` String - (opsional)
+  * `Accelerator` [Accelerator](accelerator.md) (opsional)
+  * `ikon` ([NativeImage](native-image.md) | String) (opsional)
+  * `diaktifkan` Boolean (opsional) - jika palsu, menu item akan diklik keluar dan unclickable.
+  * `terlihat` Boolean (opsional) - jika palsu, menu item akan sepenuhnya tersembunyi.
+  * `memeriksa` Boolean (opsional) - harus hanya ditentukan untuk `centang` atau `radio` jenis item menu.
+  * `submenu` ([MenuItemConstructorOptions] | Menu) (opsional) - harus ditentukan untuk `submenu` jenis menu item. Jika `submenu` ditetapkan, `jenis: 'submenu'` dapat diabaikan. Jika nilai tidak `Menu` maka akan secara otomatis dikonversi ke salah satu menggunakan `Menu.buildFromTemplate`.
+  * `id` String (opsional) - unik dalam menu tunggal. Jika ditentukan kemudian dapat digunakan sebagai referensi untuk item ini oleh posisi atribut.
+  * `posisi` String (opsional) - bidang ini memungkinkan definisi yang halus lokasi tertentu dalam menu tertentu.
 
-<h3>Peran</h3>
+### Peran
 
-<p>Peran memungkinkan item menu memiliki perilaku yang telah ditentukan.</p>
+Peran memungkinkan item menu untuk memiliki standar perilaku.
 
-<p>Cara terbaik adalah menentukan <code> peran </ 0> untuk item menu yang sesuai dengan peran standar, daripada mencoba menerapkan perilaku secara manual pada fungsi <code> klik </ 0> .
-Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</p>
+Terbaik untuk menetapkan `peran` untuk setiap item menu yang sesuai peran standar, daripada berusaha untuk secara manual menerapkan perilaku dalam fungsi `Klik`. Perilaku internal `peran` akan memberikan pengalaman asli terbaik.
 
-<p><code> label </ 0> dan <code> akselerator </ 0> nilai-nilai opsional ketika menggunakan <code> peran </ 0> dan akan default ke nilai yang sesuai untuk setiap platform.</p>
+Nilai-nilai `label` dan `akselerator` opsional ketika menggunakan `peran` dan akan default ke nilai-nilai yang sesuai untuk setiap platform.
 
-<p>Properti <code> peran </ 0> dapat memiliki nilai berikut:</p>
+Properti `peran` dapat memiliki nilai-nilai berikut:
 
-<ul>
-<li><code>membuka`
-    * `mengulangi`
-    * `memotong`
-    * `salinan`
-    * `pasta`
-    * `pasteandmatchstyle`
-    * `Pilih Semua`
-    * `menghapus`
-    * ` minimize </ 0> - Minimalkan jendela saat ini</li>
+* `membatalkan`
+* `mengulang`
+* `memotong`
+* `salinan`
+* `pasta`
+* `pasteandmatchstyle`
+* `Pilih Semua`
+* `menghapus`
+* ` minimize </ 0> - Minimalkan jendela saat ini</li>
 <li><code> tutup </ 0> - Tutup jendela saat ini</li>
 <li><code> berhenti </ 0> - Keluar dari aplikasi</li>
 <li><code> reload </ 0> - Muat ulang jendela aktif</li>
@@ -61,55 +52,53 @@ Di bangun <code> peran </ 0> perilaku akan memberikan pengalaman terbaik asli.</
 <li><code> toggledev alat </ 0> - Toggle alat pengembang di jendela aktif</li>
 <li><code> toggle penuh layar </ 0> - Beralih mode layar penuh pada jendela aktif</li>
 <li><code> reset zoom </ 0> - Reset tingkat zoom halaman terfokus ke ukuran aslinya</li>
-<li><code> perbesar </ 0> - Perbesar halaman yang terfokus sebesar 10%</li>
-<li><code> perkecil </ 0> - Perkecil halaman yang terfokus sebesar 10%</li>
-<li><code> editMenu </ 0> - Seluruh menu "Edit" default (Undo, Copy, dll.)</li>
-<li><code> jendela Menu </ 0> - Menu "Jendela" default keseluruhan (Minimalkan, Tutup, dll.)</li>
-</ul>
+<li><code>zoomin` - Zoom di halaman terfokus sebesar 10%
+* `zoomout` - Zoom out halaman terfokus sebesar 10%
+* `editMenu` - default seluruh "Edit" menu (Undo, salin, dsb.)
+* `windowMenu` - default seluruh "Jendela" menu (Minimalkan, tutup, dll.)
 
-<p>Peran tambahan berikut tersedia di macOS :</p>
+Peran tambahan berikut tersedia pada macOS:
 
-<ul>
-<li><code> tentang </ 0> - Peta ke <code> orderFrontStandardAboutPanel </ 0> tindakan</li>
-<li><code> menyembunyikan </ 0> - Peta ke <code> menyembunyikan </ 0> tindakan</li>
-<li><code> menyembunyi lain </ 0> - Peta ke <code> menyembunyikan aplikasi lain</ 0> tindakan</li>
-<li><code>unhide` - Map to the `unhideAllApplications` action
-    * `startspeaking` - Map to the `startSpeaking` action
-    * `stopspeaking` - Map to the `stopSpeaking` action
-    * `depan` - Peta ke `arrangeInFront` tindakan
-    * `zoom` - Peta ke `performZoom` tindakan
-    * `window` - The submenu is a "Window" menu
-    * `help` - The submenu is a "Help" menu
-    * `services` - The submenu is a "Services" menu
-    
-    When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
-    
-    ### Instance Properties
-    
-    Properti berikut tersedia pada contoh `MenuItem`:
-    
-    #### `menuItem.enabled`
-    
-    A`Boolean` menunjukkan apakah item tersebut diaktifkan, properti ini dapat diubah secara dinamis.
-    
-    #### `menuItem.visible`
-    
-    A `Boolean` menunjukkan apakah item tersebut terlihat, properti ini dapat diubah secara dinamis.
-    
-    #### `menuItem.checked`
-    
-    A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
-    
-    Sebuah `centang` item menu akan beralih `diperiksa` properti dan mematikan saat dipilih.
-    
-    Sebuah `radio` item menu akan menyala nya `diperiksa` properti saat diklik, dan akan mematikan bahwa properti untuk semua item yang berdekatan di menu yang sama.
-    
-    Anda dapat menambahkan fungsi `klik` untuk perilaku tambahan.
-    
-    #### `menuItem.label`
-    
-    A `String` representing the menu items visible label
-    
-    #### `menuItem.click`
-    
-    A `Function` that is fired when the MenuItem receives a click event
+* `tentang` - peta tindakan `orderFrontStandardAboutPanel`
+* `menyembunyikan` - peta untuk `menyembunyikan` tindakan
+* `hideothers` - peta tindakan `hideOtherApplications`
+* `unhide` - peta tindakan `unhideAllApplications`
+* `startspeaking` - peta tindakan `startSpeaking`
+* `stopspeaking` - peta tindakan `stopSpeaking`
+* `depan` - peta tindakan `arrangeInFront`
+* `zoom` - peta tindakan `performZoom`
+* `jendela` - submenu adalah menu "Jendela"
+* `membantu` - submenu adalah menu "Bantuan"
+* `Layanan` - submenu adalah menu "Layanan"
+
+Ketika menentukan `peran` pada macOS, `label` dan `akselerator` adalah satu-satunya pilihan yang akan mempengaruhi menu item. Semua pilihan lain akan diabaikan.
+
+### Contoh properti
+
+Properti berikut tersedia pada contoh-contoh dari `MenuItem`:
+
+#### `menuItem.enabled`
+
+`Boolean` menunjukkan apakah item diaktifkan, properti ini dapat secara dinamis berubah.
+
+#### `menuItem.visible`
+
+`Boolean` menunjukkan item Apakah terlihat, properti ini dapat secara dinamis berubah.
+
+#### `menuItem.checked`
+
+`Boolean` menunjukkan apakah item dicentang, properti ini dapat secara dinamis berubah.
+
+Item menu `kotak centang` akan beralih `memeriksa` properti on dan off ketika dipilih.
+
+`Radio` menu item akan menyala `memeriksa` properti ketika diklik, dan akan menonaktifkan properti itu untuk semua item yang berdekatan di menu yang sama.
+
+Anda dapat menambahkan sebuah `klik` fungsi untuk perilaku tambahan.
+
+#### `menuItem.label`
+
+Sebuah `String` yang mewakili label terlihat item menu
+
+#### `menuItem.click`
+
+`Fungsi` yang dipecat ketika MenuItem menerima event klik

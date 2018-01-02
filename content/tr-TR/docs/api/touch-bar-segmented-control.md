@@ -1,43 +1,43 @@
-## Class: TouchBarSegmentedControl
+## Sınıf: DokunmatikBarParçalıDenetim
 
-> Create a segmented control (a button group) where one button has a selected state
+> Bir butonun seçili olduğu durumda parçalı bir denetim (bir tuş grubu) oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Nesne 
-  * `segmentStyle` String - (optional) Style of the segments: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style
-    * `small-square` - The control is displayed using the small square style.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String - (optional) The selection mode of the control: 
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment 
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+* `seçenekler` Nesne 
+  * `segmentStyle` Dize - (opsiyonel) Segmentlerin biçimi: 
+    * `automatic` - Varsayılan. Parçalı denetimin görünümü denetimin görüntüleneceği pencerenin türüne ve penceredeki konumuna göre otomatik olarak belirlenir.
+    * `rounded` - Denetim yuvarlak biçim kullanılarak görüntülenir.
+    * `textured-rounded` - Denetim dokulu yuvarlak biçim kullanılarak görüntülenir.
+    * `round-rect` - Denetim yuvarlak dik biçim kullanılarak görüntülenir.
+    * `textured-square` - Denetim dokulu kare biçim kullanılarak görüntülenir.
+    * `capsule` - Denetim kapsül biçimi kullanılarak görüntülenir
+    * `small-square` - Denetim küçük kare biçim kullanılarak görüntülenir.
+    * `separated` - Denetimdeki segmentler birbirlerine çok yakın fakat değmeden görüntülenir.
+  * `mod` Dize - (opsiyonel) Denetimin seçme modu: 
+    * `single` - Varsayılan. Bir kerede bir öge seçilir, birini seçmek önceki seçilmiş ögeyi iptal eder.
+    * `multiple` - Bir kerede birden fazla öge seçilebilir.
+    * `buttons` - Segmentlerin buton gibi davranmasını sağlar, her segment tıklanabilir ve bırakılabilir fakat hiçbir zaman aktif olarak işaretlenmez.
+  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - Bu denetimin içine yerleştirilmiş bir dizi segment.
+  * `selectedIndex` Tamsayı (opsiyonel) - Hali hazırda seçili olan segmentin dizini, kullanıcı etkileşimi ile otomatik olarak güncelleyecek. Mod çoklu olduğunda o son seçilen öge olacak.
+  * `change` Fonksiyon - Kullanıcı yeni bir segment seçtiğinde çağırılır 
+    * `selectedIndex` Tamsayı - Kullanıcının seçtiği segmentin dizini.
+    * `isSelected` Boole - Kullanıcı seçiminin sonucu olarak segmentin seçilip seçilmediği.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Aşağıdaki özellikler `TouchBarSegmentedControl` örnekleri olarak uygundur:
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Denetimin geçerli segment biçimini temsil eden bir `String`. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir.
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Denetimdeki segmentleri temsil eden bir `SegmentedControlSegment[]` dizisi. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir. **does not update the touch bar** bu dizideki derin özellikleri güncelleştirir.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+O anda seçili olan segmenti temsil eden bir `Integer`. Bu değeri değiştirmek dokunmatik bardaki denetimi hemen güncelleştirir. Dokunmatik bar ile olan kullanıcı etkileşimi bu değeri hemen güncelleştirecek.

@@ -125,7 +125,7 @@ Finally the `index.html` is the web page you want to show:
 
 ## アプリを実行する
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+`main.js`, `index.html`, `package.json` を作成したなら、はじめての Electron アプリがお手元の環境で正常に動作するか確かめましょう。
 
 ### `electron`
 
@@ -185,7 +185,7 @@ $ .\electron\electron.exe your-app\
 
 After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
 
-### Try this Example
+### こちらのサンプルをお試しください
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 

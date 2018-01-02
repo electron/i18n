@@ -114,7 +114,7 @@ disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta
 
 <h4><code>downloadItem.dapat di terima Byte()`</h4> 
         
-        Returns `Integer` - The received bytes of the download item.
+        Mengembalikan `Integer` - byte yang diterima dari item unduhan.
         
         #### `downloadItem.getContentDisposition ()`
         
@@ -122,9 +122,9 @@ disk lokal . Jika pengguna mengubah nama file dalam dialog tabungan yang diminta
 
 <h4><code>downloadItem.getState ()`</h4> 
         
-        Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+        Mengembalikan `String` - Kondisi saat ini. Bisa `maju`, `selesai`, `dibatalkan` atau `terputus`.
         
-        **Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+        **Catatan:** Metode berikut berguna secara khusus untuk melanjutkan a `membatalkan` item saat sesi dimulai ulang.
         
         #### `downloadItem.getURLChain ()`
         

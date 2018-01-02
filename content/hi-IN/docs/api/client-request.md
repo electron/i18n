@@ -46,7 +46,7 @@ Returns:
 
 Returns:
 
-* `authInfo` Object 
+* `authInfo` ऑब्जेक्ट 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String

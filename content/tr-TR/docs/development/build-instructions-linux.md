@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. Eğer bir sebepten dolayı `clang` ile inşa etmek isterseniz, sisteminize kurulu, `bootstrap.py` ögesini `--clang_dir=<path>` ile arayabilirsiniz geçin. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. Eğer bir sebepten dolayı `clang` ile inşa etmek isterseniz, sisteminize kurulu, `bootstrap.py` ögesini `--clang_dir=<path>` ile arayabilirsiniz geçin. Geçiş yaparsanız, yapı komut dosyası ` clang ` ikililerinin `<path>/bin/` içinde bulunduğu varsayılacaktır.
 
 Örneğin, `clang` 'ı `/user/local/bin/clang` dizinine yüklediyseniz:
 
@@ -172,9 +172,9 @@ $ ./script/build.py -c R
 
 ### `clang` dışında derleyicileri kullanarak
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+`g++` gibi derleyicilerle Electron kurmak için öncelikle `-disable_clang` anahtarıyla `clang`'ı devre dışı bırakmanız ve ardından `CC` ve `CXX` çevre değişkenlerini istediğinize ayarlamanız gerekmektedir.
 
-For example building with GCC toolchain:
+Örneğin GCC araç zinciri ile oluşturma:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### Ortam Değişkenleri
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+`CC` ve `CXX` dışında, inşaa konfigrasyonlarını özelleştirmek için aşağıdaki ortam değişkenlerini de ayarlayabilirsiniz:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`

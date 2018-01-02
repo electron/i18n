@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## मेथड्स
 
 The `clipboard` module has the following methods:
 
@@ -159,7 +159,7 @@ Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` ऑब्जेक्ट 
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)

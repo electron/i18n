@@ -38,7 +38,7 @@ Elektron hanya mendukung seperangkat terbatas API `chrome.*`, sehingga beberapa 
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 * [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
-* [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
+* [Munculkan Alat Pengembang](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
 ### Apa yang harus saya lakukan jika Ekstensi DevTools tidak bekerja?
 

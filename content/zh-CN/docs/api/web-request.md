@@ -1,18 +1,18 @@
 ## Class: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> 在一个请求生命周期的不同阶段，截取和修改其内容。
 
 线程：[主线程](../glossary.md#main-process)
 
-Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
+使用 ` Session ` 的 ` WebRequest ` 属性访问 ` WebRequest ` 类的实例。
 
-The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 ` 详细details ` 对象描述了该请求。 若` listener `为` null `，则取消订阅该事件。
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
+` filter ` 对象具有一个 ` url ` 属性, 它是一个 url 模式数组, 用于筛选出与 url 模式不匹配的请求。 如果省略 ` filter `, 则所有请求都将匹配。
 
-For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+对于某些事件, ` listener ` 是通过 ` callback` 传递的, 当 `listener ` 完成其工作时, 应使用 ` response ` 对象进行调用。
 
-An example of adding `User-Agent` header for requests:
+为 requests 添加 `User-Agent` 头的示例：
 
 ```javascript
 const {session} = require('electron')
@@ -30,7 +30,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### 实例方法
 
-The following methods are available on instances of `WebRequest`:
+以下方法可用于 ` WebRequest ` 的实例:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
@@ -49,13 +49,13 @@ The following methods are available on instances of `WebRequest`:
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+当请求即将发生时，调用`listener(details, callback)`。
 
-The `uploadData` is an array of `UploadData` objects.
+`uploadData` 是` UploadData `对象的一个数组。
 
-The `callback` has to be called with an `response` object.
+必须使用 `response` 对象调用` callback </ 0>。</p>
 
-#### `webRequest.onBeforeSendHeaders([filter, ]listener)`
+<h4><code>webRequest.onBeforeSendHeaders([filter, ]listener)`</h4> 
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
@@ -75,9 +75,9 @@ The `listener` will be called with `listener(details, callback)` before sending 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
-The `callback` has to be called with an `response` object.
+必须使用 `response` 对象调用` callback </ 0>。</p>
 
-#### `webRequest.onSendHeaders([filter, ]listener)`
+<h4><code>webRequest.onSendHeaders([filter, ]listener)`</h4> 
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
@@ -115,9 +115,9 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-The `callback` has to be called with an `response` object.
+必须使用 `response` 对象调用` callback </ 0>。</p>
 
-#### `webRequest.onResponseStarted([filter, ]listener)`
+<h4><code>webRequest.onResponseStarted([filter, ]listener)`</h4> 
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.

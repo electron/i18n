@@ -7,7 +7,7 @@
 * `gpu_compositing` String - Compositing
 * `multiple_raster_threads` String - Multiple Raster Threads
 * `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
-* `rasterization` String - Rasterization
+* `rasterization` String - Rasterizasyon
 * `video_decode` String - Video Decode
 * `video_encode` String - Video Encode
 * `vpx_decode` String - VPx Video Decode
@@ -16,14 +16,14 @@
 
 Olası değerler:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
-* `disabled_off_ok` - Disabled (yellow)
-* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
-* `unavailable_off` - Unavailable (red)
-* `unavailable_off_ok` - Unavailable (yellow)
-* `enabled_readback` - Hardware accelerated but at reduced performance (yellow)
-* `enabled_force` - Hardware accelerated on all pages (green)
-* `enabled` - Hardware accelerated (green)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on` - Force enabled (green)
+* `disabled_software` - Yalnızca yazılım. Donanım ivmesi devre dışı (sarı)
+* `disabled_off` - Devre dışı (kırmızı)
+* `disabled_off_ok` - Devre dışı (sarı)
+* `unavailable_software` - Yalnızca yazılım, donanım ivmesi mevcut değil (sarı)
+* `unavailable_off` - Mevcut değil (kırmızı)
+* `unavailable_off_ok` - Mevcut değil (sarı)
+* `enabled_readback` - Donanım hızlandırılmış ama performans azalmış (sarı)
+* `enabled_force` - Donanım tüm sayfalarda hızlandırılmış (yeşil)
+* `enabled` - Donanım hızlandırılmış (yeşil)
+* `enabled_on` - Etkin (yeşil)
+* `enabled_force_on` - Etkinleştirmeye zorla (yeşil)

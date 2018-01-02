@@ -1,6 +1,6 @@
 # Objeto ProcessMetric
 
-* `pid` Integer - Process id of the process.
-* `type` String - Process type (Browser or Tab or GPU etc).
-* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
-* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `pid` Entero - indicador del proceso.
+* `type` Cadena - tipo de proceso (navegador o pestaña o GPU etc).
+* `memory` [MemoryInfo](memory-info.md) - información de la memoria para el proceso.
+* `CPU` [CPUUsage](cpu-usage.md) - uso de la CPU del proceso.

@@ -1,10 +1,10 @@
 # autoUpdater
 
-> 自動的に彼ら自身を更新するアプリケーションを有効にします。
+> アプリを自動的に更新させられます。
 
 プロセス: [Main](../glossary.md#main-process)
 
-`自動アップデーター` のモジュールは、[リス](https://github.com/Squirrel) のフレームワークのインターフェイスを提供します。
+`autoUpdater` モジュールは [Squirrel](https://github.com/Squirrel) フレームワークのためのインターフェイスを提供します
 
 これらのプロジェクトの 1 つを使用して、アプリケーションを配布するため、マルチプラット フォーム リリース サーバーを迅速に起動できます。
 
@@ -13,7 +13,7 @@
 * [リスの更新サーバー](https://github.com/Aluxian/squirrel-updates-server): *Squirrel.Mac と Squirrel.Windows GitHub のリリースを使用しての簡単な node.js サーバー*
 * [リス リリース サーバー](https://github.com/Arcath/squirrel-release-server): 1 A フォルダーから更新プログラムを読み取り、Squirrel.Windows の単純な PHP アプリケーション。 デルタ更新プログラムをサポートしています</em>。
 
-## プラットフォーム通知
+## プラットフォームごとの通知
 
 `自動アップデーター` は、異なるプラットフォームの統一 API を提供しています、上はまだいくつかの微妙な違い各プラットフォームです。
 
@@ -39,9 +39,9 @@ Linux では、自動アップデーターの組み込みサポートがない�
 
 ## イベント
 
-`自動アップデーター` オブジェクトは、次のイベントを生成します。
+`autoUpdater` オブジェクトは以下のイベントを発生させます。
 
-### イベント: ' エラー '
+### イベント: 'error'
 
 戻り値：
 
@@ -49,37 +49,37 @@ Linux では、自動アップデーターの組み込みサポートがない�
 
 更新中にエラーがあるときに出力されます。
 
-### イベント: ' チェックのため-更新 '
+### イベント: 'checking-for-update'
 
 更新が始まったかどうかをチェックするときに放出されます。
 
-### イベント:「更新プログラム-利用可能」
+### イベント: 'update-available'
 
 利用可能な更新がある場合に生成されます。更新プログラムが自動的にダウンロードされます。
 
-### イベント:「更新プログラム利用不可」
+### イベント: 'update-not-available'
 
 利用可能な更新がない場合に出力されます。
 
-### イベント:「更新プログラムをダウンロード '
+### イベント: 'update-downloaded'
 
 戻り値：
 
 * `event` Event
-* `リリース ノート`文字列
-* `releaseName`文字列
-* `releaseDate`日付
-* `updateURL`文字列
+* `releaseNotes` String
+* `releaseName` String
+* `releaseDate` Date
+* `updateURL` String
 
 更新プログラムがダウンロードされているときに出力されます。
 
-Windows `releaseName` のみ利用可能です。
+Windowsでは `releaseName` のみ利用可能です。
 
 ## メソッド
 
-`自動アップデーター` オブジェクトには、次のメソッドがあります。
+`autoUpdater` オブジェクトには以下のメソッドがあります
 
-### `autoUpdater.setFeedURL (url [, requestHeaders])`
+### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
 * `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。

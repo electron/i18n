@@ -1,51 +1,51 @@
 # Uso del plugin MDL Widevine
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+En Electron usted puede usar el plugin de Widevine CDM conectado con el navegador Chrome.
 
-## Getting the plugin
+## Conectándose
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Electrón no entrega con conectores Widevine CDM por razones de licencia, para obtenerlo, necesita instalar la versión oficial del navegador Chrome primero, que debe coincidir con la arquitectura y la versión de Chrome que la su construcción en Electron usa.
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**Nota:** La mayor versión del navegador Chrome tiene que ser la misma versión usada por Electron, de otra manera la conección no trabajará. `navigator.plugins` le mostrará que ha sido cargado.
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
+Abre `chrome://components/` en el navegador Chrome, encuentra `WidevineCdm` y asegurese de que está actualizada,, luego puede encontrar todos los conectores binarios del directorio `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/`.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` es la ubicación en el sistema designada para almacenar los datos de las aplicaciones, en windows es `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` es la cadena de versión del plugin Widevine CDM, como `1.4.8.866`. `PLATFORM` es `mac` o `win`. `ARCH` es `x86` o `x64`.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+En Windows los requerimientos binarios son `widevinecdm.dll` y `widevinecdmadapter.dll`, en macOS son 0>libwidevinecdm.dylib</code> y `widevinecdmadapter.plugin`. Los puede copiar a cualquier lugar que quiera, pero tienen que estar juntos.
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+En Linux los conectores binarios son entregados juntos con el navegador Chrome, los puede encontrar por `/opt/google/chrome`, los nombres de los archivos son `libwidevinecdm.so` y `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## Usando los conectores
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+Después de obtener los archivos conectores, usted debe pasar la ruta de `widevinecdmadapter` a electron con el comando de cambio lineal `--widevine-cdm-path` y las versiones de los conectores con `--widevine-cdm-version`.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**Nota:** A pesar de que solamente el `widevinecdmadapter` binario es pasado a Electron, el `widevinecdm` binario tiene que ponerse al lado.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+El comando de los interruptores de línea tiene que ser pasado antes que el `ready` del módulo de `app` sea emitido, y que la página que usa el conector tenga el conector activado.
 
-Example code:
+Código de ejemplo:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
+// Tiene que pasa el nombre del archivo de`widevinecdmadapter` equí, es
+// * `widevinecdmadapter.plugin` en macOS,
+// * `libwidevinecdmadapter.so` en Linux,
+// * `widevinecdmadapter.dll` en Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// La versión del conector puede ser obtenida de la página `chrome://plugins`en Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
 app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
-      // The `plugins` have to be enabled.
+      // El conector tiene que ser activado.
       plugins: true
     }
   })
@@ -53,10 +53,10 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## Verificando el Conector
 
-To verify whether the plugin works, you can use following ways:
+Para verificar si el conector funciona, se pueden usar los siguientes métodos:
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Abrir las devtools y ver si `navigator.plugins` incluye el conector de Widevine CDM.
+* Abrir https://shaka-player-demo.appspot.com/ y cargar un manifiesto que use `Widevine`.
+* Abrir http://www.dash-player.com/demo/drm-test-area/, confirmar que la página diga `bitdash usa Widevine en su navegador`, luego reproducir el video.

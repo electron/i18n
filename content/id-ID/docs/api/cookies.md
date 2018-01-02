@@ -80,10 +80,10 @@ lengkap.</p>
 
 <h4><code>cookies.remove (url, nama, callback)`</h4> 
           * `url`String - URL yang terkait dengan cookie.
-          * `name` String - The name of cookie to remove.
+          * `nama` String - Nama cookie untuk dihapus.
           * `callback ` Fungsi
           
-          Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+          Menghapus cookie yang cocok dengan `url` dan `nama`, `callback` akan dipanggil dengan `callback()` selesai.
           
           #### `cookies.flushStore(callback)`
           

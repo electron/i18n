@@ -3,31 +3,15 @@
 ### 1. Buka proyek Elektron di VSCode.
 
 ```sh
-$ git clone git@github.com:electron/electron-quick-start.git
-$ code electron-quick-start
+$ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-cepat-start
 ```
 
 ### 2. Tambahkan file ` .vscode / launch.json </ 0> dengan konfigurasi berikut:</h3>
 
-<pre><code class="json">{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Debug Main Process",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-      "windows": {
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-      },
-      "args" : ["."]
-    }
-  ]
-}
+<pre><code class="json">{"versi": "0.2.0", "konfigurasi": [{"nama": "Debug utama proses", "jenis": "node", "permintaan": "peluncuran", "cwd": "${workspaceRoot}", "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", "windows": {"runtimeExec utable":"${workspaceRoot}/node_modules/.bin/electron.cmd"},"args": [". "]     }   ] }
 `</pre> 
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Catatan:** Untuk Windows, menggunakan `"${workspaceRoot}/node_modules/.bin/electron.cmd"` untuk `runtimeExecutable`.
 
 ### 3. Debugging
 

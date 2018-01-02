@@ -1,43 +1,42 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# हेडलेस सीआई सिस्टम (ट्रेविस सीआई, जेनकिंस) पर परिक्षण
 
-Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will simply fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+क्रोमियम पर आधारित होने के कारण, इलेक्ट्रॉन को कार्य करने के लिए एक डिस्प्ले ड्राइवर की आवश्यकता होती है । अगर क्रोमियम को एक डिस्प्ले ड्राईवर नहीं मिलता, तो इलेक्ट्रॉन चालु ही नहीं होगा - और इसलिए आपके कोई भी परिक्षण चलेंगें नहीं, चाहे आप उन्हें किसी भी तरह से चला रहे हों | इसलिए इलेक्ट्रॉन आधारित एप्प्स का त्रविस, सर्किल, जेन्किन्स या ऐसे ही अन्य सिस्टम्स पर परिक्षण करने के लिए थोड़ी सी कॉन्फ़िगरेशन की आवश्यकता होती है | संक्षेप में, हमे एक वर्चुअल डिस्प्ले ड्राईवर की ज़रुरत है |
 
-## Configuring the Virtual Display Server
+## वर्चुअल डिस्प्ले सर्वर को कॉन्फ़िगर करना
 
-First, install [Xvfb](https://en.wikipedia.org/wiki/Xvfb). It's a virtual framebuffer, implementing the X11 display server protocol - it performs all graphical operations in memory without showing any screen output, which is exactly what we need.
+पहले, [एक्स वी ऍफ़ बी](https://en.wikipedia.org/wiki/Xvfb) इनस्टॉल करें | यह एक वर्चुअल फ्रेमबफर है, जो कि x11 डिस्प्ले सर्वर प्रोटोकॉल का इस्तेमाल करता है - यह बिना कोई स्क्रीन आउटपुट दिखाये सभी ग्राफिकल प्रक्रियाओं को मेमोरी में क्रियान्वित करता है, और हमे यही चाहिये |
 
-Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will simply do nothing.
+उसके बाद, एक वर्चुअल एक्स वी ऍफ़ बी स्क्रीन बनायें और एक डिस्प्ले नामक एनवायरनमेंट वेरिएबल को एस्पोर्ट करें जो उसकी तरफ इशारा करता हो | इलेक्ट्रॉन में मौज़ूद क्रोमियम स्वतः ही `$DISPLAY` को ढूंढ लेगा, तो इसलिए आपकी एप्प को और कोई कॉन्फ़िगरेशन की ज़रुरत नहीं पड़ेगी | इस स्टेप को पॉल बेट्ट्स के [एक्स वी ऍफ़ बी-शायद](https://github.com/paulcbetts/xvfb-maybe) से स्वचालित किया जा सकता है: अपने परिक्षण निर्देशों को `एक्स वी ऍफ़ बी-शायद` से प्रीपेंड करें और यह छोटा सा टूल एक्स वी ऍफ़ बी को स्वतः ही कॉन्फ़िगर कर देगा, अगर मौजूदा सिस्टम को इसकी आवश्यकता है | विंडोज या मैकओएस पर, यह कुछ नहीं करेगा |
 
 ```sh
-## On Windows or macOS, this just invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
-xvfb-maybe electron-mocha ./test/*.js
+## विंडोज या मैकओएस पर, यह सिर्फ इलेक्ट्रॉन-मोका को इनवोक करेगा 
+## लिनक्स पर, अगर हम एक हेडलेस एनवायरनमेंट में हैं, तो यह समकक्ष होगा 
+## एक्स वी ऍफ़ बी-रन इलेक्ट्रॉन-मोका ./परिक्षण/*.जेएस के 
+एक्स वी ऍफ़ बी-शायद इलेक्ट्रॉन-मोका ./परिक्षण/*.जेएस
 ```
 
-### Travis CI
+### त्रविस सीआई
 
-On Travis, your `.travis.yml` should look roughly like this:
+त्रविस पर, आपकी `.त्रविस.वायएमएल` कुछ इस तरह से लगनी चाहिये:
 
 ```yml
-addons:
-  apt:
-    packages:
-      - xvfb
-
-install:
-  - export DISPLAY=':99.0'
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+ऐडओंस:
+   ऐपीटी:
+     पैकेज:
+       - एक्सवीऍफ़बी
+ इनस्टॉल:
+   - एक्सपोर्ट डिस्प्ले=':99.0'
+   - एक्सवीऍफ़बी :99 -स्क्रीन 0 1024x768x24 > /डेव/नल्ल 2>&1 &
 ```
 
-### Jenkins
+### जेन्किन्स
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+जेन्किन्स के लिए, एक [एक्सवीऍफ़बी प्लगइन उपलब्ध है](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin) |
 
-### Circle CI
+### सर्किल सीआई
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+सर्किल सीआई अद्भुत है और इसमें एक्सवीऍफ़बी और `$DISPLAY` पहले से ही [सेटअप है, इसलिए इसमें और किसी कॉन्फ़िगरेशन की ज़रुरत ही नहीं है](https://circleci.com/docs/environment#browsers) |
 
-### AppVeyor
+### एप्पवेयोर
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+एप्पवेयोर विंडोज पर चलता है, सेलेनियम, क्रोमियम, इलेक्ट्रॉन और ऐसे ही अन्य टूल्स को सीधे ही सपोर्ट करता है - किसी कॉन्फ़िगरेशन की ज़रुरत नहीं है |

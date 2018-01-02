@@ -1,8 +1,8 @@
-# RemovePassword Objesi
+# ŞifreKaldırma Nesnesi
 
-* `type` String - `password`.
-* `origin` String (optional) - When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.
-* `scheme` String (optional) - Scheme of the authentication. Can be `basic`, `digest`, `ntlm`, `negotiate`. Must be provided if removing by `origin`.
-* `realm` String (optional) - Realm of the authentication. Must be provided if removing by `origin`.
-* `username` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
-* `password` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
+* `type` Dize - `password`.
+* `origin` Dize (opsiyonel) - Sağlandığında, kökenle ilgili kimlik doğrulama bilgisi sadece kaldırılacak aksi takdirde tüm önbellek temizlenecek.
+* `scheme` Dize (opsiyonel) - Kimlik doğrulama şeması. `basic`, `digest`, `ntlm`, `negotiate` olabilir. Eğer `origin` tarafından kaldırılıyorsa sağlanmalıdır.
+* `realm` Dize (opsiyonel) - Kimlik doğrulama alanı. Eğer `origin` tarafından kaldırılıyorsa sağlanmalıdır.
+* `username` Dize (opsiyonel) - Kimlik doğrulama bilgileri. Eğer `origin` tarafından kaldırılıyorsa sağlanmalıdır.
+* `password` Dize (opsiyonel) - Kimlik doğrulama bilgileri. Eğer `origin` tarafından kaldırılıyorsa sağlanmalıdır.

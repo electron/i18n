@@ -4,13 +4,13 @@ Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electr
 
 ## Gereksinimler
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
+* **Electron'un bir hata ayıklama yapısı**: En kolay yol, genellikle [macOS için yapı talimatları](build-instructions-osx.md)'nda listelenen araçları ve ön koşulları kullanarak onu kendiniz kurmanızdır. Electron hata ayıklamada iken doğrudan indirebilirsiniz ve kolayca ekleyebilirsiniz, büyük çoğunluğunun uygun hale getirildiğini göreceksiniz, hata ayıklama işlemi aslında daha zor: Hata ayıklayıcı size tüm içeriğini gösteremeyecek değişkenleri ve yürütme yolu satırlayıcısı, kuyruk aramaları ve diğerderleyici uygun hale getirilmeleri nedeniyle tuhaf görünebilir.
 
 * **Xcode**: Xcode'a ek olarak, ayrıca Xcode'un komut satırı araçlarını da yükler. Mac OS X'de Xcode'ın varsayılan hata ayıklayıcısı olan LLDB'yi içerirler. C, Objective-C ve C++ masaüstünde ve iOS aygıtlarında ve simülatöründe hata ayıklamayı destekler.
 
 ## Electron'da ekleme yapma ve hata ayıklama
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+Bir hata ayıklama oturumu başlatmak için, Terminal'i açın ve `lldb`'yi başlatın; bir parametre olarak Electron'un hata ayıklama derlemesini geçirin.
 
 ```sh
 $ lldb ./out/D/Electron.app
@@ -20,11 +20,11 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 ### Kesme noktalarını ayarlama
 
-LLDB güçlü bir araçtır ve kod denetimi için birden fazla stratejiyi desteklemektedir. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDB güçlü bir araçtır ve kod denetimi için birden fazla stratejiyi desteklemektedir. Bu temel giriş için, JavaScript'ten doğru şekilde davranmayan bir komut çağırdığınızı varsayalım -bu nedenle, bu komutun Electron kaynağı içindeki C++ muadili parçasını kırmak istiyorsunuz.
 
 İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `. Eğer kararlı iseniz, Açıkçası ` chromium_src ` 'da bulunan Chromium'u doğrudan hata ayıklayabilirsiniz.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+`browser.cc`'da `Browser:: SetName()` olarak tanımlanan `app.setName()`'i hata ayıklamak istediğinizi varsayalım. Devre dışı bırakılacak dosya ve satırı belirterek, kesme noktasını `breakpoint` komutunu kullanarak ayarlayın:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
@@ -37,7 +37,7 @@ Then, start Electron:
 (lldb) Çalıştır
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Electron, uygulamanın adını başlattığında ayarladığından, uygulama hemen duraklatılır:
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+Geçerli karenin argümanlarını ve yerel değişkenlerini göstermek için uygulamanın şu anda adı "Electron" olarak ayarladığını gösterecek `frame variable` (veya `fr v`)'yi çalıştırın".
 
 ```sh
 (lldb) frame variable
@@ -65,7 +65,7 @@ To show the arguments and local variables for the current frame, run `frame vari
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Seçili iş parçasında bir kaynak seviyesi tek adım yapmak için `step` (veya `s`) uygulayın. Bu sizi `name_override_.empty()`'e götürür. Devam etmek ve bir adım ileri atmak için `next`(veya `n`)'i çalıştırın.
 
 ```sh
 (lldb) step
@@ -81,7 +81,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). Bu komut, geçerli karede 100 satıra erişine kadar iş parçacığını çalıştırır veya geçerli kareden çıkmaya çalışır.
+Bu noktada hata ayıklamayı bitirmek için `process continue` komutunu çalıştırın. Bu iş parçacığına belirli bir satıra gelene kadar da devam edebilirsiniz (`thread until 100`). Bu komut, geçerli karede 100 satıra erişine kadar iş parçacığını çalıştırır veya geçerli kareden çıkmaya çalışır.
 
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 

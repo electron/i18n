@@ -9,7 +9,7 @@ Jendela buram tanpa bingkai adalah jendela yang tidak memiliki  krom </ 0> , bag
 <p>Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
  <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = membutuhkan ('elektron')
 let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 `</pre> 
@@ -40,7 +40,7 @@ const {jendela Browser} = memerlukan ('electron') biar menang = baru Browser jen
 Menggunakan tombol ditarik, miniatur, dan layar penuh yang dipamerkan saat melayang di kiri atas jendela. Tombol khusus ini mencegah masalah dengan peristiwa mouse yang terjadi dengan tombol toolbar jendela standar. Ini pilihan ini hanya berlaku untuk jendela tanpa bingkai.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = membutuhkan ('elektron')
 let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
 win.show()
 ```
@@ -97,12 +97,12 @@ tombol {
     Di jendela tanpa bingkai, perilaku menyeret mungkin bertentangan dengan pemilihan teks. Misalnya, saat Anda menyeret titlebar Anda mungkin secara tidak sengaja memilih teks pada titlebar. Untuk mencegah hal ini, Anda perlu menonaktifkan pemilihan teks dalam area yang dapat digeser seperti ini:
     
     ```css
-.titlebar {
+.bar judul {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
 ```
 
-## Context menu
+## Menu konteks
 
-Pada beberapa platform, area draggable akan diperlakukan sebagai frame non-client, jadi saat Anda klik kanan maka akan muncul menu sistem. Untuk membuat menu konteks berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks khusus pada area yang dapat digeser.
+Pada beberapa platform, area draggable akan diperlakukan sebagai bingkai non-klien, jadi Bila Anda klik kanan pada menu sistem akan muncul. Untuk membuat menu berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks kustom pada daerah yang seret.

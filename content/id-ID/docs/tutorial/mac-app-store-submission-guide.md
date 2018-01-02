@@ -37,44 +37,19 @@ Kemudian, Anda perlu menyiapkan tiga file hak.
 `child.plist`:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>com.apple.security.app-sandbox</key>
-    <true/>
-    <key>com.apple.security.inherit</key>
-    <true/>
-  </dict>
-</plist>
+<? versi xml = "1.0" pengkodean = "UTF-8"? ><! DOCTYPE plist umum "-//Apple//DTD PLIST 1.0 / / EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" > <plist version="1.0"><dict><key>com.apple.security.app-sandbox</key> <true/> <key>com.apple.security.inherit</key> <true/></dict></plist>
 ```
 
 `parent.plist`:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>com.apple.security.app-sandbox</key>
-    <true/>
-    <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
-  </dict>
-</plist>
+<? versi xml = "1.0" pengkodean = "UTF-8"? ><! DOCTYPE plist umum "-//Apple//DTD PLIST 1.0 / / EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" > <plist version="1.0"><dict><key>com.apple.security.app-sandbox</key> <true/> <key>com.apple.security.application-kelompok</key> <string>TEAM_ID.your.bundle.id</string></dict></plist>
 ```
 
 `loginhelper.plist`:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>com.apple.security.app-sandbox</key>
-    <true/>
-  </dict>
-</plist>
+<? versi xml = "1.0" pengkodean = "UTF-8"? ><! DOCTYPE plist umum "-//Apple//DTD PLIST 1.0 / / EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" > <plist version="1.0"><dict><key>com.apple.security.app-sandbox</key> <true/></dict></plist>
 ```
 
 Anda harus mengganti `TEAM_ID` dengan ID Tim Anda, dan ganti ` your.bundle.id` dengan ID Bundle aplikasi Anda.
@@ -91,28 +66,7 @@ APP_PATH ="/path/to/YourApp.app" # Jalan ke lokasi yang ingin Anda gunakan untuk
 RESULT_PATH="~/Desktop/$APP.pkg"
 # Nama sertifikat yang Anda minta.
 APP_KEY ="Aplikasi Pengembang Mac Pihak ke-3: Nama Perusahaan (APPIDENTITY)" INSTALLER_KEY="Installer Pengembang Mac Pihak Ketiga: Nama Perusahaan (APPIDENTITY)" # Jalan file plist anda.
-CHILD_PLIST="/path/to/child.plist"
-PARENT_PLIST="/path/to/parent.plist"
-LOGINHELPER_PLIST="/path/to/loginhelper.plist"
-
-FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
-
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper EH.app/Contents/MacOS/$APP Helper EH"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper EH.app/"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper NP.app/Contents/MacOS/$APP Helper NP"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper NP.app/"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
-codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
-codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
-codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
-
-productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
+CHILD_PLIST="/path/to/Child.plist" PARENT_PLIST="/path/to/parent.plist" LOGINHELPER_PLIST="/path/to/loginhelper.plist" $FRAMEWORKS_PATH = "$APP_PATH/isi/kerangka" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "123_16 _3_321/elektron kerangka Framework.framework/Versions/A/Electron"codesign -s"$APP_KEY"-f--hak"$CHILD_PLIST""$FRAMEWORKS_PATH/elektron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"codesign -s"$APP_KEY"-f-- hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/elektron Framework.framework/Versions/A/Libraries/libnode.dylib" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/elektron Framework.framework" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP penolong" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/" codesign -s "$APP_KEY" -f-- hak "$CHILD_PLIST" codesign "$FRAMEWORKS_PATH/$APP penolong penolong EH.app/Contents/MacOS/$APP EH" -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP penolong EH.app/" codesign -s "$APP_KEY" -f --hak "$CHILD_PLIST" "penolong penolong NP.app/Contents/MacOS/$APP NP $FRAMEWORKS_PATH/$APP" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP penolong NP.app/" codesign -s "$APP_KEY" -f--hak "$LOGINHELPER_PLIST" "$APP_PATH/isi/Perpustakaan/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login penolong" codesign -s "$APP_KEY" -f--hak "$LOGINHELPER_PLIST" $APP_PATH/isi/Perpustakaan" / Helper.app/ Login LoginItems/$APP "codesign -s"$APP_KEY"-f--hak"$CHILD_PLIST"" $APP_PATH/Isi/MacOS/$APP"codesign -s"$APP_KEY"-f--hak"$PARENT_PLIST""$APP_PATH"productbuild-- komponen "$APP_PATH" /Applications--menandatangani "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
 Jika Anda baru mengenal aplikasi sandboxing di bawah macos, Anda juga harus membaca Apple's [Mengaktifkan App Sandbox ](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) untuk memiliki ide dasar, tambahkan kunci untuk izin yang dibutuhkan oleh aplikasi Anda ke file hak.
@@ -127,7 +81,7 @@ Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika mengg
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versi 8.1.0 dan yang lebih baru mengabaikan file tersebut secara default.
+Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). Jika Anda menggunakan [elektron-packager](https://github.com/electron-userland/electron-packager) sebelum versi 8.1.0, tambahkan `--ignore=.+\.o$` ke langkah membangun Anda untuk mengabaikan berkas-berkas ini. Versi 8.1.0 dan yang lebih baru mengabaikan file tersebut secara default.
 
 ### Upload Aplikasi Anda
 
@@ -201,7 +155,7 @@ Ini akan gagal saat aplikasi masuk untuk didistribusikan di Mac App Store. Berla
 
 ## Algoritma Kriptografi yang Digunakan oleh Elektron
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Tergantung pada negara dan wilayah yang Anda berada, Mac App Store mungkin memerlukan mendokumentasikan algoritma kriptografi yang digunakan dalam aplikasi Anda, dan bahkan meminta Anda untuk mengirimkan salinan persetujuan US enkripsi pendaftaran (ERN).
 
 Elektron menggunakan algoritma kriptografi berikut:
 

@@ -114,7 +114,7 @@ ketika <code> mulai </ 0> dipanggil. Ini API hanya tersedia pada MacOS , jika An
 <li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
 <li><code>_productName` String - The product name in the `crashReporter` `options` object.</li> 
     
-    * `prod` String - Name of the underlying product. In this case Electron.
-    * `_companyName` String - The company name in the `crashReporter` `options` object.
-    * `upload_file_minidump` File - The crash report in the format of `minidump`.
-    * All level one properties of the `extra` object in the `crashReporter` `options` object.</ul>
+    * `prod` String - Nama produk yang mendasarinya. Dalam hal ini Elektron.
+    * `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.
+    * `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
+    * Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.</ul>

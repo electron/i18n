@@ -2,60 +2,60 @@
 
 > Electron'u yüklemek için ipuçları
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Önceden yapılandırılmış Electron ikilileri, kullan [`npm`](https://docs.npmjs.com/). Tercih edilen Electronu geliştirme özgürlüğüyle sizin için kurmaktır:
 
 ```sh
-npm install electron --save-dev
+npm yükle electron --kaydet-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Electron versiyon dökümanını [Gör](electron-versioning.md) Electron versiyonlarını nasıl yöneteceğinizin bilgisi uygulamanızda.
 
 ## Genel kurulum
 
-You can also install the `electron` command globally in your `$PATH`:
+`electron` komutunu genel `$PATH` 'nıza da yükleyebilirsiniz:
 
 ```sh
-npm install electron -g
+npm yükle electron -g
 ```
 
 ## Özelleştirme
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Eğer bu makinedeki yüklenen mimariyi değiştirmek istiyorsanız (örneğin. `ia32` bir `x64` makinede), `--arch` kullanabilirsin npm yükle ile birlikte ayarla `npm_ayar_arch` çevre değeri ile:
 
 ```shell
-npm install --arch=ia32 electron
+npm yükle --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Mimariyi değiştirmenin yanında platformu da belirleyebilirsiniz. `--platform` bayrağını kullanarak (örneğin, `win32`, `linux`, ve başka):
 
 ```shell
-npm install --platform=win32 electron
+npm yükle --platform=win32 electron
 ```
 
 ## Vekil sunucular
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+Bir vekil sunucu kullanmaya ihtiyacınız varsa [ bu çevre değişkenleri ayarlayabilirsiniz](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
 ## Arıza giderme
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+`npm yükle electron` bazen çalıştırılırken bazı kullanıcılar hatayla karşılaşmaktadırlar.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+Genelde bütün durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi ile ilişkili olmayan hatalar sonucudur. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ve `ETIMEDOUT` gibi hatalar, ağ bağıntı hatalarının belirtisidir. Ağ ayarlarını değiştirmek ya da biraz bekleyip tekrar kurmayı denemek en iyi çözümdür.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Eğer `npm` ile yükleme başarısız oluyorsa, Electron'u doğrudan [electron/electron/releases](https://github.com/electron/electron/releases) ' den indirebilirsiniz.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Yükleme `EACCESS` ile başarısız oluyorsa [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions) gerekebilir.
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Üstteki devam ediyorsa, [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) bayrağının Doğru olarak ayarlanması gerekebilir:
 
 ```sh
-sudo npm install electron --unsafe-perm=true
+sudo npm install electron --unsafe-perm= doğru
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+İnternet erişiminiz yavaşsa `--verbose` indirme sürecinizde tavsiye edilir:
 
 ```sh
-npm install --verbose electron
+npm yükle --verbose electron
 ```
 
 If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` enviroment variable to `true`.

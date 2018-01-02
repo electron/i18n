@@ -47,25 +47,25 @@ Objects created with `new Notification` emit the following events:
 
 #### Etkinlik: 'göster'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
 #### Etkinlik: 'tıkla'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the notification is clicked by the user.
 
 #### Etkinlik: 'kapalı'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 Emitted when the notification is closed by manual intervention from the user.
 
@@ -73,18 +73,18 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilme
 
 #### Event: 'reply' *macOS*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `reply` String - The string the user entered into the inline reply field
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
 #### Event: 'action' *macOS*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `index` Number - The index of the action that was activated
 
 ### Örnek yöntemleri
@@ -93,7 +93,7 @@ Objects created with `new Notification` have the following instance methods:
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamasının aksine, `new Notification` ın basit bir örneğini hemen kullanıcıya göstermediğini, OS'nin bunu görüntülemeden önce bu yöntemi aramanız gerektiğini unutmayın.
 
 ### Çalınan sesler
 

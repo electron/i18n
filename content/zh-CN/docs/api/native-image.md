@@ -47,11 +47,11 @@ Check the *Size requirements* section in [this article](https://msdn.microsoft.c
 
 ## 高分辨率
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+在具有高 DPI 支持的平台 (如 Apple 视网膜显示器) 上, 可以在图像的基本文件名之后追加 ` @ 2x ` 以将其标记为高分辨率图像。
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+例如, 如果 ` icon. png ` 是具有标准分辨率的普通图像, 而 ` icon@2x. png ` 将被视为具有两倍 DPI 密度的高分辨率图像。
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+如果希望同时支持不同 dpi 密度的显示器, 可以将不同大小的图像放在同一文件夹中, 并使用没有 dpi 后缀的文件名。例如:
 
 ```text
 images/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+还支持 DPI 的以下后缀:
 
 * `@1x`
 * `@1.25x`
@@ -82,26 +82,26 @@ Following suffixes for DPI are also supported:
 
 ## Template Image
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template image由黑色和清晰的颜色 (和 alpha 通道) 组成。 Template images不打算用作独立图像, 通常与其他内容混合, 以创建所需的最终外观。
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+最常见的情况是使用Template image的菜单栏图标, 使它可以适应浅色和深色菜单栏。
 
-**Note:** Template image is only supported on macOS.
+** 注意: **仅在 macOS 上支持Template image。
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+若要将图像标记为Template image, 其文件名应以` Template ` 结尾。例如:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## 方法
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+` nativeImage ` 模块具有以下方法, 它们都返回 ` nativeImage ` 类的实例:
 
 ### `nativeImage.createEmpty()`
 
 Returns `NativeImage`
 
-Creates an empty `NativeImage` instance.
+创建一个空的 ` NativeImage ` 实例。
 
 ### `nativeImage.createFromPath(path)`
 
@@ -109,7 +109,7 @@ Creates an empty `NativeImage` instance.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+从位于 ` path ` 的文件创建新的 ` NativeImage ` 实例。 如果 ` path ` 不存在，方法将返回空图像，无法读取或不是有效图像, 。
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -121,11 +121,14 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `width` Integer (optional) - Required for bitmap buffers.
+ * `height` Integer (optional) - Required for bitmap buffers.
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+从 `buffer ` 创建新的 ` NativeImage ` 实例。
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -133,7 +136,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+从 ` dataURL ` 创建新的 ` NativeImage ` 实例。
 
 ## Class: NativeImage
 
@@ -143,11 +146,12 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 ### 实例方法
 
-The following methods are available on instances of the `NativeImage` class:
+以下方法可用于 ` NativeImage ` 类的实例:
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
 
@@ -159,19 +163,22 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) 
+ * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 

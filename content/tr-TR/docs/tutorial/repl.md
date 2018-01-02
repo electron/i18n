@@ -20,4 +20,4 @@ This only creates a REPL for the main process. You can use the Console tab of th
 
 **Note:** `electron --interactive` is not available on Windows.
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+Daha fazla bilgi  Node.js REPL dokümanlarında </ 0> bulunabilir.</p>

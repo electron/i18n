@@ -1,10 +1,10 @@
-## Class: TouchBarButton
+## クラス: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> ネイティブ macOS アプリケーション用のタッチバー内にボタンを作成する
 
 プロセス: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarButton(options)` *Experimental*
+### `new TouchBarButton(options)` *（実験的）*
 
 * `options` オブジェクト 
   * `label` String (optional) - Button text.

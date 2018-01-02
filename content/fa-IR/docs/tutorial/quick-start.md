@@ -1,8 +1,8 @@
 # شروع سریع
 
-الکترون شما را قادر می سازد با جاوا اسکریپ خالص و فراهم کردن API های غنی سیستم عامل اصلی، اپلیکیشن دستکتاب بسازید. شما باید این رو نوعی از Node.js runtime بدانید که روی ساخت اپلیکیشن دستکتاپ تمرکز کرده به جز بخش وب سرورها.
+الکترون شما را قادر می سازد با جاوا اسکریپ خالص و فراهم کردن API های غنی سیستم عامل اصلی، اپلیکیشن دستکتاب بسازید. شما باید این را نوعی از Node.js runtime بدانید که روی ساخت اپلیکیشن دستکتاپ تمرکز کرده به جز بخش وب سرورها.
 
-این به این معنی نیست که الکترون یک پوسته جاوااسکریپت از کتابخانه های رابط کاربری گرافیکی است. به جز، استفاده الکترون از صفحات وب که جزی از رابط کاربر گرافیکی هستند، پس شما می توانید آن را جزی از مرورگر Chromium به حساب بیاورید که با جاوا اسکریپت کنترل می شود.
+به این معنی نیست که الکترون یک پوسته جاوااسکریپت از کتابخانه های رابط کاربری گرافیکی است. به جز، استفاده الکترون از صفحات وب که جزی از رابط کاربر گرافیکی هستند، پس شما می توانید آن را جزی از مرورگر Chromium به حساب بیاورید که با جاوا اسکریپت کنترل می شود.
 
 ### پردازش اصلی
 
@@ -26,7 +26,7 @@
 
 ## اولین برنامه الکترون خود را بنویسید
 
-به طور کلی، یک برنامه الکترون به این شکل است:
+به طور کلی، ساختار یک آپ الکترون به این شکل است:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+فرمت `package.json` دقیقا مشابه ماژول های نود است و اسکریپت ها به وسیله فیلد `main` که شروع کننده اسکریپت آپ شما است، مشخص می‌شوند، که پروسه اصلی را اجرا خواهند کرد. برای مثال در `package.json` احتمالا چیزی شبیه این ببینید:
 
 ```json
 {
@@ -45,9 +45,9 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+نکته: اگر فیلد `main` در پکیج `package.json` نیست، الکترون `index.js` را لود خواهد کرد.
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js` پنجره ها را می‌سازد و رویداد های سیستم را مدیریت می‌کند، یک مثال معمول وجود دارد:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -107,7 +107,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 ```
 
-Finally the `index.html` is the web page you want to show:
+در نهایت `index.html` است که می‌خواهید نمایش داده شود:
 
 ```html
 <!DOCTYPE html>
@@ -125,21 +125,21 @@ Finally the `index.html` is the web page you want to show:
 </html>
 ```
 
-## اجرای برنامه خود
+## اجرای برنامه
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+وقتی که شما فایلهای `main.js` ، `index.html` و `package.json` اولیه خود را ایجاد کردید، احتمالا تلاش می‌کنید که آپ خود را به صورت لوکال اجرا و تست کنید و مطمئن شوید که طبق انتظار کار می‌کند.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) یک ماژول `npm` است که شامل نسخه های کامل شده قبلی الکترون هم می‌باشد.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+اگر شما `npm` را به صورت global نصب دارید، فقط لازم است که طبق سورس دایرکتوری موجود آپ خود را اجرا کنید.
 
 ```sh
-الکترون .
+electron .
 ```
 
-If you've installed it locally, then run:
+اگر به صورت لوکال نصب دارید، آن وقت کد های زیر را اجرا کنید:
 
 #### مک‌اواس / لینوکس
 
@@ -153,15 +153,15 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### نود ورژن 8.2.0 و بالاتر
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### دانلود دستی باینری الکترون
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+اگر شما به صورت جدا الکترون را دانلود کرده اید، می‌توانید از باینری موجود برای اجرای برنامه خود به صورت مستقیم استفاده کنید.
 
 #### مک‌اواس
 
@@ -181,17 +181,17 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+این `Electron.app` بخشی از پکیج اجرایی الکترون است که می توانید از [اینجا](https://github.com/electron/electron/releases) دانلودش کنید.
 
-### Run as a distribution
+### اجرا به عنوان یک توزیع
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+بعد از اینکه شما آپ خود را نوشتید، می توانید با استفاده از راهنمای [Application Distribution](./application-distribution.md) توزیع بسازید و سپس اجرا کنید.
 
 ### این مثال را امتحان کنید
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+کدهایی که در آموزش [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) استفاده شد را از مخزن کلون و اجرا کنید.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**نکته**: اجرای برنامه روی سیستم شما نیازمند [Git](https://git-scm.com) و [Node.js](https://nodejs.org/en/download/) (که شامل [npm](https://npmjs.org) هم می‌شود، است.
 
 ```sh
 # Clone the repository
@@ -204,4 +204,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+برای برنامه های مثالی بیشتر، [list of boilerplates](https://electronjs.org/community#boilerplates) را ببینید که به وسیله جامعه فوق العاده electron ساخته شده است.

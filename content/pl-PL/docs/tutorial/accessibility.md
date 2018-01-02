@@ -1,16 +1,16 @@
-# Accessibility
+# Dostępność
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electron.atom.io/devtron) and [Spectron](https://electron.atom.io/spectron) that gives developers the opportunity to make their apps better for everyone.
+Udostępnianie dostępnych aplikacji jest dla nas ważne i jesteśmy szczęśliwi, że możemy przedstawić nowe funkcjonalności w [Devtron](https://electron.atom.io/devtron) oraz [Spectron](https://electron.atom.io/spectron), które dają developerom możliwości tworzyć lepsze applikacje.
 
 * * *
 
 Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+Te nowe funkcjonalności dostarczają narzędzia do badania twojej aplikacji. Możesz wybrać pomiędzy dodaniem ich do Twoich testów za pomocą Spectron lub użyć ich w DevTools z Devtron. Zapoznaj się z podsumowaniem narzędzi lub z naszą [dokumentacją](https://electronjs.org/docs/tutorial/accessibility) aby uzyskać więcej informacji.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+Framework Spectron umożliwia badanie każdego okna i `<webview>`tagu w Twojej aplikacji. Na przykład:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,7 +20,7 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Możesz dowiedzieć się więcej o tej funkcjonalności w [Dokumentacji Spectron](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
@@ -34,7 +34,7 @@ If you know of other great accessibility tools for Electron, add them to the [ac
 
 ## Enabling Accessibility
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Aplikacja Electron ma domyślnie wyłączoną dostępność ze względów wydajnościowych, ale istnieje kilka sposobów aby je włączyć.
 
 ### Inside Application
 

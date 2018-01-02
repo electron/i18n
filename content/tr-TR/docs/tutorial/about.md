@@ -34,7 +34,7 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 
 Elektron'un eski sürümlerinin uzun vadeli desteği şu anda mevcut değildir. Mevcut Elektron sürümünüz sizde çalışıyorsa, istediğiniz süre boyunca kullanabilirsiniz. Kullandıkça yeni özelliklerden yararlanmak isterseniz daha yeni bir sürüme geçmelisiniz.
 
-Büyük güncelleme sürümü `v1.0.0` ile geldi. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Büyük güncelleme sürümü `v1.0.0` ile geldi. Eğer bu sürümü kullanmıyorsanız, `v1.0.0` [değişiklikleri hakkında bilgi alın](https://electronjs.org/blog/electron-1-0).
 
 ## Temel felsefe
 
@@ -50,7 +50,7 @@ Electron tarihçesinin kilometre taşları aşağıdadır.
 
 | Takvim:          | :tada:                                                                                                                                        |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Nisan 2013**   | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).                                |
+| **Nisan 2013**   | [Atom Shell başlatıldı](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).                                |
 | **Mayıs 2014**   | [Atom Shell açık kaynaklı oldu](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                                 |
 | **Nisan 2015**   | [Atom Shell'in ismi Electron olarak değişti](https://github.com/electron/electron/pull/1389).                                                 |
 | **Mayıs 2016**   | [Electron `v1.0.0` sürümü yayınlandı](https://electronjs.org/blog/electron-1-0).                                                              |

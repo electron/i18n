@@ -4,7 +4,7 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Los siguientes ejemplos muestran como salir de la aplicación cuando la última ventana está cerrada:
 
 ```javascript
 const {app} = require('electron')
@@ -15,13 +15,13 @@ app.on('window-all-closed', () => {
 
 ## Eventos
 
-The `app` object emits the following events:
+El objeto `app` emite los siguientes eventos:
 
 ### Evento: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Generalmente configurará escuchas para los eventos `open-file` y `open-url` aquí, y empieza la alerta de accidente y la actualización automática.
 
-In most cases, you should just do everything in the `ready` event handler.
+En la mayoría de los casos, usted debe hacer todo en el controlador del evento `ready`.
 
 ### Evento: 'ready'
 
@@ -29,13 +29,13 @@ Devuelve:
 
 * `launchInfo` Objecto *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emitido cuando Electron se ha terminado de iniciar. En macOS, `launchInfo` soporta el `userInfo</0 de <code>NSUserNotification` que fue usado para abrir la aplicación, si fue lanzado con el centro de notificaciones. Puede usar `app.isReady()` para verificar si el evento ya fue disparado.
 
 ### Evento: 'window-all-closed'
 
-Emitted when all windows have been closed.
+Emitido cuando todas las ventanas han sido cerradas.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Si no se subscribe a este evento y todas las ventanas están cerradas, el comportamiento por defecto es salir de la aplicación; sin embargo, si se subscribe, usted controla si la aplicación de cierra o no. Si el usuario presionó `Cmd + Q`, o el desarrollador llamó a `app.quit()`, Electron primero tratará de cerrar todas las ventanas y emitir el evento `will-quit`, y en este caso el evento `window-all-closed` no será emitido.
 
 ### Evento: 'before-quit'
 
@@ -43,9 +43,9 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamar a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Nota:** Si aplicación cerrar fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitida *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
 
 ### Evento: 'will-quit'
 
@@ -53,9 +53,9 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitido cuando todas las ventanas han sido cerradas y la aplicación se cerrará. Llamando `event.preventDefault()` se evitará el comportamiento por defecto, que es cerrar la aplicación.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Consulte la descripción del evento `window-all-closed` por las diferencias con los eventos `will-quit` y `window-all-closed`.
 
 ### Evento: 'quit'
 
@@ -73,11 +73,11 @@ Devuelve:
 * `evento` Evento
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Emitido cuando el usuario quiere abrir un archivo con la aplicación. El evento `open-file` es emitido usualmente cuando la aplicación está ya abierta y que el sistema operativo quiere reusar que la aplicación abra el archivo. `open-file` también es emitido cuando el archivo es arrojado dentro del dock y la aplicación no está corriendo todavía. Asegúrese de escuchar sobre el evento `open-file` muy temprano en el el inicio de su aplicación para controlar este caso (incluso antes de que el evento `ready` esté emitido).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+En Windows, tiene que analizar gramaticalmente `process.argv` (en el proceso principal) para encontrar la ruta del archivo.
 
 ### Evento: 'open-url' *macOS*
 
@@ -86,9 +86,9 @@ Devuelve:
 * `evento` Evento
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Emitido cuando el usuario quiere abrir una URL con la aplicación. El archivo `Info.plist` de su aplicación debe definir el esquema de url en la llave `CFBundleURLTypes`, y configurar `NSPrincipalClass` para `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Usted debe llamar a `event.preventDefault()` si quiere manejar este evento.
 
 ### Evento: 'activate' *macOS*
 
@@ -97,19 +97,19 @@ Devuelve:
 * `evento` Evento
 * `hasVisibleWindows` Buleano
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Emitido cuando la aplicación está activada. Varias acciones puede activar este evento, como iniciar la aplicación por primera vez, intentar relanzar la aplicación cuando ya está corriendo, o hacer click en el dock de la aplicación o en el ícono de la barra de tareas.
 
 ### Evento: 'continue-activity' *macOS*
 
 Devuelve:
 
 * `evento` Evento
-* `type` String - A string identifying the activity. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `tipo` cadena - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Objecto - Contiene el estado específico de la aplicación almacenado por la actividad de otro artefacto.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) cuando una actividad de un artefacto diferente quiere ser reanudado. Usted debe llamar `event.preventDefault()` si quiere manejar este evento.
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+La actividad de un usuario puede ser continuada solo en una aplicación que tenga la misma identificación de equipo de desarrolladores como la la aplicación fuente de las actividades y que soporte los tipos de actividad. Los tipos de actividades soportadas están en el `Info.plist` de la aplicación bajo la llave `NSUserActivityTypes`.
 
 ### Evento: 'new-window-for-tab' *macOS*
 
@@ -117,34 +117,34 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
-
-Devuelve:
-
-* `evento` Evento
-* `window` BrowserWindow
-
-Emitted when a [browserWindow](browser-window.md) gets blurred.
-
-### Event: 'browser-window-focus'
+### Evento: 'browser-window-blur'
 
 Devuelve:
 
 * `evento` Evento
-* `window` BrowserWindow
+* `window` Navegador Windows
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
-### Event: 'browser-window-created'
+### Evento: 'browser-window-focus'
 
 Devuelve:
 
 * `evento` Evento
-* `window` BrowserWindow
+* `window` Navegador Windows
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Emitido cuando se enfoca un [browserWindow](browser-window.md).
+
+### Evento: 'browser-window-created'
+
+Devuelve:
+
+* `evento` Evento
+* `window` Navegador Windows
+
+Emitido cuando se crea un [browserWindow](browser-window.md).
 
 ### Event: 'web-contents-created'
 

@@ -1,16 +1,16 @@
 # Integración del entorno de escritorio
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Diferentes sistemas operativos proporcionan diferentes funciones para integrar al escritorio aplicaciones en sus entornos. Por ejemplo, en Windows, las aplicaciones pueden poner accesos directos en JumpList de la barra de tareas, y en Mac, las aplicaciones pueden poner un menú personalizado en el menú de base.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Esta guía explica cómo integrar su aplicación en los entornos de esas computadoras de escritorio con las APIs de Electron.
 
-## Notifications
+## Notificaciones
 
-See [Notifications](notifications.md)
+Ver [Notificaciones](notifications.md)
 
-## Recent documents (Windows & macOS)
+## Documentos recientes (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows y macOS brindan fácil acceso a una lista de documentos recientes abiertos por la aplicación a través de JumpList o menú de base, respectivamente.
 
 **JumpList:**
 
@@ -34,25 +34,25 @@ const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Notas de Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. Puedes encontrar todo al registrar su aplicación en [Registro de solicitud](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Cuando un usuario hace clic en un archivo de JumpList, una nueva instancia de su aplicación se iniciará con la ruta del archivo agregado como un argumento de línea de comando.
 
-### macOS Notes
+### notas de macOS
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Cuando se solicita un archivo del menú de documentos recientes, el evento `archivo abierto` de `aplicación` se emitirá para él.
 
-## Custom Dock Menu (macOS)
+## Menú de base personalizada (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+macOS permite a los desarrolladores especificar un menú personalizado para el dock, que generalmente contiene algunos accesos directos para las funciones de uso común de su aplicación:
 
-**Dock menu of Terminal.app:**
+**Menu de Dock de Terminal.app:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Para configurar su menú de base personalizado, puede usar la API `app.dock.setMenu`, que sólo está disponible en macOS:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -70,19 +70,19 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Tareas de usuario (Windows)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+En Windows, puede especificar acciones personalizadas en la categoría `Tareas` de JumpList, como se cita en MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Las aplicaciones definen tareas basadas tanto en las características del programa como en las cosas claves que se espera que haga un usuario con ellas. Las tareas deben estar libres de contexto, en que la aplicación no necesita ejecutarse para que funcione. También deberían ser las acciones estadísticamente más comunes que un usuario normal llevaría a cabo en una aplicación, como redactar un mensaje de correo electrónico o abrir el calendario en un programa de correo, crear un nuevo documento en un procesador de texto, iniciar una aplicación en un determinado modo, o ejecuta uno de sus subcomandos. Una aplicación no debe saturar el menú con características avanzadas que los usuarios estándar no necesitarán o acciones únicas como el registro. No utilice tareas para artículos promocionales como actualizaciones u ofertas especiales.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> Se recomienda encarecidamente que la lista de tareas sea estática. Debería permanecer igual independientemente del estatus o estado de la aplicación. Si bien es posible variar la lista de forma dinámicamente, debe considerar que esto podría confundir al usuario que no espera que esa parte de la lista de destinos cambie.
 
-**Tasks of Internet Explorer:**
+**Tareas de Internet Explorer:**
 
 ![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+A diferencia del menú Dock en macOS, que es un menú real, las tareas de usuario en Windows funcionan como accesos directos a aplicaciones, de modo que cuando el usuario hace clic en una tarea, se ejecuta un programa con argumentos especificados.
 
 To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
 

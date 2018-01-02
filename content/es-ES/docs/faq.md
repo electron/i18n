@@ -2,11 +2,11 @@
 
 ## ¿Por qué tengo problemas al instalar Electron?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Cuando ejecutamos `npm install electron`, ocasionalmente algunos usuarios encuentran errores en la instalación.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+En casi todos los casos, estos errores son resultados de problemas en la red y no en problemas con el paquete nom de `electron`. Errores como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` y `ETIMEDOUT` son indicadores de dichos problemas de red. La mejor resolución es tratar cambianiando de red, o esperar un poco y volver a instalar.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+También puede intentar descargar Electron directamente de [electron/electron/releases](https://github.com/electron/electron/releases) si la ruta de instalación `npm` está fallando.
 
 ## ¿Cuando se actualizará Electron a la más reciente versión de Chrome?
 
@@ -22,11 +22,11 @@ Cuando obtiene una nueva versión de Node.js, generalmente Esperamos alrededor d
 
 Novedades de Node.js están generalmente presentadas por mejoras V8, puesto que el Electron está utilizando el V8 enviados por el navegador Chrome, JavaScript nuevo brillante característica de una nueva versión de Node.js es generalmente ya en Electron.
 
-## How to share data between web pages?
+## ¿Cómo compartir datos entre páginas web?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), y [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) son buenos candidatos.
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+O puede usar el sistema IPC, el cual es específico para Electron, para almacenar objetos en el proceso principal como variables globales, y después y después accesar a ellos desde los renderizadores a través de la propiedad `remote` u el módulo `electron`:
 
 ```javascript
 // En el proceso principal.
@@ -36,7 +36,7 @@ global.sharedObject = {
 ```
 
 ```javascript
-// In page 1.
+// En la página 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## La ventana/bandeja de la aplicación desaparece después de unos minutos.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Esto sucede cuando la variable que es usada para almacenar la ventana/bandeja se limpia de la basura.
 
-If you encounter this problem, the following articles may prove helpful:
+Si encuentra este problema, los siguientes artículos pudiesen resultar útiles:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Gestión de la Memoria](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Ámbito de la variable](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Si quiere una solución rápida, puede volver sus variables globales cambiando su código de este:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+a este:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,9 +75,9 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## No puedo usar jQuery/RequireJS/Meteor/AngularJS en Electron.
 
-Debido a la integración de Node.js de Electron, hay algunos símbolos extras insertados en la DOM como `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Debido a la integración de Node.js de Electron, hay algunos símbolos extras insertados en la DOM como `module`, `exports`, `require`. Esto causa problemas para algunas librerías dado que ellas quieren insertar símbolos con los mismos nombres.
 
 Para solucionar esto, puede desactivar la integración del nodo en Electron:
 
@@ -112,24 +112,24 @@ Cuando se utiliza el módulo de Electron puede encontrar un error como este:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Uncaught TypeError: No puede leer apropiadamente 'setZoomLevel' del indefinido
 ```
 
 Esto es porque tienes la module</a> de `electron` de npm instalada localmente o globalmente, que reemplaza el módulo incorporado del Electron.</p> 
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Para verificar si usted está usando módulo constructor correcto, puede imprimir la ruta del módulo `electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+y luego verifique si es de la siguiente forma:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Si es algo como `node_modules/electron/index.js`, entonces tiene o que remover el módulo npm `electron`, o cambiarle el nombre.
 
 ```sh
 npm uninstall electron

@@ -31,8 +31,8 @@ console.log(dialog)
   * ` buttonLabel ` String (可选) - 「确认」按钮的自定义标签, 当为空时, 将使用默认标签。
   * `filters` [FileFilter[]](structures/file-filter.md) (可选)
   * `properties` String[] (可选) -包含对话框应用的功能。支持以下值: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
+    * `openFile` - 允许选择文件
+    * `openDirectory` - 允许选择文件夹
     * ` multiSelections `-允许多选。
     * ` showHiddenFiles `-显示对话框中的隐藏文件。
     * ` createDirectory `-允许从对话框创建新目录。* macOS *
@@ -84,7 +84,7 @@ Returns `String`, the path of the file chosen by the user, if a callback is prov
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+`filters` 可以指定可显示文件的数组类型，详见 `dialog.showOpenDialog` 事例
 
 If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
 

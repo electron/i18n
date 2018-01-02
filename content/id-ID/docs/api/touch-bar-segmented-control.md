@@ -34,11 +34,11 @@ The following properties are available on instances of `TouchBarSegmentedControl
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+A `String` represents the force of the current-control segment. Updating this value immediately updates the controls on the specified panel.
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Segera memperbarui nilai ini update kontrol di bar sentuhan. Memperbarui sifat-sifat yang mendalam dalam array ini **tidak memperbarui bar sentuhan**.
+A `SegmentedControlSegment []` array representing the segments in this control. Segera memperbarui nilai ini update kontrol di bar sentuhan. Memperbarui sifat-sifat yang mendalam dalam array ini **tidak memperbarui bar sentuhan**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 

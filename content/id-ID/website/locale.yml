@@ -4,42 +4,42 @@ nav:
   blog: Blog
   community: Komunitas
   apps: Aplikasi
-  userland: Userland
+  userland: Tanah pengguna
   releases: Rilis
   contact: Kontak
   languages: bahasa
   code_of_conduct: Kode etik
 docs:
   title: Dokumentasi Elektron
-  description: Lihat semua <a href="/docs/all"> dokumen pada satu laman </a> atau lihat <a href="/docs/faq"> FAQ </a>.
+  description: Lihat semua <a href="/dokumen/semua"> dokumen pada satu laman </a> atau lihat <a href="/dokumen/format"> FORMAT </a>.
   guides: Panduan
   api_reference: Referensi API
-  advanced: Maju
+  advanced: Peningkatan
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: Meningkatkan sebuah dokumen
+    version_history: Riwayat cerita
+    translate: Terjamahkan dokumen ini
+    view_all_docs: Semua dokumen pada satu halaman
 languages:
   choose_language: Pilih Bahasa Situs Anda
-  translation_progress: Perkembangan Penerjemahan
+  translation_progress: alur terjemahan
   current: pilihan saat ini
 community:
   title: Komunitas Elektron
-  description: 'Alat, boilerplates, video, dan yang lainnya dari kontributor sumber terbuka dari Elektron <a href="https://github.com/sindresorhus/awesome-electron"> awesome </a>. Temukan atau tambahkan <a href="/community#meetups"> meetups </a> di dekat Anda.'
+  description: 'Alat, boiler plates, video, dan yang lainnya dari kontributor sumber terbuka dari Elektron <a href="https://github.com/sindresorhus/mengagumkan-elektron"> mengagumkan </a>. Temukan atau tambahkan <a href="/komunitas#pertemuan"> meetups </a> di dekat Anda.'
   tools: Alat
-  boilerplates: Boilerplates
+  boilerplates: Piring boiler
   components: Komponen
   videos: Video
-  meetups: Meetups
-  awesome_notice: Daftar ini dihasilkan dari gudang <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron </a>. <br> ada yang hilang <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Buat permintaan tarik </a>.
-  meetup_notice: Untuk menambahkan meetup, edit <code> data / meetups.json </ code> dan <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> buat permintaan tarik </a>
+  meetups: Bertemu
+  awesome_notice: Daftar ini dihasilkan dari gudang <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's mengagumkan elektron </a>. <br> ada yang hilang <a href="https://github.com/sindresorhus/mengagumkan-elektron/blob/master/contributing.md"> Buat permintaan tarik </a>.
+  meetup_notice: Untuk menambahkan pertemuan, edit <code> data / meetups.json </ code> dan <a href="https://github.com/electron/electronjs.org/tree/master/data/pertemuan.json"> buat permintaan tarik </a>
 electron_is_easy:
-  title: Lebih mudah daripada yang Anda pikirkan
-  description: Jika Anda dapat membangun sebuah situs web, Anda dapat membangun sebuah aplikasi desktop. elektron adalah suatu kerangka kerja untuk menciptakan aplikasi asli dengan teknologi web seperti JavaScript, HTML, dan CSS. Itu membutuhkan perawatan dari bagian sulit sehingga anda dapat fokus pada inti dari aplikasi anda.
-  video_link: Tonton video
+  title: Lebih mudah dari pada yang Anda pikirkan
+  description: Jika Anda bisa membangun sebuah website, Anda bisa membangun aplikasi desktop. Elektron adalah kerangka kerja untuk membuat aplikasi asli dengan teknologi web seperti JavaScript, HTML, dan CSS. Ini mengurus bagian-bagian yang sulit sehingga Anda dapat fokus pada inti aplikasi Anda.
+  video_link: Menonton video
 web_technologies:
-  title: Teknologi web
+  title: Halaman teknologi 
   description: Elektron menggunakan Kromium dan Node.js sehingga Anda dapat membangun aplikasi anda dengan HTML, CSS, dan JavaScript.
 open_source:
   title: Sumber Terbuka
@@ -50,16 +50,16 @@ cross_platform:
 benefits:
   hard_parts_made_easy: Bagian yang sulit menjadi mudah
   automatic_updates: Pembaruan otomatis
-  native_menus_and_notifications: Menu asli & pemberitahuan
+  native_menus_and_notifications: Menu asli dan pemberitahuan
   crash_reporting: Laporan Masalah
-  debugging_and_profiling: Debugging & profil
+  debugging_and_profiling: Debugging dan profil
   windows_installers: Windows Installer
 get_started:
   title: Memulai
   description: Untuk memulai dengan elektron, Lihat sumber daya di bawah ini. Pelajari cara untuk membungkus aplikasi web Anda dengan elektron, mengakses semua api, dan menghasilkan installer.
 explore:
   title: Jelajahi API Elektron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'> app elektron API demo</a> interaktif menunjukkan fitur yang paling penting dari API elektron. Melihat apa yang mungkin dengan elektron dengan sampel kode dan tips untuk membangun aplikasi Anda."
 download_from_github: Unduh dari GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Lihat semua rilis</a> di GitHub
 quick_start:
@@ -70,7 +70,7 @@ quick_start:
   install_deps: Install dependensi dan jalankan
   dive_deeper: Atau menyelam lebih dalam dan membaca <a href='/docs'> dokumentasi</a>.
 need_help:
-  title: Perlu Bantuan?
+  title: Perlu bantuan?
   description: 'Ajukan pertanyaan di forum <a href=''https://discuss.atom.io/c/electron''> Diskusikan </a> atau <a href = ''http: //atom-slack.herokuapp.com/'' kami > Slack </a> saluran. Ikuti <a href="https://twitter.com/electronjs"> @electronjs </a> di Twitter untuk pengumuman penting. Perlu untuk secara pribadi menjangkau? Email <a href="mailto:electron@github.com"> electron@github.com </a>.'
 headings:
   languages: bahasa
@@ -114,7 +114,7 @@ pages:
     title: Tutorial
     description: Panduan dan tutorial untuk rilis Elektron terbaru
   '/blog':
-    title: Blog elektron
+    title: Halaman elektron
     description: Semua berita terbaru dari tim dan komunitas Elektron.
   '/community':
     title: Komunitas

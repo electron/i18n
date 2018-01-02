@@ -152,38 +152,19 @@ webContents.openDevTools ({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
-webContents.setZoomLevelLimits(1, 2)
-// Replace with
-webContents.setVisualZoomLevelLimits(1, 2)
+// Deprecated webContents.setZoomLevelLimits (1, 2) / / ganti dengan webContents.setVisualZoomLevelLimits (1, 2)
 ```
 
 ## `webBingkai`
 
 ```js
-// Deprecated
-webFrame.setZoomLevelLimits(1, 2)
-// Replace with
-webFrame.setVisualZoomLevelLimits(1, 2)
-
-// Deprecated
-webFrame.registerURLSchemeAsSecure('app')
-// Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
-
-// Deprecated
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+// Deprecated webFrame.setZoomLevelLimits (1, 2) / / ganti dengan webFrame.setVisualZoomLevelLimits (1, 2) / / Deprecated webFrame.registerURLSchemeAsSecure('app') / / ganti dengan protocol.registerStandardSchemes (['app'], {secure: true}) / / Usang webFrame.registerURLSchemeAsPrivileged ('apl', {secure: true}) / / ganti dengan protocol.registerStandardSchemes (['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
-webview.setZoomLevelLimits(1, 2)
-// Replace with
-webview.setVisualZoomLevelLimits(1, 2)
+// Deprecated webContents.setZoomLevelLimits (1, 2) / / ganti dengan webContents.setVisualZoomLevelLimits (1, 2)
 ```
 
 ## URL Node Header
@@ -202,6 +183,6 @@ File *tanpa awalan* masih dipublikasikan untuk menghindari pemutusan setup yang 
 
 Untuk detailnya, lihat [6986](https://github.com/electron/electron/pull/6986) dan [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## `FIXME` komentar
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+`FIXME` string digunakan dalam komentar kode untuk menunjukkan hal-hal yang perlu diperbaiki untuk rilis 2.0. Lihat https://github.com/electron/electron/search?q=fixme

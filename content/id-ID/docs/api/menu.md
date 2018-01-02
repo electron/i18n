@@ -74,45 +74,45 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   #### `menu.append(menuItem)`
   
-  * ` menuItem </ 0> MenuItem</li>
-</ul>
-
-<p>Appends the <code>menuItem` to the menu.</p> 
-    #### `menu.insert(pos, menuItem)`
-    
-    * `pos` Integer
-    * ` menuItem </ 0> MenuItem</li>
-</ul>
-
-<p>Sisipkan <code>menuItem` ke posisi `pos` pada menu.</p> 
-      ### Instance Properties
-      
-      `menu` objek juga memiliki properti berikut:
-      
-      #### `menu.items`
-      
-      A `MenuItem[]` array containing the menu's items.
-      
-      Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
-      
-      ## Contoh
-      
-      Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
-      
-      ### Proses utama
-      
-      Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
-      
-      ```javascript
+  * `menuItem` MenuItem
+  
+  Appends the `menuItem` to the menu.
+  
+  #### `menu.insert(pos, menuItem)`
+  
+  * `pos` Integer
+  * `menuItem` MenuItem
+  
+  Sisipkan `menuItem` ke posisi `pos` pada menu.
+  
+  ### Instance Properties
+  
+  `menu` objek juga memiliki properti berikut:
+  
+  #### `menu.items`
+  
+  A `MenuItem[]` array containing the menu's items.
+  
+  Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
+  
+  ## Contoh
+  
+  Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
+  
+  ### Proses utama
+  
+  Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
+  
+  ```javascript
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
-  
-  ### Render proses
-  
-  Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
-  
-  ```html
+
+### Render proses
+
+Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
+
+```html
 <!-- index.html -->
 <script>
 const {remote} = require('electron')
@@ -166,7 +166,7 @@ untuk informasi lebih lanjut.</p>
 
 Anda dapat menggunakan `posisi` dan `id` untuk mengontrol bagaimana item akan ditempatkan ketika membangun sebuah menu dengan `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+Atribut `posisi` dari `MenuItem` memiliki form ` [placement] = [id] `, di mana `penempatan` adalah salah satu dari `sebelum`, `setelah`, atau ` endof` dan` id ` adalah unik ID dari item yang ada di menu:
 
 * `sebelum` - Menyisipkan item ini sebelum item yang diacu id. Jika Item yang direferensikan tidak ada barang akan disisipkan pada akhir menu.
 * `setelah` - Menyisipkan item ini setelah item id direferensikan. Jika direferensikan item tidak ada item akan disisipkan di akhir menu.
@@ -201,19 +201,19 @@ Template:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  {label: 'a', posisi: 'endof = letters'},
+  {label: '1', posisi: 'endof = numbers'},
+  {label: 'b', posisi: 'endof = letters'},
+  {label: '2', posisi: 'endof = numbers'},
+  {label: 'c', posisi: 'endof = letters'},
+  {label: '3', posisi: 'endof = numbers'}
 ]
 ```
 
 Menu:
 
     <br />- ---
-    - a
+    - Sebuah
     - b
     - c
     - ---

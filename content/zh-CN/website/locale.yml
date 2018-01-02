@@ -16,10 +16,10 @@ docs:
   api_reference: API 参考
   advanced: 高级选项
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: 改进此文档
+    version_history: 版本历史记录
+    translate: 翻译此文档
+    view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
   translation_progress: 翻译进度
@@ -56,9 +56,9 @@ benefits:
   windows_installers: Windows 安装程序
 get_started:
   title: 开始吧
-  description: 若要开始使用 Electron ，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 APIs ，以及生成的安装程序。
+  description: 若要开始使用 Electron，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 API，以及生成的安装程序。
 explore:
-  title: 探讨 Electron 的 APIs
+  title: 探索 Electron 的 API
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
@@ -94,7 +94,7 @@ or: 或者
 pages:
   '/':
     title: Electron | 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。
-    description: '使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用.'
+    description: '使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。'
   '/apps':
     title: Electron 应用
     description: 使用 Electron 构建的应用
@@ -112,10 +112,10 @@ pages:
     description: 使用Electron进行开发
   '/docs/tutorial':
     title: 教程
-    description: 最新Electron的指南和教程
+    description: 最新 Electron 的指南和教程
   '/blog':
     title: Electron 博客
-    description: 所有来自Electron团队和社区的最新消息。
+    description: 所有来自 Electron 团队和社区的最新消息。
   '/community':
     title: 社区
   '/releases':
@@ -129,7 +129,7 @@ pages:
     title: 用户区
   '/devtron':
     title: Devtron
-    description: Devtron 是一个开源工具, 可以帮助您检查、监视和调试您的Electron应用程序. 建立在强大的 Chrome 开发工具之上。
+    description: Devtron 是一个开源工具，可以帮助您检查、监视和调试您的 Electron 应用程序。建立在强大的 Chrome 开发者工具之上。
   '/spectron':
     title: Spectron
     description: Spectron 是一个开放源码的框架, 便于为您的Electron应用程序编写集成测试. 其建在 ChromeDriver 和 WebDriverIO 的顶部。

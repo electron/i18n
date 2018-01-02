@@ -99,10 +99,10 @@ pages:
     title: Electron Apps
     description: Apps Built on Electron
   '/docs':
-    title: Documentation
+    title: Документация
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
-    title: All the Electron Docs!
+    title: Цялата документация на Electron!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API

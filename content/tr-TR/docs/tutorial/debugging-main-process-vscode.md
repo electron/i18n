@@ -1,37 +1,37 @@
-# Debugging the Main Process in VSCode
+# VSCode da ki Ana Sürecin Hata Ayıklaması
 
-### 1. Open an Electron project in VSCode.
+### VSCode içinde bir Electron projesi aç.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### Takip edilen ayarları uygulayarak `.vscode/launch.json` bir dosya ekle:
 
 ```json
+{ 
+"versiyon": "0.2.0",
+"ayarlamalar": [
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Debug Main Process",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceRoot}",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-      "windows": {
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-      },
-      "args" : ["."]
-    }
-  ]
+ "isim":Ana süreç hata ayıklama",
+ "tip": "düğüm",
+ "istek": "başlat"
+ "cwd":${workspaceRoot}",
+ "çalışmaZamanı": "${workspaceRoot}/node_modules/.bin/electron",
+ "windows":{
+  "çalışmaZamanı": "${workspaceRoot}/node_modules/.bin/electrın.cmd"
+},
+ "args" : ["."]
+  }
+ ]
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Not:**Windows,`${workspaceRoot}/node_modules/.bin/electron.cmd"`kullanmak için`runtimeExecutable`.
 
-### 3. Debugging
+### 3. Hata Ayıklama
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Bazı kesme noktaları ayarla `main.js`, ve hata ayıklamaya başla [Hata Ayıklama Görünümü](https://code.visualstudio.com/docs/editor/debugging) Kesme noktalarına tıklayabilirsiniz.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+VsCode'da daha önceden yapılandırılmış indirilebilir ve hata ayıklanabilir bir proje: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

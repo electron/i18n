@@ -5,15 +5,15 @@
 
 ## プラットフォーム/動作サポート
 
-| 操作種類     | プラットフォームサポート | Usage of `text`                  | デフォルト`text` | 制限事項                                                                                                                                                                |
-| -------- | ------------ | -------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button` | macOS        | Used as the label for the button | "Show"      | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| アクションのタイプ | サポートプラットフォーム | `text` の用途 | デフォルト`text` | 制限事項                                                                                                                                                                |
+| --------- | ------------ | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`  | macOS        | ボタンのラベル    | "Show"      | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### MacOSでのボタンサポート
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+macOSにおいて通知ボタンを表示させるにはアプリは以下の要件を満たす必要があります
 
-* アプリを署名します。
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* アプリは署名済みである
+* アプリ内の `info.plist` の `NSUserNotificationAlertStyle` が `alert` に設定されている
 
-If either of these requirements are not met the button simply won't appear.
+以上の要件が満たされていないとボタンは表示されません

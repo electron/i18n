@@ -1,6 +1,6 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -55,27 +55,27 @@ The `screen` module emits the following events:
 
 ### Etkinlik: 'görünüm-eklendi'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 

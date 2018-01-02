@@ -11,7 +11,7 @@ const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+在 X Window 系统上还有一个可选的剪贴板 。对其复制时需要传递` selection ` 参数到每个函数：
 
 ```javascript
 const {clipboard} = require('electron')
@@ -75,7 +75,7 @@ console.log(clipboard.readText('selection'))
 * `text` String
 * ` type ` String（可选）
 
-Writes the `text` into the clipboard in RTF.
+向剪贴板中写入 RTF 格式的 `text`.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -163,7 +163,7 @@ console.log(clipboard.has('<p>selection</p>'))
   * ` text ` String（可选）
   * ` html ` String（可选）
   * `image` [NativeImage](native-image.md) (可选)
-  * `rtf` String (optional)
+  * `rtf` String (可选)
   * ` bookmark ` String (可选)- url 的标题 `text`。
 * ` type ` String（可选）
 

@@ -1,22 +1,22 @@
 # `<webview>`标签
 
-> Display external web content in an isolated frame and process.
+> 在一个独立的 frame 和进程里显示外部 web 内容。
 
 Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
-Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
+使用 ` webview ` 标签在Electron 应用中嵌入 "外来" 内容 (如 网页)。外来"内容包含在 ` webview ` 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
-Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+与 ` iframe ` 不同, ` webview ` 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
 
 ## 例子
 
-To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
+若要在应用程序中嵌入网页, 请将 ` webview ` 标签添加到应用程序的被嵌入页面中 (这是将显示外来内容的应用程序页)。 在最简单的例子中, ` webview ` 标签包括网页的 ` src ` 和控制 ` webview ` 容器外观的 css 样式:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
+如果要以任何方式控制外来内容, 则可以写用于侦听 ` webview ` 事件的 JavaScript, 并使用 ` webview ` 方法响应这些事件。 下面是包含两个事件侦听器的示例代码: 一个侦听网页开始加载, 另一个用于网页停止加载, 并在加载时显示 "loading..." 消息:
 
 ```html
 <script>
@@ -38,11 +38,11 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## CSS Styling Notes
+## CSS 样式说明
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+请注意，`webview` 标签的样式使用 `display:flex;` 来确保 ` 子元素 `在传统和弹性盒布局（自v0.36.11以来）一起使用的情况下填充其webview容器的全部高度和宽度。 请不要覆盖重写默认的 `display:flex;` CSS 样式，除了用` display:inline-flex; ` 来做内联布局
 
-`webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
+`webview` 在使用 `hidden`或`display: none;` 来做隐藏时会出现一些问题。 它会引起其子 ` browserplugin ` 对象的一些异常渲染，即当 `webview` 回到非隐藏状态（un-hidden）时，网页将被重新加载。 建议的方法是使用 ` visibility: hidden ` 来隐藏 ` webview `。
 
 ```html
 <style>
@@ -57,9 +57,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## 标签属性
 
-The `webview` tag has the following attributes:
+`webview` 标签有一下属性：
 
 ### `src`
 
@@ -71,7 +71,7 @@ Returns the visible URL. Writing to this attribute initiates top-level navigatio
 
 Assigning `src` its own value will reload the current page.
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+` src ` 属性还可以接受数据 url, 如 ` data:text/plain, Hellp,world! `。
 
 ### `autosize`
 

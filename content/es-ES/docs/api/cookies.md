@@ -86,12 +86,12 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 * `url` String - The URL associated with the cookie.
 * `name` String - The name of cookie to remove.
-* `callback` Function
+* `callback` Función
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Function
+* `callback` Función
 
 Writes any unwritten cookies data to disk.

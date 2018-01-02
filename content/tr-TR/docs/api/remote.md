@@ -43,7 +43,7 @@ Ana süreçteki kod, oluşturucudan geri bildirimleri kabul edebilir - örneğin
 Örneğin ana işlemde `Array.map` olarak adlandırılan bir fonksiyonu işlev işleyici işleminde kullanamazsınız:
 
 ```javascript
-// main process mapNumbers.js
+// ana süreç mapNumbers.js
 exports.withRendererCallback = (mapper) => {
   return [1, 2, 3].map(mapper)
 }
@@ -54,13 +54,13 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
+// oluşturucu işlemi
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
 
 console.log(withRendererCb, withLocalCb)
-// [undefined, undefined, undefined], [2, 3, 4]
+// [tanımsız, tanımsız, tanımsız], [2, 3, 4]
 ```
 
 As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.

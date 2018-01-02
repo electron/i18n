@@ -1,48 +1,48 @@
 # Chromium yükseltme
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasviridir.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
+- Libcc'yi yeni bir Chromium sürümüne yükseltin
+- Electron kodunu yeni libcc ile uyumlu hale getirin
+- Gerekirse Electron bağımlılıklarını (crashpad, NodeJS, etc.) Güncelleyin
+- Libcc ve electronun iç yapılarını oluşturun
 - Gerekirse Electron dokümanlarını güncelleyin
 
-## Upgrade `libcc` to a new Chromium version
+## `libcc` ürünü yeni bir Chromium sürümüne yükseltin
 
-1. Get the code and initialize the project: 
+1. Kodu alın ve projeyi başlatın: 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `VERSION` Bu dosya ile 
+2. Chromium anlık görüntüsünü güncelle 
+  - Bir sürüm numarası seçin [OmahaProxy](https://omahaproxy.appspot.com/) ve güncelleme `SÜRÜM` Bu dosya ile 
     - Bu, tarayıcıda manuel olarak OmahaProxy'yi ziyaret ederek veya otomatik olarak yapılabilir:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
+    - En son kararlı mac sürümü için: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
+    - En yeni win64 beta sürümü için: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
+  - çalıştır `$ ./script/update` 
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
+3. Klasör`*.patch` files in the `patches/` and `patches-mas/` düzenleme.
+4. (Tercihe bağlı) `komut/güncelleme` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
+  - İkinci bir senaryo var, `script/patch.py` that may be useful. Read `./script/patch.py -h` daha fazla bilgi için.
+5. Tüm yamalar hatasız uygulandığında derlemeyi çalıştırın 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
+  - Bazı yamalar Chromium kodu ile uyumlu değilse, Derleme hatalarını düzeltin.
 6. When the build succeeds, create a `dist` Electron hakkında 
   - `$ ./script/create-dist  --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. Bunlar gerekmez.)
+    - Libcc repo'nun kökünde bir ` dist /main ` klasörü oluşturacaktır. Electron'u oluşturmak için buna ihtiyacınız olacak.
+7. (İsteğe bağlı) Dosyalardan kaynaklanan hatalar varsa komut dosyası içeriğini güncelleyin kaldırıldı veya yeniden adlandırıldı. (`--no_zip` prevents script from create `dist` Arşivler. Bunlar gerekmez.)
 
-## Update Electron's code
+## Electron kodunu güncelleyin
 
 1. Kod al: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. Makinenizin kendi repo'sunda libcc kurulmuşsa, Elektron'a şunu kullanmasını söyle: 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
@@ -51,42 +51,42 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 
 3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - Libcc alt modülünün(`vendor/libchromiumcontent`) işaret ettiğinden emin olun doğru revizyon
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. Sürüm ile eşleşecek şekilde ayarlayın `CLANG_REVISION` in `script/update-clang.sh` Chromium kullanıyor.
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - Konumlanmış `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
-5. Checkout Chromium if you haven't already:
+5. Chromium kontrolü henüz yapmadıysanız:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
+    - (Yukarıdaki url'de ` {VERSION} ` yer tutucusunu Chromium ile değiştirin sürüm libcc kullanır.)
 6. Electron kurmak. 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+  - Önce hata yakalama sürümünü oluşturmayı deneyin: `$ ./script/build.py -c D`
+  - Testleri çalıştırmak için ihtiyacınız olacak
+7. Derleme ve bağlantı hatalarını düzeltme
+8. Serbest bırakma derlemesininde oluşturulabileceğinden emin olun 
   - `$ ./script/build.py -c R`
   - Often the Release build will have different linking errors that you'll need to fix.
   - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
 9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
 
-### Tips for fixing compilation errors
+### Derleme hatalarını düzeltmek için ipuçları
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Önce yapılandırma hatalarını düzelt
+- Önemli hataları düzelttin, eksik dosya ve derleyici ile ilgili hataları bayrakla veya tanımla
+- Karmaşık hataları mümkün olan en kısa sürede saptamaya çalışın. 
+  - Onları nasıl düzelteceğinizden emin değilseniz yardım isteyin
+- Tüm Electron özelliklerini devre dışı bırakın, yapıyı düzeltin, sonra özellikleri tek tek etkinleştirin
+- Oluşturma zamanında özellikleri devre dışı bırakmak için daha fazla yapı bayrağı ekleyin.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Electron'un bir Hata Ayıklama derlemesi başarılı olduğunda, sınamaları çalıştırın: `$ ./script/test.py` Başarısız testleri düzeltin.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Desteklenen tüm platformlarda Electron kodunu düzeltmek için yukarıdaki adımları izleyin.
 
-## Updating Crashpad
+## Hata yolu güncelleştiriliyor
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
+Hata yolu ile ilgili herhangi bir derleme hatası varsa, muhtemelen ayrılmayı yeni bir revizyonla güncellemeniz gerekir. Gör [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) Bunun nasıl yapılacağı ile ilgili talimatlar için.
 
 ## NodeJS güncelleniyor
 
@@ -132,4 +132,4 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Chromium konu takip](https://bugs.chromium.org/p/chromium)
