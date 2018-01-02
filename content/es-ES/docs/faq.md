@@ -24,9 +24,9 @@ Novedades de Node.js están generalmente presentadas por mejoras V8, puesto que 
 
 ## ¿Cómo compartir datos entre páginas web?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Para compartir datos entre páginas web (el proceso de renderizado) la manera más simple es usar el API de HTML5 el cual ya está disponible en navegadores. [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), y [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) son buenos candidatos.
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+O puede usar el sistema IPC, el cual es específico para Electron, para almacenar objetos en el proceso principal como variables globales, y después y después accesar a ellos desde los renderizadores a través de la propiedad `remote` u el módulo `electron`:
 
 ```javascript
 // En el proceso principal.
@@ -36,7 +36,7 @@ global.sharedObject = {
 ```
 
 ```javascript
-// In page 1.
+// En la página 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
@@ -45,11 +45,11 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## La ventana/bandeja de la aplicación desaparece después de unos minutos.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Esto sucede cuando la variable que es usada para almacenar la ventana/bandeja se limpia de la basura.
 
-If you encounter this problem, the following articles may prove helpful:
+Si encuentra este problema, los siguientes artículos pudiesen resultar útiles:
 
 * [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
