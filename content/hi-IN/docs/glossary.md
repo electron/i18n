@@ -58,9 +58,9 @@
 
 ### एनएसआईएस
 
-नल्लसॉफ्ट स्क्रिप्टएबल इनस्टॉल सिस्टम, माइक्रोसॉफ्ट विंडोज के लिए एक स्क्रिप्ट-संचालित इंस्टालर ऑथरिंग टूल है | It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+नल्लसॉफ्ट स्क्रिप्टएबल इनस्टॉल सिस्टम, माइक्रोसॉफ्ट विंडोज के लिए एक स्क्रिप्ट-संचालित इंस्टालर ऑथरिंग टूल है | इसे मुफ़्त सॉफ्टवेर लाइसेंस के एक संयोजन के रूप में जारी किया गया है, और यह इनस्टॉलशील्ड जैसे व्यावसायिक उत्पादों के विकल्प में व्यापक रूप से इस्तेमाल किया जाता है | [इलेक्ट्रॉन -बिल्डर](https://github.com/electron-userland/electron-builder), एनएसआईएस का एक निर्माण लक्ष्य के रूप में समर्थन करता है |
 
-### OSR
+### ओएसआर
 
 OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
 
