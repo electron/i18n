@@ -34,16 +34,16 @@ app.on('will-quit', () => {
 })
 ```
 
-## Metodlar
+## Yöntemler
 
-The `globalShortcut` module has the following methods:
+`globalShortcut` modülü aşağıdaki yöntemlere sahiptir:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+`accelerator`'ün bir evrensel kısayolunu kaydeder. `callback` kaydedilen kısayol kullanıcı tarafından tıklandığı zaman çağırılır.
 
 When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
