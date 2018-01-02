@@ -34,10 +34,10 @@ El módulo `dialogo` tiene los siguientes métodos:
     * `openFile` - Le permite a los archivos ser seleccionados.
     * `openDirectory` - Le permite a los directorios ser seleccionados.
     * `multiSelections` - Permite que varios caminos sean seleccionados.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
+    * `showHiddenFiles` - Muestra archivos ocultos en diálogo.
+    * `createDirectory` - Permite crear nuevos directorios en un cuadro de diálogo. *macOS*
+    * `promptToCreate` - símbolo del sistema para la creación si no existe la ruta del archivo en el cuadro de diálogo. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación. *Windows*
+    * `noResolveAliases` - Desactiva el camino de resolición automático del alias (symlink). Alias seleccionados regresará a su ruta en vez de seguir por su ruta destino. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
 * `callback` Function (optional) 
