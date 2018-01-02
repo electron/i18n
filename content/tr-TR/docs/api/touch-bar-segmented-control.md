@@ -1,12 +1,12 @@
-## Sınıf: DokunmatikBarBölünmüşKontrol
+## Sınıf: DokunmatikBarParçalıDenetim
 
-> Create a segmented control (a button group) where one button has a selected state
+> Bir butonun seçili olduğu durumda parçalı bir denetim (bir tuş grubu) oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Nesne 
+* `seçenekler` Nesne 
   * `segmentStyle` String - (optional) Style of the segments: 
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
     * `rounded` - The control is displayed using the rounded style.
