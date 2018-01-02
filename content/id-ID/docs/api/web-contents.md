@@ -614,7 +614,7 @@ isi.executeJavaScript('ambil("https://jsonplaceholder.typicode.com/users/1"). ke
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts (abaikan)` * Eksperimental*
+#### `contents.setIgnoreMenuShortcuts (abaikan)` *Eksperimental*
 
 * `abaikan` Boolean
 
