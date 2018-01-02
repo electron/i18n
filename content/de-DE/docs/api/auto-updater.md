@@ -95,21 +95,21 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <h3><code>autoUpdater.setFeedURL (url [, requestHeaders])`</h3> 
 
-* `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code> requestHeaders </ 0> Objekt <em> macOS </ 1> (optional) - HTTP-Request-Header.</li>
+</ul>
 
-Sets the `url` and initialize the auto updater.
+<p>Setzt die <code> URL </ 0> und initialisiert den automatischen Updater.</p>
 
-### `autoUpdater.getFeedURL()`
+<h3><code>autoUpdater.getFeedURL ()`</h3> 
+    Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
 
-Returns `String` - The current update feed URL.
+<h3><code>autoUpdater.checkForUpdates ()`</h3> 
+    
+    Fragt den Server, ob es ein Update gibt. Sie müssen ` setFeedURL </ 0> aufrufen, bevor Sie diese API verwenden .</p>
 
-### `autoUpdater.checkForUpdates()`
+<h3><code>autoUpdater.quitAndInstall ()`</h3> 
+    
+    Startet die App neu und installiert das Update nach dem Herunterladen. Es sollte nur aufgerufen werden, nachdem  update-downloaded </ 0> ausgegeben wurde.</p>
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
-
-### `autoUpdater.quitAndInstall()`
-
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
-
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+<p><strong> Hinweis: </ 0>  <code> autoUpdater.quitAndInstall () </ 1> beendet zuerst alle Anwendungsfenster und gibt nur das Ereignis <code> before-quit </ 1>  auf <code> app </ 1> aus danach. Dies unterscheidet sich von der normalen Quit- Ereignissequenz .</p>
