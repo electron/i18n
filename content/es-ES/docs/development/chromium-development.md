@@ -41,25 +41,25 @@ La creación de libchromiumcontent requiere una máquina poderosa y lleva mucho 
 
 `depot_tools` tiene una opción no documentada que permite al desarrollador establecer un caché global para todos los objetos git de Chromium + dependencias. Esta opción usa `git clone --shared` para ahorrar ancho de banda y espacio en múltiples clones de los mismos repositorios.
 
-En electron/libchromiumcontent, esta opción se expone a través de la variable de entorno `LIBCHROMIUMCONTENT_GIT_CACHE`. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. For example:
+En electron/libchromiumcontent, esta opción se expone a través de la variable de entorno `LIBCHROMIUMCONTENT_GIT_CACHE`. Si tiene la intención de tener varios árboles de construcción con libchromiumcontent en la misma máquina (para trabajar en diferentes ramas, por ejemplo), se recomienda configurar la variable para acelerar la descarga de la fuente de Chromium. Por ejemplo:
 
 ```sh
 $ mkdir ~/.chromium-git-cache
 $ LIBCHROMIUMCONTENT_GIT_CACHE=~/.chromium-git-cache ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, delete the files ending in `.lock`:
+Si el script de arranque se interrumpe mientras se usa la memoria caché de git, se bloqueará la caché. Para eliminar el bloqueo, elimine los archivos que terminan en `.lock`:
 
 ```sh
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 ```
 
-It is possible to share this directory with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+Es posible compartir este directorio con otras máquinas exportándolo como SMB share en Linux, pero solo un proceso/máquina puede usar la memoria caché a la vez. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+En Windows, SMBv2 tiene un caché de directorio que causará problemas con el script del git cache, por lo que es necesario desactivarlo configurando la clave de registro
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+para mayor información: https://stackoverflow.com/a/9935126
