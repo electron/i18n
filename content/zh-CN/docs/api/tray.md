@@ -26,10 +26,10 @@ app.on('ready', () => {
 **平台限制：**
 
 * 在Linux上，如果支持，就使用应用程序指示器，否则将使用` GtkStatusIcon `。
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* 在仅支持应用程序指标的Linux发行版中，必须安装` libappindicator1 `才能使托盘图标正常工作。
+* 应用程序指标只有当它有一个上下文菜单时才会显示。
+* 当在Linux上使用应用程序指标时，它的 `click`事件将被忽略
+* 在Linux上，为了改变单独的` MenuItem `，你必须再次调用` setContextMenu `。 例如：
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -50,7 +50,7 @@ app.on('ready', () => {
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* 在 Windows 上, 建议使用 ` ICO ` 图标来获得最佳视觉效果。
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
