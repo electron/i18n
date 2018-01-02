@@ -1,10 +1,10 @@
 ## Class: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> 在一个请求生命周期的不同阶段，截取和修改其内容。
 
 线程：[主线程](../glossary.md#main-process)
 
-Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
+使用 ` Session ` 的 ` WebRequest ` 属性访问 ` WebRequest ` 类的实例。
 
 The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
 
