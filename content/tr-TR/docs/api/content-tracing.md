@@ -35,7 +35,7 @@ The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `callback` Fonksiyon 
   * `categories` String[]
 
 Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
@@ -76,7 +76,7 @@ The first 3 options are trace recording modes and hence mutually exclusive. If m
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Fonksiyon 
   * `resultFilePath` String
 
 Kayıt işlemini tüm süreçlerde durdurur.
@@ -111,7 +111,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Fonksiyon 
   * `resultFilePath` String
 
 Geçerli izleme verilerini alın.
@@ -122,7 +122,7 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `callback` Fonksiyon 
   * `value` Number
   * `percentage` Number
 
