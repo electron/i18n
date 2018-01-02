@@ -76,17 +76,17 @@
 
 रेंदेरेर प्रक्रिया आपकी एप्प में एक ब्राउज़र विंडो है |मुख्य प्रक्रिया के विपरीत, ये कई सारी हो सकती हैं और हर एक रेंदेरेर प्रक्रिया एक अलग प्रक्रिया में चलती है | इन्हें छुपाया भी जा सकता है |
 
-सामान्य ब्राउज़र्स में, वेब पेजेस अक्सर सैंडबॉक्स वातावरण में चलते हैं और इन्हें मूल संसाधनों तक पहुँच उपलब्ध नहीं होती | Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+सामान्य ब्राउज़र्स में, वेब पेजेस अक्सर सैंडबॉक्स वातावरण में चलते हैं और इन्हें मूल संसाधनों तक पहुँच उपलब्ध नहीं होती | पर इलेक्ट्रॉन उपयोगकर्ताओं के पास वेब पेजेज में नोड.जेएस का इस्तेमाल करने की शक्ति होती है, जिससे कि वे ऑपरेटिंग सिस्टम के निचले स्तर की इंटरेक्शन कर सकते हैं |
 
-See also: [process](#process), [main process](#main-process)
+इसे भी देखें: [प्रक्रिया](#process), [मुख्य प्रक्रिया](#main-process)
 
-### Squirrel
+### स्कुइर्रेल
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+स्कुइर्रेल एक मुक्त स्त्रोत ढांचा है, जो इलेक्ट्रॉन एप्प्स को नये संस्करण आने पर स्वतः ही अपडेट होने की क्षमता प्रदान करता है | स्कुइर्रेल के साथ शुरुआत करने की जानकारी पाने के लिए, [स्वतः अपडेटर](api/auto-updater.md) ऐपीआई देखें |
 
-### userland
+### यूजरलैंड
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+यह शब्द यूनिक्स समुदाय में उत्पन्न हुआ था, जहाँ "यूजरलैंड" या "यूजरस्पेस" उन प्रोग्रम्म्स को कहते थे जो ऑपरेटिंग सिस्टम कर्नेल के बाहर चलते थे | More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
 Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
