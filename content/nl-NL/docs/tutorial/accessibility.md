@@ -26,9 +26,9 @@ U kunt meer over deze functie lezen in [Spectron's documentatie](https://github.
 
 In Devtron is er een nieuw accessibility-tabblad, die een pagina in uw app laat controleren en de resultaten laat sorteren en filteren.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![devtron-schermafdruk](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Beide tools zijn gemaakt met behulp van de [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) van Google voor Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Beide tools zijn gemaakt met behulp van de [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) van Google voor Chrome. U kunt meer lezen over toegankelijkheidsauditregels die deze bibliotheek gebruikt op de [wiki van het repository](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
 Als u andere geweldige toegankelijkheidstools voor Electron kent, voegt u deze toe aan de [toegankelijkheidsdocumentatie](https://electronjs.org/docs/tutorial/accessibility) met een pull-request.
 
@@ -38,13 +38,13 @@ Elektron-apps houden toegankelijkheid standaard uitgeschakeld om prestatieredene
 
 ### In de applicatie
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Met behulp van [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), kunt u de toegankelijkheidsopties aanbieden in de gebruikersvoorkeuren van de applicatie. Gebruikersondersteunende hulpprogramma's hebben voorrang boven deze instelling en overschrijft het.
 
 ### Hulptechnologie
 
 De Electron-applicatie zal toegankelijkheidopties automatisch inschakelen wanneer het assistive-hulptechnologie (Windows) of VoiceOver (macOS) detecteert. Zie Chrome's [toegankelijkheidsdocumentatie](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) voor meer details.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Op macOS kan hulptechnologie van derden de toegankelijkheidsopties in Electron-applicaties aanzetten door het kenmerk `AXManualAccessibility` programmaticaal te wijzigen:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
