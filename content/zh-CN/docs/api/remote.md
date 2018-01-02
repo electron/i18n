@@ -84,7 +84,7 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 ## 访问主进程中的内置模块
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+主过程中的内置模块被添加为 `remote` 模块中的获取器，因此可以像 `electron` 模块一样直接使用它们。
 
 ```javascript
 const app = require('electron').remote.app
@@ -93,15 +93,15 @@ console.log(app)
 
 ## 方法
 
-The `remote` module has the following methods:
+`remote ` 模块具有以下方法:
 
 ### `remote.require(module)`
 
 * `module` String
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Returns `any` - The object returned by `require(module)` in the main process. 由其相对路径指定的模块将相对于主进程的入口点来解析。
 
-e.g.
+例如:
 
     project/
     ├── main
