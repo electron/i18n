@@ -1,7 +1,7 @@
 # Objeto ShortcutDetails
 
-* `target` String - The target to launch from this shortcut.
-* `cwd` String (optional) - The working directory. Default is empty.
+* `target` cadena - El objetivo a lanzar desde este acceso directo.
+* `cwd` Cadena (opcional) - El directorio de trabajo. Vacío por defecto.
 * `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
 * `description` String (optional) - The description of the shortcut. Default is empty.
 * `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
