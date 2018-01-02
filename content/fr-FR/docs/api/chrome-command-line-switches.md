@@ -83,15 +83,15 @@ Par exemple :
 * `MAP test.com [::1]:77` Force "test. com" à résoudre en boucle IPv6. Forcera également le port de l'adresse socket à 77.
 * `MAP * baz, EXCLUDE www.google.com` Remappe tout à "baz", sauf pour "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Ces mappages s'appliquent à l'hôte ciblé dans une requête réseau (le résolveur de connexion et d'hôte TCP dans une connexion directe, et l'hôte `CONNECT` dans un proxy HTTP et l'hôte du point terminal dans une connexion proxy `SOCKS`).
 
 ## --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Comme `--host-rules` mais ces `rules` ne s'appliquent qu'au résolveur hôte.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Une liste de serveurs séparés par des virgules pour lesquels l'authentification intégrée est activée.
 
 Par exemple :
 
