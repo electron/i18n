@@ -18,9 +18,9 @@ Electron jest rozwijany przez zespół Github i grupę [aktywnych kontrybutorów
 
 ### Aktualizowanie Bibliotek
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Electron Chromium jest zazwyczaj aktualizowana w ciągu jednego lub dwóch tygodni po wydaniu nowej stabilnej wersji, w zależności od aktualizacji.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Po wydaniu nowej wersji Node.js, Electron zazwyczaj czeka około miesiąca za aktualizacją w celu wydania bardziej stabilnej wersji.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
