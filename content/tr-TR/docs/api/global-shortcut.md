@@ -6,7 +6,7 @@
 
 `globalShortcut` modülü bir evrensel kısayolu işletim sistemi ile kaydedebilir/kaydetmeyebilir bu sayede çeşitli kısayollar için işlemleri özelleştirebilirsiniz.
 
-**Note:** Kısayol evrenseldir; uygulamanın klavye odağı olmasa bile çalışacaktır. You should not use this module until the `ready` event of the app module is emitted.
+**Note:** Kısayol evrenseldir; uygulamanın klavye odağı olmasa bile çalışacaktır. Uygulamanın modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
