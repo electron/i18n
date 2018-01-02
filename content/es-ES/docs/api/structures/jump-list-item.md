@@ -1,11 +1,11 @@
-# JumpListItem Object
+# Objeto JumpListItem
 
-* `type` Cadena (opcional) - Una de los siguientes: 
-  * `task` - A task will launch an app with specific arguments.
-  * `separator` - Can be used to separate items in the standard `Tasks` category.
-  * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
+* `tipo` Cadena (opcional) - Una de los siguientes: 
+  * `tarea` - Una tarea lanzará una aplicación con un argumento específico.
+  * `separador` - Puede ser usado para separar items en la categoría estándar `Tarea`.
+  * `file` - Un link de un archivo abrirá uno usando la aplicación que creó el salto de lista, para que esto funciona la aplicación debe estar registrada como controlador del tipo de archivo (A pesar de que no tiene que ser el controlador por defecto).
+* `ruta` cadena (opcional) - ruta que tiene el archivo para ser abierto, debe ser configurado solo si `tipo` es `archivo`.
+* `programa` Cadena (opcional) - ruta del programa para ejecutarse, usualmente usted especificará el `process.execPath` que abrirá el programa en curso. Debe ser configurado solamente si `tipo` es `tarea`.
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
