@@ -133,4 +133,4 @@ Please use the `sandbox` option with care, as it is still an experimental featur
 
 Elektronda güvenilmeyen içeriğin görüntülenmesi hâlâ bilinmeyen bir alan olduğu için, sanal ön koşul komut dosyasına maruz kalan API'lerin diğer elektron API' lerinden daha dengesiz olduğu düşünülmelidir ve düzeltmek için güvenlik sorunları gibiönemli değişiklikler olabilir.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Güvenliği büyük ölçüde arttırması planlanan bir geliştirme, ana işlemin işleyiciye gönderilmesine izin verilen bir dizi iletiyi açıkça tanımasına izin vermek üzere, sanal göndericilere ait IPC iletilerini varsayılan olarak engellemektedir.
