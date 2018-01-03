@@ -106,9 +106,9 @@ It is recommended that you pause expensive operations when the visibility state 
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## Sınıf: Tarayıcı Penceresi
 
-> Tarayıcı pencereleri kontrol etme ve oluşturma.
+> Tarayıcı pencerelerini kontrol etme ve oluşturma.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -116,9 +116,9 @@ Süreç: [Ana](../glossary.md#main-process)
 
 It creates a new `BrowserWindow` with native properties as set by the `options`.
 
-### `new BrowserWindow([options])`
+### `yeni Tarayıcı Penceresi ([options])`
 
-* `options` Obje (isteğe bağlı) 
+* `seçenekler` Obje (isteğe bağlı) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
