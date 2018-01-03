@@ -16,7 +16,7 @@ const {shell} = require('electron') shell.openExternal ('https://github.com')
 
 The `shell` modul memiliki metode berikut:
 
-### `shell.showItemInFolder(fullPath)`
+### `shell.showItemInFolder (fullPath)`
 
 * `fullPath` String
 
@@ -24,7 +24,7 @@ Mengembalikan `Boolean` - Apakah item berhasil ditampilkan
 
 Tampilkan file yang diberikan di file manager. Jika memungkinkan, pilih file.
 
-### `shell.openItem(fullPath)`
+### `shell.openItem (fullPath)`
 
 * `fullPath` String
 
