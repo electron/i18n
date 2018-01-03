@@ -26,30 +26,30 @@ Una aplicación desarrollada con `1.8.1` no puede tener la corrección de errore
 
 ## Versión 2.0 y superiores
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Hay varios cambios mayores desde nuestra estrategia 1.x expresada abajo. Cada cambio tiene la intención de satisfacer las necesidades y prioridades de los desarrolladores y personas que mantienen la aplicación.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. Uso estricto de semver
+2. Introducción de las etiquetas de semver-compliant `-beta`
+3. Introducción a [mensajes de compromiso convencionales](https://conventionalcommits.org/)
+4. Rama de estabilización claramente definidas
+5. La rama `maestra` no está versionada; solo las ramas de estabilidad contienen versión de la información
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que el desarrollador espera ver, y como se puede hacer cambios por la puerta de atras.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Desde 2.0, Electron seguiría semver.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categorías correspondientes de semver (Ej: mayor, menor, parche).
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
+* **Incrementos de versiones mayores** 
+    * Actualización de versiones de Chromium
+    * actualizaciones mayores de versión de node.js
+    * Cambios de API por Electron
+* **Incrementos de version menores** 
+    * actualizaciones menores de versión de node.js
+    * Cambios de API por otras razones de Electron
+* **Incrementos en la versión de parches** 
     * node.js patch version updates
     * fix-related chromium patches
     * electron bug fixes
