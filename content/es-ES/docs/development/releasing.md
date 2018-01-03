@@ -62,11 +62,11 @@ El script `prepare-release` se disparará en la estructura mediante llamados API
 
 Escribir notas de publicación es una buena manera de mantenerse ocupado mientras la estructuración está corriendo. Para tener una guía, vea publicación existentes en [the releases page](https://github.com/electron/electron/releases).
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Cada item en la lista debe hacer referencia a un PR en electron/electron, no un PR de otro repositorio como libcc. No hay necesidad de utilizar marcado de enlace al hacer referencia a PR. Cadenas como `#123` serán automáticamente convertidas a links de github.com. Para ver la versión de Chromium, V8 y Node en cada versión de Electron, visite [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Publicación de parches
 
-For a `patch` release, use the following format:
+Para una publicación de `patch`, use el siguiente formato:
 
 ```sh
 ## Bug Fixes
@@ -86,7 +86,7 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### Publicaciones menores
 
 For a `minor` release, e.g. `1.8.0`, use this format:
 
@@ -141,14 +141,14 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 - Some other change. #123
 ```
 
-### Beta releases
+### Publicaciones beta
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+Use el mismo formato como los sugeridos arriba, pero añada las siguientes notas al principio del changelog:
 
 ```sh
-**Note:** This is a beta release and most likely will have have some instability and/or regressions.
+**Nota:** Esta publicación beta es posible que tenga alguna inestabilidad y/o regresión.
 
-Please file new issues for any bugs you find in it.
+Por favor notifique cualquier problema que encuentre en ella.
 
 This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
