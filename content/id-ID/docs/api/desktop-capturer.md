@@ -71,8 +71,8 @@ The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
 <li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
 </ul></li>
 <li><code>callback` Fungsi 
-    *  error </ 0> Kesalahan</li>
-<li><code> sumber </ 0>  <a href="structures/desktop-capturer-source.md"> DesktopCapturerSource [] </ 1></li>
+    * `error` Kesalahan
+    *  sumber </ 0>  <a href="structures/desktop-capturer-source.md"> DesktopCapturerSource [] </ 1></li>
 </ul></li>
 </ul>
 
