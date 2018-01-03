@@ -1,10 +1,10 @@
 # webContents
 
-> Render and control web pages.
+> 渲染以及控制 web 页面
 
 线程：[主线程](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 访问 `webContents` 对象的例子:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## 方法
 
-These methods can be accessed from the `webContents` module:
+通过`webContents`模块可以访问以下方法：
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,7 +27,7 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+返回 `WebContents[]` - 所有 `WebContents` 实例的数组。 This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 
 ### `webContents.getFocusedWebContents()`
 
