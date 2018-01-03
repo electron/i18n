@@ -490,7 +490,7 @@ win.loadURL ('https://github.com')
 
 <p>Objek yang dibuat dengan <code> BrowserWindow baru </ 0> memiliki metode contoh berikut:</p>
 
-<p><strong> Catatan: </ 0> Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
+<p><strong>Catatan:</strong> Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
 
 <h4><code>win.destroy()`</h4> 
         
