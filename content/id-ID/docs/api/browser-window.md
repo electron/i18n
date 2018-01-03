@@ -881,8 +881,8 @@ bar will become gray when set to <code>true`.</p>
 <p>Sama seperti <code>webContents.capturePage ([rect,]callback)`.</p> 
                           #### `win.loadURL (url [, options])`
                           
-                          * ` url </ 0>  String</li>
-<li><code>pilihan` Objek (opsional) 
+                          * `url` String
+                          * `pilihan` Objek (opsional) 
                             * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
 <li><code> userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
 <li><code> extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
