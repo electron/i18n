@@ -1,4 +1,4 @@
-# süreç
+# işlem
 
 > İşlem nesnesine uzantılar.
 
