@@ -86,8 +86,8 @@ Untuk menghindari masalah ini, pastikan Anda membersihkan rujukan ke callback re
 Modul built-in dalam proses utama ditambahkan sebagai getter di `remote` modul, sehingga Anda dapat menggunakannya secara langsung seperti modul `elektron`.
 
 ```javascript
-const app = require('electron').remote.app
-console.log(app)
+const app = require ('elektron'). remote.app
+console.log (app)
 ```
 
 ## Metode
