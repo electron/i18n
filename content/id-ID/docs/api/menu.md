@@ -1,10 +1,10 @@
-## Class: Menu
+## Kelas: Utama
 
 > Buat menu aplikasi asli dan menu konteks.
 
 Proses:  Utama </ 0></p> 
 
-### `Menu baru ()`
+### `menu Menu()`
 
 Membuat menu baru.
 
