@@ -121,4 +121,4 @@ Geçerli işlemin ana iş parçacığının askıda kalmasına neden olur.
 
 * `maxDescriptors` Tamsayı
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Dosya tanımlayıcısının düşük limitini veya OS yüksek limitini `maxDescriptors` olarak ayarlar, geçerli işlem için hangisi daha düşükse.
