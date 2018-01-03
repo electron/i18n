@@ -729,7 +729,7 @@ Tambahkan peralihan (dengan `nilai opsional`) ke baris perintah Chromium.
 
 **Catatan:** Ini tidak akan mempengaruhi `process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.
 
-### `app.commandLine.appendArgument (nilai)`
+### `app.commandLine.appendArgument(nilai)`
 
 * `nilai` String - argumen untuk menambahkan ke baris perintah
 
@@ -761,43 +761,40 @@ Membatalkan bouncing `id`.
 
 ### `app.dock.downloadFinished(filePath)` *Windows*
 
-* ` format </ 0> String</li>
-</ul>
+* `format` String
 
-<p>Memantapkan Download stack jika filePath ada di dalam folder Downloads.</p>
+Memantapkan Download stack jika filePath ada di dalam folder Downloads.
 
-<h3><code>app.dock.setBadge (teks)` *macOS*</h3> 
-  * `teks` String
-  
-  Menetapkan string yang akan ditampilkan di area badging dermaga.
-  
-  ### `app.dock.getBadge()` *macos*
-  
-  Mengembalikan `String` - String badge dari dok.
-  
-  ### `app.dock.hide()` *macOS*
-  
-  Sembunyikan ikon dok.
-  
-  ### `app.dock.show()` *macos*
-  
-  Tampilkan ikon dok.
-  
-  ### `app.dock.isVisible()` *macos*
-  
-  Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
-  
-  ### `app.dock.setMenu (menu)` *macos*
-  
-  * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
-</ul>
+### `app.dock.setBadge (teks)` *macOS*
 
-<p>Mengatur aplikasi <a href="https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103"> dock menu </ 0>.</p>
+* `teks` String
 
-<h3><code> app.dock.setIcon (gambar) </ 0>  <em> macos </ 1></h3>
+Menetapkan string yang akan ditampilkan di area badging dermaga.
 
-<ul>
-<li><code> gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
-</ul>
+### `app.dock.getBadge()` *macos*
 
-<p>Menetapkan <code>gambar` yang terkait dengan ikon dermaga ini.</p>
+Mengembalikan `String` - String badge dari dok.
+
+### `app.dock.hide()` *macOS*
+
+Sembunyikan ikon dok.
+
+### `app.dock.show()` *macos*
+
+Tampilkan ikon dok.
+
+### `app.dock.isVisible()` *macos*
+
+Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
+
+### `app.dock.setMenu(menu)` *macos*
+
+* `menu` [Menu](menu.md)
+
+Mengatur aplikasi [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+
+### `app.dock.setIcon(gambar)` *macOS*
+
+* `gambar` ([NativeImage](native-image.md) | String)
+
+Menetapkan `gambar` yang terkait dengan ikon dermaga ini.
