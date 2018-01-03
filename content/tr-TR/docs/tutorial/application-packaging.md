@@ -22,13 +22,13 @@ $ asar pack your-app app.asar
 
 ## Arşivleri `asar` kullanma
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electron'da iki API seti vardır: Node.js ve Web tarafından sağlanan buton API'leri Chromium tarafından sağlanan API'ler. Her iki API, `asar` arşivlerinden dosyaları okumayı desteklemektedir.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Electron'da özel yamalarla, `fs.readFile` ve `require` gerektirir. ` asar` arşivlerini sanal dizinler olarak ve içindeki dosyalar normal Dosya sistemindeki dosyalardır.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Örneğin, bir `example.asar` archive under `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+`asar` Arşivindeki bir dosyayı okuyun:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Arşivin kök dizinindeki tüm dosyaları listeleyin:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Arşivdeki bir modülü kullanın:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+gerektirir('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+`BrowserWindow` ile `asar` arşivinde bir web sayfası da gösterebilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -70,9 +70,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Bir web sayfasında, arşivdeki dosyalar `file:` protokolü ile istenebilir. Buton API'sı gibi, `asar` arşivleri de dizin olarak değerlendirilir.
 
-For example, to get a file with `$.get`:
+Örneğin, bir dosyayı almak için `$.get`:
 
 ```html
 <script>
@@ -83,7 +83,7 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### `asar` Arşivini Normal Dosya Olarak İşleme
 
 For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
 
