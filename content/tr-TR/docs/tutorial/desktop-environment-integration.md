@@ -24,7 +24,7 @@ Yeni belgelere dosya eklemek için, [app.addRecentDocument](../api/app.md#appadd
 
 ```javascript
 const {app} = require('electron')
-app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
+app.addRecentDocument('/kullanıcı/kullanıcıadı/Masaüstü/iş.tipi')
 ```
 
 Ve boşaltmak için [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API'sını kullanabilirsiniz son belgeler listesi:
@@ -58,8 +58,8 @@ macOS, geliştiricilerin dock için özel bir menü belirlemelerini sağlar; bu 
 const {app, Menu} = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
-  {label: 'New Window', click () { console.log('New Window') }},
-  {label: 'New Window with Settings',
+  {label: 'Yeni Pencere', click () { console.log('Yeni Pencere') }},
+  {label: 'Ayarlar ile Yeni Pencere',
     submenu: [
       {label: 'Basic'},
       {label: 'Pro'}
@@ -157,7 +157,7 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Unity İstemci Kısayolları (Linux)
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
@@ -189,7 +189,7 @@ win.setProgressBar(0.5)
 
 On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Tekrardan, hangi metodun uygulamanız iyi olduğuna geliştirme döneminde karar vermeniz gerekmektedir. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
 **Arayüzü görev çubuğuna al:**
 
