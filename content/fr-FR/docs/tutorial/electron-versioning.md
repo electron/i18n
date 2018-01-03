@@ -50,11 +50,11 @@ Ci-dessous, une table explicitant les types de changement avec leur catégorie c
     * mises à jour de version mineure node.js
     * changement Electron n'altérant pas l'API
 * **Incréments de version de Correctifs** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+    * mises à jour de correctif de node.js
+    * mises à jour de correctifs Chromium
+    * mises à jour de correctif Electron
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Veuillez noter que les mises à jour de Chromium seront considérées comme impactantes. Les corrections qui pourront être rétroportées seront probablement marquées comme correctifs.
 
 # Branches de stabilisation
 
@@ -70,7 +70,7 @@ Older lines will not be supported by GitHub, but other groups can take ownership
 
 # Versions bêta et corrections de bugs
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Les développeurs veulent savoir quelles versions sont fiables (*safe*). Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
