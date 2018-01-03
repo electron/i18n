@@ -1,6 +1,6 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> ファイルを開いたり保存したりする際、あるいはアラートのためにネイティブのダイアログを表示します
 
 プロセス: [Main](../glossary.md#main-process)
 
