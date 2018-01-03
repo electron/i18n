@@ -2,7 +2,7 @@
 
 > Chromium OS sanal alanında çalışabilen oluşturucuya sahip bir tarayıcı penceresi oluşturun. Bu seçenek etkinleştirmesi ile, oluşturucunun API nodullerine erişim için IPC yoluyla ana yöntemle iletişim kurması gerekir. Ayrıca, Chromium OS sanal alanını etkinleştirmek için, elektronun `--enable-sandbox` komuta satır argümanıyla çalıştırılması gerekir.
 
-One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Chromium'un en önemli güvenlik özelliklerinden biri, parlayan tüm JavaScript kod/oluşturmanın bir sanal alan içerisinde gerçekleşmesidir. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
 
 Başka bir deyişle, sanal alan etkin olduğunda, oluşturucular yalnızca değişiklik yapabilir görevlere IPC vasıtasıyla ana süreci devrederek sisteme bildirir. [Here's](https://www.chromium.org/developers/design-documents/sandbox) more information about the sandbox.
 
