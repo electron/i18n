@@ -67,7 +67,7 @@ Dönüşler:
 
 * `olay` Olay
 
-Emitted when the notification is closed by manual intervention from the user.
+Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
 Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilmez.
 
