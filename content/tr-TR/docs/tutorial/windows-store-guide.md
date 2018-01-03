@@ -84,15 +84,15 @@ Dolayısıyla, yalnızca mağaza arıyorsanız, kolay kurulum yöntemi mağazaya
 
 Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürütülebilir - ve bu nedenle Xbox, HoloLens veya Telefonlar üzerinde çalışmaz.
 
-## Optional: Add UWP Features using a BackgroundTask
+## İsteğe bağlı: Bir BackgroundTask kullanarak UWP Özellikleri Ekle
 
 You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
 
 To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## İsteğe bağlı: Konteyner Sanallaştırması'nı kullanarak Dönüştürün
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. Bununla birlikte, bir özel kurulumcu kullanıyorsanız veya oluşturulan paketle ilgili herhangi bir sorun yaşarsanız, Windows Container - içinde derleme kullanarak bir paket oluşturmaya çalışabilir, bu modda, CLI yükleme yapar ve uygulamanızı boş Windows Konteynerın'da çalıştırır uygulamanızın hangi işletim modülüne değişiklik yaptığını tam olarak belirleme sistemi.
 
 Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
