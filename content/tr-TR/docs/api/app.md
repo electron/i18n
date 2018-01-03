@@ -183,7 +183,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Olay: 'select-client-certificate' 
 
 Dönüşler:
 
