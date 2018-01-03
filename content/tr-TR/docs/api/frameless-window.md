@@ -20,7 +20,7 @@ MacoS 10.9 Mavericks ve üst versiyonlarda bir chromeless pencere belirlemenin a
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Sonuçlar gizli bir başlık çubuğunda ve tam boyutlu bir içerik penceresindedir, ancak başlık çubuğunun sol üst köşesinde hala standart pencere kontrolleri (“trafik ışıkları”) vardır.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+Sonuçlar trafik ışığı düğmelerinin pencere kenarından biraz daha yerleştirildiği alternatif bir görünüme sahip gizli bir başlık çubuğundadır.
 
 ```javascript
 const {BrowserWindow} = require('electron')
