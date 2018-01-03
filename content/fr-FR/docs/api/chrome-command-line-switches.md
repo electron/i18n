@@ -70,7 +70,7 @@ Utilise le script PAC à l'`url` spécifiée.
 
 ## --no-proxy-server
 
-N'utilise pas de serveur proxy et établit toujours des connexions directes. Remplace les autres les drapeaux du serveur proxy qui sont passés.
+N'utilise pas de serveur proxy et établit toujours des connexions directes. Remplace tous les autres drapeaux du serveur proxy qui sont passés.
 
 ## --host-rules=`rules`
 
@@ -79,11 +79,11 @@ Une liste séparée par des virgules de `rules` qui contrôle comment les noms d
 Par exemple :
 
 * `MAP * 127.0.0.1` Force tous les noms d'hôtes à être mappés à 127.0.0.1
-* `MAP *.google.com proxy` Force tous les sous-domaines google.com à être résolus à "proxy".
-* `MAP test.com [::1]:77` Force "test. com" à résoudre en boucle IPv6. Forcera également le port de l'adresse socket à 77.
+* `MAP *.google.com proxy` Force tous les sous-domaines google.com à être résolus en "proxy".
+* `MAP test.com [::1]:77` Force "test. com" à être résolu en boucle IPv6. Force également le port de l'adresse socket à 77.
 * `MAP * baz, EXCLUDE www.google.com` Remappe tout à "baz", sauf pour "www.google.com".
 
-Ces mappages s'appliquent à l'hôte ciblé dans une requête réseau (le résolveur de connexion et d'hôte TCP dans une connexion directe, et l'hôte `CONNECT` dans un proxy HTTP et l'hôte du point terminal dans une connexion proxy `SOCKS`).
+Ces mappages s'appliquent à l'hôte ciblé dans une requête réseau (le résolveur de connexion et d'hôte TCP dans une connexion directe, et l'hôte `CONNECT` dans une connexion avec proxy HTTP, et l'hôte du point terminal dans une connexion proxy `SOCKS`).
 
 ## --host-resolver-rules=`rules`
 
@@ -98,11 +98,11 @@ Par exemple :
     --auth-server-whitelist='*example.com, *foobar.com, *baz'
     
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appliquer une authentification intégrée. Sans préfixe `*` l'URL doit correspondre parfaitement.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Une liste de serveurs séparés par des virgulespour lesquels la délégation d'identifiants utilisateur est demandée. Sans préfixe `*` l'URL doit correspondre complètement.
 
 ## --ignore-certificate-errors
 
