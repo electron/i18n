@@ -1,6 +1,6 @@
 # Uygulama Dağıtımı
 
-Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuilt binaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör `app` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde `elektron /` ile altında gösterilir.
+Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuiltbinaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör `app` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde `electron /` ile altında gösterilir.
 
 MacOS üzerinde:
 
@@ -87,7 +87,7 @@ MyApp.app/Contents
 
 ### Linux
 
-` elektron ` yürütülebilir dosyasını istediğiniz herhangi bir adla yeniden adlandırabilirsiniz.
+`elektron` yürütülebilir dosyasını istediğiniz herhangi bir adla yeniden adlandırabilirsiniz.
 
 ## Paketleme araçları
 
