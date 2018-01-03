@@ -38,8 +38,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
 * `pendengar` Fungsi 
   * `rincian` Obyek 
     * `id` Integer
-    * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+    * `url` String
+    * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
     * `timestamp` Duakali
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -64,8 +64,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
 <p>Seorang <code>pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.</p> 
   * `rincian` Obyek 
     * `id` Integer
-    * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+    * `url` String
+    * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
     * `timestamp` Duakali
     * `permintaanHeaders` Objek
@@ -83,8 +83,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
   * `pendengar` Fungsi 
     * `rincian` Obyek 
       * `id` Integer
-      * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+      * `url` String
+      * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
@@ -101,8 +101,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
 <p><code>pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.</p> 
     * `rincian` Obyek 
       * ` id </ 0>  String</li>
-<li><code> url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+<li><code>url` String
+      * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
       * `timestamp` Duakali
       * `statusGaris` String
@@ -123,8 +123,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
-        * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+        * `url` String
+        * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
@@ -141,8 +141,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * ` id </ 0>  String</li>
-<li><code> url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+<li><code>url` String
+        * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
         * `timestamp` Duakali
         * `redirectURL` String
@@ -160,8 +160,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
-        * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+        * `url` String
+        * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
@@ -178,8 +178,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
-        * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+        * `url` String
+        * ` method </ 0>  String</li>
 <li><code>TipeSumberdaya` String
         * `timestamp` Duakali
         * `dariCache` Boolean
