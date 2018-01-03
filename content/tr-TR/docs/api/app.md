@@ -274,15 +274,15 @@ Bu metod tüm `beforeunload` ve `unload` olayları işleyicilerinin düzgün şe
 
 * `exitCode` Tamsayı (Seçimli)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+`exitCode` ile hemen çıkış yapar. `exitCode` varsayılan olarak 0 olur.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Tüm pencereler kullanıcıya sormadan hemen kapatılır, `before-quit` ve `will-quit` olayları yayılmaz.
 
 ### `app.relaunch([options])`
 
 * `options` Obje (isteğe bağlı) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+  * `args` Dizgi[] - (Seçimli)
+  * `execPath` Dizgi (Seçimli)
 
 Relaunches the app when current instance exits.
 
