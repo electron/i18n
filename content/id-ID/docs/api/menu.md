@@ -10,38 +10,38 @@ Membuat menu baru.
 
 ### Metode Statis
 
-Kelas ` menu </ 0> memiliki metode statis berikut:</p>
+Kelas ` BrowserWindow ` memiliki metode statis berikut:
 
-<h4><code>Menu.set Aaplikasi Menu (menu)`</h4> 
+#### `Menu.set Aaplikasi Menu (menu)`
 
 * ` menu </ 0> Menu</li>
 </ul>
 
-<p>Set <code> menu </ 0> sebagai menu aplikasi pada macOS . Pada Windows dan Linux,
+<p>Set <code> menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
  <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
 
-<p>Melewati<code> null </ 0> akan menghapus menu bar pada Windows dan Linux namun tidak berpengaruh pada macos .</p>
-
-<p><strong> Catatan: </ 0> ini API harus dipanggil setelah <code> siap </ 1>  acara dari <code> aplikasi </ 1> modul.</p>
-
-<h4><code>Menu.dapatkan aplikasi Menu ()`</h4> 
-  Mengembalikan ` Menu </ 0> - Menu aplikasi, jika diatur, atau <code> null </ 0> , jika tidak disetel.</p>
-
-<p><strong> Catatan: </ 0> Contoh <code> Menu </ 1> yang dikembalikan tidak mendukung penambahan atau penghapusan item menu secara dinamis. <a href="#instance-properties"> Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p>
-
-<h4><code> Menu.kirim aksi pertama ke Responder (tindakan) </ 0>  <em> macos </ 1></h4>
+<p>Melewati <code>null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.</p> 
+  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app `dipancarkan.
+  
+  #### `Menu.getApplicationMenu()`
+  
+  Mengembalikan `Menu` - menu aplikasi, jika set, atau `null`, jika tidak ditetapkan.
+  
+  **Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
+  
+  #### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em> macos </ 1></h4>
 
 <ul>
-<li><code> aksi </ 0>  String</li>
+<li><code> aksi </ 0>  Tali</li>
 </ul>
 
-<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default . Biasanya Anda hanya akan menggunakan
- <a href="menu-item.md#roles"><code> peran </ 0> properti dari <a href="menu-item.md"><code> MenuItem </ 1> .</p>
+<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Biasanya Anda hanya akan menggunakan
+ <a href="menu-item.md#roles"><code> peran </ 0> properti dari <a href="menu-item.md"><code> MenuItem </ 1>.</p>
 
 <p>Lihat <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7"> MacOS Kakao Acara Penanganan Panduan </ 0> 
 untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 
-<h4><code>Menu.membangun dari Template (template)`</h4> 
+<h4><code>Menu.membangun dari Template (template)`
   
   * `template` MenuItemConstructorOptions[]
   
@@ -61,10 +61,10 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   * `pilihan` Objek (opsional) 
     * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
 <li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
-    * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0> .</li>
+    * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0>.</li>
 <li><code>positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
   
-  Pops up this menu as a context menu in the `browserWindow`.
+  Menutup menu konteks di `browserWindow`.
   
   #### `menu.closePopup([browserWindow])`
   
@@ -72,7 +72,7 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   Menutup menu konteks di `browserWindow`.
   
-  #### `menu.append(menuItem)`
+  #### `menu.append(menuItem) menuItem`
   
   * `menuItem` MenuItem
   
@@ -81,7 +81,7 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   #### `menu.insert(pos, menuItem)`
   
   * `pos` Integer
-  * `menuItem` MenuItem
+  * `menu` Menu
   
   Sisipkan `menuItem` ke posisi `pos` pada menu.
   
@@ -97,7 +97,7 @@ untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
   
   ## Contoh
   
-  Kelas `Menu` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
+  Kelas `Utama` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
   
   ### Proses utama
   
@@ -108,7 +108,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render proses
+### Proses renderer
 
 Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
 
@@ -137,14 +137,14 @@ macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linu
 ### Menu Standar
 
 Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
- <code> Windows </ 0> . Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
+ <code> Windows </ 0>. Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
  <code> peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
 
 <ul>
 <li><code>jendela`</li> 
 
-* `membantu`
-* `jasa`</ul> 
+* `bantuan`
+* `layanan`</ul> 
 
 ### Tindakan Item Menu Standar
 
