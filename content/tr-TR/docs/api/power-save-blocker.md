@@ -1,6 +1,6 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Sistemin düşük güç (uyku) moduna girmesini engelleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -27,7 +27,7 @@ The `powerSaveBlocker` module has the following methods:
 
 Returns `Integer` - The blocker ID that is assigned to this power blocker
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu bloklarını tanımlayan bir tam sayı döndürür.
 
 **Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
 
