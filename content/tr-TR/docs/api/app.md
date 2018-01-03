@@ -372,7 +372,7 @@ Bir dosya yolunun ilişkili ikonunu çeker.
 * `name` Dizgi
 * `path` Dizgi
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+`name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
 You can only override paths of a `name` defined in `app.getPath`.
 
