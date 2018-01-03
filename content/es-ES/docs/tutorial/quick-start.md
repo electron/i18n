@@ -153,15 +153,15 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 y más nuevo
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### Manualmente Descargado Binario de Electron
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Si tu descargaste Electron manualmente, puedes también usar el binario incluido para ejecutar tu aplicación directamente.
 
 #### macOS
 
@@ -181,15 +181,15 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` es parte del paquete de lanzamiento de Electron, puedes descargarlo desde [aquí](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Ejecuta como una distribución
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Despues de que hayas terminado de escribir tu aplicación, puedes crear una distribución siguiendo la guía de [Distribución de Aplicaciones](./application-distribution.md) y luego ejecutando la aplicación empaquetada.
 
-### Try this Example
+### Prueba este Ejemplo
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clona y ejecuta el código en este tutorial usando el repositorio [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
