@@ -59,7 +59,7 @@ Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 ## 标签属性
 
-`webview` 标签有一下属性：
+`webview` 标签具有以下属性：
 
 ### `src`
 
@@ -184,9 +184,9 @@ A list of strings which specifies the blink features to be disabled separated by
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-将 instance 链接到特定 webContents 的值。 当 instance 第一次加载新的 webContents 时, 该属性将被设置为其实例标识符。 Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+将 instance 链接到特定 webContents 的值。 当 instance 第一次加载新的 webContents 时, 该属性将被设置为其实例标识符。 在新的或现有的 webview 上设置此属性，将关联到当前渲染在其他 webview 中的现有 webContents。
 
-The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
+现有的 webview 将会看到 ` destroy ` 事件, 然后在加载新的 url 时创建新的 webContents。
 
 ### `disableguestresize`
 
@@ -194,9 +194,9 @@ The existing webview will see the `destroy` event and will then create a new web
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+当此属性存在时, 当 ` webview ` 元素本身调整大小时, 将禁止 ` webview ` 内容调整大小。
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+这可以与 [` webContents. setSize `](web-contents.md#contentssetsizeoptions) 结合使用, 以便手动调整 web 内容的大小, 以响应窗口大小的更改。 与依赖 web 元素边界自动调整内容大小相比, 这可以使调整速度更快。
 
 ```javascript
 const {webContents} = require('electron')
@@ -223,9 +223,9 @@ win.on('resize', () => {
 
 ## 方法
 
-The `webview` tag has the following methods:
+`webview` 标签具有以下方法：
 
-**Note:** The webview element must be loaded before using the methods.
+** 注意: **使用方法之前 <0>webview</0> 元素必须已被加载。
 
 **例子**
 
