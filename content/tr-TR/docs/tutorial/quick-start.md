@@ -85,18 +85,18 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Bütün pencereler kapatıldığında çıkış yap.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // MacOS'de kullanıcı CMD + Q ile çıkana dek uygulamaların ve menü barlarının
+  // aktif kalmaya devam etmesi normaldir.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // MacOS'de dock'a tıklandıktan sonra eğer başka pencere yoksa
+  // yeni pencere açılması normaldir.
   if (win === null) {
     createWindow()
   }
@@ -165,19 +165,20 @@ If you downloaded Electron manually, you can also use the included binary to exe
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron uygulaman/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron uygulaman/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe uygulaman\
+
 ```
 
 `Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
