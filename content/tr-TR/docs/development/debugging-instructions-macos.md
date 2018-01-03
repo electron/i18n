@@ -15,7 +15,7 @@ Bir hata ayıklama oturumu başlatmak için, Terminal'i açın ve `lldb`'yi baş
 ```sh
 $ lldb ./out/D/Electron.app
 (lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
+Şuanki uygulama './out/D/Electron.app' (x86_64)'na ayarlandı.
 ```
 
 ### Kesme noktalarını ayarlama
