@@ -11,7 +11,7 @@ Use one of the following command line switches to enable debugging of the main p
 Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
 
 ```shell
-electron --inspect=5858 your/app
+electron --inspect=5858 uygu/laman
 ```
 
 ### `--inspect-brk=[port]`
