@@ -326,7 +326,7 @@
   <td>Marathi</td>
 </tr>
 <tr>
-  <td>Nona</td>
+  <td>nona</td>
   <td>Melayu</td>
 </tr>
 <tr>
@@ -370,8 +370,8 @@
   <td>Punjabi</td>
 </tr>
 <tr>
-  <td>pl</td>
   <td>Polish</td>
+  <td>polisi</td>
 </tr>
 <tr>
   <td>ps</td>
@@ -379,10 +379,10 @@
 </tr>
 <tr>
   <td>pt</td>
-  <td>Portuguese</td>
+  <td>Portugis</td>
 </tr>
 <tr>
-  <td>pt-BR</td>
+  <td>Portugis (Brasil)</td>
   <td>Portugis (Brasil)</td>
 </tr>
 <tr>
@@ -395,7 +395,7 @@
 </tr>
 <tr>
   <td>rm</td>
-  <td>Romansh</td>
+  <td>Rumawi</td>
 </tr>
 <tr>
   <td>ro</td>
@@ -411,27 +411,27 @@
 </tr>
 <tr>
   <td>sh</td>
-  <td>Serbo-Croatian</td>
+  <td>Serbo-Kroasia</td>
 </tr>
 <tr>
   <td>si</td>
-  <td>Sinhalese</td>
+  <td>Orang Sinhala</td>
 </tr>
 <tr>
   <td>sk</td>
-  <td>Slovak</td>
+  <td>Bahasa Slowakia</td>
 </tr>
 <tr>
   <td>sl</td>
-  <td>Slovenian</td>
+  <td>Bahasa Slovenia</td>
 </tr>
 <tr>
   <td>sn</td>
-  <td>Shona</td>
+  <td>Bahasa Shona</td>
 </tr>
 <tr>
-  <td>so</td>
-  <td>Somali</td>
+  <td>jadi</td>
+  <td>Orang Somalia</td>
 </tr>
 <tr>
   <td>sq</td>
@@ -439,11 +439,11 @@
 </tr>
 <tr>
   <td>sr</td>
-  <td>Serbia</td>
+  <td>Orang Serbia</td>
 </tr>
 <tr>
   <td>st</td>
-  <td>Sesotho</td>
+  <td>Orang Sesotho</td>
 </tr>
 <tr>
   <td>su</td>
