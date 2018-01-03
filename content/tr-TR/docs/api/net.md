@@ -8,7 +8,7 @@ The `net` module is a client-side API for issuing HTTP(S) requests. Node.js'nin 
 
 The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
+* Sistem proxy yapılandırmasının otomatik yönetimi, wpad protokolü ve proxy pac yapılandırma dosyalarının desteği.
 * Automatic tunneling of HTTPS requests.
 * Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
 * Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
