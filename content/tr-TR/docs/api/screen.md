@@ -25,7 +25,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+Harici ekranda bir pencere oluşturmanın bir diğer örneği:
 
 ```javascript
 const electron = require('electron')
