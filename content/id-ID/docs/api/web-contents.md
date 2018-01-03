@@ -275,29 +275,29 @@ Emitted ketika gagal untuk memverifikasi `sertifikat` untuk `url`.
 
 Penggunaannya sama dengan [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Acara : 'pilih-klien-sertifikat'
+#### Acara: 'pilih-klien-sertifikat'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code> url </ 0> URL</li>
-<li><code> certificateList </ 0>  <a href="structures/certificate.md"> Sertifikat [] </ 1></li>
-<li><code>callback` Fungsi 
+<li><code>url` URL
+* `certificateList` [Sertifikat[]](structures/certificate.md)
+* `callback` Fungsi 
   * `sertifikat` [Sertifikat](structures/certificate.md) - Harus berupa sertifikat dari daftar yang diberikan
 
 Emitted ketika sertifikat klien diminta.
 
 Penggunaannya sama dengan [the `pilih-sertifikat-klien` acara `app`](app.md#event-select-client-certificate).
 
-#### Acara : 'login'
+#### Acara: 'login'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code>permintaan` Obyek 
   * ` method </ 0>  String</li>
-<li><code> url </ 0> URL</li>
-<li><code> perujuk </ 0> URL</li>
+<li><code>url` URL
+  * ` perujuk </ 0> URL</li>
 </ul></li>
 <li><code>authInfo` Obyek 
     * ` isProxy </ 0>  Boolean</li>
