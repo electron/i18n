@@ -39,8 +39,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
   * `rincian` Obyek 
     * `id` Integer
     * `url` String
-    * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+    * `method` String
+    * `TipeSumberdaya` String
     * `timestamp` Duakali
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Fungsi 
@@ -65,8 +65,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
   * `rincian` Obyek 
     * `id` Integer
     * `url` String
-    * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+    * `method` String
+    * `TipeSumberdaya` String
     * `timestamp` Duakali
     * `permintaanHeaders` Objek
   * `callback` Fungsi 
@@ -84,8 +84,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `rincian` Obyek 
       * `id` Integer
       * `url` String
-      * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+      * `method` String
+      * `TipeSumberdaya` String
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
   
@@ -102,8 +102,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `rincian` Obyek 
       * ` id </ 0>  String</li>
 <li><code>url` String
-      * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+      * `method` String
+      * `TipeSumberdaya` String
       * `timestamp` Duakali
       * `statusGaris` String
       * `statusCode` Bilangan bulat
@@ -124,8 +124,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
       * `rincian` Obyek 
         * `id` Integer
         * `url` String
-        * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
         * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
@@ -142,8 +142,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
       * `rincian` Obyek 
         * ` id </ 0>  String</li>
 <li><code>url` String
-        * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `redirectURL` String
         * `statusCode` Bilangan bulat
@@ -161,8 +161,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
       * `rincian` Obyek 
         * `id` Integer
         * `url` String
-        * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
         * `dariCache` Boolean
@@ -179,8 +179,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
       * `rincian` Obyek 
         * `id` Integer
         * `url` String
-        * ` method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `dariCache` Boolean
         * `kesalahan` String - deskripsi kesalahan.
