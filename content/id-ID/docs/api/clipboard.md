@@ -80,17 +80,17 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <ul>
 <li><code> judul </ 0> String</li>
-<li><code> url </ 0>  String</li>
-</ul>
-
-<p>Mengembalikan objek yang berisi <code> judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
+<li><code>url` String
+              
+              Mengembalikan objek yang berisi ` judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
 
 <h3><code> clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
 
 <ul>
 <li><code> judul</ 0>  String</li>
-<li><code> url </ 0>  String</li>
-<li><code> ketik </ 0>  String (opsional)</li>
+<li><code>url` String</li> 
+              
+              * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Menulis <code> judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
