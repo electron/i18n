@@ -376,7 +376,7 @@ Bir dosya yolunun ilişkili ikonunu çeker.
 
 Sadece `app.getPath`'da tanımlanmış olan `name`'lere ait dosya yollarını baştan tanımlayabilirsiniz.
 
-Varsayılan olarak, internet sayfalarının çerezleri ve önbellekleri `userData` dizininde saklanır. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Varsayılan olarak, internet sayfalarının çerezleri ve önbellekleri `userData` dizininde saklanır. Eğer bu konumu değiştirmek istiyorsanız, `app` biriminin `ready` olayı yayılmadan önce `userData` dosya yolunun baştan tanımlanması mecburidir.
 
 ### `app.getVersion()
 `
