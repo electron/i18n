@@ -150,17 +150,17 @@ Use el mismo formato como los sugeridos arriba, pero añada las siguientes notas
 
 Por favor notifique cualquier problema que encuentre en ella.
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+Esta versión es publicada para [npm] https://www.npmjs.com/package/electron) bajo la etiqueta `beta` y puede ser instalada via `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## Editar el borrador de la publicación
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Wait for all builds to pass before proceeding.
-6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
+1. Visite [la página de publicación](https://github.com/electron/electron/releases) y verá un nuevo borrador de publicación con notas de publicación en el lugar guardado.
+2. Edite la publicación y añada notas de publicación.
+3. Deseleccione la casilla de `prerelease` si está publicando una versión estable; dejela seleccionada si es una versión beta.
+4. Haga click en 'Salvar borrador'. **N haga click en 'publicar versión'!**
+5. Espero por todas las estructuras por pasar por los procedimientos.
+6. Puede correr el `npm run release --validateRelease` para verificar que todos los archivos requeridos pueden ser creados para la publicación.
 
 ## Merge temporary branch
 
