@@ -311,19 +311,19 @@ Linux'ta görünebilen ilk pencereye odaklanır. macOS'ta uygulamayı aktif uygu
 
 ### `app.hide()` *macOS*
 
-Tüm uygulama pencerelerini simge durumuna küçültmeksizin gizle.
+Tüm uygulama pencerelerini simge durumuna küçültmeden gizler.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak odaklanmaz.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+`String` - olarak yürürlükteki uygulama dizini dönütünü verir.
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` Dizgi
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
@@ -369,7 +369,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` Dizgi
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
