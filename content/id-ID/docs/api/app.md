@@ -448,31 +448,25 @@ Mengembalikan `Boolean` - Apakah panggilan berhasil.
 
 Metode ini memeriksa apakah saat ini dapat dieksekusi sebagai pengendali default untuk sebuah protokol (alias skema URI). Jika demikian, itu akan menghapus aplikasi sebagai penangan default.
 
-### `` app.isDefaultProtocolClient (protokol [, path, args]) </ 0>  <em> macos </ 1>  <em> Windows </ 1></h3>
+### `app.isDefaultProtocolClient(protokol[, path, args])` *macOS* *Windows*
 
-<ul>
-<li><code> protocol </ 0>  String - Nama protokol Anda, tanpa <code> : // </ 0> .</li>
-<li><code> path </ 0>  String (opsional) <em> Windows </ 1> - Default ke <code> process.execPath </ 0></li>
-<li><code> args </ 0>  String [] (opsional) <em> Windows </ 1> - Default ke array kosong</li>
-</ul>
+* `protocol` String - Nama protokol Anda, tanpa `://`.
+* `path` String (opsional) *Windows* - Default ke `process.execPath`
+* `args` String[] (opsional) *Windows* - Default ke array kosong
 
-<p>Mengembalikan <code> Boolean </ 0></p>
+Mengembalikan `Boolean`
 
-<p>Metode ini memeriksa apakah executable saat ini adalah default handler untuk sebuah protokol (alias skema URI). Jika demikian, itu akan kembali benar. Jika tidak, itu akan kembali salah.</p>
+Metode ini memeriksa apakah executable saat ini adalah default handler untuk sebuah protokol (alias skema URI). Jika demikian, itu akan kembali benar. Jika tidak, itu akan kembali salah.
 
-<p><strong> Catatan: </ 0> Pada macos , Anda dapat menggunakan metode ini untuk memeriksa apakah aplikasi telah terdaftar sebagai pengendali protokol default untuk sebuah protokol. Anda juga dapat memverifikasi ini dengan memeriksa <code> ~ / Library / Preferences / com.apple.LaunchServices.plist </ 0> pada
- mesin macos . Silahkan lihat
- <a href="https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme"> dokumentasi Apple </ 0> untuk rincian.</p>
+**Catatan:** Pada macOS, Anda dapat menggunakan metode ini untuk memeriksa apakah aplikasi telah terdaftar sebagai pengendali protokol default untuk sebuah protokol. Anda juga dapat memverifikasi ini dengan memeriksa `~/Library/Preferences/com.apple.LaunchServices.plist` pada mesin macOS. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) untuk rincian.
 
-<p>The API menggunakan Windows Registry dan LSCopyDefaultHandlerForURLScheme internal.</p>
+The API menggunakan Windows Registry dan LSCopyDefaultHandlerForURLScheme internal.
 
-<h3><code> app.setUserTasks (tugas) </ 0>  <em> Windows </ 1></h3>
+### `app.setUserTasks(tugas)` *Windows*
 
-<ul>
-<li><code> tugas </ 0>  <a href="structures/task.md"> Tugas [] </ 1> - Array dari <code> Tugas </ 0> objek</li>
-</ul>
+* `tugas` [ Tugas[] ](structures/task.md) - Array dari `Tugas` objek
 
-<p>Tambahkan <code> tugas </ 0> ke kategori <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks"> Tugas </ 1> JumpList di Windows .</p>
+Tambahkan `` tugas </ 0> ke kategori <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks"> Tugas </ 1> JumpList di Windows .</p>
 
 <p><code> tugas </ 0> adalah berbagai dari <a href="structures/task.md"><code> Tugas </ 1> benda.</p>
 
