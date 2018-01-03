@@ -1,8 +1,8 @@
 # Commandes Chromes Supportées
 
-> Les paramètres de ligne de commande pris en charge par Electron.
+> Paramètres de ligne de commande pris en charge par Electron.
 
-Vous pouvez utiliser [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) pour ajouter à votre script principal de votre application avant que l'événement [ready](app.md#event-ready) du module [app](app.md) soit émis :
+Vous pouvez utiliser [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) pour l'ajouter au script principal de votre application avant que l'événement [ready](app.md#event-ready) du module [app](app.md) soit émis :
 
 ```javascript
 const {app} = require('electron')
@@ -27,7 +27,7 @@ Désactive les protocoles HTTP/2 et SPDY/3.1.
 
 ## --inspect=`port` et --inspect-brk=`port`
 
-Les indicateurs relatifs au débogage, reportez-vous au guide [Déboguer le processus principal](../tutorial/debugging-main-process.md) pour plus de détails.
+Indicateurs relatifs au débogage, reportez-vous au guide [Déboguer le processus principal](../tutorial/debugging-main-process.md) pour plus de détails.
 
 ## --remote-debugging-port=`port`
 
@@ -39,7 +39,7 @@ Force l'espace disque maximum à utiliser par le cache disque, en octets.
 
 ## --js-flags=`flags`
 
-Spécifie les indicateurs a transmettre au moteur de NodeJS. Il doit être indiqué lors du démarrage d'Electron si vous souhaitez activer les `flags` dans le processus principal.
+Spécifie les indicateurs à transmettre au moteur de NodeJS. Cela doit être indiqué lors du démarrage d'Electron, si vous souhaitez activer les `flags` dans le processus principal.
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" votre-app
@@ -49,11 +49,11 @@ Voir la [documentation de Node](https://nodejs.org/api/cli.html) ou exécutez `n
 
 ## --proxy-server=`address:port`
 
-Utiliser le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket.
+Utilise le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket.
 
 ## --proxy-bypass-list=`hosts`
 
-Demande à Electron de contourner le serveur proxy pour la liste d'hôtes séparées par des semi-colons. Cet indicateurs prend effet uniquement si utilisé conjointement avec `--proxy-server`.
+Demande à Electron de contourner le serveur proxy pour la liste d'hôtes séparées par des points-virgules (;). Cet indicateur prend effet uniquement s'il est utilisé avec `--proxy-server`.
 
 Par exemple :
 
