@@ -129,10 +129,10 @@ pages:
     title: مساحة المستخدم
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: ديفترون أداة مفتوحة مصدر لمساعدتك على فحص ومراقبة وتصحيح تطبيق إلكترون الخاص بك هذه اﻷداة مبنية على "أدوات المطور كروم" المذهلة.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: سبيكترون إطار مفتوح المصدر يسهل كتابة اختبارات التكامل الخاصة بتطبيق إلكترون، وهو مبني بالاتماد على ChromeDriver و WebDriverIO.
 _404:
   page_not_found: الصفحة غير موجودة.
   if_this_is_an_error: إذا كان هذا خطأ
