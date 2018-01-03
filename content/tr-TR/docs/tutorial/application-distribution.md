@@ -1,6 +1,6 @@
 # Uygulama Dağıtımı
 
-Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuilt binaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör ` app ` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde ` elektron / ` ile altında gösterilir.
+Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuilt binaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör `app` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde ` elektron / ` ile altında gösterilir.
 
 MacOS üzerinde:
 
@@ -50,11 +50,11 @@ Uygulamanızı Electron'da topladıktan sonra, Electron'u kullanıcılara dağı
 
 ### Windows
 
-` electron.exe ` adını istediğiniz herhangi bir adla yeniden adlandırabilir simgesini ve diğer simgelerini düzenleyebilirsiniz, araçlar hakkında bilgi [ rcedit ](https://github.com/atom/rcedit).
+`electron.exe` adını istediğiniz herhangi bir adla yeniden adlandırabilir simgesini ve diğer simgelerini düzenleyebilirsiniz, araçlar hakkında bilgi [rcedit](https://github.com/atom/rcedit).
 
 ### macOS
 
-` Electron.app ` 'yi istediğiniz herhangi bir adla yeniden adlandırabilir ayrıca yeniden adlandırma alanındaki ` CFBundleDisplayName `, ` CFBundleIdentifier ` ve ` CFBundleName ` dosyalar aşağıdadır:
+`Electron.app` 'yi istediğiniz herhangi bir adla yeniden adlandırabilir ayrıca yeniden adlandırma alanındaki `CFBundleDisplayName`, `CFBundleIdentifier` ve `CFBundleName` dosyalar aşağıdadır:
 
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
