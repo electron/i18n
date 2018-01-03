@@ -6,21 +6,21 @@ Web sayfasında yeni bir pencere açmak için `window.open` çağırıldığınd
 
 Proxy, geleneksel web sayfalarıyla uyumlu olması için uygulanan sınırlı standart işlevselliğe sahiptir. Yeni pencerenin tam kontrolü için doğrudan bir `BrowserWindow` oluşturmanız gerekmektedir.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçeneklerini miras alır. Miras alınan seçeneklerin üstüne yazmak için `features` karakter dizisini kullanabilirsiniz.
 
 ### `window.open(url[, frameName][, features])`
 
 * `url` Dize
-* `frameName` String (optional)
-* `features` String (optional)
+* `frameName` String (opsiyonel)
+* `features` String (opsiyonel)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+[`BrowserWindowProxy`](browser-window-proxy.md) Döndürür - Yeni bir pencere oluşturur ve `BrowserWindowProxy` sınıfının bir örneğini döndürür.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+`features` karakter dizisi standart tarayıcının biçimi izler, fakat her bir özellik `BrowserWindow` seçeneğinin bir alanı olmalıdır.
 
-**Notes:**
+**Notlar:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
+* Ana pencerede devre dışı bırakılmış ise, açılan `window`'de Node entegrasyonu devre dışı bırakılacaktır.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
 * JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
