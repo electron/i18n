@@ -127,19 +127,19 @@ Finalmente el archivo `index.html` es la página web tu quieres mostrar:
 
 ## Ejecuta tu aplicación
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Una vez hayas creado tus `main.js`, `index.html`, y `package.json` archivos iniciales, probablemente querrás intentar ejecutar tu aplicación localmente para probarla y asegurarte que funciona como esperado.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) es un módulo de `npm` que contiene versiones pre-compiladas de Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Si tú lo has instalado globalmente con `npm`, entonces solo necesitas ejecutar lo siguiente en el directorio del código de tu aplicación:
 
 ```sh
-Electron .
+electron .
 ```
 
-If you've installed it locally, then run:
+Si lo has instalado localmente, entonces ejecuta:
 
 #### macOS / Linux
 
