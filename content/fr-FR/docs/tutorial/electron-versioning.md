@@ -16,13 +16,13 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Les versions d'Electron antérieure à la version *< 2.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. Bien que pratiques pour les développeurs pour implémenter des fonctionnalités, cela créer des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longue et la stabilité est un résultat très attendu. Il y a de grandes chances d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
+Les versions d'Electron antérieure à la version *< 2.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. Bien que pratique pour les développeurs qui fusionnent des fonctionnalités, cela crée des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longs et la stabilité est un résultat très attendu. Il y a un grand risque d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
 
 Voici un exemple de la stratégie 1.x :
 
 ![](../images/versioning-sketch-0.png)
 
-Une application développée avec la `1.8.1` ne peux pas avoir les résolutions de bugs de la `1.8.3` sans absorber la fonctionnalité de la `1.8.2`, ou faire un rétroportage de la résolution tout en maintenant une nouvelle ligne de versionnage.
+Une application développée avec la `1.8.1` ne peut pas avoir les corrections d'anomalies de la `1.8.3` sans inclure la fonctionnalité de la `1.8.2`, ou faire un rétroportage de la correction tout en maintenant une nouvelle ligne de versionnage.
 
 ## Version 2.0 et supérieur
 
