@@ -179,10 +179,10 @@
 </tr>
 <tr>
   <td>ga</td>
-  <td>Irish</td>
+  <td>orang Irlandia</td>
 </tr>
 <tr>
-  <td>gd</td>
+  <td>gambar gaelik</td>
   <td>Scots Gaelic</td>
 </tr>
 <tr>
@@ -210,8 +210,8 @@
   <td>Ibrani</td>
 </tr>
 <tr>
-  <td>hi</td>
-  <td>Tidak</td>
+  <td>Hai</td>
+  <td>Hindi</td>
 </tr>
 <tr>
   <td>jam</td>
@@ -231,7 +231,7 @@
 </tr>
 <tr>
   <td>id</td>
-  <td>bahasa Indonesia</td>
+  <td>Bahasa Indonesia</td>
 </tr>
 <tr>
   <td>sedang</td>
