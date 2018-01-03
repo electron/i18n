@@ -441,8 +441,8 @@ Prints `webview` 's web page. Same as `webContents.print ([options])`.
   * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
   * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
 * `callback` Fungsi 
-  * ` error </ 0> Kesalahan</li>
-<li><code>data` Buffer
+  * `error` Kesalahan
+  * `data` Buffer
 
 Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
 
@@ -716,8 +716,8 @@ Dipecat saat proses gpu jatuh.
 
 Pengembalian:
 
-* ` nama </ 0>  String</li>
-<li><code>Versi` String
+* `nama` String
+* `Versi` String
 
 Dibunyikan ketika proses plugin telah jatuh.
 
