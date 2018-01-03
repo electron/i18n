@@ -23,7 +23,7 @@ Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçenekler
 * Ana pencerede devre dışı bırakılmış ise, açılan `window`'de Node entegrasyonu devre dışı bırakılacaktır.
 * Eğer Ortam izolasyonu, ana pencerede etkinleştirilmiş ise, açılan `window`'da daima etkinleştirilir.
 * Eğer JavaScript, ana pencerede devre dışı bırakılmış ise, açılan `window`'da daima devre dışı bırakılır.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* `features`'ta verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmaz) `additionalFeatures` argümanı içindeki kayıtlı `webContent`'in `new-windows` olay işleyicisine geçirilir.
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
@@ -34,7 +34,7 @@ Sends a message to the parent window with the specified origin or `*` for no ori
 
 ### Using Chrome's `window.open()` implementation
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Chrome'un dahili `window.open()` uygulamasını kullanmak istiyorsanız, `webPreferences` seçenekler nesnesinde `nativeWindowOpen` öğesini `true` olarak ayarlayın.
 
 Yerel `window.open()`, açılan pencerelere eşzamanlı erişime izin verir; Bir iletişim kutusu veya tercihler penceresi açmanız gerekiyorsa uygun bir seçim.
 
@@ -44,7 +44,7 @@ Bu seçenek aynı zamanda `<webview>` etiketlerinde de ayarlanabilir:
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+`BrowserWindow`'un oluşturulması, `WebContents`'in `new-window` etkinliği aracılığıyla özelleştirilebilir.
 
 ```javascript
 // main process
