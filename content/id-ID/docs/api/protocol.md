@@ -52,13 +52,13 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
 * `skema` String[] - Skema kustom untuk didaftarkan untuk menangani pekerja layanan.
 ### `protocol.registerFileProtocol (skema, handler [, completion])`
 
-* ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+* `skema` String
+* `handler` Fungsi 
   * `permintaan` Obyek 
     * `url` String
     * `pengarah` String
-    * ` method </ 0>  String</li>
-<li><code>uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+    * `method` String
+    * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
       * `filePath` String (opsional)
@@ -76,13 +76,13 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
       
       ### `protocol.registerBufferProtocol (skema, handler [, completion])`
       
-      * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+      * `skema` String
+      * `handler` Fungsi 
         * `permintaan` Obyek 
           * `url` String
           * `pengarah` String
-          * ` method </ 0>  String</li>
-<li><code>uploadData` [UploadData[]](structures/upload-data.md)
+          * `method` String
+          * `uploadData` [UploadData[]](structures/upload-data.md)
         * `callback` Fungsi 
           * `penyangga` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsional)
       * `penyelesaian` Fungsi (opsional) 
@@ -103,13 +103,13 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
       
       ### `protocol.registerStringProtocol (skema, handler [, completion])`
       
-      * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+      * `skema` String
+      * `handler` Fungsi 
         * `permintaan` Obyek 
           * `url` String
           * `pengarah` String
-          * ` method </ 0>  String</li>
-<li><code>uploadData` [UploadData[]](structures/upload-data.md)
+          * `method` String
+          * `uploadData` [UploadData[]](structures/upload-data.md)
         * `callback` Fungsi 
           * `data` String (opsional)
       * `penyelesaian` Fungsi (opsional) 
@@ -127,13 +127,13 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
             * `permintaan` Obyek 
               * `url` String
               * `pengarah` String
-              * ` method </ 0>  String</li>
-<li><code>uploadData` [UploadData[]](structures/upload-data.md)
+              * `method` String
+              * `uploadData` [UploadData[]](structures/upload-data.md)
             * `callback` Fungsi 
               * `redirectRequest` Obyek 
                 * `url` String
-                * ` method </ 0>  String</li>
-<li><code>sesi` Objek (opsional)
+                * `method` String
+                * `sesi` Objek (opsional)
                 * `uploadData` Objek (opsional) 
                   * `contentType` String - jenis konten MIME.
                   * `data` String - Konten yang akan dikirim.
@@ -151,8 +151,8 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
               
               ### `protocol.uninterceptProtocol (skema [, penyelesaian])`
               
-              * ` skema </ 0>  String</li>
-<li><code>penyelesaian` Fungsi (opsional) 
+              * `skema` String
+              * `penyelesaian` Fungsi (opsional) 
                 * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -160,8 +160,8 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <p>Unregisters protokol kustom <code>skema`.</p> 
                   ### `protocol.isProtocolHandled(scheme, panggilan kembali)`
                   
-                  * ` skema </ 0>  String</li>
-<li><code>callback` Fungsi 
+                  * `skema` String
+                  * `callback` Fungsi 
                     * ` error </ 0> Kesalahan</li>
 </ul></li>
 </ul>
@@ -169,13 +169,13 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <p>The<code>callback ` akan dipanggil dengan boolean yang menunjukkan apakah ada sudah menjadi handler untuk skema ``.</p> 
                       ### `protocol.interceptFileProtocol(skema, handler[,completion])`
                       
-                      * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+                      * `skema` String
+                      * `handler` Fungsi 
                         * `permintaan` Obyek 
                           * `url` String
                           * `pengarah` String
-                          * ` method </ 0>  String</li>
-<li><code>uploadData` [UploadData[]](structures/upload-data.md)
+                          * `method` String
+                          * `uploadData` [UploadData[]](structures/upload-data.md)
                         * `callback` Fungsi 
                           * `fullPath` String
                       * `penyelesaian` Fungsi (opsional) 
@@ -186,13 +186,13 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <p>Sisipkan <code>skema` dan gunakan ` handler ` sebagai penangan baru protokol yang mengirimkan file sebagai tanggapan.</p> 
                           ### `protocol.interceptFileProtocol(skema, handler[,completion])`
                           
-                          * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+                          * `skema` String
+                          * `handler` Fungsi 
                             * `permintaan` Obyek 
                               * `url` String
                               * `pengarah` String
-                              * ` method </ 0>  String</li>
-<li><code>uploadData` [UploadData[]](structures/upload-data.md)
+                              * `method` String
+                              * `uploadData` [UploadData[]](structures/upload-data.md)
                             * `callback` Fungsi 
                               * ` rtf </ 0> String (opsional)</li>
 </ul></li>
@@ -205,13 +205,13 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <p>Sisipkan <code>skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.</p> 
                                   ### `protocol.interceptBufferProtocol(skema, handler[, completion])`
                                   
-                                  * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+                                  * `skema` String
+                                  * `handler` Fungsi 
                                     * `permintaan` Obyek 
                                       * `url` String
                                       * `pengarah` String
-                                      * ` method </ 0>  String</li>
-<li><code>uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+                                      * `method` String
+                                      * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
                                         * `penyangga` Buffer (opsional)
@@ -223,19 +223,19 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
 <p>Sisipkan <code>skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.</p> 
                                         ### `protocol.interceptHttpProtocol (skema, handler [, completion])`
                                         
-                                        * ` skema </ 0>  String</li>
-<li><code>handler` Fungsi 
+                                        * `skema` String
+                                        * `handler` Fungsi 
                                           * `permintaan` Obyek 
                                             * `url` String
                                             * `pengarah` String
-                                            * ` method </ 0>  String</li>
-<li><code>uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+                                            * `method` String
+                                            * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>panggilan balik` Fungsi 
                                               * `redirectRequest` Sasaran 
                                                 * `url` String
-                                                * ` method </ 0>  String</li>
-<li><code>sesi` Objek (opsional)
+                                                * `method` String
+                                                * `sesi` Objek (opsional)
                                                 * `uploadData` Objek (pilihan) 
                                                   * `contentType` String - jenis konten MIME.
                                                   * `data` String - Konten yang akan dikirim.
