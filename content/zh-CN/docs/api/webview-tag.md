@@ -493,7 +493,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 渲染进程可以通过 `ipcRenderer` 模块去监听 `channel` 事件，从而处理发过来的这些信息
 
-See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+示例请进传送门： [webContents.send](web-contents.md#webcontentssendchannel-args) 
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -523,9 +523,9 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## DOM events
+## DOM 事件
 
-The following DOM events are available to the `webview` tag:
+`webview` 标签具有以下有效的 DOM 事件：
 
 ### Event: 'load-commit'
 
@@ -534,7 +534,7 @@ The following DOM events are available to the `webview` tag:
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+发生load 加载时触发。 这包括当前文档中的导航以及子框架文档级加载(subframe document-level loads)，但不包括异步资源加载。
 
 ### Event: 'did-finish-load'
 
