@@ -334,10 +334,10 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
   * Windows'ta `%APPDATA%`
   * Linux'ta `$XDG_CONFIG_HOME` veya `~/.config`
   * macOS'ta `~/Library/Application Support`
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
+* `userData` Uygulamanızın , varsayılan olarak uygulamanızın ismiyle ilişkilendirilen `appData` dizgini olan, konfigürasyon dosyalarını saklayan dizgin.
+* `temp` Geçici dizgin.
+* `exe` Yürürlükteki yürütülebilir dosya.
+* `module` - `libchromiumcontent` kütüphanesi.
 * `desktop` The current user's Desktop directory.
 * `documents` Directory for a user's "My Documents".
 * `downloads` Directory for a user's downloads.
