@@ -79,7 +79,7 @@ Assigning `src` its own value will reload the current page.
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-When this attribute is present the `webview` container will automatically resize within the bounds specified by the attributes `minwidth`, `minheight`, `maxwidth`, and `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
+当此属性存在时, ` webview ` 容器将在属性指定的范围内自动调整大小, 其范围为 ` minwidth `、` minheight `、` maxwidth ` 和 ` maxheight `。 除非启用 ` autosize `, 否则这些约束不会影响 ` webview `。 当启用 ` autosize ` 时, ` webview ` 容器的大小不能小于最小值或大于最大。
 
 ### `nodeintegration`
 
