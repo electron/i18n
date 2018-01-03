@@ -31,25 +31,25 @@ Il y a plusieurs changements majeurs par rapport à notre stratégie 1.x décrit
 1. Utilisation stricte de semver
 2. Introduction de semver compatible avec les tags `-beta`
 3. Introduction des [messages de commit conventionnels](https://conventionalcommits.org/)
-4. Définition clair des branches de stabilisation
-5. La branche `master` est sans version; seulement les branches de stabilités contiennent des informations de versionnage
+4. Définition claire des branches de stabilisation
+5. La branche `master` est sans version ; seules les branches de stabilité contiennent des informations de versionnage
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Nous expliquerons en détail comment les branches de git fonctionnent, comment le tagging npm fonctionne, ce que les développeurs devraient d'attendre à voir, et comment l'on peut rapporter les changements antérieurement.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Dès la version 2.0, Electron va appliquer semver.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Ci-dessous, une table explicitant les types de changement avec leur catégorie correspondante semver (par exemple Majeur, Mineur, Correctif).
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
+* **Incréments de version Majeure** 
+    * mises à jour de version Chromium
+    * mises à jour de version majeure node.js
+    * changement Electron qui altère l'API
+* **Incréments de version mineure** 
+    * mises à jour de version mineure node.js
+    * changement Electron n'altérant pas l'API
+* **Incréments de version de Correctifs** 
     * node.js patch version updates
     * fix-related chromium patches
     * electron bug fixes
