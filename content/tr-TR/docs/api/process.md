@@ -100,15 +100,15 @@ Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 * `privateBytes` Tamsayı - Diğer işlemlerle paylaşılmayan bellek miktarı, JS yığını ya da HTML içeriği gibi.
 * `sharedBytes` Tamsayı - İşlemler arasında paylaşılan bellek miktarı, genel olarak Elektron kodunun kendisi tarafından tüketilen bellek
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
+Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm istatistiklerin Kilobayt olarak raporlandığına dikkat edin.
 
 ### `process.getSystemMemoryInfo()`
 
-Returns `Object`:
+`Object`'e döner:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `total` Tamsayı - Sistemde kullanılabilir durumda olan fiziksel belleğin Kilobayt olarak toplam miktarı.
+* `free` Tamsayı - Uygulamalar ve disk önbelleği tarafından kullanılmayan belleğin toplam miktarı.
+* `swapTotal` Tamsayı - Sistemde kullanılabilir durumda olan takas belleğinin Kilobayt olarak toplam miktarı. *Windows* *Linux*
 * `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
 
 Tüm sistem hakkında bellek kullanım istatistiklerini veren bir nesneyi döndürür. Tüm istatistiklerin kilobayt cinsinden rapor edildiğini not et.
