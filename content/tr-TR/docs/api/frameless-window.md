@@ -89,7 +89,7 @@ Tüm pencereyi sürüklenebilir yapmak için, `-webkit-app-region: drag`'i `body
 </body>&lt;/body&gt;
 </code></pre>
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+Ve tüm pencereyi sürüklenebilir yapmışsanız, düğmeleri sürüklenemez olarak işaretlemeniz gerektiğini unutmayın, aksi halde kullanıcıların onlara tıklaması imkansız olacaktır:
 
 ```css
 button {
@@ -112,4 +112,4 @@ Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız
 
 ## Kaynak menüsü
 
-Bazı platformlarda, sürüklenebilir alan, istemci olmayan bir çerçeve olarak değerlendirilir; bu nedenle sağ tıkladığınızda bir sistem menüsü açılır. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+Bazı platformlarda, sürüklenebilir alan, istemci olmayan bir çerçeve olarak değerlendirilir; bu nedenle sağ tıkladığınızda bir sistem menüsü açılır. Tüm platformlarda doğru davranan bir bağlam menüsü yapmak için sürüklenebilir alanlarda hiçbir şekilde bir özel bağlam menüsü kullanmamalısınız.
