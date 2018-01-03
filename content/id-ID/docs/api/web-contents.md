@@ -933,7 +933,7 @@ app.on('ready', () => {
   * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Posisikan tampilan di layar (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: ``)
-  * `viewSize` [Ukuran](structures/size.md) - Menetapkan ukuran tampilan yang ditiru (berarti kosong tidak menggantikan)
+  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `fitToView` Boolean - Apakah pandangan yang ditiru harus diperkecil jika diperlukan agar sesuai dengan ruang yang tersedia (default: `false`)
   * `offset` [Point](structures/point.md) - Offset tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: `{x: 0, y: 0}`)
   * `skala` Float - Skala tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: ` 1 `)
