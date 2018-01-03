@@ -778,7 +778,7 @@ Fired when the gpu process is crashed.
 
 Dönüşler:
 
-* `name` String
+* `name` Dizgi
 * `versiyon` String
 
 Fired when a plugin process is crashed.
