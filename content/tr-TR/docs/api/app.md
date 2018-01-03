@@ -323,9 +323,9 @@ Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak od
 
 ### `app.getPath(name)`
 
-* `name` Dizgi
+* `name` String
 
-`String` - olarak `name` ile ilişkilendirilmiş bir dosya veya dizgine yönelmiş yol dönütünü verir. Hata durumunda bir `Error` dönütü verilir.
+`String` - olarak `name` ile ilişkilendirilmiş bir dosya veya dizgine yönelmiş yol dönütünü verir. Hata durumunda bir `Error` dönütü verir.
 
 Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 
@@ -372,11 +372,11 @@ Bir dosya yolunun ilişkili ikonunu çeker.
 * `name` Dizgi
 * `path` Dizgi
 
-`name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+`name` ile ilişkilendirilen özel bir dizine veya dosyaya giden dosya yolunu (`path`) baştan tanımlar. Eğer dosya yolu varolmayan bir dizine yönlendirilirse, belirtilen dizin bu metodla oluşturulur. Hata durumunda bir `Error` dönütü verir.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Sadece `app.getPath`'da tanımlanmış olan `name`'lere ait dosya yollarını baştan tanımlayabilirsiniz.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Varsayılan olarak, internet sayfalarının çerezleri ve önbellekleri `userData` dizininde saklanır. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()
 `
