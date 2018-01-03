@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Pencerenin sol üst köşesinde gezinirken, görüntülenen özel çekilmiş yakın, minyatür ve tam ekran düğmelerini kullanır. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Pencerenin sol üst köşesinde gezinirken, görüntülenen özel çekilmiş yakın, minyatür ve tam ekran düğmelerini kullanır. Bu özel düğmeler standart pencere araç çubuğu düğmeleriyle ortaya çıkan fare hareketi sorunlarını önler. Bu seçenek yalnızca çerçevesiz pencereler için geçerlidir.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -50,7 +50,7 @@ win.show()
 
 ## Pencere şeffaflığı
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+`şeffaf` seçeneğini `true` olarak ayarlayarak, çerçevesiz şeffaf pencere de yapabilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -60,8 +60,8 @@ win.show()
 
 ### Kısıtlamalar
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
+* Şeffaf alan üzerine tıklayamazsınız. Bunu çözmek için pencere şeklini ayarlayan bir API tanıtacağız, ayrıntılar için bkz. [sorunlarımız](https://github.com/electron/electron/issues/1335).
+* Şeffaf pencereler yeniden boyutlandırılamaz. `yeniden boyutlandırılabilir` ayarını `true` olarak ayarlamak, şeffaf pencerenin bazı platformlarda çalışmanın durmasına sebep olacaktır.
 * The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
 * GPU'yu devre dışı bırakmak ve ARGB'ın şeffaf pencere açmasına izin vermek için Linux kullanıcıları komut satırına `--enable-transparent-visuals --disable-gpu ` değerini koymalıdırlar; bunun nedeni bir akış hatası olan [Alfa kanalı, Linux'daki bazı NVidia sürücüleri üzerinde çalışmaz](https://code.google.com/p/chromium/issues/detail?id=369209).
