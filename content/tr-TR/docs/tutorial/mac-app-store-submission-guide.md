@@ -12,7 +12,7 @@ Aşağıdaki adımlar, uygulamanızı Mac App Store'a göndermenin basit bir yol
 
 To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
 
-### Get Team ID
+### Takım ID'sini al
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
@@ -77,16 +77,16 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+`TEAM_ID` kısmını takım ID'nizle `your.bundle.id` kısmını ise Bundle ID'nizle değiştirmeniz gerekmektedir.
 
 And then sign your app with the following script:
 
 ```sh
 #!/bin/bash
 
-# Name of your app.
-APP="YourApp"
-# The path of your app to sign.
+# Uygulamanızın Adı
+APP="Uygulama"
+# İmzalamak için uygulamanızın dosya dizini
 APP_PATH="/path/to/YourApp.app"
 # The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -127,7 +127,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
 
 ```sh
-electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+electron-osx-sign Uygulaman.app Uygulaman.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
 Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
@@ -201,7 +201,7 @@ Daha fazla bilgi için [Enabling User-Selected File Access documentation](https:
 
 This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
 
-#### Workaround
+#### Geçici çözümler
 
 `shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
