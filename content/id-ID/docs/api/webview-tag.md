@@ -264,7 +264,7 @@ Menghapus sejarah navigasi.
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+Membuat halaman baru kembali.
 
 ### `<webview>.goForward()`
 
