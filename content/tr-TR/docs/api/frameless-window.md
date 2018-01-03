@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Sonuçlar trafik ışığı düğmelerinin pencere kenarından biraz daha yerleştirildiği alternatif bir görünüme sahip gizli bir başlık çubuğundadır.
+Sonuçlar trafik ışığı düğmelerinin pencere kenarından biraz daha yerleştirildiği, alternatif bir görünüme sahip, gizli bir başlık çubuğundadır.
 
 ```javascript
 const {BrowserWindow} = require('electron')
