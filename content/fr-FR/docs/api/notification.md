@@ -35,9 +35,9 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `silent` Boolean - (facultatif) Émet ou non le signal sonore d'une notification lors de l'affichage de la notification
   * `icon` [NativeImage](native-image.md) - (facultatif) Icone à utiliser dans la notification
   * `hasReply` Boolean - (facultatif) Ajoute ou non une ligne de réponse en option à la notification. *macOS*
-  * `replyPlaceholder` String - (facultatif) Le placeholder à écrire dans le champ de saisie de réponse. *macOS*
+  * `replyPlaceholder` String - (facultatif) Le texte d'exemple à afficher dans le champ de saisie de réponse. *macOS*
   * `sound` String - (facultatif) Le nom du fichier son à jouer lorsque la notification est affichée. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (facultatif) Les actions à ajouter à la notification. Veuillez retrouver les actions disponibles et limitations dans la documentation de `NotificationAction` *macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (facultatif) Les actions à ajouter à la notification. Vous trouverez les actions disponibles et les limitations dans la documentation de `NotificationAction` *macOS*
 
 ### Événements d’instance
 
@@ -47,45 +47,45 @@ Les objets créés avec `new Notification` émettent les événements suivants :
 
 #### Événement : 'show'
 
-Retourne :
+Renvoie :
 
-* `event` Event
+* `event` Événement
 
-Émis lorsque la notification est affiché à l'utilisateur, notez que cet événement peut être émis plusieurs fois du fait qu'une notification peut être affiché plusieurs fois par le biais de la méthode `show()`.
+Émis lorsque la notification est affiché à l'utilisateur, notez que cet événement peut être émis plusieurs fois du fait qu'une notification peut être affichée plusieurs fois par le biais de la méthode `show()`.
 
 #### Événement : 'click'
 
-Retourne :
+Renvoie :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsque l'utilisateur clique sur la notification.
 
 #### Événement : 'close'
 
-Retourne :
+Renvoie :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
-Cette événement ne garanti pas d'être émis dans tous les cas où la notification est fermée.
+Cet événement ne garantit pas d'être émis dans tous les cas de fermeture de la notification.
 
 #### Événement : 'reply' *macOS*
 
-Retourne :
+Renvoie :
 
-* `event` Event
-* `reply` String - La chaîne de caractère que l'utilisateur a écrit dans le champ de réponse
+* `event` Événement
+* `reply` String - La chaîne de caractères que l'utilisateur a écrite dans le champ de réponse
 
 Émis lorsque l'utilisateur clique sur le bouton "Reply" sur une notification avec `hasReply: true`.
 
 #### Événement : 'action' *macOS*
 
-Retourne :
+Renvoie :
 
-* `event` Event
-* `index` Number - L'index de l'action qui a été activée
+* `event` Événement
+* `index` Number - L'indice de l'action qui a été activée
 
 ### Méthodes d’instance
 
