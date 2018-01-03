@@ -61,19 +61,19 @@ Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 // combinations
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// Aynı callback için birden fazla komut belirle
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-  console.log('command k or control k')
+  console.log('command k veya control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // return false vererek olayı durdurma ve birikmesini önlemek
   return false
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
+// gmail şeklindeki prosedürler
+Mousetrap.bind('g i', () => { console.log('gelen kutusuna git') })
+Mousetrap.bind('* a', () => { console.log('hepsini seç') })
 
-// konami code!
+// konami kodu!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
