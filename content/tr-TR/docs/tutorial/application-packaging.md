@@ -4,9 +4,9 @@ Windows'ta uzun yol adları etrafındaki [issues](https://github.com/joyent/node
 
 ## `asar` Arşivi Oluşturuluyor
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Bir [asar](https://github.com/electron/asar) arşivi, dosyaları birleştiren basit bir tar benzeri formatta tek bir dosyaya dönüştürür. Electron, bütün dosyaları paketten çıkarmadan rastgele dosyaları okuyabilir.
 
-Steps to package your app into an `asar` archive:
+Uygulamanızı bir `asar` arşivine paketlemeye ilişkin adımlar:
 
 ### 1. Asar Yardımcı Programını Kurun
 
@@ -14,13 +14,13 @@ Steps to package your app into an `asar` archive:
 $ npm kurma -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Paket `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Arşivleri `asar` kullanma
 
 In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
 
