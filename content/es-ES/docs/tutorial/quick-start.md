@@ -20,13 +20,13 @@ El proceso principal crea páginas web creando instancias de `BrowserWindow`. Ca
 
 El proceso principal maneja todas las páginas web y sus procesos renderizadores correspondientes. Cada proceso rederizador está aislado y solo le importa la página web corriendo en él.
 
-En páginas web, llamar APIs nativas relacionadas a GUI no está permitido porque manejar recursos nativos de GUI en páginas web es bastante peligroso y es fácil que ocurran fugas de recursos. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+En páginas web, llamar APIs nativas relacionadas a GUI no está permitido porque manejar recursos nativos de GUI en páginas web es bastante peligroso y es fácil que ocurran fugas de recursos. Si quieres realizar operaciones de GUI en una página web, el proceso renderizador de la página web debe comunicarse con el proceso principal para pedirle que realice esas operaciones.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+En Electron, nosotros tenemos varias maneras para comunicarnos entre el proceso principal y el proceso renderizador. Como los módulos [`ipcRenderer`](../api/ipc-renderer.md) y [`ipcMain`](../api/ipc-main.md) para enviar mensajes, y el módulo [`remote`](../api/remote.md) para comunicación de estilo RPC. Existe tambié una entrada de FAQ en [como compartir data entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Escribe tu Primera Aplicación de Electron
 
-Generally, an Electron app is structured like this:
+Generalmente, una aplicación de Electron está estructurada así:
 
 ```text
 your-app/
