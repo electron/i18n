@@ -1,6 +1,6 @@
 # Çerçevesiz pencere
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Araç çubukları, kenarlar veya başka görsel "chrome" olmadan bir pencere açın.
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
@@ -58,7 +58,7 @@ let win = new BrowserWindow({transparent: true, frame: false})
 win.show()
 ```
 
-### Limitations
+### Kısıtlamalar
 
 * You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
@@ -67,7 +67,7 @@ win.show()
 * GPU'yu devre dışı bırakmak ve ARGB'ın şeffaf pencere açmasına izin vermek için Linux kullanıcıları komut satırına `--enable-transparent-visuals --disable-gpu ` değerini koymalıdırlar; bunun nedeni bir akış hatası olan [Alfa kanalı, Linux'daki bazı NVidia sürücüleri üzerinde çalışmaz](https://code.google.com/p/chromium/issues/detail?id=369209).
 * On Mac the native window shadow will not be shown on a transparent window.
 
-## Click-through window
+## Tıklama penceresi
 
 To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
 
@@ -85,10 +85,9 @@ Note: `-webkit-app-region: drag` is known to have problems while the developer t
 
 To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
 
-```html
-<body style="-webkit-app-region: drag">
-</body>
-```
+<pre><code class="html">&lt;body style="-webkit-app-region: drag"&gt;<body style="-webkit-app-region: drag">
+</body>&lt;/body&gt;
+</code></pre>
 
 And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
 
@@ -98,7 +97,7 @@ button {
 }
 ```
 
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız, başlık çubuğundaki tüm düğmeleri sürüklenemez yapmanız gerekiyor.
 
 ## Metin seçimi
 
