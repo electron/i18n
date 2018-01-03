@@ -199,17 +199,15 @@ const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWind
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code> terbunuh </ 0>  Boolean</li>
-</ul>
+<li><code>terbunuh` Boolean
 
-<p>Emitted ketika proses renderer crash atau terbunuh.</p>
+Emitted ketika proses renderer crash atau terbunuh.
 
-<h4>Event: 'plugin-jatuh'</h4>
+#### Event: 'plugin-jatuh'
 
-<p>Pengembalian:</p>
+Pengembalian:
 
-<ul>
-<li><code> event </ 0>  Acara</li>
+* ` event </ 0>  Acara</li>
 <li><code> nama </ 0>  String</li>
 <li><code>Versi` String
 
@@ -295,135 +293,132 @@ Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code>permintaan` Obyek 
-  * ` method </ 0>  String</li>
-<li><code>url` URL
-  * ` perujuk </ 0> URL</li>
-</ul></li>
-<li><code>authInfo` Obyek 
-    * ` isProxy </ 0>  Boolean</li>
-<li><code> skema </ 0>  String</li>
-<li><code> host </ 0>  String</li>
-<li><code> port </ 0>  Integer</li>
-<li><code> realm </ 0>  String</li>
-</ul></li>
-<li><code>callback` Fungsi 
-      * ` nama pengguna </ 0>  String</li>
-<li><code> kata sandi </ 0>  String</li>
-</ul></li>
-</ul>
+  * `method` String
+  * `url` URL
+  * `perujuk` URL
+* `authInfo` Obyek 
+  * ` isProxy </ 0>  Boolean</li>
+<li><code>skema` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Fungsi 
+  * `namapengguna` String
+  * `katasandi` String
 
-<p>Emitted ketika <code> webContents </ 0> ingin melakukan auth dasar.</p>
+Emitted ketika `webContents` ingin melakukan auth dasar.
 
-<p>Penggunaannya sama dengan <a href="app.md#event-login">the <code>masuk` event of `app`</a>.</p> 
-        #### Event: 'ditemukan-di-halaman'
-        
-        Pengembalian:
-        
-        * ` event </ 0>  Acara</li>
+Penggunaannya sama dengan [the `masuk` event of `app`](app.md#event-login).
+
+#### Event: 'ditemukan-di-halaman'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 <li><code>hasil` Obyek 
-          * `requestId` Bilangan bulat
-          * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
-          * `pertandingan` Bulat - jumlah pertandingan.
-          * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
-          * `finalUpdate` Boolean
-        
-        Dipancarkan saat hasilnya tersedia [`webContents.findInPage`] permintaan.
-        
-        #### Event: 'media-mulai-bermain''
-        
-        Emitted saat media mulai diputar.
-        
-        #### Event: 'media-berhenti'
-        
-        Emitted saat media dijeda atau dilakukan bermain.
-        
-        #### Event: 'apakah-ganti-tema-warna'
-        
-        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
-        
-        ```html
+  * `requestId` Bilangan bulat
+  * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
+  * `pertandingan` Bulat - jumlah pertandingan.
+  * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
+  * `finalUpdate` Boolean
+
+Dipancarkan saat hasilnya tersedia [`webContents.findInPage`] permintaan.
+
+#### Event: 'media-mulai-bermain''
+
+Emitted saat media mulai diputar.
+
+#### Event: 'media-berhenti'
+
+Emitted saat media dijeda atau dilakukan bermain.
+
+#### Event: 'apakah-ganti-tema-warna'
+
+Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
+
+```html
 <meta name='theme-color' content='#ff0000'>
 ```
-    
-    #### Event: 'update-target-url'
-    
-    Pengembalian:
-    
-    * ` event </ 0>  Acara</li>
+
+#### Event: 'update-target-url'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 <li><code>url` String
-    
-    Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
-    
-    #### Event: 'kursor-berubah'
-    
-    Pengembalian:
-    
-    * ` event </ 0>  Acara</li>
+
+Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+
+#### Event: 'kursor-berubah'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 <li><code>jenis` String
-    * `gambar` NativeImage (opsional)
-    * `skala` Mengambang (opsional) - skala faktor untuk kursor kustom
-    * `ukuran` [Ukuran](structures/size.md) (opsional) - ukuran `gambar`
-    * `hotspot` [Titik](structures/point.md) (opsional) - koordinat kursor kustom Hotspot
-    
-    Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
-    
-    Jika `jenis` parameternya `custom`, itu `gambar` Parameter akan menahan custom gambar kursor dalam `GambarAsli`, dan `skala`, `size` and `hotspot` akan memegang informasi tambahan tentang kursor khusus.
-    
-    #### Event: 'menu konteks'
-    
-    Pengembalian:
-    
-    * ` event </ 0>  Acara</li>
+* `gambar` NativeImage (opsional)
+* `skala` Mengambang (opsional) - skala faktor untuk kursor kustom
+* `ukuran` [Ukuran](structures/size.md) (opsional) - ukuran `gambar`
+* `hotspot` [Titik](structures/point.md) (opsional) - koordinat kursor kustom Hotspot
+
+Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+
+Jika `jenis` parameternya `custom`, itu `gambar` Parameter akan menahan custom gambar kursor dalam `GambarAsli`, dan `skala`, `size` and `hotspot` akan memegang informasi tambahan tentang kursor khusus.
+
+#### Event: 'menu konteks'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 <li><code>params` Obyek 
-      * `x` koordinat Integer - x
-      * ` y </ 0>  Koordinat integer</li>
+  * `x` koordinat Integer - x
+  * ` y </ 0>  Koordinat integer</li>
 <li><code> linkURL </ 0>  String - URL tautan yang membungkus node menu konteks dipanggil.</li>
 <li><code> linkText </ 0>  String - Teks yang terkait dengan tautan. Mungkin berupa string kosong
  jika isi link adalah gambar.</li>
 <li><code> pageURL ` String - URL halaman tingkat atas yang diikuti menu konteks.
-      * `frameURL` String - URL subframe yang diikuti menu konteks.
-      * `srcURL` String - URL Sumber untuk elemen yang menu konteksnya dipanggil. Elemen dengan URL sumber adalah gambar, audio dan video.
-      * `mediaType` String - jenis node menu konteks dipanggil pada. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
-      * `hasImageContents` Boolean - Apakah menu konteks dipanggil pada gambar yang isinya tidak kosong.
-      * `isEditable` Boolean - Apakah konteks dapat diedit.
-      * `selectionText` String - Teks pilihan bahwa menu konteks dipanggil.
-      * `titleText` String - Judul atau teks alt dari pilihan yang konteksnya dipanggil.
-      * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
-      * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
-      * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `tidak ada` `plainText`, `sandi`, `lain`.
-      * `menuSourceType` String - sumber Input yang dipanggil menu konteks. Bisa `tidak`, `mouse`, `keyboard`, `menyentuh`, `touchMenu`.
-      * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
-        * `inError` Boolean - Apakah elemen media telah jatuh.
-        * `isPaused` Boolean - Apakah elemen media dijeda.
-        * `isMuted` Boolean - Apakah elemen media dimatikan.
-        * `hasAudio` Boolean - Apakah elemen media memiliki audio.
-        * `isLooping` Boolean - Apakah elemen media adalah perulangan.
-        * `isControlsVisible` Boolean - Apakah kontrol elemen media terlihat.
-        * `canToggleControls` Boolean - Apakah kontrol elemen media dapat dialihkan.
-        * `canRotate` Boolean - Apakah elemen media dapat diputar.
-      * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
-        * `canUndo` Boolean - Apakah renderer percaya itu dapat membatalkan.
-        * `canRedo` Boolean - Apakah renderer percaya itu dapat mengulang.
-        * `canCut` Boolean - Apakah renderer percaya dapat memotong.
-        * `canCopy` Boolean - Apakah renderer percaya itu dapat menyalin
-        * `canPaste` Boolean - Apakah renderer percaya itu dapat menyisipkan.
-        * `canDelete` Boolean - Apakah renderer percaya itu dapat menghapus.
-        * `canSelectAll` Boolean - Apakah renderer percaya itu dapat memilih semua.
-    
-    Emitted saat ada menu konteks baru yang perlu ditangani.
-    
-    #### Event: 'Pilih--perangkat bluetooth'
-    
-    Pengembalian:
-    
-    * ` event </ 0>  Acara</li>
+  * `frameURL` String - URL subframe yang diikuti menu konteks.
+  * `srcURL` String - URL Sumber untuk elemen yang menu konteksnya dipanggil. Elemen dengan URL sumber adalah gambar, audio dan video.
+  * `mediaType` String - jenis node menu konteks dipanggil pada. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
+  * `hasImageContents` Boolean - Apakah menu konteks dipanggil pada gambar yang isinya tidak kosong.
+  * `isEditable` Boolean - Apakah konteks dapat diedit.
+  * `selectionText` String - Teks pilihan bahwa menu konteks dipanggil.
+  * `titleText` String - Judul atau teks alt dari pilihan yang konteksnya dipanggil.
+  * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
+  * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
+  * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `tidak ada` `plainText`, `sandi`, `lain`.
+  * `menuSourceType` String - sumber Input yang dipanggil menu konteks. Bisa `tidak`, `mouse`, `keyboard`, `menyentuh`, `touchMenu`.
+  * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
+    * `inError` Boolean - Apakah elemen media telah jatuh.
+    * `isPaused` Boolean - Apakah elemen media dijeda.
+    * `isMuted` Boolean - Apakah elemen media dimatikan.
+    * `hasAudio` Boolean - Apakah elemen media memiliki audio.
+    * `isLooping` Boolean - Apakah elemen media adalah perulangan.
+    * `isControlsVisible` Boolean - Apakah kontrol elemen media terlihat.
+    * `canToggleControls` Boolean - Apakah kontrol elemen media dapat dialihkan.
+    * `canRotate` Boolean - Apakah elemen media dapat diputar.
+  * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
+    * `canUndo` Boolean - Apakah renderer percaya itu dapat membatalkan.
+    * `canRedo` Boolean - Apakah renderer percaya itu dapat mengulang.
+    * `canCut` Boolean - Apakah renderer percaya dapat memotong.
+    * `canCopy` Boolean - Apakah renderer percaya itu dapat menyalin
+    * `canPaste` Boolean - Apakah renderer percaya itu dapat menyisipkan.
+    * `canDelete` Boolean - Apakah renderer percaya itu dapat menghapus.
+    * `canSelectAll` Boolean - Apakah renderer percaya itu dapat memilih semua.
+
+Emitted saat ada menu konteks baru yang perlu ditangani.
+
+#### Event: 'Pilih--perangkat bluetooth'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 <li><code>perangkat` [[BluetoothDevice]](structures/bluetooth-device.md)
-    * `callback` Fungsi 
-      * `deviceId` String
-    
-    Dipancarkan saat perangkat bluetooth perlu dipilih saat dihubungi `navigator.bluetooth.requestDevice`. Menggunakan `navigator.bluetooth` api `webBluetooth` harus diaktifkan. Jika `event.preventDefault` tidak disebut, perangkat tersedia pertama akan dipilih. `callback` harus disebut dengan `deviceId` untuk dipilih, melewati string kosong ke `callback` akan membatalkan permintaan.
-    
-    ```javascript
+* `callback` Fungsi 
+  * `deviceId` String
+
+Dipancarkan saat perangkat bluetooth perlu dipilih saat dihubungi `navigator.bluetooth.requestDevice`. Menggunakan `navigator.bluetooth` api `webBluetooth` harus diaktifkan. Jika `event.preventDefault` tidak disebut, perangkat tersedia pertama akan dipilih. `callback` harus disebut dengan `deviceId` untuk dipilih, melewati string kosong ke `callback` akan membatalkan permintaan.
+
+```javascript
 const {app, webContents} = require('electron') app.commandLine.appendSwitch('enable-web-bluetooth') app.on ('siap', () = > {webContents.on (' perangkat pilih bluetooth', (acara, deviceList, callback) = > {event.preventDefault() membiarkan hasil = deviceList.find((device) = > {kembali device.deviceName === 'test'}) jika (! hasil) {callback('')} lain {callback(result.deviceId)}})})
 ```
 
