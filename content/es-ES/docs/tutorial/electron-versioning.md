@@ -1,20 +1,20 @@
 # Versionamiento de Electron
 
-> A detailed look at our versioning policy and implementation.
+> Una mirada detallada en la política e implementación de las versiones.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Como desde la versión 2.0.0, Electron siguen [semver](#semver). El siguiente comando instalará la estructura estable más reciente de Electron:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Para actualizar un proyecto existente para que use la última versión estable:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Versión 1.x
 
 Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
