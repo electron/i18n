@@ -684,120 +684,112 @@ Mengembalikan `Objek`:
 ### `app.setLoginItemSettings(pengaturan)` *macOS* *Windows*
 
 * `pengaturan` Obyek 
-  * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
-<li><code> openAsHidden </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi sebagai tersembunyi. Default ke
- <code> false </ 0> . Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi
- <code> app.getLoginItemStatus (). BeenOpenedAsHidden </ 0> harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada
- macos .</li>
-<li><code> path </ 0>  String (opsional) <em> Windows </ 1> - Eksekusi untuk diluncurkan saat login. Default ke <code> process.execPath </ 0> .</li>
-<li><code> args </ 0>  String [] (opsional) <em> Windows </ 1> - Argumen baris perintah untuk lolos ke eksekusi. Default ke array kosong . Berhati-hatilah untuk membungkus jalan dengan tanda petik.</li>
-</ul></li>
-</ul>
+  * `openAtLogin` Boolean (opsional) - `true` untuk membuka aplikasi saat masuk, `false` untuk menghapus aplikasi sebagai item masuk. Default ke `false`.
+  * `openAsHidden` Boolean (opsional) - `true` untuk membuka aplikasi sebagai tersembunyi. Default ke `false`. Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi `app.getLoginItemStatus().BeenOpenedAsHidden` harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada macOS.
+  * `path` String (opsional) *Windows* - Eksekusi untuk diluncurkan saat login. Default ke `process.execPath`.
+  * `args` String[] (opsional) *Windows* - Argumen baris perintah untuk lolos ke eksekusi. Default ke array kosong. Berhati-hatilah untuk membungkus jalan dengan tanda petik.
 
-<p>Tetapkan setelan item masuk aplikasi.</p>
+Tetapkan setelan item masuk aplikasi.
 
-<p>Untuk bekerja dengan < AutoUpdater <code> Elektron </ 0> pada Windows , yang menggunakan <a href="https://github.com/Squirrel/Squirrel.Windows"> Squirrel </ 1> , Anda ingin menyetel jalur peluncuran ke Update.exe, dan meneruskan argumen yang menentukan nama aplikasi Anda. Sebagai contoh:</p>
+Untuk bekerja dengan < AutoUpdater `Elektron` pada Windows, yang menggunakan [Squirrel](https://github.com/Squirrel/Squirrel.Windows), Anda ingin menyetel jalur peluncuran ke Update.exe, dan meneruskan argumen yang menentukan nama aplikasi Anda. Sebagai contoh:
 
-<pre><code class="javascript">const appFolder = path.dirname (process.execPath) const updateExe = path.resolve (appFolder, '..', 'Update.exe') const exeName = path.basename (process.execPath) app.setLoginItemSettings ({
-   openAtLogin: true ,
+```javascript
+const appFolder = path.dirname(process.execPath) const updateExe = path.resolve(appFolder, '..', 'Update.exe') const exeName = path.basename(process.execPath) app.setLoginItemSettings ({
+   openAtLogin: true,
    path: updateExe,
    args: [
-     '--processStart', `" $ {exeName} "`,
-     '--process-start-args', `" --hidden "`
+     '--processStart', `"${exeName}"`,
+     '--process-start-args', `"--hidden"`
    ]})
-``</pre> 
-    ** Catatan: </ 0> ini API tidak berpengaruh pada  MAS membangun </ 1> .</p> 
-    
-    ### ` app.isAccessibilitySupportEnabled () </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
+```
 
-<p>Mengembalikan <code> Boolean </ 0> - <code> true </ 0> jika dukungan aksesibilitas Chrome diaktifkan,
- <code> salah </ 0> sebaliknya. API ini akan mengembalikan <code> true </ 0> jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.</p>
+**Catatan:** ini API tidak berpengaruh pada [MAS membangun](../tutorial/mac-app-store-submission-guide.md).
 
-<h3><code> app.setAboutPanelOptions (opsi) </ 0>  <em> macOS </ 1></h3>
+### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-<ul>
-<li><code>pilihan` Obyek 
-    
-    * ` applicationName </ 0>  String (opsional) - Nama aplikasi.</li>
-<li><code> applicationVersion </ 0>  String (opsional) - Versi aplikasi.</li>
-<li><code> hak cipta </ 0>  String (opsional) - Informasi hak cipta.</li>
-<li><code> kredit </ 0>  String (opsional) - Informasi kredit.</li>
-<li><code> version </ 0>  String (opsional) - Nomor versi pembuatan aplikasi .</li>
-</ul></li>
-</ul>
+Mengembalikan `Boolean` - `true` jika dukungan aksesibilitas Chrome diaktifkan, `salah` sebaliknya. API ini akan mengembalikan `true` jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.
 
-<p>Tetapkan opsi tentang panel. Ini akan menimpa nilai yang didefinisikan di file <code> .plist </ 0> aplikasi
- . Lihat <a href="https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc"> dokumentasi Apple </ 0> untuk detail lebih lanjut.</p>
+### `app.setAboutPanelOptions(opsi)` *macOS*
 
-<h3><code>app.commandLine.appendSwitch (beralih [, nilai])`</h3> 
-      * ` switch </ 0>  String - Sakelar baris perintah</li>
-<li><code> value </ 0>  String (opsional) - Nilai untuk saklar yang diberikan</li>
-</ul>
+* `pilihan` Obyek 
+  * `applicationName` String (opsional) - Nama aplikasi.
+  * `applicationVersion` String (opsional) - Versi aplikasi.
+  * `hak cipta` String (opsional) - Informasi hak cipta.
+  * `kredit` String (opsional) - Informasi kredit.
+  * `version` String (opsional) - Nomor versi pembuatan aplikasi.
 
-<p>Tambahkan peralihan (dengan <code> nilai opsional </ 0> ) ke baris perintah Chromium.</p>
+Tetapkan opsi tentang panel. Ini akan menimpa nilai yang didefinisikan di file `.plist` aplikasi. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut.
 
-<p><strong>Catatan:</strong> Ini tidak akan mempengaruhi <code>process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.</p> 
-        ### `app.commandLine.appendArgument (nilai)`
-        
-        * `nilai` String - argumen untuk menambahkan ke baris perintah
-        
-        Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
-        
-        **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
-        
-        ### `app.enableMixedSandbox()` *macOS* *Windows*
-        
-        Mengaktifkan mode kotak pasir campuran di aplikasi.
-        
-        Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
-        
-        ### `app.dock.bounce()` *macOS*
-        
-        * `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
-        
-        Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
-        
-        Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
-        
-        Mengembalikan `Integer` ID yang mewakili permintaan.
-        
-        ### `app.dock.cancelBounce(id)` Linux *macOS*
-        
-        * `identitas` Integer
-        
-        Membatalkan bouncing `id`.
-        
-        ### `app.dock.downloadFinished(filePath)` *Windows*
-        
-        * ` format </ 0> String</li>
+### `app.commandLine.appendSwitch(beralih [, nilai])`
+
+* `switch` String - Sakelar baris perintah
+* `value` String (opsional) - Nilai untuk saklar yang diberikan
+
+Tambahkan peralihan (dengan `nilai opsional`) ke baris perintah Chromium.
+
+**Catatan:** Ini tidak akan mempengaruhi `process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.
+
+### `app.commandLine.appendArgument (nilai)`
+
+* `nilai` String - argumen untuk menambahkan ke baris perintah
+
+Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
+
+**Catatan:** Ini tidak akan mempengaruhi `process.argv`.
+
+### `app.enableMixedSandbox()` *macOS* *Windows*
+
+Mengaktifkan mode kotak pasir campuran di aplikasi.
+
+Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
+
+### `app.dock.bounce()` *macOS*
+
+* `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
+
+Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
+
+Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
+
+Mengembalikan `Integer` ID yang mewakili permintaan.
+
+### `app.dock.cancelBounce(id)` Linux *macOS*
+
+* `identitas` Integer
+
+Membatalkan bouncing `id`.
+
+### `app.dock.downloadFinished(filePath)` *Windows*
+
+* ` format </ 0> String</li>
 </ul>
 
 <p>Memantapkan Download stack jika filePath ada di dalam folder Downloads.</p>
 
 <h3><code>app.dock.setBadge (teks)` *macOS*</h3> 
-          * `teks` String
-          
-          Menetapkan string yang akan ditampilkan di area badging dermaga.
-          
-          ### `app.dock.getBadge()` *macos*
-          
-          Mengembalikan `String` - String badge dari dok.
-          
-          ### `app.dock.hide()` *macOS*
-          
-          Sembunyikan ikon dok.
-          
-          ### `app.dock.show()` *macos*
-          
-          Tampilkan ikon dok.
-          
-          ### `app.dock.isVisible()` *macos*
-          
-          Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
-          
-          ### `app.dock.setMenu (menu)` *macos*
-          
-          * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
+  * `teks` String
+  
+  Menetapkan string yang akan ditampilkan di area badging dermaga.
+  
+  ### `app.dock.getBadge()` *macos*
+  
+  Mengembalikan `String` - String badge dari dok.
+  
+  ### `app.dock.hide()` *macOS*
+  
+  Sembunyikan ikon dok.
+  
+  ### `app.dock.show()` *macos*
+  
+  Tampilkan ikon dok.
+  
+  ### `app.dock.isVisible()` *macos*
+  
+  Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
+  
+  ### `app.dock.setMenu (menu)` *macos*
+  
+  * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
 </ul>
 
 <p>Mengatur aplikasi <a href="https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103"> dock menu </ 0>.</p>
