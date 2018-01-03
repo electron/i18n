@@ -272,7 +272,7 @@ Bu metod tüm `beforeunload` ve `unload` olayları işleyicilerinin düzgün şe
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Tamsayı (Seçimli)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
