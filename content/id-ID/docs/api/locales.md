@@ -271,7 +271,7 @@
 </tr>
 <tr>
   <td>kn</td>
-  <td>Kannada</td>
+  <td>Kanada</td>
 </tr>
 <tr>
   <td>ko</td>
@@ -314,7 +314,7 @@
   <td>Malayalam</td>
 </tr>
 <tr>
-  <td>M N</td>
+  <td>m n</td>
   <td>Orang maya</td>
 </tr>
 <tr>
@@ -322,7 +322,7 @@
   <td>Moldavia</td>
 </tr>
 <tr>
-  <td>Bapak</td>
+  <td>bapak</td>
   <td>Marathi</td>
 </tr>
 <tr>
