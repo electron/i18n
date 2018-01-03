@@ -5,7 +5,7 @@
 
 ## Platform / Eylem Desteği
 
-| Eylem türü | Destek Platformu | Usage of `text`                  | Varsayılan `metin` | Limitations                                                                                                                                                         |
+| Eylem türü | Destek Platformu | Usage of `text`                  | Varsayılan `metin` | Kısıtlamalar                                                                                                                                                        |
 | ---------- | ---------------- | -------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `tuş`      | macOS            | Used as the label for the button | "Göster"           | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
