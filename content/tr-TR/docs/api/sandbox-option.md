@@ -97,13 +97,13 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Önceden yüklenen komut dosyasında dikkat edilmesi gereken önemli şeyler:
 
 - Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
 - Önceden yüklenen komut dosyası tek bir komut dosyası içine yüklenmelidir, ancak aşağıdaki açıklamada tarayıcı gibi bir araç kullanarak birden çok modül ile derlenmiş karmaşık bir önyükleme kodunun olması mümkündür. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak kullanmak için aşağıdakine benzer bir şey kullanılmalıdır:
 
     browserify preload/index.js \
       -x electron \
@@ -131,6 +131,6 @@ Please use the `sandbox` option with care, as it is still an experimental featur
 - Önceden yüklenmiş bir komut dosyası, yanlışlıkla ayrıcalıklı API'ları, güvenilmeyen kodlara filtreleyebilir.
 - Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+Elektronda güvenilmeyen içeriğin görüntülenmesi hâlâ bilinmeyen bir alan olduğu için, sanal ön koşul komut dosyasına maruz kalan API'lerin diğer elektron API' lerinden daha dengesiz olduğu düşünülmelidir ve düzeltmek için güvenlik sorunları gibiönemli değişiklikler olabilir.
 
 One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
