@@ -59,24 +59,24 @@ const url = require('url')
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Crea la ventana del navegador.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // y carga el archivo index.html de la aplicación.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Abre las herramientas de desarrollo.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Emitido cuando la ventana es cerrada.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Desreferencia el objeto ventana, usualmente tu guardarias ventanas
+    // en un arreglo si tu aplicación soporta multi ventanas, este es el momento
+    // cuando tu deberías borrar el elemento correspiente.
     win = null
   })
 }
