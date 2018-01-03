@@ -334,23 +334,23 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
   * Windows'ta `%APPDATA%`
   * Linux'ta `$XDG_CONFIG_HOME` veya `~/.config`
   * macOS'ta `~/Library/Application Support`
-* `userData` Uygulamanızın , varsayılan olarak uygulamanızın ismiyle ilişkilendirilen `appData` dizgini olan, konfigürasyon dosyalarını saklayan dizgin.
-* `temp` Geçici dizgin.
+* `userData` Uygulamanızın , varsayılan olarak uygulamanızın ismiyle ilişkilendirilen `appData` dizini olan, konfigürasyon dosyalarını saklayan dizin.
+* `temp` Geçici dizin.
 * `exe` Yürürlükteki yürütülebilir dosya.
 * `module` - `libchromiumcontent` kütüphanesi.
-* `dekstop` Yürürlükteki kullanıcının Masaüstü dizgini.
-* `documents` Bir kullanıcının "Dökümanlarım" dizgini.
-* `downloads` Bir kullanıcının "İndirilenler" dizgini.
-* `music` Bir kullanıcının "Müziklerim" dizgini.
-* `pictures` Bir kullanıcının "Resimlerim" dizgini.
-* `videos` Bir kullanıcının "Videolarım" dizgini.
+* `dekstop` Yürürlükteki kullanıcının Masaüstü dizini.
+* `documents` Bir kullanıcının "Dökümanlarım" dizini.
+* `downloads` Bir kullanıcının "İndirilenler" dizini.
+* `Müzik`Bir kullanıcının "Müziklerim" dizini.
+* `pictures` Bir kullanıcının "Resimlerim" dizini.
+* `videos` Bir kullanıcının "Videolarım" dizini.
 * `pepperFlashSystemPlugin` Pepper Flash eklentisinin sistemdeki versiyonuna giden dosya yolu.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` Dizi
-* `ayarlar` Obje (isteğe bağlı) 
-  * `boyut` Dize 
+* `ayarlar` Nesne (Seçimli) 
+  * `boyut` Dizgi 
     * `küçük` - 16x16
     * `normal` - 32x32
     * `büyük` - *Linux'ta* 48x48, *Windows'ta*32x32, *macOS'de* desteklenmemektedir.
