@@ -100,8 +100,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
 
 <p><code>pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.</p> 
     * `rincian` Obyek 
-      * ` id </ 0>  String</li>
-<li><code>url` String
+      * `id` String
+      * `url` String
       * `method` String
       * `TipeSumberdaya` String
       * `timestamp` Duakali
@@ -140,8 +140,8 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
-        * ` id </ 0>  String</li>
-<li><code>url` String
+        * `id` String
+        * `url` String
         * `method` String
         * `TipeSumberdaya` String
         * `timestamp` Duakali
