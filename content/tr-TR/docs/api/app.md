@@ -325,13 +325,13 @@ Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak od
 
 * `name` Dizgi
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+`String` - olarak `name` ile ilişkilendirilmiş bir dosya veya dizgine yönelmiş yol dönütünü verir. Hata durumunda bir `Error` dönütü verilir.
 
-You can request the following paths by the name:
+Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
+* `home` Kullanıcının ana dizgini.
+* `appData` Her bir kullanıcının uygulama verisinin bulunduğu veri dizgini, varsayılan olarak şunlara işaret eder: 
+  * Windows'ta `%APPDATA%`
   * `$XDG_CONFIG_HOME` or `~/.config` on Linux
   * `~/Library/Application Support` on macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
