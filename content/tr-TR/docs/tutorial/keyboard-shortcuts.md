@@ -13,7 +13,7 @@ const menu = new Menu()
 menu.append(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { console.log('şimdi yazmaya başlayabiliriz') }
 }))
 ```
 
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## BrowserWindow içindeki kısayollar
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
