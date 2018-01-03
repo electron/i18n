@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+El formato de `package.json` es exactamente el mismo como el de los modulos de Node, y el script especificado por el campo `main` es el script que pone en marcha tu aplicación, el cual ejecutará el proceso principal. Un ejemplo de tu `package.json` puede lucir así:
 
 ```json
 {
@@ -45,17 +45,17 @@ The format of `package.json` is exactly the same as that of Node's modules, and 
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Nota**: si el campo `main` no está presente en el archivo `package.json`, Electron intentará cargar `index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+El archivo `main.js` debe crear ventanas y manejar eventos de sistema, siendo un ejemplo típico:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Mantén una referencia global del objeto ventana, si no lo haces, la ventana se
+// cerrará automáticamente cuando el objeto de JavaScript sea basura colleccionada.
 let win
 
 function createWindow () {
