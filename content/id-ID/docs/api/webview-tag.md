@@ -238,7 +238,7 @@ Menghentikan navigasi yang tertunda.
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+Memuat kembali halaman web saat ini.
 
 ### `<webview>.reloadIgnoringCache()`
 
