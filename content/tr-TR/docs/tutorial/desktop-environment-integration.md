@@ -200,7 +200,7 @@ To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayI
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Overlay için açıklama')
 ```
 
 ## Flash çerçeve (Windows)
@@ -262,7 +262,7 @@ const {ipcMain} = require('electron')
 ipcMain.on('ondragstart', (event, filePath) => {
   event.sender.startDrag({
     file: filePath,
-    icon: '/path/to/icon.png'
+    icon: '/ikon/yolu.png'
   })
 })
 ```
