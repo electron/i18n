@@ -160,7 +160,7 @@ Sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该�
 
 一个设置在 webview 上的 web 首选项的字符串列表，通过 `,` 号分割。 支持的首选项字符串的完整列表，请查看 [BrowserWindow](browser-window.md#new-browserwindowoptions)。
 
-该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `` are interpreted as `false`.
+该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `` 解析为 `false`。
 
 ### `blinkfeatures`
 
@@ -184,7 +184,7 @@ A list of strings which specifies the blink features to be disabled separated by
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+将 instance 链接到特定 webContents 的值。 当 instance 第一次加载新的 webContents 时, 该属性将被设置为其实例标识符。 Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
 
 The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
 
