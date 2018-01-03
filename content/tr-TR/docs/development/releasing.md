@@ -156,7 +156,7 @@ Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elect
 ## Yayın taslağını düzenleme
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
+2. Yayımı düzenle ve yayım notları ekle.
 3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
 4. Click 'Save draft'. **Do not click 'Publish release'!**
 5. Devam etmeden önce bütün yapılar geçene kadar bekleyin.
@@ -166,13 +166,13 @@ Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elect
 
 Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. Bölüm başarılı bir şekilde birleştirilemiyorsa bu yazı otomatik olarak `release` bölümünü rebase eder ve sürüm yapılarını tetikleyen yeniden oluşturma değişikliklerini uygular, tekrar oluşturur, tekrar devam etmeden önce bu da sürüm yapılarının çalışması için beklemek zorunda kalacağınız anlamına gelir.
 
-### Merging back into master
+### master ile tekrar birleştirmek
 
 ```sh
 npm run merge-release -- master
 ```
 
-### Merging back into old release branch
+### Eski yayım sürümüne birleştirme
 
 ```sh
 npm run merge-release -- 1-7-x
@@ -180,7 +180,7 @@ npm run merge-release -- 1-7-x
 
 ## Sürümü yayınla
 
-Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. Bu yazılım şunu yapacaktır: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
 ## npm'e yayımla
 
@@ -203,7 +203,7 @@ git checkout vTHE.RELEASE.VERSION
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+# Çoktan yayımlanmış bir sürümün üstüne yazmaya izin verir.
 ./script/upload.py --overwrite
 
 ```
