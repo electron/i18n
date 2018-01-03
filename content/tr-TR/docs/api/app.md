@@ -260,7 +260,7 @@ Emitted when Chrome's accessibility support changes. Bu olay, ekran okuyucuları
 
 ## Metodlar
 
-The `app` object has the following methods:
+`app` nesnesi aşağıdaki metodlara sahiptir:
 
 **Note:** Some methods are only available on specific operating systems and are labeled as such.
 
