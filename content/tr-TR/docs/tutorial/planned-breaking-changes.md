@@ -63,13 +63,13 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Kullanım Dışı
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// İle Değiştirin
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -80,9 +80,9 @@ crashReporter.start({
 ## `menü`
 
 ```js
-// Deprecated
+// Kullanım Dışı
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// İle Değiştirin
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
@@ -110,9 +110,9 @@ nativeImage.createFromBuffer(buffer, {
 ## `işlem`
 
 ```js
-// Deprecated
+// Kullanım Dışı
 process.versions['atom-shell']
-// Replace with
+// İle Değiştirin
 process.versions.electron
 ```
 
@@ -189,7 +189,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## Node Başlıkları URLsi
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
@@ -205,6 +205,6 @@ The file *without the prefix* is still being published to avoid breaking any set
 
 For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## `FIXME` yorumları
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
