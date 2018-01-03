@@ -286,7 +286,7 @@ Tüm pencereler kullanıcıya sormadan hemen kapatılır, `before-quit` ve `will
 
 Yürürlükteki oluşum tamamlandığında uygulamayı yeniden başlatır.
 
-Varsayılan olarak yeni oluşum, yürürlükteki oluşumun çalışmakta olduğu aynı dizin ve komut satırı değişkenlerini kullanır. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Varsayılan olarak yeni oluşum, yürürlükteki oluşumun çalışmakta olduğu aynı dizin ve komut satırı değişkenlerini kullanır. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. `execPath` belirtildiğinde, yeniden başlatma yürürlükteki uygulama yerine `execPath` için uygulanır.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
