@@ -2,7 +2,7 @@
 
 Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
 
-## How to load a DevTools Extension
+## DevTools eklentileri nasıl yüklenir
 
 This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
@@ -38,7 +38,7 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 * [Serebral hata ayıklayıcı](http://www.cerebraljs.com/documentation/the_debugger)
-* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [Redux DevTools Eklentisi](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX geliştirici araçları](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
 ### DevTools Eklentisi çalışmıyorsa ne yap malıyım?
