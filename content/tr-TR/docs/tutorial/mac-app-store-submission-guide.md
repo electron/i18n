@@ -10,11 +10,11 @@ Aşağıdaki adımlar, uygulamanızı Mac App Store'a göndermenin basit bir yol
 
 ### Sertifika edin
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+To submit your app to the Mac App Store, you first must get a certificate from Apple. [Halihazırda olan rehberleri](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) webde inceleyebilir ve takip edebilirsiniz.
 
 ### Takım ID'sini al
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Uygulamanızı imzalamadan önce, hesabınızın Takım ID'sini bilmeniz gerekiyor. Takım ID'nizi bulmak için [Apple Geliştirici Merkezi](https://developer.apple.com/account/)'ne giriş yapın ve yan menüdeki Üyelik butonuna tıklayın. Takım ID'niz üyelik bilgileri bölümünün takım adı altında yer almaktadır.
 
 ### Uygulamanızı imzalayın
 
@@ -26,8 +26,8 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 <plist version="1.0">
 <dict>
   ...
-  <key>ElectronTeamID</key>
-  <string>TEAM_ID</string>
+  <key>ElectronTakımID</key>
+  <string>TAKIM_ID</string>
 </dict>
 </plist>
 ```
@@ -151,7 +151,7 @@ and the following behaviors have been changed:
 
 * Video capture may not work for some machines.
 * Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Uygulamalar DNS değişikliklerinden haberdar olmaz.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
 
@@ -199,13 +199,13 @@ Daha fazla bilgi için [Enabling User-Selected File Access documentation](https:
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Mac App Store'da dağıtım için imzalandığı takdirde bu işlem hata verecektir. Daha fazla bilgi ve güncellemeler için [#9005](https://github.com/electron/electron/issues/9005)'e abone olun.
 
 #### Geçici çözümler
 
 `shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
-## Cryptographic Algorithms Used by Electron
+## Electron Tarafından Kullanılan Kriptografi Algoritmaları
 
 Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
 
