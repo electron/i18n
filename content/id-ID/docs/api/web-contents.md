@@ -208,8 +208,8 @@ Emitted ketika proses renderer crash atau terbunuh.
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code> nama </ 0>  String</li>
-<li><code>Versi` String
+<li><code>nama` String
+* `Versi` String
 
 Dibunyikan ketika proses plugin telah jatuh.
 
@@ -806,8 +806,8 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
       * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
       * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
     * `callback` Fungsi 
-      * ` error </ 0> Kesalahan</li>
-<li><code>data` Buffer
+      * `error` Kesalahan
+      * `data` Buffer
     
     Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
     
@@ -1002,12 +1002,11 @@ Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file
   * `HTMLComplete` - Simpan halaman lengkap-html.
   * `MHTML` - Simpan halaman lengkap-html sebagai MHTML.
 * `callback` Function - `(error) => {}`. 
-  * ` error </ 0> Kesalahan</li>
-</ul></li>
-</ul>
+  * `error` Kesalahan
 
-<p>Mengembalikan <code>Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.</p> 
-    ```javascript
+Mengembalikan `Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.
+
+```javascript
 const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
 ```
 
