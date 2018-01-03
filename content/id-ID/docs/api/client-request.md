@@ -36,7 +36,7 @@ Pengembalian:
 
 * `respon` IncomingMessage - sebuah objek yang mewakili pesan Respon HTTP.
 
-#### Acara : 'login'
+#### Acara: 'login'
 
 Pengembalian:
 
