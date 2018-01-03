@@ -7,28 +7,31 @@ There is no timetable for when this release will occur but deprecation warnings 
 ## `app`
 
 ```js
-// Deprecated
+// Kullanım Dışı
 app.getAppMemoryInfo()
-// Replace with
+// İle değiştirin
 app.getAppMetrics()
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Kullanım Dışı
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// İle Değiştirin
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
+ 
+Context | Request Context
+
 ```
 
 ```js
-// Deprecated
+// Kullanım Dışı
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// İle Değiştirin
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -74,7 +77,7 @@ crashReporter.start({
 })
 ```
 
-## `menu`
+## `menü`
 
 ```js
 // Deprecated
@@ -104,7 +107,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `işlem`
 
 ```js
 // Deprecated
