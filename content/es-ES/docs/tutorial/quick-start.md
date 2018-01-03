@@ -88,26 +88,26 @@ app.on('ready', createWindow)
 
 // Salir cuando todas las ventanas estén cerradas.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // En macOS es común para las aplicaciones y sus barras de menú
+  // que estén activas hasta que el usuario salga explicitamente con Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // En macOS es común volver a crear una ventana en la aplicación cuando el
+  // icono del dock es clickeado y no hay otras ventanas abieras.
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// En este archivo tu puedes incluir el resto del código del proceso principal de
+// tu aplicación. Tu también puedes ponerlos en archivos separados y requerirlos aquí.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Finalmente el archivo `index.html` es la página web tu quieres mostrar:
 
 ```html
 <!DOCTYPE html>
@@ -118,14 +118,14 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    Estamos usando node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    y Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
 
-## Run your app
+## Ejecuta tu aplicación
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
