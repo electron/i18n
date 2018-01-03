@@ -466,54 +466,43 @@ The API menggunakan Windows Registry dan LSCopyDefaultHandlerForURLScheme intern
 
 * `tugas` [ Tugas[] ](structures/task.md) - Array dari `Tugas` objek
 
-Tambahkan `` tugas </ 0> ke kategori <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks"> Tugas </ 1> JumpList di Windows .</p>
+Tambahkan `tugas` ke kategori [Tugas](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) JumpList di Windows.
 
-<p><code> tugas </ 0> adalah berbagai dari <a href="structures/task.md"><code> Tugas </ 1> benda.</p>
+`tugas` adalah berbagai dari [`Tugas`](structures/task.md) benda.
 
-<p>Mengembalikan <code> Boolean </ 0> - Apakah panggilan berhasil.</p>
+Mengembalikan `Boolean` - Apakah panggilan berhasil.
 
-<p><strong> Catatan: </ 0> Jika Anda ingin menyesuaikan Daftar Langsung gunakan lebih banyak lagi
- <code> app.setJumpList (categories) </ 1> .</p>
+**Catatan:** Jika Anda ingin menyesuaikan Daftar Langsung gunakan lebih banyak lagi `app.setJumpList(categories)`.
 
-<h3><code> app.getJumpListSettings () </ 0>  <em> Windows </ 1></h3>
+### `app.getJumpListSettings()` *Windows*
 
-<p>Mengembalikan <code> Objek </ 0> :</p>
+Mengembalikan `Objek`:
 
-<ul>
-<li><code> minItems </ 0>  Integer - The minimum jumlah item yang akan ditampilkan dalam Daftar Langsung (untuk penjelasan lebih rinci tentang nilai ini melihat
- <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx"> MSDN docs </ 1> ).</li>
-<li><code> removedItems </ 0>  <a href="structures/jump-list-item.md"> JumpListItem [] </ 1> - Array dari <code> JumpListItem </ 0> objek yang sesuai dengan item yang telah dihapus pengguna dari kategori khusus dalam Daftar Langsung. Item ini tidak boleh ditambahkan kembali ke Daftar Langsung di 
-panggilan <strong> berikutnya </ 0> ke <code> app.setJumpList () </ 1> , Windows tidak akan menampilkan kategori khusus yang berisi salah satu dari yang dihapus item.</li>
-</ul>
+* `minItems` Integer - The minimum jumlah item yang akan ditampilkan dalam Daftar Langsung (untuk penjelasan lebih rinci tentang nilai ini melihat [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array dari `JumpListItem` objek yang sesuai dengan item yang telah dihapus pengguna dari kategori khusus dalam Daftar Langsung. Item ini tidak boleh ditambahkan kembali ke Daftar Langsung di panggilan **berikutnya** ke `app.setJumpList()`, Windows tidak akan menampilkan kategori khusus yang berisi salah satu dari yang dihapus item.
 
-<h3><code> app.setJumpList (kategori) </ 0>  <em> Windows </ 1></h3>
+### `app.setJumpList(kategori)` *Windows*
 
-<ul>
-<li><code> kategori </ 0>  <a href="structures/jump-list-category.md"> JumpListCategory [] </ 1> atau <code> nol </ 0> - Array of <code> JumpListCategory </ 0> benda.</li>
-</ul>
+* `kategori` [JumpListCategory[]](structures/jump-list-category.md) atau `nol` - Array of `JumpListCategory` benda.
 
-<p>Mengatur atau menghapus Daftar Langsung kustom untuk aplikasi, dan mengembalikan salah satu dari string berikut:</p>
+Mengatur atau menghapus Daftar Langsung kustom untuk aplikasi, dan mengembalikan salah satu dari string berikut:
 
-<ul>
-<li><code> ok </ 0> - Tidak ada yang salah.</li>
-<li><code> error </ 0> - Satu atau beberapa kesalahan terjadi, aktifkan logging runtime untuk mengetahui kemungkinan penyebabnya.</li>
-<li><code> invalidSeparatorError </ 0> - Upaya dilakukan untuk menambahkan pemisah ke kategori khusus dalam Daftar Langsung. Pemisah hanya diperbolehkan dalam kategori <code> Tugas </ 0> standar .</li>
-<li><code> fileTypeRegistrationError </ 0> - Upaya dilakukan untuk menambahkan tautan file ke Daftar Langsung untuk jenis file yang tidak terdaftar dalam aplikasi.</li>
-<li><code> customCategoryAccessDeniedError </ 0> - Kategori khusus tidak dapat ditambahkan ke Daftar Langsung karena pengaturan kebijakan privasi atau grup pengguna.</li>
-</ul>
+* `ok` - Tidak ada yang salah.
+* `error` - Satu atau beberapa kesalahan terjadi, aktifkan logging runtime untuk mengetahui kemungkinan penyebabnya.
+* `invalidSeparatorError` - Upaya dilakukan untuk menambahkan pemisah ke kategori khusus dalam Daftar Langsung. Pemisah hanya diperbolehkan dalam kategori `Tugas` standar.
+* `fileTypeRegistrationError` - Upaya dilakukan untuk menambahkan tautan file ke Daftar Langsung untuk jenis file yang tidak terdaftar dalam aplikasi.
+* `customCategoryAccessDeniedError` - Kategori khusus tidak dapat ditambahkan ke Daftar Langsung karena pengaturan kebijakan privasi atau grup pengguna.
 
-<p>Jika <code> kategori </ 0> adalah <code> null </ 0> daftar Jump kustom yang telah ditetapkan sebelumnya (jika ada) akan diganti oleh Daftar Langsung standar untuk aplikasi (dikelola oleh Windows ).</p>
+Jika `kategori` adalah `null` daftar Jump kustom yang telah ditetapkan sebelumnya (jika ada) akan diganti oleh Daftar Langsung standar untuk aplikasi (dikelola oleh Windows).
 
-<p><strong> Catatan: </ 0> Jika objek <code> JumpListCategory </ 1> tidak memiliki <code> tipe </ 1> atau <code> nama </ 1> 
-properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> . Jika <code> nama </ 0> properti diatur tetapi <code> ketik </ 0> properti dihilangkan maka <code> ketik </ 0> diasumsikan
- <code> kustom </ 0> .</p>
+**Catatan:** Jika objek `JumpListCategory` tidak memiliki `tipe` atau `nama` properti yang ditetapkan maka `tipe` diasumsikan `tugas`. Jika `nama` properti diatur tetapi `ketik` properti dihilangkan maka `ketik` diasumsikan `kustom`.
 
-<p><strong> Catatan: </ 0> Pengguna dapat menghapus item dari kategori khusus, dan Windows tidak mengizinkan item yang dihapus ditambahkan ke dalam kategori khusus sampai <strong> setelah </ 0> 
-panggilan sukses berikutnya ke <code> app.setJumpList (kategori) </ 1> . Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan <code> app.getJumpListSettings () </ 0> .</p>
+**Catatan:** Pengguna dapat menghapus item dari kategori khusus, dan Windows tidak mengizinkan item yang dihapus ditambahkan ke dalam kategori khusus sampai **setelah** panggilan sukses berikutnya ke `app.setJumpList(kategori)`. Setiap usaha untuk menambahkan kembali item yang dihapus ke kategori khusus lebih awal dari pada itu akan mengakibatkan keseluruhan kategori khusus dihilangkan dari Daftar Langsung. Daftar item yang dihapus dapat diperoleh dengan menggunakan `app.getJumpListSettings()`.
 
-<p>Berikut adalah contoh sederhana untuk membuat Daftar Langsung kustom:</p>
+Berikut adalah contoh sederhana untuk membuat Daftar Langsung kustom:
 
-<pre><code class="javascript">const {app} = require ('electron') app.setJumpList ([
+```javascript
+const {app} = require ('electron') app.setJumpList ([
    {
      type: 'custom',
      name: 'Proyek Terbaru',
@@ -563,7 +552,7 @@ panggilan sukses berikutnya ke <code> app.setJumpList (kategori) </ 1> . Setiap 
  args: '--recover-project',
  deskripsi: '
                                                                                                                             
-``</pre> 
+```
 
 ### `app.makeSingleInstance (callback)`
 
@@ -701,14 +690,12 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <p>Jika Anda memberikan <code> path </ 0> dan <code> args </ 0> pilihan untuk <code> app.setLoginItemSettings </ 0> maka Anda harus melewati argumen yang sama di sini untuk <code> openAtLogin </ 0> untuk diatur dengan benar</p>
 
-<p>Mengembalikan <code> Objek </ 0> :</p>
-
-<ul>
-<li><code>openAtLogin` Aljabar Boolean - `benar` jika app diatur untuk membuka di login.
-        * ` openAsHidden </ 0>  Boolean - <code> true </ 0> jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macos .</li>
+<p>Mengembalikan <code>Objek`:</p> 
+          * `openAtLogin` Aljabar Boolean - `benar` jika app diatur untuk membuka di login.
+          * ` openAsHidden </ 0>  Boolean - <code> true </ 0> jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macos .</li>
 <li><code> isOpenedAtLogin </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka saat masuk secara otomatis. Pengaturan ini hanya didukung pada macos .</li>
 <li><code>wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. Pengaturan ini hanya didukung pada macos .
-        * ` restoreState </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macos .</li>
+          * ` restoreState </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macos .</li>
 </ul>
 
 <p><strong>Catatan:</strong> API ini tidak berpengaruh pada <a href="../tutorial/mac-app-store-submission-guide.md">MAS membangun</a>.</p>
@@ -717,7 +704,7 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <ul>
 <li><code>pengaturan` Obyek 
-          * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
+            * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
 <li><code> openAsHidden </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi sebagai tersembunyi. Default ke
  <code> false </ 0> . Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi
  <code> app.getLoginItemStatus (). BeenOpenedAsHidden </ 0> harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada
@@ -739,9 +726,9 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
      '--process-start-args', `" --hidden "`
    ]})
 ``</pre> 
-            ** Catatan: </ 0> ini API tidak berpengaruh pada  MAS membangun </ 1> .</p> 
-            
-            ### ` app.isAccessibilitySupportEnabled () </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
+              ** Catatan: </ 0> ini API tidak berpengaruh pada  MAS membangun </ 1> .</p> 
+              
+              ### ` app.isAccessibilitySupportEnabled () </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
 
 <p>Mengembalikan <code> Boolean </ 0> - <code> true </ 0> jika dukungan aksesibilitas Chrome diaktifkan,
  <code> salah </ 0> sebaliknya. API ini akan mengembalikan <code> true </ 0> jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.</p>
@@ -750,8 +737,8 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <ul>
 <li><code>pilihan` Obyek 
-            
-            * ` applicationName </ 0>  String (opsional) - Nama aplikasi.</li>
+              
+              * ` applicationName </ 0>  String (opsional) - Nama aplikasi.</li>
 <li><code> applicationVersion </ 0>  String (opsional) - Versi aplikasi.</li>
 <li><code> hak cipta </ 0>  String (opsional) - Informasi hak cipta.</li>
 <li><code> kredit </ 0>  String (opsional) - Informasi kredit.</li>
@@ -763,74 +750,74 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
  . Lihat <a href="https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc"> dokumentasi Apple </ 0> untuk detail lebih lanjut.</p>
 
 <h3><code>app.commandLine.appendSwitch (beralih [, nilai])`</h3> 
-              * ` switch </ 0>  String - Sakelar baris perintah</li>
+                * ` switch </ 0>  String - Sakelar baris perintah</li>
 <li><code> value </ 0>  String (opsional) - Nilai untuk saklar yang diberikan</li>
 </ul>
 
 <p>Tambahkan peralihan (dengan <code> nilai opsional </ 0> ) ke baris perintah Chromium.</p>
 
 <p><strong>Catatan:</strong> Ini tidak akan mempengaruhi <code>process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.</p> 
-                ### `app.commandLine.appendArgument (nilai)`
-                
-                * `nilai` String - argumen untuk menambahkan ke baris perintah
-                
-                Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
-                
-                **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
-                
-                ### `app.enableMixedSandbox()` *macOS* *Windows*
-                
-                Mengaktifkan mode kotak pasir campuran di aplikasi.
-                
-                Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
-                
-                ### `app.dock.bounce()` *macOS*
-                
-                * `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
-                
-                Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
-                
-                Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
-                
-                Mengembalikan `Integer` ID yang mewakili permintaan.
-                
-                ### `app.dock.cancelBounce(id)` Linux *macOS*
-                
-                * `identitas` Integer
-                
-                Membatalkan bouncing `id`.
-                
-                ### `app.dock.downloadFinished(filePath)` *Windows*
-                
-                * ` format </ 0> String</li>
+                  ### `app.commandLine.appendArgument (nilai)`
+                  
+                  * `nilai` String - argumen untuk menambahkan ke baris perintah
+                  
+                  Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
+                  
+                  **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
+                  
+                  ### `app.enableMixedSandbox()` *macOS* *Windows*
+                  
+                  Mengaktifkan mode kotak pasir campuran di aplikasi.
+                  
+                  Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
+                  
+                  ### `app.dock.bounce()` *macOS*
+                  
+                  * `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
+                  
+                  Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
+                  
+                  Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
+                  
+                  Mengembalikan `Integer` ID yang mewakili permintaan.
+                  
+                  ### `app.dock.cancelBounce(id)` Linux *macOS*
+                  
+                  * `identitas` Integer
+                  
+                  Membatalkan bouncing `id`.
+                  
+                  ### `app.dock.downloadFinished(filePath)` *Windows*
+                  
+                  * ` format </ 0> String</li>
 </ul>
 
 <p>Memantapkan Download stack jika filePath ada di dalam folder Downloads.</p>
 
 <h3><code>app.dock.setBadge (teks)` *macOS*</h3> 
-                  * `teks` String
-                  
-                  Menetapkan string yang akan ditampilkan di area badging dermaga.
-                  
-                  ### `app.dock.getBadge()` *macos*
-                  
-                  Mengembalikan `String` - String badge dari dok.
-                  
-                  ### `app.dock.hide()` *macOS*
-                  
-                  Sembunyikan ikon dok.
-                  
-                  ### `app.dock.show()` *macos*
-                  
-                  Tampilkan ikon dok.
-                  
-                  ### `app.dock.isVisible()` *macos*
-                  
-                  Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
-                  
-                  ### `app.dock.setMenu (menu)` *macos*
-                  
-                  * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
+                    * `teks` String
+                    
+                    Menetapkan string yang akan ditampilkan di area badging dermaga.
+                    
+                    ### `app.dock.getBadge()` *macos*
+                    
+                    Mengembalikan `String` - String badge dari dok.
+                    
+                    ### `app.dock.hide()` *macOS*
+                    
+                    Sembunyikan ikon dok.
+                    
+                    ### `app.dock.show()` *macos*
+                    
+                    Tampilkan ikon dok.
+                    
+                    ### `app.dock.isVisible()` *macos*
+                    
+                    Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
+                    
+                    ### `app.dock.setMenu (menu)` *macos*
+                    
+                    * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
 </ul>
 
 <p>Mengatur aplikasi <a href="https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103"> dock menu </ 0>.</p>
