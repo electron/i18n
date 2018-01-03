@@ -10,7 +10,7 @@ Read on to learn more about the contributors and releases of Electron or get sta
 
 ## Çekirdek Takım ve Katkıda Bulunanlar
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Katkıda bulunanların bir kısmı bireylerdir ve bazıları Electron üzerinde gelişmekte olan büyük şirketlerde çalışır. Sık sık katkıda bulunan geliştiricileri projeye eklemekten mutluyuz. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Katkıda bulunanların bir kısmı bireylerdir ve bazıları Electron üzerinde gelişmekte olan büyük şirketlerde çalışır. Sık sık katkıda bulunan geliştiricileri projeye eklemekten mutluyuz. [Electron'a katkıda bulunmak](https://github.com/electron/electron/blob/master/CONTRIBUTING.md) hakkında daha fazla bilgi edinin.
 
 ## Sürümler
 
@@ -28,7 +28,7 @@ In Electron, Node.js and Chromium share a single V8 instance—usually the versi
 
 As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Versiyon güncelleme işlemi [Versiyon Dökümanında](electron-versioning.md) detaylı bir şekilde açıklanmaktadır.
 
 ### LTS
 
@@ -42,7 +42,7 @@ In order to keep Electron small (file size) and sustainable (the spread of depen
 
 Örneğin, Electron, yalnızca Chromium'un tamamında değil, Chromium'daki işleme kütüphanesini kullanır. Bu, Chromium'u yükseltmeyi kolaylaştırır, ancak Google Chrome'da bulunan bazı tarayıcı özelliklerinin Electron'da bulunmadığı anlamına gelir.
 
-Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. If a feature can be its own Node.js module, it probably should be. [Topluluk tarafından geliştirilen Electron araçlarını](https://electronjs.org/community) keşfedin.
 
 ## Tarihçe
 
