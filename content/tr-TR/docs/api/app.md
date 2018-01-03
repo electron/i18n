@@ -284,9 +284,9 @@ Tüm pencereler kullanıcıya sormadan hemen kapatılır, `before-quit` ve `will
   * `args` Dizgi[] - (Seçimli)
   * `execPath` Dizgi (Seçimli)
 
-Relaunches the app when current instance exits.
+Yürürlükteki oluşum tamamlandığında uygulamayı yeniden başlatır.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Varsayılan olarak yeni oluşum, yürürlükteki oluşumun çalışmakta olduğu aynı dizin ve komut satırı değişkenlerini kullanır. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
