@@ -78,12 +78,11 @@ Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenil
 <p>Paketinizi çalıştırmak için, kullanıcıların gerekir Windows'u sözde "Yıldönümü Güncellemesi" ile 10 - Windows'un nasıl güncelleştirileceği ile ilgili ayrıntılar bulunabilir <a href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update">Burada</a>.</p>
 
 <p>Geleneksel UWP uygulamalarına karşı olarak, paketlenmiş uygulamaların şu anda bir elle doğrulama işlemi uygulayabilirsiniz. <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">burada</a>.
-In the meantime, all users will be able to just install your package by double-clicking it,
-so a submission to the store might not be necessary if you're simply looking for an
-easier installation method. In managed environments (usually enterprises), the
+Bu arada, tüm kullanıcılar paketinizi çift tıklatarak yükleyebilecek,
+Dolayısıyla, yalnızca mağaza arıyorsanız, kolay kurulum yöntemi mağazaya teslim olmayabilir. In managed environments (usually enterprises), the
 <code>Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürütülebilir - ve bu nedenle Xbox, HoloLens veya Telefonlar üzerinde çalışmaz.
 
 ## Optional: Add UWP Features using a BackgroundTask
 
