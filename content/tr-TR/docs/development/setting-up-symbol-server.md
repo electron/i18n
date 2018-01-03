@@ -20,7 +20,7 @@ Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus,
 SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
-## Using the symbol server in Visual Studio
+## Sembol sunucusunu Visual Studio'da kullanma
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
