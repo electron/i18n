@@ -31,7 +31,7 @@ LLDB güçlü bir araçtır ve kod denetimi için birden fazla stratejiyi destek
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+Sonra, Electron'u başlatın.
 
 ```sh
 (lldb) Çalıştır
@@ -83,10 +83,10 @@ Process 25244 stopped
 
 Bu noktada hata ayıklamayı bitirmek için `process continue` komutunu çalıştırın. Bu iş parçacığına belirli bir satıra gelene kadar da devam edebilirsiniz (`thread until 100`). Bu komut, geçerli karede 100 satıra erişine kadar iş parçacığını çalıştırır veya geçerli kareden çıkmaya çalışır.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+Ardından, Electron'un geliştirici araçlarını açar ve `setName` komutunu çağırırsanız, yine kırılma noktasına ulaşacaksınız.
 
 ### Daha fazla bilgi
 
-LLDB harika bir dokümantasyona sahip güçlü bir araçtır. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB harika bir dokümantasyona sahip güçlü bir araçtır. Bunun hakkında daha fazla bilgi edinmek için Apple'ın debug dökümantasyonuna göz atmayı düşünün, mesela [LLDB Komut Dizilimi Referansı](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) veya [LLDB'yi başlı başına debugger olarak kullanma](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+Aynı zamanda LLDB'nin fantastik ve daha komplex debug senaryolarını içeren [rehberlerine ve kılavuzlarına](http://lldb.llvm.org/tutorial.html) göz atabilirsiniz.
