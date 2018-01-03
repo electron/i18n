@@ -57,45 +57,45 @@ Kaynaklar dizininin yolunu temsil eden bir `String`.
 
 ### `process.traceProcessWarnings`
 
-İşlem uyarılarının yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak işlem uyarılarının yığın izlerini yazdıracak (itirazlar dahil). This property is instead of the `--trace-warnings` command line flag.
+İşlem uyarılarının yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak işlem uyarılarının yığın izlerini yazdıracak (itirazlar dahil). Bu özellik `--trace-warnings` komut satırı etiketinin yerine kullanılmalıdır.
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+Geçerli işlemin türünü temsil eden bir `String`, `"browser"` (örneğin ana işlem) ya da `"renderer"` olabilir.
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+Chrome versiyonu dizesini temsil eden bir `String`.
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+Elektron versiyonu dizesini temsil eden bir `String`.
 
 ### `process.windowsStore`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Bir `Boolean`. Eğer uygulama bir Windows Store uygulaması (appx) olarak çalışıyorsa, bu özellik `true` olur, aksi takdirde `undefined` olur.
 
-## Metodlar
+## Yöntemler
 
-The `process` object has the following methods:
+`process` nesnesi aşağıdaki yöntemleri içerir:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+[`CPUUsage`](structures/cpu-usage.md)'a döner
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+[`IOCounters`](structures/io-counters.md)'a döner
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Object`:
+`Object`'e döner:
 
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
+* `workingSetSize` Tamsayı - O anda gerçek fiziksel RAM'e sabitlenmiş bellek miktarı.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
 * `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
