@@ -103,11 +103,11 @@ Assigning `src` its own value will reload the current page.
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-指定一个脚本在访客页中其他脚本执行之前先加载。 The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
+指定一个脚本在访客页中其他脚本执行之前先加载。 该脚本的URL的协议必须是 `file:` `asar:`二者之一，因为在访客页中，它是通过“内部”的 `require` 去加载的
 
-When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
+当访客页没有 node integration ，这个脚本仍然有能力去访问所有的 Node APIs, 但是当这个脚本执行执行完成之后，通过Node 注入的全局对象（global objects）将会被删除。
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**注意:** 在为 `will-attach-webview` 事件指定 `webPreferences` 时，这个选项将作为 `preloadURL` 出现，而不是 `preload`。
 
 ### `httpreferrer`
 
