@@ -37,7 +37,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Alt`
 * `Seçenek`
 * `AltGr`
-* `Shift`
+* `ÜstKrkt`
 * `Süper`
 
 ## Kullanılabilir anahtar kodları
