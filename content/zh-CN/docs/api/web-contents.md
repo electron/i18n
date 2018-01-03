@@ -27,21 +27,21 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-返回 `WebContents[]` - 所有 `WebContents` 实例的数组。 This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+返回 `WebContents[]` - 所有 `WebContents` 实例的数组。 包含所有Windows，webviews，opened devtools 和 devtools 扩展背景页的 web 内容
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Returns `WebContents` - 给定 id 的 WebContents 实例。
 
 ## Class: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> 渲染和控制 BrowserWindow 实例的内容。
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -49,7 +49,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 #### Event: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+导航完成时触发，即选项卡的旋转器将停止旋转，并指派` onload `事件后。
 
 #### Event: 'did-fail-load'
 
@@ -61,7 +61,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 。 The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 #### Event: 'did-frame-finish-load'
 
