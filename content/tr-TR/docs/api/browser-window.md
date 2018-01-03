@@ -176,7 +176,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Varsayılanı `true`.
+    * `webSecurity`Boolean (optional) -`false`olduğunda, aynı kaynak ilkesini devre dışı bırakır (genellikle kişiler deneme web sitelerini kullanılır) ve kullanıcı tarafından ayarlanmamışsa bu seçenekleri `allowRunningInsecureContent` `true` ayarlayın,. Varsayılanı `true`.
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
     * `images` Boolean (optional) - Enables image support. Default is `true`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
@@ -604,7 +604,8 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 Resizes and moves the window to the supplied bounds
 
-#### `win.getBounds()`
+#### `win.getBounds()
+`
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
@@ -619,7 +620,8 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-#### `win.setSize(width, height[, animate])`
+#### `win.setSize(width, height[, animate])
+`
 
 * `width` Integer
 * `height` Integer
