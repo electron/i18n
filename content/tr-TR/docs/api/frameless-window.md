@@ -62,14 +62,14 @@ win.show()
 
 * Şeffaf alan üzerine tıklayamazsınız. Bunu çözmek için pencere şeklini ayarlayan bir API tanıtacağız, ayrıntılar için bkz. [sorunlarımız](https://github.com/electron/electron/issues/1335).
 * Şeffaf pencereler yeniden boyutlandırılamaz. `yeniden boyutlandırılabilir` ayarını `true` olarak ayarlamak, şeffaf pencerenin bazı platformlarda çalışmanın durmasına sebep olacaktır.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
+* `Bulanıklaştırma` filtresi yalnızca web sayfası için geçerlidir; bu nedenle pencerenin altındaki içeriğe bulanıklığı efekti uygulamak mümkün değildir (ör. kullanıcının sisteminde açılan diğer uygulamalar).
+* Windows işletim sistemlerinde, DWM devre dışıyken şeffaf pencereler çalışmaz.
 * GPU'yu devre dışı bırakmak ve ARGB'ın şeffaf pencere açmasına izin vermek için Linux kullanıcıları komut satırına `--enable-transparent-visuals --disable-gpu ` değerini koymalıdırlar; bunun nedeni bir akış hatası olan [Alfa kanalı, Linux'daki bazı NVidia sürücüleri üzerinde çalışmaz](https://code.google.com/p/chromium/issues/detail?id=369209).
-* On Mac the native window shadow will not be shown on a transparent window.
+* Mac'te yerel pencere gölgesi şeffaf bir pencerede gösterilmeyecektir.
 
 ## Tıklama penceresi
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+Bir tıklama penceresi oluşturmak, diğer bir deyişle, pencereyi tüm fare hareketlerinden yok saymak için, [ win.setIgnoreMouseEvents (ignore)](browser-window.md#winsetignoremouseeventsignore)'ı çağırabilirsiniz. API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -79,9 +79,9 @@ win.setIgnoreMouseEvents(true)
 
 ## Sürüklenebilir bölge
 
-By default, the frameless window is non-draggable. Uygulamalar hangi bölgelerin sürüklenebilir olduğunu (OS'nin standart başlık çubuğu gibi) Elektron'a bildirmek için CSS'de `-webkit-app-region: drag` belirtmelidir ve uygulamalar da `-webkit-app-region: no-drag` sürüklenemez alanı sürüklenebilir bölgeden çıkarmak için kullanabilir. Note that only rectangular shapes are currently supported.
+Varsayılan olarak, çerçevesiz pencere sürüklenemez. Uygulamalar hangi bölgelerin sürüklenebilir olduğunu (OS'nin standart başlık çubuğu gibi) Elektron'a bildirmek için CSS'de `-webkit-app-region: drag` belirtmelidir ve uygulamalar da `-webkit-app-region: no-drag` sürüklenemez alanı sürüklenebilir bölgeden çıkarmak için kullanabilir. Şu anda yalnızca dikdörtgen şekiller desteklenmektedir.
 
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+Not: `-webkit-app-region: drag`'ın geliştirici araçları açıkken sorun yaşadığı bilinmektedir. Geçici bir çözüm de dahil olmak üzere daha fazla bilgi için [GitHub sorun](https://github.com/electron/electron/issues/3647) kısmına bakın.
 
 Tüm pencereyi sürüklenebilir yapmak için, `-webkit-app-region: drag`'i `body` tarzında ekleyebilirsiniz:
 
@@ -101,7 +101,7 @@ Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız
 
 ## Metin seçimi
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+Çerçevesiz pencerede sürükleme hareketi, metin seçimi ile çakışabilir. Örneğin, başlık çubuğunu sürüklediğinizde, yanlışlıkla başlık çubuğu üstündeki metni seçebilirsiniz. To prevent this, you need to disable text selection within a draggable area like this:
 
 ```css
 .titlebar {
