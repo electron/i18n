@@ -18,9 +18,9 @@ export npm_config_target=1.2.3
 # The architecture of Electron, can be ia32 or x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Electron başlıklarını indir.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# node-pre-gyp'e Electron'u build ettiğimizi belirt.
 export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
