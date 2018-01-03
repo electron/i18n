@@ -101,7 +101,7 @@ Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız
 
 ## Metin seçimi
 
-Çerçevesiz pencerede sürükleme hareketi, metin seçimi ile çakışabilir. Örneğin, başlık çubuğunu sürüklediğinizde, yanlışlıkla başlık çubuğu üstündeki metni seçebilirsiniz. To prevent this, you need to disable text selection within a draggable area like this:
+Çerçevesiz pencerede sürükleme hareketi, metin seçimi ile çakışabilir. Örneğin, başlık çubuğunu sürüklediğinizde, yanlışlıkla başlık çubuğu üstündeki metni seçebilirsiniz. Bunu önlemek için, sürüklenebilir alandaki metin seçimini bu şekilde devre dışı bırakmanız gerekiyor:
 
 ```css
 .titlebar {
@@ -112,4 +112,4 @@ Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız
 
 ## Kaynak menüsü
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+Bazı platformlarda, sürüklenebilir alan, istemci olmayan bir çerçeve olarak değerlendirilir; bu nedenle sağ tıkladığınızda bir sistem menüsü açılır. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
