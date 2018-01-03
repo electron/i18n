@@ -126,8 +126,8 @@ Dibunyikan saat halaman menerima url favicon.
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code> url </ 0>  String</li>
-<li><code>frameName` String
+<li><code>url` String
+* `frameName` String
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
 * `pilihan` Objek - pilihan yang akan digunakan untuk menciptakan baru `BrowserWindow`.
 * `additionalFeatures` String [] - fitur non-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `window.open()`.
@@ -147,59 +147,58 @@ myBrowserWindow.webContents.on ('window baru ', (acara, url) = > {event.preventD
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code> url </ 0>  String</li>
-</ul>
+<li><code>url` String
 
-<p>Emitted when a user or the page wants to start navigation. It can happen when
-the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-  Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
-  
-  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-  
-  Memanggil `event.preventDefault()` akan mencegah navigasi.
-  
-  #### Event: 'melakukan navigasi'
-  
-  Pengembalian:
-  
-  * ` event </ 0>  Acara</li>
-<li><code> url </ 0>  String</li>
-</ul>
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
-<p>Dibunyikan apabila navigasi dilakukan.</p>
+Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
 
-<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
-    #### Event: 'Apakah-menavigasi-di halaman'
-    
-    Pengembalian:
-    
-    * ` event </ 0>  Acara</li>
-<li><code> url </ 0>  String</li>
-<li><code>isMainFrame` Boolean
-    
-    Dibunyikan saat navigasi dalam halaman terjadi.
-    
-    Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
-    
-    #### Event: 'akan-mencegah-membongkar'
-    
-    Pengembalian:
-    
-    * ` event </ 0>  Acara</li>
+Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+
+Memanggil `event.preventDefault()` akan mencegah navigasi.
+
+#### Event: 'melakukan navigasi'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
+<li><code>url` String
+
+Dibunyikan apabila navigasi dilakukan.
+
+Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+
+#### Event: 'Apakah-menavigasi-di halaman'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
+<li><code>url` String
+* `isMainFrame` Boolean
+
+Dibunyikan saat navigasi dalam halaman terjadi.
+
+Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
+
+#### Event: 'akan-mencegah-membongkar'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 </ul>
 
 <p>Dibunyikan apabila <code>beforeunload` event handler adalah mencoba untuk membatalkan halaman membongkar.</p> 
-      Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
-      
-      ```javascript
+  Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
+  
+  ```javascript
 const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWindow ({width: 800, height: 600}) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
 ```
-  
-  #### Event: 'jatuh'
-  
-  Pengembalian:
-  
-  * ` event </ 0>  Acara</li>
+
+#### Event: 'jatuh'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 <li><code> terbunuh </ 0>  Boolean</li>
 </ul>
 
@@ -213,33 +212,33 @@ const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWind
 <li><code> event </ 0>  Acara</li>
 <li><code> nama </ 0>  String</li>
 <li><code>Versi` String
-  
-  Dibunyikan ketika proses plugin telah jatuh.
-  
-  #### Event: 'menghancurkan'
-  
-  Dibunyikan apabila `webContents` dihancurkan.
-  
-  #### Acara: 'sebelum-masukan-event'
-  
-  Pengembalian:
-  
-  * ` event </ 0>  Acara</li>
+
+Dibunyikan ketika proses plugin telah jatuh.
+
+#### Event: 'menghancurkan'
+
+Dibunyikan apabila `webContents` dihancurkan.
+
+#### Acara: 'sebelum-masukan-event'
+
+Pengembalian:
+
+* ` event </ 0>  Acara</li>
 <li><code>masukan` Obyek - Input properti 
-    * `jenis` String - baik `keyUp` atau `keyDown`
-    * `kunci` String - setara dengan [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `kode` String - setara dengan [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `isAutoRepeat` Boolean - setara dengan [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `pergeseran` Boolean - setara dengan [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `kontrol` Boolean - setara dengan [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `Alt` Boolean - setara dengan [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `meta` Boolean - setara dengan [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  
-  Dipancarkan sebelum membuat acara `keydown` dan `keyup` di halaman. Memanggil `event.preventDefault` akan mencegah halaman `keydown` / `keyup` peristiwa dan menu cara pintas.
-  
-  Untuk hanya mencegah menu cara pintas, menggunakan [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
-  
-  ```javascript
+  * `jenis` String - baik `keyUp` atau `keyDown`
+  * `kunci` String - setara dengan [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `kode` String - setara dengan [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `isAutoRepeat` Boolean - setara dengan [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `pergeseran` Boolean - setara dengan [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `kontrol` Boolean - setara dengan [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `Alt` Boolean - setara dengan [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `meta` Boolean - setara dengan [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+
+Dipancarkan sebelum membuat acara `keydown` dan `keyup` di halaman. Memanggil `event.preventDefault` akan mencegah halaman `keydown` / `keyup` peristiwa dan menu cara pintas.
+
+Untuk hanya mencegah menu cara pintas, menggunakan [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+
+```javascript
 const {BrowserWindow} = require ('electron') 
 
 misalkan win = new BrowserWindow ({width: 800, height: 600}) 
@@ -266,8 +265,8 @@ Emitted saat DevTools difokuskan / dibuka.
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
-<li><code> url </ 0>  String</li>
-<li><code> error </ 0>  String - Kode kesalahan</li>
+<li><code>url` String
+* ` error </ 0>  String - Kode kesalahan</li>
 <li><code> sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
 <li><code>callback` Fungsi 
   * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya
@@ -351,17 +350,15 @@ Pengembalian:
     Pengembalian:
     
     * ` event </ 0>  Acara</li>
-<li><code> url </ 0>  String</li>
-</ul>
-
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
-
-<h4>Event: 'kursor-berubah'</h4>
-
-<p>Pengembalian:</p>
-
-<ul>
-<li><code> event </ 0>  Acara</li>
+<li><code>url` String
+    
+    Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+    
+    #### Event: 'kursor-berubah'
+    
+    Pengembalian:
+    
+    * ` event </ 0>  Acara</li>
 <li><code>jenis` String
     * `gambar` NativeImage (opsional)
     * `skala` Mengambang (opsional) - skala faktor untuk kursor kustom
@@ -466,8 +463,8 @@ Acara ini dapat digunakan untuk mengkonfigurasi `webPreferences` untuk `webConte
 
 #### `contents.loadURL (url [, opsi])`
 
-* ` url </ 0>  String</li>
-<li><code>pilihan` Objek (opsional) 
+* `url` String
+* `pilihan` Objek (opsional) 
   * `httpReferrer` String (opsional) - url perujuk HTTP.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
@@ -482,15 +479,15 @@ const {webContents} = require('electron') opsi const = {extraHeaders: ' pragma: 
 
 #### `contents.downloadURL(url)`
 
-* ` url </ 0>  String</li>
-</ul>
+* `url` String
 
-<p>Memulai download dari sumber daya di <code>url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.</p> 
-  #### `contents.getURL()`
-  
-  Mengembalikan `String` - URL laman web saat ini.
-  
-  ```javascript
+Memulai download dari sumber daya di `url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.
+
+#### `contents.getURL()`
+
+Mengembalikan `String` - URL laman web saat ini.
+
+```javascript
 const {BrowserWindow} = require('electron') membiarkan memenangkan = baru BrowserWindow({width: 800, height: 600}) win.loadURL ('http://github.com') Biarkan currentURL = win.webContents.getURL() console.log(currentURL)
 ```
 
