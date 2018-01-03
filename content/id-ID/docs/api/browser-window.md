@@ -1019,104 +1019,104 @@ win.loadURL(url)
                           
                           #### `win.setIcon(icon)` *Windows* *Linux*
                           
-                          * ` ikon </ 0>  <a href="native-image.md"> NativeImage </ 1></li>
-</ul>
-
-<p>Ubah ikon jendela.</p>
-
-<h4><code>win.setAutoHideMenuBar(hide)`</h4> 
-                            * `Sembunyikan` Boolean
-                            
-                            Menetapkan apakah jendela menu bar harus menyembunyikan diri secara otomatis. Pernah mengatur menu bar hanya akan menunjukkan bila pengguna menekan tombol `Alt` tunggal.
-                            
-                            Jika bilah menu sudah terlihat, memanggil `setAutoHideMenuBar(true)` tidak menyembunyikan itu segera.
-                            
-                            #### `win.isMenuBarAutoHide()`
-                            
-                            Kembali `Boolean` - Apakah bilah menu secara otomatis menyembunyikan dirinya sendiri.
-                            
-                            #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
-                            
-                            * `terlihat` Boolean
-                            
-                            Menetapkan apakah menu bar harus terlihat. Jika auto-Sembunyikan menu bar, pengguna dapat masih memunculkan bilah menu dengan menekan tombol `Alt` tunggal.
-                            
-                            #### `win.isMenuBarVisible()`
-                            
-                            Kembali `Boolean` - Apakah menu bar terlihat.
-                            
-                            #### `win.setVisibleOnAllWorkspaces(visible)`
-                            
-                            * `terlihat` Boolean
-                            
-                            Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
-                            
-                            **Catatan:** API ini tidak apa-apa pada Windows.
-                            
-                            #### `win.isVisibleOnAllWorkspaces()`
-                            
-                            Kembali `Boolean` - Apakah jendela terlihat pada semua workspace.
-                            
-                            **Catatan:** API ini selalu kembali palsu pada Windows.
-                            
-                            #### `win.setIgnoreMouseEvents(ignore)`
-                            
-                            * `mengabaikan` Boolean
-                            
-                            Membuat jendela mengabaikan semua kejadian mouse.
-                            
-                            Semua kejadian mouse yang terjadi di jendela ini akan diteruskan ke jendela di bawah jendela ini, namun jika jendela ini fokus, masih akan ada acara keyboard.
-                            
-                            #### `win.setContentProtection(enable)` *macOS* *Windows*
-                            
-                            * `enable` Boolean
-                            
-                            Mencegah isi jendela ditangkap oleh aplikasi lain.
-                            
-                            On macOS itu set NSWindow sharingType untuk NSWindowSharingNone. Pada Windows itu panggilan SetWindowDisplayAffinity dengan `WDA_MONITOR`.
-                            
-                            #### `win.setFocusable(focusable)` *Windows*
-                            
-                            * `focusable` Boolean
-                            
-                            Perubahan apakah jendela bisa difokuskan.
-                            
-                            #### `win.setParentWindow(parent)` *Linux* *macOS*
-                            
-                            * `orang tua` BrowserWindow
-                            
-                            Set `orangtua` sebagai jendela aktif jendela induk, melewati `null` akan mengubah jendela ke jendela di tingkat atas.
-                            
-                            #### `win.getParentWindow()`
-                            
-                            Kembali `[BrowserWindow]` - semua jendela anak.
-                            
-                            #### `win.getChildWindows()`
-                            
-                            Kembali `[BrowserWindow]` - semua jendela anak.
-                            
-                            #### `win.setAutoHideCursor(autoHide)` *macOS*
-                            
-                            * `autoHide` Boolean
-                            
-                            Mengontrol apakah akan menyembunyikan kursor saat mengetik.
-                            
-                            #### `win.setVibrancy(type)` *macOS*
-                            
-                            * `jenis` String - dapat `berbasis penampilan`, `terang`, `gelap`, `titlebar`, `pilihan`, `menu`, `popover`, `sidebar`, `menengah-cahaya` atau `ultra gelap`. Lihat [dokumentasi macOS](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) untuk rincian lebih lanjut.
-                            
-                            Menambahkan efek semangat ke jendela browser. Melewati `null` atau string kosong akan menghapus semangat efek pada jendela.
-                            
-                            #### `win.setTouchBar(touchBar)` *macOS* *Linux*
-                            
-                            * `touchBar` TouchBar
-                            
-                            Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
-                            
-                            **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
-                            
-                            #### `win.setBrowserView (browserView)` *Eksperimental*
-                            
-                            * `browserView` [BrowserView](browser-view.md)
-                            
-                            ** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p>
+                          * `ikon` [NativeImage](native-image.md)
+                          
+                          Ubah ikon jendela.
+                          
+                          #### `win.setAutoHideMenuBar(hide)`
+                          
+                          * `Sembunyikan` Boolean
+                          
+                          Menetapkan apakah jendela menu bar harus menyembunyikan diri secara otomatis. Pernah mengatur menu bar hanya akan menunjukkan bila pengguna menekan tombol `Alt` tunggal.
+                          
+                          Jika bilah menu sudah terlihat, memanggil `setAutoHideMenuBar(true)` tidak menyembunyikan itu segera.
+                          
+                          #### `win.isMenuBarAutoHide()`
+                          
+                          Kembali `Boolean` - Apakah bilah menu secara otomatis menyembunyikan dirinya sendiri.
+                          
+                          #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
+                          
+                          * `terlihat` Boolean
+                          
+                          Menetapkan apakah menu bar harus terlihat. Jika auto-Sembunyikan menu bar, pengguna dapat masih memunculkan bilah menu dengan menekan tombol `Alt` tunggal.
+                          
+                          #### `win.isMenuBarVisible()`
+                          
+                          Kembali `Boolean` - Apakah menu bar terlihat.
+                          
+                          #### `win.setVisibleOnAllWorkspaces(visible)`
+                          
+                          * `terlihat` Boolean
+                          
+                          Menetapkan apakah jendela harus terlihat pada semua ruang kerja.
+                          
+                          **Catatan:** API ini tidak apa-apa pada Windows.
+                          
+                          #### `win.isVisibleOnAllWorkspaces()`
+                          
+                          Kembali `Boolean` - Apakah jendela terlihat pada semua workspace.
+                          
+                          **Catatan:** API ini selalu kembali palsu pada Windows.
+                          
+                          #### `win.setIgnoreMouseEvents(ignore)`
+                          
+                          * `mengabaikan` Boolean
+                          
+                          Membuat jendela mengabaikan semua kejadian mouse.
+                          
+                          Semua kejadian mouse yang terjadi di jendela ini akan diteruskan ke jendela di bawah jendela ini, namun jika jendela ini fokus, masih akan ada acara keyboard.
+                          
+                          #### `win.setContentProtection(enable)` *macOS* *Windows*
+                          
+                          * `enable` Boolean
+                          
+                          Mencegah isi jendela ditangkap oleh aplikasi lain.
+                          
+                          On macOS itu set NSWindow sharingType untuk NSWindowSharingNone. Pada Windows itu panggilan SetWindowDisplayAffinity dengan `WDA_MONITOR`.
+                          
+                          #### `win.setFocusable(focusable)` *Windows*
+                          
+                          * `focusable` Boolean
+                          
+                          Perubahan apakah jendela bisa difokuskan.
+                          
+                          #### `win.setParentWindow(parent)` *Linux* *macOS*
+                          
+                          * `orang tua` BrowserWindow
+                          
+                          Set `orangtua` sebagai jendela aktif jendela induk, melewati `null` akan mengubah jendela ke jendela di tingkat atas.
+                          
+                          #### `win.getParentWindow()`
+                          
+                          Kembali `[BrowserWindow]` - semua jendela anak.
+                          
+                          #### `win.getChildWindows()`
+                          
+                          Kembali `[BrowserWindow]` - semua jendela anak.
+                          
+                          #### `win.setAutoHideCursor(autoHide)` *macOS*
+                          
+                          * `autoHide` Boolean
+                          
+                          Mengontrol apakah akan menyembunyikan kursor saat mengetik.
+                          
+                          #### `win.setVibrancy(type)` *macOS*
+                          
+                          * `jenis` String - dapat `berbasis penampilan`, `terang`, `gelap`, `titlebar`, `pilihan`, `menu`, `popover`, `sidebar`, `menengah-cahaya` atau `ultra gelap`. Lihat [dokumentasi macOS](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) untuk rincian lebih lanjut.
+                          
+                          Menambahkan efek semangat ke jendela browser. Melewati `null` atau string kosong akan menghapus semangat efek pada jendela.
+                          
+                          #### `win.setTouchBar(touchBar)` *macOS* *Linux*
+                          
+                          * `touchBar` TouchBar
+                          
+                          Mengatur tata letak touchBar untuk jendela aktif. Menentukan `null` atau `undefined` membersihkan bar sentuhan. Metode ini hanya memiliki efek jika mesin memiliki panel sentuh dan berjalan di macos 10.12.1+.
+                          
+                          **Catatan:** TouchBar API saat ini masih bersifat eksperimental dan mungkin akan berubah atau dihapus saat rilis elektron di masa depan.
+                          
+                          #### `win.setBrowserView (browserView)` *Eksperimental*
+                          
+                          * `browserView` [BrowserView](browser-view.md)
+                          
+                          ** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p>
