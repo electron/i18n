@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Bu, aşağıdaki koda eşdeğerdir:
 
 ```javascript
 const electron = require('electron')
