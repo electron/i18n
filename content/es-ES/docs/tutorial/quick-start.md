@@ -191,10 +191,17 @@ Despues de que hayas terminado de escribir tu aplicación, puedes crear una dist
 
 Clona y ejecuta el código en este tutorial usando el repositorio [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Nota**: Ejecutar esto requiere [Git](https://git-scm.com) y [Node.js](https://nodejs.org/en/download/) (el cual incluye [npm](https://npmjs.org)) en tu sistema.
 
 ```sh
-# Clonar el repositorio $ git clone https://github.com/electron/electron-quick-start # ir en el repositorio $ cd Electron-quick-start # instalar dependencias $ MNP instalar # ejecute el app $ MNP start
+# Clonar el repositorio
+$ git clone https://github.com/electron/electron-quick-start
+# ir al repositorio
+$ cd electron-quick-start
+# instalar dependencias
+$ npm install
+# ejecute la aplicación
+$ npm start
 ```
 
-Para más aplicaciones de ejemplo, vea la[list de boilerplates](https://electronjs.org/community#boilerplates) creado por la comunidad Electron impresionante.
+Para más aplicaciones de ejemplo, vea la[lista de boilerplates](https://electronjs.org/community#boilerplates) creado por la impresionante comunidad de Electron.
