@@ -161,8 +161,8 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 #### `ses.resolveProxy (url, callback)`
 
-* ` url </ 0> URL</li>
-<li><code>callback` Fungsi 
+* `url` URL
+* `callback` Fungsi 
   * `proxy` String
 
 Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `callback(proxy)` ketika permintaan dilakukan.
