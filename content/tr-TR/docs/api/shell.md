@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> Varsayılan uygulamalarını kullanarak dosyaları ve URL'leri yönetin.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
-An example of opening a URL in the user's default browser:
+Bir URL'yi kullanıcının varsayılan tarayıcısında açmaya örnek:
 
 ```javascript
 const {shell} = require('electron')
@@ -32,7 +32,7 @@ Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı se
 
 Returns `Boolean` - Whether the item was successfully opened.
 
-Open the given file in the desktop's default manner.
+Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 
 ### `shell.openExternal(url[, options, callback])`
 
@@ -44,7 +44,7 @@ Open the given file in the desktop's default manner.
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Verilen harici protokol URL'sini masaüstünde varsayılan şekilde açın. (Örneğin, mailto: kullanıcının varsayılan posta aracısındaki URL'leri).
 
 ### `shell.moveItemToTrash(fullPath)`
 
@@ -79,4 +79,4 @@ Returns [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Bir hata oluştuğunda istisna atılır.
