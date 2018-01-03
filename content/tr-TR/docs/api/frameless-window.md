@@ -2,7 +2,7 @@
 
 > Araç çubukları, kenarlar veya başka görsel "chrome" olmadan bir pencere açın.
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Çerçevesiz bir pencere web sayfasının bir parçası olmayan araç çubuğu gibi [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome) olmayan bir penceredir. Bunlar [`BrowserWindow`](browser-window.md) sınıfındaki seçeneklerdir.
 
 ## Çerçevesiz bir pencere oluşturun
 
@@ -16,7 +16,7 @@ win.show()
 
 ### macOs üzerindeki alternatifler
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Başlık çubuğunu ve pencere denetimlerini devre dışı bırakan `frame` ‘yi `false` olarak ayarlamak yerine, başlık çubuğunu gizli tutmak isteyebilirsiniz ve içeriğiniz tam pencere boyutuna kadar uzatılabilir, ancak standart pencere işlemleri için pencere kontrollerini ("trafik ışıkları") hala koruyabilirsiniz. You can do so by specifying the `titleBarStyle` option:
+MacoS 10.9 Mavericks ve üst versiyonlarda bir chromeless pencere belirlemenin alternatif bir yolu vardır. Başlık çubuğunu ve pencere denetimlerini devre dışı bırakan `frame` ‘yi `false` olarak ayarlamak yerine, başlık çubuğunu gizli tutmak isteyebilirsiniz ve içeriğiniz tam pencere boyutuna kadar uzatılabilir, ancak standart pencere işlemleri için pencere kontrollerini ("trafik ışıkları") hala koruyabilirsiniz. Bunu, `titleBarStyle` seçeneğini belirleyerek yapabilirsiniz:
 
 #### `hidden`
 
@@ -83,7 +83,7 @@ By default, the frameless window is non-draggable. Uygulamalar hangi bölgelerin
 
 Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+Tüm pencereyi sürüklenebilir yapmak için, `-webkit-app-region: drag`'i `body` tarzında ekleyebilirsiniz:
 
 <pre><code class="html">&lt;body style="-webkit-app-region: drag"&gt;<body style="-webkit-app-region: drag">
 </body>&lt;/body&gt;
