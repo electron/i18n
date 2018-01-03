@@ -42,7 +42,7 @@ Elektronu küçük (dosya boyutu) ve sürdürülebilir (bağımlılıkların ve 
 
 Örneğin, Electron, yalnızca Chromium'un tamamında değil, Chromium'daki işleme kütüphanesini kullanır. Bu, Chromium'u yükseltmeyi kolaylaştırır, ancak Google Chrome'da bulunan bazı tarayıcı özelliklerinin Electron'da bulunmadığı anlamına gelir.
 
-Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. If a feature can be its own Node.js module, it probably should be. [Topluluk tarafından geliştirilen Electron araçlarını](https://electronjs.org/community) keşfedin.
+Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. Bir özellik kendi Node.js modülü olabilir, büyük olasılıkla olmalıdır. [Topluluk tarafından geliştirilen Electron araçlarını](https://electronjs.org/community) keşfedin.
 
 ## Tarihçe
 
