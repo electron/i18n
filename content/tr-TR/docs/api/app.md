@@ -290,9 +290,9 @@ Varsayılan olarak yeni oluşum, yürürlükteki oluşumun çalışmakta olduğu
 
 Bu metodun uygulandığında uygulamadan çıkış yapmadığını unutmayın, uygulamayı yeniden başlatmak (restart) için `app.relaunch`'u çağırdıktan sonra `app.quit`'i veya `app.exit`'ı çağırmanız mecburidir.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+`app.relaunch` birden fazla kez çağırılırsa, yürürlükteki oluşum tamamlandıktan sonra, birden fazla oluşum başlatılır.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Yürürlükteki oluşumun yeniden başlatılmasının (restart) ve yeni oluşumuna yeni bir komut satırı değişkeni eklenmesinin bir örneği:
 
 ```javascript
 const {app} = require('electron')
@@ -303,11 +303,11 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Eğer Electron sıfırlamayı tamamladıysa `Boolean` - `true` dönütünü, tamamlamadıysa `false` dönütünü verir.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Linux'ta görünebilen ilk pencereye odaklanır. macOS'ta uygulamayı aktif uygulama yapar. Windows'ta uygulamanın ilk penceresine odaklanır.
 
 ### `app.hide()` *macOS*
 
