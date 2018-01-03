@@ -332,8 +332,8 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 * `home` Kullanıcının ana dizgini.
 * `appData` Her bir kullanıcının uygulama verisinin bulunduğu veri dizgini, varsayılan olarak şunlara işaret eder: 
   * Windows'ta `%APPDATA%`
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
+  * Linux'ta `$XDG_CONFIG_HOME` veya `~/.config`
+  * macOS'ta `~/Library/Application Support`
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
 * `temp` Temporary directory.
 * `exe` The current executable file.
