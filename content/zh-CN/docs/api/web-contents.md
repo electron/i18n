@@ -61,7 +61,7 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 。 The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 。 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
 
 #### Event: 'did-frame-finish-load'
 
@@ -70,7 +70,7 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 * `event` Event
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+当框架完成导航（navigation）时触发
 
 #### Event: 'did-start-loading'
 
