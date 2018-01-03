@@ -1,9 +1,9 @@
 # Lokal
 
-> Nilai lokal dikembalikan oleh  app.getLocale () </ 0> .</p>
+> Nilai lokal dikembalikan oleh  aplikasi. mendapatkan lokal () </ 0> .</p>
 </blockquote>
 
-<p>Elektron menggunakan perpustakaan <code> l10n_util </ 0> Chromium untuk mengambil lokal. Nilai yang mungkin tercantum di bawah ini:</p>
+<p>Elektron menggunakan perpustakaan <code> l10n_util </ 0> perpustakaan untuk mengambil lokal. Nilai yang mungkin tercantum di bawah ini:</p>
 
 <table>
 <thead>
