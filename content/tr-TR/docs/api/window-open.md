@@ -1,10 +1,10 @@
 # `window.open` Fonksiyonu
 
-> Open a new window and load a URL.
+> Yeni bir pencere aç ve URL yükle.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Web sayfasında yeni bir pencere açmak için `window.open` çağırıldığında, `url` için yeni bir `BrowserWindow` örneği oluşturulur ve sayfanın üzerinde sınırlı kontrole sahip olması için proxy `window.open`'a döndürülür.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Proxy, geleneksel web sayfalarıyla uyumlu olması için uygulanan sınırlı standart işlevselliğe sahiptir. Yeni pencerenin tam kontrolü için doğrudan bir `BrowserWindow` oluşturmanız gerekmektedir.
 
 The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
