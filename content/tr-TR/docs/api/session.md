@@ -274,7 +274,7 @@ Ana çözümleyici önbelleğini temizler.
 
 * `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilgilerini göndermeyi veya göndermemeyi ayarlar.
 
 ```javascript
 const {session} = require('electron')
