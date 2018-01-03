@@ -2,11 +2,11 @@
 
 विंडोज 10 से, पुराने पर बढ़िया विन32 एग्जिक्युटेबल को एक और भाई मिल गया है: वैश्विक विंडोज प्लेटफार्म | नया `.एप्पएक्स` फॉर्मेट न केवल कई सारे नये शक्तिशाली ऐपीआई जैसे कि कोरटाना या पुश नोटीफिकेशन की सुविधा देता है, पर विंडोज स्टोर के द्वारा, इंस्टालेशन और अपडेटिंग भी सरल बनाता है |
 
-माइक्रोसॉफ्ट ने [एक औज़ार विकसित किया था जो इलेक्ट्रॉन एप्प्स को `.एप्पएक्स` पैकेजेस की तरह कम्पायल करता है](https://github.com/catalystcode/electron-windows-store), जिससे कि डेवलपर्स को नये एप्लीकेशन मॉडल में मौज़ूद कुछ अच्छी चीज़े इस्तेमाल करने की सुविधा मिलती है | This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+माइक्रोसॉफ्ट ने [एक औज़ार विकसित किया था जो इलेक्ट्रॉन एप्प्स को `.एप्पएक्स` पैकेजेस की तरह कम्पायल करता है](https://github.com/catalystcode/electron-windows-store), जिससे कि डेवलपर्स को नये एप्लीकेशन मॉडल में मौज़ूद कुछ अच्छी चीज़े इस्तेमाल करने की सुविधा मिलती है | यह गाइड आपको बताएगी कि इसे कैसे इस्तेमाल करना है - और इलेक्ट्रॉन एप्पएक्स पैकेज की क्या-क्या क्षमतायें और सीमायें है |
 
-## Background and Requirements
+## पृष्ठभूमि और आवश्यकतायें
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+विंडोज 10 का "सालगिरह अपडेट" विन32 `.ईएक्सई` लाइब्रेरीज को एक वर्चुअलाइज़ेड फाइलसिस्टम और रजिस्ट्री के साथ, एक साथ लांच करने की क्षमता प्रदान करता है | Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
 
 In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
