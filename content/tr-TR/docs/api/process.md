@@ -40,12 +40,12 @@ Uygulamanızın içindeki ASAR desteğini kontrol eden bir `Boolean`. Bunu `true
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+İtiraz uyarılarının `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`.  
+Bunu `true` olarak ayarlamak itiraz uyarılarını susturacaktır. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+Kaynaklar dizininin yolunu temsil eden bir `String`.
 
 ### `process.throwDeprecation`
 
