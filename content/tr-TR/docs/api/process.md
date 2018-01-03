@@ -10,7 +10,7 @@ Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/
 
 ### Etkinlik: 'yüklenen'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Elektron dahili başlatma komut dosyasını yüklediğinde ve web sayfası ya da ana komut dosyası yüklenmeye başladığında yayılır.
 
 It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
 
