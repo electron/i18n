@@ -21,8 +21,8 @@ Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçenekler
 **Notlar:**
 
 * Ana pencerede devre dışı bırakılmış ise, açılan `window`'de Node entegrasyonu devre dışı bırakılacaktır.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* Eğer Ortam izolasyonu, ana pencerede etkinleştirilmiş ise, açılan `window`'da daima etkinleştirilir.
+* Eğer JavaScript, ana pencerede devre dışı bırakılmış ise, açılan `window`'da daima devre dışı bırakılır.
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
 
 ### `window.opener.postMessage(message, targetOrigin)`
