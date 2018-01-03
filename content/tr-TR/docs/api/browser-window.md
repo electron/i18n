@@ -425,7 +425,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` Dizgi
+* `name` String
 
 İsme göre bir Chrome eklentisi kaldır.
 
@@ -451,7 +451,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` Dizgi
+* `name` String
 
 İsme göre bir DevTools eklentisi kaldır.
 
