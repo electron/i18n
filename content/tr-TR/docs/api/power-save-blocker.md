@@ -37,7 +37,7 @@ For example, an API calling A requests for `prevent-app-suspension`, and another
 
 * `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Belirtilen güç tasarrufu bloke ediciyi durdurur.
 
 ### `powerSaveBlocker.isStarted(id)`
 
