@@ -1,10 +1,10 @@
-# Releasing
+# Publicar
 
-This document describes the process for releasing a new version of Electron.
+Este documento describe el proceso de publicación de una nueva versión de Electron.
 
-## Determine which branch to release from
+## Determinar cual rama publicar primero
 
-- **If releasing beta,** run the scripts below from `master`.
+- **Si se publica el beta,** ejecute el script abajo desde `maestro`.
 - **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
 
 ## Find out what version change is needed
