@@ -109,16 +109,16 @@ Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye 
 * `total` Tamsayı - Sistemde kullanılabilir durumda olan fiziksel belleğin Kilobayt olarak toplam miktarı.
 * `free` Tamsayı - Uygulamalar ve disk önbelleği tarafından kullanılmayan belleğin toplam miktarı.
 * `swapTotal` Tamsayı - Sistemde kullanılabilir durumda olan takas belleğinin Kilobayt olarak toplam miktarı. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `swapFree` Tamsayı - Sistemde kullanılabilir durumda olan boş takas belleğinin toplam miktarı. *Windows* *Linux*
 
-Tüm sistem hakkında bellek kullanım istatistiklerini veren bir nesneyi döndürür. Tüm istatistiklerin kilobayt cinsinden rapor edildiğini not et.
+Tüm sistem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm nesnelerin Kilobayt olarak raporlandığına dikkat edin.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Geçerli işlemin ana iş parçacığının askıda kalmasına neden olur.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
-* `maxDescriptors` Integer
+* `maxDescriptors` Tamsayı
 
 Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
