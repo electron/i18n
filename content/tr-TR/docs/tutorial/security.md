@@ -20,13 +20,13 @@ Mevcut Chromium bileşenlerini güncellediğimiz sistemin bize sağladığı kay
 
 Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik sorunu var demektir. Örnek olarak, bir tarayıcı penceresinin içinde görüntülenen uzak bir web sitesini düşünün. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
-> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: Hiç bir şart altında Node entegrasyonu aktif uzaktan çalışan kodları yüklemeyiniz! Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
 
 #### Kontrol Listesi
 
 Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 
-* Only display secure (https) content
+* Sadece güvenli (https) içeriğini görüntüle
 * Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
 * Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
 * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
