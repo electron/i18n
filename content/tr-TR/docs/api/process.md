@@ -32,11 +32,11 @@ Bir `Boolean`. Uygulama varsayılan uygulamaya parametre olarak geçirilip başl
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Bir `Boolean`. Mac App Store kurmak için, bu özellik `true` olur, diğer kurulumlar için `undefined` olur.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Uygulamanızın içindeki ASAR desteğini kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak düğümün dahili modüllerindeki `asar` arşivleri için olan desteği devre dışı bırakacaktır.
 
 ### `process.noDeprecation`
 
