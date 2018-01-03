@@ -500,8 +500,8 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Pengembalian:
       
-      * ` url </ 0>  String</li>
-<li><code>isMainFrame` Boolean
+      * `url` String
+      * `isMainFrame` Boolean
       
       Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
       
@@ -627,8 +627,8 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
   
   Pengembalian:
   
-  * ` url </ 0>  String</li>
-<li><code>frameName` String
+  * `url` String
+  * `frameName` String
   * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
   * `options` Object - The options which should be used for creating the new `BrowserWindow`.
   
@@ -644,62 +644,59 @@ const {shell} = require ('electron') const webview = document.querySelector ('we
 
 Pengembalian:
 
-* ` url </ 0>  String</li>
-</ul>
+* `url` String
 
-<p>Emitted when a user or the page wants to start navigation. It can happen when
-the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-  Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
-  
-  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-  
-  Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
-  
-  ### Event: 'melakukan navigasi'
-  
-  Pengembalian:
-  
-  * ` url </ 0>  String</li>
-</ul>
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
-<p>Dibunyikan apabila navigasi dilakukan.</p>
+Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
 
-<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
-    ### Event: 'Apakah-menavigasi-di halaman'
-    
-    Pengembalian:
-    
-    * `isMainFrame` Boolean
-    * ` url </ 0>  String</li>
-</ul>
+Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
 
-<p>Dibunyikan saat navigasi dalam halaman terjadi.</p>
+Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
 
-<p>Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
-navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
-diklik atau saat event hash <code>hashchange` dipicu.</p> 
-      ### Acara : 'dekat'
-      
-      Dipecat saat halaman tamu mencoba menutup diri.
-      
-      The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
-      
-      ```javascript
+### Event: 'melakukan navigasi'
+
+Pengembalian:
+
+* `url` String
+
+Dibunyikan apabila navigasi dilakukan.
+
+Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+
+### Event: 'Apakah-menavigasi-di halaman'
+
+Pengembalian:
+
+* `isMainFrame` Boolean
+* `url` String
+
+Dibunyikan saat navigasi dalam halaman terjadi.
+
+Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
+
+### Acara : 'dekat'
+
+Dipecat saat halaman tamu mencoba menutup diri.
+
+The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
+
+```javascript
 const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
 ```
-  
-  ### Event: 'ipc-message'
-  
-  Pengembalian:
-  
-  * ` saluran </ 0>  String</li>
+
+### Event: 'ipc-message'
+
+Pengembalian:
+
+* ` saluran </ 0>  String</li>
 <li><code>args` Array
-  
-  Fired when the guest page has sent an asynchronous message to the embedder page.
-  
-  With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
-  
-  ```javascript
+
+Fired when the guest page has sent an asynchronous message to the embedder page.
+
+With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+
+```javascript
 // In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
 ```
 
@@ -752,19 +749,18 @@ Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebua
 
 Pengembalian:
 
-*  url </ 0>  String</li>
-</ul>
+* `url` String
 
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
+Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
 
-<h3>Event: 'devtools-dibuka'</h3>
+### Event: 'devtools-dibuka'
 
-<p>Emitted saat DevTools dibuka.</p>
+Emitted saat DevTools dibuka.
 
-<h3>Event: 'devtools-ditutup'</h3>
+### Event: 'devtools-ditutup'
 
-<p>Emitted saat DevTools ditutup.</p>
+Emitted saat DevTools ditutup.
 
-<h3>Event: 'fokus devtools'</h3>
+### Event: 'fokus devtools'
 
-<p>Emitted saat DevTools difokuskan / dibuka.</p>
+Emitted saat DevTools difokuskan / dibuka.
