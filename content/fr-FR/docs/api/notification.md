@@ -4,9 +4,9 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-## Utilisation dans le processus renderer
+## Utilisation dans le processus de rendu
 
-SI vous voulez afficher des notifications depuis un processus renderer, vous devez utiliser l'[API HTML5 de notification](../tutorial/notifications.md)
+SI vous voulez afficher des notifications depuis un processus de rendu, vous devez utiliser l'[API HTML5 de notification](../tutorial/notifications.md)
 
 ## Classe : Notification
 
@@ -16,7 +16,7 @@ Processus : [Main](../glossary.md#main-process)
 
 `Notification` est un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-Cela créer une nouvelle `Notification` avec les propriétés natives défini par les `options`.
+Cela crée une nouvelle `Notification` avec les propriétés natives définies par les `options`.
 
 ### Méthodes statiques
 
@@ -24,16 +24,16 @@ La classe `Notification` dispose des méthodes statiques suivantes :
 
 #### `Notification.isSupported()`
 
-Retourne `Boolean` - Si le système actuel prend en charge les notification bureau
+Retourne `Boolean` - Si le système actuel prend en charge les notification bureau ou non
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Objet 
-  * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'il est affiché
+* `options` Object 
+  * `title` String - Le titre de la notification, qui s'affichera en haut de la fenêtre de notification lorsqu'elle est affichée
   * `subtitle` String - (facultatif) Un sous-titre pour la notification, qui s'affichera en dessous du titre. *macOS*
-  * `body` String - Le corp de texte de la notification, qui s'affichera sous le titre ou le sous-titre
+  * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre
   * `silent` Boolean - (facultatif) Émet ou non le signal sonore d'une notification lors de l'affichage de la notification
-  * `icon` [NativeImage](native-image.md) - (facultatif) Icône à utiliser dans la notification
+  * `icon` [NativeImage](native-image.md) - (facultatif) Icone à utiliser dans la notification
   * `hasReply` Boolean - (facultatif) Ajoute ou non une ligne de réponse en option à la notification. *macOS*
   * `replyPlaceholder` String - (facultatif) Le placeholder à écrire dans le champ de saisie de réponse. *macOS*
   * `sound` String - (facultatif) Le nom du fichier son à jouer lorsque la notification est affichée. *macOS*
