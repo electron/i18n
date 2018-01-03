@@ -55,8 +55,8 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
 * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
   * `permintaan` Obyek 
-    * ` url </ 0>  String</li>
-<li><code>pengarah` String
+    * `url` String
+    * `pengarah` String
     * ` method </ 0>  String</li>
 <li><code>uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -79,8 +79,8 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
       * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
         * `permintaan` Obyek 
-          * ` url </ 0>  String</li>
-<li><code>pengarah` String
+          * `url` String
+          * `pengarah` String
           * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
         * `callback` Fungsi 
@@ -106,8 +106,8 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
       * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
         * `permintaan` Obyek 
-          * ` url </ 0>  String</li>
-<li><code>pengarah` String
+          * `url` String
+          * `pengarah` String
           * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
         * `callback` Fungsi 
@@ -125,14 +125,14 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
           * `skema` String
           * `handler` Fungsi 
             * `permintaan` Obyek 
-              * ` url </ 0>  String</li>
-<li><code>pengarah` String
+              * `url` String
+              * `pengarah` String
               * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
             * `callback` Fungsi 
               * `redirectRequest` Obyek 
-                * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+                * `url` String
+                * ` method </ 0>  String</li>
 <li><code>sesi` Objek (opsional)
                 * `uploadData` Objek (opsional) 
                   * `contentType` String - jenis konten MIME.
@@ -172,8 +172,8 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
                       * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
                         * `permintaan` Obyek 
-                          * ` url </ 0>  String</li>
-<li><code>pengarah` String
+                          * `url` String
+                          * `pengarah` String
                           * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                         * `callback` Fungsi 
@@ -189,8 +189,8 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
                           * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
                             * `permintaan` Obyek 
-                              * ` url </ 0>  String</li>
-<li><code>pengarah` String
+                              * `url` String
+                              * `pengarah` String
                               * ` method </ 0>  String</li>
 <li><code>uploadData` [UploadData[]](structures/upload-data.md)
                             * `callback` Fungsi 
@@ -208,8 +208,8 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
                                   * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
                                     * `permintaan` Obyek 
-                                      * ` url </ 0>  String</li>
-<li><code>pengarah` String
+                                      * `url` String
+                                      * `pengarah` String
                                       * ` method </ 0>  String</li>
 <li><code>uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -226,15 +226,15 @@ protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mim
                                         * ` skema </ 0>  String</li>
 <li><code>handler` Fungsi 
                                           * `permintaan` Obyek 
-                                            * ` url </ 0>  String</li>
-<li><code>pengarah` String
+                                            * `url` String
+                                            * `pengarah` String
                                             * ` method </ 0>  String</li>
 <li><code>uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>panggilan balik` Fungsi 
                                               * `redirectRequest` Sasaran 
-                                                * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
+                                                * `url` String
+                                                * ` method </ 0>  String</li>
 <li><code>sesi` Objek (opsional)
                                                 * `uploadData` Objek (pilihan) 
                                                   * `contentType` String - jenis konten MIME.
