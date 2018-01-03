@@ -190,12 +190,12 @@ Once the publish is successful, run `npm run publish-to-npm` to publish to relea
 
 Bozulmuş CI makineleri ile bozuk bir yayınlama söz konusu olduğunda, zaten yayımlanmış bir sürüm için ikili dosyaları yeniden yükleyin.
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+İlk adım, [Releases](https://github.com/electron/electron/releases) sayfasına gidip, `SHASUMS256.txt` checksum dosyası ile bozuk ikili dosyaları silmektir.
 
-Then manually create distributions for each platform and upload them:
+Daha sonra elle her platform için dağıtımlar oluşturun ve yükleyin:
 
 ```sh
-# Checkout the version to re-upload.
+# Yeniden yüklenecek sürümü kontrol edin.
 git checkout vYAYIMIN.VERSIYON.NUMARASI
 
 # Versiyonu ve altyapısı belirtilmiş yayımı indir.
@@ -208,7 +208,7 @@ git checkout vYAYIMIN.VERSIYON.NUMARASI
 
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+Tüm dağıtımları yeniden yükledikten sonra, checksum dosyasını yüklemek için tekrar yayınlayın:
 
 ```sh
 npm run release
