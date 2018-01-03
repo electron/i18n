@@ -24,7 +24,7 @@ Voici un exemple de la stratégie 1.x :
 
 Une application développée avec la `1.8.1` ne peut pas avoir les corrections d'anomalies de la `1.8.3` sans inclure la fonctionnalité de la `1.8.2`, ou faire un rétroportage de la correction tout en maintenant une nouvelle ligne de versionnage.
 
-## Version 2.0 et supérieur
+## Version 2.0 et suivantes
 
 Il y a plusieurs changements majeurs par rapport à notre stratégie 1.x décrite ci-dessous. Chaque changement vise à satisfaire les besoins et les priorités des développeurs/mainteneurs et développeurs d'applications.
 
