@@ -246,7 +246,7 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
+`webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
 
 ### `<webview>.getURL()`
 
@@ -262,7 +262,7 @@ Returns `Boolean` - Whether guest page is still loading resources.
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+Returns `Boolean` - 访客页面是否正在等待页面主资源的第一响应。
 
 ### `<webview>.stop()`
 
@@ -337,7 +337,7 @@ Injects CSS into the guest page.
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - Default `false` （用户手势）
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
