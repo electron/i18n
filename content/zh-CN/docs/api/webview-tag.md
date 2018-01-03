@@ -131,7 +131,7 @@ Assigning `src` its own value will reload the current page.
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+当有这个属性时，访客页的 web安全将被禁用，web安全默认是启用
 
 ### `partition`
 
@@ -140,7 +140,7 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 If the `partition` is unset then default session of the app will be used.
+Sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
