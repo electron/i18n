@@ -36,7 +36,7 @@ Sends a message to the parent window with the specified origin or `*` for no ori
 
 如果要使用 Chrome 的内置 `window.open()`，请在 `webPreferences` 选项中将 `nativeWindowOpen` 设置为 `true`。
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+原生 ` window.open () ` 允许同步打开窗口, 因此可以方便的选择是对话框还是首选项窗口。
 
 This option can also be set on `<webview>` tags as well:
 
