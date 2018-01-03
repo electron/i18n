@@ -137,12 +137,12 @@ Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
 ### `remote.getGlobal (nama)`
 
-* ` nama </ 0>  String</li>
-</ul>
+* `nama` String
 
-<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p> 
-    ## properti
-    
-    ### `remote.process`
-    
-    Objek `proses` dalam proses utama. Ini sama dengan `remote.getGlobal('proses')` namun di-cache.
+Mengembalikan `sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.
+
+## properti
+
+### `remote.process`
+
+Objek `proses` dalam proses utama. Ini sama dengan `remote.getGlobal('proses')` namun di-cache.
