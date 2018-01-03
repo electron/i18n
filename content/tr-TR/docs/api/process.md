@@ -2,13 +2,13 @@
 
 > İşlem nesnesine uzantılar.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/process.html)'ten genişletilir. Aşağıdaki etkinlikleri, özellikleri ve yöntemleri ekler:
 
-## Olaylar
+## Etkinlikler
 
-### Event: 'loaded'
+### Etkinlik: 'yüklenen'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
