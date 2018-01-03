@@ -14,7 +14,7 @@ Windbg sembol yolu, yıldız işareti karakterleriyle sınırlandırılmış bir
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
-Bu dizeyi ortamda, Windbg menülerini kullanarak veya `.sympath` komutunu yazarak `_NT_SYMBOL_PATH` olarak ayarlayın. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Bu dizeyi ortamda, Windbg menülerini kullanarak veya `.sympath` komutunu yazarak `_NT_SYMBOL_PATH` olarak ayarlayın. Microsoft'un sembol sunucusundan sembol almak isterseniz, önce şunu listelemeniz gerekir:
 
 ```powershell
 SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
