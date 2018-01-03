@@ -20,9 +20,9 @@ Returns [`BrowserWindowProxy`](browser-window-proxy.md) - 创建一个新窗口�
 
 **注意：**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* 如果在父窗口中禁用了 Node integration, 则在打开的 `window ` 中将始终被禁用。
+* 如果在父窗口中启用了上下文隔离, 则在打开的 ` window ` 中将始终被启用。
+* 父窗口禁用 Javascript，打开的 `window` 中将被始终禁用
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
 
 ### `window.opener.postMessage(message, targetOrigin)`
