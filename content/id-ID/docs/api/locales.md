@@ -451,15 +451,15 @@
 </tr>
 <tr>
   <td>sv</td>
-  <td>Swedia</td>
+  <td>Bahasa Swedia</td>
 </tr>
 <tr>
   <td>sw</td>
-  <td>Swahili</td>
+  <td>Bahasa Swahili</td>
 </tr>
 <tr>
   <td>ta</td>
-  <td>Tamil</td>
+  <td>Bahasa Tamil</td>
 </tr>
 <tr>
   <td>te</td>
@@ -467,19 +467,19 @@
 </tr>
 <tr>
   <td>tg</td>
-  <td>Tajik</td>
+  <td>Bahasa Tajik</td>
 </tr>
 <tr>
   <td>th</td>
-  <td>Bahasa Thailand</td>
+  <td>Bahasa Thai</td>
 </tr>
 <tr>
   <td>ti</td>
-  <td>Tigrinya</td>
+  <td>Bahasa Tigrinya</td>
 </tr>
 <tr>
   <td>tk</td>
-  <td>Turkmen</td>
+  <td>Bahasa Turki</td>
 </tr>
 <tr>
   <td>untuk</td>
@@ -499,11 +499,11 @@
 </tr>
 <tr>
   <td>ug</td>
-  <td>Uighur</td>
+  <td>Bahasa Uighur</td>
 </tr>
 <tr>
   <td>uk</td>
-  <td>Ukraina</td>
+  <td>Bahasa Ukraina</td>
 </tr>
 <tr>
   <td>ur</td>
@@ -511,38 +511,38 @@
 </tr>
 <tr>
   <td>uz</td>
-  <td>Uzbek</td>
+  <td>Bahasa Uzbek</td>
 </tr>
 <tr>
   <td>vi</td>
-  <td>Vietnam</td>
+  <td>Bahasa Vietnam</td>
 </tr>
 <tr>
   <td>xh</td>
-  <td>Xhosa</td>
+  <td>Bahasa Xhosa</td>
 </tr>
 <tr>
   <td>yi</td>
   <td>Yiddi</td>
 </tr>
 <tr>
-  <td>yo</td>
-  <td>Yoruba</td>
+  <td>saya</td>
+  <td>Bahasa Yoruba</td>
 </tr>
 <tr>
   <td>zh</td>
   <td>Cina</td>
 </tr>
 <tr>
-  <td>zh-CN</td>
-  <td>Chinese (Simplified)</td>
+  <td>zh-rCN</td>
+  <td>Cina Disederhanakan</td>
 </tr>
 <tr>
   <td>zh-TW</td>
-  <td>Chinese (Traditional)</td>
+  <td>Cina tradisional)</td>
 </tr>
 <tr>
-  <td>zu</td>
+  <td>untuk</td>
   <td>Zulu</td>
 </tr>
 </tbody>
