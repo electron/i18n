@@ -502,16 +502,16 @@ Jika `kategori` adalah `null` daftar Jump kustom yang telah ditetapkan sebelumny
 Berikut adalah contoh sederhana untuk membuat Daftar Langsung kustom:
 
 ```javascript
-const {app} = require ('electron') app.setJumpList ([
+const {app} = require ('electron') app.setJumpList([
    {
      type: 'custom',
      name: 'Proyek Terbaru',
      item: [
-       {type: 'file', path: 'C: \\ Projects \\ project1.proj '},
-       {type:' file ', path:' C: \\ Projects \\ project2.proj '}
+       {type: 'file', path: 'C:\\Projects\\project1.proj '},
+       {type:' file ', path: 'C:\\Projects\\project2.proj '}
      ]
    },
-   {// memiliki nama jadi `type` diasumsikan sebagai     nama " custom "
+   { // memiliki nama jadi `type` diasumsikan sebagai nama "custom"
  : 'Tools',
      item: [
        {
@@ -534,47 +534,45 @@ const {app} = require ('electron') app.setJumpList ([
        }
      ]
    },
- {type: 'frequent'} ,
- {// tidak memiliki nama dan tipe tidak ada Jadi `tipe` diasumsikan sebagai item " tugas "
- : [
- {
+ {type: 'frequent' },
+ {// tidak memiliki nama dan tipe tidak ada Jadi `tipe` diasumsikan sebagai item "tugas": [
+{
  type: 'task',
  title: 'New Project',
  program: process.execPath,
  args: '--new-project',
  deskripsi: 'Buat yang baru proyek.'
 },
- {type: 'separator'} ,
- {
+ {type: 'separator' },
+{
  type: 'task',
  title: 'Recover Project',
  program: process.execPath,
  args: '--recover-project',
- deskripsi: '
-                                                                                                                            
+ deskripsi: 'Recover Project'
+}
+]
+}
+])
 ```
 
-### `app.makeSingleInstance (callback)`
+### `app.makeSingleInstance(callback)`
 
 * `callback` Fungsi 
-  * ` argv </ 0>  String [] - Sebuah array dari argumen baris perintah kedua</li>
-<li><code> workingDirectory </ 0>  String - Direktori kerja contoh kedua</li>
-</ul></li>
-</ul>
+  * `argv` String[] - Sebuah array dari argumen baris perintah kedua
+  * `workingDirectory` String - Direktori kerja contoh kedua
 
-<p>Mengembalikan <code> Boolean </ 0> .</p>
+Mengembalikan `Boolean`.
 
-<p>Metode ini membuat aplikasi Anda menjadi Aplikasi Instan Tunggal - alih-alih membiarkan beberapa contoh aplikasi Anda berjalan, ini akan memastikan bahwa hanya satu contoh aplikasi Anda yang berjalan, dan contoh lainnya memberi isyarat contoh ini dan keluar.</p>
+Metode ini membuat aplikasi Anda menjadi Aplikasi Instan Tunggal - alih-alih membiarkan beberapa contoh aplikasi Anda berjalan, ini akan memastikan bahwa hanya satu contoh aplikasi Anda yang berjalan, dan contoh lainnya memberi isyarat contoh ini dan keluar.
 
-<p><code> callback </ 0> akan dipanggil oleh instance pertama dengan <code> callback (argv, workingDirectory) </ 0> 
-ketika instance kedua telah dieksekusi. <code> argv </ 0> adalah argumen argumen baris kedua dari Array , dan <code> workingDirectory </ 0> adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.</p>
+`callback` akan dipanggil oleh instance pertama dengan `callback(argv, workingDirectory)` ketika instance kedua telah dieksekusi. `argv` adalah argumen argumen baris kedua dari Array, dan `workingDirectory` adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
 
-<p>The <code> callback </ 0> dijamin akan dieksekusi setelah <code> siap </ 0>  acara dari <code> aplikasi </ 0> 
-akan dipancarkan.</p>
+The `callback` dijamin akan dieksekusi setelah `siap` acara dari `aplikasi` akan dipancarkan.
 
-<p>Metode ini mengembalikan <code> false </ 0> jika proses Anda adalah contoh utama aplikasi dan aplikasi Anda harus terus dimuat. Dan mengembalikan <code> true </ 0> jika proses Anda telah mengirimkan parameternya ke instance lain, dan Anda harus segera berhenti.</p>
+Metode ini mengembalikan `false` jika proses Anda adalah contoh utama aplikasi dan aplikasi Anda harus terus dimuat. Dan mengembalikan `true` jika proses Anda telah mengirimkan parameternya ke instance lain, dan Anda harus segera berhenti.
 
-<p>Pada macOS , sistem memberlakukan instance tunggal secara otomatis saat pengguna mencoba membuka instance kedua aplikasi Anda di Finder, dan acara <code> open-file </ 0> dan <code> open-url </ 0> 
+Pada macOS , sistem memberlakukan instance tunggal secara otomatis saat pengguna mencoba membuka instance kedua aplikasi Anda di Finder, dan acara ` open-file </ 0> dan <code> open-url </ 0> 
 akan dipancarkan untuk bahwa. Namun saat pengguna memulai aplikasi Anda di jalur perintah mekanisme contoh tunggal sistem akan dilewati dan Anda harus menggunakan metode ini untuk memastikan satu contoh.</p>
 
 <p>Contoh mengaktifkan jendela contoh utama saat instance kedua dimulai:</p>
@@ -588,9 +586,10 @@ akan dipancarkan untuk bahwa. Namun saat pengguna memulai aplikasi Anda di jalur
    app.quit ()} // buat myWindow, muat sisa aplikasi, dll. ...
 app.on ('siap', () = & gt; {})
 `</pre> 
-    ### `app.releaseSingleInstance ()`
-    
-    Rilis semua kunci yang diciptakan oleh ` makeSingleInstance </ 0> . Ini akan memungkinkan beberapa contoh aplikasi sekali lagi berjalan berdampingan.</p>
+
+### `app.releaseSingleInstance ()`
+
+Rilis semua kunci yang diciptakan oleh ` makeSingleInstance </ 0> . Ini akan memungkinkan beberapa contoh aplikasi sekali lagi berjalan berdampingan.</p>
 
 <h3><code> app.setUserAktivitas (ketik, userInfo [, webpageURL]) </ 0>  <em> macos </ 1></h3>
 
@@ -619,12 +618,12 @@ app.on ('siap', () = & gt; {})
 
 <ul>
 <li><code>pilihan` Obyek 
-    
-    * ` sertifikat </ 0>  String - Path untuk berkas pkcs12.</li>
+
+* ` sertifikat </ 0>  String - Path untuk berkas pkcs12.</li>
 <li><code> kata sandi </ 0>  String - Passphrase untuk sertifikat.</li>
 </ul></li>
 <li><code>callback` Fungsi 
-      * ` hasil </ 0>  Integer - Hasil impor.</li>
+  * ` hasil </ 0>  Integer - Hasil impor.</li>
 </ul></li>
 </ul>
 
@@ -633,28 +632,28 @@ app.on ('siap', () = & gt; {})
 menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menurut kromium  <a href="https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h"> net_error_list </ 1> .</p>
 
 <h3><code>app.disableHardwareAcceleration ()`</h3> 
-        Nonaktifkan akselerasi perangkat keras untuk aplikasi saat ini.
-        
-        Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
-        
-        ### `app.disableDomainBlockingFor3DAPIs ()`
-        
-        Secara default, Chromium menonaktifkan API 3D (misalnya WebGL) sampai dimulai ulang per basis domain jika proses GPU mogok terlalu sering. Fungsi ini menonaktifkan perilaku itu.
-        
-        Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
-        
-        ### ` app.getAppMemoryInfo () </ 0>  <em> Tidak berlaku lagi </ 1></h3>
+    Nonaktifkan akselerasi perangkat keras untuk aplikasi saat ini.
+    
+    Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
+    
+    ### `app.disableDomainBlockingFor3DAPIs ()`
+    
+    Secara default, Chromium menonaktifkan API 3D (misalnya WebGL) sampai dimulai ulang per basis domain jika proses GPU mogok terlalu sering. Fungsi ini menonaktifkan perilaku itu.
+    
+    Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
+    
+    ### ` app.getAppMemoryInfo () </ 0>  <em> Tidak berlaku lagi </ 1></h3>
 
 <p>Pengembalian <a href="structures/process-metric.md"><code> ProcessMetric [] </ 0> :   Array dari <code> ProcessMetric </ 1> benda-benda yang sesuai dengan memori dan penggunaan cpu statistik dari semua proses yang terkait dengan aplikasi.
 <strong> Catatan: </ 0> Metode ini tidak berlaku lagi, gunakan <code> app.getAppMetrics () </ 1> .</p>
 
 <h3><code>app.getAppMetrics ()`
-        
-        Pengembalian ` ProcessMetric [] </ 0> :   Array dari <code> ProcessMetric </ 1> benda-benda yang sesuai dengan memori dan penggunaan cpu statistik dari semua proses yang terkait dengan aplikasi.</p>
+    
+    Pengembalian ` ProcessMetric [] </ 0> :   Array dari <code> ProcessMetric </ 1> benda-benda yang sesuai dengan memori dan penggunaan cpu statistik dari semua proses yang terkait dengan aplikasi.</p>
 
 <h3><code>app.getGpuFeatureStatus ()`</h3> 
-        
-        Mengembalikan ` GPUFeatureStatus </ 0> - Status Fitur Gambar dari <code> chrome: // gpu / </ 1> .</p>
+    
+    Mengembalikan ` GPUFeatureStatus </ 0> - Status Fitur Gambar dari <code> chrome: // gpu / </ 1> .</p>
 
 <h3><code> app.setBadgeCount (count) </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
 
@@ -665,12 +664,12 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 <p>Mengembalikan <code> Boolean </ 0> - Apakah panggilan berhasil.</p>
 
 <p>Menetapkan lencana penghitung untuk aplikasi saat ini. Menetapkan hitungan ke<code>0` akan menyembunyikan lencana</p> 
-        
-        Di macos itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
-        
-        **Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca[Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
-        
-        ### ` app.getBadgeCount () </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
+    
+    Di macos itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
+    
+    **Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca[Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+    
+    ### ` app.getBadgeCount () </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
 
 <p>Mengembalikan <code> Integer </ 0> - Nilai saat ini ditampilkan di lencana penghitung.</p>
 
@@ -682,8 +681,8 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <ul>
 <li><code>pilihan` Objek (opsional) 
-        
-        * ` path </ 0>  String (opsional) <em> Windows </ 1> - Jalur yang dapat dieksekusi untuk dibandingkan dengan. Default ke <code> process.execPath </ 0> .</li>
+    
+    * ` path </ 0>  String (opsional) <em> Windows </ 1> - Jalur yang dapat dieksekusi untuk dibandingkan dengan. Default ke <code> process.execPath </ 0> .</li>
 <li><code> args </ 0>  String [] (opsional) <em> Windows </ 1> - Argumen baris perintah untuk membandingkan lawan. Default ke array kosong .</li>
 </ul></li>
 </ul>
@@ -691,11 +690,11 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 <p>Jika Anda memberikan <code> path </ 0> dan <code> args </ 0> pilihan untuk <code> app.setLoginItemSettings </ 0> maka Anda harus melewati argumen yang sama di sini untuk <code> openAtLogin </ 0> untuk diatur dengan benar</p>
 
 <p>Mengembalikan <code>Objek`:</p> 
-          * `openAtLogin` Aljabar Boolean - `benar` jika app diatur untuk membuka di login.
-          * ` openAsHidden </ 0>  Boolean - <code> true </ 0> jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macos .</li>
+      * `openAtLogin` Aljabar Boolean - `benar` jika app diatur untuk membuka di login.
+      * ` openAsHidden </ 0>  Boolean - <code> true </ 0> jika aplikasi disetel untuk dibuka sebagai tersembunyi saat masuk. Pengaturan ini hanya didukung pada macos .</li>
 <li><code> isOpenedAtLogin </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka saat masuk secara otomatis. Pengaturan ini hanya didukung pada macos .</li>
 <li><code>wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. Ini menunjukkan bahwa aplikasi tidak boleh membuka jendela saat startup. Pengaturan ini hanya didukung pada macos .
-          * ` restoreState </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macos .</li>
+      * ` restoreState </ 0>  Boolean - <code> true </ 0> jika aplikasi dibuka sebagai item masuk yang harus mengembalikan negara dari sesi sebelumnya. Ini menunjukkan bahwa apl harus mengembalikan jendela yang buka terakhir kali aplikasi ditutup. Pengaturan ini hanya didukung pada macos .</li>
 </ul>
 
 <p><strong>Catatan:</strong> API ini tidak berpengaruh pada <a href="../tutorial/mac-app-store-submission-guide.md">MAS membangun</a>.</p>
@@ -704,7 +703,7 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <ul>
 <li><code>pengaturan` Obyek 
-            * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
+        * `` openAtLogin </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi saat masuk, <code> false </ 0> untuk menghapus aplikasi sebagai item masuk. Default ke <code> false </ 0> .</li>
 <li><code> openAsHidden </ 0>  Boolean (opsional) - <code> true </ 0> untuk membuka aplikasi sebagai tersembunyi. Default ke
  <code> false </ 0> . Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi
  <code> app.getLoginItemStatus (). BeenOpenedAsHidden </ 0> harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. Pengaturan ini hanya didukung pada
@@ -726,9 +725,9 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
      '--process-start-args', `" --hidden "`
    ]})
 ``</pre> 
-              ** Catatan: </ 0> ini API tidak berpengaruh pada  MAS membangun </ 1> .</p> 
-              
-              ### ` app.isAccessibilitySupportEnabled () </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
+          ** Catatan: </ 0> ini API tidak berpengaruh pada  MAS membangun </ 1> .</p> 
+          
+          ### ` app.isAccessibilitySupportEnabled () </ 0>  <em> macOS </ 1>  <em> Windows </ 1></h3>
 
 <p>Mengembalikan <code> Boolean </ 0> - <code> true </ 0> jika dukungan aksesibilitas Chrome diaktifkan,
  <code> salah </ 0> sebaliknya. API ini akan mengembalikan <code> true </ 0> jika penggunaan teknologi bantu, seperti pembaca layar, telah terdeteksi. Lihat https://www.chromium.org/developers/design-documents/accessibility untuk lebih jelasnya.</p>
@@ -737,8 +736,8 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
 
 <ul>
 <li><code>pilihan` Obyek 
-              
-              * ` applicationName </ 0>  String (opsional) - Nama aplikasi.</li>
+          
+          * ` applicationName </ 0>  String (opsional) - Nama aplikasi.</li>
 <li><code> applicationVersion </ 0>  String (opsional) - Versi aplikasi.</li>
 <li><code> hak cipta </ 0>  String (opsional) - Informasi hak cipta.</li>
 <li><code> kredit </ 0>  String (opsional) - Informasi kredit.</li>
@@ -750,74 +749,74 @@ menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menur
  . Lihat <a href="https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc"> dokumentasi Apple </ 0> untuk detail lebih lanjut.</p>
 
 <h3><code>app.commandLine.appendSwitch (beralih [, nilai])`</h3> 
-                * ` switch </ 0>  String - Sakelar baris perintah</li>
+            * ` switch </ 0>  String - Sakelar baris perintah</li>
 <li><code> value </ 0>  String (opsional) - Nilai untuk saklar yang diberikan</li>
 </ul>
 
 <p>Tambahkan peralihan (dengan <code> nilai opsional </ 0> ) ke baris perintah Chromium.</p>
 
 <p><strong>Catatan:</strong> Ini tidak akan mempengaruhi <code>process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.</p> 
-                  ### `app.commandLine.appendArgument (nilai)`
-                  
-                  * `nilai` String - argumen untuk menambahkan ke baris perintah
-                  
-                  Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
-                  
-                  **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
-                  
-                  ### `app.enableMixedSandbox()` *macOS* *Windows*
-                  
-                  Mengaktifkan mode kotak pasir campuran di aplikasi.
-                  
-                  Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
-                  
-                  ### `app.dock.bounce()` *macOS*
-                  
-                  * `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
-                  
-                  Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
-                  
-                  Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
-                  
-                  Mengembalikan `Integer` ID yang mewakili permintaan.
-                  
-                  ### `app.dock.cancelBounce(id)` Linux *macOS*
-                  
-                  * `identitas` Integer
-                  
-                  Membatalkan bouncing `id`.
-                  
-                  ### `app.dock.downloadFinished(filePath)` *Windows*
-                  
-                  * ` format </ 0> String</li>
+              ### `app.commandLine.appendArgument (nilai)`
+              
+              * `nilai` String - argumen untuk menambahkan ke baris perintah
+              
+              Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
+              
+              **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
+              
+              ### `app.enableMixedSandbox()` *macOS* *Windows*
+              
+              Mengaktifkan mode kotak pasir campuran di aplikasi.
+              
+              Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
+              
+              ### `app.dock.bounce()` *macOS*
+              
+              * `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
+              
+              Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
+              
+              Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
+              
+              Mengembalikan `Integer` ID yang mewakili permintaan.
+              
+              ### `app.dock.cancelBounce(id)` Linux *macOS*
+              
+              * `identitas` Integer
+              
+              Membatalkan bouncing `id`.
+              
+              ### `app.dock.downloadFinished(filePath)` *Windows*
+              
+              * ` format </ 0> String</li>
 </ul>
 
 <p>Memantapkan Download stack jika filePath ada di dalam folder Downloads.</p>
 
 <h3><code>app.dock.setBadge (teks)` *macOS*</h3> 
-                    * `teks` String
-                    
-                    Menetapkan string yang akan ditampilkan di area badging dermaga.
-                    
-                    ### `app.dock.getBadge()` *macos*
-                    
-                    Mengembalikan `String` - String badge dari dok.
-                    
-                    ### `app.dock.hide()` *macOS*
-                    
-                    Sembunyikan ikon dok.
-                    
-                    ### `app.dock.show()` *macos*
-                    
-                    Tampilkan ikon dok.
-                    
-                    ### `app.dock.isVisible()` *macos*
-                    
-                    Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
-                    
-                    ### `app.dock.setMenu (menu)` *macos*
-                    
-                    * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
+                * `teks` String
+                
+                Menetapkan string yang akan ditampilkan di area badging dermaga.
+                
+                ### `app.dock.getBadge()` *macos*
+                
+                Mengembalikan `String` - String badge dari dok.
+                
+                ### `app.dock.hide()` *macOS*
+                
+                Sembunyikan ikon dok.
+                
+                ### `app.dock.show()` *macos*
+                
+                Tampilkan ikon dok.
+                
+                ### `app.dock.isVisible()` *macos*
+                
+                Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
+                
+                ### `app.dock.setMenu (menu)` *macos*
+                
+                * ` menu </ 0>  <a href="menu.md"> Menu </ 1></li>
 </ul>
 
 <p>Mengatur aplikasi <a href="https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103"> dock menu </ 0>.</p>
