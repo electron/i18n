@@ -153,10 +153,7 @@ macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tent
 
 <h3>Nama Menu Utama</h3>
 
-<p>Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda
- . Lihat
- <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html"> About Information Property List Files </ 0> 
-untuk informasi lebih lanjut.</p>
+<p>Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda. Lihat <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html">Mengaktifkan dokumentasi Akses Jaringan</a> untuk lebih jelasnya.</p>
 
 <h2>Setting Menu untuk Jendela Peramban Tertentu (<em> Linux </em> <em> Windows </em>)</h2>
 
@@ -179,13 +176,7 @@ Bila item diposisikan, semua item yang tidak diposisikan dimasukkan setelah item
 Template:
 
 ```javascript
-[
-  {label: '4', id: '4'},
-  {label: '5', id: '5'},
-  {label: '1', id: '1', position: 'before=4'},
-  {label: '2', id: '2'},
-  {label: '3', id: '3'}
-]
+[   {label: '4', id: '4'},   {label: '5', id: '5'},   {label: '1', id: '1', position: 'before=4'},   {label: '2', id: '2'},   {label: '3', id: '3'} ]
 ```
 
 Menu:
@@ -213,7 +204,7 @@ Template:
 Menu:
 
     <br />- ---
-    - Sebuah
+    - a
     - b
     - c
     - ---
