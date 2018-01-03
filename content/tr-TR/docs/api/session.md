@@ -109,7 +109,7 @@ Clears the data of web storages.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 
 #### `ses.setProxy(config, callback)`
 
