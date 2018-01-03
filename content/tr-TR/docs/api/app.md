@@ -358,19 +358,19 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
   * `error` Hata 
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Bir dosya yolunun ilişkili ikonunu çeker.
 
-On *Windows*, there a 2 kinds of icons:
+*Windows*'ta 2 tip ikon bulunur:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Dosyanın içerisindeki ikonlar şu şekildedir `.exe`, `.dll`, `.ico`.
+* `.mp3`, `.png` v.b. gibi belirli dosya uzantıları ile ilişkilendirilmiş ikonlar
+* `.exe`, `.dll`, `.ico` gibi, dosyanın kendi içindeki ikonlar
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux* ve *macOS* ikonlar, dosya mıme tipiyle ilişkilendirilen uygulamaya bağlıdır.
 
 ### `app.setPath(name, path)`
 
 * `name` Dizgi
-* `path` String
+* `path` Dizgi
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
