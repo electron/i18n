@@ -180,15 +180,15 @@ npm run merge-release -- 1-7-x
 
 ## Sürümü yayınla
 
-Birleştirme tamamen tamamlandığında `release` yazılımını `npm run release` komutu ile çalıştırarak yayımlanma sürecini bitirebilirsiniz. Bu yazılım şunu yapacaktır: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. SHASUMS'ları oluştur ve node dosyaları için S3'e yükle. 4. SHASUMS256.txt dosyasını oluştur ve GitHub yayımına yükle. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Yayımı GitHub'da yayınla 7. `release` bölümünü sil.
+Birleştirme tamamen tamamlandığında `release` yazılımını `npm run release` komutu ile çalıştırarak yayımlanma sürecini bitirebilirsiniz. Bu yazılım şunu yapacaktır: 1. Yayınlanan sürüm numarasının doğruluğunu onaylamak için projeyi oluşturun. 2. Çiftleri indirin ve yerel modülleri oluşturmak için düğüm üstbilgilerini ve Windows'ta kullanılan .lib bağlayıcıyı node-gyp ile oluşturun. 3. SHASUMS'ları oluştur ve node dosyaları için S3'e yükle. 4. SHASUMS256.txt dosyasını oluştur ve GitHub yayımına yükle. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Yayımı GitHub'da yayınla 7. `release` bölümünü sil.
 
 ## npm'e yayımla
 
 Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
 
-## Fix missing binaries of a release manually
+## Bir sürümün eksik ikili dosyalarını manuel olarak düzeltin
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+Bozulmuş CI makineleri ile bozuk bir yayınlama söz konusu olduğunda, zaten yayımlanmış bir sürüm için ikili dosyaları yeniden yükleyin.
 
 The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
 
