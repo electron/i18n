@@ -89,19 +89,19 @@ Renvoie :
 
 ### Méthodes d’instance
 
-Les objets créés avec `new Notification` ont les méthodes d'instance suivant :
+Les objets créés avec `new Notification` ont les méthodes d'instance suivantes :
 
 #### `notification.show()`
 
-Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela signifie, contrairement à l'implémentation des Notifications HTML5, que simplement instancier un `new Notification` ne va pas afficher immédiatement la notification à l'utilisateur. Vous devez appeler cette méthode avant pour que l'OS l'affiche à l'écran.
+Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela signifie, contrairement à l'implémentation des Notifications HTML5, que simplement instancier un `new Notification` ne va pas afficher immédiatement la notification à l'utilisateur. Pour que l'OS l'affiche à l'écran, vous devez appeler cette méthode.
 
 ### Lire un son
 
-Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Tous les sons par défaut (dans préférences système > Son) peut être utilisé, en plus des fichiers audio personnalisés. Assurez-vous que le fichier audio soit copié dans le app bundle (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
+Sur macOS, vous pouvez spécifier le nom du son que vous voulez jouer lors de l'affichage de la notification. Tous les sons par défaut (dans préférences système > Son) peuvent être utilisés, en plus des fichiers audio personnalisés. Assurez-vous que le fichier audio soit copié dans l'"app bundle" (par exemple, `VotreApp.app/Contents/Resources`), ou l'un des emplacements suivants :
 
-* `~/Librairie/Son`
-* `/Librairie/Son`
-* `/Réseau/Librairie/Son`
-* `/Système/Librairie/Son`
+* `~/Library/Sounds`
+* `/Library/Sounds`
+* `/Network/Library/Sounds`
+* `/System/Library/Sounds`
 
 Consultez la documentation de [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) pour plus d'informations.
