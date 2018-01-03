@@ -4,9 +4,9 @@
 
 当调用 ` window.open` 以在网页中创建新窗口时，`BrowserWindow` 将为 `url` 创建一个新的实例，并返回一个代理至 `window.open` 以让页面对其进行有限的控制。
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+该代理具有有限的标准功能，与传统网页兼容。要完全控制新窗口，你应该直接创建一个` BrowserWindow `。
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+默认情况下, 新创建的 ` BrowserWindow ` 将继承父窗口的选项。若要重写继承的选项, 可以在 ` features ` 字符串中设置它们。
 
 ### `window.open(url[, frameName][, features])`
 
@@ -14,11 +14,11 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 * `frameName` String（可选）
 * `features` String（可选）
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Returns [`BrowserWindowProxy`](browser-window-proxy.md) - 创建一个新窗口，并返回一个 `BrowserWindowProxy` 类的实例。
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+`features` 字符串遵循标准浏览器的格式，但每个 feature 必须是`BrowserWindow` 选项中的字段。
 
-**Notes:**
+**注意：**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
