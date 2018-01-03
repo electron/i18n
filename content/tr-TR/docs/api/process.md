@@ -49,7 +49,7 @@ Kaynaklar dizininin yolunu temsil eden bir `String`.
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+İtiraz uyarılarının istisna olarak atılıp atılmayacağını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazlar için hatalar oluşturacak. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.traceDeprecation`
 
