@@ -49,15 +49,15 @@ Kaynaklar dizininin yolunu temsil eden bir `String`.
 
 ### `process.throwDeprecation`
 
-İtiraz uyarılarının istisna olarak atılıp atılmayacağını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazlar için hatalar oluşturacak. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
+İtiraz uyarılarının istisna olarak atılıp atılmayacağını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazlar için hatalar oluşturacak. Bu özellik `--throw-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+İtirazların yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazların yığın izlerini yazdıracak. Bu özellik `--trace-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+İşlem uyarılarının yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak işlem uyarılarının yığın izlerini yazdıracak (itirazlar dahil). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
