@@ -2,7 +2,7 @@
 
 विंडोज 10 से, पुराने पर बढ़िया विन32 एग्जिक्युटेबल को एक और भाई मिल गया है: वैश्विक विंडोज प्लेटफार्म | नया `.एप्पएक्स` फॉर्मेट न केवल कई सारे नये शक्तिशाली ऐपीआई जैसे कि कोरटाना या पुश नोटीफिकेशन की सुविधा देता है, पर विंडोज स्टोर के द्वारा, इंस्टालेशन और अपडेटिंग भी सरल बनाता है |
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+माइक्रोसॉफ्ट ने [एक औज़ार विकसित किया था जो इलेक्ट्रॉन एप्प्स को `.एप्पएक्स` पैकेजेस की तरह कम्पायल करता है](https://github.com/catalystcode/electron-windows-store), जिससे कि डेवलपर्स को नये एप्लीकेशन मॉडल में मौज़ूद कुछ अच्छी चीज़े इस्तेमाल करने की सुविधा मिलती है | This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
 
 ## Background and Requirements
 
