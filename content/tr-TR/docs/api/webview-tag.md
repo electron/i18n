@@ -1,6 +1,6 @@
 # `<webview>`Etiket
 
-> Display external web content in an isolated frame and process.
+> Harici web içeriğini yalıtılmış bir çerçeve ve işlemde görüntüleme.
 
 Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
