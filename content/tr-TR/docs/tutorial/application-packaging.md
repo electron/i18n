@@ -138,7 +138,7 @@ This is because `exec` and `spawn` accept `command` instead of `file` as input, 
 
 Yukarıda belirtildiği gibi, bazı düğüm API'leri, dosyayı dosya sistemine açmak için performans sorunlarının yanı sıra virüs tarayıcılarında yanlış uyarılara da yol açabilir.
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+Bu sorunu çözmek için, arşiv oluşturma özelliğini kullanarak bazı dosyaları açabilirsiniz. `--unpack ` seçeneği, yerel modüllerin paylaşılan kitaplıklarını hariç tutmanın geçerli bir örneğidir:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
