@@ -1,4 +1,4 @@
-# remote
+# uzak
 
 > Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
