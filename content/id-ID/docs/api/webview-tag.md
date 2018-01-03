@@ -206,8 +206,8 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.loadURL(url[, options])`
 
-* ` url </ 0> URL</li>
-<li><code>pilihan` Objek (pilihan) 
+* `url` URL
+* `pilihan` Objek (pilihan) 
   * `httpReferrer` String (opsional) - url perujuk HTTP.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
