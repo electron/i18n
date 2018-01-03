@@ -52,7 +52,7 @@ benefits:
   automatic_updates: Mises à jour automatiques
   native_menus_and_notifications: Notifications & menus natifs
   crash_reporting: Rapport de plantage
-  debugging_and_profiling: Debugging & profiling
+  debugging_and_profiling: Débogage et analyse de performance
   windows_installers: Installateurs Windows
 get_started:
   title: Premiers pas
@@ -80,15 +80,15 @@ help_translate: "Aider à traduire"
 footer:
   see_the_faq: Consulter la foire aux questions
 apps:
-  title: Apps développées sur Electron
+  title: Apps développées avec Electron
   description: Avec Electron, il est facile de créer des applications desktop pour votre entreprise ou votre projet. Initialement développé pour <a href='https://atom.io' target='_blank'>l'éditeur Atom</a> de GitHub, Electron est maintenant utilisé pour créer des applications par des entreprises comme Microsoft, Facebook, Slack ou encore Docker.
   view_more: Voir plus d'applications
   submit_your_own: proposez la vôtre
-  something_missing: Quelque chose manquant ?
+  something_missing: Quelque chose manque ?
   edit_this_app: Éditer cette app.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copier dans le presse-papier
+  copy: Copier
+  copy_to_clipboard: Copier dans le presse-papiers
   copied: Copié
 or: ou
 pages:
@@ -100,9 +100,9 @@ pages:
     description: Applications développées avec Electron
   '/docs':
     title: Documentation
-    description: Guides et documentation de l'API pour la dernière version d'Electron
+    description: Guides et documentation de référence des APIs pour la dernière version d'Electron
   '/docs/all':
-    title: Tous les docs d'Electron!
+    title: Toute la doc d'Electron!
     description: Tous les guides et documentation de l'API d'Electron sur une seule page.
   '/docs/api':
     title: API
@@ -129,11 +129,11 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron est un outil open source pour vous aider à inspecter, monitorer et déboguer votre application Electron. S'ajoutant à l'incroyable Outil de Développement Chrome.
+    description: Devtron est un outil open source pour vous aider à inspecter, monitorer et déboguer votre application Electron. S'appuie sur les incroyables Outils de Développement Chrome.
   '/spectron':
     title: Spectron
     description: Spectron est un framework open source pour écrire facilement des tests d'intégrations pour votre application Electron. Intégré dans ChromeDriver et WebDriverIO.
 _404:
   page_not_found: Page non trouvée.
   if_this_is_an_error: S'il s'agit d'une erreur
-  please_file_an_issue: veuillez écrire une issue.
+  please_file_an_issue: veuillez ouvrir une requête (<i>issue</i>).
