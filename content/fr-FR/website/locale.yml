@@ -1,6 +1,6 @@
 tagline: Développez des applications desktop multi-plateformes avec JavaScript, HTML et CSS
 nav:
-  docs: Docs
+  docs: Documentation
   blog: Blog
   community: Communauté
   apps: Apps
@@ -55,7 +55,7 @@ benefits:
   debugging_and_profiling: Debugging & profiling
   windows_installers: Installateurs Windows
 get_started:
-  title: Premier pas
+  title: Premiers pas
   description: Pour commencer avec Electron, consultez les ressources ci-dessous. Vous apprendrez comment développer votre app web avec Electron, accéder aux APIs et générer des installateurs.
 explore:
   title: Découvrir les APIs d'Electron
