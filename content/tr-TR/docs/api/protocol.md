@@ -1,6 +1,6 @@
-# protocol
+# protokol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Özel bir protokol kaydettirin ve mevcut protokol isteklerini engelleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -34,7 +34,7 @@ The `protocol` module has the following methods:
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğunda doğru bir şekilde çözülmesini sağlayacaktır. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
 For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
