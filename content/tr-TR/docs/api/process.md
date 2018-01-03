@@ -12,7 +12,7 @@ Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/
 
 Elektron dahili başlatma komut dosyasını yüklediğinde ve web sayfası ya da ana komut dosyası yüklenmeye başladığında yayılır.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Düğüm entegrasyonu kapatıldığında kaldırılan düğüm genel sembollerini evrensel alana geri eklemek için önyükleme komut dosyası tarafından kullanılabilir:
 
 ```javascript
 // preload.js
