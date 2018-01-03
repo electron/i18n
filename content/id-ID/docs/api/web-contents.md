@@ -260,15 +260,15 @@ Emitted saat DevTools ditutup.
 
 Emitted saat DevTools difokuskan / dibuka.
 
-#### Acara : 'sertifikat-kesalahan'
+#### Acara: 'sertifikat-kesalahan'
 
 Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code>url` String
-* ` error </ 0>  String - Kode kesalahan</li>
-<li><code> sertifikat </ 0>  <a href="structures/certificate.md"> Sertifikat </ 1></li>
-<li><code>callback` Fungsi 
+* `error` String - Kode kesalahan
+* `sertifikat` [Sertifikat](structures/certificate.md)
+* `callback` Fungsi 
   * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya
 
 Emitted ketika gagal untuk memverifikasi `sertifikat` untuk `url`.
