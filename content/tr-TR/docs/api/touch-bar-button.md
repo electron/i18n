@@ -1,6 +1,6 @@
 ## Class: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Yerel macOS uygulamaları için dokunmatik çubukta bir düğme oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
