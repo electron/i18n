@@ -338,17 +338,17 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 * `temp` Geçici dizgin.
 * `exe` Yürürlükteki yürütülebilir dosya.
 * `module` - `libchromiumcontent` kütüphanesi.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `Müzik` kullanıcının müzik klasörü.
-* `fotoğraflar` kullanıcının fotoğraf klasörü.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `dekstop` Yürürlükteki kullanıcının Masaüstü dizgini.
+* `documents` Bir kullanıcının "Dökümanlarım" dizgini.
+* `downloads` Bir kullanıcının "İndirilenler" dizgini.
+* `music` Bir kullanıcının "Müziklerim" dizgini.
+* `pictures` Bir kullanıcının "Resimlerim" dizgini.
+* `videos` Bir kullanıcının "Videolarım" dizgini.
+* `pepperFlashSystemPlugin` Pepper Flash eklentisinin sistemdeki versiyonuna giden dosya yolu.
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` String
+* `path` Dizi
 * `ayarlar` Obje (isteğe bağlı) 
   * `boyut` Dize 
     * `küçük` - 16x16
