@@ -20,7 +20,7 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Bu özellik hakkında daha fazla bilgi bulabilirsiniz [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
@@ -28,7 +28,7 @@ Devtron'da, uygulamanızda bir sayfayı kontrol etmenize, sonuçları sıralaman
 
 ![devtron Ekran Görüntüsü](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Bu araçların her ikisi de, Google Chrome tarafından oluşturulan [Erişilebilirlik Geliştirici Araçları](https://github.com/GoogleChrome/accessibility-developer-tools) kitaplığını kullanıyor. Bu kütüphanenin erişilebilirlik denetim kuralları hakkında daha fazla bilgi edinebilirsiniz.[repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
 If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
 
