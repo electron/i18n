@@ -16,15 +16,15 @@
 * विंडोज 10 एसडीके, [यहाँ से डाउनलोड करें](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
 * न्यूनतम नोड 4 (जाँचने के लिए, `node -v` चलायें)
 
-Then, go and install the `electron-windows-store` CLI:
+उसके बाद, इनस्टॉल करें `इलेक्ट्रॉन-विंडोज-स्टोर` सीएलआई:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
 
 The output should look roughly like this:
 
