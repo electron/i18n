@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# Główne obiekty
 
-* `commonName` ciąg znaków - Nazwa
-* `organizations` tablica zawierająca ciągi znakowe - Nazwy organizacji
-* `organizationUnits` tablica zawierająca ciągi znakowe - Nazwy jednostek organizacyjnych
-* `locality` ciąg znaków - Lokalizacja
-* `state` ciąg znaków - Województwo lub powiad
-* `country` ciąg znaków - Kraj lub region
+* `Nazwa` ciąg znaków - Nazwa
+* `organizacje` tablica zawierająca ciągi znakowe - Nazwy organizacji
+* `jednostkaOrganizacyjna` tablica zawierająca ciągi znakowe - Nazwy jednostek organizacyjnych
+* `lokalizacja` ciąg znaków - Lokalizacja
+* `stan` ciąg znaków - Województwo lub powiat
+* `kraj` ciąg znaków - Kraj lub region
