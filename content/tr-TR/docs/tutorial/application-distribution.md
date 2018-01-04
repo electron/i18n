@@ -24,7 +24,7 @@ Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows),
 
 ## Uygulamanızı Bir Dosyaya Paketleme
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Tüm kaynak dosyalarını kopyalayarak uygulamanızın taşınmasından ayrı olarak, ayrıca önlemek için uygulamanızı bir  asar </ 0> arşivine paketleyin uygulamanızın kaynak kodunu kullanıcılara açıklayın.</p> 
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
