@@ -67,13 +67,13 @@ electron-windows-store `
 
 एक बार चलाने के बाद, यह औज़ार काम करने लगता है: यह आपकी इलेक्ट्रॉन एप्प को एक इनपुट की तरह लेता है, और `नोड_मोड्यूल` फ्लैट करता है | फिर यह आपकी एप्लीकेशन को `एप्प.ज़िप` से आर्काइव करता है | एक इंस्टालर और विंडोज कंटेनर का इस्तेमाल कर के, यह औज़ार एक "विस्तारित" एप्पएक्स पैकेज बनाता है - और आपके आउटपुट फोल्डर में विंडोज एप्लीकेशन मेनीफेस्ट (`एप्पएक्समेनीफेस्ट.एक्सएमएल`) और साथ ही वर्चुअल फाइल सिस्टम और वर्चुअल रजिस्ट्री शामिल करता है |
 
-एक बार विस्तारित एप्पएक्स फाइल्स निर्मित हो जाने के बाद, विंडोज एप्प पैकेजर (`मेकएप्पएक्स.ईएक्सई`) का इस्तेमाल कर के औज़ार, डिस्क पर मौज़ूद उन फाइल्स से एक एकल-फाइल एप्पएक्स का निर्माण करता है | अंत में, इस औज़ार का इस्तेमाल कर के आपके कंप्यूटर पर एक विश्वसनीय प्रमाण पत्र बनाया जा सकता है जिससे कि नये एप्पएक्स पैकेज पर हस्ताक्षर किया जा सके | With the signed AppX package, the CLI can also automatically install the package on your machine.
+एक बार विस्तारित एप्पएक्स फाइल्स निर्मित हो जाने के बाद, विंडोज एप्प पैकेजर (`मेकएप्पएक्स.ईएक्सई`) का इस्तेमाल कर के औज़ार, डिस्क पर मौज़ूद उन फाइल्स से एक एकल-फाइल एप्पएक्स का निर्माण करता है | अंत में, इस औज़ार का इस्तेमाल कर के आपके कंप्यूटर पर एक विश्वसनीय प्रमाण पत्र बनाया जा सकता है जिससे कि नये एप्पएक्स पैकेज पर हस्ताक्षर किया जा सके | हस्ताक्षरित एप्पएक्स पैकेज के साथ, सीएलआई भी स्वचालित रूप से आपकी मशीन पर पैकेज स्थापित कर सकती है ।
 
-## Step 3: Using the AppX Package
+## तीसरा चरण: एप्पएक्स पैकेज का इस्तेमाल करना
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+आपके पैकेज को चलाने के लिए, उपयोगकर्ताओं को "सालगिरह अपडेट" के साथ विंडोज 10 की ज़रुरत होगी - विंडोज को अपडेट करने की विस्तृत जानकारी [यहाँ](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update) उपलब्ध है |
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+पारंपरिक युडब्ल्यूपी एप्प्स के विपरीत, पैकेज्ड एप्प्स को फिलहाल एक मैन्युअल जांच प्रक्रिया से गुजरना पड़ता है, जिसके के लिए आप [यहाँ](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) पर आवेदन कर सकते है | तब तक, आपके सभी उपयोगकर्ता पैकेज को डबल-क्लिक कर इनस्टॉल कर सकते हैं, इसलिए हो सकता है कि आपको विंडोज स्टोर में आवेदन देने की ज़रुरत ही न पड़ें अगर आप सिर्फ इंस्टालेशन का एक आसान तरीका ढूंढ रहे हैं | In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 
