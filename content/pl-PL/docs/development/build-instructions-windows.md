@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Windows.
 
-## Prerequisites
+## Wymagania
 
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
@@ -32,7 +32,7 @@ $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## Kompilowanie
 
 Build both Release and Debug targets:
 
