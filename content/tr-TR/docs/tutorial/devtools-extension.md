@@ -43,6 +43,6 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 
 ### DevTools Eklentisi çalışmıyorsa ne yap malıyım?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Öncelikle uzantının hala korunduğundan emin olun, hatta bazı uzantıların Chrome tarayıcısının son sürümlerinde bile çalışamaz ve biz onlar için hiçbir şey yapamıyoruz.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Daha sonra Elektronların sayı listesinde bir hata dosyası ve uzantısının hangi kısmının beklendiği gibi çalışmadığını belirtin.
