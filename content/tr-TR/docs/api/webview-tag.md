@@ -491,7 +491,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
 See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
@@ -513,7 +513,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 * `level` Number - Zoom level
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -673,9 +673,9 @@ Dönüşler:
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
-Fired when the guest page attempts to open a new browser window.
+Misafir sayfası yeni bir tarayıcı penceresi açmaya çalıştığında tetiklenir.
 
-The following example code opens the new url in system's default browser.
+Aşağıdaki örnek kod, sistemin varsayılan tarayıcısında yeni url'yi açar.
 
 ```javascript
 const {shell} = require('electron')
@@ -701,7 +701,7 @@ This event will not emit when the navigation is started programmatically with AP
 
 It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+`event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
 
 ### Olay: 'did-navigate'
 
@@ -744,7 +744,7 @@ Dönüşler:
 * `channel` String
 * `args` Array
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
 
 With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
