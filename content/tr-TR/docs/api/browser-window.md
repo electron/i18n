@@ -25,7 +25,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Çerçevesiz pencere
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Chrome olmadan bir pencere veya rastgele şekilli bir saydam pencere oluşturmak için [Frameless Window](frameless-window.md) API'sini kullanabilirsiniz.
 
 ## Zarif pencere görüntüsü
 
@@ -60,7 +60,7 @@ Note that even for apps that use `ready-to-show` event, it is still recommended 
 
 ## Ana ve alt pencereler
 
-By using `parent` option, you can create child windows:
+`parent` seçeneğini kullanarak türetilmiş pencereler yaratabilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -89,7 +89,7 @@ child.once('ready-to-show', () => {
 
 ### Sayfa görünürlüğü
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[Sayfa Görünürlüğü API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)'si aşağıdaki gibi çalışır:
 
 * On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
 * Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
