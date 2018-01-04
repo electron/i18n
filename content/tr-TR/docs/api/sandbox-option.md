@@ -126,7 +126,7 @@ More may be added as needed to expose more electron APIs in the sandbox, but any
 
 ## Durum
 
-Hala deneme aşamasında bir özellik olduğu için, lütfen `sandbox` seçeneğini dikkatli kullanın. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Hala deneme aşamasında bir özellik olduğu için, lütfen `sandbox` seçeneğini dikkatli kullanın. Hala önyükleme dosyasına bazı elektron oluşturucu API'lerin eklenmesinin güvenlik etkilerini bilmiyoruz, ve burada güvenilmeyen içerik oluşturmadan önce düşünülmesi gereken bazı şeyler var:
 
 - Önceden yüklenmiş bir komut dosyası, yanlışlıkla ayrıcalıklı API'ları, güvenilmeyen kodlara filtreleyebilir.
 - Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
