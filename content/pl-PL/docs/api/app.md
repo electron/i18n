@@ -422,9 +422,9 @@ Czyści ostatnią listę dokumentów.
 
 Returns `Boolean` - Whether the call succeeded.
 
-Metoda ustawia domyślny plik wykonywalny jako domyślny program obsługujący prokokół (również jako URI). Pozwala na głębsze zintegrowanie aplikacji z systemem. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Metoda ustawia domyślny plik wykonywalny jako domyślny program obsługujący prokokół (również jako URI). Pozwala na głębsze zintegrowanie aplikacji z systemem. Once registered, all links with `your-protocol://` will be opened with the current executable. Cały adres, włączając w to protokół, będzie przekazany do aplikacji jako parametr.
 
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+Na systemie operacyjnym Windows możesz podać opcjonalną ścieżkę parametrów, ścieżkę do pliku wykonywalnego, argumentów, tablicy z argumentami do pliku wykonywalnego po uruchomieniu.
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. Plik możesz zmienić za pomocą edytora tekstowego lub skryptu podczas kompilacji. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
@@ -479,7 +479,7 @@ Returns `Object`:
 
 Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
-* `ok` - Nothing went wrong.
+* `ok` - Wszystko poszło dobrze.
 * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
 * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
@@ -489,9 +489,9 @@ If `categories` is `null` the previously set custom Jump List (if any) will be r
 
 **Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Każda próba ponownego dodania usuniętego niestandardowego elementu do kategorii, spowoduje, że cała niestandardowa kategoria będzie pominięta na liście szybkiego dostępu. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Prosty przykład tworzenia niestandardowej listy szybkiego dostępu:
 
 ```javascript
 const {app} = require('electron')
@@ -565,7 +565,7 @@ This method makes your application a Single Instance Application - instead of al
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Metoda zwraca `fałsz` jeśli Twój proces jest głównym procesem aplikacji i aplikacja powinna kontynuować ładowanie. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
