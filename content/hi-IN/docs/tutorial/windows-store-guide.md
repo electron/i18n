@@ -10,11 +10,11 @@
 
 इसके अलावा, ईएक्सई एप्पएक्स मॉडल के अंदर शुरू होती है - यानी कि यह वैश्विक विंडोज प्लेटफार्म में मौज़ूद बहुत सी ऐपीआई का इस्तेमाल कर सकता है | और भी ज्यादा क्षमताओं को पाने के लिए, एक इलेक्ट्रॉन एप्प एक अदृश्य युडब्ल्यूपी बैकग्राउंड टास्क के साथ जुड़ कर `ईएक्सई` के साथ लांच हो सकती है - कुछ हद तक एक वफादार साथी की तरह जो बैकग्राउंड में टास्क चला सकता है, पुश नोटिफिकेशन प्राप्त कर सकता है, या दूसरी युडब्ल्यूपी एप्लीकेशनस से संपर्क साध सकता है |
 
-To compile any existing Electron app, ensure that you have the following requirements:
+किसी भी मौजूदा इलेक्ट्रॉन एप्प को क्म्पाय्ल करने के लिए, यह सुनिश्चित कर लें की आप निम्नलिखित आवश्यकताओं को पूरा करते हों:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* विंडोज 10, सालगिरह अपडेट के साथ (2 अगस्त, 2016 को जारी)
+* विंडोज 10 एसडीके, [यहाँ से डाउनलोड करें](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* न्यूनतम नोड 4 (जाँचने के लिए, `node -v` चलायें)
 
 Then, go and install the `electron-windows-store` CLI:
 
