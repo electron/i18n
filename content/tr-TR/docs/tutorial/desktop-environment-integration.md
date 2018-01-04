@@ -115,11 +115,11 @@ Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çu
 
 From MSDN, it's illustrated:
 
-> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. En fazla yedi buton vardır. Her düğmenin kimliği, görüntüsü, araç ipucu ve durumu, görev çubuğuna konulan bir yapı içinde tanımlanır. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. En fazla yedi buton vardır. Her düğmenin kimliği, görüntüsü, araç ipucu ve durumu, görev çubuğuna konulan bir yapı içinde tanımlanır. Uygulama, mevcut durum gereği küçük resimleri araç çubuğunda gösterebilir, etkinleştirebilir, devre dışı bırakabilir veya gizleyebilir.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Örneğin, Windows Media Player, play, pause, mute ve stop gibi standart ortam taşıma denetimleri sunabilir.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Windows Media Player'ın küçük resim araç çubuğu:**
 
 ![oynatıcı](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
