@@ -54,9 +54,9 @@ It is not possible to have the OS sandbox active only for some renderers, if `--
 
 If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
-## Preload
+## Önyükleme
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Bir uygulama sandbox 'lanmış oluşturucuları, önyükleme komut dosyası kullanarak özelleştirme yapabilir. Örnek olarak:
 
 ```js
 let win
@@ -101,7 +101,7 @@ window.open = customWindowOpen
 
 - Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
-- Önceden yüklenen komut dosyası tek bir komut dosyası içine yüklenmelidir, ancak aşağıdaki açıklamada tarayıcı gibi bir araç kullanarak birden çok modül ile derlenmiş karmaşık bir önyükleme kodunun olması mümkündür. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
+- Önceden yüklenen komut dosyası tek bir komut dosyası içine yüklenmelidir, ancak aşağıdaki açıklamada tarayıcı gibi bir araç kullanarak birden çok modül ile derlenmiş karmaşık bir önyükleme kodunun olması mümkündür. Aslında, browserify zaten electron tarafından önyükleme komut dosyasına node benzeri bir ortam sağlamak için kullanılıyor.
 
 Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak kullanmak için aşağıdakine benzer bir şey kullanılmalıdır:
 
