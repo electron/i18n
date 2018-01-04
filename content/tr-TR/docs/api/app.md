@@ -639,17 +639,18 @@ Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
 ### `app.getAppMemoryInfo()` *Kullanımdan Kaldırıldı*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Raporlar ` ProcessMetric []: Uygulamayla ilişkili tüm süreçlerin bellek ve cpu kullanım istatistiklerine karşılık gelen <code> İşlem Metrik nesnelerinin dizisi.
+<strong>Not</strong> Bu yöntem kullanımı önerilmemektedir. Bunun yerine <code>app.getApp()` kullanmalısınız.</p> 
 
-### `app.getAppMetrics()`
+### `app.getAppMetrics( )`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Raporlar ` ProcessMetric []: Uygulamayla ilişkili tüm süreçlerin bellek ve cpu kullanım istatistiklerine karşılık gelen <code> İşlem Metrik nesnelerinin dizisi.</p>
 
-### `app.getGpuFeatureStatus()`
+<h3><code>app.getGpuFeatureStatus()`</h3> 
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Raporlar`GPUFeatureStatus</ 0> - Grafik Özelliği durumu için <code>chrome://gpu/</ 1>.</p>
 
-### `app.setBadgeCount(count)<0><em>Linux</em><em>macOS</em></h3>
+<h3><code>app.setBadgeCount(count)<0><em>Linux</em><em>macOS</em></h3>
 
 <ul>
 <li><code>count` Integer</li> </ul> 
