@@ -111,7 +111,7 @@ Kullanıcı görevleri, uygulamanız kapandıktan sonra bile gösterilir, bu ned
 
 ## Küçük resim araç çubukları
 
-Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çubuğu ekleyebilirsiniz bir uygulama penceresinin düzeni. It provides users a way to access to a particular window's command without restoring or activating the window.
+Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çubuğu ekleyebilirsiniz bir uygulama penceresinin düzeni. Kullanıcılara, pencereyi geri yüklemeden veya etkinleştirmeden belirli bir pencerenin komutuna erişmenin yolunu sağlar.
 
 From MSDN, it's illustrated:
 
