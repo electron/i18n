@@ -1063,9 +1063,9 @@ Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
       
       #### `contents.setWebRTCIPHandlingPolicy(policy)`
       
-      * `policy` String - Specify the WebRTC IP Handling Policy. 
-        * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-        * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
+      * `policy` String - Tentukan Kebijakan Penanganan IP WebRTC. 
+        * `default ` - Mengekspos IP publik dan lokal pengguna. Ini adalah defaultnya tingkah laku. Bila kebijakan ini digunakan, WebRTC berhak untuk menghitung semua antarmuka dan mengikat mereka untuk menemukan antarmuka publik.
+        * `default_public_interface_only` - Mengekspos IP publik pengguna, namun tidak paparkan IP lokal pengguna. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
         * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
         * `disable_non_proxied_udp` - Tidak mengekspos IP publik atau lokal. Saat kebijakan ini digunakan, WebRTC hanya boleh menggunakan TCP untuk menghubungi teman sebaya atau server kecuali jika server proxy mendukung UDP.
       
