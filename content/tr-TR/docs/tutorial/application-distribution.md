@@ -103,7 +103,7 @@ Electron'u, ürün adını değiştirerek yeniden markalamak da mümkündür. on
 
 ### Özel bir Electron Çatısı Oluşturma
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Elektron'un özel bir çatalı yaratmak kesinlikle sizin yapmanız gereken bir şey değildir "Üretim Seviyesi" uygulamaları için bile, uygulamanızı oluşturmak için yapmanız gerekir. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
 
