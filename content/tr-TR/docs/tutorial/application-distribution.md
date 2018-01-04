@@ -107,7 +107,7 @@ Elektron'un özel bir çatalı yaratmak kesinlikle sizin yapmanız gereken bir �
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
 
-#### Creating a Custom Release with surf-build
+#### Sörf-derleme ile özel bir sürüm oluşturma
 
 1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
