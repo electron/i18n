@@ -98,6 +98,4 @@ Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya
 
 Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah `update-download` telah dipancarkan.
 
-** Catatan: </ 0>  autoUpdater.quitAndInstall () </ 1> akan menutup semua jendela aplikasi
-pertama dan hanya memancarkan <code> sebelum-berhenti </ 1> pada <code> aplikasi </ 1> setelah itu. Ini berbeda
-dari urutan kejadian berhenti normal.</p>
+**Catatan:** `autoUpdater.quitAndInstall()` akan menutup semua jendela aplikasi pertama dan hanya memancarkan `sebelum-berhenti` pada `aplikasi` setelah itu. Ini berbeda dari urutan kejadian berhenti normal.
