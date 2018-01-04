@@ -8,9 +8,9 @@ Başka bir deyişle, sanal alan etkin olduğunda, oluşturucular yalnızca deği
 
 Electron'da önemli bir özellik, oluşturma sürecinde node.js 'i çalıştırma yeterliliği olduğundan (web teknolojileri kullanarak masaüstü uygulamaları geliştirmeyi kolaylaştırır), sandbox electron tarafından engellenir. Bunun nedeni, çoğu node.js API'sinin sistem erişimi gerektirmesidir. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
 
-Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her zaman güvenilir, ancak güvenilmeyen web içeriğini görüntülemek için elektronları kromdan daha az güvenli hale getirir. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her zaman güvenilir, ancak güvenilmeyen web içeriğini görüntülemek için elektronları kromdan daha az güvenli hale getirir. Daha fazla güvenliğe ihtiyaç duyan uygulamalar için `sandbox` bayrağı electron'u, sanal alanla uyumlu klasik bir Chromium oluşturucu meydana getirmeye zorlar.
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. Tek istisna, electron API oluşturucularının alt kümesine erişimi olan, önceden yüklenmiş komut dosyasıdır.
+Sanal alana yerleştirilmiş bir oluşturucunun,çalışan bir node.js ortamı yoktur ve alıcı koduna node.js API'larını göstermez. Tek istisna, electron API oluşturucularının alt kümesine erişimi olan, önceden yüklenmiş komut dosyasıdır.
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
