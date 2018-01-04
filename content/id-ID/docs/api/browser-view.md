@@ -22,48 +22,40 @@ const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru Browser
 
 ### Metode Statis
 
-#### `Lihat Browser.fromId (id)`
+#### `Lihat Browser.fromId(id)`
 
-* ` id </ 0>  Bilangan bulat</li>
-</ul>
+* `id` Bilangan bulat
 
-<p>Kembali <code> lihat Browser </ 0> - Tampilan dengan <code> id </ 0> yang diberikan .</p>
+Kembali `lihat Browser` - Tampilan dengan `id` yang diberikan.
 
-<h3>Contoh properti</h3>
+### Contoh properti
 
-<p>Objek yang dibuat dengan <code>lihat Browser baru </ 0> memiliki properti berikut:</p>
+Objek yang dibuat dengan `lihat Browser baru` memiliki properti berikut:
 
-<h4><code> baru lihat browser () </ 0> <em> Eksperimental </ 1></h4>
+#### `baru lihat browser` *Eksperimental*
 
-<p>Sebuah <a href="web-contents.md"><code> isi Web </ 0> objek yang dimiliki oleh pandangan ini.</p>
+Sebuah [`isi Web`](web-contents.md) objek yang dimiliki oleh pandangan ini.
 
-<h4><code> lihat.id </ 0>  <em> Eksperimental </ 1></h4>
+#### `lihat.id` *Eksperimental*
 
-<p>A <code>bilangan bulat </ 0> mewakili ID unik dari tampilan.</p>
+A `bilangan bulat` mewakili ID unik dari tampilan.
 
-<h3>Metode contoh</h3>
+### Metode contoh
 
-<p>Objek yang dibuat dengan <code> lihat Browser baru </ 0> memiliki metode contoh berikut:</p>
+Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
 
-<h4><code> lihat.set otomatis ubah ukuran (pilihan) </ 0>  <em> Eksperimental </ 1></h4>
+#### `lihat.set otomatis ubah ukuran (pilihan)` *Eksperimental*
 
-<ul>
-<li><code>pilihan` Objek 
-  *  lebar </ 0>  Boolean - Jika <code> benar </ 0> , lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> false </ 0> secara default.</li>
-<li><code> tinggi </ 0>  Boolean - Jika <code> benar </ 0> , tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> salah </ 0> secara default.</li>
-</ul></li>
-</ul>
+* `pilihan` Objek 
+  * `lebar` Boolean - Jika `benar`, lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `false` secara default.
+  * `tinggi` Boolean - Jika `benar `, tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `salah` secara default.
 
-<h4><code> lihat.set batas (batas) </ 0>  <em> Eksperimental </ 1></h4>
+#### `lihat.set batas (batas)` *Eksperimental*
 
-<ul>
-<li><code> batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
-</ul>
+* `batas` [Empat persegi panjang](structures/rectangle.md)
 
-<p>Mengubah ukuran dan memindahkan pandangan ke batas yang tersedia relatif terhadap jendela.</p>
+Mengubah ukuran dan memindahkan pandangan ke batas yang tersedia relatif terhadap jendela.
 
-<h4><code> lihat.set latar belakang warna(warna) </ 0>  <em> Eksperimental </ 1></h4>
+#### `lihat.set latar belakang warna(warna)` *Eksperimental*
 
-<ul>
-<li><code> warna </ 0>  tali - Warna dalam <code> #aarrggbb </ 0> atau <code> #argb </ 0> . Saluran alfa bersifat opsional.</li>
-</ul>
+* `warna` tali - Warna dalam `#aarrggbb` atau `#argb`. Saluran alfa bersifat opsional.
