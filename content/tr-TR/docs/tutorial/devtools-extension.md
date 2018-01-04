@@ -6,7 +6,7 @@ Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/e
 
 This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Electron'da bir uzantı yüklemek için Chrome tarayıcısında indirmeniz, dosya sistemi yolunu bulmanız ve ardından `BrowserWindow.addDevToolsExtension (uzantı)` API'sını çağırarak yüklemeniz gerekir.
 
 Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
 
@@ -25,7 +25,7 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+Uzantının adı `BrowserWindow.addDevToolsExtension` tarafından döndürüldü ve uzantının adını kaldırmak için `BrowserWindow.removeDevToolsExtension` API'sine geçirebilirsiniz.
 
 ## Desteklenen DevTools Eklentileri
 
