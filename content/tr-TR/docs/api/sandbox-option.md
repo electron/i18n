@@ -113,7 +113,7 @@ Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak ku
 
 The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Şu anda, önyükleme aşamasından sağlanan `require` fonksiyonu aşağıdaki modülleri göstermektedir:
 
 - `child_process`
 - `electron` (crashReporter, remote and ipcRenderer)
