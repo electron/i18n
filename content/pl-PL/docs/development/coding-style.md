@@ -22,7 +22,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
-## Naming Things
+## Nazywanie rzeczy
 
 Electron APIs uses the same capitalization scheme as Node.js:
 
