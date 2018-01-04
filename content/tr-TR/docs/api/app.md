@@ -649,9 +649,10 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.setBadgeCount(count)<0><em>Linux</em><em>macOS</em></h3>
 
-* `count` Integer
+<ul>
+<li><code>count` Integer</li> </ul> 
 
 Returns `Boolean` - Whether the call succeeded.
 
