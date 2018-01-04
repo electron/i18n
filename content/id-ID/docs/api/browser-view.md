@@ -2,33 +2,29 @@
 
 > Buat dan kontrol tampilan.
 
-** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p> 
+**Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
 
-Proses:  Utama </ 0></p> 
+Proses: [Utama](../glossary.md#main-process)
 
-A ` lihat browser</ 0> dapat digunakan untuk menyematkan konten web tambahan ke
- <code> jendela Browser</ 0> . Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif
- tag <code> lihat web</ 0> .</p>
+A `lihat browser` dapat digunakan untuk menyematkan konten web tambahan ke `jendela Browse`. Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif tag `lihat web`.
 
-<h2>Contoh</h2>
+## Contoh
 
-<pre><code class="javascript">// Dalam proses utamanya.
-const {BrowserView, BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on ('tertutup', () = & gt; {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300}) view.webContents.loadURL ('https : //electron.atom.io ')
-`</pre> 
+```javascript
+// Dalam proses utamanya.
+const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electron.atom.io')
+```
 
-### ` baru lihat browser( [options] ) </ 0>  <em> Eksperimental </ 1></h3>
+### `baru lihat browser([options])` *Eksperimental*
 
-<ul>
-<li><code>pilihan` Objek (opsional) 
+* `pilihan` Objek (opsional) 
+  * `refrensi web` Objek (contoh) - Lihat [jendela Browser](browser-window.md).
 
-* ` refrensi web</ 0> </ 0> Objek (contoh) - Lihat <a href="browser-window.md">jendela Browser </ 1>.</li>
-</ul></li>
-</ul>
+### Metode Statis
 
-<h3>Metode Statis</h3>
+#### `Lihat Browser.fromId (id)`
 
-<h4><code>Lihat Browser.fromId (id)`</h4> 
-  * ` id </ 0>  Bilangan bulat</li>
+* ` id </ 0>  Bilangan bulat</li>
 </ul>
 
 <p>Kembali <code> lihat Browser </ 0> - Tampilan dengan <code> id </ 0> yang diberikan .</p>
@@ -53,7 +49,7 @@ const {BrowserView, BrowserWindow} = require ('elektron') nyalakan = baru Browse
 
 <ul>
 <li><code>pilihan` Objek 
-    *  lebar </ 0>  Boolean - Jika <code> benar </ 0> , lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> false </ 0> secara default.</li>
+  *  lebar </ 0>  Boolean - Jika <code> benar </ 0> , lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> false </ 0> secara default.</li>
 <li><code> tinggi </ 0>  Boolean - Jika <code> benar </ 0> , tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. <code> salah </ 0> secara default.</li>
 </ul></li>
 </ul>
