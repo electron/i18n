@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Küçük resim araç çubuğu düğmelerini temizlemek için boş bir diziyle `BrowserWindow.setThumbarButtons` öğesini çağırmanız yeterlidir:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -159,15 +159,15 @@ win.setThumbarButtons([])
 
 ## Unity İstemci Kısayolları (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Unity'de, `.desktop` dosyasını değiştirerek, başlatıcısına özel girişler ekleyebilirsiniz, bkz. [Bir Başlatıcıya Kısayol Ekleme](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Audacious'un başlatıcı kısayolları:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## Görev çubuğunda ilerleme çubuğu (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Windows'ta bir görev çubuğu düğmesi bir ilerleme çubuğu görüntülemede kullanılabilir. Bu, bir pencere için kendiliğinden geçiş yapmak zorunda kalmadan kullanıcıya ilerleme bilgileri sağlar.
 
 MacOS üzerinde ilerleme çubuğu dock simgesinin bir parçası olarak görüntülenir.
 
