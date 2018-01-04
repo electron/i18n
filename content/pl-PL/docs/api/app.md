@@ -565,7 +565,7 @@ This method makes your application a Single Instance Application - instead of al
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
-Metoda zwraca `fałsz` jeśli Twój proces jest głównym procesem aplikacji i aplikacja powinna kontynuować ładowanie. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Metoda zwraca `fałsz` jeśli Twój proces jest głównym procesem aplikacji i aplikacja powinna kontynuować ładowanie. Zwraca `prawda` jeśli Twój proces wysłał parametry do innej instancji, i powinieneś go natychmiast zamknąć.
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
