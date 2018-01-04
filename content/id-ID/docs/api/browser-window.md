@@ -1119,4 +1119,4 @@ win.loadURL(url)
                           
                           * `browserView` [BrowserView](browser-view.md)
                           
-                          ** Catatan: </ 0> lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.</p>
+                          **Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
