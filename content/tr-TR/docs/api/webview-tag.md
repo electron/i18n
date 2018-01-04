@@ -10,7 +10,7 @@ Bir `iframe`'in aksine `webview`, uygulamanızdan ayrı bir süreçte çalışı
 
 ## Örnek
 
-Uygulamanıza bir web sayfası gömmek için, uygulamanızın gömücü sayfasına (misafir içeriğini görüntüleyen uygulama sayfasıdır) `webview` etiketini ekleyin. In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
+Uygulamanıza bir web sayfası gömmek için, uygulamanızın gömücü sayfasına (misafir içeriğini görüntüleyen uygulama sayfasıdır) `webview` etiketini ekleyin. En basit biçiminde, `webview` etiketi, web sayfasının `src`'unu ve `webview` kapsayıcısının görünümünü denetleyen css stillerini içerir:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
@@ -59,7 +59,7 @@ If you want to control the guest content in any way, you can write JavaScript th
 
 ## Etiket özellikleri
 
-The `webview` tag has the following attributes:
+`webview` etiketi aşağıdaki özellikleri destekler:
 
 ### `src`
 
@@ -67,11 +67,11 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+Görünür URL'yi döndürür. Bu özelliğe yazmak, üst düzey gezinimi başlatır.
 
-Assigning `src` its own value will reload the current page.
+`src` değerine kendi değerini atamak, mevcut sayfayı yeniden yükler.
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+`src` özelliği ayrıca `data:text/plain,Merhaba dünya!` gibi veri URL'lerini de kabul eder.
 
 ### `autosize`
 
@@ -95,7 +95,7 @@ When this attribute is present the guest page in `webview` will have node integr
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+Bu özellik bulunduğunda, `webview`'deki misafir sayfa tarayıcı eklentilerini kullanabilecektir. Eklentiler varsayılan olarak devre dışıdır.
 
 ### `preload`
 
@@ -131,7 +131,7 @@ Sets the user agent for the guest page before the page is navigated to. Once the
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bırakılacaktır. Web güvenliği varsayılan olarak etkindir.
 
 ### `partition`
 
