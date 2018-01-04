@@ -52,7 +52,7 @@ app.on('ready', () => {
 
 OS sandbox 'ı sadece bazı oluşturucular için aktifleştirmek mümkün değildir, eğer `--enable-sandbox` etkinse normal elektron pencereleri oluşturulamaz.
 
-Eğer sandbox 'lanmış ve sandbox 'lanmamış oluşturucuları bir uygulamada karıştırmanız gerekiyorsa, sadece `--enable-sandbox` argümanını atlayın. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+Eğer sandbox 'lanmış ve sandbox 'lanmamış oluşturucuları bir uygulamada karıştırmanız gerekiyorsa, sadece `--enable-sandbox` argümanını atlayın. Bu argüman olmadan, `sandbox: true` ile oluşturulmuş pencereler inaktif node.js barındıracak ve sadece güvenlik POV 'undan edinilmiş IPC üzerinden bağlantı kuracaklar.
 
 ## Önyükleme
 
@@ -71,7 +71,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+ve preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
