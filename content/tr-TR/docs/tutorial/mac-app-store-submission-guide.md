@@ -4,7 +4,7 @@ Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MA
 
 **Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
-## How to Submit Your App
+## Uygulamanızı Nasıl sunabilirsiniz
 
 Aşağıdaki adımlar, uygulamanızı Mac App Store'a göndermenin basit bir yolunu sunar. Her ne kadar, bu adımlar uygulamanızın Apple tarafından onaylanmasını sağlamasada; Mac App Store gereksinimlerini nasıl karşılanacağına ilişkin hala Apple'ın [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) kılavuzunu okumanız gerekir.
 
@@ -18,7 +18,7 @@ Uygulamanızı imzalamadan önce, hesabınızın Takım ID'sini bilmeniz gerekiy
 
 ### Uygulamanızı imzalayın
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Hazırlık çalışmalarını tamamladıktan sonra, uygulamanızı aşağıdakileri izleyerek paketleyebilirsiniz:  Uygulama Dağıtımı </ 0> 'na gidin ve ardından uygulamanızı imzalayın.</p> 
 
 First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
 
