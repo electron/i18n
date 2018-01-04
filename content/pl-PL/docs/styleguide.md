@@ -10,7 +10,7 @@ To są wytyczne do pisania dokumentacji Electron.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
 
-Używając `Szybki start` jako przykładu:
+Używając `Quick Start` jako przykładu:
 
 ```markdown
 # Quick Start
@@ -54,20 +54,20 @@ Istnieją wyjątki od tej reguły dla odwołań do API.
 
 ## API references
 
-The following rules only apply to the documentation of APIs.
+Poniższe reguły zaliczają się tylko dla dokumentacji API.
 
 ### Tytuł strony
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Każda strona musi używać nazwę obiektu zwracaną przez `require('electron')` jako tytuł, jak na przykład `BrowserWindow`, `autoUpdater`, oraz `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Pod tytułem strony musi być jedno liniowy komentarz rozpoczynający się `>`.
 
-Using `session` as example:
+Używając `session` jako przykład:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy, itd.
 ```
 
 ### Module methods and events
@@ -137,7 +137,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### Metody
 
-The methods chapter must be in the following form:
+Rozdział "Metody" musi zachować podaną niżej formę:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,9 +148,9 @@ The methods chapter must be in the following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Tytuł może być `###` lub `####` poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Dla modułów, `objectName` jest nazwą modułu. Dla klas, to musi być nazwa wystąpienia klasy oraz nie może być taka sama jak nazwa modułu.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
