@@ -10,7 +10,7 @@ To są wytyczne do pisania dokumentacji Electron.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
 
-Using `Quick Start` as example:
+Używając `Szybki start` jako przykładu:
 
 ```markdown
 # Quick Start
@@ -38,16 +38,16 @@ Using `Quick Start` as example:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Istnieją wyjątki od tej reguły dla odwołań do API.
 
 ## Markdown rules
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
+* Używaj `sh` zamiast `cmd` w code blocks (z powodu podświetlacza składni).
+* Linie powinny być zawinięte na 80 kolumnie.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Wybieranie słów
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
@@ -56,7 +56,7 @@ For API references, there are exceptions to this rule.
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### Tytuł strony
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
