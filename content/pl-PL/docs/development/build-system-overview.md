@@ -50,7 +50,7 @@ Test your changes conform to the project coding style using:
 $ npm run lint
 ```
 
-Test functionality using:
+Test funkcjonalności używając:
 
 ```sh
 $ npm test
