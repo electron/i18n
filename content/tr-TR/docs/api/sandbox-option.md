@@ -16,7 +16,7 @@ Diğer bir fark da sanal alandaki oluşturucuların, varsayılan herhangi bir Ja
 
 ## Örnek
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+Sandbox' lanmış bir pencere oluşturmak için, basitçe `sandbox: true` 'dan `webPreferences` 'a geçin:
 
 ```js
 let win
