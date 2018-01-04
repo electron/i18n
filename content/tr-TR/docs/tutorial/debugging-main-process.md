@@ -4,7 +4,7 @@ The DevTools in an Electron browser window can only debug JavaScript that's exec
 
 ## Komut satırı anahtarları
 
-Use one of the following command line switches to enable debugging of the main process:
+Ana hata ayıklamasını etkinleştirmek için aşağıdaki komut satırı anahtarlarından birini kullanın:
 
 ### `--inspect=[port]`
 
@@ -20,7 +20,7 @@ Like `--inspect` but pauses execution on the first line of JavaScript.
 
 ## Harici hata ayıklayıcıları
 
-You will need to use a debugger that supports the V8 inspector protocol.
+V8 denetçi protokolünü destekleyen bir hata ayıklayıcı kullanmanız gerekecektir.
 
 - Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
 - [VSCode da ki Ana Sürecin Hata Ayıklaması](debugging-main-process-vscode.md)
