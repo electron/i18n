@@ -4,5 +4,5 @@
 * `organizacje` tablica zawierająca ciągi znakowe - Nazwy organizacji
 * `jednostkaOrganizacyjna` tablica zawierająca ciągi znakowe - Nazwy jednostek organizacyjnych
 * `lokalizacja` ciąg znaków - Lokalizacja
-* `stan` ciąg znaków - Województwo lub powiat
+* `state` ciąg znaków - Województwo lub powiat
 * `kraj` ciąg znaków - Kraj lub region
