@@ -6,7 +6,7 @@ Chromium'un en önemli güvenlik özelliklerinden biri, parlayan tüm JavaScript
 
 Başka bir deyişle, sanal alan etkin olduğunda, oluşturucular yalnızca değişiklik yapabilir görevlere IPC vasıtasıyla ana süreci devrederek sisteme bildirir. Sandbox hakkında daha fazla bilgi [burada](https://www.chromium.org/developers/design-documents/sandbox).
 
-Electron'da önemli bir özellik, oluşturma sürecinde node.js 'i çalıştırma yeterliliği olduğundan (web teknolojileri kullanarak masaüstü uygulamaları geliştirmeyi kolaylaştırır), sandbox electron tarafından engellenir. Bunun nedeni, çoğu node.js API'sinin sistem erişimi gerektirmesidir. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+Electron'da önemli bir özellik, oluşturma sürecinde node.js 'i çalıştırma yeterliliği olduğundan (web teknolojileri kullanarak masaüstü uygulamaları geliştirmeyi kolaylaştırır), sandbox electron tarafından engellenir. Bunun nedeni, çoğu node.js API'sinin sistem erişimi gerektirmesidir. Örneğin `require()`, bir Sandbox 'lanmış ortamda mevcut olmamakla beraber dosya sistem izinleri olmadan mümkün değil.
 
 Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her zaman güvenilir, ancak güvenilmeyen web içeriğini görüntülemek için elektronları kromdan daha az güvenli hale getirir. Daha fazla güvenliğe ihtiyaç duyan uygulamalar için `sandbox` bayrağı electron'u, sanal alanla uyumlu klasik bir Chromium oluşturucu meydana getirmeye zorlar.
 
