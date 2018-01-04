@@ -148,5 +148,5 @@ We seek to increase clarity at all levels of the update and releases process. St
 # Versionless `master`
 
 * The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
+* Serbest branşlar asla ustaya birleştirilmez
 * Release branches *do* contain the correct version in their `package.json`
