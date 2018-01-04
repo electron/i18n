@@ -2,7 +2,7 @@
 
 > Harici web içeriğini yalıtılmış bir çerçeve ve işlemde görüntüleme.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Süreç: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 'Misafir' içeriğini (web sayfaları gibi) Electron uygulamanıza gömmek için `webview` etiketini kullanın. Misafir içeriği, `webview` kapsayıcısı tarafından kapsanır. Uygulamanızdaki gömülmüş bir sayfa, konuk içeriğinin nasıl düzenlendiğini ve oluşturulduğunu denetler.
 
@@ -16,7 +16,7 @@ Uygulamanıza bir web sayfası gömmek için, uygulamanızın gömücü sayfası
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
+Misafir içeriğini herhangi bir şekilde kontrol etmek isterseniz JavaScript'i yazabilirsiniz `webview` olaylarını görüntüler ve bu olaylar`webview` yöntemleridir. İki olay dinleyicisine sahip örnek kod: biri web sayfasını yüklemeye başlamak için dinlerken diğeri web sayfasının yüklemeyi durdurmasını dinler ve yükleme süresi boyunca bir "yükleme..." mesajı görüntüler:
 
 ```html
 <script>
