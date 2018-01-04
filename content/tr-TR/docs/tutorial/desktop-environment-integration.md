@@ -241,7 +241,7 @@ win.setDocumentEdited(true)
 
 ## Dragging files out of the window
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Dosyalar üzerinde işlem yapan bazı türdeki uygulamalar için, dosyaları Electron'dan diğer uygulamalara taşıyabilmek önemlidir. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
 Web sayfasında:
 
