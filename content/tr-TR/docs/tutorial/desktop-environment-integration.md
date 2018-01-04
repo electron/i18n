@@ -189,7 +189,7 @@ win.setProgressBar(0.5)
 
 On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
 
-> Simge ve yer paylaşımları durumu bağlamsal bir bildirim olarak hizmet ve kullanıcıya bu bilgileri iletişim kurmak için ayrı bir bildirim durumu simgesi gereksinimini ortadan kaldırmak için tasarlanmıştır. Örneğin, bildirim alanında gösterilen Microsoft Outlook'ta yeni posta durumu artık görev çubuğu düğmesindeki bir kaplama ile gösterilebilir. Tekrardan, hangi metodun uygulamanız iyi olduğuna geliştirme döneminde karar vermeniz gerekmektedir. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Simge ve yer paylaşımları durumu bağlamsal bir bildirim olarak hizmet ve kullanıcıya bu bilgileri iletişim kurmak için ayrı bir bildirim durumu simgesi gereksinimini ortadan kaldırmak için tasarlanmıştır. Örneğin, bildirim alanında gösterilen Microsoft Outlook'ta yeni posta durumu artık görev çubuğu düğmesindeki bir kaplama ile gösterilebilir. Tekrardan, hangi metodun uygulamanız iyi olduğuna geliştirme döneminde karar vermeniz gerekmektedir. Yer paylaşımı simgeleri, ağ durumu, mesajlaşma durumu veya yeni posta gibi önemli, uzun süreli durum veya bildirimleri sağlamak için tasarlanmıştır. Kullanıcı sürekli değişen yer paylaşımları veya animasyonlar ile ortaya konmamalıdır.
 
 **Arayüzü görev çubuğuna al:**
 
@@ -207,7 +207,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Overlay için açıklama')
 
 On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Genellikle, kullanıcıya pencerenin dikkat gerektirdiğini ancak şu anda klavye odağına sahip olmadığını kullanıcıya belirten bir pencere görünür.
 
 To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
