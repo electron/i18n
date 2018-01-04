@@ -266,19 +266,19 @@ Returns `Boolean` - Whether the guest page is waiting for a first-response for t
 
 ### `<webview>.dur()`
 
-Stops any pending navigation.
+Bekleyen gezinmeyi durdurur.
 
-### `<webview>.reload()`
+### `<webview>.yeniden yükle()`
 
-Reloads the guest page.
+Misafir sayfasını yeniden yükleyin.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Konuk sayfasını yeniden yükler ve önbellek yok sayılır.
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+Döndür `Boolean` - Konuk sayfanın geri dönüp dönmeyeceğini belirtir.
 
 ### `<webview>.canGoForward()`
 
@@ -292,15 +292,15 @@ Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+Gezinme geçmişini temizle.
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+Misafir sayfasını geri getirir.
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+Ziyaretçi sayfasını ilerletir.
 
 ### `<webview>.goToIndex(index)`
 
@@ -336,9 +336,9 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
-* `code` String
+* `code` Dizi
 * `userGesture` Boolean - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `geri arama` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
   * `result` Any
 
 Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
@@ -368,7 +368,7 @@ Starts inspecting element at position (`x`, `y`) of guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
-Opens the DevTools for the service worker context present in the guest page.
+Konuk sayfasında bulunan hizmet çalışanı içeriği için DevTools'u açar.
 
 ### `<webview>.setAudioMuted(muted)`
 
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Obje (isteğe bağlı) 
+* `seçenekler` Obje (isteğe bağlı) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -448,7 +448,7 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `eylem` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
