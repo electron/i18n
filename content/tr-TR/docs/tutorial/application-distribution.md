@@ -59,7 +59,7 @@ Uygulamanızı Electron'da topladıktan sonra, Electron'u kullanıcılara dağı
 * `Electron.app/Contents/Info.plist`
 * `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+Etkinlik İzleyicisinde `Electron Helper`'in görüntülenmesini engellemek için yardımcı uygulamasının adını da değiştirebilirsiniz fakat yardımcı uygulamasının yürütülebilir dosyasının adını değiştirdiğinizden emin olun.
 
 Yeniden adlandırılan bir uygulamanın yapısı aşağıdaki gibi olur:
 
@@ -105,7 +105,7 @@ Electron'u, ürün adını değiştirerek yeniden markalamak da mümkündür. on
 
 Elektron'un özel bir çatalı yaratmak kesinlikle sizin yapmanız gereken bir şey değildir "Üretim Seviyesi" uygulamaları için bile, uygulamanızı oluşturmak için yapmanız gerekir. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
+Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı doğru akışlanamayan ya da resmi sürümden reddedilen Elektron'u çatallamanız gerekir. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
 
 #### Sörf-derleme ile özel bir sürüm oluşturma
 
