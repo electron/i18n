@@ -12,7 +12,7 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 
 1. Chrome tarayıcısna yükle.
 2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
+3. Uzantıları saklamak için Chrome tarafından kullanılan dosya sistemi konumunu öğrenin: 
     * Windows'ta şu şekildedir `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * Linux'ta şu şekilde olabilir: 
         * `~/.config/google-chrome/Default/Extensions/`
@@ -29,7 +29,7 @@ The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, a
 
 ## Desteklenen DevTools Eklentileri
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Devtools Uzantılarının Elektron'da çalışma durumu test edilip garanti edilmektedir:
 
 * [Kahraman müfettiş](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [Geliştirici araçları tepkisi](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
