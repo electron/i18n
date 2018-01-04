@@ -8,7 +8,7 @@
 
 विंडोज 10 का "सालगिरह अपडेट" विन32 `.ईएक्सई` लाइब्रेरीज को एक वर्चुअलाइज़ेड फाइलसिस्टम और रजिस्ट्री के साथ, एक साथ लांच करने की क्षमता प्रदान करता है | दोनों ही कंपाइलेशन के दौरान एप्प और इंस्टालर को विंडोज कंटेनर के अन्दर चलाने से बनाये जाते हैं, जिससे कि विंडोज यह पता लगा सके कि इंस्टालेशन के दौरान ऑपरेटिंग सिस्टम में असल में कौन कौन से संशोधन हुए है | एक्सीक्यूटेबल को एक वर्चुअल फाइलसिस्टम और एक वर्चुअल रजिस्ट्री के साथ जोड़ने से विंडोज को 1-क्लिक इंस्टालेशन और अनइंस्टालेशन शुरू करने की सुविधा मिलती है |
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+इसके अलावा, ईएक्सई एप्पएक्स मॉडल के अंदर शुरू होती है - यानी कि यह वैश्विक विंडोज प्लेटफार्म में मौज़ूद बहुत सी ऐपीआई का इस्तेमाल कर सकता है | To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
