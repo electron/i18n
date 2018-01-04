@@ -34,7 +34,7 @@ Yukarıdaki kodda oluşturulmuş `BrowserWindow` 'da node.js devre dışı bıra
 
 Bu seçeneğin tek başına OS'ın zorladığı sandbox'a izin vermeyeceğini akılda tutmak önemlidir. Bu özelliğe izin vermek için, tüm `BrowserWindow` örnekleri için `sandbox: true` 'yu zorlayan `--enable-sandbox` komuta dizisi argümanı electron'a aktarılmalıdır.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. Bu seçenek şu an yalnızca macOS ve Windows'ta desteklenmektedir.
+`BrowserWindow`'da OS tarafından uygulanan sandbox'ı veya `sandbox:true` ile `webview` süreci etkinleştirmek için, tüm uygulamanın sanbox da olmasına neden olmadan, `--enable-mixed-sandbox` komut dizisi argümanı electron'a aktarılmalıdır. Bu seçenek şu an yalnızca macOS ve Windows'ta desteklenmektedir.
 
 ```js
 let win
