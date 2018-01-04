@@ -10,7 +10,7 @@ Bir `iframe`'in aksine `webview`, uygulamanızdan ayrı bir süreçte çalışı
 
 ## Örnek
 
-To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
+Uygulamanıza bir web sayfası gömmek için, uygulamanızın gömücü sayfasına (misafir içeriğini görüntüleyen uygulama sayfasıdır) `webview` etiketini ekleyin. In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
