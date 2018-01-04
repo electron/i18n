@@ -300,7 +300,7 @@ Mengembalikan `String` - Agen pengguna untuk halaman tamu.
 
 * `css` String
 
-Injects CSS into the guest page.
+Menyuntikkan CSS ke halaman tamu.
 
 ### `<webview>.executeJavaScript (code, userGesture, callback)`
 
@@ -317,7 +317,7 @@ Membuka jendela DevTools untuk halaman tamu.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Menutup jendela tamu DevTools.
 
 ### `<webview>.isDevToolsOpened()`
 
@@ -342,7 +342,7 @@ Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
 
 * `dibungkam` Boolean
 
-Set guest page muted.
+Tetapkan halaman tamu yang dibungkam.
 
 ### `<webview>.isAudioMuted()`
 
@@ -350,7 +350,7 @@ Returns `Boolean` - Whether guest page has been muted.
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+Jalankan perintah pengeditan `undo` di halaman.
 
 ### `<webview>.redo()`
 
