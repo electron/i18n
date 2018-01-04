@@ -100,7 +100,7 @@ window.open = customWindowOpen
 Önceden yüklenen komut dosyasında dikkat edilmesi gereken önemli şeyler:
 
 - Sandbox'lanmış oluşturucular da node.js 'yi çalışıyor olmasa bile, hala sınırlı bir node benzeri ortama erişimi mümkündür: `Buffer`, `process`, `setImmediate` ve `require` mevcut.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. Diğer modüller ve `fs` (yukarıda kullanıldı) bu şekilde uygulanır: Bunlar ana süreç içerisinde ki benzerler için proxy'lerdir.
+- Önyükleme dosyası ana süreçteki tüm API'lere `remote` ve `ipcRenderer` modüllerinden dolaylı olarak erişebilir. Diğer modüller ve `fs` (yukarıda kullanıldı) bu şekilde uygulanır: Bunlar ana süreç içerisinde ki benzerler için proxy'lerdir.
 - Önceden yüklenen komut dosyası tek bir komut dosyası içine yüklenmelidir, ancak aşağıdaki açıklamada tarayıcı gibi bir araç kullanarak birden çok modül ile derlenmiş karmaşık bir önyükleme kodunun olması mümkündür. Aslında, browserify zaten electron tarafından önyükleme komut dosyasına node benzeri bir ortam sağlamak için kullanılıyor.
 
 Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak kullanmak için aşağıdakine benzer bir şey kullanılmalıdır:
