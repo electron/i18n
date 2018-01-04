@@ -24,7 +24,7 @@ SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symb
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
-## Troubleshooting: Symbols will not load
+## Sorun giderme: Semboller yüklenmeyecektir
 
 Sembollerin neden yüklenmediğini yazdırmak için Windbg'yi aşağıdaki komuta yazın:
 
