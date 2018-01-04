@@ -12,7 +12,7 @@ Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her 
 
 Sanal alana yerleştirilmiş bir oluşturucunun,çalışan bir node.js ortamı yoktur ve alıcı koduna node.js API'larını göstermez. Tek istisna, electron API oluşturucularının alt kümesine erişimi olan, önceden yüklenmiş komut dosyasıdır.
 
-Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+Diğer bir fark da sanal alandaki oluşturucuların, varsayılan herhangi bir JavaScript API'sini değiştirmemesidir. Sonuç olarak `window.open` gibi bazı API'lar chromium'da olduğu gibi çalışır ( ör. bir `BrowserWindowProxy` göndermezler).
 
 ## Örnek
 
