@@ -32,7 +32,7 @@ app.on('ready', () => {
 
 Yukarıdaki kodda oluşturulmuş `BrowserWindow` 'da node.js devre dışı bırakılmış ve sadece IPC yoluyla iletişim kurabilir. Bu seçeneğin kullanılması, elektronun renderer' da bir node.js çalışma zamanı oluşturmasını durdurur. Ayrıca, bu yeni pencere içinde `window.open` doğal davranışı takip eder ( varsayılan electron tarafından bir `BrowserWindow` oluşturur ve buna `window.open` yoluyla bir proxy gönderir).
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+Bu seçeneğin tek başına OS'ın zorladığı sandbox'a izin vermeyeceğini akılda tutmak önemlidir. Bu özelliğe izin vermek için, tüm `BrowserWindow` örnekleri için `sandbox: true` 'yu zorlayan `--enable-sandbox` komuta dizisi argümanı electron'a aktarılmalıdır.
 
 To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. Bu seçenek şu an yalnızca macOS ve Windows'ta desteklenmektedir.
 
