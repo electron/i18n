@@ -117,15 +117,15 @@ Konuk sayfasında hiçbir düğüm entegrasyonu yoksa, bu komut dosyası tüm D�
 
 Tüm sayfalar için yönlendiren URL'yi ayarlayın.
 
-### `useragent`
+### `kullanıcı temsilcisi`
 
 ```html
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+Sayfa gezinilmeden önce konuk sayfasının kullanıcı aracısını ayarlar. Bir kere sayfa yüklendiğinde, kullanıcı aracısını değiştirmek için `setUserAgent` yöntemini kullanın.
 
-### `disablewebsecurity`
+### `web güveliği devredışı`
 
 ```html
 <webview src="https://www.github.com/" disablewebsecurity></webview>
@@ -133,14 +133,14 @@ Sets the user agent for the guest page before the page is navigated to. Once the
 
 Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bırakılacaktır. Web güvenliği varsayılan olarak etkindir.
 
-### `partition`
+### `bölüm`
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
 <webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
+Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. if there is no `persist:` prefix, the page will use an in-memory session. Aynı `partition` bölümü atayarak, aynı oturumda birden çok sayfa paylaşabilir. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
