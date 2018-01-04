@@ -6,10 +6,10 @@
 - [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
 - [@googlechrome](https://twitter.com/googlechrome) on Twitter
 - [Blog](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
-- [Source Code](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
+- [Wyszukiwanie kodu](https://cs.chromium.org/)
+- [Kod źródłowy](https://cs.chromium.org/chromium/src/)
+- [Kalendarz rozwoju oraz informacje o publikacji](https://www.chromium.org/developers/calendar)
+- [Grupy dyskusyjne](http://www.chromium.org/developers/discussion-groups)
 
 See also [V8 Development](v8-development.md)
 
@@ -35,7 +35,7 @@ When developing on linux with gdb, it is recommended to add a gdb index to speed
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. Kompilacja z ilością RAMu mniejszą niż 16GB nie jest zalecana.
 
 ## Chromium git cache
 
