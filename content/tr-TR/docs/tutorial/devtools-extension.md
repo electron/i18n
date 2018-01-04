@@ -4,7 +4,7 @@ Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/e
 
 ## DevTools eklentileri nasıl yüklenir
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Bu belge bir uzantıyı manuel olarak yükleme işlemini özetliyor. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
 Electron'da bir uzantı yüklemek için Chrome tarayıcısında indirmeniz, dosya sistemi yolunu bulmanız ve ardından `BrowserWindow.addDevToolsExtension (uzantı)` API'sını çağırarak yüklemeniz gerekir.
 
