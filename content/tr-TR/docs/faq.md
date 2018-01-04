@@ -47,7 +47,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Uygulamamın penceresi/simge konumundaki kısmı birkaç dakika sonra kayboluyor.
 
-Bu, pencere / tepsiyi depolamak için kullanılan değişken, çöp toplandı.
+This happens when the variable which is used to store the window/tray gets garbage collected.
 
 Eğer bu problemle karşılaşılırsa, aşağıdaki makaleler yardımcı olabilir:
 
