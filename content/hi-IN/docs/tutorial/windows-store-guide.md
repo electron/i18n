@@ -65,7 +65,7 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-एक बार चलाने के बाद, यह औज़ार काम करने लगता है: यह आपकी इलेक्ट्रॉन एप्प को एक इनपुट की तरह लेता है, और `नोड_मोड्यूल` फ्लैट करता है | Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+एक बार चलाने के बाद, यह औज़ार काम करने लगता है: यह आपकी इलेक्ट्रॉन एप्प को एक इनपुट की तरह लेता है, और `नोड_मोड्यूल` फ्लैट करता है | फिर यह आपकी एप्लीकेशन को `एप्प.ज़िप` से आर्काइव करता है | Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
 
 Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
 
