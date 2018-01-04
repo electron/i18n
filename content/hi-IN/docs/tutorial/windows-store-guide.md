@@ -73,11 +73,11 @@ electron-windows-store `
 
 आपके पैकेज को चलाने के लिए, उपयोगकर्ताओं को "सालगिरह अपडेट" के साथ विंडोज 10 की ज़रुरत होगी - विंडोज को अपडेट करने की विस्तृत जानकारी [यहाँ](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update) उपलब्ध है |
 
-पारंपरिक युडब्ल्यूपी एप्प्स के विपरीत, पैकेज्ड एप्प्स को फिलहाल एक मैन्युअल जांच प्रक्रिया से गुजरना पड़ता है, जिसके के लिए आप [यहाँ](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) पर आवेदन कर सकते है | तब तक, आपके सभी उपयोगकर्ता पैकेज को डबल-क्लिक कर इनस्टॉल कर सकते हैं, इसलिए हो सकता है कि आपको विंडोज स्टोर में आवेदन देने की ज़रुरत ही न पड़ें अगर आप सिर्फ इंस्टालेशन का एक आसान तरीका ढूंढ रहे हैं | In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+पारंपरिक युडब्ल्यूपी एप्प्स के विपरीत, पैकेज्ड एप्प्स को फिलहाल एक मैन्युअल जांच प्रक्रिया से गुजरना पड़ता है, जिसके के लिए आप [यहाँ](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) पर आवेदन कर सकते है | तब तक, आपके सभी उपयोगकर्ता पैकेज को डबल-क्लिक कर इनस्टॉल कर सकते हैं, इसलिए हो सकता है कि आपको विंडोज स्टोर में आवेदन देने की ज़रुरत ही न पड़ें अगर आप सिर्फ इंस्टालेशन का एक आसान तरीका ढूंढ रहे हैं | प्रबंधित वातावरणों में (कंपनियों में ज्यादातर), `ऐड-एप्पएक्सपैकेज` [पॉवरशैल सीएमडीलेट का इस्तेमाल उसे एक स्वचालित रूप से इनस्टॉल करने के लिए किया जा सकता है](https://technet.microsoft.com/en-us/library/hh856048.aspx) |
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+दूसरी महत्वपूर्ण सीमा यह है कि कम्पाइलड एप्पएक्स पैकेज में अभी भी एक विन32 एक्सीक्यूटेबल शामिल होती है - और इसलिए यह एक्सबॉक्स, होलोलेंस, या फ़ोन पर नहीं चलेगा |
 
-## Optional: Add UWP Features using a BackgroundTask
+## वैकल्पिक: एक बेकग्राउंड टास्क का इस्तेमाल कर युडब्ल्यूपी क्षमतायें डालें
 
 You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
 
