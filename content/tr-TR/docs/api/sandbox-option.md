@@ -45,7 +45,7 @@ app.on('ready', () => {
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+`app.commandLine.appendSwitch('--enable-sandbox')` 'yı aramanın yeterli olmadığını unutmayın, electron/node başlangıç kodlarını,chromium sandbox ayarlarında değişiklik yapmak mümkün olduktan sonra çalıştırır. The switch must be passed to electron on the command-line:
 
     electron --enable-sandbox app.js
     
