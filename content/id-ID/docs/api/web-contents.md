@@ -780,7 +780,7 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     
     #### `contents.getPrinters()`
     
-    Get the system printer list.
+    Dapatkan daftar printer sistem.
     
     Returns [`PrinterInfo[]`](structures/printer-info.md)
     
@@ -847,13 +847,13 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
 
 <h4><code>contents.openDevTools([options])`</h4> 
     * `pilihan` Objek (opsional) 
-      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Defaults to last used dock state. Pada mode `undocked`, mungkin untuk kembali ke dermaga. In `detach` mode it's not.
+      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. In `detach` mode it's not.
     
-    Opens the devtools.
+    Membuka devtools.
     
     #### `contents.closeDevTools()`
     
-    Closes the devtools.
+    Menutup devtools.
     
     #### `contents.isDevToolsOpened()`
     
@@ -865,7 +865,7 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     
     #### `contents.toggleDevTools()`
     
-    Toggles the developer tools.
+    Toggles alat pengembang.
     
     #### `contents.inspectElement (x, y)`
     
