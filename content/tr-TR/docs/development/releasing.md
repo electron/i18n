@@ -155,9 +155,9 @@ Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elect
 
 ## Yayın taslağını düzenleme
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
+1. [Bülten sayfasını](https://github.com/electron/electron/releases) ziyaret edin, yeni bir taslak sürümünü placeholder sürüm notlarıyla göreceksiniz.
 2. Yayımı düzenle ve yayım notları ekle.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
+3. Kararlı bir yayın yayınlıyorsanız `yayın öncesi` onay kutusunun işaretini kaldırın; beta yayımları için işaretli bırakın.
 4. 'Save draft' a tıklayın. **'Publish release'e tıklamayın!**
 5. Devam etmeden önce bütün yapılar geçene kadar bekleyin.
 6. `npm run release --validateRelease` komutunu çalıştırarak yayımlama için gerekli bütün dosyaların oluşturulduğundan emin olabilirsiniz.
