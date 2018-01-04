@@ -94,16 +94,16 @@ child.once('ready-to-show', () => {
 * Tüm platformlarda, görünürlük durumu, pencerenin görünmez/simge durumuna küçültülmüş olup olmadığını izler.
 * Ayrıca, macOS'larda görünürlük durumu pencere tıkanıklık durumunu da izler. Eğer pencere başka bir pencere tarafından tıkanmışsa (örneğin kaplanmış) görünürlük durumu `görünmez` olacaktır. Diğer platformlarda pencere durumu simge durumuna küçültülmüş veya özellikle `win.hide()` ile görünmez yapılmışsa görünürlük durumu `görünmez` olacaktır.
 * `Göster: false` ile bir `BrowserWindow` oluşturulursa, ilk görünürlük durumu pencere aslında gizli olmakla birlikte `görünür` olacaktır.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* Eğer `backgroundThrottling` devre dışı bırakılmışsa görünürlük durumu pencere simge durumuna küçültülmüş, tıkanmış veya görünmez olmuş olsa bile `görünür` olacaktır.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu `görünmez` olduğunda durdurmanız tavsiye edilir.
 
 ### Platform bildirimleri
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
+* MacOS'larda modal pencereler üst pencereye eklenmiş sayfalar gibi görünür.
+* Windows ve Linux alt pencerelerinde iken üst pencere hareket ettiğinde hareket etmezken MacOS'ta alt pencereler, üst pencere ile göreli konumunu korurlar.
+* Windows'ta, ana pencereyi dinamik olarak değiştirme işlemi desteklenmez.
+* Linux'ta, modal pencerelerin türü `iletişim kutusu` olarak değiştirilecektir.
 * On Linux many desktop environments do not support hiding a modal window.
 
 ## Sınıf: Tarayıcı Penceresi
