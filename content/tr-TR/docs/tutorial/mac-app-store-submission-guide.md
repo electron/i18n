@@ -10,7 +10,7 @@ Aşağıdaki adımlar, uygulamanızı Mac App Store'a göndermenin basit bir yol
 
 ### Sertifika edin
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. [Halihazırda olan rehberleri](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) webde inceleyebilir ve takip edebilirsiniz.
+Uygulamanızı Mac App Store'a göndermek için öncelikle Apple'dan bir sertifika almanız gerekir. [Halihazırda olan rehberleri](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) webde inceleyebilir ve takip edebilirsiniz.
 
 ### Takım ID'sini al
 
@@ -124,7 +124,7 @@ Apart from manually signing your app, you can also choose to use the [electron-o
 
 #### Yerel modülleri imzala
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Uygulamanızda kullanılan yerel modüller de imzalanmalıdır. Eğer Electron-osx-sign kullanılıyorsa, yerleşik ikili dosyaların yolunun bağımsız değişken listesine eklendiğinden emin olun:
 
 ```sh
 electron-osx-sign Uygulaman.app Uygulaman.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
