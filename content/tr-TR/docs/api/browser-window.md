@@ -100,11 +100,11 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
 
 ### Platform bildirimleri
 
-* MacOS'larda modal pencereler üst pencereye eklenmiş sayfalar gibi görünür.
+* MacOS'larda kalıcı pencereler üst pencereye eklenmiş sayfalar gibi görünür.
 * Windows ve Linux alt pencerelerinde iken üst pencere hareket ettiğinde hareket etmezken MacOS'ta alt pencereler, üst pencere ile göreli konumunu korurlar.
 * Windows'ta, ana pencereyi dinamik olarak değiştirme işlemi desteklenmez.
-* Linux'ta, modal pencerelerin türü `iletişim kutusu` olarak değiştirilecektir.
-* On Linux many desktop environments do not support hiding a modal window.
+* Linux'ta, kalıcı pencerelerin türü `iletişim kutusu` olarak değiştirilecektir.
+* Linux'ta birçok masaüstü ortamı, kalıcı bir pencereyi gizleme özelliğini desteklemez.
 
 ## Sınıf: Tarayıcı Penceresi
 
@@ -112,23 +112,23 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` bir [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)'dır.
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+`Seçenekler` tarafından belirlenen yerel özellikleri içeren yeni bir `BrowserWindow` oluşturur.
 
 ### `yeni Tarayıcı Penceresi ([options])`
 
 * `seçenekler` Obje (isteğe bağlı) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
+  * `width` Integer (isteğe bağlı) - Pencerenin pixel olarak genişliği. Varsayılan `800`'dür.
+  * `height` Integer (isteğe bağlı) - Pencerenin pixel olarak yüksekliği. Varsayılan `600`'dür.
+  * `x` Integer (isteğe bağlı) (**gerekli** eğer y kullanılmışsa) - Pencerenin ekrandan sol offseti. Varsayılan pencere ortasıdır.
+  * `y` Integer (isteğe bağlı) (**required** eğer x kullanılmışsa) - Pencerenin ekrandan üst offseti. Varsayılan pencere ortasıdır.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
+  * `minWidth` Integer (isteğe bağlı) - Pencerenin minimum genişliği. Varsayılan ``'dır.
+  * `minHeight` Integer (isteğe bağlı) - Pencerenin minimum yüksekliği. Varsayılan ``'dır.
+  * `maxWidth` Integer (isteğe bağlı) - Pencerenin maksimum genişliği. Varsayılan bir limit yoktur.
+  * `maxHeight` Integer (isteğe bağlı) - Pencerenin maksimum yüksekliği. Varsayılan bir limit yoktur.
   * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
   * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
   * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
