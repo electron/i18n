@@ -184,7 +184,7 @@ A list of strings which specifies the blink features to be disabled separated by
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
 
 The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
 
@@ -196,7 +196,7 @@ The existing webview will see the `destroy` event and will then create a new web
 
 When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. Bu, içerikleri otomatik olarak yeniden boyutlandırmak için webview öğesi sınırlarına dayanmakla karşılaştırıldığında daha hızlı yeniden boyutlandırma yapabilir.
 
 ```javascript
 const {webContents} = require('electron')
@@ -306,13 +306,13 @@ Ziyaretçi sayfasını ilerletir.
 
 * `index` Integer
 
-Navigates to the specified absolute index.
+Belirtilen mutlak dizine gider.
 
 ### `<webview>.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+"Geçerli girişten" belirtilen aralıkta gezinir.
 
 ### `<webview>.isCrashed()`
 
@@ -322,7 +322,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+Konuk sayfasının kullanıcı aracısını geçersiz kılar.
 
 ### `<webview>.getUserAgent()`
 
@@ -444,7 +444,7 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başlatır ve istek için kullanılan istek kimlik numarasını temsil eden bir `Tamsayı` döndürür. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
