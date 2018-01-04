@@ -399,23 +399,23 @@ Mevcut uygulamanın ismini geçersiz kılar.
 
 Geçerli uygulama yerel ayarı - `String` döndürür. Olası dönüş değerleri belgelenmiştir [ Burada ](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+** Not:** Paketli uygulamanızı dağıtırken, aynı zamanda ` yerel ayarlar` klasörü nakledilir.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Not:** Windows'ta `hazır` olaylar yayınlandıktan sonra çağırmanız gerekir.
 
-### `app.addRecentDocument(path)` *macOS* *Windows*
+### `app.addRecentDocument(yol)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Son dokümanlar listesine `yol` ekler.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+Bu liste OS tarafından yönetilmektedir. Windows'ta görev çubuğundan listeyi ziyaret edebilir ve macOS'ta dock menüsünden ziyaret edebilirsiniz.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
 Yakın zamandaki dokümentasyon listesini temizler.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protokol[, yol, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
