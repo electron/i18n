@@ -144,4 +144,4 @@ Bu sorunu çözmek için, arşiv oluşturma özelliğini kullanarak bazı dosyal
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+Komutu çalıştırdıktan sonra, `app.asar` haricinde, açılmış dosyaları içeren bir `app.asar.unpacked` klasörü de var, bunu kullanıcılara gönderirken `app.asar` ile birlikte kopyalamalısınız.
