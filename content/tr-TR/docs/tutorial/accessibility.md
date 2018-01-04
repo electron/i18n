@@ -30,7 +30,7 @@ Devtron'da, uygulamanızda bir sayfayı kontrol etmenize, sonuçları sıralaman
 
 Bu araçların her ikisi de, Google Chrome tarafından oluşturulan [Erişilebilirlik Geliştirici Araçları](https://github.com/GoogleChrome/accessibility-developer-tools) kitaplığını kullanıyor. Bu kütüphanenin erişilebilirlik denetim kuralları hakkında daha fazla bilgi edinebilirsiniz.[repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+Elektron için diğer büyük erişilebilirlik araçlarını biliyorsanız, bunları  erişilebilirlik belgeleri </ 0> bir çekme isteği ile ekleyiniz.</p> 
 
 ## Erişilebilirliği Etkinleştirmek
 
@@ -42,7 +42,7 @@ Elektron uygulamaları erişilebilirliğini performans nedenleriyle varsayılan 
 
 ### Yardımcı teknoloji
 
-Elektron uygulaması, yardımcı teknolojiyi (Windows) veya VoiceOver'ı (Mac Os) algıladığında otomatik olarak erişilebilirlik sağlayacaktır. See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Elektron uygulaması, yardımcı teknolojiyi (Windows) veya VoiceOver'ı (Mac Os) algıladığında otomatik olarak erişilebilirlik sağlayacaktır. Daha fazla ayrıntı için Chrome'un  erişilebilirlik belgelerine </ 0> inceleyin.</p> 
 
 On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
 
