@@ -376,11 +376,11 @@ Zastępuje `path` ze specjalnego katalogu lub pliku związanego z `name`. If the
 
 You can only override paths of a `name` defined in `app.getPath`.
 
-Domyślnie, ciasteczka cookies i cache będzie przechowywany w katalogu `userData`. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Domyślnie, ciasteczka cookies i cache będzie przechowywany w katalogu `userData`. Jeśli chcesz zmienić tą lokalizację, musisz zastąpić `userData` ścieżką do wybranego katalogu zanim `ready` zdarzenie `app` zostanie wywołane.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Returns `String` - The version of the loaded application. Jeśli nie znaleziono wersji aplikacji w pliku `package.json`, zwracana jest wersja aktualnego pakietu lub pliku wykonywalnego.
 
 ### `app.getName()`
 
@@ -392,7 +392,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+Zastępuje aktualną nazwę aplikacji.
 
 ### `app.getLocale()`
 
@@ -412,7 +412,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Czyści ostatnią listę dokumentów.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -422,11 +422,11 @@ Clears the recent documents list.
 
 Returns `Boolean` - Whether the call succeeded.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Metoda ustawia domyślny plik wykonywalny jako domyślny program obsługujący prokokół (również jako URI). Pozwala na głębsze zintegrowanie aplikacji z systemem. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
 On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. Plik możesz zmienić za pomocą edytora tekstowego lub skryptu podczas kompilacji. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
 The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 
