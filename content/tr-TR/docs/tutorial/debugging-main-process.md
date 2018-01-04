@@ -1,4 +1,4 @@
-# Debugging the Main Process
+# Ana İşlem Hata Ayıklama
 
 Bir Elektron tarayıcı penceresinde DevTools sadece o pencerede (yani web sayfaları) yürütülen JavaScript ile hataları düzeltebilirsiniz. To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
 
