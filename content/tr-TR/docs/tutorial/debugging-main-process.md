@@ -1,6 +1,6 @@
 # Debugging the Main Process
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+Bir Elektron tarayıcı penceresinde DevTools sadece o pencerede (yani web sayfaları) yürütülen JavaScript ile hataları düzeltebilirsiniz. To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
 
 ## Komut satırı anahtarları
 
