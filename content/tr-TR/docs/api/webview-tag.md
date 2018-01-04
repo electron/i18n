@@ -79,9 +79,9 @@ Görünür URL'yi döndürür. Bu özelliğe yazmak, üst düzey gezinimi başla
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-Bu özellik varsa, `webview` kapsayıcısı otomatik olarak yeniden boyutlandırır `minwidth`, `minheight`, nitelikleri tarafından belirtilen sınırlar içinde, `maxwidth` ve `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
+Bu özellik varsa, `webview` kapsayıcısı otomatik olarak yeniden boyutlandırır `minwidth`, `minheight`, nitelikleri tarafından belirtilen sınırlar içinde, `maxwidth` ve `maxheight`. Bu kısıtlamalar, `webview` `autosize` etkinleştirilmemişse. `autosize` etkinleştirildiğinde, `webview` dosya boyutu minimum değerlerden az veya maksimum değerden fazla olamaz.
 
-### `nodeintegration`
+### `düğüm entegrasyonu`
 
 ```html
 <webview src="http://www.google.com/" nodeintegration></webview>
