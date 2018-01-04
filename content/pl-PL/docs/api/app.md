@@ -422,7 +422,7 @@ Czyści ostatnią listę dokumentów.
 
 Returns `Boolean` - Whether the call succeeded.
 
-Metoda ustawia domyślny plik wykonywalny jako domyślny program obsługujący prokokół (również jako URI). Pozwala na głębsze zintegrowanie aplikacji z systemem. Once registered, all links with `your-protocol://` will be opened with the current executable. Cały adres, włączając w to protokół, będzie przekazany do aplikacji jako parametr.
+Metoda ustawia domyślny plik wykonywalny jako domyślny program obsługujący protokół (również jako URI). Pozwala na głębsze zintegrowanie aplikacji z systemem. Once registered, all links with `your-protocol://` will be opened with the current executable. Cały adres, włączając w to protokół, będzie przekazany do aplikacji jako parametr.
 
 Na systemie operacyjnym Windows możesz podać opcjonalną ścieżkę parametrów, ścieżkę do pliku wykonywalnego, argumentów, tablicy z argumentami do pliku wykonywalnego po uruchomieniu.
 
