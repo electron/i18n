@@ -597,8 +597,8 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
 
 <h4><code>win.setBounds (batas [, bernyawa])`</h4> 
       
-      * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
-<li><code>animate` Boolean (optional) *macOS*
+      * `batas` [Empat persegi panjang](structures/rectangle.md)
+      * `animate` Boolean (optional) *macOS*
       
       Mengubah ukuran dan memindahkan jendela ke batas yang tersedia
       
@@ -608,8 +608,8 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
 
 <h4><code>win.setContentBounds (batas [, bernyawa])`</h4> 
       
-      * ` batas </ 0>  <a href="structures/rectangle.md">  Empat persegi panjang </ 1></li>
-<li><code> bernyawa </ 0>  Boolean (opsional) <em> macos </ 1></li>
+      * `batas` [Empat persegi panjang](structures/rectangle.md)
+      * ` bernyawa </ 0>  Boolean (opsional) <em> macos </ 1></li>
 </ul>
 
 <p>Mengubah ukuran dan memindahkan area klien jendela (misalnya halaman web) ke batas yang tersedia.</p>
