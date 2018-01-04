@@ -20,13 +20,13 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Sonra `Electron.app` (veya Windows üzerinde `electron.exe`, Linux üzerinde `elektron`) çalıştırın ve Electron uygulamanız olarak çalışacaktır. Böylece, `electron` dizini, son kullanıcılara sunmak için dağıtımınız olur.
 
 ## Uygulamanızı Bir Dosyaya Paketleme
 
 Tüm kaynak dosyalarını kopyalayarak uygulamanızın taşınmasından ayrı olarak, ayrıca önlemek için uygulamanızı bir  asar </ 0> arşivine paketleyin uygulamanızın kaynak kodunu kullanıcılara açıklayın.</p> 
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+`asar` arşivini `app` klasörünü değiştirmek için kullanmak için, arşivi `app.asar` olarak yeniden adlandırmanız ve aşağıda olduğu gibi Electron'un resources dizini altına koymanız gerekir, Electron da arşivi okumaya çalışacaktır ve ondan başlayacaktır.
 
 MacOS üzerinde:
 
