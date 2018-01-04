@@ -24,9 +24,9 @@ npm install -g electron-windows-store
 
 ## पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | अपनी पूर्ण एप्लीकेशन में जो `नोड_मोड्यूल` आपको नहीं चाहिये, उन्हें ज़रूर निकाल दें, नहीं तो गैर-ज़रूरी मोड्यूल बस आपकी एप्लीकेशन का आकार ही बढ़ायेंगे |
 
-The output should look roughly like this:
+आउटपुट कुछ इस तरह का दिखना चाहिये:
 
 ```text
 ├── Ghost.exe
@@ -39,20 +39,20 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│ ├── am.pak
+│ ├── ar.pak
+│ ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│ ├── app
+│ └── atom.asar
 ├── snapshot_blob.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## दूसरा चरण: इलेक्ट्रॉन-विंडोज-स्टोर चलाना
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
