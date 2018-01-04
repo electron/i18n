@@ -2,13 +2,13 @@
 
 > Sürüm oluşturma politikamıza ve uygulamanıza ayrıntılı bir bakış.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+2.0.0 sürümünden itibaren Electron [semver](#semver)'i izler. Aşağıdaki komut, Electron'un en son kararlı yapısını yükleyecektir:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Mevcut bir projeyi en son kararlı sürümü kullanacak şekilde güncellemek için:
 
 ```sh
 npm install --save-dev electron@latest
@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Sürüm 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron versiyonları *< 2.0*, [semver](http://semver.org) belirtimine uymadı. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
@@ -26,7 +26,7 @@ An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either abs
 
 ## Sürüm 2.0 ve Ötesi
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Aşağıda özetlenen 1.x stratejimizden birkaç önemli değişiklik var. Her değişiklik, geliştiricilerin/sürdürücülerin ve uygulama geliştiricilerin gereksinimlerini ve önceliklerini karşılamak üzere tasarlanmıştır.
 
 1. Semver'in sıkı kullanımı
 2. Introduction of semver-compliant `-beta` tags
@@ -40,7 +40,7 @@ Git dallanmasının nasıl çalıştığını, npm etiketinin nasıl çalıştı
 
 From 2.0 onward, Electron will follow semver.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, Minör, Yama) açıkça eşleyen bir tablo verilmiştir.
 
 * **Büyük Sürüm Artışları** 
     * Chromium sürümü güncellemeleri
@@ -48,7 +48,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
     * Elektron API kırma değişiklikleri
 * **Küçük Versiyon Artımları** 
     * node.js küçük sürüm güncellemeleri
-    * Electron non-breaking API changes
+    * Elektron kırılmaz API değişiklikleri
 * **Yama Sürümü Artımları** 
     * node.js patch version updates
     * fix-related chromium patches
@@ -66,7 +66,7 @@ Stabilization branches are always either **major** or **minor** version lines, a
 
 Eşzamanlı olarak birden fazla dengeleme dalının bulunmasına izin veriyoruz, her zaman paralel olarak en az ikisini desteklemeyi ve gerektiğinde güvenlik düzeltmelerini geri göndermeyi düşünüyoruz. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Eski satırlar GitHub tarafından desteklenmeyecek, ancak diğer gruplar kendi kendilerine sahiplik ve backport kararlılığı ve güvenlik düzeltmeleri alabilir. Bundan vazgeçtik, fakat bunun birçok uygulama geliştiricisi için hayatı kolaylaştırdığını farkettik.
 
 # Beta Bültenleri ve Hata Düzeltmeleri
 
