@@ -448,8 +448,8 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `eylem` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
-  * `clearSelection` - Clear the selection.
+* `eylem` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) istek. 
+  * `clearSelection` - Seçimi silin.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
 
