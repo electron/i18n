@@ -315,7 +315,7 @@ Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user ges
 
 Membuka jendela DevTools untuk halaman tamu.
 
-### `<webview>.closeDevTools()`
+### `<webview>.tutupDevTools()`
 
 Menutup jendela tamu DevTools.
 
@@ -416,7 +416,7 @@ Memulai permintaan untuk mencari semua kecocokan teks pada halaman web dan memun
 
 ### `<webview>.stopFindInPage(action)`
 
-* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) permintaan. 
   * `clearSelection` - jelas pilihan.
   * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
   * `activateSelection` - fokus dan klik seleksi simpul.
