@@ -102,7 +102,7 @@ fs.readFileSync('/path/to/example.asar')
 
 ## Node API'nin Limitleri
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+`asar` arşivlerini mümkün olduğunca Node API'sindeki dizinler gibi çalıştırmak için çok uğraşmış olsak da, Node API'sının düşük düzeyli doğasından dolayı hala sınırlamalar bulunmaktadır.
 
 ### Arşiv salt okunur
 
