@@ -1,6 +1,6 @@
 # Electron Documentation Styleguide
 
-These are the guidelines for writing Electron documentation.
+To są wytyczne do pisania dokumentacji Electron.
 
 ## Titles
 
