@@ -122,7 +122,7 @@ The `-x` flag should be used with any required module that is already exposed in
 - `timers`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+Sandbox 'da daha çok elektron API 'sı oluşturmak gerekirse daha fazlası eklenebilir, ayrıca ana süreçteki herhangi bir modül `electron.remote.require` üzerinden zaten kullanılabilir.
 
 ## Durum
 
