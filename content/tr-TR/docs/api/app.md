@@ -653,7 +653,7 @@ Raporlar`GPUFeatureStatus</ 0> - Grafik Özelliği durumu için <code>chrome://g
 <h3><code>app.setBadgeCount(count)<0><em>Linux</em><em>macOS</em></h3>
 
 <ul>
-<li><code>count` Integer</li> </ul> 
+<li><code>sayı` tam sayı</li> </ul> 
 
 Returns `Boolean` - Whether the call succeeded.
 
