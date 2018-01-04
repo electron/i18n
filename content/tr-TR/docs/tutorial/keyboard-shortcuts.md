@@ -1,6 +1,6 @@
 # Klavye Kısayolları
 
-> Configure local and global keyboard shortcuts
+> Yerel ve genel klavye kısayollarını yapılandırmak
 
 ## Yerel kısayollar
 
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Kullanıcının işletim sistemine bağlı olarak farklı tuş kombinasyonlarını yapılandırmak kolaydır.
 
 ```js
 {
@@ -49,7 +49,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
 
-The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Bu olabilir menüde görünmeyen özel kısayolları yakalamak ve işlemek için kullanılabilir.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
