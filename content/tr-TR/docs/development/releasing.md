@@ -184,7 +184,7 @@ Birleştirme tamamen tamamlandığında `release` yazılımını `npm run releas
 
 ## npm'e yayımla
 
-Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
+Yayınlama işlemi başarıyla tamamlandıktan sonra, npm'nin yayını yayınlaması için `npm run publish-to-npm` çalıştırın.
 
 ## Bir sürümün eksik ikili dosyalarını manuel olarak düzeltin
 
