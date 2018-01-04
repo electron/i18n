@@ -111,7 +111,7 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Yeni bir S3 kovası oluşturun ve boş dizin yapısını izleyin:
     
     ```sh
 - atom-shell/
