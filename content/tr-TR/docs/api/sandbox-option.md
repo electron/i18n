@@ -124,9 +124,9 @@ Currently the `require` function provided in the preload scope exposes the follo
 
 More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
 
-## Status
+## Durum
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Hala deneme aşamasında bir özellik olduğu için, lütfen `sandbox` seçeneğini dikkatli kullanın. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - Önceden yüklenmiş bir komut dosyası, yanlışlıkla ayrıcalıklı API'ları, güvenilmeyen kodlara filtreleyebilir.
 - Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
