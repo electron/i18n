@@ -276,7 +276,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika oraz zdarzenia `before-quit` i `will-quit` nie zostaną wywołane.
 
 ### `app.relaunch([options])`
 
@@ -286,13 +286,13 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 Relaunches the app when current instance exits.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Domyślnie nowa instancja będzie wykorzystywać ten sam katalog oraz wiersz poleceń z argumentami bieżącej instancji. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Kiedy `app.relaunch` jest wielokrotnie wywoływana, nowe wielokrotne instancje będą uruchamiane po zakończeniu działania bieżącej instancji.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Przykład natychmiastowego ponownego uruchomienia bieżącej instancji oraz dodanie nowych argumentów do wiersza poleceń:
 
 ```javascript
 const {app} = require('electron')
@@ -315,7 +315,7 @@ Hides all application windows without minimizing them.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Pokazuje okna aplikacji po tym jak były ukryte. Nie ustawia ich automatycznie.
 
 ### `app.getAppPath()`
 
@@ -327,7 +327,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -372,11 +372,11 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Zastępuje `path` ze specjalnego katalogu lub pliku związanego z `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
 You can only override paths of a `name` defined in `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Domyślnie, ciasteczka cookies i cache będzie przechowywany w katalogu `userData`. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
