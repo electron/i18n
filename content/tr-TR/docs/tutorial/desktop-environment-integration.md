@@ -218,13 +218,13 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Don't forget to call the `flashFrame` method with `false` to turn off the flash. Yukarıdaki örnekte, pencere odak noktasına geldiğinde çağrılır, ancak pencreyi devre dışı bırakmak için bir zaman aşımı veya başka bir olay kullanmanız mümkündür.
 
 ## Pencerenin temsili dosyası (macOS)
 
 On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Bir pencerenin düzenlenmiş durumunu ayarlayabilirsiniz, böylece dosya simgesi bu penceredeki belgenin değiştirilmiş olup olmadığını gösterebilir.
 
 **Temsil dosya açılan menüsü:**
 
