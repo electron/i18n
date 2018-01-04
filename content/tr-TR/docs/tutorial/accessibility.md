@@ -44,7 +44,7 @@ Elektron uygulamaları erişilebilirliğini performans nedenleriyle varsayılan 
 
 Elektron uygulaması, yardımcı teknolojiyi (Windows) veya VoiceOver'ı (Mac Os) algıladığında otomatik olarak erişilebilirlik sağlayacaktır. Daha fazla ayrıntı için Chrome'un  erişilebilirlik belgelerine </ 0> inceleyin.</p> 
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+MacOS'ta üçüncü parti yardımcı teknolojisi, `AXManualAccessibility` özelliğini programlı olarak ayarlayarak, Electron uygulamaları içindeki erişilebilirliği değiştirebilir:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
