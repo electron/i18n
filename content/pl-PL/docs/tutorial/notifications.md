@@ -26,19 +26,19 @@ Furthermore, in Windows 8, the maximum length for the notification body is 250 c
 
 ### Zaawansowane powiadomienia
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Późniejsze wersje systemu Windows pozwalają na zaawansowane powiadomienia, z niestandardowymi szablonami, obrazkami oraz innymi elastycznymi elementami. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
-### Quiet Hours / Presentation Mode
+### Godziny ciszy / Tryb prezentacji
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Do wykrywania, czy masz możliwość wysłać powiadomienie, użyj modułu użytkownika [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
 This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Powiadomienia są bezpośrednie na macOS, lecz powinieneś zawsze uważać na [Wytyczne Apple dotyczące interfejsu ludzkiego dotyczące powiadomień](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
 Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
@@ -48,7 +48,7 @@ Later versions of macOS allow for notifications with an input field, allowing th
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Do wykrywania, czy masz możliwość wysłać powiadomienie, użyj modułu użytkownika [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
