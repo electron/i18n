@@ -65,9 +65,9 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-एक बार चलाने के बाद, यह औज़ार काम करने लगता है: यह आपकी इलेक्ट्रॉन एप्प को एक इनपुट की तरह लेता है, और `नोड_मोड्यूल` फ्लैट करता है | फिर यह आपकी एप्लीकेशन को `एप्प.ज़िप` से आर्काइव करता है | Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+एक बार चलाने के बाद, यह औज़ार काम करने लगता है: यह आपकी इलेक्ट्रॉन एप्प को एक इनपुट की तरह लेता है, और `नोड_मोड्यूल` फ्लैट करता है | फिर यह आपकी एप्लीकेशन को `एप्प.ज़िप` से आर्काइव करता है | एक इंस्टालर और विंडोज कंटेनर का इस्तेमाल कर के, यह औज़ार एक "विस्तारित" एप्पएक्स पैकेज बनाता है - और आपके आउटपुट फोल्डर में विंडोज एप्लीकेशन मेनीफेस्ट (`एप्पएक्समेनीफेस्ट.एक्सएमएल`) और साथ ही वर्चुअल फाइल सिस्टम और वर्चुअल रजिस्ट्री शामिल करता है |
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+एक बार विस्तारित एप्पएक्स फाइल्स निर्मित हो जाने के बाद, विंडोज एप्प पैकेजर (`मेकएप्पएक्स.ईएक्सई`) का इस्तेमाल कर के औज़ार, डिस्क पर मौज़ूद उन फाइल्स से एक एकल-फाइल एप्पएक्स का निर्माण करता है | अंत में, इस औज़ार का इस्तेमाल कर के आपके कंप्यूटर पर एक विश्वसनीय प्रमाण पत्र बनाया जा सकता है जिससे कि नये एप्पएक्स पैकेज पर हस्ताक्षर किया जा सके | With the signed AppX package, the CLI can also automatically install the package on your machine.
 
 ## Step 3: Using the AppX Package
 
