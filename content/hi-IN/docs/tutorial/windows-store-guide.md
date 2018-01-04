@@ -79,7 +79,7 @@ electron-windows-store `
 
 ## वैकल्पिक: एक बेकग्राउंड टास्क का इस्तेमाल कर युडब्ल्यूपी क्षमतायें डालें
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+आप अपनी इलेक्ट्रॉन एप्प को एक अदृश्य युडब्ल्यूपी बैकग्राउंड टास्क के साथ जोड़ सकते हैं जो विंडोज 10 की क्षमताओं का पूर्ण इस्तेमाल कर सके - जैसे की पुश नोटिफिकेशन, कोर्ताना एकीकरण, या लाइव टाइल्स |
 
 To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
