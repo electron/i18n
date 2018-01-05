@@ -12,17 +12,17 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 Belirli öğelerle yeni bir dokunmatik çubuk oluşturun. Bir pencereye `TouchBar` eklemek için `BrowserWindow.setTouchBar` kullanmalısınız.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Not:** TouchBar API şu anda deneyseldir ve gelecekteki Electron sürümlerinde değişebilir veya kaldırılabilir.
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**İpucu:** Eğer MacBook'unuzda Touch Bar yoksa, uygulamanızda Touch Bar kullanımını test etmek için [Touch Bar Simülatör](https://github.com/sindresorhus/touch-bar-simulator)'ünü kullanabilirsiniz.
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBar`:
+Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
 
 #### `touchBar.escapeItem`
 
-The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+`TouchBarButton` ayarlandığında, touch bar üzerindeki "esc" düğmesinin yerini alır. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
 ## Örnekler
 
