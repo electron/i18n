@@ -6,7 +6,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 * **Construir una depuración de Electron**: la forma más fácil es usualmente que usted mismo lo construya, utilizando las herramientas y los requisitos previos enumerados en [instrucciones de compilación para Windows](build-instructions-windows.md). Mientras usted puede fácilmente adjuntar y depurar a Electron, ya que puede descargarlo directamente, encontrará que está muy optimizado, lo que hace que la depuración sea mucho más difícil: el depurador no será capaz de mostrarle el contenido de todas las variables y la ruta de ejecución puede aparecer extraña debido a las llamadas entrantes, a la cola y otras optimizaciones del compilador.
 
-* **Visual Studio con herramientas de C++**: las ediciones de la comunidad gratuitas de Visual Studio 2013 y 2015 funcionan. Una vez instalado, [configure Visual Studio para usar el servidor de símbolos de GitHub de Electron](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio con herramientas de C++**: las ediciones de la comunidad gratuitas de Visual Studio 2013 y 2015 funcionan. Una vez instalado, [configure Visual Studio para usar el servidor de símbolos de GitHub de Electron](setting-up-symbol-server.md). Le permitirá a Visual Studio obtener una mejor comprensión de lo que sucede dentro de Electron, haciendo que sea más fácil presentar las variables en un formato de lectura.
 
 * **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
 
