@@ -71,7 +71,7 @@ Uygulama kesildiğinde ortaya çıkar.
 Dönüşler:
 
 * `olay` Olay
-* `path` String
+* dizi `yolu`
 
 Kullanıcı uygulama ile bir dosya açmak istediğinde ortaya çıkar. `open-file` olayı genellikle uygulama zaten açık olduğunda ve OS dosyayı açmak için uygulamayı tekrar kullanmak istediğinde yayınlanır. Dock'a bir dosya düştüğünde ve uygulama henüz çalışmadığında da `open-file` yayınlanır. Bu olayı işlemek için (`hazır` olayı yayından önce bile olsa), uygulamanın başlangıç ​​işleminin çok erken bir aşamasında `açık dosya` olayını dinlediğinizden emin olun.
 
@@ -720,12 +720,12 @@ const exeName = path.basename(process.execPath)
 
 ### `app.isAccessibilitySupportEnabled()<0> <em>macOS<em><1>Windows</em></h3>
 
-<p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. See https://www.chromium.org/developers/design-documents/accessibility for more details.</p> 
+<p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. Daha detaylar bilgi görmek için https://www.chromium.org/developers/design-documents/accessibility.</p> 
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAboutPanelOptions(ayarlar)` *macOS*
 
 * `ayarlar` Nesne 
-  * `applicationName` String (optional) - The app's name.
+  * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
   * `credits` String (optional) - Credit information.
