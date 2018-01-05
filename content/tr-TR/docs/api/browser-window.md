@@ -968,9 +968,9 @@ The `buttons` is an array of `Button` objects:
 
 * `Button` Nesne 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `tıklama`fonksiyonu
+  * `ipucu` Dize (isteğe bağlı) - Düğmenin araç ipucu metni.
+  * `bayraklar` String [] (isteğe bağlı) - Belirli durumları ve davranışlarını denetler buton. Varsayılan olarak, `['etkinleştirilmiş']`.
 
 The `flags` is an array that can include following `String`s:
 
