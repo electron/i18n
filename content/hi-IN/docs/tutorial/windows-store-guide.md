@@ -81,7 +81,7 @@ electron-windows-store `
 
 आप अपनी इलेक्ट्रॉन एप्प को एक अदृश्य युडब्ल्यूपी बैकग्राउंड टास्क के साथ जोड़ सकते हैं जो विंडोज 10 की क्षमताओं का पूर्ण इस्तेमाल कर सके - जैसे की पुश नोटिफिकेशन, कोर्ताना एकीकरण, या लाइव टाइल्स |
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+यह जाँचने के लिए जो इलेक्ट्रॉन एप्प टोस्ट नोटिफिकेशन और लाइवटाइल्स के लिए बैकग्राउंड टास्क का इस्तेमाल करती है, [माइक्रोसॉफ्ट के द्वारा प्रदान सैंपल देखें](https://github.com/felixrieseberg/electron-uwp-background) |
 
 ## Optional: Convert using Container Virtualization
 
