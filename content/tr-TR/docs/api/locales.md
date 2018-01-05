@@ -6,7 +6,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 
 | Kod dili | İsim dili                       |
 | -------- | ------------------------------- |
-| af       | Afrikaans                       |
+| af       | Afrika dili                     |
 | am       | Amharic                         |
 | ar       | Arabic                          |
 | az       | Azerbaijani                     |
@@ -23,10 +23,10 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | da       | Danish                          |
 | de       | German                          |
 | de-AT    | Almanca (Avusturya)             |
-| de-CH    | German (Switzerland)            |
+| de-CH    | Almanca(İsviçre)                |
 | de-DE    | Almanca (Almanya)               |
-| el       | Greek                           |
-| en       | English                         |
+| el       | Yunanca                         |
+| en       | İngilizce                       |
 | en-AU    | İngilizce (Avustralya)          |
 | en-CA    | İngilizce (Kanada)              |
 | en-GB    | İngilizce (Birleşik Krallık)    |
