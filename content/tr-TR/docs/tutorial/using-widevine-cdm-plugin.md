@@ -4,7 +4,7 @@ Electron'da Chrome tarayıcısına yüklenmiş Widevine CDM eklentisini kullanab
 
 ## Eklenti edin
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Electron, lisans nedeni ile Widevine CDM eklentisiyle birlikte gönderilmez, bunu elde etmek için kullandığınız Electron yapısının mimari ve Chrome sürümüyle eşleşen resmi Chrome tarayıcısını ilk önce yüklemeniz gerekir.
 
 **Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
 
@@ -45,7 +45,7 @@ let win = null
 app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
-      // The `plugins` have to be enabled.
+      // `Eklentiler` etkinleştirilmelidir.
       plugins: true
     }
   })
