@@ -36,7 +36,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | eo       | Esperanto                       |
 | es       | Spanish                         |
 | es-419   | Spanish (Latin America)         |
-| et       | Estonian                        |
+| et       | Eston Dili                      |
 | eu       | Basque                          |
 | fa       | Persian                         |
 | fi       | Finnish                         |
@@ -138,4 +138,4 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | zh       | Chinese                         |
 | zh-CN    | Chinese (Simplified)            |
 | zh-TW    | Çince (Geleneksel)              |
-| zu       | Zulu                            |
+| zu       | Zulu dili                       |
