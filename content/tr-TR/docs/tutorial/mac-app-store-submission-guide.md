@@ -161,14 +161,14 @@ Depending on which Electron APIs your app uses, you may need to add additional e
 
 #### Ağ erişimi
 
-Enable outgoing network connections to allow your app to connect to a server:
+Uygulamanızın bir sunucuya bağlanmasına izin vermek için giden ağ bağlantılarını etkinleştirin:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Uygulamanızın ağ dinleme soketini açmasını sağlamak için gelen ağ bağlantılarınızı etkinleştirin:
 
 ```xml
 <key>com.apple.security.network.server</key>
@@ -207,7 +207,7 @@ Mac App Store'da dağıtım için imzalandığı takdirde bu işlem hata verecek
 
 ## Electron Tarafından Kullanılan Kriptografi Algoritmaları
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Bulunduğunuz ülke ve bölgeye bağlı olarak, Mac App Store uygulamasında kullanılan şifreleme algoritmalarını belgelemeniz istenilebilir ve hatta ABD şifreleme kaydı (ERN) onayının bir kopyasını göndermeniz istenilebilir.
 
 Electron uses following cryptographic algorithms:
 
