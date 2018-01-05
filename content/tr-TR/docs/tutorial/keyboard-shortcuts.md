@@ -4,7 +4,7 @@
 
 ## Yerel kısayollar
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Yalnızca uygulama üzerinde odaklanıldığında çalışacak klavye kısayollarını [Menü](../api/menu.md) modülünü kullanarak yapılandırabilirsiniz. Bunu yapmak için, bir [MenuItem](../api/menu-item.md) oluştururken [`accelerator`] belirleyin.
 
 ```js
 const {Menu, MenuItem} = require('electron')
