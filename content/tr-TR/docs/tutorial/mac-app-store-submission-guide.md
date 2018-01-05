@@ -142,7 +142,7 @@ After these steps, you can [submit your app for review](https://developer.apple.
 
 ## Limitations of MAS Build
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Uygulama sanal alanı oluşturmak için tüm gereksinimleri karşılamak adına MAS derlemesinde aşağıdaki modüller devre dışı bırakılmıştır:
 
 * `crashReporter`
 * `autoUpdater`
