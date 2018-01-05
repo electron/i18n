@@ -10,7 +10,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 * **ProcMon**: la [herramienta gratuita SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) le permite inspeccionar los parámetros de los procesos, los manejadores de archivos y las operaciones de registro.
 
-## Attaching to and Debugging Electron
+## Adjuntado y depuración de Electron
 
 Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versión de depuración de Electron, usando la aplicación para abrir como parámetro.
 
@@ -18,7 +18,7 @@ Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versi�
 $ ./out/D/electron.exe ~/my-electron-app/
 ```
 
-### Setting Breakpoints
+### Establecer puntos de interrupción
 
 Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
