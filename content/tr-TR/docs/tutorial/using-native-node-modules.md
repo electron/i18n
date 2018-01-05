@@ -37,10 +37,10 @@ An example of installing `electron-rebuild` and then rebuild modules with it:
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# "npm install"ı çalıştırdığınız her zaman şunu da çalıştırın:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+#Windows'ta sorun yaşıyorsanız bunu deneyin:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
