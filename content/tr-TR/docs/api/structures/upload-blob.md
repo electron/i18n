@@ -1,4 +1,4 @@
-# UploadBlob Object
+# Veri Nesnesini Karşıya Yükle
 
-* `type` String - `blob`.
-* `blobUUID` String - UUID of blob data to upload.
+* `tür` Dize - `damla`.
+* `blobUUID` Dizi - yüklenecek blob verilerinin UUID'si.
