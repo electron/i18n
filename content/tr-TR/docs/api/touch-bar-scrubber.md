@@ -55,4 +55,4 @@ A `String` representing the mode of this scrubber. Updating this value immediate
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+`Boolean` bu scrubber'ın sürekli olup olmadığını gösterir. Bu değeri güncellemek dokunmatik çubuktaki kontrolü hemen günceller.
