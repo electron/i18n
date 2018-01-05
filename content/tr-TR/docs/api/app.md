@@ -655,11 +655,11 @@ Raporlar`GPUFeatureStatus</ 0> - Grafik Özelliği durumu için <code>chrome://g
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
 
-Returns `Boolean` - Whether the call succeeded.
+Aramanın başarılı olup olmadığı `Boole Değeri` döndürür.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Sayaç rozet sayısı `` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+MacOS'ta rıhtım simgesinin üzerinde gösterilir. Linux'ta sadece Birlik başlatıcısı için çalışır,
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
