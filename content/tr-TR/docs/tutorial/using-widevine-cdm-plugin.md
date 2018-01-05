@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 ## Eklenti doğrulanıyor
 
-To verify whether the plugin works, you can use following ways:
+Eklentinin çalışıp çalışmadığını doğrulamak adına aşağıda bulunan adımları takip edebilirsiniz:
 
 * Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
 * Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
