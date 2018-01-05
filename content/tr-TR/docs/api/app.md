@@ -568,9 +568,9 @@ The `callback` is guaranteed to be executed after the `ready` event of `app` get
 
 This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. Bununla birlikte, kullanıcılar komut satırında uygulamanıza başladığı zaman, sistemin tek örnek mekanizması atlanmış olur ve tek bir örnek sağlamak için bu yolu kullanmanız gerekmektedir.
 
-An example of activating the window of primary instance when a second instance starts:
+İkinci bir örnek başladığında, birincil örnek penceresi harekete geçirme örneği:
 
 ```javascript
 const {app} = require('electron')
@@ -623,7 +623,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `callback` Fonksiyon 
   * `result` Integer - Result of import.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Sertifika pkcs12 halinde platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
