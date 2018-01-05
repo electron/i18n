@@ -22,7 +22,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 `protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
-For instance, we could have created the same request to 'github.com' as follows:
+Örneğin, 'github.com' için aşağıdaki gibi aynı isteği oluşturabiliriz:
 
 ```JavaScript
 const request = net.request({
@@ -56,9 +56,9 @@ Dönüşler:
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Kimlik doğrulaması yapan bir proxy, kullanıcı bilgilerini istendiğinde yayınlar.
 
-The `callback` function is expected to be called back with user credentials:
+`callback` fonksiyonunun kullanıcı bilgileri ile geri çağırılması bekleniyor:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Boş kimlik bilgileri sağlanması isteği iptal eder ve yanıt nesnesinde bir kimlik doğrulama hatası rapor eder:
 
 ```JavaScript
 request.on('response', (response) => {
