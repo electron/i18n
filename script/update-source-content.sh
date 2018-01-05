@@ -15,7 +15,7 @@ cd module
 npm install
 npm run collect
 
-if [ `git status --porcelain` ]; then
+if [ "$(git status --porcelain)" = "" ]; then
   echo "found some new content! committing changes to git"
 else
   echo "no new content found; goodbye!"
