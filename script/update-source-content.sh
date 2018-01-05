@@ -15,8 +15,12 @@ cd module
 npm install
 npm run collect
 
-# no new content? bail!
-[[ `git status --porcelain` ]] || exit
+if [ `git status --porcelain` ]; then
+  echo "found some new content! committing changes to git"
+else
+  echo "no new content found; goodbye!"
+  exit
+fi
 
 # `pretest` script will run the build first
 npm test
