@@ -16,8 +16,8 @@ Read-Eval-Print-Loop (REPL) basit, etkileşimli bilgisayar programlama ortamı t
 electron --interactive
 ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+Bu sadece ana işlem için REPL oluşturur. İşlem süreçleri için REPL oluşturmak için Geliştirici Araçları'nın Konsol sekmesini kullanabilirsiniz.
 
-**Note:** `electron --interactive` is not available on Windows.
+**Not:** `electron --interactive` Windows üzerinde kullanılabilir değildir.
 
 Daha fazla bilgi  Node.js REPL dokümanlarında </ 0> bulunabilir.</p>
