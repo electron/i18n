@@ -98,6 +98,6 @@ CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüşt�
 
 1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+3. Yukarıdaki komutu çalıştırdığınızda yeniden başlatmanız istendiğinde, lütfen makineyi yeniden başlatın ve başarılı gerçekleşen bir yeniden başlatma sonrasında yukarıda bulunan komutu tekrar çalıştırın.
 
 Kurulum başarılı olursa, Elektron uygulamanızı derlemek için ilerleyebilirsiniz.
