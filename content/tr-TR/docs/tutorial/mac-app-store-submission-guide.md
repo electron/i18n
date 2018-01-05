@@ -149,8 +149,8 @@ In order to satisfy all requirements for app sandboxing, the following modules h
 
 ve aşağıdaki davranışlar değiştirilmiştir:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
+* Video yakalamak bazı makineler için çalışmayabilir.
+* Belirli erişilebilirlik özellikleri çalışmayabilir.
 * Uygulamalar DNS değişikliklerinden haberdar olmaz.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
