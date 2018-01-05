@@ -153,29 +153,29 @@ y los siguientes comportamientos han sido cambiados:
 * Algunas características de accesibilidad pudiesen no funcionar.
 * Las aplicaciones no tendrán la señal de los cambios DNS.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+Igualmente, dado el uso de las aplicaciones en caja de arena, los recursos que pueden ser accesados por la aplicación son limitados; puede leer [App Sandboxing](https://developer.apple.com/app-sandboxing/) para más información.
 
-### Additional Entitlements
+### Derechos adicionales
 
 Dependiendo de que APIs de Electron usos de su aplicación, puede que necesite agregar derechos adicionales para el archivo `parent.plist` para poder utilizar estas API de compilación de Mac App Store de su aplicación.
 
-#### Network Access
+#### Acceso a la red
 
-Enable outgoing network connections to allow your app to connect to a server:
+Habilitar conexiones de red salientes para permitir que su aplicación se conecte al servidor:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Habilitar conexiones de red entrantes para permitir que su aplicación abra puertos de escucha:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+Vea la [Documentación sobre la habilitación del acceso de red](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) para más detalles.
 
 #### dialog.showOpenDialog
 
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Vea la [documentación sobre la habilitación del acceso del usuario a archivos seleccionados](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para más información.
 
 #### dialog.showSaveDialog
 
@@ -193,9 +193,9 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Vea la [documentación sobre la habilitación del acceso del usuario a archivos seleccionados](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para más información.
 
-## Known issues
+## Problemas conocidos
 
 ### `shell.openItem(filePath)`
 
@@ -207,7 +207,7 @@ This will fail when the app is signed for distribution in the Mac App Store. Sub
 
 ## Algoritmos criptográficos utilizados por Electron
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Dependiendo del país y región en el que se encuentre, la Mac App Store puede requerir la documentación de los algoritmo criptográficos en su aplicación, e incluso pedirle que presente una copia de la aprobación registro de encriptación de EEUU (ERN).
 
 Electron uses following cryptographic algorithms:
 
