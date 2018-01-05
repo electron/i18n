@@ -82,11 +82,11 @@ Geliştiriciler hangi sürümlerin *güvenli* olacağını bilmek istiyor. Gör�
 <p>Süreç şöyledir:</p>
 
 <ol>
-<li>All new major and minor releases lines begin with a <code>-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. Bu sürüm satırı, başka hiçbir özelliği kabul etmiyor ve yalnızca güvenlik kararlılıkları ile ilgilidir. örneğin `2.0.0-beta.1`.</li> 
+<li>Tüm yeni büyük ve küçük yayın satırları, <code>N >= 1` için `-beta.N` etiketi ile başlar. Tam da burada, özellik seti **kilitli** olur. Bu sürüm satırı, başka hiçbir özelliği kabul etmiyor ve yalnızca güvenlik kararlılıkları ile ilgilidir. örneğin `2.0.0-beta.1`.</li> 
 
-* Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-* If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-* If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.</ol> 
+* Hata düzeltmeleri, regresyon düzeltmeleri ve güvenlik yamaları kabul edilebilir. Bunu yaptıktan sonra `N` bir arttırılarak yeni bir beta yayınlandı. Örneğin. `2.0.0-beta.2`
+* Belirli bir beta sürümünün kararlılığı *genel olarak kabul edilirse*, yalnızca sürüm bilgisi değiştirilerek, kararlı yapı olarak yeniden yayınlanacaktır. Örneğin. `2.0.0`.
+* Gelecekteki hata düzeltmeleri veya güvenlik yamalarının yayın kararlı iken bir araya getirilmesi gerekiyorsa, bunlar uygulanır ve buna göre *yama* sürümü artırılır. Örneğin. `2.0.1`.</ol> 
 
 Her büyük ve küçük darbe için, aşağıdakiler gibi bir şey beklemelisiniz:
 
