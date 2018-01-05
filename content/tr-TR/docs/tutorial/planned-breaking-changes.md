@@ -1,8 +1,8 @@
 # Planned Breaking API Changes
 
-The following list includes the APIs that will be removed in Electron 2.0.
+Takip eden liste, Electron 2.0'da kaldırılacak API'leri içerir.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+Bu sürümün ne zaman ortaya çıkacağına dair herhangi bir zaman çizelgesi mevcut değildir ancak kullanımdan kaldırılma uyarıları en az 90 gün önceden eklenecektir.
 
 ## `app`
 
