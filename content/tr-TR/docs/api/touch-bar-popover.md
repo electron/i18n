@@ -1,6 +1,6 @@
 ## Class: TouchBarPopover
 
-> Create a popover in the touch bar for native macOS applications
+> Dokunmatik çubukta yerel macOS uygulamaları için bir popover oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
@@ -14,7 +14,7 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBarPopover`:
+Aşağıdaki özellikler `TouchBarPover` örnekleri için uygundur:
 
 #### `touchBarPopover.label`
 
