@@ -972,14 +972,14 @@ The `buttons` is an array of `Button` objects:
   * `ipucu` Dize (isteğe bağlı) - Düğmenin araç ipucu metni.
   * `bayraklar` String [] (isteğe bağlı) - Belirli durumları ve davranışlarını denetler buton. Varsayılan olarak, `['etkinleştirilmiş']`.
 
-The `flags` is an array that can include following `String`s:
+`bayrakları` aşağıdaki Dizelerini takip eden bir `dizidir`:
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `etkinleştirilmiş` - Düğme etkin ve kullanıcı tarafından kullanılabilir.
+* `devre dışı` - Düğme devre dışı. Var, ancak görsel bir durumu var ise kullanıcının eylemine yanıt vermeyeceğini belirtir.
+* `kapatmaya tıkla` - Düğmeye tıklandığında küçük resim penceresi kapanır hemen.
+* `arka plan yok` - Bir düğme kenarlığı çizmeyin, yalnızca resmi kullanın.
+* `gizli` - Düğme kullanıcıya gösterilmez.
+* `etkileşimli olmayan` - Düğme etkin ancak etkileşimli değil; basılan yok düğme durumu çizilir. Bu değer, düğmenin bir bildirimde kullanılır.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
