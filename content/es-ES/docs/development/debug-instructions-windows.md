@@ -34,7 +34,7 @@ Si Electron se ejecuta con una cuenta de usuario diferente, seleccione `mostrar 
 
 Código ejecutado dentro del proceso principal (es decir, código que se encuentra en el archivo JavaScript principal o eventualmente ejecutado), así como código llamado utilizando el control remoto (`require('electron').remote`) se ejecutará dentro del proceso principal, mientras que otro código se ejecutará dentro de su proceso de renderización respectivo.
 
-Puede estar conectado a varios programas cuando se está depurando, pero solamente un programa está activo en el depurador en cualquier momento. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Puede estar conectado a varios programas cuando se está depurando, pero solamente un programa está activo en el depurador en cualquier momento. Puedes configurar el programa activo en la barra de herramientas `Ubicación de depuración` o en la `ventana de procesos`.
 
 ## Using ProcMon to Observe a Process
 
