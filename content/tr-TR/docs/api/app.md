@@ -451,13 +451,13 @@ This method checks if the current executable as the default handler for a protoc
 
 Bu yöntem, geçerli yürütülebilir dosyanın bir protokol için varsayılan işleyici olup olmadığını kontrol eder (aka URI düzeni). Eğer öyleyse, doğru bulacaktır. Aksi takdirde, yanlışa döndürür.
 
-**Not**: Mac işletim sisteminde, bu yöntemle uygulamanın başarılı olup olmadığını kontrol edebilirsiniz protokol için varsayılan protokol işleyicisi olarak kayıtlı. Ayrıca bunun için ` ~/Library/Preferences/com.apple.LaunchServices.plist` dosyasını kontrol ederek macOS makinede doğruyabilirsin. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Not**: Mac işletim sisteminde, bu yöntemle uygulamanın başarılı olup olmadığını kontrol edebilirsiniz protokol için varsayılan protokol işleyicisi olarak kayıtlı. Ayrıca bunun için ` ~/Library/Preferences/com.apple.LaunchServices.plist` dosyasını kontrol ederek macOS makinede doğruyabilirsin. Bakınız [Apple'ın belgeleri](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) Ayrıntılar için.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+API dahili olarak Windows Kayıt Defteri ve LSCopyDefaultHandlerForURLScheme kullanır.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+* `görevler<code> <a href="structures/task.md">Görev []</a> - <0>Görev` nesnelerinin dizisi
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
