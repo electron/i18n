@@ -167,4 +167,4 @@ Devam eden bir HTTP işlemini iptal eder. If the request has already emitted the
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Yeniden yönlendirme modu `manuel olduğunda` ertelenen yeniden yönlendirme isteğini sürdürür.
