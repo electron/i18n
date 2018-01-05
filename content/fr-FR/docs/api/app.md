@@ -428,7 +428,7 @@ On Windows you can provide optional parameters path, the path to your executable
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerForURLScheme.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
