@@ -1,6 +1,6 @@
 # Çoklu İşbirimleri
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers) ile OS-seviyesi iş parçacıklarında JavaScript çalıştırmak mümkündür.
 
 ## Çok iş parçacıklı Node.js
 
