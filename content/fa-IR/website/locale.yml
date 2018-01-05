@@ -17,9 +17,9 @@ docs:
   advanced: پیشرفته
   footer:
     propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    version_history: تاریخچه نسخه
+    translate: ترجمه این اسناد
+    view_all_docs: تمام مستندات در یک صفحه
 languages:
   choose_language: زبان سایت را انتخاب کنید
   translation_progress: پیشرفت ترجمه
@@ -87,9 +87,9 @@ apps:
   something_missing: چیزی فراموش شده است؟
   edit_this_app: ویرایش این برنامه.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: کپی
+  copy_to_clipboard: کپی در کلیپ‌بورد
+  copied: کپی شد
 or: or
 pages:
   '/':
@@ -135,5 +135,5 @@ pages:
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: صفحه یافت نشد.
-  if_this_is_an_error: If this is an error
+  if_this_is_an_error: اگر این یک خطا است
   please_file_an_issue: please file an issue.
