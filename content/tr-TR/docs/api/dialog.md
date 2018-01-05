@@ -26,22 +26,22 @@ console.log(dialog)
 
 * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
 * `seçenekler` Nesne 
-  * `title` Dizge (isteğe bağlı)
+  * `title` Dize (isteğe bağlı)
   * `defaultPath` String (optional)
-  * `buttonLabel` Dizge (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
+  * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `özellikleri` Dizge[] (isteğe bağlı) - İletişimin hangi özellikleri kullanması gerektiğini içerir. Aşağıdaki değerler desteklenmektedir: 
     * `openFile` - Dosyaların seçilmesine izin ver.
     * `openDirectory` - Dizinlerin seçilmesine izin ver.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. Bu, aslında belirtilen yolda yeni dosyanın oluşturulmasına neden olmaz ancak iletişim kutusundan var olmayan bir yolu döndürmenize izin verir, iletişim kutusundan çıktıktan sonra yeni dosya uygulama tarafından oluşturulmalıdır. *Windows*
+    * `multiSelections` - Birden fazla yolun seçilmesine izin ver.
+    * `showHiddenFiles` - Gizli dosyaları iletişim kutusuna gösterin.
+    * `createDirectory` - İletişim kutusundan yeni dizinler oluşturmaya izin ver. *MacOS*
+    * `promptToCreate` - İletişim kutusuna girilen dosya yolu yoksa, oluşturma isteğinde bulunun. Bu, aslında belirtilen yolda yeni dosyanın oluşturulmasına neden olmaz ancak iletişim kutusundan var olmayan bir yolu döndürmenize izin verir, iletişim kutusundan çıktıktan sonra yeni dosya uygulama tarafından oluşturulmalıdır. *Windows*
     * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
-* `callback` Fonksiyon (isteğe bağlı) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+* `geri aramak` Fonksiyon (isteğe bağlı) 
+  * `filePaths` Dize[] - Kullanıcı tarafından seçilen bir dosya yolu dizisi
 
 Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
@@ -70,9 +70,9 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
 * `options` Nesne 
-  * `title` Dizge (isteğe bağlı)
+  * `title` Dize (isteğe bağlı)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` Dizge (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
+  * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
