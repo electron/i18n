@@ -433,7 +433,7 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
@@ -486,11 +486,11 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
 * `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+`kategorileri` `boş` ise, önceden ayarlanmış Özel Geçiş Listesi (varsa) olacaktır. yerine uygulama için standart Git Listesi (Windows tarafından yönetilen) değiştirildi.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+** Not<0>: Bir `JumpList Kategori nesnesine` `tipinde`adı</code> içermezse özellik kümesine geçirilirse, `türünün` `görevleri` olduğu varsayılır. `isim özelliği varsa<code>türü` özelliği atlanmışsa `türü` `özel` varsayılır.</p> 
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Herhangi bir girişim kaldırılmış bir öğeyi daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılması. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Not**: Kullanıcılar öğeleri özel kategorilerden kaldırabilir ve Windows kaldırılan bir öğe'nin **tekrar** olana kadar özel bir kategoriye eklenmesine izin verin bir sonraki başarılı çağrı: `app.setJumpList (categories)`. Herhangi bir girişim öğesi kaldırılmış, daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılmasıdır. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
 Here's a very simple example of creating a custom Jump List:
 
