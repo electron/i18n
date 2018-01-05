@@ -913,7 +913,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* `path` String
+* dizi `yolu`
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -927,7 +927,7 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* `path` String
+* dizi `yolu`
 
 Removes the specified path from DevTools workspace.
 
