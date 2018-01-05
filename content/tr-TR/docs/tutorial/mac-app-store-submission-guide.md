@@ -120,7 +120,7 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 
 If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Uygulamayı manuel olarak imzalamanın yanı sıra, [elektron-osx-sign](https://github.com/electron-userland/electron-osx-sign) modülünü işi yapması için kullanmayı seçebilirsiniz.
 
 #### Yerel modülleri imzala
 
