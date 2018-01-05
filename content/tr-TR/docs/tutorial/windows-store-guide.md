@@ -86,7 +86,7 @@ Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürüt
 
 ## İsteğe bağlı: Bir BackgroundTask kullanarak UWP Özellikleri Ekle
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Elektron uygulamanızı; bildirim gönderme, Cortana entegrasyonu veya canlı karo gibi Windows 10 özelliklerinden tam olarak yararlanmanızı sağlayacak görünmez bir UWP arka plan göreviyle eşleştirebilirsiniz.
 
 To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
@@ -100,4 +100,4 @@ CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüşt�
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
 3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Kurulum başarılı olursa, Elektron uygulamanızı derlemek için ilerleyebilirsiniz.
