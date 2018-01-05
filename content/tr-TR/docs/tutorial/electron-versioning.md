@@ -104,7 +104,7 @@ Resimlerdeki bir yaşam döngüsü:
 * En son özellik setini içeren yeni bir sürüm şubesi oluşturuldu. ` 2.0.0-beta.1 </ 0> olarak yayınlandı.
 <img src="../images/versioning-sketch-3.png" alt="" /></li>
 <li>A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* Beta *genellikle kararlı* olarak kabul edilir ve `2.0.0` altında tekrar beta olmayan olarak yayınlanır. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Çeşitli semver aralıklarının yeni sürümleri nasıl alacağına ilişkin birkaç örnek:
