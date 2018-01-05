@@ -408,7 +408,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 Ajoute le `path` à la liste des documents récents.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+Cette liste est contrôlée par le système d'exploitation. Sous Windows, vous pouvez consulter la liste à partir de la barre des tâches et sous macOS, vous pouvez la consulter à partir du menu dans le dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
