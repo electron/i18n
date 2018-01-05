@@ -699,7 +699,7 @@ Geçerli masaüstü ortamı birlik başlatıcısı olup olmadığını `Boole de
     
     Uygulamanın giriş seçeneklerini ayarlayın.
     
-    To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Örneğin:
+    [Sincap](https://github.com/Squirrel/Squirrel.Windows) kullanan Windows'ta Elektronlar `otomatik Güncelleştiri` ile çalışmak için, Update.exe için başlatma yolunu ayarlamak ve uygulamanızı belirten argümanları aktarmak isteyecektir. Örnek verecek olursak:
     
     ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -718,9 +718,9 @@ const exeName = path.basename(process.execPath)
 
 ** Not:** Bu API'nin [MAS yapıları](../tutorial/mac-app-store-submission-guide.md) üzerinde bir etkisi yoktur.
 
-### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
+### `app.isAccessibilitySupportEnabled()<0> <em>macOS<em><1>Windows</em></h3>
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+<p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. See https://www.chromium.org/developers/design-documents/accessibility for more details.</p> 
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
