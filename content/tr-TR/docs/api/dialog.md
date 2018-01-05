@@ -1,17 +1,17 @@
 # diyalog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Dosyaları açma ve kaydetme, uyarı verme, vb için yerel sistem diyaloglarını görüntüleme.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Birden fazla dosya ve dizin seçmek için bir iletişim kutusu gösteren bir örnek:
 
 ```javascript
 const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Dialog, Electron'un ana dizininden açılır. İletişim nesnesini bir oluşturucu işleminden kullanmak isterseniz, uzaktan erişim kullanarak erişmeyi unutmayın:
 
 ```javascript
 const {dialog} = require('electron').remote
