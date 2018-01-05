@@ -1,4 +1,4 @@
-## Class: TouchBarButton
+## Sınıf: TouchBarButton
 
 > Yerel macOS uygulamaları için dokunmatik çubukta bir düğme oluşturun
 
