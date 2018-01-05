@@ -685,15 +685,15 @@ Geçerli masaüstü ortamı birlik başlatıcısı olup olmadığını `Boole de
     * ` openAsHidden` Boole Değeri uygulama giriş yaparken gizli olarak açık olarak ayarlanırsa `doğru` olur. Bu ayar yalnızca macOS'ta desteklenir.
     * ` wasOpenedAtLogin` Boole Değeri uygulama girişte açılmışsa `doğru` otomatik olur. Bu ayar yalnızca macOS'ta desteklenir.
     * `wasOpenedAsHidden` Boole Değeri Eğer uygulama gizli bir giriş olarak açılmışsa `doğru` öğe. Bu, uygulamanın başlangıçta hiçbir pencereyi açmaması gerektiğini gösterir. Bu ayar yalnızca macOS'ta desteklenir.
-    * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. Bu ayar yalnızca macOS'ta desteklenir.
+    * ` restoreState` Boole değeri uygulama, bir oturum açma öğesi olarak açılmışsa `doğru` bir önceki oturumdan durumu geri getirmelidir. Bu, uygulama, uygulamanın son başlatılışında açık olan pencereleri geri yükleme kapalı. Bu ayar yalnızca macOS'ta desteklenir.
     
-    **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+    ** Not:** Bu API'nin [MAS yapıları](../tutorial/mac-app-store-submission-guide.md) üzerinde bir etkisi yoktur.
     
     ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
     
-    * `settings` Nesne 
-      * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-      * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Varsayılan olarak `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Bu ayar sadece macOS'de desteklenir.
+    * `ayarlar` Nesne 
+      * `openAtLogin` Boolean (isteğe bağlı) oturum açmak ve uygulamayı açmak için `doğru,` kaldırmak içinse `yanlış`. Bir giriş öğesi olarak uygulanır. Varsayılan olarak `yanlış`.
+      * `openAsHidden` Boolean (isteğe bağlı) `doğru` uygulamayı gizli olarak açmak için geçerlidir. Varsayılan olarak değer `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Bu ayar sadece macOS'de desteklenir.
       * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
       * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
     
@@ -716,7 +716,7 @@ const exeName = path.basename(process.execPath)
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+** Not:** Bu API'nin [MAS yapıları](../tutorial/mac-app-store-submission-guide.md) üzerinde bir etkisi yoktur.
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
