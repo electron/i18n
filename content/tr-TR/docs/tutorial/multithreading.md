@@ -18,15 +18,15 @@ The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but 
 
 ## Kullanılabilir API'ler
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Node.js'in yerleşik tüm modülleri Web Workers tarafından desteklenir ve `asar` arşivleri hala Node.js API'ları ile okunabilir. Ancak Electron'un hiçbir dahili modülü, çok iş parçacıklı bir ortamda kullanılamaz.
 
 ## Yerel Node.js modülleri
 
 Herhangi bir yerel Node.js modülü doğrudan Web İşçileri'ne yüklenebilir, ancak şiddetle tavsiye edilmiyor. Mevcut yerel modüllerin çoğu tek iş parçacıklı ortam varsayılarak yazılmış, onları Web İşçileri'nde kullanmak, çökmeler ve bellek yolsuzluklarına neden olabilir.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+`process.dlopen` işlevinin, iş parçacığı güvenliliği olmadığından, yerel bir Node.js modülünün iş parçacığı güvenliliği olsa bile bir Web Workers'a yüklemek için güvenli olmadığını unutmayın.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+Şimdilik yerel bir modülü güvenle yüklemenin tek yolu uygulamanın Web Workers çalıştığında yerel modül yüklemediğinden emin olmaktır.
 
 ```javascript
 process.dlopen = () => {
