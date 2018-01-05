@@ -28,13 +28,13 @@ Los archivos de código relevantes se pueden encontrar en `./ atom /`, así como
 
 Usted puede conectar el depurador de Visual Studio a un proceso en ejecución en una computadora local o remota. Después de que se esté ejecutando el proceso, haga clic en Depurar / Adjuntar al proceso (o presione `CTRL+ALT+P`) para abrir el cuadro de diálogo "Adjuntar al proceso". Usted puede usar esta capacidad para depurar aplicaciones que se ejecutan en una computadora local o remota, depurará múltiples procesos simultáneamente.
 
-Si Electron se ejecuta con una cuenta de usuario diferente, seleccione `mostrar procesos de todos los usuarios` en la casilla. Tenga en cuenta que dependiendo de cuántos BrowserWindows su aplicación tenga abiertos, verá múltiples procesos. Una típica aplicación de una ventana dará como resultado que Visual Studio le presente dos entradas `Electron.exe`: una para el proceso principal y otra para el proceso renderizado. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Si Electron se ejecuta con una cuenta de usuario diferente, seleccione `mostrar procesos de todos los usuarios` en la casilla. Tenga en cuenta que dependiendo de cuántos BrowserWindows su aplicación tenga abiertos, verá múltiples procesos. Una típica aplicación de una ventana dará como resultado que Visual Studio le presente dos entradas `Electron.exe`: una para el proceso principal y otra para el proceso renderizado. Dado que la lista solo le da nombres, actualmente no hay una forma confiable de descubrir cuál es cuál.
 
-### Which Process Should I Attach to?
+### ¿A qué proceso debo adjuntarme?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Código ejecutado dentro del proceso principal (es decir, código que se encuentra en el archivo JavaScript principal o eventualmente ejecutado), así como código llamado utilizando el control remoto (`require('electron').remote`) se ejecutará dentro del proceso principal, mientras que otro código se ejecutará dentro de su proceso de renderización respectivo.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Puede estar conectado a varios programas cuando se está depurando, pero solamente un programa está activo en el depurador en cualquier momento. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 
 ## Using ProcMon to Observe a Process
 
