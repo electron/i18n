@@ -199,8 +199,8 @@ Tag ` webview ` memiliki metode berikut:
 
 ```javascript
 const webview = document.querySelector('webview')
-webview.addEventListener('dom-ready', () => {
-  webview.openDevTools()
+webview.addEventListener ('dom-ready', () => {
+   webview.openDevTools()
 })
 ```
 
