@@ -209,7 +209,7 @@ Mac App Store'da dağıtım için imzalandığı takdirde bu işlem hata verecek
 
 Bulunduğunuz ülke ve bölgeye bağlı olarak, Mac App Store uygulamasında kullanılan şifreleme algoritmalarını belgelemeniz istenilebilir ve hatta ABD şifreleme kaydı (ERN) onayının bir kopyasını göndermeniz istenilebilir.
 
-Electron uses following cryptographic algorithms:
+Elektron aşağıdaki şifreleme algoritmalarını kullanmaktadır:
 
 * AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
