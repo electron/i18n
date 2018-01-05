@@ -85,7 +85,7 @@ electron-windows-store `
 
 ## वैकल्पिक: कंटेनर वर्चुअलिज़ेशन का उपयोग कर कन्वर्ट करें
 
-एप्पएक्स पैकेज को उत्पन्न करने के लिए, `इलेक्ट्रॉन -विंडोज-स्टोर` सीएलआई एक टेम्पलेट का इस्तेमाल करता है जो कि ज्यादातर इलेक्ट्रॉन एप्प्स के लिए काम करता है | However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+एप्पएक्स पैकेज को उत्पन्न करने के लिए, `इलेक्ट्रॉन -विंडोज-स्टोर` सीएलआई एक टेम्पलेट का इस्तेमाल करता है जो कि ज्यादातर इलेक्ट्रॉन एप्प्स के लिए काम करता है | हालाँकि, अगर आप एक कस्टम इंस्टालर इस्तेमाल कर रहे हैं, या फिर आपको उत्पन्न पैकेज में कोई दिक्कत आ रही है, तो आप एक विंडोज कंटेनर के साथ कंपाइलेशन का इस्तेमाल कर एक पैकेज बनाने की कोशिश कर सकते हैं - इस मोड में, सीएलआई आपकी एप्लीकेशन को एक खाली विंडोज कंटेनर में इनस्टॉल करेगा और चलायेगा ताकि यह पता चल सके कि आपकी एप्लीकेशन ऑपरेटिंग सिस्टम में वास्ताव में कौन कौन से परिवर्तन कर रही है |
 
 Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
