@@ -41,17 +41,17 @@ app.on('ready', () => {
 
 ## BrowserWindow içindeki kısayollar
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Bir [BrowserWindow](../api/browser-window.md) için klavye kısayolunu işlemek isterseniz, oluşturucu işleminin içindeki pencere nesnesinde `keyup` ve `keydown` event listener'larını kullanabilirsiniz.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Üçüncü parametre olan `true`'ya dikkat edin. Bu, listener'ın diğer listener'lardan önce her zaman bir tuşa basması gerektiği anlamına gelir. Böylece onlar `stopPropagation()` çağıramazlar.
 
-The [`before-input-event`](web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Bu olabilir menüde görünmeyen özel kısayolları yakalamak ve işlemek için kullanılabilir.
+[`before-input-event`](web-contents.md#event-before-input-event) etkinliği, sayfaya `keydown` ve `keyup` etkinlikleri gönderilmeden önce yayınlanır. Bu olabilir menüde görünmeyen özel kısayolları yakalamak ve işlemek için kullanılabilir.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Eğer el ile kısayol ayrıştırmak istemiyorsanız, [mousetrap](https://github.com/ccampbell/mousetrap) benzeri gelişmiş anahtar algılaması yapan kütüphaneler var.
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
