@@ -655,21 +655,21 @@ Raporlar`GPUFeatureStatus</ 0> - Grafik Özelliği durumu için <code>chrome://g
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
 
-Aramanın başarılı olup olmadığı `Boole Değeri` döndürür.
+Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
 Sayaç rozet sayısı `` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
 
 MacOS'ta rıhtım simgesinin üzerinde gösterilir. Linux'ta sadece Birlik başlatıcısı için çalışır,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Not:** Birlik Başlatıcısı çalışması için `. Masaüstü dosyasının olması gerekir. Daha fazla bilgi için lütfen <a href="../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux"> masaüstü ortamı entegrasyonu bölümünü okuyun</a>.</p>
 
-### `app.getBadgeCount()` *Linux* *macOS*
+<h3><code>app.getBadgeCount()`Linux</em>*macOS*</h3> 
 
-Returns `Integer` - The current value displayed in the counter badge.
+Karşı rozette görüntülenen geçerli değer, `Tamsayı` Döndürür.
 
-### `app.isUnityRunning()` *Linux*
+### `app.isUnityRunning()`*Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Geçerli masaüstü ortamı birlik başlatıcısı olup olmadığını `Boole değerine ` döndürür.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
