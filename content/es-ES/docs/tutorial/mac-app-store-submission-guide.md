@@ -134,24 +134,24 @@ Note también que los módulos nativos pueden tener archivos intermediarios los 
 
 ### Actualice su aplicación
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+Después de firmar su aplicación, usted puede usar Application Loader para actualizarla en la conexión de Itunes para procesarlo, asegurándose de [crear un registro](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) antes de subirlo.
 
-### Submit Your App for Review
+### Presentar su aplicación para revisión
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+Después de estos pasos, usted puede [presentar su aplicación para revisión](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## Limitaciones de la estructura del MAS
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Con el fin de satisfacer todos los requerimientos de las aplicaciones en la caja de arena, los siguientes módulos han sido deshabilitados en la estructura del MAS:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+y los siguientes comportamientos han sido cambiados:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* La captura de video puede no funcionar para algunos equipos.
+* Algunas características de accesibilidad pudiesen no funcionar.
+* Las aplicaciones no tendrán la señal de los cambios DNS.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
 
