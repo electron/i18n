@@ -20,19 +20,19 @@ console.log(dialog)
 
 ## Metodlar
 
-The `dialog` module has the following methods:
+`dialog` modülü aşağıdaki yöntemleri içerir:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
-* `options` Nesne 
-  * `title` String (optional)
+* `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
+* `seçenekler` Nesne 
+  * `title` Dizge (isteğe bağlı)
   * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` Dizge (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
+  * `özellikleri` Dizge[] (isteğe bağlı) - İletişimin hangi özellikleri kullanması gerektiğini içerir. Aşağıdaki değerler desteklenmektedir: 
+    * `openFile` - Dosyaların seçilmesine izin ver.
+    * `openDirectory` - Dizinlerin seçilmesine izin ver.
     * `multiSelections` - Allow multiple paths to be selected.
     * `showHiddenFiles` - Show hidden files in dialog.
     * `createDirectory` - Allow creating new directories from dialog. *macOS*
@@ -68,11 +68,11 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
 * `options` Nesne 
-  * `title` String (optional)
+  * `title` Dizge (isteğe bağlı)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` Dizge (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
 * `options` Nesne 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -127,7 +127,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
 * `options` Nesne 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
