@@ -7,4 +7,4 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 ### `new TouchBarGroup(options)` *Experimental*
 
 * `options` Nesne 
-  * `items` [TouchBar](touch-bar.md) - Items to display as a group.
+  * `items` [TouchBar](touch-bar.md) - Grup halinde görüntülenecek öğeler.
