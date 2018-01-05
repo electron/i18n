@@ -4,7 +4,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 ## Requisitos
 
-* **Construir una depuración de Electron**: la forma más fácil es usualmente que usted mismo lo construya, utilizando las herramientas y los requisitos previos enumerados en [instrucciones de compilación para Windows](build-instructions-windows.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Construir una depuración de Electron**: la forma más fácil es usualmente que usted mismo lo construya, utilizando las herramientas y los requisitos previos enumerados en [instrucciones de compilación para Windows](build-instructions-windows.md). Mientras usted puede fácilmente adjuntar y depurar a Electron, ya que puede descargarlo directamente, encontrará que está muy optimizado, lo que hace que la depuración sea mucho más difícil: el depurador no será capaz de mostrarle el contenido de todas las variables y la ruta de ejecución puede aparecer extraña debido a las llamadas entrantes, a la cola y otras optimizaciones del compilador.
 
 * **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
 
