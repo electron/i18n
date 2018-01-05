@@ -746,13 +746,13 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 * `value` String - The argument to append to the command line
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
 
 **Note:** This will not affect `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Uygulamada karışık kum havuzu modunu etkinleştirmektedir.
 
 Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
