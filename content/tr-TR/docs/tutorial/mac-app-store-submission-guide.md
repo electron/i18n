@@ -138,7 +138,7 @@ Uygulamanızı imzaladıktan sonra, yüklemeden önce [created a record](https:/
 
 ### Submit Your App for Review
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+Bu adımların ardından, [uygulamanızı incelenmek üzere gönderebilirsiniz](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
 ## Limitations of MAS Build
 
@@ -157,7 +157,7 @@ Also, due to the usage of app sandboxing, the resources which can be accessed by
 
 ### Additional Entitlements
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Uygulamanızın hangi Elektron API'larını kullandığına bağlı olarak, uygulamanızın bu API'ları Mac App Store yapısından kullanabilmesi için `parent.plist` dosyanıza ek yetkiler eklemeniz gerekebilir.
 
 #### Ağ erişimi
 
