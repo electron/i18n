@@ -1,6 +1,6 @@
 # Çevrimiçi/Çevrimdışı Olay Algılama
 
-[Online ve offline etkinlik](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) algılama, standart HTML5 API'sinin bir parçası olan [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) özelliğini kullanarak oluşturucu işleminde uygulanabilir. Herhangi bir ağ isteğinin başarısız olması garantileniyorsa, yani kesinlikle çevrimdışıysa (ağ bağlantısının kesilmesi) `navigator.onLine` özelliği, `false` olarak döner. Tüm diğer durumlarda `true` olarak döner. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Bilgisayarda, her zaman "bağlı" olan sanal eternet bağdaştırıcılarına sahip bir sanallaştırma yazılımı çalıştırıldığı gibi durumlarda, gerçekten Electron'un internet erişim durumunu belirlemek istiyorsanız, kontrol için ek araçlar geliştirmelisiniz.
+[Online ve offline etkinlik](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) algılama, standart HTML5 API'sinin bir parçası olan [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) özelliğini kullanarak oluşturucu işleminde uygulanabilir. Herhangi bir ağ isteğinin başarısız olması garantileniyorsa, yani kesinlikle çevrimdışıysa (ağ bağlantısının kesilmesi) `navigator.onLine` özelliği, `false` olarak döner. Tüm diğer durumlarda `true` olarak döner. Diğer tüm koşullar `true` olarak döndüğünden, yanlış pozitiflik almamak için dikkatli olmalısınız, çünkü `true` değerinin Electron'un kesinlikle internete eriştiğine kanaat getiremeyiz. Bilgisayarda, her zaman "bağlı" olan sanal eternet bağdaştırıcılarına sahip bir sanallaştırma yazılımı çalıştırıldığı gibi durumlarda, gerçekten Electron'un internet erişim durumunu belirlemek istiyorsanız, kontrol için ek araçlar geliştirmelisiniz.
 
 Örneğin:
 
@@ -37,7 +37,7 @@ app.on('ready', () => {
 </html>
 ```
 
-Ana süreçteki bu olaylara da cevap vermek istediğiniz durumlar olabilmektedir. Bununla birlikte, ana süreç `navigator` nesnesine sahip değildir ve bu nedenle bu olayları doğrudan algılayamaz. Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+Ana süreçteki bu olaylara da cevap vermek istediğiniz durumlar olabilmektedir. Bununla birlikte, ana süreç `navigator` nesnesine sahip değildir ve bu nedenle bu olayları doğrudan algılayamaz. Takip eden örnekte gösterildiği gibi, Electron'un süreçler arası iletişim araçları kullanılarak, olaylar ana işleme iletilebilir ve gerekirse ele alınır.
 
 *main.js*
 
