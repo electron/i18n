@@ -18,7 +18,7 @@ $ lldb ./out/D/Electron.app
 Current executable set to './out/D/Electron.app' (x86_64).
 ```
 
-### Setting Breakpoints
+### Establecer puntos de interrupción
 
 LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
 
