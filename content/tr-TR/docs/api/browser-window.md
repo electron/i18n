@@ -270,35 +270,35 @@ Yanıt vermeyen internet sayfası tekrar yanıt verdiğinde ortaya çıkmaktadı
 
 #### Etkinlik: 'bulanık'
 
-Emitted when the window loses focus.
+Pencere odağı kaybettiğinde ortaya çıkmaktadır.
 
 #### Etkinlik: 'odak'
 
-Emitted when the window gains focus.
+Pencere odaklandığında ortaya çıkmaktadır.
 
 #### Etkinlik: 'göster'
 
-Emitted when the window is shown.
+Pencere gösterildiğinde ortaya çıkmaktadır.
 
 #### Etkinlik: 'gizle'
 
-Emitted when the window is hidden.
+Pencere gizlendiğinde ortaya çıkmaktadır.
 
 #### Etkinlik: 'gösterilmeye-hazır'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+İnternet sayfası oluşturulduğunda (gösterilmemesine rağmen) yayılmaktadır ve pencere, görsel bir flaş olmadan görüntülenebilir.
 
 #### Etkinlik: 'maximize' 
 
-Emitted when window is maximized.
+Pencere simge durumuna getirildiğinde ortaya çıkmaktadır.
 
 #### Etkinlik: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Pencere maksimum bir durumda çıktığında ortaya çıkar.
 
 #### Etkinlik: 'minimize' 
 
-Emitted when the window is minimized.
+Pencere minimize edildiğinde ortaya çıkmaktadır.
 
 #### Etkinlik: 'onarmak'
 
