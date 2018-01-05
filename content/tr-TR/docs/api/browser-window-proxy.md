@@ -1,6 +1,6 @@
 ## Class: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Çocuk tarayıcı penceresini değiştirme
 
 Process: [Renderer](../glossary.md#renderer-process)
 
@@ -22,7 +22,7 @@ Alt ekranlardan bir tanesini kapatma olayını gerçekleştirmeden zorla kapatı
 
 * `code` String
 
-Evaluates the code in the child window.
+Alt penceredeki kodu değerlendirir.
 
 #### `win.focus()`
 
@@ -30,7 +30,7 @@ Alt pencereye odaklanır. (pencereyi öne getirir).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Alt pencerede yazdırma iletişim kutusunu çağırır.
 
 #### `win.postMessage(message, targetOrigin)`
 
