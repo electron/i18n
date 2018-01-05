@@ -247,7 +247,7 @@ Dönüşler:
 * `olay` Olay
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
@@ -256,7 +256,7 @@ Dönüşler:
 * `olay` Olay
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emitted when Chrome's accessibility support changes. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Metodlar
 
