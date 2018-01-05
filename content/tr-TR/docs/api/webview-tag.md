@@ -825,4 +825,4 @@ Emitted when DevTools is closed.
 
 ### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+DevTools odaklandığında / açıldığında ortaya çıkar.
