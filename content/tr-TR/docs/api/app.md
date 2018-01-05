@@ -677,15 +677,15 @@ Geçerli masaüstü ortamı birlik başlatıcısı olup olmadığını `Boole de
   * `yol`Dize(isteğe bağlı)*Windows* - karşılaştırmak için yürütebilir dosya yolu. Varsayılan olarak `process.execPath`.
   * `args` String [] (isteğe bağlı) *Windows<1> - karşılaştırılacak komut satırı değişkenleri karşısında. Varsayılan olarak boş bir dizi.</li> </ul></li> </ul> 
     
-    If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+    ` app.setLoginItemSettings öğesine <code> yol ve <code> args seçenekleri sağladıysanız, siz doğru olarak ayarlanması için <code> openAtLogin için aynı bağımsız değişkenleri buraya iletmeniz gerekir.</p>
+
+<p>İade <code>Nesne`:
     
-    Returns `Object`:
-    
-    * `openAtLogin` Boolean - `true` if the app is set to open at login.
-    * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
-    * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-    * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-    * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+    * ` openAtLogin` Boole Değeri uygulama giriş yaparken açılırsa `doğru` olur.
+    * ` openAsHidden` Boole Değeri uygulama giriş yaparken gizli olarak açık olarak ayarlanırsa `doğru` olur. Bu ayar yalnızca macOS'ta desteklenir.
+    * ` wasOpenedAtLogin` Boole Değeri uygulama girişte açılmışsa `doğru` otomatik olur. Bu ayar yalnızca macOS'ta desteklenir.
+    * `wasOpenedAsHidden` Boole Değeri Eğer uygulama gizli bir giriş olarak açılmışsa `doğru` öğe. Bu, uygulamanın başlangıçta hiçbir pencereyi açmaması gerektiğini gösterir. Bu ayar yalnızca macOS'ta desteklenir.
+    * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. Bu ayar yalnızca macOS'ta desteklenir.
     
     **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
     
