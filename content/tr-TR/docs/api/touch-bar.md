@@ -22,11 +22,11 @@ Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
 
 #### `touchBar.escapeItem`
 
-`TouchBarButton` ayarlandığında, touch bar üzerindeki "esc" düğmesinin yerini alır. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+`TouchBarButton` ayarlandığında, touch bar üzerindeki "esc" düğmesinin yerini alır. `null` olarak ayarlamak varsayılan "esc" düğmesini geri yükler. Bu değeri değiştirmek, touch bar üzerindeki öğeyi hemen günceller.
 
 ## Örnekler
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Aşağıda düğme ve bazı etiketler içeren basit bir slot makinesi touch bar oyunu örnek olarak verilmiştir.
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -48,12 +48,12 @@ const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### Yukarıdaki örneğin çalıştırılması
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+Yukarıdaki örneği çalıştırmak için yapmanız gerekenler (örneği çalıştırmak istediğiniz dizinde açık bir uçbirim olduğu varsayılarak):
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. Yukarıdaki dosyayı `touchbar.js` olarak bilgisayarınıza kaydedin
+2. `npm install electron` aracılığıyla Electron'u yükleyin
+3. Örneği Electron'da çalıştırın: `./node_modules/.bin/electron touchbar.js`
 
 Ardından yeni bir Electron penceresi ve uygulamanızın dokunmatik çubuğunuzda (veya dokunmatik çubuklu emülatörünüzde) çalıştığını görmeniz gerekir.
