@@ -105,7 +105,7 @@ Creates an empty `NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* dizi `yolu`
 
 Returns `NativeImage`
 
