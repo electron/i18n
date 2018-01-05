@@ -14,13 +14,13 @@ Para presentar tu aplicación en la Mac App Store, primero debe obtener un certi
 
 ### Obtener identificación de equipo
 
-Antes de firmar su aplicación, necesita conocer la identificaicón del equipo de su cuenta. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Antes de firmar su aplicación, necesita conocer la identificaicón del equipo de su cuenta. Para localizar la identificación de su equipo, entre en el [Centro de Desarrolladores de Apple](https://developer.apple.com/account/), y haga click en membresía en la barra lateral. Tu identificación de equipo aparece en la sección de información de membresía bajo el nombre del equipo.
 
-### Sign Your App
+### Firmar tu aplicación
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Después de los trabajos preparativos, puede empacar su aplicación siguiendo [Distribución de la aplicación](application-distribution.md), y después firmando su aplicación.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+Primer, tiene que añadir la llave `ElectronTeamID` a la `Info.plist` de su aplicación, el cual tiene la identificación de su equipo como valor:
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Luego, necesita preparar 3 archivos con los derechos.
 
 `child.plist`:
 
