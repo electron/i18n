@@ -77,9 +77,9 @@ Luego, necesita preparar 3 archivos con los derechos.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Tiene que cambiar `TEAM_ID` con la identificación de su equipo, y reemplazar `your.bundle.id` con la identificación de su aplicación.
 
-And then sign your app with the following script:
+Y luego firme u aplicación con el siguiente script:
 
 ```sh
 #!/bin/bash
@@ -118,11 +118,11 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+Si es nuevo trabajando con aplicaciones en cajas de arena en macOS, debería leer también [Habilitando caja de arena de aplicaciones](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) de Apple para tener una idea básica, luego añada la llaves para los permisos necesitados por su aplicación a los archivos con los derechos.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Además de firmar la aplicación manualmente, también puede elegir usar el módulo [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) para hacer el trabajo.
 
-#### Sign Native Modules
+#### Firmar módulos nativos
 
 Módulos nativos utilizados en su aplicación también necesitan la firma. Si usa el Electron-osx-signo, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos:
 
