@@ -130,9 +130,9 @@ Módulos nativos utilizados en su aplicación también necesitan la firma. Si us
 Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). Si utiliza [electron-packager](https://github.com/electron-userland/electron-packager) antes de la versión 8.1.0, agregue `--ignore=.+\.o$` a sus pasos de estructuración para ignorar estos archivos. Versión 8.1.0 y posteriores ignora estos archivos por defecto.
 
-### Upload Your App
+### Actualice su aplicación
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
