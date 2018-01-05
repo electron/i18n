@@ -12,7 +12,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 ## Attaching to and Debugging Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versión de depuración de Electron, usando la aplicación para abrir como parámetro.
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
