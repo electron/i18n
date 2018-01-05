@@ -83,9 +83,9 @@ electron-windows-store `
 
 यह जाँचने के लिए जो इलेक्ट्रॉन एप्प टोस्ट नोटिफिकेशन और लाइवटाइल्स के लिए बैकग्राउंड टास्क का इस्तेमाल करती है, [माइक्रोसॉफ्ट के द्वारा प्रदान सैंपल देखें](https://github.com/felixrieseberg/electron-uwp-background) |
 
-## Optional: Convert using Container Virtualization
+## वैकल्पिक: कंटेनर वर्चुअलिज़ेशन का उपयोग कर कन्वर्ट करें
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+एप्पएक्स पैकेज को उत्पन्न करने के लिए, `इलेक्ट्रॉन -विंडोज-स्टोर` सीएलआई एक टेम्पलेट का इस्तेमाल करता है जो कि ज्यादातर इलेक्ट्रॉन एप्प्स के लिए काम करता है | However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
 
 Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
