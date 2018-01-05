@@ -8,7 +8,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 
 * **Visual Studio con herramientas de C++**: las ediciones de la comunidad gratuitas de Visual Studio 2013 y 2015 funcionan. Una vez instalado, [configure Visual Studio para usar el servidor de símbolos de GitHub de Electron](setting-up-symbol-server.md). Le permitirá a Visual Studio obtener una mejor comprensión de lo que sucede dentro de Electron, haciendo que sea más fácil presentar las variables en un formato de lectura.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: la [herramienta gratuita SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) le permite inspeccionar los parámetros de los procesos, los manejadores de archivos y las operaciones de registro.
 
 ## Attaching to and Debugging Electron
 
