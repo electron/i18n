@@ -4,7 +4,7 @@ Electron biber flash eklentisine destek verir. Biber eklentisini Elektronda kull
 
 ## Flash Eklentisinin Bir Kopyasını Oluştur
 
-MacOS ve Linux'ta biber eklentisi Chrome tarayıcı içinde gezinmeden `chrome://plugins` de bulunur. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+MacOS ve Linux'ta biber eklentisi Chrome tarayıcı içinde gezinmeden `chrome://plugins` de bulunur. Electron'un konumu ve sürümü Pepper Flash desteği için kullanışlıdır. Ayrıca başka bir yere kopyalayabilirsiniz.
 
 ## Electron değişimi ekleyin
 
