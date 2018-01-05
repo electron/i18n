@@ -147,7 +147,7 @@ In order to satisfy all requirements for app sandboxing, the following modules h
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+ve aşağıdaki davranışlar değiştirilmiştir:
 
 * Video capture may not work for some machines.
 * Certain accessibility features may not work.
