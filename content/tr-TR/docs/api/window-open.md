@@ -47,7 +47,7 @@ Bu seçenek aynı zamanda `<webview>` etiketlerinde de ayarlanabilir:
 `BrowserWindow`'un oluşturulması, `WebContents`'in `new-window` etkinliği aracılığıyla özelleştirilebilir.
 
 ```javascript
-// main process
+// ana süreç
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +57,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // pencereyi modal olarak aç
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -71,7 +71,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// işleyici süreç (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
