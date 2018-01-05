@@ -20,11 +20,11 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 ### Establecer puntos de interrupción
 
-Luego, abre Visual Studio. Electron no está construido con Visual Studio y, por lo tanto, no contiene un archivo de proyecto - sin embargo, usted puede abrir los archivos de código fuente "Como archivo", lo que significa que Visual Studio los abrirá por sí mismo. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Luego, abre Visual Studio. Electron no está construido con Visual Studio y, por lo tanto, no contiene un archivo de proyecto - sin embargo, usted puede abrir los archivos de código fuente "Como archivo", lo que significa que Visual Studio los abrirá por sí mismo. Usted puede todavía establecer puntos de interrupción - Visual Studio automáticamente descifrará que el código fuente coincide con el código que se ejecuta en el proceso adjunto y se romperá en consecuencia.
 
 Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
 
-### Attaching
+### Adjuntando
 
 You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
 
