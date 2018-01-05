@@ -693,9 +693,9 @@ Geçerli masaüstü ortamı birlik başlatıcısı olup olmadığını `Boole de
     
     * `ayarlar` Nesne 
       * `openAtLogin` Boolean (isteğe bağlı) oturum açmak ve uygulamayı açmak için `doğru,` kaldırmak içinse `yanlış`. Bir giriş öğesi olarak uygulanır. Varsayılan olarak `yanlış`.
-      * `openAsHidden` Boolean (isteğe bağlı) `doğru` uygulamayı gizli olarak açmak için geçerlidir. Varsayılan olarak değer `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Bu ayar sadece macOS'de desteklenir.
-      * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-      * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+      * `openAsHidden` Boolean (isteğe bağlı) `doğru` uygulamayı gizli olarak açmak için geçerlidir. Varsayılan olarak değer `false`. Kullanıcı bu ayarı Sistem Tercihleri'nden düzenleyebilir, böylece `app.getLoginItemStatus (). WasOpenedAsHidden` uygulaması kontrol edildiğinde denetlenip mevcut değeri bilmek için açılır. Bu ayar sadece macOS'de desteklenir.
+      * ` yolu` Dizi (isteğe bağlı) * Windows* Giriş sırasında başlatılacak yürütülebilir dosya. Varsayılan değer `process.execPath`.
+      * `Yolu` Dizi [] (isteğe bağlı) *Windows* dosya geçmek için komut satırı değişkenleri yürütülebilir. Varsayılan olarak boş bir dizi. Yolları sarmaya tırnak işareti ile dikkat edin.
     
     Uygulamanın giriş seçeneklerini ayarlayın.
     
