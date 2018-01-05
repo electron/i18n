@@ -30,7 +30,7 @@ Aşağıda özetlenen 1.x stratejimizden birkaç önemli değişiklik var. Her d
 
 1. Semver'in sıkı kullanımı
 2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
+3. [Konvansiyonel taahhüt mesajları](https://conventionalcommits.org/)'na giriş
 4. Açıkça tanımlanan stabilizasyon dalları
 5. The `master` branch is versionless; only stability branches contain version information
 
@@ -38,7 +38,7 @@ Git dallanmasının nasıl çalıştığını, npm etiketinin nasıl çalıştı
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Electron 2.0'dan itibaren semver'i izleyecek.
 
 Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, Minör, Yama) açıkça eşleyen bir tablo verilmiştir.
 
@@ -50,8 +50,8 @@ Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, 
     * node.js küçük sürüm güncellemeleri
     * Elektron kırılmaz API değişiklikleri
 * **Yama Sürümü Artımları** 
-    * node.js patch version updates
-    * fix-related chromium patches
+    * node.js yama sürümü güncelleştirmeleri
+    * fix-related chromium yamaları
     * Electron hata düzeltmeleri
 
 Çoğu krom güncellemesinin kırılma olarak değerlendirileceğini unutmayın. Geri gönderilebilecek düzeltmeler muhtemelen kiraz yamalar olarak seçilecek.
@@ -75,7 +75,7 @@ Geliştiriciler hangi sürümlerin *güvenli* olacağını bilmek istiyor. Gör�
 * `2.0.0` sürümünüze yalnızca kararlılık veya güvenlikle ilgili düzeltmeler kabul etmek için `-2.0.0` kullanın.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
 
-İkinci nokta ile ilgili önemli olan ` ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. To accomplish this, semver allows for a <em>pre-release identifier</em> to indicate a particular version is not yet <em>safe</em> or <em>stable</em>.</p>
+İkinci nokta ile ilgili önemli olan ` ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. Bunu gerçekleştirmek için Semver, belirli bir sürümün henüz <em>güvenli</em> veya <em>kararlı</em> olmadığını belirtmek için <em>yayın öncesi tanımlayıcıya</em> izin verir.</p>
 
 <p>Hangisini seçerseniz seçin, bozucu değişiklikler Chromium hayatının bir gerçeği olduğu için periyodik olarak <code> package.json </ 0> sürümününe geçmek zorunda kalacaksınız.</p>
 
