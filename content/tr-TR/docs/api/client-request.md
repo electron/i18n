@@ -89,13 +89,13 @@ Emitted just after the last chunk of the `request`'s data has been written into 
 
 #### Etkinlik: 'iptal etmek'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+`request` iptal edildiğinde yayınlanır. Eğer `request` zaten kapatıldıysa `abort` etkinliği tetiklenmeyecektir.
 
 #### Event: 'error'
 
 Dönüşler:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Hata - sorun hakkında bazı bilgileri sağlayan hata nesnesi.
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
@@ -129,7 +129,7 @@ Using chunked encoding is strongly recommended if you need to send a large reque
 * `name` String - An extra HTTP header name.
 * `value` Object - An extra HTTP header value.
 
-İlave bir HTTP başlığı ekler. The header name will issued as it is without lowercasing. Sadece ilk yazmadan önce çağrılabilir. Bu yöntemi ilk yazmadan sonra aramak hata atacaktır. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+İlave bir HTTP başlığı ekler. Başlık adı, karakter küçültmesi yapmadan verilir. Sadece ilk yazmadan önce çağrılabilir. Bu yöntemi ilk yazmadan sonra aramak hata atacaktır. Verilen değer `String` değil ise, `toString()` metoduyla son değer elde edilir.
 
 #### `request.getHeader(name)`
 
