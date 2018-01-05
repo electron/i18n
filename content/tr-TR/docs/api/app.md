@@ -471,8 +471,8 @@ Returns `Boolean` - Whether the call succeeded.
 
 Returns `Object`:
 
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `minItems` Tamsayı - Listede gösterilecek minimum öğe sayısı Atlama Listesi (bu değerin daha ayrıntılı bir açıklaması için bkz. [MSDN dokümanları](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ile eşleşen `JumpListItem` nesnelerinin dizisi kullanıcının belirli kategorilerden açıkça kaldırdığı öğelerin atlama listesidir. Bu öğeler, **sonraki** Atlama Listesine tekrar eklenemez `app.set JumpList()` öğesini çağırın. Herhangi bir özel kategoriden kaldırılan öğelerden herhangi birini içeren windows görüntülenmez.
 
 ### `app.setJumpList(categories)` *Windows*
 
