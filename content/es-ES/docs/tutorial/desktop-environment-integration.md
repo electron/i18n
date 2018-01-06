@@ -117,13 +117,13 @@ Para MSDN, está ilustrado:
 
 > Esta barra de herramientas es simplemente la barra de tareas estándar de control común. Tiene un máximo de siete botones. Cada botón de identificación, imagen, descripción y estado está definido en una estructura, la cual es pasada a la barra de tareas. La aplicación puede mostrar, habilitar, deshabilitar u ocultar botones de la barra de herramientas si es requerido por su estado actual.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Por ejemplo, el reproductor de Windows ofrece regularmente controles de transporte como play, pausa, silenciar y detener.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Barra de herramientas del reproductor de media de Windows:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+Usted puede usar [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) para configurar la barra de herramientas en miniatura en su aplicación:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Para limpiar los botones de su barra de herramientas en miniatura, llame `BrowserWindow.setThumbarButtons` con un arreglo vacío:
 
 ```javascript
 const {BrowserWindow} = require('electron')
