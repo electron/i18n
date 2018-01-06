@@ -139,4 +139,4 @@ npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+हालँकि अगर आप अंतर-निर्मित मोड्यूल इस्तेमाल कर रहे हैं और फिर भी इस त्रुटी का सामना कर रहे हैं, तो इस बात की काफी सम्भावना है कि आप मोड्यूल को गलत प्रक्रिया में इस्तेमाल कर रहे हैं | उदाहरण के लिए, `इलेक्ट्रॉन.एप्प` केवल मुख्य प्रक्रिया में इस्तेमाल की जा सकती है, जबकि `इलेक्ट्रान.वेबफ्रेम` सिर्फ़ रेंदेरेर प्रक्रिया में उपलब्ध है |
