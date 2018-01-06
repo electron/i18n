@@ -191,7 +191,7 @@ Zwraca:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Funkcja 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitted when a client certificate is requested.
@@ -213,11 +213,11 @@ Zwraca:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `request` Obiekt 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Obiekt 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -350,7 +350,7 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 
 * `path` String
 * `options` Object (optional) 
-  * `size` String 
+  * `size` Ciąg tekstu 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
@@ -616,7 +616,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `options` Obiekt 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
@@ -688,7 +688,7 @@ Returns `Object`:
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Object 
+* `ustawienia` Obiekt 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
@@ -721,7 +721,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `options` Obiekt 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
