@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Widoczność strony
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
@@ -533,7 +533,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Ukrywa okno.
 
 #### `win.isVisible()`
 
@@ -1012,7 +1012,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Zmienia ikonę okna.
 
 #### `win.setAutoHideMenuBar(hide)`
 
