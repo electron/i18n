@@ -18,7 +18,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * `hostname` String (optional) - The server host name.
   * `port` Integer (optional) - The server's listening port number.
   * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. `follow`'a varsayılan olarak belirler. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 `protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
@@ -139,25 +139,25 @@ Returns `Object` - The value of a previously set extra header name.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` Dize - İlave bir başlık adı belirtin.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnızca ilk yazma işleminden önce yapılabilir. İlk yazma işleminden sonra yapmaya çalışmak bir hata oluşturacaktır.
 
 #### `request.write(chunk[, encoding][, callback])`
 
 * `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
 * `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `callback` Fonksiyonu (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
 
 `callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. İlk yazma işlemi sonrasında kişisel bir başlık eklemeye veya kaldırmaya izin verilmez.
 
 #### `request.end([chunk][, encoding][, callback])`
 
 * `chunk` (String | Buffer) (optional)
 * `encoding` String (optional)
-* `callback` Function (optional)
+* `callback` Fonksiyonu (opsiyonel)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
