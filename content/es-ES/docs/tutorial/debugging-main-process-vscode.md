@@ -7,7 +7,7 @@ $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Añadir un archivo `.vscode/launch.json` con la siguiente configuración:
 
 ```json
 {
@@ -28,7 +28,7 @@ $ code electron-quick-start
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Nota:** Para Windows, usar `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
 
 ### 3. Debugging
 
