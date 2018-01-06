@@ -150,12 +150,12 @@ Process: [Main](../glossary.md#main-process)
   * `disableAutoHideCursor` Boolean (необязательно) - Будет ли спрятан курсор, во время печатания. По умолчанию - `false`.
   * `autoHideMenuBar` Boolean (необязательно) - Автоматическое убирание меню-бара, пока клавиша `Alt` не будет нажата. По умолчанию - `false`.
   * `enableLargerThanScreen` Boolean (необязательно) - Позволяет окну изменять размер больше, чем экран. По умолчанию - `false`.
-  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
+  * `backgroundColor` String (необязательно) - Фоновый цвет окна, в виде шестнадцатеричного значения, наподобие `#66CD00` или `#FFF` или `#80FFFFFF` (альфа поддерживается). По умолчанию - `#FFF` (белый).
+  * `hasShadow` Boolean (необязательно) - Будет ли окно иметь тень. Реализовано только на macOS. По умолчанию - `true`.
+  * `darkTheme` Boolean (необязательно) - Заставляет использовать темную тему для окна, работает только на некоторых GTK+3 окружениях рабочего стола. По умолчанию - `false`.
+  * `transparent` Boolean (необязательно) - Делает окно [прозрачным](frameless-window.md). По умолчанию - `false`.
+  * `type` String (необязательно) - Тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
+  * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `обычное`. Возможные значения: 
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.
