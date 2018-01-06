@@ -139,12 +139,12 @@ Process: [Main](../glossary.md#main-process)
   * `fullscreen` Boolean (необязательно) - Будет ли окно показываться во весь экран. Когда явно установлено `false`, на macOS кнопка полноэкранного режима будет скрыта или отключена. По умолчанию - `false`.
   * `fullscreenable` Boolean (необязательно) - Может ли окно быть в полноэкранном режиме. На macOS, также кнопка увеличить/зумировать должна переключить в полноэкранный режим или увеличить окно. По умолчанию - `true`.
   * `skipTaskbar` Boolean (необязательно) - Будет ли показано окно в таск-баре. По умолчанию - `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `kiosk` Boolean (необязательно) - Режим киоска. По умолчанию - `false`.
+  * `title` String (необязательно) - Название окна. По умолчанию - `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (необязательно) - Иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
+  * `show` Boolean (необязательно) - Будет ли показано окно, когда будет создано. По умолчанию - `true`.
+  * `frame` Boolean (необязательно) - Установите `false`, чтобы создать [Frameless Window](frameless-window.md). По умолчанию - `true`.
+  * `parent` BrowserWindow (необязательно) - Устанавливает родительское окно. По умолчанию - `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
   * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
