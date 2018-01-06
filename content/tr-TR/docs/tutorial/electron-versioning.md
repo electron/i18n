@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## Sürüm 1.x
 
-Electron versiyonları *< 2.0*, [semver](http://semver.org) belirtimine uymadı. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron versiyonları *< 2.0*, [semver](http://semver.org) belirtimine uymadı. Ana sürümler, son kullanıcı API değişikliklerine karşılık gelmektedir. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
