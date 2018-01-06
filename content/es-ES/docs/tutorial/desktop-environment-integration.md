@@ -195,7 +195,7 @@ En Windows un botón de la barra de tareas puede usar un pequeño encubrimiento 
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+Para configurar el encubrimiento de un ícono para una ventana tiene que usar el API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -203,9 +203,9 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## Marco de flash (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+En Windows puede resaltar el botón de barras de tarea para obtener la atención del usuario. Esto es similar al ícono de dock que rebota en macOS. Desde la documentación de referencia de MSDN:
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
