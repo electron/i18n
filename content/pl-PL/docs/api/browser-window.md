@@ -1070,7 +1070,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Zmienia czy okno może zostać wyostrzone.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
