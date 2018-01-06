@@ -102,7 +102,7 @@ Context | Request Context
 
 ## WebdriverIO'yu Ayarlama
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[WebdriverIO](http://webdriver.io/), web sürücüsü ile test etmek için bir Node paketi sağlar.
 
 ### 1. ChromeDriver'ı başlatın
 
