@@ -10,13 +10,13 @@
 
 ## इलेक्ट्रॉन नवीनतम क्रोम तक कब अपग्रेड होगा?
 
-इलेक्ट्रॉन का क्रोम संस्करण, अक्सर नये स्थिर क्रोम संस्करण के जारी होने के 1-2 हफ़्तों में ही बढ़ जाता है | This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+इलेक्ट्रॉन का क्रोम संस्करण, अक्सर नये स्थिर क्रोम संस्करण के जारी होने के 1-2 हफ़्तों में ही बढ़ जाता है | यह अनुमान गलत भी हो सकता है और अपग्रेड करने में लगने वाले कार्य पर निर्भर करता है |
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+क्रोम का केवल स्थिर चैनल ही इस्तेमाल किया जाता है |अगर कोई महत्वपूर्ण मरम्मत बीटा या डेव चैनल में हो, तो हम उसे बैक-पोर्ट कर देते हैं |
 
-For more information, please see the [security introduction](tutorial/security.md).
+और अधिक जानकारी के लिए, कृपया [सुरक्षा परिचय](tutorial/security.md) देखें |
 
-## When will Electron upgrade to latest Node.js?
+## इलेक्ट्रॉन नवीनतम नोड.जेएस तक कब अपग्रेड होगा?
 
 When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
 
