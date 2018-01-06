@@ -6,7 +6,7 @@
 
 ` session ` 模块可用于创建新的 ` session ` 对象。
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+你还可以使用[`WebContents`](web-contents.md)的`session`属性或` session`模块访问现有页的`session`
 
 ```javascript
 const {BrowserWindow} = require('electron')
