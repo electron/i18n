@@ -142,61 +142,63 @@ Dibunyikan apabila halaman yang permintaan untuk membuka jendela baru `url`. Itu
 
 Secara default baru `Jendela Peramban` akan diciptakan untuk `url`.
 
-Memanggil `acara mencegah Default()` akan mencegah elektron dari secara otomatis menciptakan baru `Jendela Peramban`. Jika Anda menelepon `event.preventDefault()` dan manual membuat baru `BrowserWindow` maka Anda harus mengatur `event.newGuest` ke referensi contoh `BrowserWindow` baru, gagal untuk melakukannya dapat mengakibatkan perilaku tak terduga. Sebagai contoh:
+Memanggil `acara mencegah Default()` akan mencegah elektron dari secara otomatis menciptakan baru `Jendela Peramban`. Jika Anda menelepon `event.preventDefault()` dan manual membuat baru `Jeendela Peramban` maka Anda harus mengatur `event.new Tamu` ke referensi contoh `Jendela Peramban` baru, gagal untuk melakukannya dapat mengakibatkan perilaku tak terduga. Sebagai contoh:
 
 ```javascript
-myBrowserWindow.webContents.on ('window baru ', (acara, url) = > {event.preventDefault() const menang = baru BrowserWindow({show: false}) win.once (' siap-untuk-menunjukkan ', () = > win.show()) win.loadURL(url) event.newGuest = menang})
+JendelaPerambansay isiweb.on ('window baru ', (acara, url) = > {peristiwa.mencegahDefault() const menang = baru JendelaPeramban({tunjukkan: salah}) menang (' siap-untuk-menunjukkan ', () = > menang.menunjukkan()) menang. memuatURL(url) acara.tamu baru = menang})
 ```
 
-#### Event: 'akan navigasi'
+#### Peristiwa: 'akan navigasi'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
+* `acara` Acara
+* ` url </ 0> Tali</li>
+</ul>
+
+<p>dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek <code> jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+</p>
+
+<p>Peristiwa ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
+API seperti <code>isi web memuat URL` dan `isi web kembali`.</p> 
+  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `jendela.lokasi.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
+  Memanggil `peristiwa.mencegah Default()` akan mencegah navigasi.
+  
+  #### Peristiwa: 'akan navigasi'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `url` Tali
+  
+  Dibunyikan apabila navigasi dilakukan.
+  
+  Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
+  #### Event: 'Apakah-menavigasi-di halaman'
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
 <li><code>url` String
-
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
-
-Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
-
-Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-
-Memanggil `event.preventDefault()` akan mencegah navigasi.
-
-#### Event: 'melakukan navigasi'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
-<li><code>url` String
-
-Dibunyikan apabila navigasi dilakukan.
-
-Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-
-#### Event: 'Apakah-menavigasi-di halaman'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
-<li><code>url` String
-* `adalah Bingkai Utama` Boolean
-
-Dibunyikan saat navigasi dalam halaman terjadi.
-
-Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
-
-#### Event: 'akan-mencegah-membongkar'
-
-Pengembalian:
-
-* ` event </ 0>  Acara</li>
+  * `adalah Bingkai Utama` Boolean
+  
+  Dibunyikan saat navigasi dalam halaman terjadi.
+  
+  Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
+  
+  #### Event: 'akan-mencegah-membongkar'
+  
+  Pengembalian:
+  
+  * ` event </ 0>  Acara</li>
 </ul>
 
 <p>Dibunyikan apabila <code>beforeunload` event handler adalah mencoba untuk membatalkan halaman membongkar.</p> 
-  Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
-  
-  ```javascript
+    Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
+    
+    ```javascript
 const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWindow ({width: 800, height: 600}) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
 ```
 
