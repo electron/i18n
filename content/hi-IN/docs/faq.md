@@ -6,7 +6,7 @@
 
 लगभग सभी मामलों में, यह त्रुटियाँ नेटवर्क समस्याओं के कारण होती है, न कि `इलेक्ट्रॉन` एनपीएम पैकेज में मौज़ूद किसी वास्तविक समस्या से | `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, और `ETIMEDOUT` जैसी त्रुटियाँ नेटवर्क समस्याओं का संकेत हैं | सबसे उत्तम उपाय नेटवर्क बदलना, या फिर थोड़ा इंतज़ार कर के दोबारा इन्स्टॉल करने की कोशिश करना है |
 
-अगर `एनपीएम` के द्वारा इंस्टालेशन कामयाब नहीं हो रही है, तो आप इलेक्ट्रॉन को सीधे [electron/electron/releases](https://github.com/electron/electron/releases) से भी डाउनलोड कर सकते हैं |
+आप इलेक्ट्रॉन को सीधे [electron/electron/releases](https://github.com/electron/electron/releases) से भी डाउनलोड कर सकते हैं, अगर `एनपीएम` के द्वारा इंस्टालेशन कामयाब नहीं हो रही है |
 
 ## इलेक्ट्रॉन नवीनतम क्रोम तक कब अपग्रेड होगा?
 
@@ -22,9 +22,9 @@
 
 नोड.जेएस की नई सुविधायें अक्सर वी8 अपग्रेडस के द्वारा लायी जाती हैं | चूँकि इलेक्ट्रॉन क्रोम ब्राउज़र द्वारा दिए गये वी8 का इस्तेमाल करता है, इसलिए नोड.जेएस का नया संस्करण अक्सर इलेक्ट्रॉन में पहले से ही शामिल होता है |
 
-## How to share data between web pages?
+## वेब पेजों के बीच डाटा कैसे साझा करें ?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+वेब पेजों (रेंदेरेर प्रक्रियायें) के बीच डाटा साझा करने के लिए सबसे आसान तरीका है एचटीएमएल5 ऐपीआई, जो कि ब्राउज़र में पहले से ही मौज़ूद होती हैं| [स्टोरेजऐपीआई](https://developer.mozilla.org/en-US/docs/Web/API/Storage),[`लोकलस्टोरेज`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`सेशनस्टोरेज`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) और [इंडेक्स्डडीबी](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) इसके अच्छे उम्मीदवार हैं |
 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
