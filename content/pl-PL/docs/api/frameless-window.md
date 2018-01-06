@@ -1,4 +1,4 @@
-# Frameless Window
+# Okno bez ramki
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
@@ -58,7 +58,7 @@ let win = new BrowserWindow({transparent: true, frame: false})
 win.show()
 ```
 
-### Limitations
+### Ograniczenia
 
 * You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
@@ -111,6 +111,6 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 }
 ```
 
-## Context menu
+## Menu kontekstowe
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
