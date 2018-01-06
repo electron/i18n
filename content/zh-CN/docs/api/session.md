@@ -1,10 +1,10 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> 管理浏览器会话、cookie、缓存、代理设置等。
 
 线程：[主线程](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+` session ` 模块可用于创建新的 ` session ` 对象。
 
 You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
@@ -20,7 +20,7 @@ console.log(ses.getUserAgent())
 
 ## 方法
 
-The `session` module has the following methods:
+` session ` 模块具有以下方法:
 
 ### `session.fromPartition(partition[, options])`
 
@@ -109,7 +109,7 @@ Clears the data of web storages.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+写入任何未写入DOMStorage数据到磁盘.
 
 #### `ses.setProxy(config, callback)`
 
@@ -119,7 +119,7 @@ Writes any unwritten DOMStorage data to disk.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
 * `callback` Function - Called when operation is done.
 
-Sets the proxy settings.
+代理设置
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
@@ -158,7 +158,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  匹配URLs也就是IP地址字面值
   
   Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
@@ -330,13 +330,13 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### 实例属性
 
 The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+此会话的 [ cookie ](cookies.md) 对象。
 
 #### `ses.webRequest`
 
@@ -344,7 +344,7 @@ A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+此会话的 [ 协议 ](protocol.md) 对象。
 
 ```javascript
 const {app, session} = require('electron')
