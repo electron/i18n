@@ -16,7 +16,7 @@ Proces: [Main](../tutorial/quick-start.md#main-process)
     * `capsule` - The control is displayed using the capsule style
     * `small-square` - The control is displayed using the small square style.
     * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String - (optional) The selection mode of the control: 
+  * `tryb` String - (optional) The selection mode of the control: 
     * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
     * `multiple` - Multiple items can be selected at a time.
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
