@@ -243,7 +243,7 @@ win.setDocumentEdited(true)
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+W stronie Www:
 
 ```html
 <a href="#" id="drag">item</a>
