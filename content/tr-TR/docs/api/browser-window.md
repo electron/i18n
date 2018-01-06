@@ -170,7 +170,7 @@ Süreç: [Ana](../glossary.md#main-process)
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Varsayılanı `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Varsayılanı `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
-    * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. Bu komut dosyasında, düğüm entegrasyonunun açık veya kapalı olmasına bakılmaksızın düğüm API'lerine her zaman erişilebilmektedir. The value should be the absolute file path to the script. Düğüm entegrasyonu kapatıldığında, önceden yüklenmiş komut dosyası düğümün genel başvuru bayrağını genel kapsamdan yeniden başlatır. Örneği [gör](process.md#event-loaded).
+    * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. Bu komut dosyasında, düğüm entegrasyonunun açık veya kapalı olmasına bakılmaksızın düğüm API'lerine her zaman erişilebilmektedir. Değer, komut dosyasının salt dosya yolu olmalıdır. Düğüm entegrasyonu kapatıldığında, önceden yüklenmiş komut dosyası düğümün genel başvuru bayrağını genel kapsamdan yeniden başlatır. Örneği [gör](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
@@ -254,7 +254,7 @@ window.onbeforeunload = (e) => {
 
 #### Etkinlik: 'kapatıldı'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Pencere kapatıldığında ortaya çıkmaktadır. Bu etkinliği aldıktan sonra, pencereye yapılan göndermeyi kaldırmalı ve daha fazla kullanmamalısınız.
 
 #### Event: 'session-end' *Windows*
 
@@ -302,15 +302,15 @@ Pencere minimize edildiğinde ortaya çıkmaktadır.
 
 #### Etkinlik: 'onarmak'
 
-Emitted when the window is restored from a minimized state.
+Pencere küçültülmüş bir durumdan geri yüklendiğinde ortaya çıkmaktadır.
 
 #### Etkinlik: 'yeniden boyutlandırma'
 
-Emitted when the window is being resized.
+Pencere yeniden boyutlandırıldığında ortaya çıkar.
 
 #### Etkinlik: 'hareket ettir'
 
-Emitted when the window is being moved to a new position.
+Pencere yeni bir konuma getirildiği zaman ortaya çıkmaktadır.
 
 **Note**: On macOS this event is just an alias of `moved`.
 
