@@ -1,4 +1,4 @@
-# Debugging the Main Process in VSCode
+# Depurando el Proceso Principal en VSCode
 
 ### 1. Open an Electron project in VSCode.
 
