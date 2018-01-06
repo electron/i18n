@@ -72,4 +72,4 @@ Emitted when debugging session is terminated. This happens either when `webConte
 * `method` String - Method name.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
-Emitted whenever debugging target issues instrumentation event.
+Hata ayıklama hedeflemesi enstrümantasyon olayında her zaman ortaya çıkar.
