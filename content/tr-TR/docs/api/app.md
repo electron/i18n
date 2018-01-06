@@ -229,7 +229,7 @@ Dönüşler:
 
 Emitted when `webContents` wants to do basic auth.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Varsayılan davranış, tüm kimlik doğrulamalarını iptal etmektir; bunu geçersiz kılmak için `event.preventDefault()` ile varsayılan davranışı engellemeli ve kimlik bilgileriyle `callback(username, password)`'u çağırmalısınız.
 
 ```javascript
 const {app} = require('electron')
@@ -417,7 +417,7 @@ Yakın zamandaki dokümentasyon listesini temizler.
 
 ### `app.setAsDefaultProtocolClient(protokol[, yol, args])` *macOS* *Windows*
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
@@ -478,7 +478,7 @@ Returns `Object`:
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
 
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
+Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıdaki dizelerden birini geri döndürür:
 
 * `ok` - Hiç bir şey yanlış gitmedi.
 * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
@@ -492,7 +492,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 **Not**: Kullanıcılar öğeleri özel kategorilerden kaldırabilir ve Windows kaldırılan bir öğe'nin **tekrar** olana kadar özel bir kategoriye eklenmesine izin verin bir sonraki başarılı çağrı: `app.setJumpList (categories)`. Herhangi bir girişim öğesi kaldırılmış, daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılmasıdır. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Aşağıda özel bir Atlama Listesi oluşturmanın basit bir örneği verilmiştir:
 
 ```javascript
 const {app} = require('electron')
@@ -782,7 +782,7 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Dock'un rozetleme alanında gösterilecek satırı ayarlar.
 
 ### `app.dock.getBadge()` *macOS*
 
