@@ -199,7 +199,7 @@ The arguments of an event follow the same rules as methods.
 
 ### Właściwości
 
-The properties chapter must be in following form:
+Rozdział własności musi być w podanej formie:
 
 ```markdown
 ### session.defaultSession
