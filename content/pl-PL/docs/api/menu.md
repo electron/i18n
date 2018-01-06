@@ -220,9 +220,9 @@ macOS has a completely different style of application menu from Windows and Linu
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
-* `window`
+* `okno`
 * `pomoc`
-* `services`
+* `usługi`
 
 ### Standard Menu Item Actions
 
