@@ -126,12 +126,12 @@ Process: [Main](../glossary.md#main-process)
   * `useContentSize` Boolean (необязательно) - `width` и `height` могут использоваться как размеры веб-страницы, это значит, что актуальный размер окна будет включать размер фрейма и будет немного крупнее. По умолчанию - `false`.
   * `center` Boolean (необязательно) - Показывает окно в центре экрана.
   * `minWidth` Integer (необязательно) - Минимальная ширина окна. По умолчанию - ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
+  * `minHeight` Integer (необязательно) - Минимальная высота окна. По умолчанию - ``.
+  * `maxWidth` Integer (необязательно) - Максимальная ширина окна. По умолчанию - без ограничений.
+  * `maxHeight` Integer (необязательно) - Максимальная высота окна. По умолчанию - без ограничений.
+  * `resizable` Boolean (необязательно) - Возможность изменение размера окна. По умолчанию - `true`.
+  * `movable` Boolean (необязательно) - Возможность перемещения окна. Не реализовано на Linux. По умолчанию - `true`.
+  * `minimizable` Boolean (необязательно) - Возможность сворачивать окно. Не реализовано на Linux. По умолчанию - `true`.
   * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
   * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
   * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
