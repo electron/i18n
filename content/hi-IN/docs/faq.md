@@ -6,11 +6,11 @@
 
 लगभग सभी मामलों में, यह त्रुटियाँ नेटवर्क समस्याओं के कारण होती है, न कि `इलेक्ट्रॉन` एनपीएम पैकेज में मौज़ूद किसी वास्तविक समस्या से | `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, और `ETIMEDOUT` जैसी त्रुटियाँ नेटवर्क समस्याओं का संकेत हैं | सबसे उत्तम उपाय नेटवर्क बदलना, या फिर थोड़ा इंतज़ार कर के दोबारा इन्स्टॉल करने की कोशिश करना है |
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+अगर `एनपीएम` के द्वारा इंस्टालेशन कामयाब नहीं हो रही है, तो आप इलेक्ट्रॉन को सीधे [electron/electron/releases](https://github.com/electron/electron/releases) से भी डाउनलोड कर सकते हैं |
 
-## When will Electron upgrade to latest Chrome?
+## इलेक्ट्रॉन नवीनतम क्रोम तक कब अपग्रेड होगा?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. This estimate is not guaranteed and depends on the amount of work involved with upgrading.
+इलेक्ट्रॉन का क्रोम संस्करण, अक्सर नये स्थिर क्रोम संस्करण के जारी होने के 1-2 हफ़्तों में ही बढ़ जाता है | This estimate is not guaranteed and depends on the amount of work involved with upgrading.
 
 Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
 
