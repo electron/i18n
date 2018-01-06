@@ -28,7 +28,7 @@ export npm_config_build_from_source=true
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### Instalowanie modułów i odbudowa dla Electron
 
 You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
 
