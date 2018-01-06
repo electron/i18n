@@ -40,7 +40,7 @@ Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` Dize (isteğe bağlı)
 
 Returns `String` - The content in the clipboard as markup.
 
@@ -62,7 +62,7 @@ Writes `markup` to the clipboard.
 * `image` [NativeImage](native-image.md)
 * `type` String (optional)
 
-Writes `image` to the clipboard.
+`image`'i panoya yazar.
 
 ### `clipboard.readRTF([type])`
 
