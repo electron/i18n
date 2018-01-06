@@ -157,19 +157,19 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Acceso directos unidad Laucher (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+En unity, usted puede añadir entradas personalizadas a su Launcher modificando el archivo `.escritorio`, vea [Añadiendo accesos directos al luncher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Accesos directos del Launcher de Audacious:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Barra de progreso en la barra de tareas (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+En Windows una botón en la barra de tareas puede ser usado para mostrar una barra de progreso. Esto habilita a windows de informar sobre el progreso del proceso al usuario sin que este tenga que cambiar a la ventana misma.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+En macOS la barra de progreso será mostrada como una parte del ícono del dock.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
