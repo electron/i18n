@@ -666,7 +666,7 @@ Dibunyikan apabila navigasi dilakukan.
 
 Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
 
-### Event: 'Apakah-menavigasi-di halaman'
+### peristiwa: 'Apakah-menavigasi-di halaman'
 
 Pengembalian:
 
@@ -675,7 +675,7 @@ Pengembalian:
 
 Dibunyikan saat navigasi dalam halaman terjadi.
 
-Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
+Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
 
 ### Acara : 'dekat'
 
@@ -706,7 +706,7 @@ With `sendToHost` method and `ipc-message` event you can easily communicate betw
 // In guest page. const {ipcRenderer} = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
 ```
 
-### Event: 'jatuh'
+### Peristiwa: 'jatuh'
 
 Dipecat saat proses renderer jatuh.
 
@@ -714,7 +714,7 @@ Dipecat saat proses renderer jatuh.
 
 Dipecat saat proses gpu jatuh.
 
-### Event: 'plugin-jatuh'
+### Peristiwa: 'plugin-jatuh'
 
 Pengembalian:
 
