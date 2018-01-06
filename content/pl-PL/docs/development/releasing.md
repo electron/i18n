@@ -19,7 +19,7 @@ Once you have determined which type of version change is needed, run the `prepar
 
 Na przykład:
 
-### Major version change
+### Większa zmiana wersji
 
 ```sh
 npm run prepare-release -- major
@@ -86,7 +86,7 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### Mniejsze wydania
 
 For a `minor` release, e.g. `1.8.0`, use this format:
 
@@ -112,7 +112,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 * Changed a Windows thing. #123
 ```
 
-### Major releases
+### Większe wydania
 
 ```sh
 ## Upgrades
