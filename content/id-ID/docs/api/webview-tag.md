@@ -640,21 +640,23 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
 const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
 ```
 
-### Event: 'akan navigasi'
+### Peristiwa: 'akan navigasi'
 
 Pengembalian:
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+</p>
 
-Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
+<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
+API seperti <code>webContents.loadURL` dan `webContents.back`.
 
 Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
 
 Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
 
-### Event: 'melakukan navigasi'
+### Peristiwa: 'akan navigasi'
 
 Pengembalian:
 
