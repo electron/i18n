@@ -139,7 +139,7 @@ If you've installed it globally with `npm`, then you will only need to run the f
 electron .
 ```
 
-If you've installed it locally, then run:
+Jeśli zainstalowałeś to lokalnie, to uruchom:
 
 #### macOS / Linux
 
