@@ -22,16 +22,16 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | cy            | Walijski                       |
 | da            | Danish                         |
 | de            | German                         |
-| de-AT         | German (Austria)               |
+| de-AT         | Niemiecki (Austria)            |
 | de-CH         | German (Switzerland)           |
-| de-DE         | German (Germany)               |
+| de-DE         | Niemiecki (Niemcy)             |
 | el            | Greek                          |
 | en            | English                        |
 | en-AU         | English (Australia)            |
-| en-CA         | English (Canada)               |
-| en-GB         | English (UK)                   |
+| en-CA         | Angielski (Kanada)             |
+| en-GB         | Angielski (UK)                 |
 | en-NZ         | English (New Zealand)          |
-| en-US         | English (US)                   |
+| en-US         | Angielski (US)                 |
 | en-ZA         | English (South Africa)         |
 | eo            | Język Międzynarodowy Esperanto |
 | es            | Spanish                        |
@@ -43,12 +43,12 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | fil           | Filipiński                     |
 | fo            | Faroese                        |
 | fr            | French                         |
-| fr-CA         | French (Canada)                |
+| fr-CA         | Francuski (Kanada)             |
 | fr-CH         | French (Switzerland)           |
-| fr-FR         | French (France)                |
+| fr-FR         | Francuski (Francja)            |
 | fy            | Frisian                        |
 | ga            | Irish                          |
-| gd            | Scots Gaelic                   |
+| gd            | Język gaelicki szkocki         |
 | gl            | Galicyjski                     |
 | gn            | Guarani                        |
 | gu            | Gudżarati                      |
@@ -64,7 +64,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | is            | Islandzki                      |
 | it            | Italian                        |
 | it-CH         | Italian (Switzerland)          |
-| it-IT         | Italian (Italy)                |
+| it-IT         | Włoski (Włochy)                |
 | ja            | Japoński                       |
 | jw            | Jawajski                       |
 | ka            | Gruziński                      |
