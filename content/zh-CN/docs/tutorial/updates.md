@@ -4,16 +4,16 @@
 
 ## 部署更新服务器
 
-开始前, 你首先需要部署一个服务器用来自动更新下载新的更新模块.
+开始前, 你首先需要部署一个服务器用来自动更新下载[autoUpdater](../api/auto-updater.md)模块.
 
 根据你的需要，你可以从下方选择：
 
 - [Hazel](https://github.com/zeit/hazel)为私有或开源应用程序更新服务器 可以用[Now](https://zeit.co/now)免费部署(使用单个命令), 先从[GitHub Releases](https://help.github.com/articles/creating-releases/)拉取然后利用 GitHub's CDN 的强大能力.
 - [Nuts](https://github.com/GitbookIO/nuts)－同样使用[GitHub Releases](https://help.github.com/articles/creating-releases/), 但得在磁盘上缓存应用程序更新并支持私有存储库.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) –提供用于处理发布的仪表板
-- [Nucleus](https://github.com/atlassian/nucleus) – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nucleus](https://github.com/atlassian/nucleus) – 一个由Atlassian维护的 Electron 应用程序的完整更新服务器。 支持多种应用程序和渠道; 使用静态文件存储来降低服务器成本.
 
-If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
+如果你的app是通过[electron-builder](https://github.com/electron-userland/electron-builder)打包那么你可以使用[electron-updater](https://www.electron.build/auto-update)模块, 它不依赖任何服务器并且可以从S3, GitHub或者任何其它静态文件存储更新.
 
 ## Implementing updates in your app
 
