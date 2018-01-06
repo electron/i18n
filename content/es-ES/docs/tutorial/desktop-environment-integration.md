@@ -171,13 +171,13 @@ En Windows una botón en la barra de tareas puede ser usado para mostrar una bar
 
 En macOS la barra de progreso será mostrada como una parte del ícono del dock.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+El Unity DE también tiene una función similar que le permite especificar la barra de progreso en el laucher.
 
-**Progress bar in taskbar button:**
+**Barra de progreso en el botón de la barra de tareas:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Para configurar la barra de progreso para una ventana, puede usar la API [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,9 +185,9 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Encubrimiento de íconos en la barra de tareas (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+En Windows un botón de la barra de tareas puede usar un pequeño encubrimiento para mostrar el estatus de la aplicación, como es mencionado por la MSDN:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
