@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Ukrywa wszystkie okna aplikacji bez minimalizowania ich.
 
 ### `app.show()` *macOS*
 
