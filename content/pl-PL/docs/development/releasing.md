@@ -2,12 +2,12 @@
 
 This document describes the process for releasing a new version of Electron.
 
-## Determine which branch to release from
+## Ustala, z której gałęzi wypuścić
 
 - **If releasing beta,** run the scripts below from `master`.
 - **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
 
-## Find out what version change is needed
+## Dowiedz się jaka zmiana wersji jest potrzebna
 
 Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
