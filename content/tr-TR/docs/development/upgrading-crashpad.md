@@ -16,7 +16,7 @@
 
 2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
     
-    - Or view http://github.com/electron/crashpad/commits/previous-branch-name
+    - Yada http://github.com/electron/crashpad/commits/previous-branch-name sayfasını görüntüleyin
 
 3. Her yama için:
     
