@@ -111,11 +111,11 @@ Las tareas del usuario aún se mostrará después de que la aplicación se cierr
 
 ## Barra de tareas de Thumbnail
 
-En Windoes usted puede añadir una barra de tareas thumbnail con botones específicos en un diseñador de barras de tareas de una ventana de un aplicación. It provides users a way to access to a particular window's command without restoring or activating the window.
+En Windoes usted puede añadir una barra de tareas thumbnail con botones específicos en un diseñador de barras de tareas de una ventana de un aplicación. Le da a los usuarios una manera de acceder a una comando de ventana en particular sin tener que restaurar o activar la ventana.
 
-From MSDN, it's illustrated:
+Para MSDN, está ilustrado:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Esta barra de herramientas es simplemente la barra de tareas estándar de control común. Tiene un máximo de siete botones. Cada botón de identificación, imagen, descripción y estado está definido en una estructura, la cual es pasada a la barra de tareas. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
 > For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
 
