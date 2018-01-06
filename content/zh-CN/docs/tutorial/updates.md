@@ -17,15 +17,15 @@
 
 ## 实施更新你的应用程序
 
-一旦你部署了更新服务器, 继续导入你所需要的代码模块. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+一旦你部署了更新服务器, 继续导入你所需要的代码模块. 下列代码可能因不同的服务器软件而变化, 但是它运行时就像[Hazel](https://github.com/zeit/hazel)描述的那样.
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Important:** 请确保下面的代码只在打包的应用程序, 而不是开发中. 你可以使用[electron-is-dev](https://github.com/sindresorhus/electron-is-dev)检查开发环境.
 
 ```js
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+其次, 构建更新服务器的URL然后通知[autoUpdater](../api/auto-updater.md)以下事项:
 
 ```js
 const server = 'https://your-deployment-url.com'
@@ -34,7 +34,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+最后一步, 检查更新. 下面的例子将每分钟检查一次:
 
 ```js
 setInterval(() => {
