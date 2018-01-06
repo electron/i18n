@@ -6,9 +6,9 @@ Proces: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
-* `options` Object 
+* `options` Obiekt 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
+  * `wybierz` Function - Called when the user taps an item that was not the last tapped item 
     * `selectedIndex` Integer - The index of the item the user selected
   * `highlight` Function - Called when the user taps any item 
     * `highlightedIndex` Integer - The index of the item the user touched
