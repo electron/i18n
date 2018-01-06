@@ -18,9 +18,9 @@
 
 ## इलेक्ट्रॉन नवीनतम नोड.जेएस तक कब अपग्रेड होगा?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+जब नोड.जेएस का एक नया संस्करण जारी होता है, तो इलेक्ट्रॉन के नोड संस्करण को अपग्रेड करने से पहले हम अक्सर करीब एक महीने का इंतज़ार करते हैं | ऐसा इसलिए ताकि नये नोड.जेएस में आने वाले बग्स से हम प्रभावित न हों, जो किअक्सर आते ही हैं|
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+नोड.जेएस की नई सुविधायें अक्सर वी8 अपग्रेडस के द्वारा लायी जाती हैं | चूँकि इलेक्ट्रॉन क्रोम ब्राउज़र द्वारा दिए गये वी8 का इस्तेमाल करता है, इसलिए नोड.जेएस का नया संस्करण अक्सर इलेक्ट्रॉन में पहले से ही शामिल होता है |
 
 ## How to share data between web pages?
 
