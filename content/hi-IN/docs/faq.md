@@ -47,22 +47,22 @@ console.log(require('electron').remote.getGlobal('sharedObject').
 someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## मेरी एप्प की विंडो/ट्रे कुछ मिनटों बाद गायब हो गयी |
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+ऐसा तब होता है जब विंडोज/ट्रे को स्टोर करने में इस्तेमाल होने वाला वेरिएबल, गार्बेज द्वारा एकत्र कर लिया जाता है |
 
-If you encounter this problem, the following articles may prove helpful:
+अगर आपको इस समस्या का सामना करना पड़ें, तो नीचे दिए गये लेख आपके लिए मददगार साबित होंगे:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [मेमोरी प्रबंधन](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [वेरिएबल स्कोप](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+अगर आप एक तेज़ उपाय चाहते हैं, तो आप अपने कोड में बदलाव कर वेरिएबल्स को वैश्विक बना सकते हैं, ऐसे:
 
 ```javascript
 const {app, Tray} = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+  tray.setTitle('hello world') 
 })
 ```
 
