@@ -582,9 +582,9 @@ Returns `Boolean` - Whether the window is in fullscreen mode.
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
 * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Bu, görüntü oranını koruyan bir pencere oluşturacaktır. Ekstra bir boyut, geliştiricinin piksel cinsinden belirtilen, görüntü oranı hesaplamaları içine dahil edilmeyen yere sahip olmasını sağlar. Bu API, önceden bir pencerenin boyutu ile içerik boyutu arasındaki farkı dikkate almaktadır.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir pencere düşünün. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sadece Genel İçerik görünümünde herhangi bir ekstra genişlik ve yükseklik alanlarını toplamak yeterlidir.
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -614,7 +614,7 @@ Resizes and moves the window to the supplied bounds
 * `bounds` [Dikdörtgen](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taşımakta ve verilen sınırlara getirmektedir.
 
 #### `win.getContentBounds()`
 
