@@ -149,7 +149,7 @@ In order to satisfy all requirements for app sandboxing, the following modules h
 
 and the following behaviors have been changed:
 
-* Video capture may not work for some machines.
+* Nagrywanie może nie działać na dla niektórych urządzeń.
 * Certain accessibility features may not work.
 * Apps will not be aware of DNS changes.
 
@@ -209,7 +209,7 @@ This will fail when the app is signed for distribution in the Mac App Store. Sub
 
 Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
 
-Electron uses following cryptographic algorithms:
+Electron używa poniższych algorytmów kryptograficznych:
 
 * AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
