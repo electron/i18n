@@ -603,7 +603,7 @@ Clears the navigation history.
 
 #### `contents.goBack()`
 
-Makes the browser go back a web page.
+Tarayıcıyı internet sayfasına geri döndürür.
 
 #### `contents.goForward()`
 
