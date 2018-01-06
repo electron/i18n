@@ -34,13 +34,13 @@ Kembali `isi web` - isi web yang terfokus dalam aplikasi ini, jika tidak kembali
 
 ### `isi web dari Id(id)`
 
-* `id` Bilangan bulat
+* `identitas` Integer
 
-Mengembalikan `WebContents` - Contoh WebContents dengan ID yang diberikan.
+Mengembalikan `isi web` - Contoh isi web dengan INDETITAS yang diberikan.
 
-## Kelas: WebKontes
+## Kelas: isi web
 
-> Membuat dan mengontrol isi sebuah instance BrowserWindow.
+> Membuat dan mengontrol isi sebuah contoh jendela peramban.
 
 Proses: [utama](../glossary.md#main-process)
 
@@ -48,21 +48,21 @@ Proses: [utama](../glossary.md#main-process)
 
 #### Event: 'Apakah-selesai-load'
 
-Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
+Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `pada beban` dikirim.
 
-#### Event: 'Apakah-gagal-load'
+#### Peristiwa: 'Apakah-gagal-beban'
 
 Kembali:
 
 * `peristiwa` Peristiwa
-* `errorCode` Bilangan bulat
-* `errorDescription` String
-* `validatedURL` String
-* `isMainFrame` Boolean
+* `kode kesalahan` Bilangan bulat
+* `Deskripsi kesalahan` Tali
+* `memvalidasi URL` Tali
+* `adalah Bingkai Utama` Boolean
 
-Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil. Daftar lengkap kode galat dan makna mereka tersedia [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `jendela.berhenti()` dipanggil. Daftar lengkap kode galat dan makna mereka tersedia [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'Apakah-frame-selesai-load'
+#### Peristiwa: 'Apakah-frame-selesai-beban'
 
 Pengembalian:
 
@@ -180,7 +180,7 @@ Pengembalian:
 
 * ` event </ 0>  Acara</li>
 <li><code>url` String
-* `isMainFrame` Boolean
+* `adalah Bingkai Utama` Boolean
 
 Dibunyikan saat navigasi dalam halaman terjadi.
 
