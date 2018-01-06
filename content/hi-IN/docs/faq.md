@@ -26,23 +26,25 @@
 
 वेब पेजों (रेंदेरेर प्रक्रियायें) के बीच डाटा साझा करने के लिए सबसे आसान तरीका है एचटीएमएल5 ऐपीआई, जो कि ब्राउज़र में पहले से ही मौज़ूद होती हैं| [स्टोरेजऐपीआई](https://developer.mozilla.org/en-US/docs/Web/API/Storage),[`लोकलस्टोरेज`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`सेशनस्टोरेज`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) और [इंडेक्स्डडीबी](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) इसके अच्छे उम्मीदवार हैं |
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+या फिर आप आईपीसी सिस्टम भी इस्तेमाल कर सकते हैं, जो कि ख़ास इलेक्ट्रॉन के लिए है | इसके द्वारा आप मुख्य प्रक्रिया में ऑब्जेक्ट्स को एक वैश्विक वेरिएबल की तरह स्टोर कर सकते हैं, और फिर उन तक रेंदेरेर्स से `इलेक्ट्रॉन` मोड्यूल के `दूरस्थ` गुण के द्वारा पहुँच सकते हैं |
 
 ```javascript
-// In the main process.
-global.sharedObject = {
-  someProperty: 'default value'
+// मुख्य प्रक्रिया में |
+ global.sharedObject = {
+   someProperty: 'default value' 
 }
 ```
 
 ```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
+// पेज 1 में |
+require('electron').remote.getGlobal('sharedObject').someProperty =
+'new value'
 ```
 
 ```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+// पेज 2 में |
+console.log(require('electron').remote.getGlobal('sharedObject').
+someProperty)
 ```
 
 ## My app's window/tray disappeared after a few minutes.
