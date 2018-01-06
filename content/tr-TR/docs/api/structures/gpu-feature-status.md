@@ -11,8 +11,8 @@
 * `video_decode` String - Video Decode
 * `video_encode` String - Video Encode
 * `vpx_decode` String - VPx Video Decode
-* `webgl` String - WebGL
-* `webgl2` String - WebGL2
+* `webgl` Dize - WebGL
+* `webgl2` Dize - WebGL2
 
 Olası değerler:
 
