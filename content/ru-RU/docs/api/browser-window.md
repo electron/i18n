@@ -129,14 +129,14 @@ Process: [Main](../glossary.md#main-process)
   * `minHeight` Integer (необязательно) - Минимальная высота окна. По умолчанию - ``.
   * `maxWidth` Integer (необязательно) - Максимальная ширина окна. По умолчанию - без ограничений.
   * `maxHeight` Integer (необязательно) - Максимальная высота окна. По умолчанию - без ограничений.
-  * `resizable` Boolean (необязательно) - Возможность изменение размера окна. По умолчанию - `true`.
-  * `movable` Boolean (необязательно) - Возможность перемещения окна. Не реализовано на Linux. По умолчанию - `true`.
-  * `minimizable` Boolean (необязательно) - Возможность сворачивать окно. Не реализовано на Linux. По умолчанию - `true`.
-  * `maximazable` Boolean (необязательно) - Возможность разворачивать окно. Не реализовано на Linux. По умолчанию - `true`.
+  * `resizable` Boolean (необязательно) - Будет ли окно изменять размеры. По умолчанию - `true`.
+  * `movable` Boolean (необязательно) - Будет ли окно перемещаться. Не реализовано на Linux. По умолчанию - `true`.
+  * `minimizable` Boolean (необязательно) - Будет ли окно сворачиваться. Не реализовано на Linux. По умолчанию - `true`.
+  * `maximazable` Boolean (необязательно) - Будет ли окно разворачиваться. Не реализовано на Linux. По умолчанию - `true`.
   * `closable` Boolean (необязательно) - Возможность закрывать окно. Не реализовано на Linux. По умолчанию - `true`.
-  * `focusable` Boolean (необязательно) - Возможность окна быть в фокусе. По умолчанию - `true`. На Windows настройка `focusable: false` также подразумевает настройку `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. По умолчанию - `false`.
+  * `focusable` Boolean (необязательно) - Может ли быть окно в фокусе. По умолчанию - `true`. На Windows настройка `focusable: false` также подразумевает настройку `skipTaskbar: true`. На Linux настройка `focusable: false` прекращает взаимодействие окна с оконным менеджером, на Windows же всегда остается поверх всех рабочих областей.
+  * `alwaysOnTop` Boolean (необязательно) - Будет ли окно всегда оставаться поверх других окон. По умолчанию - `false`.
+  * `fullscreen` Boolean (необязательно) - Будет ли окно показываться во весь экран. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. По умолчанию - `false`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
