@@ -106,43 +106,43 @@ Pengembalian:
 * `kode tanggapan http` Bilangan bulat
 * `metode permintaan` Tali
 * `pengarah` Tali
-* `headers` Obyek
+* `header` Obyek
 
-Emitted ketika redirect diterima saat meminta resource.
+dipancarkan ketika pengalihan diterima saat meminta sumber daya.
 
-#### Event: 'dom-siap'
-
-Pengembalian:
-
-* `event` Acara
-
-Emitted saat dokumen dalam bingkai yang diberikan dimuat.
-
-#### Event: 'halaman-favicon-updated '
+#### Peristiwa: 'lokal-siap'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>FAVICONS` String [] - serangkaian URL
+* `acara` Acara
+
+dipancarkan saat dokumen dalam bingkai yang diberikan dimuat.
+
+#### Peristiwa: 'halaman-favicon-diperbarui '
+
+Pengembalian:
+
+* `acara` Acara
+* `favicons` Tali [] - serangkaian URL
 
 Dibunyikan saat halaman menerima url favicon.
 
-#### Event: 'baru-jendela'
+#### Peristiwa: 'baru-jendela'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>url` String
-* `frameName` String
+* `acara` Acara
+* `url` Tali
+* `nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
-* `pilihan` Objek - pilihan yang akan digunakan untuk menciptakan baru `BrowserWindow`.
-* `additionalFeatures` String [] - fitur non-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `window.open()`.
+* `pilihan` Objek - pilihan yang akan digunakan untuk menciptakan baru `jendela peramban`.
+* `fitur tambahan` String [] - fitur tidak-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `jendela terbuka()`.
 
-Dibunyikan apabila halaman yang permintaan untuk membuka jendela baru `url`. Itu bisa saja diminta oleh `window.open` atau link eksternal seperti `<a target='_blank'>`.
+Dibunyikan apabila halaman yang permintaan untuk membuka jendela baru `url`. Itu bisa saja diminta oleh `jendela terbuka` atau link eksternal seperti `<a target='_blank'>`.
 
-Secara default baru `BrowserWindow` akan diciptakan untuk `url`.
+Secara default baru `Jendela Peramban` akan diciptakan untuk `url`.
 
-Memanggil `event.preventDefault()` akan mencegah elektron dari secara otomatis menciptakan baru `BrowserWindow`. Jika Anda menelepon `event.preventDefault()` dan manual membuat baru `BrowserWindow` maka Anda harus mengatur `event.newGuest` ke referensi contoh `BrowserWindow` baru, gagal untuk melakukannya dapat mengakibatkan perilaku tak terduga. Sebagai contoh:
+Memanggil `acara mencegah Default()` akan mencegah elektron dari secara otomatis menciptakan baru `Jendela Peramban`. Jika Anda menelepon `event.preventDefault()` dan manual membuat baru `BrowserWindow` maka Anda harus mengatur `event.newGuest` ke referensi contoh `BrowserWindow` baru, gagal untuk melakukannya dapat mengakibatkan perilaku tak terduga. Sebagai contoh:
 
 ```javascript
 myBrowserWindow.webContents.on ('window baru ', (acara, url) = > {event.preventDefault() const menang = baru BrowserWindow({show: false}) win.once (' siap-untuk-menunjukkan ', () = > win.show()) win.loadURL(url) event.newGuest = menang})
