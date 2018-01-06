@@ -32,7 +32,7 @@ Show the given file in a file manager. If possible, select the file.
 
 Returns `Boolean` - Whether the item was successfully opened.
 
-Open the given file in the desktop's default manner.
+Otwiera dany plik w normalnym sposobie komputera.
 
 ### `shell.openExternal(url[, options, callback])`
 
