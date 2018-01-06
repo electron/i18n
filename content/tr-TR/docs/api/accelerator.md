@@ -45,7 +45,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `` to `9`
 * `A` to `Z`
 * `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* `~`, `!`, `@`, `#`, `$`, vb. gibi noktalama işaretleri.
 * `Artı`
 * `Boşluk`
 * `Sekme`
