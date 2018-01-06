@@ -1,13 +1,10 @@
 # इलेक्ट्रॉन के अकसर पूछे जाने वाले सवाल
 
-## mujhe ilektron sthaapit karane mein pareshaanee kyon ho rahee hai?
+## मुझे इलेक्ट्रॉन स्थापित करने में समस्या क्यों आ रही है?
 
-` enapeeem sthaapit ilektron </ 0> chalate samay, kuchh upayogakarta kabhee-kabhee muthabhed karate hain
-sthaapana trutiyaan
-</p>
+`एनपीएम इन्स्टाल इलेक्ट्रॉन` चलाने के दौरान, कुछ उपयोगकर्ताओं को कभी-कभी इंस्टालेशन त्रुटियों का सामना करना पड़ता है |
 
-<p>In almost all cases, these errors are the result of network problems and not
-actual issues with the <code>electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+लगभग सभी मामलों में, यह त्रुटियाँ नेटवर्क समस्याओं के कारण होती है, न कि `इलेक्ट्रॉन` एनपीएम पैकेज में मौज़ूद किसी वास्तविक समस्या से | Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
