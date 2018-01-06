@@ -1,6 +1,6 @@
 # Depurando el Proceso Principal en VSCode
 
-### 1. Open an Electron project in VSCode.
+### Abrir un proyecto Electron en VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
