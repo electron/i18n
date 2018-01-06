@@ -1,6 +1,6 @@
 # 更新应用程序
 
-有几种方法可以更新Electron应用。 The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+有多种方法可以更新Electron应用. 最简单并且官方支持的是一个利用内置的[Squirrel](https://github.com/Squirrel)框架和Electron的[autoUpdater](../api/auto-updater.md)模块.
 
 ## 部署更新服务器
 
@@ -15,9 +15,9 @@
 
 如果你的app是通过[electron-builder](https://github.com/electron-userland/electron-builder)打包那么你可以使用[electron-updater](https://www.electron.build/auto-update)模块, 它不依赖任何服务器并且可以从S3, GitHub或者任何其它静态文件存储更新.
 
-## Implementing updates in your app
+## 实施更新你的应用程序
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+一旦你部署了更新服务器, 继续导入你所需要的代码模块. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
 **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
 
