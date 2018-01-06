@@ -110,14 +110,15 @@ delete window.module;
 
 ## `require('electron').xxx` अपरिभाषित है |
 
-When using Electron's built-in module you might encounter an error like this:
+इलेक्ट्रॉन के अंतर-निर्मित मोड्यूल का इस्तेमाल करने के दौरान आपको कुछ इस तरह की त्रुटी का सामना करना पड़ सकता है:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+Uncaught TypeError: Cannot read property 'setZoomLevel' of
+undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+ऐसा इसलिए क्योंकि आपने [एनपीएम `इलेक्ट्रॉन` मोड्यूल](https://www.npmjs.com/package/electron) को स्थानीय या वैश्विक इन्स्टॉल कर रखा है, जो कि इलेक्ट्रॉन के अंतर-निर्मित मोड्यूल को कम महत्वपूर्ण बना देता है |
 
 To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
 
