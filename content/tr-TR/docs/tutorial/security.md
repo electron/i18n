@@ -36,10 +36,10 @@ Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 * Do not set `allowRunningInsecureContent` to true.
 * Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
 * Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
+* WebViews:`nodeintegration` özniteliğini eklemeyin.
+* WebViews:`disablewebsecurity` kullanmayın
+* WebViews:`allowpopups` kullanmayın
+* WebViews: Uzaktan CSS/JS kullanım ile `insertCSS` veya `executeJavaScript` kullanmayın.
 * WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
 
 ```js
