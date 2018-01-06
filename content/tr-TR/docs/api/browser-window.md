@@ -1042,7 +1042,7 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamaktadır.
 
 **Note:** This API does nothing on Windows.
 
@@ -1064,7 +1064,7 @@ All mouse events happened in this window will be passed to the window below this
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Pencere içeriğinin diğer uygulamalar tarafından el konmasını engellemektedir.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
