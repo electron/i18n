@@ -120,19 +120,19 @@ undefined
 
 ऐसा इसलिए क्योंकि आपने [एनपीएम `इलेक्ट्रॉन` मोड्यूल](https://www.npmjs.com/package/electron) को स्थानीय या वैश्विक इन्स्टॉल कर रखा है, जो कि इलेक्ट्रॉन के अंतर-निर्मित मोड्यूल को कम महत्वपूर्ण बना देता है |
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+यह सुनिश्चित करने के लिए कि आप सही अंतर-निर्मित मोड्यूल का इस्तेमाल कर रहे हैं, आप `इलेक्ट्रॉन` मोड्यूल का पथ प्रिंट कर सकते हैं:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+और फिर जाँचे कि क्या वह इसी रूप में हैं:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+अगर वह `node_modules/electron/index.js` जैसा कुछ है, तो आपको या तो एनपीएम `इलेक्ट्रॉन` मोड्यूल हटाना होगा, या फिर उसका नाम बदलना होगा |
 
 ```sh
 npm uninstall electron
