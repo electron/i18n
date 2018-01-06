@@ -528,35 +528,35 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Dibunyikan apabila bingkai telah melakukan navigasi.
       
-      ### Event: 'Apakah-mulai-loading'
+      ### Peristiwa: 'Apakah-mulai-pemuatan'
       
       Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
       
-      ### Event: 'Apakah-stop-loading'
+      ### Peristiwa: 'Apakah-stop-pemuatan'
       
       Sesuai dengan poin pada saat pemintal tab berhenti berputar.
       
-      ### Event: 'Apakah-mendapatkan-tanggapan-rincian'
+      ### Peristiwa: 'Apakah-mendapatkan-tanggapan-rincian'
       
       Pengembalian:
       
       * `status` Boolean
-      * `newURL` String
-      * `originalURL` String
-      * `httpResponseCode` Integer
-      * `requestMethod` String
+      * `URL baru` Tali
+      * `URL asli` Tali
+      * `kode tanggapan http` Bilangan bulat
+      * `metode permintaan` Tali
       * `pengarah` String
-      * `headers` Obyek
-      * `Jenissumberdaya` String
+      * `header` Obyek
+      * `Jenissumberdaya` Tali
       
       Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
       
-      ### Event: 'apakah-mendapatkan-redirect-permintaan'
+      ### Peristiwa: 'apakah-mendapatkan-pengalihan-permintaan'
       
       Pengembalian:
       
-      * `oldURL` String
-      * `newURL` String
+      * `URL lama` Tali
+      * `URL baru` Tali
       * `adalah Bingkai Utama` Boolean
       
       Emitted ketika redirect diterima saat meminta resource.
