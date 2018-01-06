@@ -18,8 +18,8 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | bs            | Bosnian                 |
 | ca            | Catalan                 |
 | co            | Corsican                |
-| cs            | Czech                   |
-| cy            | Welsh                   |
+| cs            | Czeski                  |
+| cy            | Walijski                |
 | da            | Danish                  |
 | de            | German                  |
 | de-AT         | German (Austria)        |
@@ -74,7 +74,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ko            | Korean                  |
 | ku            | Kurdish                 |
 | ky            | Kyrgyz                  |
-| la            | Latin                   |
+| la            | Łaciński                |
 | ln            | Lingala                 |
 | lo            | Laothian                |
 | lt            | Lithuanian              |
@@ -84,16 +84,16 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | mn            | Mongolian               |
 | mo            | Moldavian               |
 | mr            | Marathi                 |
-| ms            | Malay                   |
+| ms            | Malajski                |
 | mt            | Maltese                 |
 | nb            | Norwegian (Bokmal)      |
 | ne            | Nepali                  |
-| nl            | Dutch                   |
+| nl            | Duński                  |
 | nn            | Norwegian (Nynorsk)     |
 | no            | Norwegian               |
 | oc            | Occitan                 |
 | om            | Oromo                   |
-| lub           | Oriya                   |
+| lub           | Język orija             |
 | pa            | Punjabi                 |
 | pl            | Polish                  |
 | ps            | Pashto                  |
@@ -117,10 +117,10 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | su            | Sundanese               |
 | sv            | Swedish                 |
 | sw            | Swahili                 |
-| ta            | Tamil                   |
+| ta            | Język tamilski          |
 | te            | Telugu                  |
 | tg            | Tajik                   |
-| th            | Thai                    |
+| th            | Tajski                  |
 | ti            | Tigrinya                |
 | tk            | Turkmen                 |
 | to            | Tonga                   |
