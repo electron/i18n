@@ -8,7 +8,7 @@ Yerel modülleri kurmanın üç yolu:
 
 ### `npm` kullanılıyor
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Birkaç ortam değişkenini ayarlayarak, `npm` değerini modülleri doğrudan yüklemek için kullanabilirsiniz.
 
 An example of installing all dependencies for Electron:
 
@@ -32,7 +32,7 @@ HOME=~/.electron-gyp npm install
 
 Ayrıca, diğer Node projeleri gibi modülleri yüklemeyi ve ardından [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) paketiyle modülleri Electron için yeniden kurmayı seçebilirsiniz. Bu modül Elektron versiyonunu ele alabilir ve başlıkları indirmenin otomatik olmayan adımlarını halledebilir ve uygulamanız için yerel modüller oluşturabilir.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+`electron-rebuild`'ı kurma ve ardından modülleri onunla yeniden oluşturma örneği:
 
 ```sh
 npm install --save-dev electron-rebuild
@@ -46,7 +46,7 @@ npm install --save-dev electron-rebuild
 
 ### Elektron için manuel olarak inşa
 
-Yerli bir modül geliştiren bir geliştiriciyseniz ve Electron'a karşı test etmek istiyorsanız, Electron modülünü manuel olarak yeniden oluşturmak isteyebilirsiniz. You can use `node-gyp` directly to build for Electron:
+Yerli bir modül geliştiren bir geliştiriciyseniz ve Electron'a karşı test etmek istiyorsanız, Electron modülünü manuel olarak yeniden oluşturmak isteyebilirsiniz. Elektron için inşa etmek için doğrudan `node-gyp` kullanabilirsiniz:
 
 ```sh
 cd /path-to-module/
@@ -64,7 +64,7 @@ Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşa�
 * Şüpheniz olduğunda, önce ` elektron yeniden inşa </ 0> 'yı çalıştırın.</li>
 </ul>
 
-<h2>Modules that rely on <code>prebuild`</h2> 
+<h2><code>prebuild`'e dayanan modüller</h2> 
     [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
     
     If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
