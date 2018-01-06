@@ -278,15 +278,15 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+DevTools açıldığında yayınla.
 
 #### Event: 'devtools-closed'
 
-Emitted when DevTools is closed.
+DevTools kapandığında ortaya çıkar.
 
 #### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+DevTools odaklandığında / açıldığında ortaya çıkar.
 
 #### Event: 'certificate-error'
 
@@ -296,8 +296,8 @@ Dönüşler:
 * `url` Dize
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Fonksiyon 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+* `geri aramak` Fonksiyon 
+  * `isTrusted` Boolean - Sertifikanın güvenilir olarak değerlendirilip değerlendirilemeyeceğini belirtir
 
 Emitted when failed to verify the `certificate` for `url`.
 
