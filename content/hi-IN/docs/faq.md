@@ -4,7 +4,7 @@
 
 `एनपीएम इन्स्टाल इलेक्ट्रॉन` चलाने के दौरान, कुछ उपयोगकर्ताओं को कभी-कभी इंस्टालेशन त्रुटियों का सामना करना पड़ता है |
 
-लगभग सभी मामलों में, यह त्रुटियाँ नेटवर्क समस्याओं के कारण होती है, न कि `इलेक्ट्रॉन` एनपीएम पैकेज में मौज़ूद किसी वास्तविक समस्या से | Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+लगभग सभी मामलों में, यह त्रुटियाँ नेटवर्क समस्याओं के कारण होती है, न कि `इलेक्ट्रॉन` एनपीएम पैकेज में मौज़ूद किसी वास्तविक समस्या से | `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, और `ETIMEDOUT` जैसी त्रुटियाँ नेटवर्क समस्याओं का संकेत हैं | सबसे उत्तम उपाय नेटवर्क बदलना, या फिर थोड़ा इंतज़ार कर के दोबारा इन्स्टॉल करने की कोशिश करना है |
 
 You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
 
