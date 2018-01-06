@@ -205,7 +205,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Overlay için açıklama')
 
 ## Flash çerçeve (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Windows'ta, kullanıcının dikkatini çekmek amaçlı görev çubuğu düğmesini vurgulayabilirsiniz. Bu, macOS'taki yuvanın hareketliliğine benzer. MSDN başvuru belgelerinden:
 
 > Genellikle, kullanıcıya pencerenin dikkat gerektirdiğini ancak şu anda klavye odağına sahip olmadığını kullanıcıya belirten bir pencere görünür.
 
@@ -222,7 +222,7 @@ Don't forget to call the `flashFrame` method with `false` to turn off the flash.
 
 ## Pencerenin temsili dosyası (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+MacOS'taki bir pencere temsil edilen dosyasını ayarlayabilir, böylelikle dosyanın simgesi başlık çubuğunda gösterilebilir ve kullanıcılar Komut Tuşu'na veya Kontrol Tuşu'na tıkladığında açılır.
 
 Bir pencerenin düzenlenmiş durumunu ayarlayabilirsiniz, böylece dosya simgesi bu penceredeki belgenin değiştirilmiş olup olmadığını gösterebilir.
 
