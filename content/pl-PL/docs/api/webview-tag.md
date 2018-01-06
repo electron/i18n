@@ -274,7 +274,7 @@ Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Przeładowuje stronę gościa i ignoruje cache.
 
 ### `<webview>.canGoBack()`
 
@@ -349,7 +349,7 @@ Otwiera okno DevTools dla strony gościa.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Zamyka okno DevTools strony gościa.
 
 ### `<webview>.isDevToolsOpened()`
 
