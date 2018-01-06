@@ -6,10 +6,10 @@ Proces: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
-* `options` Object 
+* `options` Obiekt 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
   * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
+  * `zmień` Function (optional) - Function to call when a color is selected. 
     * `color` String - The color that the user selected from the picker
 
 ### Właściwości instancji
