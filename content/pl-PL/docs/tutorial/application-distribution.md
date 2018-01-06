@@ -131,4 +131,4 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Poczekaj bardzo bardzo dużo czasu dla tej kompilacji do zakończenia.
