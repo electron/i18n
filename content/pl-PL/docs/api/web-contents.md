@@ -313,7 +313,7 @@ Zwraca:
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Emitowane, kiedy certyfikat klienta jest wymagany.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -717,7 +717,7 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
