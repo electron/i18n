@@ -1,10 +1,10 @@
-# webContents
+# isi web
 
-> Render and control web pages.
+> Kontrol dan render halaman web.
 
-Process: [Main](../glossary.md#main-process)
+Proses: [Utama](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`isi web` adalah [Pemancar acara](https://nodejs.org/api/events.html#events_class_eventemitter). Ini bertanggung jawab untuk kontrol dan mengendalikan halaman web dan properti objek [`Jendela Peramban`](browser-window.md). Contoh untuk mengakses objek `isi web`:
 
 ```javascript
 const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow({width: 800, height: 1500}) win.loadURL ('http://github.com') Biarkan isi baru = win.webContents console.log(contents)
