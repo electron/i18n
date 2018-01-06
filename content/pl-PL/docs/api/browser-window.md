@@ -602,7 +602,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Zmienia rozmiar i przenosi okno do dostarczonych granic
 
 #### `win.getBounds()`
 
