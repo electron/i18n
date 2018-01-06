@@ -63,7 +63,7 @@ console.log(withRendererCb, withLocalCb)
 // [tanımsız, tanımsız, tanımsız], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Gördüğünüz gibi, işleyici geri aramanın eş zamanlı dönüş değeri beklendiği gibi değildi ve ana işlemde yaşayan özdeş bir geri dönüş değeri eşleşmedi.
 
 Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
 
