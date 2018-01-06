@@ -501,7 +501,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       Pengembalian:
       
       * `url` String
-      * `isMainFrame` Boolean
+      * `adalah Bingkai Utama` Boolean
       
       Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
       
@@ -509,22 +509,22 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
       
-      ### Event: 'Apakah-gagal-load'
+      ### Peristiwa: 'Apakah-gagal-beban'
       
       Pengembalian:
       
-      * `errorCode` Bilangan bulat
-      * `errorDescription` String
-      * `validatedURL` String
-      * `isMainFrame` Boolean
+      * `kode kesalahan` Bilangan bulat
+      * `Deskripsi kesalahan` Tali
+      * `memvalidasi URL` Tali
+      * `adalah Bingkai Utama` Boolean
       
       Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
       
-      ### Event: 'Apakah-frame-selesai-load'
+      ### Peristiwa: 'Apakah-frame-selesai-beban'
       
       Pengembalian:
       
-      * `isMainFrame` Boolean
+      * `adalah Bingkai Utama` Boolean
       
       Dibunyikan apabila bingkai telah melakukan navigasi.
       
@@ -557,7 +557,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       * `oldURL` String
       * `newURL` String
-      * `isMainFrame` Boolean
+      * `adalah Bingkai Utama` Boolean
       
       Emitted ketika redirect diterima saat meminta resource.
       
@@ -668,7 +668,7 @@ Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor
 
 Pengembalian:
 
-* `isMainFrame` Boolean
+* `adalah Bingkai Utama` Boolean
 * `url` String
 
 Dibunyikan saat navigasi dalam halaman terjadi.
