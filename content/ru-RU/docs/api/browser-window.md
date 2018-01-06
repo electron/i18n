@@ -145,11 +145,11 @@ Process: [Main](../glossary.md#main-process)
   * `show` Boolean (необязательно) - Будет ли показано окно, когда будет создано. По умолчанию - `true`.
   * `frame` Boolean (необязательно) - Установите `false`, чтобы создать [Frameless Window](frameless-window.md). По умолчанию - `true`.
   * `parent` BrowserWindow (необязательно) - Устанавливает родительское окно. По умолчанию - `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
+  * `modal` Boolean (необязательно) - Будет ли окно модальным. Работает только, когда окно является дочерним окном. По умолчанию - `false`.
+  * `acceptFirstMouse` Boolean (необязательно) - Будет ли веб-окно принимать событие одиночного нажатия мыши, которое одновременно активирует окно. По умолчанию - `false`.
+  * `disableAutoHideCursor` Boolean (необязательно) - Будет ли спрятан курсор, во время печатания. По умолчанию - `false`.
+  * `autoHideMenuBar` Boolean (необязательно) - Автоматическое убирание меню-бара, пока клавиша `Alt` не будет нажата. По умолчанию - `false`.
+  * `enableLargerThanScreen` Boolean (необязательно) - Позволяет окну изменять размер больше, чем экран. По умолчанию - `false`.
   * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
