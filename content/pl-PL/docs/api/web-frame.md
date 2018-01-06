@@ -61,8 +61,8 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
+* `provider` Obiekt 
+  * `spellCheck` Function - Returns `Logiczny typ danych` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
