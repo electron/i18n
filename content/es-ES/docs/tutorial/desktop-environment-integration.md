@@ -207,9 +207,9 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 En Windows puede resaltar el botón de barras de tarea para obtener la atención del usuario. Esto es similar al ícono de dock que rebota en macOS. Desde la documentación de referencia de MSDN:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Por lo general, una ventana está iluminada para informar al usuario que la ventana requiere atención pero este no está concentrado en el teclado en el momento.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Para iluminar el botón de la barra de tareas del buscador windows, usted puede usar el API [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,7 +218,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+No olvide llamar el método `flashFrame` con `false` a apagar la iluminación. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
 
 ## Represented File of Window (macOS)
 
