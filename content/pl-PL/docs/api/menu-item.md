@@ -9,7 +9,7 @@ See [`Menu`](menu.md) for examples.
 ### `new MenuItem(options)`
 
 * `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `kliknij` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
@@ -36,10 +36,10 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 
 The `role` property can have following values:
 
-* `undo`
-* `redo`
+* `cofnij`
+* `ponów`
 * `cut`
-* `copy`
+* `kopiuj`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
