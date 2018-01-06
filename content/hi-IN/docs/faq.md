@@ -79,22 +79,22 @@ tray.setTitle('hello world')
 
 ## मैं इलेक्ट्रॉन में जेक्वेरी/रेकुआयरजेएस/मेटेओर/एंगुलरजेएस इस्तेमाल नहीं कर पा रहा हूँ |
 
-इलेक्ट्रॉन में नोड.जेएस के एकीकरण के कारण, डीओएम में कुछ अतिरिक्त सिम्बल्स डाले गये हैं, जैसे कि `मोड्यूल`, `एक्सपोर्ट्स`, `रेकुआयर` आदि | This causes problems for some libraries since they want to insert the symbols with the same names.
+इलेक्ट्रॉन में नोड.जेएस के एकीकरण के कारण, डीओएम में कुछ अतिरिक्त सिम्बल्स डाले गये हैं, जैसे कि `मोड्यूल`, `एक्सपोर्ट्स`, `रेकुआयर` आदि | इसकी वज़ह से कुछ लाइब्रेरीज के लिए समस्या उत्पन्न हो जाती हैं, क्योंकि वे समान नामों से ही सिम्बल्स डालना चाहती हैं |
 
-To solve this, you can turn off node integration in Electron:
+इसे हल करने के लिए, आप इलेक्ट्रॉन में नोड एकीकरण को बंद कर सकते हैं:
 
 ```javascript
-// In the main process.
-const {BrowserWindow} = require('electron')
+// मुख्य प्रक्रिया में | 
+const {BrowserWindow} = require('electron') 
 let win = new BrowserWindow({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
+   webPreferences: {     
+      nodeIntegration: false   
+  } 
+}) 
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+पर अगर आप नोड.जेएस और इलेक्ट्रॉन की क्षमताओं का इस्तेमाल करना ज़ारी रखना चाहते हैं, तो आपको पेज में मौज़ूद सिम्बल्स के नाम बदलने होंगे, उन्हें लाइब्रेरीज में डालने से पहले:
 
 ```html
 <head>
@@ -108,7 +108,7 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` अपरिभाषित है |
 
 When using Electron's built-in module you might encounter an error like this:
 
