@@ -345,7 +345,7 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Otwiera okno DevTools dla strony gościa.
 
 ### `<webview>.closeDevTools()`
 
