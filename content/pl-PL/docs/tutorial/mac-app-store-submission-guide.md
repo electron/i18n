@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Potem, musisz przygotować drzewo plików uprawnień.
 
 `child.plist`:
 
