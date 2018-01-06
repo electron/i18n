@@ -17,8 +17,8 @@ Süreç: [Ana](../glossary.md#main-process)
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
   * `hostname` String (optional) - The server host name.
   * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. `follow`'a varsayılan olarak belirler. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `path` Dize (opsiyonel) - İstek URL'sinin yolu.
+  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 `protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
@@ -107,7 +107,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 Dönüşler:
 
-* `statusCode` Integer
+* `statusCode` Tamsayı
 * `method` String
 * `redirectUrl` String
 * `responseHeaders` Object
@@ -147,7 +147,7 @@ Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnız
 
 * `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
 * `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Fonksiyonu (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
+* `callback` Fonksiyon (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
 
 `callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
