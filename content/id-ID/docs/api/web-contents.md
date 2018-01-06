@@ -67,45 +67,45 @@ Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal ata
 Pengembalian:
 
 * `peristiwa` Peristiwa
-* `isMainFrame` Boolean
+* `adalah Bingkai Utama` Boolean
 
 Dibunyikan apabila bingkai telah melakukan navigasi.
 
-#### Event: 'Apakah-mulai-loading'
+#### Peristiwa: 'Apakah-mulai-pemuatan'
 
 Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
-#### Event: 'Apakah-stop-loading'
+#### Peristiwa: 'Apakah-stop-pemuatan'
 
 Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
-#### Event: 'Apakah-mendapatkan-tanggapan-rincian'
+#### Peristiwa: 'Apakah-mendapatkan-tanggapan-rincian'
 
 Kembali:
 
 * `acara` Acara
 * `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `pengarah` String
-* `headers` Obyek
-* `Jenissumberdaya` String
+* `URL baru` Tali
+* `URL asli` Tali
+* `kode tanggapan http` Bilangan bulat
+* `metode permintaan` Tali
+* `pengarah` Tali
+* `header` Obyek
+* `Jenissumberdaya` Tali
 
-Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
+dipancarkan ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
 
-#### Event: 'apakah-mendapatkan-redirect-permintaan'
+#### Peristiwa: 'apakah-mendapatkan-pengalihan-permintaan'
 
 Pengembalian:
 
-* `event` Acara
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `pengarah` String
+* `acara` Acara
+* `URL lama` Tali
+* `URL baru` Tali
+* `adalah Bingkai Utama` Boolean
+* `kode tanggapan http` Bilangan bulat
+* `metode permintaan` Tali
+* `pengarah` Tali
 * `headers` Obyek
 
 Emitted ketika redirect diterima saat meminta resource.
