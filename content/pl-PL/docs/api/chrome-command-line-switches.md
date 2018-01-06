@@ -107,7 +107,7 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ignoruje błędy powiązane z certyfikatami.
 
 ## --ppapi-flash-path=`path`
 
