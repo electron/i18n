@@ -63,6 +63,6 @@ Devtools konsolundaki `navigator.plugins` 'i inceleyerek Pepper Flash eklentisin
 
 Pepper Flash eklentisinin mimarisi, Electron'un eklentisininkiyle eşleşmelidir. Windows'ta alışılmış bir hata, Electron'un 64 bit sürümüne karşı Flash eklentisinin 32 bit sürümünü kullanmaktır.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Windows'ta `--ppapi-flash-path` adresine giden yol, `` yol tanımlayıcı olarak kullanmalıdır; POSIX stilindeki yollar çalışmaz.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+RTMP kullanan eş zamanlı medya gibi bazı işlemler için, oynatıcıların `.swf` dosyalarına daha geniş izinler vermeniz gerekir. Bunu gerçekleştirmenin bir yolu, [nw-flash-trust](https://github.com/szwacz/nw-flash-trust)'ı kullanmaktır.
