@@ -199,9 +199,9 @@ Dönüşler:
 
 * `olay` Olay
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+`beforeunload` olay işleyicisi, bir sayfayı kaldırmayı denediğinde yayımlanır.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+`event.preventDefault()` öğesinin çağrılması, `beforeunload` olay işleyicisini yoksayar ve sayfanın boşaltılmasına izin verir.
 
 ```javascript
 const {BrowserWindow, dialog} = require('electron')
