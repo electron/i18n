@@ -116,7 +116,7 @@ Though `asar` archives are treated as directories, there are no actual directori
 
 Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
 
-APIs that requires extra unpacking are:
+API, które wymagają dodatkowego rozpakowywania to:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
