@@ -1,6 +1,6 @@
 # Styl Kodowania
 
-These are the style guidelines for coding in Electron.
+To są wytyczne dotyczące stylów kodowania w Electron.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
