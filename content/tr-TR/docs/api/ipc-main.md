@@ -78,7 +78,7 @@ The `event` object passed to the `callback` has the following methods:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
 
 ### `event.sender`
 
