@@ -7,28 +7,34 @@ Proses: [Utama](../glossary.md#main-process)
 `isi web` adalah [Pemancar acara](https://nodejs.org/api/events.html#events_class_eventemitter). Ini bertanggung jawab untuk kontrol dan mengendalikan halaman web dan properti objek [`Jendela Peramban`](browser-window.md). Contoh untuk mengakses objek `isi web`:
 
 ```javascript
-const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow({width: 800, height: 1500}) win.loadURL ('http://github.com') Biarkan isi baru = win.webContents console.log(contents)
+const {BrowserWindow} = membutuhkan ('elektron')
+
+let win = new BrowserWindow ({width: 800, height: 1500})
+win.loadURL ('http://github.com')
+
+biarkan isi = win.webContents
+console.log (isi)
 ```
 
 ## Metode
 
-Metode ini dapat diakses dari modul `webContents`:
+Metode ini dapat diakses dari modul `isi web`:
 
 ```javascript
-const {webContents} = require('electron') console.log(webContents)
+const {isi web} = memerlukan('electron') perintah.log(isi web)
 ```
 
-### `webContents.getAllWebContents()`
+### `isi wab.dapatkan Semua Web()`
 
-`[WebContents]` - mengembalikan array dari semua contoh `WebContents`. Ini akan berisi isi web untuk semua windows, webviews, devtools dibuka, dan devtools ekstensi latar belakang halaman.
+`[isi web]` - mengembalikan array dari semua contoh `isi web`. Ini akan berisi isi web untuk semua windows, tampilan web , devtools terbuka, dan devtools ekstensi latar belakang halaman.
 
-### `webContents.getFocusedWebContents()`
+### `isi web.dapatkan Fokus Web isi()`
 
-Kembali `WebContents` - isi web yang terfokus dalam aplikasi ini, jika tidak kembali `null`.
+Kembali `isi web` - isi web yang terfokus dalam aplikasi ini, jika tidak kembali `batal`.
 
-### `webContents.fromId(id)`
+### `isi web dari Id(id)`
 
-* `id` Integer
+* `id` Bilangan bulat
 
 Mengembalikan `WebContents` - Contoh WebContents dengan ID yang diberikan.
 
