@@ -111,7 +111,7 @@ Las tareas del usuario aún se mostrará después de que la aplicación se cierr
 
 ## Barra de tareas de Thumbnail
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+En Windoes usted puede añadir una barra de tareas thumbnail con botones específicos en un diseñador de barras de tareas de una ventana de un aplicación. It provides users a way to access to a particular window's command without restoring or activating the window.
 
 From MSDN, it's illustrated:
 
