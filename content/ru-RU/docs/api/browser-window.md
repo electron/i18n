@@ -132,9 +132,9 @@ Process: [Main](../glossary.md#main-process)
   * `resizable` Boolean (необязательно) - Возможность изменение размера окна. По умолчанию - `true`.
   * `movable` Boolean (необязательно) - Возможность перемещения окна. Не реализовано на Linux. По умолчанию - `true`.
   * `minimizable` Boolean (необязательно) - Возможность сворачивать окно. Не реализовано на Linux. По умолчанию - `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
+  * `maximazable` Boolean (необязательно) - Возможность разворачивать окно. Не реализовано на Linux. По умолчанию - `true`.
+  * `closable` Boolean (необязательно) - Возможность закрывать окно. Не реализовано на Linux. По умолчанию - `true`.
+  * `focusable` Boolean (необязательно) - Возможность окна быть в фокусе. По умолчанию - `true`. На Windows настройка `focusable: false` также подразумевает настройку `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
   * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. По умолчанию - `false`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
