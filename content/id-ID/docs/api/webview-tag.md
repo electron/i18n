@@ -561,7 +561,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Emitted ketika redirect diterima saat meminta resource.
       
-      ### Event: 'dom-siap'
+      ### Peristiwa: 'lokal-siap'
       
       Emitted saat dokumen dalam bingkai yang diberikan dimuat.
       
@@ -574,7 +574,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
       
-      ### Event: 'halaman-favicon-updated '
+      ### Peristiwa: 'halaman-favicon-diperbarui '
       
       Kembali
       
@@ -623,12 +623,12 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
 <pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
 `</pre> 
   
-  ### Event: 'baru-jendela'
+  ### Peristiwa: 'baru-jendela'
   
   Pengembalian:
   
   * `url` String
-  * `frameName` String
+  * `nama bingkai` tali
   * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
   * `options` Object - The options which should be used for creating the new `BrowserWindow`.
   
