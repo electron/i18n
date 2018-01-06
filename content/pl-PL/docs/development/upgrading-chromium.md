@@ -25,7 +25,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Opcjonalnie) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
+4. (Opcjonalnie) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `aktualizacja` rozmowy: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
