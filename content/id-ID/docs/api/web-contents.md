@@ -176,47 +176,47 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
   
   Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
   
-  #### Event: 'Apakah-menavigasi-di halaman'
+  #### peristiwa: 'Apakah-menavigasi-di halaman'
   
   Pengembalian:
   
-  * ` event </ 0>  Acara</li>
-<li><code>url` String
+  * `acara` Acara
+  * `url` Tali
   * `adalah Bingkai Utama` Boolean
   
   Dibunyikan saat navigasi dalam halaman terjadi.
   
-  Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat event hash `hashchange` dipicu.
+  Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
   
-  #### Event: 'akan-mencegah-membongkar'
+  #### Peristiwa: 'akan-mencegah-membongkar'
   
   Pengembalian:
   
-  * ` event </ 0>  Acara</li>
-</ul>
-
-<p>Dibunyikan apabila <code>beforeunload` event handler adalah mencoba untuk membatalkan halaman membongkar.</p> 
-    Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
-    
-    ```javascript
+  * `acara` Acara
+  
+  Dibunyikan apabila `sebelumnya` event handler adalah mencoba untuk membatalkan halaman membongkar.
+  
+  Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
+  
+  ```javascript
 const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWindow ({width: 800, height: 600}) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
 ```
 
-#### Event: 'jatuh'
+#### Peristiwa: 'jatuh'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>terbunuh` Boolean
+* `acara` Acara
+* `terbunuh` Boolean
 
-Emitted ketika proses renderer crash atau terbunuh.
+Dipancarkan ketika proses perender penembak atau terbunuh.
 
-#### Event: 'plugin-jatuh'
+#### Peristiwa: 'plugin-jatuh'
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code>nama` String
+* `acara` Acara
+* `nama` Tali
 * `Versi` String
 
 Dibunyikan ketika proses plugin telah jatuh.
