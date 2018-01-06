@@ -56,7 +56,7 @@ someProperty)
 * [मेमोरी प्रबंधन](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [वेरिएबल स्कोप](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-अगर आप एक तेज़ उपाय चाहते हैं, तो आप अपने कोड में बदलाव कर वेरिएबल्स को वैश्विक बना सकते हैं, ऐसे:
+अगर आप एक तेज़ उपाय चाहते हैं, तो आप वेरिएबल्स को वैश्विक बना सकते हैं, अपने कोड में बदलाव कर इससे:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -66,20 +66,20 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+इसमें:
 
 ```javascript
-const {app, Tray} = require('electron')
-let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+const {app, Tray} = require('electron') 
+let tray = null 
+app.on('ready', () => {   
+tray = new Tray('/path/to/icon.png')  
+tray.setTitle('hello world') 
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## मैं इलेक्ट्रॉन में जेक्वेरी/रेकुआयरजेएस/मेटेओर/एंगुलरजेएस इस्तेमाल नहीं कर पा रहा हूँ |
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+इलेक्ट्रॉन में नोड.जेएस के एकीकरण के कारण, डीओएम में कुछ अतिरिक्त सिम्बल्स डाले गये हैं, जैसे कि `मोड्यूल`, `एक्सपोर्ट्स`, `रेकुआयर` आदि | This causes problems for some libraries since they want to insert the symbols with the same names.
 
 To solve this, you can turn off node integration in Electron:
 
