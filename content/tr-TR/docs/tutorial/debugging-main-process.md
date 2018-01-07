@@ -22,5 +22,5 @@ Like `--inspect` but pauses execution on the first line of JavaScript.
 
 V8 denetçi protokolünü destekleyen bir hata ayıklayıcı kullanmanız gerekecektir.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
+- `chrome://inspect` burayı ziyaret ederek chroma baglanmayı seçin ve piyasaya sürülen Electron uygulamasını inceleyin.
 - [VSCode da ki Ana Sürecin Hata Ayıklaması](debugging-main-process-vscode.md)
