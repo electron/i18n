@@ -1,15 +1,15 @@
-## Class: TouchBarSlider
+## Sınıf: TouchBarKaydırıcı
 
-> Create a slider in the touch bar for native macOS applications
+> Dokunmatik çubukta yerel macOS uygulamaları için bir kaydırıcı oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
 
-* `options` Nesne 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
+* `seçenekler` Nesne 
+  * `label` Dize (İsteğe bağlı) - Görüntülenecek metin.
+  * `value` Integer (isteğe bağlı) - Seçilen değer.
+  * `minValue` Integer (isteğe bağlı) - Minimum değer.
   * `maxValue` Integer (optional) - Maximum value.
   * `change` Function (optional) - Function to call when the slider is changed. 
     * `newValue` Number - The value that the user selected on the Slider
