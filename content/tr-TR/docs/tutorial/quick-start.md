@@ -181,11 +181,11 @@ $ .\electron\electron.exe uygulaman\
 
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Elektron.app` burada elektron yayın paketinin bir parçası, buradan indirebilirsiniz [Buradan](https://github.com/electron/electron/releases).
 
 ### Bir dağıtım çalıştırmak
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Uygulamanızı yazmayı bitirdikten sonra, [ Uygulama Dağıtımı ](./application-distribution.md) kılavuzunu izleyerek bir dağıtım oluşturabilirsiniz ve daha sonra paketlenmiş uygulamayı çalıştırın.
 
 ### Bu örneği deneyin
 
