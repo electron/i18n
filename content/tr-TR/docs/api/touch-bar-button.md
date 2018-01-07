@@ -23,7 +23,7 @@ Bir `String` düğmenin mevcut metnini temsil eder. Bu değeri değiştirmek hem
 
 #### `touchBarButton.backgroundColor`
 
-Düğmenin geçerli arka plan rengini temsil eden `String` hex kodu. Bu değeri değiştirirken hemen güncelleme yapar Dokunmatik alandaki düğmeyi tıklayın.
+Düğmenin geçerli arka plan rengini temsil eden `String` hex kodu. Bu değeri değiştirmek dokunmatik bardaki butonu hemen günceller.
 
 #### `touchBarButton.icon`
 
