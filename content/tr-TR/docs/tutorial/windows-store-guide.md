@@ -97,7 +97,7 @@ To generate the AppX package, the `electron-windows-store` CLI uses a template t
 CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
 1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
+2. Konumdaki windows temel görünümünü görmezden gelerek masaüstü uygulama çeviricisini indir ve çalıştır.
 3. Yukarıdaki komutu çalıştırdığınızda yeniden başlatmanız istendiğinde, lütfen makineyi yeniden başlatın ve başarılı gerçekleşen bir yeniden başlatma sonrasında yukarıda bulunan komutu tekrar çalıştırın.
 
 Kurulum başarılı olursa, Elektron uygulamanızı derlemek için ilerleyebilirsiniz.
