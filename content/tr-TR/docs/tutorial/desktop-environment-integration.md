@@ -113,7 +113,7 @@ Kullanıcı görevleri, uygulamanız kapandıktan sonra bile gösterilir, bu ned
 
 Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çubuğu ekleyebilirsiniz bir uygulama penceresinin düzeni. Kullanıcılara, pencereyi geri yüklemeden veya etkinleştirmeden belirli bir pencerenin komutuna erişmenin yolunu sağlar.
 
-From MSDN, it's illustrated:
+MSDN'den örneklendirilmiştir:
 
 > Bu araç sadece tanıdık Standart araç ortak kontrolüdür. En fazla yedi buton vardır. Her düğmenin kimliği, görüntüsü, araç ipucu ve durumu, görev çubuğuna konulan bir yapı içinde tanımlanır. Uygulama, mevcut durum gereği küçük resimleri araç çubuğunda gösterebilir, etkinleştirebilir, devre dışı bırakabilir veya gizleyebilir.
 > 
@@ -123,7 +123,7 @@ From MSDN, it's illustrated:
 
 ![oynatıcı](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+[BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) Bunu uygulamanız içerisinde küçük resim araç çubuğunu ayarlamak için kullanabilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
