@@ -16,7 +16,7 @@ Electron, Chromium'un yeni sürümünü mümkün olan en kısa sürede desteklem
 
 Mevcut Chromium bileşenlerini güncellediğimiz sistemin bize sağladığı kaynaklarla çerçeve üzerine inşa edilen çoğu uygulamanın ihtiyaçları arasında doğru dengede olduğuna inanıyoruz. Elektronların üstünde veri üreten insanlardan gelen özel kullanım davaları hakkında daha fazla bilgi almak istiyoruz. Bu çabaları destekleyen çekme talepleri ve katkılar her zaman açığız.
 
-## Ignoring Above Advice
+## Yukarıdaki önerileri dikkate alma
 
 Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik sorunu var demektir. Örnek olarak, bir tarayıcı penceresinin içinde görüntülenen uzak bir web sitesini düşünün. Eğer bir saldırgan, söz konusu olan içeriği bir şekilde değiştirirse (doğrudan kaynağa saldırarak yada uygulamanız ile gerçek hedef arasında bulunarak), kullanıcı makinesinde bulunan yerel kodu çalıştırabilir.
 
