@@ -2,7 +2,7 @@
 
 > Klavye kısayolları tanımlamak.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Hızlandırıcılar, uygulamanızda klavye kısayollarını tanımlamak için kullanılan, `+` karakteri ile birleştirilen birden çok değiştirici ve tuş kodu içerebilen dizelerdir. 
 
 Örnekler:
 
@@ -39,7 +39,7 @@ Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hı
 ## Kullanılabilir anahtar kodları
 
 * ``'dan `9`'a
-* `A` to `Z`
+* `A`'dan `Z`'ye
 * `F1`'den `F24`'e
 * `~`, `!`, `@`, `#`, `$`, vb. gibi noktalama işaretleri.
 * `Artı`
@@ -49,10 +49,10 @@ Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hı
 * `Sil`
 * `Ekleme`
 * `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
+* `Up`, `Down`, `Left` ve `Right`
 * `Home` ve `End`
-* `PageUp` and `PageDown`
+* `PageUp` ve `PageDown`
 * `Çıkış` (veya `Esc` kısaca)
 * `Sesi Aç`, `Sesi Kıs` ve `Sesi Kapat`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` ve `MediaPlayPause`
 * `Ekran Görüntüsü`
