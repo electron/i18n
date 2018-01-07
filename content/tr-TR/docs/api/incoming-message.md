@@ -30,7 +30,7 @@ Döndürür:
 
 `error` Hata - Tipik olarak hatanın ana sebebini belirten bir katar tutar.
 
-Dönen cevabın veri olaylarını işlerken hata gelirse işleme girer. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Dönen cevabın veri olaylarını işlerken hata gelirse işleme girer. Örnek olarak, sunucu cevabı hala akıştayken eğer sunucu kapatılırsa, yanıt nesnesinde bir `hata` olayı yayınlanır ve istek nesnesinde bir `kapat` olayı takip edilir.
 
 ### Örnek özellikleri
 
