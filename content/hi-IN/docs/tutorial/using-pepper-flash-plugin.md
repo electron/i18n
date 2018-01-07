@@ -17,47 +17,47 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path') 
 
 // फ़्लैश पथ निर्दिष्ट करें, यह मान कर कि वह मेन.जेएस के साथ उसी डायरेक्टरी में है |
-let pluginName
-switch (process.platform) {
-  case 'win32':
-    pluginName = 'pepflashplayer.dll'
-    break
-  case 'darwin':
-    pluginName = 'PepperFlashPlayer.plugin'
-    break
-  case 'linux':
-    pluginName = 'libpepflashplayer.so'
-    break
-}
-app.commandLine.appendSwitch('ppapi-flash-path', path.join(__dirname, pluginName))
+let pluginName 
+switch (process.platform) {   
+ case 'win32':
+     pluginName = 'pepflashplayer.dll'
+     break
+   case 'darwin':
+     pluginName = 'PepperFlashPlayer.plugin'
+     break
+   case 'linux':
+     pluginName = 'libpepflashplayer.so'
+     break
+ }
+ app.commandLine.appendSwitch('ppapi-flash-path',
+ path.join(__dirname, pluginName))
 
-// Optional: Specify flash version, for example, v17.0.0.169
-app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
+ // वैकल्पिक: फ़्लैश संस्करण निर्दिष्ट करें, जैसे कि, v17.0.0.169 app.commandLine.appendSwitch('ppapi-flash-version', '17.0.0.169')
 
-app.on('ready', () => {
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      plugins: true
-    }
-  })
-  win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
-})
+ app.on('ready', () => {
+   let win = new BrowserWindow({
+     width: 800,
+     height: 600,
+     webPreferences: {
+       plugins: true
+     }
+   })
+   win.loadURL(`file://${__dirname}/index.html`)
+   // और कुछ
+ })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+प्लगइनस खुद पहुँचाने की बजाये, आप चाहे तो सिस्टम वाइड पेप्पर फ़्लैश प्लगइन भी लोड कर सकते हैं, उसका पथ आपको `app.getPath('pepperFlashSystemPlugin')` बुला कर मिल जायेगा |
 
-## Enable Flash Plugin in a `<webview>` Tag
+## `<webview>` टैग में पेप्पर फ़्लैश प्लगइन चालू करें
 
-Add `plugins` attribute to `<webview>` tag.
+`प्लगइनस` एट्रिब्यूट को `<webview>` टैग से जोड़ें |
 
 ```html
 <webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Troubleshooting
+## समस्या निवारण
 
 You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
 
