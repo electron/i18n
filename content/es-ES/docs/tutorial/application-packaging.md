@@ -90,7 +90,7 @@ const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+También puede configurar `process.noAsar` a `Verdad` para inhabilitar el soporte de `asar` en el módulo `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -104,15 +104,15 @@ Aunque tratamos de hacer que los archivos `asar` en la API de nodo funcionaran c
 
 ### Archivos de solo lectura
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Los archivos no pueden ser modificados así que las APIs de nodos que puedan modificar archivos no podrán trabajar con archivos de `asar`.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Directorio de Trabajo No Puede Ser Configurado en Directorios en Archivos
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Aunque los archivos `asar` son tratados como directorios, no hay tal en el sistema de archivos, así que nunca puede configurar un directorio de trabajo como directorio en los archivos `asar`. Al igual que con las opciones `cwd` de algunas APIs también causarán errores.
 
-### Extra Unpacking on Some APIs
+### Desempaque adicional en algunas APIs
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+La mayoría de las APIs `fs` pueden leer un archivo u obtener información de un archivo desde un archivo `asar` sin desempaquetar, pero para algunas APIs que dependen de pasar el archivo real a requerimientos subyacentes del sistema. Electron sacará el archivo requerido a un archivo temporal y pasar la ruta de este a la APIs que lo hará trabajar. This adds a little overhead for those APIs.
 
 APIs that requires extra unpacking are:
 
