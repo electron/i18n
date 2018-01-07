@@ -27,11 +27,11 @@ On Linux and Windows, the `Command` key does not have any effect so use `Command
 
 `Alt` `seçeneği` yerine kullanın. `Alt` anahtar tüm platformlarda mevcut ise `seçme hakkı` anahtarı sadece macOS üzerinde bulunmaktadır.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super` tuşu, Windows ve Linux'ta`Windows`, macOS'ta `Cmd` tuşlarıyla eşleştirilmiştir.
 
 ## Kullanılabilir düzenleyiciler
 
-* `Command` (or `Cmd` for short)
+* `Command` (yada kısaca `Cmd`)
 * `Control` (or `Ctrl` for short)
 * `CommandOrControl` (or `CmdOrCtrl` for short)
 * `Alt`
@@ -42,9 +42,9 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Kullanılabilir anahtar kodları
 
-* `` to `9`
+* ``'dan `9`'a
 * `A` to `Z`
-* `F1` to `F24`
+* `F1`'den `F24`'e
 * `~`, `!`, `@`, `#`, `$`, vb. gibi noktalama işaretleri.
 * `Artı`
 * `Boşluk`
@@ -54,7 +54,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Ekleme`
 * `Return` (or `Enter` as alias)
 * `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
+* `Home` ve `End`
 * `PageUp` and `PageDown`
 * `Çıkış` (veya `Esc` kısaca)
 * `Sesi Aç`, `Sesi Kıs` ve `Sesi Kapat`
