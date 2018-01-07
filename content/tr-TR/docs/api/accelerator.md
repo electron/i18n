@@ -27,7 +27,7 @@ On Linux and Windows, the `Command` key does not have any effect so use `Command
 
 `Alt` `seçeneği` yerine kullanın. `Alt` anahtar tüm platformlarda mevcut ise `seçme hakkı` anahtarı sadece macOS üzerinde bulunmaktadır.
 
-`Super` tuşu, Windows ve Linux'ta`Windows`, macOS'ta `Cmd` tuşlarıyla eşleştirilmiştir.
+`Super` tuşu, Windows ve Linux'ta `Windows`, macOS'ta ise `Cmd` tuşuyla eşleştirilmiştir.
 
 ## Kullanılabilir düzenleyiciler
 
