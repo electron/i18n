@@ -560,7 +560,7 @@ app.setJumpList([
 
 Returns `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Bu yöntem uygulamanızı bir Tek Örnek Uygulaması yapar - bunun yerine uygulamanızı çalıştırmak için birden çok örneğine izin vermek, bu uygulamanızın sadece tek bir örneğinin çalışmasını sağlayacaktır, ve diğer örnekler bu örneği işaret eder ve çıkar.
 
 `callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
 
@@ -633,7 +633,7 @@ Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Varsayılan olarak Chromium, GPU işlemleri çok sık çökerse, her etki alanı için yeniden başlatılıncaya kadar 3D API'leri (ör. WebGL) devre dışı bırakır. Bu işlev, bu davranışı devre dışı bırakır.
 
 Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
 
