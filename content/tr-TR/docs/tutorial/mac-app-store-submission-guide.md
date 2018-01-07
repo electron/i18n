@@ -130,17 +130,17 @@ Uygulamanızda kullanılan yerel modüller de imzalanmalıdır. Eğer Electron-o
 electron-osx-sign Uygulaman.app Uygulaman.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Ayrıca, yerli modüllerde üretilmemiş ara dosyaların bulunmasına dikkat edilmelidir. (bunların da imzalanması gerektiğinden dolayı dahil edilmemelidir). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
 ### Uygulamanı yükle
 
 Uygulamanızı imzaladıktan sonra, yüklemeden önce [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)’a sahip olduğunuzdan emin olmak ve iTunes Connect'e yazılım yüklemek için uygulama yükleyicisi'ni kullanabilirsiniz.
 
-### Submit Your App for Review
+### Uygulamanızı gözden geçirmek için gönderin
 
 Bu adımların ardından, [uygulamanızı incelenmek üzere gönderebilirsiniz](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## MAS Yapısının Sınırlamaları
 
 Uygulama sanal alanı oluşturmak için tüm gereksinimleri karşılamak adına MAS derlemesinde aşağıdaki modüller devre dışı bırakılmıştır:
 
