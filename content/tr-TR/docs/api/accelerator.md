@@ -48,7 +48,7 @@ Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hı
 * `Geri silme`
 * `Sil`
 * `Ekleme`
-* `Return` (or `Enter` as alias)
+* `Return` (yada diğer adıyla `Enter`)
 * `Up`, `Down`, `Left` ve `Right`
 * `Home` ve `End`
 * `PageUp` ve `PageDown`
