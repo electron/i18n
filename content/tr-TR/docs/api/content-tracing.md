@@ -51,9 +51,9 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 Tüm işlemler kaydetmeye başlayın.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar. Bütün alt süreçler `startRecording` isteğini onayladıktan sonra `callback` çağırılır.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter`, hangi kategori gruplarının izleneceğini kontrol eden bir filtredir. Filtre, eşleşen bir kategori içeren kategori gruplarını hariç tutmak için `-` ön ekini içerebilir. Aynı listede hem eşleşen hem de eşleşmeyen kategori desenleri desteklenmemektedir.
 
 Örnekler:
 
@@ -61,7 +61,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `test_MyTest*,test_OtherStuff`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` ne tarz izlemenin etkinleştirildiğini kontrol eder, virgül ile ayrılmıştır. Mümkün seçenekler şunlardır:
 
 * `kayıt-kadar-tam`
 * `Kayıt-sürekli`
@@ -69,7 +69,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `enable-sampling`
 * `enable-systrace`
 
-The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+İlk 3 seçenek izleme kayıt modlarıdır ve bundan dolayı karşılıklı olarak dışlarlar. Eğer `traceOptions` dizesinde birden fazla izleme kayıt modu varsa, sonuncusu öncelikli olacaktır. If none of the trace recording modes are specified, recording mode is `record-until-full`.
 
 İzleme seçeneği ilk olarak varsayılan seçeneğe (`record_mode` başlamak `record-until-full`, `enable_sampling` ve `enable_systrace`, `traceOptions`'dan ayrıştırılan seçeneklerin üzerine uygulanmadan önce `false`) olarak ayarlanır.
 
