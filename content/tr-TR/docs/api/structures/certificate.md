@@ -3,7 +3,7 @@
 * `data` String - PEM tarafından kodlanmış veri
 * ` issuer ` [ CertificatePrincipal ](certificate-principal.md) - İhraçcı asıl
 * `issuerName</ 0> String - İhracını Ortak Adı</li>
-<li><code>issuerCert` Sertifika - Kurum sertifikası (kendiliğinden imzalanmamışsa)
+<li><code>issuerCert` Sertifika - Kurum sertifikası (kendiliğinden imzalı değilse)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Konu başlığı
 * `subjectName` String - Konunun Ortak Adı
 * `serialNumber` String - Hex value represented string
