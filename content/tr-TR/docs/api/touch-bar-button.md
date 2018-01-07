@@ -15,15 +15,15 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBarButton`:
+Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Bir `String` düğmenin mevcut metnini temsil eder. Bu değeri değiştirmek hemen düğmeyi günceller Dokunmatik kaydırıcıda.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Düğmenin geçerli arka plan rengini temsil eden `String` hex kodu. Bu değeri değiştirirken hemen güncelleme yapar Dokunmatik alandaki düğmeyi tıklayın.
 
 #### `touchBarButton.icon`
 
