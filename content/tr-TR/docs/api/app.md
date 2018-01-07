@@ -776,7 +776,7 @@ Cancel the bounce of `id`.
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+FilePath, İndirilenler klasörünün içindeyse İndirme yığınla geri döner.
 
 ### `app.dock.setBadge(text)` *macOS*
 
