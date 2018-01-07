@@ -1,6 +1,6 @@
 # Güvenlik, Yerli Yetenekler ve Sorumluluklarınız
 
-Web geliştiricileri olarak, genellikle tarayıcının güçlü güvenlik ağının tadını çıkarırız - Yazdığımız kodla ilişkili riskler nispeten azdır. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Web geliştiricileri olarak, genellikle tarayıcının güçlü güvenlik ağının tadını çıkarırız - Yazdığımız kodla ilişkili riskler nispeten azdır. Web sitelerimize sanal bir alanda sınırlı yetkiler verilir, ve kullanıcılarımızın yeni keşfedilen güvenlik tehditlerine karşı çabuk şekilde cevap verebilecek büyük bir mühendis takımı tarafından oluşturulmuş bir tarayıcıdan hoşlandıklarını düşünüyoruz.
 
 Elektron ile çalışırken, Elektronun bir web tarayıcısı olmadığını bilmeniz önemlidir. Tanıdık web teknolojileri ile zengin özelliklere sahip masaüstü uygulamaları oluşturmanıza izin verir, ancak kodunuz daha fazla güç sağlar. JavaScript; dosya sistemine, kullanıcı kabuğuna ve daha fazlasına erişebilir. Bu, yüksek kaliteli yerli uygulamalar oluşturmanızı sağlar, ancak doğal güvenlik riskleri kodunuza verilen ek güçlerle ölçeklenir.
 
@@ -8,7 +8,7 @@ Bunu göz önünde bulundurarak, güvenilmeyen kaynaklardan keyfi içeriğin gö
 
 ## Güvenlik sorunlarını raporlama
 
-For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Bir elektronun güvenlik açığını düzgün bir şekilde açıklamayla ilgili bilgi için, bkz. [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 ## Chromium Güvenlik Sorunları ve Yükseltmeleri
 
