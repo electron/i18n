@@ -130,7 +130,7 @@ Los objetos `Estadística` devuelto por `fs.stat` y sus archivos amigos en archi
 
 Hay APIs de nodos que pueden ejecutar binarios como `child_process.exec`, `child_process.spawn` y `child_process.execFile`, pero solo `execFile` es soportado para ejecutar archivos binario `asar` de adentro.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como entrada, y `command` son ejecutados por debajo de la cáscara. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
 
 ## Adding Unpacked Files in `asar` Archive
 
