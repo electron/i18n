@@ -1,12 +1,12 @@
 # पेप्पर फ़्लैश प्लगइन का इस्तेमाल
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+इलेक्ट्रॉन पेप्पर फ़्लैश प्लगइन का समर्थन करता है | इलेक्ट्रॉन में पेप्पर फ़्लैश प्लगइन इस्तेमाल करने के लिए, आपको पेप्पर फ़्लैश प्लगइन की लोकेशन मैन्युअली निर्दिष्ट करनी होगी और फिर उसे अपनी एप्लीकेशन में शुरू करना होगा |
 
-## Prepare a Copy of Flash Plugin
+## फ़्लैश प्लगइन की एक कॉपी तैयार करें
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+मैकओएस और लिनक्स पर, पेप्पर फ़्लैश प्लगइन का विवरण क्रोम ब्राउज़र में `chrome://plugins` पर जाकर पाया जा सकता है | उसकी लोकेशन और संस्करण, इलेक्ट्रॉन के पेप्पर फ़्लैश प्लगइन के समर्थन के लिए बहुत उपयोगी है | आप उसे किसी दूसरी लोकेशन पर भी कॉपी कर सकते हैं |
 
-## Add Electron Switch
+## इलेक्ट्रॉन स्विच जोड़ें
 
 You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
 
