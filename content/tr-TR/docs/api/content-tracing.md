@@ -40,7 +40,7 @@ app.on('ready', () => {
 
 Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Bütün alt süreçler, `getCategories` isteğini onayladıktan sonra, `callback` kategori grupları dizisi ile çağırılır.
 
 ### `contentTracing.startRecording(options, callback)`
 
