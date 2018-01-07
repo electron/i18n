@@ -49,12 +49,12 @@ HTTP yanıt mesajı temsil eden bir `Katar`.
 HTTP başlıklarını temsil eden bir `Obje`. `headers` objesi aşağıdaki gibi formatlanır:
 
 * Tüm başlıklar küçük harflerde olmalıdır.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Her bir başlık adı, başlık nesnesinde bir dizi değerli özellik üretir.
+* Her bir başlık değeri, başlık adıyla ilişki bir diziye eklenir.
 
 #### `response.httpVersion`
 
-HTTP protokolü versiyon numarasını belirten bir `Katar`. Genelde değerler '1.0', '1.1' gibi olur. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+HTTP protokolü versiyon numarasını belirten bir `Katar`. Genelde değerler '1.0', '1.1' gibi olur. Ayrıca `httpVersionMajor` ve `httpVersionMinor`, ayrı ayrı HTTP büyük ve küçük sürüm numaralarını geri döndüren iki tam sayı değerli okunabilir özelliktir.
 
 #### `response.httpVersionMajor`
 
