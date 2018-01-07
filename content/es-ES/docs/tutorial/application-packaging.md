@@ -8,12 +8,12 @@ Un archivo [asar](https://github.com/electron/asar) es un formato simple similar
 
 Pasos para empaquetar su aplicación en un archivo `asar< 0>:</p>
 
-<h3>1. Install the asar Utility</h3>
+<h3>1. Instalar la utilidad de Asar</h3>
 
 <pre><code class="sh">$ npm install -g asar
 `</pre> 
 
-### 2. Package with `asar pack`
+### 2. Empaquetar con `Paquete de asar`
 
 ```sh
 $ asar pack your-app app.asar
@@ -83,7 +83,7 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### Tratamiento de un archivo `asar` como una ficha normal
 
-Para algunos casos, como verificar la suma de comprobación del archivo `asar`, necesitamos leer el contenido de un archivo `asar` como una ficha. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Para algunos casos, como verificar la suma de comprobación del archivo `asar`, necesitamos leer el contenido de un archivo `asar` como una ficha. Para este propósito usted puede usar el módulo incorporado `original-fs` el cual provee APIs originales `fs` sin el soporte de `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
