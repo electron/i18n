@@ -8,15 +8,15 @@
 
 ## इलेक्ट्रॉन स्विच जोड़ें
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+आप `--ppapi-flash-path` और `--ppapi-flash-version` को सीधे ही इलेक्ट्रॉन कमांड लाइन से जोड़ सकते हैं या फ़िर एप्प रेडी इवेंट से पहले `app.commandLine.appendSwitch` मेथड का इस्तेमाल कर सकते हैं| साथ ही, `ब्राउज़रविंडो` के `प्लगइनस` विकल्प को भी चालू कर दें |
 
-For example:
+उदाहरण के लिए:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
+const {app, BrowserWindow} = require('electron') 
+const path = require('path') 
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// फ़्लैश पथ निर्दिष्ट करें, यह मान कर कि वह मेन.जेएस के साथ उसी डायरेक्टरी में है |
 let pluginName
 switch (process.platform) {
   case 'win32':
