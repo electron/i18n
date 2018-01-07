@@ -59,10 +59,10 @@ switch (process.platform) {
 
 ## समस्या निवारण
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+डेवटूल्स के कंसोल में `नेविगेटर.प्लगइनस` को जाँच कर आप यह पता लगा सकते हैं कि क्या पेप्पर फ़्लैश प्लगइन लोड हुआ था (हालँकि आप यह नहीं पता लगा सकते कि प्लगइन का पथ सही है या नहीं) |
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+पेप्पर फ़्लैश प्लगइन की बनावट इलेक्ट्रॉन की बनावट के अनुरूप होनी चाहिये | विंडोज पर, एक जो बेहद आम त्रुटी है, वो यह कि इलेक्ट्रॉन के 64बिट संस्करण के साथ फ़्लैश प्लगइन के 32बिट संस्करण का इस्तेमाल करना |
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+विंडोज पर `--ppapi-flash-path` को पास किये गये पथ को `` का इस्तेमाल करना ज़रूरी है, पोसआईएक्स-स्टाइल के पथ इस्तेमाल करने से बात नहीं बनेगी |
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+आरटीएमपी का इस्तेमाल कर मीडिया स्ट्रीम करने जैसे कुछ कामों के लिए, यह ज़रूरी है कि प्लेयर की `.एसडब्यूऍफ़` फाइल्स को व्यापक अनुमतियाँ प्रदान की जायें | One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
