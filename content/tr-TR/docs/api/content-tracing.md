@@ -106,7 +106,7 @@ Tüm alt süreçler `startMonitoring` isteğini onayladıktan sonra `callback` �
 
 Tüm işlemlerin izlemesini durdurun.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Tüm alt süreçler `stopMonitoring` isteğini onayladıktan sonra `callback` çağırılır.
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
@@ -116,9 +116,9 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 
 Geçerli izleme verilerini alın.
 
-Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. İzleme verilerini IPC üzerinden göndermek pahalı bir işlem olabilir ve gereksiz çalışma zamanı yükünün izlenmesini önlemek istiyoruz. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Bütün alt süreçler, `captureMonitoringSnapshot` isteğini onayladıktan sonra, `callback`, izlenen verileri içeren bir dosyayla çağrılır.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
@@ -126,4 +126,4 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+İzleme arabelleği işlemlerindeki maksimum kullanımı tam durum yüzdesi olarak alın. TraceBufferUsage değeri belirlendiğinde `callback` çağırılır.
