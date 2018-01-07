@@ -194,7 +194,7 @@ Dönüşler:
 * `callback` Fonksiyon 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
-Emitted when a client certificate is requested.
+Bir istemci sertifikası talep edildiğinde yayılır.
 
 `url`, istemci sertifikasını isteyen gezinme girişine karşılık gelir ve listeden filtrelenmiş bir girdi ile `callback` çağrılabilir. `event.preventDefault()` öğesinin kullanılması, uygulamanın mağazadaki ilk sertifikayı kullanmasını engeller.
 
