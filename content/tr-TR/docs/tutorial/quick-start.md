@@ -189,7 +189,7 @@ Uygulamanızı yazmayı bitirdikten sonra, [ Uygulama Dağıtımı ](./applicati
 
 ### Bu örneği deneyin
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Bu eiğitimdeki kodu kullanarak depoyu çalıştırın ve çoğaltın [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
