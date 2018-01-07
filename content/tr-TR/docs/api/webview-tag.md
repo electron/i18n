@@ -79,7 +79,7 @@ Görünür URL'yi döndürür. Bu özelliğe yazmak, üst düzey gezinimi başla
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-Bu özellik varsa, `webview` kapsayıcısı otomatik olarak yeniden boyutlandırır `minwidth`, `minheight`, nitelikleri tarafından belirtilen sınırlar içinde, `maxwidth` ve `maxheight`. Bu kısıtlamalar, `webview` `autosize` etkinleştirilmemişse. `autosize` etkinleştirildiğinde, `webview` dosya boyutu minimum değerlerden az veya maksimum değerden fazla olamaz.
+Bu özellik varsa, `webview` `minwidth`, `minheight`, özellikleri tarafından belirtilen sınırlar içinde, kapsayıcısı otomatik olarak yeniden boyutlandırır `maxwidth` ve `maxheight`.</0>. Bu kısıtlamalar, `webview` `autosize` etkinleştirilmemişse. `autosize` etkinleştirildiğinde, `webview` dosya boyutu minimum değerlerden az veya maksimum değerden fazla olamaz.
 
 ### `düğüm entegrasyonu`
 
@@ -142,7 +142,7 @@ Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bı
 
 Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. `persist:` öneki yoksa, sayfa bir bellek içi oturum kullanacaktır. Aynı `partition` bölümü atayarak, aynı oturumda birden çok sayfa paylaşabilir. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
 
-Bu değer yalnızca ilk gezinmeden önce değiştirilebilir, çünkü oturum aktifken oluşturucu sürecinin değiştiremezsiniz. Değer değiştirmeye yönelik daha sonraki denemeler DOM istisnası ile başarısız olur.
+Bu değer yalnızca ilk gezinmeden önce değiştirilebilir, çünkü oturum aktif bir oluşturucu sürecindeyken değiştiremezsiniz. Ardından, değeri bir DOM hatası ile başarısız olur.
 
 ### `pop up'lara izin ver`
 
