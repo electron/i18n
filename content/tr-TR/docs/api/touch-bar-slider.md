@@ -10,13 +10,13 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
   * `label` Dize (İsteğe bağlı) - Görüntülenecek metin.
   * `value` Integer (isteğe bağlı) - Seçilen değer.
   * `minValue` Integer (isteğe bağlı) - Minimum değer.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+  * `maxValue` Integer (isteğe bağlı) - Maksimum değer.
+  * `change` Fonksiyon (isteğe bağlı) - Kaydırıcı değiştiğinde çağırılacak işlev. 
+    * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBarSlider`:
+Aşağıdaki özelliklere sahip örneklerde `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
