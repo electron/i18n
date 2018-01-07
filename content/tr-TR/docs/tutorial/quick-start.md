@@ -82,7 +82,7 @@ function createWindow () {
 }
 // Bu yöntem, Electron başlatmayı tamamladığında
 // ve tarayıcı pencereleri oluşturmaya hazır olduğunda çağrılır.
-// Some APIs can only be used after this event occurs.
+// Bazı API'ler sadece bu olayın gerçekleşmesinin ardından kullanılabilir.
 app.on('ready', createWindow)
 
 // Bütün pencereler kapatıldığında çıkış yap.
@@ -160,7 +160,7 @@ $ npx electron.
 
 ### Manually Downloaded Electron Binary
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Eğer Electron'u mauel olarak indirdiyseniz, uygulamanızı doğrudan çalıştırmak için birlikte verilen ikili de kullanabilirsiniz.
 
 #### macOS
 
