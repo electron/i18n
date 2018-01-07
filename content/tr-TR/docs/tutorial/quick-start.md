@@ -160,7 +160,7 @@ $ npx electron.
 
 ### Manually Downloaded Electron Binary
 
-Eğer Electron'u mauel olarak indirdiyseniz, uygulamanızı doğrudan çalıştırmak için birlikte verilen ikili de kullanabilirsiniz.
+Eğer Electron'u manuel olarak indirdiyseniz, uygulamanızı doğrudan çalıştırmak için birlikte verilen ikili de kullanabilirsiniz.
 
 #### macOS
 
