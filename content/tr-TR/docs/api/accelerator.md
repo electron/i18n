@@ -23,7 +23,7 @@ app.on('ready', () => {
 
 ## Platform bildirimi
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hızlandırıcıları tanımlamak için macOS'taki `Command` tuşunu ve Linux ve Windows'taki `Control` tuşunu temsil eden `CommandOrControl`'u kullanın.
 
 `Alt` `seçeneği` yerine kullanın. `Alt` anahtar tüm platformlarda mevcut ise `seçme hakkı` anahtarı sadece macOS üzerinde bulunmaktadır.
 
@@ -32,8 +32,8 @@ On Linux and Windows, the `Command` key does not have any effect so use `Command
 ## Kullanılabilir düzenleyiciler
 
 * `Command` (yada kısaca `Cmd`)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Control` (yada kısaca `Ctrl`)
+* `CommandOrControl` (yada kısaca `CmdOrCtrl`)
 * `Alt`
 * `Seçenek`
 * `AltGr`
