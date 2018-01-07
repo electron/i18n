@@ -20,11 +20,11 @@ Aşağıdaki özelliklere sahip örneklerde `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+Kaydırıcının geçerli metnini temsil eden bir `String`. Bu değeri değiştirmek dokunmatik bardaki kaydırıcıyı hemen günceller.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+Kaydırıcının geçerli değerini temsil eden bir `Number`. Bu değeri değiştirmek dokunmatik bardaki kaydırıcıyı hemen günceller.
 
 #### `touchBarSlider.minValue`
 
