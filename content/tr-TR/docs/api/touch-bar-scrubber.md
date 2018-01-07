@@ -1,22 +1,22 @@
 ## Sınıf: TouchBarKaydırıcı
 
-> Create a scrubber (a scrollable selector)
+> Bir kaydırıcı oluşturma (Kaydırılabilir seçici)
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
 
-* `options` Nesne 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
-    * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
-    * `highlightedIndex` Integer - The index of the item the user touched
-  * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
-  * `showArrowButtons` Boolean - Defaults to `false`.
-  * `mode` String - Defaults to `free`.
-  * `continuous` Boolean - Defaults to `true`.
+* `seçenekler` Nesne 
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - Bu kaydırıcıya yerleştirilecek bir dizi madde
+  * `seç` Fonksiyon - Kullanıcı, son tıklanan öğe olmayan bir öğeyi tıklattığında çağrılır 
+    * `selectedIndex` Integer - Kullanıcının seçtiği öğenin dizini
+  * `vurgulamak` Fonksiyon - Kullanıcı herhangi bir öğeyi tıklattığında çağrılır 
+    * `highlightedIndex` Integer - Kullanıcının dokunduğu maddenin endeksi
+  * `selectedStyle` String - Seçilen öğe stili. Varsayılan değer: `null`.
+  * `overlayStyle` String - Seçili yer paylaşım öğesi stili. Varsayılan değer: `null`.
+  * `showArrowButtons` Boolean - Varsayılan değer `false`.
+  * `mode` String - Varsayılan değer `free`.
+  * `continuous` Boolean - Varsayılan değer `true`.
 
 ### Örnek özellikleri
 
