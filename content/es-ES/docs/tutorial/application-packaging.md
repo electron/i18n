@@ -130,16 +130,16 @@ Los objetos `Estadística` devuelto por `fs.stat` y sus archivos amigos en archi
 
 Hay APIs de nodos que pueden ejecutar binarios como `child_process.exec`, `child_process.spawn` y `child_process.execFile`, pero solo `execFile` es soportado para ejecutar archivos binario `asar` de adentro.
 
-Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como entrada, y `command` son ejecutados por debajo de la cáscara. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como entrada, y `command` son ejecutados por debajo de la cáscara. No hay manera fiable de determinar si un comando usa un archivo en un archivo asar, y aún si lo hiciésemos, no podemos estar seguros si no podemos reemplazar el camino en comando sin efectos secundarios.
 
-## Adding Unpacked Files in `asar` Archive
+## Añadiendo archivos desempaquetados en un archivo `asar`
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+Como e indicó anteriormente, algunas APIs de node desempaquetarán un archivo en el sistema cuando sea llamado, aparte de los problemas de desempeño, pudiese fácilmente llevar a una falsa alerta en los antivirus.
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+Para trabajar alrededor de esto, usted puede desempaquetar algunos archivos creando otros usando la opción `--unpack`, un ejemplo de excluir bibliotecas compartidas de módulos nativos es:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+Después de correr el comando, aparte de `app.asar`, hay también una carpeta `app.asar.unpacked` generada que contiene los archivos desempaquetados, debe copiarlos juntos con `app.asar` cuando se entregue a lo usuarios.
