@@ -88,7 +88,7 @@ Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürüt
 
 Elektron uygulamanızı; bildirim gönderme, Cortana entegrasyonu veya canlı karo gibi Windows 10 özelliklerinden tam olarak yararlanmanızı sağlayacak görünmez bir UWP arka plan göreviyle eşleştirebilirsiniz.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Bir arka plan görevini kullanan bir Electron uygulamasının toast bildirimlerini ve canlı karoları nasıl gönderdiğini kontrol etmek için, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
 ## İsteğe bağlı: Konteyner Sanallaştırması'nı kullanarak Dönüştürün
 
