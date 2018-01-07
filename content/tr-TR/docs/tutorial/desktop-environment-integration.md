@@ -177,7 +177,7 @@ Unity DE aynı zamanda başlatıcıda ki ilerleme çubuğunu belirlemenizi sağl
 
 ![Görev çubuğu ilerleme çubuğu](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Bir pencerenin ilerleme çubuğunu ayarlamak için [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) kullanablirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,7 +185,7 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Görev çubuğundaki yer paylaşım simgesi (windows)
 
 Windows'ta bir görev çubuğu düğmesi, MSDN'den aktarıldığı gibi uygulama durumunu görüntülemek için küçük bir yer paylaşımında kullanılabilir:
 
@@ -195,7 +195,7 @@ Windows'ta bir görev çubuğu düğmesi, MSDN'den aktarıldığı gibi uygulama
 
 ![Arayüzü görev çubuğuna al](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+[BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API: Bunu bir pencereye yer paylaşım simgesi ayarlamak için kullanabilirisiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
