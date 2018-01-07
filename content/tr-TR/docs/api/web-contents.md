@@ -313,7 +313,7 @@ Dönüşler:
 * `callback` Fonksiyon 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Bir istemci sertifikası talep edildiğinde yayılır.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
