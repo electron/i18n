@@ -103,7 +103,7 @@ Electron'u, ürün adını değiştirerek yeniden markalamak da mümkündür. on
 
 ### Özel bir Electron Çatısı Oluşturma
 
-Elektron'un özel bir çatalı yaratmak kesinlikle sizin yapmanız gereken bir şey değildir "Üretim Seviyesi" uygulamaları için bile, uygulamanızı oluşturmak için yapmanız gerekir. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Elektron'un özel bir çatalı yaratmak kesinlikle sizin yapmanız gereken bir şey değildir "Üretim Seviyesi" uygulamaları için bile, uygulamanızı oluşturmak için yapmanız gerekir. "Markalaştırma" işlemini bu adımlar olmadan,`electron-paketleyici` yada` electron-sahteciliği` gibi araçları kullanarak yapmanıza izin veriri.
 
 Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı doğru akışlanamayan ya da resmi sürümden reddedilen Elektron'u çatallamanız gerekir. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
 
