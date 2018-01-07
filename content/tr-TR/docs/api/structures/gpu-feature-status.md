@@ -8,7 +8,7 @@
 * `multiple_raster_threads` String - Multiple Raster Threads
 * `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
 * `rasterization` String - Rasterizasyon
-* `video_decode` String - Video Decode
+* `video_decode` - Video Decode
 * `video_encode` String - Video Encode
 * `vpx_decode` String - VPx Video Decode
 * `webgl` Dize - WebGL
