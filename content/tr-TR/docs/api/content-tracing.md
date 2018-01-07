@@ -83,9 +83,9 @@ Kayıt işlemini tüm süreçlerde durdurur.
 
 Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Bütün alt süreçler, `stopRecording` isteğini onayladıktan sonra, `callback`, izlenen verileri içeren bir dosyayla çağrılır.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFilePath` içerisine yazılır. Eğer gerçek dosya yolu `null` değil ise `callback`'e geçirilir.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
@@ -94,11 +94,11 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+Tüm süreçlerin izlenmesini başlat.
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+İzleme işlemi, `startMonitoring` isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+Tüm alt süreçler `startMonitoring` isteğini onayladıktan sonra `callback` çağırılacaktır.
 
 ### `contentTracing.stopMonitoring(callback)`
 
