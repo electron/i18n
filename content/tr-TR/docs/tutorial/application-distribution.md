@@ -44,7 +44,7 @@ electron/resources/
 
 Daha fazla detay [Application packaging](application-packaging.md) içinde bulunabilir.
 
-## Rebranding with Downloaded Binaries
+## İndirilen ikili değerler ile yeniden markalaştırmak
 
 Uygulamanızı Electron'da topladıktan sonra, Electron'u kullanıcılara dağıtmadan önce yeniden markalamak isteyeceksiniz.
 
