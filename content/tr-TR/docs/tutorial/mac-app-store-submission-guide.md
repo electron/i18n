@@ -1,6 +1,6 @@
 # Mac App Store'a Gönderme Kılavuzu
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+V0.34.0'dan beri Electron, Mac App Store'a (MAS) paketlenmiş uygulamalar gönderilmesini sağlar. Bu kılavuzda, uygulamanızın nasıl gönderileceği ve MAS yapısının sınırlamaları hakkında bilgiler verilmektedir.
 
 **Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Sonra, üç yetki dosyaları hazırlamanız gerekir.
 
 `child.plist`:
 
@@ -79,7 +79,7 @@ Then, you need to prepare three entitlements files.
 
 `TEAM_ID` kısmını takım ID'nizle `your.bundle.id` kısmını ise Bundle ID'nizle değiştirmeniz gerekmektedir.
 
-And then sign your app with the following script:
+Ve sonra aşağıdaki komut dosyası ile uygulamayı imzalayın:
 
 ```sh
 #!/bin/bash
