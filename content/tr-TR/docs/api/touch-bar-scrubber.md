@@ -1,4 +1,4 @@
-## Class: TouchBarScrubber
+## Sınıf: TouchBarKaydırıcı
 
 > Create a scrubber (a scrollable selector)
 
