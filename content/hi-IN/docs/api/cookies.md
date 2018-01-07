@@ -6,7 +6,7 @@ Process: [Main](../glossary.md#main-process)
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+उदाहरण के लिए:
 
 ```javascript
 const {session} = require('electron')
