@@ -48,10 +48,10 @@ Bu tarayıcıda sol / sağ seçim oklarının gösterilip gösterilmeyeceğini g
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+Bu kaydırıcı modunu temsil eden bir `String`. Bu değeri hemen güncelleme dokunmatik bardaki kontrolü günceller. Olası değerler:
 
-* `fixed` - Maps to `NSScrubberModeFixed`
-* `free` - Maps to `NSScrubberModeFree`
+* `fixed` - Haritaları `NSScrubberModeFixed`
+* `fixed` - Haritaları `NSScrubberModeFree`
 
 #### `touchBarScrubber.continuous`
 
