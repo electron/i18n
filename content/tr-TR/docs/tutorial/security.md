@@ -28,7 +28,7 @@ Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 
 * Sadece güvenli (https) içeriğini görüntüle
 * Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
+* Uzaktan kontrol içeriğini goruntuleyen tum işlemlerde ortamı izole etmeyi etkınlestırın
 * Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
 * Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
 * Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
