@@ -1,4 +1,4 @@
-# Görev Objesi
+# Görev Nesnesi
 
 * `program` Dizi - Yürütülecek programın yolunu `process.execPath` mevcut programı açan yolu seçmelisiniz.
 * `argümanlar` Dizi - Yorum satırı argümanları `program` çalıştığında açılır.
