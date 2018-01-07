@@ -1,12 +1,12 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Performans darboğazlarını ve yavaş işlemleri bulmak için Chromium'un içerik modülünden izleme verilerini toplar.
 
 Süreç: [Ana](../glossary.md#main-process)
 
 Bu modül web arabirimi içermez o yüzden sonuçları görüntülemek için `chrome://tracing/` bunu Chrome tarayıcısında açın ve oluşturulan dosyayı yükleyin.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Not:** Uygulama modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -31,7 +31,7 @@ app.on('ready', () => {
 
 ## Metodlar
 
-The `contentTracing` module has the following methods:
+`contentTracing` modülü aşağıdaki metodları içerir:
 
 ### `contentTracing.getCategories(callback)`
 
