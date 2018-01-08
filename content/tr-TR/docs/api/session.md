@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `cache` Boolean - Whether to enable cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -99,7 +99,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Obje (isteğe bağlı) 
+* `ayarlar` Obje (isteğe bağlı) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -188,7 +188,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -311,7 +311,7 @@ Returns `Blob` - The blob data associated with the `identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
