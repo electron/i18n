@@ -4,9 +4,9 @@
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Resim çeken API'ler için Electron'da dosya yollarını veya `NativeImage` örneklerini geçirebilirsiniz. `null` geçirilirse boş resim kullanılacaktır.
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+Örnek olarak, bir tepsi oluştururken veya pencere simgesi ayarlarken, görüntü dosyasının yolunu `String` olarak geçirebilirsiniz:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
