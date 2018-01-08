@@ -22,17 +22,17 @@ npm_config_target_arch=x64
 export npm_config_disturl=https://atom.io/download/electron
 # नोड-प्री-जीवायपी को बतायें कि हम इलेक्ट्रॉन के लिए निर्माण कर रहे हैं |
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# नोड-प्री-जीवायपी को स्त्रोत कोड से मोड्यूल बनाने को कहें |
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# सभी निर्भरताएँ इन्स्टॉल करें, और कैश को ~/.electron-gyp में स्टोर करें |
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### मोड्यूल इन्स्टॉल और इलेक्ट्रॉन के लिए पुनर्निर्माण करना
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+आप चाहें तो दुसरे नोड प्रोजेक्ट्स की तरह मोडयुल्स इन्स्टॉल कर सकते हैं, और फिर [`इलेक्ट्रॉन-रिबिल्ड`](https://github.com/paulcbetts/electron-rebuild) पैकेज के साथ इलेक्ट्रॉन के लिए मोडयुल्स का पुनर्निर्माण कर सकते हैं | यह मोड्यूल इलेक्ट्रॉन का संस्करण प्राप्त कर सकता है और आपकी एप्प के लिए हेडर्स डाउनलोड करने और मूल मोडयुल्स का पुनर्निर्माण करने के मैन्युअल कामों को संभाल सकता है |
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+`इलेक्ट्रॉन-रिबिल्ड` इन्स्टॉल करने और फिर उससे मोडयुल्स का पुनर्निर्माण करने का एक उदाहरण:
 
 ```sh
 npm install --save-dev electron-rebuild
