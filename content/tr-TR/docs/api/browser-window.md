@@ -36,11 +36,7 @@ Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı gör�
 Sayfayı yüklerken, pencerenin henüz gösterilmemesi durumunda, oluşturucu işlemi sayfayı ilk kez işlediğinde, ` hazır göster ` olayı yayımlanacaktır. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
-win.once('ready-to-show', () => {
-  win.show()
-})
+const {BrowserWindow} = require ('elektron') win = yeni BrowserWindow olsun ({show: false}) win.once ('ready to show', () => {win.show () })
 ```
 
 Bu olay genellikle `did-finish-load` olayından sonra verilir, ancak birçok uzak kaynağa sahip sayfalar için `did-finish-load` olayından önce yayınlanabilir.
@@ -50,10 +46,9 @@ Bu olay genellikle `did-finish-load` olayından sonra verilir, ancak birçok uza
 Karmaşık bir uygulama için, `ready-to-show` etkinliği çok geç yayınlanarak uygulamanın yavaşlamasına neden olabilir. Bu durumda, pencereyi derhal göstermeniz ve uygulamanızın arka planına yakın bir `backgroundColor` kullanmanız önerilir:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = require ('elektron') 
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
-win.loadURL('https://github.com')
+ lett win = news BrowserWindow({backgroundColor: '#2e2c29'}) win.loadURL ( 'https://github.com')
 ```
 
 ` hazır göster </ 0>  etkinliğine sahip olan uygulamalar için bile, uygulamanın daha doğal hissetmesini sağlamak için <code>arka plan rengi </ 0> ayarlamanız önerilir .</p>
@@ -63,12 +58,12 @@ win.loadURL('https://github.com')
 <p><code>parent` seçeneğini kullanarak türetilmiş pencereler yaratabilirsiniz:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = require ('elektron') 
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({parent: top})
-child.show()
-top.show()
+let top = yeni BrowserWindow()
+ izin ver çocuk = yeni BrowserWindow ({parent: top})
+ child.show ()
+ top.show ()
 ```
 
 `child` penceresi daima `top` penceresinin üstünde gösterilir.
