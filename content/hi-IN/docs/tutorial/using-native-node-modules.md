@@ -76,4 +76,4 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3
 
 अक्सर वे मोडयुल्स इलेक्ट्रॉन के अंतर्गत सही काम करते हैं, पर कभी-कभी जब इलेक्ट्रॉन नोड से नया वी8 संस्करण इस्तेमाल करता है, और कुछ ऐबीआई परिवर्तन होते हैं, तो बुरी घटनायें घट सकती हैं | तो आम तौर पर इसलिये हमेशा स्त्रोत कोड से मूल मोडयुल्स को बनाने की सलाह दी जाती है |
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+अगर आप `एनपीएम` के ज़रिये मोडयुल्स इन्स्टॉल करने की कोशिश कर रहे हैं, तो यह अपने आप ही हो जाता है, अगर नहीं होता, तो `एनपीएम` में `--build-from-source` पास करना होगा, या फिर `npm_config_build_from_source` वातावरण वेरिएबल सेट करना होगा |
