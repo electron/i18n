@@ -44,7 +44,7 @@ Bütün alt süreçler, `getCategories` isteğini onayladıktan sonra, `callback
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -89,7 +89,7 @@ Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFi
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
