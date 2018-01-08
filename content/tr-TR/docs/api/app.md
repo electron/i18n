@@ -484,7 +484,7 @@ Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıda
 * `error` - Bir ya da birden fazla hata meydana geldi, muhtemel sebebi anlamak için çalışma zamanı günlüğünü etkinleştirin.
 * `invalidSeparatorError` - Jump List içindeki özel kategoriye ayraç eklemeye çalışma girişimi. Ayraçlar sadece standart `Tasks` kategorisinde geçerlidir.
 * `fileTypeRegistrationError` - Jump List'e uygulamanın kaldıramayacağı bir dosya bağlantısıyla dosya tipinin gönderilme girişimi.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+* `customCategoryAccessDeniedError` - Özel kategoriler Jump List'e kullanıcı gizliliği ve grup ilkesi ayarları gereğince eklenemez.
 
 `kategorileri` `boş` ise, önceden ayarlanmış Özel Geçiş Listesi (varsa) olacaktır. yerine uygulama için standart Git Listesi (Windows tarafından yönetilen) değiştirildi.
 
@@ -555,14 +555,14 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Fonksiyon 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` Dizi[] - İkinci örneğin komuta satırı argümanları sırası
+  * `workingDirectory` Dizi - İkinci örneğin çalışma dizini
 
-Returns `Boolean`.
+`Boolean` 'i geri getirir.
 
 Bu yöntem uygulamanızı bir Tek Örnek Uygulaması yapar - bunun yerine uygulamanızı çalıştırmak için birden çok örneğine izin vermek, bu uygulamanızın sadece tek bir örneğinin çalışmasını sağlayacaktır, ve diğer örnekler bu örneği işaret eder ve çıkar.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
+`callback`, ikinci örnek işleme konulduğu zaman `callback(argv, workingDirectory)` ile ilk örnek olarak adlandırılır. `argv` ikinci örneğin komuta sırası argümanlarının dizilişidir, ve `workingDirectory` bunun şimdiki çalışma dizinidir. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
