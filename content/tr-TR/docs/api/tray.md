@@ -56,7 +56,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([DoğalGörüntü](native-image.md) | Dizi)
 
 Creates a new tray icon associated with the `image`.
 
