@@ -125,7 +125,7 @@ Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birl
 Özellik bayrakları Chromium'da yaygın bir uygulamadır ve web geliştirme ekosisteminde iyi kurulmuştur. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
 * is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
+* bu bölümler tamamen yeni ve eski kod yollarıdır: Bu yeni özellik yeni ve eski kodların yenıden yapılandırılması içindir *uygun değil* koşullu kontrat özellikleri
 * feature flags are eventually removed after the soft-branch is merged
 
 İşaretlenen kodu sürüm verme stratejimizle aşağıdaki şekilde eşleştiriyoruz:
