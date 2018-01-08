@@ -1,6 +1,6 @@
 # Bildirim
 
-> Create OS desktop notifications
+> İşletim Sistemi masaüstü bildirimlerini oluştur
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -10,7 +10,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 ## Sınıf: bildirim
 
-> Create OS desktop notifications
+> İşletim Sistemi masaüstü bildirimlerini oluştur
 
 Süreç: [Ana](../glossary.md#main-process)
 
