@@ -11,7 +11,7 @@ const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+Ayrıca X Window sistemlerinde bir seçim panosu bulunur. Bunu değiştirmek için `selection`'ı her bir metoda geçirmelisiniz:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -23,20 +23,20 @@ console.log(clipboard.readText('selection'))
 
 Pano modülü aşağıdaki yöntemleri içerir:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Not:** Deneysel API'ler bu şekilde işaretlenir ve gelecekte kaldırılabilir.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as plain text.
+`String` döndürür - Panodaki içeriği düz metin olarak.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` Dizi
 * `type` String (optional)
 
-Writes the `text` into the clipboard as plain text.
+Panoya `text`'i düz yazı olarak yazar.
 
 ### `clipboard.readHTML([type])`
 
