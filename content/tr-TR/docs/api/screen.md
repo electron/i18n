@@ -113,4 +113,4 @@ Fare işaretçisinin geçerli mutlak konumu.
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+[`Görüntü`](structures/display.md) - En yakından izlenen ekran verilen sınırları kesişir.
