@@ -72,7 +72,7 @@ app.on('ready', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `filePath` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
@@ -94,7 +94,7 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `data` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
@@ -142,7 +142,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
       * `method` String
@@ -172,7 +172,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Fonksiyon 
+* `geri arama` Fonksiyon 
   * `error` Hata 
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -186,7 +186,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `filePath` String
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
@@ -202,7 +202,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `data` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
@@ -218,7 +218,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `buffer` Buffer (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
@@ -234,7 +234,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
       * `method` String
