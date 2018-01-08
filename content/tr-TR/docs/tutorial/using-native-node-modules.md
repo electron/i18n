@@ -10,7 +10,7 @@ Yerel modülleri kurmanın üç yolu:
 
 Birkaç ortam değişkenini ayarlayarak, `npm` değerini modülleri doğrudan yüklemek için kullanabilirsiniz.
 
-An example of installing all dependencies for Electron:
+Electron için tüm bağlantıları kurmanın bir örneği:
 
 ```sh
 # Electron'un sürümü.
