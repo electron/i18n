@@ -192,7 +192,7 @@ Dönüşler:
 * `url` URL
 * `certificateList` [Sertifika[]](structures/certificate.md)
 * `callback` Fonksiyon 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Sertifika](structures/certificate.md) (isteğe bağlı)
 
 Bir istemci sertifikası talep edildiğinde yayılır.
 
@@ -214,20 +214,20 @@ Dönüşler:
 * `olay` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `istek` Nesne 
-  * `method` String
+  * `method` Dizi
   * `url` URL
   * `referrer` URL
 * `authInfo` Nesne 
   * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `scheme` Dizi
+  * `host` Dizi
+  * `port` Tamsayı
+  * `realm` Dizi
 * `callback` Fonksiyon 
-  * `username` String
-  * `password` String
+  * `username` Dizi
+  * `password` Dizi
 
-Emitted when `webContents` wants to do basic auth.
+`webContents` temel doğrulama yapmak istediğinde çıkarılır.
 
 Varsayılan davranış, tüm kimlik doğrulamalarını iptal etmektir; bunu geçersiz kılmak için `event.preventDefault()` ile varsayılan davranışı engellemeli ve kimlik bilgileriyle `callback(username, password)`'u çağırmalısınız.
 
@@ -249,14 +249,14 @@ Dönüşler:
 
 Gpu işlemi çöktüğünde yada yok olduğunda yayılmaktadır.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Etkinlik: 'erişilebilir-destek-değişti' *macOS* *Windows*
 
 Dönüşler:
 
 * `olay` Olay
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` Chrome'un ulaşılabilirlik desteği etkinken, o zaman `false`.
 
-Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. Daha detaylı bilgi için https://www.chromium.org/developers/design-documents/accessibility ziyaret edin.
 
 ## Metodlar
 
@@ -280,7 +280,7 @@ Tüm pencereler kullanıcıya sormadan hemen kapatılır, `before-quit` ve `will
 
 ### `app.relaunch([options])`
 
-* `options` Obje (isteğe bağlı) 
+* `ayarlar` Obje (isteğe bağlı) 
   * `args` Dizgi[] - (Seçimli)
   * `execPath` Dizgi (Seçimli)
 
