@@ -603,7 +603,7 @@ app.on('ready', () => {
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Creates an `NSUserActivity` and sets it as the current activity. Diğer cihazlara yönelik bu etkinliği [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) seçebilirsiniz.
 
 ### `app.getCurrentActivityType()` *macOS*
 
@@ -738,7 +738,7 @@ Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında bel
 * `switch` String - A command-line switch
 * `value` String (optional) - A value for the given switch
 
-Append a switch (with optional `value`) to Chromium's command line.
+Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
 
 **Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
