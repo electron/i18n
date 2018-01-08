@@ -141,7 +141,7 @@ Returns `Object` - Öncesinde ilave olarak ayarlanan başlık adının değeri.
 
 * `name` Dize - İlave bir başlık adı belirtin.
 
-Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnızca ilk yazma işleminden önce yapılabilir. İlk yazma işleminden sonra yapmaya çalışmak bir hata oluşturacaktır.
+Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnızca ilk yazma işleminden önce yapılabilir. İlk yazma işleminden sonra yapmaya çalışmak bir hata meydana getirecektir.
 
 #### `request.write(chunk[, encoding][, callback])`
 
