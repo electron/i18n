@@ -459,9 +459,9 @@ API dahili olarak Windows Kayıt Defteri ve LSCopyDefaultHandlerForURLScheme kul
 
 * `görevler<code> <a href="structures/task.md">Görev []</a> - <0>Görev` nesnelerinin dizisi
 
-Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Windows'taki `tasks` kategorisini JumpList'teki [Görevler](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) kategorisine ekler.
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
 `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
@@ -770,23 +770,23 @@ Returns `Integer` an ID representing the request.
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+`id` sıçramasını iptal et.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
-* `filePath` String
+* `filePath` Dizi
 
 FilePath, İndirilenler klasörünün içindeyse İndirme yığınla geri döner.
 
 ### `app.dock.setBadge(text)` *macOS*
 
-* `text` String
+* `text` Dizi
 
 Dock'un rozetleme alanında gösterilecek satırı ayarlar.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+`String` geri getirir - dock'un işaret dizisi.
 
 ### `app.dock.hide()` *macOS*
 
@@ -798,11 +798,11 @@ Dock simgesini gösterir.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+`Boolean` 'ı geri getirir - dock işareti görünür olduğunda. `app.dock.show()` araması eş zamanlı değil bu sebeple bu yöntem aramadan sonra hemen doğruya döndürmeyebilir.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
-* `menu` [Menu](menu.md)
+* `menu` [Menü](menu.md)
 
 Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
