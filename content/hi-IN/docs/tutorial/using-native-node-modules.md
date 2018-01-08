@@ -66,14 +66,14 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3
 
 ## `पूर्वनिर्मित` पर निर्भर मोडयुल्स
 
-[`पूर्वनिर्मित`](https://github.com/mafintosh/prebuild), नोड और इलेक्ट्रॉन के बहु-संस्करणों के लिए मूल नोड मोडयुल्स संग पूर्वनिर्मित बाइनरिज़ को आसानी से जारी करने का एक रास्ता देता है |
+[`पूर्वनिर्मित`](https://github.com/mafintosh/prebuild), नोड और इलेक्ट्रॉन के बहु-संस्करणों के लिए पूर्वनिर्मित बाइनरिज़ के साथ मूल नोड मोडयुल्स को आसानी से जारी करने का एक रास्ता देता है |
 
 अगर मोडयुल्स इलेक्ट्रॉन में इस्तेमाल करने के लिए बाइनरिज़ प्रदान कर रहे हैं, तो पूर्वनिर्मित बाइनरिज़ का पूरा लाभ उठाने के लिए यह सुनिश्चित कर लें कि आपने वातावरण वेरिएबल से `--build-from-source` और `npm_config_build_from_source` को हटा दिया है |
 
 ## `नोड-प्री-जीवायपी` पर निर्भर मोडयुल्स
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+[`नोड-प्री-जीवायपी` औज़ार](https://github.com/mapbox/node-pre-gyp) पूर्वनिर्मित बाइनरिज़ के साथ मूल नोड मोडयुल्स को स्थापित करने का एक रास्ता देता है, और बहुत से मशहूर मोडयुल्स इसका इस्तेमाल कर रहे हैं |
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+अक्सर वे मोडयुल्स इलेक्ट्रॉन के अंतर्गत सही काम करते हैं, पर कभी-कभी जब इलेक्ट्रॉन नोड से नया वी8 संस्करण इस्तेमाल करता है, और कुछ ऐबीआई परिवर्तन होते हैं, तो बुरी घटनायें घट सकती हैं | तो आम तौर पर इसलिये हमेशा स्त्रोत कोड से मूल मोडयुल्स को बनाने की सलाह दी जाती है |
 
 If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
