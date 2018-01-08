@@ -1,12 +1,12 @@
 # मूल नोड मोड्यूल का इस्तेमाल
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+मूल नोड मोडयुल्स इलेक्ट्रॉन द्वारा समर्थित हैं, पर चूँकि इस बात की काफी सम्भावना है कि इलेक्ट्रॉन आपके सिस्टम में इन्स्टाल नोड बाइनरी से अलग वी8 संस्करण इस्तेमाल करता हो; इसलिए मूल मोडयुल्स का निर्माण करते वक़्त आपको मैन्युअली ही इलेक्ट्रॉन के हेडर्स की लोकेशन निर्दिष्ट करनी होगी |
 
-## How to install native modules
+## मूल मोडयुल्स को इन्स्टॉल कैसे करें
 
-Three ways to install native modules:
+मूल मोडयुल्स को इन्स्टॉल करने के 3 तरीकें:
 
-### Using `npm`
+### `एनपीएम` का इस्तेमाल कर
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
