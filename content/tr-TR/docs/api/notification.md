@@ -59,7 +59,7 @@ Dönüşler:
 
 * `olay` Olay
 
-Emitted when the notification is clicked by the user.
+Bildirim kullanıcı tarafından aratıldığında yayılıyor.
 
 #### Etkinlik: 'kapalı'
 
@@ -97,7 +97,7 @@ Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamas�
 
 ### Çalınan sesler
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
