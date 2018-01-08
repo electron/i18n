@@ -138,9 +138,9 @@ Süreç: [Ana](../glossary.md#main-process)
   * `title` String (isteğe bağlı) - Varsayılan pencere başlığı. Varsayılan `"Electron"`dur.
   * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) - Pencere ikonu. Windows'ta en iyi görsel efektleri almak için `ICO` simgelerini kullanmanızı öneririz, ayrıca onu tanımlanmamış şekilde bırakabilirsiniz bu şekilde çalıştırılılabilir ikon kullanılacaktır.
   * `show` Boolean (isteğe bağlı) - Oluşturulduğunda pencerenin gösterilip gösterilmeyeceği. Varsayılan değer `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * ` üst` BrowserWindow (isteğe bağlı) - Üst pencereyi belirtin. Varsayılan ` boş`.
-  * ` modal` Boolean (isteğe bağlı) - Bu, kalıcı bir pencere olup olmadığı. Bu, yalnızca pencere çocuk penceresidir. Varsayılan değer ` yanlış`.
+  * `çerçeve` Boole (isteğe bağlı) - Oluşturmak için `yanlış` değerini belirtin. [ Çerçevesiz Pencere](frameless-window.md). Varsayılan ` doğrudur`.
+  * `üst` BrowserWindow (isteğe bağlı) - Üst pencereyi belirtin. Varsayılan `boş`.
+  * `kip` Boole (isteğe bağlı) - Bu, kalıcı bir pencere olup olmadığı. Bu, yalnızca pencere çocuk penceresidir. Varsayılan değer `yanlış`.
   * `acceptFirstMouse` Boolean (isteğe bağlı) - Web görüntüsünün aynı anda pencereyi etkinleştiren tek bir fare tıklaması olayını kabul edip etmediğini belirtir. Varsayılan değer `false`.
   * `disableAutoHideCursor` Boolean (isteğe bağlı) - Yazarken imleç gizlenip gizlenmeyecek. Varsayılan değer `false`.
   * `autoHideMenuBar` Boolean (isteğe bağlı) - `Alt` tuşuna basmadığınız sürece menü çubuğunu otomatik olarak gizler. Varsayılan değer `false`.
