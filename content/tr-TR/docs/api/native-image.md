@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+Veya panodan `NativeImage` döndüren bir görüntü okuyun:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -27,23 +27,23 @@ console.log(appIcon)
 
 ## Desteklenen formatlar
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+Şu an için `PNG` ve `JPEG` görüntü biçimleri desteklenmektedir. `PNG`, şeffaflığı ve kayıpsız sıkıştırmayı desteklediği için önerilir.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+Windows'ta `ICO` simgelerini de dosya yollarından yükleyebilirsiniz. En iyi görüntü kalitesi için aşağıdaki boyutları eklemeniz önerilir:
 
-* Small icon 
+* Küçük simge 
  * 16x16 (100% DPI ölçeği)
  * 20x20 (125% DPI ölçeği)
  * 24x24 (150% DPI ölçeği)
  * 32x32 (200% DPI ölçeği)
-* Large icon 
+* Büyük simge 
  * 32x32 (100% DPI ölçeği)
  * 40x40 (125% DPI ölçeği)
  * 48x48 (150% DPI ölçeği)
  * 64x64 (200% DPI ölçeği)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+[Bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) bulunan *boyut gereksinimlerini* bölümünü kontrol edin.
 
 ## Yüksek çözünürlüklü görüntü
 
