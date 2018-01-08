@@ -22,7 +22,7 @@ The `shell` module has the following methods:
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+`Boolean` Döndürür - Öğenin başarıyla gösterilip gösterilmediği
 
 Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı seçin.
 
