@@ -295,7 +295,7 @@ Bu metodun uygulandığında uygulamadan çıkış yapmadığını unutmayın, u
 Yürürlükteki oluşumun yeniden başlatılmasının (restart) ve yeni oluşumuna yeni bir komut satırı değişkeni eklenmesinin bir örneği:
 
 ```javascript
-const {app} = require('electron')
+const {app} = gerekir('electron')
 
 app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
 app.exit(0)
@@ -321,9 +321,9 @@ Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak od
 
 `String` - olarak yürürlükteki uygulama dizini dönütünü verir.
 
-### `app.getPath(name)`
+### `app.getPath(isim)`
 
-* `name` String
+* `name` Dizi
 
 `String` - olarak `name` ile ilişkilendirilmiş bir dosya veya dizgine yönelmiş yol dönütünü verir. Hata durumunda bir `Error` dönütü verir.
 
@@ -356,7 +356,7 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
     * `büyük` - *Linux'ta* 48x48, *Windows'ta*32x32, *macOS'de* desteklenmemektedir.
 * `callback` Fonksiyon 
   * `error` Hata 
-  * `icon` [NativeImage](native-image.md)
+  * `icon` [DoğalGörüntü](native-image.md)
 
 Bir dosya yolunun ilişkili ikonunu çeker.
 
@@ -367,7 +367,7 @@ Bir dosya yolunun ilişkili ikonunu çeker.
 
 *Linux* ve *macOS* ikonlar, dosya mıme tipiyle ilişkilendirilen uygulamaya bağlıdır.
 
-### `app.setPath(name, path)`
+### `app.setPath(isim, yol)`
 
 * `name` Dizgi
 * `path` Dizgi
@@ -418,10 +418,10 @@ Yakın zamandaki dokümentasyon listesini temizler.
 ### `app.setAsDefaultProtocolClient(protokol[, yol, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
-Returns `Boolean` - Whether the call succeeded.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 Bu yöntem, geçerli yürütülebilir dosyayı bir protokol için varsayılan işleyici olarak ayarlar (aka URI düzeni). Uygulamanızı daha da derinleştirerek işletim sistemine entegre etmenizi sağlar. Kayıt olduktan sonra, `your-protocol://` adresine sahip tüm bağlantılar, ile açılır. Geçerli yürütülebilir. Protokol de dahil olmak üzere tüm bağlantı, uygulamanız bir parametre olarak geçilecek.
 
@@ -434,10 +434,10 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
-Returns `Boolean` - Whether the call succeeded.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) için varsayılan işleyici olarak çalışıp çalışmadığını kontrol eder. Eğer öyleyse, varsayılan işleyici olarak uygulamayı kaldırır.
 
@@ -463,7 +463,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
