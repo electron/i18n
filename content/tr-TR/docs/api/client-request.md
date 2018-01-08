@@ -18,7 +18,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.
   * `port` Integer (isteğe bağlı) - Sunucunun dinlenen port numarası.
   * `path` String (isteğe bağlı) - İstek URL'sinin yolu.
-  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. Mod `manual` olduğu zaman [`request.followRedirect`](#requestfollowRedirect) çağırılana kadar yönlendirme ertelenir. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. Mod `manual` olduğu zaman [`request.followRedirect`](#requestfollowRedirect) çağırılana kadar yönlendirme ertelenir. [`redirect`](#event-redirect) olayı için bu modda yönlendirme isteği hakkında daha fazla bilgi almak için dinleyin.
 
 `protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
@@ -40,7 +40,7 @@ const request = net.request({
 
 Dönüşler:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - HTTP yanıt mesajını temsil eden bir nesne.
 
 #### Etkinlik: 'giriş'
 
@@ -85,7 +85,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Etkinlik: 'bitiş'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+`request`'in verisinin son parçası `request` nesnesine yazıldıktan hemen sonra yayılır.
 
 #### Etkinlik: 'iptal etmek'
 
@@ -97,7 +97,7 @@ Dönüşler:
 
 * `error` Hata - sorun hakkında bazı bilgileri sağlayan hata nesnesi.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+`net` modulü bir ağ isteği göndermediği zaman yayılır. Tipik olarak `request` nesnesi `error` olayıtını yaydığı zaman `close` olayı daha sonra takip edecek ve cevap nesnesi sağlanmayacaktır.
 
 #### Etkinlik: 'kapalı'
 
@@ -112,7 +112,7 @@ Dönüşler:
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowRedirect)'i çağırmak yönlendirme ile devam edecektir.
 
 ### Örnek özellikleri
 
