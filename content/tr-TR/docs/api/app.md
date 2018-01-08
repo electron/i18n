@@ -160,14 +160,14 @@ Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
 Dönüşler:
 
 * `olay` Olay
-* `webİçerikleri` [webİçerikleri](web-contents.md)
+* `webContents` [webİçerikleri](web-contents.md)
 * `url` Dize
-* `hata` Dizi - Hata Kodu
-* `sertifika` [sertifika](structures/certificate.md)
+* `error` Dizi - Hata Kodu
+* `certificate` [sertifika](structures/certificate.md)
 * `geri arama` Fonksiyon 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Sertifikanın güvenilir olup olmadığını göz önünde bulundur
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Çıkarıldığında `url` için `certificate` doğrulama hatası oluştu, sertifikaya güvenmek için temel davranışın oluşmasını `event.preventDefault()` ile engelleyin ve `callback(true)` arayın.
 
 ```javascript
 const {app} = require('electron')
@@ -188,9 +188,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 Dönüşler:
 
 * `olay` Olay
-* `webİçerikleri` [webİçerikleri](web-contents.md)
+* `webContents` [webİçerikleri](web-contents.md)
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
+* `certificateList` [Sertifika[]](structures/certificate.md)
 * `callback` Fonksiyon 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
@@ -212,7 +212,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 Dönüşler:
 
 * `olay` Olay
-* `webİçerikleri` [webİçerikleri](web-contents.md)
+* `webContents` [webİçerikleri](web-contents.md)
 * `istek` Nesne 
   * `method` String
   * `url` URL
