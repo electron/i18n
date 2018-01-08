@@ -92,9 +92,9 @@ Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren b
 * `url` Dize
 * `type` String (optional)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+`title` ve `url`'yi panoya sayfa işaretçisi olarak yazar.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Not:** Windows üzerindeki çoğu uygulama sayfa işaretçisi yapıştırmayı desteklememektedir. Panoya sayfa işaretçisi ve dönüş metni yazmak için `clipboard.write` kullanabilirsiniz.
 
 ```js
 clipboard.write({
