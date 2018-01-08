@@ -47,11 +47,11 @@ Windows'ta `ICO` simgelerini de dosya yollarından yükleyebilirsiniz. En iyi g�
 
 ## Yüksek çözünürlüklü görüntü
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+Apple Retina ekranları gibi yüksek DPI desteğine sahip platformlarda, yüksek çözünürlüklü resimleri işaretlemek için resmin temel dosya adından sonra `@2x` ekleyebilirsiiz.
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Örnek olarak eğer `icon.png` standart çözünürlüğe sahip normal bir görüntü ise, `icon@2x.png` iki kat DPI yoğunluğuna sahip yüksek çözünürlüklü görüntü olarak değerlendirilir.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+Aynı anda farklı DPI yoğunluklarına sahip görüntüleri desteklemek istiyorsanız, farklı boyutlardaki görüntüleri aynı dizine koyun ve dosya isimlerini DPI son ekleri olmadan kullanın. Örneğin:
 
 ```text
 images/
@@ -86,20 +86,20 @@ DPI için aşağıdaki son ekler de desteklenmektedir:
 
 En yaygın olanı, açık ve koyu menü çubuğuna ayarlanabilmesi için menü çubuğu simgesinde bir şablon resmi kullanmaktır.
 
-**Note:** Template image is only supported on macOS.
+**Not:** Şablon görüntüsü sadece macOS'ta desteklenmektedir.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+Bir görüntüyü şablon görüntüsü olarak işaretmek için, dosya ismi `Template` ile bitmelidir. Örneğin:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## Metodlar
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+`nativeImage` modülü aşağıdaki metotlara sahiptir ve bunların hepsi `NativeImage` sınıfının bir örneğini döndürür:
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
 Creates an empty `NativeImage` instance.
 
@@ -107,7 +107,7 @@ Creates an empty `NativeImage` instance.
 
 * dizi `yolu`
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
 Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
@@ -123,7 +123,7 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
 Creates a new `NativeImage` instance from `buffer`.
 
@@ -131,7 +131,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 * `dataURL` String
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
 Creates a new `NativeImage` instance from `dataURL`.
 
