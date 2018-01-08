@@ -8,19 +8,19 @@
 
 ### `एनपीएम` का इस्तेमाल कर
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+कुछ वातावरण वेरिएबल्स को सेट कर के, आप `एनपीएम` का इस्तेमाल मोडयुल्स को सीधे ही इन्स्टॉल करने के लिए कर सकते हैं |
 
-An example of installing all dependencies for Electron:
+इलेक्ट्रॉन के लिए सभी निर्भरताएँ इन्स्टॉल करने का एक उदाहरण:
 
 ```sh
-# Electron's version.
+#इलेक्ट्रॉन का संस्करण
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
-export npm_config_arch=x64
-export npm_config_target_arch=x64
-# Download headers for Electron.
+# इलेक्ट्रॉन की बनावट, आईऐ32 या x64 हो सकती है |
+export npm_config_arch=x64 export
+npm_config_target_arch=x64
+# इलेक्ट्रॉन के लिए हेडर्स डाउनलोड करें |
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# नोड-प्री-जीवायपी को बतायें कि हम इलेक्ट्रॉन के लिए निर्माण कर रहे हैं |
 export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
