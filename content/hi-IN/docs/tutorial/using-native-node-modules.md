@@ -54,17 +54,17 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3
 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-`HOME=~/.electron-gyp` डेवलपमेंट हेअदेर्स को खोजने की लोकेशन परिवर्तित कर देता है | `--target=1.2.3` इलेक्ट्रॉन का संस्करण है | The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+`HOME=~/.electron-gyp` डेवलपमेंट हेअदेर्स को खोजने की लोकेशन परिवर्तित कर देता है | `--target=1.2.3` इलेक्ट्रॉन का संस्करण है | `--dist-url=...` निर्दिष्ट करता है कि हेडर्स कहाँ से डाउनलोड करने हैं | `--arch=x64` का मतलब है कि मोड्यूल 64बिट सिस्टम के लिए बना है |
 
-## Troubleshooting
+## समस्या निवारण
 
-If you installed a native module and found it was not working, you need to check following things:
+अगर आपने एक मूल मोड्यूल इन्स्टॉल किया है पर वह चल नहीं रहा है, तो आपको निम्नलिखित चीज़े जाँचनी होगी:
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* मोड्यूल की बनावट इलेक्ट्रॉन की बनावट (आईऐ32 या x64) के अनुकूल होनी चाहिये |
+* इलेक्ट्रॉन अपग्रेड करने के बाद, आपको अक्सर मोडयुल्स का पुनर्निर्माण करने की ज़रूरत पड़ेगी |
+* अगर संशय हो, तो पहले `इलेक्ट्रॉन-रिबिल्ड` चलायें |
 
-## Modules that rely on `prebuild`
+## `पूर्वनिर्मित` पर निर्भर मोडयुल्स
 
 [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
