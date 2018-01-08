@@ -2,9 +2,9 @@
 
 > HTML5 `File` API kullanarak dosya sistemi içerisindeki dosyalarla çalışın.
 
-DOM'un File arayüzü, HTML5'in dosya API'i ile işletim sistemi seviyesinde dosyalarla iş yapmak için soyutlama sağlar. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+DOM'un File arayüzü, HTML5'in dosya API'i ile işletim sistemi seviyesinde dosyalarla iş yapmak için soyutlama sağlar. Electron, `File` arayüzüne dosyanın sistem üzerindeki gerçek yolunu belirten bir `path` özelliği ekledi.
 
-Example of getting a real path from a dragged-onto-the-app file:
+Uygulamaya sürüklenen bir dosyanın gerçek yolunu alma örneği:
 
 ```html
 <div id="holder">
