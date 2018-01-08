@@ -771,19 +771,19 @@ Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
-* `text` String
+* `text` Dizi
 
 Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` String
+* `text` Dizi
 
 Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
-* `text` String
+* `text` Dizi
 
 Inserts `text` to the focused element.
 
