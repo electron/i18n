@@ -42,7 +42,7 @@ Panoya `text`'i düz yazı olarak yazar.
 
 * `type` Dize (isteğe bağlı)
 
-Returns `String` - The content in the clipboard as markup.
+`String` döndürür - Panodaki içeriği işaretlenmiş olarak.
 
 ### `clipboard.writeHTML(markup[, type])`
 
@@ -75,7 +75,7 @@ Writes `markup` to the clipboard.
 * `text` Dizi
 * `type` String (optional)
 
-Writes the `text` into the clipboard in RTF.
+Panoya `text`'i RTF olarak yazar.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -84,7 +84,7 @@ Writes the `text` into the clipboard in RTF.
 * `title` String
 * `url` Dize
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren bir nesne döndürür. Sayfa işaretçisi erişilemez olduğunda `title` ve `url` değerleri boş dizeler olacaktır.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
