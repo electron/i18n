@@ -73,12 +73,12 @@ let top = yeni BrowserWindow()
 Modal bir pencere, üst pencereyi devre dışı bırakan ve bir kalıcı pencere oluşturmak için kullanılan alt penceredir, hem `parent` hem de `modal` seçeneklerini ayarlamanız gerekir:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = require ('elektron')
 
-let child = new BrowserWindow({parent: top, modal: true, show: false})
+izin ver çocuk = yeni BrowserWindow({parent: top, modal: true, show: false})
 child.loadURL('https://github.com')
-child.once('ready-to-show', () => {
-  child.show()
+ ('ready to show', () => {
+child.show ()
 })
 ```
 
@@ -139,8 +139,8 @@ Süreç: [Ana](../glossary.md#main-process)
   * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) - Pencere ikonu. Windows'ta en iyi görsel efektleri almak için `ICO` simgelerini kullanmanızı öneririz, ayrıca onu tanımlanmamış şekilde bırakabilirsiniz bu şekilde çalıştırılılabilir ikon kullanılacaktır.
   * `show` Boolean (isteğe bağlı) - Oluşturulduğunda pencerenin gösterilip gösterilmeyeceği. Varsayılan değer `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
+  * ` üst` BrowserWindow (isteğe bağlı) - Üst pencereyi belirtin. Varsayılan ` boş`.
+  * ` modal` Boolean (isteğe bağlı) - Bu, kalıcı bir pencere olup olmadığı. Bu, yalnızca pencere çocuk penceresidir. Varsayılan değer ` yanlış`.
   * `acceptFirstMouse` Boolean (isteğe bağlı) - Web görüntüsünün aynı anda pencereyi etkinleştiren tek bir fare tıklaması olayını kabul edip etmediğini belirtir. Varsayılan değer `false`.
   * `disableAutoHideCursor` Boolean (isteğe bağlı) - Yazarken imleç gizlenip gizlenmeyecek. Varsayılan değer `false`.
   * `autoHideMenuBar` Boolean (isteğe bağlı) - `Alt` tuşuna basmadığınız sürece menü çubuğunu otomatik olarak gizler. Varsayılan değer `false`.
