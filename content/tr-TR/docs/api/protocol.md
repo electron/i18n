@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `options` Obje (isteğe bağlı) 
+* `ayarlar` Obje (isteğe bağlı) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -65,12 +65,12 @@ app.on('ready', () => {
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `filePath` String (optional)
@@ -87,12 +87,12 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
@@ -117,12 +117,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `data` String (optional)
@@ -135,17 +135,17 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
-      * `method` String
+      * `method` Dizi
       * `session` Object (optional)
       * `uploadData` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
@@ -163,7 +163,7 @@ For POST requests the `uploadData` object must be provided.
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
@@ -171,7 +171,7 @@ Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
-* `scheme` String
+* `scheme` Dizi
 * `geri arama` Fonksiyon 
   * `error` Hata 
 
@@ -179,12 +179,12 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `filePath` String
@@ -195,12 +195,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `data` String (optional)
@@ -211,12 +211,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `buffer` Buffer (optional)
@@ -227,17 +227,17 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
-      * `method` String
+      * `method` Dizi
       * `session` Object (optional)
       * `uploadData` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
@@ -249,7 +249,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
