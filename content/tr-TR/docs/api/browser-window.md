@@ -404,7 +404,7 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `webİçerikleri` [webİçerikleri](web-contents.md)
+* `webContents` [webİçerikleri](web-contents.md)
 
 Returns `BrowserWindow` - The window that owns the given `webContents`.
 
