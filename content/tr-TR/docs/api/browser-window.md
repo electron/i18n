@@ -426,7 +426,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `name` Dizi
 
 İsme göre bir Chrome eklentisi kaldır.
 
@@ -452,7 +452,7 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `name` Dizi
 
 İsme göre bir DevTools eklentisi kaldır.
 
@@ -1013,7 +1013,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `icon` [DoğalGörüntü](native-image.md)
 
 Pencere simgesi değiştirme.
 
