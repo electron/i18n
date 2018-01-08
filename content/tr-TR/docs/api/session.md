@@ -64,7 +64,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 * `olay` Olay
 * `item` [DownloadItem](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* `webİçerikleri` [webİçerikleri](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
 
@@ -86,7 +86,7 @@ The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Fonksiyon 
+* `geri arama` Fonksiyon 
   * `size` Integer - Cache size used in bytes.
 
 Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
@@ -175,7 +175,7 @@ The `proxyRules` has to follow the rules below:
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Fonksiyon 
+* `geri arama` Fonksiyon 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
@@ -217,9 +217,9 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Fonksiyon 
   * `istek` Nesne 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
+    * `sertifika` [sertifika](structures/certificate.md)
     * `error` String - Verification result from chromium.
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
@@ -248,7 +248,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `handler` Fonksiyon 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Fonksiyon 
+  * `geri arama` Fonksiyon 
     * `permissionGranted` Boolean - Allow or deny the permission
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
@@ -304,7 +304,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Fonksiyon 
+* `geri arama` Fonksiyon 
   * `result` Buffer - Blob data.
 
 Returns `Blob` - The blob data associated with the `identifier`.
