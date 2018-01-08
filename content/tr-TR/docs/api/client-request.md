@@ -149,14 +149,14 @@ Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnız
 * `encoding` String (isteğe bağlı) - String parçalarını Buffer nesneleri içine dönüştürmek için kullanılır. Varsayılan 'utf-8'.
 * `callback` Fonksiyon (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` aslında Node.js API ile benzerliğin korunması amacıyla sahte fonksiyon olarak tanıtılır. `yığın` içeriği Chromium ağ katmanına teslim edildikten sonra bir sonraki onay işareti içerisinde asenkron olarak çağırılır. Node.js uygulamasının aksine `callback` çağırılmadan önce `yığın` içeriğinin hat üzerinde hızla akacağının garantisi yoktur.
 
 Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. İlk yazma işlemi sonrasında kişisel bir başlık eklemeye veya kaldırmaya izin verilmez.
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
+* `chunk` (String | Buffer) (isteğe bağlı)
+* `encoding` String (isteğe bağlı)
 * `callback` Fonksiyonu (opsiyonel)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
