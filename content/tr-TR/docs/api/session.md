@@ -197,7 +197,7 @@ Sets download saving directory. By default, the download directory will be the `
 Emulates network with the given configuration for the `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// GPRS bağlantısını 50kbps çıkış ve 500 ms gecikme ile taklit etmek.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
@@ -218,12 +218,12 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `istek` Nesne 
     * `hostname` String
     * `certificate` [sertifika](structures/certificate.md)
-    * `error` String - Verification result from chromium.
+    * `hata` Metin - Chromium doğrulama sonucu.
   * `geri arama` Fonksiyon 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+      * `-2` - Arızayı gösterir.
+      * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
@@ -266,7 +266,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
 Ana çözümleyici önbelleğini temizler.
 
@@ -332,7 +332,7 @@ Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `Session`:
+Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.cookies`
 
