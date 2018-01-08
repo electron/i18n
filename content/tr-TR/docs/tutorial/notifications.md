@@ -20,7 +20,7 @@ myNotification.onclick = () => {
 
 * Windows 10'da, bildirimler "sadece çalışır".
 * Windows 8.1 ve Windows 8'de, uygulamanızın bir kısayolu [ Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) ile, başlangıç ​​ekranına yüklenmelidir. Not, ancak başlangıç ekranına tutturulmasına gerek yoktur.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Windows 7 üzerinde iş tebliğ yolu ile bireysel olarak uygulanan ve gözle görünür biçimde benzerlik gosteren yerli ve yenilikçi sistemlerdir.
 
 Ayrıca, Windows 8'de bildirim gövdesi için maksimum uzunluk 250 karakterken, Windows ekibi, bildirimlerin 200 karakterde tutulması gerektiğini önermektedir. Yani, Windows ekibi geliştiriciler için makul olmak isteyerek bu limiti Windows 10 ile birlikte kaldırıldığını söyledi. API'ya dev miktarlarda metin göndermek (binlerce karakter) dengesizlik yaratabilir.
 
