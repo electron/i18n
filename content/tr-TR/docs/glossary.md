@@ -14,7 +14,7 @@ Brightray [was](https://github.com/electron-archive/brightray) statik kitaplığ
 
 ### CRT
 
-C Çalışma Zamanı Kitaplığı (CRT) C ++ Standart Kitaplığı'nın bir parçasıdır. ISO C99 standart kütüphanesini içerir. CRT' yi destekleyen görsel C++ kütüphaneleri yerel kod geliştimeyi sağlar,ayrıca hem karışık hemde karışık olmayan yerel kodlar .NET'i geliştirmek için yönetilir.
+C Çalışma Zamanı Kitaplığı (CRT) C ++ Standart Kitaplığı'nın bir parçasıdır. ISO C99 standart kütüphanesini içerir. CRT' yi destekleyen görsel C++ kütüphaneleri yerel kod geliştimeyi sağlar,ayrıca hem düzenli hemde düzensiz yerel kodlar .NET'i geliştirmek için yönetilebilir.
 
 ### DMG
 
