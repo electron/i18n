@@ -132,7 +132,7 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 [`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+`npm`,'ni ayrıntılı olarak yüklediyseniz. devamında uygulamanızın kaynak dizinini çalıştırmanız yeterlidir:
 
 ```sh
 electron .
