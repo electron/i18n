@@ -90,7 +90,7 @@ Kullanıcı uygulama ile bir url açmak istediğinde ortaya çıkar. Uygulamanı
 
 Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
-### Event: 'activate' *macOS*
+### Etkinlik: 'activate' *macOS*
 
 Dönüşler:
 
@@ -124,7 +124,7 @@ Kullanıcı yerel macOS yeni sekme düğmesini tıklattığında ortaya çıkar.
 Dönüşler:
 
 * `olay` Olay
-* `window` BrowserWindow
+* `window` TarayıcıPenceresi
 
 Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
@@ -133,38 +133,38 @@ Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 Dönüşler:
 
 * `olay` Olay
-* `window` BrowserWindow
+* `window` TarayıcıPenceresi
 
 Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 
-### Event: 'browser-window-created'
+### Etkinlik: 'tarayıcı-penceresi-yaratıldı'
 
 Dönüşler:
 
 * `olay` Olay
-* `window` BrowserWindow
+* `window` TarayıcıPenceresi
 
 Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
-### Event: 'web-contents-created'
+### Etkinlik: 'web-içerikleri-yaratıldı'
 
 Dönüşler:
 
 * `olay` Olay
-* `webContents` WebContents
+* `webContents` Webİçerikleri
 
 Yeni bir [webContents](web-contents.md) oluşturulduğunda ortaya çıkar.
 
-### Event: 'certificate-error'
+### Etkinlik: 'sertifika-hatası'
 
 Dönüşler:
 
 * `olay` Olay
-* `webContents` [WebContents](web-contents.md)
+* `webİçerikleri` [webİçerikleri](web-contents.md)
 * `url` Dize
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Fonksiyon 
+* `hata` Dizi - Hata Kodu
+* `sertifika` [sertifika](structures/certificate.md)
+* `geri arama` Fonksiyon 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
@@ -188,7 +188,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 Dönüşler:
 
 * `olay` Olay
-* `webContents` [WebContents](web-contents.md)
+* `webİçerikleri` [webİçerikleri](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Fonksiyon 
@@ -212,7 +212,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 Dönüşler:
 
 * `olay` Olay
-* `webContents` [WebContents](web-contents.md)
+* `webİçerikleri` [webİçerikleri](web-contents.md)
 * `istek` Nesne 
   * `method` String
   * `url` URL
