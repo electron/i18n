@@ -1,10 +1,10 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> Ana süreçten işleyici süreçlerine zaman uyumsuz olarak iletişim kurun.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Messages sent from a renderer will be emitted to this module.
+The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Bir işleyiciden gönderilecek mesajlar bu modüle yayılacaktır.
 
 ## Mesaj gönderiliyor
 
@@ -14,7 +14,7 @@ It is also possible to send messages from the main process to the renderer proce
 * To reply to a synchronous message, you need to set `event.returnValue`.
 * To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
 
-An example of sending and handling messages between the render and main processes:
+İşleyici ve ana işlemler arasında mesaj gönderme ve işleme ilişkin bir örneği:
 
 ```javascript
 // Ana süreç içinde.
