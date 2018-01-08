@@ -37,7 +37,7 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` Dize
-* `options` Obje (isteğe bağlı) *macOS* 
+* `ayarlar` Obje (isteğe bağlı) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `geri arama` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Hata 
