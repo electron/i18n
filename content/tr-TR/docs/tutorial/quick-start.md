@@ -106,7 +106,7 @@ app.on('activate', () => {
 // code. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 
 ```html
 <!DOCTYPE html>
