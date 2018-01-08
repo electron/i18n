@@ -595,7 +595,7 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+`makeSingleInstance`. tarafından oluşturulan bütün kilitleri serbest bırakır, Bu uygulamanın çoklu örneğinin yeniden ve aynı anda çalışmasına izin verecektir.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
