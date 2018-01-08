@@ -126,7 +126,7 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 
 ## Uygulamanı çalıştır
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Başlangıç dosyanızı oluşturmadan önce `main.js`, `index.html`, ve `package.json`büyük ihtimalle denemek ve beklendiği gibi yürütüldüğünden emin olmak için uygulamanızı yerel olarak çalıştırmayı denemek isteyeceksiniz.
 
 ### `electron`
 
