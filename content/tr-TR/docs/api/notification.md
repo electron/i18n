@@ -4,9 +4,9 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-## Using in the renderer process
+## Oluşturucu işleminde kullanma
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildirim API'si](../tutorial/notifications.md) kullanmalısınız
 
 ## Sınıf: bildirim
 
@@ -29,10 +29,10 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 ### `new Notification([options])` *Experimental*
 
 * `ayarlar` Nesne 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
+  * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı
+  * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
+  * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
+  * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
   * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
   * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
