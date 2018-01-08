@@ -404,7 +404,7 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `webİçerikleri` [webİçerikleri](web-contents.md)
 
 Returns `BrowserWindow` - The window that owns the given `webContents`.
 
@@ -869,7 +869,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Fonksiyon 
+* `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
