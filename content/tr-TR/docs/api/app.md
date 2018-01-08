@@ -481,9 +481,9 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](http://msdn.microsof
 Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıdaki dizelerden birini geri döndürür:
 
 * `ok` - Hiç bir şey yanlış gitmedi.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
+* `error` - Bir ya da birden fazla hata meydana geldi, muhtemel sebebi anlamak için çalışma zamanı günlüğünü etkinleştirin.
+* `invalidSeparatorError` - Jump List içindeki özel kategoriye ayraç eklemeye çalışma girişimi. Ayraçlar sadece standart `Tasks` kategorisinde geçerlidir.
+* `fileTypeRegistrationError` - Jump List'e uygulamanın kaldıramayacağı bir dosya bağlantısıyla dosya tipinin gönderilme girişimi.
 * `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
 
 `kategorileri` `boş` ise, önceden ayarlanmış Özel Geçiş Listesi (varsa) olacaktır. yerine uygulama için standart Git Listesi (Windows tarafından yönetilen) değiştirildi.
