@@ -64,7 +64,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 * `olay` Olay
 * `item` [DownloadItem](download-item.md)
-* `webİçerikleri` [webİçerikleri](web-contents.md)
+* `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
 
@@ -217,7 +217,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Fonksiyon 
   * `istek` Nesne 
     * `hostname` String
-    * `sertifika` [sertifika](structures/certificate.md)
+    * `certificate` [sertifika](structures/certificate.md)
     * `error` String - Verification result from chromium.
   * `geri arama` Fonksiyon 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
