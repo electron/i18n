@@ -33,7 +33,7 @@ Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı gör�
 
 ### Using `ready-to-show` event
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
+Sayfayı yüklerken, pencerenin henüz gösterilmemesi durumunda, oluşturucu işlemi sayfayı ilk kez işlediğinde, ` hazır göster ` olayı yayımlanacaktır. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+` hazır göster </ 0>  etkinliğine sahip olan uygulamalar için bile, uygulamanın daha doğal hissetmesini sağlamak için <code>arka plan rengi </ 0> ayarlamanız önerilir .</p>
 
-## Ana ve alt pencereler
+<h2>Ana ve alt pencereler</h2>
 
-`parent` seçeneğini kullanarak türetilmiş pencereler yaratabilirsiniz:
+<p><code>parent` seçeneğini kullanarak türetilmiş pencereler yaratabilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
