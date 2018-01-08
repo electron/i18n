@@ -133,7 +133,7 @@ Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birl
 1. istikrar dalında özellik işaretli kod üzerinde yinelemeyi düşünmüyoruz; Hatta özellik bayrakları dikkatli kullanımı risklidir
 2. aPI sözleşmelerini özellik işaretli kodda, ana sözcüğe darbe indirmeden geçirebilirsiniz. İşaretlenen kod semver'e uymuyor olabilir
 
-# Semantic Commits
+# Anlamsal örneklendirme
 
 Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırmaya çalışıyoruz. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
