@@ -39,7 +39,7 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 * `url` Dize
 * `options` Obje (isteğe bağlı) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+* `geri arama` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Hata 
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
