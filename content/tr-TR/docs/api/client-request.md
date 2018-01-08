@@ -13,12 +13,12 @@ Süreç: [Ana](../glossary.md#main-process)
   * `url` String (isteğe bağlı) - İstek URL'si. Belirtilen http veya https protokol şeması ile mutlak formunda kesinlikle sağlanmalıdır.
   * `session` Object (isteğe bağlı) - İlişkili olduğu istek ile [`Session`](session.md) örneği.
   * `partition` String (isteğe bağlı) - İlişkili olduğu istek ile [`partition`](session.md)'nın ismi. Varsayılan boş string. `session` seçeneği `partition`'da hakimdir. Böylelikle `session` açıkça belirtilmedikçe, `partition` yoksayılır.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` Dize (opsiyonel) - İstek URL'sinin yolu.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `protocol` String (isteğe bağlı) - 'scheme:' formunda protokol şeması. Şu anda desteklenen değerler 'http:' veya 'https:'dir. Varsayılan 'http:'.
+  * `host` String (isteğe bağlı) - Sunucu ana bilgisayar, ana makine adı ve 'hostname:port' port numarasının birleşimi olarak sağlanır
+  * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.
+  * `port` Integer (isteğe bağlı) - Sunucunun dinlenen port numarası.
+  * `path` String (isteğe bağlı) - İstek URL'sinin yolu.
+  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. Mod `manual` olduğu zaman [`request.followRedirect`](#requestfollowRedirect) çağırılana kadar yönlendirme ertelenir. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 `protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
