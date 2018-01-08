@@ -294,8 +294,8 @@ Dönüşler:
 
 * `olay` Olay
 * `url` Dize
-* `hata` Dizi - Hata Kodu
-* `sertifika` [sertifika](structures/certificate.md)
+* `error` Dizi - Hata Kodu
+* `certificate` [sertifika](structures/certificate.md)
 * `geri aramak` Fonksiyon 
   * `isTrusted` Boolean - Sertifikanın güvenilir olarak değerlendirilip değerlendirilemeyeceğini belirtir
 
@@ -309,7 +309,7 @@ Dönüşler:
 
 * `olay` Olay
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
+* `certificateList` [Sertifika[]](structures/certificate.md)
 * `geri arama` Fonksiyon 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
