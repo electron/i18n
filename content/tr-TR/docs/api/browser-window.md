@@ -152,7 +152,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * `enableLargerThanScreen` Boolean (isteğe bağlı) - Pencerenin ekran boyutundan daha büyük boyutlandırılmasını etkinleştirin. Varsayılan değer `false`.
   * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Varsayılan değer `#FFF` (beyaz).
   * `hasShadow` Boolean (isteğe bağlı) - Pencerenin gölge olması gerekip gerekmediğini belirtir. Bu sadece macOS'ta uygulanır. Varsayılan değer `true`.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
+  * ` karanlık Tema` Boole (isteğe bağlı) - Pencere için koyu temayı kullanmaya zorlar, yalnızca bazı GTK + 3 masaüstü ortamlarında çalışır. Varsayılan değer ` yanlış `.
   * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
   * `type` String (optional) - The type of window, default is normal window. See more about this below.
   * `titleBarStyle` String (optional) - The style of window title bar. Default is `varsayılan`. Olası değerler şunlar: 
