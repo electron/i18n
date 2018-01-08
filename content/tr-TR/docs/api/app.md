@@ -490,7 +490,7 @@ Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıda
 
 ** Not<0>: Bir `JumpList Kategori nesnesine` `tipinde`adı</code> içermezse özellik kümesine geçirilirse, `türünün` `görevleri` olduğu varsayılır. `isim özelliği varsa<code>türü` özelliği atlanmışsa `türü` `özel` varsayılır.</p> 
 
-**Not**: Kullanıcılar öğeleri özel kategorilerden kaldırabilir ve Windows kaldırılan bir öğe'nin **tekrar** olana kadar özel bir kategoriye eklenmesine izin verin bir sonraki başarılı çağrı: `app.setJumpList (categories)`. Herhangi bir girişim öğesi kaldırılmış, daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılmasıdır. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Not**: Kullanıcılar öğeleri özel kategorilerden kaldırabilir ve Windows kaldırılan bir öğe'nin **tekrar** olana kadar özel bir kategoriye eklenmesine izin verin bir sonraki başarılı çağrı: `app.setJumpList (categories)`. Herhangi bir girişim öğesi kaldırılmış, daha önce özel bir kategoriye yeniden eklemek, tüm özel kategorinin Jump Listesi'nden çıkarılmasıdır. Bu kaldırılan öğelerin listesini `app.getJumpListSettings()`. kullanarak elde edebilirsiniz.
 
 Aşağıda özel bir Atlama Listesi oluşturmanın basit bir örneği verilmiştir:
 
