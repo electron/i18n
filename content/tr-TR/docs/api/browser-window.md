@@ -145,7 +145,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * `disableAutoHideCursor` Boolean (isteğe bağlı) - Yazarken imleç gizlenip gizlenmeyecek. Varsayılan değer `false`.
   * `autoHideMenuBar` Boolean (isteğe bağlı) - `Alt` tuşuna basmadığınız sürece menü çubuğunu otomatik olarak gizler. Varsayılan değer `false`.
   * `enableLargerThanScreen` Boolean (isteğe bağlı) - Pencerenin ekran boyutundan daha büyük boyutlandırılmasını etkinleştirin. Varsayılan değer `false`.
-  * ` backgroundColor` String (isteğe bağlı) - Onaltılık değer olarak Pencere arka plan rengi, ` # 66CD00` veya `#FFF` veya `#80FFFFFF` gibi (alfa desteklenir). Varsayılan değer `#FFF` (beyaz).
+  * `backgroundColor` String (isteğe bağlı) - Onaltılık değer olarak Pencere arka plan rengi, `#66CD00` veya `#FFF` veya `#80FFFFFF` gibi (alfa desteklenir). Varsayılan değer `#FFF` (beyaz).
   * `hasShadow` Boolean (isteğe bağlı) - Pencerenin gölge olması gerekip gerekmediğini belirtir. Bu sadece macOS'ta uygulanır. Varsayılan değer `true`.
   * ` karanlık Tema` Boole (isteğe bağlı) - Pencere için koyu temayı kullanmaya zorlar, yalnızca bazı GTK + 3 masaüstü ortamlarında çalışır. Varsayılan değer ` yanlış `.
   * ` şeffaf </ 0>  Boole (isteğe bağlı) - Pencereyi <a href="frameless-window.md"> saydam yapar </ 1> . Varsayılan değer <code> yanlış </ 0> .</li>
@@ -159,7 +159,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * ` tam ekran Pencere Başlığı </ 0>  Boole (opsiyonel) - tam ekran modunda karo çubuğunda başlığı gösterir Mac os işletim sistemi herkes için <code> başlık Bar Stili</ 0> seçenekler. Varsayılan değer <code> yanlış </ 0> .</li>
 <li><code> kalınÇerçeve </ 0>  Boole (opsiyonel) - Kullanım <code> WS_KALIN ÇERÇEVE</ 0> çerçevesiz için stil pencereler üzerinde
  Windows'un standart pencere çerçevesi ekler. <code>false` olarak ayarlamak pencere gölgesini ve pencere animasyonlarını kaldıracaktır. Varsayılanı `true`.
-  * `vibrancy` Dizi (isteğe bağlı) - Pencereye sadece macOS'ta bir tür canlılık efekti ekleyin. Olabilir `görünüm-tabanlı`, `ışık`, `karanlık`, `başlıkçubuğu`, `seçim`, `menu`, `popover`, `kenar çubuğu`, `orta-ışık` or `ultra-koyu`.
+  * `vibrancy` Dizi (isteğe bağlı) - Pencereye sadece macOS'ta bir tür canlılık efekti ekleyin. ` görünüş-esaslı`, `ışık`, `koyu`, `başlık çubuğu`, `seçimi`, `menüsü`, `popover`, `kenar çubuğu`, `orta-hafif` veya `ultra-karanlık`.
   * ` Sayfa Genişliğini Yakınlaştır` Boole (isteğe bağlı) - araç çubuğundaki yeşil ışıklı düğmeyi tıklattığınızda veya Pencere> Yakınlaştır menü öğesini tıklattığınızda Mac os işletim sisteminde ki davranışını denetler. `true` ise, pencere büyütülürken web sayfasının tercih edilen genişliğine, `false` genişliğinin ekranın genişliğine yaklaşmasına neden olur. `maximize()` Bu komut direk çağrıldığında ayrıca davranışı da etkileyecektir. Varsayılanı `false`.
   * `tabbingIdentifier` Dize (isteğe bağlı) - Sekme grubu adı, pencerenin macOS 10.12+ sürümünde yerel sekme olarak açılmasına izin verir. Aynı sekme tanımlayıcısına sahip olan Windows birlikte gruplandırılacaktır. Bu ayrıca pencerenizin sekme çubuğuna yerel yeni bir sekme düğmesi ekler `app` ve pencereye olayına ulaşmanıza izin verir. `new-window-for-tab`.
   * `webTercihleri` Hedef (isteğe bağlı) - Web sayfalarının özelliklerini ayarlama. 
