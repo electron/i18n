@@ -2,9 +2,9 @@
 
 > Define keyboard shortcuts.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Phím tắt được định nghĩa bởi các chuỗi kí tự – String, những chuỗi này có thể bao gồm một hoặc nhiều các phím biến đổi – modifiers như Ctrl/Alt/Shift hoặc mã phím – key codes bằng cách sử dụng kí tự `+` để kết hợp.
 
-Examples:
+Ví dụ:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
