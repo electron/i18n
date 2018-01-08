@@ -9,12 +9,12 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 * `ayarlar` Nesne 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
   * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker
+  * `change` Fonksiyon (isteğe bağlı) - Bir renk seçildiğinde aranacak fonksiyon. 
+    * `renk` Metin - Kullanıcının seçiciden seçtiği renk
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBarColorPicker`:
+Aşağıdaki özellikler `TouchBarColorPicker` örnekleri üzerinde mevcuttur:
 
 #### `touchBarColorPicker.availableColors`
 
