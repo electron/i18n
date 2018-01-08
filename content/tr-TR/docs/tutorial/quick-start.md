@@ -130,7 +130,7 @@ Başlangıç dosyanızı oluşturmadan önce `main.js`, `index.html`, ve `packag
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` Bu modül önceden derlenmiş Electron versiyonlarının içeriğini inceler.
 
 `npm`,'ni ayrıntılı olarak yüklediyseniz. devamında uygulamanızın kaynak dizinini çalıştırmanız yeterlidir:
 
