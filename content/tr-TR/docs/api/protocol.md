@@ -187,7 +187,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
-    * `filePath` String
+    * `filePath` Dizi
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
