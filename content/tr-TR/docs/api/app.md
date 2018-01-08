@@ -62,7 +62,7 @@ Arasındaki farklar için `tüm-pencereler-kapalı` olayının açıklamasına b
 Dönüşler:
 
 * `olay` Olay
-* `exitCode` Integer
+* `çıkışKodu` Tamsayı
 
 Uygulama kesildiğinde ortaya çıkar.
 
