@@ -120,22 +120,22 @@ Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`
 
 Bir `Boolean` isteğin HTTP yığınlı aktarım kodlamasını kullanıp kullanmayacağını belirtir. Varsayılan yanlış. Telefon üzerinde mülkiyet okunabilir ve yazılabilir, ancak HTTP başlıkları henüz koyulmadığından bu işlem yalnızca yazmadan önce ayarlanabilir. İlk yazma bir hata oluşturduktan sonra `chunkedEncoding` özelliğini ayarlamaya çalışır.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem belleği içerisinde dahili olarak ara belleğe yazdırmak yerine küçük yığınlar içinde akar bu yüzden parçalanmış kodlamanın şiddetle kullanılması önerilir.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - İlave HTTP başlık adı.
+* `value` Object - İlave HTTP başlık adı.
 
 İlave bir HTTP başlığı ekler. Başlık adı, karakter küçültmesi yapmadan verilir. Sadece ilk yazmadan önce çağrılabilir. Bu yöntemi ilk yazmadan sonra aramak hata atacaktır. Verilen değer `String` değil ise, `toString()` metoduyla son değer elde edilir.
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - İlave bir başık adını belirtir.
 
-Returns `Object` - The value of a previously set extra header name.
+Returns `Object` - Öncesinde ilave olarak ayarlanan başlık adının değeri.
 
 #### `request.removeHeader(name)`
 
@@ -145,8 +145,8 @@ Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnız
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
+* `chunk` (String | Buffer) - istek gövdesinin verisinin bir parçası. Eğer bir string ise belirtilen kodlama kullanılarak bir Buffer içerisine dönüştürülür.
+* `encoding` String (isteğe bağlı) - String parçalarını Buffer nesneleri içine dönüştürmek için kullanılır. Varsayılan 'utf-8'.
 * `callback` Fonksiyon (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
 
 `callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
