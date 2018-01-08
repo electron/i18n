@@ -37,23 +37,24 @@ HOME=~/.electron-gyp npm install
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# जब भी आप "एनपीएम इन्स्टॉल" चलायें, तो इसे चलायें:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# अगर विंडोज पर आपको परेशानी आ रही है, तो प्रयास करें:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### इलेक्ट्रॉन के लिए मैन्युअली निर्माण करना
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+अगर आप एक मूल मोड्यूल का निर्माण करने वाले डेवलपर हैं और उसका इलेक्ट्रॉन के विपरीत परीक्षण करना चाहते हैं, तो आपको इलेक्ट्रॉन के लिए मोड्यूल का मैन्युअली पुनर्निर्माण करना होगा | सीधे इलेक्ट्रॉन के लिए निर्माण करने के लिए आप `नोड-जीवायपी` इस्तेमाल कर सकते हैं:
 
 ```sh
 cd /path-to-module/
-HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3
+--arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+`HOME=~/.electron-gyp` डेवलपमेंट हेअदेर्स को खोजने की लोकेशन परिवर्तित कर देता है | `--target=1.2.3` इलेक्ट्रॉन का संस्करण है | The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
 
 ## Troubleshooting
 
