@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Şebeke sunucusu ile aynı etkiye sahip bir protokol uygulamak için bir örnek. `dosya://` protokolü:
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -24,15 +24,15 @@ app.on('ready', () => {
 
 ## Metodlar
 
-The `protocol` module has the following methods:
+`protokol` modülünde aşağıdaki yöntemler bulunur:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* `schemes` String[] - Standart şema olarak kaydedilecek özel şemalar.
 * `ayarlar` Obje (isteğe bağlı) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Standart bir şema, RFC 3986'ın çağırdığı [genel URL'ye uygun sözdizimi](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
 Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğunda doğru bir şekilde çözülmesini sağlayacaktır. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
