@@ -324,15 +324,15 @@ Pencere tam ekran haline girdiğinde dışarı çıkar.
 
 #### Etkinlik: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Pencere tam ekranda modunda bırakıldığında dışarı çıkar.
 
 #### Etkinlik: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Pencere, HTML API'sı tarafından tetiklenen bir tam ekran haline girdiğinde dışarı çıkar.
 
 #### Etkinlik: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldığında dışarı çıkar.
 
 #### Event: 'app-command' *Windows*
 
