@@ -32,11 +32,11 @@ app.on('ready', () => {
 * `ayarlar` Obje (isteğe bağlı) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
-Standart bir şema, RFC 3986'ın çağırdığı [genel URL'ye uygun sözdizimi](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Standart bir şema, RFC 3986'ın çağırdığı [genel URL'ye uygun sözdizimi](https://tools.ietf.org/html/rfc3986#section-3). Örneğin `http` ve `https` standart şemalardır; `dosyası` ise değildir.
 
 Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğunda doğru bir şekilde çözülmesini sağlayacaktır. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Örneğin, özel protokollü aşağıdaki sayfayı yüklediğinizde, standart şema olarak kaydettiğinizde, resim yüklenmeyecektir çünkü standart olmayan şemalar göreceli URL'leri tanımlayamaz:
 
 ```html
 <body>
@@ -77,7 +77,7 @@ app.on('ready', () => {
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
+Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
 To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({path: filePath})`.
 
@@ -159,7 +159,7 @@ Registers a protocol of `scheme` that will send an HTTP request as a response.
 
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
-For POST requests the `uploadData` object must be provided.
+POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
@@ -253,4 +253,4 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+`Şema` için kurulmuş olan önleyiciyi kaldırın ve orijinal işleyicisini geri yükleyin.
