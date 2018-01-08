@@ -6,7 +6,7 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarPopover(options)` *Experimental*
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `label` String (optional) - Popover button text.
   * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
   * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
