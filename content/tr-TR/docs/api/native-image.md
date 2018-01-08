@@ -1,6 +1,6 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> PNG ya da JPG dosyalarını kullanarak tepsi, dock(macOS menü) ve uygulama simgeleri oluşturun.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
@@ -101,7 +101,7 @@ Bir görüntüyü şablon görüntüsü olarak işaretmek için, dosya ismi `Tem
 
 `NativeImage` döndürür
 
-Creates an empty `NativeImage` instance.
+Boş bir `NativeImage` örneği oluşturur.
 
 ### `nativeImage.createFromPath(path)`
 
@@ -109,7 +109,7 @@ Creates an empty `NativeImage` instance.
 
 `NativeImage` döndürür
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+`path` yolundaki dosyanın yeni bir `NativeImage` örneğini oluşturur. Bu metot, `path` mevcut değilse, okunamazsa veya geçerli bir görüntü değilse boş bir görüntü döndürür.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -125,7 +125,7 @@ console.log(image)
 
 `NativeImage` döndürür
 
-Creates a new `NativeImage` instance from `buffer`.
+`buffer`'dan yeni bir `NativeImage` örneği oluşturur.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -133,7 +133,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 `NativeImage` döndürür
 
-Creates a new `NativeImage` instance from `dataURL`.
+`dataURL`'den yeni bir `NativeImage` örneği oluşturur.
 
 ## Class: NativeImage
 
@@ -143,31 +143,31 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 ### Örnek yöntemleri
 
-The following methods are available on instances of the `NativeImage` class:
+Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer (**required**) - Between 0 - 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `JPEG` kodlanmış verisini içeririr.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `String` - The data URL of the image.
+`String` döndürür - Görüntünün veri URL'si.
 
 #### `image.getBitmap([options])`
 
@@ -211,13 +211,13 @@ Returns `NativeImage` - The cropped image.
 
 * `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-Returns `NativeImage` - The resized image.
+`NativeImage` Döndürür - Yeniden boyutlanmış resim.
 
 If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+`Float` Döner - Resmin en boy oranı.
 
 #### `image.addRepresentation(options)`
 
