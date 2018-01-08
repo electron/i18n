@@ -146,7 +146,7 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
   
   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
@@ -158,7 +158,7 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  IP adresi değişmez olan URL'leri eşleştirin.
   
   Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
