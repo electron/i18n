@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+`oturum` modülü, yeni `Oturum` nesneleri oluşturmak için kullanılabilir.
 
 You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
@@ -28,7 +28,7 @@ console.log(ses.getUserAgent())
 * `ayarlar` Nesne 
   * `cache` Boolean - Whether to enable cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+`Oturum` Döndürür - `bölümden` bir oturum örneği metini. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
@@ -48,7 +48,7 @@ Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+`oturum` modülünde bir `Oturum` nesnesi oluşturabilirsiniz:
 
 ```javascript
 const {session} = require('electron')
@@ -82,7 +82,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 ### Örnek yöntemler
 
-The following methods are available on instances of `Session`:
+Aşağıdaki yöntemler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.getCacheSize(callback)`
 
@@ -95,7 +95,7 @@ Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
 
 * `callback` Function - Called when operation is done
 
-Clears the session’s HTTP cache.
+Oturumun HTTP önbelleğini temizler.
 
 #### `ses.clearStorageData([options, callback])`
 
@@ -123,7 +123,7 @@ Proxy ayarlarını yap.
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` aşağıdaki kurallara uymak zorundadır:
 
     proxyRules = schemeProxies[";"<schemeProxies>]
     schemeProxies = [<urlScheme>"="]<proxyURIList>
