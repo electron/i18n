@@ -153,7 +153,7 @@ ve aşağıdaki davranışlar değiştirilmiştir:
 * Belirli erişilebilirlik özellikleri çalışmayabilir.
 * Uygulamalar DNS değişikliklerinden haberdar olmaz.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+Ayrıca, sandboxıng uygulaması kullanmından dolayı uygulama tarfından erişilebilinen kaynaklar kesinlikle sınırlıdır. Daha fazla bilgi için okuyabilirsiniz [App Sandboxing](https://developer.apple.com/app-sandboxing/).
 
 ### Additional Entitlements
 
