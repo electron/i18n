@@ -555,20 +555,20 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Fonksiyon 
-  * `argv` Dizi[] - İkinci örneğin komuta satırı argümanları sırası
-  * `workingDirectory` Dizi - İkinci örneğin çalışma dizini
+  * `argv` Dizi[] - İkinci aşamanın komuta satırı argümanları sırası
+  * `workingDirectory` Dizi - İkinci aşamanın çalışma dizini
 
 `Boolean` 'i geri getirir.
 
 Bu yöntem uygulamanızı bir Tek Örnek Uygulaması yapar - bunun yerine uygulamanızı çalıştırmak için birden çok örneğine izin vermek, bu uygulamanızın sadece tek bir örneğinin çalışmasını sağlayacaktır, ve diğer örnekler bu örneği işaret eder ve çıkar.
 
-`callback`, ikinci örnek işleme konulduğu zaman `callback(argv, workingDirectory)` ile ilk örnek olarak adlandırılır. `argv` ikinci örneğin komuta sırası argümanlarının dizilişidir, ve `workingDirectory` bunun şimdiki çalışma dizinidir. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
+`callback`, ikinci aşama işleme konulduğu zaman `callback(argv, workingDirectory)` ile ilk aşama olarak adlandırılır. `argv` ikinci örneğin komuta sırası argümanlarının dizilişidir, ve `workingDirectory` bunun şimdiki çalışma dizinidir. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+`app` etkinliğinin `ready` 'si çıkarıldıktan sonra `callback` garanti bir şekilde uygulanacaktır.
 
 Bu yöntem geri dönüş uygulamalarının birincil örnegidir `false` ve uygulamanız yüklenmeye devam etmelidir. Işleminizin parametreleri başka bir örneğe yönlendirildiyse geri döner `true` hemen çıkış yapmalısınız.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. Bununla birlikte, kullanıcılar komut satırında uygulamanıza başladığı zaman, sistemin tek örnek mekanizması atlanmış olur ve tek bir örnek sağlamak için bu yolu kullanmanız gerekmektedir.
+macOS 'ta, kullanıcılar Finder'ın içindeki uygulamada ikinci bir aşamayı açmaya çalıştıklarında sistem otomatik olarak tek aşamaya zorlayacaktır, ve bunun için `open-file` ve `open-url` etkinlikleri çıkarılacaktır. Bununla birlikte, kullanıcılar komut satırında uygulamanıza başladığı zaman, sistemin tek örnek mekanizması atlanmış olur ve tek bir örnek sağlamak için bu yolu kullanmanız gerekmektedir.
 
 İkinci bir örnek başladığında, birincil örnek penceresi harekete geçirme örneği:
 
@@ -599,7 +599,7 @@ app.on('ready', () => {
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
+* `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
