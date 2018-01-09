@@ -948,21 +948,21 @@ Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Возвращает `Boolean` - был ли вызов успешным.
 
-On Windows and Linux always returns `true`.
+В Windows и Linux всегда возвращает `true`.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Возвращает `Boolean` - успешно ли добавлены кнопки
 
 Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-The `buttons` is an array of `Button` objects:
+`buttons` является массивом объектов `Button`:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - значок, отображаемый на панели инструментов эскизов.
@@ -981,7 +981,7 @@ The `buttons` is an array of `Button` objects:
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - Область окна
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
