@@ -43,4 +43,4 @@ Belirtilen güç tasarrufu bloke ediciyi durdurur.
 
 * `id` Integer - Güç tasarrufu engelleyici kimliği `powerSaveBlocker.start` tarafından döndürüldü.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+`Boolean` döndürür - İlgili `powerSaveBlocker` başlatılıp başlatılmadığı.
