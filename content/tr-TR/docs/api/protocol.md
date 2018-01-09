@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+Not: Belirtilmedikçe tüm yöntemler yalnızca uygulama modülünün hazır durumu yayınlandıktan sonra kullanılabilir.
 
 ## Metodlar
 
