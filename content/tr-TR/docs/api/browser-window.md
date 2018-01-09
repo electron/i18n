@@ -851,7 +851,7 @@ Returns `String` - The pathname of the file the window represents.
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Window's belgelerinin düzenlenip düzenlenmediğini belirtir ve `true` olarak ayarlandığında başlık çubuğundaki simge gri olur.
 
 #### `win.isDocumentEdited()` *macOS*
 
