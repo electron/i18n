@@ -600,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 Dönüşler:
 
-* `title` Dizi
+* `başlık` Dizi
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
