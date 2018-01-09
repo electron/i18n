@@ -156,7 +156,7 @@ Process: [Main](../glossary.md#main-process)
   * `transparent` Boolean (необязательно) - Делает окно [прозрачным](frameless-window.md). По умолчанию - `false`.
   * `type` String (необязательно) - Тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
   * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `обычное`. Возможные значения: 
-    * `default` - Results in the standard gray opaque Mac title bar.
+    * `по умолчанию` - результаты в Стандартный серой непрозрачной Mac панели.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
