@@ -80,7 +80,7 @@ ve preload.js:
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
-// read a configuration file using the `fs` module
+// `fs` modulünü kullanarak bir yapılandırma dosyası okur
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -93,8 +93,6 @@ function customWindowOpen (url, ...args) {
   }
   return defaultWindowOpen(url, ...args)
 }
-
-window.open = customWindowOpen
 ```
 
 Önceden yüklenen komut dosyasında dikkat edilmesi gereken önemli şeyler:
