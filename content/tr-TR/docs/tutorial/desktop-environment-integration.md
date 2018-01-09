@@ -239,9 +239,9 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## Dosyaları pencereden dışarı sürükleme
 
-Dosyalar üzerinde işlem yapan bazı türdeki uygulamalar için, dosyaları Electron'dan diğer uygulamalara taşıyabilmek önemlidir. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Dosyalar üzerinde işlem yapan bazı türdeki uygulamalar için, dosyaları Electron'dan diğer uygulamalara taşıyabilmek önemlidir. Bu özelliği uygulamanıza uygulamak için `webContents.startDrag (öğe)` API'sini `ondragstart` etkinliğinde aramanız gerekir.
 
 Web sayfasında:
 
