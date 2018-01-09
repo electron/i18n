@@ -101,7 +101,7 @@ Dönüşler:
 
 #### Etkinlik: 'kapalı'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+HTTP istek-cevap hareketindeki son olay olarak yayınlanır. `close` olayı, `request` ve `response` nesneleri üzerinde daha fazla olay yayınlanmayacağını belirtir.
 
 #### Etkinlik: 'yönlendirme'
 
@@ -163,7 +163,7 @@ Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnız
 
 #### `request.abort()`
 
-Devam eden bir HTTP işlemini iptal eder. Eğer istek `close` olayını önceden yayınlamışsa zorunlu sonlandırma operasyonunun hiçbir etkisi olmayacaktır. Aksi durumda devam eden olay, `abort` ve `close` olaylarını yayar. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Devam eden bir HTTP işlemini iptal eder. Eğer istek `close` olayını önceden yayınlamışsa zorunlu sonlandırma operasyonunun hiçbir etkisi olmayacaktır. Aksi durumda devam eden olay, `abort` ve `close` olaylarını yayar. Buna ek olarak, eğer hali hazırda bir cevap nesnesi varsa, o da `aborted` olayını yayar.
 
 #### `request.followRedirect()`
 
