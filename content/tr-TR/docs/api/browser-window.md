@@ -1004,7 +1004,7 @@ Pencerenin görev çubuğu düğmesinin özelliklerini ayarlar.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+`webContents.showDefinitionForSelection()` gibi.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
