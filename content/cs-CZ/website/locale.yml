@@ -11,14 +11,14 @@ nav:
   code_of_conduct: Kodex chování
 docs:
   title: Dokumentace Electronu
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: Koukněte na všechny <a href="/docs/all"> dokumenty na jedné stránce</a> nebo se podívejte na <a href="/docs/faq" title="často kladené dotazy"> FAQ</a>.
   guides: Návody
   api_reference: API Reference
   advanced: Pokročilé
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
+    propose_change: Pomozte vylepšit tuto dokumentaci
+    version_history: Historie verzí
+    translate: Přeložte tuto dokumentaci
     view_all_docs: All Docs on One Page
 languages:
   choose_language: Zvolte jazykovou mutaci
@@ -33,7 +33,7 @@ community:
   videos: Videa
   meetups: Setkání
   awesome_notice: Tento seznam je generován z repozitáře <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron od @sindresorhus</a>. <br>Něco chybí? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> upravte to.</a>.
-  meetup_notice: Chcete-li přidat setkání, upravte <code>data/meetups.json</code> a <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> a pošlete pull request</a>.
+  meetup_notice: Chcete-li přidat setkání, upravte <code>data/meetups.json</code> a <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pošlete pull request</a>.
 electron_is_easy:
   title: Je to snazší, než si myslíte
   description: Pokud vytváříte webové stránky, můžete si také vytvořit desktopovou aplikaci. Elektron je framework pro vytváření nativních aplikací pomocí webových technologií, jako je JavaScript, HTML a CSS. Elektron se postará o systémové části aplikace, a vy se můžete soustředit na specifika vaší aplikace.
@@ -56,7 +56,7 @@ benefits:
   windows_installers: Instalátor pro Windows
 get_started:
   title: Začínáme
-  description: Chcete-li začít s Electronem, podívejte se na níže uvedené zdroje. Zjistěte, jak obalit váši web. stránku Electronem, komunikovat přes API a generovat instalátory.
+  description: Chcete-li začít s Electronem, podívejte se na níže uvedené zdroje. Zjistěte, jak obalit vaši web. stránku Electronem, komunikovat přes API a generovat instalátory.
 explore:
   title: Prozkoumat Electron API
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
@@ -64,7 +64,7 @@ download_from_github: Stáhnout z GitHubu
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Zobrazit všechny releasy</a> na GitHubu
 quick_start:
   title: "Zprovozněte si <a href='https://github.com/electron/electron-quick-start' target='_blank'> Quick Start</a> aplikaci a koukněte na Electron aplikaci v praxi:"
-  description: Malinká Electron aplikace, s nápomocnýni poznámkami.
+  description: Minimální Electron aplikace, s pomocnými poznámkami.
   clone: Klonovat Quick Start repozitář
   go_into_repo: Přejděte do repozitáře
   install_deps: Nainstalujte závislosti a spusťte
@@ -109,9 +109,9 @@ pages:
     description: API reference documentation for the latest Electron release
   '/docs/development':
     title: Vývoj
-    description: Developing with Electron
+    description: Vývoj v Electronu
   '/docs/tutorial':
-    title: Tutorial
+    title: Tutoriál
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron Blog
@@ -119,7 +119,7 @@ pages:
   '/community':
     title: Komunita
   '/releases':
-    title: Releases
+    title: Vydání
   '/contact':
     title: Kontakt
     description: Obraťte se na tým elektronů na Twitteru, Slacku, GitHubu nebo prostřednictvím e-mailu.
@@ -135,5 +135,5 @@ pages:
     description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
 _404:
   page_not_found: Stránka nenalezena.
-  if_this_is_an_error: Jedná se o chybu
+  if_this_is_an_error: Pokud je to chyba
   please_file_an_issue: prosím dejte nám vědět.
