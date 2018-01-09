@@ -44,9 +44,9 @@ console.log(dialog)
   * `geri aramak` Fonksiyon (isteğe bağlı) 
     * `filePaths` Dize[] - Kullanıcı tarafından seçilen bir dosya yolu dizisi
   
-  Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
-  
-  `browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
+  İade`dizge[]`, kullanıcı tarafından seçilen dosya yolları dizisi, eğer geri arama sağlanırsa, ` tanımsız </ 0> iade eder.</p>
+
+<p><code>browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
   
   The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
   
