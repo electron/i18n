@@ -242,9 +242,9 @@ window.onbeforeunload = (e) => {
 
   // Alışılmış tarayıcıların aksine, kullanıcılara bir mesaj kutusu yönlendirilir, geri getirilmesi halinde
   // olmayan bir boşluk sessizce kapanmayı iptal eder.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false
+  // Kullanıcının diyalog API ' ı kullanarak uygulamayı kapatması sağlanması
+  // önerilmektedir.
+  e.returnValue = yanlış
 }
 ```
 
@@ -252,7 +252,7 @@ window.onbeforeunload = (e) => {
 
 Pencere kapatıldığında ortaya çıkmaktadır. Bu etkinliği aldıktan sonra, pencereye yapılan göndermeyi kaldırmalı ve daha fazla kullanmamalısınız.
 
-#### Event: 'session-end' *Windows*
+#### Etkinlik: 'oturum-sonu' *Windows*
 
 Güç oturumun kapatılması nedeniyle pencere oturumu sona erdiği zaman veya makine yeniden başlatılmasında veya oturumu kapatmada ortaya çıkmaktadır.
 
@@ -308,7 +308,7 @@ Pencere yeniden boyutlandırıldığında ortaya çıkar.
 
 Pencere yeni bir konuma getirildiği zaman ortaya çıkmaktadır.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Not**: MacOS'ta bu etkinlik sadece `moved` 'un takma adıdır.
 
 #### Etkinlik: 'moved' *macOS*
 
@@ -330,16 +330,16 @@ Pencere, HTML API'sı tarafından tetiklenen bir tam ekran haline girdiğinde d�
 
 Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldığında dışarı çıkar.
 
-#### Event: 'app-command' *Windows*
+#### Etkinlik: 'uygulama-komutu' *Windows*
 
 Dönüşler:
 
 * `olay` Olay
-* `command` String
+* `command` Dizi
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. Bunlar genel olarak klavye ortam tuşları ya da tarayıcı komutları ve ayrıca Windows'da ki bazı farelerde olan "Geri" düğmesiyle ilgilidir.
+[Uygulama Komutu](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) çağrıldığında ifade edilir. Bunlar genel olarak klavye ortam tuşları ya da tarayıcı komutları ve ayrıca Windows'da ki bazı farelerde olan "Geri" düğmesiyle ilgilidir.
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Tire ve `APPCOMMAND_` ön adıyla değişen küçük harfli, altı çizili komutlar sıyrılır. Örneğin `APPCOMMAND_BROWSER_BACKWARD`, `browser-backward` olarak belirtilir.
 
 ```javascript
 const {BrowserWindow} = require('electron')
