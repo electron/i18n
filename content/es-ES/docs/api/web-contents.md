@@ -294,9 +294,9 @@ Devuelve:
 
 * `evento` Evento
 * `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Función 
+* `error` cadena - el error del código
+* `certificate` [certificate](structures/certificate.md)
+* `llamada de vuelta` Función 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -310,7 +310,7 @@ Devuelve:
 * `evento` Evento
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
 Emitted when a client certificate is requested.
@@ -332,7 +332,7 @@ Devuelve:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `username` String
   * `password` String
 
@@ -442,7 +442,7 @@ Devuelve:
 
 * `evento` Evento
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -645,7 +645,7 @@ Injects CSS into the current web page.
 
 * `codigo` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `llamada de vuelta` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -687,7 +687,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -700,7 +700,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -821,21 +821,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -867,7 +867,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `error` Error
   * `data` Buffer
 
@@ -1060,7 +1060,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1089,7 +1089,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Función - `(error) => {}`. 
+* `llamada de vuelta` Función - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
