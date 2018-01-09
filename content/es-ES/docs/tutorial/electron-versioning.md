@@ -121,14 +121,14 @@ Como consideración futura, podemos introducir uno o ambos de los siguientes:
 
 Banderas de características son prácticas comunes en Chromium, y son bien establecidas en el ecosistema de diseño web. En el contexto de Electron, banderas de características o **ramas suaves** deben seguir las siguientes propiedades:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* está habilitada o deshabilitada en el tiempo de ejecución, o tiempo de estructuración; no soportamos el concepto bandera de característica de petición de cambio
+* segmenta completamente nuevos y viejos rutas de códigos; refactorizando viejo código para soportar nuevas características *viola* el contrato de las banderas de características
+* banderas de características son removidas eventualmente después de que la rama blanda es absorbida
 
-We reconcile flagged code with our versioning strategy as follows:
+Nosotros reconciliamos el código con bandera con nuestras estrategias de versiones como sigue:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. no consideramos iteración en códigos de características con bandera en las ramas de estabilidad: hasta el uso juicioso de algunas características con bandera no está libre de riesgo
+2. hay que romper el contracto API en el código de características con bandera sin golpear las versiones mayores. Código con bandera no se adhiere a los semver
 
 # Semantic Commits
 
