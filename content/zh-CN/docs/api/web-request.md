@@ -53,9 +53,9 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 `uploadData` 是` UploadData `对象的一个数组。
 
-必须使用 `response` 对象调用` callback </ 0>。</p>
+必须使用 `response` 对象调用` callback `。
 
-<h4><code>webRequest.onBeforeSendHeaders([filter, ]listener)`</h4> 
+#### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
@@ -75,9 +75,9 @@ The `listener` will be called with `listener(details, callback)` before sending 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
-必须使用 `response` 对象调用` callback </ 0>。</p>
+必须使用 `response` 对象调用` callback `。
 
-<h4><code>webRequest.onSendHeaders([filter, ]listener)`</h4> 
+#### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
@@ -115,9 +115,9 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-必须使用 `response` 对象调用` callback </ 0>。</p>
+必须使用 `response` 对象调用` callback `。
 
-<h4><code>webRequest.onResponseStarted([filter, ]listener)`</h4> 
+#### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
