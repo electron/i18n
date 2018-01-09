@@ -89,13 +89,13 @@ console.log(dialog)
     
     ` filtreleri </ 0>, görüntülenebilen dosya türleri dizisini belirtir, bir örnek için <code> dialog.showOpenDialog </ 0> konusuna bakın.</p>
 
-<p>If a <code>callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
-    
-    ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
+<p>Bir <code> geri arama </ 0> geçilirse, API çağrısı eş zamansız olur ve sonuç <code> Geri arama (dosya adı) </ 0> üzerinden geçilecek</p>
+
+<h3><code>diyalog.gösterilecekMesajKutusu([browserWindow, ]seçenekler[, geri arama])`</h3> 
     
     * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
     * `ayarlar` Nesne 
-      * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
+      * `tip` dize(isteğe bağlı) - olabilir `"yok"`, `"bilgi"`, `"hata"`, `"sorun"` ya da `"uyarı"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
       * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
       * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
       * `title` String (optional) - Title of the message box, some platforms will not show it.
@@ -142,6 +142,7 @@ console.log(dialog)
     
     * The `message` argument is not used, as the OS provides its own confirmation dialog.
     * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+    
     ## Sheets
     
     On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
