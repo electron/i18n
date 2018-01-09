@@ -596,11 +596,11 @@ Fired when a redirect was received while requesting a resource.
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### Etkinlik: 'sayfa-başlığı-güncellendi'
 
 Dönüşler:
 
-* `title` String
+* `title` Dizi
 * `explicitSet` Boolean
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
