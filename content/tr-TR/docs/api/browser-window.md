@@ -483,7 +483,7 @@ win.loadURL('https://github.com')
 
 Bu pencerenin sahip olduğu.<WebContents</code> nesnesi. Bütün web sayfası odaklı olaylar ve işler buna göre yapılır.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Bakınız [`webContents` dökümanı](web-contents.md) yöntemler ve olaylar için.
 
 #### `win.id`
 
@@ -497,7 +497,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Pencereyi kapanmaya zorla, the `unload` ve <beforeunload</code> olay web sayfası için yayılmayacak ve `close` bu pencere için olay ayrıca yayılmayacak fakat `closed` olayının yayılmasını sağlar.
 
 #### `win.close()`
 
@@ -515,15 +515,15 @@ Odak penceresinden kaldırır.
 
 `Boolean` Döndürür - Pencerenin odaklanıp odaklanmadığı.
 
-#### `win.isDestroyed()`
+#### `pencere.kapatıldı()`
 
 `Boolean` Döndürür - Pencerenin yok edilip edilmediği.
 
-#### `win.show()`
+#### `pencere.göster()`
 
 Pencereyi gösterir ve odaklanmayı sağlar.
 
-#### `win.showInactive()`
+#### `pencere.gösterInaktif()`
 
 Pencereyi gösterir, ancak üzerine odaklanmaz.
 
@@ -531,7 +531,7 @@ Pencereyi gösterir, ancak üzerine odaklanmaz.
 
 Pencereyi gizle.
 
-#### `win.isVisible()`
+#### `pencere.görünür()`
 
 `Boolean` Döndürür - Pencerenin kullanıcılara gizlenip gizlenmeyeceği.
 
@@ -545,7 +545,7 @@ Pencereyi büyütür. Bu, aynı zamanda görüntülenemiyorsa pencereyi göstere
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Pencereleri simge durumuna küçültür.
 
 #### `win.isMaximized()`
 
@@ -575,16 +575,16 @@ Pencerenin tam ekran modunda olup olmadığını ayarlar.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Yay - Bazı kısımların içerik görünümünü sürdürme adına en-boy oranı.
+* `extraSize`[Size](structures/size.md) Büyütme oranını korurken ekstra boyut göz önüne alınmaz.
 
 Bu, görüntü oranını koruyan bir pencere oluşturacaktır. Ekstra bir boyut, geliştiricinin piksel cinsinden belirtilen, görüntü oranı hesaplamaları içine dahil edilmeyen yere sahip olmasını sağlar. Bu API, önceden bir pencerenin boyutu ile içerik boyutu arasındaki farkı dikkate almaktadır.
 
-Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir pencere düşünün. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sadece Genel İçerik görünümünde herhangi bir ekstra genişlik ve yükseklik alanlarını toplamak yeterlidir.
+Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir pencere düşünün. Büyük ihtimalle player'ın sol kenarında 15, sağ kenarında 25 ve altında 50 piksel kontrol alanı var. Player içerisinde 16:9 oranını korumak için (HD için standart oran @1920x1080) bu işlemi çağırırız. [40,50] İkinci argüman içerik görüntüsü içerisinde genişlik ve yüksekliğin nerede olduğuyla ilgilenmez, sadece var oluşlarına bakar. Sadece Genel İçerik görünümünde herhangi bir ekstra genişlik ve yükseklik alanlarını toplamak yeterlidir.
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
-* `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
+* `path` Dizi - QuickLook ile kesin yol önizlemesi This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
 * `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
 
 Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.wikipedia.org/wiki/Quick_Look)'ı kullanır.
@@ -650,12 +650,12 @@ Pencerenin minimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+`Integer[]` 'ı geri getirir - Windows'un minimum genişliğini ve maksimum yüksekliğini içerir.
 
 #### `win.setMaximumSize(width, height)`
 
-* `width` Integer
-* `height` Integer
+* `width` Tamsayı
+* `height` Tamsayı
 
 Pencereni maksimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
@@ -693,9 +693,9 @@ Pencerenin kullanıcı tarafından el ile simge durumuna küçültülebilir olup
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+`Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak küçültülüp küçültülmediği
 
-On Linux always returns `true`.
+Linux üzerinde her zaman `true` döndürür.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -707,7 +707,7 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+Linux üzerinde her zaman `true` döndürür.
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -727,7 +727,7 @@ Pencerenin kullanıcı tarafından el ile kapatılıp bırakılmayacağını tan
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+`Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak kapatılıp kapatılmayacağı.
 
 On Linux always returns `true`.
 
