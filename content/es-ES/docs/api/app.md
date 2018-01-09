@@ -245,36 +245,36 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Devuelve:
 
 * `evento` Evento
-* `killed` Boolean
+* `killed` Booleano
 
-Emitted when the gpu process crashes or is killed.
+Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
 * `evento` Evento
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Booleano - `true` cuando el soporte de accesibilidad de Chrome está activado, de lo contrario `false`.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
 
 ## Métodos
 
-The `app` object has the following methods:
+El objeto `app` tiene los siguientes métodos:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será producido y por defecto la aplicación se cerrará.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
 * `exitCode` Integer (optional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Cierra inmediatamente con `exitCode`. `exitCode` por defecto a 0.
 
 All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
 
