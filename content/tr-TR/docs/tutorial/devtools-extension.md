@@ -11,7 +11,7 @@ Electron'da bir uzantı yüklemek için Chrome tarayıcısında indirmeniz, dosy
 Örnek olarak [Reaksiyonel geliştirici araçları](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) kullanılabilir:
 
 1. Chrome tarayıcısna yükle.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
+2. `chrome://extensions`'e gidin ve `fmkadmapgofadopljbjfkapdkoienihi` gibi bir karma dize olan uzantı kimliğini bulun.
 3. Uzantıları saklamak için Chrome tarafından kullanılan dosya sistemi konumunu öğrenin: 
     * Windows'ta şu şekildedir `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * Linux'ta şu şekilde olabilir: 
