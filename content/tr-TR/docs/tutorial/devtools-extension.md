@@ -21,9 +21,9 @@ Electron'da bir uzantı yüklemek için Chrome tarayıcısında indirmeniz, dosy
 `
         * `~/.config/chromium/Default/Extensions/`
     * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+4. React Developer Tools için uzantının yerini `BrowserWindow.addDevToolsExtension` API'sine iletin, bunun gibi bir şey:`~/Library/ApplicationSupport/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Not:**`BrowserWindow.addDevToolsExtension` API'sı, uygulama modülünün hazır olayı yayınlanmadan çağrılamaz.
 
 Uzantının adı `BrowserWindow.addDevToolsExtension` tarafından döndürüldü ve uzantının adını kaldırmak için `BrowserWindow.removeDevToolsExtension` API'sine geçirebilirsiniz.
 
