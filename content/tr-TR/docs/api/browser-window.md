@@ -584,8 +584,8 @@ Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir penc
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
-* `path` Dizi - QuickLook ile kesin yol önizlemesi This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `path` Dizi - QuickLook ile kesin yol önizlemesi Bu, Quick Look açacağı dosyanın türünü belirlemek için dosya uzantısını ve yolunu kullandığı için önemlidir.
+* `displayname` Dizi (opsiyonel) Quick Look şekilsel görünümünde görüntülenecek olan dosya adı. This is purely visual and does not affect the content type of the file. Defaults to `path`.
 
 Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.wikipedia.org/wiki/Quick_Look)'ı kullanır.
 
@@ -650,7 +650,7 @@ Pencerenin minimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
 #### `win.getMinimumSize()`
 
-`Integer[]` 'ı geri getirir - Windows'un minimum genişliğini ve maksimum yüksekliğini içerir.
+`Integer[]` 'ı geri getirir - Pencerenin minimum genişliğini ve yüksekliğini içerir.
 
 #### `win.setMaximumSize(width, height)`
 
@@ -661,7 +661,7 @@ Pencereni maksimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+`Integer[]` 'ı geri getirir - Pencerenin maksimum genişliğini ve yüksekliğini içerir.
 
 #### `win.setResizable(resizable)`
 
@@ -757,17 +757,17 @@ Moves window to `x` and `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+`Integer[]` 'ı geri getirir - Pencerenin mevcut pozisyonunu içerir.
 
 #### `win.setTitle(title)`
 
 * `başlık` Dizi
 
-Changes the title of native window to `title`.
+Doğal pencerenin başlığını `title` olarak değiştirir.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+`String` 'i geri getirir - Doğal pencerenin başlığı.
 
 **Note:** The title of web page can be different from the title of the native window.
 
@@ -806,7 +806,7 @@ Enters or leaves the kiosk mode.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+`Boolean` geri getirir - Pencere kiosk modundaysa.
 
 #### `win.getNativeWindowHandle()`
 
@@ -929,7 +929,7 @@ Sets progress value in progress bar. Valid range is [0, 1.0].
 
 On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Windows'ta, bir yöntem devredilebilir. Kabul edilen değerler `none`, `normal`, `indeterminate`, `error`, ve `paused`. `setProgressBar` 'ı bir yöntem kurulumu ile çağırırsanız (fakat geçerli aralıktaki bir değerle), `normal` varsayılacaktır.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
