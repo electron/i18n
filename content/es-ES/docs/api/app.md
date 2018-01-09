@@ -645,7 +645,7 @@ Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objet
 
 ### `app.getGpuFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
