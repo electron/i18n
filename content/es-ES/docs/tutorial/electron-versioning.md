@@ -104,13 +104,13 @@ Un ejemplo del ciclo de vida en imágenes:
 * El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Luego, se revela una vulnerabilidad y es reparada y aplicada a la maestra. Nosotros entramos por la puerta de atrás para arreglar para la línea `2-0-x` y el lanzamiento `2.0.1`. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# Funciones faltantes: Alphas y nightly
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Nuestra estrategia tiene algunas compensaciones, que por ahora sentimos que son apropiadas. Más importante que las nuevas características en la maestra pueden tomar un tiempo antes de alcanzar una linea de lanzamiento estable. If you want to try a new feature immediately, you will have to build Electron yourself.
 
 As a future consideration, we may introduce one or both of the following:
 
