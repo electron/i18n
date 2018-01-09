@@ -1,16 +1,16 @@
-# GPUFeatureStatus Object
+# GPUFeatureStatus nesnesi
 
-* `2d_canvas` String - Canvas
-* `flash_3d` String - Flash
-* `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
-* `gpu_compositing` String - Compositing
-* `multiple_raster_threads` String - Multiple Raster Threads
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
+* `2d_canvas` Dizeler - tuval
+* `flash_3d` Dize - Flash
+* `flash_stage3d` Dize - Flash Stage3D
+* `flash_stage3d_baseline` Dize - Flash Stage3D temel profil
+* `gpu_compositing` Dize - kompozisyon
+* `multiple_raster_threads` Dize - Raster konuları
+* `native_gpu_memory_buffers` Dize - Yerli GPU Bellek Tamponları
 * `rasterization` String - Rasterizasyon
 * `video_decode` - Video Decode
-* `video_encode` String - Video Encode
-* `vpx_decode` String - VPx Video Decode
+* `video_encode` Dize - Video kodlama
+* `video_encode` Dize - Video kodlama
 * `webgl` Dize - WebGL
 * `webgl2` Dize - WebGL2
 
