@@ -79,8 +79,7 @@ Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenil
 
 <p>Geleneksel UWP uygulamalarına karşı olarak, paketlenmiş uygulamaların şu anda bir elle doğrulama işlemi uygulayabilirsiniz. <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">burada</a>.
 Bu arada, tüm kullanıcılar paketinizi çift tıklatarak yükleyebilecek,
-Dolayısıyla, yalnızca mağaza arıyorsanız, kolay kurulum yöntemi mağazaya teslim olmayabilir. In managed environments (usually enterprises), the
-<code>Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Dolayısıyla, yalnızca mağaza arıyorsanız, kolay kurulum yöntemi mağazaya teslim olmayabilir. Yönetilen ortamlarda (genellikle işletmeler), <code>Add-AppxPackage` [PowerShell Cmdlet otomatik olarak yüklemek için kullanılabilir](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürütülebilir - ve bu nedenle Xbox, HoloLens veya Telefonlar üzerinde çalışmaz.
 
@@ -92,9 +91,9 @@ Bir arka plan görevini kullanan bir Electron uygulamasının toast bildirimleri
 
 ## İsteğe bağlı: Konteyner Sanallaştırması'nı kullanarak Dönüştürün
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. Bununla birlikte, bir özel kurulumcu kullanıyorsanız veya oluşturulan paketle ilgili herhangi bir sorun yaşarsanız, Windows Container - içinde derleme kullanarak bir paket oluşturmaya çalışabilir, bu modda, CLI yükleme yapar ve uygulamanızı boş Windows Konteynerın'da çalıştırır uygulamanızın hangi işletim modülüne değişiklik yaptığını tam olarak belirleme sistemi.
+AppX paketi oluşturmak için, `electron-windows-store` CLI'si çoğu Electron uygulamasında çalışması gereken bir şablon kullanır. Bununla birlikte, bir özel kurulumcu kullanıyorsanız veya oluşturulan paketle ilgili herhangi bir sorun yaşarsanız, Windows Container - içinde derleme kullanarak bir paket oluşturmaya çalışabilir, bu modda, CLI yükleme yapar ve uygulamanızı boş Windows Konteynerın'da çalıştırır uygulamanızın hangi işletim modülüne değişiklik yaptığını tam olarak belirleme sistemi.
 
-CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). İki dosya alacaksınız: `DesktopAppConverter.zip` ve `BaseImage-14316.wim`.
 
 1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
 2. Konumdaki windows temel görünümünü görmezden gelerek masaüstü uygulama çeviricisini indir ve çalıştır.
