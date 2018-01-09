@@ -118,13 +118,13 @@ Stratejimiz, şu an uygun olduğunu düşündüğümüz birkaç takas hattı iç
 Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birlikte sunabiliriz:
 
 * gece boyunca inşa eden ustalar; bunlar milletlerin yeni özellikleri hızlıca test etmesine ve geri bildirimde bulunmasına izin verecektir
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* beta sürümlerine göre daha serbest denge kısıtlamaları olan alfa sürümleri; örneğin, bir denge kanalı *alpha* da ise, yeni özellikleri kabul etmek için izin verir
 
 # Özellik bayrakları
 
 Özellik bayrakları Chromium'da yaygın bir uygulamadır ve web geliştirme ekosisteminde iyi kurulmuştur. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+* çalışma ya da derleme zamanı sırasında etkinleştirilir/devre dışı bırakılır. Biz istek kapsamlı özellik bayrağı anlayışını desteklemiyoruz
 * bu bölümler tamamen yeni ve eski kod yollarıdır: Bu yeni özellik yeni ve eski kodların yenıden yapılandırılması içindir *uygun değil* koşullu kontrat özellikleri
 * belirleyici işaretler hassas bölümler birleştirildikten sonra doğal olarak kaldırılır
 
