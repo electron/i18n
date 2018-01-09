@@ -2,7 +2,7 @@
 
 > Communicate asynchronously from a renderer process to the main process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
 The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. You can also receive replies from the main process.
 
