@@ -1,6 +1,6 @@
 # AtlamaListesiÖğesi Nesnesi
 
-* `type` Dize (opsiyonel) - Aşağıdakilerden biri: 
+* `türü` Dize (opsiyonel) - Aşağıdakilerden biri: 
   * `task` - Bir görev özel argümanlarla bir uygulamayı açacak.
   * `separator` - Standart `Tasks` kategorisindeki öğeleri ayırmak için kullanılabilir.
   * `file` - Dosya uzantısı uygulamayı kullanarak Atlama Listesini oluşturan dosyayı açacak, bunun uygulamayı çalıştırması için bir dosya türü işleyicisi olarak kaydedilmesi gerekir (ancak varsayılan işleyici olmasına gerek yoktur).
