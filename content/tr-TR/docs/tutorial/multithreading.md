@@ -4,7 +4,7 @@
 
 ## Çok iş parçacıklı Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Elektron'un Web Workers'ında Node.js özelliklerini kullanmak mümkündür, bunu yapmak için `nodeIntegrationInWorker` seçeneği `webPreferences`'de `true` olarak ayarlanmalıdır.
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,7 +14,7 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegrationInWorker`, `nodeIntegration`'dan bağımsız olarak kullanılabilir, ancak `sandbox`, `true` olarak ayarlanmamalıdır.
 
 ## Kullanılabilir API'ler
 
