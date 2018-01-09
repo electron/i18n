@@ -183,20 +183,20 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Evento: 'select--client-certificate'
 
 Devuelve:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `webContents`[WebContents](web-contents.md)
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
+* `certificateList`[Certificate[]](structures/certificate.md)
 * `llamada de vuelta` Función 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate`[Certificate](structures/certificate.md)(opcional)
 
-Emitted when a client certificate is requested.
+Emitido cuando el certificado de un cliente es requerido.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+La `url` corresponde a la entrada de navegación requerida al certificado del cliente y `callback` puede ser llamado con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
 
 ```javascript
 const {app} = require('electron')
@@ -207,12 +207,12 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Evento:'login'
 
 Devuelve:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `webContents`[WebContents](web-contents.md)
 * `request` Object 
   * `method` String
   * `url` URL
@@ -227,9 +227,9 @@ Devuelve:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Emitido cuando `webContents` quiere hacer una autenticación básica.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+El comportamiento por defecto es cancelar todas las autenticaciones, para anular esto usted debería prevenir el comportamiento por defecto con `event.preventDefault()` y llamar `callback (username, password) ` con las credenciales.
 
 ```javascript
 const {app} = require('electron')
@@ -240,7 +240,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Devuelve:
 
