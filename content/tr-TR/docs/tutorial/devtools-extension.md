@@ -29,7 +29,7 @@ Uzantının adı `BrowserWindow.addDevToolsExtension` tarafından döndürüldü
 
 ## Desteklenen DevTools Eklentileri
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Devtools Uzantılarının Elektron'da çalışma durumu test edilip garanti edilmektedir:
+Elektron yalnızca `chrome.*` API'larının sınırlı bir listesini desteklemektedir; bu nedenle, chrome uzantı özellikleri için desteklenmeyen `chrome.*` API'lerini kullanan bazı uzantılar çalışmayabilir. Devtools Uzantılarının Elektron'da çalışma durumu test edilip garanti edilmektedir:
 
 * [Kahraman müfettiş](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [Geliştirici araçları tepkisi](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
