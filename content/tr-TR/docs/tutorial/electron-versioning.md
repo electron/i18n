@@ -18,7 +18,7 @@ npm install --save-dev electron@latest
 
 Electron versiyonları *< 2.0*, [semver](http://semver.org) belirtimine uymadı. Ana sürümler, son kullanıcı API değişikliklerine karşılık gelmektedir. Küçük versiyonlar Chromium'un ana sürümlerine karşılık gelir. Yama sürümleri, yeni özelliklere ve hata düzeltmelerine karşılık gelmiştir. Özellikleri birleştiren geliştiriciler için elverişli olsa da, müşteri tarafından yönlendirilen uygulamaların geliştiricileri için sorunlar yaratmaktadır. Slack, Stride, Teams, Skype, VS Code, Atom ve Masaüstü gibi büyük uygulamaların QA test çevrimleri uzun olabilir ve istikrar son derece istenen bir sonuçtur. Hata düzeltmelerini kavramaya çalışırken yeni özelliklerin benimsenmesinde yüksek bir risk söz konusudur.
 
-Here is an example of the 1.x strategy:
+1.x stratejisine bir örnek:
 
 ![](../images/versioning-sketch-0.png)
 
@@ -29,7 +29,7 @@ An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either abs
 Aşağıda özetlenen 1.x stratejimizden birkaç önemli değişiklik var. Her değişiklik, geliştiricilerin/sürdürücülerin ve uygulama geliştiricilerin gereksinimlerini ve önceliklerini karşılamak üzere tasarlanmıştır.
 
 1. Semver'in sıkı kullanımı
-2. Introduction of semver-compliant `-beta` tags
+2. Semver-uyumlu `-beta` etiketlerinin tanıtımı
 3. [Konvansiyonel taahhüt mesajları](https://conventionalcommits.org/)'na giriş
 4. Açıkça tanımlanan stabilizasyon dalları
 5. The `master` branch is versionless; only stability branches contain version information
