@@ -1,6 +1,6 @@
 ## Class: DownloadItem
 
-> Control file downloads from remote sources.
+> Контроль загрузки файлов из удаленных источников.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -72,7 +72,7 @@ The `downloadItem` object has the following methods:
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` String - Установить путь сохраняемого элемента загрузки.
 
 The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
 
