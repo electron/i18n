@@ -16,7 +16,7 @@ electron --inspect=5858 uygu/laman
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+`--Inspect` gibi ama JavaScript'in ilk satırında çalıştırmayı durdurur.
 
 ## Harici hata ayıklayıcıları
 
