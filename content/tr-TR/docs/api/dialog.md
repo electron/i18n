@@ -66,10 +66,9 @@ console.log(dialog)
 
 <p>Bir <code> geri arama </ 0> geçilirse API çağrısı eş zamansız olur ve sonuç, üzerinden geçecektir <code> Geri arama (dosya adı) </ 0></p>
 
-<p><strong>Note:</strong> On Windows and Linux an open dialog can not be both a file selector
-and a directory selector, so if you set <code>properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+<p><strong> Not: </ 0>Windows ve Linux'ta açık bir iletişim kutusu, hem bir dosya seçici hem de bir dizin seçici olamaz. dolayısıyla <code>özellikleri` için `['openFile', 'openDirectory']` Bu platformlarda bir dizin seçici gösterilir.
   
-  ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
+  ### `dialog.showSaveDialog([browserWindow, ]seçenekleri[, callback])`
   
   * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
   * `ayarlar` Nesne 
