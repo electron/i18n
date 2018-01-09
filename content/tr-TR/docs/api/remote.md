@@ -104,15 +104,15 @@ e.g.
 
     project/
     ├── main
-    │   ├── foo.js
-    │   └── index.js
+    │   ├── foo.js
+    │   └── index.js
     ├── package.json
     └── renderer
         └── index.js
     
 
 ```js
-// main process: main/index.js
+// ana işlem: main/index.js
 const {app} = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
