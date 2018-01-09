@@ -7,8 +7,8 @@ Süreç: [Ana](../glossary.md#main-process)
 Birden çok dosya ve dizin seçmek için bir iletişim kutusunu gösteren örnek:
 
 ```javascript
-const {dialog} = require('electron')
-console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
+const{dialog}=ihtiyaç('electron')
+console.log(dialog.showOpenDialog({özellikleri: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
 Dialog, Electron'un ana dizininden açılır. İletişim nesnesini bir oluşturucu işleminden kullanmak isterseniz, uzaktan erişim kullanarak erişmeyi unutmayın:
