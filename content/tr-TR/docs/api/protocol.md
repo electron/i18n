@@ -30,7 +30,7 @@ app.on('ready', () => {
 
 * `schemes` String[] - Standart şema olarak kaydedilecek özel şemalar.
 * `ayarlar` Obje (isteğe bağlı) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * `güvenli` Boolean (isteğe bağlı) - `True` şemasını güvenli olarak kaydetmek için. Varsayılan `false`.
 
 Standart bir şema, RFC 3986'ın çağırdığı [genel URL'ye uygun sözdizimi](https://tools.ietf.org/html/rfc3986#section-3). Örneğin `http` ve `https` standart şemalardır; `dosyası` ise değildir.
 
@@ -61,7 +61,7 @@ app.on('ready', () => {
 
 ### `protocol.registerServiceWorkerSchemes(schemes)`
 
-* `schemes` String[] - Custom schemes to be registered to handle service workers.
+* `şemalar` String[] - Hizmet çalışanlarını işlemek üzere kaydedilecek özel şemalar.
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
@@ -99,7 +99,7 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+`Buffer`'ı yanıt olarak gönderecek `şema` protokolünü kaydeder.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
@@ -129,7 +129,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+`String`'i yanıt olarak gönderecek `şema` protokolünü kaydeder.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
 
@@ -167,7 +167,7 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 * `completion` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Unregisters the custom protocol of `scheme`.
+`şemanın` özel protokol kaydını iptal eder.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
