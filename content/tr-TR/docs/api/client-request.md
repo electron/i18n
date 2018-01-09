@@ -151,7 +151,7 @@ Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnız
 
 `callback` aslında Node.js API ile benzerliğin korunması amacıyla sahte fonksiyon olarak tanıtılır. `yığın` içeriği Chromium ağ katmanına teslim edildikten sonra bir sonraki onay işareti içerisinde asenkron olarak çağırılır. Node.js uygulamasının aksine `callback` çağırılmadan önce `yığın` içeriğinin hat üzerinde hızla akacağının garantisi yoktur.
 
-Adds a chunk of data to the request body. İlk yazma işlemi talebin üstbilgilerinin kablosunda yayınlanmasına neden olabilmektedir. İlk yazma işlemi sonrasında kişisel bir başlık eklemeye veya kaldırmaya izin verilmez.
+İstek gövdesine verinin bir parçasını ekler. İlk yazma işlemi talebin üstbilgilerinin kablosunda yayınlanmasına neden olabilmektedir. İlk yazma işlemi sonrasında kişisel bir başlık eklemeye veya kaldırmaya izin verilmez.
 
 #### `request.end([chunk][, encoding][, callback])`
 
@@ -159,11 +159,11 @@ Adds a chunk of data to the request body. İlk yazma işlemi talebin üstbilgile
 * `encoding` String (isteğe bağlı)
 * `callback` Fonksiyonu (opsiyonel)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+İstek verisinin son parçasını gönderir. Ardından gelebilecek olan yazma ve bitirme işlemlerine izin verilmemektedir. İşlem bittikten hemen sonra `finish` olayı yayılır.
 
 #### `request.abort()`
 
-Devam eden bir HTTP işlemini iptal eder. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Devam eden bir HTTP işlemini iptal eder. Eğer istek `close` olayını önceden yayınlamışsa zorunlu sonlandırma operasyonunun hiçbir etkisi olmayacaktır. Aksi durumda devam eden olay, `abort` ve `close` olaylarını yayar. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
 
 #### `request.followRedirect()`
 
