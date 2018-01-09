@@ -474,7 +474,7 @@ console.log(installed)
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// In this example `win` is our instance
+// bu örnekte örneğimiz "win"
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
@@ -595,8 +595,8 @@ Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.w
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Dikdörtgen](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Boolean (isteğe bağlı) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
@@ -608,7 +608,7 @@ Resizes and moves the window to the supplied bounds
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Dikdörtgen](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (isteğe bağlı) *macOS*
 
 Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taşımakta ve verilen sınırlara getirmektedir.
 
@@ -621,7 +621,7 @@ Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taş�
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (isteğe bağlı) *macOS*
 
 Pencereyi `genişlik` ve `yükseklik` olarak yeniden boyutlandırır.
 
@@ -633,7 +633,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (isteğe bağlı) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -751,7 +751,7 @@ Pencereyi ekranın ortasına taşır.
 
 * `x` tamsayı
 * `x` tamsayı
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (isteğe bağlı) *macOS*
 
 Moves window to `x` and `y`.
 
