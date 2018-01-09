@@ -27,15 +27,15 @@ Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik
 Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 
 * Sadece güvenli (https) içeriğini görüntüle
-* Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
+* Uzak içeriği görüntüleyen tüm oluşturuculardaki Node entegrasyonunu devre dışı bırakın (`webPreferences`'de `nodeIntegration` ayarını `false` olarak ayarlayın)
 * Uzaktan kontrol içeriğini goruntuleyen tum işlemlerde ortamı izole etmeyi etkınlestırın
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
+* Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın
+* `webSecurity`'i devre dışı bırakmayın. Devre dışı bırakılması same-origin politikasını devre dışı bırakır.
+* [`İçerik Güvenliği Politikası'nı`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) tanımlayın ve kısıtlayıcı kurallar kullanın (örneğin `script-src 'self'`)
+* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8), bu dizelerin kod olarak yürütülmesine izin verir.
+* `allowRunningInsecureContent`'i doğru olarak ayarlamayın.
+* Ne yaptığınızın farkında olana kadar `experimentalFeatures` veya `experimentalCanvasFeatures`'i etkinleştirmeyin.
+* Ne yaptığınızın farkında olana kadar `blinkFeatures`'ı kullanmayın.
 * WebViews:`nodeintegration` özniteliğini eklemeyin.
 * WebViews:`disablewebsecurity` kullanmayın
 * WebViews:`allowpopups` kullanmayın
