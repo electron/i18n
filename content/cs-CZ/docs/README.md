@@ -11,7 +11,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Slovníček pojmů](glossary.md)
 * [Podporované platformy](tutorial/supported-platforms.md)
 * [Bezpečnost](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
+* [Správa verzí](tutorial/electron-versioning.md)
 * [Distribuce aplikací](tutorial/application-distribution.md)
 * [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
 * [Aplikace Windows Obchodu](tutorial/windows-store-guide.md)
@@ -35,14 +35,14 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [REPL](tutorial/repl.md)
 * [Native Notifications](tutorial/notifications.md)
 
-## API References
+## API Reference
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Vlastní prvky DOM:
 
 * [`File` Objekt](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
@@ -84,7 +84,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Vývoj
 
 * [Coding Style](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
