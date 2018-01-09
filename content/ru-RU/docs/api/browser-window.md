@@ -1048,13 +1048,13 @@ Sets whether the window should be visible on all workspaces.
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**Примечание:** Данный API всегда возвращает false в Windows.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
 * `ignore` Boolean
 
-Makes the window ignore all mouse events.
+Включает для окна игнорирование событий от мыши.
 
 All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
@@ -1062,7 +1062,7 @@ All mouse events happened in this window will be passed to the window below this
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Предотвращает захват содержимого окна другими приложениями.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
@@ -1104,7 +1104,7 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
 #### `win.setBrowserView(browserView)` *Экспериментально*
 
