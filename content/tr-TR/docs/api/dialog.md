@@ -73,7 +73,7 @@ console.log(dialog)
   * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
   * `ayarlar` Nesne 
     * `title` Dize (isteğe bağlı)
-    * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+    * `defaultPath`dizi (isteğe bağlı) -Varsayılan olarak kullanılacak mutlak dizin yolu, mutlak dosya yolu veya dosya adı.
     * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
     * `filtreler` [FileFilter[]](structures/file-filter.md) (isteğe bağlı)
     * `message` String (optional) *macOS* - Message to display above text fields.
