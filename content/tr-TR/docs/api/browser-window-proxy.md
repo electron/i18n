@@ -1,14 +1,14 @@
-## Class: BrowserWindowProxy
+## Sınıf: BrowserWindowProxy
 
 > Çocuk tarayıcı penceresini değiştirme
 
-Process: [Renderer](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+`BrowserWindowProxy` nesnesi `window.open`'dan döner ve alt pencere ile sınırlı işlevsellik sağlar.
 
 ### Örnek yöntemleri
 
-The `BrowserWindowProxy` object has the following instance methods:
+`BrowserWindowProxy` nesnesi aşağıdaki örnek metodlara sahiptir:
 
 #### `win.blur()`
 
@@ -37,14 +37,14 @@ Alt pencerede yazdırma iletişim kutusunu çağırır.
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Belirtilen origin ile alt pencereye bir mesaj gönderir veya `*` için origin seçeneği yoktur.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+Bu metodlara ek olarak, alt pencere seçeneksiz ve tek bir metod ile `window.opener` nesnesini implement eder.
 
 ### Örnek özellikleri
 
-The `BrowserWindowProxy` object has the following instance properties:
+`BrowserWindowProxy` nesnesi aşağıdaki örnek özelliklere sahiptir:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+Alt pencere kapatıldıktan sonra bir `Boolean`'ın değeri true olarak ayarlanır.
