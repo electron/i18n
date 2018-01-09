@@ -7,8 +7,8 @@
 * `gpu_compositing` Dize - kompozisyon
 * `multiple_raster_threads` Dize - Raster konuları
 * `native_gpu_memory_buffers` Dize - Yerli GPU Bellek Tamponları
-* `rasterization` String - Rasterizasyon
-* `video_decode` - Video Decode
+* `rasterleştirme` Dize - pikselleştirme
+* `video_encode` Dize - Video kodlama
 * `video_encode` Dize - Video kodlama
 * `video_encode` Dize - Video kodlama
 * `webgl` Dize - WebGL
