@@ -44,7 +44,7 @@ Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
 ## Sınıf: oturum
 
-> Get and set properties of a session.
+> Bir oturumun özelliklerini alın ve ayarlayın.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -87,13 +87,13 @@ Aşağıdaki yöntemler `Oturum` örnekleri üzerinde mevcuttur:
 #### `ses.getCacheSize(callback)`
 
 * `geri arama` Fonksiyon 
-  * `size` Integer - Cache size used in bytes.
+  * `boyut` Integer - Önbellek boyutu bayt cinsinden kullanılır.
 
 Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır
 
 Oturumun HTTP önbelleğini temizler.
 
@@ -105,7 +105,7 @@ Oturumun HTTP önbelleğini temizler.
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
 
-Clears the data of web storages.
+Web depolama alanları verilerini siler.
 
 #### `ses.flushStorageData()`
 
@@ -114,10 +114,10 @@ Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 #### `ses.setProxy(config, callback)`
 
 * `config` Nesne 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
+  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
+  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
 
 Proxy ayarlarını yap.
 
