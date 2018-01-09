@@ -1,8 +1,8 @@
 # Yazıcı bilgi nesnesi
 
-* `name` String
-* `description` String
-* `status` Number
+* `name` Dizi
+* `direction` Dizi
+* `status` Numara
 * `isDefault` Boolean
 
 ## Örnek
