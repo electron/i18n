@@ -933,8 +933,8 @@ Windows'ta, bir yöntem devredilebilir. Kabul edilen değerler `none`, `normal`,
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
-* `description` String - a description that will be provided to Accessibility screen readers
+* `overlay` [DoğalGörüntü](native-image.md) - Görev çubuğu ikonunun sağ alt köşesinde gösterilecek simge. Eğer parametre `null` ise, üstteki ek sayfa temizlenir
+* `description` Dizi - Ekran okuyuculara erişilebilirliği sağlayacak olan açıklama
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
@@ -960,10 +960,10 @@ Görev çubuğu düğmesi üzerinde olan pencerenin küçük resim görüntüsü
 
 Alan kısıtlamaları nedeniyle, minik resim araç çubuğundaki düğmelerin sayısı 7'yi geçmemelidir. Küçük resim araç çubuğunu kurduktan sonra araç çubuğu platformun sınırlaması sebebiyle kaldırılamamaktadır. But you can call the API with an empty array to clean the buttons.
 
-The `buttons` is an array of `Button` objects:
+`buttons`, `Button` nesnelerinin dizilişidir:
 
-* `Button` Nesne 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+* `Tuş` Nesne 
+  * `icon` [Doğalgörüntü](native-image.md) - Küçük resim araç çubuğunda gösterilen simge.
   * `tıklama`fonksiyonu
   * `ipucu` Dize (isteğe bağlı) - Düğmenin araç ipucu metni.
   * `bayraklar` String [] (isteğe bağlı) - Belirli durumları ve davranışlarını denetler buton. Varsayılan olarak, `['etkinleştirilmiş']`.
