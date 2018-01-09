@@ -20,7 +20,7 @@ Mevcut Chromium bileşenlerini güncellediğimiz sistemin bize sağladığı kay
 
 Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik sorunu var demektir. Örnek olarak, bir tarayıcı penceresinin içinde görüntülenen uzak bir web sitesini düşünün. Eğer bir saldırgan, söz konusu olan içeriği bir şekilde değiştirirse (doğrudan kaynağa saldırarak yada uygulamanız ile gerçek hedef arasında bulunarak), kullanıcı makinesinde bulunan yerel kodu çalıştırabilir.
 
-> :warning: Hiç bir şart altında Node entegrasyonu aktif uzaktan çalışan kodları yüklemeyiniz! Bunun yerine, düğüm kodu çalıştırmak için sadece yerel dosyaları (uygulamanızla birlikte paketlenmiş) kullanın. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: Hiç bir şart altında Node entegrasyonu aktif uzaktan çalışan kodları yüklemeyiniz! Bunun yerine, düğüm kodu çalıştırmak için sadece yerel dosyaları (uygulamanızla birlikte paketlenmiş) kullanın. Uzak içeriği görüntülemek için `webview` etiketini kullanın ve `nodeIntegration` devre dışı bıraktığınızdan emin olun.
 
 #### Kontrol Listesi
 
