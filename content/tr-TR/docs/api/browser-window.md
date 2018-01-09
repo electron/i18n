@@ -839,7 +839,7 @@ Unhooks all of the window messages.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
-* `filename` String
+* `dosya adı` dize
 
 Pencerenin temsil ettiği dosyanın yol adını belirler ve dosya simgesi pencerenin başlık çubuğunda gösterilmiş olur.
 
