@@ -1068,11 +1068,11 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Pencerenin odaklanabilir olup olmadığını değiştirir.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
-* `parent` BrowserWindow
+* `parent` TarayıcıPenceresi
 
 Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
 
