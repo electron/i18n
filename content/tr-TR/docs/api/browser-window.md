@@ -238,10 +238,10 @@ Genellikle ` onbeforeunload` işleyicisini kullanmak isteyip istemediğinize kar
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+  console.log('kapatılmak istemiyorum')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
+  // Alışılmış tarayıcıların aksine, kullanıcılara bir mesaj kutusu yönlendirilir, geri getirilmesi halinde
+  // olmayan bir boşluk sessizce kapanmayı iptal eder.
   // It is recommended to use the dialog API to let the user confirm closing the
   // application.
   e.returnValue = false
