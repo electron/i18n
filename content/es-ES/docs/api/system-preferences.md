@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `event` String
   * `userInfo` Object
 
@@ -84,7 +84,7 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `event` String
   * `userInfo` Object
 
