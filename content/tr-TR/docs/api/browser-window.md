@@ -215,16 +215,16 @@ Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks 
 
 `new BrowserWindow` ile yaratılan neseneler aşağıdaki özellikleri belirtir:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Not:** Bazı özellikler sadece belirli işletim sistemlerinde mevcuttur ve çalıştıkları işletim sistemlerinin isimleriyle etiketlenmiştir.
 
-#### Event: 'page-title-updated'
+#### Etkinlik: 'sayfa-başlığı-güncellendi'
 
 Dönüşler:
 
 * `olay` Olay
-* `title` String
+* `title` Dizi
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` kullanmak doğal windows başlığının değişmesine engel olur.
 
 #### Etkinlik: 'kapalı'
 
@@ -232,7 +232,7 @@ Dönüşler:
 
 * `olay` Olay
 
-Pencere kapatıldığında ortaya çıkmaktadır. It's emitted before the `beforeunload` and `unload` event of the DOM. ` olayı.preventDefault ()`öğesini çağırma kapanış iptal edecek.
+Pencere kapatıldığında ortaya çıkmaktadır. DOM 'un `beforeunload` ve `unload` etkinliklerinden önce ifade edilir. ` olayı.preventDefault ()`öğesini çağırma kapanış iptal edecek.
 
 Genellikle ` onbeforeunload` işleyicisini kullanmak isteyip istemediğinize karar vermek için pencere kapalı olmalıdır; pencere açıldığında da çağrılır yeniden. Elektron'da ` tanımsız` dışındaki herhangi bir değeri geri getirmek kapat. Örneğin:
 
@@ -761,7 +761,7 @@ Returns `Integer[]` - Contains the window's current position.
 
 #### `win.setTitle(title)`
 
-* `title` String
+* `title` Dizi
 
 Changes the title of native window to `title`.
 
