@@ -100,10 +100,10 @@ console.log(dialog)
       * `varsayılan Kimlik` tamsayı(isteğe bağlı)-Düğmeler dizisindeki düğme dizini, ileti kutusu açıldığında varsayılan olarak seçilir.
       * `başlık` dize(isteğe bağlı) - Mesaj kutusunun başlığı, bazı platformlar bunu göstermeyecektir.
       * `mesaj` dize- Mesaj kutusunun içeriği.
-      * `detail` String (optional) - Extra information of the message.
-      * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-      * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-      * `icon` [NativeImage](native-image.md) (optional)
+      * ` ayrıntı </ 0> Dizge (isteğe bağlı) - Mesajın ek bilgileri.</li>
+<li><code>checkboxLabel` dizge(isteğe bağlı) - sağlandıysa, ileti kutusu verilen etiketi içeren bir onay kutusu içerir. Onay kutusu durumu yalnızca ` geri arama </ 0> kullanılırken incelenebilir.</li>
+<li><code>checkboxChecked` Boolean (isteğe bağlı) -Onay kutusunun başlangıçta kontrol edilmiş durumu. ` yanlış </ 0> varsayılan olarak.</li>
+<li><code>icon` [NativeImage](native-image.md) (isteğe bağlı)
       * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
       * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
       * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Varsayılan `false`'dur. Bunun etkinleştirilmesi, klavye kısayol erişim anahtarının yerleştirilmesi için düğme etiketlerinde `&` kullanıldığını ve etiketlerin her platformda doğru şekilde çalışacak şekilde dönüştürüleceğini varsayar, `&` karakterler macOS'ta kaldırılır, Linux'ta `_` olarak dönüştürülür ve Windows'ta dokunulmaz bırakılır. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
