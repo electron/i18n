@@ -61,12 +61,13 @@ console.log(dialog)
 `</pre> 
   
   ` uzantılar </ 0> dizisi, joker karakter içermeyen uzantıları içermelidir veya noktalar (ör.
-<code> 'png' </ 0> iyidir ancak <code> '. Png' </ 0> ve <code> '*. Png' </ 0> kötü). To show all files, use the
-<code>'*'` wildcard (no other wildcard is supported).
-  
-  If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
-  
-  **Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+<code> 'png' </ 0> iyidir ancak <code> '. Png' </ 0> ve <code> '*. Png' </ 0> kötü). Tüm dosyaları göstermek için,
+<code> '*' </ 0> joker karakteri kullan (başka bir joker karakter desteklenmiyor).</p>
+
+<p>Bir <code> geri arama </ 0> geçilirse API çağrısı eş zamansız olur ve sonuç, üzerinden geçecektir <code> Geri arama (dosya adı) </ 0></p>
+
+<p><strong>Note:</strong> On Windows and Linux an open dialog can not be both a file selector
+and a directory selector, so if you set <code>properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
   
   ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
   
