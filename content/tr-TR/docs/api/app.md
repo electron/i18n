@@ -726,7 +726,7 @@ const exeName = path.basename(process.execPath)
 
 * `ayarlar` Nesne 
   * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
-  * `applicationVersion` String (optional) - The app's version.
+  * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
   * `copyright` String (optional) - Copyright information.
   * `credits` String (optional) - Credit information.
   * `version` String (optional) - The app's build version number.
