@@ -97,7 +97,7 @@ Dönüşler:
 
 * `error` Hata - sorun hakkında bazı bilgileri sağlayan hata nesnesi.
 
-`net` modulü bir ağ isteği göndermediği zaman yayılır. Tipik olarak `request` nesnesi `error` olayıtını yaydığı zaman `close` olayı daha sonra takip edecek ve cevap nesnesi sağlanmayacaktır.
+`net` modulü bir ağ isteği göndermediği zaman yayılır. Tipik olarak `request` nesnesi `error` olayını yaydığı zaman `close` olayı daha sonra takip edecek ve cevap nesnesi sağlanmayacaktır.
 
 #### Etkinlik: 'kapalı'
 
@@ -149,7 +149,7 @@ Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnız
 * `encoding` String (isteğe bağlı) - String parçalarını Buffer nesneleri içine dönüştürmek için kullanılır. Varsayılan 'utf-8'.
 * `callback` Fonksiyon (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
 
-`callback` aslında Node.js API ile benzerliğin korunması amacıyla sahte fonksiyon olarak tanıtılır. `yığın` içeriği Chromium ağ katmanına teslim edildikten sonra bir sonraki onay işareti içerisinde asenkron olarak çağırılır. Node.js uygulamasının aksine `callback` çağırılmadan önce `yığın` içeriğinin hat üzerinde hızla akacağının garantisi yoktur.
+`callback` aslında Node.js API ile benzerliğin korunması amacıyla sahte fonksiyon olarak tanıtılır. `chunk` içeriği Chromium ağ katmanına teslim edildikten sonra bir sonraki onay işareti içerisinde asenkron olarak çağırılır. Node.js uygulamasının aksine `callback` çağırılmadan önce `chunk` içeriğinin hat üzerinde hızla akacağının garantisi yoktur.
 
 İstek gövdesine verinin bir parçasını ekler. İlk yazma işlemi talebin üstbilgilerinin kablosunda yayınlanmasına neden olabilmektedir. İlk yazma işlemi sonrasında kişisel bir başlık eklemeye veya kaldırmaya izin verilmez.
 
