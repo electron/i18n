@@ -749,8 +749,8 @@ Pencereyi ekranın ortasına taşır.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` tamsayı
-* `x` tamsayı
+* `x` Integer
+* `x` Integer
 * `animate` Boolean (isteğe bağlı) *macOS*
 
 Moves window to `x` and `y`.
@@ -774,7 +774,7 @@ Doğal pencerenin başlığını `title` olarak değiştirir.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (isteğe bağlı)
 
 MacOS üzerindeki sayfalar için ek noktasını değiştirir. Varsayılan olarak, sayfalar pencere çerçevesinin hemen altına eklenir, ancak bunları HTML işlenmiş bir araç çubuğunun altında görüntülemek isteyebilirsiniz. Örnek olarak:
 
