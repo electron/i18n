@@ -1,7 +1,7 @@
-# UploadFile Object
+# UploadFile Nesnesi
 
-* `type` String - `file`.
-* `filePath` String - Path of file to be uploaded.
-* `offset` Tamsayı - Varsayılan olarak ``.
-* `length` Tamsayı - `offset` 'ten okunan bit sayısı. Varsayılan olarak ``.
-* `modificationTime` Çift - Son Değişiklik süresi UNIX döneminden beri geçen saniye sayısı.
+* `type` String - `dosya`.
+* `filePath` String - Yüklenecek dosya yolu.
+* `offset` Integer - Varsayılan olarak ``.
+* `length` Integer - `offset` 'ten okunan bit sayısı. Varsayılan olarak ``.
+* `modificationTime` Double - Son Değişiklik süresi UNIX döneminden beri geçen saniye sayısı.
