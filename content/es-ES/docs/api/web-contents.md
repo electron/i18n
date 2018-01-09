@@ -227,7 +227,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Devuelve:
 
 * `evento` Evento
-* `killed` Boolean
+* `killed` Booleano
 
 Emitted when the renderer process crashes or is killed.
 
@@ -303,21 +303,21 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Evento: 'select--client-certificate'
 
 Devuelve:
 
 * `evento` Evento
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
+* `certificateList`[Certificate[]](structures/certificate.md)
 * `llamada de vuelta` Función 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Emitido cuando el certificado de un cliente es requerido.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Evento:'login'
 
 Devuelve:
 
@@ -336,7 +336,7 @@ Devuelve:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Emitido cuando `webContents` quiere hacer una autenticación básica.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
