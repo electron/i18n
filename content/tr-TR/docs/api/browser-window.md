@@ -208,7 +208,7 @@ Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks 
 * Linux'ta olası türler `masaüstü`, `dock`, `araç çubuğu`, `splash`, `bildirim`'dir.
 * MacOS'ta olası değerler `masaüstü`, `dokulu`. 
   * ` dokulu` türü metal eğimi görünümünü ekler (` NSTexturedBackgroundWindowMask`).
-  * `desktop` modeli, pencereyi masaüstü arka planındaki pencere seviyesine yerleştirir (`kCGDesktopWindowLevel - 1`). Masaüstü penceresi klavye veya farenin durumunu odak olarak kaydetmeyecektir. Ancak veri girişini tedbirli bir şekilde yapmak için `globalShortcut` kullanabilirisinz.
+  * `Masaüstü` modeli, pencereyi masaüstü arka planındaki pencere seviyesine yerleştirir (`kCGDesktopWindowLevel - 1`). Masaüstü penceresi klavye veya farenin durumunu odak olarak kaydetmeyecektir. Ancak veri girişini tedbirli bir şekilde yapmak için `globalShortcut` kullanabilirisinz.
 * Windows'ta mümkün olan model `toolbar` 'dır.
 
 ### Örnek etkinlikler
@@ -222,7 +222,7 @@ Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks 
 Dönüşler:
 
 * `olay` Olay
-* `title` Dizi
+* `başlık` Dizi
 
 Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` kullanmak doğal windows başlığının değişmesine engel olur.
 
@@ -391,25 +391,25 @@ Doğal yeni sekme tuşunun tıklanıldığını ifade eder.
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+`BrowserWindow[]` 'u geri getirir - Bütün açılmış tarayıcı pencerelerinin bir dizilişidir.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+`BrowserWindow` 'u geri getirir - Bu uygulamaya odaklanan pencere, öyle değilse `null` 'u geri getirir.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [webİçerikleri](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+`BrowserWindow` 'u geri getirir - Verilen `webContents` 'e sahip olan pencere.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Tamsayı
 
-Returns `BrowserWindow` - The window with the given `id`.
+`BrowserWindow` 'u geri getirir - `id` verilmiş olan pencere.
 
-#### `BrowserWindow.addExtension(path)`
+#### `TarayıcıPenceresi.eklentiekle(yol)`
 
 * dizi `yolu`
 
@@ -417,7 +417,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Note:** BU API `hazır` olayı `app` modülü yayılmadan çağrılamaz.
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -425,25 +425,25 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 İsme göre bir Chrome eklentisi kaldır.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Note:** BU API `hazır` olayı `app` modülü yayılmadan çağrılamaz.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Dönüş `Nesne` - Anahtarlar uzantı adlarıdır ve her değer `ad` ve `versiyon` özelliği taşır.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Note:** BU API `hazır` olayı `app` modülü yayılmadan çağrılamaz.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * dizi `yolu`
 
-Adds DevTools extension located at `path`, and returns extension's name.
+DevTools uzantısını belirtilen lokasyona `yol` ekler ve uzantı adına döner.
 
 Bu API'yı yalnızca bir kez hatırlamanız gerekiyor, bu API programlama amacıyla değildir. Eğer önceden yüklenmiş bir uzantı eklemeyi denerseniz, bu sistem yüklenmeyecektir ve bunun yerine konsola bir uyarı yazacaktır.
 
 Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Note:** BU API `hazır` olayı `app` modülü yayılmadan çağrılamaz.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -451,11 +451,11 @@ Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
 İsme göre bir DevTools eklentisi kaldır.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Note:** BU API `hazır` olayı `app` modülü yayılmadan çağrılamaz.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Dönüş `Nesne` - Anahtarlar uzantı adlarıdır ve her değer `ad` ve `versiyon` özelliği taşır.
 
 DevTools uzantısının yüklenmiş olup olmadığını kontrol etmek için aşağıdakileri çalıştırabilirsiniz:
 
@@ -466,7 +466,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Note:** BU API `hazır` olayı `app` modülü yayılmadan çağrılamaz.
 
 ### Örnek özellikleri
 
@@ -481,7 +481,7 @@ win.loadURL('https://github.com')
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Bu pencerenin sahip olduğu.<WebContents</code> nesnesi. Bütün web sayfası odaklı olaylar ve işler buna göre yapılır.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
@@ -521,7 +521,7 @@ Odak penceresinden kaldırır.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Pencereyi gösterir ve odaklanmayı sağlar.
 
 #### `win.showInactive()`
 
@@ -529,15 +529,15 @@ Pencereyi gösterir, ancak üzerine odaklanmaz.
 
 #### `win.hide()`
 
-Hides the window.
+Pencereyi gizle.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+`Boolean` Döndürür - Pencerenin kullanıcılara gizlenip gizlenmeyeceği.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+`Boolean` Döndürür - Geçerli pencerenin modal penceresi olup olmadığı.
 
 #### `win.maximize()`
 
@@ -549,7 +549,7 @@ Unmaximizes the window.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+`Boolean` Döndürür - Pencerenin büyütülüp büyütülmediği.
 
 #### `win.minimize()`
 
@@ -557,11 +557,11 @@ Pencereyi küçültür. Bazı platformlarda simge durumuna küçültülmüş pen
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Pencereyi küçültülmüş durumdan önceki durumuna geri yükler.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+`Boolean` Döndürür - Pencerenin küçültülüp küçültülmediği.
 
 #### `win.setFullScreen(flag)`
 
@@ -571,7 +571,7 @@ Pencerenin tam ekran modunda olup olmadığını ayarlar.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+`Boolean` Döndürür - Pencerenin tam ekran modda olup olmadığı.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -587,11 +587,11 @@ Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir penc
 * `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
 * `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.wikipedia.org/wiki/Quick_Look)'ı kullanır.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Şu an açık olan [Hızlı Bakış](https://en.wikipedia.org/wiki/Quick_Look) panelini kapatır.
 
 #### `win.setBounds(bounds[, animate])`
 
@@ -623,7 +623,7 @@ Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taş�
 * `height` Integer
 * `animate` Boolean (optional) *macOS*
 
-Resizes the window to `width` and `height`.
+Pencereyi `genişlik` ve `yükseklik` olarak yeniden boyutlandırır.
 
 #### `win.getSize()`
 
@@ -646,7 +646,7 @@ Returns `Integer[]` - Contains the window's client area's width and height.
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Pencerenin minimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
 #### `win.getMinimumSize()`
 
@@ -657,7 +657,7 @@ Returns `Integer[]` - Contains the window's minimum width and height.
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Pencereni maksimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
 
 #### `win.getMaximumSize()`
 
@@ -681,7 +681,7 @@ Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Li
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+`Boolean` Döndürür - Pencerenin kullanıcı tarafından taşınıp taşınmayacağı.
 
 On Linux always returns `true`.
 
@@ -761,7 +761,7 @@ Returns `Integer[]` - Contains the window's current position.
 
 #### `win.setTitle(title)`
 
-* `title` Dizi
+* `başlık` Dizi
 
 Changes the title of native window to `title`.
 
