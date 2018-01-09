@@ -152,7 +152,7 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Belirli bir alanın son ekiyle eşleşir.
     
     Examples: ".google.com", ".com", "http://.google.com"
 
@@ -182,7 +182,7 @@ Resolves the proxy information for `url`. The `callback` will be called with `ca
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `yol` String - İndirme konumu
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
@@ -220,12 +220,12 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `certificate` [sertifika](structures/certificate.md)
     * `hata` Metin - Chromium doğrulama sonucu.
   * `geri arama` Fonksiyon 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
+      * `` - Başarıyı belirtir ve Sertifika Şeffaflık doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Arama `geri çağırma(0)` sertfikayı kabul eder, arama `geri çağırma(-2)` reddeder.
 
 Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
@@ -246,12 +246,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Fonksiyon 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
+  * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri arama` Fonksiyon 
-    * `permissionGranted` Boolean - Allow or deny the permission
+    * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Sets the handler which can be used to respond to permission requests for the `session`. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder.
 
 ```javascript
 const {session} = require('electron')
