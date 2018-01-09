@@ -352,42 +352,42 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Etkinlik: 'kaydır-dokun-başla' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Kaydırma tekerleği etkinlik aşaması başladığında ifade edilir.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Etkinlik: 'kaydır-dokun-bitir' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Kaydırma tekerleği etkinlik aşaması bittiğinde ifade edilir.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Etkinlik: 'kaydır-dokun-kenar' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Kaydırma tekerleği etkinlik aşamasının öğenin kenarına ulaşmasıyla kayda geçtiğini ifade eder.
 
-#### Event: 'swipe' *macOS*
+#### Etkinlik: 'hızlı kaydır' *macOS*
 
 Dönüşler:
 
 * `olay` Olay
-* `direction` String
+* `direction` Dizi
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+3-parmakla hızlı kaydırmada ifade edilir. Mümkün yönergeler: `up`, `right`, `down`, `left`.
 
 #### Event: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Windows bir sayfa yaprağı açtığında ifade edilir.
 
 #### Event: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Windows'un bir sayfa yaprağını kapattığını ifade eder.
 
 #### Olay: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+Doğal yeni sekme tuşunun tıklanıldığını ifade eder.
 
 ### Statik yöntemler
 
-The `BrowserWindow` class has the following static methods:
+`BrowserWindow` sınıfı aşağıdaki sabit yöntemlere sahiptir:
 
 #### `BrowserWindow.getAllWindows()`
 
@@ -413,7 +413,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 * dizi `yolu`
 
-Adds Chrome extension located at `path`, and returns extension's name.
+`yola` Chrome eklentisini ekler ve uzantının adını döndürür.
 
 Bu yöntem, uzantı bildirimi eksik olduğunda uzantı'yı geri getirmez.
 
@@ -470,7 +470,7 @@ console.log(installed)
 
 ### Örnek özellikleri
 
-Objects created with `new BrowserWindow` have the following properties:
+`yeni BrowserWindow` ile oluşturulan nesneler aşağıdaki özelliklere sahiptir:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -487,11 +487,11 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+`Intege`, pencerenin benzersiz kimliğini temsil eder.
 
 ### Örnek yöntemleri
 
-Objects created with `new BrowserWindow` have the following instance methods:
+`new BrowserWindow` ile oluşturulan nesnelerin aşağıda örnek methodları bulunmakta:
 
 **Not:** Bazı metodlar sadece belirli işletim sistemlerinde çalışmaktadır ve çalıştıkları işletim sisteminin adlarıyla işaretlenmiştir.
 
@@ -501,7 +501,7 @@ Force closing the window, the `unload` and `beforeunload` event won't be emitted
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Pencereyi kapatmayı deneyin. Bu, bir kullanıcının manuel olarak pencerenin kapat düğmesini tıklamasıyla aynı etkilere sahiptir. Web sayfası kapatmayı iptal edebilir. [close event](#event-close) bakın.
 
 #### `win.focus()`
 
@@ -513,11 +513,11 @@ Odak penceresinden kaldırır.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+`Boolean` Döndürür - Pencerenin odaklanıp odaklanmadığı.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+`Boolean` Döndürür - Pencerenin yok edilip edilmediği.
 
 #### `win.show()`
 
