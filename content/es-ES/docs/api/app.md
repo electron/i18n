@@ -161,13 +161,13 @@ Devuelve:
 
 * `evento` Evento
 * `webContents` [WebContents](web-contents.md)
-* `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Función 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+* `url` cadena
+* `error` cadena - el error del código
+* `certificate` [certificate](structures/certificate.md)
+* `llamada de vuelta` Función 
+  * `isTrusted` Boleano - Si considera que el certificado como de confianza
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -191,7 +191,7 @@ Devuelve:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitted when a client certificate is requested.
@@ -223,7 +223,7 @@ Devuelve:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `username` String
   * `password` String
 
@@ -354,7 +354,7 @@ You can request the following paths by the name:
     * `pequeño` - 16x16
     * `normal` - 32x32
     * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -552,7 +552,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -618,7 +618,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `options` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
