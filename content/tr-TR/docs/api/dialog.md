@@ -29,7 +29,7 @@ console.log(dialog)
   * `title` Dize (isteğe bağlı)
   * `defaultPath` dizi (isteğe bağlı)
   * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filtreler` [FileFilter[]](structures/file-filter.md) (isteğe bağlı)
   * `özellikleri` Dizge[] (isteğe bağlı) - İletişimin hangi özellikleri kullanması gerektiğini içerir. Aşağıdaki değerler desteklenmektedir: 
     * `openFile` - Dosyaların seçilmesine izin ver.
     * `openDirectory` - Dizinlerin seçilmesine izin ver.
@@ -37,19 +37,20 @@ console.log(dialog)
     * `showHiddenFiles` - Gizli dosyaları iletişim kutusuna gösterin.
     * `createDirectory` - İletişim kutusundan yeni dizinler oluşturmaya izin ver. *MacOS*
     * `promptToCreate` - İletişim kutusuna girilen dosya yolu yoksa, oluşturma isteğinde bulunun. Bu, aslında belirtilen yolda yeni dosyanın oluşturulmasına neden olmaz ancak iletişim kutusundan var olmayan bir yolu döndürmenize izin verir, iletişim kutusundan çıktıktan sonra yeni dosya uygulama tarafından oluşturulmalıdır. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
-    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-* `geri aramak` Fonksiyon (isteğe bağlı) 
-  * `filePaths` Dize[] - Kullanıcı tarafından seçilen bir dosya yolu dizisi
-
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
-
-`browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
-
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
-
-```javascript
+    * `noResolveAliases` - Otomatik diğer ad (sembolik bağ) yol çözümlemesini devre dışı bırakın. Seçili takma adlar şimdi hedef yollarının yerine takma ad yolunu döndürür. *macOS*
+    * `treatPackageAsDirectory` - `.uygulamanın </ 0> klasörleri gibi paketleri işleme koyun,bir dosya yerine bir dizin olarak kaydedin. <em> MacOS </ 1></li>
+</ul></li>
+<li><code>mesaj` dizi(isteğe bağlı) *macOS* -Girdi kutularının üstünde görüntülenecek ileti.
+  * `geri aramak` Fonksiyon (isteğe bağlı) 
+    * `filePaths` Dize[] - Kullanıcı tarafından seçilen bir dosya yolu dizisi
+  
+  Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+  
+  `browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
+  
+  The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+  
+  ```javascript
 {
   filters: [
     {name: 'Images', extensions: ['jpg', 'png', 'gif']},
@@ -73,7 +74,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `title` Dize (isteğe bağlı)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
   * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filtreler` [FileFilter[]](structures/file-filter.md) (isteğe bağlı)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
@@ -139,7 +140,6 @@ On Windows the options are more limited, due to the Win32 APIs used:
 
 * The `message` argument is not used, as the OS provides its own confirmation dialog.
 * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
-
 ## Sheets
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
