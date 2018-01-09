@@ -315,11 +315,11 @@ Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca automáticamente estas.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Devuelve `String` - al directorio de la aplicación actual.
 
 ### `app.getPath(name)`
 
@@ -327,7 +327,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+Usted puede pedir las siguientes direcciones por nombre:
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -422,11 +422,11 @@ Borra la lista de documentos recientes.
 
 Returns `Boolean` - Whether the call succeeded.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Este método configura el ejecutable actual como por defecto a utilizar por un protocolo (esquema aka URI). Esto le permite integrar la profundidad de la aplicación dentro del sistema operativo. Una vez registrado, todos los enlaces con `your-protocol://` serán abiertos con el ejecutable. El enlace completo, incluyendo el protocolo, será enviado a su aplicación como un parámetro.
 
 On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. Usted también puede modificar el archivo con un editor de texto o script durante su creación. Vea la [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para mas información.
 
 The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 
@@ -621,27 +621,27 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `llamada de vuelta` Función 
   * `result` Integer - Result of import.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con `result` para importar operaciones, un valor de `` indica que fue exitoso, mientras que otro valor indica un error acorde a chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Desactiva la aceleración por hardware para esta aplicación.
 
-This method can only be called before app is ready.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Por defecto, Chromium desactiva 3D APIs (ej., WebGL) hasta reiniciar por dominio si el proceso de GPU crashea frecuentemente. Esta función desactiva ese comportamiento.
 
-This method can only be called before app is ready.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objetos `ProcessMetric` corresponden a las estadísticas de uso de memoria ram y cpu de todos los procesos asociados con la aplicación. **Nota:** Este método está obsoleto, utilice `app.getAppMetrics()` en su lugar.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objetos `ProcessMetric` corresponden a las estadísticas de uso de memoria ram y cpu de todos los procesos asociados con la aplicación.
 
 ### `app.getGpuFeatureStatus()`
 
@@ -750,7 +750,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.dock.bounce([type])` *macOS*
 
