@@ -276,7 +276,7 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 Cierra inmediatamente con `exitCode`. `exitCode` por defecto a 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
 
 ### `app.relaunch([options])`
 
@@ -284,15 +284,15 @@ All windows will be closed immediately without asking user and the `before-quit`
   * `args` String[] - (optional)
   * `execPath` String (optional)
 
-Relaunches the app when current instance exits.
+Reinicia la aplicación cuando la instancia se cierra.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
 
 ```javascript
 const {app} = require('electron')
@@ -303,15 +303,15 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+En Linux, el foco se tiene en la primera ventana visible. En macOS, hace que la aplicación se active. En Windows, el foco se tiene en la primera ventana de la aplicación.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` *macOS*
 
