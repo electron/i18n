@@ -100,9 +100,9 @@ Para cada cambio mayor o menor, debe esperar ver algo como lo siguiente:
 Un ejemplo del ciclo de vida en imágenes:
 
 * Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Una corrección de un error viene al maestro que puede ser introducido por la puerta de atrás en la rama de interes. El parche es aplicado y una nueva versión beta es publicada como `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
+* Luego, se revela una vulnerabilidad y es reparada y aplicada a la maestra. Nosotros entramos por la puerta de atrás para arreglar para la línea `2-0-x` y el lanzamiento `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 A few examples of how various semver ranges will pick up new releases:
 
