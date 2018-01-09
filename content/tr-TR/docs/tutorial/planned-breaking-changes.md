@@ -191,11 +191,11 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ## Node Başlıkları URLsi
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Bu, bir `.npmrc` dosyasında `disturl` olarak veya yerel Node modülleri oluştururken `--dist-url` komut satırı işareti olarak belirtilen URL'dir.
 
-Deprecated: https://atom.io/download/atom-shell
+Kullanımdan kaldırıldı: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Şununla değiştirildi: https://atom.io/download/electron
 
 ## Duplicate ARM Assets
 
