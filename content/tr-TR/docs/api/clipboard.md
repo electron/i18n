@@ -27,14 +27,14 @@ Pano modülü aşağıdaki yöntemleri içerir:
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 `String` döndürür - Panodaki içeriği düz metin olarak.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` Dizi
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Panoya `text`'i düz yazı olarak yazar.
 
@@ -47,33 +47,33 @@ Panoya `text`'i düz yazı olarak yazar.
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 [`NativeImage`](native-image.md) - Pano içindeki resim içeriği.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 `image`'i panoya yazar.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 `Dize` - RTF olarak pano içeriği.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` Dizi
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Panoya `text`'i RTF olarak yazar.
 
@@ -90,7 +90,7 @@ Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren b
 
 * `başlık` Dizi
 * `url` Dize
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 `title` ve `url`'yi panoya sayfa işaretçisi olarak yazar.
 
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 ```javascript
 const {clipboard} = require('electron')
