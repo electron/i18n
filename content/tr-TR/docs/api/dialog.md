@@ -85,11 +85,11 @@ console.log(dialog)
     
     Iade`dize`kullanıcı tarafından seçilen dosyanın yolu, bir geri arama sağlanırsa, ` tanımsız</ 0> değerini iade eder.</p>
 
-<p><code>browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
+<p><code>browserWindow` argümanı, iletişim kutusunun kendisini bir üst pencereye eklemesine izin verir ve onu kalıcı hale getirir.
     
-    The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
-    
-    If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+    ` filtreleri </ 0>, görüntülenebilen dosya türleri dizisini belirtir, bir örnek için <code> dialog.showOpenDialog </ 0> konusuna bakın.</p>
+
+<p>If a <code>callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
     
     ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
     
