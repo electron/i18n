@@ -1,6 +1,6 @@
 # powerMonitor
 
-> Monitor power state changes.
+> Güç durumu değişikliklerini izleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -21,7 +21,7 @@ app.on('ready', () => {
 
 ## Olaylar
 
-The `powerMonitor` module emits the following events:
+`powerMonitor` modülü aşağıdaki olayları yayar:
 
 ### Olay: 'askıya alındı'
 
@@ -37,4 +37,4 @@ Sistem AC güç değiştiğinde yayılan.
 
 ### Event: 'on-battery' *Windows*
 
-Emitted when system changes to battery power.
+Sistem pil gücü değiştiğinde yayılan.
