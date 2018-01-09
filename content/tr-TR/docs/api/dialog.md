@@ -96,10 +96,10 @@ console.log(dialog)
     * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
     * `ayarlar` Nesne 
       * `tip` dize(isteğe bağlı) - olabilir `"yok"`, `"bilgi"`, `"hata"`, `"sorun"` ya da `"uyarı"`. Windows üzerinden,` "soru" </ 0>, <code> "bilgi" ` ile aynı simgeyi görüntüler, ` "simgesi" </ 0> seçeneğini kullanarak bir simge belirlemediğiniz sürece. MacOS üzerinden,<code>"uyarı"` ve `"hata"` her ikisi de aynı uyarı simgesini gösterir.
-      * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-      * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-      * `title` String (optional) - Title of the message box, some platforms will not show it.
-      * `message` String - Content of the message box.
+      * `düğmeleri` dize[] (isteğe bağlı) -Düğmeler için metin dizisi. Windows'ta, boş bir dizi, "Tamam" etiketli bir düğme ile sonuçlanır.
+      * `varsayılan Kimlik` tamsayı(isteğe bağlı)-Düğmeler dizisindeki düğme dizini, ileti kutusu açıldığında varsayılan olarak seçilir.
+      * `başlık` dize(isteğe bağlı) - Mesaj kutusunun başlığı, bazı platformlar bunu göstermeyecektir.
+      * `mesaj` dize- Mesaj kutusunun içeriği.
       * `detail` String (optional) - Extra information of the message.
       * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
       * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
