@@ -11,23 +11,23 @@ const{dialog}=ihtiyaç('electron')
 console.log(dialog.showOpenDialog({özellikleri: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-Dialog, Electron'un ana dizininden açılır. İletişim nesnesini bir oluşturucu işleminden kullanmak isterseniz, uzaktan erişim kullanarak erişmeyi unutmayın:
+Diyalog, Electron'un ana dizininden açılır. iletişim kutusunu bir oluşturucu işlem nesnesinde kullanmak isterseniz, uzaktan erişim kullanarak erşiebileceğinizi unutmayın:
 
 ```javascript
-const {dialog} = require('electron').remote
+const {dialog} = ihtiyaç('electron').dolaylı
 console.log(dialog)
 ```
 
-## Metodlar
+## Yöntemler
 
 `dialog` modülü aşağıdaki yöntemleri içerir:
 
-### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
+### `dialog.showOpenDialog([browserWindow, ]seçenekleri[, callback])`
 
 * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
 * `seçenekler` Nesne 
   * `title` Dize (isteğe bağlı)
-  * `defaultPath` String (optional)
+  * `defaultPath` dizi (isteğe bağlı)
   * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `özellikleri` Dizge[] (isteğe bağlı) - İletişimin hangi özellikleri kullanması gerektiğini içerir. Aşağıdaki değerler desteklenmektedir: 
