@@ -218,7 +218,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. Yukarıdaki örnekte, pencere odak noktasına geldiğinde çağrılır, ancak pencreyi devre dışı bırakmak için bir zaman aşımı veya başka bir olay kullanmanız mümkündür.
+Flash'ı devre dışı bırakmak için `false` ile `flashFrame` metodunu çağırmayı unutmayın. Yukarıdaki örnekte, pencere odak noktasına geldiğinde çağrılır, ancak pencreyi devre dışı bırakmak için bir zaman aşımı veya başka bir olay kullanmanız mümkündür.
 
 ## Pencerenin temsili dosyası (macOS)
 
