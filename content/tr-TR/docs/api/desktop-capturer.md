@@ -62,7 +62,7 @@ const constraints = {
 
 ## Metodlar
 
-The `desktopCapturer` module has the following methods:
+`desktopCapturer` modülü aşağıdaki yöntemleri içerir:
 
 ### `desktopCapturer.getSources(options, callback)`
 
