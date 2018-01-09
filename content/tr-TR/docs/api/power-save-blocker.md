@@ -17,15 +17,15 @@ powerSaveBlocker.stop(id)
 
 ## Metodlar
 
-The `powerSaveBlocker` module has the following methods:
+`powerSaveBlocker` modülü aşağıdaki yöntemleri içerir:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type. 
+* `type` String - Güç tasarruf engelleyici tür. 
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
-Returns `Integer` - The blocker ID that is assigned to this power blocker
+`Integer` Döndürür - Güç engelleyiciye atanan engelleyici kimliği
 
 Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu bloklarını tanımlayan bir tam sayı döndürür.
 
@@ -35,12 +35,12 @@ For example, an API calling A requests for `prevent-app-suspension`, and another
 
 ### `powerSaveBlocker.stop(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Güç tasarrufu engelleyici kimliği `powerSaveBlocker.start` tarafından döndürüldü.
 
 Belirtilen güç tasarrufu bloke ediciyi durdurur.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Güç tasarrufu engelleyici kimliği `powerSaveBlocker.start` tarafından döndürüldü.
 
 Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
