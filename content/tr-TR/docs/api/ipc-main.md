@@ -43,7 +43,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## Metodlar
 
-The `ipcMain` module has the following method to listen for events:
+`ipcMain` modülü olayları dinlemek için aşağıdaki yöntemi içerir:
 
 ### `ipcMain.on(channel, listener)`
 
@@ -70,11 +70,11 @@ Removes the specified `listener` from the listener array for the specified `chan
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+Belirtilen `kanalın` dinleyicilerini kaldırır.
 
 ## Etkinlik objesi
 
-The `event` object passed to the `callback` has the following methods:
+`geri çağırma`'ya iletilen `olay` nesnesi aşağıdaki yöntemleri içerir:
 
 ### `event.returnValue`
 
