@@ -81,14 +81,14 @@ Panoya `text`'i RTF olarak yazar.
 
 `Object` 'i geri getirir:
 
-* `title` Dizi
+* `başlık` Dizi
 * `url` Dize
 
 Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren bir nesne döndürür. Sayfa işaretçisi erişilemez olduğunda `title` ve `url` değerleri boş dizeler olacaktır.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
-* `title` Dizi
+* `başlık` Dizi
 * `url` Dize
 * `type` String (optional)
 
