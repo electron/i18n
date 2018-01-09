@@ -1,10 +1,10 @@
 # diyalog
 
-> Dosyaları açma ve kaydetme, uyarı verme, vb için yerel sistem diyaloglarını görüntüleme.
+> Dosyaları açma ve kaydetme, uyarı yapma, vb. için yerel sistem diyaloglarını görüntüle.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-Birden fazla dosya ve dizin seçmek için bir iletişim kutusu gösteren bir örnek:
+Birden çok dosya ve dizin seçmek için bir iletişim kutusunu gösteren örnek:
 
 ```javascript
 const {dialog} = require('electron')
