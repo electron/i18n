@@ -6,9 +6,9 @@ Süreç: [Ana](../glossary.md#main-process)
 
 ```javascript
 // Ana süreçte.
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = ('electron') gerektirir
 
-// Or use `remote` from the renderer process.
+// Ya da oluşturucu işleminden `kumanda` kullanın.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -208,12 +208,12 @@ Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks 
 * Linux'ta olası türler `masaüstü`, `dock`, `araç çubuğu`, `splash`, `bildirim`'dir.
 * MacOS'ta olası değerler `masaüstü`, `dokulu`. 
   * ` dokulu` türü metal eğimi görünümünü ekler (` NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Masaüstü penceresi klavye veya farenin durumunu odak olarak kaydetmeyecektir. Ancak veri girişini tedbirli bir şekilde yapmak için `globalShortcut` kullanabilirisinz.
-* On Windows, possible type is `toolbar`.
+  * `desktop` modeli, pencereyi masaüstü arka planındaki pencere seviyesine yerleştirir (`kCGDesktopWindowLevel - 1`). Masaüstü penceresi klavye veya farenin durumunu odak olarak kaydetmeyecektir. Ancak veri girişini tedbirli bir şekilde yapmak için `globalShortcut` kullanabilirisinz.
+* Windows'ta mümkün olan model `toolbar` 'dır.
 
 ### Örnek etkinlikler
 
-Objects created with `new BrowserWindow` emit the following events:
+`new BrowserWindow` ile yaratılan neseneler aşağıdaki özellikleri belirtir:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
