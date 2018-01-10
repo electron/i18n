@@ -339,9 +339,9 @@ Injects CSS into the guest page.
 * `code` Dizi
 * `userGesture` Boolean - Default `false`.
 * `geri arama` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
-  * `result` Any
+  * `result` Herhangi bir
 
-Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Sayfadaki `code`'u değerlendirir. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
