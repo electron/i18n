@@ -629,22 +629,22 @@ Tarayıcıyı belirtilmiş salt web sayfası dizinine (indeksine) yönlendirir.
 
 * `userAgent` Dizgi
 
-Overrides the user agent for this web page.
+Bu sayfa için olan kullanıcı aracını geçersiz kılar.
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+`String` olarak dönüt verir - Bu web sayfası için olan kullanıcı aracı.
 
 #### `contents.insertCSS(css)`
 
-* `css` String
+* `css` Dizgi
 
-Injects CSS into the current web page.
+Yürürlükteki web sayfasına CSS ekler.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
+* `code` Dizgi
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
 * `geri arama` Function (optional) - Called after script has been executed. 
   * `result` Any
 
