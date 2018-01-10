@@ -528,11 +528,11 @@ webContents.loadURL('https://github.com', options)
 
 * `url` Dizgi
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+Dolaşma yapmadan `url` de bir kaynak indirmesi başlatır. `session`'a ait `will-download` olayı tetiklenir.
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+`String` dönütünü verir - Yürürlükteki web sayfasının bağlantısı.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -545,15 +545,15 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+`String` dönütünü verir - Yürürlükteki web sayfasının başlığı.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+`Boolean` dönütünü verir - Web sayfasının yok edilip edilmediği.
 
 #### `contents.focus()`
 
-Web sayfası odaklanma.
+Web sayfasına odaklanır.
 
 #### `contents.isFocused()`
 
