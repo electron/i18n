@@ -155,16 +155,16 @@ Devuelve `Buffer` - Lee el `formato` del portapapeles.
 * `buffer` Buffer
 * `type` Cadena (opcional)
 
-Writes the `buffer` into the clipboard as `format`.
+Escribe el `buffer` en el portapapeles como `formato`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
+* `datos` Objecto 
+  * `text` Cadena (opcional)
+  * `html` Cadena (opcional)
+  * `image` [NativeImage](native-image.md) (opcional)
+  * `rtf` Cadena (opcional)
+  * `marcador` Cadena (opcional) - El título de la url en `text`.
 * `type` Cadena (opcional)
 
 ```javascript
@@ -172,4 +172,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+Escribe `datos` en el portapapeles.
