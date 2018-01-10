@@ -286,7 +286,7 @@ Returns `Boolean` - Whether the guest page can go forward.
 
 ### `<webview>.canGoToOffset(offset)`
 
-* `offset` Integer
+* `offset` Tamsayı
 
 Returns `Boolean` - Whether the guest page can go to `offset`.
 
@@ -304,13 +304,13 @@ Ziyaretçi sayfasını ilerletir.
 
 ### `<webview>.goToIndex(index)`
 
-* `index` Integer
+* `index` Tamsayı
 
 Belirtilen mutlak dizine gider.
 
 ### `<webview>.goToOffset(offset)`
 
-* `offset` Integer
+* `offset` Tamsayı
 
 "Geçerli girişten" belirtilen aralıkta gezinir.
 
