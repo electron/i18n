@@ -873,7 +873,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 * `url` Dize
 * `opsiyonlar` Obje (isteğe bağlı) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
+  * `httpReferrer` Dizgi (isteğe bağlı) - Bir HTTP başvuru bağlantısı.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
