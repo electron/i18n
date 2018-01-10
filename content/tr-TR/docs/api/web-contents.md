@@ -561,7 +561,7 @@ Web sayfasına odaklanır.
 
 #### `contents.isLoading()`
 
-`Boolean` olarak dönüt verir - Web sayfasının hala kaynak indirmekte olup olmadığı.
+`Boolean` olarak dönüt verir - Web sayfasının hala kaynak yüklemekte olup olmadığı.
 
 #### `contents.isLoadingMainFrame()`
 
