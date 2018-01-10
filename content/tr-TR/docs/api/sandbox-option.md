@@ -1,22 +1,22 @@
-# `sanal alan` Seçeneği
+# `sandbox` Seçeneği
 
-> Chromium OS sanal alanında çalışabilen oluşturucuya sahip bir tarayıcı penceresi oluşturun. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
+> Chromium OS sanal alanında çalışabilen oluşturucuya sahip bir tarayıcı penceresi oluşturun. Bu seçenek etkinleştirmesi ile, oluşturucunun API nodullerine erişim için IPC yoluyla ana yöntemle iletişim kurması gerekir. Ayrıca, Chromium OS sanal alanını etkinleştirmek için, elektronun `--enable-sandbox` komuta satır argümanıyla çalıştırılması gerekir.
 
-One of the key security features of Chromium is that all blink rendering/JavaScript code is executed within a sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Chromium'un en önemli güvenlik özelliklerinden biri, parlayan tüm JavaScript kod/oluşturmanın bir sanal alan içerisinde gerçekleşmesidir. Bu sanal alan, oluşturma işlemi sırasındaki kullanmaların sisteme zarar vermediklerinden emin olmak için OS'e özgü özellikler kullanır.
 
-In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) more information about the sandbox.
+Başka bir deyişle, sanal alan etkin olduğunda, oluşturucular yalnızca değişiklik yapabilir görevlere IPC vasıtasıyla ana süreci devrederek sisteme bildirir. Sandbox hakkında daha fazla bilgi [burada](https://www.chromium.org/developers/design-documents/sandbox).
 
-Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+Electron'da önemli bir özellik, oluşturma sürecinde node.js 'i çalıştırma yeterliliği olduğundan (web teknolojileri kullanarak masaüstü uygulamaları geliştirmeyi kolaylaştırır), sandbox electron tarafından engellenir. Bunun nedeni, çoğu node.js API'sinin sistem erişimi gerektirmesidir. Örneğin `require()`, bir Sandbox 'lanmış ortamda mevcut olmamakla beraber dosya sistem izinleri olmadan mümkün değil.
 
-Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her zaman güvenilir, ancak güvenilmeyen web içeriğini görüntülemek için elektronları kromdan daha az güvenli hale getirir. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+Genellikle masaüstü uygulamaları için sorun teşkil etmez, çünkü kod her zaman güvenilir, ancak güvenilmeyen web içeriğini görüntülemek için elektronları kromdan daha az güvenli hale getirir. Daha fazla güvenliğe ihtiyaç duyan uygulamalar için `sandbox` bayrağı electron'u, sanal alanla uyumlu klasik bir Chromium oluşturucu meydana getirmeye zorlar.
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. Tek istisna, electron API oluşturucularının alt kümesine erişimi olan, önceden yüklenmiş komut dosyasıdır.
+Sanal alana yerleştirilmiş bir oluşturucunun,çalışan bir node.js ortamı yoktur ve alıcı koduna node.js API'larını göstermez. Tek istisna, electron API oluşturucularının alt kümesine erişimi olan, önceden yüklenmiş komut dosyasıdır.
 
-Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+Diğer bir fark da sanal alandaki oluşturucuların, varsayılan herhangi bir JavaScript API'sini değiştirmemesidir. Sonuç olarak `window.open` gibi bazı API'lar chromium'da olduğu gibi çalışır ( ör. bir `BrowserWindowProxy` göndermezler).
 
 ## Örnek
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+Sandbox' lanmış bir pencere oluşturmak için, basitçe `sandbox: true` 'dan `webPreferences` 'a geçin:
 
 ```js
 let win
@@ -30,11 +30,11 @@ app.on('ready', () => {
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+Yukarıdaki kodda oluşturulmuş `BrowserWindow` 'da node.js devre dışı bırakılmış ve sadece IPC yoluyla iletişim kurabilir. Bu seçeneğin kullanılması, elektronun renderer' da bir node.js çalışma zamanı oluşturmasını durdurur. Ayrıca, bu yeni pencere içinde `window.open` doğal davranışı takip eder ( varsayılan electron tarafından bir `BrowserWindow` oluşturur ve buna `window.open` yoluyla bir proxy gönderir).
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
+Bu seçeneğin tek başına OS'ın zorladığı sandbox'a izin vermeyeceğini akılda tutmak önemlidir. Bu özelliğe izin vermek için, tüm `BrowserWindow` örnekleri için `sandbox: true` 'yu zorlayan `--enable-sandbox` komuta dizisi argümanı electron'a aktarılmalıdır.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+`BrowserWindow`'da OS tarafından uygulanan sandbox'ı veya `sandbox:true` ile `webview` süreci etkinleştirmek için, tüm uygulamanın sanbox da olmasına neden olmadan, `--enable-mixed-sandbox` komut dizisi argümanı electron'a aktarılmalıdır. Bu seçenek şu an yalnızca macOS ve Windows'ta desteklenmektedir.
 
 ```js
 let win
@@ -45,18 +45,18 @@ app.on('ready', () => {
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+`app.commandLine.appendSwitch('--enable-sandbox')` 'yı aramanın yeterli olmadığını unutmayın, electron/node başlangıç kodlarını,chromium sandbox ayarlarında değişiklik yapmak mümkün olduktan sonra çalıştırır. Değiştirme komuta dizisi üzerinden electron'a aktarılmalı:
 
     electron --enable-sandbox app.js
     
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
+OS sandbox 'ı sadece bazı oluşturucular için aktifleştirmek mümkün değildir, eğer `--enable-sandbox` etkinse normal elektron pencereleri oluşturulamaz.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+Eğer sandbox 'lanmış ve sandbox 'lanmamış oluşturucuları bir uygulamada karıştırmanız gerekiyorsa, sadece `--enable-sandbox` argümanını atlayın. Bu argüman olmadan, `sandbox: true` ile oluşturulmuş pencereler inaktif node.js barındıracak ve sadece güvenlik POV 'undan edinilmiş IPC üzerinden bağlantı kuracaklar.
 
-## Preload
+## Önyükleme
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Bir uygulama sandbox 'lanmış oluşturucuları, önyükleme komut dosyası kullanarak özelleştirme yapabilir. Örnek olarak:
 
 ```js
 let win
@@ -71,7 +71,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+ve preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
@@ -80,7 +80,7 @@ and preload.js:
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
-// read a configuration file using the `fs` module
+// `fs` modulünü kullanarak bir yapılandırma dosyası okur
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -93,17 +93,15 @@ function customWindowOpen (url, ...args) {
   }
   return defaultWindowOpen(url, ...args)
 }
-
-window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Önceden yüklenen komut dosyasında dikkat edilmesi gereken önemli şeyler:
 
-- Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
-- Önceden yüklenen komut dosyası tek bir komut dosyası içine yüklenmelidir, ancak aşağıdaki açıklamada tarayıcı gibi bir araç kullanarak birden çok modül ile derlenmiş karmaşık bir önyükleme kodunun olması mümkündür. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
+- Sandbox'lanmış oluşturucular da node.js 'yi çalışıyor olmasa bile, hala sınırlı bir node benzeri ortama erişimi mümkündür: `Buffer`, `process`, `setImmediate` ve `require` mevcut.
+- Önyükleme dosyası ana süreçteki tüm API'lere `remote` ve `ipcRenderer` modüllerinden dolaylı olarak erişebilir. Diğer modüller ve `fs` (yukarıda kullanıldı) bu şekilde uygulanır: Bunlar ana süreç içerisinde ki benzerler için proxy'lerdir.
+- Önceden yüklenen komut dosyası tek bir komut dosyası içine yüklenmelidir, ancak aşağıdaki açıklamada tarayıcı gibi bir araç kullanarak birden çok modül ile derlenmiş karmaşık bir önyükleme kodunun olması mümkündür. Aslında, browserify zaten electron tarafından önyükleme komut dosyasına node benzeri bir ortam sağlamak için kullanılıyor.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak kullanmak için aşağıdakine benzer bir şey kullanılmalıdır:
 
     browserify preload/index.js \
       -x electron \
@@ -111,9 +109,9 @@ To create a browserify bundle and use it as a preload script, something like the
       --insert-global-vars=__filename,__dirname -o preload.js
     
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+`-X` bayrağı, halihazırda önyükleme alanında bulunan gerekli tüm modüllerle birlikte kullanılmalıdır, ve bunun için browserify 'a kapsayıcı `require` fonksiyonunu kullanmasını söyler. `--insert-global-vars`; `process`, `Buffer` ve `setImmediate` 'nin kapsamlı alandan alındıklarından da emin olur ( normalde browserify bunun için kod yerleştirir).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Şu anda, önyükleme aşamasından sağlanan `require` fonksiyonu aşağıdaki modülleri göstermektedir:
 
 - `child_process`
 - `electron` (crashReporter, remote and ipcRenderer)
@@ -122,15 +120,15 @@ Currently the `require` function provided in the preload scope exposes the follo
 - `timers`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+Sandbox 'da daha çok elektron API 'sı oluşturmak gerekirse daha fazlası eklenebilir, ayrıca ana süreçteki herhangi bir modül `electron.remote.require` üzerinden zaten kullanılabilir.
 
-## Status
+## Durum
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Hala deneme aşamasında bir özellik olduğu için, lütfen `sandbox` seçeneğini dikkatli kullanın. Hala önyükleme dosyasına bazı elektron oluşturucu API'lerin eklenmesinin güvenlik etkilerini bilmiyoruz, ve burada güvenilmeyen içerik oluşturmadan önce düşünülmesi gereken bazı şeyler var:
 
 - Önceden yüklenmiş bir komut dosyası, yanlışlıkla ayrıcalıklı API'ları, güvenilmeyen kodlara filtreleyebilir.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
+- V8 makinesindeki bazı yazılım hataları kötü amaçlı kodların oluşturucu önyükleme API 'lerine erişimlerine izin verebilir, etkili bir şekilde `remote` modülünden sisteme tam erişimi onaylayabilir.
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+Elektronda güvenilmeyen içeriğin görüntülenmesi hâlâ bilinmeyen bir alan olduğu için, sanal ön koşul komut dosyasına maruz kalan API'lerin diğer elektron API' lerinden daha dengesiz olduğu düşünülmelidir ve düzeltmek için güvenlik sorunları gibiönemli değişiklikler olabilir.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Güvenliği büyük ölçüde arttırması planlanan bir geliştirme, ana işlemin işleyiciye gönderilmesine izin verilen bir dizi iletiyi açıkça tanımasına izin vermek üzere, sanal göndericilere ait IPC iletilerini varsayılan olarak engellemektedir.

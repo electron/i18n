@@ -199,15 +199,15 @@ Tag ` webview ` memiliki metode berikut:
 
 ```javascript
 const webview = document.querySelector('webview')
-webview.addEventListener('dom-ready', () => {
-  webview.openDevTools()
+webview.addEventListener ('dom-ready', () => {
+   webview.openDevTools()
 })
 ```
 
 ### `<webview>.loadURL(url[, options])`
 
-* ` url </ 0> URL</li>
-<li><code>pilihan` Objek (pilihan) 
+* `url` URL
+* `pilihan` Objek (pilihan) 
   * `httpReferrer` String (opsional) - url perujuk HTTP.
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
@@ -238,7 +238,7 @@ Menghentikan navigasi yang tertunda.
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+Memuat kembali halaman web saat ini.
 
 ### `<webview>.reloadIgnoringCache()`
 
@@ -264,7 +264,7 @@ Menghapus sejarah navigasi.
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+Membuat halaman baru kembali.
 
 ### `<webview>.goForward()`
 
@@ -300,7 +300,7 @@ Mengembalikan `String` - Agen pengguna untuk halaman tamu.
 
 * `css` String
 
-Injects CSS into the guest page.
+Menyuntikkan CSS ke halaman tamu.
 
 ### `<webview>.executeJavaScript (code, userGesture, callback)`
 
@@ -315,9 +315,9 @@ Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user ges
 
 Membuka jendela DevTools untuk halaman tamu.
 
-### `<webview>.closeDevTools()`
+### `<webview>.tutupDevTools()`
 
-Closes the DevTools window of guest page.
+Menutup jendela tamu DevTools.
 
 ### `<webview>.isDevToolsOpened()`
 
@@ -342,7 +342,7 @@ Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
 
 * `dibungkam` Boolean
 
-Set guest page muted.
+Tetapkan halaman tamu yang dibungkam.
 
 ### `<webview>.isAudioMuted()`
 
@@ -350,7 +350,7 @@ Returns `Boolean` - Whether guest page has been muted.
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+Jalankan perintah pengeditan `undo` di halaman.
 
 ### `<webview>.redo()`
 
@@ -416,7 +416,7 @@ Memulai permintaan untuk mencari semua kecocokan teks pada halaman web dan memun
 
 ### `<webview>.stopFindInPage(action)`
 
-* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) permintaan. 
   * `clearSelection` - jelas pilihan.
   * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
   * `activateSelection` - fokus dan klik seleksi simpul.
@@ -441,8 +441,8 @@ Prints `webview` 's web page. Same as `webContents.print ([options])`.
   * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
   * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
 * `callback` Fungsi 
-  * ` error </ 0> Kesalahan</li>
-<li><code>data` Buffer
+  * `error` Kesalahan
+  * `data` Buffer
 
 Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
 
@@ -500,8 +500,8 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Pengembalian:
       
-      * ` url </ 0>  String</li>
-<li><code>isMainFrame` Boolean
+      * `url` String
+      * `adalah Bingkai Utama` Boolean
       
       Fired when a load has committed. This includes a document-level loads, but does not include asynchronous resource loads.
       
@@ -509,59 +509,59 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Dibunyikan apabila navigasi dilakukan, yakni pemintal tab telah berhenti berputar dan acara `onload` dikirim.
       
-      ### Event: 'Apakah-gagal-load'
+      ### Peristiwa: 'Apakah-gagal-beban'
       
       Pengembalian:
       
-      * `errorCode` Bilangan bulat
-      * `errorDescription` String
-      * `validatedURL` String
-      * `isMainFrame` Boolean
+      * `kode kesalahan` Bilangan bulat
+      * `Deskripsi kesalahan` Tali
+      * `memvalidasi URL` Tali
+      * `adalah Bingkai Utama` Boolean
       
       Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `window.stop()` dipanggil.
       
-      ### Event: 'Apakah-frame-selesai-load'
+      ### Peristiwa: 'Apakah-frame-selesai-beban'
       
       Pengembalian:
       
-      * `isMainFrame` Boolean
+      * `adalah Bingkai Utama` Boolean
       
       Dibunyikan apabila bingkai telah melakukan navigasi.
       
-      ### Event: 'Apakah-mulai-loading'
+      ### Peristiwa: 'Apakah-mulai-pemuatan'
       
       Sesuai dengan poin dalam waktu ketika pemintal tab mulai berputar.
       
-      ### Event: 'Apakah-stop-loading'
+      ### Peristiwa: 'Apakah-stop-pemuatan'
       
       Sesuai dengan poin pada saat pemintal tab berhenti berputar.
       
-      ### Event: 'Apakah-mendapatkan-tanggapan-rincian'
+      ### Peristiwa: 'Apakah-mendapatkan-tanggapan-rincian'
       
       Pengembalian:
       
       * `status` Boolean
-      * `newURL` String
-      * `originalURL` String
-      * `httpResponseCode` Integer
-      * `requestMethod` String
+      * `URL baru` Tali
+      * `URL asli` Tali
+      * `kode tanggapan http` Bilangan bulat
+      * `metode permintaan` Tali
       * `pengarah` String
-      * `headers` Obyek
-      * `Jenissumberdaya` String
+      * `header` Obyek
+      * `Jenissumberdaya` Tali
       
       Emitted ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
       
-      ### Event: 'apakah-mendapatkan-redirect-permintaan'
+      ### Peristiwa: 'apakah-mendapatkan-pengalihan-permintaan'
       
       Pengembalian:
       
-      * `oldURL` String
-      * `newURL` String
-      * `isMainFrame` Boolean
+      * `URL lama` Tali
+      * `URL baru` Tali
+      * `adalah Bingkai Utama` Boolean
       
       Emitted ketika redirect diterima saat meminta resource.
       
-      ### Event: 'dom-siap'
+      ### Peristiwa: 'lokal-siap'
       
       Emitted saat dokumen dalam bingkai yang diberikan dimuat.
       
@@ -574,7 +574,7 @@ Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, ca
       
       Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
       
-      ### Event: 'halaman-favicon-updated '
+      ### Peristiwa: 'halaman-favicon-diperbarui '
       
       Kembali
       
@@ -623,12 +623,12 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
 <pre><code class="javascript">const webview = document.querySelector ('webview') webview.addEventListener ('found-in-page', (e) = > {webview.stopFindInPage ('keepSelection')}) const requestId = webview.findInPage ('test' ) console.log (requestId)
 `</pre> 
   
-  ### Event: 'baru-jendela'
+  ### Peristiwa: 'baru-jendela'
   
   Pengembalian:
   
-  * ` url </ 0>  String</li>
-<li><code>frameName` String
+  * `url` String
+  * `nama bingkai` tali
   * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
   * `options` Object - The options which should be used for creating the new `BrowserWindow`.
   
@@ -640,66 +640,65 @@ const webview = document.querySelector ('webview') webview.addEventListener ('co
 const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
 ```
 
-### Event: 'akan navigasi'
+### Peristiwa: 'akan navigasi'
 
 Pengembalian:
 
-* ` url </ 0>  String</li>
-</ul>
+* `url` String
 
-<p>Emitted when a user or the page wants to start navigation. It can happen when
-the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-  Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman API seperti `webContents.loadURL` dan `webContents.back`.
-  
-  Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-  
-  Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
-  
-  ### Event: 'melakukan navigasi'
-  
-  Pengembalian:
-  
-  * ` url </ 0>  String</li>
-</ul>
+dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+</p>
 
-<p>Dibunyikan apabila navigasi dilakukan.</p>
+<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
+API seperti <code>webContents.loadURL` dan `webContents.back`.
 
-<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
-    ### Event: 'Apakah-menavigasi-di halaman'
-    
-    Pengembalian:
-    
-    * `isMainFrame` Boolean
-    * ` url </ 0>  String</li>
-</ul>
+Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
 
-<p>Dibunyikan saat navigasi dalam halaman terjadi.</p>
+Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
 
-<p>Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan
-navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link
-diklik atau saat event hash <code>hashchange` dipicu.</p> 
-      ### Acara : 'dekat'
-      
-      Dipecat saat halaman tamu mencoba menutup diri.
-      
-      The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
-      
-      ```javascript
+### Peristiwa: 'akan navigasi'
+
+Pengembalian:
+
+* `url` String
+
+Dibunyikan apabila navigasi dilakukan.
+
+Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+
+### peristiwa: 'Apakah-menavigasi-di halaman'
+
+Pengembalian:
+
+* `adalah Bingkai Utama` Boolean
+* `url` String
+
+Dibunyikan saat navigasi dalam halaman terjadi.
+
+Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
+
+### Acara : 'dekat'
+
+Dipecat saat halaman tamu mencoba menutup diri.
+
+The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
+
+```javascript
 const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
 ```
-  
-  ### Event: 'ipc-message'
-  
-  Pengembalian:
-  
-  * ` saluran </ 0>  String</li>
+
+### Event: 'ipc-message'
+
+Pengembalian:
+
+* ` saluran </ 0>  String</li>
 <li><code>args` Array
-  
-  Fired when the guest page has sent an asynchronous message to the embedder page.
-  
-  With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
-  
-  ```javascript
+
+Fired when the guest page has sent an asynchronous message to the embedder page.
+
+With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+
+```javascript
 // In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
 ```
 
@@ -707,7 +706,7 @@ const webview = document.querySelector ('webview') webview.addEventListener ('cl
 // In guest page. const {ipcRenderer} = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
 ```
 
-### Event: 'jatuh'
+### Peristiwa: 'jatuh'
 
 Dipecat saat proses renderer jatuh.
 
@@ -715,12 +714,12 @@ Dipecat saat proses renderer jatuh.
 
 Dipecat saat proses gpu jatuh.
 
-### Event: 'plugin-jatuh'
+### Peristiwa: 'plugin-jatuh'
 
 Pengembalian:
 
-* ` nama </ 0>  String</li>
-<li><code>Versi` String
+* `nama` String
+* `Versi` String
 
 Dibunyikan ketika proses plugin telah jatuh.
 
@@ -752,19 +751,18 @@ Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebua
 
 Pengembalian:
 
-*  url </ 0>  String</li>
-</ul>
+* `url` String
 
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
+Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
 
-<h3>Event: 'devtools-dibuka'</h3>
+### Event: 'devtools-dibuka'
 
-<p>Emitted saat DevTools dibuka.</p>
+Emitted saat DevTools dibuka.
 
-<h3>Event: 'devtools-ditutup'</h3>
+### Event: 'devtools-ditutup'
 
-<p>Emitted saat DevTools ditutup.</p>
+Emitted saat DevTools ditutup.
 
-<h3>Event: 'fokus devtools'</h3>
+### Event: 'fokus devtools'
 
-<p>Emitted saat DevTools difokuskan / dibuka.</p>
+Emitted saat DevTools difokuskan / dibuka.

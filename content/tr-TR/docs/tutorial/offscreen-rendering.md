@@ -14,11 +14,11 @@ GPU hızlandırılmış oluşturma, GPU'nun kompozisyon için kullanıldığı a
 
 ### Çıkış aygıtı yazılımı
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Bu mod, CPU'da oluşturulması için bir yazılım çıktı aygıtı kullanır, bu sayede çerçeve üretimi çok daha hızlıdır, dolayısıyla bu mod hızlandırılmış GPU modelden daha çok tercih edilir.
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Bu modu etkinleştirmek için [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API'sinin çağırılarak GPU hızlandırmasının devre dışı bırakılması gerekir.
 
-## Usage
+## Kullanım
 
 ```javascript
 const {app, BrowserWindow} = require('electron')

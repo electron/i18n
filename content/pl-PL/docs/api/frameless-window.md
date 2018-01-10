@@ -1,4 +1,4 @@
-# Frameless Window
+# Okno bez ramki
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
@@ -58,7 +58,7 @@ let win = new BrowserWindow({transparent: true, frame: false})
 win.show()
 ```
 
-### Limitations
+### Ograniczenia
 
 * You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
@@ -79,7 +79,7 @@ win.setIgnoreMouseEvents(true)
 
 ## Draggable region
 
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+Domyślnie, okno bez ram jest nieprzenośne. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
 
 Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 
@@ -111,6 +111,6 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 }
 ```
 
-## Context menu
+## Menu kontekstowe
 
 On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.

@@ -8,9 +8,9 @@ Yerel modülleri kurmanın üç yolu:
 
 ### `npm` kullanılıyor
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Birkaç ortam değişkenini ayarlayarak, `npm` değerini modülleri doğrudan yüklemek için kullanabilirsiniz.
 
-An example of installing all dependencies for Electron:
+Electron için tüm bağlantıları kurmanın bir örneği:
 
 ```sh
 # Electron'un sürümü.
@@ -18,9 +18,9 @@ export npm_config_target=1.2.3
 # The architecture of Electron, can be ia32 or x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Electron başlıklarını indir.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# node-pre-gyp'e Electron'u build ettiğimizi belirt.
 export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true
@@ -30,23 +30,23 @@ HOME=~/.electron-gyp npm install
 
 ### Modülleri kurma ve Elektron için yeniden inşa etme
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+Ayrıca, diğer Node projeleri gibi modülleri yüklemeyi ve ardından [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) paketiyle modülleri Electron için yeniden kurmayı seçebilirsiniz. Bu modül Electron versiyonunu ele alabilir ve başlıkları indirmenin otomatik olmayan adımlarını halledebilir ve uygulamanız için yerel modüller oluşturabilir.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+`electron-rebuild`'ı kurma ve ardından modülleri onunla yeniden oluşturma örneği:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# "npm install"ı çalıştırdığınız her zaman şunu da çalıştırın:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+#Windows'ta sorun yaşıyorsanız bunu deneyin:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
 ### Elektron için manuel olarak inşa
 
-Yerli bir modül geliştiren bir geliştiriciyseniz ve Electron'a karşı test etmek istiyorsanız, Electron modülünü manuel olarak yeniden oluşturmak isteyebilirsiniz. You can use `node-gyp` directly to build for Electron:
+Yerli bir modül geliştiren bir geliştiriciyseniz ve Electron'a karşı test etmek istiyorsanız, Electron modülünü manuel olarak yeniden oluşturmak isteyebilirsiniz. Elektron için inşa etmek için doğrudan `node-gyp` kullanabilirsiniz:
 
 ```sh
 cd /path-to-module/
@@ -64,15 +64,15 @@ Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşa�
 * Şüpheniz olduğunda, önce ` elektron yeniden inşa </ 0> 'yı çalıştırın.</li>
 </ul>
 
-<h2>Modules that rely on <code>prebuild`</h2> 
-    [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+<h2><code>prebuild`'e dayanan modüller</h2> 
+    [`prebuild`](https://github.com/mafintosh/prebuild), Node ve Elektronun birden fazla sürümüne yönelik önceden oluşturulmuş ikili dosyalarla yerel Node modüllerini kolayca yayınlamak için bir yol sağlar.
     
-    If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+    Eğer modüller Electron'da kullanım için ikili dosyalar sağlıyorsa, önceden oluşturulmuş ikili dosyalardan tam avantaj sağlamak için `--build-from-source` ve `npm_config_build_from_source` ortam değişkenlerini dahil etmediğinizden emin olun.
     
-    ## Modules that rely on `node-pre-gyp`
+    ## `node-pre-gyp`'e dayanan modüller
     
-    The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+    [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp), yerleşik Node modüllerini önceden oluşturulmuş ikili dosyalarla uygulamanın bir yolunu sunar ve birçok popüler modül bunu kullanmaktadır.
     
     Genellikle bu modüller Elektron altında iyi çalışır , ancak bazen Elektron V8'in Düğümden daha yeni bir sürümünü kullandığında ABI değişiklikleri vardır, kötü şeyler olabilir. Bu nedenle, genel olarak kaynak kodundan yerel modüller oluşturmak önerilir.
     
-    If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+    `npm` modül yükleme yolunu izliyorsanız, bu varsayılan olarak yapılır, değilse, `--build-from-source`'dan `npm`'ye geçmeniz veya `npm_config_build_from_source` ortam değişkenini ayarlamanız gerekir.

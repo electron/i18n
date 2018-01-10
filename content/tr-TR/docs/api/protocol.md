@@ -1,10 +1,10 @@
-# protocol
+# protokol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Özel bir protokol kaydettirin ve mevcut protokol isteklerini engelleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Şebeke sunucusu ile aynı etkiye sahip bir protokol uygulamak için bir örnek. `dosya://` protokolü:
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -20,23 +20,23 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+Not: Belirtilmedikçe tüm yöntemler yalnızca uygulama modülünün hazır durumu yayınlandıktan sonra kullanılabilir.
 
 ## Metodlar
 
-The `protocol` module has the following methods:
+`protokol` modülünde aşağıdaki yöntemler bulunur:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `options` Obje (isteğe bağlı) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+* `schemes` String[] - Standart şema olarak kaydedilecek özel şemalar.
+* `ayarlar` Obje (isteğe bağlı) 
+  * `güvenli` Boolean (isteğe bağlı) - `True` şemasını güvenli olarak kaydetmek için. Varsayılan `false`.
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Standart bir şema, RFC 3986'ın çağırdığı [genel URL'ye uygun sözdizimi](https://tools.ietf.org/html/rfc3986#section-3). Örneğin `http` ve `https` standart şemalardır; `dosyası` ise değildir.
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğunda doğru bir şekilde çözülmesini sağlayacaktır. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Örneğin, özel protokollü aşağıdaki sayfayı yüklediğinizde, standart şema olarak kaydettiğinizde, resim yüklenmeyecektir çünkü standart olmayan şemalar göreceli URL'leri tanımlayamaz:
 
 ```html
 <body>
@@ -61,23 +61,23 @@ app.on('ready', () => {
 
 ### `protocol.registerServiceWorkerSchemes(schemes)`
 
-* `schemes` String[] - Custom schemes to be registered to handle service workers.
+* `şemalar` String[] - Hizmet çalışanlarını işlemek üzere kaydedilecek özel şemalar.
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `geri arama` Fonksiyon 
     * `filePath` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
-Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
+Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
 To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({path: filePath})`.
 
@@ -87,19 +87,19 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `geri arama` Fonksiyon 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+`Buffer`'ı yanıt olarak gönderecek `şema` protokolünü kaydeder.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
@@ -117,41 +117,41 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `geri arama` Fonksiyon 
     * `data` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+`String`'i yanıt olarak gönderecek `şema` protokolünü kaydeder.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `geri arama` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
-      * `method` String
+      * `method` Dizi
       * `session` Object (optional)
       * `uploadData` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
 
@@ -159,98 +159,98 @@ Registers a protocol of `scheme` that will send an HTTP request as a response.
 
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
-For POST requests the `uploadData` object must be provided.
+POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
-Unregisters the custom protocol of `scheme`.
+`şemanın` özel protokol kaydını iptal eder.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
-* `scheme` String
-* `callback` Function 
-  * `error` Error
+* `scheme` Dizi
+* `geri arama` Fonksiyon 
+  * `error` Hata 
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `filePath` String
+  * `geri arama` Fonksiyon 
+    * `filePath` Dizi
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `geri arama` Fonksiyon 
     * `data` String (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `geri arama` Fonksiyon 
     * `buffer` Buffer (optional)
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `scheme` Dizi
+* `handler` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `geri arama` Fonksiyon 
     * `redirectRequest` Nesne 
       * `url` Dize
-      * `method` String
+      * `method` Dizi
       * `session` Object (optional)
       * `uploadData` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `completion` Fonksiyon (isteğe bağlı) 
-  * `error` Error
+  * `error` Hata 
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+`Şema` için kurulmuş olan önleyiciyi kaldırın ve orijinal işleyicisini geri yükleyin.

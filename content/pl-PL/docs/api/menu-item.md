@@ -8,8 +8,8 @@ See [`Menu`](menu.md) for examples.
 
 ### `new MenuItem(options)`
 
-* `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+* `options` Obiekt 
+  * `kliknij` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
@@ -26,7 +26,7 @@ See [`Menu`](menu.md) for examples.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
-### Roles
+### Role
 
 Roles allow menu items to have predefined behaviors.
 
@@ -36,14 +36,14 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 
 The `role` property can have following values:
 
-* `undo`
-* `redo`
+* `cofnij`
+* `ponów`
 * `cut`
-* `copy`
-* `paste`
+* `kopiuj`
+* `wklej`
 * `pasteandmatchstyle`
 * `selectall`
-* `delete`
+* `usuń`
 * `minimize` - Minimize current window
 * `close` - Close current window
 * `quit`- Quit the application

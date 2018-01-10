@@ -14,7 +14,7 @@ Brightray [was](https://github.com/electron-archive/brightray) statik kitaplığ
 
 ### CRT
 
-C Çalışma Zamanı Kitaplığı (CRT) C ++ Standart Kitaplığı'nın bir parçasıdır. ISO C99 standart kütüphanesini içerir. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C Çalışma Zamanı Kitaplığı (CRT) C ++ Standart Kitaplığı'nın bir parçasıdır. ISO C99 standart kütüphanesini içerir. CRT' yi destekleyen görsel C++ kütüphaneleri yerel kod geliştimeyi sağlar,ayrıca hem düzenli hemde düzensiz yerel kodlar .NET'i geliştirmek için yönetilebilir.
 
 ### DMG
 
@@ -52,13 +52,13 @@ Apple'ın Mac App Store'un kısaltması. Uygulamanızı, MAS'a gönderme ile ilg
 
 Native modülleri (ayrıca Node.js'de [addons](https://nodejs.org/api/addons.html) olarak adlandırılır) require() işlevini kullanarak Node.js veya Electron'a yüklenebilen C veya C++ olarak yazılan modüllerdir ve sanki bir sıradan Node.js modülü gibi kullanılırlar. Temel olarak Node.js'de ve C/C++ kitaplıklarında çalışan JavaScript ile arasında bir arayüz sağlamak için kullanılırlar.
 
-Yerel Node modülleri Electron tarafından desteklenmektedir, ancak Electron'un sisteminizde kurulu olan Node ikilisinden farklı bir V8 versiyonu kullanması muhtemel olduğundan, yerli modülleri oluştururken Electron'un üstbilgilerinin konumunu elle belirtmeniz gerekir.
+Yerel düğüm modülleri Electron tarafından desteklenmektedir, ancak Electron'un sisteminizde kurulu olan Node ikilisinden farklı bir V8 versiyonu kullanması muhtemel olduğundan, yerli modülleri oluştururken Electron'un üstbilgilerinin konumunu elle belirtmeniz gerekir.
 
 Ayrıca bakınız: [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System, Microsoft Windows için komut dosyası çalıştıran bir Installer yazma aracıdır. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [electron-builder](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
+Nullsoft Scriptable Install System, Microsoft Windows için komut dosyası çalıştıran bir yükleyici yazma aracıdır. Ücretsiz yazılım lisanslarının birleşimi altında serbest bırakılır ve InstallShield gibi ticari mülkiyet ürünlerinde yaygın olarak kullanılan bir alternatiftir. [electron-builder](https://github.com/electron-userland/electron-builder) bir yapı hedefi olarak NSIS'yi destekler.
 
 ### OSR
 

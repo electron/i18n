@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+`oturum` modülü, yeni `Oturum` nesneleri oluşturmak için kullanılabilir.
 
 You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
 
@@ -25,10 +25,10 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `cache` Boolean - Whether to enable cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+`Oturum` Döndürür - `bölümden` bir oturum örneği metini. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
@@ -44,11 +44,11 @@ Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
 ## Sınıf: oturum
 
-> Get and set properties of a session.
+> Bir oturumun özelliklerini alın ve ayarlayın.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+`oturum` modülünde bir `Oturum` nesnesi oluşturabilirsiniz:
 
 ```javascript
 const {session} = require('electron')
@@ -64,7 +64,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 * `olay` Olay
 * `item` [DownloadItem](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* `webContents` [webİçerikleri](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
 
@@ -82,48 +82,48 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 ### Örnek yöntemler
 
-The following methods are available on instances of `Session`:
+Aşağıdaki yöntemler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
-  * `size` Integer - Cache size used in bytes.
+* `geri arama` Fonksiyon 
+  * `boyut` Integer - Önbellek boyutu bayt cinsinden kullanılır.
 
 Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır
 
-Clears the session’s HTTP cache.
+Oturumun HTTP önbelleğini temizler.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Obje (isteğe bağlı) 
+* `ayarlar` Obje (isteğe bağlı) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
 
-Clears the data of web storages.
+Web depolama alanları verilerini siler.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 
 #### `ses.setProxy(config, callback)`
 
 * `config` Nesne 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
+  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
+  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
 
 Proxy ayarlarını yap.
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-The `proxyRules` has to follow the rules below:
+`proxyRules` aşağıdaki kurallara uymak zorundadır:
 
     proxyRules = schemeProxies[";"<schemeProxies>]
     schemeProxies = [<urlScheme>"="]<proxyURIList>
@@ -146,19 +146,19 @@ The `proxyRules` has to follow the rules below:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
   
   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Belirli bir alanın son ekiyle eşleşir.
     
     Examples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  IP adresi değişmez olan URL'leri eşleştirin.
   
   Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
@@ -175,20 +175,20 @@ The `proxyRules` has to follow the rules below:
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Function 
+* `geri arama` Fonksiyon 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `yol` String - İndirme konumu
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -197,7 +197,7 @@ Sets download saving directory. By default, the download directory will be the `
 Emulates network with the given configuration for the `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// GPRS bağlantısını 50kbps çıkış ve 500 ms gecikme ile taklit etmek.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
@@ -214,18 +214,18 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
+* `proc` Fonksiyon 
   * `istek` Nesne 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
-    * `error` String - Verification result from chromium.
-  * `callback` Function 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `certificate` [sertifika](structures/certificate.md)
+    * `hata` Metin - Chromium doğrulama sonucu.
+  * `geri arama` Fonksiyon 
+    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
+      * `` - Başarıyı belirtir ve Sertifika Şeffaflık doğrulamasını devre dışı bırakır.
+      * `-2` - Arızayı gösterir.
+      * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Arama `geri çağırma(0)` sertfikayı kabul eder, arama `geri çağırma(-2)` reddeder.
 
 Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
@@ -245,13 +245,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
+* `handler` Fonksiyon 
+  * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
-    * `permissionGranted` Boolean - Allow or deny the permission
+  * `geri arama` Fonksiyon 
+    * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Sets the handler which can be used to respond to permission requests for the `session`. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder.
 
 ```javascript
 const {session} = require('electron')
@@ -266,7 +266,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
 Ana çözümleyici önbelleğini temizler.
 
@@ -274,7 +274,7 @@ Ana çözümleyici önbelleğini temizler.
 
 * `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilgilerini göndermeyi veya göndermemeyi ayarlar.
 
 ```javascript
 const {session} = require('electron')
@@ -304,35 +304,35 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `geri arama` Fonksiyon 
   * `result` Buffer - Blob data.
 
 Returns `Blob` - The blob data associated with the `identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Nesne 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
+* `ayarlar` Nesne 
+  * `yol` String - İndirmenin kesin yolu.
+  * `urlChain` String[] - Karşıdan yükleme için tam URL zinciri.
+  * `mimeType` String (isteğe bağlı)
+  * `offset` Integer - Karşıdan yükleme için başlangıç aralığı.
+  * `uzunluk` Integer - Karşıdan yükleme toplam uzunluk.
+  * `lastModified` String - Son değiştirilen başlık değeri.
+  * `eTag` String - ETag başlık değeri.
   * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `geri çağırma` Fonksiyon (isteğe bağlı) - İşlem tamamlandığında çağrılır
 
 Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `Session`:
+Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.cookies`
 

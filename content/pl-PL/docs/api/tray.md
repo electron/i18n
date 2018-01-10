@@ -66,7 +66,7 @@ Moduł `Tray` emituje następujące zdarzenia:
 
 #### Event: 'click'
 
-* `event` Event 
+* `wydarzenie` Wydarzenie 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -77,7 +77,7 @@ Emitted when the tray icon is clicked.
 
 #### Event: 'right-click' *macOS* *Windows*
 
-* `event` Event 
+* `wydarzenie` Wydarzenie 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -88,7 +88,7 @@ Emitted when the tray icon is right clicked.
 
 #### Event: 'double-click' *macOS* *Windows*
 
-* `event` Event 
+* `wydarzenie` Wydarzenie 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -141,7 +141,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
+* `wydarzenie` Wydarzenie 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -152,7 +152,7 @@ Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
+* `wydarzenie` Wydarzenie 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
@@ -195,7 +195,7 @@ Sets the title displayed aside of the tray icon in the status bar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
+* `tryb` String - Highlight mode with one of the following values: 
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
   * `always` - Always highlight the tray icon.
   * `never` - Never highlight the tray icon.
@@ -223,7 +223,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `options` Obiekt 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)

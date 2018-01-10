@@ -497,7 +497,7 @@ A `Integer` representing the unique ID of the window.
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 #### `win.destroy()`
 
@@ -866,7 +866,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.

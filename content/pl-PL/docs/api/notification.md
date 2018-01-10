@@ -1,4 +1,4 @@
-# Notification
+# Powiadomienie
 
 > Create OS desktop notifications
 
@@ -8,7 +8,7 @@ Proces: [Main](../glossary.md#main-process)
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## Klasa: Powiadomienie
 
 > Create OS desktop notifications
 
@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `options` Obiekt 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
   * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle
@@ -95,7 +95,7 @@ Objects created with `new Notification` have the following instance methods:
 
 Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
 
-### Playing Sounds
+### Odtwarzanie Dźwięków
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 

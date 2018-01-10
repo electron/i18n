@@ -2,61 +2,57 @@
 
 > Klavye kısayolları tanımlamak.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Hızlandırıcılar, uygulamanızda klavye kısayollarını tanımlamak için kullanılan, `+` karakteri ile birleştirilen birden çok değiştirici ve tuş kodu içerebilen dizelerdir. 
 
 Örnekler:
 
 * `CommandOrControl + A`
 * `CommandOrControl + Üst Krkt + Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Kısayollar, [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) yöntemini kullanarak [`globalShortcut`](global-shortcut.md) modülüyle kaydedilir.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
-
-app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
-  globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+const {app, globalShortcut} = require('electron') app.on('ready', () => {   // 'CommandOrControl+Y' için bir kısayol dinleyicisi kaydet.
+  globalShortcut.register('CommandOrControl+Y', () => {     // Y ve Command/Control'a basıldığında bir şeyler yapar.
   }) })
 ```
 
 ## Platform bildirimi
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Linux ve Windows'ta `Command` tuşunun hiç bir etkisi yok, bu yüzden bazı hızlandırıcıları tanımlamak için macOS'taki `Command` tuşunu ve Linux ve Windows'taki `Control` tuşunu temsil eden `CommandOrControl`'u kullanın.
 
 `Alt` `seçeneği` yerine kullanın. `Alt` anahtar tüm platformlarda mevcut ise `seçme hakkı` anahtarı sadece macOS üzerinde bulunmaktadır.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super` tuşu, Windows ve Linux'ta `Windows`, macOS'ta ise `Cmd` tuşuyla eşleştirilmiştir.
 
 ## Kullanılabilir düzenleyiciler
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (yada kısaca `Cmd`)
+* `Control` (yada kısaca `Ctrl`)
+* `CommandOrControl` (yada kısaca `CmdOrCtrl`)
 * `Alt`
 * `Seçenek`
 * `AltGr`
-* `Shift`
+* `ÜstKrkt`
 * `Süper`
 
 ## Kullanılabilir anahtar kodları
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* ``'dan `9`'a
+* `A`'dan `Z`'ye
+* `F1`'den `F24`'e
+* `~`, `!`, `@`, `#`, `$`, vb. gibi noktalama işaretleri.
 * `Artı`
 * `Boşluk`
 * `Sekme`
 * `Geri silme`
 * `Sil`
 * `Ekleme`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
+* `Return` (yada diğer adıyla `Enter`)
+* `Up`, `Down`, `Left` ve `Right`
+* `Home` ve `End`
+* `PageUp` ve `PageDown`
 * `Çıkış` (veya `Esc` kısaca)
 * `Sesi Aç`, `Sesi Kıs` ve `Sesi Kapat`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` ve `MediaPlayPause`
 * `Ekran Görüntüsü`

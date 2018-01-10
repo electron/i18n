@@ -76,21 +76,19 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <h3><code> clipboard.readBookmark () </ 0>  <em> macos </ 1>  <em> Windows </ 1></h3>
 
-<p>Mengembalikan <code> Objek </ 0> :</p>
-
-<ul>
-<li><code> judul </ 0> String</li>
-<li><code> url </ 0>  String</li>
-</ul>
-
-<p>Mengembalikan objek yang berisi <code> judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
+<p>Mengembalikan <code>Objek`:</p> 
+                * ` judul </ 0> String</li>
+<li><code>url` String
+                
+                Mengembalikan objek yang berisi ` judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
 
 <h3><code> clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
 
 <ul>
 <li><code> judul</ 0>  String</li>
-<li><code> url </ 0>  String</li>
-<li><code> ketik </ 0>  String (opsional)</li>
+<li><code>url` String</li> 
+                
+                * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Menulis <code> judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
@@ -101,7 +99,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
    text: 'https: // electron .atom.io',
    bookmark: ' Beranda Elektron '})
 `</pre> 
-                ### ` clipboard.readFindText () </ 0>  <em> macos </ 1></h3>
+                  ### ` clipboard.readFindText () </ 0>  <em> macos </ 1></h3>
 
 <p>Mengembalikan <code> String </ 0> - Teks pada papan gambar yang ditemukan. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer. Nilai cache dibaca ulang dari papan gambar anyar setiap kali aplikasi diaktifkan.</p>
 
@@ -114,14 +112,14 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <p>Menuliskan <code> teks </ 0> ke dalam papan tulis yang ditemukan sebagai teks biasa. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer.</p>
 
 <h3><code>clipboard.clear ( [type] )`
-                
-                * ` ketik </ 0>  String (opsional)</li>
+                  
+                  * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Membersihkan konten clipboard.</p>
 
 <h3><code>clipboard.availableFormats ( [type] )`</h3> 
-                  * ` ketik </ 0>  String (opsional)</li>
+                    * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Mengembalikan <code> String [] </ 0> - Kumpulan format yang didukung untuk clipboard <code> ketik </ 0> .</p>
@@ -137,7 +135,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <pre><code class="javascript">const {clipboard} = require ('electron') console.log (clipboard.has (' &lt;p&gt; selection </ 0> '))
 `</pre> 
-                    ### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
+                      ### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
@@ -158,15 +156,15 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <ul>
 <li><code> format </ 0>  String</li>
 <li><code>penyangga` Buffer</li> 
-                    
-                    * ` ketik </ 0>  String (opsional)</li>
+                      
+                      * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Menulis <code> penyangga </ 0> ke clipboard sebagai <code> Format </ 0> .</p>
 
 <h3><code>clipboard.write (data [, type])`</h3> 
-                      * `data` Obyek 
-                        * ` teks </ 0>  String (opsional)</li>
+                        * `data` Obyek 
+                          * ` teks </ 0>  String (opsional)</li>
 <li><code> html </ 0>  String (opsional)</li>
 <li><code> gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code> rtf </ 0>  String (opsional)</li>
@@ -177,4 +175,4 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <pre><code class="javascript">const {clipboard} = require ('electron') clipboard.write ({text: 'test', html: ' &lt;b&gt; test </ 0> '})
 `</pre> 
-                          Menulis  data </ 0> ke clipboard.</p>
+                            Menulis  data </ 0> ke clipboard.</p>

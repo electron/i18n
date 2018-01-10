@@ -313,7 +313,7 @@ Zwraca:
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Emitowane, kiedy certyfikat klienta jest wymagany.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -322,11 +322,11 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Zwraca:
 
 * `event` Event
-* `request` Object 
+* `request` Obiekt 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Obiekt 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -345,7 +345,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Zwraca:
 
 * `event` Event
-* `result` Object 
+* `wynik` Obiekt 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -399,7 +399,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Zwraca:
 
 * `event` Event
-* `params` Object 
+* `params` Obiekt 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -581,7 +581,7 @@ Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Przeładowuje obecną stronę i ignoruje cache.
 
 #### `contents.canGoBack()`
 
@@ -673,7 +673,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Wycisza audio na obecnej stronie internetowej.
 
 #### `contents.isAudioMuted()`
 
@@ -717,7 +717,7 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -801,7 +801,7 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `czynność` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -861,7 +861,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Obiekt 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -1005,7 +1005,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parametry` Obiekt 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
@@ -1025,7 +1025,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `wydarzenie` Obiekt 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1076,7 +1076,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Obiekt 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1115,8 +1115,8 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+* `options` Obiekt 
+  * `normalny` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
 
@@ -1158,9 +1158,9 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
+* `polityka` String - Specify the WebRTC IP Handling Policy. 
   * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. To nie odkrywa żadnych lokalnych adresów.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 

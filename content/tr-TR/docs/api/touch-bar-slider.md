@@ -1,30 +1,30 @@
-## Class: TouchBarSlider
+## Sınıf: TouchBarKaydırıcı
 
-> Create a slider in the touch bar for native macOS applications
+> Dokunmatik çubukta yerel macOS uygulamaları için bir kaydırıcı oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
 
-* `options` Nesne 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+* `seçenekler` Nesne 
+  * `label` Dize (İsteğe bağlı) - Görüntülenecek metin.
+  * `value` Integer (isteğe bağlı) - Seçilen değer.
+  * `minValue` Integer (isteğe bağlı) - Minimum değer.
+  * `maxValue` Integer (isteğe bağlı) - Maksimum değer.
+  * `change` Fonksiyon (isteğe bağlı) - Kaydırıcı değiştiğinde çağırılacak işlev. 
+    * `newValue` Sayı - Kullanıcının kaydırıcıda seçtiği değer
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBarSlider`:
+Aşağıdaki özelliklere sahip örneklerde `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+Kaydırıcının geçerli metnini temsil eden bir `String`. Bu değeri değiştirmek dokunmatik bardaki kaydırıcıyı hemen günceller.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+Kaydırıcının geçerli değerini temsil eden bir `Number`. Bu değeri değiştirmek dokunmatik bardaki kaydırıcıyı hemen günceller.
 
 #### `touchBarSlider.minValue`
 

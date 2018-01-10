@@ -1,18 +1,18 @@
 # DevTools Eklentisi
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Electron, popüler web yapılarının hata ayıklamasında Devtool'ların yeteneğini genişletmek için kullanılabilen [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools) destekler.
 
-## How to load a DevTools Extension
+## DevTools eklentileri nasıl yüklenir
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Bu belge bir uzantıyı manuel olarak yükleme işlemini özetliyor. [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), üçüncü parti araç uzantılarını Chrome web mağzasından doğrudan indirmeyi deniyebilirsiniz.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Electron'da bir uzantı yüklemek için Chrome tarayıcısında indirmeniz, dosya sistemi yolunu bulmanız ve ardından `BrowserWindow.addDevToolsExtension (uzantı)` API'sını çağırarak yüklemeniz gerekir.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Örnek olarak [Reaksiyonel geliştirici araçları](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) kullanılabilir:
 
 1. Chrome tarayıcısna yükle.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
+2. `chrome://extensions`'e gidin ve `fmkadmapgofadopljbjfkapdkoienihi` gibi bir karma dize olan uzantı kimliğini bulun.
+3. Uzantıları saklamak için Chrome tarafından kullanılan dosya sistemi konumunu öğrenin: 
     * Windows'ta şu şekildedir `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
     * Linux'ta şu şekilde olabilir: 
         * `~/.config/google-chrome/Default/Extensions/`
@@ -21,15 +21,15 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 `
         * `~/.config/chromium/Default/Extensions/`
     * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+4. React Developer Tools için uzantının yerini `BrowserWindow.addDevToolsExtension` API'sine iletin, bunun gibi bir şey:`~/Library/ApplicationSupport/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Not:**`BrowserWindow.addDevToolsExtension` API'sı, uygulama modülünün hazır olayı yayınlanmadan çağrılamaz.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+Uzantının adı `BrowserWindow.addDevToolsExtension` tarafından döndürüldü ve uzantının adını kaldırmak için `BrowserWindow.removeDevToolsExtension` API'sine geçirebilirsiniz.
 
 ## Desteklenen DevTools Eklentileri
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Elektron yalnızca `chrome.*` API'larının sınırlı bir listesini desteklemektedir; bu nedenle, chrome uzantı özellikleri için desteklenmeyen `chrome.*` API'lerini kullanan bazı uzantılar çalışmayabilir. Devtools Uzantılarının Electron'da çalışma durumu test edilip garanti edilmektedir:
 
 * [Kahraman müfettiş](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [Geliştirici araçları tepkisi](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -38,11 +38,11 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [AngularJS Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 * [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 * [Serebral hata ayıklayıcı](http://www.cerebraljs.com/documentation/the_debugger)
-* [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [Redux DevTools Eklentisi](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX geliştirici araçları](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
 ### DevTools Eklentisi çalışmıyorsa ne yap malıyım?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Öncelikle uzantının hala korunduğundan emin olun, hatta bazı uzantıların Chrome tarayıcısının son sürümlerinde bile çalışamaz ve biz onlar için hiçbir şey yapamıyoruz.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Daha sonra Electronların sayı listesinde bir hata dosyası ve uzantısının hangi kısmının beklendiği gibi çalışmadığını belirtin.

@@ -4,25 +4,25 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface'ini implement eder, bu yüzden de o bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dır.
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+* `seçenekler` (Object | String) - Eğer `seçenekler` bir String ise o, bir istek URL olarak yorumlanır. Eğer bir object ise bir HTTP isteğini aşağıdaki özellikler ile tam olarak belirtmesi beklenir: 
+  * `method` String (isteğe bağlı) - HTTP istek metodu. Varsayılan GET metodudur.
+  * `url` String (isteğe bağlı) - İstek URL'si. Belirtilen http veya https protokol şeması ile mutlak formunda kesinlikle sağlanmalıdır.
+  * `session` Object (isteğe bağlı) - İlişkili olduğu istek ile [`Session`](session.md) örneği.
+  * `partition` String (isteğe bağlı) - İlişkili olduğu istek ile [`partition`](session.md)'nın ismi. Varsayılan boş string. `session` seçeneği `partition`'da hakimdir. Böylelikle `session` açıkça belirtilmedikçe, `partition` yoksayılır.
+  * `protocol` String (isteğe bağlı) - 'scheme:' formunda protokol şeması. Şu anda desteklenen değerler 'http:' veya 'https:'dir. Varsayılan 'http:'.
+  * `host` String (isteğe bağlı) - Sunucu ana bilgisayar, ana makine adı ve 'hostname:port' port numarasının birleşimi olarak sağlanır
+  * `hostname` String (isteğe bağlı) - Sunucu ana bilgisayar adı.
+  * `port` Integer (isteğe bağlı) - Sunucunun dinlenen port numarası.
+  * `path` String (isteğe bağlı) - İstek URL'sinin yolu.
+  * `redirect` String (isteğe bağlı) - Bu istek için yönlendirme modu. `follow`, `error` veya `manual`'den birisi olmalıdır. `follow`'a varsayılan olarak belirler. Mod `error` olduğunda bütün yönlendirmeler iptal edilecektir. Mod `manual` olduğu zaman [`request.followRedirect`](#requestfollowRedirect) çağırılana kadar yönlendirme ertelenir. [`redirect`](#event-redirect) olayı için bu modda yönlendirme isteği hakkında daha fazla bilgi almak için dinleyin.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+`protocol`, `host`, `hostname`, `port` ve `path` gibi `options` özellikleri, [URL](https://nodejs.org/api/url.html) modülünde açıklandığı gibi Node.js modeline kesinlikle uyar.
 
-For instance, we could have created the same request to 'github.com' as follows:
+Örneğin, 'github.com' için aşağıdaki gibi aynı isteği oluşturabiliriz:
 
 ```JavaScript
 const request = net.request({
@@ -40,7 +40,7 @@ const request = net.request({
 
 Dönüşler:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - HTTP yanıt mesajını temsil eden bir nesne.
 
 #### Etkinlik: 'giriş'
 
@@ -52,13 +52,13 @@ Dönüşler:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Fonksiyon 
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Kimlik doğrulaması yapan bir proxy, kullanıcı bilgilerini istendiğinde yayınlar.
 
-The `callback` function is expected to be called back with user credentials:
+`callback` fonksiyonunun kullanıcı bilgileri ile geri çağırılması bekleniyor:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Boş kimlik bilgileri sağlanması isteği iptal eder ve yanıt nesnesinde bir kimlik doğrulama hatası rapor eder:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,86 +85,86 @@ request.on('login', (authInfo, callback) => {
 
 #### Etkinlik: 'bitiş'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+`request`'in verisinin son parçası `request` nesnesine yazıldıktan hemen sonra yayılır.
 
 #### Etkinlik: 'iptal etmek'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+`request` iptal edildiğinde yayınlanır. Eğer `request` zaten kapatıldıysa `abort` etkinliği tetiklenmeyecektir.
 
 #### Event: 'error'
 
 Dönüşler:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Hata - sorun hakkında bazı bilgileri sağlayan hata nesnesi.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+`net` modulü bir ağ isteği göndermediği zaman yayılır. Tipik olarak `request` nesnesi `error` olayını yaydığı zaman `close` olayı daha sonra takip edecek ve cevap nesnesi sağlanmayacaktır.
 
 #### Etkinlik: 'kapalı'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+HTTP istek-cevap hareketindeki son olay olarak yayınlanır. `close` olayı, `request` ve `response` nesneleri üzerinde daha fazla olay yayınlanmayacağını belirtir.
 
 #### Etkinlik: 'yönlendirme'
 
 Dönüşler:
 
-* `statusCode` Integer
+* `statusCode` Tamsayı
 * `method` String
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowRedirect)'i çağırmak yönlendirme ile devam edecektir.
 
 ### Örnek özellikleri
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Varsayılan yanlış. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+Bir `Boolean` isteğin HTTP yığınlı aktarım kodlamasını kullanıp kullanmayacağını belirtir. Varsayılan yanlış. Telefon üzerinde mülkiyet okunabilir ve yazılabilir, ancak HTTP başlıkları henüz koyulmadığından bu işlem yalnızca yazmadan önce ayarlanabilir. İlk yazma bir hata oluşturduktan sonra `chunkedEncoding` özelliğini ayarlamaya çalışır.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Eğer büyük bir istek parçası göndermeniz gerekiyorsa veri, Electron işlem belleği içerisinde dahili olarak ara belleğe yazdırmak yerine küçük yığınlar içinde akar bu yüzden parçalanmış kodlamanın şiddetle kullanılması önerilir.
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - İlave HTTP başlık adı.
+* `value` Object - İlave HTTP başlık adı.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+İlave bir HTTP başlığı ekler. Başlık adı, karakter küçültmesi yapmadan verilir. Sadece ilk yazmadan önce çağrılabilir. Bu yöntemi ilk yazmadan sonra aramak hata atacaktır. Verilen değer `String` değil ise, `toString()` metoduyla son değer elde edilir.
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - İlave bir başık adını belirtir.
 
-Returns `Object` - The value of a previously set extra header name.
+Returns `Object` - Öncesinde ilave olarak ayarlanan başlık adının değeri.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` Dize - İlave bir başlık adı belirtin.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Daha önceden belirlenmiş olan ilave başlığı kaldırır. Bu yöntem yalnızca ilk yazma işleminden önce yapılabilir. İlk yazma işleminden sonra yapmaya çalışmak bir hata meydana getirecektir.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - istek gövdesinin verisinin bir parçası. Eğer bir string ise belirtilen kodlama kullanılarak bir Buffer içerisine dönüştürülür.
+* `encoding` String (isteğe bağlı) - String parçalarını Buffer nesneleri içine dönüştürmek için kullanılır. Varsayılan 'utf-8'.
+* `callback` Fonksiyon (opsiyonel) - Yazma işlemi bittikten sonra çağırılır.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` aslında Node.js API ile benzerliğin korunması amacıyla sahte fonksiyon olarak tanıtılır. `chunk` içeriği Chromium ağ katmanına teslim edildikten sonra bir sonraki onay işareti içerisinde asenkron olarak çağırılır. Node.js uygulamasının aksine `callback` çağırılmadan önce `chunk` içeriğinin hat üzerinde hızla akacağının garantisi yoktur.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+İstek gövdesine verinin bir parçasını ekler. İlk yazma işlemi talebin üstbilgilerinin kablosunda yayınlanmasına neden olabilmektedir. İlk yazma işlemi sonrasında kişisel bir başlık eklemeye veya kaldırmaya izin verilmez.
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (isteğe bağlı)
+* `encoding` String (isteğe bağlı)
+* `callback` Fonksiyonu (opsiyonel)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+İstek verisinin son parçasını gönderir. Ardından gelebilecek olan yazma ve bitirme işlemlerine izin verilmemektedir. İşlem bittikten hemen sonra `finish` olayı yayılır.
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Devam eden bir HTTP işlemini iptal eder. Eğer istek `close` olayını önceden yayınlamışsa zorunlu sonlandırma operasyonunun hiçbir etkisi olmayacaktır. Aksi durumda devam eden olay, `abort` ve `close` olaylarını yayar. Buna ek olarak, eğer hali hazırda bir cevap nesnesi varsa, o da `aborted` olayını yayar.
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Yeniden yönlendirme modu `manuel olduğunda` ertelenen yeniden yönlendirme isteğini sürdürür.

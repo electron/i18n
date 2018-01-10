@@ -48,7 +48,7 @@ Don't attach to the current console session.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+Nie używaj global menu bar na Linuxie.
 
 ## Development Variables
 

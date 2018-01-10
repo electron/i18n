@@ -1,32 +1,32 @@
 # Locales
 
-> Locale values returned by `app.getLocale()`.
+> Yerel ayar değerleri `app.getLocale()` tarafından döndürüldü.
 
 Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
 | Kod dili | İsim dili                       |
 | -------- | ------------------------------- |
-| af       | Afrikaans                       |
+| af       | Afrika dili                     |
 | am       | Amharic                         |
-| ar       | Arabic                          |
-| az       | Azerbaijani                     |
+| ar       | Arapça                          |
+| az       | Azerice                         |
 | be       | Belarusian                      |
-| bg       | Bulgarian                       |
+| bg       | Bulgarca                        |
 | bh       | Bihari                          |
 | bn       | Bengali                         |
 | br       | Breton                          |
-| bs       | Bosnian                         |
-| ca       | Catalan                         |
+| bs       | Boşnakça                        |
+| ca       | Katalanca                       |
 | co       | Corsican                        |
-| cs       | Czech                           |
+| cs       | Çekçe                           |
 | cy       | Welsh                           |
 | da       | Danish                          |
-| de       | German                          |
+| de       | Almanca                         |
 | de-AT    | Almanca (Avusturya)             |
-| de-CH    | German (Switzerland)            |
+| de-CH    | Almanca(İsviçre)                |
 | de-DE    | Almanca (Almanya)               |
-| el       | Greek                           |
-| en       | English                         |
+| el       | Yunanca                         |
+| en       | İngilizce                       |
 | en-AU    | İngilizce (Avustralya)          |
 | en-CA    | İngilizce (Kanada)              |
 | en-GB    | İngilizce (Birleşik Krallık)    |
@@ -34,17 +34,17 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | en-US    | İngilizce (Birleşmiş Devletler) |
 | en-ZA    | İngilizce (Güney Afrika)        |
 | eo       | Esperanto                       |
-| es       | Spanish                         |
-| es-419   | Spanish (Latin America)         |
-| et       | Estonian                        |
+| es       | İspanyolca                      |
+| es-419   | İspanyolca (Latin Amerika)      |
+| et       | Eston Dili                      |
 | eu       | Basque                          |
-| fa       | Persian                         |
+| fa       | Farsça                          |
 | fi       | Finnish                         |
 | fil      | Filipino                        |
 | fo       | Faroese                         |
-| fr       | French                          |
+| fr       | Fransızca                       |
 | fr-CA    | Fransızca (Kanada)              |
-| fr-CH    | French (Switzerland)            |
+| fr-CH    | Fransızca (İsviçre)             |
 | fr-FR    | Fransızca (Fransa)              |
 | fy       | Frisian                         |
 | ga       | Irish                           |
@@ -56,23 +56,23 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | haw      | Hawaiian                        |
 | he       | Hebrew                          |
 | hi       | Hindi                           |
-| hr       | Croatian                        |
-| hu       | Hungarian                       |
-| hy       | Armenian                        |
+| hr       | Hırvatça                        |
+| hu       | Macarca                         |
+| hy       | Ermenice                        |
 | ia       | Interlingua                     |
-| id       | Indonesian                      |
+| id       | Endonezce                       |
 | is       | Icelandic                       |
 | it       | Italian                         |
 | it-CH    | İtalyanca (İsviçre)             |
 | it-IT    | İtalyanca (İtalya)              |
-| ja       | Japanese                        |
+| ja       | Japonca                         |
 | jw       | Javanese                        |
-| ka       | Georgian                        |
-| kk       | Kazakh                          |
+| ka       | Gürcüce                         |
+| kk       | Kazakça                         |
 | km       | Cambodian                       |
 | kn       | Kannada                         |
-| ko       | Korean                          |
-| ku       | Kurdish                         |
+| ko       | Korece                          |
+| ku       | Kürtçe                          |
 | ky       | Kyrgyz                          |
 | la       | Latin                           |
 | ln       | Lingala                         |
@@ -88,7 +88,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | mt       | Maltese                         |
 | nb       | Norveççe (Bokmal)               |
 | ne       | Nepali                          |
-| nl       | Dutch                           |
+| nl       | Flemenkçe                       |
 | nn       | Norwegian (Nynorsk)             |
 | no       | Norwegian                       |
 | oc       | Occitan                         |
@@ -97,13 +97,13 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | pa       | Punjabi                         |
 | pl       | Polish                          |
 | ps       | Pashto                          |
-| pt       | Portuguese                      |
+| pt       | Portekizce                      |
 | pt-BR    | Portekizce (Brezilya)           |
 | pt-PT    | Portekizce (Portekiz)           |
 | qu       | Quechua                         |
 | rm       | Romansh                         |
 | ro       | Romanian                        |
-| ru       | Russian                         |
+| ru       | Rusça                           |
 | sd       | Sindhi                          |
 | sh       | Serbo-Croatian                  |
 | si       | Sinhalese                       |
@@ -124,7 +124,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | ti       | Tigrinya                        |
 | tk       | Turkmen                         |
 | to       | Tonga                           |
-| tr       | Turkish                         |
+| tr       | Türkçe                          |
 | tt       | Tatar                           |
 | tw       | Twi                             |
 | ug       | Uighur                          |
@@ -136,6 +136,6 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | yi       | Yiddish                         |
 | yo       | Yoruba                          |
 | zh       | Chinese                         |
-| zh-CN    | Chinese (Simplified)            |
+| zh-CN    | Çince (Basitleştirilmiş)        |
 | zh-TW    | Çince (Geleneksel)              |
-| zu       | Zulu                            |
+| zu       | Zulu dili                       |

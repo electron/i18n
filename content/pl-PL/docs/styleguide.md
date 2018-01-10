@@ -1,8 +1,8 @@
 # Electron Documentation Styleguide
 
-These are the guidelines for writing Electron documentation.
+To są wytyczne do pisania dokumentacji Electron.
 
-## Titles
+## Tytuły
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
@@ -10,7 +10,7 @@ These are the guidelines for writing Electron documentation.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
 
-Using `Quick Start` as example:
+Używając `Quick Start` jako przykładu:
 
 ```markdown
 # Quick Start
@@ -38,36 +38,36 @@ Using `Quick Start` as example:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Istnieją wyjątki od tej reguły dla odwołań do API.
 
 ## Markdown rules
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
+* Używaj `sh` zamiast `cmd` w code blocks (z powodu podświetlacza składni).
+* Linie powinny być zawinięte na 80 kolumnie.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Wybieranie słów
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
 
 ## API references
 
-The following rules only apply to the documentation of APIs.
+Poniższe reguły zaliczają się tylko dla dokumentacji API.
 
-### Page title
+### Tytuł strony
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Każda strona musi używać nazwę obiektu zwracaną przez `require('electron')` jako tytuł, jak na przykład `BrowserWindow`, `autoUpdater`, oraz `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Pod tytułem strony musi być jedno liniowy komentarz rozpoczynający się `>`.
 
-Using `session` as example:
+Używając `session` jako przykład:
 
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy, itd.
 ```
 
 ### Module methods and events
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Klasy
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
@@ -137,7 +137,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### Metody
 
-The methods chapter must be in the following form:
+Rozdział "Metody" musi zachować podaną niżej formę:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,9 +148,9 @@ The methods chapter must be in the following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Tytuł może być `###` lub `####` poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Dla modułów, `objectName` jest nazwą modułu. Dla klas, to musi być nazwa wystąpienia klasy oraz nie może być taka sama jak nazwa modułu.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
@@ -162,11 +162,11 @@ required[, optional]
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Ciąg tekstu`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Numer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Obiekt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* [`Logiczny typ danych`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
@@ -199,7 +199,7 @@ The arguments of an event follow the same rules as methods.
 
 ### Właściwości
 
-The properties chapter must be in following form:
+Rozdział własności musi być w podanej formie:
 
 ```markdown
 ### session.defaultSession

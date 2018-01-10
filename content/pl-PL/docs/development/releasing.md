@@ -1,13 +1,13 @@
-# Releasing
+# Zwolnienie
 
 This document describes the process for releasing a new version of Electron.
 
-## Determine which branch to release from
+## Ustala, z której gałęzi wypuścić
 
 - **If releasing beta,** run the scripts below from `master`.
 - **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
 
-## Find out what version change is needed
+## Dowiedz się jaka zmiana wersji jest potrzebna
 
 Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
@@ -19,7 +19,7 @@ Once you have determined which type of version change is needed, run the `prepar
 
 Na przykład:
 
-### Major version change
+### Większa zmiana wersji
 
 ```sh
 npm run prepare-release -- major
@@ -86,7 +86,7 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### Mniejsze wydania
 
 For a `minor` release, e.g. `1.8.0`, use this format:
 
@@ -112,7 +112,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 * Changed a Windows thing. #123
 ```
 
-### Major releases
+### Większe wydania
 
 ```sh
 ## Upgrades

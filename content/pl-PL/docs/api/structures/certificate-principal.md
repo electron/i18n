@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# Główne obiekty
 
-* `commonName` String - Common Name
-* `organizations` String[] - Organization names
-* `organizationUnits` String[] - Organization Unit names
-* `locality` String - Locality
-* `state` String - State or province
-* `country` String - Country or region
+* `Nazwa` ciąg znaków - Nazwa
+* `organizacje` tablica zawierająca ciągi znakowe - Nazwy organizacji
+* `jednostkaOrganizacyjna` tablica zawierająca ciągi znakowe - Nazwy jednostek organizacyjnych
+* `lokalizacja` ciąg znaków - Lokalizacja
+* `state` ciąg znaków - Województwo lub powiat
+* `kraj` ciąg znaków - Kraj lub region

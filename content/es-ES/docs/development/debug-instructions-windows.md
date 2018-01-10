@@ -1,40 +1,40 @@
-# Debugging on Windows
+# Depuración en Windows
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​​por la aplicación de JavaScript, sino por Electron, la depuración puede ser un poco difícil, especialmente para desarrolladores que no están acostumbrados a la depuración nativa/C++. Sin embargo, al usar Visual Studio, el servidor de símbolo de Electron hospedado en GitHub y el código fuente de Electron, es bastante fácil habilitar la depuración paso a paso con puntos de interrupción dentro del código fuente de Electron.
 
-## Requirements
+## Requisitos
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Construir una depuración de Electron**: la forma más fácil es usualmente que usted mismo lo construya, utilizando las herramientas y los requisitos previos enumerados en [instrucciones de compilación para Windows](build-instructions-windows.md). Mientras usted puede fácilmente adjuntar y depurar a Electron, ya que puede descargarlo directamente, encontrará que está muy optimizado, lo que hace que la depuración sea mucho más difícil: el depurador no será capaz de mostrarle el contenido de todas las variables y la ruta de ejecución puede aparecer extraña debido a las llamadas entrantes, a la cola y otras optimizaciones del compilador.
 
-* **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio con herramientas de C++**: las ediciones de la comunidad gratuitas de Visual Studio 2013 y 2015 funcionan. Una vez instalado, [configure Visual Studio para usar el servidor de símbolos de GitHub de Electron](setting-up-symbol-server.md). Le permitirá a Visual Studio obtener una mejor comprensión de lo que sucede dentro de Electron, haciendo que sea más fácil presentar las variables en un formato de lectura.
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: la [herramienta gratuita SysInternals](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) le permite inspeccionar los parámetros de los procesos, los manejadores de archivos y las operaciones de registro.
 
-## Attaching to and Debugging Electron
+## Adjuntado y depuración de Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versión de depuración de Electron, usando la aplicación para abrir como parámetro.
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
 ```
 
-### Setting Breakpoints
+### Establecer puntos de interrupción
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Luego, abre Visual Studio. Electron no está construido con Visual Studio y, por lo tanto, no contiene un archivo de proyecto - sin embargo, usted puede abrir los archivos de código fuente "Como archivo", lo que significa que Visual Studio los abrirá por sí mismo. Usted puede todavía establecer puntos de interrupción - Visual Studio automáticamente descifrará que el código fuente coincide con el código que se ejecuta en el proceso adjunto y se romperá en consecuencia.
 
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
+Los archivos de código relevantes se pueden encontrar en `./ atom /`, así como en Brightray, que se encuentra en `./brightray/browser` y `./brightray/common`. Si eres experto, también puedes depurar Chromium directamente, que obviamente se encuentra en `chromium_src`.
 
-### Attaching
+### Adjuntado
 
-You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+Usted puede conectar el depurador de Visual Studio a un proceso en ejecución en una computadora local o remota. Después de que se esté ejecutando el proceso, haga clic en Depurar / Adjuntar al proceso (o presione `CTRL+ALT+P`) para abrir el cuadro de diálogo "Adjuntar al proceso". Usted puede usar esta capacidad para depurar aplicaciones que se ejecutan en una computadora local o remota, depurará múltiples procesos simultáneamente.
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Si Electron se ejecuta con una cuenta de usuario diferente, seleccione `mostrar procesos de todos los usuarios` en la casilla. Tenga en cuenta que dependiendo de cuántos BrowserWindows su aplicación tenga abiertos, verá múltiples procesos. Una típica aplicación de una ventana dará como resultado que Visual Studio le presente dos entradas `Electron.exe`: una para el proceso principal y otra para el proceso renderizado. Dado que la lista solo le da nombres, actualmente no hay una forma confiable de descubrir cuál es cuál.
 
-### Which Process Should I Attach to?
+### ¿A qué proceso debo adjuntarme?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Código ejecutado dentro del proceso principal (es decir, código que se encuentra en el archivo JavaScript principal o eventualmente ejecutado), así como código llamado utilizando el control remoto (`require('electron').remote`) se ejecutará dentro del proceso principal, mientras que otro código se ejecutará dentro de su proceso de renderización respectivo.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Puede estar conectado a varios programas cuando se está depurando, pero solamente un programa está activo en el depurador en cualquier momento. Puedes configurar el programa activo en la barra de herramientas `Ubicación de depuración` o en la `ventana de procesos`.
 
 ## Using ProcMon to Observe a Process
 

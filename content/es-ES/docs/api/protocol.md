@@ -72,7 +72,7 @@ app.on('ready', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `filePath` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -94,7 +94,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -142,7 +142,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
@@ -172,7 +172,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -186,7 +186,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `filePath` String
 * `completion` Function (optional) 
   * `error` Error
@@ -202,7 +202,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -218,7 +218,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `buffer` Buffer (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -234,7 +234,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Función 
+  * `llamada de vuelta` Función 
     * `redirectRequest` Object 
       * `url` String
       * `method` String

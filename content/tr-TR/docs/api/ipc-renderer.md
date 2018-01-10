@@ -2,9 +2,9 @@
 
 > Communicate asynchronously from a renderer process to the main process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. You can also receive replies from the main process.
 
 See [ipcMain](ipc-main.md) for code examples.
 
@@ -44,7 +44,7 @@ Removes all listeners, or those of the specified `channel`.
 * `channel` String
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 
@@ -55,7 +55,7 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 

@@ -1,72 +1,72 @@
-# Releasing
+# Publicar
 
-This document describes the process for releasing a new version of Electron.
+Este documento describe el proceso de publicación de una nueva versión de Electron.
 
-## Determine which branch to release from
+## Determinar cual rama publicar primero
 
-- **If releasing beta,** run the scripts below from `master`.
-- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
+- **Si se publica el beta,** ejecute el script abajo desde `maestro`.
+- **Si se publica una version estable,** corra los scripts de abajo desde `1-7-x` o `1-6-x`, dependiendo en la versión que está publicando.
 
-## Find out what version change is needed
+## Encontrar cual es el cambio de versión que se necesita
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+Corra `npm run prepare-release -- --notesOnly`para ver notas de publicación generadas automáticamente. Las notas generadas deberían ayudarte a determinar si esta es un cambio de versión mayor, menor, un parche, o una versión beta. Para más información lea el [Version Change Rules](../tutorial/electron-versioning.md#semver).
 
-## Run the prepare-release script
+## Corra el script preparado para la publicación
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+El script de preparación para la publicación hará lo siguiente: 1. Verificar si una publicación está ya en proceso y si se detendrá. 2. Crea una rama de publicación. 3. Cambia el número de la versión en varios archivos. Vea [este cambio comprometido](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) como ejemplo. 4. Crea un borrador de publicación en GitHub con notas de publicación autogeneradas. 5. Presiona la rama de publicación. 6. Llama al API para correr lo lo construido en la publicación.
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+Una vez que ha determinado que tipo de cambio de versión es necesitado, corra el script `prepare-release` con argumentos correspondientes con lo que necesita: - `[major|minor|patch|beta]` para incrementar uno de los números de la versión o - `--stable` para indicar que es una versión estable
 
-For example:
+Por ejemplo:
 
-### Major version change
+### Cambio mayor de versión
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### Cambio menor de versión
 
 ```sh
 npm run prepare-release -- minor
 ```
 
-### Patch version change
+### Cambio de parche de versión
 
 ```sh
 npm run prepare-release -- patch
 ```
 
-### Beta version change
+### Cambio de versión beta
 
 ```sh
 npm run prepare-release -- beta
 ```
 
-### Promote beta to stable
+### Promover beta a estable
 
 ```sh
 npm run prepare-release -- --stable
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## Esperar para estructuras :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+El script `prepare-release` se disparará en la estructura mediante llamados API. Para monitorear el proceso de estructuración, vea las siguientes páginas:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
-- [circleci.com/gh/electron](https://circleci.com/gh/electron) for Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) para la tienda de aplicación Mac
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) para OS X
+- [circleci.com/gh/electron](https://circleci.com/gh/electron) para Linux
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para Windows
 
-## Compile release notes
+## Compilar notas de publicación
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Escribir notas de publicación es una buena manera de mantenerse ocupado mientras la estructuración está corriendo. Para tener una guía, vea publicación existentes en [the releases page](https://github.com/electron/electron/releases).
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Cada item en la lista debe hacer referencia a un PR en electron/electron, no un PR de otro repositorio como libcc. No hay necesidad de utilizar marcado de enlace al hacer referencia a PR. Cadenas como `#123` serán automáticamente convertidas a links de github.com. Para ver la versión de Chromium, V8 y Node en cada versión de Electron, visite [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Publicación de parches
 
-For a `patch` release, use the following format:
+Para una publicación de `patch`, use el siguiente formato:
 
 ```sh
 ## Bug Fixes
@@ -86,7 +86,7 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### Publicaciones menores
 
 For a `minor` release, e.g. `1.8.0`, use this format:
 
@@ -141,26 +141,26 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 - Some other change. #123
 ```
 
-### Beta releases
+### Publicaciones beta
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+Use el mismo formato como los sugeridos arriba, pero añada las siguientes notas al principio del changelog:
 
 ```sh
-**Note:** This is a beta release and most likely will have have some instability and/or regressions.
+**Nota:** Esta publicación beta es posible que tenga alguna inestabilidad y/o regresión.
 
-Please file new issues for any bugs you find in it.
+Por favor notifique cualquier problema que encuentre en ella.
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+Esta versión es publicada para [npm] https://www.npmjs.com/package/electron) bajo la etiqueta `beta` y puede ser instalada via `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## Editar el borrador de la publicación
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Wait for all builds to pass before proceeding.
-6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
+1. Visite [la página de publicación](https://github.com/electron/electron/releases) y verá un nuevo borrador de publicación con notas de publicación en el lugar guardado.
+2. Edite la publicación y añada notas de publicación.
+3. Deseleccione la casilla de `prerelease` si está publicando una versión estable; dejela seleccionada si es una versión beta.
+4. Haga click en 'Salvar borrador'. **N haga click en 'publicar versión'!**
+5. Espero por todas las estructuras por pasar por los procedimientos.
+6. Puede correr el `npm run release --validateRelease` para verificar que todos los archivos requeridos pueden ser creados para la publicación.
 
 ## Merge temporary branch
 

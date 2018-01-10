@@ -1,12 +1,12 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> PNG ya da JPG dosyalarını kullanarak tepsi, dock(macOS menü) ve uygulama simgeleri oluşturun.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Resim çeken API'ler için Electron'da dosya yollarını veya `NativeImage` örneklerini geçirebilirsiniz. `null` geçirilirse boş resim kullanılacaktır.
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+Örnek olarak, bir tepsi oluştururken veya pencere simgesi ayarlarken, görüntü dosyasının yolunu `String` olarak geçirebilirsiniz:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+Veya panodan `NativeImage` döndüren bir görüntü okuyun:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -27,31 +27,31 @@ console.log(appIcon)
 
 ## Desteklenen formatlar
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+Şu an için `PNG` ve `JPEG` görüntü biçimleri desteklenmektedir. `PNG`, şeffaflığı ve kayıpsız sıkıştırmayı desteklediği için önerilir.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+Windows'ta `ICO` simgelerini de dosya yollarından yükleyebilirsiniz. En iyi görüntü kalitesi için aşağıdaki boyutları eklemeniz önerilir:
 
-* Small icon 
+* Küçük simge 
  * 16x16 (100% DPI ölçeği)
  * 20x20 (125% DPI ölçeği)
  * 24x24 (150% DPI ölçeği)
  * 32x32 (200% DPI ölçeği)
-* Large icon 
+* Büyük simge 
  * 32x32 (100% DPI ölçeği)
  * 40x40 (125% DPI ölçeği)
  * 48x48 (150% DPI ölçeği)
  * 64x64 (200% DPI ölçeği)
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+[Bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx) bulunan *boyut gereksinimlerini* bölümünü kontrol edin.
 
 ## Yüksek çözünürlüklü görüntü
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+Apple Retina ekranları gibi yüksek DPI desteğine sahip platformlarda, yüksek çözünürlüklü resimleri işaretlemek için resmin temel dosya adından sonra `@2x` ekleyebilirsiniz.
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Örnek olarak eğer `icon.png` standart çözünürlüğe sahip normal bir görüntü ise, `icon@2x.png` iki kat DPI yoğunluğuna sahip yüksek çözünürlüklü görüntü olarak değerlendirilir.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+Aynı anda farklı DPI yoğunluklarına sahip görüntüleri desteklemek istiyorsanız, farklı boyutlardaki görüntüleri aynı dizine koyun ve dosya isimlerini DPI son ekleri olmadan kullanın. Örneğin:
 
 ```text
 images/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+DPI için aşağıdaki son ekler de desteklenmektedir:
 
 * `@1x`
 * `@1.25x`
@@ -82,34 +82,34 @@ Following suffixes for DPI are also supported:
 
 ## Şablon resmi
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Şablon görüntüleri siyah ve net renklerden (ve alfa kanalından) oluşur. Şablon görüntüleri bağımsız görüntüler olarak kullanılacak şekilde tasarlanmamıştır ve genellikle istenilen nihai görünüş oluşturmak için diğer içeriklerle karıştırılır.
 
 En yaygın olanı, açık ve koyu menü çubuğuna ayarlanabilmesi için menü çubuğu simgesinde bir şablon resmi kullanmaktır.
 
-**Note:** Template image is only supported on macOS.
+**Not:** Şablon görüntüsü sadece macOS'ta desteklenmektedir.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+Bir görüntüyü şablon görüntüsü olarak işaretmek için, dosya ismi `Template` ile bitmelidir. Örneğin:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## Metodlar
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+`nativeImage` modülü aşağıdaki metotlara sahiptir ve bunların hepsi `NativeImage` sınıfının bir örneğini döndürür:
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
-Creates an empty `NativeImage` instance.
+Boş bir `NativeImage` örneği oluşturur.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* dizi `yolu`
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+`path` yolundaki dosyanın yeni bir `NativeImage` örneğini oluşturur. Bu metot, `path` mevcut değilse, okunamazsa veya geçerli bir görüntü değilse boş bir görüntü döndürür.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -123,17 +123,17 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
-Creates a new `NativeImage` instance from `buffer`.
+`buffer`'dan yeni bir `NativeImage` örneği oluşturur.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
 * `dataURL` String
 
-Returns `NativeImage`
+`NativeImage` döndürür
 
-Creates a new `NativeImage` instance from `dataURL`.
+`dataURL`'den yeni bir `NativeImage` örneği oluşturur.
 
 ## Class: NativeImage
 
@@ -143,39 +143,39 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 ### Örnek yöntemleri
 
-The following methods are available on instances of the `NativeImage` class:
+Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer (**required**) - Between 0 - 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `JPEG` kodlanmış verisini içeririr.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `String` - The data URL of the image.
+`String` döndürür - Görüntünün veri URL'si.
 
 #### `image.getBitmap([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisini içeririr.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+`getBitmap()` ve `toBitmap()` arasındaki fark, `getBitmap()` bitmap verilerini kopyalamamaktadır; bu nedenle, döndürülen arabelleği güncel olay döngüsü işaretinde hemen kullanmalısınız, aksi takdirde veriler değiştirilebilir veya imha edilebilir.
 
 #### `image.getNativeHandle()` *macOS*
 
@@ -195,7 +195,7 @@ Returns [`Size`](structures/size.md)
 
 * `option` Boolean
 
-Marks the image as a template image.
+Görüntüyü şablon görüntüsü olarak işaretler.
 
 #### `image.isTemplateImage()`
 
@@ -209,15 +209,15 @@ Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
-Returns `NativeImage` - The resized image.
+`NativeImage` Döndürür - Yeniden boyutlanmış resim.
 
 If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+`Float` Döner - Resmin en boy oranı.
 
 #### `image.addRepresentation(options)`
 

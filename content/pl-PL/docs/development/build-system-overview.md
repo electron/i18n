@@ -17,7 +17,7 @@ Since Chromium is quite a large project, the final linking stage can take quite 
 
 In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
-## Minimal Bootstrapping
+## Minimalny Booststrapping
 
 All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
 
@@ -50,7 +50,7 @@ Test your changes conform to the project coding style using:
 $ npm run lint
 ```
 
-Test functionality using:
+Test funkcjonalności używając:
 
 ```sh
 $ npm test

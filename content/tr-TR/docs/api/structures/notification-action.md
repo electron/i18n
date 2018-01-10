@@ -1,19 +1,19 @@
 # Bildirim Eylem Nesnesi
 
-* `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* `type` String - Aksiyonun türü. Tür `button` olabilir.
+* `text` String - (isteğe bağlı) Verilen aksiyon için etiket.
 
 ## Platform / Eylem Desteği
 
-| Eylem türü | Destek Platformu | Usage of `text`                  | Varsayılan `metin` | Limitations                                                                                                                                                         |
-| ---------- | ---------------- | -------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tuş`      | macOS            | Used as the label for the button | "Göster"           | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Eylem türü | Destek Platformu | `Metnin` Kullanımı              | Varsayılan `metin` | Kısıtlamalar                                                                                                                                                |
+| ---------- | ---------------- | ------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tuş`      | macOS            | Tuş için etiket gibi kullanıldı | "Göster"           | Maksimum bir düğme, eğer birden çok gösterilirse sadece sonuncu kullanılır. Bu eylem `hasReply` ile de uyumsuzdur ve `hasReply` `true` ise göz ardı edilir. |
 
 ### MacOS Destek Düğmesi
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+Ek bildirim düğmelerinin macOS'ta çalışabilmesi için uygulamanızın aşağıdaki kriterler sağlaması gerekmektedir.
 
 * İmzalı uygulama
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* Uygulama içinde `NSUserNotificationAlertStyle` tarafından ayarlanan `info.plist` içindeki `alert`'e sahiptir.
 
-If either of these requirements are not met the button simply won't appear.
+Bu gerekliliklerden herhangi biri karşılanmazsa düğme görünmez.

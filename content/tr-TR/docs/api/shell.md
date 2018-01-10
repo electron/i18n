@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> Varsayılan uygulamalarını kullanarak dosyaları ve URL'leri yönetin.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
-An example of opening a URL in the user's default browser:
+Bir URL'yi kullanıcının varsayılan tarayıcısında açmaya örnek:
 
 ```javascript
 const {shell} = require('electron')
@@ -22,7 +22,7 @@ The `shell` module has the following methods:
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+`Boolean` Döndürür - Öğenin başarıyla gösterilip gösterilmediği
 
 Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı seçin.
 
@@ -30,33 +30,33 @@ Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı se
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+`Boolean` Döndürür - Öğenin başarılı bir şekilde açılıp açılmadığı.
 
-Open the given file in the desktop's default manner.
+Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` Dize
-* `options` Obje (isteğe bağlı) *macOS* 
+* `ayarlar` Obje (isteğe bağlı) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) - If specified will perform the open asynchronously. *macOS* 
-  * `error` Error
+* `geri arama` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `error` Hata 
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Verilen harici protokol URL'sini masaüstünde varsayılan şekilde açın. (Örneğin, mailto: kullanıcının varsayılan posta aracısındaki URL'leri).
 
 ### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+`Boolean` Döndürür - Öğenin çöp kutusuna başarıyla taşınıp taşınmadığı
 
-Move the given file to trash and returns a boolean status for the operation.
+Verilen dosyayı çöp kutusuna taşır ve işlem için bir boolean durumu döndürür.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Bip sesini oynatın.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
@@ -67,9 +67,9 @@ Play the beep sound.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+`Boolean` Döndürür - Kısayolun başarıyla oluşturulup oluşturulmadığı
 
-Creates or updates a shortcut link at `shortcutPath`.
+`shortcutPath` bir kısayol bağlantısı oluşturur veya güncelleştirir.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
@@ -77,6 +77,6 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 Returns [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Kısayol bağlantısını `shortcutPath` adresinde çözer.
 
-An exception will be thrown when any error happens.
+Bir hata oluştuğunda istisna atılır.

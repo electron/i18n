@@ -22,11 +22,11 @@ Then, go and install the `electron-windows-store` CLI:
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## Krok 1: Spakuj Twoją Aplikację Electron
 
 Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
 
-The output should look roughly like this:
+Wyjście powinno wyglądać mniej więcej tak:
 
 ```text
 ├── Ghost.exe

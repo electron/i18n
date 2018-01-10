@@ -1,26 +1,26 @@
 # Guía de publicación en la Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Desde su V0.34.0, Electron permite introducir paquetes de aplicaciones a la Mac App Store (MAS). Esta guía provee información de: Como presentar tu aplicación y las limitaciones de la estructura del MAS.
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**Nota:** Presentar una aplicación en la Mac App Store requiere la aprobación del [programa de desarrolladores de Apple](https://developer.apple.com/support/compare-memberships/), el cual cuesta dinero.
 
-## How to Submit Your App
+## Como presentar su aplicación
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+Los siguientes pasos introducen una manera más simple de presentar su aplicación en la Mac App Store. Sin embargo, estos paso no aseguran que su aplicación será aprobada por Apple: Todavía debe leer la guía de Apple para [presentar tu aplicación](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) sobre como cumplir con los requerimientos de la Mac App Store.
 
-### Get Certificate
+### Obtener el certificado
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Para presentar tu aplicación en la Mac App Store, primero debe obtener un certificado de Apple. Puede seguir las [guías existentes](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) en la web.
 
-### Get Team ID
+### Obtener identificación de equipo
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Antes de firmar su aplicación, necesita conocer la identificaicón del equipo de su cuenta. Para localizar la identificación de su equipo, entre en el [Centro de Desarrolladores de Apple](https://developer.apple.com/account/), y haga click en membresía en la barra lateral. Tu identificación de equipo aparece en la sección de información de membresía bajo el nombre del equipo.
 
-### Sign Your App
+### Firmar tu aplicación
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Después de los trabajos preparativos, puede empacar su aplicación siguiendo [Distribución de la aplicación](application-distribution.md), y después firmando su aplicación.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+Primer, tiene que añadir la llave `ElectronTeamID` a la `Info.plist` de su aplicación, el cual tiene la identificación de su equipo como valor:
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Luego, necesita preparar 3 archivos con los derechos.
 
 `child.plist`:
 
@@ -77,9 +77,9 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Tiene que cambiar `TEAM_ID` con la identificación de su equipo, y reemplazar `your.bundle.id` con la identificación de su aplicación.
 
-And then sign your app with the following script:
+Y luego firme u aplicación con el siguiente script:
 
 ```sh
 #!/bin/bash
@@ -118,11 +118,11 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+Si es nuevo trabajando con aplicaciones en cajas de arena en macOS, debería leer también [Habilitando caja de arena de aplicaciones](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) de Apple para tener una idea básica, luego añada la llaves para los permisos necesitados por su aplicación a los archivos con los derechos.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Además de firmar la aplicación manualmente, también puede elegir usar el módulo [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) para hacer el trabajo.
 
-#### Sign Native Modules
+#### Firmar módulos nativos
 
 Módulos nativos utilizados en su aplicación también necesitan la firma. Si usa el Electron-osx-signo, asegúrese de incluir la ruta a los binarios construidos en la lista de argumentos:
 
@@ -130,52 +130,52 @@ Módulos nativos utilizados en su aplicación también necesitan la firma. Si us
 Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). Si utiliza [electron-packager](https://github.com/electron-userland/electron-packager) antes de la versión 8.1.0, agregue `--ignore=.+\.o$` a sus pasos de estructuración para ignorar estos archivos. Versión 8.1.0 y posteriores ignora estos archivos por defecto.
 
-### Upload Your App
+### Actualice su aplicación
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+Después de firmar su aplicación, usted puede usar Application Loader para actualizarla en la conexión de Itunes para procesarlo, asegurándose de [crear un registro](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) antes de subirlo.
 
-### Submit Your App for Review
+### Presentar su aplicación para revisión
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+Después de estos pasos, usted puede [presentar su aplicación para revisión](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## Limitaciones de la estructura del MAS
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Con el fin de satisfacer todos los requerimientos de las aplicaciones en la caja de arena, los siguientes módulos han sido deshabilitados en la estructura del MAS:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+y los siguientes comportamientos han sido cambiados:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* La captura de video puede no funcionar para algunos equipos.
+* Algunas características de accesibilidad pudiesen no funcionar.
+* Las aplicaciones no tendrán la señal de los cambios DNS.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+Igualmente, dado el uso de las aplicaciones en caja de arena, los recursos que pueden ser accesados por la aplicación son limitados; puede leer [App Sandboxing](https://developer.apple.com/app-sandboxing/) para más información.
 
-### Additional Entitlements
+### Derechos adicionales
 
 Dependiendo de que APIs de Electron usos de su aplicación, puede que necesite agregar derechos adicionales para el archivo `parent.plist` para poder utilizar estas API de compilación de Mac App Store de su aplicación.
 
-#### Network Access
+#### Acceso a la red
 
-Enable outgoing network connections to allow your app to connect to a server:
+Habilitar conexiones de red salientes para permitir que su aplicación se conecte al servidor:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Habilitar conexiones de red entrantes para permitir que su aplicación abra puertos de escucha:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+Vea la [Documentación sobre la habilitación del acceso de red](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) para más detalles.
 
 #### dialog.showOpenDialog
 
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Vea la [documentación sobre la habilitación del acceso del usuario a archivos seleccionados](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para más información.
 
 #### dialog.showSaveDialog
 
@@ -193,9 +193,9 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Vea la [documentación sobre la habilitación del acceso del usuario a archivos seleccionados](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para más información.
 
-## Known issues
+## Problemas conocidos
 
 ### `shell.openItem(filePath)`
 
@@ -207,7 +207,7 @@ This will fail when the app is signed for distribution in the Mac App Store. Sub
 
 ## Algoritmos criptográficos utilizados por Electron
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Dependiendo del país y región en el que se encuentre, la Mac App Store puede requerir la documentación de los algoritmo criptográficos en su aplicación, e incluso pedirle que presente una copia de la aprobación registro de encriptación de EEUU (ERN).
 
 Electron uses following cryptographic algorithms:
 

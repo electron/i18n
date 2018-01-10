@@ -16,7 +16,7 @@ docs:
   api_reference: API Referansı
   advanced: Gelişmiş
   footer:
-    propose_change: Improve this doc
+    propose_change: Bu dökümanı geliştir
     version_history: Sürüm geçmişi
     translate: Bu dökümanı çevir
     view_all_docs: Tek bir sayfada tüm dökümanlar

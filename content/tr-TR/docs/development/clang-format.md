@@ -6,11 +6,11 @@
 
 `npm install -g clang-format` vasıtasıyla `clang-format` ve `git-clang-format` kurabilirsiniz.
 
-Bir dosyayı Electron C++ kod stiline göre otomatik olarak biçimlendirmek için `clang-format -i path/to/electron/file.cc`'yi çalıştırmanız yeterlidir. MacOS/Linux/Windows üzerinde çalışmalıdır.
+Bir dosyayı Electron C++ kod stiline göre otomatik olarak biçimlendirmek için `clang-format -i path/to/electron/file.cc`'yi çalıştırmanız yeterlidir. macOS/Linux/Windows üzerinde çalışmalıdır.
 
 Değiştirilen kodunuzu biçimlendirmek için iş akışı:
 
-1. Elektron deposunda kod değişiklikleri yapın.
+1. Electron deposunda kod değişiklikleri yapın.
 2. Çalıştır `git add your_changed_file.cc`.
 3. `git-clang-format` çalıştırın ve muhtemelen `your_changed_file.cc`'de değişiklikler göreceksiniz, bu değişiklikler `clang-format`'dan üretilir.
 4. `git add your_changed_file.cc` çalıştırın ve değişikliğinizi yapın.

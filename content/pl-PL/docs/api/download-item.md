@@ -90,7 +90,7 @@ Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Wznawia pobieranie, które było zatrzymane.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 

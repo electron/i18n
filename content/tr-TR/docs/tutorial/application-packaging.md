@@ -4,9 +4,9 @@ Windows'ta uzun yol adları etrafındaki [issues](https://github.com/joyent/node
 
 ## `asar` Arşivi Oluşturuluyor
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Bir [asar](https://github.com/electron/asar) arşivi, dosyaları birleştiren basit bir tar benzeri formatta tek bir dosyaya dönüştürür. Electron, bütün dosyaları paketten çıkarmadan rastgele dosyaları okuyabilir.
 
-Steps to package your app into an `asar` archive:
+Uygulamanızı bir `asar` arşivine paketlemeye ilişkin adımlar:
 
 ### 1. Asar Yardımcı Programını Kurun
 
@@ -14,21 +14,21 @@ Steps to package your app into an `asar` archive:
 $ npm kurma -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Paket `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Arşivleri `asar` kullanma
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Electron'da iki API seti vardır: Node.js ve Web tarafından sağlanan buton API'leri Chromium tarafından sağlanan API'ler. Her iki API, `asar` arşivlerinden dosyaları okumayı desteklemektedir.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Electron'da özel yamalarla, `fs.readFile` ve `require` gerektirir. ` asar` arşivlerini sanal dizinler olarak ve içindeki dosyalar normal Dosya sistemindeki dosyalardır.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Örneğin, bir `example.asar` archive under `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -40,27 +40,27 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+`asar` Arşivindeki bir dosyayı okuyun:
 
 ```javascript
 const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Arşivin kök dizinindeki tüm dosyaları listeleyin:
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Arşivdeki bir modülü kullanın:
 
 ```javascript
-require('/path/to/example.asar/dir/module.js')
+gerektirir('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+`BrowserWindow` ile `asar` arşivinde bir web sayfası da gösterebilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -70,9 +70,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Bir web sayfasında, arşivdeki dosyalar `file:` protokolü ile istenebilir. Buton API'sı gibi, `asar` arşivleri de dizin olarak değerlendirilir.
 
-For example, to get a file with `$.get`:
+Örneğin, bir dosyayı almak için `$.get`:
 
 ```html
 <script>
@@ -83,9 +83,9 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### `asar` Arşivini Normal Dosya Olarak İşleme
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Bazı durumlarda, `asar` arşivinin doğrulanması gibi, `asar ` arşivinin bir dosya olarak içeriğini okumamız lazım. Bu amaçla `original-fs` module which provides original `fs` APIs without `asar` dahili desteği kullanabilirsiniz:
 
 ```javascript
 const originalFs = require('original-fs')
@@ -100,23 +100,23 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Node API'nin Limitleri
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+`asar` arşivlerini mümkün olduğunca Node API'sindeki dizinler gibi çalıştırmak için çok uğraşmış olsak da, Node API'sının düşük düzeyli doğasından dolayı hala sınırlamalar bulunmaktadır.
 
-### Archives Are Read-only
+### Arşiv salt okunur
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Arşivler değiştirilemez, bu nedenle dosyaları değiştirebilen tüm Buton API'leri `asar` arşivleriyle çalışın.
 
 ### Çalışma dizini arşivdeki dizinlere ayarlanamıyor
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+`asar` arşivleri dizin olarak değerlendirilse de, gerçek dizinleri, çalışma dizini olarak asla ayarlayamazsınız dizinler `asar` arşivlerinde. Bazı API'ların `cwd` seçeneği olarak geçirilmesi hatalara neden olur.
 
-### Extra Unpacking on Some APIs
+### Bazı API'lerde Ekstra Paketten Çıkarma
 
-Çoğu `fs` API'si bir dosyayı okuyabilir veya paketten çıkarmadan bir dosya bilgisini `asar` arşivlerinden alabilir ancak gerçek dosya yolunu temel alınan sistem çağrılarına geçirmeye dayanan bazı API'ler için, Electron gerekli dosyayı geçici bir dosyaya çıkaracaktır ve geçici dosyanın yolunu API'lara çalışması için iletirler. This adds a little overhead for those APIs.
+Çoğu `fs` API'si bir dosyayı okuyabilir veya paketten çıkarmadan bir dosya bilgisini `asar` arşivlerinden alabilir ancak gerçek dosya yolunu temel alınan sistem çağrılarına geçirmeye dayanan bazı API'ler için, Electron gerekli dosyayı geçici bir dosyaya çıkaracaktır ve geçici dosyanın yolunu API'lara çalışması için iletirler. Bu, bu API'ler için biraz yük getirir.
 
-APIs that requires extra unpacking are:
+Ek paketten çıkarmayı gerektiren API'ler şunlardır:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
@@ -124,24 +124,24 @@ APIs that requires extra unpacking are:
 * `fs.openSync`
 * `process.dlopen` - Used by `require` on native modules
 
-### Fake Stat Information of `fs.stat`
+### Sahte Stat Bilgileri `fs.stat`
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. Bu nedenle, dosya alma haricinde`Stats` nesnesine güvenmemelisiniz boyutunu ve dosya türünü denetle.
 
-### Executing Binaries Inside `asar` Archive
+### `asar` Arşivinde İkili Yürütme
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+`child_process.exec` gibi ikili dosyaları çalıştırabilen düğüm API'leri var, `child_process.spawn` ve `child_process.execFile `, ancak yalnızca `execFile` `asar` arşivindeki ikili dosyaları çalıştırmak için desteklenmektedir.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. Belirlemek için güvenilir bir yol yok. bir komutun asar arşivinde bir dosya kullanıp kullanmadığı belirlemek için güvenilir bir yol yoktur, yan etkileri olmadan komuta yolunu değiştirip değiştiremeyeceğimizden emin olamayız.
 
-## Adding Unpacked Files in `asar` Archive
+## Paketlenmemiş Dosyaları `asar` Arşivine Ekleme
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+Yukarıda belirtildiği gibi, bazı düğüm API'leri, dosyayı dosya sistemine açmak için performans sorunlarının yanı sıra virüs tarayıcılarında yanlış uyarılara da yol açabilir.
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+Bu sorunu çözmek için, arşiv oluşturma özelliğini kullanarak bazı dosyaları açabilirsiniz. `--unpack ` seçeneği, yerel modüllerin paylaşılan kitaplıklarını hariç tutmanın geçerli bir örneğidir:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+Komutu çalıştırdıktan sonra, `app.asar` haricinde, açılmış dosyaları içeren bir `app.asar.unpacked` klasörü de var, bunu kullanıcılara gönderirken `app.asar` ile birlikte kopyalamalısınız.

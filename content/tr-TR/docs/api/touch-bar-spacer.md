@@ -6,8 +6,8 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSpacer(options)` *Experimental*
 
-* `options` Nesne 
-  * `size` String (optional) - Size of spacer, possible values are: 
+* `ayarlar` Nesne 
+  * `boyut` String (optional) - Size of spacer, possible values are: 
     * `small` - Small space between items.
     * `large` - Large space between items.
     * `flexible` - Take up all available space.

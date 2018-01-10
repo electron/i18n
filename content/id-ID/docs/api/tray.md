@@ -28,155 +28,155 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
 
 ### `tray baru(image)`
 
-* ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
-</ul>
+* `gambar` ([NativeImage](native-image.md) | String)
 
-<p>Buatlah sebuah ikon tray baru yang terkait dengan <code>image`.</p> 
-  ### Instance Events
-  
-  Modul `Tray` memancarkan peristiwa berikut:
-  
-  #### Acara : 'klik'
-  
-  * `peristiwa` Peristiwa 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
-  
-  Emitted saat ikon baki diklik.
-  
-  #### Event: klik 'kanan' *macOS* *Windows*
-  
-  * `peristiwa` Peristiwa 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
-  
-  Dibunyikan ketika ikon tray benar diklik.
-  
-  #### Event: 'Klik dua kali' *macOS* *Windows*
-  
-  * `peristiwa` Peristiwa 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
-  
-  Dipancarkan saat ikon baki diklik dua kali.
-  
-  #### Event: 'balon-show' *Windows*
-  
-  Emitted saat balon baki menunjukkan.
-  
-  #### Event: 'klik-balloon' *Windows*
-  
-  Emitted saat balon nampan diklik.
-  
-  #### Event: 'balon-tertutup' *Windows*
-  
-  Dipancarkan ketika balon nampan ditutup karena timeout atau pengguna secara manual menutup itu.
-  
-  #### Event: 'turun' *macOS*
-  
-  Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
-  
-  #### Event: 'drop-file' *macOS*
-  
-  * ` event </ 0>  Acara</li>
+Buatlah sebuah ikon tray baru yang terkait dengan `image`.
+
+### Instance Events
+
+Modul `Tray` memancarkan peristiwa berikut:
+
+#### Acara : 'klik'
+
+* `peristiwa` Peristiwa 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
+
+Emitted saat ikon baki diklik.
+
+#### Event: klik 'kanan' *macOS* *Windows*
+
+* `peristiwa` Peristiwa 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
+
+Dibunyikan ketika ikon tray benar diklik.
+
+#### Event: 'Klik dua kali' *macOS* *Windows*
+
+* `peristiwa` Peristiwa 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
+
+Dipancarkan saat ikon baki diklik dua kali.
+
+#### Event: 'balon-show' *Windows*
+
+Emitted saat balon baki menunjukkan.
+
+#### Event: 'klik-balloon' *Windows*
+
+Emitted saat balon nampan diklik.
+
+#### Event: 'balon-tertutup' *Windows*
+
+Dipancarkan ketika balon nampan ditutup karena timeout atau pengguna secara manual menutup itu.
+
+#### Event: 'turun' *macOS*
+
+Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
+
+#### Event: 'drop-file' *macOS*
+
+* ` event </ 0>  Acara</li>
 <li><code>file` String [] - path file menjatuhkan.
-  
-  Disuarakan saat file terseret dijatuhkan di ikon baki.
-  
-  #### Event: 'drop-teks' *macOS*
-  
-  * ` event </ 0>  Acara</li>
-<li><code>teks` String - string teks menjatuhkan
-  
-  Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
-  
-  #### Event: 'Masukkan tarik' *macOS*
-  
-  Dibunyikan apabila operasi drag yang memasuki ikon tray.
-  
-  #### Event: 'drag-meninggalkan' *macOS*
-  
-  Dibunyikan apabila operasi tarik keluar ikon tray.
-  
-  #### Event: 'drag-end' *macOS*
-  
-  Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi lain.
-  
-  #### Event: 'masuk mouse' *macOS*
-  
-  * `peristiwa` Peristiwa 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `posisi` [Point](structures/point.md) - posisi acara
-  
-  Dibunyikan apabila operasi drag yang memasuki ikon tray.
-  
-  #### Acara: 'pindah' *macOS*
-  
-  * `peristiwa` Peristiwa 
-    * `altKey` Boolean
-    * `shiftKey` Boolean
-    * `ctrlKey` Boolean
-    * `metaKey` Boolean
-  * `posisi` [Point](structures/point.md) - posisi acara
-  
-  Dibunyikan apabila operasi drag yang memasuki ikon tray.
-  
-  ### Metode Instance
-  
-  Itu `net` modul memiliki metode berikut:
-  
-  #### `tray.destroy ()`
-  
-  Segera hancurkan ikon baki.
-  
-  #### `tray.setImage(image)`
-  
-  * ` gambar </ 0> ( <a href="native-image.md"> NativeImage </ 1> | String )</li>
-</ul>
 
-<p>Mengatur <code>gambar` yang terkait dengan ikon baki ini.</p> 
-    #### `tray.setPressedImage(gambar) ` *macos*
-    
-    * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+Disuarakan saat file terseret dijatuhkan di ikon baki.
+
+#### Event: 'drop-teks' *macOS*
+
+* ` event </ 0>  Acara</li>
+<li><code>teks` String - string teks menjatuhkan
+
+Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
+
+#### Event: 'Masukkan tarik' *macOS*
+
+Dibunyikan apabila operasi drag yang memasuki ikon tray.
+
+#### Event: 'drag-meninggalkan' *macOS*
+
+Dibunyikan apabila operasi tarik keluar ikon tray.
+
+#### Event: 'drag-end' *macOS*
+
+Dipancarkan ketika operasi drag yang berakhir di baki atau berakhir di lokasi lain.
+
+#### Event: 'masuk mouse' *macOS*
+
+* `peristiwa` Peristiwa 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `posisi` [Point](structures/point.md) - posisi acara
+
+Dibunyikan apabila operasi drag yang memasuki ikon tray.
+
+#### Acara: 'pindah' *macOS*
+
+* `peristiwa` Peristiwa 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `posisi` [Point](structures/point.md) - posisi acara
+
+Dibunyikan apabila operasi drag yang memasuki ikon tray.
+
+### Metode Instance
+
+Itu `net` modul memiliki metode berikut:
+
+#### `tray.destroy ()`
+
+Segera hancurkan ikon baki.
+
+#### `tray.setImage(image)`
+
+* `gambar` ([NativeImage](native-image.md) | String)
+
+Mengatur `gambar` yang terkait dengan ikon baki ini.
+
+#### `tray.setPressedImage(gambar) ` *macos*
+
+* ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul>
 
 <p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.</p> 
-      #### `tray.setToolTip(toolTip)`
-      
-      * `toolTip` String
-      
-      Menyetel teks hover untuk ikon baki ini.
-      
-      #### `tray.setTitle(judul) ` *macos*
-      
-      * ` title </ 0>  String</li>
+  #### `tray.setToolTip(toolTip)`
+  
+  * `toolTip` String
+  
+  Menyetel teks hover untuk ikon baki ini.
+  
+  #### `tray.setTitle(judul) ` *macos*
+  
+  * ` title </ 0>  String</li>
 </ul>
 
 <p>Menetapkan judul yang ditampilkan di samping ikon baki di bilah status.</p>
 
 <h4><code>tray.setHighlightMode(mode)` * macos*</h4> 
-        * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
-          * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
-          * `selalu` - Selalu sorot ikon baki.
-          * `tidak pernah` - Jangan menyorot ikon baki.
-        
-        Menyetel saat latar belakang ikon baki disorot (berwarna biru).
-        
-        **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
-        
-        ```javascript
+    * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
+      * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
+      * `selalu` - Selalu sorot ikon baki.
+      * `tidak pernah` - Jangan menyorot ikon baki.
+    
+    Menyetel saat latar belakang ikon baki disorot (berwarna biru).
+    
+    **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
+    
+    ```javascript
 const {BrowserWindow, Tray} = require ('electron')
 
 const win = new BrowserWindow ({width: 800, height: 600})
@@ -192,12 +192,12 @@ win.on ('hide', () = > {
   tray.setHighlightMode ('tidak pernah')
 })
 ```
-    
-    #### `tray.displayBalloon(options)` *Windows*
-    
-    * `pilihan` Obyek 
-      * `ikon` ([NativeImage](native-image.md) | String) - (opsional)
-      * ` title </ 0> String - (contoh)</li>
+
+#### `tray.displayBalloon(options)` *Windows*
+
+* `pilihan` Obyek 
+  * `ikon` ([NativeImage](native-image.md) | String) - (opsional)
+  * ` title </ 0> String - (contoh)</li>
 <li><code> konten </ 0> String - (contoh)</li>
 </ul></li>
 </ul>
@@ -205,25 +205,25 @@ win.on ('hide', () = > {
 <p>Menampilkan balon baki.</p>
 
 <h4><code>tray.popUpContextMenu([menu, position])` *macOS* *Windows*</h4> 
-        * ` teks ` String (opsional)
-        * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
-        
-        Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
-        
-        Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
-        
-        #### `tray.setContextMenu (menu)`
-        
-        * `menu` Menu
-        
-        Menetapkan menu konteks untuk ikon ini.
-        
-        #### `tray.getBounds()` *macOS * * Windows*
-        
-        Kembali [`Rectangle`](structures/rectangle.md)
-        
-        `Batas` dari ikon baki ini sebagai `Objek`.
-        
-        #### `tray.isDestroyed()`
-        
-        Mengembalikan `Boolean` - Apakah ikon baki rusak.
+    * ` teks ` String (opsional)
+    * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
+    
+    Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
+    
+    Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
+    
+    #### `tray.setContextMenu (menu)`
+    
+    * `menu` Menu
+    
+    Menetapkan menu konteks untuk ikon ini.
+    
+    #### `tray.getBounds()` *macOS * * Windows*
+    
+    Kembali [`Rectangle`](structures/rectangle.md)
+    
+    `Batas` dari ikon baki ini sebagai `Objek`.
+    
+    #### `tray.isDestroyed()`
+    
+    Mengembalikan `Boolean` - Apakah ikon baki rusak.

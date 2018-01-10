@@ -78,27 +78,25 @@ Son olarak, araç yeni AppX paketini imzalamak için bilgisayarınızda güvenil
 <p>Paketinizi çalıştırmak için, kullanıcıların gerekir Windows'u sözde "Yıldönümü Güncellemesi" ile 10 - Windows'un nasıl güncelleştirileceği ile ilgili ayrıntılar bulunabilir <a href="https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update">Burada</a>.</p>
 
 <p>Geleneksel UWP uygulamalarına karşı olarak, paketlenmiş uygulamaların şu anda bir elle doğrulama işlemi uygulayabilirsiniz. <a href="https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge">burada</a>.
-In the meantime, all users will be able to just install your package by double-clicking it,
-so a submission to the store might not be necessary if you're simply looking for an
-easier installation method. In managed environments (usually enterprises), the
-<code>Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Bu arada, tüm kullanıcılar paketinizi çift tıklatarak yükleyebilecek,
+Dolayısıyla, yalnızca mağaza arıyorsanız, kolay kurulum yöntemi mağazaya teslim olmayabilir. Yönetilen ortamlarda (genellikle işletmeler), <code>Add-AppxPackage` [PowerShell Cmdlet otomatik olarak yüklemek için kullanılabilir](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Bir diğer önemli kısıtlama, derlenmiş AppX paketinin hala bir win32 yürütülebilir - ve bu nedenle Xbox, HoloLens veya Telefonlar üzerinde çalışmaz.
 
-## Optional: Add UWP Features using a BackgroundTask
+## İsteğe bağlı: Bir BackgroundTask kullanarak UWP Özellikleri Ekle
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Electron uygulamanızı; bildirim gönderme, Cortana entegrasyonu veya canlı karo gibi Windows 10 özelliklerinden tam olarak yararlanmanızı sağlayacak görünmez bir UWP arka plan göreviyle eşleştirebilirsiniz.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Bir arka plan görevini kullanan bir Electron uygulamasının toast bildirimlerini ve canlı karoları nasıl gönderdiğini kontrol etmek için, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## İsteğe bağlı: Konteyner Sanallaştırması'nı kullanarak Dönüştürün
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+AppX paketi oluşturmak için, `electron-windows-store` CLI'si çoğu Electron uygulamasında çalışması gereken bir şablon kullanır. Bununla birlikte, bir özel kurulumcu kullanıyorsanız veya oluşturulan paketle ilgili herhangi bir sorun yaşarsanız, Windows Container - içinde derleme kullanarak bir paket oluşturmaya çalışabilir, bu modda, CLI yükleme yapar ve uygulamanızı boş Windows Konteynerın'da çalıştırır uygulamanızın hangi işletim modülüne değişiklik yaptığını tam olarak belirleme sistemi.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). İki dosya alacaksınız: `DesktopAppConverter.zip` ve `BaseImage-14316.wim`.
 
 1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+2. Konumdaki windows temel görünümünü görmezden gelerek masaüstü uygulama çeviricisini indir ve çalıştır.
+3. Yukarıdaki komutu çalıştırdığınızda yeniden başlatmanız istendiğinde, lütfen makineyi yeniden başlatın ve başarılı gerçekleşen bir yeniden başlatma sonrasında yukarıda bulunan komutu tekrar çalıştırın.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+Kurulum başarılı olursa, Electron uygulamanızı derlemek için ilerleyebilirsiniz.

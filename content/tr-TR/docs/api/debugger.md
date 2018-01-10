@@ -51,7 +51,7 @@ Detaches the debugger from the `webContents`.
 
 * `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
 * `commandParams` Object (optional) - JSON object with request parameters.
-* `callback` Function (optional) - Response 
+* `geri arama` Function (optional) - Response 
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
@@ -72,4 +72,4 @@ Emitted when debugging session is terminated. This happens either when `webConte
 * `method` String - Method name.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
-Emitted whenever debugging target issues instrumentation event.
+Hata ayıklama hedeflemesi enstrümantasyon olayında her zaman ortaya çıkar.

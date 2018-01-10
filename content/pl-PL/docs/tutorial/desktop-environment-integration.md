@@ -4,9 +4,9 @@ Different operating systems provide different features for integrating desktop a
 
 This guide explains how to integrate your application into those desktop environments with Electron APIs.
 
-## Notifications
+## Powiadomienia
 
-See [Notifications](notifications.md)
+Zobacz [powiadomienia](notifications.md)
 
 ## Recent documents (Windows & macOS)
 
@@ -243,7 +243,7 @@ win.setDocumentEdited(true)
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+W stronie Www:
 
 ```html
 <a href="#" id="drag">item</a>

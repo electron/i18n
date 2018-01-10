@@ -64,7 +64,7 @@ Zwraca:
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Emitowane kiedy aplikacja jest wyłączana.
 
 ### Event: 'open-file' *macOS*
 
@@ -73,9 +73,9 @@ Zwraca:
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Emitowany kiedy użytkownik chce otworzyć plik za pomocą aplikacji. `open-file` Zdarzenie jest zazwyczaj emitowane gdy aplikacja jest już otwarta i system operacyjny chce użyć jej ponownie do otwarcia pliku. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Powinieneś wywołać `event.preventDefault()` jeśli chcesz obsłużyć zdarzenie.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
@@ -86,9 +86,9 @@ Zwraca:
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Emitowany, gdy użytkownik chce otworzyć adres URL za pomocą aplikacji. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Powinieneś wywołać `event.preventDefault()` jeśli chcesz obsłużyć zdarzenie.
 
 ### Event: 'activate' *macOS*
 
@@ -97,7 +97,7 @@ Zwraca:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Emitted when the application is activated. Różne akcje mogą wywołać to zdarzenie, takie jak: włączanie aplikacji po raz pierwszy, próba ponownego otwarcia aplikacji kiedy jest już uruchomiona lub klikanie na aplikacje na Docku czy ikonkę na pasku zadań.
 
 ### Event: 'continue-activity' *macOS*
 
@@ -167,7 +167,7 @@ Zwraca:
 * `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Emitowany gdy nie powiedzie się weryfikacja certyfikatu `certificate` dla `url`, aby certyfikat przeszedł weryfikację powinieneś zapobiec domyślnemu zachowaniu aplikacji przy pomocy `event.preventDefault()` i wywołać `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -191,7 +191,7 @@ Zwraca:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Funkcja 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitted when a client certificate is requested.
@@ -213,11 +213,11 @@ Zwraca:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `request` Obiekt 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Obiekt 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -256,7 +256,7 @@ Zwraca:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Emitowany gdy zmieni się obsługa dostępu Chroma. Zdarzenie zostaje wywołane, gdy technologie wspomagające, takie jak czytniki ekranu, są włączone lub wyłączone. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Metody
 
@@ -266,7 +266,7 @@ The `app` object has the following methods:
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Spróbuj zamknąć wszystkie okna aplikacji. The `before-quit` event will be emitted first. Jeśli wszystkie okna są poprawnie zamknięte, zdarzenie `will-quit` zostanie wywołane i domyślna aplikacja zostanie zakończona.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
@@ -276,7 +276,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika oraz zdarzenia `before-quit` i `will-quit` nie zostaną wywołane.
 
 ### `app.relaunch([options])`
 
@@ -286,13 +286,13 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 Relaunches the app when current instance exits.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Domyślnie nowa instancja będzie wykorzystywać ten sam katalog oraz wiersz poleceń z argumentami bieżącej instancji. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Kiedy `app.relaunch` jest wielokrotnie wywoływana, nowe wielokrotne instancje będą uruchamiane po zakończeniu działania bieżącej instancji.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Przykład natychmiastowego ponownego uruchomienia bieżącej instancji oraz dodanie nowych argumentów do wiersza poleceń:
 
 ```javascript
 const {app} = require('electron')
@@ -311,11 +311,11 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Ukrywa wszystkie okna aplikacji bez minimalizowania ich.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Pokazuje okna aplikacji po tym jak były ukryte. Nie ustawia ich automatycznie.
 
 ### `app.getAppPath()`
 
@@ -327,7 +327,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -350,7 +350,7 @@ You can request the following paths by the name:
 
 * `path` String
 * `options` Object (optional) 
-  * `size` String 
+  * `size` Ciąg tekstu 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
@@ -372,15 +372,15 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Zastępuje `path` ze specjalnego katalogu lub pliku związanego z `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
 You can only override paths of a `name` defined in `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Domyślnie, ciasteczka cookies i cache będzie przechowywany w katalogu `userData`. Jeśli chcesz zmienić tą lokalizację, musisz zastąpić `userData` ścieżką do wybranego katalogu zanim `ready` zdarzenie `app` zostanie wywołane.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Returns `String` - The version of the loaded application. Jeśli nie znaleziono wersji aplikacji w pliku `package.json`, zwracana jest wersja aktualnego pakietu lub pliku wykonywalnego.
 
 ### `app.getName()`
 
@@ -392,7 +392,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+Zastępuje aktualną nazwę aplikacji.
 
 ### `app.getLocale()`
 
@@ -412,7 +412,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Czyści ostatnią listę dokumentów.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -422,11 +422,11 @@ Clears the recent documents list.
 
 Returns `Boolean` - Whether the call succeeded.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Metoda ustawia domyślny plik wykonywalny jako domyślny program obsługujący protokół (również jako URI). Pozwala na głębsze zintegrowanie aplikacji z systemem. Once registered, all links with `your-protocol://` will be opened with the current executable. Cały adres, włączając w to protokół, będzie przekazany do aplikacji jako parametr.
 
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+Na systemie operacyjnym Windows możesz podać opcjonalną ścieżkę parametrów, ścieżkę do pliku wykonywalnego, argumentów, tablicy z argumentami do pliku wykonywalnego po uruchomieniu.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. Plik możesz zmienić za pomocą edytora tekstowego lub skryptu podczas kompilacji. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
 The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 
@@ -479,7 +479,7 @@ Returns `Object`:
 
 Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
-* `ok` - Nothing went wrong.
+* `ok` - Wszystko poszło dobrze.
 * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
 * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
@@ -489,9 +489,9 @@ If `categories` is `null` the previously set custom Jump List (if any) will be r
 
 **Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Każda próba ponownego dodania usuniętego niestandardowego elementu do kategorii, spowoduje, że cała niestandardowa kategoria będzie pominięta na liście szybkiego dostępu. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Prosty przykład tworzenia niestandardowej listy szybkiego dostępu:
 
 ```javascript
 const {app} = require('electron')
@@ -565,7 +565,7 @@ This method makes your application a Single Instance Application - instead of al
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Metoda zwraca `fałsz` jeśli Twój proces jest głównym procesem aplikacji i aplikacja powinna kontynuować ładowanie. Zwraca `prawda` jeśli Twój proces wysłał parametry do innej instancji, i powinieneś go natychmiast zamknąć.
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
@@ -616,7 +616,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `options` Obiekt 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
@@ -670,7 +670,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` Obiekt (opcjonalne) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -681,16 +681,16 @@ Returns `Object`:
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
 * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. To ustawienie jest wspierane tylko na macOS.
+* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. To ustawienie jest wspierane tylko na macOS.
 
 **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Object 
+* `ustawienia` Obiekt 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. To ustawienie jest wspierane tylko na macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
@@ -721,7 +721,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `options` Obiekt 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.

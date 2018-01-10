@@ -1,4 +1,4 @@
-# process
+# przetwórz
 
 > Extensions to process object.
 

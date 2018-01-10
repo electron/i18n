@@ -81,7 +81,7 @@ footer:
   see_the_faq: راجع اﻷسئلة المتداولة بكثرة
 apps:
   title: تطبيقات مبنية على إلكترون
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
+  description: يسهل إلكترون إنشاء تطبيقات سطح المكتب لشركتك. طوّر إلكترون في البداية من أجل <a href='https://atom.io' target='_blank'>محرر Atom </a> التابع لـ GitHub، وقد استخدم إلكترون منذ ذلك الحين في إنشاء التطبيقات بواسطة شركات مثل Microsoft، Facebook، Slack، وDocker.
   view_more: عرض المزيد من التطبيقات
   submit_your_own: أرسل تطبيقك الخاص
   something_missing: هل هناك شيء مفقود؟
@@ -103,7 +103,7 @@ pages:
     description: أدلة وتوثيق مرجع API الخاصة بأحدث إصدارمن إلكترون
   '/docs/all':
     title: جميع وثائق إلكترون!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: جميع أدلة ووثائق الواجهة البرمجية في صفحة مفردة قابلة للبحث.
   '/docs/api':
     title: API
     description: أدلة وتوثيق مرجع API الخاصة بأحدث إصدارمن إلكترون
@@ -112,7 +112,7 @@ pages:
     description: التطوير مع إلكترون
   '/docs/tutorial':
     title: درس تعليمي
-    description: Guides and tutorials for the latest Electron release
+    description: دروس حول إصدار إلكترون اﻷخير
   '/blog':
     title: مدونة إلكترون
     description: آخر الأخبار من فريق ومجتمع إلكترون.
@@ -129,11 +129,11 @@ pages:
     title: مساحة المستخدم
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: ديفترون أداة مفتوحة مصدر لمساعدتك على فحص ومراقبة وتصحيح تطبيق إلكترون الخاص بك هذه اﻷداة مبنية على "أدوات المطور كروم" المذهلة.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: سبيكترون إطار مفتوح المصدر يسهل كتابة اختبارات التكامل الخاصة بتطبيق إلكترون، وهو مبني بالاتماد على ChromeDriver و WebDriverIO.
 _404:
   page_not_found: الصفحة غير موجودة.
   if_this_is_an_error: إذا كان هذا خطأ
-  please_file_an_issue: please file an issue.
+  please_file_an_issue: يرجى تسجيل issue.

@@ -6,7 +6,7 @@ Proces: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Object 
+* `options` Obiekt 
   * `segmentStyle` String - (optional) Style of the segments: 
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
     * `rounded` - The control is displayed using the rounded style.
@@ -16,13 +16,13 @@ Proces: [Main](../tutorial/quick-start.md#main-process)
     * `capsule` - The control is displayed using the capsule style
     * `small-square` - The control is displayed using the small square style.
     * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String - (optional) The selection mode of the control: 
+  * `tryb` String - (opcjonalne) Wybór trybu kontroli: 
     * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
     * `multiple` - Multiple items can be selected at a time.
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
   * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment 
+  * `zmień` Function - Called when the user selects a new segment 
     * `selectedIndex` Integer - The index of the segment the user selected.
     * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
 

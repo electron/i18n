@@ -408,7 +408,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 Ajoute le `path` à la liste des documents récents.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+Cette liste est contrôlée par le système d'exploitation. Sous Windows, vous pouvez consulter la liste à partir de la barre des tâches et sous macOS, vous pouvez la consulter à partir du menu dans le dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -428,7 +428,7 @@ On Windows you can provide optional parameters path, the path to your executable
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerForURLScheme.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 

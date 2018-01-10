@@ -38,9 +38,9 @@ Metode berikut tersedia pada contoh `WebRequest`:
 * `pendengar` Fungsi 
   * `rincian` Obyek 
     * `id` Integer
-    * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+    * `url` String
+    * `method` String
+    * `TipeSumberdaya` String
     * `timestamp` Duakali
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Fungsi 
@@ -64,9 +64,9 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
 <p>Seorang <code>pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.</p> 
   * `rincian` Obyek 
     * `id` Integer
-    * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+    * `url` String
+    * `method` String
+    * `TipeSumberdaya` String
     * `timestamp` Duakali
     * `permintaanHeaders` Objek
   * `callback` Fungsi 
@@ -83,9 +83,9 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
   * `pendengar` Fungsi 
     * `rincian` Obyek 
       * `id` Integer
-      * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+      * `url` String
+      * `method` String
+      * `TipeSumberdaya` String
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
   
@@ -100,10 +100,10 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
 
 <p><code>pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.</p> 
     * `rincian` Obyek 
-      * ` id </ 0>  String</li>
-<li><code> url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+      * `id` String
+      * `url` String
+      * `method` String
+      * `TipeSumberdaya` String
       * `timestamp` Duakali
       * `statusGaris` String
       * `statusCode` Bilangan bulat
@@ -123,9 +123,9 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
-        * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `url` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
         * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
@@ -140,10 +140,10 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
       * `url` String[] - Array pola URL yang akan digunakan untuk memfilter permintaan yang tidak sesuai dengan pola URL.
     * `pendengar` Fungsi 
       * `rincian` Obyek 
-        * ` id </ 0>  String</li>
-<li><code> url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `id` String
+        * `url` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `redirectURL` String
         * `statusCode` Bilangan bulat
@@ -160,9 +160,9 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
-        * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `url` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `responseHeaders` Objek
         * `dariCache` Boolean
@@ -178,9 +178,9 @@ Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` 
     * `pendengar` Fungsi 
       * `rincian` Obyek 
         * `id` Integer
-        * ` url </ 0>  String</li>
-<li><code> method </ 0>  String</li>
-<li><code>TipeSumberdaya` String
+        * `url` String
+        * `method` String
+        * `TipeSumberdaya` String
         * `timestamp` Duakali
         * `dariCache` Boolean
         * `kesalahan` String - deskripsi kesalahan.

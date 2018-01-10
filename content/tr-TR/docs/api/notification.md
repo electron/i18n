@@ -1,16 +1,16 @@
 # Bildirim
 
-> Create OS desktop notifications
+> İşletim Sistemi masaüstü bildirimlerini oluştur
 
 Süreç: [Ana](../glossary.md#main-process)
 
-## Using in the renderer process
+## Oluşturucu işleminde kullanma
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildirim API'si](../tutorial/notifications.md) kullanmalısınız
 
 ## Sınıf: bildirim
 
-> Create OS desktop notifications
+> İşletim Sistemi masaüstü bildirimlerini oluştur
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -28,11 +28,11 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Nesne 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
+* `ayarlar` Nesne 
+  * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı
+  * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
+  * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
+  * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
   * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
   * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
@@ -43,7 +43,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 Objects created with `new Notification` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Not:** Bazı özellikler sadece belirli işletim sistemlerinde mevcuttur ve çalıştıkları işletim sistemlerinin isimleriyle etiketlenmiştir.
 
 #### Etkinlik: 'göster'
 
@@ -51,7 +51,7 @@ Dönüşler:
 
 * `olay` Olay
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Bildirim kullanıcıya gösterildiğinde yayınlanır, `show()` metodu ile birden çok kez gösterilebileceğinden, bunun birden çok kez tetiklenebileceğini unutmayın.
 
 #### Etkinlik: 'tıkla'
 
@@ -59,7 +59,7 @@ Dönüşler:
 
 * `olay` Olay
 
-Emitted when the notification is clicked by the user.
+Bildirim kullanıcı tarafından aratıldığında yayılıyor.
 
 #### Etkinlik: 'kapalı'
 
@@ -67,7 +67,7 @@ Dönüşler:
 
 * `olay` Olay
 
-Emitted when the notification is closed by manual intervention from the user.
+Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
 Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilmez.
 
@@ -97,7 +97,7 @@ Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamas�
 
 ### Çalınan sesler
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`

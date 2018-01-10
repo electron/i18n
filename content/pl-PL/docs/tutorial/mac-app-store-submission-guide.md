@@ -16,7 +16,7 @@ To submit your app to the Mac App Store, you first must get a certificate from A
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
-### Sign Your App
+### Zarejestruj Swoją Aplikację
 
 After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
 
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Potem, musisz przygotować drzewo plików uprawnień.
 
 `child.plist`:
 
@@ -149,7 +149,7 @@ In order to satisfy all requirements for app sandboxing, the following modules h
 
 and the following behaviors have been changed:
 
-* Video capture may not work for some machines.
+* Nagrywanie może nie działać na dla niektórych urządzeń.
 * Certain accessibility features may not work.
 * Apps will not be aware of DNS changes.
 
@@ -195,7 +195,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
 
-## Known issues
+## Znane problemy
 
 ### `shell.openItem(filePath)`
 
@@ -209,7 +209,7 @@ This will fail when the app is signed for distribution in the Mac App Store. Sub
 
 Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
 
-Electron uses following cryptographic algorithms:
+Electron używa poniższych algorytmów kryptograficznych:
 
 * AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)

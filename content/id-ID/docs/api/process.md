@@ -93,27 +93,23 @@ Mengembalikan [`IO Penghitung`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 
-Mengembalikan ` Objek </ 0> :</p>
+Mengembalikan `Objek`:
 
-<ul>
-<li><code>workingSetSize` Integer - Jumlah memori yang saat ini disematkan pada fisik sebenarnya RAM.</li> 
-
+* `workingSetSize` Integer - Jumlah memori yang saat ini disematkan pada fisik sebenarnya RAM.
 * `peakWorkingSetSize` Integer - Jumlah maksimum memori yang pernah disematkan ke RAM fisik yang sebenarnya.
 * `privateBytes` Integer - Jumlah memori yang tidak dibagi oleh proses lain, seperti Tumpukan JS atau konten HTML.
-* `sharedBytes `Integer - Jumlah memori dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri</ul> 
+* `sharedBytes `Integer - Jumlah memori dibagi antara proses, biasanya memori yang dikonsumsi oleh kode Elektron itu sendiri
 
 Mengembalikan objek yang memberikan statistik penggunaan memori tentang proses saat ini. Catatan bahwa semua statistik dilaporkan di Kilo byte.
 
 ### `process.getSystemMemoryInfo()`
 
-Mengembalikan ` Objek </ 0> :</p>
+Mengembalikan `Objek`:
 
-<ul>
-<li><code>total`Integer - Jumlah total memori fisik di Kilobyte tersedia untuk sistem.</li> 
-
+* `total`Integer - Jumlah total memori fisik di Kilobyte tersedia untuk sistem.
 * `gratis` Integer - Jumlah total memori yang tidak digunakan oleh aplikasi atau disk cache.
 * `swapTotal` Integer - Jumlah total memori swap di Kilobyte tersedia untuk sistem. *Windows* *Linux*
-* `swapFree` Integer - Jumlah memori swap gratis di Kilobyne tersedia untuk sistem. *Windows * *Linux*</ul> 
+* `swapFree` Integer - Jumlah memori swap gratis di Kilobyne tersedia untuk sistem. *Windows * *Linux*
 
 Mengembalikan objek yang memberikan statistik penggunaan memori tentang keseluruhan sistem. Catatan bahwa semua statistik dilaporkan di Kilobytes.
 

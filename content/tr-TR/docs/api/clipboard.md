@@ -11,7 +11,7 @@ const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+Ayrıca X Window sistemlerinde bir seçim panosu bulunur. Bunu değiştirmek için `selection`'ı her bir metoda geçirmelisiniz:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -23,78 +23,78 @@ console.log(clipboard.readText('selection'))
 
 Pano modülü aşağıdaki yöntemleri içerir:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Not:** Deneysel API'ler bu şekilde işaretlenir ve gelecekte kaldırılabilir.
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
-Returns `String` - The content in the clipboard as plain text.
+`String` döndürür - Panodaki içeriği düz metin olarak.
 
 ### `clipboard.writeText(text[, type])`
 
-* `text` String
-* `type` String (optional)
+* `text` Dizi
+* `type` String (isteğe bağlı)
 
-Writes the `text` into the clipboard as plain text.
+Panoya `text`'i düz yazı olarak yazar.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` Dize (isteğe bağlı)
 
-Returns `String` - The content in the clipboard as markup.
+`String` döndürür - Panodaki içeriği işaretlenmiş olarak.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 [`NativeImage`](native-image.md) - Pano içindeki resim içeriği.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
-Writes `image` to the clipboard.
+`image`'i panoya yazar.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 `Dize` - RTF olarak pano içeriği.
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `text` String
-* `type` String (optional)
+* `text` Dizi
+* `type` String (isteğe bağlı)
 
-Writes the `text` into the clipboard in RTF.
+Panoya `text`'i RTF olarak yazar.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+`Object` 'i geri getirir:
 
-* `title` String
+* `başlık` Dizi
 * `url` Dize
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren bir nesne döndürür. Sayfa işaretçisi erişilemez olduğunda `title` ve `url` değerleri boş dizeler olacaktır.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
-* `title` String
+* `başlık` Dizi
 * `url` Dize
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+`title` ve `url`'yi panoya sayfa işaretçisi olarak yazar.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Not:** Windows üzerindeki çoğu uygulama sayfa işaretçisi yapıştırmayı desteklememektedir. Panoya sayfa işaretçisi ve dönüş metni yazmak için `clipboard.write` kullanabilirsiniz.
 
 ```js
 clipboard.write({
@@ -105,30 +105,30 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. Önbelleğe alınmış olan değer, uygulama her etkinleştirildiğinde kartuşun bulunduğu sayfadan yeniden okunur.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
-* `text` String
+* `text` Dizi
 
 Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (isteğe bağlı)
 
 ```javascript
 const {clipboard} = require('electron')

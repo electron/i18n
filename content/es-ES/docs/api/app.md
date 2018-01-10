@@ -1,6 +1,6 @@
-# app
+# aplicación
 
-> Controlar el ciclo de vida de los eventos de su aplicación.
+> Controle el ciclo de vida de los eventos de su aplicación.
 
 Proceso: [Principal](../glossary.md#main-process)
 
@@ -161,13 +161,13 @@ Devuelve:
 
 * `evento` Evento
 * `webContents` [WebContents](web-contents.md)
-* `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Función 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+* `url` cadena
+* `error` cadena - el error del código
+* `certificate` [certificate](structures/certificate.md)
+* `llamada de vuelta` Función 
+  * `isTrusted` Boleano - Si considera que el certificado como de confianza
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
@@ -183,20 +183,20 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Evento: 'select--client-certificate'
 
 Devuelve:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `webContents`[WebContents](web-contents.md)
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Función 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+* `certificateList`[Certificate[]](structures/certificate.md)
+* `llamada de vuelta` Función 
+  * `certificate`[Certificate](structures/certificate.md)(opcional)
 
-Emitted when a client certificate is requested.
+Emitido cuando el certificado de un cliente es requerido.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+La `url` corresponde a la entrada de navegación requerida al certificado del cliente y `callback` puede ser llamado con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
 
 ```javascript
 const {app} = require('electron')
@@ -207,12 +207,12 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event: 'login'
+### Evento:'login'
 
 Devuelve:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `webContents`[WebContents](web-contents.md)
 * `request` Object 
   * `method` String
   * `url` URL
@@ -223,13 +223,13 @@ Devuelve:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Emitido cuando `webContents` quiere hacer una autenticación básica.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+El comportamiento por defecto es cancelar todas las autenticaciones, para anular esto usted debería prevenir el comportamiento por defecto con `event.preventDefault()` y llamar `callback (username, password) ` con las credenciales.
 
 ```javascript
 const {app} = require('electron')
@@ -240,43 +240,43 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Devuelve:
 
 * `evento` Evento
-* `killed` Boolean
+* `killed` Booleano
 
-Emitted when the gpu process crashes or is killed.
+Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
 * `evento` Evento
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Booleano - `true` cuando el soporte de accesibilidad de Chrome está activado, de lo contrario `false`.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
 
 ## Métodos
 
-The `app` object has the following methods:
+El objeto `app` tiene los siguientes métodos:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será producido y por defecto la aplicación se cerrará.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
 * `exitCode` Integer (optional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Cierra inmediatamente con `exitCode`. `exitCode` por defecto a 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
 
 ### `app.relaunch([options])`
 
@@ -284,15 +284,15 @@ All windows will be closed immediately without asking user and the `before-quit`
   * `args` String[] - (optional)
   * `execPath` String (optional)
 
-Relaunches the app when current instance exits.
+Reinicia la aplicación cuando la instancia se cierra.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
 
 ```javascript
 const {app} = require('electron')
@@ -303,23 +303,23 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+En Linux, el foco se tiene en la primera ventana visible. En macOS, hace que la aplicación se active. En Windows, el foco se tiene en la primera ventana de la aplicación.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Oculta todas la ventanas de la aplicación sin minimizar estas.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Muestra las ventanas de la aplicación después e que fueron ocultas. No enfoca automáticamente estas.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Devuelve `String` - al directorio de la aplicación actual.
 
 ### `app.getPath(name)`
 
@@ -327,7 +327,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+Usted puede pedir las siguientes direcciones por nombre:
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -354,7 +354,7 @@ You can request the following paths by the name:
     * `pequeño` - 16x16
     * `normal` - 32x32
     * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -422,11 +422,11 @@ Borra la lista de documentos recientes.
 
 Returns `Boolean` - Whether the call succeeded.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Este método configura el ejecutable actual como por defecto a utilizar por un protocolo (esquema aka URI). Esto le permite integrar la profundidad de la aplicación dentro del sistema operativo. Una vez registrado, todos los enlaces con `your-protocol://` serán abiertos con el ejecutable. El enlace completo, incluyendo el protocolo, será enviado a su aplicación como un parámetro.
 
 On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. Usted también puede modificar el archivo con un editor de texto o script durante su creación. Vea la [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para mas información.
 
 The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 
@@ -552,7 +552,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -618,34 +618,34 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `options` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `result` Integer - Result of import.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con `result` para importar operaciones, un valor de `` indica que fue exitoso, mientras que otro valor indica un error acorde a chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Desactiva la aceleración por hardware para esta aplicación.
 
-This method can only be called before app is ready.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Por defecto, Chromium desactiva 3D APIs (ej., WebGL) hasta reiniciar por dominio si el proceso de GPU crashea frecuentemente. Esta función desactiva ese comportamiento.
 
-This method can only be called before app is ready.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objetos `ProcessMetric` corresponden a las estadísticas de uso de memoria ram y cpu de todos los procesos asociados con la aplicación. **Nota:** Este método está obsoleto, utilice `app.getAppMetrics()` en su lugar.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Devuelve [`ProcessMetric[]`](structures/process-metric.md): el conjunto de objetos `ProcessMetric` corresponden a las estadísticas de uso de memoria ram y cpu de todos los procesos asociados con la aplicación.
 
 ### `app.getGpuFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -750,7 +750,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.dock.bounce([type])` *macOS*
 

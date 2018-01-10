@@ -1,24 +1,24 @@
 # Mac App Store'a Gönderme Kılavuzu
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+V0.34.0'dan beri Electron, Mac App Store'a (MAS) paketlenmiş uygulamalar gönderilmesini sağlar. Bu kılavuzda, uygulamanızın nasıl gönderileceği ve MAS yapısının sınırlamaları hakkında bilgiler verilmektedir.
 
 **Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
-## How to Submit Your App
+## Uygulamanızı Nasıl sunabilirsiniz
 
 Aşağıdaki adımlar, uygulamanızı Mac App Store'a göndermenin basit bir yolunu sunar. Her ne kadar, bu adımlar uygulamanızın Apple tarafından onaylanmasını sağlamasada; Mac App Store gereksinimlerini nasıl karşılanacağına ilişkin hala Apple'ın [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) kılavuzunu okumanız gerekir.
 
 ### Sertifika edin
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Uygulamanızı Mac App Store'a göndermek için öncelikle Apple'dan bir sertifika almanız gerekir. [Halihazırda olan rehberleri](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) webde inceleyebilir ve takip edebilirsiniz.
 
-### Get Team ID
+### Takım ID'sini al
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Uygulamanızı imzalamadan önce, hesabınızın Takım ID'sini bilmeniz gerekiyor. Takım ID'nizi bulmak için [Apple Geliştirici Merkezi](https://developer.apple.com/account/)'ne giriş yapın ve yan menüdeki Üyelik butonuna tıklayın. Takım ID'niz üyelik bilgileri bölümünün takım adı altında yer almaktadır.
 
 ### Uygulamanızı imzalayın
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Hazırlık çalışmalarını tamamladıktan sonra, uygulamanızı aşağıdakileri izleyerek paketleyebilirsiniz:  Uygulama Dağıtımı </ 0> 'na gidin ve ardından uygulamanızı imzalayın.</p> 
 
 First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
 
@@ -26,13 +26,13 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 <plist version="1.0">
 <dict>
   ...
-  <key>ElectronTeamID</key>
-  <string>TEAM_ID</string>
+  <key>ElectronTakımID</key>
+  <string>TAKIM_ID</string>
 </dict>
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Sonra, üç yetki dosyaları hazırlamanız gerekir.
 
 `child.plist`:
 
@@ -77,16 +77,16 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+`TEAM_ID` kısmını takım ID'nizle `your.bundle.id` kısmını ise Bundle ID'nizle değiştirmeniz gerekmektedir.
 
-And then sign your app with the following script:
+Ve sonra aşağıdaki komut dosyası ile uygulamayı imzalayın:
 
 ```sh
 #!/bin/bash
 
-# Name of your app.
-APP="YourApp"
-# The path of your app to sign.
+# Uygulamanızın Adı
+APP="Uygulama"
+# İmzalamak için uygulamanızın dosya dizini
 APP_PATH="/path/to/YourApp.app"
 # The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
@@ -118,64 +118,64 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+MacOS altında uygulama sandbox etme konusunda yeni iseniz, temel bir fikre sahip olmak için Apple'ın [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) bölümünü de okumalısınız, daha sonra gerekli izinler için anahtarları uygulamanızın yetki dosyaları için eklemeniz gerekir.
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Uygulamayı manuel olarak imzalamanın yanı sıra, [elektron-osx-sign](https://github.com/electron-userland/electron-osx-sign) modülünü işi yapması için kullanmayı seçebilirsiniz.
 
 #### Yerel modülleri imzala
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Uygulamanızda kullanılan yerel modüller de imzalanmalıdır. Eğer Electron-osx-sign kullanılıyorsa, yerleşik ikili dosyaların yolunun bağımsız değişken listesine eklendiğinden emin olun:
 
 ```sh
-electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
+electron-osx-sign Uygulaman.app Uygulaman.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Ayrıca, yerli modüllerde üretilmemiş ara dosyaların bulunmasına dikkat edilmelidir. (bunların da imzalanması gerektiğinden dolayı dahil edilmemelidir). Eğer 8.1.0 sürümünden önce [electron-packager](https://github.com/electron-userland/electron-packager) kullandıysanız, yapı adımınıza bu dosyaları yok saymak için `--ignore=.+\.o$` ekleyin. Sürüm 8.1.0 ve sonrakiler bu dosyaları varsayılan olarak yok sayar.
 
 ### Uygulamanı yükle
 
 Uygulamanızı imzaladıktan sonra, yüklemeden önce [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)’a sahip olduğunuzdan emin olmak ve iTunes Connect'e yazılım yüklemek için uygulama yükleyicisi'ni kullanabilirsiniz.
 
-### Submit Your App for Review
+### Uygulamanızı gözden geçirmek için gönderin
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+Bu adımların ardından, [uygulamanızı incelenmek üzere gönderebilirsiniz](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## MAS Yapısının Sınırlamaları
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Uygulama sanal alanı oluşturmak için tüm gereksinimleri karşılamak adına MAS derlemesinde aşağıdaki modüller devre dışı bırakılmıştır:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+ve aşağıdaki davranışlar değiştirilmiştir:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Video yakalamak bazı makineler için çalışmayabilir.
+* Belirli erişilebilirlik özellikleri çalışmayabilir.
+* Uygulamalar DNS değişikliklerinden haberdar olmaz.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+Ayrıca, sandboxıng uygulaması kullanmından dolayı uygulama tarfından erişilebilinen kaynaklar kesinlikle sınırlıdır. Daha fazla bilgi için okuyabilirsiniz [App Sandboxing](https://developer.apple.com/app-sandboxing/).
 
 ### Additional Entitlements
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Uygulamanızın hangi Elektron API'larını kullandığına bağlı olarak, uygulamanızın bu API'ları Mac App Store yapısından kullanabilmesi için `parent.plist` dosyanıza ek yetkiler eklemeniz gerekebilir.
 
 #### Ağ erişimi
 
-Enable outgoing network connections to allow your app to connect to a server:
+Uygulamanızın bir sunucuya bağlanmasına izin vermek için giden ağ bağlantılarını etkinleştirin:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Uygulamanızın ağ dinleme soketini açmasını sağlamak için gelen ağ bağlantılarınızı etkinleştirin:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+Daha fazla ayrıntı için [Ağ Erişimini Etkinleştirme belgelerine](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) bakın.
 
 #### dialog.showOpenDialog
 
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Daha fazla detay için [Ağ Erişimini Etkinleştirme belgelerine](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) bakın.
 
 #### dialog.showSaveDialog
 
@@ -193,23 +193,23 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Daha fazla bilgi için [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) bakın.
 
 ## Bilinen sorunlar
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Mac App Store'da dağıtım için imzalandığı takdirde bu işlem hata verecektir. Daha fazla bilgi ve güncellemeler için [#9005](https://github.com/electron/electron/issues/9005)'e abone olun.
 
-#### Workaround
+#### Geçici çözümler
 
 `shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
-## Cryptographic Algorithms Used by Electron
+## Electron Tarafından Kullanılan Kriptografi Algoritmaları
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Bulunduğunuz ülke ve bölgeye bağlı olarak, Mac App Store uygulamasında kullanılan şifreleme algoritmalarını belgelemeniz istenilebilir ve hatta ABD şifreleme kaydı (ERN) onayının bir kopyasını göndermeniz istenilebilir.
 
-Electron uses following cryptographic algorithms:
+Electron aşağıdaki şifreleme algoritmalarını kullanmaktadır:
 
 * AES - [NIST SP 800-38A](http://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](http://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)

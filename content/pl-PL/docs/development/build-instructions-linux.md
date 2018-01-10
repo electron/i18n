@@ -2,7 +2,7 @@
 
 Follow the guidelines below for building Electron on Linux.
 
-## Prerequisites
+## Wymagania
 
 * At least 25GB disk space and 8GB RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
@@ -131,7 +131,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## Zaawansowane tematy
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 

@@ -22,7 +22,7 @@
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum 
     - `git cherry-pick <checksum>`
-    - Resolve any conflicts
+    - Rozwiąż jakiekolwiek konflikty
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
     - `git push electron electron-crashpad-vA.B.C.D`
 

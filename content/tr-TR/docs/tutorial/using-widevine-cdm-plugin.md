@@ -4,9 +4,9 @@ Electron'da Chrome tarayıcısına yüklenmiş Widevine CDM eklentisini kullanab
 
 ## Eklenti edin
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Electron, lisans nedeni ile Widevine CDM eklentisiyle birlikte gönderilmez, bunu elde etmek için kullandığınız Electron yapısının mimari ve Chrome sürümüyle eşleşen resmi Chrome tarayıcısını ilk önce yüklemeniz gerekir.
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**Not:** Chrome tarayıcısının ana sürümü, Electron'un kullandığı Chrome sürümü ile aynı olmalıdır; aksi takdirde, `navigator.plugins` yüklendiğini gösterse bile eklenti çalışmayacaktır.
 
 ### Windows & macOS
 
@@ -14,19 +14,19 @@ Chrome tarayıcısında `chrome://components/`'i açın, `WidevineCdm`'yi bulun 
 
 `APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+Windows'ta gerekli ikili dosyalar `widevinecdm.dll` ve `widevinecdmadapter.dll`, macOS'da `libwidevinecdm.dylib` ve `widevinecdmadapter.plugin`'dir. Onları istediğiniz bir yerde kopyalayabilirsiniz fakat bir araya getirilmeleri gerekmektedir.
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+Linux'ta eklenti ikili dosyaları Chrome tarayıcısı ile birlikte gönderilir, dosya adı `libwidevinecdm.so` ve `libwidevinecdmadapter.so` bunları `/opt/google/chrome` altında bulabilirsiniz.
 
 ## Eklenti kullanılıyor
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+Eklenti dosyalarını aldıktan sonra, `widevinecdmadapter`'ın yolunu `--widevine-cdm-path` komut satırı anahtarına geçirmeli ve eklentinin versiyonunu `--widevine-cdm-version`'a geçirmelisiniz.
 
 **Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+Komut satırı anahtarları, `app` modülünün `ready` olayının yayımlanmasından önce geçirilmelidir ve bu eklentiyi kullanan sayfanın eklentisi etkinleştirilmiş olmalıdır.
 
 Kod orneği:
 
@@ -45,7 +45,7 @@ let win = null
 app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
-      // The `plugins` have to be enabled.
+      // `Eklentiler` etkinleştirilmelidir.
       plugins: true
     }
   })
@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 ## Eklenti doğrulanıyor
 
-To verify whether the plugin works, you can use following ways:
+Eklentinin çalışıp çalışmadığını doğrulamak adına aşağıda bulunan adımları takip edebilirsiniz:
 
 * Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
 * Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.

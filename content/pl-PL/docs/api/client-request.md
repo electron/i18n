@@ -46,7 +46,7 @@ Zwraca:
 
 Zwraca:
 
-* `authInfo` Object 
+* `authInfo` Obiekt 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String

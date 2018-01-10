@@ -1,6 +1,6 @@
 # Wspierane Zmienne Konsoli Chrome
 
-> Command line switches supported by Electron.
+> Przełączniki linii komand wspierane przez Electron.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
@@ -107,7 +107,7 @@ A comma-separated list of servers for which delegation of user credentials is re
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ignoruje błędy powiązane z certyfikatami.
 
 ## --ppapi-flash-path=`path`
 

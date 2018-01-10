@@ -4,9 +4,9 @@
 
 当调用 ` window.open` 以在网页中创建新窗口时，`BrowserWindow` 将为 `url` 创建一个新的实例，并返回一个代理至 `window.open` 以让页面对其进行有限的控制。
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+该代理具有有限的标准功能，与传统网页兼容。要完全控制新窗口，你应该直接创建一个` BrowserWindow `。
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+默认情况下, 新创建的 ` BrowserWindow ` 将继承父窗口的选项。若要重写继承的选项, 可以在 ` features ` 字符串中设置它们。
 
 ### `window.open(url[, frameName][, features])`
 
@@ -14,16 +14,16 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 * `frameName` String（可选）
 * `features` String（可选）
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Returns [`BrowserWindowProxy`](browser-window-proxy.md) - 创建一个新窗口，并返回一个 `BrowserWindowProxy` 类的实例。
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+`features` 字符串遵循标准浏览器的格式，但每个 feature 必须是`BrowserWindow` 选项中的字段。
 
-**Notes:**
+**注意：**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* 如果在父窗口中禁用了 Node integration, 则在打开的 `window ` 中将始终被禁用。
+* 如果在父窗口中启用了上下文隔离, 则在打开的 ` window ` 中将始终被启用。
+* 父窗口禁用 Javascript，打开的 `window` 中将被始终禁用
+* ` features ` 中给定的非标准特性 (不由 Chromium 或 Electron 处理) 将被传递到 ` additionalFeatures ` 参数中的任何已注册 ` webContent ` 的 ` new-window` 事件处理程序。
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
@@ -36,7 +36,7 @@ Sends a message to the parent window with the specified origin or `*` for no ori
 
 如果要使用 Chrome 的内置 `window.open()`，请在 `webPreferences` 选项中将 `nativeWindowOpen` 设置为 `true`。
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+原生 ` window.open () ` 允许同步打开窗口, 因此可以方便的选择是对话框还是首选项窗口。
 
 This option can also be set on `<webview>` tags as well:
 

@@ -1,10 +1,10 @@
 # webContents
 
-> Render and control web pages.
+> 渲染以及控制 web 页面
 
 线程：[主线程](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 访问 `webContents` 对象的例子:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## 方法
 
-These methods can be accessed from the `webContents` module:
+通过`webContents`模块可以访问以下方法：
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,21 +27,21 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+返回 `WebContents[]` - 所有 `WebContents` 实例的数组。 包含所有Windows，webviews，opened devtools 和 devtools 扩展背景页的 web 内容
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Returns `WebContents` - 此 app 中焦点的 web 内容，否则返回 `null`。
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Returns `WebContents` - 给定 id 的 WebContents 实例。
 
 ## Class: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> 渲染和控制 BrowserWindow 实例的内容。
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -49,7 +49,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 #### Event: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+导航完成时触发，即选项卡的旋转器将停止旋转，并指派` onload `事件后。
 
 #### Event: 'did-fail-load'
 
@@ -61,7 +61,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 。 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
 
 #### Event: 'did-frame-finish-load'
 
@@ -70,7 +70,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 * `event` Event
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+当框架完成导航（navigation）时触发
 
 #### Event: 'did-start-loading'
 

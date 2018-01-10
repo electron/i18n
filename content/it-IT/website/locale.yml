@@ -48,7 +48,7 @@ cross_platform:
   title: Multipiattaforma
   description: Compatibile con Mac, Windows e Linux, le applicazioni Electron si possono compilare ed eseguire su tutte e tre le piattaforme.
 benefits:
-  hard_parts_made_easy: The parti complicate diventano semplici
+  hard_parts_made_easy: Le parti complicate diventano semplici
   automatic_updates: Aggiornamenti automatici
   native_menus_and_notifications: Menu nativi & notifiche
   crash_reporting: Segnalazione di malfunzionamenti

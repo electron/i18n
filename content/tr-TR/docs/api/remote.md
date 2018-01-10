@@ -1,4 +1,4 @@
-# remote
+# uzak
 
 > Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
@@ -63,9 +63,9 @@ console.log(withRendererCb, withLocalCb)
 // [tanımsız, tanımsız, tanımsız], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Gördüğünüz gibi, işleyici geri aramanın eş zamanlı dönüş değeri beklendiği gibi değildi ve ana işlemde yaşayan özdeş bir geri dönüş değeri eşleşmedi.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+İkinci olarak, ana işleme atanmış geri çağrılar, ana süreç çöp toplayana kadar devam edecektir.
 
 For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
@@ -75,11 +75,11 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Ancak, geri aramayı açıkça kaldırana kadar ana süreç tarafından başvuru olarak alındığını unutmayın. Bunu yapmazsanız, pencereniz her seferinde yeniden yüklenildiğinde, her yeniden başlatma için bir sızdıran geri arama yüklenecektir.
 
 To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+Bu sorunu önlemek için, ana işleme aktarılan işleyici geri çağırımlarına yapılan tüm başvuruları temizlendiğinden emin olun. Bu, olay işleyicilerinin temizlenmesi veya ana işleme açık olarak, çıkmakta olan bir oluşturucu işleminden gelen geri arama çağrılarının yapılmasını saydığından emin olmayı içerir.
 
 ## Accessing built-in modules in the main process
 
@@ -104,15 +104,15 @@ e.g.
 
     project/
     ├── main
-    │   ├── foo.js
-    │   └── index.js
+    │   ├── foo.js
+    │   └── index.js
     ├── package.json
     └── renderer
         └── index.js
     
 
 ```js
-// main process: main/index.js
+// ana işlem: main/index.js
 const {app} = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
@@ -137,7 +137,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `name` Dizi
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 

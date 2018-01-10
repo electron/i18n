@@ -49,7 +49,7 @@ Emitted when a cookie is changed because it was added, edited, removed, or expir
 
 ### Методы экземпляра
 
-The following methods are available on instances of `Cookies`:
+В экземпляре `Cookies` доступны следующие методы:
 
 #### `cookies.get(filter, callback)`
 

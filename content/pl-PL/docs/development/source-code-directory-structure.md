@@ -27,7 +27,7 @@ Electron
 |       loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Source code copied from Chromium. Spójrz poniżej.
 ├── default_app/ - The default page to show when Electron is started without
 |   providing an app.
 ├── docs/ - Documentations.

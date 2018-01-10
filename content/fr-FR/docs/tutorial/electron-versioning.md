@@ -16,45 +16,45 @@ npm install --save-dev electron@latest
 
 ## Version 1.x
 
-Les versions d'Electron antérieure à la version *< 2.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. Bien que pratiques pour les développeurs pour implémenter des fonctionnalités, cela créer des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longue et la stabilité est un résultat très attendu. Il y a de grandes chances d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
+Les versions d'Electron antérieure à la version *< 2.0* ne sont pas conformes aux spécifications [semver](http://semver.org). Les versions majeures correspondent à des changements d'API pour l'utilisateur final. Les versions mineures correspondent à des releases majeures de Chromium. Les versions patch correspondent à de nouvelles fonctionnalités et à des correctifs. Bien que pratique pour les développeurs qui fusionnent des fonctionnalités, cela crée des problèmes pour les développeurs d'applications côté client. Les cycles de tests QA d'applications majeures comme Slack, Stride, Teams, Skype, VS Code, Atom et Desktop peuvent être longs et la stabilité est un résultat très attendu. Il y a un grand risque d'inclure de nouvelles fonctionnalités en tentant de récupérer des correctifs.
 
 Voici un exemple de la stratégie 1.x :
 
 ![](../images/versioning-sketch-0.png)
 
-Une application développée avec la `1.8.1` ne peux pas avoir les résolutions de bugs de la `1.8.3` sans absorber la fonctionnalité de la `1.8.2`, ou faire un rétroportage de la résolution tout en maintenant une nouvelle ligne de versionnage.
+Une application développée avec la `1.8.1` ne peut pas avoir les corrections d'anomalies de la `1.8.3` sans inclure la fonctionnalité de la `1.8.2`, ou faire un rétroportage de la correction tout en maintenant une nouvelle ligne de versionnage.
 
-## Version 2.0 et supérieur
+## Version 2.0 et suivantes
 
 Il y a plusieurs changements majeurs par rapport à notre stratégie 1.x décrite ci-dessous. Chaque changement vise à satisfaire les besoins et les priorités des développeurs/mainteneurs et développeurs d'applications.
 
 1. Utilisation stricte de semver
 2. Introduction de semver compatible avec les tags `-beta`
 3. Introduction des [messages de commit conventionnels](https://conventionalcommits.org/)
-4. Définition clair des branches de stabilisation
-5. La branche `master` est sans version; seulement les branches de stabilités contiennent des informations de versionnage
+4. Définition claire des branches de stabilisation
+5. La branche `master` est sans version ; seules les branches de stabilité contiennent des informations de versionnage
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Nous expliquerons en détail comment les branches de git fonctionnent, comment le tagging npm fonctionne, ce que les développeurs devraient d'attendre à voir, et comment l'on peut rapporter les changements antérieurement.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Dès la version 2.0, Electron va appliquer semver.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Ci-dessous, une table explicitant les types de changement avec leur catégorie correspondante semver (par exemple Majeur, Mineur, Correctif).
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **Incréments de version Majeure** 
+    * mises à jour de version Chromium
+    * mises à jour de version majeure node.js
+    * changement Electron qui altère l'API
+* **Incréments de version mineure** 
+    * mises à jour de version mineure node.js
+    * changement Electron n'altérant pas l'API
+* **Incréments de version de Correctifs** 
+    * mises à jour de correctif de node.js
+    * mises à jour de correctifs Chromium
+    * mises à jour de correctif Electron
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Veuillez noter que les mises à jour de Chromium seront considérées comme impactantes. Les corrections qui pourront être rétroportées seront probablement marquées comme correctifs.
 
 # Branches de stabilisation
 
@@ -70,7 +70,7 @@ Older lines will not be supported by GitHub, but other groups can take ownership
 
 # Versions bêta et corrections de bugs
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Les développeurs veulent savoir quelles versions sont fiables (*safe*). Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.

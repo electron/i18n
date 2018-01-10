@@ -1,18 +1,18 @@
-# süreç
+# işlem
 
 > İşlem nesnesine uzantılar.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/process.html)'ten genişletilir. Aşağıdaki etkinlikleri, özellikleri ve yöntemleri ekler:
 
-## Olaylar
+## Etkinlikler
 
-### Event: 'loaded'
+### Etkinlik: 'yüklenen'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Elektron dahili başlatma komut dosyasını yüklediğinde ve web sayfası ya da ana komut dosyası yüklenmeye başladığında yayılır.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Düğüm entegrasyonu kapatıldığında kaldırılan düğüm genel sembollerini evrensel alana geri eklemek için önyükleme komut dosyası tarafından kullanılabilir:
 
 ```javascript
 // preload.js
@@ -28,97 +28,97 @@ process.once('loaded', () => {
 
 ### `process.defaultApp`
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Bir `Boolean`. Uygulama varsayılan uygulamaya parametre olarak geçirilip başlatıldığında, bu özellik ana işlemde `true` olur, aksi takdirde `undefined` olur.
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Bir `Boolean`. Mac App Store kurmak için, bu özellik `true` olur, diğer kurulumlar için `undefined` olur.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Uygulamanızın içindeki ASAR desteğini kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak düğümün dahili modüllerindeki `asar` arşivleri için olan desteği devre dışı bırakacaktır.
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+İtiraz uyarılarının `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`.  
+Bunu `true` olarak ayarlamak itiraz uyarılarını susturacaktır. Bu özellik `--no-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+Kaynaklar dizininin yolunu temsil eden bir `String`.
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+İtiraz uyarılarının istisna olarak atılıp atılmayacağını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazlar için hatalar oluşturacak. Bu özellik `--throw-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+İtirazların yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazların yığın izlerini yazdıracak. Bu özellik `--trace-deprecation` komut satırı etiketi yerine kullanılır.
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+İşlem uyarılarının yığın izini içeren `stderr`'a yazdırılıp yazdırılmadığını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak işlem uyarılarının yığın izlerini yazdıracak (itirazlar dahil). Bu özellik `--trace-warnings` komut satırı etiketinin yerine kullanılmalıdır.
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+Geçerli işlemin türünü temsil eden bir `String`, `"browser"` (örneğin ana işlem) ya da `"renderer"` olabilir.
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+Chrome versiyonu dizesini temsil eden bir `String`.
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+Elektron versiyonu dizesini temsil eden bir `String`.
 
 ### `process.windowsStore`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Bir `Boolean`. Eğer uygulama bir Windows Store uygulaması (appx) olarak çalışıyorsa, bu özellik `true` olur, aksi takdirde `undefined` olur.
 
-## Metodlar
+## Yöntemler
 
-The `process` object has the following methods:
+`process` nesnesi aşağıdaki yöntemleri içerir:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+[`CPUUsage`](structures/cpu-usage.md)'a döner
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+[`IOCounters`](structures/io-counters.md)'a döner
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Object`:
+`Object`'e döner:
 
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `workingSetSize` Tamsayı - O anda gerçek fiziksel RAM'e sabitlenmiş bellek miktarı.
+* `peakWorkingSetSize` Tamsayı - Gerçek fiziksel RAM'e sabitlenmiş maksimum bellek miktarı.
+* `privateBytes` Tamsayı - Diğer işlemlerle paylaşılmayan bellek miktarı, JS yığını ya da HTML içeriği gibi.
+* `sharedBytes` Tamsayı - İşlemler arasında paylaşılan bellek miktarı, genel olarak Elektron kodunun kendisi tarafından tüketilen bellek
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
+Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm istatistiklerin Kilobayt olarak raporlandığına dikkat edin.
 
 ### `process.getSystemMemoryInfo()`
 
-Returns `Object`:
+`Object`'e döner:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `total` Tamsayı - Sistemde kullanılabilir durumda olan fiziksel belleğin Kilobayt olarak toplam miktarı.
+* `free` Tamsayı - Uygulamalar ve disk önbelleği tarafından kullanılmayan belleğin toplam miktarı.
+* `swapTotal` Tamsayı - Sistemde kullanılabilir durumda olan takas belleğinin Kilobayt olarak toplam miktarı. *Windows* *Linux*
+* `swapFree` Tamsayı - Sistemde kullanılabilir durumda olan boş takas belleğinin toplam miktarı. *Windows* *Linux*
 
-Tüm sistem hakkında bellek kullanım istatistiklerini veren bir nesneyi döndürür. Tüm istatistiklerin kilobayt cinsinden rapor edildiğini not et.
+Tüm sistem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm nesnelerin Kilobayt olarak raporlandığına dikkat edin.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Geçerli işlemin ana iş parçacığının askıda kalmasına neden olur.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
-* `maxDescriptors` Integer
+* `maxDescriptors` Tamsayı
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Dosya tanımlayıcısının düşük limitini veya OS yüksek limitini `maxDescriptors` olarak ayarlar, geçerli işlem için hangisi daha düşükse.

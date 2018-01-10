@@ -52,7 +52,7 @@ Devuelve:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Función 
+* `llamada de vuelta` Función 
   * `username` String
   * `password` String
 

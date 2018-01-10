@@ -46,7 +46,7 @@ A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya
 * `latar belakang` - Maps untuk `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `null` - sebenarnya null, bukan string, menghilangkan semua gaya</ul> 
 
-#### `touchBarScrubber.showArrowButtons`
+#### `sentuhBarScrubber.showArrowButtons`
 
 A ` Boolean </ 0> mewakili apakah akan menampilkan panah pilihan kiri / kanan di scrubber ini. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh.</p>
 

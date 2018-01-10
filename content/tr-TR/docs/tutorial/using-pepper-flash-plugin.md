@@ -4,11 +4,11 @@ Electron biber flash eklentisine destek verir. Biber eklentisini Elektronda kull
 
 ## Flash Eklentisinin Bir Kopyasını Oluştur
 
-MacOS ve Linux'ta biber eklentisi Chrome tarayıcı içinde gezinmeden `chrome://plugins` de bulunur. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+MacOS ve Linux'ta biber eklentisi Chrome tarayıcı içinde gezinmeden `chrome://plugins` de bulunur. Electron'un konumu ve sürümü Pepper Flash desteği için kullanışlıdır. Ayrıca başka bir yere kopyalayabilirsiniz.
 
 ## Electron değişimi ekleyin
 
-You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
+`--ppapi-flash-path` ve `--ppapi-flash-version`'u Electron komut satırına doğrudan veya `app.commandLine.appendSwitch` yöntemiyle uygulamanın hazır olayından önce ekleyebilirsiniz. Ayrıca `BrowserWindow` 'un `eklentilerini` etkinleştirin.
 
 Örneğin:
 
@@ -47,7 +47,7 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+Ayrıca, gönderim yerine sistem genelinde Pepper Flash eklentisi yüklemeyi deneyebilirsiniz. Eklentileri kendiniz, çağırarak yolunu alabilirsiniz. `app.getPath('pepperFlashSystemPlugin')`.
 
 ## Enable Flash Plugin in a `<webview>` Tag
 
@@ -59,10 +59,10 @@ Add `plugins` attribute to `<webview>` tag.
 
 ## Arıza giderme
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Devtools konsolundaki `navigator.plugins` 'i inceleyerek Pepper Flash eklentisinin yüklenip yüklenmediğini kontrol edebilirsiniz (ancak eklentinin yolunun doğru olup olmadığını anlayamazsınız).
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+Pepper Flash eklentisinin mimarisi, Electron'un eklentisininkiyle eşleşmelidir. Windows'ta alışılmış bir hata, Electron'un 64 bit sürümüne karşı Flash eklentisinin 32 bit sürümünü kullanmaktır.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Windows'ta `--ppapi-flash-path` adresine giden yol, `` yol tanımlayıcı olarak kullanmalıdır; POSIX stilindeki yollar çalışmaz.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+RTMP kullanan eş zamanlı medya gibi bazı işlemler için, oynatıcıların `.swf` dosyalarına daha geniş izinler vermeniz gerekir. Bunu gerçekleştirmenin bir yolu, [nw-flash-trust](https://github.com/szwacz/nw-flash-trust)'ı kullanmaktır.

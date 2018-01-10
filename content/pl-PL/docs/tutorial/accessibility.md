@@ -36,7 +36,7 @@ If you know of other great accessibility tools for Electron, add them to the [ac
 
 Aplikacja Electron ma domyślnie wyłączoną dostępność ze względów wydajnościowych, ale istnieje kilka sposobów aby je włączyć.
 
-### Inside Application
+### Aplikacja Wewnętrzna
 
 By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 

@@ -1,9 +1,9 @@
 # Lokal
 
-> Nilai lokal dikembalikan oleh  app.getLocale () </ 0> .</p>
+> Nilai lokal dikembalikan oleh  aplikasi. mendapatkan lokal () </ 0> .</p>
 </blockquote>
 
-<p>Elektron menggunakan perpustakaan <code> l10n_util </ 0> Chromium untuk mengambil lokal. Nilai yang mungkin tercantum di bawah ini:</p>
+<p>Elektron menggunakan perpustakaan <code> l10n_util </ 0> perpustakaan untuk mengambil lokal. Nilai yang mungkin tercantum di bawah ini:</p>
 
 <table>
 <thead>
@@ -179,10 +179,10 @@
 </tr>
 <tr>
   <td>ga</td>
-  <td>Irish</td>
+  <td>orang Irlandia</td>
 </tr>
 <tr>
-  <td>gd</td>
+  <td>gambar gaelik</td>
   <td>Scots Gaelic</td>
 </tr>
 <tr>
@@ -210,8 +210,8 @@
   <td>Ibrani</td>
 </tr>
 <tr>
-  <td>hi</td>
-  <td>Tidak</td>
+  <td>Hai</td>
+  <td>Hindi</td>
 </tr>
 <tr>
   <td>jam</td>
@@ -231,7 +231,7 @@
 </tr>
 <tr>
   <td>id</td>
-  <td>bahasa Indonesia</td>
+  <td>Bahasa Indonesia</td>
 </tr>
 <tr>
   <td>sedang</td>
@@ -271,7 +271,7 @@
 </tr>
 <tr>
   <td>kn</td>
-  <td>Kannada</td>
+  <td>Kanada</td>
 </tr>
 <tr>
   <td>ko</td>
@@ -314,7 +314,7 @@
   <td>Malayalam</td>
 </tr>
 <tr>
-  <td>M N</td>
+  <td>m n</td>
   <td>Orang maya</td>
 </tr>
 <tr>
@@ -322,11 +322,11 @@
   <td>Moldavia</td>
 </tr>
 <tr>
-  <td>Bapak</td>
+  <td>bapak</td>
   <td>Marathi</td>
 </tr>
 <tr>
-  <td>Nona</td>
+  <td>nona</td>
   <td>Melayu</td>
 </tr>
 <tr>
@@ -370,8 +370,8 @@
   <td>Punjabi</td>
 </tr>
 <tr>
-  <td>pl</td>
   <td>Polish</td>
+  <td>polisi</td>
 </tr>
 <tr>
   <td>ps</td>
@@ -379,10 +379,10 @@
 </tr>
 <tr>
   <td>pt</td>
-  <td>Portuguese</td>
+  <td>Portugis</td>
 </tr>
 <tr>
-  <td>pt-BR</td>
+  <td>Portugis (Brasil)</td>
   <td>Portugis (Brasil)</td>
 </tr>
 <tr>
@@ -395,7 +395,7 @@
 </tr>
 <tr>
   <td>rm</td>
-  <td>Romansh</td>
+  <td>Rumawi</td>
 </tr>
 <tr>
   <td>ro</td>
@@ -411,27 +411,27 @@
 </tr>
 <tr>
   <td>sh</td>
-  <td>Serbo-Croatian</td>
+  <td>Serbo-Kroasia</td>
 </tr>
 <tr>
   <td>si</td>
-  <td>Sinhalese</td>
+  <td>Orang Sinhala</td>
 </tr>
 <tr>
   <td>sk</td>
-  <td>Slovak</td>
+  <td>Bahasa Slowakia</td>
 </tr>
 <tr>
   <td>sl</td>
-  <td>Slovenian</td>
+  <td>Bahasa Slovenia</td>
 </tr>
 <tr>
   <td>sn</td>
-  <td>Shona</td>
+  <td>Bahasa Shona</td>
 </tr>
 <tr>
-  <td>so</td>
-  <td>Somali</td>
+  <td>jadi</td>
+  <td>Orang Somalia</td>
 </tr>
 <tr>
   <td>sq</td>
@@ -439,11 +439,11 @@
 </tr>
 <tr>
   <td>sr</td>
-  <td>Serbia</td>
+  <td>Orang Serbia</td>
 </tr>
 <tr>
   <td>st</td>
-  <td>Sesotho</td>
+  <td>Orang Sesotho</td>
 </tr>
 <tr>
   <td>su</td>
@@ -451,15 +451,15 @@
 </tr>
 <tr>
   <td>sv</td>
-  <td>Swedia</td>
+  <td>Bahasa Swedia</td>
 </tr>
 <tr>
   <td>sw</td>
-  <td>Swahili</td>
+  <td>Bahasa Swahili</td>
 </tr>
 <tr>
   <td>ta</td>
-  <td>Tamil</td>
+  <td>Bahasa Tamil</td>
 </tr>
 <tr>
   <td>te</td>
@@ -467,19 +467,19 @@
 </tr>
 <tr>
   <td>tg</td>
-  <td>Tajik</td>
+  <td>Bahasa Tajik</td>
 </tr>
 <tr>
   <td>th</td>
-  <td>Bahasa Thailand</td>
+  <td>Bahasa Thai</td>
 </tr>
 <tr>
   <td>ti</td>
-  <td>Tigrinya</td>
+  <td>Bahasa Tigrinya</td>
 </tr>
 <tr>
   <td>tk</td>
-  <td>Turkmen</td>
+  <td>Bahasa Turki</td>
 </tr>
 <tr>
   <td>untuk</td>
@@ -499,11 +499,11 @@
 </tr>
 <tr>
   <td>ug</td>
-  <td>Uighur</td>
+  <td>Bahasa Uighur</td>
 </tr>
 <tr>
   <td>uk</td>
-  <td>Ukraina</td>
+  <td>Bahasa Ukraina</td>
 </tr>
 <tr>
   <td>ur</td>
@@ -511,38 +511,38 @@
 </tr>
 <tr>
   <td>uz</td>
-  <td>Uzbek</td>
+  <td>Bahasa Uzbek</td>
 </tr>
 <tr>
   <td>vi</td>
-  <td>Vietnam</td>
+  <td>Bahasa Vietnam</td>
 </tr>
 <tr>
   <td>xh</td>
-  <td>Xhosa</td>
+  <td>Bahasa Xhosa</td>
 </tr>
 <tr>
   <td>yi</td>
   <td>Yiddi</td>
 </tr>
 <tr>
-  <td>yo</td>
-  <td>Yoruba</td>
+  <td>saya</td>
+  <td>Bahasa Yoruba</td>
 </tr>
 <tr>
   <td>zh</td>
   <td>Cina</td>
 </tr>
 <tr>
-  <td>zh-CN</td>
-  <td>Chinese (Simplified)</td>
+  <td>zh-rCN</td>
+  <td>Cina Disederhanakan</td>
 </tr>
 <tr>
   <td>zh-TW</td>
-  <td>Chinese (Traditional)</td>
+  <td>Cina tradisional)</td>
 </tr>
 <tr>
-  <td>zu</td>
+  <td>untuk</td>
   <td>Zulu</td>
 </tr>
 </tbody>

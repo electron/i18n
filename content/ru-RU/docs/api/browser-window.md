@@ -114,69 +114,69 @@ Process: [Main](../glossary.md#main-process)
 
 `BrowserWindow` это [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Так создается новый экземпляр `BrowserWindow` с нативными свойствами, установленными в `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (опционально) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
-  * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
-  * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
-    * `default` - Results in the standard gray opaque Mac title bar.
+* `options` Object (необязательно) 
+  * `width` Integer (необязательно) - Ширина окна в пикселях. По умолчанию - `800`.
+  * `height` Integer (необязательно) - Высота окна в пикселях. По умолчанию - `600`.
+  * `x` Integer (необязательно) (**обязательно** если используется y) - Отступ окна слева от экрана. Значение по умолчанию центрирует окно.
+  * `y` Integer (необязательно) (**обязательно** если используется x) - Отступ окна сверху от экрана. Значение по умолчанию центрирует окно.
+  * `useContentSize` Boolean (необязательно) - `width` и `height` могут использоваться как размеры веб-страницы, это значит, что актуальный размер окна будет включать размер фрейма и будет немного крупнее. По умолчанию - `false`.
+  * `center` Boolean (необязательно) - Показывает окно в центре экрана.
+  * `minWidth` Integer (необязательно) - Минимальная ширина окна. По умолчанию - ``.
+  * `minHeight` Integer (необязательно) - Минимальная высота окна. По умолчанию - ``.
+  * `maxWidth` Integer (необязательно) - Максимальная ширина окна. По умолчанию - без ограничений.
+  * `maxHeight` Integer (необязательно) - Максимальная высота окна. По умолчанию - без ограничений.
+  * `resizable` Boolean (необязательно) - Будет ли окно изменять размеры. По умолчанию - `true`.
+  * `movable` Boolean (необязательно) - Будет ли окно перемещаться. Не реализовано на Linux. По умолчанию - `true`.
+  * `minimizable` Boolean (необязательно) - Будет ли окно сворачиваться. Не реализовано на Linux. По умолчанию - `true`.
+  * `maximazable` Boolean (необязательно) - Будет ли окно разворачиваться. Не реализовано на Linux. По умолчанию - `true`.
+  * `closable` Boolean (необязательно) - Возможность закрывать окно. Не реализовано на Linux. По умолчанию - `true`.
+  * `focusable` Boolean (необязательно) - Может ли быть окно в фокусе. По умолчанию - `true`. На Windows настройка `focusable: false` также подразумевает настройку `skipTaskbar: true`. На Linux настройка `focusable: false` прекращает взаимодействие окна с оконным менеджером, на Windows же всегда остается поверх всех рабочих областей.
+  * `alwaysOnTop` Boolean (необязательно) - Будет ли окно всегда оставаться поверх других окон. По умолчанию - `false`.
+  * `fullscreen` Boolean (необязательно) - Будет ли окно показываться во весь экран. Когда явно установлено `false`, на macOS кнопка полноэкранного режима будет скрыта или отключена. По умолчанию - `false`.
+  * `fullscreenable` Boolean (необязательно) - Может ли окно быть в полноэкранном режиме. На macOS, также кнопка увеличить/зумировать должна переключить в полноэкранный режим или увеличить окно. По умолчанию - `true`.
+  * `skipTaskbar` Boolean (необязательно) - Будет ли показано окно в таск-баре. По умолчанию - `false`.
+  * `kiosk` Boolean (необязательно) - Режим киоска. По умолчанию - `false`.
+  * `title` String (необязательно) - Название окна. По умолчанию - `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (необязательно) - Иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
+  * `show` Boolean (необязательно) - Будет ли показано окно, когда будет создано. По умолчанию - `true`.
+  * `frame` Boolean (необязательно) - Установите `false`, чтобы создать [Frameless Window](frameless-window.md). По умолчанию - `true`.
+  * `parent` BrowserWindow (необязательно) - Устанавливает родительское окно. По умолчанию - `null`.
+  * `modal` Boolean (необязательно) - Будет ли окно модальным. Работает только, когда окно является дочерним окном. По умолчанию - `false`.
+  * `acceptFirstMouse` Boolean (необязательно) - Будет ли веб-окно принимать событие одиночного нажатия мыши, которое одновременно активирует окно. По умолчанию - `false`.
+  * `disableAutoHideCursor` Boolean (необязательно) - Будет ли спрятан курсор, во время печатания. По умолчанию - `false`.
+  * `autoHideMenuBar` Boolean (необязательно) - Автоматическое убирание полоски меню, пока клавиша `Alt` не будет нажата. По умолчанию - `false`.
+  * `enableLargerThanScreen` Boolean (необязательно) - Позволяет окну изменять размер больше, чем экран. По умолчанию - `false`.
+  * `backgroundColor` String (необязательно) - Фоновый цвет окна, в виде шестнадцатеричного значения, наподобие `#66CD00` или `#FFF` или `#80FFFFFF` (альфа поддерживается). По умолчанию - `#FFF` (белый).
+  * `hasShadow` Boolean (необязательно) - Будет ли окно иметь тень. Реализовано только на macOS. По умолчанию - `true`.
+  * `darkTheme` Boolean (необязательно) - Заставляет использовать темную тему для окна, работает только на некоторых GTK+3 окружениях рабочего стола. По умолчанию - `false`.
+  * `transparent` Boolean (необязательно) - Делает окно [прозрачным](frameless-window.md). По умолчанию - `false`.
+  * `type` String (необязательно) - Тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
+  * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `обычное`. Возможные значения: 
+    * `по умолчанию` - результаты в Стандартный серой непрозрачной Mac панели.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Deprecated, use `hiddenInset` instead.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
+  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. По умолчанию - `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Default is `false`.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. По умолчанию - `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
-    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
+    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. По умолчанию - `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. По умолчанию - `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Default is `true`.
+    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. По умолчанию - `true`.
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
     * `images` Boolean (optional) - Enables image support. Default is `true`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
@@ -221,7 +221,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
-#### Event: 'page-title-updated'
+#### Событие: «обновление заголовка страницы»
 
 Возвращает:
 
@@ -948,21 +948,21 @@ Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Возвращает `Boolean` - был ли вызов успешным.
 
-On Windows and Linux always returns `true`.
+В Windows и Linux всегда возвращает `true`.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Возвращает `Boolean` - успешно ли добавлены кнопки
 
 Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-The `buttons` is an array of `Button` objects:
+`buttons` является массивом объектов `Button`:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - значок, отображаемый на панели инструментов эскизов.
@@ -981,7 +981,7 @@ The `buttons` is an array of `Button` objects:
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - Область окна
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
@@ -1048,13 +1048,13 @@ Sets whether the window should be visible on all workspaces.
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**Примечание:** Данный API всегда возвращает false в Windows.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
 * `ignore` Boolean
 
-Makes the window ignore all mouse events.
+Включает для окна игнорирование событий от мыши.
 
 All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
@@ -1062,7 +1062,7 @@ All mouse events happened in this window will be passed to the window below this
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Предотвращает захват содержимого окна другими приложениями.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
@@ -1104,7 +1104,7 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
 #### `win.setBrowserView(browserView)` *Экспериментально*
 

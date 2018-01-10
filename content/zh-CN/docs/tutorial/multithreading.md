@@ -18,13 +18,13 @@ let win = new BrowserWindow({
 
 ## 可用的API
 
-Web Workers支持Node.js的所有内置模块，而且`asar`档案也仍通过Node.js的API来读取。 不过没有一个Electron的内置模块可以用在多线程环境中。
+Web Workers支持Node.js的所有内置模块，而且`asar`档案也仍通过Node.js的API来读取。 不过所有的Electron内置模块不可以用在多线程环境中。
 
 ## 原生Node.js模块
 
 在Web Workers里可以直接加载任何原生Node.js模块，但不推荐这样做。 大多数现存的原生模块是在假设单线程环境的情况下编写的，如果把它们用在Web Workers里会导致崩溃和内存损坏。
 
-请注意, 即使原生Node.js模块如果考虑到了线程安全问题， 但在 Web Worker中加载它仍然不安全, 因为 ` process.dlopen ` 函数并没有考虑。
+请注意, 即使原生Node.js模块如果考虑到了线程安全问题， 但在 Web Worker中加载它仍然不安全, 因为 ` process.dlopen ` 函数并没有考虑线程安全。
 
 现在安全顺利地加载原生模块的唯一办法，就是确保在Web Workers启动后app不加载原生模块。
 

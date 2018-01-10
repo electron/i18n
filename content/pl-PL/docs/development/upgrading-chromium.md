@@ -17,7 +17,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
       $ ./script/bootstrap -v
 
 2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
+  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) i aktualizuj `VERSION` file with it 
     - This can be done manually by visiting OmahaProxy in a browser, or automatically:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
@@ -25,12 +25,12 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Opcjonalnie) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
+4. (Opcjonalnie) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `aktualizacja` rozmowy: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
   - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
+6. When the build succeeds, create a `dist` dla Electron 
   - `$ ./script/create-dist  --no_zip` 
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
@@ -128,7 +128,7 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Useful links
+## Przydatne linki
 
 - [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)

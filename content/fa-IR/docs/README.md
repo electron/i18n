@@ -27,7 +27,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 * [Updating Applications](tutorial/updates.md)
 
-## Tutorials
+## آموزش‌ها
 
 * [شروع سریع](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)

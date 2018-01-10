@@ -6,15 +6,15 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
   * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker
+  * `change` Fonksiyon (isteğe bağlı) - Bir renk seçildiğinde aranacak fonksiyon. 
+    * `renk` Metin - Kullanıcının seçiciden seçtiği renk
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBarColorPicker`:
+Aşağıdaki özellikler `TouchBarColorPicker` örnekleri üzerinde mevcuttur:
 
 #### `touchBarColorPicker.availableColors`
 
@@ -22,4 +22,4 @@ A `String[]` array representing the color picker's available colors to select. C
 
 #### `touchBarColorPicker.selectedColor`
 
-A `String` hex code representing the color picker's currently selected color. Changing this value immediately updates the color picker in the touch bar.
+Renk seçicinin seçili rengini temsil eden `String` hex kod. Bu değeri değiştirmek dokunma çubuğundaki renk seçiciyi derhal günceller.

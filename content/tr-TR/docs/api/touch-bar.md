@@ -1,32 +1,32 @@
-## Class: TouchBar
+## Sınıf: TouchBar
 
-> Create TouchBar layouts for native macOS applications
+> Yerel macOS uygulamaları için TouchBar düzenlemeleri oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
-* `options` Nesne 
+* `seçenekler` Nesne 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+Belirli öğelerle yeni bir dokunmatik çubuk oluşturun. Bir pencereye `TouchBar` eklemek için `BrowserWindow.setTouchBar` kullanmalısınız.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Not:** TouchBar API şu anda deneyseldir ve gelecekteki Electron sürümlerinde değişebilir veya kaldırılabilir.
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**İpucu:** Eğer MacBook'unuzda Touch Bar yoksa, uygulamanızda Touch Bar kullanımını test etmek için [Touch Bar Simülatör](https://github.com/sindresorhus/touch-bar-simulator)'ünü kullanabilirsiniz.
 
 ### Örnek özellikleri
 
-The following properties are available on instances of `TouchBar`:
+Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
 
 #### `touchBar.escapeItem`
 
-The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+`TouchBarButton` ayarlandığında, touch bar üzerindeki "esc" düğmesinin yerini alır. `null` olarak ayarlamak varsayılan "esc" düğmesini geri yükler. Bu değeri değiştirmek, touch bar üzerindeki öğeyi hemen günceller.
 
 ## Örnekler
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Aşağıda düğme ve bazı etiketler içeren basit bir slot makinesi touch bar oyunu örnek olarak verilmiştir.
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -48,12 +48,12 @@ const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### Yukarıdaki örneğin çalıştırılması
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+Yukarıdaki örneği çalıştırmak için yapmanız gerekenler (örneği çalıştırmak istediğiniz dizinde açık bir uçbirim olduğu varsayılarak):
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. Yukarıdaki dosyayı `touchbar.js` olarak bilgisayarınıza kaydedin
+2. `npm install electron` aracılığıyla Electron'u yükleyin
+3. Örneği Electron'da çalıştırın: `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Ardından yeni bir Electron penceresi ve uygulamanızın dokunmatik çubuğunuzda (veya dokunmatik çubuklu emülatörünüzde) çalıştığını görmeniz gerekir.

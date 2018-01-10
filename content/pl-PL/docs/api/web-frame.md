@@ -48,7 +48,7 @@ Returns `Number` - The current zoom level.
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Ustawia maksymalny i minimalny poziom pinch-to-zoom.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -61,8 +61,8 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
-  * `spellCheck` Function - Returns `Boolean` 
+* `provider` Obiekt 
+  * `spellCheck` Function - Returns `Logiczny typ danych` 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -149,7 +149,7 @@ const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+To wygeneruje:
 
 ```javascript
 {

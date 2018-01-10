@@ -2,13 +2,13 @@
 
 > Sürüm oluşturma politikamıza ve uygulamanıza ayrıntılı bir bakış.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+2.0.0 sürümünden itibaren Electron [semver](#semver)'i izler. Aşağıdaki komut, Electron'un en son kararlı yapısını yükleyecektir:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Mevcut bir projeyi en son kararlı sürümü kullanacak şekilde güncellemek için:
 
 ```sh
 npm install --save-dev electron@latest
@@ -16,9 +16,9 @@ npm install --save-dev electron@latest
 
 ## Sürüm 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron versiyonları *< 2.0*, [semver](http://semver.org) belirtimine uymadı. Ana sürümler, son kullanıcı API değişikliklerine karşılık gelmektedir. Küçük versiyonlar Chromium'un ana sürümlerine karşılık gelir. Yama sürümleri, yeni özelliklere ve hata düzeltmelerine karşılık gelmiştir. Özellikleri birleştiren geliştiriciler için elverişli olsa da, müşteri tarafından yönlendirilen uygulamaların geliştiricileri için sorunlar yaratmaktadır. Slack, Stride, Teams, Skype, VS Code, Atom ve Masaüstü gibi büyük uygulamaların QA test çevrimleri uzun olabilir ve istikrar son derece istenen bir sonuçtur. Hata düzeltmelerini kavramaya çalışırken yeni özelliklerin benimsenmesinde yüksek bir risk söz konusudur.
 
-Here is an example of the 1.x strategy:
+1.x stratejisine bir örnek:
 
 ![](../images/versioning-sketch-0.png)
 
@@ -26,11 +26,11 @@ An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either abs
 
 ## Sürüm 2.0 ve Ötesi
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Aşağıda özetlenen 1.x stratejimizden birkaç önemli değişiklik var. Her değişiklik, geliştiricilerin/sürdürücülerin ve uygulama geliştiricilerin gereksinimlerini ve önceliklerini karşılamak üzere tasarlanmıştır.
 
 1. Semver'in sıkı kullanımı
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
+2. Semver-uyumlu `-beta` etiketlerinin tanıtımı
+3. [Konvansiyonel taahhüt mesajları](https://conventionalcommits.org/)'na giriş
 4. Açıkça tanımlanan stabilizasyon dalları
 5. The `master` branch is versionless; only stability branches contain version information
 
@@ -38,9 +38,9 @@ Git dallanmasının nasıl çalıştığını, npm etiketinin nasıl çalıştı
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Electron 2.0'dan itibaren semver'i izleyecek.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, Minör, Yama) açıkça eşleyen bir tablo verilmiştir.
 
 * **Büyük Sürüm Artışları** 
     * Chromium sürümü güncellemeleri
@@ -48,10 +48,10 @@ Below is a table explicitly mapping types of changes to their corresponding cate
     * Elektron API kırma değişiklikleri
 * **Küçük Versiyon Artımları** 
     * node.js küçük sürüm güncellemeleri
-    * Electron non-breaking API changes
+    * Elektron kırılmaz API değişiklikleri
 * **Yama Sürümü Artımları** 
-    * node.js patch version updates
-    * fix-related chromium patches
+    * node.js yama sürümü güncelleştirmeleri
+    * fix-related chromium yamaları
     * Electron hata düzeltmeleri
 
 Çoğu krom güncellemesinin kırılma olarak değerlendirileceğini unutmayın. Geri gönderilebilecek düzeltmeler muhtemelen kiraz yamalar olarak seçilecek.
@@ -66,25 +66,27 @@ Stabilization branches are always either **major** or **minor** version lines, a
 
 Eşzamanlı olarak birden fazla dengeleme dalının bulunmasına izin veriyoruz, her zaman paralel olarak en az ikisini desteklemeyi ve gerektiğinde güvenlik düzeltmelerini geri göndermeyi düşünüyoruz. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Eski satırlar GitHub tarafından desteklenmeyecek, ancak diğer gruplar kendi kendilerine sahiplik ve backport kararlılığı ve güvenlik düzeltmeleri alabilir. Bunu birlikte cesaretlendiriyoruz çünkü birçok uygulamanın geliştiricileri için hayatı kolaylaştırdığının farkındayız.
 
 # Beta Bültenleri ve Hata Düzeltmeleri
 
-Developers want to know which releases are *safe* to use. Görünüşte masum özellikler bile karmaşık uygulamalarda gerileme yaratabilir. Aynı zamanda sabit bir sürüme kilitleme tehlikelidir, çünkü sürümünüzden bu yana çıkan güvenlik yamalarını ve hata düzeltmelerini görmezden geliyorsunuzdur. Our goal is to allow the following standard semver ranges in `package.json` :
+Geliştiriciler hangi sürümlerin *güvenli* olacağını bilmek istiyor. Görünüşte masum özellikler bile karmaşık uygulamalarda gerileme yaratabilir. Aynı zamanda sabit bir sürüme kilitleme tehlikelidir, çünkü sürümünüzden bu yana çıkan güvenlik yamalarını ve hata düzeltmelerini görmezden geliyorsunuzdur. Amacımız `package.json`'da aşağıdaki standart semver aralıklarına izin vermektir:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
+* `2.0.0` sürümünüze yalnızca kararlılık veya güvenlikle ilgili düzeltmeler kabul etmek için `-2.0.0` kullanın.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+İkinci nokta ile ilgili önemli olan ` ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. Bunu gerçekleştirmek için Semver, belirli bir sürümün henüz <em>güvenli</em> veya <em>kararlı</em> olmadığını belirtmek için <em>yayın öncesi tanımlayıcıya</em> izin verir.</p>
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+<p>Hangisini seçerseniz seçin, bozucu değişiklikler Chromium hayatının bir gerçeği olduğu için periyodik olarak <code> package.json </ 0> sürümününe geçmek zorunda kalacaksınız.</p>
 
-Süreç şöyledir:
+<p>Süreç şöyledir:</p>
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. örneğin `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+<ol>
+<li>Tüm yeni büyük ve küçük yayın satırları, <code>N >= 1` için `-beta.N` etiketi ile başlar. Tam da burada, özellik seti **kilitli** olur. Bu sürüm satırı, başka hiçbir özelliği kabul etmiyor ve yalnızca güvenlik kararlılıkları ile ilgilidir. örneğin `2.0.0-beta.1`.</li> 
+
+* Hata düzeltmeleri, regresyon düzeltmeleri ve güvenlik yamaları kabul edilebilir. Bunu yaptıktan sonra `N` bir arttırılarak yeni bir beta yayınlandı. Örneğin. `2.0.0-beta.2`
+* Belirli bir beta sürümünün kararlılığı *genel olarak kabul edilirse*, yalnızca sürüm bilgisi değiştirilerek, kararlı yapı olarak yeniden yayınlanacaktır. Örneğin. `2.0.0`.
+* Gelecekteki hata düzeltmeleri veya güvenlik yamalarının yayın kararlı iken bir araya getirilmesi gerekiyorsa, bunlar uygulanır ve buna göre *yama* sürümü artırılır. Örneğin. `2.0.1`.</ol> 
 
 Her büyük ve küçük darbe için, aşağıdakiler gibi bir şey beklemelisiniz:
 
@@ -99,9 +101,10 @@ Her büyük ve küçük darbe için, aşağıdakiler gibi bir şey beklemelisini
 
 Resimlerdeki bir yaşam döngüsü:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* En son özellik setini içeren yeni bir sürüm şubesi oluşturuldu. ` 2.0.0-beta.1 </ 0> olarak yayınlandı.
+<img src="../images/versioning-sketch-3.png" alt="" /></li>
+<li>Paketin sürüm şemasına aktarılan bir hata düzelme uzmana gelir, Düzeltme eki uygulanır ve yeni bir beta sürümü şu şeklide yayınlanır <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* Beta *genellikle kararlı* olarak kabul edilir ve `2.0.0` altında tekrar beta olmayan olarak yayınlanır. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Çeşitli semver aralıklarının yeni sürümleri nasıl alacağına ilişkin birkaç örnek:
@@ -112,27 +115,27 @@ Resimlerdeki bir yaşam döngüsü:
 
 Stratejimiz, şu an uygun olduğunu düşündüğümüz birkaç takas hattı içeriyor. En önemlisi, master'daki yeni özelliklerin kararlı bir sürüm hattına erişmeden önce biraz zaman alması. Hemen yeni bir özellik denemek isterseniz, Electron'u kendiniz kurmanız gerekecek.
 
-As a future consideration, we may introduce one or both of the following:
+Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birlikte sunabiliriz:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* gece boyunca inşa eden ustalar; bunlar milletlerin yeni özellikleri hızlıca test etmesine ve geri bildirimde bulunmasına izin verecektir
+* beta sürümlerine göre daha serbest denge kısıtlamaları olan alfa sürümleri; örneğin, bir denge kanalı *alpha* da ise, yeni özellikleri kabul etmek için izin verir
 
 # Özellik bayrakları
 
 Özellik bayrakları Chromium'da yaygın bir uygulamadır ve web geliştirme ekosisteminde iyi kurulmuştur. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* çalışma ya da derleme zamanı sırasında etkinleştirilir/devre dışı bırakılır. Biz istek kapsamlı özellik bayrağı anlayışını desteklemiyoruz
+* bu bölümler tamamen yeni ve eski kod yollarıdır: Bu yeni özellik yeni ve eski kodların yenıden yapılandırılması içindir *uygun değil* koşullu kontrat özellikleri
+* belirleyici işaretler hassas bölümler birleştirildikten sonra doğal olarak kaldırılır
 
 İşaretlenen kodu sürüm verme stratejimizle aşağıdaki şekilde eşleştiriyoruz:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. istikrar dalında özellik işaretli kod üzerinde yinelemeyi düşünmüyoruz; Hatta özellik bayrakları dikkatli kullanımı risklidir
+2. aPI sözleşmelerini özellik işaretli kodda, ana sözcüğe darbe indirmeden geçirebilirsiniz. İşaretlenen kod semver'e uymuyor olabilir
 
-# Semantic Commits
+# Anlamsal örneklendirme
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırmaya çalışıyoruz. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
 * Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
 * Commits that would result in a semver **minor** bump must start with `feat:`.
@@ -145,5 +148,5 @@ We seek to increase clarity at all levels of the update and releases process. St
 # Versionless `master`
 
 * The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
+* Serbest branşlar asla ustaya birleştirilmez
 * Release branches *do* contain the correct version in their `package.json`

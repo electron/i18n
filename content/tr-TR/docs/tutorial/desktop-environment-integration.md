@@ -24,7 +24,7 @@ Yeni belgelere dosya eklemek için, [app.addRecentDocument](../api/app.md#appadd
 
 ```javascript
 const {app} = require('electron')
-app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
+app.addRecentDocument('/kullanıcı/kullanıcıadı/Masaüstü/iş.tipi')
 ```
 
 Ve boşaltmak için [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API'sını kullanabilirsiniz son belgeler listesi:
@@ -58,8 +58,8 @@ macOS, geliştiricilerin dock için özel bir menü belirlemelerini sağlar; bu 
 const {app, Menu} = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
-  {label: 'New Window', click () { console.log('New Window') }},
-  {label: 'New Window with Settings',
+  {label: 'Yeni Pencere', click () { console.log('Yeni Pencere') }},
+  {label: 'Ayarlar ile Yeni Pencere',
     submenu: [
       {label: 'Basic'},
       {label: 'Pro'}
@@ -76,7 +76,7 @@ Windows'ta, Görev listesi'nin `Tasks` kategorisinde özel eylemler belirtebilir
 
 > Uygulamalar görevleri program özelliklerine ve önemli şeylere göre tanımlar kullanıcının bunlara göre yapması beklenir. Görevler bağlam içermemeli, uygulamanın çalışması için çalışıyor olması gerekmez. Onlar normal bir kullanıcının yapacağı istatistiksel olarak en yaygın işlemler olmalıdır bir e-posta mesajı oluşturmak veya bir e-posta mesajı oluşturmak gibi bir uygulamada posta programındaki takvim, bir kelime işlemcide yeni bir belge oluşturun, bir uygulamayı belirli bir modda açabilir veya alt komutlarından birini başlatabilirsiniz. Bir uygulamanın, menüyü standart olan gelişmiş özelliklerle karmaşıklaştırmaması gerekir Kullanıcıların kayıt gibi bir kereye mahsus işlem yapmasına gerek yoktur. Yükseltmeler veya özel teklifler gibi promosyon amaçlı ürünler için görevleri kullanmayın.
 > 
-> Görev listesinin statik olması şiddetle önerilir. It should remain the same regardless of the state or status of the application. Görev listesini dinamik olarak değiştirebilirsiniz, ancak bazı kullanıcıların beklenmedik görev listesi değişiklikleriyle karıştırılabileceğini düşünmelisiniz.
+> Görev listesinin statik olması şiddetle önerilir. Bu durumun veya uygulamanın durumunun ne olursa olsun aynı kalması gerekmektedir. Görev listesini dinamik olarak değiştirebilirsiniz, ancak bazı kullanıcıların beklenmedik görev listesi değişiklikleriyle karıştırılabileceğini düşünmelisiniz.
 
 **Internet Explorer'ın görevi:**
 
@@ -111,19 +111,19 @@ Kullanıcı görevleri, uygulamanız kapandıktan sonra bile gösterilir, bu ned
 
 ## Küçük resim araç çubukları
 
-Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çubuğu ekleyebilirsiniz bir uygulama penceresinin düzeni. It provides users a way to access to a particular window's command without restoring or activating the window.
+Windows'ta bir görev çubuğunda belirtilen butonlarla küçük resim araç çubuğu ekleyebilirsiniz bir uygulama penceresinin düzeni. Kullanıcılara, pencereyi geri yüklemeden veya etkinleştirmeden belirli bir pencerenin komutuna erişmenin yolunu sağlar.
 
-From MSDN, it's illustrated:
+MSDN'den örneklendirilmiştir:
 
-> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. En fazla yedi buton vardır. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Bu araç sadece tanıdık Standart araç ortak kontrolüdür. En fazla yedi buton vardır. Her düğmenin kimliği, görüntüsü, araç ipucu ve durumu, görev çubuğuna konulan bir yapı içinde tanımlanır. Uygulama, mevcut durum gereği küçük resimleri araç çubuğunda gösterebilir, etkinleştirebilir, devre dışı bırakabilir veya gizleyebilir.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Örneğin, Windows Media Player, play, pause, mute ve stop gibi standart ortam taşıma denetimleri sunabilir.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Windows Media Player'ın küçük resim araç çubuğu:**
 
 ![oynatıcı](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+[BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) Bunu uygulamanız içerisinde küçük resim araç çubuğunu ayarlamak için kullanabilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Küçük resim araç çubuğu düğmelerini temizlemek için boş bir diziyle `BrowserWindow.setThumbarButtons` öğesini çağırmanız yeterlidir:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,17 +157,17 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Unity İstemci Kısayolları (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Unity'de, `.desktop` dosyasını değiştirerek, başlatıcısına özel girişler ekleyebilirsiniz, bkz. [Bir Başlatıcıya Kısayol Ekleme](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Audacious'un başlatıcı kısayolları:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## Görev çubuğunda ilerleme çubuğu (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Windows'ta bir görev çubuğu düğmesi bir ilerleme çubuğu görüntülemede kullanılabilir. Bu, bir pencere için kendiliğinden geçiş yapmak zorunda kalmadan kullanıcıya ilerleme bilgileri sağlar.
 
 MacOS üzerinde ilerleme çubuğu dock simgesinin bir parçası olarak görüntülenir.
 
@@ -177,7 +177,7 @@ Unity DE aynı zamanda başlatıcıda ki ilerleme çubuğunu belirlemenizi sağl
 
 ![Görev çubuğu ilerleme çubuğu](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Bir pencerenin ilerleme çubuğunu ayarlamak için [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) kullanablirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,29 +185,29 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Görev çubuğundaki yer paylaşım simgesi (windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Windows'ta bir görev çubuğu düğmesi, MSDN'den aktarıldığı gibi uygulama durumunu görüntülemek için küçük bir yer paylaşımında kullanılabilir:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Simge ve yer paylaşımları durumu bağlamsal bir bildirim olarak hizmet ve kullanıcıya bu bilgileri iletişim kurmak için ayrı bir bildirim durumu simgesi gereksinimini ortadan kaldırmak için tasarlanmıştır. Örneğin, bildirim alanında gösterilen Microsoft Outlook'ta yeni posta durumu artık görev çubuğu düğmesindeki bir kaplama ile gösterilebilir. Tekrardan, hangi metodun uygulamanız iyi olduğuna geliştirme döneminde karar vermeniz gerekmektedir. Yer paylaşımı simgeleri, ağ durumu, mesajlaşma durumu veya yeni posta gibi önemli, uzun süreli durum veya bildirimleri sağlamak için tasarlanmıştır. Kullanıcı sürekli değişen yer paylaşımları veya animasyonlar ile ortaya konmamalıdır.
 
 **Arayüzü görev çubuğuna al:**
 
 ![Arayüzü görev çubuğuna al](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+[BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API: Bunu bir pencereye yer paylaşım simgesi ayarlamak için kullanabilirisiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Overlay için açıklama')
 ```
 
 ## Flash çerçeve (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Windows'ta, kullanıcının dikkatini çekmek amaçlı görev çubuğu düğmesini vurgulayabilirsiniz. Bu, macOS'taki yuvanın hareketliliğine benzer. MSDN başvuru belgelerinden:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Genellikle, kullanıcıya pencerenin dikkat gerektirdiğini ancak şu anda klavye odağına sahip olmadığını kullanıcıya belirten bir pencere görünür.
 
 To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
@@ -218,13 +218,13 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Flash'ı devre dışı bırakmak için `false` ile `flashFrame` metodunu çağırmayı unutmayın. Yukarıdaki örnekte, pencere odak noktasına geldiğinde çağrılır, ancak pencreyi devre dışı bırakmak için bir zaman aşımı veya başka bir olay kullanmanız mümkündür.
 
 ## Pencerenin temsili dosyası (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+MacOS'taki bir pencere temsil edilen dosyasını ayarlayabilir, böylelikle dosyanın simgesi başlık çubuğunda gösterilebilir ve kullanıcılar Komut Tuşu'na veya Kontrol Tuşu'na tıkladığında açılır.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Bir pencerenin düzenlenmiş durumunu ayarlayabilirsiniz, böylece dosya simgesi bu penceredeki belgenin değiştirilmiş olup olmadığını gösterebilir.
 
 **Temsil dosya açılan menüsü:**
 
@@ -239,9 +239,9 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## Dosyaları pencereden dışarı sürükleme
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Dosyalar üzerinde işlem yapan bazı türdeki uygulamalar için, dosyaları Electron'dan diğer uygulamalara taşıyabilmek önemlidir. Bu özelliği uygulamanıza uygulamak için `webContents.startDrag (öğe)` API'sini `ondragstart` etkinliğinde aramanız gerekir.
 
 Web sayfasında:
 
@@ -262,7 +262,7 @@ const {ipcMain} = require('electron')
 ipcMain.on('ondragstart', (event, filePath) => {
   event.sender.startDrag({
     file: filePath,
-    icon: '/path/to/icon.png'
+    icon: '/ikon/yolu.png'
   })
 })
 ```

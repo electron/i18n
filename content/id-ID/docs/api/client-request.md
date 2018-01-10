@@ -36,120 +36,119 @@ Pengembalian:
 
 * `respon` IncomingMessage - sebuah objek yang mewakili pesan Respon HTTP.
 
-#### Acara : 'login'
+#### Acara: 'login'
 
 Pengembalian:
 
 * `authInfo` Obyek 
   * ` isProxy </ 0>  Boolean</li>
-<li><code> skema </ 0>  String</li>
-<li><code> host </ 0>  String</li>
-<li><code> port </ 0>  Integer</li>
-<li><code> realm </ 0>  String</li>
-</ul></li>
-<li><code>callback` Fungsi 
-    * ` nama pengguna </ 0>  String</li>
-<li><code> kata sandi </ 0>  String</li>
-</ul></li>
-</ul>
+<li><code>skema` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Fungsi 
+  * `namapengguna` String
+  * `katasandi` String
 
-<p>Dibunyikan apabila otentikasi proxy meminta kredensial pengguna.</p>
+Dibunyikan apabila otentikasi proxy meminta kredensial pengguna.
 
-<p>Fungsi <code>panggilan balik` diharapkan dipanggil kembali dengan kredensial pengguna:</p> 
-      * ` nama pengguna </ 0>  String</li>
-<li><code> kata sandi </ 0>  String</li>
-</ul>
+Fungsi `panggilan balik` diharapkan dipanggil kembali dengan kredensial pengguna:
 
-<pre><code class="JavaScript">request.on ('login', (authInfo, callback) = > {callback ('username', 'password')})
-`</pre> 
-        Menyediakan kredensial kosong akan membatalkan permintaan dan laporkan kesalahan otentikasi pada objek respon:
-        
-        ```JavaScript
+* `namapengguna` String
+* `katasandi` String
+
+```JavaScript
+request.on ('login', (authInfo, callback) = > {callback ('username', 'password')})
+```
+
+Menyediakan kredensial kosong akan membatalkan permintaan dan laporkan kesalahan otentikasi pada objek respon:
+
+```JavaScript
 request.on ('tanggapan', (respon) = > {console.log ('STATUS: ${response.statusCode}');   response.on ('kesalahan', (error) = > {console.log ('ERROR: ${JSON.stringify(error)}')})}) request.on ('login', (authInfo, callback) = > {callback()})
 ```
-    
-    #### Event: 'selesai'
-    
-    Dipancarkan hanya setelah potongan terakhir `permintaan` data telah ditulis ke dalam obyek `permintaan`.
-    
-    #### Event: 'membatalkan'
-    
-    Dibunyikan apabila `permintaan` dibatalkan. `Membatalkan` acara tidak bisa dipecat jika `permintaan` sudah ditutup.
-    
-    #### Acara: 'kesalahan'
-    
-    Pengembalian:
-    
-    * `kesalahan` Kesalahan - kesalahan objek menyediakan beberapa informasi tentang kegagalan.
-    
-    Dibunyikan apabila modul `bersih` gagal untuk mengeluarkan permintaan jaringan. Biasanya ketika `permintaan` objek memancarkan acara `kesalahan`, `menutup` acara kemudian akan mengikuti dan objek respon tidak akan diberikan.
-    
-    #### Acara : 'dekat'
-    
-    Dipancarkan sebagai acara terakhir dalam transaksi permintaan-respon HTTP. `Menutup` acara menunjukkan bahwa lebih peristiwa akan dibunyikan pada objek `permintaan` atau `tanggapan`.
-    
-    #### Event: 'mengalihkan'
-    
-    Pengembalian:
-    
-    * `statusCode` Bilangan bulat
-    * ` method </ 0>  String</li>
-<li><code>redirectUrl` String
-    * `responseHeaders` Objek
-    
-    Dibunyikan apabila ada pengalihan dan modus `manual`. Memanggil [`request.followRedirect`](#requestfollowRedirect) akan melanjutkan dengan pengalihan.
-    
-    ### Instance Properties
-    
-    #### `request.chunkedEncoding`
-    
-    `Boolean` menentukan apakah permintaan akan menggunakan HTTP chunked transfer pengkodean atau tidak. Default ke false. Properti dibaca dan ditulisi, namun dapat diatur hanya sebelum pertama menulis operasi sebagai header HTTP tidak belum dimasukkan pada kabel. Mencoba untuk mengatur properti `chunkedEncoding` setelah menulis pertama akan melempar kesalahan.
-    
-    Menggunakan chunked pengkodean sangat dianjurkan jika Anda perlu mengirim permintaan besar tubuh sebagai data akan dialirkan secara potongan kecil bukannya internal buffered dalam memori proses elektron.
-    
-    ### Metode Instance
-    
-    #### `request.setHeader (nama, nilai)`
-    
-    * `nama` String - nama header HTTP tambahan.
-    * `nilai` Objek - HTTP header nilai ekstra.
-    
-    Menambahkan tambahan HTTP header. Nama header akan dikeluarkan sebagaimana adanya tanpa lowercasing. Itu bisa disebut hanya sebelum menulis pertama. Memanggil metode ini setelah menulis pertama akan melempar kesalahan. Jika tidak melewati nilai `String`, metode `toString ()` akan dipanggil untuk mendapatkan nilai akhir.
-    
-    #### `request.getHeader(name)`
-    
-    * `nama` String - menentukan nama tambahan header.
-    
-    Mengembalikan `objek` - nilai nama header tambahan yang sebelumnya ditata.
-    
-    #### `request.removeHeader(name)`
-    
-    * `nama` String - menentukan nama tambahan header.
-    
-    Menghapus nama header tambahan yang sebelumnya ditata. Metode ini dapat disebut hanya sebelum menulis pertama. Mencoba untuk menyebutnya setelah menulis pertama akan melempar kesalahan.
-    
-    #### `request.write (potongan [, pengkodean] [, callback])`
-    
-    * `potongan` (String | Buffer) - sepotong tubuh permintaan data. Jika sebuah string, waktunya akan diubah ke Buffer menggunakan penyandian tertentu.
-    * `pengkodean` String (opsional) - digunakan untuk mengkonversi string potongan ke Buffer objek. Default untuk 'utf-8'.
-    * `callback` Fungsi (opsional) - disebut setelah operasi tulis berakhir.
-    
-    `callback` adalah pada dasarnya fungsi dummy diperkenalkan dalam tujuan menjaga kesamaan dengan Node.js API. Hal ini disebut asynchronously di kutu berikutnya setelah `potongan` konten sudah diserahkan ke lapisan jaringan kromium. Bertentangan dengan implementasi Node.js, itu tidak dijamin bahwa `potongan` konten telah memerah pada kabel sebelum `panggil balik` disebut.
-    
-    Menambahkan sepotong data permintaan tubuh. Operasi menulis pertama dapat menyebabkan header permintaan yang akan diterbitkan pada kawat. Setelah pertama menulis operasi, hal ini tidak diperbolehkan untuk menambah atau menghapus sebuah header.
-    
-    #### `request.end ([chunk] [, encoding] [, callback])`
-    
-    * `potongan` (String | Buffer) (opsional)
-    * `pengkodean` String (opsional)
-    * `callback` Fungsi (opsional)
-    
-    Mengirim sepotong terakhir data permintaan. Operasi berikutnya menulis atau akhir tidak akan diizinkan. Acara `selesai` dibunyikan hanya setelah akhir operasi.
-    
-    #### `request.Abort()`
-    
-    Membatalkan transaksi HTTP yang sedang berlangsung. Jika permintaan telah sudah dipancarkan `menutup` acara, operasi abort tidak akan berpengaruh. Sebaliknya acara yang sedang berlangsung akan memancarkan `membatalkan` dan `menutup` acara. Selain itu, jika ada objek tanggapan berkelanjutan, itu akan memancarkan acara `dibatalkan`.
-    
-    #### `request.followRedirect()`
-    
-    Terus ditangguhkan pengalihan permintaan ketika pengalihan modus `manual`.
+
+#### Event: 'selesai'
+
+Dipancarkan hanya setelah potongan terakhir `permintaan` data telah ditulis ke dalam obyek `permintaan`.
+
+#### Event: 'membatalkan'
+
+Dibunyikan apabila `permintaan` dibatalkan. `Membatalkan` acara tidak bisa dipecat jika `permintaan` sudah ditutup.
+
+#### Acara: 'kesalahan'
+
+Pengembalian:
+
+* `kesalahan` Kesalahan - kesalahan objek menyediakan beberapa informasi tentang kegagalan.
+
+Dibunyikan apabila modul `bersih` gagal untuk mengeluarkan permintaan jaringan. Biasanya ketika `permintaan` objek memancarkan acara `kesalahan`, `menutup` acara kemudian akan mengikuti dan objek respon tidak akan diberikan.
+
+#### Acara : 'dekat'
+
+Dipancarkan sebagai acara terakhir dalam transaksi permintaan-respon HTTP. `Menutup` acara menunjukkan bahwa lebih peristiwa akan dibunyikan pada objek `permintaan` atau `tanggapan`.
+
+#### Event: 'mengalihkan'
+
+Pengembalian:
+
+* `statusCode` Bilangan bulat
+* `method` String
+* `redirectUrl` String
+* `responseHeaders` Objek
+
+Dibunyikan apabila ada pengalihan dan modus `manual`. Memanggil [`request.followRedirect`](#requestfollowRedirect) akan melanjutkan dengan pengalihan.
+
+### Instance Properties
+
+#### `request.chunkedEncoding`
+
+`Boolean` menentukan apakah permintaan akan menggunakan HTTP chunked transfer pengkodean atau tidak. Default ke false. Properti dibaca dan ditulisi, namun dapat diatur hanya sebelum pertama menulis operasi sebagai header HTTP tidak belum dimasukkan pada kabel. Mencoba untuk mengatur properti `chunkedEncoding` setelah menulis pertama akan melempar kesalahan.
+
+Menggunakan chunked pengkodean sangat dianjurkan jika Anda perlu mengirim permintaan besar tubuh sebagai data akan dialirkan secara potongan kecil bukannya internal buffered dalam memori proses elektron.
+
+### Metode Instance
+
+#### `request.setHeader (nama, nilai)`
+
+* `nama` String - nama header HTTP tambahan.
+* `nilai` Objek - HTTP header nilai ekstra.
+
+Menambahkan tambahan HTTP header. Nama header akan dikeluarkan sebagaimana adanya tanpa lowercasing. Itu bisa disebut hanya sebelum menulis pertama. Memanggil metode ini setelah menulis pertama akan melempar kesalahan. Jika tidak melewati nilai `String`, metode `toString ()` akan dipanggil untuk mendapatkan nilai akhir.
+
+#### `request.getHeader(name)`
+
+* `nama` String - menentukan nama tambahan header.
+
+Mengembalikan `objek` - nilai nama header tambahan yang sebelumnya ditata.
+
+#### `request.removeHeader(name)`
+
+* `nama` String - menentukan nama tambahan header.
+
+Menghapus nama header tambahan yang sebelumnya ditata. Metode ini dapat disebut hanya sebelum menulis pertama. Mencoba untuk menyebutnya setelah menulis pertama akan melempar kesalahan.
+
+#### `request.write (potongan [, pengkodean] [, callback])`
+
+* `potongan` (String | Buffer) - sepotong tubuh permintaan data. Jika sebuah string, waktunya akan diubah ke Buffer menggunakan penyandian tertentu.
+* `pengkodean` String (opsional) - digunakan untuk mengkonversi string potongan ke Buffer objek. Default untuk 'utf-8'.
+* `callback` Fungsi (opsional) - disebut setelah operasi tulis berakhir.
+
+`callback` adalah pada dasarnya fungsi dummy diperkenalkan dalam tujuan menjaga kesamaan dengan Node.js API. Hal ini disebut asynchronously di kutu berikutnya setelah `potongan` konten sudah diserahkan ke lapisan jaringan kromium. Bertentangan dengan implementasi Node.js, itu tidak dijamin bahwa `potongan` konten telah memerah pada kabel sebelum `panggil balik` disebut.
+
+Menambahkan sepotong data permintaan tubuh. Operasi menulis pertama dapat menyebabkan header permintaan yang akan diterbitkan pada kawat. Setelah pertama menulis operasi, hal ini tidak diperbolehkan untuk menambah atau menghapus sebuah header.
+
+#### `request.end ([chunk] [, encoding] [, callback])`
+
+* `potongan` (String | Buffer) (opsional)
+* `pengkodean` String (opsional)
+* `callback` Fungsi (opsional)
+
+Mengirim sepotong terakhir data permintaan. Operasi berikutnya menulis atau akhir tidak akan diizinkan. Acara `selesai` dibunyikan hanya setelah akhir operasi.
+
+#### `request.Abort()`
+
+Membatalkan transaksi HTTP yang sedang berlangsung. Jika permintaan telah sudah dipancarkan `menutup` acara, operasi abort tidak akan berpengaruh. Sebaliknya acara yang sedang berlangsung akan memancarkan `membatalkan` dan `menutup` acara. Selain itu, jika ada objek tanggapan berkelanjutan, itu akan memancarkan acara `dibatalkan`.
+
+#### `request.followRedirect()`
+
+Terus ditangguhkan pengalihan permintaan ketika pengalihan modus `manual`.

@@ -30,7 +30,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## Available modifiers
+## Dostępne modyfikatory
 
 * `Command` (or `Cmd` for short)
 * `Control` (or `Ctrl` for short)
@@ -41,7 +41,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Shift`
 * `Super`
 
-## Available key codes
+## Dostępne kody klucza
 
 * `` to `9`
 * `A` to `Z`

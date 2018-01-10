@@ -1,32 +1,32 @@
 # विंडोज स्टोर गाइड
 
-With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+विंडोज 10 से, पुराने पर बढ़िया विन32 एग्जिक्युटेबल को एक और भाई मिल गया है: वैश्विक विंडोज प्लेटफार्म | नया `.एप्पएक्स` फॉर्मेट न केवल कई सारे नये शक्तिशाली ऐपीआई जैसे कि कोरटाना या पुश नोटीफिकेशन की सुविधा देता है, पर विंडोज स्टोर के द्वारा, इंस्टालेशन और अपडेटिंग भी सरल बनाता है |
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+माइक्रोसॉफ्ट ने [एक औज़ार विकसित किया था जो इलेक्ट्रॉन एप्प्स को `.एप्पएक्स` पैकेजेस की तरह कम्पायल करता है](https://github.com/catalystcode/electron-windows-store), जिससे कि डेवलपर्स को नये एप्लीकेशन मॉडल में मौज़ूद कुछ अच्छी चीज़े इस्तेमाल करने की सुविधा मिलती है | यह गाइड आपको बताएगी कि इसे कैसे इस्तेमाल करना है - और इलेक्ट्रॉन एप्पएक्स पैकेज की क्या-क्या क्षमतायें और सीमायें है |
 
-## Background and Requirements
+## पृष्ठभूमि और आवश्यकतायें
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+विंडोज 10 का "सालगिरह अपडेट" विन32 `.ईएक्सई` लाइब्रेरीज को एक वर्चुअलाइज़ेड फाइलसिस्टम और रजिस्ट्री के साथ, एक साथ लांच करने की क्षमता प्रदान करता है | दोनों ही कंपाइलेशन के दौरान एप्प और इंस्टालर को विंडोज कंटेनर के अन्दर चलाने से बनाये जाते हैं, जिससे कि विंडोज यह पता लगा सके कि इंस्टालेशन के दौरान ऑपरेटिंग सिस्टम में असल में कौन कौन से संशोधन हुए है | एक्सीक्यूटेबल को एक वर्चुअल फाइलसिस्टम और एक वर्चुअल रजिस्ट्री के साथ जोड़ने से विंडोज को 1-क्लिक इंस्टालेशन और अनइंस्टालेशन शुरू करने की सुविधा मिलती है |
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+इसके अलावा, ईएक्सई एप्पएक्स मॉडल के अंदर शुरू होती है - यानी कि यह वैश्विक विंडोज प्लेटफार्म में मौज़ूद बहुत सी ऐपीआई का इस्तेमाल कर सकता है | और भी ज्यादा क्षमताओं को पाने के लिए, एक इलेक्ट्रॉन एप्प एक अदृश्य युडब्ल्यूपी बैकग्राउंड टास्क के साथ जुड़ कर `ईएक्सई` के साथ लांच हो सकती है - कुछ हद तक एक वफादार साथी की तरह जो बैकग्राउंड में टास्क चला सकता है, पुश नोटिफिकेशन प्राप्त कर सकता है, या दूसरी युडब्ल्यूपी एप्लीकेशनस से संपर्क साध सकता है |
 
-To compile any existing Electron app, ensure that you have the following requirements:
+किसी भी मौजूदा इलेक्ट्रॉन एप्प को क्म्पाय्ल करने के लिए, यह सुनिश्चित कर लें की आप निम्नलिखित आवश्यकताओं को पूरा करते हों:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* विंडोज 10, सालगिरह अपडेट के साथ (2 अगस्त, 2016 को जारी)
+* विंडोज 10 एसडीके, [यहाँ से डाउनलोड करें](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* न्यूनतम नोड 4 (जाँचने के लिए, `node -v` चलायें)
 
-Then, go and install the `electron-windows-store` CLI:
+उसके बाद, इनस्टॉल करें `इलेक्ट्रॉन-विंडोज-स्टोर` सीएलआई:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## पहला चरण: अपनी इलेक्ट्रॉन एप्लीकेशन पैकेज करें
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+[इलेक्ट्रॉन-पैकेजर](https://github.com/electron-userland/electron-packager) (या ऐसे ही किसी दुसरे औज़ार) से एप्लीकेशन पैकेज करें | अपनी पूर्ण एप्लीकेशन में जो `नोड_मोड्यूल` आपको नहीं चाहिये, उन्हें ज़रूर निकाल दें, नहीं तो गैर-ज़रूरी मोड्यूल बस आपकी एप्लीकेशन का आकार ही बढ़ायेंगे |
 
-The output should look roughly like this:
+आउटपुट कुछ इस तरह का दिखना चाहिये:
 
 ```text
 ├── Ghost.exe
@@ -39,22 +39,22 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│ ├── am.pak
+│ ├── ar.pak
+│ ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│ ├── app
+│ └── atom.asar
 ├── snapshot_blob.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## दूसरा चरण: इलेक्ट्रॉन-विंडोज-स्टोर चलाना
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+एक एलिवेटेड पॉवरशैल ("एडमिनिसट्रेटर" की तरह) से, ज़रूरी पैरामीटर्स के साथ `इलेक्ट्रॉन-विंडोज-स्टोर` चलायें, दोनों इनपुट और आउटपुट डायरेक्टरी पास करें, एप्प का नाम और संस्करण, और `नोड_मोड्यूल` फ्लैट करने की पुष्टि|
 
 ```powershell
 electron-windows-store `
@@ -65,32 +65,32 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+एक बार चलाने के बाद, यह औज़ार काम करने लगता है: यह आपकी इलेक्ट्रॉन एप्प को एक इनपुट की तरह लेता है, और `नोड_मोड्यूल` फ्लैट करता है | फिर यह आपकी एप्लीकेशन को `एप्प.ज़िप` से आर्काइव करता है | एक इंस्टालर और विंडोज कंटेनर का इस्तेमाल कर के, यह औज़ार एक "विस्तारित" एप्पएक्स पैकेज बनाता है - और आपके आउटपुट फोल्डर में विंडोज एप्लीकेशन मेनीफेस्ट (`एप्पएक्समेनीफेस्ट.एक्सएमएल`) और साथ ही वर्चुअल फाइल सिस्टम और वर्चुअल रजिस्ट्री शामिल करता है |
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+एक बार विस्तारित एप्पएक्स फाइल्स निर्मित हो जाने के बाद, विंडोज एप्प पैकेजर (`मेकएप्पएक्स.ईएक्सई`) का इस्तेमाल कर के औज़ार, डिस्क पर मौज़ूद उन फाइल्स से एक एकल-फाइल एप्पएक्स का निर्माण करता है | अंत में, इस औज़ार का इस्तेमाल कर के आपके कंप्यूटर पर एक विश्वसनीय प्रमाण पत्र बनाया जा सकता है जिससे कि नये एप्पएक्स पैकेज पर हस्ताक्षर किया जा सके | हस्ताक्षरित एप्पएक्स पैकेज के साथ, सीएलआई भी स्वचालित रूप से आपकी मशीन पर पैकेज स्थापित कर सकती है ।
 
-## Step 3: Using the AppX Package
+## तीसरा चरण: एप्पएक्स पैकेज का इस्तेमाल करना
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+आपके पैकेज को चलाने के लिए, उपयोगकर्ताओं को "सालगिरह अपडेट" के साथ विंडोज 10 की ज़रुरत होगी - विंडोज को अपडेट करने की विस्तृत जानकारी [यहाँ](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update) उपलब्ध है |
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+पारंपरिक युडब्ल्यूपी एप्प्स के विपरीत, पैकेज्ड एप्प्स को फिलहाल एक मैन्युअल जांच प्रक्रिया से गुजरना पड़ता है, जिसके के लिए आप [यहाँ](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) पर आवेदन कर सकते है | तब तक, आपके सभी उपयोगकर्ता पैकेज को डबल-क्लिक कर इनस्टॉल कर सकते हैं, इसलिए हो सकता है कि आपको विंडोज स्टोर में आवेदन देने की ज़रुरत ही न पड़ें अगर आप सिर्फ इंस्टालेशन का एक आसान तरीका ढूंढ रहे हैं | प्रबंधित वातावरणों में (कंपनियों में ज्यादातर), `ऐड-एप्पएक्सपैकेज` [पॉवरशैल सीएमडीलेट का इस्तेमाल उसे एक स्वचालित रूप से इनस्टॉल करने के लिए किया जा सकता है](https://technet.microsoft.com/en-us/library/hh856048.aspx) |
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+दूसरी महत्वपूर्ण सीमा यह है कि कम्पाइलड एप्पएक्स पैकेज में अभी भी एक विन32 एक्सीक्यूटेबल शामिल होती है - और इसलिए यह एक्सबॉक्स, होलोलेंस, या फ़ोन पर नहीं चलेगा |
 
-## Optional: Add UWP Features using a BackgroundTask
+## वैकल्पिक: एक बेकग्राउंड टास्क का इस्तेमाल कर युडब्ल्यूपी क्षमतायें डालें
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+आप अपनी इलेक्ट्रॉन एप्प को एक अदृश्य युडब्ल्यूपी बैकग्राउंड टास्क के साथ जोड़ सकते हैं जो विंडोज 10 की क्षमताओं का पूर्ण इस्तेमाल कर सके - जैसे की पुश नोटिफिकेशन, कोर्ताना एकीकरण, या लाइव टाइल्स |
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+यह जाँचने के लिए जो इलेक्ट्रॉन एप्प टोस्ट नोटिफिकेशन और लाइवटाइल्स के लिए बैकग्राउंड टास्क का इस्तेमाल करती है, [माइक्रोसॉफ्ट के द्वारा प्रदान सैंपल देखें](https://github.com/felixrieseberg/electron-uwp-background) |
 
-## Optional: Convert using Container Virtualization
+## वैकल्पिक: कंटेनर वर्चुअलिज़ेशन का उपयोग कर कन्वर्ट करें
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+एप्पएक्स पैकेज को उत्पन्न करने के लिए, `इलेक्ट्रॉन -विंडोज-स्टोर` सीएलआई एक टेम्पलेट का इस्तेमाल करता है जो कि ज्यादातर इलेक्ट्रॉन एप्प्स के लिए काम करता है | हालाँकि, अगर आप एक कस्टम इंस्टालर इस्तेमाल कर रहे हैं, या फिर आपको उत्पन्न पैकेज में कोई दिक्कत आ रही है, तो आप एक विंडोज कंटेनर के साथ कंपाइलेशन का इस्तेमाल कर एक पैकेज बनाने की कोशिश कर सकते हैं - इस मोड में, सीएलआई आपकी एप्लीकेशन को एक खाली विंडोज कंटेनर में इनस्टॉल करेगा और चलायेगा ताकि यह पता चल सके कि आपकी एप्लीकेशन ऑपरेटिंग सिस्टम में वास्ताव में कौन कौन से परिवर्तन कर रही है |
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+सीएलआई का सबसे पहला इस्तेमाल करने से पहले, आपको "विंडोज डेस्कटॉप एप्प कनवर्टर" का सेटअप करना होगा | इसमें कुछ मिनट लग सकते हैं, पर चिंता न करें - ऐसा आपको केवल एक ही बार करना पड़ेगा | डेस्कटॉप एप्प कनवर्टर [यहाँ](https://www.microsoft.com/en-us/download/details.aspx?id=51691) से डाउनलोड करें | आपको 2 फाइल्स मिलेंगी: `डेस्कटॉपएप्पकनवर्टर.ज़िप` और `बेसइमेज-14316.विम` |
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. `डेस्कटॉपएप्पकनवर्टर.ज़िप` को अनज़िप करें | एक एलिवेटेड पॉवरशैल ("एडमिनिसट्रेटर" की तरह) से, `Set-ExecutionPolicy bypass` चला कर इस बात की पुष्टि कर लें कि आपकी सिस्टम एक्ज़ेक्युशन पोलिसी हमें वो सब चलाने की इजाज़त देती है जो हम चलाना चाहते हैं |
+2. उसके बाद, डेस्कटॉप एप्प कनवर्टर की इंस्टालेशन चलायें, विंडोज बेस इमेज (`बेसइमेज-14316.विम` के नाम से डाउनलोड) की लोकेशन पास करते हुए, `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim` को कॉल कर के |
+3. अगर उपर दी गयी कमांड चलाने से आपको रिबूट करने का सन्देश मिलता है, तो कृपया अपना कंप्यूटर रीस्टार्ट करें और ऊपर दी गयी कमांड दोबारा चलायें |
 
-Once installation succeeded, you can move on to compiling your Electron app.
+एक बार जब इंस्टालेशन कामयाब हो जाये, तो फिर आप अपनी इलेक्ट्रॉन एप्प को दोबारा से कम्पाईल करना शुरू कर सकते हैं |

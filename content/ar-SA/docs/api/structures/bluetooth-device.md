@@ -1,4 +1,4 @@
 # BluetoothDevice Object
 
-* `deviceName` String
-* `deviceId` String
+* اسم الجهاز
+* هوية الجهاز

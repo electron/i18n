@@ -20,14 +20,14 @@ Windows y macOS brindan fácil acceso a una lista de documentos recientes abiert
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Para añadir archivos a documento recientes, puede usar el API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows):
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API to empty the recent documents list:
+Y puede usar la API [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) para vaciar la lista de documentos recientes:
 
 ```javascript
 const {app} = require('electron')
@@ -84,7 +84,7 @@ En Windows, puede especificar acciones personalizadas en la categoría `Tareas` 
 
 A diferencia del menú Dock en macOS, que es un menú real, las tareas de usuario en Windows funcionan como accesos directos a aplicaciones, de modo que cuando el usuario hace clic en una tarea, se ejecuta un programa con argumentos especificados.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Para usar tareas para su aplicación, puede usar la API [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows):
 
 ```javascript
 const {app} = require('electron')
@@ -100,30 +100,30 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Para limpiar su lista de tareas, solo llame `app.setUserTasks` con un arreglo vacío:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Las tareas del usuario aún se mostrará después de que la aplicación se cierre, de esta manera el ícono y ruta del programa especificado para su tarea exista aún así la aplicación haya sido desinstalada.
 
-## Thumbnail Toolbars
+## Barra de tareas de Thumbnail
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+En Windoes usted puede añadir una barra de tareas thumbnail con botones específicos en un diseñador de barras de tareas de una ventana de un aplicación. Le da a los usuarios una manera de acceder a una comando de ventana en particular sin tener que restaurar o activar la ventana.
 
-From MSDN, it's illustrated:
+Para MSDN, está ilustrado:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Esta barra de herramientas es simplemente la barra de tareas estándar de control común. Tiene un máximo de siete botones. Cada botón de identificación, imagen, descripción y estado está definido en una estructura, la cual es pasada a la barra de tareas. La aplicación puede mostrar, habilitar, deshabilitar u ocultar botones de la barra de herramientas si es requerido por su estado actual.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Por ejemplo, el reproductor de Windows ofrece regularmente controles de transporte como play, pausa, silenciar y detener.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Barra de herramientas del reproductor de media de Windows:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) to set thumbnail toolbar in your application:
+Usted puede usar [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) para configurar la barra de herramientas en miniatura en su aplicación:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Para limpiar los botones de su barra de herramientas en miniatura, llame `BrowserWindow.setThumbarButtons` con un arreglo vacío:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,27 +157,27 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Acceso directos unidad Laucher (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+En unity, usted puede añadir entradas personalizadas a su Launcher modificando el archivo `.escritorio`, vea [Añadiendo accesos directos al luncher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Accesos directos del Launcher de Audacious:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Barra de progreso en la barra de tareas (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+En Windows una botón en la barra de tareas puede ser usado para mostrar una barra de progreso. Esto habilita a windows de informar sobre el progreso del proceso al usuario sin que este tenga que cambiar a la ventana misma.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+En macOS la barra de progreso será mostrada como una parte del ícono del dock.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+El Unity DE también tiene una función similar que le permite especificar la barra de progreso en el laucher.
 
-**Progress bar in taskbar button:**
+**Barra de progreso en el botón de la barra de tareas:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Para configurar la barra de progreso para una ventana, puede usar la API [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,17 +185,17 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Encubrimiento de íconos en la barra de tareas (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+En Windows un botón de la barra de tareas puede usar un pequeño encubrimiento para mostrar el estatus de la aplicación, como es mencionado por la MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> El encubrimiento de íconos sirve como una notificación contextual del estatus, y tiene la intención de negar la necesidad de separar el ícono de la notificación del estatus del ícono para comunicar la información al usuario. Por ejemplo, el nuevo estatus de correos en Microsoft Outlook, actualmente se muestra en el área de notificaciones, ahora puede ser indicado a través de un encubrimiento en el botón de la barra de tareas. De nuevo, debes decidir durante su ciclo de desarrollo cual método es el mejor para su aplicación. El encubrimiento de íconos tiene la intención de dar información importante, estatus de larga duración o notificaciones así como estado de la red o de mensajería, o nuevos correos. El usuario no debe ser presentado con cambios constantes en el encubrimiento o animaciones.
 
-**Overlay on taskbar button:**
+**Encubrimiento en botones de la barra de tareas:**
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+Para configurar el encubrimiento de un ícono para una ventana tiene que usar el API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -203,13 +203,13 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## Marco de flash (Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+En Windows puede resaltar el botón de barras de tarea para obtener la atención del usuario. Esto es similar al ícono de dock que rebota en macOS. Desde la documentación de referencia de MSDN:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Por lo general, una ventana está iluminada para informar al usuario que la ventana requiere atención pero este no está concentrado en el teclado en el momento.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Para iluminar el botón de la barra de tareas del buscador windows, usted puede usar el API [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,7 +218,7 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+No olvide llamar el método `flashFrame` con `false` a apagar la iluminación. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
 
 ## Represented File of Window (macOS)
 

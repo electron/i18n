@@ -22,7 +22,7 @@ Apple Disk Image (DMG) はmacOSで使用されるパッケージング形式で�
 
 ### IME
 
-いわゆる「かな漢字変換システム」のことで、英語名称はInput Method Editorの略です。 A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editorの略で、日本では「かな漢字変換システム」を指します。 日本のユーザにとっては何を今更という説明になりますが、漢字などキーボード上に存在しない文字や記号を入力するためのツールです。 日本語、中国語、韓国語に限らず、インドの言語などもIMEを使用することでアルファベット（ローマ字）から入力することができます。
 
 ### IPC
 

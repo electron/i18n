@@ -1,6 +1,6 @@
 # Hızlı Başlangıç
 
-Electron zengin yerli (işletim sistemi) API'ler ile bir çalışma zamanı sağlayarak, saf JavaScript ile masaüstü uygulamalar oluşturmanıza olanak sağlar. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Electron zengin yerli (işletim sistemi) API'ler ile bir çalışma zamanı sağlayarak, saf JavaScript ile masaüstü uygulamalar oluşturmanıza olanak sağlar. Bunu, web sunucuları yerine masaüstü uygulamalarına odaklanan Node.js çalışma sürecinin bir varyantı olarak görebilirsiniz.
 
 Bu, Electron'un (GUI) kütüphaneleri grafiksel kullanıcı arayüzüne JavaScript bağladığı anlamına gelmez. Bunun yerine, Electron GUI'sini web sayfaları olarak kullanır, böylece bunu JavaScript tarafından kontrol edilen minimal bir Chromium tarayıcı olarak görüyorsunuz.
 
@@ -82,31 +82,31 @@ function createWindow () {
 }
 // Bu yöntem, Electron başlatmayı tamamladığında
 // ve tarayıcı pencereleri oluşturmaya hazır olduğunda çağrılır.
-// Some APIs can only be used after this event occurs.
+// Bazı API'ler sadece bu olayın gerçekleşmesinin ardından kullanılabilir.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Bütün pencereler kapatıldığında çıkış yap.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+  // MacOS'de kullanıcı CMD + Q ile çıkana dek uygulamaların ve menü barlarının
+  // aktif kalmaya devam etmesi normaldir.
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  // MacOS'de dock'a tıklandıktan sonra eğer başka pencere yoksa
+  // yeni pencere açılması normaldir.
   if (win === null) {
     createWindow()
   }
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Kesin olarak göstermek istediğiniz web sayfası `index.html`:
 
 ```html
 <!DOCTYPE html>
@@ -126,19 +126,19 @@ Finally the `index.html` is the web page you want to show:
 
 ## Uygulamanı çalıştır
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Başlangıç dosyanızı oluşturmadan önce `main.js`, `index.html`, ve `package.json`büyük ihtimalle denemek ve beklendiği gibi yürütüldüğünden emin olmak için uygulamanızı yerel olarak çalıştırmayı denemek isteyeceksiniz.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` Bu modül önceden derlenmiş Electron versiyonlarının içeriğini inceler.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+`npm`,'ni ayrıntılı olarak yüklediyseniz. devamında uygulamanızın kaynak dizinini çalıştırmanız yeterlidir:
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+Bölgesel olarak yükleme yaptıysanız, şunu çalıştırın:
 
 #### macOS / Linux
 
@@ -160,35 +160,36 @@ $ npx electron.
 
 ### Manually Downloaded Electron Binary
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Eğer Electron'u manuel olarak indirdiyseniz, uygulamanızı doğrudan çalıştırmak için birlikte verilen ikili de kullanabilirsiniz.
 
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron uygulaman/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron uygulaman/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe uygulaman\
+
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` burada Electron yayın paketinin bir parçası, buradan indirebilirsiniz [here](https://github.com/electron/electron/releases).
 
 ### Bir dağıtım çalıştırmak
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Uygulamanızı yazmayı bitirdikten sonra, [Application Distribution](./application-distribution.md) kılavuzunu izleyerek bir dağıtım oluşturabilirsiniz ve daha sonra paketlenmiş uygulamayı çalıştırın.
 
 ### Bu örneği deneyin
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Bu eiğitimdeki kodu kullanarak depoyu çalıştırın ve çoğaltın [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
 **Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
 
@@ -203,4 +204,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Daha fazla örnek uygulama için, muhteşem elektron topluluğu tarafından oluşturulan [list of boilerplates](https://electronjs.org/community#boilerplates)'e bakın.

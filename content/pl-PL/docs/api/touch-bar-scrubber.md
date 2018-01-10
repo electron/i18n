@@ -6,9 +6,9 @@ Proces: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
-* `options` Object 
+* `options` Obiekt 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
+  * `wybierz` Function - Called when the user taps an item that was not the last tapped item 
     * `selectedIndex` Integer - The index of the item the user selected
   * `highlight` Function - Called when the user taps any item 
     * `highlightedIndex` Integer - The index of the item the user touched
@@ -36,7 +36,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Możliwe wartości:
 
 * `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`

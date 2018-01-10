@@ -53,8 +53,8 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <li><code>aman`Boolean (opsional) - Filter cookie oleh properti Aman mereka.
       * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
     * `callback` Fungsi 
-      * ` error </ 0> Kesalahan</li>
-<li><code>cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
+      * `error` Kesalahan
+      * `cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
     
     Mengirimkan permintaan agar semua cookie yang cocok dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error, cookies) </ 0> secara lengkap.</p>
 
@@ -71,22 +71,21 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <li><code> kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. Jika dihilangkan maka cookie menjadi cookie sesi dan tidak akan disimpan di antara sesi.</li>
 </ul></li>
 <li><code>callback` Fungsi 
-        * ` error </ 0> Kesalahan</li>
-</ul></li>
-</ul>
-
-<p>Menetapkan cookie dengan <code> detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error) </ 0> secara 
+        * `error` Kesalahan
+      
+      Menetapkan cookie dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error) </ 0> secara 
 lengkap.</p>
 
 <h4><code>cookies.remove (url, nama, callback)`</h4> 
-          * `url`String - URL yang terkait dengan cookie.
-          * `nama` String - Nama cookie untuk dihapus.
-          * `callback ` Fungsi
-          
-          Menghapus cookie yang cocok dengan `url` dan `nama`, `callback` akan dipanggil dengan `callback()` selesai.
-          
-          #### `cookies.flushStore(callback)`
-          
-          * `callback ` Fungsi
-          
-          Tulis data cookie yang tidak tertulis ke disk.
+      
+      * `url`String - URL yang terkait dengan cookie.
+      * `nama` String - Nama cookie untuk dihapus.
+      * `callback ` Fungsi
+      
+      Menghapus cookie yang cocok dengan `url` dan `nama`, `callback` akan dipanggil dengan `callback()` selesai.
+      
+      #### `cookies.flushStore(callback)`
+      
+      * `callback ` Fungsi
+      
+      Tulis data cookie yang tidak tertulis ke disk.

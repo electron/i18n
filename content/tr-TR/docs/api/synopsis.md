@@ -4,11 +4,11 @@
 
 All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
 
-Electron ayrıca yerli masaüstü uygulamaları üretiminin geliştirilmesi için ekstra yerleşik modüller de sağlamaktadır. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Electron ayrıca yerli masaüstü uygulamaları üretiminin geliştirilmesi için ekstra yerleşik modüller de sağlamaktadır. Bazı modüller yalnızca ana süreçte bulunur; bazıları yalnızca işleyici sürecinde (internet sayfası) mevcuttur ve bazıları her iki işlemde de kullanılabilir.
 
 The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
 
-The main process script is just like a normal Node.js script:
+Ana işlem komut dosyası normal bir Node.js komut dosyası gibidir:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+Oluşturma işlemi, düğüm modüllerini kullanmanın ekstra yeteneği haricinde normal bir internet sayfasından farklı değildir:
 
 ```html
 <!DOCTYPE html>
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Bu, aşağıdaki koda eşdeğerdir:
 
 ```javascript
 const electron = require('electron')

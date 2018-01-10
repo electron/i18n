@@ -1,12 +1,12 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Performans darboğazlarını ve yavaş işlemleri bulmak için Chromium'un içerik modülünden izleme verilerini toplar.
 
 Süreç: [Ana](../glossary.md#main-process)
 
 Bu modül web arabirimi içermez o yüzden sonuçları görüntülemek için `chrome://tracing/` bunu Chrome tarayıcısında açın ve oluşturulan dosyayı yükleyin.
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Not:** Uygulama modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -31,29 +31,29 @@ app.on('ready', () => {
 
 ## Metodlar
 
-The `contentTracing` module has the following methods:
+`contentTracing` modülü aşağıdaki metodları içerir:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `geri arama` Fonksiyon 
   * `categories` String[]
 
 Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Bütün alt süreçler, `getCategories` isteğini onayladıktan sonra, `callback` kategori grupları dizisi ile çağırılır.
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
 
 Tüm işlemler kaydetmeye başlayın.
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar. Bütün alt süreçler `startRecording` isteğini onayladıktan sonra `callback` çağırılır.
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter`, hangi kategori gruplarının izleneceğini kontrol eden bir filtredir. Filtre, eşleşen bir kategori içeren kategori gruplarını hariç tutmak için `-` ön ekini içerebilir. Aynı listede hem eşleşen hem de eşleşmeyen kategori desenleri desteklenmemektedir.
 
 Örnekler:
 
@@ -61,7 +61,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `test_MyTest*,test_OtherStuff`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` ne tarz izlemenin etkinleştirildiğini kontrol eder, virgül ile ayrılmıştır. Mümkün seçenekler şunlardır:
 
 * `kayıt-kadar-tam`
 * `Kayıt-sürekli`
@@ -69,36 +69,36 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `enable-sampling`
 * `enable-systrace`
 
-The first 3 options are trace recording modes and hence mutually exclusive. If more than one trace recording modes appear in the `traceOptions` string, the last one takes precedence. If none of the trace recording modes are specified, recording mode is `record-until-full`.
+İlk 3 seçenek izleme kayıt modlarıdır ve bundan dolayı karşılıklı olarak dışlarlar. Eğer `traceOptions` dizesinde birden fazla izleme kayıt modu varsa, sonuncusu öncelikli olacaktır. Eğer hiç izleme kayıt modu belirtilmediyse, kayıt modu `record-until-full` olacaktır.
 
 İzleme seçeneği ilk olarak varsayılan seçeneğe (`record_mode` başlamak `record-until-full`, `enable_sampling` ve `enable_systrace`, `traceOptions`'dan ayrıştırılan seçeneklerin üzerine uygulanmadan önce `false`) olarak ayarlanır.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `geri arama` Fonksiyon 
   * `resultFilePath` String
 
 Kayıt işlemini tüm süreçlerde durdurur.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Bütün alt süreçler, `stopRecording` isteğini onayladıktan sonra, `callback`, izlenen verileri içeren bir dosyayla çağrılır.
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFilePath` içerisine yazılır. Eğer gerçek dosya yolu `null` değil ise `callback`'e geçirilir.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Nesne 
+* `ayarlar` Nesne 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+Tüm süreçlerin izlenmesini başlat.
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+İzleme işlemi, `startMonitoring` isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+Tüm alt süreçler `startMonitoring` isteğini onayladıktan sonra `callback` çağırılacaktır.
 
 ### `contentTracing.stopMonitoring(callback)`
 
@@ -106,24 +106,24 @@ Once all child processes have acknowledged the `startMonitoring` request the `ca
 
 Tüm işlemlerin izlemesini durdurun.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Tüm alt süreçler `stopMonitoring` isteğini onayladıktan sonra `callback` çağırılır.
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `geri arama` Fonksiyon 
   * `resultFilePath` String
 
 Geçerli izleme verilerini alın.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. İzleme verilerini IPC üzerinden göndermek pahalı bir işlem olabilir ve gereksiz çalışma zamanı yükünün izlenmesini önlemek istiyoruz. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Bütün alt süreçler, `captureMonitoringSnapshot` isteğini onayladıktan sonra, `callback`, izlenen verileri içeren bir dosyayla çağrılır.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `geri arama` Fonksiyon 
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+İzleme arabelleği işlemlerindeki maksimum kullanımı tam durum yüzdesi olarak alın. TraceBufferUsage değeri belirlendiğinde `callback` çağırılır.

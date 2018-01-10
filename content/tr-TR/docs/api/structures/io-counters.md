@@ -1,4 +1,4 @@
-# IOCounters objesi
+# IOCounters nesnesi
 
 * `readOperationCount` Sayı - I/O okuma operasyonlarının sayısı.
 * ` writeOperationCount ` Sayı - I/O yazma operasyonlarının sayısı.

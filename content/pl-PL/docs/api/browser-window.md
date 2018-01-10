@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Twórz i kontroluj okna wyszukiwarki.
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Widoczność strony
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Twórz i kontroluj okna wyszukiwarki.
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -533,7 +533,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Ukrywa okno.
 
 #### `win.isVisible()`
 
@@ -602,7 +602,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Zmienia rozmiar i przenosi okno do dostarczonych granic
 
 #### `win.getBounds()`
 
@@ -964,7 +964,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Object 
+* `Przycisk` Obiekt 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
   * `tooltip` String (optional) - The text of the button's tooltip.
@@ -993,7 +993,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Object 
+* `options` Obiekt 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
@@ -1012,7 +1012,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Zmienia ikonę okna.
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1070,7 +1070,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Zmienia czy okno może zostać wyostrzone.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
