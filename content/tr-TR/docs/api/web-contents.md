@@ -645,12 +645,12 @@ Yürürlükteki web sayfasına CSS ekler.
 
 * `code` Dizgi
 * `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
-* `geri arama` Function (optional) - Called after script has been executed. 
-  * `result` Any
+* `geri arama` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
+  * `result` Herhangi bir
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Evaluates `code` in page.
+Sayfadaki `code`'u değerlendirir.
 
 In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
