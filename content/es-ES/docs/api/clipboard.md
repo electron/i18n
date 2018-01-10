@@ -141,13 +141,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` Cadena
 
-Returns `String` - Reads `format` type from the clipboard.
+Devuelve `String` - Lee el tipo de `formato` del portapapeles.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(formato)` *Experimental*
 
 * `formato` Cadena
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Devuelve `Buffer` - Lee el `formato` del portapapeles.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
