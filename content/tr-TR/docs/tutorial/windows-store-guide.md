@@ -99,4 +99,4 @@ CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüşt�
 2. Konumdaki windows temel görünümünü görmezden gelerek masaüstü uygulama çeviricisini indir ve çalıştır.
 3. Yukarıdaki komutu çalıştırdığınızda yeniden başlatmanız istendiğinde, lütfen makineyi yeniden başlatın ve başarılı gerçekleşen bir yeniden başlatma sonrasında yukarıda bulunan komutu tekrar çalıştırın.
 
-Kurulum başarılı olursa, Elektron uygulamanızı derlemek için ilerleyebilirsiniz.
+Kurulum başarılı olursa, Electron uygulamanızı derlemek için ilerleyebilirsiniz.
