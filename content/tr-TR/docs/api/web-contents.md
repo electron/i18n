@@ -589,35 +589,35 @@ Yürürlükteki sayfayı yeniden yükler ve önbelleği yoksayar.
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+`Boolean` olarak dönüt verir - Tarayıcının bir sonraki web sayfasına gidip gidemeyeceği.
 
 #### `contents.canGoToOffset(offset)`
 
-* `offset` Integer
+* `offset` Tamsayı
 
-Returns `Boolean` - Whether the web page can go to `offset`.
+`Boolean` olarak dönüt verir - Web sayfasının `offset`'e gidip gidemeyeceği.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+Gezinme geçmişini temizler.
 
 #### `contents.goBack()`
 
-Tarayıcıyı internet sayfasına geri döndürür.
+Tarayıcının bir sayfa geri gitmesini sağlar.
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+Tarayıcının bir sayfa ileri gitmesini sağlar.
 
 #### `contents.goToIndex(index)`
 
-* `index` Integer
+* `index` Tamsayı
 
 Navigates browser to the specified absolute web page index.
 
 #### `contents.goToOffset(offset)`
 
-* `offset` Integer
+* `offset` Tamsayı
 
 Navigates to the specified offset from the "current entry".
 
