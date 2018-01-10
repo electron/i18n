@@ -573,19 +573,19 @@ Web sayfasına odaklanır.
 
 #### `contents.stop()`
 
-Stops any pending navigation.
+Bekleyen gezinmeleri durdurur.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Yürürlükteki web sayfasını yeniden yükler.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Yürürlükteki sayfayı yeniden yükler ve önbelleği yoksayar.
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+`Boolean` olarak dönüt verir - Tarayıcının bir önceki web sayfasına geri gidip gidemeyeceği.
 
 #### `contents.canGoForward()`
 
