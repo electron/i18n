@@ -613,21 +613,21 @@ Tarayıcının bir sayfa ileri gitmesini sağlar.
 
 * `index` Tamsayı
 
-Navigates browser to the specified absolute web page index.
+Tarayıcıyı belirtilmiş salt web sayfası dizinine (indeksine) yönlendirir.
 
 #### `contents.goToOffset(offset)`
 
 * `offset` Tamsayı
 
-Navigates to the specified offset from the "current entry".
+"Yürürlükteki girdi"den belirtilmiş göreli konuma (offsete) gider.
 
 #### `contents.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+`Boolean` olarak dönüt verir - Görselleştirme işleminin arızalanıp arızalanmadığı.
 
 #### `contents.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` Dizgi
 
 Overrides the user agent for this web page.
 
