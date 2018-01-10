@@ -1,6 +1,6 @@
 # Ana İşlem Hata Ayıklama
 
-Bir Elektron tarayıcı penceresinde DevTools sadece o pencerede (yani web sayfaları) yürütülen JavaScript ile hataları düzeltebilirsiniz. Ana işlemde çalıştırılan JavaScript'te hata ayıklamak için harici bir hata ayıklayıcı kullanmanız gerekir ve `--inspect` ya da `--inspect-brk` kodları ile Elektron'u başlatmanız gerekir.
+Bir Electron tarayıcı penceresinde DevTools sadece o pencereden (yani web sayfaları) yürütülen JavaScript ile hataları düzeltebilirsiniz. Ana işlemde çalıştırılan JavaScript'te hata ayıklamak için harici bir hata ayıklayıcı kullanmanız gerekir ve `--inspect` ya da `--inspect-brk` kodları ile Electron'u başlatmanız gerekir.
 
 ## Komut satırı anahtarları
 
