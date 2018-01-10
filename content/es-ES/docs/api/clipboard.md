@@ -1,79 +1,79 @@
-# clipboard
+# portapapeles
 
-> Perform copy and paste operations on the system clipboard.
+> Realice operaciones de copiar y pegar en el portapapeles del sistema.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+El siguiente ejemplo muestra cómo escribir una cadena en el portapapeles:
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String')
+clipboard.writeText('Ejemplo de cadena')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+En los sistemas X Window, también hay un portapapeles de selección. Para manipularlo, debe pasar `selección` a cada método:
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String', 'selection')
-console.log(clipboard.readText('selection'))
+clipboard.writeText('Ejemplo de cadena', 'selección')
+console.log(clipboard.readText ('selección'))
 ```
 
 ## Métodos
 
-The `clipboard` module has the following methods:
+El módulo `portapapeles` tiene los siguientes métodos:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Nota:** Las API experimentales están marcadas como tales y podrían eliminarse en el futuro.
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` Cadena (opcional)
 
-Returns `String` - The content in the clipboard as plain text.
+Devuelve `Cadena` - El contenido en el portapapeles como texto sin formato.
 
-### `clipboard.writeText(text[, type])`
+### `clipboard.writeText(texto[, type])`
 
-* `texto` String
-* `type` String (optional)
+* `texto` Cadena
+* `type` Cadena (opcional)
 
 Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `texto` String
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Writes the `text` into the clipboard in RTF.
 
@@ -90,7 +90,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` String
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -115,20 +115,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -165,7 +165,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` Cadena (opcional)
 
 ```javascript
 const {clipboard} = require('electron')
