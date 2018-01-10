@@ -526,7 +526,7 @@ webContents.loadURL('https://github.com', options)
 
 #### `contents.downloadURL(url)`
 
-* `url` Dize
+* `url` Dizgi
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
