@@ -30,7 +30,7 @@ HOME=~/.electron-gyp npm install
 
 ### Modülleri kurma ve Elektron için yeniden inşa etme
 
-Ayrıca, diğer Node projeleri gibi modülleri yüklemeyi ve ardından [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) paketiyle modülleri Electron için yeniden kurmayı seçebilirsiniz. Bu modül Elektron versiyonunu ele alabilir ve başlıkları indirmenin otomatik olmayan adımlarını halledebilir ve uygulamanız için yerel modüller oluşturabilir.
+Ayrıca, diğer Node projeleri gibi modülleri yüklemeyi ve ardından [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) paketiyle modülleri Electron için yeniden kurmayı seçebilirsiniz. Bu modül Electron versiyonunu ele alabilir ve başlıkları indirmenin otomatik olmayan adımlarını halledebilir ve uygulamanız için yerel modüller oluşturabilir.
 
 `electron-rebuild`'ı kurma ve ardından modülleri onunla yeniden oluşturma örneği:
 
