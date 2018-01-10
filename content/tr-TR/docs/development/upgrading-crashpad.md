@@ -2,10 +2,10 @@
 
 1. Kullanacağınız carshpad sürümünü edinin.
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the correponding branch.
-    - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
-    - `git clone https://chromium.googlesource.com/crashpad/crashpad`
+    - ` libcc / src / third_party / crashpad / README.chromium </ 0> satırında <code> Revizyon: </ 0> ile bir sağlaması bulunur</li>
+<li>We need to check out the correponding branch.</li>
+<li>Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)</li>
+<li><code>git clone https://chromium.googlesource.com/crashpad/crashpad`
     - Check out the branch with the revision checksum: 
         - `git checkout <revision checksum>`
     - Add electron's crashpad fork as a remote
