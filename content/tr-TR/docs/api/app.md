@@ -600,108 +600,108 @@ app.on('ready', () => {
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
 * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` Object - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `userInfo` nesne - etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
+* ` webpageURL </ 0> String (isteğe bağlı) - Uygun bir uygulama yoksa tarayıcıya yüklenecek web sayfası yeniden başlatma aygıtına bağlı bir şema olmalıdır <code> http </ 0> veya <code> https </ 0></li>
+</ul>
 
-Creates an `NSUserActivity` and sets it as the current activity. Diğer cihazlara yönelik bu etkinliği [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) seçebilirsiniz.
-
-### `app.getCurrentActivityType()` *macOS*
-
-Returns `String` - The type of the currently running activity.
-
-### `app.setAppUserModelId(id)` *Windows*
-
-* `kimlik` dizesi
-
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
-
-### `app.importCertificate(options, callback)` *LINUX*
-
-* `ayarlar` Nesne 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
-* `callback` Fonksiyon 
-  * `result` Integer - Result of import.
-
-Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
-
-### `app.disableHardwareAcceleration()`
-
-Mevcut uygulama için donanımsal hızlandırmayı iptal eder.
-
-Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
-
-### `app.disableDomainBlockingFor3DAPIs()`
-
-Varsayılan olarak Chromium, GPU işlemleri çok sık çökerse, her etki alanı için yeniden başlatılıncaya kadar 3D API'leri (ör. WebGL) devre dışı bırakır. Bu işlev, bu davranışı devre dışı bırakır.
-
-Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
-
-### `app.getAppMemoryInfo()` *Kullanımdan Kaldırıldı*
-
-Raporlar ` ProcessMetric []: Uygulamayla ilişkili tüm süreçlerin bellek ve cpu kullanım istatistiklerine karşılık gelen <code> İşlem Metrik nesnelerinin dizisi.
+<p>Creates an <code>NSUserActivity` and sets it as the current activity. Diğer cihazlara yönelik bu etkinliği [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) seçebilirsiniz.</p> 
+  ### `app.getCurrentActivityType()` *macOS*
+  
+  Returns `String` - The type of the currently running activity.
+  
+  ### `app.setAppUserModelId(id)` *Windows*
+  
+  * `kimlik` dizesi
+  
+  Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+  
+  ### `app.importCertificate(options, callback)` *LINUX*
+  
+  * `ayarlar` Nesne 
+    * `certificate` String - Path for the pkcs12 file.
+    * `password` String - Passphrase for the certificate.
+  * `callback` Fonksiyon 
+    * `result` Integer - Result of import.
+  
+  Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+  
+  ### `app.disableHardwareAcceleration()`
+  
+  Mevcut uygulama için donanımsal hızlandırmayı iptal eder.
+  
+  Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
+  
+  ### `app.disableDomainBlockingFor3DAPIs()`
+  
+  Varsayılan olarak Chromium, GPU işlemleri çok sık çökerse, her etki alanı için yeniden başlatılıncaya kadar 3D API'leri (ör. WebGL) devre dışı bırakır. Bu işlev, bu davranışı devre dışı bırakır.
+  
+  Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
+  
+  ### `app.getAppMemoryInfo()` *Kullanımdan Kaldırıldı*
+  
+  Raporlar ` ProcessMetric []: Uygulamayla ilişkili tüm süreçlerin bellek ve cpu kullanım istatistiklerine karşılık gelen <code> İşlem Metrik nesnelerinin dizisi.
 <strong>Not</strong> Bu yöntem kullanımı önerilmemektedir. Bunun yerine <code>app.getApp()` kullanmalısınız.</p> 
-
-### `app.getAppMetrics( )`
-
-Raporlar ` ProcessMetric []: Uygulamayla ilişkili tüm süreçlerin bellek ve cpu kullanım istatistiklerine karşılık gelen <code> İşlem Metrik nesnelerinin dizisi.</p>
+  
+  ### `app.getAppMetrics( )`
+  
+  Raporlar ` ProcessMetric []: Uygulamayla ilişkili tüm süreçlerin bellek ve cpu kullanım istatistiklerine karşılık gelen <code> İşlem Metrik nesnelerinin dizisi.</p>
 
 <h3><code>app.getGpuFeatureStatus()`</h3> 
-
-` GPU Özellik Durumu'nu döndürür</ 0> - Grafik Özellik Durumu <code> chrome: //gpu/`döndürür.</p> 
-
-### `app.setBadgeCount(count)<0><em>Linux</em><em>macOS</em></h3>
+  
+  ` GPU Özellik Durumu'nu döndürür</ 0> - Grafik Özellik Durumu <code> chrome: //gpu/`döndürür.</p> 
+  
+  ### `app.setBadgeCount(count)<0><em>Linux</em><em>macOS</em></h3>
 
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
-
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
-
-Sayaç rozet sayısı `` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
-
-MacOS'ta rıhtım simgesinin üzerinde gösterilir. Linux'ta sadece Birlik başlatıcısı için çalışır,
-
-**Not:** Birlik Başlatıcısı çalışması için `. Masaüstü dosyasının olması gerekir. Daha fazla bilgi için lütfen <a href="../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux"> masaüstü ortamı entegrasyonu bölümünü okuyun</a>.</p>
+  
+  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+  
+  Sayaç rozet sayısı `` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
+  
+  MacOS'ta rıhtım simgesinin üzerinde gösterilir. Linux'ta sadece Birlik başlatıcısı için çalışır,
+  
+  **Not:** Birlik Başlatıcısı çalışması için `. Masaüstü dosyasının olması gerekir. Daha fazla bilgi için lütfen <a href="../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux"> masaüstü ortamı entegrasyonu bölümünü okuyun</a>.</p>
 
 <h3><code>app.getBadgeCount()`Linux</em>*macOS*</h3> 
-
-Karşı rozette görüntülenen geçerli değer, `Tamsayı` Döndürür.
-
-### `app.isUnityRunning()`*Linux*
-
-Geçerli masaüstü ortamı birlik başlatıcısı olup olmadığını `Boole değerine ` döndürür.
-
-### `app.getloginItemSettings([options])`*macOS**Windows*
-
-* `seçenekler` Nesne (isteğe bağlı) 
-  * `yol`Dize(isteğe bağlı)*Windows* - karşılaştırmak için yürütebilir dosya yolu. Varsayılan olarak `process.execPath`.
-  * `args` String [] (isteğe bağlı) *Windows<1> - karşılaştırılacak komut satırı değişkenleri karşısında. Varsayılan olarak boş bir dizi.</li> </ul></li> </ul> 
-    
-    ` app.setLoginItemSettings öğesine <code> yol ve <code> args seçenekleri sağladıysanız, siz doğru olarak ayarlanması için <code> openAtLogin için aynı bağımsız değişkenleri buraya iletmeniz gerekir.</p>
+  
+  Karşı rozette görüntülenen geçerli değer, `Tamsayı` Döndürür.
+  
+  ### `app.isUnityRunning()`*Linux*
+  
+  Geçerli masaüstü ortamı birlik başlatıcısı olup olmadığını `Boole değerine ` döndürür.
+  
+  ### `app.getloginItemSettings([options])`*macOS**Windows*
+  
+  * `seçenekler` Nesne (isteğe bağlı) 
+    * `yol`Dize(isteğe bağlı)*Windows* - karşılaştırmak için yürütebilir dosya yolu. Varsayılan olarak `process.execPath`.
+    * `args` String [] (isteğe bağlı) *Windows<1> - karşılaştırılacak komut satırı değişkenleri karşısında. Varsayılan olarak boş bir dizi.</li> </ul></li> </ul> 
+      
+      ` app.setLoginItemSettings öğesine <code> yol ve <code> args seçenekleri sağladıysanız, siz doğru olarak ayarlanması için <code> openAtLogin için aynı bağımsız değişkenleri buraya iletmeniz gerekir.</p>
 
 <p>İade <code>Nesne`:
-    
-    * ` openAtLogin` Boole Değeri uygulama giriş yaparken açılırsa `doğru` olur.
-    * ` openAsHidden` Boole Değeri uygulama giriş yaparken gizli olarak açık olarak ayarlanırsa `doğru` olur. Bu ayar yalnızca macOS'ta desteklenir.
-    * ` wasOpenedAtLogin` Boole Değeri uygulama girişte açılmışsa `doğru` otomatik olur. Bu ayar yalnızca macOS'ta desteklenir.
-    * `wasOpenedAsHidden` Boole Değeri Eğer uygulama gizli bir giriş olarak açılmışsa `doğru` öğe. Bu, uygulamanın başlangıçta hiçbir pencereyi açmaması gerektiğini gösterir. Bu ayar yalnızca macOS'ta desteklenir.
-    * ` restoreState` Boole değeri uygulama, bir oturum açma öğesi olarak açılmışsa `doğru` bir önceki oturumdan durumu geri getirmelidir. Bu, uygulama, uygulamanın son başlatılışında açık olan pencereleri geri yükleme kapalı. Bu ayar yalnızca macOS'ta desteklenir.
-    
-    ** Not:** Bu API'nin [MAS yapıları](../tutorial/mac-app-store-submission-guide.md) üzerinde bir etkisi yoktur.
-    
-    ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
-    
-    * `ayarlar` Nesne 
-      * `openAtLogin` Boolean (isteğe bağlı) oturum açmak ve uygulamayı açmak için `doğru,` kaldırmak içinse `yanlış`. Bir giriş öğesi olarak uygulanır. Varsayılan olarak `yanlış`.
-      * `openAsHidden` Boolean (isteğe bağlı) `doğru` uygulamayı gizli olarak açmak için geçerlidir. Varsayılan olarak değer `false`. Kullanıcı bu ayarı Sistem Tercihleri'nden düzenleyebilir, böylece `app.getLoginItemStatus (). WasOpenedAsHidden` uygulaması kontrol edildiğinde denetlenip mevcut değeri bilmek için açılır. Bu ayar sadece macOS'de desteklenir.
-      * ` yolu` Dizi (isteğe bağlı) * Windows* Giriş sırasında başlatılacak yürütülebilir dosya. Varsayılan değer `process.execPath`.
-      * `Yolu` Dizi [] (isteğe bağlı) *Windows* dosya geçmek için komut satırı değişkenleri yürütülebilir. Varsayılan olarak boş bir dizi. Yolları sarmaya tırnak işareti ile dikkat edin.
-    
-    Uygulamanın giriş seçeneklerini ayarlayın.
-    
-    [Sincap](https://github.com/Squirrel/Squirrel.Windows) kullanan Windows'ta Elektronlar `otomatik Güncelleştiri` ile çalışmak için, Update.exe için başlatma yolunu ayarlamak ve uygulamanızı belirten argümanları aktarmak isteyecektir. Örnek verecek olursak:
-    
-    ```javascript
+      
+      * ` openAtLogin` Boole Değeri uygulama giriş yaparken açılırsa `doğru` olur.
+      * ` openAsHidden` Boole Değeri uygulama giriş yaparken gizli olarak açık olarak ayarlanırsa `doğru` olur. Bu ayar yalnızca macOS'ta desteklenir.
+      * ` wasOpenedAtLogin` Boole Değeri uygulama girişte açılmışsa `doğru` otomatik olur. Bu ayar yalnızca macOS'ta desteklenir.
+      * `wasOpenedAsHidden` Boole Değeri Eğer uygulama gizli bir giriş olarak açılmışsa `doğru` öğe. Bu, uygulamanın başlangıçta hiçbir pencereyi açmaması gerektiğini gösterir. Bu ayar yalnızca macOS'ta desteklenir.
+      * ` restoreState` Boole değeri uygulama, bir oturum açma öğesi olarak açılmışsa `doğru` bir önceki oturumdan durumu geri getirmelidir. Bu, uygulama, uygulamanın son başlatılışında açık olan pencereleri geri yükleme kapalı. Bu ayar yalnızca macOS'ta desteklenir.
+      
+      ** Not:** Bu API'nin [MAS yapıları](../tutorial/mac-app-store-submission-guide.md) üzerinde bir etkisi yoktur.
+      
+      ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+      
+      * `ayarlar` Nesne 
+        * `openAtLogin` Boolean (isteğe bağlı) oturum açmak ve uygulamayı açmak için `doğru,` kaldırmak içinse `yanlış`. Bir giriş öğesi olarak uygulanır. Varsayılan olarak `yanlış`.
+        * `openAsHidden` Boolean (isteğe bağlı) `doğru` uygulamayı gizli olarak açmak için geçerlidir. Varsayılan olarak değer `false`. Kullanıcı bu ayarı Sistem Tercihleri'nden düzenleyebilir, böylece `app.getLoginItemStatus (). WasOpenedAsHidden` uygulaması kontrol edildiğinde denetlenip mevcut değeri bilmek için açılır. Bu ayar sadece macOS'de desteklenir.
+        * ` yolu` Dizi (isteğe bağlı) * Windows* Giriş sırasında başlatılacak yürütülebilir dosya. Varsayılan değer `process.execPath`.
+        * `Yolu` Dizi [] (isteğe bağlı) *Windows* dosya geçmek için komut satırı değişkenleri yürütülebilir. Varsayılan olarak boş bir dizi. Yolları sarmaya tırnak işareti ile dikkat edin.
+      
+      Uygulamanın giriş seçeneklerini ayarlayın.
+      
+      [Sincap](https://github.com/Squirrel/Squirrel.Windows) kullanan Windows'ta Elektronlar `otomatik Güncelleştiri` ile çalışmak için, Update.exe için başlatma yolunu ayarlamak ve uygulamanızı belirten argümanları aktarmak isteyecektir. Örnek verecek olursak:
+      
+      ```javascript
 const appFolder = path.dirname(process.execPath)
 const updateExe = path.resolve(appFolder, '..', 'Update.exe')
 const exeName = path.basename(process.execPath)
@@ -715,99 +715,99 @@ const exeName = path.basename(process.execPath)
   ]
 })
 ```
-
-** Not:** Bu API'nin [MAS yapıları](../tutorial/mac-app-store-submission-guide.md) üzerinde bir etkisi yoktur.
-
-### `app.isAccessibilitySupportEnabled()<0> <em>macOS<em><1>Windows</em></h3>
+  
+  ** Not:** Bu API'nin [MAS yapıları](../tutorial/mac-app-store-submission-guide.md) üzerinde bir etkisi yoktur.
+  
+  ### `app.isAccessibilitySupportEnabled()<0> <em>macOS<em><1>Windows</em></h3>
 
 <p><code>Boole Değeri<code> Chrome'un erişilebilirlik desteği etkinse <code>doğru` aksi halde yanlışa</code> çevirir. Bu API, `doğru` değerini geri döndürür. Yardımcı ekran okuyucuları gibi teknolojiler tespit edilir. Daha detaylar bilgi görmek için https://www.chromium.org/developers/design-documents/accessibility.</p> 
-
-### `app.setAboutPanelOptions(ayarlar)` *macOS*
-
-* `ayarlar` Nesne 
-  * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
-  * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
-
-Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
-
-### `app.commandLine.appendSwitch(switch[, value])`
-
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
-
-Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
-
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
-
-### `app.commandLine.appendArgument(value)`
-
-* `value` String - The argument to append to the command line
-
-Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
-
-**Note:** This will not affect `process.argv`.
-
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-
-Uygulamada karışık kum havuzu modunu etkinleştirmektedir.
-
-Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
-
-### `app.dock.bounce([type])` *macOS*
-
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
-
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
-
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
-
-Returns `Integer` an ID representing the request.
-
-### `app.dock.cancelBounce(id)` *macOS*
-
-* `id` Integer
-
-`id` sıçramasını iptal et.
-
-### `app.dock.downloadFinished(filePath)` *macOS*
-
-* `filePath` Dizi
-
-FilePath, İndirilenler klasörünün içindeyse İndirme yığınla geri döner.
-
-### `app.dock.setBadge(text)` *macOS*
-
-* `text` Dizi
-
-Dock'un rozetleme alanında gösterilecek satırı ayarlar.
-
-### `app.dock.getBadge()` *macOS*
-
-`String` geri getirir - dock'un işaret dizisi.
-
-### `app.dock.hide()` *macOS*
-
-Dock simgesini gizler.
-
-### `app.dock.show()` *macOS*
-
-Dock simgesini gösterir.
-
-### `app.dock.isVisible()` *macOS*
-
-`Boolean` 'ı geri getirir - dock işareti görünür olduğunda. `app.dock.show()` araması eş zamanlı değil bu sebeple bu yöntem aramadan sonra hemen doğruya döndürmeyebilir.
-
-### `app.dock.setMenu(menu)` *macOS*
-
-* `menu` [Menü](menu.md)
-
-Uygulamanın [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) 'sünü ayarlar.
-
-### `app.dock.setIcon(image)` *macOS*
-
-* `image` ([DoğalGörüntü](native-image.md) | Dizi)
-
-Dock simgesiyle ilişkilendirilmiş `image` 'ı ayarlar.
+  
+  ### `app.setAboutPanelOptions(ayarlar)` *macOS*
+  
+  * `ayarlar` Nesne 
+    * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
+    * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
+    * `copyright` String (optional) - Copyright information.
+    * `credits` String (optional) - Credit information.
+    * `version` String (optional) - The app's build version number.
+  
+  Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+  
+  ### `app.commandLine.appendSwitch(switch[, value])`
+  
+  * `switch` String - A command-line switch
+  * `value` String (optional) - A value for the given switch
+  
+  Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
+  
+  **Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+  
+  ### `app.commandLine.appendArgument(value)`
+  
+  * `value` String - The argument to append to the command line
+  
+  Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
+  
+  **Note:** This will not affect `process.argv`.
+  
+  ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+  
+  Uygulamada karışık kum havuzu modunu etkinleştirmektedir.
+  
+  Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
+  
+  ### `app.dock.bounce([type])` *macOS*
+  
+  * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+  
+  When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+  
+  When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+  
+  Returns `Integer` an ID representing the request.
+  
+  ### `app.dock.cancelBounce(id)` *macOS*
+  
+  * `id` Integer
+  
+  `id` sıçramasını iptal et.
+  
+  ### `app.dock.downloadFinished(filePath)` *macOS*
+  
+  * `filePath` Dizi
+  
+  FilePath, İndirilenler klasörünün içindeyse İndirme yığınla geri döner.
+  
+  ### `app.dock.setBadge(text)` *macOS*
+  
+  * `text` Dizi
+  
+  Dock'un rozetleme alanında gösterilecek satırı ayarlar.
+  
+  ### `app.dock.getBadge()` *macOS*
+  
+  `String` geri getirir - dock'un işaret dizisi.
+  
+  ### `app.dock.hide()` *macOS*
+  
+  Dock simgesini gizler.
+  
+  ### `app.dock.show()` *macOS*
+  
+  Dock simgesini gösterir.
+  
+  ### `app.dock.isVisible()` *macOS*
+  
+  `Boolean` 'ı geri getirir - dock işareti görünür olduğunda. `app.dock.show()` araması eş zamanlı değil bu sebeple bu yöntem aramadan sonra hemen doğruya döndürmeyebilir.
+  
+  ### `app.dock.setMenu(menu)` *macOS*
+  
+  * `menu` [Menü](menu.md)
+  
+  Uygulamanın [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) 'sünü ayarlar.
+  
+  ### `app.dock.setIcon(image)` *macOS*
+  
+  * `image` ([DoğalGörüntü](native-image.md) | Dizi)
+  
+  Dock simgesiyle ilişkilendirilmiş `image` 'ı ayarlar.
