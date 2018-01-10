@@ -36,63 +36,63 @@ Devuelve `Cadena` - El contenido en el portapapeles como texto sin formato.
 * `texto` Cadena
 * `type` Cadena (opcional)
 
-Writes the `text` into the clipboard as plain text.
+Escribe el `texto` en el portapapeles como texto sin formato.
 
 ### `clipboard.readHTML([type])`
 
 * `type` Cadena (opcional)
 
-Returns `String` - The content in the clipboard as markup.
+Devuelve `Cadena` - El contenido en el portapapeles como marca.
 
 ### `clipboard.writeHTML(markup[, type])`
 
-* `markup` String
+* `markup` Cadena
 * `type` Cadena (opcional)
 
-Writes `markup` to the clipboard.
+Escribe `markup` en el portapapeles.
 
 ### `clipboard.readImage([type])`
 
 * `type` Cadena (opcional)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Devuelve [`NativeImage`](native-image.md) - El contenido de la imagen en el portapapeles.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` Cadena (opcional)
 
-Writes `image` to the clipboard.
+Escribe `image` en el portapapeles.
 
 ### `clipboard.readRTF([type])`
 
 * `type` Cadena (opcional)
 
-Returns `String` - The content in the clipboard as RTF.
+Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `texto` String
+* `text` Cadena
 * `type` Cadena (opcional)
 
-Writes the `text` into the clipboard in RTF.
+Escribe el `text` en el portapapeles en RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Devuelve `Objeto`:
 
-* `title` String
-* `url` String
+* `title` Cadena
+* `url` Cadena
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Devuelve un Objeto que contiene las claves `title` y `url` que representan el marcador en el portapapeles. Los valores `title` y `url` serán cadenas vacías cuando el marcador no está disponible.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
-* `title` String
-* `url` String
+* `title` Cadena
+* `url` Cadena
 * `type` Cadena (opcional)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Escribe el `título` y la `url` en el portapapeles como un marcador.
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
