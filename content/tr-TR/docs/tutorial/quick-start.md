@@ -185,7 +185,7 @@ $ .\electron\electron.exe uygulaman\
 
 ### Bir dağıtım çalıştırmak
 
-Uygulamanızı yazmayı bitirdikten sonra, [ Uygulama Dağıtımı ](./application-distribution.md) kılavuzunu izleyerek bir dağıtım oluşturabilirsiniz ve daha sonra paketlenmiş uygulamayı çalıştırın.
+Uygulamanızı yazmayı bitirdikten sonra, [Application Distribution](./application-distribution.md) kılavuzunu izleyerek bir dağıtım oluşturabilirsiniz ve daha sonra paketlenmiş uygulamayı çalıştırın.
 
 ### Bu örneği deneyin
 
