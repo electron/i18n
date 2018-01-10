@@ -8,7 +8,7 @@ Bunu göz önünde bulundurarak, güvenilmeyen kaynaklardan keyfi içeriğin gö
 
 ## Güvenlik sorunlarını raporlama
 
-Bir elektronun güvenlik açığını düzgün bir şekilde açıklamayla ilgili bilgi için, bkz. [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+Bir Electron'un güvenlik açığını düzgün bir şekilde açıklamayla ilgili bilgi için, bkz. [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
 ## Chromium Güvenlik Sorunları ve Yükseltmeleri
 
