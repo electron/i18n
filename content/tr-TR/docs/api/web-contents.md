@@ -528,7 +528,7 @@ webContents.loadURL('https://github.com', options)
 
 * `url` Dizgi
 
-Dolaşma yapmadan `url` de bir kaynak indirmesi başlatır. `session`'a ait `will-download` olayı tetiklenir.
+Gezinme yapmadan `url` de bir kaynak indirmesi başlatır. `session`'a ait `will-download` olayı tetiklenir.
 
 #### `contents.getURL()`
 
@@ -569,7 +569,7 @@ Web sayfasına odaklanır.
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+`Boolean` olarak dönüt verir - Web sayfasının, sayfanın ana kaynağından gelecek bir ilk yanıt bekleyip beklemediği.
 
 #### `contents.stop()`
 
