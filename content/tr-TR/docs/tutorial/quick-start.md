@@ -181,7 +181,7 @@ $ .\electron\electron.exe uygulaman\
 
 ```
 
-`Elektron.app` burada elektron yayın paketinin bir parçası, buradan indirebilirsiniz [Buradan](https://github.com/electron/electron/releases).
+`Electron.app` burada Electron yayın paketinin bir parçası, buradan indirebilirsiniz [here](https://github.com/electron/electron/releases).
 
 ### Bir dağıtım çalıştırmak
 
