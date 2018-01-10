@@ -532,7 +532,7 @@ Dolaşma yapmadan `url` de bir kaynak indirmesi başlatır. `session`'a ait `wil
 
 #### `contents.getURL()`
 
-`String` dönütünü verir - Yürürlükteki web sayfasının bağlantısı.
+`String` olarak dönüt verir - Yürürlükteki web sayfasının bağlantısı.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -545,11 +545,11 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-`String` dönütünü verir - Yürürlükteki web sayfasının başlığı.
+`String` olarak dönüt verir - Yürürlükteki web sayfasının başlığı.
 
 #### `contents.isDestroyed()`
 
-`Boolean` dönütünü verir - Web sayfasının yok edilip edilmediği.
+`Boolean` olarak dönüt verir - Web sayfasının yok edilip edilmediği.
 
 #### `contents.focus()`
 
@@ -557,11 +557,11 @@ Web sayfasına odaklanır.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+`Boolean` olarak dönüt verir - Web sayfasına odaklanıp, odaklanılmadığı.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+`Boolean` olarak dönüt verir - Web sayfasının hala kaynak indirmekte olup olmadığı.
 
 #### `contents.isLoadingMainFrame()`
 
