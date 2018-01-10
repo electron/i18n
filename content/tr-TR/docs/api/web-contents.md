@@ -565,7 +565,7 @@ Web sayfasına odaklanır.
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+`Boolean` olarak dönüt verir - (Sadece bilgi iletim birimlerinin veya içindeki birimlerin değil) Ana bilgisayarın hala yüklemekte olup olmadığı.
 
 #### `contents.isWaitingForResponse()`
 
