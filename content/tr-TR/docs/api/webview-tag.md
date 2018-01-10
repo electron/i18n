@@ -330,7 +330,7 @@ Returns `String` - The user agent for guest page.
 
 ### `<webview>.insertCSS(css)`
 
-* `css` String
+* `css` Dizgi
 
 Injects CSS into the guest page.
 
