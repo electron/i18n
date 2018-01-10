@@ -94,7 +94,7 @@ Devuelve un Objeto que contiene las claves `title` y `url` que representan el ma
 
 Escribe el `título` y la `url` en el portapapeles como un marcador.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Nota:** La mayoría de las aplicaciones en Windows no admiten el pegado de marcadores en ellas para que pueda usar `clipboard.write` para escribir un marcador y un texto alternativo en el portapapeles.
 
 ```js
 clipboard.write({
@@ -105,32 +105,32 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Devuelve `Cadena` - El texto en el portapapeles de búsqueda. Este método usa IPC síncrono cuando se llama desde el proceso de renderizado. El valor en caché se vuelve a leer desde el portapapeles de búsqueda cada vez que se activa la aplicación.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
-* `texto` String
+* `text` Cadena
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+Escribe el `text` en el portapapeles de búsqueda como texto sin formato. Este método usa IPC síncrono cuando se llama desde el proceso de renderizado.
 
 ### `clipboard.clear([type])`
 
 * `type` Cadena (opcional)
 
-Clears the clipboard content.
+Borra el contenido del portapapeles.
 
 ### `clipboard.availableFormats([type])`
 
 * `type` Cadena (opcional)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Devuelve `Cadena[] ` - Una matriz de formatos admitidos para el portapapeles `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
-* `format` String
+* `formato` Cadena
 * `type` Cadena (opcional)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
 
 ```javascript
 const {clipboard} = require('electron')
@@ -139,19 +139,19 @@ console.log(clipboard.has('<p>selection</p>'))
 
 ### `clipboard.read(format)` *Experimental*
 
-* `format` String
+* `format` Cadena
 
 Returns `String` - Reads `format` type from the clipboard.
 
 ### `clipboard.readBuffer(format)` *Experimental*
 
-* `format` String
+* `formato` Cadena
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
-* `format` String
+* `formato` Cadena
 * `buffer` Buffer
 * `type` Cadena (opcional)
 
