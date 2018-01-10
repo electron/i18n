@@ -1,5 +1,5 @@
-# MemoryUsageDetails Nesnesi
+# Bellek Kullanımı Ayrıntıları Nesnesi
 
-* `count` Number
-* `size` Number
-* `liveSize` Number
+* `count` numara
+* `size` Numara
+* `liveSize` Numara
