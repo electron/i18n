@@ -1,4 +1,4 @@
 # Point Nesnesi
 
 * `x` Number
-* `y` Number
+* `y` Numara
