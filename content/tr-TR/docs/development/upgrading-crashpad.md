@@ -3,11 +3,11 @@
 1. Kullanacağınız carshpad sürümünü edinin.
     
     - ` libcc / src / third_party / crashpad / README.chromium </ 0> satırında <code> Revizyon: </ 0> ile bir sağlaması bulunur</li>
-<li>We need to check out the correponding branch.</li>
-<li>Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)</li>
-<li><code>git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
-        - `git checkout <revision checksum>`
+<li>İlgili şubeyi kontrol etmemiz gerekiyor.</li>
+<li>google kilit panelini kopyala</li>
+<li><code>git kopya https://chromium.googlesource.com/crashpad/crashpad`
+    - şubeyi sağlama yaparak kontrol edin 
+        - `çıkışa git`
     - Add electron's crashpad fork as a remote
     - `git remote add electron https://github.com/electron/crashpad`
     - Güncelleme için yeni bir dalı kontrol edin
