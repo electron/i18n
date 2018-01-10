@@ -316,7 +316,7 @@ Belirtilen mutlak dizine gider.
 
 ### `<webview>.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+`Boolean` olarak dönüt verir - Görselleştirme işleminin arızalanıp arızalanmadığı.
 
 ### `<webview>.setUserAgent(userAgent)`
 
