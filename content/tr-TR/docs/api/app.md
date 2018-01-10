@@ -623,7 +623,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `callback` Fonksiyon 
   * `result` Integer - Result of import.
 
-Sertifika pkcs12 halinde platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
