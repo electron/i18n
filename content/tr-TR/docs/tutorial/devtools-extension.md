@@ -1,6 +1,6 @@
 # DevTools Eklentisi
 
-Electron, popüler web yapılarının hata ayıklamasında devtool'ların yeteneğini genişletmek için kullanılabilen [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools) destekler.
+Electron, popüler web yapılarının hata ayıklamasında Devtool'ların yeteneğini genişletmek için kullanılabilen [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools) destekler.
 
 ## DevTools eklentileri nasıl yüklenir
 
