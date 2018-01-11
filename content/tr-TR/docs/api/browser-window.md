@@ -819,7 +819,7 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Çengel Bir pencere mesajı. The `callback` is called when the message is received in the WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
@@ -831,11 +831,11 @@ Returns `Boolean` - `true` or `false` depending on whether the message is hooked
 
 * `message` Integer
 
-Unhook the window message.
+Pencere mesajını çıkarın.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Tüm pencere mesajlarının kilidini açar.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
@@ -881,7 +881,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 Same as `webContents.loadURL(url[, options])`.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+The `url` uzak bir adres olabilir (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
 To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
@@ -1052,9 +1052,9 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 * `ignore` Boolean
 
-Makes the window ignore all mouse events.
+Pencerenin tüm fare olaylarını yok saymasını sağlar.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Bu pencerede gerçekleşen tüm fare olayları aşağıdaki pencereye geçecektir ancak olaylar bu pencerenin odağı varsa, yine de klavye alacaktır.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
@@ -1100,7 +1100,7 @@ Tarayıcı penceresine titreşim efekti ekler. `null` ve boş bir string gönder
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
 **Not:** TouchBar API'si şu anda deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 
