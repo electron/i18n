@@ -80,7 +80,7 @@ console.log(dialog)
 * `callback` Function (可选) 
   * `filename` String
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+返回 `String[]` 用户选择的文件路径数组，如果用户定义了callback ，则返回`undefined`。
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
