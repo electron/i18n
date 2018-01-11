@@ -1,13 +1,13 @@
 ## Class: TouchBarSpacer
 
-> Create a spacer between two items in the touch bar for native macOS applications
+> Yerel Mac OS uygulamaları için dokunmatik çubuktaki iki öğe arasında bir aralayıcı oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSpacer(options)` *Experimental*
 
 * `ayarlar` Nesne 
-  * `boyut` String (optional) - Size of spacer, possible values are: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+  * `boyut` aralayıcı genişliği, mümkün olan değerler: 
+    * `küçük`maddeler arasında küçük aralayıcı
+    * `büyük`maddeler arasında geniş arlayıcı
+    * `esnek` - mevcut olan aralayıcıları kısalt
