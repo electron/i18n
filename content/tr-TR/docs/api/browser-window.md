@@ -585,7 +585,7 @@ Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir penc
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `path` Dizi - QuickLook ile kesin yol önizlemesi Bu, Quick Look açacağı dosyanın türünü belirlemek için dosya uzantısını ve yolunu kullandığı için önemlidir.
-* `displayname` Dizi (opsiyonel) Quick Look şekilsel görünümünde görüntülenecek olan dosya adı. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `displayname` Dizi (opsiyonel) Quick Look şekilsel görünümünde görüntülenecek olan dosya adı. dosyanın görsel ve içeriğini tamamen etkilemez. varsayılan olarak`path`.
 
 Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.wikipedia.org/wiki/Quick_Look)'ı kullanır.
 
@@ -598,7 +598,7 @@ Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.w
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (isteğe bağlı) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Pencereyi yeniden boyutlandırır ve sağlanan sınırlara taşır
 
 #### `win.getBounds()
 `
