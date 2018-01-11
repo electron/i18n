@@ -126,4 +126,4 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+获取跟踪缓冲区进程的最大使用率，以百分比表示完整状态。当 TraceBufferUsage 值被确定后, 将调用 ` callback`。
