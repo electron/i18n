@@ -116,7 +116,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 
 获取当前监控的跟踪数据
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据到主进程。 This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
