@@ -223,9 +223,9 @@ win.on('resize', () => {
 
 ## Metodlar
 
-The `webview` tag has the following methods:
+`webview` etiketi aşağıda yöntemlere sahiptir:
 
-**Note:** The webview element must be loaded before using the methods.
+**Not:** Webview öğesi yöntemleri kullanmadan önce yüklenmiş olmalıdır.
 
 **Örnek**
 
@@ -246,7 +246,7 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
 
-Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
+Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, örneğin: `http://` ya da `file://`.
 
 ### `<webview>.getURL()`
 
