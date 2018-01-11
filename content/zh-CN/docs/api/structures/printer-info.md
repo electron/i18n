@@ -1,9 +1,9 @@
 # PrinterInfo 对象
 
 * `硬件名称` 字符串
-* `描述` 字符串
-* `状态` 数字
-* `是否默认` 布尔类型
+* `description` 字符串
+* `status` 数字
+* `isDefault` 布尔类型
 
 ## 例子
 
