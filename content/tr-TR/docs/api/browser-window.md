@@ -627,7 +627,7 @@ Pencereyi `genişlik` ve `yükseklik` olarak yeniden boyutlandırır.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Iadeler `Integer[]` - Pencerenin genişliğini ve yüksekliğini içerir.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -635,7 +635,7 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (isteğe bağlı) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `width` and `height`.
 
 #### `win.getContentSize()`
 
@@ -671,7 +671,7 @@ Pencerenin kullanıcı tarafından manuel olarak yeniden boyutlandırılacağın
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Returns `Boolean` - Pencerenin kullanıcı tarafından manuel olarak yeniden boyutlandırılabilmesi.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -683,7 +683,7 @@ Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Li
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından taşınıp taşınmayacağı.
 
-On Linux always returns `true`.
+Linux'ta daima geri dönüyor `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -701,11 +701,11 @@ Linux üzerinde her zaman `true` döndürür.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Pencerenin kullanıcı tarafından manuel olarak maksimize edilip edilemeyeceğini ayarlar. Linux'ta hiçbir şey değil.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Returns `Boolean` - Pencerenin kullanıcı tarafından manuel olarak maksimize edilip edilemeyeceği.
 
 Linux üzerinde her zaman `true` döndürür.
 
@@ -717,7 +717,7 @@ Yakınlaştırma düğmesinin tam ekran modunu değiştirip değiştirmeyeceğin
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Returns `Boolean` - Maksimumlaştır / yakınlaştır penceresi düğmesinin tam ekran modunu değiştirip değiştirmeyeceğini pencereyi en üst düzeye çıkarır.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -729,7 +729,7 @@ Pencerenin kullanıcı tarafından el ile kapatılıp bırakılmayacağını tan
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak kapatılıp kapatılmayacağı.
 
-On Linux always returns `true`.
+Linux'ta daima geri dönüyor `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -741,7 +741,7 @@ Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğ
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
 
 #### `win.center()`
 
@@ -753,7 +753,7 @@ Pencereyi ekranın ortasına taşır.
 * `x` Integer
 * `animate` Boolean (isteğe bağlı) *macOS*
 
-Moves window to `x` and `y`.
+Pencereyi taşı `x` and `y`.
 
 #### `win.getPosition()`
 
@@ -769,7 +769,7 @@ Doğal pencerenin başlığını `title` olarak değiştirir.
 
 `String` 'i geri getirir - Doğal pencerenin başlığı.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Note:** web sayfasının başlığı yerel unvanından farklı olabilir. pencere.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -802,7 +802,7 @@ Pencerenin görev çubuğunda gösterilmemesini sağlar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Kiosk moduna girer veya ayrılır.
 
 #### `win.isKiosk()`
 
@@ -810,7 +810,7 @@ Enters or leaves the kiosk mode.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Returns `Buffer` - pencerenin platforma özel tutamacı.
 
 The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
 
