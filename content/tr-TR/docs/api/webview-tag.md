@@ -250,15 +250,15 @@ Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, ö
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+Returns `String` - Misafir sayfasının URL'si.
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+Returns `String` - Misafir sayfasının başlığı.
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+Returns `Boolean` - Misafir sayfası hala kaynakları yüklüyorsa.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -282,13 +282,13 @@ Döndür `Boolean` - Konuk sayfanın geri dönüp dönmeyeceğini belirtir.
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Whether the guest page can go forward.
+Returns `Boolean` - Misafir sayfası ilerleyebiliyorsa.
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Tamsayı
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+Returns `Boolean` - Misafir sayfası `offset`'e gidebiliyorsa.
 
 ### `<webview>.clearHistory()`
 
@@ -326,7 +326,7 @@ Konuk sayfasının kullanıcı aracısını geçersiz kılar.
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+Returns `String` - Misafir sayfası için kullanıcı aracı.
 
 ### `<webview>.insertCSS(css)`
 
@@ -341,15 +341,15 @@ Injects CSS into the guest page.
 * `geri arama` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
   * `result` Herhangi bir
 
-Sayfadaki `code`'u değerlendirir. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Sayfadaki `code`'u değerlendirir. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Misafir sayfası için bir DevTools penceresi açar.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Misafir sayfasının DevTools penceresini kapatır.
 
 ### `<webview>.isDevToolsOpened()`
 
