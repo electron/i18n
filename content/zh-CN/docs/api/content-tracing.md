@@ -6,7 +6,7 @@
 
 该模块不包含网页接口，所以你需要在Chrome浏览器打开`chrome://tracing/`页面，然后加载生成的文件来查看结果。
 
-**注意：**在应用程序模块的 `ready ` 事件就绪之前，您不应该使用此模块。
+**注意：**在应用程序模块的 `ready ` 事件触发之前，您不应该使用此模块。
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -96,17 +96,17 @@ app.on('ready', () => {
 
 开始记录所有进程。
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+一旦收到` startMonitoring `请求，监控立即在本地和异步的子进程上立即开始。
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
 ### `contentTracing.stopMonitoring(callback)`
 
 * `callback` Function
 
-Stop monitoring on all processes.
+停止对所有进程的监视。
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
