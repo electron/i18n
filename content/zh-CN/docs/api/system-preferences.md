@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> 获取system preferences.
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -11,7 +11,7 @@ console.log(systemPreferences.isDarkMode())
 
 ## 事件
 
-The `systemPreferences` object emits the following events:
+` systemPreferences ` 对象触发以下事件:
 
 ### Event: 'accent-color-changed' *Windows*
 
