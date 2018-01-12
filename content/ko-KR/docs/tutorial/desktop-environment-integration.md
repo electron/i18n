@@ -20,14 +20,14 @@ Windows와 macOS는 JumpList 또는 dock 메뉴를 통해 최근 문서 리스�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-파일을 최근 문서에 추가하려면 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API를 사용할 수 있습니다:
+To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 onst {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-그리고 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API로 최근 문서 리스트를 비울 수 있습니다:
+And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
 
 ```javascript
 const {app} = require('electron')
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Windows에서 주의할 점
 
-이 기능을 Windows에서 사용할 땐 운영체제 시스템에 애플리케이션에서 사용하는 파일 확장자가 등록되어 있어야 합니다. 그렇지 않은 경우 파일을 JumpList에 추가해도 추가되지 않습니다. 애플리케이션 등록에 관련된 API의 모든 내용은 [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx)에서 찾아볼 수 있습니다.
+이 기능을 Windows에서 사용할 땐 운영체제 시스템에 애플리케이션에서 사용하는 파일 확장자가 등록되어 있어야 합니다. 그렇지 않은 경우 파일을 JumpList에 추가해도 추가되지 않습니다. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 유저가 JumpList에서 파일을 클릭할 경우 클릭된 파일의 경로가 커맨드 라인 인수로 추가되어 새로운 인스턴스의 애플리케이션이 실행됩니다.
 
@@ -80,7 +80,7 @@ Windows에선 JumpList의 `Tasks` 카테고리에 원하는 작업을 설정할 
 
 **Internet Explorer의 작업:**
 
-![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
+![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
 MacOS의 dock menu와는 달리 Windows의 사용자 작업은 애플리케이션 바로 가기처럼 작동합니다. 유저가 작업을 클릭할 때 설정한 인수와 함께 새로운 애플리케이션이 실행됩니다.
 
@@ -124,7 +124,7 @@ MSDN의 설명에 의하면:
 ![사용자
 ](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-[BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) API를 통해 애플리케이션에 미리보기 툴바를 설정할 수 있습니다:
+You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -196,7 +196,7 @@ Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시�
 
 ![작업 표시줄 버튼 위의 오버레이](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-윈도우에 오버레이 아이콘을 설정하려면 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API를 사용할 수 있습니다:
+To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -231,7 +231,7 @@ macOS는 창에서 대표 파일을 설정할 수 있습니다. 타이틀바에�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-대표 파일 관련 API는 [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) 과 [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x)를 사용할 수 있습니다:
+To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
 
 ```javascript
 const {BrowserWindow} = require('electron')
