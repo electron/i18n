@@ -7,7 +7,7 @@ Siga as instruções abaixo para compilar o Electron no Windows.
 * Windows 7 / Server 2008 R2 ou maior
 * Visual Studio 2015 Update 3 - [Baixe o VS 2015 Community grátis](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * [Ferramentas para depuração para Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) se você planeja criar uma distribuição completa desde do `symstore.exe` é utilizado o `.pdb`.
 
@@ -127,7 +127,7 @@ Tente reinstalar o Node.js 32bit.
 
 ### Erro: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simplesmente criando esse diretório [deve corrigir o problema](http://stackoverflow.com/a/25095327/102704):
+Simplesmente criando esse diretório [deve corrigir o problema](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
