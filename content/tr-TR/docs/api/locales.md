@@ -1,8 +1,8 @@
-# Locales
+# Yerliler
 
 > Yerel ayar değerleri `app.getLocale()` tarafından döndürüldü.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtimal dahilindeki değerler aşağıdadır:
 
 | Kod dili | İsim dili                       |
 | -------- | ------------------------------- |
