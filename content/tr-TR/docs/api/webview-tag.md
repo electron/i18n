@@ -476,7 +476,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
   * `error` Hata 
   * `data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+`webview`'ün web sayfasını PDF olarak yazdırır, tıpkı `webContents.printToPDF(options, callback)` gibi.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -484,7 +484,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 * `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+`webview` sayfasının anlık görüntüsünü alır. Tıpkı `webContents.capturePage([rect, ]callback)` gibi.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -493,15 +493,15 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 
 İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
-See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+Örnekler için [webContents.send](web-contents.md#webcontentssendchannel-args) 'i ziyaret edin.
 
 ### `<webview>.sendInputEvent(event)`
 
 * `event` Object
 
-Sends an input `event` to the page.
+`event` girdisini sayfaya yollar.
 
-See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
+`event` nesnesinin detaylı açıklaması için [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) 'i ziyaret edin.
 
 ### `<webview>.setZoomFactor(factor)`
 
