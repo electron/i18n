@@ -2,7 +2,7 @@
 
 Kode sumber dari electron dipisahkan menjadi beberapa bagian, sebagian besar mengikuti Chromium pada konvensi pemisahan.
 
-Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](http://dev.chromium.org/developers/design-documents/multi-process-architecture) untuk memahami kode sumber yang lebih baik.
+You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
 ## Struktur Sumber Kode
 
