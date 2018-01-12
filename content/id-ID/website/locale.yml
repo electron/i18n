@@ -137,3 +137,5 @@ _404:
   page_not_found: Halaman tidak ditemukan.
   if_this_is_an_error: Jika ini adalah kesalahan
   please_file_an_issue: tolong ajukan masalah
+search:
+  description: Search within Electron documentations and community.
