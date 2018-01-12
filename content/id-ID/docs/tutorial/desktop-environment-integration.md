@@ -20,14 +20,14 @@ Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dib
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-Untuk menambahkan file ke dokumen baru-baru ini, Anda dapat menggunakan  app.addRecentDocument </ 0> API :</p> 
+To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-Dan Anda dapat menggunakan [app.clearRecentDocuments ](../api/app.md#appclearrecentdocuments-os-x-windows) API untuk mengosongkan daftar dokumen baru-baru:
+And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
 
 ```javascript
 onst {app} = require('electron')
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### catatan Windows
 
-Agar dapat menggunakan fitur ini pada Windows , aplikasi Anda harus terdaftar sebagai handler dari jenis file dokumen, jika file tersebut tidak akan muncul di jumplist bahkan setelah Anda telah menambahkan. Anda dapat menemukan semuanya di mendaftarkan aplikasi Anda di  Aplikasi Pendaftaran </ 0> .</p> 
+Agar dapat menggunakan fitur ini pada Windows , aplikasi Anda harus terdaftar sebagai handler dari jenis file dokumen, jika file tersebut tidak akan muncul di jumplist bahkan setelah Anda telah menambahkan. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan mulai dengan path dari file ditambahkan sebagai argumen baris perintah.
 
@@ -95,7 +95,7 @@ Pada Windows Anda dapat menentukan tindakan kustom dalam ` Tugas </ 0> kategori 
 
 <p><strong>Tugas dari Internet Explorer:</strong></p>
 
-<p><img src="https://msdn.microsoft.com/dynimg/IC420539.png" alt="IE" /></p>
+<p><img src="http://i.msdn.microsoft.com/dynimg/IC420539.png" alt="IE" /></p>
 
 <p>Berbeda dengan menu dock di MacOS yang merupakan menu yang nyata, tugas-tugas pengguna di Windows bekerja seperti shortcut aplikasi tersebut bahwa ketika pengguna mengklik tugas, program akan dieksekusi dengan argumen tertentu.</p>
 
@@ -138,7 +138,7 @@ Dari MSDN, itu bergambar:
 
 ![pemain](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-Anda dapat menggunakan [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) untuk mengatur toolbar thumbnail dalam aplikasi Anda:
+You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -210,7 +210,7 @@ Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan ap
 
 ![Tampilan tombol taskbar](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
@@ -245,7 +245,7 @@ Anda juga dapat mengatur keadaan diedit dari jendela sehingga ikon file dapat me
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-Untuk mengatur file jendela yang terwakili, Anda bisa menggunakan [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) dan [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
