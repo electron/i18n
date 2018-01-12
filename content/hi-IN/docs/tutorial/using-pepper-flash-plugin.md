@@ -54,7 +54,7 @@ switch (process.platform) {
 `प्लगइनस` एट्रिब्यूट को `<webview>` टैग से जोड़ें |
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## समस्या निवारण
