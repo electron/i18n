@@ -974,7 +974,7 @@ Send an asynchronous message to renderer process via `channel`, you can also sen
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 
-An example of sending messages from the main process to the renderer process:
+Ana işlemden render işlemine gönderilen mesaj örneği:
 
 ```javascript
 // Ana süreçte.
@@ -1006,8 +1006,8 @@ app.on('ready', () => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parametreler` Nesne 
-  * `ekranPozisyonu` String - Specify the screen type to emulate (default: `masaüstü`) 
-    * `desktop` - Desktop screen type
+  * `ekranPozisyonu` Dize - Ekran tipini emulasyon için belirtiniz. (default: `masaüstü`) 
+    * `desktop` - Masaüstü ekran tipi
     * `mobile` - Mobile screen type
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
@@ -1041,7 +1041,7 @@ For mouse events, the `event` object also have following properties:
 * `y` Integer (**required**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
-* `globalY` Integer
+* `globalY` Tam sayı
 * `movementX` Integer
 * `movementY` Integer
 * `clickCount` Integer
