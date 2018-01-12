@@ -6,7 +6,7 @@ Vous pouvez exécuter `npm run lint` pour montrer tous les problèmes de style d
 
 ## C++ et Python
 
-Pour C++ et Python, nous suivons le [Style de codage](http://www.chromium.org/developers/coding-style) de Chromium. Vous pouvez utiliser [clang-format](clang-format.md) pour formatter le code C++ automatiquement. Il y a aussi un script `script/cpplint.py` pour vérifier si tous les fichiers sont conformes.
+For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). Vous pouvez utiliser [clang-format](clang-format.md) pour formatter le code C++ automatiquement. Il y a aussi un script `script/cpplint.py` pour vérifier si tous les fichiers sont conformes.
 
 La version de Python que nous utilisons est Python 2.7.
 
@@ -14,7 +14,7 @@ Le code C++ utilise beaucoup d’abstractions et de types de Chromium, il est do
 
 ## JavaScript
 
-* Écrire [standard](http://npm.im/standard) style JavaScript.
+* Write [standard](https://npm.im/standard) JavaScript style.
 * Les noms des fichiers doivent être liés avec `–` au lieu de `_`, par exemple : `fichier-name.js` plutôt que `file_name.js`, parce que dans [github/atome](https://github.com/github/atom) les noms de modules sont généralement sous la forme `nom-du-module`. Cette règle s’applique uniquement aux fichiers `.js`.
 * Utilisez la nouvelle syntaxe ES6/ES2015, le cas écheant 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) pour les exigences et d'autres constantes
