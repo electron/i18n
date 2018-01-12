@@ -196,7 +196,7 @@ Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url y
 
 When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. Bu, içerikleri otomatik olarak yeniden boyutlandırmak için webview öğesi sınırlarına dayanmakla karşılaştırıldığında daha hızlı yeniden boyutlandırma yapabilir.
+Bu, [`webContents.setSize`](web-contents.md#contentssetsizeoptions) ile kombinasyonlu bir şekilde manuel olarak webview içeriklerini pencere büyüklüğüne boyutlandırmada kullanılabilir. Bu, içerikleri otomatik olarak yeniden boyutlandırmak için webview öğesi sınırlarına dayanmakla karşılaştırıldığında daha hızlı yeniden boyutlandırma yapabilir.
 
 ```javascript
 const {webContents} = require('electron')
@@ -491,7 +491,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 * `channel` String
 * `...args` any[]
 
-İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Renderer işlemi, mesajları `ipcRenderer` modülü ile `channel` etkinliğini dinleyerek halledebilir.
 
 Örnekler için [webContents.send](web-contents.md#webcontentssendchannel-args) 'i ziyaret edin.
 
