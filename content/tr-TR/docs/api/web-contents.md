@@ -276,15 +276,15 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Olay: devtools açıldı
 
 DevTools açıldığında yayınla.
 
-#### Event: 'devtools-closed'
+#### Olay: devtools kapandı
 
 DevTools kapandığında ortaya çıkar.
 
-#### Event: 'devtools-focused'
+#### Olay: devtools odaklanıldı
 
 DevTools odaklandığında / açıldığında ortaya çıkar.
 
@@ -299,7 +299,7 @@ Dönüşler:
 * `geri aramak` Fonksiyon 
   * `isTrusted` Boolean - Sertifikanın güvenilir olarak değerlendirilip değerlendirilemeyeceğini belirtir
 
-Emitted when failed to verify the `certificate` for `url`.
+Doğrulanamadığında ortaya çıkar `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
@@ -356,15 +356,15 @@ Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+Medya oynatılmaya başladığında yayınlanır.
 
 #### Etkinlik: 'medya-duraklatıldı'
 
-Emitted when media is paused or done playing.
+Medya duraklatıldığında veya oynatıldığında yaydır.
 
 #### Event: 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşılaşılanlardan kaynaklanmaktadır bir meta etiketi:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -377,7 +377,7 @@ Dönüşler:
 * `olay` Olay
 * `url` Dize
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 
 #### Event: 'cursor-changed'
 
