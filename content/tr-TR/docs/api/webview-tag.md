@@ -513,7 +513,7 @@ Yakınlaştırma faktörünü belirtilen faktöre değiştirir. om factor is zoo
 
 * `level` Number - Yakınlaştırma seviyesi
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0 ve yukarı ya da aşağı her artış için yakınlaştırma %20 nüyür veya küçülür; ta ki %300 ve %50 orijinal boyutuna ulaşana dek.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -615,7 +615,7 @@ Sayfa favicon url'lerini aldığında tetiklenir.
 
 ### Etkinlik: 'enter-html-full-screen'
 
-Fired when page enters fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
 
 ### Etkinlik: 'leave-html-full-screen'
 
