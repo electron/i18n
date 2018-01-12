@@ -38,7 +38,7 @@ Elektron-apps houden toegankelijkheid standaard uitgeschakeld om prestatieredene
 
 ### In de applicatie
 
-Met behulp van [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), kunt u de toegankelijkheidsopties aanbieden in de gebruikersvoorkeuren van de applicatie. Gebruikersondersteunende hulpprogramma's hebben voorrang boven deze instelling en overschrijft het.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. Gebruikersondersteunende hulpprogramma's hebben voorrang boven deze instelling en overschrijft het.
 
 ### Hulptechnologie
 
