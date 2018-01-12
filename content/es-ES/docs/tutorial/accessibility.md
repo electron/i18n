@@ -1,6 +1,6 @@
 # Accesibilidad
 
-Hacer aplicaciones accesibles es importante y estamos encantados de presentar nuevas funcionalidades a [Devtron](https://electron.atom.io/devtron) y Spectron</ 1> que brindan a los desarrolladores la oportunidad de mejorar sus aplicaciones para todo el mundo.</p> 
+Hacer aplicaciones accesibles es importante y estamos encantados de presentar nuevas funcionalidades a [Devtron](https://electronjs.org/devtron) y Spectron</ 1> que brindan a los desarrolladores la oportunidad de mejorar sus aplicaciones para todo el mundo.</p> 
 
 * * *
 
@@ -38,7 +38,7 @@ Las aplicaciones electrónicas mantienen la accesibilidad desactivada de forma p
 
 ### Aplicación interna
 
-Al usar [`app.setAccessibilitySupportEnabled (enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), puede exponer el interruptor de accesibilidad a los usuarios en las preferencias de la aplicación. Las utilidades de asistencia del sistema del usuario tienen prioridad sobre esta configuración y la anularán.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. Las utilidades de asistencia del sistema del usuario tienen prioridad sobre esta configuración y la anularán.
 
 ### Tecnología de asistencia
 
