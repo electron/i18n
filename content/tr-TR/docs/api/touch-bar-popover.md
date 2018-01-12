@@ -1,4 +1,4 @@
-## Class: TouchBarPopover
+## Sınıf: TouchBarPopover
 
 > Dokunmatik çubukta yerel macOS uygulamaları için bir popover oluşturun
 
