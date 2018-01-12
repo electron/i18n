@@ -505,27 +505,27 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Yakınlaştırma fakötrü.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - Yakınlaştırma seviyesi
 
 Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
 
-## DOM events
+## DOM etkinlikleri
 
-The following DOM events are available to the `webview` tag:
+Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
 
 ### Event: 'load-commit'
 
