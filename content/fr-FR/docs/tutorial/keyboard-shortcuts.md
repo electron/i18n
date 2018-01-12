@@ -49,7 +49,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Notez que le troisième paramètre `true` qui signifie que l'écouteur recevra toujours les pressions de touches avant les autres écouteurs d'événement, ainsi ils ne peuvent pas appeler eux-même `stopPropagation()`.
 
-L’événement [`before-input-event`](web-contents.md#event-before-input-event) est émis avant d’envoyer les événements `keydown` et `keyup` dans la page. Il peut être utilisé pour intercepter et gérer des raccourcis personnalisés qui ne sont pas visibles dans le menu.
+The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Il peut être utilisé pour intercepter et gérer des raccourcis personnalisés qui ne sont pas visibles dans le menu.
 
 Si vous ne voulez pas analyser manuellement les raccourcis, il existe des bibliothèque qui font de la détection avancée comme par exemple [mousetrap](https://github.com/ccampbell/mousetrap).
 
