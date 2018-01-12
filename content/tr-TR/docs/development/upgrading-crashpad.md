@@ -5,7 +5,7 @@
     - ` libcc / src / third_party / crashpad / README.chromium </ 0> satırında <code> Revizyon: </ 0> ile bir sağlaması bulunur</li>
 <li>İlgili şubeyi kontrol etmemiz gerekiyor.</li>
 <li>google kilit panelini kopyala</li>
-<li><code>git kopya https://chromium.googlesource.com/crashpad/crashpad`
+<li><code>git clone https://chromium.googlesource.com/crashpad/crashpad`
     - şubeyi sağlama yaparak kontrol edin 
         - `çıkışa git`
     - Add electron's crashpad fork as a remote
@@ -16,11 +16,11 @@
 
 2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
     
-    - Yada http://github.com/electron/crashpad/commits/previous-branch-name sayfasını görüntüleyin
+    - Yada https://github.com/electron/crashpad/commits/previous-branch-name sayfasını görüntüleyin
 
 3. Her yama için:
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum 
+    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick <checksum>`
     - Çakışmaları çöz
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
