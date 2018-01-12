@@ -1,6 +1,6 @@
 # Uygulamaları Güncelleme
 
-Bir Electron uygulamasını güncellemenin bir kaç yolu vardır. En kolay ve resmen desteklenen [Sincap](https://github.com/Squirrel) Sistem ve Elektronun [autoUpdater](../api/auto-updater.md) modülüdür.
+Bir Electron uygulamasını güncellemenin bir kaç yolu vardır. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
 ## Güncelleme sunucusu dağıtma
 
@@ -14,11 +14,11 @@ To get started, you first need to deploy a server that the [autoUpdater](../api/
     - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
     -  Nucleus </ 0> - Atlassian tarafından tutulan Electron uygulamaları için eksiksiz bir güncelleme sunucusu . Supports multiple applications and channels; uses a static file store to minify server cost.</li> </ul> 
         
-        Uygulamanız [electron-builder](https://github.com/electron-userland/electron-builder) ile paketlendiyse, bir sunucu gerektirmeyen ve S3, GitHub veya başka bir statik dosya barındırıcısı güncellemelerine izin veren [electron-updater](https://www.electron.build/auto-update) modülünü kullanabilirsiniz.
+        If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
         
         ## Uygulamanızda güncellemeleri uygulama
         
-        Güncelleme sunucunuzu dağıttıktan sonra, kodunuzda gerekli modülleri içe aktarmaya devam edin. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+        Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
         
         **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
         
@@ -47,7 +47,7 @@ Once your application is [packaged](../tutorial/application-distribution.md), it
 
 ## Güncellemeler uygulanıyor
 
-Artık uygulamanız için temel güncelleme mekanizmasını yapılandırdıysanız, bir güncelleme olduğunda kullanıcının bilgilendirileceğinden emin olmalısınız. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
