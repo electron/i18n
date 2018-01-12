@@ -353,7 +353,7 @@ Misafir sayfasının DevTools penceresini kapatır.
 
 ### `<webview>.isDevToolsOpened()`
 
-Returns `Boolean` - Whether guest page has a DevTools window attached.
+Returns `Boolean` - Misafir sayfasına DevTools penceresi sabitlenmişse.
 
 ### `<webview>.isDevToolsFocused()`
 
@@ -364,7 +364,7 @@ Returns `Boolean` - Whether DevTools window of guest page is focused.
 * `x` tamsayı
 * `x` tamsayı
 
-Starts inspecting element at position (`x`, `y`) of guest page.
+Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
 
 ### `<webview>.inspectServiceWorker()`
 
