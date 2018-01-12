@@ -75,7 +75,7 @@ Bip sesini oynatın.
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+[`ShortcutDetails`](structures/shortcut-details.md) geri al
 
 Kısayol bağlantısını `shortcutPath` adresinde çözer.
 
