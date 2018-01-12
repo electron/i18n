@@ -98,7 +98,7 @@ Upewnij się, że masz zainstalowaną najnowszą aktualizację programu Visual S
 
 ### Potwierdzenie nie powiodło się: ((uchwyt))-> activecnt > = 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Jeśli budujesz pod Cygwin, możesz zobaczyć `bootstrap.py` nie powiodło się z następującym komunikatem o błędzie:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+This is caused by a bug when using Cygwin Python and Win32 Node together. Rozwiązaniem jest użycie Win32 Python aby wykonać skrypt startowy (zakładając, że zainstalowałeś Python pod `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -135,4 +135,4 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Ten błąd może wystąpić, jeśli używasz Git Bash do budynku, zamiast tego należy użyć środowiska PowerShell lub wiersz polecenia VS2015.
