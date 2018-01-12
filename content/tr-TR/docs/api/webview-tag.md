@@ -332,7 +332,7 @@ Returns `String` - Misafir sayfası için kullanıcı aracı.
 
 * `css` Dizgi
 
-Injects CSS into the guest page.
+CSS'i misafir sayfasının içine yerleştirir.
 
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
@@ -507,7 +507,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 * `factor` Number - Yakınlaştırma fakötrü.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma faktörünü belirtilen faktöre değiştirir. om factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
