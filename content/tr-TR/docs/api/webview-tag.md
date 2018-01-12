@@ -619,7 +619,7 @@ Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
 
 ### Etkinlik: 'leave-html-full-screen'
 
-Fired when page leaves fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından çıkıldığında ateşlenir.
 
 ### Event: 'console-message'
 
@@ -630,7 +630,7 @@ Dönüşler:
 * `line` Integer
 * `sourceId` String
 
-Fired when the guest window logs a console message.
+Misafir pencere konsol mesajı girdiğinde ateşlenir.
 
 Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
 
@@ -697,9 +697,9 @@ Dönüşler:
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Bu olay navigasyon programlı bir şekilde `<webview>.loadURL` ve `<webview>.back` API gibi başlatıldığında sinyal yaymaz.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Sayfa içi navigasyon sırasında, çapa linklere tıklama ya da `window.location.hash` güncellendiğindede sinyal yaymaz. `did*navigate-in-page` olayını bu amaçla kullanınız.
 
 `event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
 
