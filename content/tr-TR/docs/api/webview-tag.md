@@ -488,7 +488,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
+* `channel` Dizesi
 * `...args` any[]
 
 İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Renderer işlemi, mesajları `ipcRenderer` modülü ile `channel` etkinliğini dinleyerek halledebilir.
@@ -741,7 +741,7 @@ webview.addEventListener('close', () => {
 
 Dönüşler:
 
-* `channel` String
+* `channel` Dizesi
 * `args` Array
 
 Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
