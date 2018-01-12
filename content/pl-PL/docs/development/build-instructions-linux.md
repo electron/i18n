@@ -79,17 +79,16 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Building
 
-If you would like to build both `Release` and `Debug` targets:
+Jeśli chcesz zbudować oba `Wydanie` i `Debugowanie` celów:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. Rozmiar pliku to ponad 1,3 Gb. Dzieje się tak, ponieważ uwolnienie docelowego pliku binarnego zawiera symbole debugowania. Aby zmniejszyć rozmiar pliku, uruchom skrypt `create-dist.py<0>:</p>
 
-```sh
-$ ./script/create-dist.py
-```
+<pre><code class="sh">$ ./script/create-dist.py
+`</pre> 
 
 This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
 
@@ -103,13 +102,13 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 
 ## Cleaning
 
-To clean the build files:
+Aby wyczyścić pliki kompilacji:
 
 ```sh
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Aby oczyścić tylko `z` i `dist` katalogów:
 
 ```sh
 $ npm run clean-build
@@ -119,7 +118,7 @@ $ npm run clean-build
 
 ## Rozwiązywanie problemów
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### Wystąpił błąd podczas ładowania biblioteki współdzielenia: libtinfo.so.5
 
 Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
@@ -127,20 +126,20 @@ Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host arch
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## Testy
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Zobacz [przegląd budowy systemu: Testy](build-system-overview.md#tests)
 
 ## Zaawansowane tematy
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
 
-### Building `libchromiumcontent` locally
+### Budowanie `libchromiumcontent`lokalnie
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Aby uniknąć używania gotowych binarek `libchromiumcontent`, można zbudować `libchromiumcontent` lokalnie. Aby to zrobić, wykonaj następujące kroki:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+1. Instaluj [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+2. Instaluj [dodatkowe kompilacje zależności](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
 3. Fetch the git submodules:
 
 ```sh
@@ -174,7 +173,7 @@ $ ./script/build.py -c R
 
 To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
 
-For example building with GCC toolchain:
+Na przykład budowanie z GCC toolchain:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
