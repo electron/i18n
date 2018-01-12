@@ -57,6 +57,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 
 * [Stile Codice](development/coding-style.md)
 * [Uso di clang-format nel codice C++](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Struttura della cartella del codice sorgente](development/source-code-directory-structure.md)
 * [Differenze tecniche da NW.js (ex node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Panoramica sul sistema di compilazione](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Istruzioni per il debug (Windows)](development/debug-instructions-windows.md)
 * [Impostazione di un Symbol Server nel debugger](development/setting-up-symbol-server.md)
 * [Linee guida per la documentazione](styleguide.md)
-* [Aggiornare Chrome](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Sviluppo di Chrome](development/chromium-development.md)
 * [Sviluppo di V8](development/v8-development.md)
