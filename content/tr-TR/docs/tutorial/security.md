@@ -40,24 +40,23 @@ Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 * WebViews:`disablewebsecurity` kullanmayın
 * WebViews:`allowpopups` kullanmayın
 * WebViews: Uzaktan CSS/JS kullanım ile `insertCSS` veya `executeJavaScript` kullanmayın.
-* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+* `<webview>` etiketlerini, `will-attach-webview` event: bağlanmadan önce seçenekleri ve paramları doğrulayın:
 
 ```js
 app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+contents.on('will-attach-webview', (event, webPreferences, params) => {
+// Kullanılmayan yazılımları eğer kullanılmamışşa veya konum doğrulaması yapılmışşa kaldır
+webPreferences.preload sil
+webPreferences.preloadURL sil
 
-    // Disable node integration
-    webPreferences.nodeIntegration = false
-
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
-      event.preventDefault()
-    }
-  })
-})
+// Düğüm entegrasyonunu iptal et
+webPreferences.nodeIntegration = yalnış
+// URL Yüklenme durumunu sorgula
+if (!params.src.startsWith('https://yourapp.com/')) {
+event.preventDefault()
+     }
+   })
+ })
 ```
 
 Yine, bu liste yalnızca riski en aza indirir, kaldırmaz. Amacınız bir web sitesini görüntülemek ise, tarayıcı daha güvenli bir seçenek olacaktır .
