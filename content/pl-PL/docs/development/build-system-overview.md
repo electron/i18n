@@ -1,25 +1,25 @@
 # Przegląd Systemu Budowania
 
-Electron używa [gyp](https://gyp.gsrc.io/) dla generowania projektu i [ninja](https://ninja-build.org/) dla budowania. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron używa [gyp](https://gyp.gsrc.io/) dla generowania projektu i [ninja](https://ninja-build.org/) dla budowania. Konfiguracja projektu znajduje się w plikach `.gyp` i `.gypi`.
 
-## Gyp Files
+## Pliki Gyp
 
-Following `gyp` files contain the main rules for building Electron:
+Następujące pliki `gyp` zawierają główne zasady dla budowania Electron:
 
-* `electron.gyp` defines how Electron itself is built.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
+* `electron.gyp` definiuje z czego sam w sobie składa się Electron.
+* `common.gypi`dodaje konfiguracje budowy Node aby zbudować to razem z Chromium.
+* <brightray/brightray.gyp</code> definiuje jak `brightray` jest zbudowany i zawiera domyślną konfigurację połączoną z Chromium.
 * `brightray/brightray.gypi` includes general build configurations about building.
 
-## Component Build
+## Budowa składnika
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Od kiedy Chromium jest dość wielkim projektem, końcowa faza łączenia może zająć kilka minut, co sprawia trudności dla rozwoju. W celu rozwiązania tego, Chromium wprowadziło "budowę składnika", która buduje każdy składnik jako osobną bibliotekę, sprawiając linkowanie bardzo szybkim, ale poświęcając rozmiar pliku oraz wydajność.
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+W Electron mamy bardzo podobne podejście: dla budowy `debug`, system dwójkowy będzie łączony z udostępnioną wersją składników biblioteki Chromium, aby osiągać szybki czas łączenia; dla budowy `wydania`, system binarny będzie łączony ze statyczną wersją biblioteki, dzięki czemu będziemy mieli najlepsze możliwe binarne rozmiary oraz wydajność.
 
 ## Minimalny Booststrapping
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+Wszystkie pliki binarne Chromium (`libchromiumcontent`) są pobierane kiedy skrypt bootstrap jest uruchomiony. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
 
 By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
