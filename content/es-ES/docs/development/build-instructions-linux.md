@@ -6,7 +6,7 @@ Siga las indicaciones a continuación para construir Electron en Linux.
 
 * Al menos 25GB de espacio de disco y 8GB de RAM.
 * Python 2.7.x. Algunas distribuciones como CentOS 6.x. aún usan Python 2.6.x, así que quizá necesitarás revisar tu versión de Python con `python -V`.
-* Node.js. Existen muchas maneras de instalar Node. Puedes descargar el código de fuente de [nodejs.org](http://nodejs.org) y compilarlo. Hacerlo permite instalar Node en el directorio de tu propia casa como un usuario estándar. O intenta repositorios como [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Existen muchas maneras de instalar Node. Puedes descargar el código de fuente de [nodejs.org](https://nodejs.org) y compilarlo. Hacerlo permite instalar Node en el directorio de tu propia casa como un usuario estándar. O intenta repositorios como [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o luego.
 * Jefes de desarrollo de GTK+ y libnotify.
 
@@ -117,7 +117,7 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Troubleshooting
+## Problemas
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
