@@ -1,4 +1,4 @@
-# Planned Breaking API Changes
+# Planlanmış API Değişimleri
 
 Takip eden liste, Electron 2.0'da kaldırılacak API'leri içerir.
 
