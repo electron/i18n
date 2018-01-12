@@ -1,4 +1,4 @@
-# clipboard
+# pano
 
 > Kopyalama ve yapıştırma işlemlerini sistem panosunda gerçekleştirin.
 
