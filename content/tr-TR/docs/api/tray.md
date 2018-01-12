@@ -226,14 +226,14 @@ win.on('hide', () => {
 * `ayarlar` Nesne 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
-  * `content` String - (optional)
+  * `content` Dize - (İsteğe Bağlı)
 
 Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menü (İsteğe bağlı)
+* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
 
 Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
 
