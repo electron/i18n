@@ -6,7 +6,7 @@
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](https://nodejs.org) (external)
 
 만약 Homebrew 를 이용해 파이썬을 설치했다면 다음 파이썬 모듈도 같이 설치해야 합니다:
 
