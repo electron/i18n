@@ -139,7 +139,7 @@ Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Li
 Aby uniknąć używania gotowych binarek `libchromiumcontent`, można zbudować `libchromiumcontent` lokalnie. Aby to zrobić, wykonaj następujące kroki:
 
 1. Instaluj [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Instaluj [dodatkowe kompilacje zależności](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+2. Instaluj [dodatkowe zależności kompilacji](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
 3. Fetch the git submodules:
 
 ```sh
