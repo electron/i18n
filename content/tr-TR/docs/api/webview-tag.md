@@ -789,11 +789,11 @@ WebContents işlemi çöktüğünde tetiklenir.
 
 ### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+Medya oynamaya başladığında belirir.
 
 ### Etkinlik: 'medya-duraklatıldı'
 
-Emitted when media is paused or done playing.
+Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
 
 ### Event: 'did-change-theme-color'
 
