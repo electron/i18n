@@ -57,6 +57,7 @@
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@
 
 * [コーディング スタイル](development/coding-style.md)
 * [C++のコードにclang-formatを使用する](development/clang-format.md)
+* [Testing](development/testing.md)
 * [ソースコードのディレクトリ構造](development/source-code-directory-structure.md)
 * [NW.js(node-webkit) との技術的違い](development/atom-shell-vs-node-webkit.md)
 * [ビルドシステムの概要](development/build-system-overview.md)
@@ -98,6 +100,6 @@
 * [デバッグ手順 (Windows)](development/debug-instructions-windows.md)
 * [デバッガーでシンボルサーバーを設定](development/setting-up-symbol-server.md)
 * [ドキュメントガイド](styleguide.md)
-* [Chromeのアップグレード](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Chromium開発](development/chromium-development.md)
 * [V8 開発](development/v8-development.md)
