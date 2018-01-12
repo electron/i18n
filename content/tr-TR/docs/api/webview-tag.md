@@ -468,10 +468,10 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 * `ayarlar` Nesne 
   * `marginsType` Integer - (isteğe bağlı) Kullanılacak kenar tipini belirler. Varsayılan kenar için 0, kenarsız olması için 1 ve en az kenar için 2'yi kullanır.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+  * `pageSize` String - (isteğe bağlı) Oluşturulan PDF'nin sayfa boyutunu belirler. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
+  * `printBackground` Boolean - (isteğe bağlı) CSS arka planı yazdırılacaksa.
+  * `printSelectionOnly` Boolean - (isteğe bağlı) - Sadece seçim yeri yazdırılırsa.
+  * `landscape` Boolean - (isteğe bağlı) manzara için `true`, portre için `false`.
 * `geri arama` Fonksiyon 
   * `error` Hata 
   * `data` Buffer
