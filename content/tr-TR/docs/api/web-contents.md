@@ -354,7 +354,7 @@ Dönüşler:
 
 Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### Event: 'media-started-playing'
+#### Olay: Medya oynamaya başladı
 
 Medya oynatılmaya başladığında yayınlanır.
 
@@ -362,7 +362,7 @@ Medya oynatılmaya başladığında yayınlanır.
 
 Medya duraklatıldığında veya oynatıldığında yaydır.
 
-#### Event: 'did-change-theme-color'
+#### Olay: tema rengi değiştirildi
 
 Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşılaşılanlardan kaynaklanmaktadır bir meta etiketi:
 
@@ -416,7 +416,7 @@ Dönüşler:
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+  * `medya bayrakları` Obje - İçerik menüsünün medya elemanı için yapılmış bayraklar. 
     * `inError` Boolean - Whether the media element has crashed.
     * `isPaused` Boolean - Whether the media element is paused.
     * `isMuted` Boolean - Ortam öğesinin sessiz olup olmadığı.
@@ -445,7 +445,7 @@ Dönüşler:
 * `geri arama` Fonksiyon 
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Bluetooth aygıtı `navigator.bluetooth.requestDevice` çağrı için seçilmesi gerektiğinde sinyal başlar. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
 const {app, webContents} = require('electron')
