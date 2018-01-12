@@ -138,12 +138,12 @@ console.log(dialog)
     
     MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
     
-    On Windows the options are more limited, due to the Win32 APIs used:
+    Windows işletim sisteminde Win32'de kullnaılan API nedeniyle seçenekler daha kısıtlıdır:
     
-    * The `message` argument is not used, as the OS provides its own confirmation dialog.
+    * `message` argümanı İşletim sisteminin kendi onay diyaloğunu kullanması sebebiyle kullanılmıyor,.
     * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
     
-    ## Sheets
+    ## Sayfalar
     
     On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
     
