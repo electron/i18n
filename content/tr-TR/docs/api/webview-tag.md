@@ -671,7 +671,7 @@ Dönüşler:
 * `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
-* `options` Object - The options which should be used for creating the new `BrowserWindow`.
+* `options` Object - Bu seçenekler yeni `BrowserWindow` oluşturulacağı zaman kullanılmalıdır.
 
 Misafir sayfası yeni bir tarayıcı penceresi açmaya çalıştığında tetiklenir.
 
@@ -726,7 +726,7 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 ### Etkinlik: 'kapat'
 
-Fired when the guest page attempts to close itself.
+Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
 
 The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
@@ -746,7 +746,7 @@ Dönüşler:
 
 Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+`sendToHost` yöntemi ve `ipc-message` etkinliği ile misafir sayfa ve gömülü sayfa arasında kolayca geçiş yapabilirsiniz:
 
 ```javascript
 // In embedder page.
@@ -768,11 +768,11 @@ ipcRenderer.on('ping', () => {
 
 ### Etkinlik: 'çöktü'
 
-Fired when the renderer process is crashed.
+Renderer işlemi çöktüğünde tetiklenir.
 
 ### Etkinlik: 'gpu-çöktü'
 
-Fired when the gpu process is crashed.
+Gpu işlemi çöktüğünde tetiklenir.
 
 ### Event: 'plugin-crashed'
 
@@ -781,11 +781,11 @@ Dönüşler:
 * `name` Dizi
 * `versiyon` String
 
-Fired when a plugin process is crashed.
+Plugin işlemi çöktüğünde tetiklenir.
 
 ### Etkinlik: 'yıkıldı'
 
-Fired when the WebContents is destroyed.
+WebContents işlemi çöktüğünde tetiklenir.
 
 ### Event: 'media-started-playing'
 
