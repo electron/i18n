@@ -137,3 +137,5 @@ _404:
   page_not_found: Sayfa bulunamadı.
   if_this_is_an_error: Bu bir hata ise
   please_file_an_issue: lütfen sorunu bulunuz.
+search:
+  description: Search within Electron documentations and community.
