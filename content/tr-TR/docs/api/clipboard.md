@@ -49,7 +49,7 @@ Panoya `text`'i düz yazı olarak yazar.
 * `markup` String
 * `type` String (isteğe bağlı)
 
-Writes `markup` to the clipboard.
+Yazar `markup` panoya.
 
 ### `clipboard.readImage([type])`
 
