@@ -127,7 +127,7 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | tr       | Türkçe                          |
 | tt       | Tatar                           |
 | tw       | Twi                             |
-| ug       | Uighur                          |
+| ug       | Uygurlu                         |
 | uk       | Ukraynalı                       |
 | ur       | Urdu                            |
 | uz       | Uzbek                           |
