@@ -787,7 +787,7 @@ Plugin işlemi çöktüğünde tetiklenir.
 
 WebContents işlemi çöktüğünde tetiklenir.
 
-### Event: 'media-started-playing'
+### Olay: Medya oynamaya başladı
 
 Medya oynamaya başladığında belirir.
 
@@ -795,7 +795,7 @@ Medya oynamaya başladığında belirir.
 
 Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
 
-### Event: 'did-change-theme-color'
+### Olay: tema rengi değiştirildi
 
 Dönüşler:
 
