@@ -2,7 +2,7 @@
 
 ## Tartışma
 
-Bir yükseltme sorunu, uyumluluğu sağlamak için tüm Elektronları V8'in tek bir kopyasıyla oluşturuyor. Bu önemlidir çünkü upstream Node ve [libchromiumcontent](upgrading-chrome.md) her ikisi de kendi V8 sürümlerini kullanır.
+Bir yükseltme sorunu, uyumluluğu sağlamak için tüm Elektronları V8'in tek bir kopyasıyla oluşturuyor. This is important because upstream Node and [libchromiumcontent](upgrading-chromium.md) both use their own versions of V8.
 
 Node'u Yükseltme, libchromiumcontent'i yükseltmekten çok daha kolaydır; bu nedenle birincisi libchromiumcontenti yükseltir ve daha sonra V8'ine en yakın olan upstream Node sürümünü seçerse daha az çatışma ortaya çıkar.
 
@@ -43,7 +43,7 @@ V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
 
 1. Electron'un libcc fork 'unun bir kopyasını edinin 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Çalıştır `script/update` en yeni libcc 'yi almak için 
+2. Çalıştır `komut/güncelleme` en yeni libcc 'yi almak için 
   - Bu biraz zaman alacaktır
 3. Eski Node v8 yamalarınızın kopyalarını kaldırın 
   - (In libchromiumcontent repo) Son güncelleme sırasında hangi patchfile'lerin oluşturulduğunu görmek için `patches/v8/README.md` 'i okuyun
