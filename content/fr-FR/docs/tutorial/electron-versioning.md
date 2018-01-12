@@ -47,7 +47,7 @@ Ci-dessous, une table explicitant les types de changement avec leur catégorie c
     * mises à jour de version majeure node.js
     * changement Electron qui altère l'API
 * **Incréments de version mineure** 
-    * mises à jour de version mineure node.js
+    * node.js minor version updates
     * changement Electron n'altérant pas l'API
 * **Incréments de version de Correctifs** 
     * mises à jour de correctif de node.js
