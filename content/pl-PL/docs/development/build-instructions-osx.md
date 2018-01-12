@@ -32,7 +32,7 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Save the file
 
-## Getting the Code
+## Dostawanie kodu
 
 ```sh
 $ git clone https://github.com/electron/electron
