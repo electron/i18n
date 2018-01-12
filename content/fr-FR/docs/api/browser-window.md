@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+La fenêtre `child` sera toujours au dessus de la fenêtre `top`.
 
 ### Fenêtres modales
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Une fenêtre modale est une fenêtre enfant qui désactive la fenêtre parent. Pour créer une fenêtre modale, il faut définir les options `parent` et `modal` :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -114,7 +114,7 @@ Processus : [Main](../glossary.md#main-process)
 
 `BrowserWindow` est un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies par les `options`.
 
 ### `new BrowserWindow([options])`
 
@@ -310,9 +310,9 @@ Emitted when the web page has been rendered (while not being shown) and window c
 
 #### Événement : 'move'
 
-Emitted when the window is being moved to a new position.
+Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Note** : Sous macOS, cet événement est simplement un alias de `moved`.
 
 #### Événement : 'moved' *macOS*
 
