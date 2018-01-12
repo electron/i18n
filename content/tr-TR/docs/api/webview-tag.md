@@ -453,21 +453,21 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
   * `keepSelection` - Seçimi, normal bir seçime tercüme eder.
   * `activateSelection` - Seçim node'una odaklanır ve tıklar.
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+`action` ile sağlanan `webview` için herhangi `findInPage` isteğini durdurur.
 
 ### `<webview>.print([options])`
 
 * `ayarlar` Obje (isteğe bağlı) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sorma, `false` varsayılandır.
+  * `printBackground` Boolean (isteğe bağlı) - Ayrıca arka plan rengini ve web sayfasının görüntüsünü yazdırır. `false` varsayılandır.
+  * `deviceName` String (isteğe bağlı) - Kullanılacak yazıcının ismini ayarla. `''` varsayılandır.
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+`webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
 
 ### `<webview>.printToPDF(options, callback)`
 
 * `ayarlar` Nesne 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `marginsType` Integer - (isteğe bağlı) Kullanılacak kenar tipini belirler. Varsayılan kenar için 0, kenarsız olması için 1 ve en az kenar için 2'yi kullanır.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
