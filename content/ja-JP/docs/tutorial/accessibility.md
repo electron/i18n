@@ -1,6 +1,6 @@
 # アクセシビリティ
 
-アクセシビリティの高いアプリケーションを作ることは重要です。開発者がすべてのユーザとってより良いアプリケーションを開発することを手助けする新機能「[Devtron](https://electron.atom.io/devtron)」および「[Spectron](https://electron.atom.io/spectron)」をご紹介いたします。
+アクセシビリティの高いアプリケーションを作ることは重要です。開発者がすべてのユーザとってより良いアプリケーションを開発することを手助けする新機能「[Devtron](https://electronjs.org/devtron)」および「[Spectron](https://electronjs.org/spectron)」をご紹介いたします。
 
 * * *
 
@@ -38,7 +38,7 @@ Electron applications keep accessibility disabled by default for performance rea
 
 ### Inside Application
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 
