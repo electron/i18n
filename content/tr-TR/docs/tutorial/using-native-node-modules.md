@@ -14,8 +14,8 @@ Electron için tüm bağlantıları kurmanın bir örneği:
 
 ```sh
 # Electron'un sürümü.
-export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+npm_config_target=1.2.3 dışa aktar
+# Electron mimarisi ia32 or x64 olabilir.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Electron başlıklarını indir.
