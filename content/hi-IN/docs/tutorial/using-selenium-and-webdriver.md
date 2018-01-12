@@ -13,59 +13,58 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-var Application = require('spectron').Application
-var assert = require('assert')
+// दृश्य विंडो एक शीर्षक के साथ खुली है, यह जाँचने के लिए एक सरल परिक्षण 
+var Application = require('spectron').Application 
+var assert = require('assert') 
 
-var app = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+var app = new Application({   
+ path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
-
 app.start().then(function () {
-  // Check if the window is visible
-  return app.browserWindow.isVisible()
-}).then(function (isVisible) {
-  // Verify the window is visible
-  assert.equal(isVisible, true)
-}).then(function () {
-  // Get the window's title
-  return app.client.getTitle()
-}).then(function (title) {
-  // Verify the window's title
-  assert.equal(title, 'My App')
-}).catch(function (error) {
-  // Log any failures
-  console.error('Test failed', error.message)
-}).then(function () {
-  // Stop the application
-  return app.stop()
-})
+   // विंडोज दृश्य है या नहीं, यह जाँचें
+   return app.browserWindow.isVisible()
+ }).then(function (isVisible) {
+   // विंडोज दृश्य है, यह सत्यापित करें
+   assert.equal(isVisible, true)
+ }).then(function () {
+   // विंडोज का शीर्षक पायें
+   return app.client.getTitle()
+ }).then(function (title) {
+   // विंडोज के शीर्षक को सत्यापित करें
+   assert.equal(title, 'My App')
+ }).catch(function (error) {
+   // विफलताओं का लोग बनायें
+   console.error('Test failed', error.message)
+ }).then(function () {   
+// एप्लीकेशन रोकें
+   return app.stop()
+ })
 ```
 
-## Setting up with WebDriverJs
+## वेबड्राईवर जेएस सेटअप करना
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[वेबड्राईवरजेएस](https://code.google.com/p/selenium/wiki/WebDriverJs) वेब ड्राईवर के साथ परिक्षण करने के लिए एक नोड पैकेज प्रदान करता है, हम उसे एक उदाहरण के तौर पर इस्तेमाल करेंगे |
 
-### 1. Start ChromeDriver
+### 1. क्रोमड्राईवर शुरू करें
 
-First you need to download the `chromedriver` binary, and run it:
+सबसे पहले `क्रोमड्राईवर` बाइनरी डाउनलोड करें, और फिर उसे चलायें:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+पोर्ट 9515 पर क्रोमड्राईवर (v2.10.291558) शुरू हो रहा है
+केवल लोकल कनेक्शनस को अनुमति है |
 ```
 
-Remember the port number `9515`, which will be used later
+पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
 
-### 2. Install WebDriverJS
+### 2. वेबड्राईवरजेएस इनस्टॉल करें
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. क्रोमड्राईवर से कनेक्ट करें
 
 The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
 
@@ -100,9 +99,9 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. क्रोमड्राईवर शुरू करें
 
-First you need to download the `chromedriver` binary, and run it:
+सबसे पहले `क्रोमड्राईवर` बाइनरी डाउनलोड करें, और फिर उसे चलायें:
 
 ```sh
 $ npm install electron-chromedriver
@@ -111,7 +110,7 @@ Starting ChromeDriver (v2.10.291558) on port 9515
 Only local connections are allowed.
 ```
 
-Remember the port number `9515`, which will be used later
+पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
 
 ### 2. Install WebdriverIO
 
