@@ -74,7 +74,7 @@ Używając `session` jako przykład:
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+Używając `autoUpdater` jako przykładu:
 
 ```markdown
 # autoUpdater
@@ -90,18 +90,18 @@ Using `autoUpdater` as an example:
 
 ### Klasy
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Właściwości instancji` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Klasy API lub klasy które są częścią modułu muszą być wymienione pod rozdziałem `## Class: TheClassName`.
+* Jedna strona może mieć wiele klas.
+* Konstruktorzy muszą być wymienieni z`###`-tytułami poziomów.
+* [Statyczne metody](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod`###Rozdziałem statycznych metod`.
+* [Metody instancji](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) muszą być wymienione pod`###Rozdziałem metod instancji`.
+* Wszystkie metody które mają wartość zwrotną muszą zacząć swój opis z "Zwrotami" `[TYPE]` - Przywróć opis" 
+  * Jeśli metoda przywróci `obiekt`, to jego struktura może być specyfikowana używając dwukropka następującego po nowej linii, gdzie znajduje się niezamówiona lista wartości w tym samym stylu jak funkcje parametrów.
+* Wydarzenia instancji muszą być wymienione pod `### Rozdział wydarzeń instancji `.
+* Właściwości instancji muszą być wymienione pod `### Właściwości instancji` rozdział. 
+  * Właściwości instancji muszą zaczynać się z "[Typ właściwości] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Używając `Sesji` i <->Ciasteczek</code>klas jako przykład:
 
 ```markdown
 # session
@@ -152,7 +152,7 @@ Tytuł może być `###` lub `####` poziomowy zależnie od tego, czy jest to meto
 
 Dla modułów, `objectName` jest nazwą modułu. Dla klas, to musi być nazwa wystąpienia klasy oraz nie może być taka sama jak nazwa modułu.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Na przykład, metody `sesji`klasy pod `sesją` modułu muszą używać `sesji`jako `Nazwa obiektu`.
 
 The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
 
