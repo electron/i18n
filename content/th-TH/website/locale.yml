@@ -137,3 +137,5 @@ _404:
   page_not_found: ไม่พบหน้าที่ต้องการ
   if_this_is_an_error: หากนี้เป็นข้อผิดพลาด
   please_file_an_issue: please file an issue.
+search:
+  description: Search within Electron documentations and community.
