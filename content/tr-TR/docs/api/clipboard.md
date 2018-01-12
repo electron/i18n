@@ -117,7 +117,7 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (isteğe bağlı)
 
-Clears the clipboard content.
+Pano içeriğini temizler.
 
 ### `clipboard.availableFormats([type])`
 
