@@ -137,3 +137,5 @@ _404:
   page_not_found: الصفحة غير موجودة.
   if_this_is_an_error: إذا كان هذا خطأ
   please_file_an_issue: يرجى تسجيل issue.
+search:
+  description: Search within Electron documentations and community.
