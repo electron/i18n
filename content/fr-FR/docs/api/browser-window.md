@@ -91,8 +91,8 @@ child.once('ready-to-show', () => {
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
-* Sur toutes les platformes, l'état de visibilité détécte si la fenêtre est cachée/minimisée ou pas.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. Sur les autres platformes, l'état de visibilité sera `hidden` seulement lorsque la fenêtre est minimisée ou cachée explicitement avec `win.hide()`.
+* Sur toutes les plateformes, l'état de visibilité détécte si la fenêtre est cachée/minimisée ou pas.
+* De plus, sur macOS, l'état de visibilité détécte également l'état d'occlusion de la fenêtre. Si la fenêtre est occluée (c'est-à-dire entièrement recouverte) par une autre fenêtre, l'état de visibilité sera `hidden`. Sur les autres plateformes, l'état de visibilité sera `hidden` seulement lorsque la fenêtre est minimisée ou cachée explicitement avec `win.hide()`.
 * Si une `BrowserWindow` est crée avec `show:false`, l'état de visibilité initial sera `visible` même si la fenêtre est cachée.
 * Si `backgroundThrottling` est désactivé, l'état de visibilité restera `visible` même si la fenêtre est minimisée, obstruée ou cachée.
 
@@ -100,11 +100,11 @@ Il est recommandé de mettre en pause les opérations coûteuse lorsque l'état 
 
 ### Avertissement sur les plateformes
 
-* Sur macOs, les fenêtres modales seront affichés comme des feuilles attachées à la fenêtre parent.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* Sur macOS, les fenêtres modales seront affichés comme des feuilles attachées à la fenêtre parent.
+* Sur macOS, la fenêtre enfant va garder la position relative à la fenêtre parent lorsque la fenêtre parent bouge. Sur Windows et Linux, la fenêtre enfant ne bougera pas.
+* Sur Windows, il n'est pas possible de changer la fenêtre parent dynamiquement.
+* Sur Linux, le type des fenêtre modales sera changé par `dialog`.
+* Sur Linux, beaucoup d'environnements bureau ne peuvent pas cacher une fenêtre modale.
 
 ## Classe : BrowserWindow
 
@@ -119,8 +119,8 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 ### `new BrowserWindow([options])`
 
 * `options` Object (facultatif) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `width` Integer (optionel) - Largeur de la fenêtre en pixels. La valeur par défaut est `800`.
+  * `height` Integer (optionel) - La hauteur de la fenêtre en pixels. La valeur par défaut est `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
