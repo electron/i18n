@@ -2,7 +2,7 @@
 
 Mã nguồn của Electron được phân tách thành một vài phần, chủ yếu là theo cấu trúc của Chromium.
 
-Bạn có thể cần phải trở nên quen thuộc với [kiến trúc đa quy trình của Chromium](http://dev.chromium.org/developers/design-documents/multi-process-architecture) để hiểu mã nguồn tốt hơn.
+Bạn có thể cần phải trở nên quen thuộc với [kiến trúc đa quy trình của Chromium](https://dev.chromium.org/developers/design-documents/multi-process-architecture) để hiểu mã nguồn tốt hơn.
 
 ## Cấu trúc của Source Code
 
