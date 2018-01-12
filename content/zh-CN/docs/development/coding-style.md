@@ -6,7 +6,7 @@
 
 ## C + + 和 Python
 
-对于 C++ 和 Python, 我们遵循 Chromium 的[编码风格](http://www.chromium.org/developers/coding-style). 你可以使用 [clang-format](clang-format.md) 来自动格式化 C++ 代码. 你可以使用 `script/cpplint.py` 来检验文件是否符合要求。
+对于 C++ 和 Python, 我们遵循 Chromium 的[编码风格](https://www.chromium.org/developers/coding-style). 你可以使用 [clang-format](clang-format.md) 来自动格式化 C++ 代码. 你可以使用 `script/cpplint.py` 来检验文件是否符合要求。
 
 我们现在使用的 Python 版本是 Python 2.7。
 
@@ -14,7 +14,7 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 
 ## JavaScript
 
-* 书写 [标准](http://npm.im/standard) JavaScript 样式
+* 书写 [标准](https://npm.im/standard) JavaScript 样式
 * 文件名应使用 `-` 连接而不是 `_`, 例如. `file-name.js` 而不是 `file_name.js`, 因为在 [github/atom](https://github.com/github/atom)中模块名通常是 `module-name` 形式. 此规则仅适用于 `.js` 文件。
 * 酌情使用更新的 ES6 / ES2015 语法 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 用于需要的和其他的常数
