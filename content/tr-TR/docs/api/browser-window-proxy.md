@@ -1,6 +1,6 @@
 ## Sınıf: BrowserWindowProxy
 
-> Çocuk tarayıcı penceresini değiştirme
+> Alt tarayıcı penceresini değiştirme
 
 İşlem: [Renderer](../glossary.md#renderer-process)
 
