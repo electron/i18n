@@ -89,7 +89,7 @@ child.once('ready-to-show', () => {
 
 ### Visibilité de la page
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+L'[API de visibilité de la page](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) fonctionne comme ci-dessous :
 
 * Sur toutes les plateformes, l'état de visibilité détécte si la fenêtre est cachée/minimisée ou pas.
 * De plus, sur macOS, l'état de visibilité détécte également l'état d'occlusion de la fenêtre. Si la fenêtre est occluée (c'est-à-dire entièrement recouverte) par une autre fenêtre, l'état de visibilité sera `hidden`. Sur les autres plateformes, l'état de visibilité sera `hidden` seulement lorsque la fenêtre est minimisée ou cachée explicitement avec `win.hide()`.
@@ -212,12 +212,12 @@ Les valeurs et comportements possibles de l'option `type` dépendent de la plate
 * Sur Linux, les types possible sont `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * Sur macOS, les types possibles sont `desktop`, `textured`. 
   * Le type `textured` ajoute un aspect métal dégradé (`NSTexturedBackgroundWindowMask`).
-  * Le type `desktop` place les fenêtre au niveau de l'arière plan. (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+  * Le type `desktop` place les fenêtre au niveau de l'arière plan. (`kCGDesktopWindowLevel - 1`). Remarque, la fenêtre du Bureau ne recevra pas le focus ni les évennements souris ou clavier, mais il est possible d'utiliser `globalShortcut` pour recevoir des entrées avec modération.
+* Sur Windows, le type possible est `toolbar`.
 
 ### Événements d’instance
 
-Objects created with `new BrowserWindow` emit the following events:
+Les objets crées avec `new BrowserWindow` émettent les évennements suivants :
 
 **Remarque :** Certains événements sont seulement disponibles sur des systèmes d'exploitation spécifiques et sont étiquetés comme tels.
 
@@ -228,7 +228,7 @@ Retourne :
 * `event` Event
 * `title` String
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Émis lorsque le document a changé son titre, appeller `event.preventDefault()` empêchera le titre de la fenêtre native de changer.
 
 #### Événement : 'close'
 
@@ -236,9 +236,9 @@ Retourne :
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeunload` et `unload` du DOM. Appeller `event.preventDefault()` annulera la fermeture.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Par exemple :
+Normalement, vous voudriez utiliser le gestionaire `beforeunload` pour décider si une fenêtre doit être fermée, ce qui sera aussi appelé lorsque la fenêtre est rechargée. In Electron, returning any value other than `undefined` would cancel the close. Par exemple :
 
 ```javascript
 window.onbeforeunload = (e) => {
