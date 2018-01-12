@@ -185,13 +185,13 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar.
+Durum çubuğunda tepsi simgesinin bir kenara görünen başlığını ayarlar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -228,7 +228,7 @@ win.on('hide', () => {
   * `title` String - (optional)
   * `content` String - (optional)
 
-Displays a tray balloon.
+Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
@@ -243,7 +243,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 * `menu` Menü
 
-Sets the context menu for this icon.
+Bu simgenin bağlam menüsünü ayarlar.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
@@ -253,4 +253,4 @@ The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
