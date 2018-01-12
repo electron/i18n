@@ -1,6 +1,6 @@
 ## Sınıf: Tray
 
-> Add icons and context menus to the system's notification area.
+> Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -25,10 +25,10 @@ app.on('ready', () => {
 
 **Platform sınırlamaları:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
+* Linux'ta uygulama göstergesi destekleniyorsa kullanılacaktır, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
+* Uygulama göstergesi yalnızca bağlam menüsü olduğunda gösterilir.
+* Linux'ta uygulama göstergesi kullanıldığındathe `click` event is ignored.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
@@ -50,7 +50,7 @@ app.on('ready', () => {
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Windows'ta en iyi görsel efektleri almak için `ICO` simgeler kullanılması önerilir.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
