@@ -414,31 +414,31 @@ Sayfada düzenleme komutu olan `selectAll`'ı yerine getirir.
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+Sayfada düzenleme komutu olan `unselect`'i yerine getirir.
 
 ### `<webview>.replace(text)`
 
 * `text` Dizi
 
-Executes editing command `replace` in page.
+Sayfada düzenleme komutu olan `replace`'i yerine getirir.
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` Dizi
 
-Executes editing command `replaceMisspelling` in page.
+Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 ### `<webview>.insertText(text)`
 
 * `text` Dizi
 
-Inserts `text` to the focused element.
+Odaklanılan öğeye `text`'i yerleştirir.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` Dizi - Aranacak içerik; boş olmamalıdır.
 * `seçenekler` Obje (isteğe bağlı) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
+  * `forward` Boolean - (isteğe bağlı) İleriye ya da geriye doğru aranırsa, varsayılan olarak `true` olur.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
