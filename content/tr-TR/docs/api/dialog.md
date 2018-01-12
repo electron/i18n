@@ -136,7 +136,7 @@ console.log(dialog)
       * `message` String - The message to display to the user.
     * `callback` Function
     
-    On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+    MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
     
     On Windows the options are more limited, due to the Win32 APIs used:
     
