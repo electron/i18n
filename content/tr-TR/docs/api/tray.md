@@ -58,7 +58,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 * `image` ([DoğalGörüntü](native-image.md) | Dizi)
 
-Creates a new tray icon associated with the `image`.
+Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
 ### Örnek Events
 
@@ -73,7 +73,7 @@ The `Tray` module emits the following events:
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
-Emitted when the tray icon is clicked.
+Tray simgesi tıklandığında çıkar.
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -84,7 +84,7 @@ Emitted when the tray icon is clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
-Emitted when the tray icon is right clicked.
+Tray simgesi sağ tıkladığında ortaya çıkar.
 
 #### Event: 'double-click' *macOS* *Windows*
 
@@ -99,45 +99,45 @@ Emitted when the tray icon is double clicked.
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Tray balon gösterildiğinde ortaya çıkar.
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Tepsi balonu tıklandığında ortaya çıkar.
 
 #### Event: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Zaman aşımı veya kullanıcı elle tepsinin balonu kapatıldığında ortaya çıkar kapatır.
 
 #### Event: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
 * `files` String[] - Düşürülen dosyaların yolları.
 
-Emitted when dragged files are dropped in the tray icon.
+Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
 * `text` String - Düşürülen yazı stringi
 
-Emitted when dragged text is dropped in the tray icon.
+Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Bir sürükleme işlemi tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Bir sürükleme işlemi tepsi simgesinden çıktığında ortaya çıkar.
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde ortaya çıkar.
 
 #### Event: 'mouse-enter' *macOS*
 
@@ -148,7 +148,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - event'ın pozisyonu
 
-Emitted when the mouse enters the tray icon.
+Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'mouse-leave' *macOS*
 
@@ -159,15 +159,15 @@ Emitted when the mouse enters the tray icon.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - event'ın pozisyonu
 
-Emitted when the mouse exits the tray icon.
+Fare tepsi simgesinden çıktığında ortaya çıkar.
 
 ### Örnek Metodlar
 
-The `Tray` class has the following methods:
+The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Tepsi simgesini derhal imha eder.
 
 #### `tray.setImage(image)`
 
