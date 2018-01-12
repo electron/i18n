@@ -974,10 +974,10 @@ Los `flags` es una matriz que puede incluir siguientes `String`s:
 
 * `enabled` - El botón está activo y disponible para el usuario.
 * `disabled` - El botón está deshabilitado. Está presente, pero tiene un estado visual que indica que no responderá a la acción del usuario.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `dismissonclick` - Cuando se hace clic en el botón, la ventana de miniatura se cierra de inmediato.
+* `nobackground` - No dibuja un borde del botón, usa solo la imagen.
+* `hidden` - El botón no es mostrado al usuario.
+* `noninteractive` - El botón está habilitado pero no es interactivo; no se dibuja un estado de botón presionado. Este valor está destinado a instancias donde el botón se usa en una notificación.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
