@@ -62,7 +62,7 @@ Bip sesini oynatın.
 
 * `shortcutPath` String
 * `operasyon` Dize (İsteğe bağlı) - Fabrika ayarları şu şekilde `oluştur`Sıradakilerden biri olabilir: 
-  * `create` - Yeni kısayol oluşturur, gereklisiyle üzerine kaydeder.
+  * `create` - Yeni kısayol oluşturur, gerekliyse üzerine kaydeder.
   * `update` - Seçilen özellikleri sadece varolon kısayola günceller.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
