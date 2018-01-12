@@ -728,7 +728,7 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+Misafir kapatmaya çalıştığında örnek kod `webview`, `about:blank` arasında dolaşmaya başlar.
 
 ```javascript
 const webview = document.querySelector('webview')
