@@ -54,7 +54,7 @@ Vous pouvez aussi essayer de charger le plugin Pepper Flash depuis le système a
 Ajoutez l'attribut `plugins` à la balise `<webview>`.
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## Résolution de problème
