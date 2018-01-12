@@ -66,7 +66,7 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
@@ -88,7 +88,7 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
@@ -118,7 +118,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
@@ -136,17 +136,17 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
-    * `redirectRequest` Nesne 
+    * `talebi yönlendir` Nesne 
       * `url` Dize
       * `method` Dizi
-      * `session` Object (optional)
+      * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -180,7 +180,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
@@ -196,7 +196,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
@@ -212,7 +212,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
@@ -228,17 +228,17 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` Dizi
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` String
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
-    * `redirectRequest` Nesne 
+    * `talebi yönlendir` Nesne 
       * `url` Dize
       * `method` Dizi
-      * `session` Object (optional)
+      * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
