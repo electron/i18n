@@ -6,7 +6,7 @@
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](https://nodejs.org) (external)
 
 如果你目前使用的 Python 是通过 Homebrew 安装的，则你还需要安装以下 Python 模块:
 
