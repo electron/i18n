@@ -1,6 +1,6 @@
 # Dostępność
 
-Udostępnianie dostępnych aplikacji jest dla nas ważne i jesteśmy szczęśliwi, że możemy przedstawić nowe funkcjonalności w [Devtron](https://electron.atom.io/devtron) oraz [Spectron](https://electron.atom.io/spectron), które dają developerom możliwości tworzyć lepsze applikacje.
+Udostępnianie dostępnych aplikacji jest dla nas ważne i jesteśmy szczęśliwi, że możemy przedstawić nowe funkcjonalności w [Devtron](https://electronjs.org/devtron) oraz [Spectron](https://electronjs.org/spectron), które dają developerom możliwości tworzyć lepsze applikacje.
 
 * * *
 
@@ -38,7 +38,7 @@ Aplikacja Electron ma domyślnie wyłączoną dostępność ze względów wydajn
 
 ### Aplikacja Wewnętrzna
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 
