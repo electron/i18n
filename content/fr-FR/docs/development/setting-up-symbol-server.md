@@ -1,6 +1,6 @@
 # Configuration du serveur de symboles dans le déboggueur
 
-Les symboles de déboggage vous permettent d’avoir de meilleurs sessions de déboggage. Ils ont des informations sur les fonctions contenues dans les fichiers exécutables et les bibliothèques dynamiques et vous fournissent des renseignements pour obtenir des piles d’appels propre. Un serveur de symboles permet au déboggueur de charger les symboles appropriés, les fichiers binaires et les fichiers sources automatiquement, sans forcer les utilisateurs à télécharger de gros fichiers de déboggage. Documentation sur [Le serveur de symboles de Microsoft](http://support.microsoft.com/kb/311503).
+Les symboles de déboggage vous permettent d’avoir de meilleurs sessions de déboggage. Ils ont des informations sur les fonctions contenues dans les fichiers exécutables et les bibliothèques dynamiques et vous fournissent des renseignements pour obtenir des piles d’appels propre. Un serveur de symboles permet au déboggueur de charger les symboles appropriés, les fichiers binaires et les fichiers sources automatiquement, sans forcer les utilisateurs à télécharger de gros fichiers de déboggage. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
 Notez que parce que Electron est fortement optimisé, le déboggage n’est pas toujours facile. Le déboggueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’inlining, queue d’appels et autres optimisations du compilateur. La seule solution est de build une version locale non optimisée.
 
@@ -17,7 +17,7 @@ SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 Définissez le string à `_NT_SYMBOL_PATH` dans l’environnement, en utilisant les menus de Windbg, ou en tapant la commande `.sympath`. Si vous souhaitez obtenir les symboles du serveur de symboles Microsoft, vous devez indiquer cela :
 
 ```powershell
-SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
 ## À l’aide du serveur de symboles dans Visual Studio
