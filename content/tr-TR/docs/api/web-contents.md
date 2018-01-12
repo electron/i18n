@@ -967,7 +967,7 @@ Opens the developer tools for the service worker context.
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
+* `channel` Dizesi
 * `...args` any[]
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
