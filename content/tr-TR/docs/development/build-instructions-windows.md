@@ -7,7 +7,7 @@ Electron'u windows üzerinde inşaa etmek için aşağıdaki yönlendirmeleri ta
 * Windows 7 / Server 2008 R2 veya üzeri
 * Visual Studio 2015 Update 3 - [ VS 2015 topluluk sürümünü ücretsiz olarak indirin](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * Tam teşekkül bir dağıtım yaratmayı düşünüyorsanız, `symstore.exe`, `.pdb` dosyalarından sembol pazarı üretmek için kullanılır.
 
@@ -34,7 +34,7 @@ $ python script\bootstrap.py -v
 
 ## İnşaa
 
-Hem Dağıtım, hem Hata ayıklama hedefleri için:
+Hem Dağıtım hem Hata Ayıklama hedefleri:
 
 ```powershell
 $ python script\build.py
@@ -127,7 +127,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Basitçe aşağıdaki dizini oluşturmak [bu hatayı düzeltmeli](http://stackoverflow.com/a/25095327/102704):
+Basitçe aşağıdaki dizini oluşturmak [bu hatayı düzeltmeli](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
