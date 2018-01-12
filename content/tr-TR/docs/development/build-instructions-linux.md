@@ -6,7 +6,7 @@ Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri taki
 
 * En az 25GB disk alanı ve 8GB hafıza.
 * Python 2.7.x. CentOS gibi bazı dağıtımlar hala Python 2.6.x kullanmakta, dolayısıyla Python versiyonunuzu `python -V` komutu ile ile kontrol edin.
-* Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](http://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
+* Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](https://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
 * [clang](https://clang.llvm.org/get_started.html) 3.4 veya sonrası.
 * GTK+ ve libnotify için geliştirme başlıkları.
 
@@ -137,14 +137,14 @@ Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımlar�
 
 ### `libchromiumcontent`'i yerelinize inşaa etme
 
-Önceden inşaa edilmiş`libchromiumcontent`'i kullanmak istemezseniz, `libchromiumcontent`'i kendiniz aşağıdaki adımlarla inşaa edebilirsiniz:
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
 1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)'u kurun
 2. [Ek inşaa bağımlılıklarını](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) kurun
 3. Git alt modullerini çekin:
 
 ```sh
-$ git submodule update --init --recursive
+$ git submodule güncelleme --init - tekrar başlatma
 ```
 
 1. `--build_release_libcc` argümanını `bootstrap.py` betiğine geçin:
@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. Eğer bir sebepten dolayı `clang` ile inşa etmek isterseniz, sisteminize kurulu, `bootstrap.py` ögesini `--clang_dir=<path>` ile arayabilirsiniz geçin. Geçiş yaparsanız, yapı komut dosyası `clang` ikililerinin `<path>/bin/` içinde bulunduğu varsayılacaktır.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
 Örneğin, `clang` 'ı `/user/local/bin/clang` dizinine yüklediyseniz:
 
