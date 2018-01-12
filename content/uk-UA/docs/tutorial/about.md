@@ -24,9 +24,9 @@ When a new version of Node.js is released, Electron usually waits about a month 
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
-### Versioning
+### Версії
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
@@ -48,11 +48,11 @@ New features added to Electron should primarily be native APIs. If a feature can
 
 Нижче наведені віхи історії Electron.
 
-| :calendar:       | :tada:                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **Квітень 2013** | [Стартував Atom Shell](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).             |
-| **Травень 2014** | [Відкрився доступ до коду Atom Shell](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                       |
-| **Квітень 2015** | [Atom Shell перейменований в Electron](https://github.com/electron/electron/pull/1389).                                   |
-| **Травень 2016** | [Випуск Electron `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                     |
-| **Травень 2016** | [Застосунки Electron стали сумісні з Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **Серпень 2016** | [Windows Store підтримує застосунки Electron](https://electronjs.org/docs/tutorial/windows-store-guide).                  |
+| :calendar:       | :tada:                                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Квітень 2013** | [Стартував Atom Shell](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Травень 2014** | [Відкрився доступ до коду Atom Shell](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).          |
+| **Квітень 2015** | [Atom Shell перейменований в Electron](https://github.com/electron/electron/pull/1389).                       |
+| **Травень 2016** | [Випуск Electron `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                         |
+| **Травень 2016** | [Застосунки Electron стали сумісні з Mac App Store](mac-app-store-submission-guide.md).                       |
+| **Серпень 2016** | [Windows Store підтримує застосунки Electron](windows-store-guide.md).                                        |
