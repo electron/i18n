@@ -41,9 +41,9 @@ Si tú quieres controlar el contenido de invitado de cualquier manera, puedes es
 
 ## Notas de Estilo CCS
 
-Por favor nota que el estilo de etiqueta `webview` usa `display:flex;` internamente para asegurar que el menor elemento de `object` llene el alto y ancho completo de su contenedor `webview` cuando se usa con diseños tradicionales y de flexbox (desde la v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Por favor nota que el estilo de etiqueta `webview` usa `display:flex;` internamente para asegurar que el menor elemento de `object` llene el alto y ancho completo de su contenedor `webview` cuando se usa con diseños tradicionales y de flexbox (desde la v0.36.11). Por favor, no sobrescribir el por defecto propiedad de CSS `display:flex;`, a menos que se especifique `display:inline-flex;` para el diseño entre líneas.
 
-`webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
+`webview` tiene problemas siendo escondido usando el atributo `hidden` o usando `display: none;`. Puede causar comportamiento de traducción inusual dentro de su menor objeto `browserplugin` y la página web es recargada cuando el `webview` no es escondido. El acercamiento recomendado es esconder el `webview` usando `visibility: hidden`.
 
 ```html
 <style>
@@ -58,9 +58,9 @@ Por favor nota que el estilo de etiqueta `webview` usa `display:flex;` intername
 </style>
 ```
 
-## Tag Attributes
+## Atributos de Etiqueta
 
-The `webview` tag has the following attributes:
+La etiqueta de `webview` tiene los siguientes atributos:
 
 ### `src`
 
@@ -68,9 +68,9 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+Regresa el URL visible. Escribir a este atributo inicia un alto nivel de navegación.
 
-Assigning `src` its own value will reload the current page.
+Asignarle a `src` su propio valor reiniciará la página actual.
 
 The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
