@@ -10,17 +10,17 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | am       | Amharic                         |
 | ar       | Arapça                          |
 | az       | Azerice                         |
-| be       | Belarusian                      |
+| be       | Belarus'lu                      |
 | bg       | Bulgarca                        |
 | bh       | Bihari                          |
-| bn       | Bengali                         |
+| bn       | Bengal'li                       |
 | br       | Breton                          |
 | bs       | Boşnakça                        |
 | ca       | Katalanca                       |
 | co       | Corsican                        |
 | cs       | Çekçe                           |
 | cy       | Welsh                           |
-| da       | Danish                          |
+| da       | Danimarkalı                     |
 | de       | Almanca                         |
 | de-AT    | Almanca (Avusturya)             |
 | de-CH    | Almanca(İsviçre)                |
@@ -33,16 +33,16 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | en-NZ    | İngilizce (Yeni Zelanda)        |
 | en-US    | İngilizce (Birleşmiş Devletler) |
 | en-ZA    | İngilizce (Güney Afrika)        |
-| eo       | Esperanto                       |
+| eo       | İspanyol                        |
 | es       | İspanyolca                      |
 | es-419   | İspanyolca (Latin Amerika)      |
 | et       | Eston Dili                      |
 | eu       | Basque                          |
 | fa       | Farsça                          |
-| fi       | Finnish                         |
-| fil      | Filipino                        |
+| fi       | Fin'li                          |
+| fil      | Filipin'li                      |
 | fo       | Faroese                         |
-| fr       | Fransızca                       |
+| fransız  | Fransızca                       |
 | fr-CA    | Fransızca (Kanada)              |
 | fr-CH    | Fransızca (İsviçre)             |
 | fr-FR    | Fransızca (Fransa)              |
@@ -53,9 +53,9 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | gn       | Guarani                         |
 | gu       | Gujarati                        |
 | ha       | Hausa                           |
-| haw      | Hawaiian                        |
+| haw      | Havaili                         |
 | he       | Hebrew                          |
-| hi       | Hindi                           |
+| hi       | Hintli                          |
 | hr       | Hırvatça                        |
 | hu       | Macarca                         |
 | hy       | Ermenice                        |
@@ -77,25 +77,25 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | la       | Latin                           |
 | ln       | Lingala                         |
 | lo       | Laothian                        |
-| lt       | Lithuanian                      |
+| lt       | Litvanyalı                      |
 | lv       | Latvian                         |
-| mk       | Macedonian                      |
+| mk       | Makedonyalı                     |
 | ml       | Malayalam                       |
-| mn       | Mongolian                       |
+| mn       | Moğolistanlı                    |
 | mo       | Moldavian                       |
 | mr       | Marathi                         |
 | ms       | Malay                           |
 | mt       | Maltese                         |
 | nb       | Norveççe (Bokmal)               |
-| ne       | Nepali                          |
+| ne       | Nepalli                         |
 | nl       | Flemenkçe                       |
 | nn       | Norwegian (Nynorsk)             |
-| no       | Norwegian                       |
+| no       | Norveç                          |
 | oc       | Occitan                         |
 | om       | Oromo                           |
 | veya     | Oriya                           |
 | pa       | Punjabi                         |
-| pl       | Polish                          |
+| pl       | Polonyalı                       |
 | ps       | Pashto                          |
 | pt       | Portekizce                      |
 | pt-BR    | Portekizce (Brezilya)           |
@@ -122,20 +122,20 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | tg       | Tajik                           |
 | th       | Thai                            |
 | ti       | Tigrinya                        |
-| tk       | Turkmen                         |
+| tk       | Türkmen                         |
 | to       | Tonga                           |
 | tr       | Türkçe                          |
 | tt       | Tatar                           |
 | tw       | Twi                             |
 | ug       | Uighur                          |
-| uk       | Ukrainian                       |
+| uk       | Ukraynalı                       |
 | ur       | Urdu                            |
 | uz       | Uzbek                           |
-| vi       | Vietnamese                      |
+| vi       | Vietnamlı                       |
 | xh       | Xhosa                           |
 | yi       | Yiddish                         |
 | yo       | Yoruba                          |
-| zh       | Chinese                         |
+| zh       | Çinli                           |
 | zh-CN    | Çince (Basitleştirilmiş)        |
 | zh-TW    | Çince (Geleneksel)              |
 | zu       | Zulu dili                       |
