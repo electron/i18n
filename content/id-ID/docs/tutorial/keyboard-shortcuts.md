@@ -41,11 +41,11 @@ Jika Anda ingin menangani jalan pintas keyboard untuk  BrowserWindow </ 0> , And
 
 Perhatikan parameter ketiga ` true </ 0> yang berarti pendengar akan selalu menerima penekanan tombol sebelum pendengar lainnya sehingga mereka tidak dapat menahan <code> stopPropagation () </ 0> memanggil mereka.</p>
 
-<p>The <a href="web-contents.md#event-before-input-event"><code> sebelum-input- acara </ 0>  acara 
-dipancarkan sebelum pengiriman <code> keydown </ 1> dan <code> keyup </ 1> peristiwa di halaman. Ini bisa digunakan untuk menangkap dan menangani shortcut custom yang tidak terlihat pada menu.</p>
+<p>The <a href="../api/web-contents.md#event-before-input-event"><code>before-input-event`</a> event is emitted before dispatching `keydown` and `keyup` events in the page. Ini bisa digunakan untuk menangkap dan menangani shortcut custom yang tidak terlihat pada menu.
 
-<p>Jika Anda tidak ingin melakukan penguraian manual pintas ada perpustakaan yang melakukan deteksi kunci lanjut seperti <a href="https://github.com/ccampbell/mousetrap"> perangkap tikus </ 0> .</p>
+Jika Anda tidak ingin melakukan penguraian manual pintas ada perpustakaan yang melakukan deteksi kunci lanjut seperti  perangkap tikus </ 0> .</p> 
 
-<pre><code class="js">Mousetrap.bind ('4', () = > {console.log('4')}) Mousetrap.bind ('? ', () = > {console.log ('menunjukkan cara pintas!')}) Mousetrap.bind ('Escudo', () = > {console.log('escape')}, 'keyup') / / kombinasi Mousetrap.bind ('perintah + pergeseran + k', () = > {console.log ('perintah pergeseran k')}) / / peta beberapa kombinasi ke callback sama Mousetrap.bind (['perintah + k', ' ctrl + k'], ()) = > {console.log ('perintah k atau control k') / / kembali palsu untuk mencegah perilaku default dan acara berhenti dari menggelegak kembali palsu}) / / gmail gaya urutan Mousetrap.bind ('g saya ', () = > {console.log ('pergi ke inbox')}) Mousetrap.bind ('* ', () = > {konsol .log ('Pilih Semua')}) / / kode konami!
+```js
+Mousetrap.bind ('4', () = > {console.log('4')}) Mousetrap.bind ('? ', () = > {console.log ('menunjukkan cara pintas!')}) Mousetrap.bind ('Escudo', () = > {console.log('escape')}, 'keyup') / / kombinasi Mousetrap.bind ('perintah + pergeseran + k', () = > {console.log ('perintah pergeseran k')}) / / peta beberapa kombinasi ke callback sama Mousetrap.bind (['perintah + k', ' ctrl + k'], ()) = > {console.log ('perintah k atau control k') / / kembali palsu untuk mencegah perilaku default dan acara berhenti dari menggelegak kembali palsu}) / / gmail gaya urutan Mousetrap.bind ('g saya ', () = > {console.log ('pergi ke inbox')}) Mousetrap.bind ('* ', () = > {konsol .log ('Pilih Semua')}) / / kode konami!
 Mousetrap.bind ('sampai sampai down turun kiri kanan kiri kanan b masukkan ', () = > {console.log ('kode konami')})
-`</pre>
+```
