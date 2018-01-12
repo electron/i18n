@@ -210,7 +210,7 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılandırmasını sıfırlar.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
