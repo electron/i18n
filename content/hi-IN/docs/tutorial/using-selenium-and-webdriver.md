@@ -66,31 +66,32 @@ $ npm install selenium-webdriver
 
 ### 3. क्रोमड्राईवर से कनेक्ट करें
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+इलेक्ट्रॉन के साथ `सेलेनियम-वेबड्राईवर` का इस्तेमाल मूलतः अपस्ट्रीम के साथ समान ही है, सिवाय इस बात के कि आपको मैन्युअली यह निर्दिष्ट करना होगा कि क्रोम ड्राईवर से कैसे जुड़ें और इलेक्ट्रॉन की लाइब्रेरी कहाँ ढूँढें:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+// "9515" वह पोर्ट है जो कि क्रोम ड्राईवर द्वारा खोला गया है |
   .usingServer('http://localhost:9515')
-  .withCapabilities({
-    chromeOptions: {
-      // Here is the path to your Electron binary.
+   .withCapabilities({
+     chromeOptions: {
+       // यह आपकी इलेक्ट्रॉन लाइब्रेरी का पथ है |
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
-    }
-  })
-  .forBrowser('electron')
-  .build()
+     }
+   })
+   .forBrowser('electron')
+   .build()
 
 driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
+driver.findElement(webdriver.By.name('q')).sendKeys('webdriv
+er')
 driver.findElement(webdriver.By.name('btnG')).click()
-driver.wait(() => {
+driver.wait(() => {   
   return driver.getTitle().then((title) => {
-    return title === 'webdriver - Google Search'
-  })
-}, 1000)
+     return title === 'webdriver - Google Search'
+   })
+ }, 1000)
 
 driver.quit()
 ```
