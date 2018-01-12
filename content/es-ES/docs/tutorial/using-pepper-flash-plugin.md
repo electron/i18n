@@ -54,7 +54,7 @@ You can also try loading the system wide Pepper Flash plugin instead of shipping
 Add `plugins` attribute to `<webview>` tag.
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## Problemas
