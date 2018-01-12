@@ -844,7 +844,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 Sistem printer listesini al.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+Geri alır [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
@@ -1005,8 +1005,8 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Nesne 
-  * `screenPosition` String - Specify the screen type to emulate (default: `masaüstü`) 
+* `parametreler` Nesne 
+  * `ekranPozisyonu` String - Specify the screen type to emulate (default: `masaüstü`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
