@@ -14,7 +14,7 @@ Windows için `ia32` (`x86`) ve `x64` (`amd64`) sistemi desteklenmektedir. Lütf
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `arm` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+Önceden kurulmuş `ia32` (`i686`) ve`x64` (`amd64`) Electron dilleri; Ubuntu 12.04, `arm` dili ARM v7 ile hard-float ABI ve Neon, Debian Wheezy için yapılmıştır.
 
 Önceden derlenmiş sürümün normal olarak çalışıp çalışamayacağı, derleme platformunun bağlantı kitaplığının eklenip eklenmediğine bağlıdır. Dolayısıyla yalnızca Ubuntu 12.04'ün çalışması garanti edilir ve aşağıdaki platformların Electron'un önceden derlenmiş sürümleriyle çalıştığı kanıtlanmıştır:
 
