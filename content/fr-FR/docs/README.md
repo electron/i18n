@@ -25,7 +25,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
 * [Raccourcis clavier](tutorial/keyboard-shortcuts.md)
-* [Mettre à jour des applications](tutorial/updates.md)
+* [Mettre à jour l'application](tutorial/updates.md)
 
 ## Tutoriels
 
@@ -57,6 +57,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,16 +89,17 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 
 * [Style de Codage](development/coding-style.md)
 * [Utilisation du clang-format sur du code C++](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Structure du répertoire du Code Source](development/source-code-directory-structure.md)
 * [Différences Techniques de NW.js (anciennement node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Aperçu du Système de compilation](development/build-system-overview.md)
-* [Instructions de compilation (macOS)](development/build-instructions-osx.md)
-* [Instructions de compilation (Windows)](development/build-instructions-windows.md)
-* [Instructions de compilation (Linux)](development/build-instructions-linux.md)
+* [Instructions de Build (macOS)](development/build-instructions-osx.md)
+* [Instructions de Build (Windows)](development/build-instructions-windows.md)
+* [Instructions de Build (Linux)](development/build-instructions-linux.md)
 * [Instructions de Debug (macOS)](development/debugging-instructions-macos.md)
 * [Instructions de Debug (Windows)](development/debug-instructions-windows.md)
 * [Installer un Serveur de Symbol dans le debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Mettre à jour Chrome](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Développement Chromium](development/chromium-development.md)
 * [Développement V8](development/v8-development.md)
