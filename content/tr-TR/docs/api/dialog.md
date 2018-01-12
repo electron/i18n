@@ -124,9 +124,9 @@ console.log(dialog)
     * `title` String - The title to display in the error box
     * `content` String - The text content to display in the error box
     
-    Displays a modal dialog that shows an error message.
+    Bir hata iletisi gösteren bir kalıcı iletişim kutusu görüntüler.
     
-    This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+    Bu API daha önce güvenli bir şekilde çağrılabilir `ready` event the `app` module emits, genellikle yıldızın erken safhasındaki hataları bildirmek için kullanılır. Uygulama öncesi aradıysa `ready`event on Linux'ta, mesaj stderr'e gönderilecek.
     
     ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
     
