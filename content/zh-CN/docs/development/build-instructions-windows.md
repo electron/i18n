@@ -7,7 +7,7 @@
 * Windows 7 / Server 2008 R2 或更高
 * Visual Studio 2015 Update 3 - [下载免费的 VS 2015 Community Edition ](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * [Windows 调试工具](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) 如果你计划从 `symstore.exe` 创建完整的分发用于从 `.pdb` 文件创建 symbol 存储
 
@@ -127,7 +127,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-简单的创建那个目录 [应该可以解决问题](http://stackoverflow.com/a/25095327/102704):
+简单的创建那个目录 [应该可以解决问题](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
