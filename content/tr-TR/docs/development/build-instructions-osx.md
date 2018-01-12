@@ -6,7 +6,7 @@ Electron'u macOS üzerinde kurmak için aşağıdaki yönergeleri takip edin.
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (harici)
+- [node.js](https://nodejs.org) (harici)
 
 Eğer, Homebrew üzerinden kurduğunuz Python'u kullanıyorsanız, aşağıdaki Python modüllerini de kurmanız gerekiyor:
 
@@ -74,14 +74,14 @@ Electron sadece 64bit hedefleme ile macOS'a kurulabilir ve 32bit üzerinde de in
 $ npm run clean
 ```
 
-Sadece `out` and `dist` dizinlerini temizlemek için:
+Sadece `out` ve `dist` dizinlerini temizlemek için:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
+**Not:** Her iki clean komutu `bootstrap` betiğinin inşaa öncesi çalıştırılmasını şart koşar.
 
 ## Testler
 
-Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
+[İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests) sayfasını ziyaret edin
