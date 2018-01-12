@@ -10,9 +10,9 @@ The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api
 
 It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
 
-* When sending a message, the event name is the `channel`.
+* Bir mesaj gönderirken, etkinlik adı `channel`.
 * To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* Eşzamansız bir mesajı gönderene geri göndermek için,`event.sender.send(...)`.
 
 İşleyici ve ana işlemler arasında mesaj gönderme ve işleme ilişkin bir örneği:
 
