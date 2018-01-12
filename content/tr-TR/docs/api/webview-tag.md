@@ -590,11 +590,11 @@ Dönüşler:
 * `newURL` Dize
 * `isMainFrame` Boolean
 
-Fired when a redirect was received while requesting a resource.
+Bir kaynak sorgulanırken yönlendirme alınırsa tetiklenir.
 
 ### Olay: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Verilen karedeki belge yüklendiğinde tetiklenir.
 
 ### Etkinlik: 'sayfa-başlığı-güncellendi'
 
@@ -603,15 +603,15 @@ Dönüşler:
 * `başlık` Dizi
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
 
 ### Olay: 'page-favicon-updated'
 
 Dönüşler:
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - URL'lerin dizilişleri.
 
-Fired when page receives favicon urls.
+Sayfa favicon url'lerini aldığında tetiklenir.
 
 ### Etkinlik: 'enter-html-full-screen'
 
