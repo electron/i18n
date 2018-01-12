@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 ## Metodlar
 
-The `shell` module has the following methods:
+The `shell` modülünün aşağıdaki yöntemleri vardır:
 
 ### `shell.showItemInFolder(fullPath)`
 

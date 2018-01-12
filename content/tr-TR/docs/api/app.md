@@ -604,24 +604,27 @@ app.on('ready', () => {
 * ` webpageURL </ 0> String (isteğe bağlı) - Uygun bir uygulama yoksa tarayıcıya yüklenecek web sayfası yeniden başlatma aygıtına bağlı bir şema olmalıdır <code> http </ 0> veya <code> https </ 0></li>
 </ul>
 
-<p>Creates an <code>NSUserActivity` and sets it as the current activity. Diğer cihazlara yönelik bu etkinliği [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) seçebilirsiniz.</p> 
-  ### `app.getCurrentActivityType()` *macOS*
-  
-  Returns `String` - The type of the currently running activity.
-  
-  ### `app.setAppUserModelId(id)` *Windows*
+<p><code> NSUserActivity </ 0> (kodunu)oluşturarak onu etkin olarak ayarlar. Diğer cihazlara yönelik bu etkinliği <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html">Handoff</a> seçebilirsiniz.</p>
+
+<h3><code>app.getCurrentActivityType()` *macOS*</h3> 
+  Döndür ` Dizgi </ 0> - Halen çalışan etkinliğin türü.</p>
+
+<h3><code>app.setAppUserModelId(id)` *Windows*</h3> 
   
   * `kimlik` dizesi
   
-  Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+  Daha fazla bilgi için [Windows Dokümanlarına](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) bakın.
   
-  ### `app.importCertificate(options, callback)` *LINUX*
+  ### ` app.importCertificate (seçenekler, geri arama) </ 0> <em> LINUX </ 1></h3>
+
+<ul>
+<li><code>ayarlar` Nesne 
   
-  * `ayarlar` Nesne 
-    * `certificate` String - Path for the pkcs12 file.
-    * `password` String - Passphrase for the certificate.
+  * `sertifika` Dize - pkcs12 dosyasının yolunu girin.
+  * `şifre` Dize - sertifika için parola.</li> 
+  
   * `callback` Fonksiyon 
-    * `result` Integer - Result of import.
+    * `sonuç` Tamsayı - sonuç alma</ul> 
   
   Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
   
@@ -727,16 +730,16 @@ const exeName = path.basename(process.execPath)
   * `ayarlar` Nesne 
     * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
     * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
-    * `copyright` String (optional) - Copyright information.
+    * `copyright` String (seçilebilir) - telif bilgisi.
     * `credits` String (optional) - Credit information.
     * `version` String (optional) - The app's build version number.
   
-  Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+  Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için.
   
   ### `app.commandLine.appendSwitch(switch[, value])`
   
-  * `switch` String - A command-line switch
-  * `value` String (optional) - A value for the given switch
+  * `switch` String - Bir komut satırı anahtarı
+  * `value` String (optional) - Verilen anahtarda bir değer
   
   Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
   
@@ -744,11 +747,11 @@ const exeName = path.basename(process.execPath)
   
   ### `app.commandLine.appendArgument(value)`
   
-  * `value` String - The argument to append to the command line
+  * `value` String - Komut satırına eklenecek argüman
   
   Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
   
-  **Note:** This will not affect `process.argv`.
+  **Note:** bu etkilenmeyecek `process.argv`.
   
   ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
   
@@ -764,7 +767,7 @@ const exeName = path.basename(process.execPath)
   
   When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
   
-  Returns `Integer` an ID representing the request.
+  Returns `Integer` isteği temsil eden bir kimlik.
   
   ### `app.dock.cancelBounce(id)` *macOS*
   

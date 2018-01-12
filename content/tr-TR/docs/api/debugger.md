@@ -55,21 +55,21 @@ Detaches the debugger from the `webContents`.
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
-Send given command to the debugging target.
+Verilen komutu hata ayıklama hedefine gönderin.
 
 ### Örnek etkinlikler
 
 #### Etkinlik: 'ayırmak'
 
 * `olay` Olay
-* `reason` String - Reason for detaching debugger.
+* `reason` String - Hata ayıklayıcıyı ayırma nedeniniz.
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Hata ayıklama oturumu sona erdiğinde yayan. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Etkinlik: 'mesaj'
 
 * `olay` Olay
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - Yöntem adı.
+* `params` Object - Olay parametreleri 'parametreler' özniteliği uzaktan hata ayıklama protokolünde.
 
 Hata ayıklama hedeflemesi enstrümantasyon olayında her zaman ortaya çıkar.

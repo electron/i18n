@@ -22,4 +22,4 @@ A `String` representing the popover's current button text. Changing this value i
 
 #### `touchBarPopover.icon`
 
-A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
+A `NativeImage` popover'ın geçerli düğme simgesini temsil eder. Bu değeri değiştirdiğinizde, popover dokunmatik çubukta olur.

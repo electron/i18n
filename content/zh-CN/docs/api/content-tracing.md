@@ -6,7 +6,7 @@
 
 该模块不包含网页接口，所以你需要在Chrome浏览器打开`chrome://tracing/`页面，然后加载生成的文件来查看结果。
 
-**注意：**在应用程序模块的 `ready ` 事件就绪之前，您不应该使用此模块。
+**注意：**在应用程序模块的 `ready ` 事件触发之前，您不应该使用此模块。
 
 ```javascript
 const {app, contentTracing} = require('electron')
@@ -94,19 +94,19 @@ app.on('ready', () => {
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+开始记录所有进程。
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+一旦收到` startMonitoring `请求，监控立即在本地和异步的子进程上立即开始。
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
 ### `contentTracing.stopMonitoring(callback)`
 
 * `callback` Function
 
-Stop monitoring on all processes.
+停止对所有进程的监视。
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
@@ -114,11 +114,11 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 * `callback` Function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+获取当前监控的跟踪数据
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据到主进程。 通过IPC发送跟踪数据可能是一个开销巨大的操作，我们想避免跟踪时不必要的运行时开销。 因此, 为了结束跟踪, 我们必须异步请求所有子进程刷新所有挂起的跟踪数据。
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+一旦所有子进程都确认了 ` captureMonitoringSnapshot ` 请求, 就会使用包含跟踪数据的文件来调用 ` callback `。
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
@@ -126,4 +126,4 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+获取跟踪缓冲区进程的最大使用率，以百分比表示完整状态。当 TraceBufferUsage 值被确定后, 将调用 ` callback`。

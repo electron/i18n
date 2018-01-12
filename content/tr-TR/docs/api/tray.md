@@ -1,6 +1,6 @@
 ## Sınıf: Tray
 
-> Add icons and context menus to the system's notification area.
+> Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
@@ -25,10 +25,10 @@ app.on('ready', () => {
 
 **Platform sınırlamaları:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
+* Linux'ta uygulama göstergesi destekleniyorsa kullanılacaktır, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
+* Uygulama göstergesi yalnızca bağlam menüsü olduğunda gösterilir.
+* Linux'ta uygulama göstergesi kullanıldığındathe `click` event is ignored.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
@@ -50,7 +50,7 @@ app.on('ready', () => {
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Windows'ta en iyi görsel efektleri almak için `ICO` simgeler kullanılması önerilir.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
@@ -58,7 +58,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 * `image` ([DoğalGörüntü](native-image.md) | Dizi)
 
-Creates a new tray icon associated with the `image`.
+Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
 ### Örnek Events
 
@@ -73,7 +73,7 @@ The `Tray` module emits the following events:
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
-Emitted when the tray icon is clicked.
+Tray simgesi tıklandığında çıkar.
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -84,7 +84,7 @@ Emitted when the tray icon is clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
-Emitted when the tray icon is right clicked.
+Tray simgesi sağ tıkladığında ortaya çıkar.
 
 #### Event: 'double-click' *macOS* *Windows*
 
@@ -99,45 +99,45 @@ Emitted when the tray icon is double clicked.
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Tray balon gösterildiğinde ortaya çıkar.
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Tepsi balonu tıklandığında ortaya çıkar.
 
 #### Event: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Zaman aşımı veya kullanıcı elle tepsinin balonu kapatıldığında ortaya çıkar kapatır.
 
 #### Event: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
 * `files` String[] - Düşürülen dosyaların yolları.
 
-Emitted when dragged files are dropped in the tray icon.
+Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
 * `text` String - Düşürülen yazı stringi
 
-Emitted when dragged text is dropped in the tray icon.
+Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Bir sürükleme işlemi tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Bir sürükleme işlemi tepsi simgesinden çıktığında ortaya çıkar.
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Bir sürükleme işlemi tepside bittiğinde veya başka bir yerde bittiğinde ortaya çıkar.
 
 #### Event: 'mouse-enter' *macOS*
 
@@ -148,7 +148,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - event'ın pozisyonu
 
-Emitted when the mouse enters the tray icon.
+Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 #### Event: 'mouse-leave' *macOS*
 
@@ -159,15 +159,15 @@ Emitted when the mouse enters the tray icon.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - event'ın pozisyonu
 
-Emitted when the mouse exits the tray icon.
+Fare tepsi simgesinden çıktığında ortaya çıkar.
 
 ### Örnek Metodlar
 
-The `Tray` class has the following methods:
+The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Tepsi simgesini derhal imha eder.
 
 #### `tray.setImage(image)`
 
@@ -185,13 +185,13 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar.
+Durum çubuğunda tepsi simgesinin bir kenara görünen başlığını ayarlar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
@@ -228,7 +228,7 @@ win.on('hide', () => {
   * `title` String - (optional)
   * `content` String - (optional)
 
-Displays a tray balloon.
+Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
@@ -243,7 +243,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 * `menu` Menü
 
-Sets the context menu for this icon.
+Bu simgenin bağlam menüsünü ayarlar.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
@@ -253,4 +253,4 @@ The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.

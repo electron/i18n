@@ -276,15 +276,15 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Olay: devtools açıldı
 
 DevTools açıldığında yayınla.
 
-#### Event: 'devtools-closed'
+#### Olay: devtools kapandı
 
 DevTools kapandığında ortaya çıkar.
 
-#### Event: 'devtools-focused'
+#### Olay: devtools odaklanıldı
 
 DevTools odaklandığında / açıldığında ortaya çıkar.
 
@@ -299,7 +299,7 @@ Dönüşler:
 * `geri aramak` Fonksiyon 
   * `isTrusted` Boolean - Sertifikanın güvenilir olarak değerlendirilip değerlendirilemeyeceğini belirtir
 
-Emitted when failed to verify the `certificate` for `url`.
+Doğrulanamadığında ortaya çıkar `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
@@ -356,15 +356,15 @@ Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+Medya oynatılmaya başladığında yayınlanır.
 
 #### Etkinlik: 'medya-duraklatıldı'
 
-Emitted when media is paused or done playing.
+Medya duraklatıldığında veya oynatıldığında yaydır.
 
 #### Event: 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşılaşılanlardan kaynaklanmaktadır bir meta etiketi:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -377,7 +377,7 @@ Dönüşler:
 * `olay` Olay
 * `url` Dize
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 
 #### Event: 'cursor-changed'
 
@@ -390,11 +390,11 @@ Dönüşler:
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+İmlecin türü değiştiğinde çıkar. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
 `type` parametre `custom` ise, `image` değişken özel imleç görüntüsünü `NativeImage` 'de ve `scale`, `size` ve `hotspot` özel imleç hakkında ek bilgi tutacaktır.
 
-#### Event: 'context-menu'
+#### Olay:'bağlam-menüsü'
 
 Dönüşler:
 
@@ -436,7 +436,7 @@ Dönüşler:
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Olay:'bluetooth-cihazı-seç'
 
 Dönüşler:
 
@@ -488,7 +488,7 @@ win.loadURL('http://github.com')
 
 #### Event: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 
 #### Event: 'will-attach-webview'
 
@@ -667,7 +667,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `ignore` Boolean
 
-Ignore application menu shortcuts while this web contents is focused.
+Bu web içeriği odaklanmışken uygulama menüsü kısayollarını yok sayın.
 
 #### `contents.setAudioMuted(muted)`
 
@@ -683,7 +683,7 @@ Returns `Boolean` - Whether this page has been muted.
 
 * `factor` Number - Zoom factor.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma faktörünü belirtilen faktöre değiştirir. om factor is zoom percent divided by 100, so 300% = 3.0.
 
 #### `contents.getZoomFactor(callback)`
 
@@ -717,7 +717,7 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Azami ve minimum tutam-zum seviyesini belirtir.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 

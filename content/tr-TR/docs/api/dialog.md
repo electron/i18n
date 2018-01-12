@@ -124,9 +124,9 @@ console.log(dialog)
     * `title` String - The title to display in the error box
     * `content` String - The text content to display in the error box
     
-    Displays a modal dialog that shows an error message.
+    Bir hata iletisi gösteren bir kalıcı iletişim kutusu görüntüler.
     
-    This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+    Bu API daha önce güvenli bir şekilde çağrılabilir `ready` event the `app` module emits, genellikle yıldızın erken safhasındaki hataları bildirmek için kullanılır. Uygulama öncesi aradıysa `ready`event on Linux'ta, mesaj stderr'e gönderilecek.
     
     ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
     
@@ -136,7 +136,7 @@ console.log(dialog)
       * `message` String - The message to display to the user.
     * `callback` Function
     
-    On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+    MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
     
     On Windows the options are more limited, due to the Win32 APIs used:
     

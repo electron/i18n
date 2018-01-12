@@ -585,7 +585,7 @@ Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir penc
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `path` Dizi - QuickLook ile kesin yol önizlemesi Bu, Quick Look açacağı dosyanın türünü belirlemek için dosya uzantısını ve yolunu kullandığı için önemlidir.
-* `displayname` Dizi (opsiyonel) Quick Look şekilsel görünümünde görüntülenecek olan dosya adı. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `displayname` Dizi (opsiyonel) Quick Look şekilsel görünümünde görüntülenecek olan dosya adı. dosyanın görsel ve içeriğini tamamen etkilemez. varsayılan olarak`path`.
 
 Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.wikipedia.org/wiki/Quick_Look)'ı kullanır.
 
@@ -598,7 +598,7 @@ Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.w
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (isteğe bağlı) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Pencereyi yeniden boyutlandırır ve sağlanan sınırlara taşır
 
 #### `win.getBounds()
 `
@@ -627,7 +627,7 @@ Pencereyi `genişlik` ve `yükseklik` olarak yeniden boyutlandırır.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Iadeler `Integer[]` - Pencerenin genişliğini ve yüksekliğini içerir.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -635,7 +635,7 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (isteğe bağlı) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `width` and `height`.
 
 #### `win.getContentSize()`
 
@@ -671,7 +671,7 @@ Pencerenin kullanıcı tarafından manuel olarak yeniden boyutlandırılacağın
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Returns `Boolean` - Pencerenin kullanıcı tarafından manuel olarak yeniden boyutlandırılabilmesi.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
@@ -683,7 +683,7 @@ Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Li
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından taşınıp taşınmayacağı.
 
-On Linux always returns `true`.
+Linux'ta daima geri dönüyor `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -701,11 +701,11 @@ Linux üzerinde her zaman `true` döndürür.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Pencerenin kullanıcı tarafından manuel olarak maksimize edilip edilemeyeceğini ayarlar. Linux'ta hiçbir şey değil.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Returns `Boolean` - Pencerenin kullanıcı tarafından manuel olarak maksimize edilip edilemeyeceği.
 
 Linux üzerinde her zaman `true` döndürür.
 
@@ -717,7 +717,7 @@ Yakınlaştırma düğmesinin tam ekran modunu değiştirip değiştirmeyeceğin
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Returns `Boolean` - Maksimumlaştır / yakınlaştır penceresi düğmesinin tam ekran modunu değiştirip değiştirmeyeceğini pencereyi en üst düzeye çıkarır.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
@@ -729,7 +729,7 @@ Pencerenin kullanıcı tarafından el ile kapatılıp bırakılmayacağını tan
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak kapatılıp kapatılmayacağı.
 
-On Linux always returns `true`.
+Linux'ta daima geri dönüyor `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -741,7 +741,7 @@ Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğ
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
 
 #### `win.center()`
 
@@ -753,7 +753,7 @@ Pencereyi ekranın ortasına taşır.
 * `x` Integer
 * `animate` Boolean (isteğe bağlı) *macOS*
 
-Moves window to `x` and `y`.
+Pencereyi taşı `x` and `y`.
 
 #### `win.getPosition()`
 
@@ -769,7 +769,7 @@ Doğal pencerenin başlığını `title` olarak değiştirir.
 
 `String` 'i geri getirir - Doğal pencerenin başlığı.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Note:** web sayfasının başlığı yerel unvanından farklı olabilir. pencere.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -802,7 +802,7 @@ Pencerenin görev çubuğunda gösterilmemesini sağlar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Kiosk moduna girer veya ayrılır.
 
 #### `win.isKiosk()`
 
@@ -810,7 +810,7 @@ Enters or leaves the kiosk mode.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Returns `Buffer` - pencerenin platforma özel tutamacı.
 
 The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
 
@@ -819,7 +819,7 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Çengel Bir pencere mesajı. The `callback` is called when the message is received in the WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
@@ -831,11 +831,11 @@ Returns `Boolean` - `true` or `false` depending on whether the message is hooked
 
 * `message` Integer
 
-Unhook the window message.
+Pencere mesajını çıkarın.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Tüm pencere mesajlarının kilidini açar.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
@@ -881,7 +881,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 Same as `webContents.loadURL(url[, options])`.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+The `url` uzak bir adres olabilir (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
 To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
 
@@ -1052,9 +1052,9 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 * `ignore` Boolean
 
-Makes the window ignore all mouse events.
+Pencerenin tüm fare olaylarını yok saymasını sağlar.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Bu pencerede gerçekleşen tüm fare olayları aşağıdaki pencereye geçecektir ancak olaylar bu pencerenin odağı varsa, yine de klavye alacaktır.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
@@ -1100,7 +1100,7 @@ Tarayıcı penceresine titreşim efekti ekler. `null` ve boş bir string gönder
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
 **Not:** TouchBar API'si şu anda deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 

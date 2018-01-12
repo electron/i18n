@@ -1,34 +1,34 @@
 # Sobre Electron
 
-[Electron](https://electronjs.org) é uma biblioteca open soruce desenvolvida pelo o GitHub para o desenvolvimento de aplicações desktop multi-plataforma com HTML, CSS e JavaScript. Electron foi feito com uma combinação entre [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) em uma única runtime e os applicativos podem ser empacotados para Mac, Windows e Linux.
+[Electron](https://electronjs.org) é uma biblioteca open source desenvolvida pelo GitHub para o desenvolvimento de aplicações desktop multi-plataforma com HTML, CSS e JavaScript. Electron realiza isto combinando [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) em uma única runtime e os aplicativos podem ser empacotados para Mac, Windows e Linux.
 
-Electron começou em 2013, como uma framewok que seria utilizado no [Atom](https://atom.io), editor de texto hackable do GitHub, que seria construído. Os dois foram disponibilizados na primavera de 2014, com seu código fonte aberto.
+Electron começou em 2013, como um framewok que seria utilizado para construir o [Atom](https://atom.io), o editor de texto hackeável do GitHub. Os dois foram disponibilizados na primavera de 2014, com seu código fonte aberto.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Desde então ele se tornou uma ferramenta popular usada por desenvolvedores de código aberto, startups e empresas estabelecidas. [ Veja quem está utilizando Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Continue lendo para aprender mais sobre os contribuidores e lançamentos do Electron ou comece a criar com Electron no [Guia Rápido](quick-start.md).
 
-## Equipes e Contribuidores
+## Equipe Principal e Contribuidores
 
-Electron é mantido por uma equipe do GitHub, bem como um grupo de [contribuidores ativos](https://github.com/electron/electron/graphs/contributors) da comunidade. Alguns dos contribuidores são indivíduos, e trabalham nas maiores empresas, que estão fazendo o uso do Electron. Estamos felizes em adicionar contribuidores frequentes ao projeto como mantedores. Leia mais sobre isso em como [contribuir para o Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron é mantido por uma equipe do GitHub, bem como um grupo de [contribuidores ativos](https://github.com/electron/electron/graphs/contributors) da comunidade. Alguns dos contribuidores são indivíduos e alguns trabalham em grandes empresas que estão utilizando Electron. Estamos felizes em adicionar contribuidores frequentes ao projeto como mantedores. Leia mais sobre como [contribuir para o Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Versões
 
-Frequentemente é liberado nova [versões do Electron](https://github.com/electron/electron/releases). Nós liberamos quando existem importantes correções de bugs, novas APIs ou são versões de atualização do Chromium ou Node.js.
+Frequentemente são liberadas novas [versões do Electron](https://github.com/electron/electron/releases). Nós liberamos quando existem importantes correções de bugs, novas APIs ou são versões de atualização do Chromium ou Node.js.
 
 ### Atualizando as Dependências
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+A versão do Chromium do Electron é atualizada normalmente uma ou duas semanas depois que uma nova versão estável do Chromium é liberada, dependendo do esforço envolvido na atualização.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Quando uma nova versão do Node.js é lançada, Electron espera normalmente ceerca de um mês antes de atualizar de modo a trazer uma versão mais estável.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+No Electron, Node.js e Chromium compartilham uma única instância V8 — normalmente a versão que o Chromium está usando. Na maioria das vezes isso já *funciona a contento* mas algumas vezes significa que corrigir o Node.js.
 
 ### Controle de Versão
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+A partir da versão 2.0, Electron [segue `semver`](http://semver.org). Para a maioria das aplicações, e usando qualquer versão recente do npm, executar `$ npm install electron` fará a coisa certa.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+O processo de atualização de versão é detalhado explicitamente em nosso [Documento de Versionamento](electron-versioning.md).
 
 ### LTS
 

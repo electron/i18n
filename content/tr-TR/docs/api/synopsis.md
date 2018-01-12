@@ -34,7 +34,7 @@ Oluşturma işlemi, düğüm modüllerini kullanmanın ekstra yeteneği haricind
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Uygulamanızı çalıştırmak için,[Run your app](../tutorial/quick-start.md#run-your-app).
 
 ## Destructuring assignment
 
