@@ -15,7 +15,7 @@ URL server simbol resmi untuk Elektron adalah https: // electron -symbols.github
 
 Tetapkan string ini sebagai ` _NT_SYMBOL_PATH </ 0> di lingkungan, dengan menggunakan menu Windbg, atau dengan mengetikkan perintah <code> .sympath </ 0> . Jika Anda ingin mendapatkan simbol dari server simbol Microsoft juga, Anda harus mencantumkannya terlebih dulu:</p>
 
-<pre><code class="powershell">SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+<pre><code class="powershell">SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 `</pre> 
 
 ## Menggunakan server simbol dalam Visual Studio
