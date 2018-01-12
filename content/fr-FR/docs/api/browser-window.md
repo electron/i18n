@@ -205,14 +205,14 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to the value of the `nodeIntegration` option. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
 
-When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+Lorsque l'on définie une taille minimum ou maximum pour la fenêtre avec `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, cela contraint les utilisateurs uniquement. Cela ne vous empêche pas de passer une taille qui ne suit pas les contraintes de tailles à `setBounds`/`setSize` ou au constructeur de `BrowserWindow`.
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+Les valeurs et comportements possibles de l'option `type` dépendent de la plateforme. Les valeurs possibles sont :
 
-* On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* On macOS, possible types are `desktop`, `textured`. 
-  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
+* Sur Linux, les types possible sont `desktop`, `dock`, `toolbar`, `splash`, `notification`.
+* Sur macOS, les types possibles sont `desktop`, `textured`. 
+  * Le type `textured` ajoute un aspect métal dégradé (`NSTexturedBackgroundWindowMask`).
+  * Le type `desktop` place les fenêtre au niveau de l'arière plan. (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
 * On Windows, possible type is `toolbar`.
 
 ### Événements d’instance
