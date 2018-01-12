@@ -160,7 +160,7 @@ Los argumentos opcionales son escritos por corchetes `[]` alrededor del argument
 requerido[, opcional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Debajo, el método es información detallada de cada uno de los argumentos. El tipo de argumento está anotado por cualquiera de los tipos comunes:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -169,15 +169,15 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * O un tipo personalizado como [`WebContent`](api/web-contents.md) de Electron
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Si un argumento o un método es único para ciertas plataformas, esas plataformas son denotadas usando una lista con espacio delimitado y en cursiva siguiendo el tipo de data. Valores pueden ser `macOS`, `Windows`, o `Linux`.
 
 ```markdown
 * `animate` Booleano (opcional) _macOS_ _Windows_ - Anima la cosa.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Los argumentos tipo `Array` deben especificar qué elementos podría incluir el arreglo en la siguiente descripción.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+La descripción para los argumentos de tipo `Function` deben dejar en claro cómo podrían ser llamados y la lista de tipos de parámetros que se le serán pasados.
 
 ### Eventos
 
