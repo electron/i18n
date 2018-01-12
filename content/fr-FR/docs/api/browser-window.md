@@ -121,8 +121,8 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 * `options` Object (facultatif) 
   * `width` Integer (optionel) - Largeur de la fenêtre en pixels. La valeur par défaut est `800`.
   * `height` Integer (optionel) - La hauteur de la fenêtre en pixels. La valeur par défaut est `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
+  * `x` Integer (optionel) (**requis** si y est utilisé) - Décalage à gauche de la fenêtre jusqu'a l'écran. Par défaut, la fenêtre est centrée.
+  * `y` Integer (optionel) (**requis** si x est utilisé) - Décalage en haut de la fenêtre jusqu'a l'écran. Par défaut la fenêtre est centrée.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
   * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
