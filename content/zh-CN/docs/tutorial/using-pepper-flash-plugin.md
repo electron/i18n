@@ -54,7 +54,7 @@ app.on('ready', () => {
 在 `<webview>` 标签里添加 `plugins` 属性。
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## 故障排查
