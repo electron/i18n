@@ -148,16 +148,16 @@ El capítulo de métodos debe estar de la siguiente forma:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+El título puede ser `###` o `####`-niveles dependiendo de si es un método de un módulo o una clase.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Para módulos, el `objectName` es el nombre del módulo. Para clases, debe ser el nombre de la instancia de la clase y no debe ser el mismo que el nombre del módulo.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Por ejemplo, los métodos de la clase `Session` bajo el módulo `session` deben usar `ses` como el `objectName`.
 
 Los argumentos opcionales son escritos por corchetes `[]` alrededor del argumento opcional, así como la coma requerida si este argumento opcional sigue otro argumento:
 
 ```sh
-required[, optional]
+requerido[, opcional]
 ```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
