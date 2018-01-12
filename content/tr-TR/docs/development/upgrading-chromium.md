@@ -130,6 +130,6 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 
 ## Faydalı bağlantılar
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Chrome Açılış Planı](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
 - [Chromium konu takip](https://bugs.chromium.org/p/chromium)
