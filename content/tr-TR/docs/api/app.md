@@ -730,15 +730,15 @@ const exeName = path.basename(process.execPath)
   * `ayarlar` Nesne 
     * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
     * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
-    * `copyright` String (optional) - Copyright information.
+    * `copyright` String (seçilebilir) - telif bilgisi.
     * `credits` String (optional) - Credit information.
     * `version` String (optional) - The app's build version number.
   
-  Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+  Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için.
   
   ### `app.commandLine.appendSwitch(switch[, value])`
   
-  * `switch` String - A command-line switch
+  * `switch` String - Bir komut satırı anahtarı
   * `value` String (optional) - A value for the given switch
   
   Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
