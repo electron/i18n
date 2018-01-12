@@ -1,6 +1,6 @@
 # Debugging on Windows
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Jeśli w przypadku awarii lub problemów w Electron, które twoim zdaniem nie są spowodowane przez aplikacje JavaScript, ale zamiast tego przez Electron, debugowanie może być trochę trudne, zwłaszcza dla programistów nie przyzwyczajonych do używania natywnego debugowania C++. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
 
 ## Requirements
 
