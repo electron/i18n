@@ -16,11 +16,11 @@
 
 2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
     
-    - Or view http://github.com/electron/crashpad/commits/previous-branch-name
+    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
 
 3. For each patch:
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum 
+    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick <checksum>`
     - Rozwiąż jakiekolwiek konflikty
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
