@@ -57,6 +57,7 @@
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@
 
 * [Стандарти за писане на код](development/coding-style.md)
 * [Как да използваме clang форматиране при работа със C++ код](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Структура на проекта](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Overview](development/build-system-overview.md)
@@ -98,6 +100,6 @@
 * [Debug Instructions (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Upgrading Chrome](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Chromium Development](development/chromium-development.md)
 * [Разработка на V8](development/v8-development.md)
