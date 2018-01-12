@@ -26,7 +26,7 @@ Electronでは、Node.jsとChromiumで使用しているV8は単一インスタ�
 
 ### バージョン管理
 
-バージョン2.0から、Electronは[`semver`に従います](http://semver.org)。 最近のバージョンのnpmを使っていれば、ほとんどのアプリケーションで `$ npm install electron` が正しく動作するでしょう。
+As of version 2.0 Electron [follows `semver`](https://semver.org). 最近のバージョンのnpmを使っていれば、ほとんどのアプリケーションで `$ npm install electron` が正しく動作するでしょう。
 
 バージョンアップのプロセスは、[Electronのバージョン管理](electron-versioning.md)に詳しく記載されています。
 
@@ -51,8 +51,8 @@ Electronのマイルストーンは以下の通りです。
 | :calendar:     | :tada:                                                                                                          |
 | -------------- | --------------------------------------------------------------------------------------------------------------- |
 | **2013 年 4 月** | [Atom Shell プロジェクトが開始される](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45) |
-| **2014 年 5 月** | [Atom Shell がオープンソース化される](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)                          |
+| **2014 年 5 月** | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                     |
 | **2015 年 4 月** | [Atom Shell の名称が Electron に変更される](https://github.com/electron/electron/pull/1389)                               |
 | **2016 年 5 月** | [Electron `v1.0.0`](https://electronjs.org/blog/electron-1-0) がリリースされる                                          |
-| **2016 年 5 月** | [Electron アプリケーションが Mac App Store に対応](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide)     |
-| **2016 年 8 月** | [Windows Store が Electron アプリケーションをサポート](https://electronjs.org/docs/tutorial/windows-store-guide)              |
+| **2016 年 5 月** | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                               |
+| **2016 年 8 月** | [Windows Store support for Electron apps](windows-store-guide.md).                                              |
