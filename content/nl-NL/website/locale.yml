@@ -8,18 +8,18 @@ nav:
   releases: Releases
   contact: Contact
   languages: Talen
-  code_of_conduct: Code of Conduct
+  code_of_conduct: Gedragscode
 docs:
   title: Electron documentatie
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: Bekijk alle <a href="/docs/all">docs op 1 pagina</a> of bekijk de <a href="/docs/faq">FAQ</a>.
   guides: Gidsen
-  api_reference: API Reference
+  api_reference: API Verwijzing
   advanced: Geavanceerd
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: Verbeter deze verwijzing
+    version_history: Versiegeschiedenis
+    translate: Vertaal deze verwijzing
+    view_all_docs: Alle Docs op 1 Pagina
 languages:
   choose_language: Kies de taal van de site
   translation_progress: Vooruitgang vertaling
