@@ -378,39 +378,39 @@ Misafir sayfası sessiz.
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Whether guest page has been muted.
+Returns `Boolean` - Misafir sayfası sessize alınmışsa.
 
 ### `<webview>.geri almak()`
 
-Executes editing command `undo` in page.
+Sayfada düzenleme komutu olan `undo`'yu yerine getirir.
 
 ### `<webview>.yeniden yapmak()`
 
-Executes editing command `redo` in page.
+Sayfada düzenleme komutu olan `redo`'yu yerine getirir.
 
 ### `<webview>.kes()`
 
-Executes editing command `cut` in page.
+Sayfada düzenleme komutu olan `cut`'ı yerine getirir.
 
 ### `<webview>.kopyala()`
 
-Executes editing command `copy` in page.
+Sayfada düzenleme komutu olan `copy`'yi yerine getirir.
 
 ### `<webview>.paste()`
 
-Executes editing command `paste` in page.
+Sayfada düzenleme komutu olan `paste`'i yerine getirir.
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Executes editing command `pasteAndMatchStyle` in page.
+Sayfada düzenleme komutu olan `pasteAndMatchStyle`'ı yerine getirir.
 
 ### `<webview>.delete()`
 
-Executes editing command `delete` in page.
+Sayfada düzenleme komutu olan `delete`'i yerine getirir.
 
 ### `<webview>.selectAll()`
 
-Executes editing command `selectAll` in page.
+Sayfada düzenleme komutu olan `selectAll`'ı yerine getirir.
 
 ### `<webview>.unselect()`
 
