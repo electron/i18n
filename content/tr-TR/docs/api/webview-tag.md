@@ -652,7 +652,7 @@ Dönüşler:
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
+Bir sonuç [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) isteği için geçerli hale geldiğinde tetiklenir.
 
 ```javascript
 const webview = document.querySelector('webview')
