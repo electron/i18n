@@ -13,7 +13,7 @@
 
 See also [V8 Development](v8-development.md)
 
-# Chromium development with Electron
+# Rozwój Chromium z Electron
 
 It is possible to debug Chromium with Electron by passing `--build_debug_libcc` to the bootstrap script:
 
