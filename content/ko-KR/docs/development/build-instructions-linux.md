@@ -6,7 +6,7 @@
 
 * 최소한 25GB 이상의 디스크 공간과 8GB 램이 필요합니다.
 * Python 2.7.x. 몇몇 CentOS 6.x와 같은 배포판들은 아직도 Python 2.6.x 버전을 사용합니다. 그래서 먼저 `python -V`를 통해 버전을 확인할 필요가 있습니다.
-* Node.js. Node를 설치하는 방법은 여러 가지가 있습니다. [nodejs.org](http://nodejs.org) 에서 소스 코드를 받아 빌드하는 방법입니다. 이렇게 하면 Node를 일반 유저로 홈 폴더에 설치할 수 있습니다. 다른 방법으로는 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)에서 소스 파일을 받아와 설치할 수 있습니다.
+* Node.js. Node를 설치하는 방법은 여러 가지가 있습니다. [nodejs.org](https://nodejs.org) 에서 소스 코드를 받아 빌드하는 방법입니다. 이렇게 하면 Node를 일반 유저로 홈 폴더에 설치할 수 있습니다. 다른 방법으로는 [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)에서 소스 파일을 받아와 설치할 수 있습니다.
 * [clang](https://clang.llvm.org/get_started.html) 3.4 또는 최신 버전
 * GTK+ 와 libnotify의 개발용 헤더
 
@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### 다운로드된 `clang` 바이너리 대신 시스템의 `clang` 사용하기
 
-기본적으로 Electron은 Chromium 프로젝트에서 제공하는 미리 빌드된 [`clang`](https://clang.llvm.org/get_started.html) 바이너리를 통해 빌드됩니다. 만약 어떤 이유로 시스템에 설치된 `clang`을 사용하여 빌드하고 싶다면, `bootstrap.py`를 `--clang_dir=<path><path>` 스위치와 함께 실행함으로써 해결할 수 있습니다. 빌드 스크립트를 이 스위치와 함께 실행할 때 스크립트는 `<path><path>/bin/`와 같은 경로로 `clang` 바이너리를 찾습니다.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
 예를 들어 `clang`을 `/user/local/bin/clang`에 설치했다면 다음과 같습니다:
 
