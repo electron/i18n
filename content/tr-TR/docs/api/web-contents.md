@@ -791,7 +791,7 @@ Inserts `text` to the focused element.
 
 * `text` Dize - Araştırılacak içerik boş olamaz.
 * `ayarlar` Obje (isteğe bağlı) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
+  * `forward` Boolean - (isteğe bağlı) İleri ya da geri arama yapılacağı değerleri `true`. varsayılan olarak ayarlar.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
@@ -801,8 +801,8 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
-  * `clearSelection` - Clear the selection.
+* `hareket` String - Specifies the action to take place when ending [`webContents.findInPage`] istek. 
+  * `clearSelection` - Seçimi temizle.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
 
@@ -842,7 +842,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Sistem printer listesini al.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
