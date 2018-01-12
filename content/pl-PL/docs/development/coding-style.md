@@ -6,7 +6,7 @@ You can run `npm run lint` to show any style issues detected by `cpplint` and `e
 
 ## C++ i Python
 
-Dla C++ i Pythona, podążamy za [stylem kodowania Chromium](http://www.chromium.org/developers/coding-style). Możesz użyć [clang-format](clang-format.md) aby sformatować kod C++ automatycznie. Tu jest również skrypt `script/cpplint.py<0>aby sprawdzić czy wszystkie pliki odpowiadają.</p>
+Dla C++ i Pythona, podążamy za [stylem kodowania Chromium](https://www.chromium.org/developers/coding-style). Możesz użyć [clang-format](clang-format.md) aby sformatować kod C++ automatycznie. Tu jest również skrypt `script/cpplint.py<0>aby sprawdzić czy wszystkie pliki odpowiadają.</p>
 
 <p>Wersja Pythona której teraz używamy to Python 2.7.</p>
 
@@ -15,7 +15,7 @@ Dla C++ i Pythona, podążamy za [stylem kodowania Chromium](http://www.chromium
 <h2>JavaScript</h2>
 
 <ul>
-<li>Napisz<a href="http://npm.im/standard">standardowym</a> stylem JavaScript.</li>
+<li>Napisz<a href="https://npm.im/standard">standardowym</a> stylem JavaScript.</li>
 <li>File names should be concatenated with <code>-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.</li> 
 
 * Use newer ES6/ES2015 syntax where appropriate 
