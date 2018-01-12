@@ -474,7 +474,7 @@ console.log(installed)
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// bu örnekte örneğimiz "win"
+// bu örnekte örnek sınıfımız "win"
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
