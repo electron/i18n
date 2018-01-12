@@ -448,10 +448,10 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 ### `<webview>.stopFindInPage(action)`
 
-* `eylem` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) istek. 
+* `eylem` String - Bitişte, yerini alacak olayı belirtir [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) istek. 
   * `clearSelection` - Seçimi silin.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+  * `keepSelection` - Seçimi, normal bir seçime tercüme eder.
+  * `activateSelection` - Seçim node'una odaklanır ve tıklar.
 
 Stops any `findInPage` request for the `webview` with the provided `action`.
 
