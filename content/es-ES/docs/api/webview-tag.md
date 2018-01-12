@@ -39,9 +39,9 @@ Si tú quieres controlar el contenido de invitado de cualquier manera, puedes es
 </script>
 ```
 
-## CSS Styling Notes
+## Notas de Estilo CCS
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Por favor nota que el estilo de etiqueta `webview` usa `display:flex;` internamente para asegurar que el menor elemento de `object` llene el alto y ancho completo de su contenedor `webview` cuando se usa con diseños tradicionales y de flexbox (desde la v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
 `webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
 
