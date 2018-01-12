@@ -57,6 +57,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 * [Phong cách lập trình](development/coding-style.md)
 * [Sử dụng clang-format trên Code C++](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Cấu trúc cây thư mục của Source Code](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (tiền thân là node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Tổng qua về Hệ thống cần thiết để Build](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Các hướng dẫn debug (Windows)](development/debug-instructions-windows.md)
 * [Cài đặt Symbol Server trên debugger](development/setting-up-symbol-server.md)
 * [Tài liệu về Styleguide](styleguide.md)
-* [Nâng cấp Chrome](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Chromium Development](development/chromium-development.md)
 * [V8 Development](development/v8-development.md)
