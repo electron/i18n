@@ -21,11 +21,11 @@ export npm_config_target_arch=x64
 # Electron başlıklarını indir.
 export npm_config_disturl=https://atom.io/download/electron
 # node-pre-gyp'e Electron'u build ettiğimizi belirt.
-export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
-export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
-HOME=~/.electron-gyp npm install
+npm_config_runtime=electron dışarı aktar
+# node-pre-gyp modülü ana kod üzerinden yap.
+npm_config_build_from_source=true dışa aktar
+# Gereklilikleri yükleyiniz, ve önbelleği to ~/.electron-gyp içine saklayın.
+HOME=~/.electron-gyp npm yükle
 ```
 
 ### Modülleri kurma ve Elektron için yeniden inşa etme
@@ -49,11 +49,10 @@ npm install --save-dev electron-rebuild
 Yerli bir modül geliştiren bir geliştiriciyseniz ve Electron'a karşı test etmek istiyorsanız, Electron modülünü manuel olarak yeniden oluşturmak isteyebilirsiniz. Elektron için inşa etmek için doğrudan `node-gyp` kullanabilirsiniz:
 
 ```sh
-cd /path-to-module/
-HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+cd /path-to-module/ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+`HOME=~/.electron-gyp` geliştirme başlıklarını nerede bulacağınızı değiştirir. `--target=1.2.3` Electron versiyonudur. `--dist-url=...` Başlıkların yükleneceği noktayı belirler. `--arch=x64`: Modül 64bit sistem için kurulmuştur.
 
 ## Arıza giderme
 
