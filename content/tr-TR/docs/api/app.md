@@ -739,7 +739,7 @@ const exeName = path.basename(process.execPath)
   ### `app.commandLine.appendSwitch(switch[, value])`
   
   * `switch` String - Bir komut satırı anahtarı
-  * `value` String (optional) - A value for the given switch
+  * `value` String (optional) - Verilen anahtarda bir değer
   
   Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
   
@@ -747,11 +747,11 @@ const exeName = path.basename(process.execPath)
   
   ### `app.commandLine.appendArgument(value)`
   
-  * `value` String - The argument to append to the command line
+  * `value` String - Komut satırına eklenecek argüman
   
   Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
   
-  **Note:** This will not affect `process.argv`.
+  **Note:** bu etkilenmeyecek `process.argv`.
   
   ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
   
@@ -767,7 +767,7 @@ const exeName = path.basename(process.execPath)
   
   When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
   
-  Returns `Integer` an ID representing the request.
+  Returns `Integer` isteği temsil eden bir kimlik.
   
   ### `app.dock.cancelBounce(id)` *macOS*
   
