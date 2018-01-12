@@ -69,7 +69,7 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | jw       | Javanese                        |
 | ka       | Gürcüce                         |
 | kk       | Kazakça                         |
-| km       | Cambodian                       |
+| km       | Kamboçyalı                      |
 | kn       | Kannada                         |
 | ko       | Korece                          |
 | ku       | Kürtçe                          |
