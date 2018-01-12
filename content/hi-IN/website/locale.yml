@@ -137,3 +137,5 @@ _404:
   page_not_found: पेज नहीं मिला
   if_this_is_an_error: यदि यह कोई त्रुटि है
   please_file_an_issue: कृपया समस्या दर्ज करें ।
+search:
+  description: Search within Electron documentations and community.
