@@ -6,7 +6,7 @@ Electron için kodlama stili rehberleri.
 
 ## C++ and Python
 
-C++ ve Python için Chromium'un [Kodlama stili](http://www.chromium.org/developers/coding-style)'ni takip ediyoruz. C+++ kodlarını otomatik olarak formatlamak için clang-format</0 kullanabilirsiniz. Aynı zamanda `script/cpplint.py` betiği de tüm dosyalar buna uyuyuyor mu kontrol eder.</p> 
+C++ ve Python için Chromium'un [Kodlama stili](https://www.chromium.org/developers/coding-style)'ni takip ediyoruz. C+++ kodlarını otomatik olarak formatlamak için clang-format</0 kullanabilirsiniz. Aynı zamanda `script/cpplint.py` betiği de tüm dosyalar buna uyuyuyor mu kontrol eder.</p> 
 
 Şu an kullandığımız Python versiyonu 2.7.
 
@@ -14,7 +14,7 @@ C++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara hak
 
 ## JavaScript
 
-* [Standart](http://npm.im/standard) Javascript stilinde yazın.
+* [Standart](https://npm.im/standard) Javascript stilinde yazın.
 * Dosya isimleri `_` ile değil `-` ile birleştirilmeli, örneğin: `dosya_adi.js` yerine `dosya-adi.js`. Bunun sebebi [github/atom](https://github.com/github/atom) modül isimlerinin genelde `module-name` formunda olmasıdır. Bu kural sadece `.js` dosyalarında uygulanır.
 * Uygun olan yerlerde ES6/ES2015 sözdizimini kullanın 
   * require komutları ve sabitler için [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
