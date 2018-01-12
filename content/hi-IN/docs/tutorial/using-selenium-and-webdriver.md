@@ -107,8 +107,8 @@ driver.quit()
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+पोर्ट 9515 पर क्रोमड्राईवर (v2.10.291558) शुरू हो रहा है
+केवल लोकल कनेक्शनस को अनुमति है |
 ```
 
 पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
