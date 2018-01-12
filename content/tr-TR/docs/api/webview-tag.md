@@ -438,11 +438,11 @@ Odaklanılan öğeye `text`'i yerleştirir.
 
 * `text` Dizi - Aranacak içerik; boş olmamalıdır.
 * `seçenekler` Obje (isteğe bağlı) 
-  * `forward` Boolean - (isteğe bağlı) İleriye ya da geriye doğru aranırsa, varsayılan olarak `true` olur.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `forward` Boolean - (isteğe bağlı) İleriye ya da geriye doğru aranırsa, `true` varsayılan olur.
+  * `findNext` Boolean - (isteğe bağlı) İşlem ilk istek ya da devamı ise, `false` varsayılan olur.
+  * `matchCase` Boolean - (isteğe bağlı) Arama harfe duyarlı olmalıysa, `false` varsayılan olur.
+  * `wordStart` Boolean - (isteğe bağlı) Kelimelerin sadece başına bakılmalıysa, `false` varsayılan olur.
+  * `medialCapitalAsWordStart` Boolean - (isteğe bağlı) `wordStart` ile birleştirildiğinde, eşleşme büyük bir harfle başlayıp küçük harfle ya da harfsiz devam ediyorsa, kelimenin ortasındaki bir eşleşmeyi kabul eder. Accepts several other intra-word matches, defaults to `false`.
 
 Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başlatır ve istek için kullanılan istek kimlik numarasını temsil eden bir `Tamsayı` döndürür. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
