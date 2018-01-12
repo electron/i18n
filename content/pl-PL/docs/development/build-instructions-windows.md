@@ -13,11 +13,11 @@ Follow the guidelines below for building Electron on Windows.
 
 If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## Dostawanie kodu
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -40,7 +40,7 @@ Build both Release and Debug targets:
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Możesz również zbudować tylko cel debugowania:
 
 ```powershell
 $ python script\build.py -c D
@@ -56,7 +56,7 @@ To build for the 32bit target, you need to pass `--target_arch=ia32` when runnin
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Inne kroki budowania są dokładnie takie same.
 
 ## Visual Studio project
 
@@ -66,15 +66,15 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## Czyszczenie
 
-To clean the build files:
+Aby wyczyścić pliki kompilacji:
 
 ```powershell
-$ npm run clean
+$ npm działa bez problemu
 ```
 
-To clean only `out` and `dist` directories:
+Aby oczyścić tylko `z` i `dist`katalogów:
 
 ```sh
 $ npm run clean-build
@@ -82,21 +82,21 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## Testy
 
 See [Build System Overview: Tests](build-system-overview.md#tests)
 
 ## Rozwiązywanie problemów
 
-### Command xxxx not found
+### Komenda xxxx nie znaleziona
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Jeśli wystąpił bład taki ajk `Komenda xxxx nie znaleziona`, możesz spróbować użyć kompilacji skryptów za pomocą konsoli `Wiersza polecenia VS2015`.
 
-### Fatal internal compiler error: C1001
+### Błąd krytyczny wewnętrznego kompilatora: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Upewnij się, że masz zainstalowaną najnowszą aktualizację programu Visual Studio.
 
-### Assertion failed: ((handle))->activecnt >= 0
+### Potwierdzenie nie powiodło się: ((uchwyt))-> activecnt > = 0
 
 If building under Cygwin, you may see `bootstrap.py` failed with following error:
 
