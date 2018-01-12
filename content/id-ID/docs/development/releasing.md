@@ -55,7 +55,7 @@ Itu `persiapan-release` akan memicu pembuatan melalui panggilan API. Untuk meman
 
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) untuk Mac App Store
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) untuk OS X
-- [circleci.com/gh/electron](https://circleci.com/gh/electron) untuk Linux
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) untuk Windows
 
 ## Kompilasi catatan rilis
