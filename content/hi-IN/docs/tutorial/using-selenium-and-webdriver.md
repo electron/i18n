@@ -1,6 +1,6 @@
 # सेलेनियम और वेबड्राईवर का इस्तेमाल
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+[क्रोमड्राईवर - क्रोम के लिए वेबड्राईवर](https://sites.google.com/a/chromium.org/chromedriver/) से:
 
 > WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
 
