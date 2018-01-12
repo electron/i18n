@@ -36,7 +36,7 @@ npm install --platform=win32 electron
 
 If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Troubleshooting
+## समस्या निवारण
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
