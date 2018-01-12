@@ -15,7 +15,7 @@ See also [V8 Development](v8-development.md)
 
 # Rozwój Chromium z Electron
 
-It is possible to debug Chromium with Electron by passing `--build_debug_libcc` to the bootstrap script:
+Istnieje możliwość debugowania chromu z elektronów przez przekazanie `--build_debug_libcc` do skryptu bootstrap:
 
 ```sh
 $ ./script/bootstrap.py -d --build_debug_libcc
@@ -23,7 +23,7 @@ $ ./script/bootstrap.py -d --build_debug_libcc
 
 This will download and build libchromiumcontent locally, similarly to the `--build_release_libcc`, but it will create a shared library build of libchromiumcontent and won't strip any symbols, making it ideal for debugging.
 
-When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
+Podczas takiego, można wprowadzić zmiany do plików w `dostawcy/libchromiumcontent/src` i szybko odbudować z:
 
 ```sh
 $ ./script/build.py -c D --libcc
@@ -37,7 +37,7 @@ $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 
 Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. Kompilacja z ilością RAMu mniejszą niż 16GB nie jest zalecana.
 
-## Chromium git cache
+## Pamięć podręczna Chromium git
 
 `depot_tools` has an undocumented option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
 
