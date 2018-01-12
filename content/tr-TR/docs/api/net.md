@@ -15,7 +15,7 @@ The following is a non-exhaustive list of why you may consider using the `net` m
 
 The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Glecek örnek `net` API kullanımı hakkında bilgi verir:
 
 ```javascript
 const {app} = require('electron')
@@ -36,7 +36,7 @@ app.on('ready', () => {
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) Node.js modüllerini kullanım şeklinizle neredeyse aynı
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
