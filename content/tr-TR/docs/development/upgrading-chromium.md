@@ -2,7 +2,7 @@
 
 Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasviridir.
 
-- Libcc'yi yeni bir Chromium sürümüne yükseltin
+- libcc ürünü yeni bir Chromium sürümüne yükseltin
 - Electron kodunu yeni libcc ile uyumlu hale getirin
 - Gerekirse Electron bağımlılıklarını (crashpad, NodeJS, etc.) Güncelleyin
 - Libcc ve electronun iç yapılarını oluşturun
@@ -25,13 +25,13 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
 3. Klasör`*.patch` files in the `patches/` and `patches-mas/` düzenleme.
-4. (Tercihe bağlı) `komut/güncelleme` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
+4. (Tercihe bağlı) `script/update` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
   - İkinci bir senaryo var, `script/patch.py` that may be useful. Read `./script/patch.py -h` daha fazla bilgi için.
 5. Tüm yamalar hatasız uygulandığında derlemeyi çalıştırın 
   - `$ ./script/build`
   - Bazı yamalar Chromium kodu ile uyumlu değilse, Derleme hatalarını düzeltin.
 6. When the build succeeds, create a `dist` Electron hakkında 
-  - `$ ./script/create-dist  --no_zip` 
+  - `$ ./script/create-dist --no_zip` 
     - Libcc repo'nun kökünde bir ` dist /main ` klasörü oluşturacaktır. Electron'u oluşturmak için buna ihtiyacınız olacak.
 7. (İsteğe bağlı) Dosyalardan kaynaklanan hatalar varsa komut dosyası içeriğini güncelleyin kaldırıldı veya yeniden adlandırıldı. (`--no_zip` prevents script from create `dist` Arşivler. Bunlar gerekmez.)
 
@@ -86,13 +86,13 @@ Desteklenen tüm platformlarda Electron kodunu düzeltmek için yukarıdaki adı
 
 ## Hata yolu güncelleştiriliyor
 
-Hata yolu ile ilgili herhangi bir derleme hatası varsa, muhtemelen ayrılmayı yeni bir revizyonla güncellemeniz gerekir. Gör [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) Bunun nasıl yapılacağı ile ilgili talimatlar için.
+Hata yolu ile ilgili herhangi bir derleme hatası varsa, muhtemelen ayrılmayı yeni bir revizyonla güncellemeniz gerekir. Gör [Upgrading Crashpad](upgrading-crashpad.md) Bunun nasıl yapılacağı ile ilgili talimatlar için.
 
 ## NodeJS güncelleniyor
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
-See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
+See [Upgrading Node](upgrading-node.md) for instructions on this.
 
 ## Ffmpeg desteği doğrulama
 
