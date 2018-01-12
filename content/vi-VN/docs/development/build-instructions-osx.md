@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron on macOS.
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](https://nodejs.org) (external)
 
 If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
 
@@ -47,7 +47,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Xây dựng
+## Build
 
 Build both `Release` and `Debug` targets:
 
@@ -75,13 +75,13 @@ Electron can only be built for a 64bit target on macOS and there is no plan to s
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Để chỉ dọn thư mục `out` và `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Chú ý:** Cả hai lệnh dọn dẹp trên yêu cầu chạy `khởi tạo dự án` lại trước khi build.
 
 ## Các thử nghiệm
 
