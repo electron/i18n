@@ -31,7 +31,7 @@
   - `$ ./script/build`
   - If some patches are no longer compatible with the Chromium code, fix compilation errors.
 6. When the build succeeds, create a `dist` for Electron 
-  - `$ ./script/create-dist  --no_zip` 
+  - `$ ./script/create-dist --no_zip` 
     - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
 7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
 
@@ -86,13 +86,13 @@ Follow all the steps above to fix Electron code on all supported platforms.
 
 ## Обновление Crashpad
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
+If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
 
 ## Обновление NodeJS
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
-See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
+See [Upgrading Node](upgrading-node.md) for instructions on this.
 
 ## Проверка поддержки ffmpeg
 
