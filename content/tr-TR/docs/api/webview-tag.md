@@ -549,7 +549,7 @@ Dönüşler:
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+Bu etkinlik `did-finish-load` gibidir, fakat yükleme başarısız olduğunda veya iptal edildiğinde, örneğin: `window.stop()` çağrılır.
 
 ### Olay: 'did-frame-finish-load'
 
@@ -580,7 +580,7 @@ Dönüşler:
 * `headers` Nesne
 * `resourceType` Dize
 
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+İstenen bir kaynağın geçerli olduğuyla ilgili ayrıntılar geldiğinde tetiklenir. `status` kaynağı yüklemek için olan soket bağlantısını belirtir.
 
 ### Olay: 'did-get-redirect-request'
 
