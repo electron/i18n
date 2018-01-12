@@ -20,14 +20,14 @@ Windows y macOS brindan fácil acceso a una lista de documentos recientes abiert
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-Para añadir archivos a documento recientes, puede usar el API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows):
+To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-Y puede usar la API [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) para vaciar la lista de documentos recientes:
+And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
 
 ```javascript
 const {app} = require('electron')
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Notas de Windows
 
-Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. Puedes encontrar todo al registrar su aplicación en [Registro de solicitud](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Para poder usar esta característica en Windows, su aplicación debe ser registrado como un controlador del tipo de archivo del documento; de lo contrario, el archivo no aparecerá en JumpList incluso después de que usted lo haya agregado. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 Cuando un usuario hace clic en un archivo de JumpList, una nueva instancia de su aplicación se iniciará con la ruta del archivo agregado como un argumento de línea de comando.
 
@@ -80,7 +80,7 @@ En Windows, puede especificar acciones personalizadas en la categoría `Tareas` 
 
 **Tareas de Internet Explorer:**
 
-![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
+![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
 A diferencia del menú Dock en macOS, que es un menú real, las tareas de usuario en Windows funcionan como accesos directos a aplicaciones, de modo que cuando el usuario hace clic en una tarea, se ejecuta un programa con argumentos especificados.
 
@@ -123,7 +123,7 @@ Para MSDN, está ilustrado:
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-Usted puede usar [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) para configurar la barra de herramientas en miniatura en su aplicación:
+You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -195,7 +195,7 @@ En Windows un botón de la barra de tareas puede usar un pequeño encubrimiento 
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-Para configurar el encubrimiento de un ícono para una ventana tiene que usar el API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7):
+To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -230,7 +230,7 @@ You can also set the edited state of a window so that the file icon can indicate
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
 
 ```javascript
 const {BrowserWindow} = require('electron')
