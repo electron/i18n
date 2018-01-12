@@ -61,8 +61,8 @@ Bip sesini oynatın.
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
+* `operasyon` Dize (İsteğe bağlı) - Fabrika ayarları şu şekilde `oluştur`Sıradakilerden biri olabilir: 
+  * `create` - Yeni kısayol oluşturur, gereklisiyle üzerine kaydeder.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
