@@ -55,7 +55,7 @@ npm run prepare-release -- --stable
 
 - Mac App Store için [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity)
 - OS X için [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity)
-- Linux için [circleci.com/gh/electron](https://circleci.com/gh/electron)
+- Linux için [circleci.com/gh/electron/electron](https://circleci.com/gh/electron)
 - Windows için [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron)
 
 ## Sürüm notlarını derleyin
