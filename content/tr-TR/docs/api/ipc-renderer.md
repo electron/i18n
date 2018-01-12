@@ -14,21 +14,21 @@ The `ipcRenderer` module has the following method to listen for events and send 
 
 ### `ipcRenderer.on(channel, listener)`
 
-* `channel` String
+* `channel` Dizesi
 * `listener` Function
 
 Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
 
 ### `ipcRenderer.once(channel, listener)`
 
-* `channel` String
+* `channel` Dizesi
 * `listener` Function
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
-* `channel` String
+* `channel` Dizesi
 * `listener` Function
 
 Removes the specified `listener` from the listener array for the specified `channel`.
@@ -41,7 +41,7 @@ Removes all listeners, or those of the specified `channel`.
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
+* `channel` Dizesi
 * `...args` any[]
 
 Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
@@ -50,7 +50,7 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
+* `channel` Dizesi
 * `...args` any[]
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
@@ -63,7 +63,7 @@ The main process handles it by listening for `channel` with `ipcMain` module, an
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
+* `channel` Dizesi
 * `...args` any[]
 
 Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
