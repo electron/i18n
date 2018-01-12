@@ -96,9 +96,9 @@ driver.wait(() => {
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## वेबड्राईवरआईओ को सेटअप करना
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[वेबड्राईवरआईओ](http://webdriver.io/) वेब ड्राईवर के साथ परिक्षण करने के लिए एक नोड पैकेज प्रदान करता है |
 
 ### 1. क्रोमड्राईवर शुरू करें
 
@@ -113,19 +113,19 @@ Only local connections are allowed.
 
 पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
 
-### 2. Install WebdriverIO
+### 2. वेबड्राईवरआईओ इनस्टॉल करें
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. क्रोम ड्राईवर से जुड़ें
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
   host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  port: 9515, // "9515" क्रोम ड्राईवर द्वारा खोला गया पोर्ट है |
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
