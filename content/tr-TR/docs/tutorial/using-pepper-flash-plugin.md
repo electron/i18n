@@ -13,10 +13,10 @@ MacOS ve Linux'ta biber eklentisi Chrome tarayıcı içinde gezinmeden `chrome:/
 Örneğin:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
+const {app, BrowserWindow} = require('electron') 
+const path = require('path') 
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// Flash yolunu, main.js ile aynı rehberde olduğu takdirde belirle.
 let pluginName
 switch (process.platform) {
   case 'win32':
