@@ -1,10 +1,10 @@
 # Uso del plugin Flash Pepper
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Electron supporta il plugin Flash Pepper. Per utilizzare il plugin Flash Pepper in Electron, dovresti specificare manualmente la posizione del plugin Flash Pepper e poi abilitarlo nella tua applicazione.
 
-## Prepare a Copy of Flash Plugin
+## Prepara una copia del Plugin Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+Su macOS e Linux, i dettagli del plugin Flash Pepper possono essere trovati navigando a `chrome://plugins` nel browser Chrome. La sua posizione e versione sono utili per il supporto di Flash Pepper in Electron. È anche possibile copiarlo in un'altra posizione.
 
 ## Add Electron Switch
 
