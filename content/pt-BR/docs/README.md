@@ -57,6 +57,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 * [Estilo de Codificação](development/coding-style.md)
 * [Usando clang-format em código C++](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Estrutura de Diretório do Código Fonte](development/source-code-directory-structure.md)
 * [Diferentes Técnicas para o NW.js (formalmente node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Construir Resumo do Sistema](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Introdução de Depuração (Windows)](development/debug-instructions-windows.md)
 * [Configuração para servidor de símbolos no depurador](development/setting-up-symbol-server.md)
 * [Estilo da Documentação](styleguide.md)
-* [Atualizando o Chrome](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Desenvolvimento do Chromium](development/chromium-development.md)
 * [V8 Desenvolvimento](development/v8-development.md)
