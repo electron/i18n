@@ -83,12 +83,11 @@ Bu sorunu önlemek için, ana işleme aktarılan işleyici geri çağırımları
 
 ## Accessing built-in modules in the main process
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Ana işlemdeki konulmuş modüller `remote` içinde alıcı olarak bulunur, bu sayede sizde direk `electron</0 modülündeki gibi kullanabilirsiniz.</p>
 
-```javascript
-const app = require('electron').remote.app
+<pre><code class="javascript">const app = require('electron').remote.app
 console.log(app)
-```
+`</pre> 
 
 ## Metodlar
 
