@@ -6,7 +6,7 @@
 
 * Как минимум 25 ГБ дискового пространства и 8 ГБ памяти.
 * Python 2.7.x. Некоторые дистрибутивы, такие как CentOS 6.x, по-прежнему используют Python 2.6.x, поэтому вам нужно проверить версию Python командой `python -V`.
-* Node.js. Существует несколько способов установить Node. Вы можете скачать исходный код с [nodejs.org](http://nodejs.org) и скомпилировать его. Doing so permits installing Node on your own home directory as a standard user. Или используйте такие репозитории как [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Существует несколько способов установить Node. Вы можете скачать исходный код с [nodejs.org](https://nodejs.org) и скомпилировать его. Doing so permits installing Node on your own home directory as a standard user. Или используйте такие репозитории как [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 или выше.
 * Заголовочные файлы от GTK+ и libnotify.
 
