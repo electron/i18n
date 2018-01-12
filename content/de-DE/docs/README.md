@@ -15,7 +15,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [Veröffentlichung der Anwendung](tutorial/application-distribution.md)
 * [Veröffentlichung im Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Veröffentlichung im Windows Store](tutorial/windows-store-guide.md)
-* [Anwendungspakete](tutorial/application-packaging.md)
+* [Anwendungspakete erstellen](tutorial/application-packaging.md)
 * [Verwendung von Native Node Modules](tutorial/using-native-node-modules.md)
 * [Debugging des Hauptprozesses](tutorial/debugging-main-process.md)
 * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
@@ -51,12 +51,13 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 ### Module für den Hauptprozess:
 
 * [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
+* [automatischerUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menü](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -66,7 +67,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [protocol](api/protocol.md)
 * [session](api/session.md)
 * [systemPreferences](api/system-preferences.md)
-* [Tray](api/tray.md)
+* [Fach](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### Module für den Renderer-Prozess (Webseite):
@@ -88,6 +89,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 
 * [Coding Style](development/coding-style.md)
 * [clang-format im C++ Code verwenden](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Struktur des Quellcode-Verzeichnisses](development/source-code-directory-structure.md)
 * [Technische Unterschiede zum NW.js (ehemals node-Webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Übersicht](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [Debug Anweisungen (Windows)](development/debug-instructions-windows.md)
 * [Einen Symbol-Server im Debugger einrichten](development/setting-up-symbol-server.md)
 * [Gestaltungsrichtlinien für die Dokumentation](styleguide.md)
-* [Chrome aktualisieren](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Chromium-Entwicklung](development/chromium-development.md)
 * [V8 Entwicklung](development/v8-development.md)
