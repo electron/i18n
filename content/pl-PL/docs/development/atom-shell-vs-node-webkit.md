@@ -1,14 +1,14 @@
-# Technical Differences Between Electron and NW.js (formerly node-webkit)
+# Techniczne różnice pomiędzy elektronami i NW.js (dawniej węzłami-webkit)
 
-**Note: Electron was previously named Atom Shell.**
+**Uwaga: Electron wcześniej nosił Atom powłoki.**
 
 Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+Ale istnieją również zasadnicze różnice między dwa projekty, które sprawiają, że elektron jest całkowicie oddzielnym produktem od NW.js:
 
-**1. Entry of Application**
+**1. wpis aplikacji**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+W NW.js punkt wejścia głównego aplikacji to strona sieci web lub skrypt JS. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
 
 In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
 
