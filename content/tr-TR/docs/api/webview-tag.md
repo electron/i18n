@@ -186,7 +186,7 @@ Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dı
 
 Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
 
-The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
+Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url yüklendiğinde yeni bir webContents oluşturacaktır.
 
 ### `disableguestresize`
 
@@ -813,16 +813,16 @@ Dönüşler:
 
 * `url` Dize
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 
-### Event: 'devtools-opened'
+### Olay: devtools açıldı
 
 DevTools açıldığında yayınla.
 
-### Event: 'devtools-closed'
+### Olay: devtools kapandı
 
 DevTools kapandığında ortaya çıkar.
 
-### Event: 'devtools-focused'
+### Olay: devtools odaklanıldı
 
 DevTools odaklandığında / açıldığında ortaya çıkar.
