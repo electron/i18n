@@ -137,3 +137,5 @@ _404:
   page_not_found: 页面找不到了。
   if_this_is_an_error: 如果这是个错误
   please_file_an_issue: 请发一个issue
+search:
+  description: Search within Electron documentations and community.
