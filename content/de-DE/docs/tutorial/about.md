@@ -26,7 +26,7 @@ In Electron teilen sich Node.js und Chromium eine eine einzelne V8-Instanz - üb
 
 ### Versionierung
 
-Seit Version 2.0 folgt Electron den Regeln des [`semver`](http://semver.org) (Semantic Versioning). Für die meisten Anwendungen und die aktuelle Version von npm sollte `$ npm install electron` genügen.
+As of version 2.0 Electron [follows `semver`](https://semver.org). Für die meisten Anwendungen und die aktuelle Version von npm sollte `$ npm install electron` genügen.
 
 Der Updateprozess ist in unser [Versionierungs-Dokumentation](electron-versioning.md) detailliert beschrieben.
 
@@ -48,11 +48,11 @@ Neu zu Electron hinzugefügte Funktionen sollten in erste Linie systemeigene API
 
 Im folgenden finden Sie die Meilensteine in der Entwicklungsgeschichte Electrons.
 
-| :calendar:      | :tada:                                                                                                                                   |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Das Grundgerüst für Atom wird gestartet](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).         |
-| **Mai 2014**    | [Das Grundgerüst Atoms wird unter einer Open-Source-Lizenz veröffentlicht](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html). |
-| **April 2015**  | [Das Grundgerüst Atoms wird in Electron umbenannt](https://github.com/electron/electron/pull/1389).                                      |
-| **Mai 2016**    | [Electron veröffentlicht `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                            |
-| **Mai 2016**    | [Electron-Apps werden mit dem Mac App Store kompatibel](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide).            |
-| **August 2016** | [Windows Store unterstützt Electron-Apps](https://electronjs.org/docs/tutorial/windows-store-guide).                                     |
+| :calendar:      | :tada:                                                                                                                           |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **April 2013**  | [Das Grundgerüst für Atom wird gestartet](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Mai 2014**    | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                      |
+| **April 2015**  | [Das Grundgerüst Atoms wird in Electron umbenannt](https://github.com/electron/electron/pull/1389).                              |
+| **Mai 2016**    | [Electron veröffentlicht `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                    |
+| **Mai 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                                                |
+| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                                               |
