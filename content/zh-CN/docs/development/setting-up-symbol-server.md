@@ -1,6 +1,6 @@
 # 在调试器中设置 Symbol 服务器
 
-调试 symbols 让你能更好的调试 sessions. 它们有可执行的动态库的函数信息，并且提供信息来获得干净的调用堆栈. 一个 Symbol 服务器允许调试器自动加载正确的 symbols, 二进制文件 和 资源文件，不用再去强制用户下载巨大的调试文件. 服务器函数类似 [Microsoft's symbol server](http://support.microsoft.com/kb/311503)，所以这些文档是可以使用的。
+调试 symbols 让你能更好的调试 sessions. 它们有可执行的动态库的函数信息，并且提供信息来获得干净的调用堆栈. 一个 Symbol 服务器允许调试器自动加载正确的 symbols, 二进制文件 和 资源文件，不用再去强制用户下载巨大的调试文件. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
 注意，因为公众版本的 Electron 构建是最优化的，调试不一定一直简单. 调试器将不会给显示出所有变量内容，并且因为内联，尾调用，和其它编译器优化，执行路径会看起来很怪异. 唯一的解决办法是搭建一个不优化的本地构建.
 
@@ -17,7 +17,7 @@ SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 使用 Windbg 菜单或通过输入 `.sympath` 命令，在环境中设置一个 `_NT_SYMBOL_PATH` 字符串. 如果你也想从微软的 symbol 服务器获得 symbols ，你应当首先将它们先列出来:
 
 ```powershell
-SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
 ## 在 Visual Studio 中使用 symbol 服务器
