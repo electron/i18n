@@ -129,8 +129,8 @@ const options = {
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // आपकी इलेक्ट्रॉन बाइनरी तक पथ |
+      args: [/* cli arguments */]           // वैकल्पिक, शायद 'app=' + /path/to/your/app/
     }
   }
 }
@@ -148,8 +148,8 @@ client
   .end()
 ```
 
-## Workflow
+## वर्कफ्लो
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+इलेक्ट्रॉन का पुनर्निर्माण करे बिना अपनी एप्लीकेशन का परिक्षण करने के लिए, एप्प स्त्रोत को इलेक्ट्रॉन की रिसोर्स डायरेक्टरी में [रखें](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) |
 
 Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
