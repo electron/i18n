@@ -1,6 +1,6 @@
 ## Class: TouchBarGroup
 
-> Create a group in the touch bar for native macOS applications
+> Yerel Macos uygulamaları için dokunma çubuğunda bir grup oluşturun
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
