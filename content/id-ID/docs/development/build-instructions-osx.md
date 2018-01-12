@@ -1,4 +1,4 @@
-# Membangun petunjuk (Linux)
+# Membangun petunjuk (macOS)
 
 Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
@@ -6,7 +6,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
 - macOS > = 10.11.6
 - [@googlechrome](https://developer.apple.com/technologies/tools/) pada Twitter
-- [node.js](http://nodejs.org) untuk Linux)
+- [node.js](https://nodejs.org) untuk Linux)
 
 Jika Anda menggunakan Python yang didownload oleh Homebrew, Anda juga perlu menginstal modul Python berikut ini:
 
@@ -40,7 +40,7 @@ $ git klon https://github.com/electron/electron
 
 ## Bootstrapping
 
-Skrip bootstrap akan men-download semua dependensi diperlukan membangun dan menciptakan membangun project file. Perhatikan bahwa kita menggunakan  ninja </ 0> untuk membangun Elektron sehingga tidak ada proyek Xcode yang dihasilkan.</p> 
+Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Perhatikan bahwa kita menggunakan  ninja </ 0> untuk membangun Elektron sehingga tidak ada proyek Xcode yang dihasilkan.</p> 
 
 ```sh
 $ cd elektron
@@ -58,7 +58,7 @@ $ ./script/build.py
 Anda juga dapat membangun target ` Debug ` saja:
 
 ```sh
-$ ./script/build.py -c R
+$ ./script/build.py
 ```
 
 Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
@@ -69,7 +69,7 @@ Elektron hanya bisa dibangun untuk target 64bit pada macOS dan tidak ada rencana
 
 ## Membersihkan
 
-Untuk membersihkan bangunan file:
+Untuk membersihkan membangun file:
 
 ```sh
 $ npm bersih
@@ -78,11 +78,11 @@ $ npm bersih
 Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
-$ npm berjalan bersih-bangun
+$ npm bersih
 ```
 
 **Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
 
-## Coba
+## Uji
 
 Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
