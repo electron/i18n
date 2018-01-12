@@ -357,7 +357,7 @@ Returns `Boolean` - Misafir sayfasına DevTools penceresi sabitlenmişse.
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Whether DevTools window of guest page is focused.
+Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığında.
 
 ### `<webview>.inspectElement(x, y)`
 
