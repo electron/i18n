@@ -1,6 +1,6 @@
 # Barrierefreiheit
 
-Allgemein zugängliche Anwendungen zu erstellen ist wichtig, und wir sind glücklich Ihnen neue Funktionen in [Devtron](https://electron.atom.io/devtron) und [Spectron](https://electron.atom.io/spectron) vorstellen zu können, die Entwicklern die Möglichkeit geben bessere Apps für jedermann zu erstellen.
+Allgemein zugängliche Anwendungen zu erstellen ist wichtig, und wir sind glücklich Ihnen neue Funktionen in [Devtron](https://electronjs.org/devtron) und [Spectron](https://electronjs.org/spectron) vorstellen zu können, die Entwicklern die Möglichkeit geben bessere Apps für jedermann zu erstellen.
 
 * * *
 
@@ -38,7 +38,7 @@ Electron-Apps lassen Barrierefreiheit aus Gründen der Performance standardmäß
 
 ### Innerhalb der Anwendung
 
-Durch das Verwenden von [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) können Sie die Einstellung der Barrierefreiheit in Ihrer App dem Nutzer überlassen. Die Assistenten des Betriebssystems für erleichterte Bedienung haben Priorität gegenüber dieser Einstellung und überschreiben diese.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. Die Assistenten des Betriebssystems für erleichterte Bedienung haben Priorität gegenüber dieser Einstellung und überschreiben diese.
 
 ### Unterstützende Technologien
 
