@@ -38,9 +38,9 @@ Uma atualização principal vem o número de versão `1.0.0`. Se você ainda nã
 
 ## Filosofia Básica
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Para manter Electron pequeno (tamanho de arquivo) e sustentável (a disseminação de dependências e APIs), o projeto limita o escopo do núcleo do projeto.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Por exemplo, Electron usa apenas a biblioteca de renderização do Chromium ao invés do Chromium todo. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
 
 New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
