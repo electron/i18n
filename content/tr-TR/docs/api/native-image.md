@@ -139,7 +139,7 @@ console.log(image)
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Örnek yöntemleri
 
