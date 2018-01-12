@@ -238,7 +238,7 @@ Retourne :
 
 Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeunload` et `unload` du DOM. Appeller `event.preventDefault()` annulera la fermeture.
 
-Normalement, vous voudriez utiliser le gestionaire `beforeunload` pour décider si une fenêtre doit être fermée, ce qui sera aussi appelé lorsque la fenêtre est rechargée. In Electron, returning any value other than `undefined` would cancel the close. Par exemple :
+Normalement, vous voudriez utiliser le gestionaire `beforeunload` pour décider si une fenêtre doit être fermée, ce qui sera aussi appelé lorsque la fenêtre est rechargée. Dans Electron, n'importe quelle valeur retournée autre que `undefined` annulera la fermeture. Par exemple :
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -254,11 +254,11 @@ window.onbeforeunload = (e) => {
 
 #### Événement : 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Émis lorsque la fenêtre est fermée. Après avoir reçu cet évenement, vous devriez enlever la référence à la fenêtre et éviter de l'utiliser à nouveau.
 
 #### Événement : 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Émis lorsque la session va se terminer à cause d'une redémarage, un éteignage forcé ou une déconnexion.
 
 #### Événement : 'unresponsive'
 
@@ -286,7 +286,7 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### Événement : 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Émis lorsque la page web à été chargée (tout en n'était pas affichée) et la fenêtre peut être affichée sans flash visuel.
 
 #### Événement : 'maximize'
 
