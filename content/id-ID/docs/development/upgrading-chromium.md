@@ -31,7 +31,7 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
   - `$ ./script/membangun`
   - Jika beberapa tambalan tidak lagi kompatibel dengan kode Chromium, perbaiki kesalahan kompilasi.
 6. Saat build berhasil, buat a `dist` untuk Elektron 
-  - `$ ./script/membuat-dist --tidak ada-zip` 
+  - `$ ./script/create-dist --no_zip` 
     - Ini akan membuat folder `dist/main` di akar repo libcc. Anda akan membutuhkan ini untuk membangun Elektron.
 7. (Opsional) Memperbarui konten script jika terjadi kesalahan akibat berkas  yang telah dihapus atau diganti namanya. (`--no_zip` mencegah skrip membuat `dist`  arsip. Anda tidak membutuhkannya.)
 
@@ -86,13 +86,13 @@ Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform 
 
 ## Memperbarui Crashpad
 
-Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. Lihat [Upgrade Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) untuk petunjuk bagaimana melakukan itu.
+Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
 
 ## Memperbarui NodeJS
 
 Meningkatkan `vendor/node` ke rilis Node yang sesuai dengan versi v8 digunakan dalam rilis kromium baru. Lihat versi v8 di Node aktif
 
-Lihat [Upgrade Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) untuk petunjuk tentang ini.
+See [Upgrading Node](upgrading-node.md) for instructions on this.
 
 ## Verifikasi dukungan ffmpeg
 
