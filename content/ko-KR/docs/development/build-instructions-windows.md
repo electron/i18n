@@ -7,7 +7,7 @@
 * Windows 7 / Server 2008 R2 또는 최신 버전
 * Visual Studio 2015 Update 3 - [VS 2015 커뮤니티 에디션 무료 다운로드](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * `symstore.exe`는 `.pdb` 파일에서 심볼 저장소를 만드는 데 사용되므로 전체 배포판을 만들 계획이라면 [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx)를 다운로드 합니다.
 
@@ -127,7 +127,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-간단하게 해당 디렉터리를 생성하면 [문제가 해결될 겁니다](http://stackoverflow.com/a/25095327/102704):
+간단하게 해당 디렉터리를 생성하면 [문제가 해결될 겁니다](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
