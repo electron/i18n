@@ -40,13 +40,13 @@ Uma atualização principal vem o número de versão `1.0.0`. Se você ainda nã
 
 Para manter Electron pequeno (tamanho de arquivo) e sustentável (a disseminação de dependências e APIs), o projeto limita o escopo do núcleo do projeto.
 
-Por exemplo, Electron usa apenas a biblioteca de renderização do Chromium ao invés do Chromium todo. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Por exemplo, Electron usa apenas a biblioteca de renderização do Chromium ao invés do Chromium todo. Isso torna mais fácil atualizar o Chromium mas também significa que algumas características do browser encontradas no Google Chromium não existem no Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Novas características adicionados ao Electron poderiam ser primariamente APIs nativas. Se uma característica pode ser um módulo Node.js, ele provavelmente será. Veja as [ferramentas do Electron criadas pela comunidade](https://electronjs.org/community).
 
-## History
+## História
 
-Below are milestones in Electron's history.
+Abaixo estão marcos na história do Electron.
 
 | :calendar:         | :tada:                                                                                                                  |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
