@@ -193,7 +193,7 @@ Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
-#### Event: 'will-prevent-unload'
+#### Olay: 'will-prevent-unload'
 
 Dönüşler:
 
@@ -245,7 +245,7 @@ Bir eklenti işlemi çöktüğünde ortaya çıkar.
 
 `webContents` imha edildiğinde ortaya çıkar.
 
-#### Event: 'before-input-event'
+#### Olay: 'before-input-event'
 
 Dönüşler:
 
@@ -379,7 +379,7 @@ Dönüşler:
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 
-#### Event: 'cursor-changed'
+#### Olay: 'cursor-changed'
 
 Dönüşler:
 
@@ -426,13 +426,13 @@ Dönüşler:
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
   * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+    * `canUndo` Boolean - Renderi alanın geri almasına inanması.
+    * `canRedo` Boolean - Renderi alanın tekrar yapılmasına inanması.
+    * `canCut` Boolean - Renderi alanın kesilmesine inanması.
+    * `canCopy` Boolean - Renderi alanın kopyalanmasına inanması
+    * `canPaste` Boolean - Renderi alanın yapıştırmaya inanması.
+    * `canDelete` Boolean - Renderi alanın silinmesine inanması.
+    * `canSelectAll` Boolean - Renderi alanın hepsinin seçilmesine inanması.
 
 Emitted when there is a new context menu that needs to be handled.
 
@@ -703,28 +703,28 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 * `geri arama` Fonksiyon 
   * `zoomLevel` Number
 
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Mevcut yakınlaştırma seviyesini talep et, `callback`, `callback(zoomLevel)` ile çağrılacaktır.
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Numara
+* `maximumLevel` Numara
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Deprecated:** Çağrı `setVisualZoomLevelLimits` yerine görsel yakınlastırma seviyelerini belirle. Bu yöntem Electron 2.0'da kaldırılacaktır.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Numara
+* `maximumLevel` Numara
 
 Azami ve minimum tutam-zum seviyesini belirtir.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Numara
+* `maximumLevel` Numara
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Maksimum ve minimum dizilim (Örn. Görsel olmayan) yakınlaştırma düzeyini belirler.
 
 #### `contents.undo()`
 
@@ -789,7 +789,7 @@ Inserts `text` to the focused element.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` Dize - Araştırılacak içerik boş olamaz.
 * `ayarlar` Obje (isteğe bağlı) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
