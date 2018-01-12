@@ -24,9 +24,9 @@ Node.js'nin yeni bir sürümü piyasaya çıktığında, Electron genellikle dah
 
 Electron'da, Node.js ve Chromium tek bir V8 örneğini paylaşıyor-genellikle Chromium'un kullandığı sürüm. Çoğu zaman, bu *işe yarıyor* ancak bazen Node.js'ye yama yapmak anlamına geliyor.
 
-### Sürüm
+### Versiyonlama
 
-2.0 sürümünden itibaren Electron [`semver`'i takip eder](http://semver.org). Çoğu uygulama için ve npm'nin son sürümünü kullandığınızda, `$ npm install electron` doğru şeyi yapacaktır.
+2.0 sürümünden itibaren Electron [`semver`'i takip eder](https://semver.org). Çoğu uygulama için ve npm'nin son sürümünü kullandığınızda, `$ npm install electron` doğru şeyi yapacaktır.
 
 Versiyon güncelleme işlemi [Versiyon Dökümanında](electron-versioning.md) detaylı bir şekilde açıklanmaktadır.
 
@@ -48,11 +48,11 @@ Electron'a eklenen yeni özellikler esas olarak yerel API'ler olmalıdır. Bir �
 
 Electron tarihçesinin kilometre taşları aşağıdadır.
 
-| Takvim:          | :tada:                                                                                                                                        |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Nisan 2013**   | [Atom Shell başlatıldı](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).                                |
-| **Mayıs 2014**   | [Atom Shell açık kaynaklı oldu](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                                 |
-| **Nisan 2015**   | [Atom Shell'in ismi Electron olarak değişti](https://github.com/electron/electron/pull/1389).                                                 |
-| **Mayıs 2016**   | [Electron `v1.0.0` sürümü yayınlandı](https://electronjs.org/blog/electron-1-0).                                                              |
-| **Mayıs 2016**   | [Electron uygulamaları Mac Uygulama Mağazası'yla uyumlu hale getirildi](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **Ağustos 2016** | [Electron uygulamaları için Windows Mağaza desteği](https://electronjs.org/docs/tutorial/windows-store-guide).                                |
+| Takvim:          | :tada:                                                                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Nisan 2013**   | [Atom Shell başlatıldı](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Mayıs 2014**   | [Atom Shell açık kaynaklı oldu](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                 |
+| **Nisan 2015**   | [Atom Shell'in ismi Electron olarak değişti](https://github.com/electron/electron/pull/1389).                  |
+| **Mayıs 2016**   | [Electron `v1.0.0` sürümü yayınlandı](https://electronjs.org/blog/electron-1-0).                               |
+| **Mayıs 2016**   | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
+| **Ağustos 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
