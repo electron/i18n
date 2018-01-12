@@ -31,7 +31,7 @@ Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu blokların
 
 **Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
+For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. Bundan sonra `prevent-app-suspension` kullanılır.
 
 ### `powerSaveBlocker.stop(id)`
 
