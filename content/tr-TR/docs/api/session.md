@@ -113,7 +113,7 @@ Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Nesne 
+* `konfigurasyon` Nesne 
   * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
   * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
@@ -220,7 +220,7 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
     * `certificate` [sertifika](structures/certificate.md)
     * `hata` Metin - Chromium doğrulama sonucu.
   * `geri arama` Fonksiyon 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
+    * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
       * `` - Başarıyı belirtir ve Sertifika Şeffaflık doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
@@ -245,13 +245,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri arama` Fonksiyon 
     * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Sets the handler which can be used to respond to permission requests for the `session`. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder.
+Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder.
 
 ```javascript
 const {session} = require('electron')
