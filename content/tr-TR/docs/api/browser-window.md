@@ -639,7 +639,7 @@ Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `wid
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+`Integer[]` Geri alır - Windowsun müşteri alanı boyu ve genişliği.
 
 #### `win.setMinimumSize(width, height)`
 
@@ -954,11 +954,11 @@ On Windows and Linux always returns `true`.
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Returns `Boolean` - Tuşların başarılı bir şekilde eklenmesi veya eklenmemesi
 
 Görev çubuğu düğmesi üzerinde olan pencerenin küçük resim görüntüsüne belirli düğmeler kümesi içeren bir minik resim araç çubuğu ekleyin. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
-Alan kısıtlamaları nedeniyle, minik resim araç çubuğundaki düğmelerin sayısı 7'yi geçmemelidir. Küçük resim araç çubuğunu kurduktan sonra araç çubuğu platformun sınırlaması sebebiyle kaldırılamamaktadır. But you can call the API with an empty array to clean the buttons.
+Alan kısıtlamaları nedeniyle, minik resim araç çubuğundaki düğmelerin sayısı 7'yi geçmemelidir. Küçük resim araç çubuğunu kurduktan sonra araç çubuğu platformun sınırlaması sebebiyle kaldırılamamaktadır. Ama API boş bir dizinle tuşları temizleyebilir.
 
 `buttons`, `Button` nesnelerinin dizilişidir:
 
