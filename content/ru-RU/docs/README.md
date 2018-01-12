@@ -57,6 +57,7 @@
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -87,7 +88,8 @@
 ## Разработка
 
 * [Стиль кода](development/coding-style.md)
-* [Использование clang-format на C++ коде](development/clang-format.md)
+* [Использование clang-format для кода на C++](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Структура каталога с исходным кодом](development/source-code-directory-structure.md)
 * [Технические отличия от NW.js (ранее node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Обзор системы сборки](development/build-system-overview.md)
@@ -98,6 +100,6 @@
 * [Инструкции по отладке (Windows)](development/debug-instructions-windows.md)
 * [Настройка сервера символов в отладчике](development/setting-up-symbol-server.md)
 * [Руководство по написанию документации](styleguide.md)
-* [Обновление Chrome](development/upgrading-chrome.md)
+* [Обновление Chromium](development/upgrading-chromium.md)
 * [Разработка Chromium](development/chromium-development.md)
 * [Разработка V8](development/v8-development.md)
