@@ -49,7 +49,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Lưu ý, biến số thứ ba `true` có nghĩa là listener sẽ luôn nhận được giá trị của nút đã nhấn trước khi các listener khác `stopPropagation()` nó.
 
-Sự kiện [`before-input-event`](web-contents.md#event-before-input-event) diễn ra trước khi các sự kiện `keydown` và `keyup` trên trang. Nó có thể được sử dụng để nắm bắt và xử lý các tùy chỉnh phím tắt không được hiển thị trong trình đơn.
+The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Nó có thể được sử dụng để nắm bắt và xử lý các tùy chỉnh phím tắt không được hiển thị trong trình đơn.
 
 Nếu bạn không muốn làm ra một hướng dẫn sử dụng phím tắt mà không có sẳn trong thư viện thì bạn phải làm các phát hiện sự kiện chủ chốt như một [bẫy chuột](https://github.com/ccampbell/mousetrap).
 
