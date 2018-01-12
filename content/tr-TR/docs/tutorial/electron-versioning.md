@@ -47,7 +47,7 @@ Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, 
     * node.js ana sürüm güncellemeleri
     * Elektron API kırma değişiklikleri
 * **Küçük Versiyon Artımları** 
-    * node.js küçük sürüm güncellemeleri
+    * node.js minor version updates
     * Elektron kırılmaz API değişiklikleri
 * **Yama Sürümü Artımları** 
     * node.js yama sürümü güncelleştirmeleri
@@ -72,7 +72,7 @@ Eski satırlar GitHub tarafından desteklenmeyecek, ancak diğer gruplar kendi k
 
 Geliştiriciler hangi sürümlerin *güvenli* olacağını bilmek istiyor. Görünüşte masum özellikler bile karmaşık uygulamalarda gerileme yaratabilir. Aynı zamanda sabit bir sürüme kilitleme tehlikelidir, çünkü sürümünüzden bu yana çıkan güvenlik yamalarını ve hata düzeltmelerini görmezden geliyorsunuzdur. Amacımız `package.json`'da aşağıdaki standart semver aralıklarına izin vermektir:
 
-* `2.0.0` sürümünüze yalnızca kararlılık veya güvenlikle ilgili düzeltmeler kabul etmek için `-2.0.0` kullanın.
+* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
 
 İkinci nokta ile ilgili önemli olan ` ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. Bunu gerçekleştirmek için Semver, belirli bir sürümün henüz <em>güvenli</em> veya <em>kararlı</em> olmadığını belirtmek için <em>yayın öncesi tanımlayıcıya</em> izin verir.</p>
@@ -101,9 +101,8 @@ Her büyük ve küçük darbe için, aşağıdakiler gibi bir şey beklemelisini
 
 Resimlerdeki bir yaşam döngüsü:
 
-* En son özellik setini içeren yeni bir sürüm şubesi oluşturuldu. ` 2.0.0-beta.1 </ 0> olarak yayınlandı.
-<img src="../images/versioning-sketch-3.png" alt="" /></li>
-<li>Paketin sürüm şemasına aktarılan bir hata düzelme uzmana gelir, Düzeltme eki uygulanır ve yeni bir beta sürümü şu şeklide yayınlanır <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+* Paketin sürüm şemasına aktarılan bir hata düzelme uzmana gelir, Düzeltme eki uygulanır ve yeni bir beta sürümü şu şeklide yayınlanır `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * Beta *genellikle kararlı* olarak kabul edilir ve `2.0.0` altında tekrar beta olmayan olarak yayınlanır. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
