@@ -178,7 +178,7 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 * `geri arama` Fonksiyon 
   * `proxy` String
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+`url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
 
 #### `ses.setDownloadPath(path)`
 
