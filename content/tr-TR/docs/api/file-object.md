@@ -8,7 +8,7 @@ Uygulamaya sürüklenen bir dosyanın gerçek yolunu alma örneği:
 
 ```html
 <div id="holder">
-  Drag your file here
+  Dosyanızı buraya sürükleyin.
 </div>
 
 <script>
@@ -17,7 +17,7 @@ Uygulamaya sürüklenen bir dosyanın gerçek yolunu alma örneği:
     e.stopPropagation();
 
     for (let f of e.dataTransfer.files) {
-      console.log('File(s) you dragged here: ', f.path)
+      console.log('Sürüklediğiniz dosya(lar): ', f.path)
     }
   });
   document.addEventListener('dragover', function (e) {
