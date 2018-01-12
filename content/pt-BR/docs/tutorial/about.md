@@ -26,7 +26,7 @@ No Electron, Node.js e Chromium compartilham uma única instância V8 — normal
 
 ### Controle de Versão
 
-A partir da versão 2.0, Electron [segue `semver`](http://semver.org). Para a maioria das aplicações, e usando qualquer versão recente do npm, executar `$ npm install electron` fará a coisa certa.
+A partir da versão 2.0, Electron [segue `semver`](https://semver.org). Para a maioria das aplicações, e usando qualquer versão recente do npm, executar `$ npm install electron` fará a coisa certa.
 
 O processo de atualização de versão é detalhado explicitamente em nosso [Documento de Versionamento](electron-versioning.md).
 
@@ -48,11 +48,11 @@ Novas características adicionados ao Electron poderiam ser primariamente APIs n
 
 Abaixo estão marcos na história do Electron.
 
-| :calendar:         | :tada:                                                                                                                  |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| **Abril 2013**     | [Atom Shell é iniciado](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).          |
-| **Maio de 2014**   | [Atom Shell tem código fonte aberto](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                      |
-| **Abril de 2015**  | [Atom Shell é renomeado para Electron](https://github.com/electron/electron/pull/1389).                                 |
-| **Maio de 2016**   | [Electron versão `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                   |
-| **Maio de 2016**   | [Electron apps são compatíveis com Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide). |
-| **Agosto de 2016** | [Electron apps são compatíveis com Windows Store](https://electronjs.org/docs/tutorial/windows-store-guide).            |
+| :calendar:         | :tada:                                                                                                         |
+| ------------------ | -------------------------------------------------------------------------------------------------------------- |
+| **Abril 2013**     | [Atom Shell é iniciado](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Maio de 2014**   | [Atom Shell tem código fonte aberto](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).            |
+| **Abril de 2015**  | [Atom Shell é renomeado para Electron](https://github.com/electron/electron/pull/1389).                        |
+| **Maio de 2016**   | [Electron versão `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                          |
+| **Maio de 2016**   | [Electron apps são compatíveis com Mac App Store](mac-app-store-submission-guide.md).                          |
+| **Agosto de 2016** | [Electron apps são compatíveis com Windows Store](windows-store-guide.md).                                     |
