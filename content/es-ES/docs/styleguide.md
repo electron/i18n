@@ -140,10 +140,10 @@ Usando las clases `Session` y `Cookies` como ejemplo:
 El capítulo de métodos debe estar de la siguiente forma:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
+### `objectName.methodName(requiere[, opcional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
+* `requiere`Cuerda - Una descripción del parámetro.  
+*`opcional` Entero (opcional) - Otra descripción del parámetro. 
 
 ...
 ```
