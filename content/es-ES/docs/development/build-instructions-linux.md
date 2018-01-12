@@ -1,16 +1,16 @@
 # Instrucciones para compilación (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Siga las indicaciones a continuación para construir Electron en Linux.
 
-## Prerequisites
+## Pre-requisitos
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](http://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* Al menos 25GB de espacio de disco y 8GB de RAM.
+* Python 2.7.x. Algunas distribuciones como CentOS 6.x. aún usan Python 2.6.x, así que quizá necesitarás revisar tu versión de Python con `python -V`.
+* Node.js. Existen muchas maneras de instalar Node. Puedes descargar el código de fuente de [nodejs.org](http://nodejs.org) y compilarlo. Hacerlo permite instalar Node en el directorio de tu propia casa como un usuario estándar. O intenta repositorios como [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 o luego.
+* Jefes de desarrollo de GTK+ y libnotify.
 
-On Ubuntu, install the following libraries:
+En Ubuntu, instala las siguientes librerías: 
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+En RHEL / CentOS, instala las siguientes librerías:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
