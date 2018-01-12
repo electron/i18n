@@ -2,9 +2,9 @@
 
 [क्रोमड्राईवर - क्रोम के लिए वेबड्राईवर](https://sites.google.com/a/chromium.org/chromedriver/) से:
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> वेबड्राईवर बहुत से ब्राउज़र्स में स्वतः परिक्षण करने के लिए एक मुक्त स्त्रोत औज़ार है| यह वेब पेजेस तक पहुँचने, उपयोगकर्ता इनपुट, जावास्क्रिप्ट एक्सीक्यूशन, और बहुत सी दूसरी क्षमतायें प्रदान करता है | क्रोमड्राईवर एक सम्पूर्ण सर्वर है जो कि क्रोमियम के लिए वेबड्राईवर की वायर प्रोटोकॉल को लागू करता है | यह क्रोमियम और वेबड्राईवर टीमों के सदस्यों द्वारा विकसित किया जा रहा है |
 
-## Setting up Spectron
+## स्पेक्ट्रोन को सेट करना
 
 [Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
