@@ -47,28 +47,28 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ### `ipcMain.on(channel, listener)`
 
-* `channel` String
+* `channel` Dizesi
 * `listener` Function
 
 Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
-* `channel` String
+* `channel` Dizesi
 * `listener` Function
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
-* `channel` String
+* `channel` Dizesi
 * `listener` Function
 
 Removes the specified `listener` from the listener array for the specified `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` Dizesi
 
 Belirtilen `kanalın` dinleyicilerini kaldırır.
 
