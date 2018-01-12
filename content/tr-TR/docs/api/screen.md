@@ -87,7 +87,7 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+[`Point`](structures/point.md) geri alır
 
 Fare işaretçisinin geçerli mutlak konumu.
 
