@@ -7,7 +7,7 @@ Follow the guidelines below for building Electron on Windows.
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
 
@@ -23,7 +23,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## Khởi tạo dự án
 
 Mã khởi tạo dự án sẽ tải tất cả các file phụ thuộc cần thiết và tạo các file dự án. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
@@ -74,13 +74,13 @@ $ python script\bootstrap.py --msvs
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Để chỉ dọn thư mục `out` và `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Chú ý:** Cả hai lệnh dọn dẹp trên yêu cầu chạy `khởi tạo dự án` lại trước khi build.
 
 ## Các thử nghiệm
 
@@ -127,7 +127,7 @@ Try reinstalling 32bit Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Simply making that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
