@@ -74,7 +74,7 @@ app.on('ready', () => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `filePath` String (optional)
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
@@ -96,7 +96,7 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 `Buffer`'ı yanıt olarak gönderecek `şema` protokolünü kaydeder.
@@ -126,7 +126,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `data` String (optional)
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 `String`'i yanıt olarak gönderecek `şema` protokolünü kaydeder.
@@ -147,10 +147,10 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` Dize
       * `method` Dizi
       * `session` Object (optional)
-      * `uploadData` Obje (isteğe bağlı) 
+      * `bilgiyi yükle` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -164,7 +164,7 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` Dizi
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 `şemanın` özel protokol kaydını iptal eder.
@@ -188,7 +188,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `filePath` Dizi
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -204,7 +204,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `data` String (optional)
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
@@ -220,7 +220,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri arama` Fonksiyon 
     * `buffer` Buffer (optional)
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
@@ -239,10 +239,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` Dize
       * `method` Dizi
       * `session` Object (optional)
-      * `uploadData` Obje (isteğe bağlı) 
+      * `bilgiyi yükle` Obje (isteğe bağlı) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -250,7 +250,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` Dizi
-* `completion` Fonksiyon (isteğe bağlı) 
+* `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
 `Şema` için kurulmuş olan önleyiciyi kaldırın ve orijinal işleyicisini geri yükleyin.
