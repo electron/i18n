@@ -137,3 +137,5 @@ _404:
   page_not_found: ページが見つかりません。
   if_this_is_an_error: もしこれがエラーであれば、
   please_file_an_issue: Issue にてお知らせください。
+search:
+  description: Search within Electron documentations and community.
