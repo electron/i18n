@@ -32,11 +32,11 @@ O processo de atualização de versão é detalhado explicitamente em nosso [Doc
 
 ### LTS
 
-Não existe atualmente suporte a versões antigas do Electron para longo prazo (LTS). If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Não existe atualmente suporte a versões antigas do Electron para longo prazo (LTS). Se a sua versão atual do Electron funciona para você, você pode permanecer com ele o tempo que desejar. Se você quer usar as novas funcionalidades quando elas são lançadas, você deve atualizar para a nova versão.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Uma atualização principal vem o número de versão `1.0.0`. Se você ainda não está usando esta versão, deveria [ler mais sobre as mudança na versão` v. 1.0.0`](https://electronjs.org/blog/electron-1-0).
 
-## Core Philosophy
+## Filosofia Básica
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
