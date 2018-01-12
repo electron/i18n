@@ -6,7 +6,7 @@ Từ [ChromeDriver - WebDriver dành cho Chrome](https://sites.google.com/a/chro
 
 ## Thiết lập Spectron
 
-[Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
