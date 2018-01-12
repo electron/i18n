@@ -137,3 +137,5 @@ _404:
   page_not_found: Сторінку не знайдено.
   if_this_is_an_error: Якщо це помилка, 
   please_file_an_issue: будь ласка, повідомте про проблему.
+search:
+  description: Search within Electron documentations and community.
