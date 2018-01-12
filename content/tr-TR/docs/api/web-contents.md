@@ -696,7 +696,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 * `level` Number - Zoom level
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Changes the zoom level to the specified level. Orijinal boyut 0 ve yukarı ya da aşağı her artış için yakınlaştırma %20 nüyür veya küçülür; ta ki %300 ve %50 orijinal boyutuna ulaşana dek.
 
 #### `contents.getZoomLevel(callback)`
 
@@ -757,9 +757,9 @@ Executes the editing command `paste` in web page.
 
 Executes the editing command `pasteAndMatchStyle` in web page.
 
-#### `contents.delete()`
+#### `içeriği sil`
 
-Executes the editing command `delete` in web page.
+Düzenleme komutu `delete` web sayfasında uygula.
 
 #### `contents.selectAll()`
 
@@ -801,7 +801,7 @@ Starts a request to find all matches for the `text` in the web page and returns 
 
 #### `contents.stopFindInPage(action)`
 
-* `hareket` String - Specifies the action to take place when ending [`webContents.findInPage`] istek. 
+* `hareket` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
   * `clearSelection` - Seçimi temizle.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -972,7 +972,7 @@ Opens the developer tools for the service worker context.
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
-The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+Render işlemi mesajı `channel` `ipcRenderer` modülü ile dinleyebilir.
 
 Ana işlemden render işlemine gönderilen mesaj örneği:
 
@@ -1076,7 +1076,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Nesne 
+* `öğe` Nesne 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1085,7 +1085,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 #### `contents.savePage(fullPath, saveType, callback)`
 
 * `fullPath` String - The full file path.
-* `saveType` String - Specify the save type. 
+* `kayıt tipi` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
@@ -1116,7 +1116,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
 * `ayarlar` Nesne 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) webgörünümü misafir içeriğine verilecek özelliği belirle. 
     * `width` Integer
     * `height` Integer
 
@@ -1138,7 +1138,7 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 #### `contents.setFrameRate(fps)`
 
-* `fps` Integer
+* `fps` tamsayı
 
 If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
 
@@ -1158,8 +1158,8 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+* `yönetmelik` String - Specify the WebRTC IP Handling Policy. 
+  * `default` - Exposes user's public and local IPs. Bu standart davranış. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
   * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. Ayrıca, varsayılan özel adresini de gösterir. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
