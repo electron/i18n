@@ -2,7 +2,7 @@
 
 ## Discusión
 
-Un problema para la actualización es construir todo Electrón solo con una copia de V8 para asegurar la compatibilidad. Esto es importante porque tanto el nodo ascendente como el contenido de ibchromium usan sus propias versiones de V8.
+Un problema para la actualización es construir todo Electrón solo con una copia de V8 para asegurar la compatibilidad. This is important because upstream Node and [libchromiumcontent](upgrading-chromium.md) both use their own versions of V8.
 
 Actualizar el Nodo es mucho más fácil que actualizar el contenido de Libchromium, por lo que se producen menos problemas si se actualiza primero el contenido de Libchromium, y luego se elige la versión del Nodo ascendente cuyo V8 está más cerca de él.
 
