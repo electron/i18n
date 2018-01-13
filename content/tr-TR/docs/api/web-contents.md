@@ -673,22 +673,22 @@ Bu web içeriklerine odaklanılmışken uygulama menüsü kısayolları görmezd
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Yürürlükteki web sayfasında bulunan sesi kapatır.
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+`Boolean` olarak dönüt verir - Sayfanın sesinin kapatılıp kapatılmadığı.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Sayı - Yakınlaştırma değeri.
 
-Yakınlaştırma faktörünü belirtilen faktöre değiştirir. om factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma değeri, yakınlaştırma yüzdesi bölü 100'dür, bu yüzden %300 = 3.0.
 
 #### `contents.getZoomFactor(callback)`
 
 * `geri arama` Fonksiyon 
-  * `zoomFactor` Number
+  * `zoomFactor` Sayı
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
 
