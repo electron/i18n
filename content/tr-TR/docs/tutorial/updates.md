@@ -8,8 +8,8 @@ Başlangıç olarak, önce [autoUpdater](../api/auto-updater.md) modülünü kar
 
 İhtiyaçlarınıza göre, bunlardan birini seçebilirsiniz:
 
-- [ Hazel ](https://github.com/zeit/hazel) - Özel veya açık kaynak uygulamaları için sunucu güncelleştirme. Can be deployed for free on [Now](https://zeit.co/now) (using a single command), pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
+- [ Hazel ](https://github.com/zeit/hazel) - Özel veya açık kaynak uygulamaları için sunucu güncelleştirme. [Now](https://zeit.co/now) (tek bir komut kullanarak) üzerinden ücretsiz olarak düzenlenebilir, [GitHub Releases](https://help.github.com/articles/creating-releases/) dan çeker ve GitHub'un CDN gücünün etkinliğini artırır.
+- [Nuts](https://github.com/GitbookIO/nuts) – Ayrıca [GitHub Releases](https://help.github.com/articles/creating-releases/) kullanır, fakat app güncellemelerini önbelleğe alır ve özel arşivleri destekler.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
 -  Nucleus </ 0> - Atlassian tarafından tutulan Electron uygulamaları için eksiksiz bir güncelleme sunucusu . Supports multiple applications and channels; uses a static file store to minify server cost.</li> </ul> 
     
