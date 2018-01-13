@@ -101,9 +101,8 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
+// Bu dosyada, uygulamanızın özel ana işleminin geri kalan bölümünü ekleyebilirsiniz
+// Kod. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
 ```
 
 Kesin olarak göstermek istediğiniz web sayfası `index.html`:
@@ -117,9 +116,9 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+Düğümü kullanıyoruz <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    ve elektron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
@@ -152,7 +151,7 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Düğüm v8.2.0 ve sonrası
 
 ```sh
 $ npx electron.
