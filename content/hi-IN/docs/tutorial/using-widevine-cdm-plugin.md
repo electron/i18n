@@ -24,7 +24,7 @@
 
 प्लगइन फाइल्स पाने के बाद, आपको `वाइडवाइनसीडीएमअडेप्टर` के पथ को `--widevine-cdm-path` कमांड लाइन स्विच, और प्लगइन के संस्करण `--widevine-cdm-version` स्विच के साथ इलेक्ट्रॉन में पास करना चाहिये|
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**नोट:** हालाँकि केवल `वाइडवाइनसीडीएमअदेप्टर` बाइनरी इलेक्ट्रॉन में पास की जाती है, पर `वाइडवाइनसीडीएम` बाइनरी को भी उसी के साथ रखना होता है |
 
 The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
 
