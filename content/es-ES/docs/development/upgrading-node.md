@@ -109,7 +109,7 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
   - El Stream ascendente usa múltiples repos, por lo que fusionarse con un solo repo resultaría en una pérdida de historia. Así que solo actualizamos cuando estamos planeando botar una versión de nodo en electron.
 - libcc es largo y consume mucho tiempo para actualizar, así que típicamente elegimos la versión del nodo basados en cuál de sus lanzamientos tiene una versión de V8 que esté más cerca en libcc que la que estamos usando. 
   - A veces tenemos que esperar para el siguiente lanzamiento periódico del nodo porque se sincronizará más acercadamente con la versión V8 en el nuevo libcc
-  - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
-    - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
+  - Electron mantiene todos sus parches en libcc debido a que es más simple que mantener diferentes repos para parches por cada uno de los proyectos ascendentes. 
+    - Crashpad, nodo, libcc, etc. parches se mantienen en el mismo lugar
+  - Construyendo un nodo: 
+    - Existe una probabilidad de que necesitemos cambiar la configuración para que coincida con las banderas de construcción que el nodo quiere en `node/common.gypi`
