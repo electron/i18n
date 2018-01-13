@@ -717,7 +717,7 @@ Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `cal
 * `minimumLevel` Sayı
 * `maximumLevel` Sayı
 
-Azami ve minimum tutam-zum seviyesini belirtir.
+Minimum ve maksimum çimdik-zoom düzeyini ayarlar.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
