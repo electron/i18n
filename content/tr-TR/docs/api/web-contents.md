@@ -871,13 +871,13 @@ Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stili
   * `error` Hata 
   * `data` Buffer
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Penceredeki web sayfasını Chromiumun özel yazdırma ayarları önizlemesiyle PDF olarak yazdırır.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+İşlem tamamlandığında `callback`, `callback(error, data)` ile birlikte çağrılacaktır. `data` oluşturulan PDF'in verisini içeren bir `Buffer`'dır.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Eğer sayfada `@page` CSS kuralı (CSS at-rule) kullanıldıysa, `landscape` görmezden gelinecektir.
 
-By default, an empty `options` will be regarded as:
+Varsayılan olarak, boş bir `options` şöyle kabul edilir:
 
 ```javascript
 {
@@ -890,7 +890,7 @@ By default, an empty `options` will be regarded as:
 
 Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stilini kullanın.
 
-An example of `webContents.printToPDF`:
+Bir `webContents.printToPDF` örneği:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -913,7 +913,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* dizi `yolu`
+* `path` Dizgi
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -936,11 +936,11 @@ Removes the specified path from DevTools workspace.
 * `ayarlar` Obje (isteğe bağlı) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Geliştirme aletlerini açar.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Geliştirme aletlerini kapatır.
 
 #### `contents.isDevToolsOpened()`
 
@@ -1021,7 +1021,7 @@ Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+`webContents.enableDeviceEmulation` tarafından izin verilen araç taklitini devredışı bırakır.
 
 #### `contents.sendInputEvent(event)`
 
@@ -1192,4 +1192,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Bu webİçerikleri için bir [Hata ayıklayıcı](debugger.md) örnek.
