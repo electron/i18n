@@ -184,7 +184,7 @@ Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dı
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. Bir webview ilk defa yüklenildiğinde, yeni bir webContents yaratılır ve bu nitelik onun durum tanımlayıcısına ayarlanır. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. Bir webview ilk defa yüklenildiğinde, yeni bir webContents yaratılır ve bu nitelik onun durum tanımlayıcısına ayarlanır. Bu niteliği yeni ya da var olan bir webview üzerine ayarlamak, onu o anki farklı bir webview haline getiren mevcut webContents'e bağlar.
 
 Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url yüklendiğinde yeni bir webContents oluşturacaktır.
 
@@ -194,7 +194,7 @@ Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url y
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+Bu nitelik `webview`'ü sunduğunda, içeriklerinin boyutlandırılmalarını, `webview` öğesinin kendisini boyutlandırması durumunda engeller.
 
 Bu, [`webContents.setSize`](web-contents.md#contentssetsizeoptions) ile kombinasyonlu bir şekilde manuel olarak webview içeriklerini pencere büyüklüğüne boyutlandırmada kullanılabilir. Bu, içerikleri otomatik olarak yeniden boyutlandırmak için webview öğesi sınırlarına dayanmakla karşılaştırıldığında daha hızlı yeniden boyutlandırma yapabilir.
 
