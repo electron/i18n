@@ -155,10 +155,10 @@ Process: [Main](../glossary.md#main-process)
   * `darkTheme` Boolean (необязательно) - Заставляет использовать темную тему для окна, работает только на некоторых GTK+3 окружениях рабочего стола. По умолчанию - `false`.
   * `transparent` Boolean (необязательно) - Делает окно [прозрачным](frameless-window.md). По умолчанию - `false`.
   * `type` String (необязательно) - Тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
-  * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `обычное`. Возможные значения: 
+  * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `по умолчанию`. Возможные значения: 
     * `по умолчанию` - результаты в Стандартный серой непрозрачной Mac панели.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hidden-inset` - Deprecated, use `hiddenInset` instead.
+    * `hidden-inset` - Устарело, вместо этого используйте `hiddenInset`.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
