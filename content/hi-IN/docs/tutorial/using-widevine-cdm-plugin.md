@@ -12,15 +12,15 @@
 
 क्रोम ब्राउज़र में `chrome://components/` खोलें, `WidevineCdm` ढूँढेंऔर यह सुनिश्चित करें कि वह अपडेटेड है, और फ़िर आप सभी प्लगइन बाइनरिज़ को `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` डायरेक्टरी से ढूँढ सकते हैं |
 
-`APP_DATA` सिस्टम का वह स्थान है जहाँ पर एप्प डाटा स्टोर किया जाता है, विंडोज पर यह `%LOCALAPPDATA%` है और मैकओएस पर `~/Library/Application Support` | `VERSION` वाइडवाइन सीडीएम प्लगइन का संस्करण स्ट्रिंग है, जैसे `1.4.8.866` | `PLATFORM` is `mac` or `win`. `ARCH` `x86` या `x64` है |
+`APP_DATA` सिस्टम का वह स्थान है जहाँ पर एप्प डाटा स्टोर किया जाता है, विंडोज पर यह `%LOCALAPPDATA%` है और मैकओएस पर `~/Library/Application Support` | `VERSION` वाइडवाइन सीडीएम प्लगइन का संस्करण स्ट्रिंग है, जैसे `1.4.8.866` | `PLATFORM` `mac` या `win` है | `ARCH` `x86` या `x64` है |
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+विंडोज पर `widevinecdm.dll` और `widevinecdmadapter.dll` आवश्यक बाइनरिज़ हैं, और मैकओएस पर वे `libwidevinecdm.dylib` और `widevinecdmadapter.plugin` हैं | आप उन्हें जहाँ चाहें वहाँ पर कॉपी कर सकते हैं, पर वे सभी एक साथ होनी चाहियें |
 
-### Linux
+### लिनक्स
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+लिनक्स पर प्लगइन बाइनरिज़, क्रोम ब्राउज़र के साथ भेजी जाती हैं, आप उन्हें `/opt/google/chrome` के अंतर्गत ढूँढ सकते हैं, उनके फाइल नाम `libwidevinecdm.so` और `libwidevinecdmadapter.so` हैं |
 
-## Using the plugin
+## प्लगइन का इस्तेमाल करना
 
 After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
 
