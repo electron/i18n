@@ -203,9 +203,9 @@ Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* `rect` [Dikdörtgen](structures/rectangle.md) - Kırpılacak resimin alanı
 
-Returns `NativeImage` - The cropped image.
+Returns `NativeImage` - Kırpılan resim.
 
 #### `image.resize(options)`
 
