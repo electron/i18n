@@ -2,7 +2,7 @@
 
 > Varsayılan uygulamalarını kullanarak dosyaları ve URL'leri yönetin.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
