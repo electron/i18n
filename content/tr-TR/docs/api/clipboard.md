@@ -2,7 +2,7 @@
 
 > Kopyalama ve yapıştırma işlemlerini sistem panosunda gerçekleştirin.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Aşağıdaki örnek bir dizeyi panoya nasıl yazacağınızı gösterir:
 
