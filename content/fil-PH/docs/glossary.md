@@ -55,23 +55,23 @@ MAS, tingnan ang <a href="tutorial/mac-app-store-submission-guide.md"> Gabay sa 
 <p>Ang mga native na module (tinatawag ding <a href="https://nodejs.org/api/addons.html"> addons </a> sa
 Node.js) ay mga module na nakasulat sa C o C ++ na maaaring i-load sa Node.js o
 Electron gamit ang nangangailangan () function, at ginagamit lamang kung sila ay isang
-ordinaryong module na Node.js. They are used primarily to provide an interface
-between JavaScript running in Node.js and C/C++ libraries.</p>
+ordinaryong module na Node.js. Ang mga ito ay ginagamit lalo na upang magbigay ng isang interface
+sa pagitan ng JavaScript na tumatakbo sa mga library ng Node.js at C/C++.</p>
 
-<p>Native Node modules are supported by Electron, but since Electron is very
-likely to use a different V8 version from the Node binary installed in your
-system, you have to manually specify the location of Electron’s headers when
-building native modules.</p>
+<p>Ang mga module ng Native Node ay sinusuportahan ng Electron, ngunit dahil ang Electron ay napaka
+malamang na gumamit ng ibang bersyon V8 mula sa binary na naka-install sa iyong
+system, kailangan mong i-manu-manong tukuyin ang lokasyon ng mga header ng Electron kapag
+bumuo ng mga native module.</p>
 
-<p>See also <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
+<p>Tingnan din ang <a href="tutorial/using-native-node-modules.md"> Paggamit ng mga Native Node Modiule </a>.</p>
 
 <h3>NSIS</h3>
 
-<p>Nullsoft Scriptable Install System is a script-driven Installer
-authoring tool for Microsoft Windows. It is released under a combination of
-free software licenses, and is a widely-used alternative to commercial
-proprietary products like InstallShield. <a href="https://github.com/electron-userland/electron-builder">electron-builder</a> supports NSIS
-as a build target.</p>
+<p>Nullsoft Scriptable Install System ay isang script-driven Installer
+tool sa pag-author para sa Microsoft Windows. Ito ay inilabas sa ilalim ng isang kumbinasyon ng
+libreng mga lisensya ng software, at isang malawakang ginagamit na alternatibo sa komersyo
+pagmamay-ari ng mga produkto tulad ng InstallShield. Ang <a href="https://github.com/electron-userland/electron-builder"> elektron-builder </a> ay sumusuporta sa NSIS
+bilang isang build target.</p>
 
 <h3>OSR</h3>
 
