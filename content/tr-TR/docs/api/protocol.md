@@ -44,7 +44,7 @@ Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğ
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Yoksa rendercı güvenlik hatası verir.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme:
 
@@ -103,7 +103,7 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Örnek:
 
 ```javascript
 const {protocol} = require('electron')
