@@ -948,7 +948,7 @@ Geliştirme araçlarını kapatır.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+`Boolean` olarak dönüt verir - Geliştirme araçları görünümüne odaklanıp odaklanılmadığı.
 
 #### `contents.toggleDevTools()`
 
