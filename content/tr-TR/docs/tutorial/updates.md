@@ -10,18 +10,18 @@ Başlangıç olarak, önce [autoUpdater](../api/auto-updater.md) modülünü kar
 
 - [ Hazel ](https://github.com/zeit/hazel) - Özel veya açık kaynak uygulamaları için sunucu güncelleştirme. [Now](https://zeit.co/now) (tek bir komut kullanarak) üzerinden ücretsiz olarak düzenlenebilir, [GitHub Releases](https://help.github.com/articles/creating-releases/) dan çeker ve GitHub'un CDN gücünün etkinliğini artırır.
 - [Nuts](https://github.com/GitbookIO/nuts) – Ayrıca [GitHub Releases](https://help.github.com/articles/creating-releases/) kullanır, fakat app güncellemelerini önbelleğe alır ve özel arşivleri destekler.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
--  Nucleus </ 0> - Atlassian tarafından tutulan Electron uygulamaları için eksiksiz bir güncelleme sunucusu . Supports multiple applications and channels; uses a static file store to minify server cost.</li> </ul> 
-    
-    If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
-    
-    ## Uygulamanızda güncellemeleri uygulama
-    
-    Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
-    
-    **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
-    
-    ```js
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Yayınlananları yönetmek için kontrol paneli sağlar
+- [ Nucleus ](https://github.com/atlassian/nucleus) - Atlassian tarafından sürdürülen Electron uygulamaları için eksiksiz bir güncelleştirme sunucusudur. Birden fazla uygulama ve kanalı destekler; sunucu maliyetini ufaltmak için sabit bir dosya deposu kullanır.
+
+Eğer uygulamanız [electron-builder](https://github.com/electron-userland/electron-builder) ile paketlenmişse [electron-updater](https://www.electron.build/auto-update) modülünü kullanabilirsiniz, herhangi bir sunucu gerektirmez ve S3, GitHub yada başka bir sabit dosya barındırıcısı tarafından güncelleştirmelerine izin verir.
+
+## Uygulamanızda güncelleştirmeleri uygulama
+
+Güncelleme sunucunuzu düzenledikten sonra, kodunuza gerekli modülleri içe aktarmaya devam edin. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+
+**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+
+```js
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
