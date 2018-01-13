@@ -804,9 +804,9 @@ Web sayfasındaki tüm `text` eşleşmelerini bulmak için bir istek başlatır 
 * `action` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
   * `clearSelection` - Seçimi temizler.
   * `keepSelection` - Seçimi normal bir seçime çevir.
-  * `activateSelection` - Focus and click the selection node.
+  * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
-Stops any `findInPage` request for the `webContents` with the provided `action`.
+Sunulan `action` ile birlikte, `webContents` için olan tüm `findInPage` isteklerini durdurur.
 
 ```javascript
 const {webContents} = require('electron')
@@ -820,8 +820,8 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `geri arama` Fonksiyon 
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı
+* `callback` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
