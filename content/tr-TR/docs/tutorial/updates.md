@@ -42,11 +42,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Uygulamanız [paketlendiğinde](../tutorial/application-distribution.md), yayınladığınız her yeni [GitHub Release](https://help.github.com/articles/creating-releases/) için bir güncelleştirme alacaktır.
 
-## Güncellemeler uygulanıyor
+## Güncelleştirmeler uygulanıyor
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Artık uygulamanız için temel güncelleştirme mekanizmasını yapılandırdınız, kullanıcının bir güncelleştirme olduğunda bilgilendirildiğinden emin olmanız gerekiyor. Bu autoUpdater API [events](../api/auto-updater.md#events) kullanarak elde edilebilir:
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -55,7 +55,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: 'Yeni versiyon karşıdan yüklenmiştir. Güncelleştirmeleri uygulamak için uygulamayı yeniden başlatınız.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -64,7 +64,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Aynı zamanda hataların [kontrol altında](../api/auto-updater.md#event-error) olduğundan emin olun. İşte onları `stderr`'e kayıt etmek için bir örnek:
 
 ```js
 autoUpdater.on('error', message => {
