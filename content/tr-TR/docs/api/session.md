@@ -1,12 +1,12 @@
 # session
 
-> Tarayıcı oturumu, Çerezler, önbellek, proxy ayarlarını yönetin.
+> Tarayıcı oturumları, çerezler, önbellek, proxy ayarlarını, vb. yönetin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
 `oturum` modülü, yeni `Oturum` nesneleri oluşturmak için kullanılabilir.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Ayrıca mevcut sayfaların `oturum`larına `oturum` [`Webİçeriği`](web-contents.md) özelliğinden, yada `oturum` modülünden ulaşabilirsiniz.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,9 +18,9 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Metodlar
+## Yöntemler
 
-`session` modülü aşağıdaki yöntemleri içerir:
+`oturum` modülü aşağıdaki yöntemleri içerir:
 
 ### `session.fromPartition(partition[, options])`
 
