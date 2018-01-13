@@ -184,7 +184,7 @@ Daha fazla ayrıntı için [Ağ Erişimini Etkinleştirme belgelerine](https://d
 <true/>
 ```
 
-Daha fazla detay için [Ağ Erişimini Etkinleştirme belgelerine](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) bakın.
+Daha fazla bilgi için [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) bakın.
 
 #### dialog.showSaveDialog
 
@@ -193,7 +193,7 @@ Daha fazla detay için [Ağ Erişimini Etkinleştirme belgelerine](https://devel
 <true/>
 ```
 
-Daha fazla bilgi için [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) bakın.
+Daha fazla detay için [Ağ Erişimini Etkinleştirme belgelerine](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) bakın.
 
 ## Bilinen sorunlar
 
