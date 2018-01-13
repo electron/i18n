@@ -137,15 +137,16 @@ Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımlar�
 
 ### `libchromiumcontent`'i yerelinize inşaa etme
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+` libchromiumcontent </ 0 > koduna ai önceden hazırlanmış ikili dosyaları kullanmaktan kaçınmak için, <code> libchromiumcontent </ 0> 'ı yerel olarak oluşturabilirsiniz. Bunu yapmak için şu adımları izleyin:</p>
 
-1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)'u kurun
-2. [Ek inşaa bağımlılıklarını](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) kurun
-3. Git alt modullerini çekin:
+<ol>
+<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install">depot_tools</a>'u kurun</li>
+<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies">Ek inşaa bağımlılıklarını</a> kurun</li>
+<li>Git alt modullerini çekin:</li>
+</ol>
 
-```sh
-$ git submodule güncelleme --init - tekrar başlatma
-```
+<pre><code class="sh">$ git submodule güncelleme --init - tekrar başlatma
+`</pre> 
 
 1. `--build_release_libcc` argümanını `bootstrap.py` betiğine geçin:
 
@@ -161,7 +162,7 @@ $ ./script/build.py -c R
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. Geçerek yapılan komut dosyası `clang` dillerin `<path>/bin/` içinde bulunduğu varsayılacaktır.
+Varsayılan olarak önceden oluşturulmuş electron [`clang`](https://clang.llvm.org/get_started.html) tarafından sağlanan iki dosyalar chromium projesi. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. Geçerek yapılan komut dosyası `clang` dillerin `<path>/bin/` içinde bulunduğu varsayılacaktır.
 
 Örneğin, `clang` 'ı `/user/local/bin/clang` dizinine yüklediyseniz:
 
