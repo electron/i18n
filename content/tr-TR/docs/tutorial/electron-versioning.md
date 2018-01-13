@@ -136,8 +136,8 @@ Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birl
 
 Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırmaya çalışıyoruz. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
+* Semver ile sonuçlanan **major** tümseği ile başlamalıdır `BREAKING CHANGE:`.
+* Semver ile sonuçlanan **minor** tümseği ile başlamalıdır `feat:`.
 * Commits that would result in a semver **patch** bump must start with `fix:`.
 
 * Sıkıştırılmış mesajın yukarıdaki ileti biçimine uyması koşuluyla, taahhütlerin ezilmesine izin veririz.
