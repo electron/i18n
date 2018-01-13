@@ -2,7 +2,7 @@
 
 Le code source d'Electron est séparé en plusieurs parties, principalement suivant les conventions de séparation de Chromium.
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de Chromium](https://dev.chromium.org/developers/design-documents/multi-process-architecture) pour mieux comprendre le code source.
 
 ## Structure du Code Source
 
