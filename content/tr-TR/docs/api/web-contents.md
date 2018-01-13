@@ -915,7 +915,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` Dizgi
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Belirtilen yolu DevTools çalışma alanına ekler. DevTools yaratımından sonra kullanılması zorunludur:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -927,24 +927,24 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* dizi `yolu`
+* `path` Dizgi
 
-Removes the specified path from DevTools workspace.
+Belirtilen yolu DevTools çalışma alanından kaldırır.
 
 #### `contents.openDevTools([options])`
 
-* `ayarlar` Obje (isteğe bağlı) 
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+* `ayarlar` Nesne (isteğe bağlı) 
+  * `mode` Dizgi - Geliştirme araçlarını belirtilen yuvalama durumuyla açar, `right`, `bottom`, `undocked`, `detach` olabilir. Varsayılan olarak son kullanılan yuvalama durumunu kullanır. `undocked` moddayken, geri yuvalama (dock back) mümkündür. `detach` modda ise mümkün değildir.
 
-Geliştirme aletlerini açar.
+Geliştirme araçlarını açar.
 
 #### `contents.closeDevTools()`
 
-Geliştirme aletlerini kapatır.
+Geliştirme araçlarını kapatır.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+`Boolean` olarak dönüt verir - Geliştirme araçlarının açılıp açılmadığı.
 
 #### `contents.isDevToolsFocused()`
 
