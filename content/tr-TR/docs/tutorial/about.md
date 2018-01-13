@@ -54,5 +54,5 @@ Electron tarihçesinin kilometre taşları aşağıdadır.
 | **Mayıs 2014**   | [Atom Shell açık kaynaklı oldu](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                 |
 | **Nisan 2015**   | [Atom Shell'in ismi Electron olarak değişti](https://github.com/electron/electron/pull/1389).                  |
 | **Mayıs 2016**   | [Electron `v1.0.0` sürümü yayınlandı](https://electronjs.org/blog/electron-1-0).                               |
-| **Mayıs 2016**   | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **Ağustos 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
+| **Mayıs 2016**   | [Electron uygulamaları Mac Uygulama Mağazası'yla uyumlu hale getirildi](mac-app-store-submission-guide.md).    |
+| **Ağustos 2016** | [Electron uygulamaları için Windows Mağaza desteği](windows-store-guide.md).                                   |
