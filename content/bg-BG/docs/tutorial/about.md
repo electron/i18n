@@ -20,7 +20,7 @@ Read on to learn more about the contributors and releases of Electron or get sta
 
 Версията на хромиум в Електрон обикновенно има ъпдейт през една или две седмици, когато излезе нова стабилна версия на хромиум, в зависимост от усилията нужни за ъпгрейда.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Когато излезе нова версия на Node.js, Electron обикновенно изчаква месец, преди да ъпгрейдне към нея, за да бъде максимално стабилна версията.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
