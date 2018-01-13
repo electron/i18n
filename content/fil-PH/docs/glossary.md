@@ -47,15 +47,15 @@ pinalitan ng pangalan sa Electron upang maiwasan ang pagkalito sa mga proseso ng
 
 <h3>MAS</h3>
 
-<p>Acronym for Apple's Mac App Store. For details on submitting your app to the
-MAS, see the <a href="tutorial/mac-app-store-submission-guide.md">Mac App Store Submission Guide</a>.</p>
+<p>Acronym para sa Mac App Store ng Apple. Para sa mga detalye sa pagsusumite ng iyong app sa
+MAS, tingnan ang <a href="tutorial/mac-app-store-submission-guide.md"> Gabay sa Pagsusumite ng Mac App Store </a>.</p>
 
-<h3>native modules</h3>
+<h3>mga native module</h3>
 
-<p>Native modules (also called <a href="https://nodejs.org/api/addons.html">addons</a> in
-Node.js) are modules written in C or C++ that can be loaded into Node.js or
-Electron using the require() function, and used just as if they were an
-ordinary Node.js module. They are used primarily to provide an interface
+<p>Ang mga native na module (tinatawag ding <a href="https://nodejs.org/api/addons.html"> addons </a> sa
+Node.js) ay mga module na nakasulat sa C o C ++ na maaaring i-load sa Node.js o
+Electron gamit ang nangangailangan () function, at ginagamit lamang kung sila ay isang
+ordinaryong module na Node.js. They are used primarily to provide an interface
 between JavaScript running in Node.js and C/C++ libraries.</p>
 
 <p>Native Node modules are supported by Electron, but since Electron is very
