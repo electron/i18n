@@ -2,33 +2,32 @@
 
 Bir Electron uygulamasını güncelleştirmenin bir kaç yolu vardır. En kolay ve resmi olarak desteklenen yol, bir yerleşik [Sincap](https://github.com/Squirrel) taslağından ve Electron'un [autoUpdater](../api/auto-updater.md) modülünden faydalanmaktır.
 
-## Güncelleme sunucusu dağıtma
+## Güncelleştirme sunucusunu düzenleme
 
-To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
+Başlangıç olarak, önce [autoUpdater](../api/auto-updater.md) modülünü karşıdan yükleyecek sunucuyu düzenlemek gerekir.
 
-İhtiyaçlarınıza bağlı olarak bunlardan birini seçebilirsiniz:
+İhtiyaçlarınıza göre, bunlardan birini seçebilirsiniz:
 
--  Hazel </ 0> - Özel veya açık kaynak uygulamaları için sunucu güncelleme. Can be deployed for free on [Now](https://zeit.co/now) (using a single command), pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.</li> 
+- [ Hazel ](https://github.com/zeit/hazel) - Özel veya açık kaynak uygulamaları için sunucu güncelleştirme. Can be deployed for free on [Now](https://zeit.co/now) (using a single command), pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
+- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
+-  Nucleus </ 0> - Atlassian tarafından tutulan Electron uygulamaları için eksiksiz bir güncelleme sunucusu . Supports multiple applications and channels; uses a static file store to minify server cost.</li> </ul> 
     
-    - [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-    - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
-    -  Nucleus </ 0> - Atlassian tarafından tutulan Electron uygulamaları için eksiksiz bir güncelleme sunucusu . Supports multiple applications and channels; uses a static file store to minify server cost.</li> </ul> 
-        
-        If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
-        
-        ## Uygulamanızda güncellemeleri uygulama
-        
-        Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
-        
-        **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
-        
-        ```js
-const {app, autoUpdater, dialog} = require('electron')
-```
+    If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
     
-    Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+    ## Uygulamanızda güncellemeleri uygulama
+    
+    Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+    
+    **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
     
     ```js
+const {app, autoUpdater, dialog} = require('electron')
+```
+
+Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+
+```js
 const server = 'https://your-deployment-url.com'
 const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
