@@ -789,10 +789,10 @@ Odaklanılan ögeye `text`'i ekler.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` Dize - Araştırılacak içerik boş olamaz.
-* `ayarlar` Obje (isteğe bağlı) 
-  * `forward` Boolean - (isteğe bağlı) İleri ya da geri arama yapılacağı değerleri `true`. varsayılan olarak ayarlar.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
+* `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
+* `options` Nesne (isteğe bağlı) 
+  * `forward` Boolean - (isteğe bağlı) İleriye veya geriye doğru arama yapılacağı, varsayılan olarak `true`'dur.
+  * `findNext` Boolean - (İsteğe bağlı) İşlemin ilk istek veya takip isteği olduğu, varsayılan olarak `false`'tur.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
