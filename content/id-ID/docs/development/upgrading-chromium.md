@@ -2,7 +2,7 @@
 
 Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium di Elektron.
 
-- Tingkatkan versi beta ke versi Chromium baru
+- Tingkatkan versi libcc ke versi Chromium baru
 - Buat kode Elektron yang kompatibel dengan libcc baru
 - Update Elektron dependensi (crashpad, NodeJS, dll) jika diperlukan
 - Buatlah build internal dari libcc dan elektron
@@ -21,11 +21,11 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
     - Ini bisa dilakukan secara manual dengan mengunjungi OmahaProxy di browser, atau secara otomatis:
     - Satu-baris untuk versi mac terbaru yang stabil: `curl -so- https://omahaproxy.appspot.com/mac > VERSI`
     - Satu-baris untuk versi beta win64 terbaru: `curl -so- https://omahaproxy.appspot.com/all | grep "win64, beta" | awk -F, 'NR == 1{print $3}' > VERSI`
-  - jalankan `$ ./script/perbarui` 
+  - jalankan `$ ./script/update` 
     - Siapkan teh - ini bisa berlangsung 30m atau lebih.
     - Mungkin akan gagal menerapkan patch.
 3. Perbaiki berkas`*patch` di folder` patches /` dan `patches-mas/`.
-4. (Opsional) `script/perbarui` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` panggilan: `$ ./script/menerapkan-tambalan` 
+4. (Opsional) `script/update` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` panggilan: `$ ./script/menerapkan-tambalan` 
   - Ada skrip kedua, `script/patch.py` yang mungkin berguna. Baca `./script/patch.py ​​-h` untuk informasi lebih lanjut.
 5. Jalankan build ketika semua patch bisa diaplikasikan tanpa kesalahan 
   - `$ ./script/membangun`
@@ -86,13 +86,13 @@ Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform 
 
 ## Memperbarui Crashpad
 
-Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
+Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. Lihat [Upgrade Crashpad](upgrading-crashpad.md) untuk petunjuk bagaimana melakukan itu.
 
 ## Memperbarui NodeJS
 
 Meningkatkan `vendor/node` ke rilis Node yang sesuai dengan versi v8 digunakan dalam rilis kromium baru. Lihat versi v8 di Node aktif
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+Lihat [Upgrade Node](upgrading-node.md) untuk petunjuk tentang ini.
 
 ## Verifikasi dukungan ffmpeg
 
