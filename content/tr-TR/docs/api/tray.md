@@ -52,7 +52,7 @@ app.on('ready', () => {
 
 * Windows'ta en iyi görsel efektleri almak için `ICO` simgeler kullanılması önerilir.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Eğer diğer platformlarda da tamamen aynı davranışları sergilemeye devam etmek istiyorsan, `tık` olayına bağlı kalmamalısın ve her zaman bağlam menüsüne tepsi simgesi ile ekli kalmalısın.
 
 ### `new Tray(image)`
 
