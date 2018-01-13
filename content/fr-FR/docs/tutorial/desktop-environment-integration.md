@@ -20,14 +20,14 @@ Windows et macOS permettent d’accéder facilement à une liste des documents r
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+Pour ajouter un fichier aux documents récents, vous pouvez utiliser l'API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) :
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+Et l'API [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) vous permet de vider la liste des documents récents :
 
 ```javascript
 const {app} = require('electron')
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Remarques Windows
 
-Pour pouvoir utiliser cette fonctionnalité sur Windows, votre application doit être enregistré en tant que gestionnaire/responsable du type de fichier du document, sinon le fichier n’apparaîtra pas dans la JumpList même après l'avoir ajouté. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Pour pouvoir utiliser cette fonctionnalité sur Windows, votre application doit être enregistré en tant que gestionnaire/responsable du type de fichier du document, sinon le fichier n’apparaîtra pas dans la JumpList même après l'avoir ajouté. Vous trouverez tout l'enregistrement de votre application dans [Enregistrement de l'application](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 Lorsqu’un utilisateur clique sur un fichier à partir de la JumpList, cela démarre une nouvelle instance de votre application avec le chemin d’accès du fichier ajouté comme un argument de ligne de commande.
 
@@ -123,7 +123,7 @@ Il est illustré par le site MSDN :
 
 ![lecteur](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+Vous pouvez utiliser [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) pour définir la barre d'outil miniature dans votre application :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -195,7 +195,7 @@ Sous Windows, un bouton de la barre des tâches peut permettre une petite superp
 
 ![Overlay sur le bouton de la barre des tâches](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+Pour définir l'icône de superposition d'une fenêtre, vous pouvez utiliser l'API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -230,7 +230,7 @@ Vous pouvez également définir l'état d'édition d'une fenêtre pour que l'ic�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+Pour définir le fichier représenté par la fenêtre, vous pouvez utiliser les API [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) et [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
