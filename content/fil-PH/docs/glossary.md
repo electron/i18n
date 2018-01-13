@@ -36,7 +36,7 @@ Isang nakabahaging library na kasama ang [ module ng Nilalaman ng Chromium ](htt
 
 ### pangunahing proseso
 
-Ang pangunahing proseso, karaniwang isang file na pinangalanang ` main.js `, ay ang entry point sa bawat Electron app. Kinokontrol nito ang buhay ng app, mula sa pagbukas hanggang sa pagsara. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Ang pangunahing proseso, karaniwang isang file na pinangalanang ` main.js `, ay ang entry point sa bawat Electron app. Kinokontrol nito ang buhay ng app, mula sa pagbukas hanggang sa pagsara. Ito rin ay namamahala ng mga katutubong element tulad ng Menu, Menu Bar, Dock, Tray, atbp. Ang pangunahing proseso ay responsable para sa paglikha ng bawat bagong proseso ng renderer sa app. Ang buong Node API ay built in.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
