@@ -4,21 +4,21 @@ Tinutukoy ng pahinang ito ang ilang terminolohiya na karaniwang ginagamit sa pag
 
 ### ASAR
 
-Ang ibig sabihin ng ASAR ay Atom Shell Archive Format. Ang isang [ asar ](https://github.com/electron/asar) na archive ay isang simple ` tar ` - na parehong format na naghahusay ng mga file sa isang solong file. Electron can read arbitrary files from it without unpacking the whole file.
+Ang ibig sabihin ng ASAR ay Atom Shell Archive Format. Ang isang [ asar ](https://github.com/electron/asar) na archive ay isang simple ` tar ` - na parehong format na naghahusay ng mga file sa isang solong file. Ang Electron ay makakabasa ng mga arbitrary file mula dito nang walang ginagawang pag-unpack ng buong file.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+Ang format ng ASAR ay nilikha lalo na upang mapabuti ang pagganap sa Windows... TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Ang Brightray  ay isang static library na ginawa [ libchromiumcontent ](#libchromiumcontent) na mas madaling gamitin sa mga application. Ito ay ngayon hindi na ginagamit at isinama sa codebase ng Electron.</p> 
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Ang C Run-time Library (CRT) ay bahagi ng C ++ Standard Library na isinasama ang karaniwang standard na ISO C99. Ang Visual C ++ na mga aklatan na ipatupad ang suporta ng CRT native code development, at parehong halo-halong katutubong at pinamamahalaang code, at dalisay na pinamamahalaang code para sa .NET development.
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Ang isang Imahe ng Apple Disk ay isang format ng packaging na ginagamit ng macOS. Ang mga DMG file ay karaniwang ginagamit para sa pamamahagi ng mga "installer" application. [electron-builder](https://github.com/electron-userland/electron-builder) ay sumusuporta `dmg` bilang build target.
 
 ### IME
 
