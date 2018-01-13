@@ -113,7 +113,7 @@ Ang V8 ay isang open source JavaScript engine ng Google. Ito ay nakasulat sa C++
 
 Ang elektron ay nagtatayo ng V8 bilang bahagi ng Chromium at pagkatapos ay tumuturo sa Node sa V8 kung kailan pagbuo nito.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Ang mga numero ng bersyon ng V8 ay laging tumutugma sa mga Google Chrome. Chrome 59 Kasama ang V8 5.9, kasama ang Chrome 58 ng V8 5.8, atbp.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -121,4 +121,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+Ang mga tag ng `webview` ay ginagamit upang i-embed ang nilalaman ng 'guest' (tulad ng panlabas na mga web page) ang iyong Electron app. Ang mga ito ay katulad ng ` iframe `s, ngunit naiiba sa bawat isa ang webview ay tumatakbo sa isang hiwalay na proseso. Hindi ito pareho sa mga pahintulot bilang iyong web page at lahat ng mga pakikipag-ugnayan sa pagitan ng iyong app at ang naka-embed na nilalaman ay magiging asynchronous. Pinapanatiling ligtas ang iyong app mula sa naka-embed na nilalaman.
