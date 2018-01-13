@@ -803,7 +803,7 @@ Web sayfasındaki tüm `text` eşleşmelerini bulmak için bir istek başlatır 
 
 * `action` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
   * `clearSelection` - Seçimi temizler.
-  * `keepSelection` - Seçimi normal bir seçime çevir.
+  * `keepSelection` - Seçimi normal bir seçime çevirir.
   * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
 Sunulan `action` ile birlikte, `webContents` için olan tüm `findInPage` isteklerini durdurur.
@@ -849,7 +849,7 @@ Sistemdeki yazıcıların listesini alır.
 #### `contents.print([options])`
 
 * `ayarlar` Nesne (isteğe bağlı) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
