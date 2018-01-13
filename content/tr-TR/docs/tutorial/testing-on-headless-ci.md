@@ -1,4 +1,4 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# Başsız CI Sistemlerde Test (Travis CI, Jenkins)
 
 Chronium'a dayanan Electron'un, çalışması için bir ekran sürücüsü gerekir. Chromium bir ekran sürücüsü bulamazsa, Electron'un çalıştırılması başarısız olur - ve bu nedenle testlerinizi nasıl çalıştırdığınıza bakılmaksızın herhangi bir testi çalıştırmaz. Travis, Circle, Jenkins veya benzeri sistemlerdeki Electron tabanlı uygulamaların test edilmesi bu nedenle biraz yapılandırma gerektirir. Özünde, bir sanal ekran sürücüsü kullanmamız gerekir.
 
