@@ -1,4 +1,4 @@
-# net
+# ağ
 
 > Chromium'un yerel ağ kütüphanesini kullanarak HTTP/HTTPS isteklerini yayınla
 
