@@ -842,13 +842,13 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Sistem printer listesini al.
+Sistemdeki yazıcıların listesini alır.
 
-Geri alır [`PrinterInfo[]`](structures/printer-info.md)
+[`PrinterInfo[]`](structures/printer-info.md) dönütünü verir
 
 #### `contents.print([options])`
 
-* `ayarlar` Obje (isteğe bağlı) 
+* `ayarlar` Nesne (isteğe bağlı) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
