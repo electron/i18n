@@ -1,10 +1,10 @@
 # वाइडवाइन सीडीएम प्लगइन का इस्तेमाल
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+इलेक्ट्रॉन में आप क्रोम ब्राउज़र के साथ भेजा गया वाइडवाइन सीडीएम प्लगइन इस्तेमाल कर सकते हैं |
 
-## Getting the plugin
+## प्लगइन कैसे पायें
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+लाइसेंस कारणों के कारण इलेक्ट्रॉन, वाइडवाइन सीडीएम प्लगइन के साथ नहीं आता, उसे पाने के लिए आपको पहले आधिकारिक क्रोम ब्राउज़र इनस्टॉल करना होगा, जिसकी बनावट और क्रोम संस्करण इलेक्ट्रॉन की बनावट समान हो |
 
 **Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
 
