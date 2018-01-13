@@ -14,11 +14,11 @@ Read on to learn more about the contributors and releases of Electron or get sta
 
 ## Издания
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Нови версии](https://github.com/electron/electron/releases) на електрон излизат често. Ние правим ъпдейт, когато оправим по-сериозни бъгове, нови API-та или нови версии на Chromium или Node.js.
 
 ### Updating Dependencies
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Версията на хромиум в Електрон обикновенно има ъпдейт през една или две седмици, когато излезе нова стабилна версия на хромиум, в зависимост от усилията нужни за ъпгрейда.
 
 When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
 
