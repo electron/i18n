@@ -54,13 +54,13 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
 4. Inspecciona Nodo [repo](https://github.com/electron/node) para ver qué parches del Nodo ascendente usados con sus V8 luego de botar su versión 
   - `git log --oneline deps/V8`
 5. Crea una lista de los parches. Esto es bastante útil para seguir tu trabajo y para tener una rápida referencia de realizar hashes que usar en el siguiente paso `git diff-tree`.
-6. Lee `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
-  - Delete each patchfile referenced in `patches/v8/README.md`
-7. For each patch, do: 
-  - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` is an incremented three-digit number (to force patch order)
-    - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
-  - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
+6. Lee `patches/v8/README.md` para ver cuáles archivos de parches de la anterior versión de V8 y, por lo tanto, necesitan ser removidos. 
+  - Elimina cada archivo de parche de `patches/v8/README.md`
+7. Para cada parche, realice: 
+  - (En el repo del nodo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
+    - `xxx` es un número de tres dígitos incrementado (para forzar el orden del parche)
+    - `patch_name`debería coincidir con los mensajes realizados del nodo, e.g. `030-cherry_pick_cc55747,patch` si los mensajes realizados del nodo eran "cherry-pick cc55747"
+  - (recordatorio de los pasos en libchromium repo) Edita manualmente el `.parche` file to match upstream V8's directory: 
     - If a diff section has no instances of `deps/V8`, remove it altogether. 
       - We don’t want those patches because we’re only patching V8.
     - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
