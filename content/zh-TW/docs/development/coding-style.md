@@ -6,7 +6,7 @@
 
 ## C++ 和 Python
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+編寫 C++ 及 Python 程式時，我們遵循 Chromium 的 [程式碼撰寫風格](https://www.chromium.org/developers/coding-style)。 You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
 我們目前用的 Python 是 2.7 版。
 
