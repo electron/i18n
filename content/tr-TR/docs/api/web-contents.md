@@ -797,13 +797,13 @@ Odaklanılan ögeye `text`'i ekler.
   * `wordStart` Boolean - (isteğe bağlı) Sadece kelime başlarına bakılıp bakılmayacağı, varsayılan olarak `false`'tur.
   * `medialCapitalAsWordStart` Boolean - (İsteğe bağlı) `wordStart` ile birleştirildiğinde, eğer eşleşme büyük harfle başlayıp küçük harf veya harf olmayan ifadeyle devam ediyorsa, eşleşmeyi kabul eder. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
-Web sayfasındaki tüm `text` eşleşmelerini bulmak için bir istek başlatır ve istek için kullanılan istek adını (id) temsil eden bir `Integer` olarak dönüt verir. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Web sayfasındaki tüm `text` eşleşmelerini bulmak için bir istek başlatır ve istek için kullanılan istek adını (id) temsil eden bir `Integer` olarak dönüt verir. İstek sonucu [`found-in-page`](web-contents.md#event-found-in-page) olayına sürdürümcü olunarak (subscribe) elde edilebilir.
 
 #### `contents.stopFindInPage(action)`
 
-* `hareket` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
-  * `clearSelection` - Seçimi temizle.
-  * `keepSelection` - Translate the selection into a normal selection.
+* `action` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
+  * `clearSelection` - Seçimi temizler.
+  * `keepSelection` - Seçimi normal bir seçime çevir.
   * `activateSelection` - Focus and click the selection node.
 
 Stops any `findInPage` request for the `webContents` with the provided `action`.
