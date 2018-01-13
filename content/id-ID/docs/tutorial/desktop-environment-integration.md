@@ -20,23 +20,23 @@ Jendela dan MacOS menyediakan akses mudah untuk daftar dokumen baru-baru ini dib
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+Untuk menambahkan file ke dokumen baru-baru ini, Anda dapat menggunakan  app.addRecentDocument </ 0> API :</p> 
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+Dan Anda dapat menggunakan [app.clearRecentDocuments ](../api/app.md#appclearrecentdocuments-macos-windows) API untuk mengosongkan daftar dokumen baru-baru:
 
 ```javascript
-onst {app} = require('electron')
+const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
 ### catatan Windows
 
-Agar dapat menggunakan fitur ini pada Windows , aplikasi Anda harus terdaftar sebagai handler dari jenis file dokumen, jika file tersebut tidak akan muncul di jumplist bahkan setelah Anda telah menambahkan. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Agar dapat menggunakan fitur ini pada Windows , aplikasi Anda harus terdaftar sebagai handler dari jenis file dokumen, jika file tersebut tidak akan muncul di jumplist bahkan setelah Anda telah menambahkan. Anda dapat menemukan semuanya di mendaftarkan aplikasi Anda di  Aplikasi Pendaftaran </ 0> .</p> 
 
 Ketika pengguna mengklik file dari jumplist, contoh baru dari aplikasi Anda akan mulai dengan path dari file ditambahkan sebagai argumen baris perintah.
 
@@ -118,7 +118,7 @@ app.setUserTasks([
 Untuk membersihkan daftar tugas Anda, silahkan hubungi `app.setUserTasks` dengan array kosong:
 
 ```javascript
-const {app} = require('electron')
+onst {app} = require('electron')
 app.setUserTasks([])
 ```
 
@@ -138,7 +138,7 @@ Dari MSDN, itu bergambar:
 
 ![pemain](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+Anda dapat menggunakan [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) untuk mengatur toolbar thumbnail dalam aplikasi Anda:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -206,11 +206,11 @@ Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan ap
 
 > Ikon hamparan berfungsi sebagai pemberitahuan status kontekstual, dan dimaksudkan untuk meniadakan kebutuhan akan ikon status area pemberitahuan terpisah untuk berkomunikasi informasi itu kepada pengguna. Misalnya, status mail baru di Microsoft Pandangan, yang saat ini ditampilkan di area notifikasi, sekarang dapat ditunjukkan melalui overlay pada tombol taskbar. Sekali lagi, Anda harus memutuskan selama Anda siklus pengembangan yang metode yang terbaik untuk aplikasi Anda. Ikon overlay adalah dimaksudkan untuk memasok status, notifikasi atau status lama yang penting status jaringan, status pesan, atau surat baru. Pengguna seharusnya tidak disajikan dengan hamparan atau animasi yang terus berubah.
 
-**Overlay pada tombol taskbar:**
+**Tampilan tombol taskbar:**
 
-![Tampilan tombol taskbar](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay pada tombol taskbar](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
@@ -245,7 +245,7 @@ Anda juga dapat mengatur keadaan diedit dari jendela sehingga ikon file dapat me
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+Untuk mengatur file jendela yang terwakili, Anda bisa menggunakan [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) dan [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
@@ -270,7 +270,7 @@ Di halaman web:
 </script>
 ```
 
-Dalam proses utamanya:
+In the main process:
 
 ```javascript
 const {ipcMain} = require('electron')
