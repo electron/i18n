@@ -126,7 +126,7 @@ pages:
   '/languages':
     title: bahasa
   '/userland':
-    title: Userland
+    title: Tanah pengguna
   '/devtron':
     title: Devtron
     description: Devtron adalah alat open source untuk membantu Anda memeriksa, memantau, dan debug aplikasi Elektron Anda. Dibangun di atas Alat Pengembang Chrome yang menakjubkan.
