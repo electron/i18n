@@ -26,7 +26,7 @@ Di Electron, Node.js dan Chromium berbagi satu contoh V8 — biasanya versi yang
 
 ### Versi
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). Untuk sebagian besar aplikasi, dan menggunakan versi npm terbaru, menjalankan `$ npm menginstal elektron ` akan melakukan hal yang benar.
+Seperti versi 2.0 Elektron [pengikut `semver`](https://semver.org). Untuk sebagian besar aplikasi, dan menggunakan versi npm terbaru, menjalankan `$ npm menginstal elektron ` akan melakukan hal yang benar.
 
 Proses update versi rinci secara eksplisit di [ ersioning Doc](electron-versioning.md) kami.
 
@@ -51,8 +51,8 @@ Berikut adalah tonggak dalam sejarah Electron.
 | :calendar:       | :tada:                                                                                                      |
 | ---------------- | ----------------------------------------------------------------------------------------------------------- |
 | **April 2013**   | [Atom Shell dimulai](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **Mei 2014**     | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                 |
+| **Mei 2014**     | [Atom Shell merupakan open source](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).           |
 | **April 2015**   | [Atom Shell menjadi Electron](https://github.com/electron/electron/pull/1389).                              |
 | **Mei 2016**     | [Elektron rilis `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
-| **Mei 2016**     | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                           |
-| **Agustus 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                          |
+| **Mei 2016**     | [Aplikasi Electron kompatibel dengan Mac App Store](mac-app-store-submission-guide.md).                     |
+| **Agustus 2016** | [Windows Store mendukungan aplikasi Electron](windows-store-guide.md).                                      |
