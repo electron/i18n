@@ -26,34 +26,35 @@
 
 **नोट:** हालाँकि केवल `वाइडवाइनसीडीएमअदेप्टर` बाइनरी इलेक्ट्रॉन में पास की जाती है, पर `वाइडवाइनसीडीएम` बाइनरी को भी उसी के साथ रखना होता है |
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+`एप्प` मोड्यूल के `रेडी` इवेंट के एमिट होने से पहले कमांड लाइन स्विचेस को पास करना होता है, और जो पेज इस प्लगइन का इस्तेमाल करता है उसमे प्लगइन इनेबल्ड होना चाहिये |
 
-Example code:
+उदाहरण कोड:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
+// आपको `वाइडवाइनसीडीएमअडेप्टर` का फाइलनाम यहाँ पास करना है,
+ वह है, 
+// * मैकओएस पर `widevinecdmadapter.plugin`, 
+// * लिनक्स पर `libwidevinecdmadapter.so', 
+// * विंडोज पर `widevinecdmadapter.dll` |
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// प्लगइन का संस्करण क्रोम के `chrome://plugins` पेज से पाया जा सकता है |
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
-app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      // The `plugins` have to be enabled.
+ app.on('ready', () => {
+   win = new BrowserWindow({
+     webPreferences: {
+       // 'प्लगइनस' इनेबल्ड होने चाहिये |
       plugins: true
-    }
-  })
-  win.show()
+     }
+   })
+   win.show() 
 })
 ```
 
-## Verifying the plugin
+## प्लगइन का सत्यापन करना
 
 To verify whether the plugin works, you can use following ways:
 
