@@ -33,7 +33,7 @@
 * [Интеграция на настолна среда](tutorial/desktop-environment-integration.md)
 * [Засичане на събития](tutorial/online-offline-events.md)
 * [Интерактивна среда за разработка на приложения](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Native известия](tutorial/notifications.md)
 
 ## Функционална документация
 
@@ -89,7 +89,7 @@
 
 * [Стандарти за писане на код](development/coding-style.md)
 * [Как да използваме clang форматиране при работа със C++ код](development/clang-format.md)
-* [Testing](development/testing.md)
+* [Тестване](development/testing.md)
 * [Структура на проекта](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Build System Overview](development/build-system-overview.md)
