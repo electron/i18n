@@ -361,8 +361,8 @@ Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığın
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` tamsayı
-* `x` tamsayı
+* `x` Tamsayı
+* `y` Tamsayı
 
 Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
 
