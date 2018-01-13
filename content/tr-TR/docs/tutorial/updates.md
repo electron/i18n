@@ -1,6 +1,6 @@
-# Uygulamaları Güncelleme
+# Uygulamaları Güncelleştirme
 
-Bir Electron uygulamasını güncellemenin bir kaç yolu vardır. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Bir Electron uygulamasını güncelleştirmenin bir kaç yolu vardır. En kolay ve resmi olarak desteklenen yol, bir yerleşik [Sincap](https://github.com/Squirrel) taslağından ve Electron'un [autoUpdater](../api/auto-updater.md) modülünden faydalanmaktır.
 
 ## Güncelleme sunucusu dağıtma
 
