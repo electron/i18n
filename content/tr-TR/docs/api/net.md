@@ -4,9 +4,9 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. Node.js'nin [HTTP](https://nodejs.org/api/http.html) ve [HTTPS](https://nodejs.org/api/https.html) modüllerine benzer ancak web proxy'leri için daha iyi destek sunan Node.js uygulaması yerine Chromium'un yerel ağ kitaplığını kullanıyor.
+The `net` module is a client-side API for issuing HTTP(S) requests. Node.js'nin [HTTP](https://nodejs.org/api/http.html) ve [HTTPS](https://nodejs.org/api/https.html) modüllerine benzer fakat web proxy'leri için daha iyi desteklenen Node.js uygulaması yerine Chromium'un yerel ağ kitaplığını kullanır.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+Aşağıdaki neden yerel Node.js modülleri yerine `ağ` modülünü kullanmayı düşünebileceğinizin ayrıntılı olmayan bir listesidir:
 
 * Sistem proxy yapılandırmasının otomatik yönetimi, wpad protokolü ve proxy pac yapılandırma dosyalarının desteği.
 * HTTPS isteklerine otomatik tünel açılması.
