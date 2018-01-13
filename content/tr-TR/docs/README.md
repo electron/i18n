@@ -89,7 +89,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Kodlama Stili](development/coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
-* [Testing](development/testing.md)
+* [Test ediliyor](development/testing.md)
 * [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
 * [NW.js (eski adı node-webkit)'le Teknik Farklılıkları](development/atom-shell-vs-node-webkit.md)
 * [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
