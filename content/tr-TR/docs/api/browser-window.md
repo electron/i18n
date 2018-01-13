@@ -936,7 +936,7 @@ Windows'ta, bir yöntem devredilebilir. Kabul edilen değerler `none`, `normal`,
 * `overlay` [DoğalGörüntü](native-image.md) - Görev çubuğu ikonunun sağ alt köşesinde gösterilecek simge. Eğer parametre `null` ise, üstteki ek sayfa temizlenir
 * `description` Dizi - Ekran okuyuculara erişilebilirliği sağlayacak olan açıklama
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Görevçubuğu ikonu üzerine 16 x 16 pixel ayarlar, genellikle kullanıcıyı pasif olarak uyarır.
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
@@ -1100,7 +1100,7 @@ Tarayıcı penceresine titreşim efekti ekler. `null` ve boş bir string gönder
 
 * `touchBar` TouchBar
 
-Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. Bu metod sadece macOS 10.12.1+ üzerinde çalışıyorsa ve makinanın dokunmatiği varsa etkilidir.
 
 **Not:** TouchBar API'si şu anda deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 
