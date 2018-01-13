@@ -22,19 +22,19 @@ Ang isang Imahe ng Apple Disk ay isang format ng packaging na ginagamit ng macOS
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Ang isang program na nagpapahintulot sa mga gumagamit na ipasok ang mga character at mga simbolo na hindi natagpuan sa kanilang keyboard. Halimbawa, pinapayagan nito ang mga gumagamit ng Latin na mga keyboard upang mag-input ng mga karakter na Chinese, Japanese, Korean at Indic.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+Ang ibig sabihin ng IPC ay Communication Inter-Process. Ginagamit ng elektron ang IPC upang ipadala ang serialized JSON na mga mensahe sa pagitan ng mga proseso ng  main </ 0> at  renderer </ 1>.</p> 
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+Isang nakabahaging library na kasama ang [ module ng Nilalaman ng Chromium ](https://www.chromium.org/developers/content-module) at lahat ng mga dependencies (hal., Blink, [ V8 ](#v8), atbp.). Tinutukoy rin bilang "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### pangunahing proseso
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
