@@ -162,7 +162,7 @@ Web görünümünde ayarlanacak web tercihlerinde `, ` ile ayrılmış olarak be
 
 Dize, içindeki özelliklerin türü ile aynı biçimi izler `window.open`. Bir ismin başına `true` boolean değeri verilir. Bir seçenek, izlediği değere `=` dahil edilerek başka bir değere dönüştürülebilir. `yes` ve `1` şeklinde özel değerler `true`, `no` ve `` şeklindeki özel değerler de `false` olarak yorumlanır.
 
-### `blinkfeatures`
+### `yanıp sönme özellikleri`
 
 ```html
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
@@ -170,7 +170,7 @@ Dize, içindeki özelliklerin türü ile aynı biçimi izler `window.open`. Bir 
 
 Yanıp sönme özelliklerini belirten dizi listeleri `,` ayrılarak etkinleştirilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) dosyasında bulunabilir.
 
-### `disableblinkfeatures`
+### `yanıp sönme özelliklerini devre dışı bırak`
 
 ```html
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
@@ -252,7 +252,7 @@ Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, ö
 
 Returns `String` - Misafir sayfasının URL'si.
 
-### `<webview>.getTitle()`
+### `<webview>.getURL()`
 
 Returns `String` - Misafir sayfasının başlığı.
 
@@ -262,7 +262,7 @@ Returns `Boolean` - Misafir sayfası hala kaynakları yüklüyorsa.
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+Returns `Boolean` - Misafir sayfası, sayfanın ana kaynağından gelecek bir ilk-karşılığı bekliyorsa.
 
 ### `<webview>.dur()`
 
