@@ -49,7 +49,7 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | fy       | Frisian                         |
 | ga       | Irish                           |
 | gd       | İskoç Galcesi                   |
-| gl       | Galician                        |
+| gl       | Galiçyalı                       |
 | gn       | Guarani                         |
 | gu       | Gujarati                        |
 | ha       | Hausa                           |
@@ -115,7 +115,7 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | sr       | Sırp                            |
 | st       | Sesotho                         |
 | su       | Sundanese                       |
-| sv       | Swedish                         |
+| sv       | İsveçli                         |
 | sw       | Swahili                         |
 | ta       | Tamil                           |
 | te       | Telugulu                        |
@@ -123,7 +123,7 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | th       | Thai                            |
 | ti       | Tigrinya                        |
 | tk       | Türkmen                         |
-| to       | Tonga                           |
+| to       | Tongalı                         |
 | tr       | Türkçe                          |
 | tt       | Tatar                           |
 | tw       | Twi                             |
