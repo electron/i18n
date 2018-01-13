@@ -26,7 +26,7 @@ Electron中Chromium的版本通常会在Chromium发行新的稳定版后的一�
 
 ### 版本
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). 对于大多数应用来说, 在使用最新版本的npm情况下, 运行 ` $ npm install electron ` 都将会正常工作 。
+从版本2.0开始Electron会 [ 遵循 ` semver ` 标准](https://semver.org)。 对于大多数应用来说, 在使用最新版本的npm情况下, 运行 ` $ npm install electron ` 都将会正常工作 。
 
 版本更新过程已明确并详细地描述在我们的 [ 版本控制文档 ](electron-versioning.md) 中。
 
@@ -51,8 +51,8 @@ Electron所添加的的新特性应主要用于原生API。 如果一个特性�
 | :calendar:  | :tada:                                                                                                   |
 | ----------- | -------------------------------------------------------------------------------------------------------- |
 | **2013年4月** | [Atom Shell 项目启动](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45)。 |
-| **2014年5月** | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).              |
+| **2014年5月** | [Atom Shell 被开源](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html)。                          |
 | **2015年4月** | [Atom Shell 被重命名为 Electron](https://github.com/electron/electron/pull/1389)。                             |
 | **2016年5月** | [Electron 发布了 `v1.0.0` 版本](https://electronjs.org/blog/electron-1-0)。                                    |
-| **2016年5月** | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                        |
-| **2016年8月** | [Windows Store support for Electron apps](windows-store-guide.md).                                       |
+| **2016年5月** | [Electron 构建的应用程序可上架 Mac App Store](mac-app-store-submission-guide.md)。                                  |
+| **2016年8月** | [Windows Store 支持 Electron 构建的应用程序](windows-store-guide.md)。                                             |
