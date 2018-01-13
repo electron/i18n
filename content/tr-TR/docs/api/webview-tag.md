@@ -480,7 +480,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfadaki alınacak bölge
 * `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
@@ -801,13 +801,13 @@ Dönüşler:
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi ile karşılaşılmasından dolayıdır:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Etkinlik: 'update-target-url'
 
 Dönüşler:
 
