@@ -49,7 +49,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Observe o terceiro paramêtro `true`, significa que o "listener" irá receber o evento de pressionar teclas antes de outros "listeners", para que eles não tenham `stopPropagation()` chamado para eles.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. Ele pode ser usado para capturar e manipular atalhos personalizados que não estão visíveis no menu.
+O evento [`before-input-event`](../api/web-contents.md#event-before-input-event) é emitido antes enviar os eventos `keydown` e `keyup` na página. Ele pode ser usado para capturar e manipular atalhos personalizados que não estão visíveis no menu.
 
 Se você não quer fazer análises manuais de atalhos, há bibliotecas que fazem a detecção teclas avançadas, como a [mousetrap](https://github.com/ccampbell/mousetrap).
 
