@@ -81,7 +81,7 @@ To make things worse, since the context of previously installed callbacks has be
 
 Bu sorunu önlemek için, ana işleme aktarılan işleyici geri çağırımlarına yapılan tüm başvuruları temizlendiğinden emin olun. Bu, olay işleyicilerinin temizlenmesi veya ana işleme açık olarak, çıkmakta olan bir oluşturucu işleminden gelen geri arama çağrılarının yapılmasını saydığından emin olmayı içerir.
 
-## Accessing built-in modules in the main process
+## Ana işlemde yerleşik modüllere ulaşım
 
 Ana işlemdeki konulmuş modüller `remote` içinde alıcı olarak bulunur, bu sayede sizde direk `electron</0 modülündeki gibi kullanabilirsiniz.</p>
 
