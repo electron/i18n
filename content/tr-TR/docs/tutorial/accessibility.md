@@ -38,7 +38,7 @@ Elektron uygulamaları erişilebilirliğini performans nedenleriyle varsayılan 
 
 ### İç uygulama
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. Kullanıcının sistem yardım araçları, bu ayar üzerinde önceliğe sahiptir ve onu geçersiz kılacaktır.
+[`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) ' i kullanarak, uygulama ayarlarında erişebilirlik anahtarını kullanıcılara gösterebilirsiniz. Kullanıcının sistem yardım araçları, bu ayar üzerinde önceliğe sahiptir ve onu geçersiz kılacaktır.
 
 ### Yardımcı teknoloji
 
