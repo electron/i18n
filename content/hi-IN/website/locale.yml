@@ -138,4 +138,4 @@ _404:
   if_this_is_an_error: यदि यह कोई त्रुटि है
   please_file_an_issue: कृपया समस्या दर्ज करें ।
 search:
-  description: Search within Electron documentations and community.
+  description: इलेक्ट्रॉन दस्तावेज़ और समुदाय के भीतर खोजें ।
