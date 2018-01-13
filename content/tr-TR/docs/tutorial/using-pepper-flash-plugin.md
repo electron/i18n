@@ -43,15 +43,15 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // Başka birşey
 })
 ```
 
 Ayrıca, gönderim yerine sistem genelinde Pepper Flash eklentisi yüklemeyi deneyebilirsiniz. Eklentileri kendiniz, çağırarak yolunu alabilirsiniz. `app.getPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Flash Eklentisini `<webview>` Etiketinde Etkinleştir
 
-Add `plugins` attribute to `<webview>` tag.
+`plugins` özniteliğini `<webview>` etiketine ekleyin.
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
