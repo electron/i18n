@@ -2,7 +2,7 @@
 
 > PNG ya da JPG dosyalarını kullanarak tepsi, dock(macOS menü) ve uygulama simgeleri oluşturun.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Resim çeken API'ler için Electron'da dosya yollarını veya `NativeImage` örneklerini geçirebilirsiniz. `null` geçirilirse boş resim kullanılacaktır.
 
