@@ -184,7 +184,7 @@ Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dı
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. Bir webview ilk defa yüklenildiğinde, yeni bir webContents yaratılır ve bu nitelik onun durum tanımlayıcısına ayarlanır. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
 
 Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url yüklendiğinde yeni bir webContents oluşturacaktır.
 
