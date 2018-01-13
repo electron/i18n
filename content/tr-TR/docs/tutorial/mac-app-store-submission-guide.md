@@ -155,7 +155,7 @@ ve aşağıdaki davranışlar değiştirilmiştir:
 
 Ayrıca, sandboxıng uygulaması kullanmından dolayı uygulama tarfından erişilebilinen kaynaklar kesinlikle sınırlıdır. Daha fazla bilgi için okuyabilirsiniz [App Sandboxing](https://developer.apple.com/app-sandboxing/).
 
-### Additional Entitlements
+### Ek yükümlülükler
 
 Uygulamanızın hangi Elektron API'larını kullandığına bağlı olarak, uygulamanızın bu API'ları Mac App Store yapısından kullanabilmesi için `parent.plist` dosyanıza ek yetkiler eklemeniz gerekebilir.
 
