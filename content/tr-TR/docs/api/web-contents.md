@@ -707,22 +707,22 @@ Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `cal
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Numara
-* `maximumLevel` Numara
+* `minimumLevel` Sayı
+* `maximumLevel` Sayı
 
-**Deprecated:** Çağrı `setVisualZoomLevelLimits` yerine görsel yakınlastırma seviyelerini belirle. Bu yöntem Electron 2.0'da kaldırılacaktır.
+**Deprecated:** Görsel yakınlaştırma düzeyi sınırlarını ayarlamak için `setVisualZoomLevelLimits`'i çağırın. Bu metod Electron 2.0.'da kaldırılacaktır.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Numara
-* `maximumLevel` Numara
+* `minimumLevel` Sayı
+* `maximumLevel` Sayı
 
 Azami ve minimum tutam-zum seviyesini belirtir.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Numara
-* `maximumLevel` Numara
+* `minimumLevel` Sayı
+* `maximumLevel` Sayı
 
 Maksimum ve minimum dizilim (Örn. Görsel olmayan) yakınlaştırma düzeyini belirler.
 
