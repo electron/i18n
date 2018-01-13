@@ -89,7 +89,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 
 * [Estilo de Codificação](development/coding-style.md)
 * [Usando clang-format em código C++](development/clang-format.md)
-* [Testing](development/testing.md)
+* [Testando tradução](development/testing.md)
 * [Estrutura de Diretório do Código Fonte](development/source-code-directory-structure.md)
 * [Diferentes Técnicas para o NW.js (formalmente node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Construir Resumo do Sistema](development/build-system-overview.md)
