@@ -46,15 +46,15 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
 2. Ejecuta `script/update` para obtener el último libcc 
   - Esto te consumirá mucho tiempo
 3. Remueve nuestras copias del viejo parche del Nodo V8 
-  - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
-  - Remove those files from `patches/v8/`: 
-    - `git rm` the patchfiles
-    - edit `patches/v8/README.md`
-    - commit these removals
-4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
+  - (En el repo de libchromiumcontent) Lee `patches/v8/README.md`para ver cuáles archivos de parches fueron creados durante la última actualización
+  - Remueve esos archivos de `parches/v8/`: 
+    - `git rm` los parches de archivos
+    - edita `patches/v8/README.md`
+    - cometer estas eliminaciones
+4. Inspecciona Nodo [repo](https://github.com/electron/node) para ver qué parches del Nodo ascendente usados con sus V8 luego de botar su versión 
   - `git log --oneline deps/V8`
-5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
-6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
+5. Crea una lista de los parches. Esto es bastante útil para seguir tu trabajo y para tener una rápida referencia de realizar hashes que usar en el siguiente paso `git diff-tree`.
+6. Lee `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
   - Delete each patchfile referenced in `patches/v8/README.md`
 7. For each patch, do: 
   - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
