@@ -17,15 +17,15 @@ Eğer uygulamanız [electron-builder](https://github.com/electron-userland/elect
 
 ## Uygulamanızda güncelleştirmeleri uygulama
 
-Güncelleme sunucunuzu düzenledikten sonra, kodunuza gerekli modülleri içe aktarmaya devam edin. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Güncelleme sunucunuzu düzenledikten sonra, kodunuza gerekli modülleri içe aktarmaya devam edin. Aşağıdaki kod farklı sunucu yazılımı için değişik olabilir, fakat [Hazel](https://github.com/zeit/hazel) kullanırken açıklandığı gibi çalışır.
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Important:** Lütfen aşağıdaki kodun sadece paketlenmiş uygulamanızda yürütüldüğüne, ve geliştirilmede olmadığına emin olun. [electron-is-dev](https://github.com/sindresorhus/electron-is-dev)'i çevreyi denetlemek için kullanabilirsiniz.
 
 ```js
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Daha sonra, güncelleştirme sunucusunun URL'sini yapılandırın ve [autoUpdater](../api/auto-updater.md)'a söyleyin:
 
 ```js
 const server = 'https://your-deployment-url.com'
@@ -34,7 +34,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-Son adım olarak güncellemeleri kontrol edin. Aşağıdaki örnekte her dakika denetlenecektir:
+Son adım olarak, güncelleştirmeleri kontrol edin. Aşağıdaki örnekte her dakika kontrol edilecektir:
 
 ```js
 setInterval(() => {
