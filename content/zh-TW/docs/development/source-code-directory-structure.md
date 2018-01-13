@@ -2,7 +2,7 @@
 
 Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組切分的結構。
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+為了更加了解原始碼，你應該熟悉 [Chromium 的多處理序架構](https://dev.chromium.org/developers/design-documents/multi-process-architecture)。
 
 ## 原始碼結構
 
