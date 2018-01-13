@@ -138,4 +138,4 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | zh       | Çinli                           |
 | zh-CN    | Çince (Basitleştirilmiş)        |
 | zh-TW    | Çince (Geleneksel)              |
-| zu       | Zulu dili                       |
+| zu       | Zuluca                          |
