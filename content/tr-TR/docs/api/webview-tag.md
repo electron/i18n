@@ -337,7 +337,7 @@ CSS'i misafir sayfasının içine yerleştirir.
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` Dizi
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - Varsayılan `false`.
 * `geri arama` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
   * `result` Herhangi bir
 
