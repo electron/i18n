@@ -155,7 +155,7 @@ Process: [Main](../glossary.md#main-process)
   * `darkTheme` Boolean (необязательно) - Заставляет использовать темную тему для окна, работает только на некоторых GTK+3 окружениях рабочего стола. По умолчанию - `false`.
   * `transparent` Boolean (необязательно) - Делает окно [прозрачным](frameless-window.md). По умолчанию - `false`.
   * `type` String (необязательно) - Тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
-  * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `по умолчанию`. Возможные значения: 
+  * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `default`. Возможные значения: 
     * `по умолчанию` - результаты в Стандартный серой непрозрачной Mac панели.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hidden-inset` - Устарело, вместо этого используйте `hiddenInset`.
