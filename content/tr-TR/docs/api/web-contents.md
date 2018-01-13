@@ -652,7 +652,7 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 
 Sayfadaki `code`'u değerlendirir.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -667,7 +667,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `ignore` Boolean
 
-Bu web içeriği odaklanmışken uygulama menüsü kısayollarını yok sayın.
+Bu web içeriklerine odaklanılmışken uygulama menüsü kısayolları görmezden gelinir.
 
 #### `contents.setAudioMuted(muted)`
 
