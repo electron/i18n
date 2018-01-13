@@ -79,11 +79,11 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
     - No queremos realizar cambios (estos se mantienen en el archivo de los parches) pero se necesitan localmente para que no se aparezcan de manera subsecuente mientras que interactuamos a través de más parches
   - Agrega el archivo de parches al índice: 
     - `git agregar a patches/v8/`
-  - (Optionally) commit each patch file to ensure you can back up if you mess up a step: 
-    - `git commit patches/v8/`
-8. Update `patches/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
-9. Update Electron's submodule references: 
-      sh
+  - (Opcionalmente) realiza cada archivo de parche para asegurar que puedes respaldar si te equivocas en algún paso: 
+    - `git realizar patches/v8/`
+8. Actualiza `patches/v8/README.md` con referencias a todos los nuevos parches que han sido agregados para que la siguiente persona sepa cuál debe ser eliminado.
+9. Actualiza los submódulos de referencia de Electron: 
+      h
       $ cd electron/vendor/node
       electron/vendor/node$ git fetch
       electron/vendor/node$ git checkout electron-node-vA.B.C
@@ -99,9 +99,9 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
 
 ## Notas
 
-- libcc and V8 are treated as a single unit
-- Node maintains its own fork of V8 
-  - They backport a small amount of things as needed
+- libcc y V8 son tratados como una unidad simple
+- Los nodos mantiene su propia bifurcación de V8 
+  - Ellos le hacen backport a una pequeña cantidad de cosas, cuanto sean necesitadas
   - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
 - We update code such that we only use one copy of V8 across all of electron 
   - E.g electron, libcc, and node
