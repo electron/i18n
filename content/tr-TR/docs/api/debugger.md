@@ -45,7 +45,7 @@ Returns `Boolean` - Whether a debugger is attached to the `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
