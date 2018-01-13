@@ -507,7 +507,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 * `factor` Number - Yakınlaştırma fakötrü.
 
-Yakınlaştırma faktörünü belirtilen faktöre değiştirir. om factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma değeri, yakınlaştırma yüzdesi bölü 100'dür, bu yüzden %300 = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
