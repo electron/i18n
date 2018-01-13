@@ -923,7 +923,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 * `ayarlar` Obje (isteğe bağlı) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+İlerleme çubuğundaki süreç değerini ayarlar. Geçerli aralık [0, 1.0].
 
 İlerleme durumu <0 olduğunda ilerleme çubuğunu kaldırın; İlerleme durumu > 1 olduğu zaman belirlenemez moda geçin.
 
@@ -1040,13 +1040,13 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamaktadır.
 
-**Note:** This API does nothing on Windows.
+**Not:** Bu API Windows'ta işe yaramaz.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**Not:** Bu API Windows'ta her zaman yanlış sonuç verir.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
