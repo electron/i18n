@@ -7,7 +7,7 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | Kod dili | İsim dili                       |
 | -------- | ------------------------------- |
 | af       | Afrika dili                     |
-| am       | Amharic                         |
+| am       | Amharca                         |
 | ar       | Arapça                          |
 | az       | Azerice                         |
 | be       | Belarus'lu                      |
@@ -17,9 +17,9 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | br       | Breton                          |
 | bs       | Boşnakça                        |
 | ca       | Katalanca                       |
-| co       | Corsican                        |
+| co       | Korsikaca                       |
 | cs       | Çekçe                           |
-| cy       | Welsh                           |
+| cy       | Galce                           |
 | da       | Danimarkalı                     |
 | de       | Almanca                         |
 | de-AT    | Almanca (Avusturya)             |
@@ -37,90 +37,90 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | es       | İspanyolca                      |
 | es-419   | İspanyolca (Latin Amerika)      |
 | et       | Eston Dili                      |
-| eu       | Basque                          |
+| eu       | Baskça                          |
 | fa       | Farsça                          |
 | fi       | Fin'li                          |
 | fil      | Filipin'li                      |
-| fo       | Faroese                         |
+| fo       | Faroe dili                      |
 | fransız  | Fransızca                       |
 | fr-CA    | Fransızca (Kanada)              |
 | fr-CH    | Fransızca (İsviçre)             |
 | fr-FR    | Fransızca (Fransa)              |
-| fy       | Frisian                         |
-| ga       | Irish                           |
+| fy       | Frizce                          |
+| ga       | İrlandaca                       |
 | gd       | İskoç Galcesi                   |
 | gl       | Galiçyalı                       |
 | gn       | Guarani                         |
-| gu       | Gujarati                        |
-| ha       | Hausa                           |
+| gu       | Guceratça                       |
+| ha       | Hausaca                         |
 | haw      | Havaili                         |
-| he       | Hebrew                          |
+| he       | İbranice                        |
 | hi       | Hintli                          |
 | hr       | Hırvatça                        |
 | hu       | Macarca                         |
 | hy       | Ermenice                        |
 | ia       | Interlingua                     |
 | id       | Endonezce                       |
-| is       | Icelandic                       |
-| it       | Italian                         |
+| is       | İzlandaca                       |
+| it       | İtalyanca                       |
 | it-CH    | İtalyanca (İsviçre)             |
 | it-IT    | İtalyanca (İtalya)              |
 | ja       | Japonca                         |
-| jw       | Javanese                        |
+| jw       | Cavaca                          |
 | ka       | Gürcüce                         |
 | kk       | Kazakça                         |
 | km       | Kamboçyalı                      |
-| kn       | Kannada                         |
+| kn       | Kannadaca                       |
 | ko       | Korece                          |
 | ku       | Kürtçe                          |
-| ky       | Kyrgyz                          |
-| la       | Latin                           |
+| ky       | Kırgızca                        |
+| la       | Latince                         |
 | ln       | Lingala                         |
-| lo       | Laothian                        |
+| lo       | Letonyaca                       |
 | lt       | Litvanyalı                      |
-| lv       | Latvian                         |
+| lv       | Letonca                         |
 | mk       | Makedonyalı                     |
-| ml       | Malayalam                       |
-| mn       | Moğolistanlı                    |
-| mo       | Moldavian                       |
-| mr       | Marathi                         |
+| ml       | Malayam dili                    |
+| ml       | Moğolistanlı                    |
+| mo       | Moldova dili                    |
+| mr       | Marathice                       |
 | ms       | Malay                           |
-| mt       | Maltese                         |
+| mt       | Malta dili                      |
 | nb       | Norveççe (Bokmal)               |
 | ne       | Nepalli                         |
 | nl       | Flemenkçe                       |
-| nn       | Norwegian (Nynorsk)             |
+| nn       | Norveççe (Nynorsk)              |
 | no       | Norveç                          |
-| oc       | Occitan                         |
-| om       | Oromo                           |
-| veya     | Oriya                           |
-| pa       | Punjabi                         |
+| oc       | Oksitanca                       |
+| om       | Oromo dili                      |
+| veya     | Oriya dili                      |
+| pa       | Pencapça                        |
 | pl       | Polonyalı                       |
-| ps       | Pashto                          |
+| ps       | Peştuca                         |
 | pt       | Portekizce                      |
 | pt-BR    | Portekizce (Brezilya)           |
 | pt-PT    | Portekizce (Portekiz)           |
-| qu       | Quechua                         |
-| rm       | Romansh                         |
-| ro       | Romanian                        |
+| qu       | Keçuva dili                     |
+| rm       | Romence                         |
+| ro       | Rumence                         |
 | ru       | Rusça                           |
-| sd       | Sindhi                          |
-| sh       | Serbo-Croatian                  |
-| si       | Sinhalese                       |
+| sd       | Sintçe                          |
+| sh       | Hırvatistan Sırpçası            |
+| si       | Seylanca                        |
 | sk       | Slovakyalı                      |
 | sl       | Sloven                          |
 | sn       | Shona                           |
-| so       | Somali                          |
+| so       | Somalice                        |
 | sq       | Arnavutlu                       |
 | sr       | Sırp                            |
-| st       | Sesotho                         |
-| su       | Sundanese                       |
+| st       | Sotho dili                      |
+| su       | Sundaca                         |
 | sv       | İsveçli                         |
-| sw       | Swahili                         |
-| ta       | Tamil                           |
+| sw       | Svahili dili                    |
+| ta       | Tamilce                         |
 | te       | Telugulu                        |
-| tg       | Tajik                           |
-| th       | Thai                            |
+| tg       | Tacikçe                         |
+| th       | Tayca                           |
 | ti       | Tigrinya                        |
 | tk       | Türkmen                         |
 | to       | Tongalı                         |
@@ -129,12 +129,12 @@ Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtim
 | tw       | Twi                             |
 | ug       | Uygurlu                         |
 | uk       | Ukraynalı                       |
-| ur       | Urdu                            |
-| uz       | Uzbek                           |
+| ur       | Urduca                          |
+| uz       | Özbekçe                         |
 | vi       | Vietnamlı                       |
-| xh       | Xhosa                           |
-| yi       | Yiddish                         |
-| yo       | Yoruba                          |
+| xh       | Zosa dili                       |
+| yi       | Yidce                           |
+| yo       | Yorubaca                        |
 | zh       | Çinli                           |
 | zh-CN    | Çince (Basitleştirilmiş)        |
 | zh-TW    | Çince (Geleneksel)              |
