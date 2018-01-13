@@ -883,7 +883,7 @@ Same as `webContents.loadURL(url[, options])`.
 
 The `url` uzak bir adres olabilir (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Dosya URL lelerin düzgün formatlandığından emin olmak için, [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) düğümlerini kullanmanız önerilmektedir:
 
 ```javascript
 let url = require('url').format({
@@ -927,7 +927,7 @@ Sets progress value in progress bar. Valid range is [0, 1.0].
 
 İlerleme durumu <0 olduğunda ilerleme çubuğunu kaldırın; İlerleme durumu > 1 olduğu zaman belirlenemez moda geçin.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. Fabrika ayarındayken `app.getName().desktop` olarak varsayar.
 
 Windows'ta, bir yöntem devredilebilir. Kabul edilen değerler `none`, `normal`, `indeterminate`, `error`, ve `paused`. `setProgressBar` 'ı bir yöntem kurulumu ile çağırırsanız (fakat geçerli aralıktaki bir değerle), `normal` varsayılacaktır.
 
@@ -987,7 +987,7 @@ Görev çubuğunda pencerenin üzerinde gezinirken görüntülenen küçük resi
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Pencere ikonunun üzerindeyken gözüken toolTip i görev çubuğunda ayarlar.
 
 #### `win.setAppDetails(options)` *Windows*
 
