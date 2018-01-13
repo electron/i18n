@@ -22,7 +22,7 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
     - En son kararlı mac sürümü için: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - En yeni win64 beta sürümü için: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - çalıştır `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
+    - Biraz çay demleyin -- bu yaklaşık 30dk yada daha fazla sürebilir.
     - It will probably fail applying patches.
 3. Klasör`*.patch` files in the `patches/` and `patches-mas/` düzenleme.
 4. (Tercihe bağlı) `script/update` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
