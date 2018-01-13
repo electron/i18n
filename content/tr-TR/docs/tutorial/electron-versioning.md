@@ -22,75 +22,89 @@ Electron versiyonları *< 2.0*, [semver](http://semver.org) belirtimine uymadı.
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+` 1.8.1 </ 0> ile geliştirilen bir uygulama, <code> 1.8.2 </ 0> özelliğini emme veya düzeltmeyi geri gönderme olmadan <code> 1.8.3 </ 0> hata düzeltmesini alamaz ve yeni bir serbest bırakma hattının sürdürülmesini gerçekleştiremez.</p>
 
-## Sürüm 2.0 ve Ötesi
+<h2>Sürüm 2.0 ve Ötesi</h2>
 
-Aşağıda özetlenen 1.x stratejimizden birkaç önemli değişiklik var. Her değişiklik, geliştiricilerin/sürdürücülerin ve uygulama geliştiricilerin gereksinimlerini ve önceliklerini karşılamak üzere tasarlanmıştır.
+<p>Aşağıda özetlenen 1.x stratejimizden birkaç önemli değişiklik var. Her değişiklik, geliştiricilerin/sürdürücülerin ve uygulama geliştiricilerin gereksinimlerini ve önceliklerini karşılamak üzere tasarlanmıştır.</p>
 
-1. Semver'in sıkı kullanımı
-2. Semver-uyumlu `-beta` etiketlerinin tanıtımı
-3. [Konvansiyonel taahhüt mesajları](https://conventionalcommits.org/)'na giriş
-4. Açıkça tanımlanan stabilizasyon dalları
-5. The `master` branch is versionless; only stability branches contain version information
+<ol>
+<li>Semver'in sıkı kullanımı</li>
+<li>Semver-uyumlu <code>-beta` etiketlerinin tanıtımı</li> 
 
-Git dallanmasının nasıl çalıştığını, npm etiketinin nasıl çalıştığını, geliştiricilerin neler bekleyebileceğini ve değişikliklerin nasıl geri alınabileceğini ayrıntılı olarak ele alacağız.
+* [Konvansiyonel taahhüt mesajları](https://conventionalcommits.org/)'na giriş
+* Açıkça tanımlanan stabilizasyon dalları
+* ` master</ 0> dalı süresizdir; yalnızca istikrar dalları sürüm bilgisi içerir</li>
+</ol>
 
-# semver
+<p>Git dallanmasının nasıl çalıştığını, npm etiketinin nasıl çalıştığını, geliştiricilerin neler bekleyebileceğini ve değişikliklerin nasıl geri alınabileceğini ayrıntılı olarak ele alacağız.</p>
 
-Electron 2.0'dan itibaren semver'i izleyecek.
+<h1>semver</h1>
 
-Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, Minör, Yama) açıkça eşleyen bir tablo verilmiştir.
+<p>Electron 2.0'dan itibaren semver'i izleyecek.</p>
 
-* **Büyük Sürüm Artışları** 
-    * Chromium sürümü güncellemeleri
-    * node.js ana sürüm güncellemeleri
-    * Elektron API kırma değişiklikleri
-* **Küçük Versiyon Artımları** 
-    * node.js minor version updates
-    * Elektron kırılmaz API değişiklikleri
-* **Yama Sürümü Artımları** 
-    * node.js yama sürümü güncelleştirmeleri
-    * fix-related chromium yamaları
-    * Electron hata düzeltmeleri
+<p>Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, Minör, Yama) açıkça eşleyen bir tablo verilmiştir.</p>
 
-Çoğu krom güncellemesinin kırılma olarak değerlendirileceğini unutmayın. Geri gönderilebilecek düzeltmeler muhtemelen kiraz yamalar olarak seçilecek.
+<ul>
+<li><strong>Büyük Sürüm Artışları</strong>
 
-# Dengeleme Dalları
+<ul>
+<li>Chromium sürümü güncellemeleri</li>
+<li>node.js ana sürüm güncellemeleri</li>
+<li>Elektron API kırma değişiklikleri</li>
+</ul></li>
+<li><strong>Küçük Versiyon Artımları</strong>
 
-Dengeleme dalları, yalnızca emniyet veya istikrarla ilgili kiraz toplama taahhütlerini alarak, ustaya paralel çalışan dallardır. Bu dallar hiçbir zaman ustaya birleştirilmezler.
+<ul>
+<li>node.js küçük sürüm güncellemeleri</li>
+<li>Elektron kırılmaz API değişiklikleri</li>
+</ul></li>
+<li><strong>Yama Sürümü Artımları</strong>
 
-![](../images/versioning-sketch-1.png)
+<ul>
+<li>node.js yama sürümü güncelleştirmeleri</li>
+<li>fix-related chromium yamaları</li>
+<li>Electron hata düzeltmeleri</li>
+</ul></li>
+</ul>
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+<p>Çoğu krom güncellemesinin kırılma olarak değerlendirileceğini unutmayın. Geri gönderilebilecek düzeltmeler muhtemelen kiraz yamalar olarak seçilecek.</p>
 
-Eşzamanlı olarak birden fazla dengeleme dalının bulunmasına izin veriyoruz, her zaman paralel olarak en az ikisini desteklemeyi ve gerektiğinde güvenlik düzeltmelerini geri göndermeyi düşünüyoruz. ![](../images/versioning-sketch-2.png)
+<h1>Dengeleme Dalları</h1>
 
-Eski satırlar GitHub tarafından desteklenmeyecek, ancak diğer gruplar kendi kendilerine sahiplik ve backport kararlılığı ve güvenlik düzeltmeleri alabilir. Bunu birlikte cesaretlendiriyoruz çünkü birçok uygulamanın geliştiricileri için hayatı kolaylaştırdığının farkındayız.
+<p>Dengeleme dalları, yalnızca emniyet veya istikrarla ilgili kiraz toplama taahhütlerini alarak, ustaya paralel çalışan dallardır. Bu dallar hiçbir zaman ustaya birleştirilmezler.</p>
 
-# Beta Bültenleri ve Hata Düzeltmeleri
+<p><img src="../images/versioning-sketch-1.png" alt="" /></p>
 
-Geliştiriciler hangi sürümlerin *güvenli* olacağını bilmek istiyor. Görünüşte masum özellikler bile karmaşık uygulamalarda gerileme yaratabilir. Aynı zamanda sabit bir sürüme kilitleme tehlikelidir, çünkü sürümünüzden bu yana çıkan güvenlik yamalarını ve hata düzeltmelerini görmezden geliyorsunuzdur. Amacımız `package.json`'da aşağıdaki standart semver aralıklarına izin vermektir:
+<p>Stabilizasyon dalları daima <strong> major</ i> veya <strong> minor</ i> sürüm çizgileridir ve aşağıdaki şablona göre adlandırılmıştır: <code> $ MAJOR- $ MINOR-x </ 1> e.g. <code> 2-0-X </ 1>.</p>
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+<p>Eşzamanlı olarak birden fazla dengeleme dalının bulunmasına izin veriyoruz, her zaman paralel olarak en az ikisini desteklemeyi ve gerektiğinde güvenlik düzeltmelerini geri göndermeyi düşünüyoruz.
+<img src="../images/versioning-sketch-2.png" alt="" /></p>
 
-İkinci nokta ile ilgili önemli olan ` ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. Bunu gerçekleştirmek için Semver, belirli bir sürümün henüz <em>güvenli</em> veya <em>kararlı</em> olmadığını belirtmek için <em>yayın öncesi tanımlayıcıya</em> izin verir.</p>
+<p>Eski satırlar GitHub tarafından desteklenmeyecek, ancak diğer gruplar kendi kendilerine sahiplik ve backport kararlılığı ve güvenlik düzeltmeleri alabilir. Bunu birlikte cesaretlendiriyoruz çünkü birçok uygulamanın geliştiricileri için hayatı kolaylaştırdığının farkındayız.</p>
+
+<h1>Beta Bültenleri ve Hata Düzeltmeleri</h1>
+
+<p>Geliştiriciler hangi sürümlerin <em>güvenli</em> olacağını bilmek istiyor. Görünüşte masum özellikler bile karmaşık uygulamalarda gerileme yaratabilir. Aynı zamanda sabit bir sürüme kilitleme tehlikelidir, çünkü sürümünüzden bu yana çıkan güvenlik yamalarını ve hata düzeltmelerini görmezden geliyorsunuzdur. Amacımız <code>package.json`'da aşağıdaki standart semver aralıklarına izin vermektir:</p> 
+    * ` 2.0.0 </ 0> sürümünüze yalnızca kararlılık veya güvenlikle ilgili düzeltmeler kabul etmek için <code> ~ 2.0.0 </ 0> kullanın.</li>
+<li>Güvenlik ve hata düzeltmelerinin yanı sıra kırılmaz <em> makul derecede kararlı </ 1> özellik işi kabul etmek için <code> ^ 2.0.0 </ 0> kullanın.</li>
+</ul>
+
+<p>İkinci nokta ile ilgili önemli olan <code> ^ </ 0> kullanan uygulamaların makul düzeyde bir kararlılık beklemesi gerektiğidir. Bunu gerçekleştirmek için Semver, belirli bir sürümün henüz <em>güvenli</em> veya <em>kararlı</em> olmadığını belirtmek için <em>yayın öncesi tanımlayıcıya</em> izin verir.</p>
 
 <p>Hangisini seçerseniz seçin, bozucu değişiklikler Chromium hayatının bir gerçeği olduğu için periyodik olarak <code> package.json </ 0> sürümününe geçmek zorunda kalacaksınız.</p>
 
 <p>Süreç şöyledir:</p>
 
 <ol>
-<li>Tüm yeni büyük ve küçük yayın satırları, <code>N >= 1` için `-beta.N` etiketi ile başlar. Tam da burada, özellik seti **kilitli** olur. Bu sürüm satırı, başka hiçbir özelliği kabul etmiyor ve yalnızca güvenlik kararlılıkları ile ilgilidir. örneğin `2.0.0-beta.1`.</li> 
-
-* Hata düzeltmeleri, regresyon düzeltmeleri ve güvenlik yamaları kabul edilebilir. Bunu yaptıktan sonra `N` bir arttırılarak yeni bir beta yayınlandı. Örneğin. `2.0.0-beta.2`
-* Belirli bir beta sürümünün kararlılığı *genel olarak kabul edilirse*, yalnızca sürüm bilgisi değiştirilerek, kararlı yapı olarak yeniden yayınlanacaktır. Örneğin. `2.0.0`.
-* Gelecekteki hata düzeltmeleri veya güvenlik yamalarının yayın kararlı iken bir araya getirilmesi gerekiyorsa, bunlar uygulanır ve buna göre *yama* sürümü artırılır. Örneğin. `2.0.1`.</ol> 
-
-Her büyük ve küçük darbe için, aşağıdakiler gibi bir şey beklemelisiniz:
-
-```text
+<li>Tüm yeni büyük ve küçük yayın satırları, <code>N >= 1` için `-beta.N` etiketi ile başlar. Tam da burada, özellik seti **kilitli** olur. Bu sürüm satırı, başka hiçbir özelliği kabul etmiyor ve yalnızca güvenlik kararlılıkları ile ilgilidir. örneğin `2.0.0-beta.1`.
+    * Hata düzeltmeleri, regresyon düzeltmeleri ve güvenlik yamaları kabul edilebilir. Bunu yaptıktan sonra `N` bir arttırılarak yeni bir beta yayınlandı. Örneğin. `2.0.0-beta.2`
+    * Belirli bir beta sürümünün kararlılığı *genel olarak kabul edilirse*, yalnızca sürüm bilgisi değiştirilerek, kararlı yapı olarak yeniden yayınlanacaktır. Örneğin. `2.0.0`.
+    * Gelecekteki hata düzeltmeleri veya güvenlik yamalarının yayın kararlı iken bir araya getirilmesi gerekiyorsa, bunlar uygulanır ve buna göre *yama* sürümü artırılır. Örneğin. `2.0.1`.</ol> 
+    
+    Her büyük ve küçük darbe için, aşağıdakiler gibi bir şey beklemelisiniz:
+    
+    ```text
 2.0.0-beta.1
 2.0.0-beta.2
 2.0.0-beta.3
