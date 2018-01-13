@@ -1,4 +1,4 @@
-## Klasa: PobranyPrzrdmot
+## Klasa: PobranyPrzedmiot
 
 > Pliki kontroli programów że źródeł zdalnych.
 
