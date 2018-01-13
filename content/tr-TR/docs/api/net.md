@@ -10,12 +10,12 @@ Aşağıdaki neden yerel Node.js modülleri yerine `ağ` modülünü kullanmayı
 
 * Sistem proxy yapılandırmasının otomatik yönetimi, wpad protokolü ve proxy pac yapılandırma dosyalarının desteği.
 * HTTPS isteklerine otomatik tünel açılması.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
+* Temel, Özet, NTLM, Kerberos yada kimlik doğrulama düzenleri şeması kullanan kimlik doğrulama proxy sunucuları için destek.
 * Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
 
 The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
 
-Glecek örnek `net` API kullanımı hakkında bilgi verir:
+Mesela, sıradaki örnek `ağ` API kullanımı hakkında hızlıca bilgi verir:
 
 ```javascript
 const {app} = require('electron')
@@ -36,13 +36,13 @@ app.on('ready', () => {
 })
 ```
 
-Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) Node.js modüllerini kullanım şeklinizle neredeyse aynı
+Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) neredeyse Node.js modüllerinin kullanım şekli ile neredeyse aynı
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
 ## Metodlar
 
-`net` modülü aşağıdaki yöntemleri içerir:
+`ağ` modülü aşağıdaki yöntemleri içerir:
 
 ### `net.request(options)`
 
