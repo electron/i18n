@@ -116,7 +116,7 @@ process.versions['atom-shell']
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` ve `process.version.chrome` okunacaktır - diğer tutarlılık için sadece özellikler `process.versions` Node tarafından belirlenen özellikler.
 
 ## `session`
 
@@ -197,7 +197,7 @@ Kullanımdan kaldırıldı: https://atom.io/download/atom-shell
 
 Şununla değiştirildi: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## ARM Varlıklarını Çoğaltın
 
 Her Electron sürümü, `electron-v1.7.3-linux-arm.zip` ve `electron-v1.7.3-linux-armv7l.zip` gibi, az farklılık içeren dosya adlarıyla iki özdeş ARM yapısı içerir. `v7l` ünvanlı öğe, kullanıcılara hangi ARM sürümünü desteklediğini açıklamak ve gelecekte üretilebilecek armv6l ve arm64 öğelerinden ayırt etmek için eklendi.
 
