@@ -22,7 +22,7 @@
 
 ## प्लगइन का इस्तेमाल करना
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+प्लगइन फाइल्स पाने के बाद, आपको `वाइडवाइनसीडीएमअडेप्टर` के पथ को `--widevine-cdm-path` कमांड लाइन स्विच, और प्लगइन के संस्करण `--widevine-cdm-version` स्विच के साथ इलेक्ट्रॉन में पास करना चाहिये|
 
 **Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
 
