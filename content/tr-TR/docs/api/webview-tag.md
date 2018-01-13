@@ -561,11 +561,11 @@ Bir kare, navigasyonunu tamamladığında tetiklenir.
 
 ### Olay: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Sekmenin döndürücüsünün dönmeye başladığı andaki noktalara karşılık gelir.
 
 ### Olay: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Sekmenin döndürücüsünün dönmeyi durdurduğu andaki noktalara karşılık gelir.
 
 ### Olay: 'did-get-response-details'
 
@@ -621,7 +621,7 @@ Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
 
 Tam ekran HTML API tarafından çıkıldığında ateşlenir.
 
-### Event: 'console-message'
+### Etkinlik: 'console-message'
 
 Dönüşler:
 
@@ -647,9 +647,9 @@ Dönüşler:
 
 * `sonuç` Nesne 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
+  * `matches` Integer - Eşleşmelerin sayısı.
+  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
   * `finalUpdate` Boolean
 
 Bir sonuç [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) isteği için geçerli hale geldiğinde tetiklenir.
@@ -737,7 +737,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### Etkinlik: 'ipc-message'
 
 Dönüşler:
 
