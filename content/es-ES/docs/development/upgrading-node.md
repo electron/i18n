@@ -39,13 +39,13 @@ En resumidas cuentas, los principales pasos son:
 
 ## Actualizando Parches [V8](https://github.com/electron/node/src/V8)
 
-We need to generate a patch file from each patch applied to V8.
+Necesitamos generar un archivo de parche para cada uno de los parches aplicados al V8.
 
-1. Get a copy of Electron's libcc fork 
+1. Consigue una copia de la bifurcación libcc de Electron 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
-  - This will be time-consuming
-3. Remove our copies of the old Node v8 patches 
+2. Ejecuta `script/update` para obtener el último libcc 
+  - Esto te consumirá mucho tiempo
+3. Remueve nuestras copias del viejo parche del Nodo V8 
   - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
   - Remove those files from `patches/v8/`: 
     - `git rm` the patchfiles
