@@ -26,18 +26,18 @@ En resumidas cuentas, los principales pasos son:
 
 1. Asegúrate que el `maestro` en `electron/nodo` ha actualizado las etiquetas de liberación de `nodejs/nodo`
 2. Crea una ramificación en https://github.com/electron/node: `electron-node-vX.X.X` la base en la que está ramificando es la etiqueta para la actualización deseada 
-  - `vX.X.X` Must use a version of node compatible with our current version of chromium
-3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
-    2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
-    1. `git add <conflict-file>`
-    2. `git cherry-pick --continue`
-    3. Repeat until finished
+  - `vX.X.X` debe usar la versión de nodo compatible con nuestra versión actual de chromium
+3. Volver a aplicar nuestros encomendares de la versión anterior del nodo que estábamos usando (`vY.Y.Y`) to `v.X.X.X` 
+  - Revise la etiqueta de liberación y selecciona el rango de encomendares que necesitamos para volver a aplicar
+  - Escoger el rango de encomendares: 
+    1. Revisa los `vY.Y.Y` & `v.X.X.X`
+    2. `escoge FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
+  - Resuelve los conflictos de fusión en cada una de las filas encontradas, entonces: 
+    1. `git agrega <conflict-file>`
+    2. `git elige --continuar`
+    3. Repite hasta haber terminado
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## Actualizando Parches [V8](https://github.com/electron/node/src/V8)
 
 We need to generate a patch file from each patch applied to V8.
 
