@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('gelen kutusuna git') })
 Mousetrap.bind('* a', () => { console.log('hepsini seç') })
 
 // konami kodu!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('yukarı aşağı sola sağa sola b a girin', () => {
   console.log('konami code')
 })
 ```
