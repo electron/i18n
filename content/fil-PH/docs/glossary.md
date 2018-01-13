@@ -91,27 +91,27 @@ Tingnan din ang: [ pangunahing proseso ](#main-process), [ proseso ng renderer ]
 
 ### proseso ng renderer
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Ang proseso ng tagapag-render ay isang window ng browser sa iyong app. Hindi tulad ng pangunahing proseso, maaaring magkaroon ng maraming ng mga ito at ang bawat isa ay tatakbo sa isang hiwalay na proseso. Maaari rin silang maitago.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Sa normal na mga browser, ang mga web page ay karaniwang tumatakbo sa isang sandboxed na kapaligiran at hindi pinapayagan ang pag-access sa mga katutubong mapagkukunan. Gayunpaman, ang mga gumagamit ng elektron ay may kapangyarihan sa gamitin ang mga API ng Node.js sa mga web page na nagpapahintulot sa mas mababang antas ng operating system mga pakikipag-ugnayan.
 
-See also: [process](#process), [main process](#main-process)
+Tingnan din ang: [ proseso ](#process), [ pangunahing proseso ](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Ang ardilya ay isang open-source framework na nagbibigay-daan sa mga apps ng Electron na awtomatikong i-update bilang mga bagong bersyon ay inilabas. Tingnan ang [ autoUpdater ](api/auto-updater.md) API para sa impormasyon tungkol sa pagsisimula sa ardilya.
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Ang terminong ito ay nagmula sa komunidad ng Unix, kung saan ang "userland" o "userspace" ay tinutukoy ang mga program na tumatakbo sa labas ng kernel ng operating system. Higit pa kamakailan lamang, ang termino ay na-popularized sa node at npm komunidad na makilala sa pagitan ng mga tampok na magagamit sa "Node core" kumpara sa mga pakete inilathala sa npm registry ng mas malaking "user" na komunidad.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Tulad ng Node, ang Electron ay nakatutok sa pagkakaroon ng isang maliit na hanay ng mga API na nagbibigay lahat ng kinakailangang primitibo para sa pagbubuo ng mga application ng multi-platform desktop. Ang pilosopiyang ito ng disenyo ay nagpapahintulot sa Electron na manatiling isang nababaluktot na kasangkapan nang hindi masobrahan ang tanaw tungkol sa kung paano ito dapat gamitin. Binibigyang-daan ng Userland ang mga gumagamit na lumikha at magbahagi ng mga tool na nagbibigay ng karagdagang pag-andar sa ibabaw ng kung ano na magagamit sa "core".
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+Ang V8 ay isang open source JavaScript engine ng Google. Ito ay nakasulat sa C++ at ginagamit sa Google Chrome. Maaaring magpatakbo ng V8 standalone, o maaaring ma-embed sa anumang C++ application.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Ang elektron ay nagtatayo ng V8 bilang bahagi ng Chromium at pagkatapos ay tumuturo sa Node sa V8 kung kailan pagbuo nito.
 
 V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
