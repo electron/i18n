@@ -31,7 +31,7 @@ Electron'da özel yamalarla, `fs.readFile` ve `require` gerektirir. ` asar` arş
 Örneğin, bir `example.asar` archive under `/path/to`:
 
 ```sh
-$ asar list /path/to/example.asar
+$ asar listesi /path/to/example.asar
 /app.js
 /file.txt
 /dir/module.js
