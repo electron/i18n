@@ -24,9 +24,9 @@ Cuando se lanza una nueva versión de Node.js, Electron generalmente espera alre
 
 En Electron, Node.js y Chromium comparten una sola instancia de V8—generalmente la versión que usa Chromium. La mayoría de las veces esto *simplemente funciona* pero a veces significa remendar Node.js.
 
-### Versiones
+### Control de versiones
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). Para la mayoría de las aplicaciones y usando cualquier versión reciente de npm, ejecutar `$ npm electron de instalación` hará lo correcto.
+A partir de la versión 2.0 Electron[sigue a`semver`](https://semver.org). Para la mayoría de las aplicaciones y usando cualquier versión reciente de npm, ejecutar `$ npm electron de instalación` hará lo correcto.
 
 El proceso de actualización de la versión se detalla explícitamente en nuestro [documento de versiones](electron-versioning.md).
 
@@ -52,7 +52,7 @@ A continuación hay hitos en la historia de Electron.
 | ----------------- | -------------------------------------------------------------------------------------------------------------- |
 | **Abril de 2013** | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
 | **May 2014**      | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
-| **April 2015**    | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
+| **Abril de 2015** | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
 | **May 2016**      | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
 | **May 2016**      | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **August 2016**   | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
+| **August 2016**   | Apoyo de la tienda de [Windows por apps](windows-store-guide.md) de Electron.                                  |
