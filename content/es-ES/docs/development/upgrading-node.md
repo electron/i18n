@@ -69,16 +69,16 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
   - Confirma que el parche se aplique limpiamente con `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
   - Crea una nueva copia del parche: 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - This is needed because the first patch has Node commit checksums that we don't want
-  - Confirm that checksums are the only difference between the two patches: 
+    - Esto es necesario debido a que el primer parche ha realizado sumas de comprobación en el Nodo que no queremos
+  - Confirma que las sumas de comprobación son la única diferencia entre dos parches: 
     - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Replace the old patch with the new: 
+  - Reemplaza el viejo parce con el nuevo: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Add the patched code to the index *without* committing: 
+  - Agrega el código con el parche al índice *sin* realizar: 
     - `cd src/v8 && git add . && cd ../..`
-    - We don't want to commit the changes (they're kept in the patchfiles) but need them locally so that they don't show up in subsequent diffs while we iterate through more patches
-  - Add the patch file to the index: 
-    - `git add a patches/v8/`
+    - No queremos realizar cambios (estos se mantienen en el archivo de los parches) pero se necesitan localmente para que no se aparezcan de manera subsecuente mientras que interactuamos a través de más parches
+  - Agrega el archivo de parches al índice: 
+    - `git agregar a patches/v8/`
   - (Optionally) commit each patch file to ensure you can back up if you mess up a step: 
     - `git commit patches/v8/`
 8. Update `patches/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
