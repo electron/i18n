@@ -35,6 +35,6 @@ Sistem devam ettiğinde yayılan.
 
 Sistem AC güç değiştiğinde yayılan.
 
-### Event: 'on-battery' *Windows*
+### Olay: 'pilde' *Windows*
 
 Sistem pil gücü değiştiğinde yayılan.
