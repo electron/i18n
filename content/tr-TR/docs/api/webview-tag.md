@@ -513,7 +513,7 @@ Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma de
 
 * `level` Number - Yakınlaştırma seviyesi
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0 ve yukarı ya da aşağı her artış için yakınlaştırma %20 nüyür veya küçülür; ta ki %300 ve %50 orijinal boyutuna ulaşana dek.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artış veya azalış, orijinal boyutun %300'ü ve %50'si olan varsayılan değerler içerisinde %20'lik bir büyümeyi veya küçülmeyi temsil eder.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
