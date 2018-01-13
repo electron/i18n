@@ -6,7 +6,7 @@
 
 Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
 
-For example:
+Наприклад:
 
 ```javascript
 const {session} = require('electron')
