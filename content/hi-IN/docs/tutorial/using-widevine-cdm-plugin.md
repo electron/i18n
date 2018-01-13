@@ -4,11 +4,11 @@
 
 ## प्लगइन कैसे पायें
 
-लाइसेंस कारणों के कारण इलेक्ट्रॉन, वाइडवाइन सीडीएम प्लगइन के साथ नहीं आता, उसे पाने के लिए आपको पहले आधिकारिक क्रोम ब्राउज़र इनस्टॉल करना होगा, जिसकी बनावट और क्रोम संस्करण इलेक्ट्रॉन की बनावट समान हो |
+लाइसेंस कारणों के कारण इलेक्ट्रॉन, वाइडवाइन सीडीएम प्लगइन के साथ नहीं आता, उसे पाने के लिए आपको पहले आधिकारिक क्रोम ब्राउज़र इनस्टॉल करना होगा, जिसकी बनावट और क्रोम संस्करण इलेक्ट्रॉन की बनावट अनुरूप हो |
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**नोट:** क्रोम ब्राउज़र का मुख्य संस्करण इलेक्ट्रॉन के क्रोम संस्करण के अनुरूप होना चाहिये, नहीं तो प्लगइन काम नहीं करेगा, भले ही `नेविगेटर.प्लगइनस` लोड हुआ दिखाये दें |
 
-### Windows & macOS
+### विंडोज & मैकओएस
 
 Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
 
