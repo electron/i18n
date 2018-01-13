@@ -1,4 +1,4 @@
-# app
+# uygulama
 
 > Uygulamanızın etkinlik ömrünü kontrol edin.
 
