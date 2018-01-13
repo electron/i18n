@@ -744,48 +744,48 @@ Maksimum ve minimum tasarımsal (görsel olmayan) yakınlaştırma düzeylerini 
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` tamsayı
-* `x` tamsayı
+* `x` Tamsayı
+* `y` Tamsayı
 
-Copy the image at the given position to the clipboard.
+Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+`paste` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+`pasteAndMatchStyle` düzenleme komutunu web sayfasında çalıştırır.
 
-#### `içeriği sil`
+#### `contents.delete()`
 
-Düzenleme komutu `delete` web sayfasında uygula.
+`delete` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+`selectAll` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+`unselect` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.replace(text)`
 
-* `text` Dizi
+* `text` Dizgi
 
-Executes the editing command `replace` in web page.
+`replace` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` Dizi
+* `text` Dizgi
 
-Executes the editing command `replaceMisspelling` in web page.
+`replaceMisspelling` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.insertText(text)`
 
-* `text` Dizi
+* `text` Dizgi
 
-Inserts `text` to the focused element.
+Odaklanılan ögeye `text`'i ekler.
 
 #### `contents.findInPage(text[, options])`
 
@@ -956,8 +956,8 @@ Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` tamsayı
-* `x` tamsayı
+* `x` Tamsayı
+* `y` Tamsayı
 
 Starts inspecting element at position (`x`, `y`).
 
