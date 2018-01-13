@@ -60,14 +60,14 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
   - (En el repo del nodo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
     - `xxx` es un número de tres dígitos incrementado (para forzar el orden del parche)
     - `patch_name`debería coincidir con los mensajes realizados del nodo, e.g. `030-cherry_pick_cc55747,patch` si los mensajes realizados del nodo eran "cherry-pick cc55747"
-  - (recordatorio de los pasos en libchromium repo) Edita manualmente el `.parche` file to match upstream V8's directory: 
-    - If a diff section has no instances of `deps/V8`, remove it altogether. 
-      - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
-      - This is needed because upstream Node keeps its V8 files in a subdirectory
-  - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
-  - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Create a new copy of the patch: 
+  - (recordatorio de los pasos en libchromium repo) Edita manualmente el `.parche` archivo para que coincida con el directorio V8 ascendente: 
+    - Si una sección de diff no tiene instancias de `deps/V8`, elimínalo todo. 
+      - No queremos esos parches porque solo estamos usando el parche V8.
+    - Reemplaza instancias de `a/deps/v8/filename.ext` con `a/filename.ext` 
+      - Esto es necesario porque el nodo ascendente mantiene sus archivos V8 en un subdirectorio
+  - Asegura que el estatus local esté limpio: `git status` para asegurarse de que no haya cambios.
+  - Confirma que el parche se aplique limpiamente con `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
+  - Crea una nueva copia del parche: 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
     - This is needed because the first patch has Node commit checksums that we don't want
   - Confirm that checksums are the only difference between the two patches: 
