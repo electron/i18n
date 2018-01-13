@@ -703,7 +703,7 @@ Yakınlaştırma düzeyini belirtilen düzeye değiştirir. Orijinal boyut 0'dı
 * `geri arama` Fonksiyon 
   * `zoomLevel` Sayı
 
-Mevcut yakınlaştırma seviyesini talep et, `callback`, `callback(zoomLevel)` ile çağrılacaktır.
+Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `callback`, `callback(zoomLevel)` ile birlikte çağrılacaktır.
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
