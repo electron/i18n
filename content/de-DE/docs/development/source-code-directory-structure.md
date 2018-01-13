@@ -1,4 +1,4 @@
-# Source-Code-Verzeichnis-Struktur
+# Struktur des Quellcode-Verzeichnisses
 
 The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
 
