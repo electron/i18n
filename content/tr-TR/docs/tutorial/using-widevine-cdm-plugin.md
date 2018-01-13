@@ -12,7 +12,7 @@ Electron, lisans nedeni ile Widevine CDM eklentisiyle birlikte gönderilmez, bun
 
 Chrome tarayıcısında `chrome://components/`'i açın, `WidevineCdm`'yi bulun ve güncel olduğundan emin olun, ardından tüm eklenti ikililiklerini`APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/`dizininden bulabilirsiniz.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` uygulama verilerini depolamak için sistemin bulunduğu konumdur. Windows' ta `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM eklentisinin sürüm dizesi, `1.4.8.866` gibi. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
 
 Windows'ta gerekli ikili dosyalar `widevinecdm.dll` ve `widevinecdmadapter.dll`, macOS'da `libwidevinecdm.dylib` ve `widevinecdmadapter.plugin`'dir. Onları istediğiniz bir yerde kopyalayabilirsiniz fakat bir araya getirilmeleri gerekmektedir.
 
