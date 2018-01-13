@@ -51,8 +51,8 @@ The version update process is detailed explicitly in our [Versioning Doc](electr
 | :calendar:      | :tada:                                                                                                        |
 | --------------- | ------------------------------------------------------------------------------------------------------------- |
 | **Апрель 2013** | [Atom Shell стартовал](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **Май 2014**    | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                   |
+| **Май 2014**    | [Atom Shell открыты исходники](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                 |
 | **Апрель 2015** | [Atom Shell переименован в Electron](https://github.com/electron/electron/pull/1389).                         |
 | **Май 2016**    | [Electron релиз `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                          |
-| **Май 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                             |
-| **Август 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                            |
+| **Май 2016**    | [Electron приложения совместимы с Mac App Store](mac-app-store-submission-guide.md).                          |
+| **Август 2016** | [Windows Store поддерживает приложения Electron](windows-store-guide.md).                                     |
