@@ -17,15 +17,15 @@ Una vez que todas las dependencias de Electron están construyendo y usando la m
 En resumidas cuentas, los principales pasos son:
 
 1. Actualizar la bifurcación del Nodo de Electron a la versión deseada
-2. Backport Node's V8 patches to our copy of V8
-3. Update Electron to use new version of Node 
-  - Update submodules
-  - Update Node.js build configuration
+2. Hacerle un backport a los parches V8 del Nodo a nuestra copia V8
+3. Actualiza Electron para usar la nueva versión de Nodo 
+  - Actualiza los submódulos
+  - Actualiza la configuración de construcción de Node.js
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Actualizando la [bifurcación](https://github.com/electron/node) del Nodo del Electrón
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
+1. Asegúrate que el `maestro` en `electron/nodo` ha actualizado las etiquetas de liberación de `nodejs/nodo`
+2. Crea una ramificación en https://github.com/electron/node: `electron-node-vX.X.X` la base en la que está ramificando es la etiqueta para la actualización deseada 
   - `vX.X.X` Must use a version of node compatible with our current version of chromium
 3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
