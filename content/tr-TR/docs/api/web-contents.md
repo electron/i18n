@@ -850,14 +850,14 @@ Sistemdeki yazıcıların listesini alır.
 
 * `ayarlar` Nesne (isteğe bağlı) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
+  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
 
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+Penceredeki web sayfasını yazdırır. `silent`, `true` olarak ayarlandığında Electron, eğer `deviceName` boş bırakıldıysa, sistemin varsayılan yazıcısını ve varsayılan yazdırma ayarlarını seçecektir.
 
-Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+Web sayfasında `window.print()`'i çağırmak, `webContents.print({silent: false, printBackground: false, deviceName: ''})`'i çağırmaya denktir.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stilini kullanın.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -888,7 +888,7 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stilini kullanın.
 
 An example of `webContents.printToPDF`:
 
