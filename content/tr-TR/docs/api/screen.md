@@ -62,7 +62,7 @@ Dönüşler:
 
 `newDisplay` eklendiğinde ortaya çıkar.
 
-### Event: 'display-removed'
+### Olay: 'Görünüm-kaldırıldı'
 
 Dönüşler:
 
