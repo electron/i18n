@@ -115,51 +115,62 @@ Electron versiyonları *< 2.0*, [semver](http://semver.org) belirtimine uymadı.
 
 Resimlerdeki bir yaşam döngüsü:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Paketin sürüm şemasına aktarılan bir hata düzelme uzmana gelir, Düzeltme eki uygulanır ve yeni bir beta sürümü şu şeklide yayınlanır `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* En yeni özellikleri içeren yeni bir sürüm oluşturuldu. ` 2.0.0-beta.1 </ 0> olarak yayınlandı.
+<img src="../images/versioning-sketch-3.png" alt="" /></li>
+<li>Paketin sürüm şemasına aktarılan bir hata düzelme uzmana gelir, Düzeltme eki uygulanır ve yeni bir beta sürümü şu şeklide yayınlanır <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * Beta *genellikle kararlı* olarak kabul edilir ve `2.0.0` altında tekrar beta olmayan olarak yayınlanır. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Daha sonra, sıfır günlük bir açıklama ortaya çıkar ve ustaca bir düzeltme uygulanır. Düzeltmeyi ` 2-0-x </ 0> çizgisine paketliyoruz ve <code> 2.0.1 </ 0> 'i serbest bırakıyoruz.
+<img src="../images/versioning-sketch-6.png" alt="" /></li>
+</ul>
 
-Çeşitli semver aralıklarının yeni sürümleri nasıl alacağına ilişkin birkaç örnek:
+<p>Çeşitli semver aralıklarının yeni sürümleri nasıl alacağına ilişkin birkaç örnek:</p>
 
-![](../images/versioning-sketch-7.png)
+<p><img src="../images/versioning-sketch-7.png" alt="" /></p>
 
-# Kayıp Özellikler: Alfalar, ve Gececiler
+<h1>Eksik Özellikleri: Alfalar ve Gececiler</h1>
 
-Stratejimiz, şu an uygun olduğunu düşündüğümüz birkaç takas hattı içeriyor. En önemlisi, master'daki yeni özelliklerin kararlı bir sürüm hattına erişmeden önce biraz zaman alması. Hemen yeni bir özellik denemek isterseniz, Electron'u kendiniz kurmanız gerekecek.
+<p>Stratejimiz, şu an uygun olduğunu düşündüğümüz birkaç takas hattı içeriyor. En önemlisi, master'daki yeni özelliklerin kararlı bir sürüm hattına erişmeden önce biraz zaman alması. Hemen yeni bir özellik denemek isterseniz, Electron'u kendiniz kurmanız gerekecek.</p>
 
-Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birlikte sunabiliriz:
+<p>Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birlikte sunabiliriz:</p>
 
-* gece boyunca inşa eden ustalar; bunlar milletlerin yeni özellikleri hızlıca test etmesine ve geri bildirimde bulunmasına izin verecektir
-* beta sürümlerine göre daha serbest denge kısıtlamaları olan alfa sürümleri; örneğin, bir denge kanalı *alpha* da ise, yeni özellikleri kabul etmek için izin verir
+<ul>
+<li>gece boyunca inşa eden ustalar; bunlar milletlerin yeni özellikleri hızlıca test etmesine ve geri bildirimde bulunmasına izin verecektir</li>
+<li>beta sürümlerine göre daha serbest denge kısıtlamaları olan alfa sürümleri; 
+örneğin, bir denge kanalı <em>alpha</em> da ise, yeni özellikleri kabul etmek için izin verir</li>
+</ul>
 
-# Özellik bayrakları
+<h1>Özellik bayrakları</h1>
 
-Özellik bayrakları Chromium'da yaygın bir uygulamadır ve web geliştirme ekosisteminde iyi kurulmuştur. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+<p>Özellik bayrakları Chromium'da yaygın bir uygulamadır ve web geliştirme ekosisteminde iyi kurulmuştur. Elektron bağlamında, özellik bayrağı veya <strong> soft branch </ 0> aşağıdaki özelliklere sahip olmalıdır:</p>
 
-* çalışma ya da derleme zamanı sırasında etkinleştirilir/devre dışı bırakılır. Biz istek kapsamlı özellik bayrağı anlayışını desteklemiyoruz
-* bu bölümler tamamen yeni ve eski kod yollarıdır: Bu yeni özellik yeni ve eski kodların yenıden yapılandırılması içindir *uygun değil* koşullu kontrat özellikleri
-* belirleyici işaretler hassas bölümler birleştirildikten sonra doğal olarak kaldırılır
+<ul>
+<li>çalışma ya da derleme zamanı sırasında etkinleştirilir/devre dışı bırakılır. Biz istek kapsamlı özellik bayrağı anlayışını desteklemiyoruz</li>
+<li>bu bölümler tamamen yeni ve eski kod yollarıdır: Bu yeni özellik yeni ve eski kodların yenıden yapılandırılması içindir <em>uygun değil</em> koşullu kontrat özellikleri</li>
+<li>belirleyici işaretler hassas bölümler birleştirildikten sonra doğal olarak kaldırılır</li>
+</ul>
 
-İşaretlenen kodu sürüm verme stratejimizle aşağıdaki şekilde eşleştiriyoruz:
+<p>İşaretlenen kodu sürüm verme stratejimizle aşağıdaki şekilde eşleştiriyoruz:</p>
 
-1. istikrar dalında özellik işaretli kod üzerinde yinelemeyi düşünmüyoruz; Hatta özellik bayrakları dikkatli kullanımı risklidir
-2. aPI sözleşmelerini özellik işaretli kodda, ana sözcüğe darbe indirmeden geçirebilirsiniz. İşaretlenen kod semver'e uymuyor olabilir
+<ol>
+<li>istikrar dalında özellik işaretli kod üzerinde yinelemeyi düşünmüyoruz; Hatta özellik bayrakları dikkatli kullanımı risklidir</li>
+<li>aPI sözleşmelerini özellik işaretli kodda, ana sözcüğe darbe indirmeden geçirebilirsiniz. İşaretlenen kod semver'e uymuyor olabilir</li>
+</ol>
 
-# Anlamsal örneklendirme
+<h1>Anlamsal örneklendirme</h1>
 
-Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırmaya çalışıyoruz. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+<p>Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırmaya çalışıyoruz. <code> 2.0.0 </ 0> ile başlayarak, aşağıdaki gibi özetlenebilecek olan <a href="https://conventionalcommits.org/"> Konvansiyonel Karar Verme </ 1> spesifikasyonuna uymak için çekme talepleri isteyeceğiz:</p>
 
-* Semver ile sonuçlanan **major** tümseği ile başlamalıdır `BREAKING CHANGE:`.
+<ul>
+<li>Semver ile sonuçlanan <strong>major</strong> tümseği ile başlamalıdır <code>BREAKING CHANGE:`.
 * Semver ile sonuçlanan **minor** tümseği ile başlamalıdır `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* Semver ** yamasına yol açacak komitelerin </ 0> bump'ı ` fix: </ 1> ile başlamalıdır.</p></li>
+<li><p>Sıkıştırılmış mesajın yukarıdaki ileti biçimine uyması koşuluyla, taahhütlerin ezilmesine izin veririz.</p></li>
+<li>Çekme isteğinde bulunan bazı taahhütlerin semantik önek içermemesi, 
+aynı çekme isteğinden daha sonra yapılan bir taahhüt anlamlı bir mesaj içerdiği sürece kabul edilebilir.</li>
+</ul>
 
-* Sıkıştırılmış mesajın yukarıdaki ileti biçimine uyması koşuluyla, taahhütlerin ezilmesine izin veririz.
-
-* Çekme isteğinde bulunan bazı taahhütlerin semantik önek içermemesi, aynı çekme isteğinden daha sonra yapılan bir taahhüt anlamlı bir mesaj içerdiği sürece kabul edilebilir.
-
-# Versionless `master`
-
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Serbest branşlar asla ustaya birleştirilmez
-* Release branches *do* contain the correct version in their `package.json`
+<h1>Versionless <code>master`</h1> 
+    
+    * `master` şubesi `package.json` içerisinde daima `0.0.0-dev` içerecektir
+    * Serbest branşlar asla ustaya birleştirilmez
+    * Serbest şubeler `package.json` içerisinde doğru sürümler bulundurmalıdır
