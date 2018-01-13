@@ -10,9 +10,9 @@
 
 ### विंडोज & मैकओएस
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
+क्रोम ब्राउज़र में `chrome://components/` खोलें, `WidevineCdm` ढूँढेंऔर यह सुनिश्चित करें कि वह अपडेटेड है, और फ़िर आप सभी प्लगइन बाइनरिज़ को `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` डायरेक्टरी से ढूँढ सकते हैं |
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` सिस्टम का वह स्थान है जहाँ पर एप्प डाटा स्टोर किया जाता है, विंडोज पर यह `%LOCALAPPDATA%` है और मैकओएस पर `~/Library/Application Support` | `VERSION` वाइडवाइन सीडीएम प्लगइन का संस्करण स्ट्रिंग है, जैसे `1.4.8.866` | `PLATFORM` is `mac` or `win`. `ARCH` `x86` या `x64` है |
 
 On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
 
