@@ -527,7 +527,7 @@ Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişki
 
 Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
 
-### Event: 'load-commit'
+### Etkinlik: 'load-commit'
 
 Dönüşler:
 
@@ -557,7 +557,7 @@ Dönüşler:
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+Bir kare, navigasyonunu tamamladığında tetiklenir.
 
 ### Olay: 'did-start-loading'
 
