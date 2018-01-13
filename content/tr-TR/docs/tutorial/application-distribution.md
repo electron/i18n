@@ -109,7 +109,7 @@ Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 
 #### Sörf-derleme ile özel bir sürüm oluşturma
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Npm: `npm install -g surf-build@latest` üzerinden [Surf](https://github.com/surf-build/surf) ' ı kurun
 
 2. Yeni bir S3 kovası oluşturun ve boş dizin yapısını izleyin:
     
@@ -124,7 +124,7 @@ Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 * `ELECTRON_GITHUB_TOKEN` - GitHub'da sürümler oluşturabilen bir simge
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - node.js başlıklarını ve sembolleri yükleyeceğiniz yer
 * `ELECTRON_RELEASE`- ayarlamak`doğru` ve yükleme bölümü çalışacaktır. ayarlanmadan bırakmak için uygun olan herbir `surf-build` sadece CI-type kontrolleri yapacaktır.
-* `CI` - Set to `true` or else it will fail
+* `CI` ' ı `true` olarak değiştirin yoksa başarısız olur
 * `GITHUB_TOKEN` - aynı değerle ayarla `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - yolun çok uzun sürmesini önlemek için Windows'ta `C:\Temp` olarak ayarlayın
 * `TARGET_ARCH` - set to `ia32` or `x64`
