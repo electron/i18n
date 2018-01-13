@@ -95,7 +95,7 @@ Setelah langkah ini, anda dapat [ mengirimkan aplikasi untuk ditinjau](https://d
 
 Untuk memenuhi semua persyaratan untuk sandboxing aplikasi, modul berikut telah dinonaktifkan dalam MAS build:
 
-* `kecelakaan reporter`
+* `kerusakanReporter`
 * `autoUpdater`
 
 dan perilaku berikut telah diubah:
@@ -115,13 +115,14 @@ Bergantung pada API Elektron yang digunakan aplikasi Anda, Anda mungkin perlu me
 Aktifkan koneksi jaringan keluar untuk memungkinkan aplikasi Anda terhubung ke server:
 
 ```xml
-<key>com.apple.security.network.client</key> <true/>
+<key>com.apple.security.network.client</key>
+<true/>
 ```
 
 Aktifkan koneksi jaringan masuk agar aplikasi Anda dapat membuka jaringan soket mendengarkan:
 
 ```xml
-<key>com.apple.security.network.server </key> <true/>
+<key>com.apple.security.network.server</key> <true/>
 ```
 
 Lihat [Mengaktifkan dokumentasi Akses Jaringan](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) untuk lebih jelasnya.
@@ -129,8 +130,7 @@ Lihat [Mengaktifkan dokumentasi Akses Jaringan](https://developer.apple.com/libr
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-only</key>
-<true/>
+<key>com.apple.security.files.user-selected.read-only</key> <true/>
 ```
 
 Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) untuk lebih jelasnya.
@@ -138,7 +138,8 @@ Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://deve
 #### dialog.showSaveDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-write</key> <true/>
+<key>com.apple.security.files.user-selected.read-write</key>
+<true/>
 ```
 
 Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) untuk lebih jelasnya.
@@ -159,7 +160,7 @@ Tergantung pada negara dan wilayah yang Anda berada, Mac App Store mungkin memer
 
 Elektron menggunakan algoritma kriptografi berikut:
 
-* AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
+* AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [ RFC 3394 ](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
 * ECDSA - ANS X9.62-2005
 * ECDH - ANS X9.63-2001
