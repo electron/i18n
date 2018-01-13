@@ -21,7 +21,7 @@ O objeto `app` emite os seguintes eventos:
 
 Emitido quando a aplicação termina inicialização básica. No Windows e Linux o evento `will-finish-launching` é o mesmo que o evento `ready`; no macOS, este evento representa a notificação `applicationWillFinishLaunching` de `NSApplication`. Você normalmente poderia escutar os eventos de `open-file` e `open-url` aqui e iniciar o crash reporter e auto atualização.
 
-In most cases, you should just do everything in the `ready` event handler.
+Na maioria dos casos, você deveria apenas fazer tudo no evento `ready`.
 
 ### Evento: 'ready'
 
@@ -29,11 +29,11 @@ Retorna:
 
 * `launchInfo` Object *macOS*
 
-Emitido quando Electron tiver concluído a inicialização. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emitido quando Electron tiver concluído a inicialização. No macOS, `launchInfo` possui o `userInfo` do `NSUserNotification` que foi utilizado para inicializar a aplicação quando inicializada do Notification Center. Você pode chamar `app.isReady()` para verificar se este evento já foi acionado.
 
 ### Evento: 'window-all-closed'
 
-Emitted when all windows have been closed.
+Emitido quando todas as janelas foram fechadas.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
