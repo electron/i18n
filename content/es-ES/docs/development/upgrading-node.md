@@ -102,13 +102,13 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
 - libcc y V8 son tratados como una unidad simple
 - Los nodos mantiene su propia bifurcación de V8 
   - Ellos le hacen backport a una pequeña cantidad de cosas, cuanto sean necesitadas
-  - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of electron 
-  - E.g electron, libcc, and node
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a node version bump in electron.
-- libcc is large and time-consuming to update, so we typically choose the node version based on which of its releases has a version of V8 that’s closest to the version in libcc that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
+  - La documentación en el nodo acerca de cómo [funcionan con V8](https://nodejs.org/api/v8.html)
+- Actualizamos el código para que solo usemos una copia de V8 a través de electron 
+  - E.g electron, libcc, y nodo
+- No rastreamos el stream ascendente debido a logística: 
+  - El Stream ascendente usa múltiples repos, por lo que fusionarse con un solo repo resultaría en una pérdida de historia. Así que solo actualizamos cuando estamos planeando botar una versión de nodo en electron.
+- libcc es largo y consume mucho tiempo para actualizar, así que típicamente elegimos la versión del nodo basados en cuál de sus lanzamientos tiene una versión de V8 que esté más cerca en libcc que la que estamos usando. 
+  - A veces tenemos que esperar para el siguiente lanzamiento periódico del nodo porque se sincronizará más acercadamente con la versión V8 en el nuevo libcc
   - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
     - Crashpad, node, libcc, etc. patches are all kept in the same place
   - Building node: 
