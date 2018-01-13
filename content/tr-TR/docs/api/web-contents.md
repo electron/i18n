@@ -399,7 +399,7 @@ Dönüşler:
 Dönüşler:
 
 * `olay` Olay
-* `params` Nesne 
+* `paramlar` Nesne 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -425,7 +425,7 @@ Dönüşler:
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
+  * `bayrakları editle` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
     * `canUndo` Boolean - Renderi alanın geri almasına inanması.
     * `canRedo` Boolean - Renderi alanın tekrar yapılmasına inanması.
     * `canCut` Boolean - Renderi alanın kesilmesine inanması.
@@ -486,7 +486,7 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Olay:'devtools-reload-page'
 
 Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 
