@@ -137,7 +137,7 @@ console.log(image)
 
 ## Class: NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> Yerel olarak tepsi resimlerini sar, liman aplikasyon ikonları.
 
 İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
