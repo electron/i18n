@@ -724,23 +724,23 @@ Minimum ve maksimum çimdik-zoom düzeyini ayarlar.
 * `minimumLevel` Sayı
 * `maximumLevel` Sayı
 
-Maksimum ve minimum dizilim (Örn. Görsel olmayan) yakınlaştırma düzeyini belirler.
+Maksimum ve minimum tasarımsal (görsel olmayan) yakınlaştırma düzeylerini ayarlar.
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+`undo` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+`redo` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+`cut` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+`copy` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.copyImageAt(x, y)`
 
