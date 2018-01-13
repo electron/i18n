@@ -690,18 +690,18 @@ Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma de
 * `geri arama` Fonksiyon 
   * `zoomFactor` Sayı
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+Yürürlükteki yakınlaştırma değerini almak için bir istek gönderir, `callback` , `callback(zoomFactor)` ile birlikte çağrılacaktır.
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Sayı - Yakınlaştırma düzeyi
 
-Changes the zoom level to the specified level. Orijinal boyut 0 ve yukarı ya da aşağı her artış için yakınlaştırma %20 nüyür veya küçülür; ta ki %300 ve %50 orijinal boyutuna ulaşana dek.
+Yakınlaştırma düzeyini belirtilen düzeye değiştirir. Orijinal boyut 0'dır ve her bir artış veya azalış, orijinal boyutun %300'ü ve %50'si olan varsayılan değerler içerisinde %20'lik bir büyümeyi veya küçülmeyi temsil eder.
 
 #### `contents.getZoomLevel(callback)`
 
 * `geri arama` Fonksiyon 
-  * `zoomLevel` Number
+  * `zoomLevel` Sayı
 
 Mevcut yakınlaştırma seviyesini talep et, `callback`, `callback(zoomLevel)` ile çağrılacaktır.
 
