@@ -75,21 +75,21 @@ bilang isang build target.</p>
 
 <h3>OSR</h3>
 
-<p>OSR (Off-screen rendering) can be used for loading heavy page in
-background and then displaying it after (it will be much faster).
-It allows you to render page without showing it on screen.</p>
+<p>Maaaring gamitin ang OSR (Off-screen rendering) para sa paglo-load ng mabibigat na pahina sa
+background at pagkatapos ay ipinapakita ito (ito ay magiging mas mabilis).
+Pinapayagan ka nitong mag-render ng pahina nang hindi ipinapakita ang screen.</p>
 
-<h3>process</h3>
+<h3>proseso</h3>
 
-<p>A process is an instance of a computer program that is being executed. Electron
-apps that make use of the <a href="#main-process">main</a> and one or many <a href="#renderer-process">renderer</a> process are
-actually running several programs simultaneously.</p>
+<p>Ang isang proseso ay isang halimbawa ng isang programa sa computer na isinasagawa. Electron
+ang mga app na gumagamit ng <a href="#main-process"> main </a> at isa o maraming <a href="#renderer-process"> renderer </a> na proseso na
+aktwal na tumatakbo ang ilang mga programa nang sabay-sabay.</p>
 
-<p>In Node.js and Electron, each running process has a <code>process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+<p>Sa Node.js at Electron, ang bawat proseso ng pagpapatakbo ay may isang bagay na <code> proseso `. Ito ay ang bagay na isang pandaigdig na nagbibigay ng impormasyon tungkol sa, at kontrol sa, ang kasalukuyang proseso. Bilang isang pandaigdigan, ito ay laging magagamit sa mga aplikasyon nang walang gamit ang nangangailangan ().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Tingnan din ang: [ pangunahing proseso ](#main-process), [ proseso ng renderer ](#renderer-process)
 
-### renderer process
+### proseso ng renderer
 
 The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
 
