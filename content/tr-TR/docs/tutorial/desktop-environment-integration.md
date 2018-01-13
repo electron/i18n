@@ -209,7 +209,7 @@ Windows'ta, kullanıcının dikkatini çekmek amaçlı görev çubuğu düğmesi
 
 > Genellikle, kullanıcıya pencerenin dikkat gerektirdiğini ancak şu anda klavye odağına sahip olmadığını kullanıcıya belirten bir pencere görünür.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+BrowserWindow görev çubuğu düğmesine basmak için, BrowserWindow.flashFrame </ 0> API:</p> 
 
 ```javascript
 const {BrowserWindow} = require('electron')
