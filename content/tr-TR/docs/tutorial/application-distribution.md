@@ -129,7 +129,7 @@ Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 * `SURF_TEMP` - yolun çok uzun sürmesini önlemek için Windows'ta `C:\Temp` olarak ayarlayın
 * `TARGET_ARCH` - set to `ia32` or `x64`
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. Özellikle elektron katkıda bulunan biriyseniz `script/upload.py` içinde *gerekir* `ELECTRON_REPO` çatal (`MYORG/elektron`) ayarlayın.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
