@@ -9,13 +9,13 @@ Siga las indicaciones a continuación para construir Electron en Windows.
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Herramientas de depuración para Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) Si planea crear una distribución completa considerando que `symstore.exe` es usado para la creación de la biblioteca de símbolos para lo archivos `.pdb`.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Si no tiene una instalación de Windows actualmente, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Electron se construye casi completamente con script de comandos de linea y no puede ser hecho con Visual Studio. Puede desarrollar Electron con cualquier editor pero el soporte para la construcción con Visual Studio vendrá en el futuro.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Nota:** A pesar de que Visual Studio no es usado para la construcción, todavía se **requiere** debido a que necesitamos la cadena de herramientas que este provee para construir.
 
 ## Obteniendo Código
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Bootstrapping
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Note que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
 ```powershell
 $ cd electron
@@ -40,15 +40,15 @@ Compilar objetivos de Release y Debug:
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+También puede construir un objetivo de depuración:
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Después de que la construcción está hecha, usted puede encontrar `electron.exe` con el nombre `out\D` (objetivo de depuración) o como `out\R` (objetivo de lanzamiento).
 
-## 32bit Build
+## Estructuras en 32bit
 
 To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
