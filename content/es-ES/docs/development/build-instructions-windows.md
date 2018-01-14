@@ -50,13 +50,13 @@ Después de que la construcción está hecha, usted puede encontrar `electron.ex
 
 ## Estructuras en 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Para construir para el objetivo de 32bit, necessita pasar `--target_arch=ia32` cuando se corra el script de salida:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Los otros pasos de construcción son exactamente los mismos.
 
 ## Visual Studio project
 
@@ -68,33 +68,33 @@ $ python script\bootstrap.py --msvs
 
 ## Limpieza
 
-To clean the build files:
+Para limpiar archivos construidos:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Para limpiar solo los directorios `out` y `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Nota:** Ambos comandos de limpieza requieren que se corra `bootstrap` de nuevo antes de la construcción.
 
-## Tests
+## Pruebas
 
 Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
 
 ## Problemas
 
-### Command xxxx not found
+### Comando xxxx no encontrado
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Si encuentra un error como `Comando xxxx no encontrado`, intente usar la consola `Comando rápido VS2015` para ejecutar los scripts construidos.
 
-### Fatal internal compiler error: C1001
+### Error de compilamienta interno falta: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Asegúrese que tiene la última versión de Visual Estudio instalada.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
@@ -115,17 +115,17 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Esto es causado por un error usando Cygwin Python y el nodo Win32 juntos. La solución es usar el Win32 Python para ejecutar rápidamente el script (Asumiendo que ha instalado python como `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: No se puede abrir el archivo de entrada 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Intente reinstalar 32bit Node.js.
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### Error: ENOENT, estatus 'C:\Users\USERNAME\AppData\Roaming\npm'
 
 Simply making that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
 
