@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Pangyayari
 
 The `powerMonitor` module emits the following events:
 
