@@ -59,34 +59,24 @@ Sa ilalim ng pahina ng pamagat ay dapat na may paglalarawan ng isang-linya na na
 Paggamit ng mga `sesyon` bilang halimbawa:
 
 ```markdown
-# session
-
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+ang mga sesyon sa # > pamahalaan ang browser session, cookies, cache, mga setting ng proxy, atbp.
 ```
 
-### Module methods and events
+### Mga pamamaraan ng modyul at mga kaganapan
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Para sa mga modyuls na hindi nakaklase, ang kanilang pamamaraan at mga pangyayaring dapat ay nakalista sa ilalim ng `# # pamamaraan` at `# # pangyayari` kabanata.
 
-Using `autoUpdater` as an example:
+Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 
 ```markdown
-# autoUpdater
-
-## Events
-
-### Event: 'error'
-
-## Methods
-
-### `autoUpdater.setFeedURL(url[, requestHeaders])`
+# autoUpdater # # Mga Kaganapan ### Kaganapan: 'error' # # Paraan ### `autoUpdater.setFeedURL (url [, requestHeaders])`
 ```
 
-### Classes
+### Mga Klase
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
+* Ang klase o mga klase ng API na bahagi ng Modyul ay dapat nakalista sa ilalim ng isang `# # klase: TheClassName` kabanata.
+* Isang pahina ay maaaring magkaroon ng maramihang mga klase.
+* Ang mga tagatayo ay dapat na nakalista sa ` ### `-antas na pamagat.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
