@@ -89,7 +89,7 @@
 
 * [程式碼撰寫風格](development/coding-style.md)
 * [在 C++ 程式碼中使用 Clang-Format](development/clang-format.md)
-* [Testing](development/testing.md)
+* [測試](development/testing.md)
 * [原始碼目錄結構](development/source-code-directory-structure.md)
 * [與 NW.js (原名 node-webkit) 的技術差異](development/atom-shell-vs-node-webkit.md)
 * [建置系統概述](development/build-system-overview.md)
