@@ -77,13 +77,13 @@ Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 * Ang klase o mga klase ng API na bahagi ng Modyul ay dapat nakalista sa ilalim ng isang `# # klase: TheClassName` kabanata.
 * Isang pahina ay maaaring magkaroon ng maramihang mga klase.
 * Ang mga tagatayo ay dapat na nakalista sa ` ### `-antas na pamagat.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* [Static na pamamaraan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) ay dapat nakalista sa ilalim ng isang `### Static na pamamaraan`kabanata.
+* [Halimbawa ng mga pamamaraan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) ay dapat nakalista sa ilalim ng isang `### pamamaraan ng pagkakataon` kabanata.
+* Lahat ng mga pamamaraan na magkaroon ng isang pagbalik na halaga ay dapat nagsimula ng kanilang deskripsyon sa "Returns `[TYPE]` -Bumalik sa deskrpsyon" 
+  * Kung ang paraan na ito ay nagbabalik ng isang `bagay`. ng istraktura nito ay tinukoy gamit ang isang colon kasunod ng newline at ang unordered na listahan ng mga katangian sa parehong estilo bilang function ng mga parameters.
+* Ang mga Kaganapan ng Instance ay dapat na nakalista sa ilalim ng kabanata ng `### Instance Events `.
+* Instance Properties ay dapat nakalista sa ilalim ng isang `### Instance Properties` kabanata. 
+  * Instance properties ay dapat nagsimula ng "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
 
