@@ -20,24 +20,24 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 ### Establecer puntos de interrupción
 
-LLDB es una herramienta poderosa y soporta múltiples estrategias para la inspección de código. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDB es una herramienta poderosa y soporta múltiples estrategias para la inspección de código. Para esta instrucción básica, asumamos que está llamando un comando para JavaScript que no se está comportando correctamente - así que a usted le gustaría separarlo en la contraparte de esos comandos en C++ dentro de la fuente Electron.
 
 Los archivos de código relevantes se pueden encontrar en `./ atom /`, así como en Brightray, que se encuentra en `./brightray/browser` y `./brightray/common`. Si eres experto, también puedes depurar Chromium directamente, que obviamente se encuentra en `chromium_src`.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Asumamos que quiere depurar `app.setName()`, el cual está definido en `browser.cc` como `Browser::SetName()`. Configure un punto de separación usando el comando `breakpoint`, especificando el archivo y la linea que quiere separar:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+Luego, inicie Electron:
 
 ```sh
 (lldb) run
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+La aplicación será pausada inmediatamente, mientras Electron configura el nombre de esta en el lanzador:
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+Para mostrar los argumentos y las variables locales para la estructura actual, corra `variable de estructura` (o `fr v`), que le mostrará que la aplicación está siendo configurada con el nombre de "Electron".
 
 ```sh
 (lldb) frame variable
@@ -65,7 +65,7 @@ To show the arguments and local variables for the current frame, run `frame vari
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Para hacer un solo paso en el nivel de la fuente en el hilo seleccionado, ejecute `paso` (o `s`). Esto lo llevará dentro de `name_override_.empty()`. Para proceder y dar otro paso, corra `siguiente` (o `n`).
 
 ```sh
 (lldb) step
