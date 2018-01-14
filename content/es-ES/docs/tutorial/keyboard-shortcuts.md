@@ -49,31 +49,31 @@ window.addEventListener('keyup', doSomething, true)
 
 Note que el tercer parámetro `verdadero` que se refiere al yente siempre recibe la tecla presionada antes por otros oyentes así que no puede ser llamado por `stopPropagation()`.
 
-El [`Evento antes de la entrada`](../api/web-contents.md#event-before-input-event) es emitido antes de enviar los eventos `flecha hacia arriba` y `flecha hacia abajo` en la página. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+El [`Evento antes de la entrada`](../api/web-contents.md#event-before-input-event) es emitido antes de enviar los eventos `flecha hacia arriba` y `flecha hacia abajo` en la página. Puede ser usado para capturar y manejar accesos directos personalizados que no son visibles en el menú.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Si no quiere usar el análisis manual de los accesos directos hay librerías que hacen detección de teclas avanzadas como [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// Combinaciones
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// combinaciones múltiples para el mismo llamado
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // devolver falso a comportamientos preventivos por defecto y detener eventos
   return false
 })
 
-// gmail style sequences
+// Secuencia de estilo gmail
 Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
-// konami code!
+// ¡Código Konami!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
