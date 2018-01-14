@@ -113,80 +113,81 @@ process.versions['atom-shell']
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* नोड द्वारा सेट की गयी अन्य `process.versions` प्रॉपर्टीज के संग अनुरूपता बनाये रखने के लिए `process.versions.electron` और `process.version.chrome` को रीड-ओनली प्रॉपर्टीज बनाया जायेगा |
 
 ## `सत्र`
 
 ```js
-// Deprecated
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
-  callback(true)
-})
-// Replace with
+// निरस्त
+ses.setCertificateVerifyProc(function (hostname, certificate, 
+callback) {
+   callback(true) 
+}) 
+// इससे बदलें
 ses.setCertificateVerifyProc(function (request, callback) {
-  callback(0)
+   callback(0) 
 })
 ```
 
 ## `ट्रे`
 
 ```js
-// Deprecated
+// निरस्त
 tray.setHighlightMode(true)
-// Replace with
+// इससे बदलें
 tray.setHighlightMode('on')
 
-// Deprecated
+// निरस्त
 tray.setHighlightMode(false)
-// Replace with
+// इससे बदलें
 tray.setHighlightMode('off')
 ```
 
 ## `वेबसामग्री`
 
 ```js
-// Deprecated
-webContents.openDevTools({detach: true})
-// Replace with
+// निरस्त
+webContents.openDevTools({detach: true}) 
+// इससे बदलें
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
-webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// निरस्त
+webContents.setZoomLevelLimits(1, 2) 
+// इससे बदलें
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `वेबफ्रेम`
 
 ```js
-// Deprecated
-webFrame.setZoomLevelLimits(1, 2)
-// Replace with
-webFrame.setVisualZoomLevelLimits(1, 2)
+// निरस्त
+webFrame.setZoomLevelLimits(1, 2) 
+// इससे बदलें
+webFrame.setVisualZoomLevelLimits(1, 2) 
 
-// Deprecated
-webFrame.registerURLSchemeAsSecure('app')
-// Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+// निरस्त
+webFrame.registerURLSchemeAsSecure('app') 
+// इससे बदलें
+protocol.registerStandardSchemes(['app'], {secure: true}) 
 
-// Deprecated
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// निरस्त
+webFrame.registerURLSchemeAsPrivileged('app', {secure: true}) 
+// इससे बदलें
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
-webview.setZoomLevelLimits(1, 2)
-// Replace with
+// निरस्त
+webview.setZoomLevelLimits(1, 2) 
+// इससे बदलें
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## नोड हेडर्स युआरएल
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
