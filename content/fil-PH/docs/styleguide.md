@@ -153,6 +153,6 @@ Ang mga katangian ng kabanata ay dapat nasa sumusunod na form:
 
 Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
 
-## Documentation Translations
+## Ang mga pagsasalin ng dokumentasyon
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Tingnan ang mga [elektron/elektron-i18n](https://github.com/electron/electron-i18n#readme)
