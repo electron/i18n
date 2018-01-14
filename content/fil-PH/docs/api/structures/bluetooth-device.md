@@ -1,4 +1,4 @@
-# BluetoothDevice Object
+# BluetoothDevice na Bagay
 
-* `deviceName` String
-* `deviceId` String
+* `deviceName` na String
+* `deviceId` na String
