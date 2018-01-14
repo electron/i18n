@@ -104,24 +104,24 @@ Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamar
 
 Para sa mga modyul na ito, ang `objectName` ay pangalan ng mga modyul. Para sa klase, ito ay dapat na ang mga pangalan ng mga pagkakataon sa klase, at hindi ay dapat kapareho ng pangalan ng mga modyul.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Halimbawa, ang mga pamamaraan ng `sesyon ng` klase sa ilalim ng `sesyon` seksyon ay dapat gumamit ng `ses` bilang ang `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Ang mga opsyonal na argumento ay ipinapahayag sa pamamagitan ng mga square bracket `[]` na nakapalibot sa opsyonal na argumento pati na rin ang kuwit na kinakailangan kung ang opsyonal na argumento ay sumusunod sa isa pa argumento:
 
 ```sh
-required[, optional]
+kinakailangan [at opsyonal]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento. Ang uri ng argumento ay binibigkas ng alinman sa karaniwang mga uri:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Bilang`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Bagay`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* O isang pasadyang uri tulad ng elektron [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Kung sa argumento o isang paraan na ito ay natatangi sa ilang mga plataporma, mga plataporma ay ipinahiwatig gamit ang isang delimited ng espasyo na naka-italic ang listahan kasunod ng mga datatype. Pagpapahalaga ay maaaring maging `macOS`, `Windows`, o `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
