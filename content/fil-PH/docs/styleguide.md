@@ -32,11 +32,11 @@ Paggamit ng mga `Quick Start` bilang halimbawa:
 ### Patakbuhin bilang pamamahagi...
 ```
 
-For API references, there are exceptions to this rule.
+Para sa mga reperensya ng API, may mga eksepsiyon sa panuntunang ito.
 
-## Markdown rules
+## Mga patakaran ng markdown
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Gamitin ang `sh` sa halip ng `cmd` sa mga bloke ng code (dahil sa syntax highlighter).
 * Lines should be wrapped at 80 columns.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
