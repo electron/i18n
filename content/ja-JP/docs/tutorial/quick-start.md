@@ -54,8 +54,9 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// window オブジェクトはグローバル参照しなければなりません。
+// これがない場合、JavaScriptのオブジェクトがガベージコレクトされた時に、
+// ウィンドウが自動的に閉じてしまうでしょう。
 let win
 
 function createWindow () {
@@ -81,8 +82,8 @@ function createWindow () {
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// このイベントは、Electronが初期化処理と
+// browser windowの作成を完了した時に呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.on('ready', createWindow)
 
@@ -161,7 +162,7 @@ $ npx electron .
 
 ### 手動でダウンロードした Electron バイナリ
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+もしElectronを手動でダウンロードした場合は、それに含まれるバイナリを使ってアプリケーションを直接実行できます。
 
 #### macOS
 
