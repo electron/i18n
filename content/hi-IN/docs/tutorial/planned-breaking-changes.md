@@ -2,33 +2,33 @@
 
 निम्नलिखित सूचि में वे ऐपीआई शामिल हैं जो कि इलेक्ट्रॉन 2.0 में से निकाल दी जायेंगी |
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+यह रिलीज़ कब होगा इसकी कोई समय सारिणी नहीं है पर निरस्तीकरण चेतावनियाँ 90 दिन पहले ही जोड़ दी जायेंगी |
 
 ## `एप्प`
 
 ```js
-// Deprecated
+// निरस्त
 app.getAppMemoryInfo()
-// Replace with
+// इससे बदलें
 app.getAppMetrics()
 ```
 
 ## `ब्राउज़र विंडो`
 
 ```js
-// Deprecated
+// निरस्त
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// इससे बदलें
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// निरस्त
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// इससे बदलें
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
