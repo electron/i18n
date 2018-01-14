@@ -2,23 +2,23 @@ Pakitiyak na ginagamit mo ang mga dokumento na tumutugma sa iyong bersyon ng Ele
 
 ## FAQ
 
-There are questions that are asked quite often. Check this out before creating an issue:
+May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bagong isyu:
 
 * [Electron FAQ](faq.md)
 
-## Guides
+## Mga Gabay
 
-* [Glossary of Terms](glossary.md)
-* [Supported Platforms](tutorial/supported-platforms.md)
-* [Security](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
-* [Application Distribution](tutorial/application-distribution.md)
-* [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)
-* [Windows Store Guide](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
-* [Using Native Node Modules](tutorial/using-native-node-modules.md)
-* [Debugging Main Process](tutorial/debugging-main-process.md)
-* [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
+* [Glosaryo ng mga termino](glossary.md)
+* [Mga suportadong plataporma](tutorial/supported-platforms.md)
+* [Seguridad](tutorial/security.md)
+* [Bersyon](tutorial/electron-versioning.md)
+* [Pamamahagi ng aplikasyon](tutorial/application-distribution.md)
+* [Gabay sa pagsumite sa Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Gabay sa Windows Store](tutorial/windows-store-guide.md)
+* [Packaging ng aplikasyon](tutorial/application-packaging.md)
+* [Gamit ang sariling mga modyul ng node](tutorial/using-native-node-modules.md)
+* [Pagde-debug ng pangunahing proseso](tutorial/debugging-main-process.md)
+* [Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [DevTools Extension](tutorial/devtools-extension.md)
 * [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
