@@ -1,9 +1,9 @@
 # Layunin ng Sertipiko
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
+* `data` na String - PEM naka-encode na datos
+* `issuer`[CertificatePrincipal](certificate-principal.md) - prinsipal na Issuer
+* `issuerName` na String - Karaniwang Pangalan ng Issuer
+* `issuerCert` Sertipiko - sertipiko ng Issuer (kung hindi sariling lagda)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
