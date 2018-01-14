@@ -1,4 +1,4 @@
-# Certificate Object
+# Layunin ng Sertipiko
 
 * `data` String - PEM encoded data
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
