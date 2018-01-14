@@ -1,10 +1,10 @@
 # Atajos del teclado
 
-> Configure local and global keyboard shortcuts
+> Configure atajos de teclado locales y globales
 
-## Local Shortcuts
+## Accesos directos locales
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Puede usar el módulo [Menu](../api/menu.md) para configurar los accesos directos del teclado que serán disparados solo cuando la aplicación esté en foco. Para hacer eso, especifique un [`acelerador`] apropiadamente cuando cree un [Elemento del menú](../api/menu-item.md).
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Es fácil configurar diferentes combinaciones de teclas basadas en el sistema operativo del usuario.
 
 ```js
 {
@@ -25,9 +25,9 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## Accesos directos globales
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Puede usar el módulo [Acceso directo global](../api/global-shortcut.md) para detectar los eventos del teclado aún cuando la aplicación no tiene el foco de este.
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -39,7 +39,7 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Accesos directos en una ventana de buscador
 
 If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
 
