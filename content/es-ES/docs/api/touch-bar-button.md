@@ -1,13 +1,13 @@
-## Class: TouchBarButton
+## Clase: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Crea un botón en la barra táctil para aplicaciones macOS nativas
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proceso: [principal](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarButton(options)` *Experimental*
+### `nuevo botón en la barra tactil(opciones)` *Experimental*
 
 * `options` Object 
-  * `label` String (optional) - Button text.
+  * `etiqueta` Cadena (optional) - botón del fondo.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.
   * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
