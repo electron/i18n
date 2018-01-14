@@ -22,7 +22,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [DevTools rozšíření](tutorial/devtools-extension.md)
 * [Používání Pepper Flash Pluginu](tutorial/using-pepper-flash-plugin.md)
 * [Pomocí Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Testování na bezhlavý CI systémů (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
 * [Klávesové zkratky](tutorial/keyboard-shortcuts.md)
 * [Aktualizace aplikací](tutorial/updates.md)
