@@ -81,12 +81,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+Para finalizar la depuración en este punto, corra `continuar proceso`. También puede continuar hasta cierta linea es tocada en este hilo (`hilo hasta 100`). Este comando correrá el hilo en la estructura actual hasta que alcance la linea 100 en este, o se detiene si deja la estructura en la que se encuentra.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+Ahora, si abre las herramientas para desarrolladores y llama `setName`, alcanzará de nuevo el punto de interrupción.
 
-### Further Reading
+### Leer más
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB es una herramienta poderosa con una gran documentación. Para aprender más acerca de ella, tome en consideración la documentación sobre la depuración de Apple, La [La documentación sobre la estructura de referencia de LLDB](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o la introducción a [usar LLDB como un depurador independiente](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+También puede consultar el fantástico [manual y tutorial](http://lldb.llvm.org/tutorial.html) de LLDB, que explicará escenarios de depuración más complejos.
