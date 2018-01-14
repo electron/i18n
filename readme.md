@@ -28,16 +28,16 @@ The following languages are currently being translated, but we can
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
 - [українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
-- [język polski (Polish)](https://crowdin.com/project/electron/pl)
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
+- [język polski (Polish)](https://crowdin.com/project/electron/pl)
 - [हिन्दी (Hindi)](https://crowdin.com/project/electron/hi)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
+- [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
-- [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 <!-- end language-table -->
 
 ## Installation
