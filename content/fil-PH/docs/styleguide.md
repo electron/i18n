@@ -85,7 +85,7 @@ Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 * Instance Properties ay dapat nakalista sa ilalim ng isang `### Instance Properties` kabanata. 
   * Instance properties ay dapat nagsimula ng "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 
 ```markdown
 # session
