@@ -1,4 +1,4 @@
-# Using Selenium and WebDriver
+# Paggamit ng Selenium at WebDriver
 
 From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
