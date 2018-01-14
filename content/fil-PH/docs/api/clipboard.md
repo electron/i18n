@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## Pamamaraan
 
 The `clipboard` module has the following methods:
 
