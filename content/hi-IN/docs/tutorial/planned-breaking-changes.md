@@ -189,9 +189,9 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ## नोड हेडर्स युआरएल
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+यह युआरएल एक `.npmrc` फाइल में `disturl` की तरह निर्दिष्ट है या मूल नोड मोडयुल्स का निर्माण करने के दौरान `--dist-url` कमांड लाइन फ्लैग की तरह |
 
-Deprecated: https://atom.io/download/atom-shell
+निरस्त: https://atom.io/download/atom-shell
 
 Replace with: https://atom.io/download/electron
 
