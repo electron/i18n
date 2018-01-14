@@ -10,32 +10,26 @@ Ito ang mga alintuntunin sa pagsulat ng dokumento ng elektron.
 * Lahat ng mga salita sa bawat pahina na may titulo ay dapat nasa malalaking titik, maliban sa pangatnig gaya ng "ng" at "at".
 * Tanging ang unang salita ng kabanata na may pamagat ay dapat naka-capital.
 
-Using `Quick Start` as example:
+Paggamit ng mga `Quick Start` bilang halimbawa:
 
 ```markdown
-# Quick Start
+# Mabilis na simula
 
 ...
 
-## Main process
+## Pangunahing proseso
 
 ...
 
-## Renderer process
+## Proseso ng tagapagbalita
 
 ...
 
-## Run your app
+## Patakbuhin ang iyong app
 
 ...
 
-### Run as a distribution
-
-...
-
-### Manually downloaded Electron binary
-
-...
+### Patakbuhin bilang pamamahagi...
 ```
 
 For API references, there are exceptions to this rule.
