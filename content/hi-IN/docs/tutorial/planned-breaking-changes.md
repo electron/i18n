@@ -1,4 +1,4 @@
-# Planned Breaking API Changes
+# नियोजित ब्रेकिंग ऐपीआई परिवर्तन
 
 The following list includes the APIs that will be removed in Electron 2.0.
 
