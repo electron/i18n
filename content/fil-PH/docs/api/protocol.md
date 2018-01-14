@@ -22,7 +22,7 @@ app.on('ready', () => {
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## Methods
+## Pamamaraan
 
 The `protocol` module has the following methods:
 
