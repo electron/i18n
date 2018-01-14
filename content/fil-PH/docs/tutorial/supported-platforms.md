@@ -1,4 +1,4 @@
-# Supported Platforms
+# Mga suportadong plataporma
 
 Following platforms are supported by Electron:
 
