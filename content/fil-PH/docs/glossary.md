@@ -1,10 +1,10 @@
 # Glossary
 
-Tinutukoy ng pahinang ito ang ilang terminolohiya na karaniwang ginagamit sa pag-unlad ng Electron.
+Ang pahinang ito ay tumutukoy sa mga ilang terminolohiya na karaniwang ginagamit sa pag-unlad ng Electron.
 
 ### ASAR
 
-Ang ibig sabihin ng ASAR ay Atom Shell Archive Format. Ang isang [ asar ](https://github.com/electron/asar) na archive ay isang simple ` tar ` - na parehong format na naghahusay ng mga file sa isang solong file. Ang Electron ay makakabasa ng mga arbitrary file mula dito nang walang ginagawang pag-unpack ng buong file.
+Ang ASAR ay nangahuhulugang Atom Shell Archive Format. Ang isang [ asar ](https://github.com/electron/asar) na archive ay isang simple ` tar ` - na parehong format na naghahusay ng mga file sa isang solong file. Ang Electron ay makakabasa ng mga arbitrary file mula dito nang walang ginagawang pag-unpack ng buong file.
 
 Ang format ng ASAR ay nilikha lalo na upang mapabuti ang pagganap sa Windows... TODO
 
