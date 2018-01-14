@@ -56,8 +56,10 @@ const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+let win
+
 function createWindow () {
-  // browser window を生成
+  // browser window を生成する
   win = new BrowserWindow({width: 800, height: 600})
 
   // アプリの index.html を読み込む
@@ -179,7 +181,7 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` はElectronのリリースパッケージの一部です。 [ここ](https://github.com/electron/electron/releases) からダウンロードできます。
 
 ### 配布用パッケージとして実行
 
@@ -187,7 +189,7 @@ After you're done writing your app, you can create a distribution by following t
 
 ### こちらのサンプルをお試しください
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+このチュートリアルのコードを [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) リポジトリからクローンして、実行してみてください。
 
 **Note**: 以下の手順でサンプルを実行する場合、[Git](https://git-scm.com) と [Node.js](https://nodejs.org/en/download/) （[npm](https://npmjs.org) を含む）をシステムにインストールしておく必要があります。
 
