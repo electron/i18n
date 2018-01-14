@@ -4,11 +4,11 @@
 
 Todos los [módulos incorporados de Node.js](https://nodejs.org/api/) está disponibles en Electrón y los nodos de terceros también son completamente compatibles (incluyendo a los [ módulos nativos](../tutorial/using-native-node-modules.md)).
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Electrón además provee algunos módulos incorporados extra para desarrollar aplicaciones de escritorio nativas. Algunos módulos solo están disponibles en el proceso principal, algunos solo están disponibles en el proceso de renderizado (página web) y algunos pueden ser usados en ambos procesos.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
+La regla básica es: si un módulo es [ GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o relacionado a sistemas de bajo nivel, entonces solo puede estar disponible en el proceso principal. Necesitas estar familiarizado con el concepto de [ proceso principal vs. proceso de renderizado](../tutorial/quick-start.md#main-process) códigos para ser capaz de usar los módulos.
 
-The main process script is just like a normal Node.js script:
+El código del proceso principal es solo como un código Node.js normal:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+El proceso de renderizado no es diferente que el de una página web normal, excepto por la habilidad extra de usar módulos de nodos:
 
 ```html
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ The renderer process is no different than a normal web page, except for the extr
 
 To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## Asignación de desestructuración
 
 As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
 
