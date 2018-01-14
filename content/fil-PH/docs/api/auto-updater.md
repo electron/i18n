@@ -37,7 +37,7 @@ Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file hos
 
 There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Events
+## Pangyayari
 
 The `autoUpdater` object emits the following events:
 
