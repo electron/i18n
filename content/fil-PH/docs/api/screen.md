@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Pangyayari
 
 The `screen` module emits the following events:
 
