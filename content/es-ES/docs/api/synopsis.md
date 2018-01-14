@@ -38,7 +38,7 @@ To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
 
 ## Asignación de desestructuración
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+Respecto al 0.37, puedes usar [ asignación de desestruturación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) para hacer más fácil el uso de los módulos incorporados.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Si necesitas el módulo ` electron ` completo, puedes requerirlo y luego usar la desestructuración para acceder a los módulos individuales desde ` electron `.
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Este es equivalente al siguiente código:
 
 ```javascript
 const electron = require('electron')
