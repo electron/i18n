@@ -25,16 +25,17 @@
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+उसके बाद, अपडेट सर्वर का यूआरएल निर्मित करें और [ऑटोअपडेटर](../api/auto-updater.md) को उसके बारे में बतायें:
 
 ```js
 const server = 'https://your-deployment-url.com'
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+const feed = `${server}/update/${process.platform}
+/${app.getVersion()}`
 
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+अंतिम चरण में, अपडेटस के लिए जाँचें | निम्नलिखित उदाहरण हर मिनट जाँचेगा:
 
 ```js
 setInterval(() => {
@@ -42,14 +43,15 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+एक बार जब आपकी एप्लीकेशन [पैकेज्ड](../tutorial/application-distribution.md) हो जाये, तो उसे हर नई [गिटहब रिलीज़](https://help.github.com/articles/creating-releases/) का अपडेट मिलेगा, जिसे आप प्रकाशित करेंगे |
 
-## Applying updates
+## अपडेटस लागू करना
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+अब जब आपने अपनी एप्लीकेशन के लिए बुनियादी अपडेट प्रणाली को कॉन्फ़िगर कर लिया है, तो आपको यह सुनिश्चित करना होगा कि जब भी एक अपडेट आये तो उपयोगकर्ता को उसके बारे में सुचना मिलें | इसे आप ऑटोअपडेटर ऐपीआई [इवेंट्स](../api/auto-updater.md#events) का इस्तेमाल कर के प्राप्त कर सकते हैं:
 
 ```js
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+autoUpdater.on('update-downloaded', (event, releaseNotes,
+releaseName) => {
   const dialogOpts = {
     type: 'info',
     buttons: ['Restart', 'Later'],
