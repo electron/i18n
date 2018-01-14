@@ -32,7 +32,7 @@ Devtronでは新機能のアクセシビリティタブが利用できます。�
 
 これ以外の Electron 向けに使用可能な素晴らしいアクセシビリティツールをご存じの方は、 ぜひ[アクセシビリティに関するドキュメント](https://electronjs.org/docs/tutorial/accessibility) に追加してプルリクエストをお送りください。
 
-## Enabling Accessibility
+## アクセスビリティの有効化
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
