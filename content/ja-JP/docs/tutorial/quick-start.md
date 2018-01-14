@@ -108,7 +108,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 ```
 
-Finally the `index.html` is the web page you want to show:
+最後に、表示させたいページを `index.html` に作成します：
 
 ```html
 <!DOCTYPE html>
