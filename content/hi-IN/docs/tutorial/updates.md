@@ -13,13 +13,13 @@
 - [इलेक्ट्रान-रिलीज़-सर्वर](https://github.com/ArekSredzki/electron-release-server) - रिलीज़ संभालने के लिए एक डैशबोर्ड प्रदान करता है
 - [न्यूकलिअस](https://github.com/atlassian/nucleus) - इलेक्ट्रॉन एप्प्स के लिए ऐटलेस्सियन द्वारा मेन्टेन किया गया एक पूर्ण अपडेट सर्वर | विभिन्न एप्लीकेशनस और चैनल्स का समर्थन करता है; सर्वर लागत कम करने के लिए एक स्टैटिक फाइल स्टोर का इस्तेमाल करता है |
 
-If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
+अगर आपकी एप्प [इलेक्ट्रॉन-बिल्डर](https://github.com/electron-userland/electron-builder) के साथ पैकेज्ड है तो आप [इलेक्ट्रान-अपडेटर](https://www.electron.build/auto-update) मोड्यूल का इस्तेमाल कर सकते हैं, जिसे एक सर्वर की आवश्यकता नहीं पड़ती और एस3, गिटहब या किसी अन्य स्टैटिक फाइल होस्ट से अपडेटस प्रदान कर सकता है|
 
-## Implementing updates in your app
+## अपनी एप्प में अपडेटस लागू करना
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+एक बार जब आपने अपना अपडेट सर्वर स्थापित कर दिया हो, फिर आप आवश्यक मोडयुल्स को अपने कोड में इम्पोर्ट करना शुरू कर सकते हैं | निम्नलिखित कोड विभिन्न सर्वर सॉफ्टवेर के लिए अलग हो सकता है, पर [हेज़ल](https://github.com/zeit/hazel) का इस्तेमाल करने के दौरान यह नीचे दिए गये विवरण की तरह काम करता है |
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**महत्वपूर्ण:** कृप्या ध्यान दें कि निम्नलिखित कोड केवल आपकी पैकेज्ड एप्प में चलेगा, न कि विकास में | वातावरण को जाँचने के लिए आप [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) का इस्तेमाल कर सकते हैं |
 
 ```js
 const {app, autoUpdater, dialog} = require('electron')
