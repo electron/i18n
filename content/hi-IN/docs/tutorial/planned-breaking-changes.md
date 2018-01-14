@@ -193,9 +193,9 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 निरस्त: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+इससे बदलें: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## अतिरिक्त ऐआरएम एसेट्स
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
