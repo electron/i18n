@@ -6,9 +6,9 @@ Ito ang mga alintuntunin sa pagsulat ng dokumento ng elektron.
 
 * Sa bawat pahina ay dapat magkaroon ng isang solong `#`-antas na pamagat sa itaas.
 * Sa bawat kabanata ng parehong pahina ay dapat may `#`-antas na may titulo.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Sub kabanata ay kailangan upang madagdagan ang bilang ng mga `#` sa pamagat ayon sa lalim ng nesting nito.
+* Lahat ng mga salita sa bawat pahina na may titulo ay dapat nasa malalaking titik, maliban sa pangatnig gaya ng "ng" at "at".
+* Tanging ang unang salita ng kabanata na may pamagat ay dapat naka-capital.
 
 Using `Quick Start` as example:
 
