@@ -8,9 +8,9 @@
 
 आपकी आवश्यकताओं के अनुसार, आप निम्नलिखित में से कोई भी चुन सकते हैं:
 
-- [हेज़ल](https://github.com/zeit/hazel) - निजी या मुक्त-स्त्रोत एप्प्स के लिए अपडेट सर्वर | Can be deployed for free on [Now](https://zeit.co/now) (using a single command), pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
+- [हेज़ल](https://github.com/zeit/hazel) - निजी या मुक्त-स्त्रोत एप्प्स के लिए अपडेट सर्वर | [नाउ](https://zeit.co/now) पर मुफ़्त में स्थापित किया जा सकता है (केवल एक कमांड इस्तेमाल कर के), [गिटहब रिलीज़](https://help.github.com/articles/creating-releases/) से पुल करता है और गिटहब की सीडीएन शक्ति का पूर्ण इस्तेमाल करता है |
+- [नट्स](https://github.com/GitbookIO/nuts) - यह भी [गिटहब रिलीज़](https://help.github.com/articles/creating-releases/) इस्तेमाल करता है, पर यह एप्प अपडेटस को डिस्क पर कैश करता है और निजी रिपॉजिटरिज़ का समर्थन करता है |
+- [इलेक्ट्रान-रिलीज़-सर्वर](https://github.com/ArekSredzki/electron-release-server) - रिलीज़ संभालने के लिए एक डैशबोर्ड प्रदान करता है
 - [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
 
 If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
