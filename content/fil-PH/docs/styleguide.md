@@ -124,42 +124,34 @@ Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento.
 Kung sa argumento o isang paraan na ito ay natatangi sa ilang mga plataporma, mga plataporma ay ipinahiwatig gamit ang isang delimited ng espasyo na naka-italic ang listahan kasunod ng mga datatype. Pagpapahalaga ay maaaring maging `macOS`, `Windows`, o `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `E-animate` Boolean (opsyonal) _macOS_ _Windows_ - Pagalawin ang bagay.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` uri argumento kailangan tukuyin kung anong elemento ang array maaaring isama sa paglalarawan sa ibaba.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Ang detalye ng mga argumento sa uri ng `Function` ay dapat gawin itong malinaw kung paano ito maaaring tumawag at ilista ang mga uri ng mga parameter sa mga ito.
 
-### Events
+### Pangyayari
 
-The events chapter must be in following form:
+Ang pangyayari ng kabanata ay dapat nasa sumusunod na form:
 
 ```markdown
-### Event: 'wake-up'
-
-Returns:
-
-* `time` String
-
-...
+### Pangyayari: 'Panggising' Returns: * 'oras' String...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
 
-The arguments of an event follow the same rules as methods.
+Ang mga argumento ng isang pangyayaring sundin ang parehong patakaran bilang pamamaraan.
 
-### Properties
+### Mga Katangian
 
-The properties chapter must be in following form:
+Ang mga katangian ng kabanata ay dapat nasa sumusunod na form:
 
 ```markdown
-### session.defaultSession
-
-...
+### session.defaultSession...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
 
 ## Documentation Translations
 
