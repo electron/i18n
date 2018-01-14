@@ -34,9 +34,9 @@ Devtronでは新機能のアクセシビリティタブが利用できます。�
 
 ## アクセスビリティの有効化
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Electronアプリケーションはパフォーマンス上の理由によって標準でアクセシビリティが無効になっていますが、有効にする方法は複数あります。
 
-### Inside Application
+### アプリケーション側で有効にする
 
 By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
