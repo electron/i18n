@@ -1,11 +1,11 @@
 # Styleguide ng mga dokumento ng elektron
 
-These are the guidelines for writing Electron documentation.
+Ito ang mga alintuntunin sa pagsulat ng dokumento ng elektron.
 
-## Titles
+## Mga Pamagat
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
+* Sa bawat pahina ay dapat magkaroon ng isang solong `#`-antas na pamagat sa itaas.
+* Sa bawat kabanata ng parehong pahina ay dapat may `#`-antas na may titulo.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
 * Only the first word of a chapter title must be capitalized.
