@@ -38,7 +38,7 @@ Electronアプリケーションはパフォーマンス上の理由によって
 
 ### アプリケーション側で有効にする
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+[`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) を使って、アプリケーション設定にアクセシビリティの有効化機能を設けられます。 ユーザーのシステムが持つアシスト機能はこの設定より優先され、設定を上書きする可能性があります。
 
 ### Assistive Technology
 
