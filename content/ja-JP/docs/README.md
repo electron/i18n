@@ -100,6 +100,6 @@
 * [デバッグ手順 (Windows)](development/debug-instructions-windows.md)
 * [デバッガーでシンボルサーバーを設定](development/setting-up-symbol-server.md)
 * [ドキュメントガイド](styleguide.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
+* [Chromiumをアップグレードする](development/upgrading-chromium.md)
 * [Chromium開発](development/chromium-development.md)
 * [V8 開発](development/v8-development.md)
