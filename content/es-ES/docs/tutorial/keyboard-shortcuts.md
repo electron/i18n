@@ -41,15 +41,15 @@ app.on('ready', () => {
 
 ## Accesos directos en una ventana de buscador
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Si quiere manejar accesos directos en el teclado para una ventana [ventana de buscador](../api/browser-window.md), puede usar la `flecha hacia arriba` y `flecha hacia abajo`.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Note que el tercer parámetro `verdadero` que se refiere al yente siempre recibe la tecla presionada antes por otros oyentes así que no puede ser llamado por `stopPropagation()`.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+El [`Evento antes de la entrada`](../api/web-contents.md#event-before-input-event) es emitido antes de enviar los eventos `flecha hacia arriba` y `flecha hacia abajo` en la página. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
