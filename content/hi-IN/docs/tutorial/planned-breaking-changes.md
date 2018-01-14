@@ -1,6 +1,6 @@
 # नियोजित ब्रेकिंग ऐपीआई परिवर्तन
 
-The following list includes the APIs that will be removed in Electron 2.0.
+निम्नलिखित सूचि में वे ऐपीआई शामिल हैं जो कि इलेक्ट्रॉन 2.0 में से निकाल दी जायेंगी |
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
