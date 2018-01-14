@@ -88,53 +88,21 @@ Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 
 ```markdown
-# session
-
-## Methods
-
-### session.fromPartition(partition)
-
-## Properties
-
-### session.defaultSession
-
-## Class: Session
-
-### Instance Events
-
-#### Event: 'will-download'
-
-### Instance Methods
-
-#### `ses.getCacheSize(callback)`
-
-### Instance Properties
-
-#### `ses.cookies`
-
-## Class: Cookies
-
-### Instance Methods
-
-#### `cookies.get(filter, callback)`
+# session # # Pamamaraan ### session.fromPartition(partisyon) # # Properties ### session.defaultSession ## Klase: Session ### Mga Pangyayari na may Halimbawa #### Kaganapan: 'will-download'
+### Mga Halimbawa ng Pamamaraan #### `ses.getCacheSize (callback)` ### Instance Properties #### `ses.cookies` ## Klase: Mga Cookies ### Mga Halimbawa ng Pamamaraan #### `cookies.get (filter, callback)`
 ```
 
-### Methods
+### Pamamaraan
 
-The methods chapter must be in the following form:
+Ang pamamaraan ng kabanata ay dapat nasa sumusunod na form:
 
 ```markdown
-### `objectName.methodName(required[, optional]))`
-
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+### ' objectName.methodName (kinakailangan [at opsyonal]))' * 'kailangan' pisi - isang paglalarawan ng parameter. * ' optional' Integer (opsyonal) - isa pang parameter na deskripsyon. ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Para sa mga modyul na ito, ang `objectName` ay pangalan ng mga modyul. Para sa klase, ito ay dapat na ang mga pangalan ng mga pagkakataon sa klase, at hindi ay dapat kapareho ng pangalan ng mga modyul.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
