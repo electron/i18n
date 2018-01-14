@@ -52,11 +52,11 @@ Ang mga sumusunod na patakaran ay angkop lamang sa dokumentasyon ng APIs.
 
 ### Mga pamagat ng pahina
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Sa bawat pahina ay dapat gamitin ang aktuwal na pangalan sa mga bagay na ibinalik na `kailangan meron('electron')`bilang pamagat, tulad ng `BrowserWindow`, `autoUpdater`, at mga `sesyon`.
 
-Under the page title must be a one-line description starting with `>`.
+Sa ilalim ng pahina ng pamagat ay dapat na may paglalarawan ng isang-linya na nagsisimula sa `>`.
 
-Using `session` as example:
+Paggamit ng mga `sesyon` bilang halimbawa:
 
 ```markdown
 # session
