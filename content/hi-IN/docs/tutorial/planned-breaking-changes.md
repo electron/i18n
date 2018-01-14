@@ -36,80 +36,80 @@ let windowB = new BrowserWindow(optionsB)
 ## `क्लिपबोर्ड`
 
 ```js
-// Deprecated
+// निरस्त
 clipboard.readRtf()
-// Replace with
+// इससे बदलें
 clipboard.readRTF()
-
-// Deprecated
-clipboard.writeRtf()
-// Replace with
+ 
+// निरस्त
+clipboard.writeRtf() 
+// इससे बदलें
 clipboard.writeRTF()
+ 
+// निरस्त
+clipboard.readHtml() 
+// इससे बदलें
+clipboard.readHTML() 
 
-// Deprecated
-clipboard.readHtml()
-// Replace with
-clipboard.readHTML()
-
-// Deprecated
-clipboard.writeHtml()
-// Replace with
+// निरस्त
+clipboard.writeHtml() 
+// इससे बदलें
 clipboard.writeHTML()
 ```
 
 ## `क्रेश रिपोर्टर`
 
 ```js
-// Deprecated
+// निरस्त
 crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  autoSubmit: true
-})
-// Replace with
+   companyName: 'Crashly',
+   submitURL: 'https://crash.server.com',
+   autoSubmit: true 
+}) 
+// इससे बदलें
 crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  uploadToServer: true
-})
+   companyName: 'Crashly',
+   submitURL: 'https://crash.server.com',
+   uploadToServer: true
+ })
 ```
 
-## `menu`
+## `मेन्यु`
 
 ```js
-// Deprecated
+// निरस्त
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// इससे बदलें
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `मूल छवि`
 
 ```js
-// Deprecated
-nativeImage.toPng()
-// Replace with
+// निरस्त
+nativeImage.toPng() 
+// इससे बदलें
 nativeImage.toPNG()
+ 
+// निरस्त
+nativeImage.toJpeg() 
+// इससे बदलें
+nativeImage.toJPEG() 
 
-// Deprecated
-nativeImage.toJpeg()
-// Replace with
-nativeImage.toJPEG()
-
-// Deprecated
-nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
-nativeImage.createFromBuffer(buffer, {
-  scaleFactor: 1.0
+// निरस्त
+nativeImage.createFromBuffer(buffer, 1.0) 
+// इससे बदलें
+nativeImage.createFromBuffer(buffer, {   
+scaleFactor: 1.0 
 })
 ```
 
-## `process`
+## `प्रक्रिया`
 
 ```js
-// Deprecated
-process.versions['atom-shell']
-// Replace with
+// निरस्त
+process.versions['atom-shell'] 
+// इससे बदलें
 process.versions.electron
 ```
 
