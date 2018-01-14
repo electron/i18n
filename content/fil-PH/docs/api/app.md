@@ -258,7 +258,7 @@ Returns:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-## Methods
+## Pamamaraan
 
 The `app` object has the following methods:
 
