@@ -37,20 +37,20 @@ Para sa mga reperensya ng API, may mga eksepsiyon sa panuntunang ito.
 ## Mga patakaran ng markdown
 
 * Gamitin ang `sh` sa halip ng `cmd` sa mga bloke ng code (dahil sa syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Ang mga linya dapat naka balot sa 80 ng mga hanay.
+* Walang nesting na nangangahulugang mahigit 2 antas (dahil sa mga tagatanghal ng markdown).
+* Lahat ng bloke ng code sa `js` at `javascript` ay linted sa [pamantayan-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Pagpili ng mga salita
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Gamitin ang "ay" sa halip ng "nais" kapag naglalarawan sa mga kinalalabasan.
+* Piliin ang "sa ____ proseso" sa halip ng "sa".
 
-## API references
+## Mga reperensya sa mga API
 
-The following rules only apply to the documentation of APIs.
+Ang mga sumusunod na patakaran ay angkop lamang sa dokumentasyon ng APIs.
 
-### Page title
+### Mga pamagat ng pahina
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
