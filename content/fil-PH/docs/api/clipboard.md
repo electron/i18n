@@ -79,14 +79,14 @@ Returns `String` - Ang nilalaman ng klipboard bilang RTF.
 
 `
 
-* `text` String
+* `text` String 
 * `type` String (opsiyonal)
 
-Writes the `text` into the clipboard in RTF.
+Pagsulat ng `text` sa klipboard bilang RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `title` String
 * `url` String
