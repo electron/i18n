@@ -1008,7 +1008,7 @@ app.on('ready', () => {
 * `parametreler` Nesne 
   * `ekranPozisyonu` Dize - Ekran tipini emulasyon için belirtiniz. (default: `masaüstü`) 
     * `desktop` - Masaüstü ekran tipi
-    * `mobile` - Mobile screen type
+    * `mobile` - Mobil ekran tipi
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
@@ -1017,7 +1017,7 @@ app.on('ready', () => {
   * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
 
-Enable device emulation with the given parameters.
+Verilen parametrelerle aygıt emülasyonuna izin verir.
 
 #### `contents.disableDeviceEmulation()`
 
@@ -1029,7 +1029,7 @@ Enable device emulation with the given parameters.
   * `type` String (**required**) -Olabilir, olayın türü `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+Sayfaya bir `event` girdisi gönderir. **Note:** `sendInputEvent()`'in çalışması için içeriği içeren `BrowserWindow`'a odaklanılmış olması gereklidir.
 
 For keyboard events, the `event` object also have following properties:
 
