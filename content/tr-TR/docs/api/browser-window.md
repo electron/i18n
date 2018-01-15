@@ -826,7 +826,7 @@ Yerel türü Windows' ta `HWND`, macOS' ta `NSView*`, ve Linux' ta `Window` (`un
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+`Boolean` - İletinin sabit olup olmadığına bağlı olarak `true` or `false`' a döndürülür.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
