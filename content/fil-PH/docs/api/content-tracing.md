@@ -52,9 +52,9 @@ Kapag lahat ng child processes ay nakakilla ng `getCategories` magrequest ng `ca
 
 Simulan ang pagtatala ng lahat ng mga proseso. 
 
-Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording. Ang `callback` ay tatawagan kapag kinilala ng lahat ng child processes ang kahilingan ng`startRecording`. 
 
-`categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
+`categoryFilter` ay isang filter upang makontrol kung anong grupo ng kategorya ang dapat matunton. Ang filter ay may opsiyonal `` panlapi upang ibukod ang mga grupo ng kategorya na naglalamagn ng nagtutugmang kategorya. HIndi suportado ang pagkakaroon ng kapwa kabilang at hindi kabilang kategoryang patterns sa parehong listahan.
 
 Mga Halimbawa:
 
