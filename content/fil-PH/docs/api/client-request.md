@@ -15,8 +15,8 @@ Context | Request Context
   * `method` String (opsyonal) - Paraan ng HTTP request. Mga defaults sa GET na paraan.
   * `url` String (opsyonal) - Ang request ng URL. Dapat maibigay ang ganap na anyo ng pamamaraan ng protocol na tinutukoy bilang http or https. 
   * `session` Object (opsyonal) - Ang [`Session`](session.md) halimbawa kung saan nauugnay ang request.
-  * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Kaya kung ang isang `session` ay maliwanag na tinutukoy, ang `partition` ay binabalewala.
+  * `protocol` String (opsyonal) - Ang pamamaraan ng protocol sa 'scheme:' form. Kasalukuyang suportadong values ay 'http:' o 'https:'. Defaults sa 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
   * `hostname` String (optional) - The server host name.
   * `port` Integer (optional) - The server's listening port number.
