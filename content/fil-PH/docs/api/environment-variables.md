@@ -39,11 +39,12 @@ Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API k
 ### `ELECTRON_NO_ASAR
 `
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Hindi pinapagana ang suporta ng ASAR. Ang variable na ito ay suportado lamang sa mga proseso sa forked child at spawned child proseso na nagtatakda ng ` ELECTRON_RUN_AS_NODE </ 0>. </p>
 
-### `ELECTRON_RUN_AS_NODE`
+<h3><code>ELECTRON_RUN_AS_NODE
+`</h3> 
 
-Starts the process as a normal Node.js process.
+Nagsisimula ang proseso bilang isang normal na proseso ng Node.js.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
