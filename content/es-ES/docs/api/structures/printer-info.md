@@ -3,7 +3,7 @@
 * `name` String
 * `description` String
 * `status` Número
-* `isDefault` Buleano
+* `isDefault` Boolean
 
 ## Ejemplo
 
