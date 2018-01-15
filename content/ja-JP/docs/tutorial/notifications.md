@@ -42,7 +42,7 @@ This allows you to determine ahead of time whether or not Windows will silently 
 
 通知サイズが 256 バイトに限定されて、その制限を超えると切り捨てられることに注意してください。
 
-### Advanced Notifications
+### 高度な通知
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
