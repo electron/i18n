@@ -17,18 +17,18 @@ const {app, globalShortcut} = require('electron')
 app.on('ready', () => {
   // Registrar un grabador de atajo 'CommandOControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Hacer cosas cuando Y o tanto Command como Control sean presionados.
+    // Hacer algo cuando se presiona tanto Tecla Command o Control + Y.
   })
 })
 ```
 
 ## Noticia de plataforma
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se utilizar `CommandOrControl` que representa `Command` para macOS y `Control` para Linux y Windows para definir algunos Aceleradores.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Usa `Alt` en vez de `Option`. La clave `Option` solo existe en macOS, mientras la clave `Alt` esta disponible en todas las plataformas.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` para macOS.
 
 ## Modificadores disponibles
 
