@@ -2,7 +2,7 @@
 
 3 つのオペレーティング システム全て、アプリケーションからの通知をユーザーに送る手段を提供します。 Electron開発者は [HTML5 通知 API](https://notifications.spec.whatwg.org/) の通知を送れて、現在実行中のオペレーティング システムのネイティブ通知 APIs を使用して、表示できます。
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Note:**これは HTML5 API のみレンダラプロセスで利用可能です。 メインプロセスに通知を表示する場合は、[通知](../api/notification.md) モジュールをご覧ください。
 
 ```javascript
 let myNotification = new Notification('Title', {
