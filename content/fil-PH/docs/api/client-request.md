@@ -1,14 +1,17 @@
-## Class: ClientRequest
+## Klase: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Gawin ang mga kahilingan ng HTTP/HTTPS
 
-Process: [Main](../glossary.md#main-process)
+I-process: [Main](../glossary.md#main-process)
 
-`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest`ipinatupad ng mga [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface at samakatuwid ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Context | Request Context
 
-### `new ClientRequest(options)`
+### `bagong ClientRequest(options)
+ 
+Context | Request Context
+`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `options` (Object | String) - Kung `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
