@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> Ikontrol ang event lifecycle ng iyong application.
 
-Process: [Main](../glossary.md#main-process)
+Proseso: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Ang susunod na halimbawa ay magpapakita kung papano ihinto ang application kapag ang huling window ay isinara:
 
 ```javascript
 const {app} = require('electron')
@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Pangyayari
+## Events
 
 The `app` object emits the following events:
 
