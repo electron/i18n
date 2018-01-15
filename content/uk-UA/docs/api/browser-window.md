@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Створіть та керуйте вікнами браузера.
 
 Процес: [Main](../glossary.md#main-process)
 
@@ -23,9 +23,9 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Вікно без рамки
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Щоб створити вікно без chrome, чи прозоре вікно потрібної фігури, ви можете використати API [Вікна без рамки](frameless-window.md).
 
 ## Showing window gracefully
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Клас: BrowserWindow
 
-> Create and control browser windows.
+> Створіть та керуйте вікнами браузера.
 
 Процес: [Main](../glossary.md#main-process)
 
