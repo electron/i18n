@@ -268,7 +268,7 @@ El objeto `app` tiene los siguientes métodos:
 
 Intenta cerrar todas las ventanas. El evento `before-quit` se producirá primero. Si todas las ventas son cerradas exitosamente, el evento `will-quit` será producido y por defecto la aplicación se cerrará.
 
-Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Este método garantiza que todos los eventos de `beforeunload` y `unload` serán correctamente ejecutados. Es posible que una ventana cancele la salida regresando `falso` en el manipulador de eventos `antes de cargar`.
 
 ### `app.exit([exitCode])`
 
@@ -280,15 +280,15 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Objecto (opcional) 
+  * `args` Cadena[] - (opcional)
+  * `execPath` Cadena (opcional)
 
 Reinicia la aplicación cuando la instancia se cierra.
 
-Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
 Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán iniciadas después de que la actual instancia se cierre.
 
@@ -349,7 +349,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Objecto (opcional) 
   * `size` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
@@ -669,7 +669,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `options` Objecto (opcional) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
