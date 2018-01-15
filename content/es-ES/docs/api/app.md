@@ -344,7 +344,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 * `musica` Directorio para la música del usuario.
 * `imágenes` Directorio para las imágenes del usuario.
 * `videos` Directorio para las imágenes del usuario.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Camino completo a la versión del sistema del plugin pepper flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -358,25 +358,25 @@ Usted puede pedir las siguientes direcciones por nombre:
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Busca un ícono asociado a la ruta.
 
-On *Windows*, there a 2 kinds of icons:
+En *Windows*, Hay dos tipos de íconos:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
+* Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+En *Linux* y *macOS*, los íconos dependen de la aplicación asociada al tipo de archivo.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Reemplaza la `ruta` a un directorio especial o un archivo asociado con el `nombre`. Si el camino especificado a un directorio no existe, el directorio será creado por el siguiente método. En caso de fallar se lanza un `Error`.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Solo puede sobre escribir rutas de de un `nombre` definido en `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Por defecto, las cookies y el caché de una página web serán almacenados en el directorio `userData`. Si quiere cambiar su localización, tiene que reescribir la ruta de `Dato de Usuario` ante que el evento `listo` del módulo de la `app` sea emitido.
 
 ### `app.getVersion()`
 
