@@ -146,21 +146,21 @@ Devuelve:
 
 Emitido cuando se crea un [browserWindow](browser-window.md).
 
-### Event: 'web-contents-created'
+### Evento: 'web-contenido-creado'
 
 Devuelve:
 
 * `evento` Evento
-* `webContents` WebContents
+* `Contenidosweb` Contenidos Web
 
-Emitted when a new [webContents](web-contents.md) is created.
+Emitido cuando un nuevo [contenidoweb](web-contents.md) es creado.
 
-### Event: 'certificate-error'
+### Evento: 'error-certificado'
 
 Devuelve:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 * `url` cadena
 * `error` cadena - el error del código
 * `certificate` [certificate](structures/certificate.md)
@@ -214,18 +214,18 @@ Devuelve:
 * `evento` Evento
 * `webContents`[WebContents](web-contents.md)
 * `request` Object 
-  * `method` String
+  * `method` Cuerda
   * `url` URL
   * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `esquema` Cadena
+  * `anfitrión` Cadena
+  * `puerto` Íntegro
+  * `realm` Cadena
 * `llamada de vuelta` Función 
-  * `username` String
-  * `password` String
+  * `username` Cadena
+  * `contraseña` Cadena
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
@@ -272,7 +272,7 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Íntegro (opcional)
 
 Cierra inmediatamente con `exitCode`. `exitCode` por defecto a 0.
 
@@ -332,8 +332,8 @@ Usted puede pedir las siguientes direcciones por nombre:
 * `Inicio` Directorio de inicio del usuario.
 * `appData` Directorio de la información de la aplicación por usuario, que lleva por defecto a: 
   * `%APPDATA%` en Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
+  * `$XDG_CONFIG_HOME` o `~/.config` en Linux
+  * `~/Library/Application Support` en marcOS
 * `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
 * `temp` Directorio temporal.
 * `exe` Archivo ejecutable en curso.
@@ -350,13 +350,13 @@ Usted puede pedir las siguientes direcciones por nombre:
 
 * `path` String
 * `options` Objecto (opcional) 
-  * `size` String 
+  * `tamaño` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
     * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
 * `llamada de vuelta` Función 
   * `error` Error
-  * `icon` [NativeImage](native-image.md)
+  * `ícono` [NativeImage](native-image.md)
 
 Busca un ícono asociado a la ruta.
 
@@ -553,8 +553,8 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `llamada de vuelta` Función 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
+  * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
 Returns `Boolean`.
 
