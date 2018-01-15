@@ -1,13 +1,13 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> Itakda ang mga shortcut ng keyboard.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Ang accelerator ay mga String na mayroong maraming modifier at mga key code, na pinagsama ng `+` na character, at ginagamit upang itukoy ang mga keyboard shortcut ng iyong buong application.
 
-Examples:
+Mga Halimbawa:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `Command o Control + A`
+* `Command o Control + Shift + Z`
 
 Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
 
