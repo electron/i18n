@@ -35,7 +35,7 @@ Ibrobrodkast kapag ang Electron ay tapos ng mag-initialize. Sa macOS, ang `launc
 
 Ibrobrodkast kung ang lahat ng mga window ay isinarado.
 
-Kung ikaw ay hindi nagsubscribe sa event na ito at ang lahat ng mga window ay sarado, ang default na aksyon nito ay ang pag hinto ng app; gayunpaman, kung ikaw ay nakasubscribe, pwedeng magpasya kung ihihinto ang app o hindi. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Kung ikaw ay hindi nagsubscribe sa event na ito at ang lahat ng mga window ay sarado, ang default na aksyon nito ay ang pag hinto ng app; gayunpaman, kung ikaw ay nakasubscribe, pwedeng magpasya kung ihihinto ang app o hindi. Kung ang user ay pumindot ng `Cmd + Q`, o ang developer ay tumawag ng `app.quit()`, ang Electron ay unang susubukang isara ang lahat ng mga window at pagkatapos ay magbrobrodkast ng `will-quit` na event, at sa kasong ito ang `window-all-closed` na event ay hindi ibrobrodkast.
 
 ### Event: 'before-quit'
 
@@ -43,7 +43,7 @@ Magbabalik ng:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Ibrobrodkast bago magsimula ang application sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag sara ng application.
 
 **Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
