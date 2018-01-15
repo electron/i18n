@@ -25,17 +25,19 @@ Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para gamitin sa 
 ### `GOOGLE_API_KEY
 `
 
-Kasama sa elektron ang hardcoded na key ng API para sa paghiling ng mga kahilingan sa geocoding ng Google webservice. Dahil ang key na API na ito ay kasama sa bawat bersyon ng Electron, ito ay madalas na lumalampas sa quota ng paggamit nito. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Kasama sa elektron ang hardcoded na key ng API para sa paghiling ng mga kahilingan sa geocoding ng Google webservice. Dahil ang key na API na ito ay kasama sa bawat bersyon ng Electron, ito ay madalas na lumalampas sa quota ng paggamit nito. Upang magtrabaho sa paligid nito, maaari mong matustusan ang iyong sariling Google API key sa kapaligiran. Ilagay ang sumusunod na code sa iyong pangunahing proseso file, bago buksan ang anumang mga window ng browser na gagawa ng mga kahilingan sa geocoding:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
+
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
+Para sa mga tagubilin kung paano makakuha ng isang key ng Google API, bisitahin ang  ang pahinang ito </ 0>.</p> 
 
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang  ang pahinang ito </ 0>.</p> 
 
-### `ELECTRON_NO_ASAR`
+### `ELECTRON_NO_ASAR
+`
 
 Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
