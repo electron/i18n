@@ -177,12 +177,12 @@ Pagsulat ng `buffer` sa klipboard bilang `format`.
   * `html` String (opsiyonal)
   * `image` [NativeImage](native-image.md) (opsiyonal)
   * `rtf` String (opsiyonal)
-  * `bookmark` String (optional) - The title of the url at `text`.
+  * `rtf` String (opsiyonal) - Ang pamagat ng url sa `text`. 
 * `type` String (opsiyonal)
 
 ```javascript
-const {clipboard} = require('electron')
+onst {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+Pagsulat ng `data` sa klipboard.
