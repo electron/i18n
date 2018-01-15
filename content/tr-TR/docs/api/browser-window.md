@@ -916,13 +916,13 @@ win.loadURL('http://localhost:8000/post', {
 
 * `menu` Menü | boş
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Window's menu çubuğu olarak `menu` değerini ayarlar, bu değeri `null` olarak ayarlamak menü çubuğunu kaldırır.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` çift
 * `ayarlar` Obje (isteğe bağlı) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+  * `mode` dizi *Windows* - İlerleme çubuğunun modu: `none`, `normal`, `indeterminate`, `error` veya `paused` olabilir.
 
 İlerleme çubuğundaki süreç değerini ayarlar. Geçerli aralık [0, 1.0].
 
