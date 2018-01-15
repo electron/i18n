@@ -3,8 +3,8 @@
 * `name` na String - Ang pangalan ng mga cookie.
 * `value` na String - Ang halaga ng mga cookie.
 * `domain` na String (opsyonal) - Ang dominyo ng mga cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
+* `hostOnly`Boolean (opsyonal) - Depende kung ang cookie ay isang cookie na host lamang.
+* `path` na String (opsyonal) - Ang path ng mga cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
 * `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
 * `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
