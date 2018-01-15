@@ -1010,7 +1010,7 @@ Igual como `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `ícono` [NativeImage](native-image.md)
 
 Cambia ícono de la ventana.
 
