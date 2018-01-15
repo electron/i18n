@@ -1,6 +1,6 @@
-# Environment Variables
+# Environment Variables 
 
-> Control application configuration and behavior without changing code.
+> Kontrolin ang pagsasaayos ng application at pag-uugali nang walang pagbabago ng code.
 
 Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
 
