@@ -716,14 +716,14 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilitado, o `false` de otra manera. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilitado, o `false` de otra manera. Esta API devolverá `true` si el uso de tecnologías asistivas, como leectores de pantallas, son detectadas. Ver https://www.chromium.org/developers/design-documents/accessibility para más detalles.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
+  * `applicationName` Cadena (opcional) - El nombre de la aplicación.
+  * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
+  * `copyright` Cadena (opcional) - La información de Copyright.
   * `credits` String (optional) - Credit information.
   * `version` String (optional) - The app's build version number.
 
