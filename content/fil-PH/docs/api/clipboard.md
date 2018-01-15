@@ -91,7 +91,7 @@ Nagbabalik ng mga `bagay`:
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa bookmark sa klipbord. Ang `title` and `url` values ay walang laman na string kapag ang bookmark ay hindi magagamit. 
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -99,7 +99,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 * `url` String
 * `type` String (opsiyonal)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
