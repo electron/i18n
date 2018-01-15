@@ -36,7 +36,7 @@ app.on('ready', () => {
 ### `contentTracing.getCategories(callback)`
 
 * `geri arama` Fonksiyon 
-  * `categories` String[]
+  * `categories` Dizi[]
 
 Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
 
@@ -45,9 +45,9 @@ Bütün alt süreçler, `getCategories` isteğini onayladıktan sonra, `callback
 ### `contentTracing.startRecording(options, callback)`
 
 * `ayarlar` Nesne 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+  * `categoryFilter` Dizi
+  * `traceOptions` Dizi
+* `callback` Fonksiyon
 
 Tüm işlemler kaydetmeye başlayın.
 
@@ -75,9 +75,9 @@ Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olar
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
-* `resultFilePath` String
+* `resultFilePath` Dizi
 * `geri arama` Fonksiyon 
-  * `resultFilePath` String
+  * `resultFilePath` Dizi
 
 Kayıt işlemini tüm süreçlerde durdurur.
 
@@ -90,9 +90,9 @@ Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFi
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `ayarlar` Nesne 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
+  * `categoryFilter` Dizi
+  * `traceOptions` Dizi
+* `callback` Fonksiyon
 
 Tüm süreçlerin izlenmesini başlat.
 
@@ -102,7 +102,7 @@ Tüm alt süreçler `startMonitoring` isteğini onayladıktan sonra `callback` �
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Function
+* `callback` Fonksiyon
 
 Tüm işlemlerin izlemesini durdurun.
 
@@ -110,9 +110,9 @@ Tüm alt süreçler `stopMonitoring` isteğini onayladıktan sonra `callback` ç
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
-* `resultFilePath` String
+* `resultFilePath` Dizi
 * `geri arama` Fonksiyon 
-  * `resultFilePath` String
+  * `resultFilePath` Dizi
 
 Geçerli izleme verilerini alın.
 
@@ -123,7 +123,7 @@ Bütün alt süreçler, `captureMonitoringSnapshot` isteğini onayladıktan sonr
 ### `contentTracing.getTraceBufferUsage(callback)`
 
 * `geri arama` Fonksiyon 
-  * `value` Number
-  * `percentage` Number
+  * `value` numara
+  * `percentage` numara
 
 İzleme arabelleği işlemlerindeki maksimum kullanımı tam durum yüzdesi olarak alın. TraceBufferUsage değeri belirlendiğinde `callback` çağırılır.
