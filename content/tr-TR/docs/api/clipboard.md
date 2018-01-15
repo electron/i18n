@@ -130,7 +130,7 @@ Pano içeriğini temizler.
 * `format` String
 * `type` String (isteğe bağlı)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+`Boolean` - Panoda belirtilen `format` komutunun desteklenip desteklenmediğini gösterir.
 
 ```javascript
 const {clipboard} = require('electron')
@@ -160,7 +160,7 @@ Writes the `buffer` into the clipboard as `format`.
 ### `clipboard.write(data[, type])`
 
 * `veri` Nesne 
-  * `text` String (optional)
+  * `text` dizin (isteğe bağlı)
   * `html` dizi(isteğe bağlı)
   * `image` [NativeImage](native-image.md) (isteğe bağlı)
   * `rtf` Dizi (İsteğe Bağlı)
