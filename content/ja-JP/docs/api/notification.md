@@ -31,8 +31,8 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 * `options` オブジェクト 
   * `title` String - 通知ウィンドウの上部に表示される通知のタイトル
   * `subtitle` String - (optional) は、タイトルの下が表示されます、通知のサブタイトルです。*macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
+  * `body` String - タイトルやサブタイトルの下に表示さる、本文
+  * `silent` Boolean - (optional) 通知を表示するときに音を鳴らしてOSが通知するかどうか決めます
   * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
   * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
