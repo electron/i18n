@@ -1,15 +1,15 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> Pagkolekta ng tracing data galing sa Chromium's content modyul para paghanap ng pagganap bottlenecks at mahinang operasyon.
 
 Proseso: [Main](../glossary.md#main-process)
 
-This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
+Ang modyul na ito ay hindi kinabibilangan ng isang web interface kaya kailangan mong buksan ang `chrome://tracing/` sa Chrome browser at i-load ang nabuong file to makita ang resulta. 
 
-**Note:** You should not use this module until the `ready` event of the app module is emitted.
+**Note:** Hindi mo dapat gamitin ang modyul na ito hanggang sa ` kaganapan ng mga app
+modulo ay napalabas.</p>
 
-```javascript
-const {app, contentTracing} = require('electron')
+<pre><code class="javascript">const {app, contentTracing} = require('electron')
 
 app.on('ready', () => {
   const options = {
@@ -27,7 +27,7 @@ app.on('ready', () => {
     }, 5000)
   })
 })
-```
+`</pre> 
 
 ## Pamamaraan
 
