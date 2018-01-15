@@ -88,7 +88,7 @@ request.on('login', (authInfo, callback) => {
 
 #### Event: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Naalis pagkatapos ng huling tipak sa `request` ng mga data na isinulat para sa `request` object.
 
 #### Event: 'abort'
 
