@@ -18,6 +18,6 @@ electron --interactive
 
 यह मुख्य प्रक्रिया के लिए केवल एक आरईपीएल का निर्माण करता है |आप रेंदेरेर प्रक्रिया के लिए आरईपीएल प्राप्त करने हेतु डेव टूल्स का कंसोल टैब इस्तेमाल कर सकते है |
 
-**Note:** `electron --interactive` is not available on Windows.
+**नोट:** `electron --interactive` विंडोज पर उपलब्ध नहीं है |
 
-More information can be found in the [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html).
+और अधिक जानकारी [Node.js REPL docs](https://nodejs.org/dist/latest/docs/api/repl.html) पर प्राप्त की जा सकती है |
