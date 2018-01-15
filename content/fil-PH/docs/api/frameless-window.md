@@ -112,11 +112,11 @@ button {
 }
 ```
 
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Kung ikaw ay nagtatakda lamang ng isang custom titlebar bilang draggable, kailangan mo ring gawin ang lahat mga pindutan sa titlebar non-draggable.
 
-## Text selection
+## Text selection 
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+Sa isang frameless window ang dragging behaviour ay maaaring sumalungat sa pagpili ng teksto. Halimbawa, kapag nag-drag ka sa titlebar maaari mong aksidenteng piliin ang teksto sa titlebar. Upang maiwasan ito, kailangan mong huwag paganahin ang pagpili ng teksto sa loob ng isang draggable na lugar tulad nito:
 
 ```css
 .titlebar {
@@ -125,6 +125,6 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 }
 ```
 
-## Context menu
+## Context menu 
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+Sa ilang mga platform, ang draggable area ay ituturing bilang isang non-client frame, kaya kapag nag-right click ka dito ang isang sistema ng menu ay magpa-pop up. Upang gawin ang menu ng konteksto kumilos ng tama sa lahat ng mga platform na hindi ka dapat gumamit ng custom context menu sa draggable areas.
