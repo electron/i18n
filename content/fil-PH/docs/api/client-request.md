@@ -23,9 +23,9 @@ Context | Request Context
   * `path` String (opsyonal) - Ang path na parte sa request URL.
   * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. Kapag mode ay `manual` ang redirection ay ipinagpaliban hanggang [`request.followRedirect`](#requestfollowRedirect) ay mapakiusapan. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+`options` properties gaya ng `protocol`, `host`, `hostname`, `port` at `path` mahigpit na sundan ang Node.js na model gaya ng inilarawan sa [URL](https://nodejs.org/api/url.html) module.
 
-For instance, we could have created the same request to 'github.com' as follows:
+Halimbawa, maaaring lumikha tayo ng kaparehong request sa 'github.com' gaya ng:
 
 ```JavaScript
 const request = net.request({
@@ -37,13 +37,13 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Halimbawa ng mga Events
 
 #### Event: 'response'
 
 Magbabalik ng:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - Isang bagay na kumakatawan ng HTTP response message.
 
 #### Event: 'login'
 
