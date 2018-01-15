@@ -1,7 +1,7 @@
 # Mga bagay ng JumplistCategory
 
 * `uri` String (opsyonal) - Isa sa mga sumusunod: 
-  * `tasks` - Ang mga item sa kategorya na ito ay maaaring ilagay sa mga karaniwang kategorya ng `Tasks`. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
+  * `tasks` - Ang mga item sa kategorya na ito ay maaaring ilagay sa mga karaniwang kategorya ng `Tasks`. Maaaring may isa lamang gayong kategorya, at ito ay laging ipinapakita sa ilalim ng Jump List.
   * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
   * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
   * `custom` - Displays tasks or file links, `name` must be set by the app.
