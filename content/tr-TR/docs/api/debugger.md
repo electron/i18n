@@ -52,8 +52,8 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 * `method` Dizi - Yöntem Adı, uzaktan hata ayıklama protokolü tarafından belirlenen yöntemlerden biri olmalıdır.
 * `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
 * `geri arama` İşlev (opsiyonel) - Yanıt 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `error` Nesne - Komutun Başarısız olduğunu gösteren hata mesajı.
+  * `result` Herhangi - Uzaktan Hata Ayıklama protokolünde komut açıklamasının "returns" özelliğiyle tanımlanan tepki.
 
 Verilen komutu hata ayıklama hedefine gönderin.
 
