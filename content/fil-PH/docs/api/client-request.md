@@ -92,19 +92,19 @@ Naalis pagkatapos ng huling tipak sa `request` ng mga data na isinulat para sa `
 
 #### Event: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Matatanggal kapag ang `request` ay naudlot. Ang `abort` event ay hindi matitiwalag kung ang `request` ay nakasara na.
 
 #### Event: 'error'
 
 Magbabalik ng:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - isang error object na nagbibigay impormasyon tungkol sa kabiguan.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Matatanggal kapag nabigo ang `net` na module sa pag-issue ng network request. Karaniwan kapag ang `request` object ay nagtanggal ng `error` na event, isang `close` na event na sumusubaybay at walang response na object ang ilalaan.
 
 #### Event: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Tinatanggal bilang panghuling event sa HTTP request-response transaction. Ang `close` na event ay nagsasaad na walang tatanggalin na events alinman sa `request` o `response` na mga object.
 
 #### Event: 'redirect'
 
