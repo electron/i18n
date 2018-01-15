@@ -896,7 +896,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Aşağıdakileri yaparak, URL kodlu verilerle birlikte `POST` komutunu kullanarak bir URL yükleyebilirsiniz:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -910,11 +910,11 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+`webContents.reload`. ile aynı.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
-* `menu` Menu | null
+* `menu` Menü | boş
 
 Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
 
