@@ -56,7 +56,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([NativeImage](native-image.md) | Cadena)
 
 Creates a new tray icon associated with the `image`.
 
@@ -171,7 +171,7 @@ Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([NativeImage](native-image.md) | Cadena)
 
 Sets the `image` associated with this tray icon.
 
