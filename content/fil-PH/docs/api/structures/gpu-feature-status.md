@@ -5,8 +5,8 @@
 * `flash_stage3d` String - Flash Stage3D
 * `flash_stage3d_baseline` String - Profile ng Flash Stage3D Baseline
 * `gpu_compositing` String - Compositing
-* `multiple_raster_threads` String - Multiple Raster Threads
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
+* `multiple_raster_threads` String - Maramihang Raster Thread
+* `native_gpu_memory_buffers` String - Likas na mga GpuMemoryBuffer
 * `rasterization` String - Rasterization
 * `video_decode` String - Video Decode
 * `video_encode` String - Video Encode
