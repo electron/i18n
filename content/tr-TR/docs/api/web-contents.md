@@ -952,14 +952,14 @@ Geliştirme araçlarını kapatır.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Tamsayı
 * `y` Tamsayı
 
-Starts inspecting element at position (`x`, `y`).
+(`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
 
 #### `contents.inspectServiceWorker()`
 
