@@ -197,12 +197,12 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ## अतिरिक्त ऐआरएम एसेट्स
 
-हर इलेक्ट्रॉन रिलीज़ में थोड़े अलग फाइल नामों के साथ दो समरूप ऐआरएम बिल्डस शामिल होती हैं, जैसे कि `electron-v1.7.3-linux-arm.zip` और `electron-v1.7.3-linux-armv7l.zip` | The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+हर इलेक्ट्रॉन रिलीज़ में थोड़े अलग फाइल नामों के साथ दो समरूप ऐआरएम बिल्डस शामिल होती हैं, जैसे कि `electron-v1.7.3-linux-arm.zip` और `electron-v1.7.3-linux-armv7l.zip` | `v7l` नाम के साथ मौज़ूद एसेट उपयोगकर्ताओं के यह बताने के लिए है कि वह कौन सा ऐआरएम संस्करण समर्थित करता है, और साथ ही उसे भविष्य में आने वाले ऐआरएमवी61 और ऐआरएमवी64 एसेट्स से अलग स्पष्ट करने के लिए |
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+*बिना v71 नाम के* मौज़ूद फाइल अभी भी प्रकाशित की जा रही है ताकि उसे उपयोग करने वाले सेटअप में कोई त्रुटी न आ जाये | पर 2.0 संस्करण से, बिना v71 नाम के मौज़ूद फाइल प्रकाशित होना बंद हो जायेगी |
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+और अधिक जानकारी के लिए, देखें [6986](https://github.com/electron/electron/pull/6986) और [7189](https://github.com/electron/electron/pull/7189) |
 
-## `FIXME` comments
+## `FIXME` टिप्पणियाँ
 
 The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
