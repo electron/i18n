@@ -64,7 +64,7 @@ The following events are available on instances of `Session`:
 
 * `evento` Evento
 * `item` [DownloadItem](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
 
