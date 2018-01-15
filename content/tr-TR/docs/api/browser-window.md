@@ -846,7 +846,7 @@ Pencerenin temsil ettiği dosyanın yol adını belirler ve dosya simgesi pencer
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+`String` Windows' un temsil ettiği dosyanın yolunu değiştirir.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
@@ -856,7 +856,7 @@ Window's belgelerinin düzenlenip düzenlenmediğini belirtir ve `true` olarak a
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+`Boolean` - Window' s dosyalarının düzenlenmiş olup olmadığını döndürür.
 
 #### `win.focusOnWebView()`
 
@@ -864,11 +864,11 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - üst sınırlar
 * `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+`webContents.capturePage([rect, ]callback)` ile aynı.
 
 #### `win.loadURL(url[, options])`
 
