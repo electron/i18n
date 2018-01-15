@@ -46,34 +46,38 @@ Hindi pinapagana ang suporta ng ASAR. Ang variable na ito ay suportado lamang sa
 
 Nagsisimula ang proseso bilang isang normal na proseso ng Node.js.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+### `ELECTRON_NO_ATTACH_CONSOLE` *Windows* 
 
-Don't attach to the current console session.
+Huwag ilakip sa kasalukuyang session ng console.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux* 
 
-Don't use the global menu bar on Linux.
+Huwag gamitin ang global menu bar sa Linux.
 
-## Development Variables
+## Development Variables 
 
-The following environment variables are intended primarily for development and debugging purposes.
+Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para sa pag-unlad at mga layunin ng pag-debug.
 
-### `ELECTRON_ENABLE_LOGGING`
+### `ELECTRON_ENABLE_LOGGING
+`
 
-Prints Chrome's internal logging to the console.
+Ini-print ang Chrome's internal logging sa console.
 
-### `ELECTRON_LOG_ASAR_READS`
+### `ELECTRON_LOG_ASAR_READS
+`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Kapag bumabasa ang Electron mula sa isang file ng ASAR, mag-log sa read offset at file path sa ang system ` tmpdir </ 0>. Ang resultang file ay maaaring ibigay sa module ng ASAR
+upang i-optimize ang pag-order ng file.</p>
 
-### `ELECTRON_ENABLE_STACK_DUMPING`
+<h3><code>ELECTRON_ENABLE_STACK_DUMPING
+`</h3> 
 
-Prints the stack trace to the console when Electron crashes.
+Ini-print ang stack trace sa console kapag nag-crash ang Electron.
 
-This environment variable will not work if the `crashReporter` is started.
+Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
+<h3><code>ELECTRON_DEFAULT_ERROR_MODE` *Windows* </h3> 
 
-Shows the Windows's crash dialog when Electron crashes.
+Ipinapakita ang dialog ng pag-crash ng Windows kapag nag-crash ang Electron.
 
-This environment variable will not work if the `crashReporter` is started.
+Ang variable ng kapaligiran na ito ay hindi gagana kung ang  crashReporter </ 0> ay nagsimula.</p>
