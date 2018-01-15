@@ -16,7 +16,7 @@
 electron --interactive
 ```
 
-This only creates a REPL for the main process. You can use the Console tab of the Dev Tools to get a REPL for the renderer processes.
+यह मुख्य प्रक्रिया के लिए केवल एक आरईपीएल का निर्माण करता है |आप रेंदेरेर प्रक्रिया के लिए आरईपीएल प्राप्त करने हेतु डेव टूल्स का कंसोल टैब इस्तेमाल कर सकते है |
 
 **Note:** `electron --interactive` is not available on Windows.
 
