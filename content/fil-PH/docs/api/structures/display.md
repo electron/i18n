@@ -1,7 +1,7 @@
 # Display Object
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `id` Number - Natatanging tagatukoy na kaugnay sa display.
+* `pag-ikot` Number - Maaring 0, 90, 180, 270, kumakatawan sa pag-ikot ng screen nang clock-wise degrees.
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
