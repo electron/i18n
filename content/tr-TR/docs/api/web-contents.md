@@ -790,7 +790,7 @@ Odaklanılan ögeye `text`'i ekler.
 #### `contents.findInPage(text[, options])`
 
 * `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
-* `options` Nesne (isteğe bağlı) 
+* `ayarlar` Nesne (isteğe bağlı) 
   * `forward` Boolean - (isteğe bağlı) İleriye veya geriye doğru arama yapılacağı, varsayılan olarak `true`'dur.
   * `findNext` Boolean - (İsteğe bağlı) İşlemin ilk istek veya takip isteği olduğu, varsayılan olarak `false`'tur.
   * `matchCase` Boolean - (İsteğe bağlı) Aramanın büyük-küçük harfe duyarlı olup olmayacağı, varsayılan olarak `false`'dur.
@@ -801,7 +801,7 @@ Web sayfasındaki tüm `text` eşleşmelerini bulmak için bir istek başlatır 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
+* `hareket` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
   * `clearSelection` - Seçimi temizler.
   * `keepSelection` - Seçimi normal bir seçime çevirir.
   * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
@@ -821,7 +821,7 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı
-* `callback` Fonksiyon 
+* `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
 `rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. `image`, anlık görüntünün verisini saklayan [NaviteImage](native-image.md)'in bir örneğidir. `rect` ifadesini çıkartmak görünebilen sayfanın tamamının yakalanmasını sağlar.
