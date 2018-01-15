@@ -87,20 +87,24 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
     
-    ## Draggable region
+    ## Draggable region 
     
-    By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
-    
-    Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
-    
-    To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+    Bilang default, ang frameless window ay hindi draggable. Kailangan ng mga app na tukuyin ` -webkit-app-region: drag </ 0> sa CSS upang sabihin sa Electron kung saan ang mga rehiyon ay draggable
+(tulad ng OS's standard titlebar), at maaari ring gamitin ang apps
+<code> -webkit-app-region: no-drag </ 0> upang ibukod ang hindi draggable na lugar mula sa
+ draggable region. Tandaan na ang tanging hugis-parihaba na hugis ay kasalukuyang sinusuportahan.</p>
+
+<p>Tandaan: <code> -webkit-app-region: drag </ 0> ay kilala na mayroong mga problema habang bukas ang mga tool ng developer. Tingnan ang <a href="https://github.com/electron/electron/issues/3647"> GitHub isyu </ 0> para sa iba pang mga impormasyon kabilang na ang isang workaround.</p>
+
+<p>Upang gawing draggable ang buong window, maaari kang magdagdag ng <code> -webkit-app-region: drag </ 0> as
+<code>body`'s style:
     
     ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+At tandaan na kung ginawa mo ang buong window draggable, kailangan mo ring markahan ang mga pindutan bilang hindi draggable, kung hindi, imposible para sa mga gumagamit na mag-click sa kanila:
 
 ```css
 button {
