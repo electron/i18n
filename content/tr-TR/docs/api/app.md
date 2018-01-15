@@ -761,17 +761,17 @@ const exeName = path.basename(process.execPath)
   
   ### `app.dock.bounce([type])` *macOS*
   
-  * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+  * `type` Dize (İsteğe bağlı) - `critical` veya `informational` olabilir. Varsayılan değer `informational`
   
-  When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+  `critical` geçildiğinde, dock simgesi uygulama aktifleşinceye veya istek iptal edilene kadar sıçrar.
   
-  When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+  `informational` geçildiğinde, dock simgesi bir saniyeliğine sıçrar. Ancak, uygulamaya ya aktif hale gelir ya da istek iptal olana kadar talep etkin kalır.
   
   Returns `Integer` isteği temsil eden bir kimlik.
   
   ### `app.dock.cancelBounce(id)` *macOS*
   
-  * `id` Integer
+  * `id` tamsayı
   
   `id` sıçramasını iptal et.
   
