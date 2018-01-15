@@ -223,7 +223,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+Magbabalik ng:
 
 * `event` Event
 * `title` String
@@ -232,7 +232,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-Returns:
+Magbabalik ng:
 
 * `event` Event
 
@@ -336,7 +336,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Magbabalik ng:
 
 * `event` Event
 * `command` String
@@ -370,7 +370,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Magbabalik ng:
 
 * `event` Event
 * `direction` String
