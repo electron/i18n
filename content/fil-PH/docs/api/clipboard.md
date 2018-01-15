@@ -101,7 +101,7 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 
 Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Note:** Karamihan ng apps sa Windows ay hindi sumusuporta sa pasting bookmarks para sa kanila kaya pwede kang gumamit ng `clipboard.write` para sumulat ng kapwa bookmark at fallback na texsto sa klipboard.
 
 ```js
 clipboard.write({
@@ -110,9 +110,9 @@ clipboard.write({
 })
 ```
 
-### `clipboard.readFindText()` *macOS*
+### `clipboard.readFindText()` *macOS* 
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+Returns `String` - ang texksto sa find pasteboard. Ang paraan na ito ay gumagamit ng mga kasabay na IPC kapag tinawag mula sa proseso ng tagasalin. The cached value is reread from the find pasteboard whenever the application is activated.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
