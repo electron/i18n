@@ -58,5 +58,5 @@ app.on('ready', () => {
 Eklentinin çalışıp çalışmadığını doğrulamak adına aşağıda bulunan adımları takip edebilirsiniz:
 
 * Devtools' ı açın ve `navigator.plugins` Widevine CDM eklentisini içerip içermediğini kontrol edin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
+* Https://shaka-player-demo.appspot.com/ adresini açın ve `Widevine` kodunu kullanan bir komut ekleyin.
 * Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
