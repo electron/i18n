@@ -141,7 +141,7 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+`String` - Panoya `format` tipinde okuma yapar.
 
 ### `clipboard.readBuffer(format)` *Deneysel*
 
