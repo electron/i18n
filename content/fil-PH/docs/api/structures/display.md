@@ -7,6 +7,6 @@
 * `bounds`[Rectangle](rectangle.md)
 * `size`[Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
-* `workAreaSize` [Laki](size.md)
+* `workAreaSize` [Size](size.md)
 
 Ang `Display` object ay kumakatawan sa isang pisikal na display na konektado sa sistema. Isang pekeng `Display` ang maaring umiral sa isang headless na sistema, o isang `Display` ay maaring tumugma sa isang remote, virtual display.
