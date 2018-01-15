@@ -31,14 +31,15 @@ app.on('ready', () => {
 
 ## Pamamaraan
 
-The `contentTracing` module has the following methods:
+Ang `contentTracing` modyul ay ang sumusunod na pamamaraan:
 
-### `contentTracing.getCategories(callback)`
+### `contentTracing.getCategories(callback)
+ `
 
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+Magkuha ng isang set ng mga kategorya ng mga grupo. Ang kategorya ng mga grupo ay maaaring magbago kapag ang bagong code paths ay nakamit.
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
