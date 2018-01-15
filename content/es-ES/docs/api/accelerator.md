@@ -2,14 +2,14 @@
 
 > Definir atajos del teclado.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Los Aceleradores son cadenas de texto que pueden contener múltiples modificadores y claves, combinadas por el caracter `+`, y son usadas para definir Atajos de Teclado a través de tu aplicación.
 
 Ejemplos:
 
 * `CommandOControl+A`
 * `CommandOControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Los atajos son registrados con el módulo e [`globalShortcut`](global-shortcut.md) usando el método [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ejemplo.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
