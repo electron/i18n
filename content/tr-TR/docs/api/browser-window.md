@@ -813,7 +813,7 @@ Kiosk moduna girer veya ayrılır.
 
 Returns `Buffer` - pencerenin platforma özel tutamacı.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Yerel türü Windows' ta `HWND`, macOS' ta `NSView*`, ve Linux' ta `Window` (`unsigned long`) on Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
