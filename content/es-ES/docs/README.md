@@ -100,6 +100,6 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Instrucciones de depuración (Windows)](development/debug-instructions-windows.md)
 * [Configurando el Symbol Server en el depurador](development/setting-up-symbol-server.md)
 * [Documentación guía de estilos](styleguide.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
+* [Actualizando Chrome](development/upgrading-chromium.md)
 * [Desarrollo de Chromium](development/chromium-development.md)
 * [Desarrollo de V8](development/v8-development.md)
