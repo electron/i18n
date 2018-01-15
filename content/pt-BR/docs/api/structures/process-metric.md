@@ -1,6 +1,6 @@
 # ProcessMetric Object
 
 * `pid` Inteiro - id de processo do processo.
-* `type` String - Process type (Browser or Tab or GPU etc).
-* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
-* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* ` tipo` String - Tipo de Processo (Browser ou guia ou GPU etc).
+* `memória` [MemoryInfo](memory-info.md) - informações de memória para o processo.
+* `CPU` [CPUUsage](cpu-usage.md) - uso da CPU do processo.
