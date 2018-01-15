@@ -1,8 +1,8 @@
 # Mga bagay sa Display
 
 * `id` Number - Natatanging tagatukoy na may kaugnayan sa display.
-* `pag-ikot` Number - Maaring 0, 90, 180, 270, kumakatawan sa pag-ikot ng screen nang clock-wise degrees.
-* `scaleFactor` Number - Nag-aa-output ng factor ng sukat ng pixel ng device.
+* `rotation` Number - Maaring 0, 90, 180, 270, na kumakatawan sa pag-ikot ng screen nang clock-wise degrees.
+* `scaleFactor` Number - dahilan ng sukat ng pixel ng output device.
 * `touchSupport` String - Maaring `magagamit`, `hindi magagamit`, `hindi kilala`.
 * `mga hangganan`[Parihaba](rectangle.md)
 * `laki`[Laki](size.md)
