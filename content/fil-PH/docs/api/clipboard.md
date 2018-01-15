@@ -112,7 +112,7 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS* 
 
-Returns `String` - ang texksto sa find pasteboard. Ang paraan na ito ay gumagamit ng mga kasabay na IPC kapag tinawag mula sa proseso ng tagasalin. The cached value is reread from the find pasteboard whenever the application is activated.
+Returns `String` - ang texksto sa find pasteboard. Ang paraan na ito ay gumagamit ng mga kasabay na IPC kapag tinawag mula sa proseso ng tagasalin. Ang cached value ay muling babasahin mula sa find pasteboard tuwing ang application na ito ay isinaaktibo.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
