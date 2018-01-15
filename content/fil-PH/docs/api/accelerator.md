@@ -26,25 +26,25 @@ app.on('ready', () => {
 
 Sa Linux at Windows, ang `Command` na key ay walang epekto kaya dapat gumamit ng `CommandOrControl` na nagrerepresenta ng `Command` sa macOS at `Control` sa Linux at Windows para italaga ang ibang mga accelerator.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Gumamit ng `Alt` sa halip ng `Option`. Ang `Option` na key ginagamit lamang sa macOS, samantalang ang `Alt` na key ay nasa lahat ng mga platform.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+Ang `Super` na key ay nakatalaga sa `Windows` na key sa Windows at Linux at `Cmd` sa macOS.
 
-## Available modifiers
+## Magagamit na mga Modifier
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (o `Cmd` para maikli)
+* `Control` (o `Ctrl` para maikli)
+* `CommandOrControl` (o `CmdOrCtrl` para maikli)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Magagamit na mga Key Code
 
-* `` to `9`
-* `A` to `Z`
+* `` hanggang `9`
+* `A` hanggang `Z`
 * `F1` to `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
