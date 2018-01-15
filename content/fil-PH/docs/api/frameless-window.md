@@ -65,32 +65,37 @@ win.show()
 
 ### Limitasyons
 
-* Hindi ka maaaring mag-click sa transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
-* Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
-* The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
-* On Windows operating systems, transparent windows will not work when DWM is disabled.
-* On Linux users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac the native window shadow will not be shown on a transparent window.
-
-## Click-through window
-
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
-
-```javascript
+* Hindi ka maaaring mag-click sa transparent area. Kami ay magpapakilala ng isang API upang itakda ang window shape upang malutas ito, kita n'yo  ang aming isyu </ 0> para sa mga detalye.</li> 
+    
+    * Ang mga transparent windows ay hindi resizable. Ang pagtatakda ng ` resizable </ 0> sa <code> totoo </ 0> ay maaring gumawa ng transparent window para itigil ang pagtratrabaho sa ilang mga platforms.</li>
+<li>Nalalapat lamang ang filter na <code> lumabo </ 0> sa web page, kaya walang paraan upang mag-apply
+ng blur effect sa nilalaman sa ibaba ng window (ibig sabihin, iba pang mga application bukas sa
+ang sistema ng gumagamit).</li>
+<li>Sa mga operating system ng Windows, ang mga transparent windows ay hindi gagana kapag ang DWM ay
+hindi pinagana.</li>
+<li>Sa mga gumagamit ng Linux ay dapat ilagay ang  <code>--enable-transparent-visuals --disable-gpu` ang command line upang huwag paganahin ang GPU at pahintulutan ang ARGB na gawing transparent window, ito ay sanhi ng isang upstream bug na  alpha channel ay hindi gumagana sa ilan NVidia driver </ 1> sa Linux.</li> 
+        
+        * Sa Mac ang native window shadow ay hindi ipapakita sa isang transparent window.</ul> 
+        
+        ## Click-through window 
+        
+        Upang lumikha ng isang click-through window, i.e. paggawa ng window huwag pansinin ang lahat ng mouse mga kaganapan, maaari mong tawagan ang  win.setIgnoreMouseEvents (ignore) </ 0> API:</p> 
+        
+        ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
-
-## Draggable region
-
-By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
-
-Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
-
-To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
-
-```html
+    
+    ## Draggable region
+    
+    By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+    
+    Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+    
+    To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
+    
+    ```html
 <body style="-webkit-app-region: drag">
 </body>
 ```
