@@ -288,7 +288,7 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Evento: 'error-certificado'
 
 Devuelve:
 
@@ -323,18 +323,18 @@ Devuelve:
 
 * `evento` Evento
 * `request` Object 
-  * `method` String
+  * `method` Cuerda
   * `url` URL
   * `referrer` URL
 * `authInfo` Object 
   * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `esquema` Cadena
+  * `anfitrión` Cadena
+  * `puerto` Íntegro
+  * `realm` Cadena
 * `llamada de vuelta` Función 
-  * `username` String
-  * `password` String
+  * `username` Cadena
+  * `contraseña` Cadena
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
