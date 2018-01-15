@@ -611,15 +611,15 @@ Devuelve `String` - El tipo de la actividad que se está ejecutando actualmente.
 
 * `id` Cadena
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) a `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `options` Object 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+  * `cetificado` Cadena - camino para el archivo pkcs12.
+  * `contraseña` Cadena - Frase clave para el certificado.
 * `llamada de vuelta` Función 
-  * `result` Integer - Result of import.
+  * `resultado` Entero - Resultado del importe.
 
 Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con `result` para importar operaciones, un valor de `` indica que fue exitoso, mientras que otro valor indica un error acorde a chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -649,23 +649,23 @@ Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de l
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
-* `count` Integer
+* `count` Entero
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Establece el distintivo en contra para la aplicación actual. Establecer la cuenta a `` esconderá el distintivo.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+En macOS se mostrará en el icono del muelle. En Linux solo funciona para los ejecutadores de Unity
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Devolver `Entero` - El valor actual establecido en la insignia contraria.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador de Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
