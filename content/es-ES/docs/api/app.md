@@ -556,13 +556,13 @@ app.setJumpList([
   * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
   * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
-Returns `Boolean`.
+Devuelta `Boolean`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Este método hace de tu aplicación una de segunda instancia - además de permitir que tu aplicación se ejecuta de muchas instancias, esto asegurará que solo una instancia única de tu aplicación se esté ejecutando, y otras señales de instancias a esta instancia y sale.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+`callback` será llamado por la primera instancia con `callback(argv, workingDirectory)` cuando una segunda instancia ha sido ejecutada. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+El `callback` está garantizado de ser ejecutado luego del evento `ready` de `app` sea emitido.
 
 This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
