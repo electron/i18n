@@ -14,7 +14,7 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+オペレーティング システム コードとユーザー エクスペリエンスは、似ていますが、微妙な違いがあります。
 
 ## Windows
 
