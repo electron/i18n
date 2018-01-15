@@ -95,7 +95,7 @@ AppX paketi oluşturmak için, `electron-windows-store` CLI'si çoğu Electron u
 
 CLI'yi ilk defa çalıştırmadan önce, "Windows Masaüstü Uygulama Dönüştürücüsü" nü kurmanız gerekmektedir. Bu birkaç dakika alacaktır, ama endişelenmeyin - bunu yalnızca bir defa yapmanız gerekiyor. Karşıdan yükleme ve Masaüstü çeviri uygulaması için [burası](https://www.microsoft.com/en-us/download/details.aspx?id=51691). İki dosya alacaksınız: `DesktopAppConverter.zip` ve `BaseImage-14316.wim`.
 
-1. Zipten çıkar `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
+1. Zipten çıkar `DesktopAppConverter.zip`. Yükseltilmiş Powershell' den ( "yönetici olarak çalıştır", sistem yürütme politikanızın bize izin vermesini sağlayın. Bu şekilde Çalıştırmak istediğimiz herşeyi `Set-ExecutionPolicy bypass` çağırarak çalıştırır.
 2. Konumdaki windows temel görünümünü görmezden gelerek masaüstü uygulama çeviricisini indir ve çalıştır.
 3. Yukarıdaki komutu çalıştırdığınızda yeniden başlatmanız istendiğinde, lütfen makineyi yeniden başlatın ve başarılı gerçekleşen bir yeniden başlatma sonrasında yukarıda bulunan komutu tekrar çalıştırın.
 
