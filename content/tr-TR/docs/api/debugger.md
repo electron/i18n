@@ -35,13 +35,13 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` Dizi (İsteğe Bağlı) - Talep edilen ayıklama protokolü sürümü.
 
-Attaches the debugger to the `webContents`.
+`webContents` Hata ayıklayıcı.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+`Boolean` - `webContents` ' ne bir hata ayıklayıcı eklenik eklenmediğini gösterir.
 
 #### `debugger.detach()`
 
@@ -49,8 +49,8 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
+* `method` Dizi - Yöntem Adı, uzaktan hata ayıklama protokolü tarafından belirlenen yöntemlerden biri olmalıdır.
+* `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
 * `geri arama` İşlev (opsiyonel) - Yanıt 
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
