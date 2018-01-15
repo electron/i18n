@@ -754,56 +754,56 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` Cadena (opcional) - Puede ser `critical` o `informational`. El por defecto es `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Cuando `critical` es pasado, el ícono del punto rebotará hasta que la aplicación se vuelva activa o la petición sea cancelada.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Cuando `informational` es pasada, el ícono del punto rebotará por un segundo. Como sea, la petición se mantiene activa hasta que la aplicación se vuelva activa o que la petición sea cancelada.
 
-Returns `Integer` an ID representing the request.
+Devuelve `Integer` un ID representativo de la petición.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Íntegro
 
-Cancel the bounce of `id`.
+Cancela el rebote de `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Rebota la apilación de descargas si el archivo de camino está dentro de la carpeta de descargas.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `texto` String
 
-Sets the string to be displayed in the dock’s badging area.
+Establece la cadena para ser mostrada en el área de insignia del punto.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Devuelve `Cadena` - La insignia cadena del punto.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Esconde el icono del punto.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Muestra el icono del punto.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Devuelve `Boolean` - Aunque el icono del punto sea visible. El llamado `app.dock.show()` es asincrónico, así que este método podría no volver inmediatamente luego de ese llamado.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Establece el [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) de la aplicación.
 
 ### `app.dock.setIcon(image)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([NativeImage](native-image.md) | Cadena)
 
-Sets the `image` associated with this dock icon.
+Establece la `image` asociada con el ícono del punto.
