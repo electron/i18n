@@ -134,7 +134,7 @@ console.log(dialog)
     * `ayarlar` Nesne 
       * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
       * `message` String - The message to display to the user.
-    * `callback` Function
+    * `callback` Fonksiyon
     
     MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
     
