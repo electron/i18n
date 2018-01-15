@@ -1009,7 +1009,7 @@ app.on('ready', () => {
   * `ekranPozisyonu` Dize - Ekran tipini emulasyon için belirtiniz. (default: `masaüstü`) 
     * `desktop` - Masaüstü ekran tipi
     * `mobile` - Mobil ekran tipi
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
+  * `screenSize`[Size](structures/size.md) - Emülasyon uygulanacak ekran genişliğini ayarlar (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
@@ -1031,28 +1031,28 @@ Verilen parametrelerle aygıt emülasyonuna izin verir.
 
 Sayfaya bir `event` girdisi gönderir. **Note:** `sendInputEvent()`'in çalışması için içeriği içeren `BrowserWindow`'a odaklanılmış olması gereklidir.
 
-For keyboard events, the `event` object also have following properties:
+Klavye olayları için `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` Dizgi (**gerekli**) - Klavye olayı olarak gönderilecek karakter. Sadece [Accelerator](accelerator.md)'daki geçerli anahtar kodları kullanılmalıdır.
 
-For mouse events, the `event` object also have following properties:
+Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`
-* `globalX` Integer
+* `x` Tamsayı (**gerekli**)
+* `y` Tamsayı (**gerekli**)
+* `button` Dizgi - Basılan düğme, `left`, `middle` veya `right` olabilir
+* `globalX` Tamsayı
 * `globalY` Tam sayı
-* `movementX` Integer
-* `movementY` Integer
-* `clickCount` Integer
+* `movementX` Tamsayı
+* `movementY` Tamsayı
+* `clickCount` Tamsayı
 
-For the `mouseWheel` event, the `event` object also have following properties:
+`mouseWheel` olayı için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
-* `deltaX` Integer
-* `deltaY` Integer
-* `wheelTicksX` Integer
-* `wheelTicksY` Integer
-* `accelerationRatioX` Integer
+* `deltaX` Tamsayı
+* `deltaY` Tamsayı
+* `wheelTicksX` Tamsayı
+* `whellTicksY` Tamsayı
+* `accelerationRatioX` Tamsayı
 * `accelerationRatioY` Integer
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
