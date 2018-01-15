@@ -72,17 +72,17 @@ Mga Halimbawa:
 
 Ang unang tatlong opsyons ay bakas rekording mode at kaya eksklusibong pare-pareho. Kung mahigit isang bakas rekording mode ang lumitaw sa `traceOptions` string, ang huli ang uunahin. Pag walang bakas rekording modes ay tinukoy, recording mode ay ` record-until-full`.
 
-The trace option will first be reset to the default option (`record_mode` set to `record-until-full`, `enable_sampling` and `enable_systrace` set to `false`) before options parsed from `traceOptions` are applied on it.
+Ang opsyon na bakas ay marereset muna sa default opsyon(`record_mode` magtakda ng mga `record-until-full`, `enable_sampling` at `enable_systrace` nakatakda sa `false`) bago ang mga opsyon na parsed mula sa `traceOptions` ay nilalapat sa mga ito.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+Itigil ang pagtatala ng mga proseso. 
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
 
@@ -117,7 +117,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 
 Get the current monitoring traced data.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
 Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
