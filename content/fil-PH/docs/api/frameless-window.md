@@ -45,7 +45,7 @@ win.show()
 #### `customButtonsOnHover
 `
 
-Gumagamit ng custom drawn close, miniaturize,and fullscreen buttons na nagpapakita kapag naghovering sa itaas ng kaliwang window. Pinipigilan ng mga custom buttons ang mga isyu na may mga kaganapan sa mouse na nangyayari sa mga standard na window toolbar buttons. This option is only applicable for frameless windows.
+Gumagamit ng custom drawn close, miniaturize,and fullscreen buttons na nagpapakita kapag naghovering sa itaas ng kaliwang window. Pinipigilan ng mga custom buttons ang mga isyu na may mga kaganapan sa mouse na nangyayari sa mga standard na window toolbar buttons. Ito ang opsyon na naaangkop lamang para sa mga frameless window.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -53,19 +53,19 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## Transparent window 
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+Sa pamamagitan ng pagtatakda ng opsyon na ` transparent </ 0> sa <code> true </ 0>, maaari mo ring gawin ang frameless
+transparent window:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({transparent: true, frame: false})
 win.show()
-```
+`</pre> 
 
-### Limitations
+### Limitasyons
 
-* You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
+* Hindi ka maaaring mag-click sa transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.
 * The `blur` filter only applies to the web page, so there is no way to apply blur effect to the content below the window (i.e. other applications open on the user's system).
 * On Windows operating systems, transparent windows will not work when DWM is disabled.
