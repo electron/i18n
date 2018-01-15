@@ -36,9 +36,9 @@ Electron links with different sets of libraries in `Release` and `Debug` builds.
 
 To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
 
-## Target Names
+## Имя цели
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+В отличие от большинства проектов, использующих `выпуска` и `отладки` как целевые имена электрон вместо этого использует `R` и `D`. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
