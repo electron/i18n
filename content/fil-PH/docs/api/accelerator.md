@@ -6,25 +6,25 @@ Ang accelerator ay mga String na mayroong maraming modifier at mga key code, na 
 
 Mga Halimbawa:
 
-* `Command o Control + A`
-* `Command o Control + Shift + Z`
+* `CommandOrControl+A`
+* `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Ang mga shortcut ay irerehistro kasabay ng [`globalShortcut`](global-shortcut.md) module gamit ang [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) na method, i.e.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // Irehistro ang isang 'Command OrControl+Y' shortcut na listener.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // Gumawa ng mga bagay-bagay kapang ang Y at alinman sa Command o Control ang pinindot.
   })
 })
 ```
 
-## Platform notice
+## Paunawa sa Platform
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Sa Linux at Windows, ang `Command` na key ay walang epekto kaya dapat gumamit ng `CommandOrControl` na nagrerepresenta ng `Command` sa macOS at `Control` sa Linux at Windows para italaga ang ibang mga accelerator.
 
 Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
