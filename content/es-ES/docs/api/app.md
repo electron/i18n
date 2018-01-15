@@ -325,25 +325,25 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
+* `Inicio` Directorio de inicio del usuario.
+* `appData` Directorio de la información de la aplicación por usuario, que lleva por defecto a: 
+  * `%APPDATA%` en Windows
   * `$XDG_CONFIG_HOME` or `~/.config` on Linux
   * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
+* `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
+* `temp` Directorio temporal.
+* `exe` Archivo ejecutable en curso.
+* `module` la librería `libchromiumcontent`.
+* `escritorio` El directorio del escritorio del usuario en curso.
+* `documentos` Directorio para la carpeta "Mis documentos" del usuario.
+* `descargas` Directorio para las descargas del usuario.
+* `musica` Directorio para la música del usuario.
+* `imágenes` Directorio para las imágenes del usuario.
+* `videos` Directorio para las imágenes del usuario.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
