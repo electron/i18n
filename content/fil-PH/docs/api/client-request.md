@@ -59,9 +59,9 @@ Magbabalik ng:
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Ang pinalabas kapag ang isang proxy na nagpapatunay ay humihiling ng mga kredensyal ng gumagamit.
 
-The `callback` function is expected to be called back with user credentials:
+Ang `callback` function ay inaasahang tatawagan ulit para sa mga kredensyal ng user:
 
 * `username` String
 * `password` String
