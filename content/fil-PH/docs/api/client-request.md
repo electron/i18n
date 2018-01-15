@@ -72,7 +72,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Ang pagbibigay ng walang laman na mga kredensyal ay maaaring magka-cancel ng request at ma-iulat ang isang authentication error sa response object:
 
 ```JavaScript
 request.on('response', (response) => {
