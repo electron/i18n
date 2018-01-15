@@ -41,7 +41,7 @@ Ang `contentTracing` modyul ay ang sumusunod na pamamaraan:
 
 Magkuha ng isang set ng mga kategorya ng mga grupo. Ang kategorya ng mga grupo ay maaaring magbago kapag ang bagong code paths ay nakamit.
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+Kapag lahat ng child processes ay nakakilla ng `getCategories` magrequest ng `callback` ay mahihingi sa isang array ng mga kategorya ng mga grupo. 
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -50,7 +50,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
   * `traceOptions` String
 * `callback` Function
 
-Start recording on all processes.
+Simulan ang pagtatala ng lahat ng mga proseso. 
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 
