@@ -928,7 +928,7 @@ Window's menu çubuğu olarak `menu` değerini ayarlar, bu değeri `null` olarak
 
 İlerleme durumu <0 olduğunda ilerleme çubuğunu kaldırın; İlerleme durumu > 1 olduğu zaman belirlenemez moda geçin.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. Fabrika ayarındayken `app.getName().desktop` olarak varsayar.
+Linux Platformu, yalnızca Unity Masaüstü ortamını desteklediği için `*.desktop` alanındaki `desktopName` alanına `package.json` dosya adını belirtmeniz gerekir. Fabrika ayarındayken `app.getName().desktop` olarak varsayar.
 
 Windows'ta, bir yöntem devredilebilir. Kabul edilen değerler `none`, `normal`, `indeterminate`, `error`, ve `paused`. `setProgressBar` 'ı bir yöntem kurulumu ile çağırırsanız (fakat geçerli aralıktaki bir değerle), `normal` varsayılacaktır.
 
