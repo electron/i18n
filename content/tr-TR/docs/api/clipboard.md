@@ -161,10 +161,10 @@ Writes the `buffer` into the clipboard as `format`.
 
 * `veri` Nesne 
   * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
+  * `html` dizi(isteğe bağlı)
+  * `image` [NativeImage](native-image.md) (isteğe bağlı)
+  * `rtf` Dizi (İsteğe Bağlı)
+  * `bookmark` Dizi (İsteğe bağlı) - `text` ' da url nin başlığı yer alır.
 * `type` String (isteğe bağlı)
 
 ```javascript
