@@ -45,7 +45,7 @@ Magbabalik ng:
 
 Ibrobrodkast bago magsimula ang application sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag sara ng application.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Note:** Kung sinimulan ang paghinto sa application ng `autoUpdater.quitAndInstall()` tapos ang `before-quit` ay ibrinodkast *after* ibinibrodkast ang `close` na event sa lahat ng mga window at isasarado sila.
 
 ### Event: 'will-quit'
 
@@ -53,7 +53,7 @@ Magbabalik ng:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Ibrobrodkast kung ang lahat ng mga window ay isinirado at ang application ay ihihinto. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag wakas ng application.
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
