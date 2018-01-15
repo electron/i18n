@@ -123,7 +123,7 @@ Pano içeriğini temizler.
 
 * `type` String (isteğe bağlı)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+`String[]` - Panodaki `type` için desteklenen formatlar dizisi.
 
 ### `clipboard.has(format[, type])` *Deneysel*
 
