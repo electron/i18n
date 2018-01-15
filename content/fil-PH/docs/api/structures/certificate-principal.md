@@ -1,7 +1,7 @@
-# CertificatePrincipal Object
+# Mga bagay ng CertificatePrincipal
 
-* `commonName` String - Common Name
-* `organizations` String[] - Organization names
+* `commonName` na String - Karaniwang Pangalan
+* `organizations` na String[] - mga pangalan ng organisasyon
 * `organizationUnits` String[] - Organization Unit names
 * `locality` String - Locality
 * `state` String - State or province
