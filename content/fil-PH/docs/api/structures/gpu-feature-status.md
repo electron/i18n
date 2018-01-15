@@ -1,9 +1,9 @@
-# GPUFeatureStatus Object
+# Mga bagay sa GPUFeatureStatus
 
 * `2d_canvas` String - Canvas
 * `flash_3d` String - Flash
 * `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
+* `flash_stage3d_baseline` String - Profile ng Flash Stage3D Baseline
 * `gpu_compositing` String - Compositing
 * `multiple_raster_threads` String - Multiple Raster Threads
 * `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
