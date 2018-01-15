@@ -1,8 +1,8 @@
-# Cookie Object
+# Ang Cookie na bagay
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
-* `domain` String (optional) - The domain of the cookie.
+* `name` na String - Ang pangalan ng mga cookie.
+* `value` na String - Ang halaga ng mga cookie.
+* `domain` na String (opsyonal) - Ang dominyo ng mga cookie.
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
 * `path` String (optional) - The path of the cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
