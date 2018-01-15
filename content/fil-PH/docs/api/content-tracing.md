@@ -62,10 +62,10 @@ Mga Halimbawa:
 * `test_MyTest*,test_OtherStuff`,
 * `"-excluded_category1,-excluded_category2`
 
-`traceOptions` controls what kind of tracing is enabled, it is a comma-delimited list. Possible options are:
+`traceOptions` nagkokontrol kung anong uri ng pagsunod ang pinagana, ito ay comma-delimited na listahan. Posibling pagpipilian ay:
 
-* `record-until-full`
-* `record-continuously`
+* `talaan hanggang puno`
+* `talaan-patuloy`
 * `trace-to-console`
 * `enable-sampling`
 * `enable-systrace`
