@@ -1033,7 +1033,7 @@ Menü çubuğu görünür olarak ayarlanırsa, menü çubuğu otomatik olarak gi
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+`Boolean` komutu menünün görünür olup olmadığını gösterir.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
@@ -1045,7 +1045,7 @@ Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamakt
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+`Boolean` - Pencerenin bütün çalışma alanlarında görünüp görünmeyeceğini gösterir.
 
 **Not:** Bu API Windows'ta her zaman yanlış sonuç verir.
 
@@ -1083,7 +1083,7 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+`BrowserWindow[]` - Tüm alt pencereleri gösterir.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
@@ -1097,7 +1097,7 @@ Yazarken imlecin ne zaman kaybolacağını kontrol eder.
 
 Tarayıcı penceresine titreşim efekti ekler. `null` ve boş bir string göndermek penceredeki titreşim efektini kaldırır.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Experimental</1</h4> 
 
 * `touchBar` TouchBar
 
