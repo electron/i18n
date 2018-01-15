@@ -398,17 +398,17 @@ Reescribe el nombre de la aplicación actual.
 
 Regresa `Cadena` - La localización actual de la aplicación. Los valores posibles son documentados [aquí](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Nota:** En Windows tiene que llamarlo antes de que el evento `listo` sea emitido.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Añade la `ruta` a la lista de documentos recientes.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+Esta lista es administrada por el sistema operativo. En Windows puede visitar la lista desde la barra de tareas, y en macOS puede acceder a ella desde el menú dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -416,11 +416,11 @@ Borra la lista de documentos recientes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
+* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
+* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
-Returns `Boolean` - Whether the call succeeded.
+Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Este método configura el ejecutable actual como por defecto a utilizar por un protocolo (esquema aka URI). Esto le permite integrar la profundidad de la aplicación dentro del sistema operativo. Una vez registrado, todos los enlaces con `your-protocol://` serán abiertos con el ejecutable. El enlace completo, incluyendo el protocolo, será enviado a su aplicación como un parámetro.
 
@@ -432,19 +432,19 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
+* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
+* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
-Returns `Boolean` - Whether the call succeeded.
+Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
+* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
+* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Returns `Boolean`
 
@@ -462,7 +462,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
@@ -651,7 +651,7 @@ Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de l
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
