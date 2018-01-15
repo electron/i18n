@@ -1,14 +1,17 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Magsagawa ng mga kopya at idikit ang mga operasyon sa clipboard ng system.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
-The following example shows how to write a string to the clipboard:
+Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String')
+clipboard.writeText('Halimbawa String')
+ 
+Context | Request Context
+
 ```
 
 On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
