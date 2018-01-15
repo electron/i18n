@@ -205,4 +205,4 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 ## `FIXME` टिप्पणियाँ
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+कोड टिप्पणियों में `FIXME` स्ट्रिंग का इस्तेमाल उन चीजों को चिन्हित करने के लिए है, जिन्हें 2.0 रिलीज़ में ठीक किया जाना चाहिये | इसे देखें: https://github.com/electron/electron/search?q=fixme
