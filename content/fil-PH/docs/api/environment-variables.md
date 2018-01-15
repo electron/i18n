@@ -2,29 +2,30 @@
 
 > Kontrolin ang pagsasaayos ng application at pag-uugali nang walang pagbabago ng code.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Ang ilang mga pag-uugali ng Electron ay kinokontrol ng mga variable ng kapaligiran dahil sila ay nasimulan nang mas maaga kaysa sa mga flags ng command line at code ng app.
 
-POSIX shell example:
+Halimbawa sa POSIX shell:
 
 ```bash
-$ export ELECTRON_ENABLE_LOGGING=true
+$i- export  and ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Halimbawa ng Windows console: 
 
 ```powershell
-> set ELECTRON_ENABLE_LOGGING=true
+> i-set and ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## Production Variables
+## Mga Variable ng Produksyon
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para gamitin sa runtime sa mga naka-package na application ng Electron.
 
-### `GOOGLE_API_KEY`
+### `GOOGLE_API_KEY
+`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Kasama sa elektron ang hardcoded na key ng API para sa paghiling ng mga kahilingan sa geocoding ng Google webservice. Dahil ang key na API na ito ay kasama sa bawat bersyon ng Electron, ito ay madalas na lumalampas sa quota ng paggamit nito. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
