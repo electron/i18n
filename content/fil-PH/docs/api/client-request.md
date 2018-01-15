@@ -18,10 +18,10 @@ Context | Request Context
   * `partition` String (opsyonal) - Ang pangalan ng [`partition`](session.md) kung saan nauunay ang request. Defaults ng mga walang laman na string. Ang `session` opsyon na mananaig sa `partition`. Kaya kung ang isang `session` ay maliwanag na tinutukoy, ang `partition` ay binabalewala.
   * `protocol` String (opsyonal) - Ang pamamaraan ng protocol sa 'scheme:' form. Kasalukuyang suportadong values ay 'http:' o 'https:'. Defaults sa 'http:'.
   * `host` String (opsyonal) - Ang server sa host ay ibinigay upnag pagdugtungin ang hostname at ang port number bilang 'hostname:port' 
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `hostname` String (opsyonal) - Ang host name ng server.
+  * `port` Integer (opsyonal) - Ang listening port number ng server.
+  * `path` String (opsyonal) - Ang path na parte sa request URL.
+  * `redirect` String (opsyonal) - Ang redirect mode para sa request na ito. Nararapat na isa sa `follow`, `error` o `manual`. Ang defaults sa `follow`. Kapag mode ay `error`, anumang redirection ay mauudlot. Kapag mode ay `manual` ang redirection ay ipinagpaliban hanggang [`request.followRedirect`](#requestfollowRedirect) ay mapakiusapan. Pakinggan ang [`redirect`](#event-redirect) na event sa mode na ito upang makakakuha ng nmga detalye tungkol sa redirect na request.
 
 `options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
