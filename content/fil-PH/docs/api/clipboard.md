@@ -172,11 +172,11 @@ Pagsulat ng `buffer` sa klipboard bilang `format`.
 
 `
 
-* `data` Bagay 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
+* `datos` Bagay 
+  * `text` String (opsiyonal)
+  * `html` String (opsiyonal)
+  * `image` [NativeImage](native-image.md) (opsiyonal)
+  * `rtf` String (opsiyonal)
   * `bookmark` String (optional) - The title of the url at `text`.
 * `type` String (opsiyonal)
 
