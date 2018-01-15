@@ -86,36 +86,38 @@ Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito bi
 
 Kapag kinilala ng child processes ang `stopRecording` request, `callback` ay tatawagan gamit ang file na naglalaman ng traced data. 
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Ang trace data ay maaaring isulat sa `resultFilePath` kung hindi ito walang laman o sa isang pansamantalang talakasan. Ang talagang file path ay ipasa sa `callback` kung hindi sa `null` .
 
-### `contentTracing.startMonitoring(options, callback)`
+### `contentTracing.startMonitoring(options, callback)
 
-* `options` Bagay 
+`
+
+* `opsyons` Bagay 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
 
-Start monitoring on all processes.
+Simulan ang pagtatala sa lahat ng mga proseso. 
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+Ang pagtatala ay nagsisimula agad sa lokal at asynchronous sa child processes sa oras na matanggap nila ang reuest na `startMonitoring`.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+Kapag kinilala ng child processes ang`startMonitoring` request the `callback` ay tatawagan.
 
 ### `contentTracing.stopMonitoring(callback)`
 
 * `callback` Function
 
-Stop monitoring on all processes.
+Tigilan ang pagtatala sa lahat ng proseso.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Kapag kinilala ng child processes ang`stopMonitoring` request the `callback` ay tatawagan.
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+Kumuha ng kasalukuyang nagtatala ng traced data.
 
 Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
