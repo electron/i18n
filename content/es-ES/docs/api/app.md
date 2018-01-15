@@ -491,7 +491,7 @@ Si la `categoría` es `nula` la configuración personalizada previa de la Jump L
 
 **Nota:** Usuarios pueden remover elementos de las categorías personalizadas y Windows no permitirá que un elemento removido sea añadido de nuevo a la categoría personalizada hasta **después** del siguiente llamado exitoso a `app.setJumpList(categories)`. Cualquier intento de añadir nuevamente el elemento a la categoría personalizada antes que eso resultará en que la categoría entera sea omitida de la Jump List. La lista de elemento removidos puede ser obtenida usando `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Aquí hay un ejemplo sencillo de cómo crear una Jump List personalizada:
 
 ```javascript
 const {app} = require('electron')
