@@ -14,69 +14,73 @@ Context | Request Context
 
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+Sa X Window system, mayroon ding seleksyon clipboard. Upang manipulahin ang mga ito kailangan mo na mapasa`selection` sa bawat pamamaraan:
 
 ```javascript
 const {clipboard} = require('electron')
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('Halimbawa String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## Pamamaraan
 
-The `clipboard` module has the following methods:
+Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Note:** Eksperimental na APIs ay minarkahan bilang tulad at pwedeng maalis sa hinaharap. 
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (opsiyonal)
 
-Returns `String` - The content in the clipboard as plain text.
+Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
 
-### `clipboard.writeText(text[, type])`
+### `clipboard.writeText(teksto[, i-type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (opsiyonal)
 
-Writes the `text` into the clipboard as plain text.
+Pagsulat ng `text` as klipboard bilang tekstong walang format.
 
-### `clipboard.readHTML([type])`
+### `clipboard.readHTML([i-type])
 
-* `type` String (optional)
+`
 
-Returns `String` - The content in the clipboard as markup.
+* `type` String (opsiyonal)
+
+Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format. 
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (opsiyonal)
 
-Writes `markup` to the clipboard.
+Pagsulat ng `markup` sa klipboard. 
 
-### `clipboard.readImage([type])`
+### `clipboard.readImage([i-type]`
 
-* `type` String (optional)
+* `type` String (opsiyonal)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klipbord. 
 
-### `clipboard.writeImage(image[, type])`
+### `klipboard.writeImage(image[,i-type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (opsiyonal)
 
-Writes `image` to the clipboard.
+Pagsulat `image` sa klipboard.
 
-### `clipboard.readRTF([type])`
+### `clipboard.readRTF([i-type])`
 
-* `type` String (optional)
+* `type` String (opsiyonal)
 
-Returns `String` - The content in the clipboard as RTF.
+Returns `String` - Ang nilalaman ng klipboard bilang RTF.
 
-### `clipboard.writeRTF(text[, type])`
+### `clipboard.writeRTF(text[ ,i-type])
+
+`
 
 * `text` String
-* `type` String (optional)
+* `type` String (opsiyonal)
 
 Writes the `text` into the clipboard in RTF.
 
@@ -93,7 +97,7 @@ Returns an Object containing `title` and `url` keys representing the bookmark in
 
 * `title` String
 * `url` String
-* `type` String (optional)
+* `type` String (opsiyonal)
 
 Writes the `title` and `url` into the clipboard as a bookmark.
 
@@ -118,20 +122,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (opsiyonal)
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (opsiyonal)
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` String (opsiyonal)
 
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
@@ -156,7 +160,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (opsiyonal)
 
 Writes the `buffer` into the clipboard as `format`.
 
@@ -168,7 +172,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (opsiyonal)
 
 ```javascript
 const {clipboard} = require('electron')
