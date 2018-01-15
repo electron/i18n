@@ -2,31 +2,31 @@
 
 > Suggerimenti per installare Electron
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Per l'installazione di file binari precompilati, usa [`npm`](https://docs.npmjs.com/). Il metodo preferito è installare Electron come dipendenza a scopo di sviluppo nella tua applicazione:
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Guarda il [documento sulle versioni di Electron](electron-versioning.md) per informazioni su come gestire versioni di Electron nelle tue applicazioni.
 
-## Global Installation
+## Installazione globale
 
-You can also install the `electron` command globally in your `$PATH`:
+È inoltre possibile installare il comando `electron` a livello globale nel tuo `$PATH`:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Personalizzazione
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Se desideri modificare l'architettura che verrà scaricata (ad esempio, `ia32` su una macchina `x64`), puoi usare il flag `--arch` con npm installa oppure impostare la variabile di ambiente `npm_config_arch`:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+In aggiunta alla modifica dell'architettura, è inoltre possibile specificare la piattaforma (ad es., `win32`, `linux`, ecc.) utilizzando il flag `--platform`:
 
 ```shell
 npm install --platform=win32 electron
