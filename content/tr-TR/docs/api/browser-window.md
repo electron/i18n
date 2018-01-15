@@ -734,51 +734,52 @@ Linux'ta daima geri dönüyor `true`.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String opsiyonel) *macOS*- Değerleri içerir `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, ve ~~`dock`~~ (Artık kullanılmaz). Varsayılan değer `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Genellikle Apple 1 seviyesinin üstünde `screen-saver` ayarlanmasını istemez.
-
-Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğini ayarlamaktadır. Bu ayarlamadan sonra, pencere hala odaklanılamayan bir araç kutusu penceresi değil normal bir pencere olacaktır.
-
-#### `win.isAlwaysOnTop()`
-
-Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
-
-#### `win.center()`
-
-Pencereyi ekranın ortasına taşır.
-
-#### `win.setPosition(x, y[, animate])`
-
-* `x` Integer
-* `x` Integer
-* `animate` Boolean (isteğe bağlı) *macOS*
-
-Pencereyi taşı `x` and `y`.
-
-#### `win.getPosition()`
-
-`Integer[]` 'ı geri getirir - Pencerenin mevcut pozisyonunu içerir.
-
-#### `win.setTitle(title)`
-
-* `başlık` Dizi
-
-Doğal pencerenin başlığını `title` olarak değiştirir.
-
-#### `win.getTitle()`
-
-`String` 'i geri getirir - Doğal pencerenin başlığı.
-
-**Note:** web sayfasının başlığı yerel unvanından farklı olabilir. pencere.
-
-#### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
-
-* `offsetY` Float
-* `offsetX` Float (isteğe bağlı)
-
-MacOS üzerindeki sayfalar için ek noktasını değiştirir. Varsayılan olarak, sayfalar pencere çerçevesinin hemen altına eklenir, ancak bunları HTML işlenmiş bir araç çubuğunun altında görüntülemek isteyebilirsiniz. Örnek olarak:
-
-```javascript
+* `level` String opsiyonel) *macOS*- Değerleri içerir `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, ve ~~`dock`~~ (Artık kullanılmaz). Varsayılan değer `floating`. Daha fazla ayrıntı için macOS docs</0' e bakın.</li> 
+  
+  * `relativeLevel` Tamsayı (isteğe bağlı)*macOS* - Bu pencerenin verilen `level` değerine göre katman sayısı daha yüksek. Varsayılan değer ``. Genellikle Apple 1 seviyesinin üstünde `screen-saver` ayarlanmasını istemez.</ul> 
+  
+  Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğini ayarlamaktadır. Bu ayarlamadan sonra, pencere hala odaklanılamayan bir araç kutusu penceresi değil normal bir pencere olacaktır.
+  
+  #### `win.isAlwaysOnTop()`
+  
+  Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
+  
+  #### `win.center()`
+  
+  Pencereyi ekranın ortasına taşır.
+  
+  #### `win.setPosition(x, y[, animate])`
+  
+  * `x` Integer
+  * `x` Integer
+  * `animate` Boolean (isteğe bağlı) *macOS*
+  
+  Pencereyi taşı `x` and `y`.
+  
+  #### `win.getPosition()`
+  
+  `Integer[]` 'ı geri getirir - Pencerenin mevcut pozisyonunu içerir.
+  
+  #### `win.setTitle(title)`
+  
+  * `başlık` Dizi
+  
+  Doğal pencerenin başlığını `title` olarak değiştirir.
+  
+  #### `win.getTitle()`
+  
+  `String` 'i geri getirir - Doğal pencerenin başlığı.
+  
+  **Note:** web sayfasının başlığı yerel unvanından farklı olabilir. pencere.
+  
+  #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+  
+  * `offsetY` Float
+  * `offsetX` Float (isteğe bağlı)
+  
+  MacOS üzerindeki sayfalar için ek noktasını değiştirir. Varsayılan olarak, sayfalar pencere çerçevesinin hemen altına eklenir, ancak bunları HTML işlenmiş bir araç çubuğunun altında görüntülemek isteyebilirsiniz. Örnek olarak:
+  
+  ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
