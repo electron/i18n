@@ -529,7 +529,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+Magbabalik ng:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -542,7 +542,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+Magbabalik ng:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -553,7 +553,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Returns:
+Magbabalik ng:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Returns:
+Magbabalik ng:
 
 * `status` Boolean
 * `newURL` String
@@ -584,7 +584,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Returns:
+Magbabalik ng:
 
 * `oldURL` String
 * `newURL` String
@@ -598,7 +598,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+Magbabalik ng:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +607,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+Magbabalik ng:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +623,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+Magbabalik ng:
 
 * `level` Integer
 * `message` String
@@ -643,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+Magbabalik ng:
 
 * `result` Bagay 
   * `requestId` Integer
@@ -666,7 +666,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+Magbabalik ng:
 
 * `url` String
 * `frameName` String
@@ -691,7 +691,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Returns:
+Magbabalik ng:
 
 * `url` String
 
@@ -705,7 +705,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+Magbabalik ng:
 
 * `url` String
 
@@ -715,7 +715,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+Magbabalik ng:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+Magbabalik ng:
 
 * `channel` String
 * `args` Array
@@ -776,7 +776,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+Magbabalik ng:
 
 * `name` String
 * `version` String
@@ -797,7 +797,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+Magbabalik ng:
 
 * `themeColor` String
 
@@ -809,7 +809,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+Magbabalik ng:
 
 * `url` String
 
