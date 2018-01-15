@@ -118,26 +118,29 @@ Returns `String` - ang texksto sa find pasteboard. Ang paraan na ito ay gumagami
 
 * `text` String
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+Pagsulat ng `text` sa find pasteboard bilang tekstong walang format. Ang paraan na ito ay gumagamit ng mga kasabay ng IPC kapag tinawag mula sa proseso ng tagasalin. 
 
-### `clipboard.clear([type])`
+### `clipboard.clear([i-type])
+ 
 
-* `type` String (opsiyonal)
-
-Clears the clipboard content.
-
-### `clipboard.availableFormats([type])`
+`
 
 * `type` String (opsiyonal)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Nililimas ang mga nilalaman ng klipboard. 
+
+### `clipboard.availableFormats([i-type])`
+
+* `type` String (opsiyonal)
+
+Returns `String[]` - isang array ng mga supportadong pormat para sa klipboard `uri`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
 * `type` String (opsiyonal)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Returns `Boolean` - maski ang clipboard ay sumusuporta sa tinukoy na`format`.
 
 ```javascript
 const {clipboard} = require('electron')
@@ -148,13 +151,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+Returns `String` - Reads `format` uri mula sa klipboard. 
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` *Experimental* 
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Returns `Buffer` - Reads `format` uri mula sa klipboard. 
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
@@ -162,9 +165,12 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 * `buffer` Buffer
 * `type` String (opsiyonal)
 
-Writes the `buffer` into the clipboard as `format`.
+Pagsulat ng `buffer` sa klipboard bilang `format`.
 
-### `clipboard.write(data[, type])`
+### `clipboard.write(data[, type])
+ 
+
+`
 
 * `data` Bagay 
   * `text` String (optional)
