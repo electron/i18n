@@ -14,9 +14,9 @@
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+Posibleng halaga:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
+* `disabled_software` Software lamang. Ang akselerasyon ng hardware ay hindi pinagana (dilaw)
 * `disabled_off` - Disabled (red)
 * `disabled_off_ok` - Disabled (yellow)
 * `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
