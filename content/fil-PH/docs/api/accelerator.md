@@ -45,19 +45,19 @@ Ang `Super` na key ay nakatalaga sa `Windows` na key sa Windows at Linux at `Cmd
 
 * `` hanggang `9`
 * `A` hanggang `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* `F1` hanggang `F24`
+* Mga bantas tulad ng `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (o `Enter` bilang alyas)
+* `Up`, `Down`, `Left`, at `Right`
+* `Home` at `End`
+* `PageUp` at `PageDown`
+* `Escape` (o `Esc` para maikli)
+* `VolumeUp`, `VolumeDown` at `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` at `MediaPlayPause`
 * `PrintScreen`
