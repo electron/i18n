@@ -123,16 +123,16 @@ Tinatanggal kapag mayroong redirection at ang mode ay `manual`. Pagtatawag sa [`
 
 Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. I-default sa false Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag-send ng large request body bilang data ay mai-steam sa small chunks sa halip na mag-buffer sa loob ng Electron process memory.
 
 ### Instance Methods
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - Isang extra na HTTP header name.
+* `value` Object - Isang extra na HTTP header value.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
 
 #### `request.getHeader(name)`
 
