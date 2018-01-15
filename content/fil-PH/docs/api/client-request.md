@@ -11,10 +11,10 @@ I-process: [Main](../glossary.md#main-process)
 Context | Request Context
 `
 
-* `options` (Object | String) - Kung `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
+* `options` (Object | String) - Kung `options` ay isang String, nangangahulugang hiling ng URL. Kung ito ay isang object, inaasahang ganap na tumutukoy ang isang HTTP mag-request sa pamamagitan ng sumusunod na: 
+  * `method` String (opsyonal) - Paraan ng HTTP request. Mga defaults sa GET na paraan.
+  * `url` String (opsyonal) - Ang request ng URL. Dapat maibigay ang ganap na anyo ng pamamaraan ng protocol na tinutukoy bilang http or https. 
+  * `session` Object (opsyonal) - Ang [`Session`](session.md) halimbawa kung saan nauugnay ang request.
   * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
   * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
@@ -41,13 +41,13 @@ const request = net.request({
 
 #### Event: 'response'
 
-Returns:
+Magbabalik ng:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
 #### Event: 'login'
 
-Returns:
+Magbabalik ng:
 
 * `authInfo` Bagay 
   * `isProxy` Boolean
@@ -96,7 +96,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Event: 'error'
 
-Returns:
+Magbabalik ng:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -108,7 +108,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Returns:
+Magbabalik ng:
 
 * `statusCode` Integer
 * `method` String
