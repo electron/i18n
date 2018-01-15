@@ -438,7 +438,7 @@ El API usa el registro de Windows y LSSetDefaultHandlerForURLScheme internamente
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Este método verifica si el ejecutable actual como el manejador por defecto para un protocolo (aka Esquema URI). Si es así, removerá la aplicación como el manejador por defecto.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -446,9 +446,9 @@ This method checks if the current executable as the default handler for a protoc
 * `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
 * `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
-Returns `Boolean`
+Devuelve `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Este método verifica si el ejecutable acutal es el manejador por defecto para un protocolo (aka esquema URI). Si es así, regresará verdad. de otra manera, regresará falso.
 
 **Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
 
