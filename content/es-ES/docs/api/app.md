@@ -724,31 +724,31 @@ Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilita
   * `applicationName` Cadena (opcional) - El nombre de la aplicación.
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `credits` Cadena (opcional) - Información de crédito.
+  * `version` Cadena (opcional) - Este número de versión de construcción de la aplicación.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Establece el panel de opciones. Esto anulará los valores definidos en el archivo `.plist` de la aplicación. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` Cadena - Un cambio en la línea de comando
+* `value` Cadena (opcional) - Un valor para el cambio dado
 
-Append a switch (with optional `value`) to Chromium's command line.
+Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Nota;** Esto no afectará el `process.argv`, y es primcipalmente usado por los desarrolladores para controlar algunos comportamientos de Chromium de bajo nivel.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - The argument to append to the command line
+* `valor` Cadena - El argumento a adjuntar a la línea de comando
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Adjuntar un argumento a la línea de comando de Chromium. El argumento será citado correctamente.
 
-**Note:** This will not affect `process.argv`.
+**Nota:** Esto no afectará a `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Permite modo sandbox mezclado en la aplicación.
 
 Este método solo puede ser llamado despues de iniciada la aplicación.
 
