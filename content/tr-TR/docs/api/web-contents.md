@@ -1053,18 +1053,18 @@ Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 * `wheelTicksX` Tamsayı
 * `whellTicksY` Tamsayı
 * `accelerationRatioX` Tamsayı
-* `accelerationRatioY` Integer
+* `accelerationRatioY` Tamsayı
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (İsteğe bağlı) - Varsayılan olarak `false`'tur
 * `geri arama` Fonksiyon 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Olayların ve yakalanan çerçevelerin sunulması için sürdürümcü olur; Bir sunum olayı olduğunda `callback` , `callback(frameBuffer,dirtyRect)` ile birlikte çağrılacaktır.
 
 The `frameBuffer` is a `Buffer` that contains raw pixel data. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
 
@@ -1080,7 +1080,7 @@ End subscribing for frame presentation events.
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olarak ayarlar; `file` dosyanın sürükleneceği değişmez dosya yoludur ve `icon` sürükleme sırasında imlecin altında gösterilecek olan görüntüdür.
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
