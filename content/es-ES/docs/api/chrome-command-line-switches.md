@@ -92,7 +92,7 @@ Como `--host-rules` pero estas `rules` solamente aplican a el host resolutor.
 
 ## --auth-server-whitelist=`url`
 
-Una lista de servidores separadas por comma por los que la autentificación integrada esta habilitada.
+Una lista de servidores separadas por comas por los que la autentificación integrada esta habilitada.
 
 Por ejemplo:
 
@@ -103,27 +103,27 @@ entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será c
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Una lista de servidores separada por comas por los que la delegación de credenciales de usuarios es requerida. Sin el prefijo `*` la url tiene que corresponder exactamente.
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ignora los errores relacionados con el certificado.
 
 ## --ppapi-flash-path=`path`
 
-Sets the `path` of the pepper flash plugin.
+Establece la ruta `path` del plugin pepper flash.
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+Establece la `versión` del plugin pepper flash.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Habilita el registro de los eventos de red para ser salvados y escritos en la ruta `path`.
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Previene Chromium disminuir la prioridad de los procesos render de páginas invisibles.
 
 This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
