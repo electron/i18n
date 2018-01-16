@@ -92,13 +92,13 @@ console.log(app)
 
 ## メソッド
 
-The `remote` module has the following methods:
+`remote` オブジェクトには以下のメソッドがあります
 
 ### `remote.require(module)`
 
 * `module` String
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+`any` - のメインプロセスに `require(module)` によって返されるオブジェクトを返します。 Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
 e.g.
 
