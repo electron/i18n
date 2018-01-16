@@ -154,13 +154,13 @@ Nagtatanggal ng nauunang itinakda na dugtong na pangalan ng header. Ang method n
 
 `callback` ay mahalagang manika na function may layuning ipinakilala upang matupad ang pagkapareho ng Node.js API. Ito ay tinatawag na asynchronous sa susunod na tik matapos maihatid ang `chunk` na nilalaman sa Chromium na networking layer. Kasalungat sa pagpapatupad ng Node.js, hindi garantisado na ang `chunk` na nilalaman ay na-flush sa wire bago itinawag ang `callback`.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Nagdaragdag ng tipak na data sa katawan ng request. Ang first write na operation ay maaaring maging sanhi na ma-issue sa wire ang request na mga headers. Matapos ang first write operation, hindi na pwedeng magdagdag o magalis ng custom na header.
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `chunk` (String | Buffer) (opsyonal)
+* `encoding` String (opsyonal)
+* `callback` Function (opsyonal)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
