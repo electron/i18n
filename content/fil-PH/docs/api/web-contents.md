@@ -294,7 +294,7 @@ Magbabalik ng:
 
 * `event` Event
 * `url` String
-* `error` String - The error code
+* `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
