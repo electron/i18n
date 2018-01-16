@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. To tworzy problemy dla niektórych bibliotek ponieważ chcą one wstawić symbole z tymi samymi nazwami.
 
-To solve this, you can turn off node integration in Electron:
+Aby to rozwiązać, możesz wyłączyć integrację node w Electron:
 
 ```javascript
 // In the main process.
