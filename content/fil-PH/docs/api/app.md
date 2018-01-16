@@ -109,7 +109,7 @@ Magbabalik ng:
 
 Ibrobrodkast habang ang [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kapag ang aktibidad ng isang ibang aparato ay gustong tapusin. Dapat kang tumawag ng `event.preventDefault()` kung gusto mong e-handol ang event na ito.
 
-Ang isang user na aktibidad ay pwede lamang magpatuloy sa isang app na may kaparehong developer Team ID bilang source app ng aktibidad at kung ito ay nagsusuporta ng uri ng aktibidad. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Ang isang user na aktibidad ay pwede lamang magpatuloy sa isang app na may kaparehong developer Team ID bilang source app ng aktibidad at kung ito ay nagsusuporta ng uri ng aktibidad. Ang sinusuportahan na mga uri ng aktibidad ay tinutukoy sa `Info.plist` ng app sa ilalim ng `NSUserActivityTypes` na key.
 
 ### Event: 'new-window-for-tab' *macOS*
 
@@ -117,7 +117,7 @@ Magbabalik ng:
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Ibrobrodkast kapag ang user ay nagclick sa native macOS new tab na pindutan. Ang bagong tab na pindutan ay makikita lamang kung ang kasalukuyang `BrowserWindow` ay may `tabbingIdentifier`
 
 ### Event: 'browser-window-blur'
 
@@ -126,7 +126,7 @@ Magbabalik ng:
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Ibrobrodkast kapang a [browserWIndow](browser-window.md) ay magiging malabo.
 
 ### Event: 'browser-window-focus'
 
