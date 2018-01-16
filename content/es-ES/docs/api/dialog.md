@@ -38,12 +38,12 @@ El módulo `dialogo` tiene los siguientes métodos:
     * `createDirectory` - Permite crear nuevos directorios en un cuadro de diálogo. *macOS*
     * `promptToCreate` - símbolo del sistema para la creación si no existe la ruta del archivo en el cuadro de diálogo. Esto no crea realmente un archivo en el camino pero permite a caminos no existentes a regresar que deberían ser creados por la aplicación. *Windows*
     * `noResolveAliases` - Desactiva el camino de resolición automático del alias (symlink). Alias seleccionados regresará a su ruta en vez de seguir por su ruta destino. *macOS*
-    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-* `llamada de vuelta` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+    * `treatPackageAsDirectory` Paquetes de tratamientos, como carpetas de `.app`, como un directorioen lugar de un archivo. *macOS*
+  * `message` Cadena (opcional) *macOS* - Mensaje a mostrar encima de las cajas de entrada.
+* `llamada de vuelta` Función (opcional) 
+  * `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Devuelve `String[]`, un arreglo del camino de archivos elegido por el usuario, si la llamada de vuelta es proveída, devuelve `undefined`.
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
@@ -77,7 +77,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `llamada de vuelta` Function (optional) 
+* `llamada de vuelta` Función (opcional) 
   * `filename` String
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
@@ -104,7 +104,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
-* `llamada de vuelta` Function (optional) 
+* `llamada de vuelta` Función (opcional) 
   * `response` Number - The index of the button that was clicked
   * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
 
