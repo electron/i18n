@@ -4,7 +4,7 @@ Electron soporta [Chrome DevTools Extension](https://developer.chrome.com/extens
 
 ## Como cargar una extensión DevTools
 
-Este documento describe el proceso cargar manualmente una extensión. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Este documento describe el proceso cargar manualmente una extensión. Puedes probar también [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), una herramienta de terceros que se baja las extensiones directamente de la WebStore de Chrome.
 
 To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
 
