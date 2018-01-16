@@ -10,7 +10,7 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 ### 渲染器程序
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+由於 Electron 使用 Chromium 來顯示 web 頁面，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個 web 頁面各自的程序，稱作**渲染程序**。
 
 在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
