@@ -135,14 +135,14 @@ Esta opción no puede ser usada en `app.commandLine.appendSwitch` ya que es proc
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Da el nivel máximo predeterminado de V-logging activo; 0 es el predeterminado. Normalmente los valores positivos se utilizan para el nivel V-logging.
 
-This switch only works when `--enable-logging` is also passed.
+Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
 ## --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Permite que el nivel máximo por module de V-logging sobrepase el valor dado por `--v`. Por ejemplo `my_module=2,foo*=3` cambiaría el nivel de logging para todo el código fuente en los archivos `my_module.*` y `foo*.*`.
 
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-This switch only works when `--enable-logging` is also passed.
+Esta opción solo funciona cuando `--enable-logging` es también pasada.
