@@ -23,7 +23,7 @@ docs:
 languages:
   choose_language: Оберіть мову
   translation_progress: Прогрес перекладу
-  current: поточне виділення
+  current: поточний вибір
 community:
   title: Спільнота Electron
   description: 'Інструменти, шаблони коду, відео та більше від <a href="https://github.com/sindresorhus/awesome-electron">крутих</a> розробників Electron. Знайти чи створити <a href="/community#meetups">зустріч</a> поруч з вами.'
