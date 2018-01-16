@@ -1,6 +1,6 @@
-# Soporte para los interruptores de la linea de comando de Chrome
+# Opciones de linea de commandos de Chrome soportadas
 
-> Command line switches supported by Electron.
+> Opciones de la linea de comandos soportados por Electron.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
