@@ -45,9 +45,9 @@ El módulo `dialogo` tiene los siguientes métodos:
 
 Devuelve `String[]`, un arreglo del camino de archivos elegido por el usuario, si la llamada de vuelta es proveída, devuelve `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Los `filters` especifican un arreglo de tipo de archivos que pueden ser desplegadas cuando quieres limitar el usuario a un tipo específico. Por ejemplo:
 
 ```javascript
 {
@@ -60,9 +60,9 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+Los `extensions` arreglos deberían contener extensiones sin comodines o puntos (e.g. `'png'` es bueno, pero `'.png'` y `'*.png'` son malos). Para mostrar todos los archivos, usa el `'*'` comodín (ningún otro comodín es compatible).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+Si un `callback` es pasado, la llamada API será asincrónica y el resultado será pasado vía `callback(filenames)`
 
 **Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
 
@@ -82,7 +82,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -112,7 +112,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
