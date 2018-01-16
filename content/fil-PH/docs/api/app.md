@@ -256,19 +256,19 @@ Magbabalik ng:
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` kapag ang Chrome accessibility support ay pinapagana, `false` kung hindi.
 
-Ibrobrodkast kapang ang accessibility support ng Chrome ay nabago. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Ibrobrodkast kapang ang accessibility support ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
-## Pamamaraan
+## Mga Method
 
-The `app` object has the following methods:
+Ang `app` na object ay maroong mga sumusunod na mga method:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Note:** Ang ilang mga method ay magagamit lamang sa ibang partikular na mga operating system at may label na katulad nito.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Susubukang isira ang lahat ng mga window. Ang `before-quit` na event ay unang ibrobrodkast. Kung ang lahat ng mga window ay nasara, ang `will-quit` na event ay ibrobrodkast at ang default na application ay ihihinto.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Ang method na ito ay ginagarantiya na ang lahat ng `beforeunload` at `unload` na mga event handler ay saktong isasagawa. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
