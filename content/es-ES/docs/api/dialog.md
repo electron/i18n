@@ -64,21 +64,21 @@ Los `extensions` arreglos deberían contener extensiones sin comodines o puntos 
 
 Si un `callback` es pasado, la llamada API será asincrónica y el resultado será pasado vía `callback(filenames)`
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Nota:** En Windows y Linux, un diálogo abierto no puede ser un selector de archivo y un selector de directorio a la vez, así que si estableces `properties` a el `['openFile', 'openDirectory']` en estas plataformas, un selector de directorio.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` Buscador Windows (opcional)
 * `options` Object 
   * `título` cadena (opcional)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
+  * `message` Cadena (opcional) *macOS* - Mensaje a mostrar por encima de los campos de texto.
+  * `nameFieldLabel` Cadena (opcional) *macOS* - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
+  * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
 * `llamada de vuelta` Función (opcional) 
-  * `filename` String
+  * `filename` Cadena
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
