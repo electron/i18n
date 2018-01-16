@@ -75,9 +75,9 @@ Magbabalik ng:
 
 Ibrobroadkast kung ang gusto ng user na mag-bukas ng isang file gamit ang application. Ang `open-file` na event ay kadalasang ibrobrodkast kung ang application ay bukas na at ang OS ay gustong gumamit muli ng application para buksan ang file. `open-file` ay ibrobrodkast din kapag ang file ay inihulog sa dock at ang application ay hindi pa gumagana. Siguraduhin na pinapakinggan ang `open-file` na event sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang `ready` na event ay ibrinodkast).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Dapat mong tawagin ang `event.preventDefault()` kung gusto mong e-handol ang event na ito.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+Sa Windows, ikaw ay dapat mag-parse `process.argv` (sa main na process) para makuha ang filepath.
 
 ### Event: 'open-url' *macOS*
 
@@ -86,9 +86,9 @@ Magbabalik ng:
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Ibrobrodkast kapang ang user ay gustong mag open ng URL gamit ang application. Ang `info.plist` file ng iyong application ay dapat magtukoy ng url scheme sa loob ng `CFBundleURLTypes` key, at e-set ang `NSPrincipalClass` sa `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Dapat mong tawagin ang `event.preventDefault()` kung gusto mong e-handol ang event na ito.
 
 ### Event: 'activate' *macOS*
 
@@ -97,7 +97,7 @@ Magbabalik ng:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Ibrobrodkast kung ang application na-activate. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
 ### Event: 'continue-activity' *macOS*
 
