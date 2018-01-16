@@ -1,4 +1,4 @@
-# MemoryUsageDetails Object
+# Mga bagay ng MemoryUsageDetails
 
 * `count` Number
 * `size` Number
