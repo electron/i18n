@@ -165,16 +165,16 @@ Magbabalik ng:
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Kung ituturing ang sertipiko na pinagkakatiwalaan
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Ibrobrodkast kapag nabigo ang pag beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // Lohika ng pagberipika.
     event.preventDefault()
     callback(true)
   } else {
@@ -192,11 +192,11 @@ Magbabalik ng:
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (opsyonal)
 
-Emitted when a client certificate is requested.
+Ibrobrodkast kapang ang sertipiko na client ay hiniling.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+Ang `url` na tumutugma sa navigation entry na humihiling sa sertipiko na client at ang `callback` ay maaring tawagin gamit ang entry na pinili galing sa lista. Ang paggamit ng `event.preventDefault()` ay makakapigil sa application na gamitin ang unang sertipiko galing sa store.
 
 ```javascript
 const {app} = require('electron')
@@ -213,11 +213,11 @@ Magbabalik ng:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Bagay 
+* `request` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Bagay 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
