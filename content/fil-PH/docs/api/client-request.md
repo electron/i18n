@@ -162,11 +162,11 @@ Nagdaragdag ng tipak na data sa katawan ng request. Ang first write na operation
 * `encoding` String (opsyonal)
 * `callback` Function (opsyonal)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Ipinapapadala ang huling tipak sa request na data. Kasunod na sulat o patapos na operations ay hindi maaari. Ang `finish` na event ay tinatanggal matapos magtapos ang operation.
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Nagkakansela ng isang patuloy na HTTP na transaksyon. Kung ang request ay nagtanggal na ng `close` na event, ang na-abort na operation ay wala ng bisa. Kung hindi, ang patuloy na event ay nagtatanggal ng `abort` at `close` na mga event. Bukod nito, kung may patuloy na response object, itoo ay tinatanggal ng `aborted` na event.
 
 #### `request.followRedirect()`
 
