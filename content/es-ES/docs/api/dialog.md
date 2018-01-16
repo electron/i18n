@@ -106,30 +106,30 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 * `llamada de vuelta` Función (opcional) 
   * `response` Número - El índice del botón que fue clickeado
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `checkboxChecked` Boolean - El estado chequeado de la caja si `checkboxLabel` fue establecido. De otra manera, `false`.
 
-Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+Devuelve `Integer`, el índice del botón al que se le hizo clic, si una llamada de vuelta es proveída se puede volver indefinida.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Muestra una caja de mensaje, esto bloqueará el proceso hasta que la caja de mensaje esté cerrada. Se devuelve el índice del botón al que se le hizo clic.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+Si una `callback` es pasada, el diálogo no bloqueará el proceso. La llamada API será desincronizada y el resultado será pasado vía `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box
-* `content` String - The text content to display in the error box
+* `title` Cadena - El título a mostrar en la caja de error
+* `content` Cadena - El texto contiene a mostrar en la caja de error
 
-Displays a modal dialog that shows an error message.
+Muestra un diálogo de modalidad que muestra un error de mensaje.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `app` emite, es usualmente usado a reportar errores en las etapas tempranas del inicio. Si llamado antes de la aplicación `ready` evento en Linux, el mensaje será emitido a stderr, y no aparecerá diálogo GUI.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` Buscador Windows (opcional)
 * `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
+  * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` String - The message to display to the user.
 * `callback` Función
 
