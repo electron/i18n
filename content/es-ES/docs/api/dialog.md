@@ -130,18 +130,18 @@ Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `a
 * `browserWindow` Buscador Windows (opcional)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
-  * `message` String - The message to display to the user.
+  * `message` Cadena - El mensaje a mostrar al usuario.
 * `callback` Función
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+En macOS, esto muestra un diálogo modelo que muestra un mensaje e información certificada, y da al usuario la opción de confiar/importar el certificado. Si tú provees un argumento `browserWindow` el diálogo será adjuntado a la ventana parental, haciéndolo un modelo.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+En Windows, las opciones son más limitadas, debido a que el Win32 APIs usado:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* El argumento `message` no es usado, como el OS provee su propio diálogo de confirmación.
+* El argumento `browserWindow` es ignorado ya que no es posible hacer este diálogo modelo de confirmación.
 
-## Sheets
+## Páginas
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+En macOS, los diálogos son presentados como páginas adjuntadas a un ventana si tú provees una referencia `BrowserWindow` en el parámetro `browserWindow`, o modelos si la ventana no es dada.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Puedes llamar a `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` para cambiar el offset del cuadro de la ventana en donde las páginas fueron adjuntadas.
