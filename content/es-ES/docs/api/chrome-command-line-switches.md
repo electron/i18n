@@ -54,7 +54,7 @@ Usa un servidor proxy especifico, el cual sobrescribe la configuración del sist
 
 ## --proxy-bypass-list=`hosts`
 
-Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
+Indica Electron a pasar de los servidores proxy en la lista de hosts separados por punto y comas. Esta opción solo tiene efecto si es utilizada en conjunción con `--proxy-server`.
 
 Por ejemplo:
 
@@ -63,15 +63,15 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Will use the proxy server for all hosts except for local addresses (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, hosts that contain the suffix `foo.com` and anything at `1.2.3.4:5678`.
+Utilizará el servidor proxy para todos los host excepto para las direcciones locales (`localhost`, `127.0.0.1` etc.), subdominios `google.com`, hosts que contienen el sufijo `foo.com` y cualquiera en `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Usa el programa PAC en la `url` especificada.
 
 ## --no-proxy-server
 
-Don't use a proxy server and always make direct connections. Overrides any other proxy server flags that are passed.
+No usar el servidor proxy y siempre hacer conexiones directas. Sobrescribe cualquier otra opción de servidor proxy que haya sido pasada.
 
 ## --host-rules=`rules`
 
