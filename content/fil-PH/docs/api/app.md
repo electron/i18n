@@ -135,7 +135,7 @@ Magbabalik ng:
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Ibrobrodkast kapag ang [browserWindow](browser-window.md) ay ipopokus.
 
 ### Event: 'browser-window-created'
 
@@ -144,7 +144,7 @@ Magbabalik ng:
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Ibrobrodkast kapang ang bagong [browserWindow](browser-window.md) ay nagawa na.
 
 ### Event: 'web-contents-created'
 
@@ -153,7 +153,7 @@ Magbabalik ng:
 * `event` Event
 * `webContents` WebContents
 
-Emitted when a new [webContents](web-contents.md) is created.
+Ibrobrodkast kapang ang bagong [webContents](web-contents.md) ay nagawa na.
 
 ### Event: 'certificate-error'
 
@@ -162,7 +162,7 @@ Magbabalik ng:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
