@@ -58,9 +58,9 @@ win.loadURL('https://github.com')
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
-## Parent and child windows
+## Батьківські та дочірні вікна
 
-By using `parent` option, you can create child windows:
+Використовуючи опцію `parent`, ви можете створити дочірні вікна:
 
 ```javascript
 const {BrowserWindow} = require('electron')
