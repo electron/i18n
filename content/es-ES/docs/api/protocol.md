@@ -74,7 +74,7 @@ app.on('ready', () => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
     * `filePath` String (optional)
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
@@ -96,7 +96,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
@@ -126,7 +126,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
     * `data` String (optional)
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `String` as a response.
@@ -150,7 +150,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `uploadData` Objecto (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -164,7 +164,7 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `esquema` Cadena
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
@@ -188,7 +188,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
     * `filePath` String
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -204,7 +204,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
     * `data` String (optional)
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
@@ -220,7 +220,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
     * `buffer` Buffer (optional)
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
@@ -242,7 +242,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `uploadData` Objecto (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -250,7 +250,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `esquema` Cadena
-* `completion` Function (optional) 
+* `completion` Función (opcional) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.
