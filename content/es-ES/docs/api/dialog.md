@@ -95,13 +95,13 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` Cadena[] (opcional) - Arreglo de textos por botones. En Windows, un arreglo vacío resultará en un botón con la etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-  * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
+  * `title` Cadena (opcional) - Título del mensaje de la caja, algunas plataformas no se mostrarán.
+  * `message` Cadena - Contenido de la caja de mensaje.
+  * `detail` Cadena (opcional) - Información extra del mensaje.
+  * `checkboxLabel` Cadena (opcional) - Si es proveído, la caja de mensaje será incluido en una caja de chequeo con la etiqueta dada. El estado de la caja puede ser inspeccionado solo cuando se usa `callback`.
+  * `checkboxChecked` Boolean (opcional) - Inicial estado de chequeo de la caja. `false` por defecto.
+  * `icon` [NativeImage](native-image.md) (opcional)
+  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `` será usado como un valor de retorno o una respondida de llamada de vuelta. Esta opción es ignorada en Windows.
   * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
 * `llamada de vuelta` Función (opcional) 
