@@ -132,7 +132,7 @@ Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag
 * `name` String - Isang extra na HTTP header name.
 * `value` Object - Isang extra na HTTP header value.
 
-Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
 
 #### `request.getHeader(name)`
 
