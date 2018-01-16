@@ -89,7 +89,7 @@
 
 * [Стиль Коду](development/coding-style.md)
 * [Використання clang-format в C++ Коді](development/clang-format.md)
-* [Testing](development/testing.md)
+* [Тестування](development/testing.md)
 * [Структура Каталогу з Вихідним Кодом](development/source-code-directory-structure.md)
 * [Технічні відмінності NW.js (раніше node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Огляд Системи Збірки](development/build-system-overview.md)
@@ -100,6 +100,6 @@
 * [Інструкція Відлагодження (Windows)](development/debug-instructions-windows.md)
 * [Налаштування Серверу Символів в Налагоджувачі](development/setting-up-symbol-server.md)
 * [Стиль документації](styleguide.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
+* [Оновлення Chromium](development/upgrading-chromium.md)
 * [Розробка Chromium](development/chromium-development.md)
 * [Розробка V8](development/v8-development.md)
