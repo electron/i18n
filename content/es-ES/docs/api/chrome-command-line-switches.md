@@ -84,22 +84,22 @@ Por ejemplo:
 * `MAP test.com [::1]:77` Fuerza "test.com" a resolver en circuito cerrado IPv6. También forzará el port del socket resultante a ser 77.
 * `MAP * baz, EXCLUDE www.google.com` Mapeara todo a "baz", excepto para "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Estos mapeados aplican al host punto final en una petición de red (la conexión TCP y el host se solventan en una conexión directa, `CONNECT` en una conexión HTTP proxy, y el host punto fila en una conexión proxy `SOCKS`).
 
 ## --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Como `--host-rules` pero estas `rules` solamente aplican a el host resolutor.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Una lista de servidores separadas por comma por los que la autentificación integrada esta habilitada.
 
 Por ejemplo:
 
     --auth-server-whitelist='*example.com, *foobar.com, *baz'
     
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+entonces cualquier `url` acabando con `example.com`, `foobar.com`, `baz` será considerada por la autentificación integrada. Sin el prefijo `*` la url tiene que corresponder exactamente.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
