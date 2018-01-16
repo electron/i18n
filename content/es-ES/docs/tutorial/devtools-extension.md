@@ -6,20 +6,20 @@ Electron soporta [Chrome DevTools Extension](https://developer.chrome.com/extens
 
 Este documento describe el proceso cargar manualmente una extensión. Puedes probar también [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), una herramienta de terceros que se baja las extensiones directamente de la WebStore de Chrome.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Para cargar una extensión en electron, necesitas descargarla en el navegador Chrome, encontrar su ruta en el sistema de archivos y a continuación cargarla llamando la API `BrowserWindow.addDevToolsExtension(extension)`.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Usando [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) como ejemplo:
 
-1. Install it in Chrome browser.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
+1. Instalarlo en el navegador Chrome.
+2. Acceder a `chrome://extensions`, e identificar el ID de la extensión, que es una cadena de texto como `fmkadmapgofadopljbjfkapdkoienihi`.
+3. Encontrar su ruta en el sistema de archivos donde Chrome almacena las extensiones: 
+    * en Windows es `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * en Linux pueden ser: 
         * `~/.config/google-chrome/Default/Extensions/`
         * `~/.config/google-chrome-beta/Default/Extensions/`
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+    * en macOS es `~/Library/Application Support/Google/Chrome/Default/Extensions`.
 4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
