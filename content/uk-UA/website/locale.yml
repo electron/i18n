@@ -55,11 +55,11 @@ benefits:
   debugging_and_profiling: Налагоджування та профілювання
   windows_installers: Установник для Windows
 get_started:
-  title: Почати зараз
-  description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати встановники.
+  title: Початок роботи
+  description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати інсталятори.
 explore:
-  title: Дослідіть API Electron
-  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Дивіться що можливо завдяки Electron з прикладами коду та корисними підказками для створення вашого додатку."
+  title: Дізнайтеся про Electron API
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Подивіться можливості Electron з прикладами коду та корисними підказками для створення вашого додатку."
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
 quick_start:
