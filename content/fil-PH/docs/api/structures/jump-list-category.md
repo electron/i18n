@@ -4,7 +4,7 @@
   * `tasks` - Ang mga item sa kategorya na ito ay maaaring ilagay sa mga karaniwang kategorya ng `Tasks`. Maaaring may isa lamang gayong kategorya, at ito ay laging ipinapakita sa ilalim ng Jump List.
   * `frequent` - Nagpapakita ng listahan ng mga file na madalas na binubuksan ng mga app, ang pangalan ng kategorya at ang item nito ay itinakda ng Windows.
   * `recent` - Nagpapakita ng isang listahan ng mga file na kabubukas lamang ng isang app, ang pangalan ng kategorya at ng item nito ay itinakda ng Windows. Ang mga item na ito ay maaaring idagdag sa kategoryang ito na hindi deretsa gamit ang `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
+  * `custom` - Nagpapakita ng mga task o mga link ng file `name` dapat na ilabas sa pamamagitan ng app.
 * `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
 * `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
