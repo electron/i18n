@@ -6,9 +6,9 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 ### 主處理序
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作**主處理程序**。 在主處理序中執行的程式碼會透過建立 web 頁面來作為顯示的 GUI。
 
-### 畫面轉譯處理序
+### 渲染器處理序
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
