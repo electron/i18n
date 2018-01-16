@@ -136,23 +136,23 @@ Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lo
 
 #### `request.getHeader(pangalan)`
 
-* `name` String - Tumukoy ng dagdag na pangalan ng header.
+* `name` String - Tumukoy ng dugtong na pangalan ng header.
 
-Returns `Object` - Ang value ng nauunang dagdag na pangalan ng header.
+Returns `Object` - Ang value ng nauunang dugtong na pangalan ng header.
 
 #### `request.removeHeader(pangalan)`
 
-* `name` String - Tumukoy ng dagdag na pangalan ng header.
+* `name` String - Tumukoy ng dugtong na pangalan ng header.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Nagtatanggal ng nauunang itinakda na dugtong na pangalan ng header. Ang method na ito ay matatawag lamang bago ang first write. Subukang tumawag matapos ang first write ay magiging error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - Isang tipak sa data ng katawan ng request. Kung ito ay isang string, ito ay mai-convert sa Buffer gamit ang tinutukoy na encoding.
+* `encoding` String (opsyonal) - Ginagamit para ma-convert ang mga tipak ng string sa Buffer objects. I-default sa 'utf-8'.
+* `callback` Function (opsyonal) - Tinatawag matapos magtatapos ang write operation.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` ay mahalagang manika na function may layuning ipinakilala upang matupad ang pagkapareho ng Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
 Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
 
