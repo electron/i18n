@@ -1,8 +1,8 @@
 # Про Electron
 
-[Electron](https://electronjs.org) це бібліотека з відкритим вихідним кодом для побудови крос-платформних настільних додатків з HTML, CSS та JavaScript. Розроблена компанією GitHub. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electronjs.org) це бібліотека з відкритим вихідним кодом для побудови крос-платформних настільних додатків з HTML, CSS та JavaScript. Розроблена компанією GitHub. Електрон вирішує цю задачу об'єднуючи [Chromium](https://www.chromium.org/Home) та [Node.js](https://nodejs.org) в одне середовище виконання та застосунки, що можуть бути упаковані для Mac, Windows і Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron засновано в 2013 році як фреймворк на якому згодом буде створено [Atom](https://atom.io) - хакерський текстовий редактор від GitHub. Весною 2014 року вони стали open-source.
 
 It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
