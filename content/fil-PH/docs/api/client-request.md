@@ -134,15 +134,15 @@ Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag
 
 Nagdadagdag ng extra HTTP header. Ang header name ay iniisyu na parang walang lowercasing. Ito ay maaaring lamang tawagin bago ang first write. Ang pagtatawag ng method na ito matapos ang first write ay magiging error. KUng ang napasa na value ay hindi `String`, ang `toString()` na method ay tatawagin para kumuha ng huling value.
 
-#### `request.getHeader(name)`
+#### `request.getHeader(pangalan)`
 
-* `name` String - Specify an extra header name.
+* `name` String - Tumukoy ng dagdag na pangalan ng header.
 
-Returns `Object` - The value of a previously set extra header name.
+Returns `Object` - Ang value ng nauunang dagdag na pangalan ng header.
 
-#### `request.removeHeader(name)`
+#### `request.removeHeader(pangalan)`
 
-* `name` String - Specify an extra header name.
+* `name` String - Tumukoy ng dagdag na pangalan ng header.
 
 Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
