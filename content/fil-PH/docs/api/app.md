@@ -97,17 +97,17 @@ Magbabalik ng:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Ibrobrodkast kung ang application na-activate. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Ibrobrodkast kung ang application na-activate. Ibat-ibang mga action ay makakatrigger ng event, tulad ng paglaunch ng application sa unang pagkakataon, pagtangkang mag relaunch ng application kahit na ito ay gumagana na, o ang pagclick sa dock ng application o taskbar icon.
 
 ### Event: 'continue-activity' *macOS*
 
 Magbabalik ng:
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `type` String - Isang string na nagkikilanlan ng isang aktibidad. Nagmamap sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Naglalaman ng estado na partikular sa app na nilalagay sa aktibidad ng ibang aparato.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+Ibrobrodkast habang ang [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kapag ang aktibidad ng isang ibang aparato ay gustong tapusin. Dapat kang tumawag ng `event.preventDefault()` kung gusto mong e-handol ang event na ito.
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. Nagmamap sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
