@@ -80,7 +80,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 * `llamada de vuelta` Función (opcional) 
   * `filename` Cadena
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Devuelve `String`, el camino de archivos elegidos por el usuario, si la llamada de vuelta es dada, se devuelve `undefined`.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
