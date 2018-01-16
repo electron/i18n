@@ -152,7 +152,7 @@ Nagtatanggal ng nauunang itinakda na dugtong na pangalan ng header. Ang method n
 * `encoding` String (opsyonal) - Ginagamit para ma-convert ang mga tipak ng string sa Buffer objects. I-default sa 'utf-8'.
 * `callback` Function (opsyonal) - Tinatawag matapos magtatapos ang write operation.
 
-`callback` ay mahalagang manika na function may layuning ipinakilala upang matupad ang pagkapareho ng Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` ay mahalagang manika na function may layuning ipinakilala upang matupad ang pagkapareho ng Node.js API. Ito ay tinatawag na asynchronous sa susunod na tik matapos maihatid ang `chunk` na nilalaman sa Chromium na networking layer. Kasalungat sa pagpapatupad ng Node.js, hindi garantisado na ang `chunk` na nilalaman ay na-flush sa wire bago itinawag ang `callback`.
 
 Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
 
