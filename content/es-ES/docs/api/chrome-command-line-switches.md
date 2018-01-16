@@ -24,23 +24,23 @@ Desactiva la cache de disco para las peticiones HTTP.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Desactiva los protocolos HTTP/2 y SPDY/3.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Parámetros de depuración, vea la guía [Debugging the Main Process](../tutorial/debugging-main-process.md) para mas detalles.
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Habilita depuración remota sobre HTTP en el `port` especificado.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Fuerza el espacio máximo de disco a utilizar por la caché de disco, en bytes.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Especifica las opciones a pasar al motor de NodeJS. Tienen que ser pasadas cuando Electron arranca si quieres habilitar los `flags` en el proceso principal.
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
