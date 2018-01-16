@@ -16,7 +16,7 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 ### 主程序與渲染程序的差別
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+主程序透過 `BrowserWindow` 實例來建立 web 頁面。 每一個 `BrowserWindow` 實例都會在自己的渲染器程序中運行 web 頁面。 當一個 `BrowserWindow` 實例被銷毀後，相應的渲染器程序也會被終止。
 
 The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
