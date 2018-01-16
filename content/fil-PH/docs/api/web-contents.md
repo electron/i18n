@@ -313,7 +313,7 @@ Magbabalik ng:
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Ibrobrodkast kapang ang sertipiko na client ay hiniling.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
