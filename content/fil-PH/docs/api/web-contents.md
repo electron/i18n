@@ -336,7 +336,7 @@ Magbabalik ng:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Ibrobrodkast kapang ang `webContents` ay gustong gawin ang basic auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
