@@ -170,4 +170,4 @@ Nagkakansela ng isang patuloy na HTTP na transaksyon. Kung ang request ay nagtan
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Pinapatuloy ang alinmang pinapaliban na redirection request kung ang redirection mode ay 0>manual</code>.
