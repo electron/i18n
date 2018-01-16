@@ -9,5 +9,5 @@
 * `args` String (opsyonal) - Ang mga argumento ng linya ng command kapag `program` ay pinagana. Ay maaari lamang itakda kung`type` ay `task`.
 * `title` String (opsyonal) - Ang teksto na dapat ipakita para sa item ng JumpList. Ay dapat lamang itakda kung `type` ay `task`.
 * `description` String (opsyonal) - Paglalarawan ng task (nakalitaw sa tooltip). Dapat lamang itakda kung `type` ay `task`.
-* `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
+* `iconPath` String (opsyonal) - Ang tiyak na landas patungo sa icon na ipinapakita sa isang Jump List, kung saan ay puwedeng maging isang makatuwirang sanggunian ng file na naglalaman ng isang icon (hal. `.ico`, `.exe`, `.dll`). Karaniwang maaari mong tukuyin `process.execPath` para ipakita ang icon ng programa.
 * `iconIndex` Number (optional) - The index of the icon in the resource file. If a resource file contains multiple icons this value can be used to specify the zero-based index of the icon that should be displayed for this task. If a resource file contains only one icon, this property should be set to zero.
