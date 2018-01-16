@@ -55,7 +55,7 @@ Magbabalik ng:
 
 Ibrobrodkast kung ang lahat ng mga window ay isinirado at ang application ay ihihinto. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag wakas ng application.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Tingnan ang deskripsyon ng `window-all-closed` na event para sa mga pagkakaiba sa pagitan ng `will-quit` at `window-all-closed` na mga event.
 
 ### Event: 'quit'
 
@@ -64,7 +64,7 @@ Magbabalik ng:
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Ibrobrodkast kung humihinto ang application.
 
 ### Event: 'open-file' *macOS*
 
@@ -73,7 +73,7 @@ Magbabalik ng:
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Ibrobroadkast kung ang gusto ng user na mag-bukas ng isang file gamit ang application. Ang `open-file` na event ay kadalasang ibrobrodkast kung ang application ay bukas na at ang OS ay gustong gumamit muli ng application para buksan ang file. `open-file` ay ibrobrodkast din kapag ang file ay inihulog sa dock at ang application ay hindi pa gumagana. Siguraduhin na pinapakinggan ang `open-file` na event sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang `ready` na event ay ibrinodkast).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
