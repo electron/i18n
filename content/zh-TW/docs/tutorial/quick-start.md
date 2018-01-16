@@ -4,11 +4,11 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 這並不表示 Electron 是綁定在圖形使用者介面 (GUI) 上的 JavaScript 函式庫。 相反地，Electron 使用網頁作為他的 GUI, 因此你可以把它視為被 JavaScript 所控制的一個精簡版的 Chromium 瀏覽器。
 
-### 主處理序
+### 主程序
 
 在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作**主處理程序**。 在主處理序中執行的程式碼會透過建立 web 頁面來作為顯示的 GUI。
 
-### 渲染器處理序
+### 渲染器程序
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
