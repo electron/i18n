@@ -75,14 +75,14 @@ No usar el servidor proxy y siempre hacer conexiones directas. Sobrescribe cualq
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Lista de `rules` separadas por coma que controlan como los nombres de host son mapeados.
 
 Por ejemplo:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP * 127.0.0.1` Fuerza todos los nombres de host a ser mapeados a 127.0.0.1
+* `MAP *.google.com proxy` Fuerza todos los subdominios google.com a ser resueltos como "proxy".
+* `MAP test.com [::1]:77` Fuerza "test.com" a resolver en circuito cerrado IPv6. También forzará el port del socket resultante a ser 77.
+* `MAP * baz, EXCLUDE www.google.com` Mapeara todo a "baz", excepto para "www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
