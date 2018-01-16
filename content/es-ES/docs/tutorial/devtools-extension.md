@@ -24,9 +24,9 @@ Usando [React Developer Tools](https://chrome.google.com/webstore/detail/react-d
 
 **Nota:** La API `BrowserWindow.addDevToolsExtension` no puede ser llamada antes de que el módulo app emita el evento ready.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+El nombre de la extensión es devuelta por `BrowserWindow.addDevToolsExtension`, y puedes trasladar el nombre de la extensión a la API `BrowserWindow.removeDevToolsExtension` para removerla.
 
-## Supported DevTools Extensions
+## Extensiones DevTools soportadas
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
