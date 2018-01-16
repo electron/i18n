@@ -58,7 +58,7 @@ IPC стенды для взаимодействия между процесса
 
 ### NSIS
 
-Nullsoft Scriptable Install System это управляемое скриптом средство установки для Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System это управляемое скриптом средство установки для Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) поддерживает NSIS как целевой объект компиляции.
 
 ### OSR
 
@@ -92,7 +92,7 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 - JavaScript движок с открытым исходным кодом компании Google. Он написан на C++ и используется в Google Chrome. V8 может быть запущен автономно или может быть встроен в любое C++ приложение.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
