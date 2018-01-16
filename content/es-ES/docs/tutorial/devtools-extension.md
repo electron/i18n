@@ -28,7 +28,7 @@ El nombre de la extensión es devuelta por `BrowserWindow.addDevToolsExtension`,
 
 ## Extensiones DevTools soportadas
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron solo soporta un conjunto limitado de APIs `chrome.*`, por lo que algunas extensiones usando APIs `chrome.*` no soportadas pueden que no funcionen. Las extensiones Devtools siguientes están testadas y garantizadas que funcionan en Electron:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -40,8 +40,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### ¿Que puedo hacer si una extensión DevTools no está funcionando?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Lo primero, por favor, asegúrese que la extensión aún está mantenida, algunas extensiones incluso no pueden funcionar en versiones recientes del navegador Chrome, y no podemos hace nada por remediarlo.
 
 Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
