@@ -2,7 +2,7 @@
 
 > Opciones de la linea de comandos soportados por Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Puedes usar [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) para añadirlas en el código principal de tu app antes de que el evento [ready](app.md#event-ready) del modulo [app](app.md) es emitido:
 
 ```javascript
 const {app} = require('electron')
@@ -16,11 +16,11 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ignore el limite de conexión para la lista de `domains` separados por `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Desactiva la cache de disco para las peticiones HTTP.
 
 ## --disable-http2
 
