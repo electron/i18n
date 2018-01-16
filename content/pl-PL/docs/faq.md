@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+do tego:
 
 ```javascript
 const {app, Tray} = require('electron')
