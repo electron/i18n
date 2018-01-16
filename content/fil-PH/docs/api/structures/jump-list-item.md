@@ -1,6 +1,6 @@
-# JumpListItem Object
+# Mga bagay ng JumpListItem
 
-* `type` String (opsyonal) - Isa sa mga sumusunod: 
+* `uri` String (opsyonal) - Isa sa mga sumusunod: 
   * `task` - A task will launch an app with specific arguments.
   * `separator` - Can be used to separate items in the standard `Tasks` category.
   * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
