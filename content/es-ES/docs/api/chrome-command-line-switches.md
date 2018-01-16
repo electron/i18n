@@ -46,11 +46,11 @@ Especifica las opciones a pasar al motor de NodeJS. Tienen que ser pasadas cuand
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Vea la [documentación de Node](https://nodejs.org/api/cli.html) o ejecute `node --help` en su terminal para obtener una lista de las opciones disponibles. Adicionalmente, ejecute `node --v8-options` para ver una lista de opciones que específicamente refieren al motor JavaScript de Node V8.
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Usa un servidor proxy especifico, el cual sobrescribe la configuración del sistema. Esta opción solo afecta peticiones con protocolo HTTP, incluyendo peticiones HTTPS y WebSocket. También cabe destacar que no todos los servidores proxy aceptan peticiones HTTPS y WebSocket.
 
 ## --proxy-bypass-list=`hosts`
 
