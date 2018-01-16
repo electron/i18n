@@ -4,8 +4,8 @@
   * `task` - Ang gawain ay maglulunsad ng isang app na may tiyak na mga argumento.
   * `separator` - ay maaaring gamitin para ihiwalay ang mga item sa standard `Tasks` na kategorya.
   * `file` - Isang link ng file na magbubukas sa isang file gamit ang app na gumawa sa Jump List, para gumana ito ang app ay dapat na rehistrado bilang isang tagakuha sa uri ng file (bagamat hindi ito kailangang maging default na tagakuha).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
+* `path` String (opsyonal) - ang landas ng file para bumukas, ay dapat lamang ihanda kung `type` ay `file`.
+* `program` String (opsyonal) - ang landas ng programa para pairalin, kadalasan dapat mong tukuyin `process.execPath` kung saan magbubukas ang kasalukuyang programa. Should only be set if `type` is `task`.
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
