@@ -227,9 +227,9 @@ Magbabalik ng:
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Ibrobrodkast kapang ang `webContents` ay gustong gawin ang basic auth.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Ang default na aksyon ay ang pagkansela ng lahat ng mga pagpapatunay, dapat mong gamitin ang `event.preventDefault()` at itawag ang `callback(username, password)` gamit ang mga kredensyal para ma-override ito.
 
 ```javascript
 const {app} = require('electron')
@@ -247,16 +247,16 @@ Magbabalik ng:
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Ibrobrodkast kapang ang proseso na gpu ay nasira o pinatay.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
 Magbabalik ng:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` kapag ang Chrome accessibility support ay pinapagana, `false` kung hindi.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Ibrobrodkast kapang ang accessibility support ng Chrome ay nabago. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ## Pamamaraan
 
