@@ -18,9 +18,9 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 主程序透過 `BrowserWindow` 實例來建立 web 頁面。 每一個 `BrowserWindow` 實例都會在自己的渲染器程序中運行 web 頁面。 當一個 `BrowserWindow` 實例被銷毀後，相應的渲染器程序也會被終止。
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+主程序會管理每一個 web 頁面和其相應的渲染器程序；而每一個渲染器程序都是獨立的，它只關注自己運行的 web 頁面。
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+由於在 web 頁面中管理原生的 GUI 資源是很危險且容易導致資源洩漏，所以在 web 頁面中不被允許使用原生 GUI 相關的 APIs。 If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
