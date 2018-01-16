@@ -1,6 +1,6 @@
-# Extensión de herramientas de desarrollo
+# Extensión de Chrome DevTools
 
-Electron soporta [Extensiones de Chrome DevTools](https://developer.chrome.com/extensions/devtools), que puede ser usado para extender la capacidad de devtools para depurar web frameworks populares.
+Electron soporta [Extensiones de Chrome DevTools](https://developer.chrome.com/extensions/devtools), que puede ser usadas para extender la capacidad de devtools para depurar web frameworks populares.
 
 ## Como cargar una extensión DevTools
 
