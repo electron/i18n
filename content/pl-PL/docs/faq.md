@@ -108,7 +108,7 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+Gdy używasz wbudowanego modułu Electron możesz spotkać się z takim błędem:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
