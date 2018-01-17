@@ -121,9 +121,9 @@ Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 
 Configurar proxy.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+Cuando `pacScript` y `proxyRules` están junto, la opción `proxyRules` es ignorada y le configuración `pacScript` es aplicada.
 
-The `proxyRules` has to follow the rules below:
+Las `proxyRules` tienen las siguientes reglas abajo:
 
     proxyRules = schemeProxies[";"<schemeProxies>]
     schemeProxies = [<urlScheme>"="]<proxyURIList>
@@ -142,35 +142,35 @@ Por ejemplo:
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+El `proxyBypassRules` es una lista separada por comas de las reglasa que se describen a continuación:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  Une todos los nombres que coinciden con el patrón HOSTNAME_PATTERN.
   
   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Une sufijos de dominios particulares.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Ejemplos: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Une URLs que son literales de dirección IP.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Ejemplos: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Une cualquier URL que es literal a una IP que cae en un rango determinado. El rango de IP es especificado usando la notación CIDR.
   
   Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Unir direcciones locales. El significado de `<local>` es el que el host determine que coincida entre: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
