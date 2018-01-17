@@ -20,13 +20,13 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 主程序會管理每一個 web 頁面和其相應的渲染器程序；而每一個渲染器程序都是獨立的，它只關注自己運行的 web 頁面。
 
-由於在 web 頁面中管理原生的 GUI 資源很危險且容易導致資源洩漏，所以在 web 頁面中不被允許使用原生 GUI 相關的 APIs。 If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+由於在 web 頁面中管理原生的 GUI 資源很危險且容易導致資源洩漏，所以在 web 頁面中不被允許使用原生 GUI 相關的 APIs。 如果你想在 web 頁面中對 GUI 進行操作，其對應的渲染器程序必須和主程序溝通，請求主程序進行相關的 GUI 操作。
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+在 Electron 中，有許多方式可以讓主程序和渲染器程序間通訊。 像 [`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md) 的模組可用於發送訊息，而 [remote](../api/remote.md) 模組則可以用於 RPC 方式通訊。 這些內容都可以在 FAQ 中的[如何在兩個頁面之間共享數據](../faq.md#how-to-share-data-between-web-pages)查看。
 
 ## 寫你第一個 Electron 應用程式
 
-Generally, an Electron app is structured like this:
+通常來說，一個 Electron app 的結構會像這樣：
 
 ```text
 your-app/
