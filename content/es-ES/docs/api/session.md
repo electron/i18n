@@ -246,7 +246,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Función 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
+  * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `llamada de vuelta` Función 
     * `permissionGranted` Boolean - Allow or deny the permission
