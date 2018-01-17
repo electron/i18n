@@ -2,7 +2,7 @@
 
 **Paalala: Atom Shell ang dating tawag sa Electron.**
 
-Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
+Katulad ng NW.js, ang Elektron ay nagbibigay disenyo upang makasulat sa aplikasyon ng desktop kasama ang Javascript at HTML na may pinagsama-samang Node na syang magiging daan upang makapasok sa mababang lebel ng sistema galing sa pahina ng web.
 
 But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
 
