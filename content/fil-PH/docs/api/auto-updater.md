@@ -4,7 +4,7 @@
 
 Proseso: [Main](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+Ang`autoUpdater`modyul ay nagbibigay ng isang interface para sa [Squirrel](https://github.com/Squirrel) na balangkas.
 
 You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
 
