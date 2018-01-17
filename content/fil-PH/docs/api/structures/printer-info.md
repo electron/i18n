@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# Mga bagay sa PrinterInfo
 
 * `name` String
 * `description` String
 * `status` Number
 * `isDefault` Boolean
 
-## Example
+## Mga halimbawa
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Ang nasa ibaba ay isang halimbawa ng ilang karagdagang opsyon na itinalaga na maaaring maging magkakaiba sa bawat platform.
 
 ```javascript
 {
