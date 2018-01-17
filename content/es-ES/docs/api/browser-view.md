@@ -2,7 +2,7 @@
 
 > Crear y controlar vistas.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Note:**: La API de BrowserView es experimental y puede ser cambiada o elindad enl futuro versiones de Electron.
 
 Proceso: [Principal](../glossary.md#main-process)
 
