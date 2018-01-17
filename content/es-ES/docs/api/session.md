@@ -176,22 +176,22 @@ El `proxyBypassRules` es una lista separada por comas de las reglasa que se desc
 
 * `url` URL
 * `llamada de vuelta` Función 
-  * `proxy` String
+  * `proxy` Cadena
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+Resuelve la información del proxy para una `url`. La `llamada` será hecha con `callback(proxy)` cuando se realice la solicitud.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `ruta` Cadena - la ubicación de descarga
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Configura el directorio de descargas. Por defecto, el directorio de descargas será `Descargas` en la carpeta respectiva de la aplicación.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Object 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
+  * `fuera de linea` Booleano (opcional) - cuando la red emulada es interrumpida. por defecto es falso.
+  * `Latencia` Doble (opcional) - RTT en ms. Por defecto es 0 lo cual deshabilitará la regulación de la latencia.
+  * `downloadThroughput` Doble (opcional) - Velocidad de descarga en Bps. Por defecto es 0 que deshabilitará la regulación de descarga.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
 Emulates network with the given configuration for the `session`.
