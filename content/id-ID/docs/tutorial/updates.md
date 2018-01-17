@@ -20,13 +20,13 @@ Bergantung pada kebutuhan Anda, Anda dapat memilih salah satu dari ini:
     
     Setelah mengeposkan server pembaruan Anda, lanjutkan dengan mengimpor yang diperlukan dalam modul kode Anda. Kode berikut mungkin berbeda untuk server yang berbeda perangkat lunak, tapi bekerja seperti dijelaskan saat menggunakan [Hazel](https://github.com/zeit/hazel).
     
-    **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+    **Penting:** Pastikan kode di bawah ini hanya akan dijalankan dalam aplikasi kemasan Anda, dan tidak dalam pengembangan. Kamu dapat memakai [elektron-is-dev](https://github.com/sindresorhus/electron-is-dev) untuk memeriksa lingkungan.
     
     ```js
 const {app, autoUpdater, dialog} = membutuhkan ('elektron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Selanjutnya, buatlah URL server update dan beri tahu [autoUpdater](../api/auto-updater.md) tentangnya:
 
 ```js
 const server = 'https://your-deployment-url.com'
@@ -42,11 +42,11 @@ setInterval (() = & gt; {
    autoUpdater.checkForUpdates ()}, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Setelah aplikasi Anda [dikemas](../tutorial/application-distribution.md), itu akan menerima update untuk masing-masing baru [GitHub Rilis](https://help.github.com/articles/creating-releases/) bahwa Anda menerbitkannya.
 
 ## Menerapkan pembaruan
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Sekarang setelah Anda mengonfigurasi mekanisme pembaruan dasar untuk aplikasi Anda, Anda perlu memastikan bahwa pengguna akan diberitahu bila ada update. Ini dapat dicapai dengan menggunakan API AutoUpdater [acara](../api/auto-updater.md#events):
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -64,7 +64,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Pastikan juga kesalahannya [ditangani](../api/auto-updater.md#event-error). Inilah contohnya untuk menempuh mereka ke `stderr`:
 
 ```js
 autoUpdater.on ('error', message = & gt; {
