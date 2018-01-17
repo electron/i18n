@@ -4,9 +4,9 @@
 
 Katulad ng NW.js, ang Elektron ay nagbibigay disenyo upang makasulat sa aplikasyon ng desktop kasama ang Javascript at HTML na may pinagsama-samang Node na syang magiging daan upang makapasok sa mababang lebel ng sistema galing sa pahina ng web.
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+Ngunit mayroon ding mahalagang pagkakaiba ang dalawang proyekto kung saan ang Elektron ay tuluyang hihiwalay sa produkto na galing sa NW.js:
 
-**1. Entry of Application**
+**1. Pagpasok sa Aplikasyon**
 
 In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
 
