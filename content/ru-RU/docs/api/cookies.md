@@ -80,15 +80,15 @@ Sends a request to get all cookies matching `details`, `callback` will be called
 * `callback` Function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Устанавливает cookie с соответствующим `details`. По завершению вызывается `callback(error)`.
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - URL-дарес, связанный с cookie.
+* `name` String - Название cookie для удаления.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Удаляет cookies с соответствующими `url` и `name`, по завершению вызывается `callback()`.
 
 #### `cookies.flushStore(callback)`
 
