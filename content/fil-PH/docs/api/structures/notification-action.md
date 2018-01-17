@@ -14,6 +14,6 @@
 Ang kaayusan para gumana ang pindutan ng karagdagang abiso sa macOS ang iyong app ay kailangang matugunan ang sumusunod na pamantayan.
 
 * Nalagdaan na ang app
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* Ang app ay mayroon ng `NSUserNotificationAlertStyle` na itinakda sa`alert` sa mga `info.plist`.
 
-If either of these requirements are not met the button simply won't appear.
+Kung alinman sa mga kinakailangan ay hindi natagpuan ang pindutan ay hindi lilitaw.
