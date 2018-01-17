@@ -22,9 +22,9 @@ Upang maiwasan ang pagiging kumplikado sa paglikha ng lahat ng Chromium, ang Ele
 
 Sa NW.js, ang pinagsama-samang Node sa pahina ng web ay kinakailangang takpan ng Chromium upang ito'y gumana, habang sa Elektron, tayo ay pumipili ng iba't-ibang paraan para mapagsama-sama ang libuv loop kasama ang bawat mensahe ng platform sa loop upang maiwasan ang walang pahintulot na paggamit sa Chromium. Tingnan ang [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code kung paano ito nangyayari.
 
-**4. Iba't-ibang Konteksto**
+**4. Multi-Context**
 
-Kung ikaw isang bihasang gumagamit ng NW.js, ikaw ay dapat maging pamilyar sa konsepto ng konteksto ng Node at web. Ang konseptong ito ay naimbento sa kung paano ang NW.js ay naisakatuparan.
+Kung ikaw ay isang bihasang gumagamit ng NW.js, ikaw ay dapat maging pamilyar sa konsepto ng konteksto ng Node at web. Ang konseptong ito ay naimbento sa kung paano ang NW.js ay naisakatuparan.
 
 Sa pamamagitan ng paggamit ng multi-context<0/> na itinatampok ng Node, ang Elektron ay hindi pa nagpapakilala ng bagong konteksto ng Javascript sa pahina ng web.</p> 
 
