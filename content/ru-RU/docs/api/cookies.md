@@ -1,6 +1,6 @@
 ## Class: Cookies
 
-> Query and modify a session's cookies.
+> Запрашивайте и изменяйте cookie.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -94,4 +94,4 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Записывает непрочитанные cookies на диск.
