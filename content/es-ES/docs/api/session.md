@@ -89,23 +89,23 @@ Los siguientes métodos están disponibles para instancias de `Sesión`:
 * `llamada de vuelta` Función 
   * `tamaño` Entero - Tamaño de memoria caché usada en bites.
 
-Callback is invoked with the session's current cache size.
+Llamar es invocado con el tamaño actual en memoria caché de la sesión.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `Llamada` Función - llamada cuando se realiza la operación
 
-Clears the session’s HTTP cache.
+Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Objecto (opcional) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `origen` Cadena - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+* `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
 
-Clears the data of web storages.
+Borra los datos de almacenamiento web.
 
 #### `ses.flushStorageData()`
 
@@ -266,7 +266,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
 
 Clears the host resolver cache.
 
