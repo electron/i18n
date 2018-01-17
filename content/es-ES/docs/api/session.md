@@ -56,19 +56,19 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Eventos de Instancia
 
-The following events are available on instances of `Session`:
+Los siguientes eventos están disponibles en instancias de `Sesión`:
 
-#### Event: 'will-download'
+#### Evento: "Se-descargará"
 
 * `evento` Evento
 * `item` [DownloadItem](download-item.md)
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Emitido cuando Electron está por descargar un `elemento` en `Contenido web`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Llamando `event.preventDefault()` Se cancelará la descarga y el `elemento` no estará disponible para el siguiente tick del proceso.
 
 ```javascript
 const {session} = require('electron')
@@ -82,12 +82,12 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 ### Métodos de Instancia
 
-The following methods are available on instances of `Session`:
+Los siguientes métodos están disponibles para instancias de `Sesión`:
 
 #### `ses.getCacheSize(callback)`
 
 * `llamada de vuelta` Función 
-  * `size` Integer - Cache size used in bytes.
+  * `tamaño` Entero - Tamaño de memoria caché usada en bites.
 
 Callback is invoked with the session's current cache size.
 
