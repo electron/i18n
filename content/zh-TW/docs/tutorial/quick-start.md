@@ -104,7 +104,8 @@ app.on('activate', () => {
   }
 })
 
-// 你可以在這個檔案中繼續寫應用程式主處理序要執行的程式碼。 你也可以將它們放在別的檔案裡，再由這裡 require 進來。
+// 你可以在這個檔案中繼續寫應用程式主程序要執行的程式碼。 
+// 你也可以將它們放在別的檔案裡，再由這裡 require 進來。
 ```
 
 最後，`index.html` 裡放你想顯示的網頁內容:
@@ -127,19 +128,19 @@ app.on('activate', () => {
 
 ## 執行你的應用程式
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+一旦你建立好了最初的 `main.js`、` index.html` 和 `package. json` 這些檔案後, 您可能會想嘗試在本機運行應用程式以測試它並確保它按照預期方式工作。
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+`electron<0> 是一個 <code>npm` 套件，它包含了 Electron 預編譯版本。</p> 
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+如果你已經將 `npm` 安裝在全域環境，你只需要在應用程式目錄下，按照下述方式執行：
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+如果你是安裝在局部區域，那運行：
 
 #### macOS / Linux
 
