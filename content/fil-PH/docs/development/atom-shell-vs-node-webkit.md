@@ -12,11 +12,11 @@ Sa NW.js, ang pangunahing pasukan ng aplikasyon ay ang pahina ng web o ng Javasc
 
 Sa Elektron, ang pinagmulan ay JavaScript script. Sa halip na magbigay ng direktang URL, kailangang bumuo ng manu-manong browser window at isalang ang HTML file gamit ang API. Kinakailangan ding makinig sa kaganapan ng window upang makapagpasya kung kailan lalabas sa aplikasyon.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Ang Elektron ay gumagana ng magkasing-tulad ng sa Node.js. Ang APIs ng Elektron ay nasa mas mababang lebel upang magamit ito para masukat ang browser na nasa [PhantomJS](http://phantomjs.org/).
 
-**2. Build System**
+**2. Paglikha ng Sistema**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Upang maiwasan ang pagiging kumplikado sa paglikha ng lahat ng Chromium, ang Elektron ay gumagamit ng [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
 
 **3. Node Integration**
 
