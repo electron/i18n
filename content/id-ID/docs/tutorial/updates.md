@@ -1,27 +1,28 @@
 # Memperbarui Aplikasi
 
-Ada beberapa cara untuk mengupdate aplikasi Elektron . The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Ada beberapa cara untuk mengupdate aplikasi Elektron . Yang sangat mudah dan Secara resmi didukung salah satunya adalah keuntungan dari built-in  Squirrel </ 0> kerangka dan Modul  autoUpdater </ 1> elektron.</p> 
 
 ## Menyebarkan server pembaruan
 
-To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
+Untuk memulai, pertama Anda perlu menyebarkan server  AutoUpdater </ 0> modul akan mendownload update baru darinya.</p> 
 
 Bergantung pada kebutuhan Anda, Anda dapat memilih salah satu dari ini:
 
 - [ Hazel ](https://github.com/zeit/hazel) - Perbarui server untuk aplikasi pribadi atau sumber terbuka. Dapat digunakan secara gratis di [ Sekarang ](https://zeit.co/now) (menggunakan satu perintah), menarik dari [ GitHub Releases ](https://help.github.com/articles/creating-releases/) dan memanfaatkan kekuatan CDN GitHub.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [ elektron-release-server ](https://github.com/ArekSredzki/electron-release-server) - Menyediakan dashboard untuk menangani pelepasan
-- [ Nucleus ](https://github.com/atlassian/nucleus) - Server pembaruan lengkap untuk aplikasi Elektron yang dikelola oleh Atlassian. Mendukung beberapa aplikasi dan saluran; menggunakan toko file statis untuk meminimalkan biaya server.
-
-If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
-
-## Menerapkan pembaruan di aplikasi Anda
-
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
-
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
-
-```js
+-  Nuts </ 0> - Juga digunakan  GitHub Rilis </ 1>, namun mengupload pembaruan aplikasi pada disk dan juga mendukung penyimpanan pribadi.</li> 
+    
+    - [ elektron-release-server ](https://github.com/ArekSredzki/electron-release-server) - Menyediakan dashboard untuk menangani pelepasan
+    - [ Nucleus ](https://github.com/atlassian/nucleus) - Server pembaruan lengkap untuk aplikasi Elektron yang dikelola oleh Atlassian. Mendukung beberapa aplikasi dan saluran; menggunakan toko file statis untuk meminimalkan biaya server.</ul> 
+    
+    Jika aplikasi Anda dikemas dengan  pembangun elektron </ 0> Anda dapat menggunakan elektron-updater </ 1> module, yang tidak memerlukan server dan memungkinkan untuk pembaruan dari S3, GitHub atau host file statis lainnya.</p> 
+    
+    ## Menerapkan pembaruan di aplikasi Anda
+    
+    Setelah mengeposkan server pembaruan Anda, lanjutkan dengan mengimpor yang diperlukan dalam modul kode Anda. Kode berikut mungkin berbeda untuk server yang berbeda perangkat lunak, tapi bekerja seperti dijelaskan saat menggunakan [Hazel](https://github.com/zeit/hazel).
+    
+    **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+    
+    ```js
 const {app, autoUpdater, dialog} = membutuhkan ('elektron')
 ```
 
