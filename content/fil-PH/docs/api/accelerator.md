@@ -33,20 +33,20 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 ## Ang magagamit na mga modifier
 
 * `Command` (o `Cmd` kapag pinaikli)
-* `Control` (o `Ctrl` para maikli)
-* `CommandOrControl` (o `CmdOrCtrl` para maikli)
+* `Control` (o `Ctrl` kapag pinaikli)
+* `CommandOrControl` (o `CmdOrCtrl` kapag pinaikli)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Magagamit na mga Key Code
+## Ang mga key code na magagamit
 
-* `` hanggang `9`
-* `A` hanggang `Z`
-* `F1` hanggang `F24`
-* Mga bantas tulad ng `~`, `!`, `@`, `#`, `$`, etc.
+* Mula `` hanggang `9`
+* Mula `A` hanggang `Z`
+* Mula `F1` hanggang `F24`
+* Mga bantas tulad ng `~`, `!`, `@`, `#`, `$`, atbp.
 * `Plus`
 * `Space`
 * `Tab`
