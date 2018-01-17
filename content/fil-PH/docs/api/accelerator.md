@@ -9,13 +9,13 @@ Mga Halimbawa:
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Ang mga shortcut ay irerehistro kasabay ng [`globalShortcut`](global-shortcut.md) module gamit ang [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) na method, i.e.
+Ang mga shortcut ay irehistro kasabay ang modyul ng [`globalShortcut`](global-shortcut.md) na gamit ang paraan ng [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), i.e.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Irehistro ang isang 'Command OrControl+Y' shortcut na listener.
+  // Magrehistro ng isang 'CommandOrControl+Y' mga tagapakinig ng shortcut.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Gumawa ng mga bagay-bagay kapang ang Y at alinman sa Command o Control ang pinindot.
   })
