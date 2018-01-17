@@ -32,23 +32,23 @@ Regresa `Sesión` - Una reunión de la cadena `partición`. Cuando hay una `Sesi
 
 Si la `partition` comienza con `persistir:`, la página usará una sesión persistente disponible a todas las páginas en la aplicación con la misma `partición`. si no hay un prefijo `persistir:`, la página usará una sesión en memoria. Si la `partición` está vacía entonces la sesión de la aplicación será usada por defecto.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Al crear una `Sesión` con `opciones`, tiene que asegurar la `Sesión` con la `partición` nunca ha sido usada antes. No hay manera de cambiar las `opciones` de un objeto `Sesión` existente.
 
 ## Propiedades
 
-The `session` module has the following properties:
+El módulo `sesión` tiene las siguientes propiedades:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+Un objeto `Sesión`, el objeto de sesión de la aplicación por defecto.
 
-## Class: Session
+## Clase: Sesión
 
-> Get and set properties of a session.
+> Obtener y configurar las propiedades de una sesión.
 
 Proceso: [Principal](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Puede crear un objeto `Sesión` en el módulo `sesión`:
 
 ```javascript
 const {session} = require('electron')
