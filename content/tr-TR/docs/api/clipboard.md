@@ -155,7 +155,7 @@ console.log(clipboard.has('<p>selection</p>'))
 * `buffer` Buffer
 * `type` String (isteğe bağlı)
 
-Writes the `buffer` into the clipboard as `format`.
+`buffer`' ı `format` olarak panoya yazar.
 
 ### `clipboard.write(data[, type])`
 
