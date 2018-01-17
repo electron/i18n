@@ -4,6 +4,6 @@
 * `cwd` String (opsyonal) - ang direktoryo ng ginagawa. Ang Default ay walang laman.
 * `args` String (opsyonal) - ang argumento na inilagay sa `target` nang inilulunsad mula sa shortcut na ito. Ang default ay walang laman.
 * `description` String (opsyonal) - Ang paglalarawan ng shortcut. Ang default ay walang laman.
-* `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
-* `iconIndex` Number (optional) - The resource ID of icon when `icon` is a DLL or EXE. Default is 0.
+* `icon` String (opsyonal) - Ang daan patungo sa icon, maaaring maging isang DLL o EXE. `icon` at `iconIndex` ay maaaring itakda ng magkasama. Ang default ay walang laman, kung saan ay ginagamit ang icon ng target.
+* `iconIndex` Number (opsyonal) - Ang pinagmulang ID ng icon kapag `icon`ay isang DLL o EXE. Ang default ay 0.
 * `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
