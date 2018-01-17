@@ -1,7 +1,7 @@
 # Mga bagay sa ShortcutDetails
 
-* `target` String - The target to launch from this shortcut.
-* `cwd` String (optional) - The working directory. Default is empty.
+* `target` String - Ang target na ilunsad mula sa shortcut na ito.
+* `cwd` String (opsyonal) - ang direktoryo ng ginagawa. Ang Default ay walang laman.
 * `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
 * `description` String (optional) - The description of the shortcut. Default is empty.
 * `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
