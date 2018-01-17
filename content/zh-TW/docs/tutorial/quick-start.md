@@ -10,7 +10,7 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 ### 渲染器程序
 
-由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個網頁各自的程序，稱作**渲染器程序**。
+由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個網頁都執行在各自的程序中，稱作**渲染器程序**。
 
 在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
@@ -18,9 +18,9 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 主程序透過 `BrowserWindow` 實例來建立網頁。 每一個 `BrowserWindow` 實例都會在自己的渲染器程序中運行網頁。 當一個 `BrowserWindow` 實例被銷毀後，相應的渲染器程序也會被終止。
 
-主程序會管理每一個 web 頁面和其相應的渲染器程序；而每一個渲染器程序都是獨立的，它只關注自己運行的網頁。
+主程序會管理每一個網頁和其相應的渲染器程序；而每一個渲染器程序都是獨立的，它只關注自己運行的網頁。
 
-由於在 web 頁面中管理原生的 GUI 資源很危險且容易導致資源洩漏，所以在 web 頁面中不被允許使用原生 GUI 相關的 APIs。 如果你想在 web 頁面中對 GUI 進行操作，其對應的渲染器程序必須和主程序溝通，請求主程序進行相關的 GUI 操作。
+由於在網頁中管理原生的 GUI 資源很危險且容易導致資源洩漏，所以在網頁中不被允許使用原生 GUI 相關的 APIs。 如果你想在網頁中對 GUI 進行操作，其對應的渲染器程序必須和主程序溝通，請求主程序進行相關的 GUI 操作。
 
 在 Electron 中，有許多方式可以讓主程序和渲染器程序間通訊。 像 [`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md) 的模組可用於發送訊息，而 [remote](../api/remote.md) 模組則可以用於 RPC 方式通訊。 這些內容都可以在 FAQ 中的[如何在兩個頁面之間共享數據](../faq.md#how-to-share-data-between-web-pages)查看。
 
@@ -186,13 +186,13 @@ $ .\electron\electron.exe your-app\
 
 ### 以發佈檔執行
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+在完成了你的應用程式後，你可以透過下面的 [應用發布](./application-distribution.md) 指導來建立一個打包好的檔案，並執行部署好的檔案。
 
 ### 試試這個範例
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+複製並且透過 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 來執行範例中的這個資料夾。
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**注意**：執行範例時，需要在你的系統先安裝好 [Git](https://git-scm.com) 和 [Node.js](https://nodejs.org/en/download/) (包含 [npm](https://npmjs.org))。
 
 ```sh
 # 複製儲存庫
