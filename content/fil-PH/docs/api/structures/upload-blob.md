@@ -1,4 +1,4 @@
-# UploadBlob Object
+# Mga bagay sa UploadBlob
 
 * `type` String - `blob`.
-* `blobUUID` String - UUID of blob data to upload.
+* `blobUUID` String - Ang UUID ng datos ng blob para makapag-upload.
