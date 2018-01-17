@@ -1,6 +1,6 @@
-# Accelerator
+# Aselerador
 
-> Itakda ang mga shortcut ng keyboard.
+> Ipaliwanag ang mga shortcut ng keyboard.
 
 Ang accelerator ay mga String na mayroong maraming modifier at mga key code, na pinagsama ng `+` na character, at ginagamit upang itukoy ang mga keyboard shortcut ng iyong buong application.
 
