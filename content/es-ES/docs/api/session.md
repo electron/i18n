@@ -4,9 +4,9 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+El módulo `sesion` puede ser usado para crear un nuevo objeto `sesion`.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+También puede accesar la `sesión` de las páginas existentes usando la propiedad `sesión` de [`WebContents`](web-contents.md), o desde el módulo `sesión`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -20,17 +20,17 @@ console.log(ses.getUserAgent())
 
 ## Métodos
 
-The `session` module has the following methods:
+El módulo `sesión` tiene los siguientes métodos:
 
 ### `session.fromPartition(partition[, options])`
 
-* `partition` String
+* `Paritición` Cadena
 * `options` Object 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Booleano - En el caso de activar la memoria cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Regresa `Sesión` - Una reunión de la cadena `partición`. Cuando hay una `Sesión` existente con la misma `partición`, se devolverá; de otra manera, una nueva instancia `Sesión` será creada con `opciones`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Si la `partition` comienza con `persistir:`, la página usará una sesión persistente disponible a todas las páginas en la aplicación con la misma `partición`. si no hay un prefijo `persistir:`, la página usará una sesión en memoria. Si la `partición` está vacía entonces la sesión de la aplicación será usada por defecto.
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
