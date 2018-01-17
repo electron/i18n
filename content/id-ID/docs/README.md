@@ -89,7 +89,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
 * [Gaya coding](development/coding-style.md)
 * [Menggunakan clang-format pada C ++ Code](development/clang-format.md)
-* [Testing](development/testing.md)
+* [Pengujian](development/testing.md)
 * [Struktur direktori sumber kode](development/source-code-directory-structure.md)
 * [Perbedaan teknis untuk NW.js (sebelumnya node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Membangun sistem Tinjauan](development/build-system-overview.md)
