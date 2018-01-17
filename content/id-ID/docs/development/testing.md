@@ -6,7 +6,7 @@ Repositori ini dilengkapi dengan aturan linting untuk JavaScript dan C ++ - sert
 
 ## Linting
 
-Untuk memastikan bahwa JavaScript Anda sesuai dengan gaya pengkodean Elektron, jalankan ` npm jalankan lint-js </ 0>, yang akan menjalankan <code> standar </ 0> terhadap kedua Elektron itu sendiri sekaligus sebagai bagian tes. Jika Anda menggunakan pengedit
+Untuk memastikan bahwa JavaScript Anda sesuai dengan gaya pengkodean Elektron, jalankan  npm jalankan lint-js </ 0>, yang akan menjalankan <code> standar </ 0> terhadap kedua Elektron itu sendiri sekaligus sebagai bagian tes. Jika Anda menggunakan pengedit
 Dengan sistem plugin / addon, Anda mungkin ingin menggunakan salah satu dari sekian banyak
 <a href="standard-addons"> StandardJS addons </ 0> untuk mengetahui informasi dari pengcodingan
 pelanggaran sebelum Anda melakukannya.</p>
@@ -14,13 +14,22 @@ pelanggaran sebelum Anda melakukannya.</p>
 <p>Untuk menjalankan <code> standar </ 0> dengan parameter-parameternya, jalankan <code> npm run lint-js - </ 0> lalu diikuti oleh
 argumen yang Anda inginkan untuk melewati ke <code> standar </ 0>.</p>
 
-<p>To ensure that your C++ is in compliance with the Electron coding style,
-run <code>npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+<p>Untuk memastikan bahwa C ++ Anda sesuai dengan gaya pengkodean Elektron,
+jalankan <code> npm jalankan lint-cpp </ 0>, yang menjalankan script <code> cpplint </ 0>. Kami merekomendasikan 
+Anda menggunakan <code> clang-format </ 0> dan menyiapkan <a href="clang-format.md"> sebuah tutorial singkat </ 1>.</p>
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+<p>Tidak banyak Python dalam repositori ini, tapi juga diatur
+dengan aturan gaya pengkodean. <code> npm jalanakan lint-py </ 0> dan akan memeriksa semua Python, menggunakan
+<code> pylint </ 0> untuk melakukannya.</p>
 
-## Unit Tests
+<h2>Pengujian unit</h2>
 
-To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+<p>Untuk menjalankan semua unit test, jalankan <code> npm jalankan test </ 0>. Tes unitnya adalah Elektron
+aplikasi (surprise!) yang bisa ditemukan di folder <code> spasi </ 0>. Perhatikan bahwa itu mempunyai miliknya sendiri
+<code> package.json </ 0> dan karena itu dependensinya tidak didefinisikan
+di level atas <code> package.json </ 0>.</p>
 
-To run only a selected number of tests, run `npm run test -match=NAME`, replacing the `NAME` with the file name of the test suite you would like to run. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
+<p>Untuk menjalankan hanya sejumlah tes yang dipilih, jalankan <code> npm run test -match = NAMA </ 0>,
+ganti dengan <code> NAMA </ 0> dengan nama file dari tes suite yang anda inginkan
+untuk dijalankan. Sebagai contoh: Jika Anda hanya ingin menjalankan suite IPC, Anda harus menjalankannya
+<code> npm jalankan tes - kecocokan = ipc </ 0>.</p>
