@@ -1,4 +1,4 @@
-## Class: Cookies
+## Класс: Cookies
 
 > Запрашивайте и изменяйте cookie.
 
@@ -16,13 +16,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// Запрос всех файлы cookie, связанных с определенным Url-адресом.
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Установить cookie с данными объекта cookie;
+// перезаписывает эквивалентные cookie, если такие есть.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
