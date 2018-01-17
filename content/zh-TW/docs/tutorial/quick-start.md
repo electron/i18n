@@ -6,19 +6,19 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 ### 主程序
 
-在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作**主處理程序**。 在主處理序中執行的程式碼會透過建立 web 頁面來作為顯示的 GUI。
+在 Electron 中，透過 `package.json` 中的 `main` 指令執行的程序稱作**主程序**。 在主程序中執行的程式碼可以透過建立網頁來顯示 GUI。
 
 ### 渲染器程序
 
-由於 Electron 使用 Chromium 來顯示 web 頁面，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個 web 頁面各自的程序，稱作**渲染程序**。
+由於 Electron 使用 Chromium 來顯示網頁，因此 Chromium 的多程序架構也可以被使用。 Electron 中每個網頁各自的程序，稱作**渲染器程序**。
 
 在一般的瀏覽器中，網頁通常是在沙箱環境中執行，不能存取本機資源。 然後，Electron 的使用者，能在網頁中使用 Node.js API，與作業系統進行較低階的互動。
 
 ### 主程序與渲染器程序的差別
 
-主程序透過 `BrowserWindow` 實例來建立 web 頁面。 每一個 `BrowserWindow` 實例都會在自己的渲染器程序中運行 web 頁面。 當一個 `BrowserWindow` 實例被銷毀後，相應的渲染器程序也會被終止。
+主程序透過 `BrowserWindow` 實例來建立網頁。 每一個 `BrowserWindow` 實例都會在自己的渲染器程序中運行網頁。 當一個 `BrowserWindow` 實例被銷毀後，相應的渲染器程序也會被終止。
 
-主程序會管理每一個 web 頁面和其相應的渲染器程序；而每一個渲染器程序都是獨立的，它只關注自己運行的 web 頁面。
+主程序會管理每一個 web 頁面和其相應的渲染器程序；而每一個渲染器程序都是獨立的，它只關注自己運行的網頁。
 
 由於在 web 頁面中管理原生的 GUI 資源很危險且容易導致資源洩漏，所以在 web 頁面中不被允許使用原生 GUI 相關的 APIs。 如果你想在 web 頁面中對 GUI 進行操作，其對應的渲染器程序必須和主程序溝通，請求主程序進行相關的 GUI 操作。
 
@@ -160,9 +160,9 @@ $ .\node_modules\.bin\electron .
 $ npx electron .
 ```
 
-### 手動下載 Electron 二進位
+### 手動下載 Electron 二進位檔案
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+如果你手動下載了 Electron 的二進位檔案，你也可以直接使用其中的二進為檔案來直執行你的應用程式。
 
 #### macOS
 
@@ -182,7 +182,7 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+你可以在[這裡](https://github.com/electron/electron/releases)下載到部分 Electron 所發佈的 `Electron.app` 。
 
 ### 以發佈檔執行
 
