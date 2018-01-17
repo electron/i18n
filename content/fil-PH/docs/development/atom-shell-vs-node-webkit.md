@@ -28,4 +28,4 @@ Kung ikaw isang bihasang gumagamit ng NW.js, ikaw ay dapat maging pamilyar sa ko
 
 Sa pamamagitan ng paggamit ng multi-context<0/> na itinatampok ng Node, ang Elektron ay hindi pa nagpapakilala ng bagong konteksto ng Javascript sa pahina ng web.</p> 
 
-Note: NW.js has optionally supported multi-context since 0.13.
+Paalala: Ang NW.js ay hindi pinilit at kusang-loob na nagbigay suporta sa multi-context mula nang 0.13.
