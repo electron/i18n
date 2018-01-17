@@ -192,12 +192,12 @@ Configura el directorio de descargas. Por defecto, el directorio de descargas se
   * `fuera de linea` Booleano (opcional) - cuando la red emulada es interrumpida. por defecto es falso.
   * `Latencia` Doble (opcional) - RTT en ms. Por defecto es 0 lo cual deshabilitará la regulación de la latencia.
   * `downloadThroughput` Doble (opcional) - Velocidad de descarga en Bps. Por defecto es 0 que deshabilitará la regulación de descarga.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `uploadThroughput` Doble (opcional) - Velocidad de subida en Bps. por defecto es 0 lo cual deshabilitará la regulación de subida.
 
-Emulates network with the given configuration for the `session`.
+Emula la red con la configuración dada por la `sesión`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+Para emular la conexión GPRS con rendimiento de 50kbps y latencia de 500ms.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
@@ -210,19 +210,19 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Deshabilita cualquier emulación de red activa durante la `sesión`. Resetea a la configuración de red original.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Función 
   * `request` Object 
-    * `hostname` String
+    * `hostname` Cadena
     * `certificate` [certificate](structures/certificate.md)
-    * `error` String - Verification result from chromium.
+    * `error` Cadena - Verificación de resultado de Chromium.
   * `llamada de vuelta` Función 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
-      * `-2` - Indicates failure.
+    * `verificationResult` Entero - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
+      * `` - indiva el éxito y desactiva la certificación de la verificación de transparencia.
+      * `-2` - Indica falla.
       * `-3` - Uses the verification result from chromium.
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
