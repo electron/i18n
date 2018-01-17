@@ -1,6 +1,6 @@
-# NotificationAction Object
+# Mga bagay ng NotificationAction
 
-* `type` String - The type of action, can be `button`.
+* `type` String - Ang uri ng aksyon, ay maaaring `button`.
 * `text` String - (optional) The label for the given action.
 
 ## Platform / Action Support
