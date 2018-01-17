@@ -28,11 +28,11 @@ Sa Linux at Windows, ang key na `Command` ay walang anumang epekto kaya dapat ga
 
 Gamitin ang `Alt` sa halip na `Option`. Ang key na `Option` ay umiiral lamang sa macOS, samantalang ang key ng `Alt` ay magagamit sa lahat ng mga platform.
 
-Ang `Super` na key ay nakatalaga sa `Windows` na key sa Windows at Linux at `Cmd` sa macOS.
+Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at `Cmd` naman sa macOS.
 
-## Magagamit na mga Modifier
+## Ang magagamit na mga modifier
 
-* `Command` (o `Cmd` para maikli)
+* `Command` (o `Cmd` kapag pinaikli)
 * `Control` (o `Ctrl` para maikli)
 * `CommandOrControl` (o `CmdOrCtrl` para maikli)
 * `Alt`
