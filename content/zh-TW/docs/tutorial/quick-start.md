@@ -45,9 +45,9 @@ your-app/
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**注意**：如果沒有在 `package.json` 定義 `main` ，那麼 Electron 會優先載入 `index.js`。
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js` 應該用於創建窗口和處理系統事件，一個典型的例子如下：
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
