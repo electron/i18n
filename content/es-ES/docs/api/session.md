@@ -223,9 +223,9 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Resetea a l
     * `verificationResult` Entero - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
       * `` - indiva el éxito y desactiva la certificación de la verificación de transparencia.
       * `-2` - Indica falla.
-      * `-3` - Uses the verification result from chromium.
+      * `-3` - Usa el resultado de verificación de chromium.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Establece el certificado de verificar proc de la `sesión`, el `proc` será cancelada con `proc(request, callback)` cuando sea solicitado una verificación del certificado del servidor. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
 Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
