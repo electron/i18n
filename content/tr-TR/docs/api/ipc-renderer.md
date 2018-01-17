@@ -17,7 +17,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 * `channel` Dizesi
 * `listener` fonksiyon
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+`listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcRenderer.once(channel, listener)`
 
