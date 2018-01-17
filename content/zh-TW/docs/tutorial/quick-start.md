@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+`package.json` 的格式和 Node 的完全一致，而裡面 `main` 所定義的指令就是用來啟動 app 的，它會運行主程序。 你應用程式中的 `package.json` 應該看起來像這樣：
 
 ```json
 {
