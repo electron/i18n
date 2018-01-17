@@ -20,7 +20,7 @@ Upang maiwasan ang pagiging kumplikado sa paglikha ng lahat ng Chromium, ang Ele
 
 **3. Pinagsama-samang Node**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. See the [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code for how that was done.
+Sa NW.js, ang pinagsama-samang Node sa pahina ng web ay kinakailangang takpan ng Chromium upang ito'y gumana, habang sa Elektron, tayo ay pumipili ng iba't-ibang paraan para mapagsama-sama ang libuv loop kasama ang bawat mensahe ng platform sa loop upang maiwasan ang walang pahintulot na paggamit sa Chromium. Tingnan ang [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) code kung paano ito nangyayari.
 
 **4. Multi-context**
 
