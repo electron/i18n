@@ -24,9 +24,9 @@ app.on('ready', () => {
 
 ## Paunawa sa Platform
 
-Sa Linux at Windows, ang `Command` na key ay walang epekto kaya dapat gumamit ng `CommandOrControl` na nagrerepresenta ng `Command` sa macOS at `Control` sa Linux at Windows para italaga ang ibang mga accelerator.
+Sa Linux at Windows, ang key na `Command` ay walang anumang epekto kaya dapat gamitin ang `CommandOrControl` na kumakatawan sa mga `Command` sa macOS at `Control` sa Linux at Windows upang bigyang kahulugan ang ilang mga aselerador.
 
-Gumamit ng `Alt` sa halip ng `Option`. Ang `Option` na key ginagamit lamang sa macOS, samantalang ang `Alt` na key ay nasa lahat ng mga platform.
+Gamitin ang `Alt` sa halip na `Option`. Ang key na `Option` ay umiiral lamang sa macOS, samantalang ang key ng `Alt` ay magagamit sa lahat ng mga platform.
 
 Ang `Super` na key ay nakatalaga sa `Windows` na key sa Windows at Linux at `Cmd` sa macOS.
 
