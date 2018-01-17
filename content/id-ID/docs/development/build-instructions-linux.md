@@ -137,7 +137,7 @@ Konfigurasi bangunan default ditargetkan untuk distribusi desktop desktop utama.
 
 ### Membangun ` libchromiumcontent ` secara lokal
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Untuk menghindari penggunaan binari setelah pembangunan dari `libchromiumcontent`, Anda dapat membangun `libchromiumcontent` secara lokal. Untuk melakukannya, ikuti langkah-langkah ini:
 
 1. Menginstal [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Install [ tambahan build dependencies ](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### Menggunakan sistem ` clang ` daripada download ` clang ` binari
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Secara default Elektron dibangun dengan pembangunan setelahnya [`clang`](https://clang.llvm.org/get_started.html) binari yang disediakan oleh Proyek kromium. Jika karena alasan tertentu Anda ingin membangun dengan `clang` terinstal di dalam sistem Anda, Anda dapat memanggil `bootstrap.py`with`--clang_dir=<path>` beralih. Dengan melewatkannya, skrip yang sedang dibangun akan mengasumsikan biner `clang` berada di `<path>/bin/`.
 
 Sebagai contoh jika Anda menginstal ` clang ` di bawah ` / user / local / bin / clang `:
 
