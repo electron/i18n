@@ -102,24 +102,24 @@ Borra la memoria caché del HTTP de la sesión.
 * `options` Objecto (opcional) 
   * `origen` Cadena - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `quotas` Cadena[] - (opcional) El tipo de acciones que borrar, puede contener: `temporary`, `persistent`, `syncable`.
 * `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
 
 Borra los datos de almacenamiento web.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Escribe cualquier dato DOMStorage que no lo haya sido en disco.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Object 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+* `configuración` Objecto 
+  * `pacScript` Cadena - El URL asociado con el archivo PAC.
+  * `proxyRules` Cadena - Reglas indicando cual proxy utilizar.
+  * `proxyBypassRules` Cadena - Reglas indicando cuál URL deben eludir la configuración del proxy.
+* `Llamada` Funcion - Llamada cuando la operación está completada.
 
-Sets the proxy settings.
+Configurar proxy.
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
