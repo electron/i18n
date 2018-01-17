@@ -8,7 +8,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 ## Mesaj gönderiliyor
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) komutuna bakınız.
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
 * Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
@@ -50,7 +50,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 * `channel` Dizesi
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+`listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcMain.once(channel, listener)`
 
