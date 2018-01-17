@@ -4,5 +4,5 @@
 * `arguments` String - Ang mga argumento ng linyang pang-utos kapag `program` ay pinagana na.
 * `title` String - Ang hanay na naipakita sa JumpList.
 * `description` String - Ang paglalarawan ng task na ito.
-* `iconPath` String - Ang tanging daan patungo sa isang icon na ipinapakita sa isang JumpList, na kung saan ay maaaring maging hindi makatuwirang sangguniang file na naglalaman ng isang icon. You can usually specify `process.execPath` to show the icon of the program.
-* `iconIndex` Number - The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
+* `iconPath` String - Ang tanging daan patungo sa isang icon na ipinapakita sa isang JumpList, na kung saan ay maaaring maging hindi makatuwirang sangguniang file na naglalaman ng isang icon. Karaniwang maaari mong tukuyin `process.execPath` para ipakita ang icon ng programa.
+* `iconIndex` Number - Ang indeks ng icon sa icon file. Kung ang isang icon file ay binubuo ng dalawa o higit pang mga icon, itakda ang bilang nito para matukoy ang mga icon. Kung ang isang icon file ay binubuo ng isang icon, ang halaga nito ay 0.
