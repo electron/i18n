@@ -16,7 +16,7 @@ Ang Elektron ay gumagana ng magkasing-tulad ng sa Node.js. Ang APIs ng Elektron 
 
 **2. Paglikha ng Sistema**
 
-Upang maiwasan ang pagiging kumplikado sa paglikha ng lahat ng Chromium, ang Elektron ay gumagamit ng [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+Upang maiwasan ang pagiging kumplikado sa paglikha ng lahat ng Chromium, ang Elektron ay gumagamit ng [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) Chromium's Content API. `libchromiumcontent` ay mag-isang ibinabahagi ng library kung saan nakapaloob ang Chromium Content modyul at lahat ng nakaasa dito. Users don't need a powerful machine to build Electron.
 
 **3. Node Integration**
 
