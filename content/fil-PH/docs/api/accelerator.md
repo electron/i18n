@@ -17,7 +17,7 @@ const {app, globalShortcut} = require('electron')
 app.on('ready', () => {
   // Magrehistro ng isang 'CommandOrControl+Y' mga tagapakinig ng shortcut.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Gumawa ng mga bagay-bagay kapang ang Y at alinman sa Command o Control ang pinindot.
+    // Gumawa ng bagay-bagay kapag ang Y at alinman sa Command/Control ay napindot na.
   })
 })
 ```
