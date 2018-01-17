@@ -247,11 +247,11 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 * `handler` Función 
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.
-  * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
+  * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
   * `llamada de vuelta` Función 
-    * `permissionGranted` Boolean - Allow or deny the permission
+    * `permiso concedido` Booleano - Permiso o denegado de permiso
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará.
 
 ```javascript
 const {session} = require('electron')
@@ -268,11 +268,11 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
 
-Clears the host resolver cache.
+Borra la caché de resolución de host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `dominio` Cadena - Una lista separada por coma de servidores para los cuales la autenticación integrada está habilitada.
 
 Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
