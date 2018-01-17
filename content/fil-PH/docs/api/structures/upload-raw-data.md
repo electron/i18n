@@ -1,4 +1,4 @@
-# UploadRawData Object
+# Mga bagay sa UploadRawData
 
 * `type` String - `rawData`.
-* `bytes` Buffer - Data to be uploaded.
+* `bytes` Buffer - Ang datos na maaaring i-upload.
