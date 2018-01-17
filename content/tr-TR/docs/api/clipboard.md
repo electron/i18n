@@ -105,13 +105,13 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. Önbelleğe alınmış olan değer, uygulama her etkinleştirildiğinde kartuşun bulunduğu sayfadan yeniden okunur.
+`String` - Karton üzerindeki metni bulmaya yarar. Oluşturucu işleminden çağrılan bu yöntem senkron IPC kullanır. Önbelleğe alınmış olan değer, uygulama her etkinleştirildiğinde kartuşun bulunduğu sayfadan yeniden okunur.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` Dizi
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+`text` komutu içerisindeki metin karton bulma alanına düz yazı olarak yazılır. Oluşturucu işleminden çağrılan bu yöntem senkron IPC kullanır.
 
 ### `clipboard.clear([type])`
 
@@ -147,7 +147,7 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+`Buffer` - `format` türünü panodan okur.
 
 ### `clipboard.writeBuffer (biçim, arabellek [, tür])` *Deneysel*
 
