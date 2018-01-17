@@ -973,9 +973,9 @@ The `buttons` is an array of `Button` objects:
 Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 * `enabled` - Ang pindutan ay aktibo at magagamit ng mga gumagamit.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
+* `disabled` - Ang pindutan ay hindi pinagana. Ito ay kasalukuyan, subalit ito ay may nakikitang estado na nagsasabing ito ay hindi tutugon sa aksyon ng gumagamit.
+* `dismissonclick` - Kapag ang pindutan ay pinindot, ang thumbnail window ay agad-agad na magsasara.
+* `nobackground` - Huwag gumawa ng hangganan ng pindutan, gamitin lamang ang larawan.
 * `hidden` - The button is not shown to the user.
 * `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
 
