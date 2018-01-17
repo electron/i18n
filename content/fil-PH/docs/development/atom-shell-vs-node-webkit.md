@@ -26,6 +26,6 @@ Sa NW.js, ang pinagsama-samang Node sa pahina ng web ay kinakailangang takpan ng
 
 Kung ikaw isang bihasang gumagamit ng NW.js, ikaw ay dapat maging pamilyar sa konsepto ng konteksto ng Node at web. Ang konseptong ito ay naimbento sa kung paano ang NW.js ay naisakatuparan.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+Sa pamamagitan ng paggamit ng multi-context<0/> na itinatampok ng Node, ang Elektron ay hindi pa nagpapakilala ng bagong konteksto ng Javascript sa pahina ng web.</p> 
 
 Note: NW.js has optionally supported multi-context since 0.13.
