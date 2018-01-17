@@ -10,7 +10,7 @@ Ngunit mayroon ding mahalagang pagkakaiba ang dalawang proyekto kung saan ang El
 
 Sa NW.js, ang pangunahing pasukan ng aplikasyon ay ang pahina ng web o ng Javascript. Kailangang tukuyin ang html o js file sa `package.json` at nakabukas sa browser window bilang pina-aplikasyon sa window (kung sakaling ang html ang pinagmulan) ang script ay naisakatuparan.
 
-Sa Elektron, ang pinagmulan ay JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+Sa Elektron, ang pinagmulan ay JavaScript script. Sa halip na magbigay ng direktang URL, kailangang bumuo ng manu-manong browser window at isalang ang HTML file gamit ang API. Kinakailangan ding makinig sa kaganapan ng window upang makapagpasya kung kailan lalabas sa aplikasyon.
 
 Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
