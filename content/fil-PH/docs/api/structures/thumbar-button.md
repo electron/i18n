@@ -12,4 +12,4 @@ Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 * `dismissonclick` - Kapag ang pindutan ay pinindot, ang thumbnail window ay agad-agad na magsasara.
 * `nobackground` - Huwag gumawa ng hangganan ng pindutan, gamitin lamang ang larawan.
 * `hidden` - Ang pindutan ay hindi ipinapakita sa mga gumagamit.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninteractive` - Ang pindutan ay gumagana ngunit hindi interaktibo; walang pagpindot sa estado ng pindutan ang ginawa. Ang bilang na ito ay inilaan para sa pagkakataon na kung saan ang pindutan ay ginagamit sa isang paalala.
