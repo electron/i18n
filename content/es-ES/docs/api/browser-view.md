@@ -48,7 +48,7 @@ Los objetos creados con `new BrowserView` tienen las siguientes propiedades:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Un objeto [`WebContents`](web-contents.md), que pertenece a esta vista.
 
 #### `view.id` *Experimental*
 
