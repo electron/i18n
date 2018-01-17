@@ -225,9 +225,9 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Resetea a l
       * `-2` - Indica falla.
       * `-3` - Usa el resultado de verificación de chromium.
 
-Establece el certificado de verificar proc de la `sesión`, el `proc` será cancelada con `proc(request, callback)` cuando sea solicitado una verificación del certificado del servidor. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Establece el certificado de verificar proc de la `sesión`, el `proc` será cancelada con `proc(request, callback)` cuando sea solicitado una verificación del certificado del servidor. Llamando `callback(0)` se acepta el certificado, llamando `callback(-2)` se rechaza.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+Llamando `setCertificateVerifyProc(null)` se reveritrá la verificación de certificado por defecto.
 
 ```javascript
 const {BrowserWindow} = require('electron')
