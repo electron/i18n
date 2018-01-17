@@ -81,14 +81,14 @@
     "name": "Filipino",
     "code": "fil",
     "phrases": "8261",
-    "translated": "1490",
+    "translated": "1514",
     "approved": "0",
     "words": "73792",
-    "words_translated": "9292",
+    "words_translated": "9641",
     "words_approved": "0",
-    "translated_progress": 12,
+    "translated_progress": 13,
     "approved_progress": 0,
-    "qa_issues": "45"
+    "qa_issues": "46"
   },
   {
     "name": "French",
@@ -224,14 +224,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "8261",
-    "translated": "3808",
+    "translated": "3810",
     "approved": "58",
     "words": "73792",
-    "words_translated": "24772",
+    "words_translated": "24790",
     "words_approved": "125",
     "translated_progress": 33,
     "approved_progress": 0,
-    "qa_issues": "1351"
+    "qa_issues": "1353"
   },
   {
     "name": "Spanish",
