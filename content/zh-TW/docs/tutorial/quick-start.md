@@ -22,7 +22,7 @@ Electron 讓你可以使用原生的 JavaScript 便能呼叫豐富的原生 (作
 
 由於在網頁中管理原生的 GUI 資源很危險且容易導致資源洩漏，所以在網頁中不被允許使用原生 GUI 相關的 APIs。 如果你想在網頁中對 GUI 進行操作，其對應的渲染器程序必須和主程序溝通，請求主程序進行相關的 GUI 操作。
 
-在 Electron 中，有許多方式可以讓主程序和渲染器程序間通訊。 像 [`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md) 的模組可用於發送訊息，而 [remote](../api/remote.md) 模組則可以用於 RPC 方式通訊。 這些內容都可以在 FAQ 中的[如何在兩個頁面之間共享數據](../faq.md#how-to-share-data-between-web-pages)查看。
+在 Electron 中，有許多方式可以讓主程序和渲染器程序間通訊。 像 [`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md) 的模組可用於發送訊息，而 [remote](../api/remote.md) 模組則可以用於 RPC 方式通訊。 這些內容都可以在 FAQ 中的[如何在兩個頁面間共享資料](../faq.md#how-to-share-data-between-web-pages)查看。
 
 ## 寫你第一個 Electron 應用程式
 
@@ -132,7 +132,7 @@ app.on('activate', () => {
 
 ### `electron`
 
-`electron<0> 是一個 <code>npm` 套件，它包含了 Electron 預編譯版本。</p> 
+[`electron`](https://github.com/electron-userland/electron-prebuilt) 是一個 `npm` 套件，它包含了 Electron 預編譯版本。
 
 如果你已經將 `npm` 安裝在全域環境，你只需要在應用程式目錄下，按照下述方式執行：
 
@@ -162,7 +162,7 @@ $ npx electron .
 
 ### 手動下載 Electron 二進位檔案
 
-如果你手動下載了 Electron 的二進位檔案，你也可以直接使用其中的二進為檔案來直執行你的應用程式。
+如果你手動下載了 Electron 的二進位檔案，你可以直接使用其中的二進位檔案來執行應用程式。
 
 #### macOS
 
@@ -186,7 +186,7 @@ $ .\electron\electron.exe your-app\
 
 ### 以發佈檔執行
 
-在完成了你的應用程式後，你可以透過下面的 [應用發布](./application-distribution.md) 指導來建立一個打包好的檔案，並執行部署好的檔案。
+在完成了你的應用程式後，你可以透過下面的[應用發佈](./application-distribution.md)說明來建立一個打包好的檔案，並執行佈署好的檔案。
 
 ### 試試這個範例
 
@@ -205,4 +205,4 @@ $ npm install
 $ npm start
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+更多 apps 例子，可以參考 electron 社群中所建立的 [list of boilerplates](https://electronjs.org/community#boilerplates).
