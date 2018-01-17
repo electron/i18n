@@ -111,9 +111,9 @@ console.log(dialog)
       * `response` Number - The index of the button that was clicked
       * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
     
-    Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+    `Integer` tıklanan düğmenin indeksini döndürür, eğer bir geri dönüş sağlanırsa tanımsız bir şekilde geri döndürür.
     
-    Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+    Bir mesaj kutusu gösterir, ileti kutusu kapanıncaya kadar söz konusu işlemi engeller. Tıklanan düğmenin dizinini döndürür.
     
     `browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
     
@@ -121,8 +121,8 @@ console.log(dialog)
     
     ### `dialog.showErrorBox(title, content)`
     
-    * `title` String - The title to display in the error box
-    * `content` String - The text content to display in the error box
+    * `title` dizi - Hata kutusunda görüntülenecek başlığı belirler
+    * `content` dizi - Hata kutusunda görüntülenecek olan metnin içeriğini belirler
     
     Bir hata iletisi gösteren bir kalıcı iletişim kutusu görüntüler.
     
@@ -147,4 +147,4 @@ console.log(dialog)
     
     On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
     
-    You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+    Sayfalara eklenen Windows çerçevesinden ofset değerini değiştirmek için `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` komutunu çağırabilirsiniz.
