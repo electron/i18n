@@ -57,7 +57,7 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 * `Up`, `Down`, `Left`, at `Right`
 * `Home` at `End`
 * `PageUp` at `PageDown`
-* `Escape` (o `Esc` para maikli)
+* `Escape` (o `Esc` kapag pinaikli)
 * `VolumeUp`, `VolumeDown` at `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` at `MediaPlayPause`
 * `PrintScreen`
