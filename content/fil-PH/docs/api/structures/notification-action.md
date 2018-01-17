@@ -1,13 +1,13 @@
 # Mga bagay ng NotificationAction
 
 * `type` String - Ang uri ng aksyon, ay maaaring `button`.
-* `text` String - (optional) The label for the given action.
+* `text` String - (opsyonal) Ang tanda para sa ibinigay na aksyon.
 
-## Platform / Action Support
+## Platform / Suporta ng Aksyon
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitasyons                                                                                                                                                         |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Uri ng Aksyon | Suporta ng Platform | Kagamitan ng `text`                | Default `text` | Limitasyons                                                                                                                                                         |
+| ------------- | ------------------- | ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pindutan`    | macOS               | Ginagamit bilang tanda ng pindutan | "Ipakita"      | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Button support on macOS
 
