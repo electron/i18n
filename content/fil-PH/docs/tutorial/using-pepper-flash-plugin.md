@@ -1,8 +1,8 @@
 # Gamit ang Pepper Flash Plugin
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Ang Elektron ay sumusuporta sa Pepper Flash plugin. Sa paggamit ng Pepper Flash plugin sa Elektron, kinakaylangan mong tuunan ng pansin ang lokasyon ng Pepper Flash plugin at paganahin ito sa iyong aplikasyon.
 
-## Prepare a Copy of Flash Plugin
+## Maghanda ng Kopya ng Flash Plugin
 
 On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
 
