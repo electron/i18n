@@ -59,7 +59,7 @@ Magdagdag ng `plugins` katangian sa `<webview>`tag.
 
 ## Pag-aayos
 
-You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
+Maaari mo ring suriin kung Pepper Flash plugin ay karga ng pagsusuri ang `navigator.plugins` sa console ng devtools (kahit na hindi mo alam kung tama ang plugin path).
 
 The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
 
