@@ -1,10 +1,10 @@
-# DevTools Extension
+# DevTools Ekstensiyon
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+Sumusuporta ang Elektron [DevTools Ekstensiyon ng Chrome](https://developer.chrome.com/extensions/devtools), na kung saan ay maaaring gamitin upang palawakin ang mga kakayahan ng devtools sa pagdedebug ng kilalang balangkas sa web.
 
-## How to load a DevTools Extension
+## Paano i-load ang isang Ekstensiyon ng DevTools
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Dokumentong ito ay naglalahad ng proseso para sa mano-manong pagloading ng ekstensiyon. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
 To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
 
