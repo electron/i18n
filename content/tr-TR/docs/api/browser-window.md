@@ -1063,7 +1063,7 @@ Bu pencerede gerçekleşen tüm fare olayları aşağıdaki pencereye geçecekti
 
 Pencere içeriğinin diğer uygulamalar tarafından el konmasını engellemektedir.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+MacOS' ta NSWindow' un paylaşım türünü NSWindowSharinNone olarak ayarlar. Windows' ta SetWindowDisplayAffinity öğesini `WDA_MONITOR` ile çağırır.
 
 #### `win.setFocusable(focusable)` *Windows*
 
