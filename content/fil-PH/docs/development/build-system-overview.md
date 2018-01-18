@@ -1,12 +1,12 @@
 # Pagbuo ng Buod ng Sistema
 
-Ang Elektron ay gumagamit ng [gyp](https://gyp.gsrc.io/) para sa makalikha ng proyeko at [ninja](https://ninja-build.org/) para sa pagbuo nito. Ang pagsasaayos ng proyekto ay maaaring matagpuan sa mga file ng `.gyp` at `.gypi`.
+Ang Elektron ay gumagamit ng [gyp](https://gyp.gsrc.io/) para sa makalikha ng proyeko at [ninja](https://ninja-build.org/) para sa pagbuo nito. Ang kumpigurasyon ng proyekto ay maaaring matagpuan sa mga file ng `.gyp` at `.gypi`.
 
 ## Mga Files ng Gyp
 
-Following `gyp` files contain the main rules for building Electron:
+Ang mga sumusunod na `gyp` file ay naglalaman ng mga pangunahing panuntuan para sa pagbuo ng Elektron:
 
-* `electron.gyp` defines how Electron itself is built.
+* Ang `electron.gyp` ay tumutukoy sa kung paano ang Elektron ay binuo gamit ang kanyang sarili.
 * `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
 * `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
 * `brightray/brightray.gypi` includes general build configurations about building.
