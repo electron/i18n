@@ -80,17 +80,17 @@ Na maglilinis lamang ng mga direktoryong `out` at `dist`:
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
 
-## Tests
+<h2>Tests</h2>
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+<p>Tingnan <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
 
-## Troubleshooting
+<h2>Troubleshooting</h2>
 
-### Command xxxx not found
+<h3>Command xxxx not found</h3>
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+<p>If you encountered an error like <code>Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
 
 ### Fatal internal compiler error: C1001
 
