@@ -350,7 +350,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 
 * `path` String
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `size` String 
+  * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
