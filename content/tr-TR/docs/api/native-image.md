@@ -121,7 +121,7 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` obje (isteğe bağlı) *`width` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir. * `height` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 `NativeImage` döndürür
 
@@ -153,7 +153,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` tamsayı (**required**) - 0 - 100 arasında.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `JPEG` kodlanmış verisini içeririr.
 
@@ -179,7 +179,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. MacOS' ta `NSImage` örneğine bir işaretçi iade edilecektir.
 
 Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
 
