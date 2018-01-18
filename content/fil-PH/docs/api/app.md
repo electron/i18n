@@ -327,11 +327,11 @@ Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
 
 Returns `String` - Isang landas para sa isang espesyal na direktoryo o file na may kaugnayan sa `name`. Sa kabiguan ang `Error` ay ibinabato.
 
-You can request the following paths by the name:
+Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
+* `home` Ang bahay direktoryo ng gumagamit.
+* `appData` Aplikasyon ng direktoryo ng datos ng bawat gumagamit, kung saan sa pamamagitan ng default ay tumuturo sa: 
+  * `%APPDATA%` sa Windows
   * `$XDG_CONFIG_HOME` or `~/.config` on Linux
   * `~/Library/Application Support` on macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
