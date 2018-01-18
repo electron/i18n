@@ -344,7 +344,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 * `music` Direktoryo ng musika para sa gumagamit.
 * `pictures` Direktoryo ng mga larawan para sa gumagamit.
 * `videos` Direktoryo ng mga video para sa gumagamit.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Buong landas sa bersyon ng sistema sa plugin ng Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
