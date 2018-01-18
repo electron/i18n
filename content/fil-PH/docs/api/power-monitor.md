@@ -6,7 +6,7 @@ Proseso: [Main](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
-For example:
+Halimbawa:
 
 ```javascript
 const electron = require('electron')
