@@ -35,14 +35,14 @@ Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` dizi (isteğe bağlı)
 
-Removes all listeners, or those of the specified `channel`.
+Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
@@ -51,7 +51,7 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
