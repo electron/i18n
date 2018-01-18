@@ -386,13 +386,13 @@ Magbabalik ng `String` - Ang bersyon ng na-load na application. Kung walang bers
 
 Magbabalik ng `String` - Ang kasalukuyang pangalan ng application, kung saan matatagapuan ito sa `package.json` file ng application.
 
-Karaniwang maikling lowercased na pangalan ang `name` field ng `package.json`, ayon sa npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Karaniwang maikling lowercased na pangalan ang `name` field ng `package.json`, ayon sa npm modules spec. Kadalasan, dapat mong itukoy ang `productName` field kung saan ito ang full capitalized na pangalan ng application, at kung saan mas prini-prefer ito kaysa sa `name` naayon sa Electron.
 
 ### `app.setName(name)`
 
 * `name` String
 
-Overrides the current application's name.
+Ino-override ang kasalukuyang pangalan ng application.
 
 ### `app.getLocale()`
 
