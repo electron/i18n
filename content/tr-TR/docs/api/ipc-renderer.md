@@ -66,4 +66,4 @@ The main process handles it by listening for `channel` with `ipcMain` module, an
 * `channel` Dizesi
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+`ipcRenderer.send` gibi ancak olay ana işlem yerine ana sayfadaki `<webview>` öğesine gönderilecektir.
