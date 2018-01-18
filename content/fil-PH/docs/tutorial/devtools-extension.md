@@ -24,9 +24,9 @@ Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/reac
 
 **Paunawa:** Ang `BrowserWindow.addDevToolsExtension` API huwag tawagan bago mahanda ang pangyayari sa app ng modyul sa paglabas.
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+Ang mga pangalan ng ekstensiyon ay ibinalik ng `BrowserWindow.addDevToolsExtension`, at ikaw ang magpapasa ng pangalan ng ekstensiyon sa `BrowserWindow.removeDevToolsExtension` API ialis ito.
 
-## Supported DevTools Extensions
+## Suportado ng DevTools Ekstensiyon
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
