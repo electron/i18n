@@ -1,6 +1,6 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Paganahin ang app na awtomatikong mag-update ang kanilang sarili.
 
 Proseso: [Main](../glossary.md#main-process)
 
@@ -92,7 +92,7 @@ Bumalik `String` - Ang kasalukuyang update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gamitin itong API.
 
 ### `autoUpdater.quitAndInstall()`
 
