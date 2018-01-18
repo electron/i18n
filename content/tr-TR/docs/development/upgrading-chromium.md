@@ -92,13 +92,13 @@ Hata yolu ile ilgili herhangi bir derleme hatası varsa, muhtemelen ayrılmayı 
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+Bununla ilgili bilgiler için [Upgrading Node](upgrading-node.md) ' a bakın.
 
 ## Ffmpeg desteği doğrulama
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Her Chrome yükseltmesi halen desteklenmekte olan versiyonu değiştirdiğini doğrulamalıdır.
+Electron, varsayılan olarak özel codec bileşenlerini içeren `ffmpeg` sürümü ile birlikte gelir. Codec bileşenleri olmadan her sürümle birlikte dağıtılan bir sürüm insa edilmiştir. Her Chrome yükseltmesi halen desteklenmekte olan versiyonu değiştirdiğini doğrulamalıdır.
 
-Sıradaki sayfayı yükleyerek çoklu `ffmpeg` yapıları için Electron desteğinini doğrulayabilirsin. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Sıradaki sayfayı yükleyerek çoklu `ffmpeg` yapıları için Electron desteğinini doğrulayabilirsin. Electron ile dağıtılan varsayılan `ffmpeg` kütüphanesi ile çalışmalıdır ve özel codec olmadan oluşturulmuş `ffmpeg` kütüphanesi ile çalışmamalıdır.
 
 ```html
 <!DOCTYPE html>
