@@ -47,11 +47,11 @@ app.on('ready', () => {
 })
 ```
 
-You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
+Maaari mong subukan ang loading system wide Pepper Flash plugin sa halip na ipapadala ang mga plugin sa iyong sarili, itong path ay pwedeng matanggap sa pagtawag sa `app.getPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Paganahin ang Flash Plugin sa `<webview>` Tag
 
-Add `plugins` attribute to `<webview>` tag.
+Magdagdag ng `plugins` katangian sa `<webview>`tag.
 
 ```html
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
