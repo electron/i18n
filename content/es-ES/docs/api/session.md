@@ -321,7 +321,7 @@ Devuelve `Blob` - Los datos blob asociados con el `identificador`.
   * `eTag` Cadena - Valor Etag del encabezado.
   * `Tiempo de inicio` Doble (opcional) - Tiempo en que se inició la descarga en números de segundo desde epoch de UNIX.
 
-Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API generará un [elemento de descarga](download-item.md) que puede ser accesado con el evento [se descargará](#event-will-download). El [Elemento de descarga](download-item.md) no tendrá ningún `contenido web` asociado con el y el estado inicial será `interrumpido`. La descarga empezará solo cuando la `reanudación` de la API sea llamada en el [elemento descargado](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
@@ -332,19 +332,19 @@ Clears the session’s HTTP authentication cache.
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `Session`:
+Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objeto de [Cookies](cookies.md) para esta esión.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objeto [petición web](web-request.md) para esta sesión.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objeto de [protocolo](protocol.md) para esta sesión.
 
 ```javascript
 const {app, session} = require('electron')
