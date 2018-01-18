@@ -23,7 +23,7 @@ Ang lahat ng maaaring buuin sa Chromium na mga binary (`libchromiumcontet`) ay m
 
 Bilang default, ang `libchromiumcontent` ay makukuha galing sa Amazon Web Services. Kung ang `LIBCHROMIUMCONTENT_MIRROR` ay nakaayos bilang environment variable, maaaring makuha mula dito ang bootstrap script. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) ay sumasalamin para sa `libchromiumcontent`. Kung ikaw ay nakakaranas ng mahirap na pagpasok sa AWS, maaaring palitan ang nakuhang address nito sa pamamagitan ng `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
-Kung nais mo lamang mapabilis ang pagbuo ng Elektron upang masubukan o pag-unalarin ito, maaaring kunin ang mga bersyon ng shared library sa pamamagitan ng parameter ng `--dev`:
+Kung nais mo lamang na mapabilis ang pagbuo ng Elektron upang masubukan o pag-unalarin ito, maaaring kunin ang mga bersyon ng shared library sa pamamagitan ng parameter ng `--dev`:
 
 ```sh
 $ ./script/bootstrap.py --dev
