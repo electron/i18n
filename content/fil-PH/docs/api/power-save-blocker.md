@@ -4,7 +4,7 @@
 
 Proseso: [Main](../glossary.md#main-process)
 
-For example:
+Halimbawa:
 
 ```javascript
 const {powerSaveBlocker} = require('electron')
