@@ -6,9 +6,9 @@ Ang Elektron ay sumusuporta sa Pepper Flash plugin. Sa paggamit ng Pepper Flash 
 
 Sa macOS at Linux, ang mga detalye ng Pepper Flash plugin ay matatagpuan sa pamamagitan ng pag-navigate sa `chrome://plugins` sa Chrome browser. Itong lokasyon at bersyon ay mapapakinabangan para sa Electron's Pepper Flash support. Maaari mo ring kopyahin ito sa ibang lokasyon.
 
-## Dagdagan ng Elektron Switch
+## Dagdagan ng Electron Switch
 
-Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash version` sa linya ng utos ng Elektron o sa pamamagitan ng paggamit ng `app.commandLine.appendSwitch` paraan bago ang app handa sa pangyayari. Saka, buksan ang `plugin` opsyon sa `BrowserWindow`.
+Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash version` sa linya ng utos ng Electron o sa pamamagitan ng paggamit ng `app.commandLine.appendSwitch` paraan bago ang app handa sa pangyayari. Saka, buksan ang `plugin` opsyon sa `BrowserWindow`.
 
 Halimbawa:
 
@@ -61,7 +61,7 @@ Magdagdag ng `plugins` katangian sa `<webview>`tag.
 
 Maaari mo ring suriin kung Pepper Flash plugin ay karga ng pagsusuri ang `navigator.plugins` sa console ng devtools (kahit na hindi mo alam kung tama ang plugin path).
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+Ang arkitektura ng Pepper Flash plugin ay upang tumugma sa isang Electron. Sa Windows, ang karaniwang mali na ginagamit ang 32 bit na bersyon ng Flash plugin laban sa 64 bit na bersyon ng Electron.
 
 On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
 
