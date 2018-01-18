@@ -22,14 +22,14 @@ The `ipcRenderer` module has the following method to listen for events and send 
 ### `ipcRenderer.once(channel, listener)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` Fonksiyon
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` Fonksiyon
 
 Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
