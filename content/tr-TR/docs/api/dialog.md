@@ -132,16 +132,16 @@ console.log(dialog)
     
     * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
     * `ayarlar` Nesne 
-      * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-      * `message` String - The message to display to the user.
+      * `certificate` [Certificate](structures/certificate.md) - Sertifika için güven ve önemi belirtir.
+      * `message` String - Kullanıcı tarafından görüntülenecek mesajı belirtir.
     * `callback` Fonksiyon
     
-    MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+    MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. `browserWindow` Argümentini sağladığınızda, iletişim kutusu ana pencereye eklenerek kalıcı hale gelir.
     
     Windows işletim sisteminde Win32'de kullnaılan API nedeniyle seçenekler daha kısıtlıdır:
     
     * `message` argümanı İşletim sisteminin kendi onay diyaloğunu kullanması sebebiyle kullanılmıyor,.
-    * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+    * `browserWindow`' ı kalıcı bir onay kutusu haline getirmek mümkün olmadığından argümanı yok sayılır.
     
     ## Sayfalar
     
