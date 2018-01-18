@@ -340,10 +340,10 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 * `module` Ang `libchromiumcontent` library.
 * `desktop` Ang kasalukuyang direktoryo ng Desktop ng gumagamit.
 * `documents` Direktoryo ng "My Documents" para sa gumagamit.
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
+* `downloads` Direktoryo ng download para sa gumagamit.
+* `music` Direktoryo ng musika para sa gumagamit.
+* `pictures` Direktoryo ng mga larawan para sa gumagamit.
+* `videos` Direktoryo ng mga video para sa gumagamit.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
