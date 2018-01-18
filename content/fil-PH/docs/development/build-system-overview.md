@@ -15,9 +15,9 @@ Ang mga sumusunod na `gyp` file ay naglalaman ng mga pangunahing panuntuan para 
 
 Sapagkat ang Chromium ay isang malaking proyekto, ang pag-uugnay nito sa huling yugto ay maaaring magtagal ng ilang minuto na syang dahilan upang ito'y mahirap na maisakatuparan. Upang malutas ang mga ito, ang Chromium ay ipinakilala ang "component build", kung saan ito'y bumubuo ng bawat bahagi na syang sangkap bilang isang hiwalay na shared library na syang nagpapadali at nagpapabilis ng pag-uugnay nito, ngunit maaaring maipagsawalang bahala ang sukat ng file at paggana nito.
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Sa Elektron, tayo ay kumukuha ng pinakamadaling paraan: para sa pagbubuo ng `Debug`, ang binary ay naka-ugnay sa isang bersyon ng shared library ng iba't-ibang bahagi ng Chromium para maisakatuparan ang pagpapabilis ng pag-uugnay nito; para sa pagbubuo ng `Release`, ang binary ay kailangang iugnay sa bersyon ng static library, nang sa gayon, maaari tayong makakuha ng pinakamagandang sukat at pagtakbo ng ating binary.
 
-## Minimal Bootstrapping
+## Minimal na Bootstrapping
 
 All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
 
