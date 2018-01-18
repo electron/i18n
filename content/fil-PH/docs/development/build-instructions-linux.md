@@ -103,13 +103,13 @@ After building is done, you can find the `electron` debug binary under `out/D`.
 
 ## Cleaning
 
-To clean the build files:
+Upang malinis ang binubuong files:
 
 ```sh
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Na maglilinis lamang ng mga direktoryong `out` at `dist`:
 
 ```sh
 $ npm run clean-build
