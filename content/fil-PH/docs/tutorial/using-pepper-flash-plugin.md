@@ -4,9 +4,9 @@ Ang Elektron ay sumusuporta sa Pepper Flash plugin. Sa paggamit ng Pepper Flash 
 
 ## Maghanda ng Kopya ng Flash Plugin
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+Sa macOS at Linux, ang mga detalye ng Pepper Flash plugin ay matatagpuan sa pamamagitan ng pag-navigate sa `chrome://plugins` sa Chrome browser. Itong lokasyon at bersyon ay mapapakinabangan para sa Electron's Pepper Flash support. Maaari mo ring kopyahin ito sa ibang lokasyon.
 
-## Add Electron Switch
+## Dagdagan ng Elektron Switch
 
 You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
 
