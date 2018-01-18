@@ -50,19 +50,19 @@ $ ./script/bootstrap.py -v
 
 ## Pagbuo
 
-Build both `Release` and `Debug` targets:
+Bumuo pareho ng `Release` at `Debug`:
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+Maaari rin namang bumuo lamang ng `Debug`:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+Pagkatapos bumuo, maaari nang hanapin ang `Electron.app` sa ilalim ng `out/D`.
 
 ## 32bit Support
 
