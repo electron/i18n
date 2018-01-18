@@ -6,11 +6,11 @@ Sumusuporta ang Elektron [DevTools Ekstensiyon ng Chrome](https://developer.chro
 
 Dokumentong ito ay naglalahad ng proseso para sa mano-manong pagloading ng ekstensiyon. Pwede mo ring subukan [elektron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), isang third party tool na nag-dadownload ng ekstensiyon na direkta mula sa Chrome WebStore.
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Sa pag-load ng ekstensiyon sa elektron, kailangan mong i-download ito sa Chrome browser, hanapin itong filesystem path, at i-load ang mga ito sa pagtawag sa `BrowserWindow.addDevToolsExtension(ekstensiyon)` API.
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) bilang halimbawa:
 
-1. Install it in Chrome browser.
+1. I-install ito sa browser ng Chrome.
 2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
 3. Find out filesystem location used by Chrome for storing extensions: 
     * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
