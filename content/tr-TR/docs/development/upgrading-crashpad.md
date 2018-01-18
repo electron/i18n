@@ -8,8 +8,8 @@
 <li><code>git clone https://chromium.googlesource.com/crashpad/crashpad`
     - şubeyi sağlama yaparak kontrol edin 
         - `çıkışa git`
-    - Add electron's crashpad fork as a remote
-    - `git remote add electron https://github.com/electron/crashpad`
+    - Elektron crashpad' i çatal olarak kumandaya ekleyin
+    - `elektronu uzaktan eklemek isterseniz https://github.com/electron/crashpad`
     - Güncelleme için yeni bir dalı kontrol edin
     - `git checkout -b electron-crashpad-vA.B.C.D`
     - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
