@@ -6,5 +6,5 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarGroup(options)` *Experimental*
 
-* `options` Bagay 
+* `mga pagpipilian` Bagay 
   * `items` [TouchBar](touch-bar.md) - Items to display as a group.
