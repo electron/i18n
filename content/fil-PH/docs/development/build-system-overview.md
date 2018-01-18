@@ -32,7 +32,7 @@ $ ./script/build.py -c D
 
 ## Dalawang paraan ng Pagbuo ng Proyekto
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+Ang Elektron ay iniuugnay sa iba't-ibang ayos ng libraries sa pagbuo ng `Release` at `Debug`. `gyp`, however, doesn't support configuring different link settings for different configurations.
 
 To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
 
