@@ -24,7 +24,7 @@ The `ipcRenderer` module has the following method to listen for events and send 
 * `channel` Dizesi
 * `listener` Fonksiyon
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
