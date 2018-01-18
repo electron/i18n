@@ -63,6 +63,6 @@ Maaari mo ring suriin kung Pepper Flash plugin ay karga ng pagsusuri ang `naviga
 
 Ang arkitektura ng Pepper Flash plugin ay upang tumugma sa isang Electron. Sa Windows, ang karaniwang mali na ginagamit ang 32 bit na bersyon ng Flash plugin laban sa 64 bit na bersyon ng Electron.
 
-On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
+Ang Windows path ay magpatuloy sa `– ppapi-flash-path` ay gamitin `` bilang path delimiter, gamit ang POSIX-style paths ay hindi gagana.
 
-For some operations, such as streaming media using RTMP, it is necessary to grant wider permissions to players’ `.swf` files. One way of accomplishing this, is to use [nw-flash-trust](https://github.com/szwacz/nw-flash-trust).
+Para sa ilang mga operasyon, tulad ng streaming media gamit ang RTMP, ito ay kinakailangan upang bigyan ng mas malawak na pahintulot sa mga manlalaro `.swf` files. Ang isang paraan para maisakatuparan ito, gamitin ang [nw-flash-tiwala](https://github.com/szwacz/nw-flash-trust).
