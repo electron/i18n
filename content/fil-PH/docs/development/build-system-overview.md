@@ -19,9 +19,9 @@ Sa Elektron, tayo ay kumukuha ng pinakamadaling paraan: para sa pagbubuo ng `Deb
 
 ## Minimal na Bootstrapping
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+Ang lahat ng maaaring buuin sa Chromium na mga binary (`libchromiumcontet`) ay maaaaring makuha kapag ang bootstrat script ay gumagana. Kapag default, ang parehong static libraries at shared libraries ay makukuha at ang dapat na sukat ng file ay sa pagitan ng 800MB at 2GB depende sa platform nito.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+Bilang default, ang `libchromiumcontent` ay makukuha galing sa Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
 If you only want to build Electron quickly for testing or development, you can download just the shared library versions by passing the `--dev` parameter:
 
