@@ -319,13 +319,13 @@ Ipinapakita ang mga window ng aplikasyon pagkatapos na sila ay itago. Ay hindi k
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Returns `String` - Isang landas para sa isang espesyal na direktoryo o file na may kaugnayan sa `name`. Sa kabiguan ang `Error` ay ibinabato.
 
 You can request the following paths by the name:
 
