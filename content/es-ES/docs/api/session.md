@@ -274,12 +274,12 @@ Borra la caché de resolución de host.
 
 * `dominio` Cadena - Una lista separada por coma de servidores para los cuales la autenticación integrada está habilitada.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Configura dinámicamente cada vez que se envíen credenciales para HTTP NTLM o negociaciones de autenticación.
 
 ```javascript
 const {session} = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// considera cualquier url que termine con `example.com`, `foobar.com`, `baz`
+// para autenticación integrada.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
 // consider all urls for integrated authentication.
@@ -288,14 +288,14 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
-* `userAgent` String
-* `acceptLanguages` String (optional)
+* `userAgent` cadena
+* `lenguajes aceptados` Cadena (opcional)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Reemplaza el `userAgent` y los `lenguajes aceptados` para esta sesión.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Los `lenguajes aceptados` deben estar ordenados en una lista separada por coma de códigos de lenguaje, por ejemplo `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Esto no afecta el `contenido web` existente, y cada `contenido web` puede usar `webContents.setUserAgent` para sobreescribir el agente de sesión de usuario.
 
 #### `ses.getUserAgent()`
 
