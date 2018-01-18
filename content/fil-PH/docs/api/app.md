@@ -372,7 +372,7 @@ Sa *Linux* at *macOS*, ang mga icon ay nakadepende sa aplikasyon na may kaugnaya
 * `name` String
 * `path` String
 
-Ini-override ang `path` patungo sa isang espesiyal na direktoryo o file na nauugnay sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi matatagpuan, ang direktoryo ay lilikhain gamit ang paraan na ito. Isang `Error` ay itatapon kung hindi ito gagana.
+Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi matatagpuan, ang direktoryo ay lilikhain gamit ang paraan na ito. Isang `Error` ay itatapon kung hindi ito gagana.
 
 Pwede mo lang ma-override ang mga path ng isang `name` na dinefine sa `app.getPath`.
 
@@ -420,7 +420,7 @@ Aalisin ang lahat ng laman ng kamakailan lang na lista ng mga dokumento.
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
 * `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
 This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
@@ -436,7 +436,7 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
 * `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
@@ -462,7 +462,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
@@ -652,7 +652,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
