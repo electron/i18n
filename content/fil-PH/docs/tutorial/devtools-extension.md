@@ -11,15 +11,15 @@ Sa pag-load ng ekstensiyon sa elektron, kailangan mong i-download ito sa Chrome 
 Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) bilang halimbawa:
 
 1. I-install ito sa browser ng Chrome.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
-        * `~/.config/google-chrome/Default/Extensions/`
+2. Mag-navigate sa `chrome://ekstensiyon`, at mahanap ito ang ekstensiyon ng ID, kung saan ang hash string tulad ng `fmkadmapgofadopljbjfkapdkoienihi`.
+3. Alamin ang lokasyon ng filesystem lokasyon gamit ang Chrome para sa pag-iimbak ng mga ekstensiyon: 
+    * sa Windows ito ang `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * sa Linux ito ay maaaring: 
+        * `~/.config/Google-Chrome/default/Extensions/`
         * `~/.config/google-chrome-beta/Default/Extensions/`
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+    * sa macOS ito ay `~/Library/Application Support/Google/Chrome/Default/Extension`.
 4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
 **Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
