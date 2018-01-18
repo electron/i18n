@@ -13,7 +13,10 @@ Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash vers
 Halimbawa:
 
 ```javascript
-const {app, BrowserWindow} = require('electron') const landas = require('path') / / Specify flash landas, inaakalang ito ay nakalagay sa parehong directory sa main.js.
+const {app, BrowserWindow} = kaylangan('elektron') const path = kaylangan('path') 
+
+
+// Liwanagin ang flash path, ipagpalagay ito ay nakalagay sa parehong listahan kasama ang main.js.
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -54,7 +57,7 @@ Add `plugins` attribute to `<webview>` tag.
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Troubleshooting
+## Pag-aayos
 
 You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
 
