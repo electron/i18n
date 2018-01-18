@@ -189,8 +189,8 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 #### `ses.enableNetworkEmulation(options)`
 
 * `ayarlar` Nesne 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
+  * `offline` Boolean (İsteğe Bağlı) - Ağ bağlantısının kopmasını taklit eder. Varsayılan değer False.
+  * `latency` Double (İsteğe Bağlı) - RTT (ms cinsinden) Varsayılan değer 0, gecikmenin azaltılmasını devre dışı bırakır.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
   * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
 
