@@ -365,9 +365,9 @@ Sa *Windows*, may 2 uri ng mga icon:
 * Ang mga icon na nauugnay ng ilang mga file extension, tulad ng `.mp3`, `.png`, atbp.
 * Mga icon na nasa loob mismo ng file, tulad ng `.exe`, `.dll`, `.ico`.
 
-Sa *Linux* at *macOS*, ang mga icon ay nagdedepende sa application na nauugnay sa file mime type.
+Sa *Linux* at *macOS*, ang mga icon ay nakadepende sa aplikasyon na may kaugnayan sa mime type na file.
 
-### `app.setPath(name, path)`
+### `app.setPath(name,path)`
 
 * `name` String
 * `path` String
@@ -417,8 +417,8 @@ Aalisin ang lahat ng laman ng kamakailan lang na lista ng mga dokumento.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`. Kung gusto mo ang iyong app na maghandle ng `electron://` na mga link, tawagin mo ang method na mayroong `electron` bilang parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
+* `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -433,8 +433,8 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
+* `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -443,8 +443,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
+* `args` String[] (opsyonal) *Windows* - Magdedefault sa isang walang laman na array
 
 Returns `Boolean`
 
