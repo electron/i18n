@@ -1,6 +1,6 @@
 # Gabay sa Windows Store
 
-Sa Windows 10, ang lumang win32 executable ay mayroong bagong kapatid: Ang Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+Sa Windows 10, ang lumang win32 executable ay mayroong bagong kapatid: Ang Universal Windows Platform. Ang bagong format ng `.appx` ay hindi lamang pinapagana ang mga bagong malalakas na API gaya ng Cortana at Push Notifications, ngunit sa pamamagitan ng Windows Store, pinapapayak nito ang pag-install at pag-update.
 
 Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
 
