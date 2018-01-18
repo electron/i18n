@@ -79,7 +79,7 @@ But remember the callback is referenced by the main process until you explicitly
 
 To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+Upang maiwasan ang problema, siguraduhin burahin anumang kaugnayan sa mga binalikang tawag na ipinasa sa pangunahing proseso. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
 
 ## Accessing built-in modules in the main process
 
