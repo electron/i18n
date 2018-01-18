@@ -147,7 +147,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
 
@@ -159,7 +159,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
@@ -171,7 +171,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
 `Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisini içeririr.
 
