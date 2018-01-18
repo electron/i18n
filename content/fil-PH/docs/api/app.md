@@ -358,21 +358,21 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Kukunin ang nauugnay na icon ng path.
 
-On *Windows*, there a 2 kinds of icons:
+Sa *Windows*, mayroong 2 klaseng mga icon:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Ang mga icon na nauugnay ng ilang mga file extension, tulad ng `.mp3`, `.png`, etc.
+* Mga icon na nasa loob mismo ng file, tulad ng `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+Sa *Linux* at *macOS*, ang mga icon ay nagdedepende sa application na nauugnay sa file mime type.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Ini-override ang `path` patungo sa isang espesiyal na direktoryo o file na nauugnay sa `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
 You can only override paths of a `name` defined in `app.getPath`.
 
