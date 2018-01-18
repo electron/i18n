@@ -63,7 +63,7 @@ Los siguientes eventos están disponibles en instancias de `Sesión`:
 #### Evento: "Se-descargará"
 
 * `evento` Evento
-* `item` [DownloadItem](download-item.md)
+* `elemento` [Elemento descargado](download-item.md)
 * `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Emitido cuando Electron está por descargar un `elemento` en `Contenido web`.
@@ -101,7 +101,7 @@ Borra la memoria caché del HTTP de la sesión.
 
 * `options` Objecto (opcional) 
   * `origen` Cadena - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `Almacenajes` Cadena[] - (opcional) Los almacenes para borra, puede contener: `Caché de la aplicación`, `cookies`, `Archivos de sistema`, `indexdb`, `Almacenamiento local`, `Caché compartido`, `websql`, `serviceworkers`
   * `quotas` Cadena[] - (opcional) El tipo de acciones que borrar, puede contener: `temporary`, `persistent`, `syncable`.
 * `Llamada` Función (opcional) - Llamada cuando se ha realizado la operación.
 
@@ -134,11 +134,11 @@ Las `proxyRules` tienen las siguientes reglas abajo:
 
 Por ejemplo:
 
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
-* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `http=foopy:80;ftp=foopy2` - Usa proxy HTTP `foopy:80` para URL `http://`, HTTP proxy `foopy2:80` para URL `ftp://`.
+* `foopy:80` - Usa Proxy HTTP `foopy:80` para todas las URLs.
+* `foopy:80,bar,direct://` - Usa proxy HTTP `foopy:80` para todas las URLs, no sobre `bar` si`foopy:80` no está disponible, y después de eso no usar ningún proxy.
+* `socks4://foopy` - Usa SOCKS v4 proxy `foopy:1080` para todas las URLs.
+* `http=foopy,socks5://bar.com` - Usa HTTP proxy `foopy` para las URLs http, y falla para el proxy SOCKS5 `bar.com` si `foopy` no está disponible.
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
