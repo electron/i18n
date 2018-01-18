@@ -27,10 +27,10 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+Kinakailangan mo ring paganahin ang Xcode upang makabuo laban sa 10.10 SDK:
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
+- Buksan ang `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
+- Itakda ang `MinimumSDKVersion` to `10.10`
 - Save the file
 
 ## Getting the Code
