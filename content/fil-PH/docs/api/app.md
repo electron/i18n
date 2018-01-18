@@ -276,13 +276,13 @@ Ang method na ito ay ginagarantiya na ang lahat ng `beforeunload` at `unload` na
 
 Kaagad na lumalabas pag may `exitCode`.`exitCode` mga default sa 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user at ang `before-quit` at `will-quit` na mga event ay hindi na lalabas.
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `mga pagpipilian` Mga bagay (opsyonal) 
+  * `args` String[] - (opsyonal)
+  * `execPath` String (opsyonal)
 
 Relaunches the app when current instance exits.
 
@@ -349,7 +349,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `mga pagpipilian` Mga bagay (opsyonal) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -616,7 +616,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Bagay 
+* `mga pagpipilian` Bagay 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
@@ -670,7 +670,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `mga pagpipilian` Mga bagay (opsyonal) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -721,7 +721,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Bagay 
+* `mga pagpipilian` Bagay 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
