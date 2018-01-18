@@ -75,4 +75,4 @@ const constraints = {
 
 Bittiğinde tüm mevcut masaüstü medya kaynakları hakkıda bilgi toplamaya başlar ve `callback(error, sources)`ı arar.
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+`sources` [`DesktopCapturerSource`](structures/desktop-capturer-source.md) nesnelerinin bir dizilişidir, her `DesktopCapturerSource` yakalanabilen bir ekran veya tek bir pencereyi temsil eder.
