@@ -64,19 +64,19 @@ $ ./script/build.py -c D
 
 Pagkatapos bumuo, maaari nang hanapin ang `Electron.app` sa ilalim ng `out/D`.
 
-## 32bit Support
+## Pagsuporta sa 32bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Ang Elektron ay maaari lamang mabuo gamit ang inaasahan na 64bit sa macOS at walang planong suportahan maging sa hinaharap ang 32bit sa macOS.
 
-## Cleaning
+## Paglilinis
 
-To clean the build files:
+Upang malinis ang binubuong files:
 
 ```sh
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Na maglilinis lamang ng mga direktoryong `out` at `dist`:
 
 ```sh
 $ npm run clean-build
