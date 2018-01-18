@@ -19,9 +19,9 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     Para sa ilang tampok (halimbawa ng pinch-zoom) na maaayos na gawa, kinakailangan mong makuha ang mocOS 10.10 SDK.
     
-    Ang Elektron ay opisyal na itinayo gamit ang [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), na hindi naglalaman 10.10 SDK bilang pagtakda. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+    Ang Elektron ay opisyal na itinayo gamit ang [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), na hindi naglalaman 10.10 SDK bilang pagtakda. Upang makamit ito, kinakailangang makuha at maikabit ang Xcode 6.4<0/> DMG.</p> 
     
-    Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
+    Ipagpalagay na ang Xcode 6.4 ay nakakonekta sa `/Volumes/Xcode` at ang iyong Xcode 8.2.1 ay nakakabit sa `Applicatios/Xcode.app`, ay gumagana:
     
     ```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
