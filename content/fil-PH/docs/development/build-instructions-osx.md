@@ -1,28 +1,29 @@
-# Build Instructions (macOS)
+# Pagbuo ng mga tagubilin (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
 
-## Prerequisites
+## Mga Pangunahing Kailangan
 
-- macOS >= 10.11.6
-- [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](https://nodejs.org) (external)
-
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
-
-- [pyobjc](https://pythonhosted.org/pyobjc/install.html)
-
-## macOS SDK
-
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
-
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
-
-Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
-
-Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
-
-```sh
+- macOS >=10.11.6
+- Xcode<0/> >= 8.2.1</li> 
+    
+    - [node.js](https://nodejs.org) (external)</ul> 
+    
+    If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+    
+    - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
+    
+    ## macOS SDK
+    
+    If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+    
+    For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+    
+    Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+    
+    Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
+    
+    ```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
