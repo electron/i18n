@@ -321,7 +321,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 ### `<webview>.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` cadena
 
 Overrides the user agent for the guest page.
 
