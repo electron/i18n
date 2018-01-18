@@ -8,7 +8,7 @@ Ang Microsoft[ay bumuo ng isang kagamitan na kumukalap ng Electron apps bilang`.
 
 Ang Windows 10 "Anniversary Update" ay kayang paganahin ang win32`.exe`binaries sa pamamagitan ng paglunsad nito ng sabay sa virtualized filesystem at registry. Sila ay kapwa nalikha sa panahon ng pagtitipon sa pamamagitan ng pagpapagana ng app at installer sa loob ng Windows Container, ito ay nagbibigay pahintulot sa Windows para eksaktong matukoy kung aling pagbabago sa operating system ang nagawa sa oras ng pag-iinstall. Ang pagpapares ng maipapatupad sa isang virtual filesystem at isang virtual registry ay nagbibigay pahintulot sa Windows upang paganahin ang pag-install at pagtanggal sa pamamagitan ng isang klik.
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Bukod pa rito, ang exe ay inilulunsad sa loob ng appx model - ibig sabihin ay magagamit nito ang maraming API na naroroon sa Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
