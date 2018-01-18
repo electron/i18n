@@ -1,4 +1,4 @@
-# `sandbox` Option
+# `sandbox` Opsyon
 
 > Create a browser window with a renderer that can run inside Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
 
