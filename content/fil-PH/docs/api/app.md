@@ -272,9 +272,9 @@ Ang method na ito ay ginagarantiya na ang lahat ng `beforeunload` at `unload` na
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (opsyonal)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Kaagad na lumalabas pag may `exitCode`.`exitCode` mga default sa 0.
 
 All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
 
