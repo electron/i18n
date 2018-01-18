@@ -4,13 +4,13 @@
 
 İşlem: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. You can also receive replies from the main process.
+`ipcRenderer` modülü [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) sınıfının bir ürünüdür. İşleme sürecinden (web sayfası) senkron ve asenkron mesajlar gönderebilmeniz için birkaç yöntem sağlar. Ayrıca ana kesimden gelen cevapları alabilirsiniz.
 
-See [ipcMain](ipc-main.md) for code examples.
+Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
 ## Metodlar
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+`ipcRenderer` modülü olayları dinlemek ve mesaj göndermek için aşağıdaki yöntemi içerir:
 
 ### `ipcRenderer.on(channel, listener)`
 
