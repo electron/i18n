@@ -301,7 +301,7 @@ Dönüşler:
 
 Doğrulanamadığında ortaya çıkar `certificate` for `url`.
 
-Kullanımı [the `certificate-error` event of`app`](app.md#event-certificate-error) ile aynıdır.
+Kullanımı [the `certificate-error` olayı `app`](app.md#event-certificate-error) ile aynıdır.
 
 #### Olay: 'select-client-certificate' 
 
@@ -338,7 +338,7 @@ Dönüşler:
 
 `webContents` temel doğrulama yapmak istediğinde çıkarılır.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+Kullanımı [the `login` olayı `app`](app.md#event-login) ile aynıdır.
 
 #### Etkinlik: 'sayfa içinde kurmak'
 
@@ -347,12 +347,12 @@ Dönüşler:
 * `olay` Olay
 * `sonuç` Nesne 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
+  * `matches` Tamsayı - Numaraların eşleştirilmesi.
+  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+[`webContents.findInPage`] isteği için sonuç kullanılabilir olduğunda yayılıyor.
 
 #### Olay: Medya oynamaya başladı
 
@@ -384,11 +384,11 @@ Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odak
 Dönüşler:
 
 * `olay` Olay
-* `type` String
+* `type` Dize
 * `image` NativeImage (optional)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `scale` Float (İsteğe Bağlı) Özel imleç için ölçekleme faktörü
+* `size` [Size](structures/size.md) (isteğe bağlı) - `image` boyutu
+* `hotspot` [Point](structures/point.md) (İsteğe bağlı) - Özel imlecin etkin noktasının koordinatları
 
 İmlecin türü değiştiğinde çıkar. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
@@ -400,9 +400,9 @@ Dönüşler:
 
 * `olay` Olay
 * `paramlar` Nesne 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
+  * `x` tamsayı - x koordinatı
+  * `y` tamsayı - y koordinatı
+  * `linkURL` Dize - Bağlam menüsünde çağrılan düğümü çevreleyen bağlantının URL' si.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
   * `frameURL` String - URL of the subframe that the context menu was invoked on.
