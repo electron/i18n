@@ -8,7 +8,7 @@ Ang mga sumusunod na `gyp` file ay naglalaman ng mga pangunahing panuntuan para 
 
 * Ang `electron.gyp` ay tumutukoy sa kung paano ang Elektron ay binuo gamit ang kanyang sarili.
 * Ang `commom.gypi` ay tumutulong upang maisaayos ang pagsasagawa ng kumpigurasyon ng Node upang ito'y mabuo kasama ang Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
+* Ang `brightray/brightray.gyp` ay tumutukoy sa kung paano ang <brightray</code> ay nabuo at kung saan ito'y nakapaloob sa mga default configuration para sa pag-uugnay nito sa Chromium.
 * `brightray/brightray.gypi` includes general build configurations about building.
 
 ## Component Build
