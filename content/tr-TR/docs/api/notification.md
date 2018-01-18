@@ -35,9 +35,9 @@ Süreç: [Ana](../glossary.md#main-process)
   * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
   * `icon` [NativeImage](native-image.md) - (İsteğe bağlı) Bildirimde kullanılacak simgeyi tanımlar
   * `hasReply` Boolean - (İsteğe bağlı) Bildirimler için satır içi cevap seçeneği eklemek isteyip istemediğinizi gösterir. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `replyPlaceholder` Dizi - (İsteğe Bağlı) - Satır içerisindeki açıklama alanları için yer tutucu özelliği vardır. *macOS*
+  * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (İsteğe Bağlı) Bildirimlere eylem eklenebilir. Lütfen `NotificationAction` belgelerinde mevcut eylem ve sınırlamarı okuyunuz. *macOS*
 
 ### Örnek etkinlikler
 
@@ -76,20 +76,20 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilme
 Dönüşler:
 
 * `olay` Olay
-* `reply` String - The string the user entered into the inline reply field
+* `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
 
 #### Event: 'action' *macOS*
 
 Dönüşler:
 
 * `olay` Olay
-* `index` Number - The index of the action that was activated
+* `index` Numara - Etkin olan eylem dizinini gösterir
 
 ### Örnek yöntemleri
 
-Objects created with `new Notification` have the following instance methods:
+`new Notification` ile oluşturulan nesnelerin aşağıdaki örnek yöntemleri vardır:
 
 #### `notification.show()`
 
@@ -97,7 +97,7 @@ Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamas�
 
 ### Çalınan sesler
 
-Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Ses dosyalarının uygulama paketi altında (e.g., `YourApp.app/Contents/Resources`) yada aşağıdaki yerlerden birinde kopyalanmış olduğundan emin olun:
+Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Varsayılan seslerden herhangi biri ( Sistem tercihleri altında > Ses) özel ses dosyalarına ekstra olarak kullanılabilir. Ses dosyalarının uygulama paketi altında (e.g., `YourApp.app/Contents/Resources`) yada aşağıdaki yerlerden birinde kopyalanmış olduğundan emin olun:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
