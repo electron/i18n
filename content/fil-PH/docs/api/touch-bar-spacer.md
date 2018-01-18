@@ -7,7 +7,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 ### `new TouchBarSpacer(options)` *Experimental*
 
 * `mga pagpipilian` Bagay 
-  * `size` String (optional) - Size of spacer, possible values are: 
+  * `sukat` String (optional) - Size of spacer, possible values are: 
     * `small` - Small space between items.
     * `large` - Large space between items.
     * `flexible` - Take up all available space.
