@@ -64,7 +64,7 @@ Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir m
 * `channel` Dizesi
 * `listener` Fonksiyon
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
 ### `ipcMain.removeAllListeners([channel])`
 
@@ -82,4 +82,4 @@ Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+İletiyi gönderen `webContents` değerini döndürür, eşzamansız iletiyi yanıtlamak için `event.sender.send`' i arayabilir, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-)' e bakabilirsiniz.
