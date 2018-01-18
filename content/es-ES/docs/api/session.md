@@ -317,7 +317,7 @@ Devuelve `Blob` - Los datos blob asociados con el `identificador`.
   * `mimeType` Cadena (opcional)
   * `offset` Entero - rango de inicio para la descarga.
   * `longitud` Entero - longitud total de la descarga.
-  * `lastModified` String - Last-Modified header value.
+  * `última modificación` Cadena - Último valor del encabezado modificado.
   * `eTag` String - ETag header value.
   * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
