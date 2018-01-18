@@ -334,9 +334,9 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
   * `%APPDATA%` sa Windows
   * `$XDG_CONFIG_HOME` o `~/.config` sa Linux
   * `~/Library/Application Support` sa macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
+* `userData` Ang direktoryo para sa pag-iimbak ng mga configuration file ng iyong app, kung saan sa pamamagitan ng default ito ay ang `appData` direktoryong nakadugtong sa pangalan ng iyong app.
+* `temp` Pansamantalang direktoryo.
+* `exe` Ang kasalukuyang maipapatupad na file.
 * `module` The `libchromiumcontent` library.
 * `desktop` The current user's Desktop directory.
 * `documents` Directory for a user's "My Documents".
