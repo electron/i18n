@@ -290,7 +290,7 @@ Sa pamamagitan ng default ang bagong kahilingan ay gagamitin ang kaparehong dire
 
 Tandaan na ang pamamaraan na ito ay hindi inaalis ang app kapag pinairal, dapat mong tawagin ang `app.quit` o ang `app.exit` matapos tawagin ang `app.relaunch` para ang app ay magsimula muli.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Kapag ang `app.relaunch` ay tinawag ng maraming beses, maraming mga kahilingan ang magsisimula pagkatapos na lumabas ang kasalukuyang kahilingan.
 
 An example of restarting current instance immediately and adding a new command line argument to the new instance:
 
