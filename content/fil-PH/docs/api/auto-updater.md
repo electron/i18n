@@ -13,7 +13,7 @@ You can quickly launch a multi-platform release server for distributing your app
 * [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
 * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
-## Platform notices
+## Babala sa plataporma
 
 Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
 
@@ -66,10 +66,10 @@ Emitted when there is no available update.
 Magbabalik ng:
 
 * `event` Event
-* `releaseNotes` String
-* `releaseNotes` String
-* `releaseDate` Date
-* `updateURL` String
+* `releaseNotes` Lupid
+* `releaseNotes` Lubid
+* `releaseDate` Petsa
+* `updateURL` Lubid
 
 Emitted when an update has been downloaded.
 
@@ -82,13 +82,13 @@ The `autoUpdater` object has the following methods:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Onject *macOS* (opsyonal) - kahilingan sa ulunan ng HTTP.
 
 Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Bumalik `String` - Ang kasalukuyang update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
