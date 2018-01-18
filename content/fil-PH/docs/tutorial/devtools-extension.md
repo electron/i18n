@@ -4,7 +4,7 @@ Sumusuporta ang Elektron [DevTools Ekstensiyon ng Chrome](https://developer.chro
 
 ## Paano i-load ang isang Ekstensiyon ng DevTools
 
-Dokumentong ito ay naglalahad ng proseso para sa mano-manong pagloading ng ekstensiyon. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+Dokumentong ito ay naglalahad ng proseso para sa mano-manong pagloading ng ekstensiyon. Pwede mo ring subukan [elektron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), isang third party tool na nag-dadownload ng ekstensiyon na direkta mula sa Chrome WebStore.
 
 To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
 
