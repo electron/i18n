@@ -31,9 +31,9 @@ Kinakailangan mo ring paganahin ang Xcode upang makabuo laban sa 10.10 SDK:
 
 - Buksan ang `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
 - Itakda ang `MinimumSDKVersion` to `10.10`
-- Save the file
+- Panatilihin ang file na ito
 
-## Getting the Code
+## Pagkuha ng code
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -41,7 +41,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
 ```sh
 $ cd electron
