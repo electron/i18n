@@ -438,9 +438,9 @@ Ang API ay ginagamit ang Windows Registry at ang LSSetDefaultHandlerForURLScheme
 
 Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Ang mga paraan na ito ay sinusuri kung ang kasalukuyang naipapatupad bilang default handler para sa isang protocol (aka URI scheme), Kung gayon, tatanggalin nito ang app bilang default handler.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows* Context | Request Context
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`.
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
