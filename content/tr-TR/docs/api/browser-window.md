@@ -1075,7 +1075,7 @@ Pencerenin odaklanabilir olup olmadığını değiştirir.
 
 * `parent` TarayıcıPenceresi
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Geçerli pencerenin üst penceresi olarak `parent`' ı ayarlar, `null` geçildiğinde geçerli pencereyi üst düzey bir pencereye dönüştürecek.
 
 #### `win.getParentWindow()`
 
