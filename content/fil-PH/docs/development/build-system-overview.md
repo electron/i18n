@@ -38,7 +38,7 @@ Para sa pagtakbo, ang Elektron ay gumagamit ng `gyp` variable `libchromiumconten
 
 ## Mga Itinatanging Pangalan
 
-Di katulad ng karamihan sa proyekto na gumagamit ng `Release` at `Debug` bilang mga tinatanging pangalan, sa halip, ang Elektron ay gumagamit ng `R` ay `D`. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+Di katulad ng karamihan sa proyekto na gumagamit ng `Release` at `Debug` bilang mga tinatanging pangalan, sa halip, ang Elektron ay gumagamit ng `R` ay `D`. Ito ay sa kadahilanang kapag ang `gyp` ay biglaang bumagsak sa pagbuo ng kahit aliman sa `Release` o `Debug` na tinukoy sa kumpigurasyon, a1ng Elektron ay maaari lamang bumuo ng isang itinatangi sa oras na itinakda ayon sa nakasaad sa itaas.
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
