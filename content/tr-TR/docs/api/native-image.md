@@ -181,11 +181,11 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. MacOS' ta `NSImage` örneğine bir işaretçi iade edilecektir.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+İşaretlenen işaretçinin, bir kopyanın yerine alttaki yerel görüntünün zayıf bir işaretçi olduğuna dikket edin, böylelikle *must* nin `nativeImage` etrafında tutulmasını sağlıyorsunuz.
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+`Boolean` - Görüntünün boş olup olmadığını gösterir.
 
 #### `image.getSize()`
 
