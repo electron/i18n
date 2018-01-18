@@ -8,15 +8,12 @@ Sa macOS at Linux, ang mga detalye ng Pepper Flash plugin ay matatagpuan sa pama
 
 ## Dagdagan ng Elektron Switch
 
-Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash version` sa linya ng utos ng Elektron o sa pamamagitan ng paggamit ng `app.commandLine.appendSwitch` paraan bago ang app handa sa pangyayari. Also, turn on `plugins` option of `BrowserWindow`.
+Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash version` sa linya ng utos ng Elektron o sa pamamagitan ng paggamit ng `app.commandLine.appendSwitch` paraan bago ang app handa sa pangyayari. Saka, buksan ang `plugin` opsyon sa `BrowserWindow`.
 
-For example:
+Halimbawa:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-
-// Specify flash path, supposing it is placed in the same directory with main.js.
+const {app, BrowserWindow} = require('electron') const landas = require('path') / / Specify flash landas, inaakalang ito ay nakalagay sa parehong directory sa main.js.
 let pluginName
 switch (process.platform) {
   case 'win32':
