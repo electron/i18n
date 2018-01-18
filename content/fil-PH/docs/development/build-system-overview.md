@@ -34,7 +34,7 @@ $ ./script/build.py -c D
 
 Ang Elektron ay iniuugnay sa iba't-ibang ayos ng libraries sa pagbuo ng `Release` at `Debug`. gayunpaman, ang `gyp` ay hindi sumusuporta sa pag-ayos ng iba't-ibang naka-ugnay sa settings para sa iba't-ibang kumpigurasyon.
 
-Para sa pagtakbo, ang Elektron ay gumagamit ng `gyp` variable `libchromiumcontent_component` upang malimitahan kung anong link settings ang maaaring gamitin at bubuo ng isang target kung ito'y gagana sa `gyp`.
+Para sa pagtakbo, ang Elektron ay gumagamit ng `gyp` variable `libchromiumcontent_component` upang malimitahan kung anong link settings ang maaaring gamitin at bubuo sa isang Itinatangi nito kung ito'y gagana sa `gyp`.
 
 ## Mga Itinatanging Pangalan
 
