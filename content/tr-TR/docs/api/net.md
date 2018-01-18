@@ -11,7 +11,7 @@ Aşağıdaki neden yerel Node.js modülleri yerine `ağ` modülünü kullanmayı
 * Sistem proxy yapılandırmasının otomatik yönetimi, wpad protokolü ve proxy pac yapılandırma dosyalarının desteği.
 * HTTPS isteklerine otomatik tünel açılması.
 * Temel, Özet, NTLM, Kerberos yada kimlik doğrulama düzenleri şeması kullanan kimlik doğrulama proxy sunucuları için destek.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Trafik izleme Proxy' leri için destek: Fiddler - erişim kontrolü ve izleme için kullanılan proxylere benzer.
 
 `net` API modulü Node.js API modülünü birebir taklit edebilmek için özel olarak tasarlanmıştır. Sınıflar, yöntemler, özellikler ve olay adlarını içeren API bileşenleri genellikle Node.Js' dekilerle benzer özelliklere sahiptir.
 
@@ -50,4 +50,4 @@ Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/ap
 
 Returns [`ClientRequest`](./client-request.md)
 
-Verilen `options` kullanarak direkt `ClientRequest` yapıcısına iletilen bir [`ClientRequest`](./client-request.md) örneği oluşturur. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Verilen `options` kullanarak direkt `ClientRequest` yapıcısına iletilen bir [`ClientRequest`](./client-request.md) örneği oluşturur. `net.request` yöntemi, `options` nesnesinde belirtilen kurallar güvenli ve güvensiz HTTP isteklerini vermek için kullanılır.
