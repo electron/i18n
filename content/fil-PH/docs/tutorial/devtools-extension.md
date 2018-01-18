@@ -22,7 +22,7 @@ Gamit ang [React Developer Tools](https://chrome.google.com/webstore/detail/reac
     * sa macOS ito ay `~/Library/Application Support/Google/Chrome/Default/Extension`.
 4. Ipasa ang lokasyon ng extension sa `BrowserWindow.addDevToolsExtension` API, para sa React Developer Tools, ito ay isang bagay tulad ng: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_ 0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**Paunawa:** Ang `BrowserWindow.addDevToolsExtension` API huwag tawagan bago mahanda ang pangyayari sa app ng modyul sa paglabas.
 
 The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
 
