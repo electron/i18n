@@ -191,10 +191,10 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 * `ayarlar` Nesne 
   * `offline` Boolean (İsteğe Bağlı) - Ağ bağlantısının kopmasını taklit eder. Varsayılan değer False.
   * `latency` Double (İsteğe Bağlı) - RTT (ms cinsinden) Varsayılan değer 0, gecikmenin azaltılmasını devre dışı bırakır.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `downloadThroughput` Double (isteğe bağlı) - Bps' de indirme hızı. Varsayılan değer 0, indirme hız sınırlamalarını devre dışı bırakır.
+  * `uploadThroughput` Double (isteğe bağlı) - Bps' de yükleme hızı. Varsayılan değer 0, yükleme sınırlamalarını devre dışı bırakır.
 
-Emulates network with the given configuration for the `session`.
+Emulates ağı için verilen yapılandırmayla `session`.
 
 ```javascript
 // GPRS bağlantısını 50kbps çıkış ve 500 ms gecikme ile taklit etmek.
