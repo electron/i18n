@@ -67,7 +67,7 @@ Magbabalik ng:
 
 * `event` Event
 * `releaseNotes` String
-* `releaseName` String
+* `releaseNotes` String
 * `releaseDate` Date
 * `updateURL` String
 
