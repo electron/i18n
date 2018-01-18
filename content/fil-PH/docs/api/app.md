@@ -332,8 +332,8 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 * `home` Ang bahay direktoryo ng gumagamit.
 * `appData` Aplikasyon ng direktoryo ng datos ng bawat gumagamit, kung saan sa pamamagitan ng default ay tumuturo sa: 
   * `%APPDATA%` sa Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
+  * `$XDG_CONFIG_HOME` o `~/.config` sa Linux
+  * `~/Library/Application Support` sa macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
 * `temp` Temporary directory.
 * `exe` The current executable file.
