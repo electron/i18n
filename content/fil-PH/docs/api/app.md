@@ -372,9 +372,9 @@ Sa *Linux* at *macOS*, ang mga icon ay nagdedepende sa application na nauugnay s
 * `name` String
 * `path` String
 
-Ini-override ang `path` patungo sa isang espesiyal na direktoryo o file na nauugnay sa `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Ini-override ang `path` patungo sa isang espesiyal na direktoryo o file na nauugnay sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi matatagpuan, ang direktoryo ay lilikhain gamit ang paraan na ito. Isang `Error` ay itatapon kung hindi ito gagana.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Pwede mo lang ma-override ang mga path ng isang `name` na dinefine sa `app.getPath`.
 
 By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
