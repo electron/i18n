@@ -249,7 +249,7 @@ Bu simgenin bağlam menüsünü ayarlar.
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-The `bounds` of this tray icon as `Object`.
+`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
 
 #### `tray.isDestroyed()`
 
