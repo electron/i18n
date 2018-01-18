@@ -68,13 +68,13 @@ $ python script\bootstrap.py --msvs
 
 ## Cleaning
 
-To clean the build files:
+Upang malinis ang binubuong files:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Na maglilinis lamang ng mga direktoryong `out` at `dist`:
 
 ```sh
 $ npm run clean-build
