@@ -7,7 +7,7 @@ Ang Elektron ay gumagamit ng [gyp](https://gyp.gsrc.io/) para sa makalikha ng pr
 Ang mga sumusunod na `gyp` file ay naglalaman ng mga pangunahing panuntuan para sa pagbuo ng Elektron:
 
 * Ang `electron.gyp` ay tumutukoy sa kung paano ang Elektron ay binuo gamit ang kanyang sarili.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
+* Ang `commom.gypi` ay tumutulong upang maisaayos ang pagsasagawa ng kumpigurasyon ng Node upang ito'y mabuo kasama ang Chromium.
 * `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
 * `brightray/brightray.gypi` includes general build configurations about building.
 
