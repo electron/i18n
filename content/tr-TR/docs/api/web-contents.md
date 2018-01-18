@@ -403,11 +403,11 @@ Dönüşler:
   * `x` tamsayı - x koordinatı
   * `y` tamsayı - y koordinatı
   * `linkURL` Dize - Bağlam menüsünde çağrılan düğümü çevreleyen bağlantının URL' si.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+  * `linkText` Dize - Bağlantıyla ilişkili metin. Bağlantının içeriği bir resim ise boş bir dize olabilir.
+  * `pageURL` Dize - Bağlantı menüsünde çağırılan üst düzey sayfanın URL' si.
+  * `frameURL` Dize - Bağlam menüsünün çağrıldığı alt çerçeveye ait URL.
+  * `srcURL` Dize - İçerik menüsünde çağrıldığı öğenin kaynak URL' si. Görüntü, ses ve resimler kaynak URL' lerine sahiptirler.
+  * `mediaType` Dize - Bağlam menüsünde çağırılan düğüm tipi. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
   * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
   * `isEditable` Boolean - Whether the context is editable.
   * `selectionText` String - Text of the selection that the context menu was invoked on.
