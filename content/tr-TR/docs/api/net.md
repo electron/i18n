@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. Node.js'nin [HTTP](https://nodejs.org/api/http.html) ve [HTTPS](https://nodejs.org/api/https.html) modüllerine benzer fakat web proxy'leri için daha iyi desteklenen Node.js uygulaması yerine Chromium'un yerel ağ kitaplığını kullanır.
+`net` modülü HTTP(S) isteklerinin verilmesi için bir istemci tarafı olan API' dır. Node.js'nin [HTTP](https://nodejs.org/api/http.html) ve [HTTPS](https://nodejs.org/api/https.html) modüllerine benzer fakat web proxy'leri için daha iyi desteklenen Node.js uygulaması yerine Chromium'un yerel ağ kitaplığını kullanır.
 
 Aşağıdaki neden yerel Node.js modülleri yerine `ağ` modülünü kullanmayı düşünebileceğinizin ayrıntılı olmayan bir listesidir:
 
@@ -13,7 +13,7 @@ Aşağıdaki neden yerel Node.js modülleri yerine `ağ` modülünü kullanmayı
 * Temel, Özet, NTLM, Kerberos yada kimlik doğrulama düzenleri şeması kullanan kimlik doğrulama proxy sunucuları için destek.
 * Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+`net` API modulü Node.js API modülünü birebir taklit edebilmek için özel olarak tasarlanmıştır. Sınıflar, yöntemler, özellikler ve olay adlarını içeren API bileşenleri genellikle Node.Js' dekilerle benzer özelliklere sahiptir.
 
 Mesela, sıradaki örnek `ağ` API kullanımı hakkında hızlıca bilgi verir:
 
@@ -38,7 +38,7 @@ app.on('ready', () => {
 
 Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) neredeyse Node.js modüllerinin kullanım şekli ile neredeyse aynı
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+`net` API uygulaması sadece `ready` yayınlandıktan sonra kullanılabilir. `ready` yayınlanmadan kullanmaya çalışmak hata verir.
 
 ## Metodlar
 
