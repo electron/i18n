@@ -30,7 +30,7 @@ console.log(ses.getUserAgent())
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Eğer `bölüm`ile başla`sürdür`ile başlarsa, sayfa kalıcı bir oturum kullanacaktır uygulamanın tüm sayfalarına aynı şekilde erişilebilir `bölüm`. yoksa `sürdür` önekini kullandığınızda, sayfa bir bellek içi oturum kullanacaktır. Eğer `bölüm` boş ise, uygulamanın varsayılan oturumu kullanılıcaktır.
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
@@ -66,7 +66,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 * `item` [DownloadItem](download-item.md)
 * `webContents` [webİçerikleri](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Elektron indirmek üzereyken ortaya çıkar `item` in `webContents`.
 
 Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
@@ -184,7 +184,7 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 
 * `yol` String - İndirme konumu
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
 
 #### `ses.enableNetworkEmulation(options)`
 
