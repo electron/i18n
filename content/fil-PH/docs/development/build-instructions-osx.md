@@ -9,15 +9,15 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     - [node.js](https://nodejs.org) (external)</ul> 
     
-    If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+    Kung ikaw ay gumagamit ng Python na nakapaloob gamit ang Homebrew, kinakailangang mo ring ikabit ang mga sumusunod na Python modyuls:
     
     - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
     
     ## macOS SDK
     
-    If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+    Kung ikaw ay bumubuo ng Elektron at walang plano na muling ipakalat ang iyong sariing likha ng Elektron, ang bahaging ito ay maaari nang laktawan.
     
-    For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+    Para sa ilang tampok (halimbawa ng pinch-zoom) na maaayos na gawa, kinakailangan mong makuha ang mocOS 10.10 SDK.
     
     Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
     
