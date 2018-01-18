@@ -307,15 +307,15 @@ Returns `Boolean` - `true` kung ang Electron ay tapos na sa pagsisimula, `false`
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Sa Linux, naka-pokus sa unang makikitang window. Sa macOS, ginagawa ang aplikasyon na aktibong app. Sa Windows, naka-pokus sa unang window ng aplikasyon.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Itinatago ang lahat ng mga window ng aplikasyon nang hindi ito pinapaliit.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Ipinapakita ang mga window ng aplikasyon pagkatapos na sila ay itago. Ay hindi kusang tumutok sa kanila.
 
 ### `app.getAppPath()`
 
