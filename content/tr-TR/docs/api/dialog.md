@@ -145,6 +145,6 @@ console.log(dialog)
     
     ## Sayfalar
     
-    On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+    MacOS' ta iletişim kutuları `browserWindow` parametresinde bir `BrowserWindow` referans veya kalıp sağlanmazsa, bir pencereye eklenmiş sayfalar olarak sunulur.
     
     Sayfalara eklenen Windows çerçevesinden ofset değerini değiştirmek için `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` komutunu çağırabilirsiniz.
