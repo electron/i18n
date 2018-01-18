@@ -42,6 +42,6 @@ Elektron lamang ang sumusuporta sa isang limitadong set ng.*`chrome.*` APIs, kay
 
 ### Ano ang dapat kong gawin kung hindi gumagana ang DevTools Ekstensiyon?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+Una sa lahat mangyaring siguraduhin na ang ekstensiyon ay palaging pangalagaan, ang ilang ekstensiyon ay hindi gumagana kahit bago ang bersyon ng browser ng Chrome, at kami ay walang magawa sa anumang bagay para sa kanila.
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+Saka mag-file ng bug at listahan ng mga isyu ng mga elektron, at ilarawan kung aling bahagi ng ekstensiyon ay hindi gumagana tulad ng inaasahan.
