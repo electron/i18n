@@ -24,7 +24,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+`Boolean` - Varolan sistemde masaüstü bildirimlerinin desteklenip desteklenmediğini gösterir
 
 ### `new Notification([options])` *Experimental*
 
