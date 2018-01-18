@@ -292,7 +292,7 @@ Tandaan na ang pamamaraan na ito ay hindi inaalis ang app kapag pinairal, dapat 
 
 Kapag ang `app.relaunch` ay tinawag ng maraming beses, maraming mga kahilingan ang magsisimula pagkatapos na lumabas ang kasalukuyang kahilingan.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Isang halimbawa ng agad na muling pagsisimula ng kasalukuyang kahilingan at pagdaragdag ng isang bagong argumento ng linya ng command sa bagong kahilingan:
 
 ```javascript
 const {app} = require('electron')
