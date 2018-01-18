@@ -41,14 +41,14 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng project files. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng proyekto sa files. Pansinin na tayo'y gumagamit ng [ninja](https://ninja-build.org/) upang makabuo ng Elektron upang sa gayon ay walang proyekto ng Xcode ang mabuo.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-## Building
+## Pagbuo
 
 Build both `Release` and `Debug` targets:
 
