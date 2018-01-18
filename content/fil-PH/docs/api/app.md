@@ -376,17 +376,17 @@ Ini-override ang `path` patungo sa isang espesiyal na direktoryo o file na nauug
 
 Pwede mo lang ma-override ang mga path ng isang `name` na dinefine sa `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Ang cookies at caches ng web page ay iii-store sa ilalim ng `userData` na direktoryo bilang default. Kung gusto mong bagohin ang lokasyon, kailangan mong i-override ang `userData` na path bago ang `ready` na event ng module na `app` ay ibrobrodkast.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Magbabalik ng `String` - Ang bersyon ng na-load na application. Kung walang bersyon ang nakita sa loob ng `package.json` file ng application, ang bersyon ng kasalukuyang bundle o executable ay ibabalik.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Magbabalik ng `String` - Ang kasalukuyang pangalan ng application, kung saan matatagapuan ito sa `package.json` file ng application.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Karaniwang maikling lowercased na pangalan ang `name` field ng `package.json`, ayon sa npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 ### `app.setName(name)`
 
