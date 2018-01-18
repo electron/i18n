@@ -30,7 +30,7 @@ Ang mga pangalan ng ekstensiyon ay ibinalik ng `BrowserWindow.addDevToolsExtensi
 
 Elektron lamang ang sumusuporta sa isang limitadong set ng.*`chrome.*` APIs, kaya mayroong ekstensiyon gamit ang hindi suportadong `chrome.*` APIs para sa chrome ekstensiyon na tampok pwedeng hindi gumana. Sumusunod na Devtools Extensions ay sinubukan at garantisadong magbubunga sa Elektron:
 
-* [Pagsisiyasat sa Baga](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+* [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 * [Backbone Debugger](https://chrome.google.com/webstore/detail/backbone-debugger/bhljhndlimiafopmmhjlgfpnnchjjbhd)
 * [jQuery Debugger](https://chrome.google.com/webstore/detail/jquery-debugger/dbhhnnnpaeobfddmlalhnehgclcmjimi)
@@ -40,7 +40,7 @@ Elektron lamang ang sumusuporta sa isang limitadong set ng.*`chrome.*` APIs, kay
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### Ano ang dapat kong gawin kung hindi gumagana ang DevTools Ekstensiyon?
 
 First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
 
