@@ -358,7 +358,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Kukunin ang nauugnay na icon ng path.
+Kukunin ang kaugnay na icon ng isang landas.
 
 Sa *Windows*, mayroong 2 klaseng mga icon:
 
@@ -396,17 +396,17 @@ Ino-override ang kasalukuyang pangalan ng application.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Magbabalik ng `String` - Ang kasalakuyang locale ng application. Posible na ibabalik ang mga value na documented [dito](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Tandaan:** Habang dinidistribute ang iyong packaged app, dapat mo ring i-ship ang `locales` na folder.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Tandaan:** Sa Windows, dapat mo itong tawagin pagkatapos ibrobrodkast ang mga `ready` na mga event.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Nagdadagdag ng `path` sa bagong listahan ng mga dokumento.
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
