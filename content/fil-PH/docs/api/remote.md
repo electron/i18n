@@ -94,20 +94,20 @@ console.log(app)
 
 The `remote` module has the following methods:
 
-### `remote.require(module)`
+### `remote.require(modyul)`
 
-* `module` String
+* `modyul` Lubid
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+halimbawa.
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
+    proyekto/
+    ├── pangunahing
+    │   ├── foo.js
+    │   └── index.js
     ├── package.json
-    └── renderer
+    └── tagabigay
         └── index.js
     
 
