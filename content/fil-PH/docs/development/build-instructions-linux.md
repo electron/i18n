@@ -115,13 +115,13 @@ Na maglilinis lamang ng mga direktoryong `out` at `dist`:
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
 
-## Troubleshooting
+<h2>Troubleshooting</h2>
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+<h3>Error While Loading Shared Libraries: libtinfo.so.5</h3>
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+<p>Prebuilt <code>clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -129,7 +129,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tests
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Tingnan [ Buod ng Pagbuo ng Sistema: Mga Pagsusuri ](build-system-overview.md#tests)
 
 ## Advanced topics
 
