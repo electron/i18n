@@ -299,24 +299,24 @@ Esto no afecta el `contenido web` existente, y cada `contenido web` puede usar `
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Devuelve `Cadena` - El agente usuario para esta sesión.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identificador` Cadena - UUID válido.
 * `llamada de vuelta` Función 
-  * `result` Buffer - Blob data.
+  * `resultado` Buffer - datos Blob.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+Devuelve `Blob` - Los datos blob asociados con el `identificador`.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
+  * `ruta` Cadena - ruta de acceso absoluta de la descarga.
+  * `Cadeba URL` Cadena[] - Cadena de URL completa para la descarga.
+  * `mimeType` Cadena (opcional)
+  * `offset` Entero - rango de inicio para la descarga.
+  * `longitud` Entero - longitud total de la descarga.
   * `lastModified` String - Last-Modified header value.
   * `eTag` String - ETag header value.
   * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
