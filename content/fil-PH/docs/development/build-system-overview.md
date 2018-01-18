@@ -13,7 +13,7 @@ Ang mga sumusunod na `gyp` file ay naglalaman ng mga pangunahing panuntuan para 
 
 ## Ang Pagbuo ng Bawat Bahagi
 
-Sapagkat ang Chromium ay isang malaking proyekto, ang pag-uugnay nito sa huling yugto ay maaaring magtagal ng ilang minuto na syang dahilan upang ito'y mahirap na maisakatuparan. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Sapagkat ang Chromium ay isang malaking proyekto, ang pag-uugnay nito sa huling yugto ay maaaring magtagal ng ilang minuto na syang dahilan upang ito'y mahirap na maisakatuparan. Upang malutas ang mga ito, ang Chromium ay ipinakilala ang "component build", kung saan ito'y bumubuo ng bawat bahagi na syang sangkap bilang isang hiwalay na shared library na syang nagpapadali at nagpapabilis ng pag-uugnay nito, ngunit maaaring maipagsawalang bahala ang sukat ng file at paggana nito.
 
 In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
