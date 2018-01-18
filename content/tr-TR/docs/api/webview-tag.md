@@ -489,7 +489,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Renderer işlemi, mesajları `ipcRenderer` modülü ile `channel` etkinliğini dinleyerek halledebilir.
 
