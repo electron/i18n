@@ -337,8 +337,8 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 * `userData` Ang direktoryo para sa pag-iimbak ng mga configuration file ng iyong app, kung saan sa pamamagitan ng default ito ay ang `appData` direktoryong nakadugtong sa pangalan ng iyong app.
 * `temp` Pansamantalang direktoryo.
 * `exe` Ang kasalukuyang maipapatupad na file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
+* `module` Ang `libchromiumcontent` library.
+* `desktop` Ang kasalukuyang direktoryo ng Desktop ng gumagamit.
 * `documents` Directory for a user's "My Documents".
 * `downloads` Directory for a user's downloads.
 * `music` Directory for a user's music.
