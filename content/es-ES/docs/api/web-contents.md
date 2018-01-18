@@ -627,7 +627,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 #### `contents.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` cadena
 
 Overrides the user agent for this web page.
 
