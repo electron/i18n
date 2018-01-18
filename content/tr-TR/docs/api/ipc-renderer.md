@@ -1,6 +1,6 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Zaman uyumsuz bir biçimde bir işleyici işleminden ana işlemle iletişim kurun.
 
 İşlem: [Renderer](../glossary.md#renderer-process)
 
@@ -44,22 +44,22 @@ Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 * `channel` Dizesi
 * `...args` herhangi[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
+`channel` üzerinden ana işleme asenkron olarak mesaj ve keyfi argümanlar gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+Ana işlem `channel` ile `ipcMain` modülünü dinleyerek işleme koyar.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
 * `...args` herhangi[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+`any` - [`ipcMain`](ipc-main.md) İşleyicisi tarafından geri gönderilen değeri gösterir.
 
 Ana işleme `channel` içinden senkronlu mesaj gönder, ayrıca matematiksel kuram gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+Ana işlem `channel` öğesini `ipcMain` modülüyle birlikte ve `event.returnValue` ayarını yanıtlayarak işleme alır.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Note:** Senkronize bir ileti göndermek, eğer ne yaptığınızı bilmiyorsanız kullanamayacağınız sürece tüm işleyici işlemini engeller.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
