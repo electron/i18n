@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+`app` modülü `ready` yayınlanıncaya hazır olana kadar bu modülü kullanamazsınız.
 
 Örneğin:
 
