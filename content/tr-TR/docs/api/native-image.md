@@ -199,7 +199,7 @@ Görüntüyü şablon görüntüsü olarak işaretler.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+`Boolean` - Görüntünün şablon görüntüsü olup olmadığını gösterir.
 
 #### `image.crop(rect)`
 
@@ -209,11 +209,11 @@ Returns `NativeImage` - Kırpılan resim.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` obje * `width` tamsayı(İsteğe bağlı) - Resmin varsayılan genişliğidir. * `height` Tamsayı (isteğe bağlı) - Resmin varsayılan yüksekliğidir. * `quality` dizi (isteğe bağlı) - Yeniden boyutlandırılan resmin istenen görüntü kalitesini gösterir. Olası değerler `good`, `better` or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. Her üç yöntemin önceden belirlenmiş bir platformda aynı algoritma ile eşleştirilmesi mümkündür.
 
 `NativeImage` Döndürür - Yeniden boyutlanmış resim.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde mevcut en boy oranı korunur.
 
 #### `image.getAspectRatio()`
 
@@ -221,6 +221,6 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` obje * `scaleFactor` Çift - Gösterilen resimdeki ölçek faktörü. `width` tamsayı (isteğe bağlı) - Varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. `height` Tamsayı (İsteğe bağlı) - varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
 
 Belirli ölçek faktörü için bir görüntü gösterimi ekleyin. Bu kullanılabilir görüntüye açıkca farklı ölçek faktörü gösterimleri eklemek için kullanılabilir. Bu boş görüntülerde çağrılabilir.
