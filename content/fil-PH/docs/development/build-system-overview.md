@@ -34,11 +34,11 @@ $ ./script/build.py -c D
 
 Ang Elektron ay iniuugnay sa iba't-ibang ayos ng libraries sa pagbuo ng `Release` at `Debug`. gayunpaman, ang `gyp` ay hindi sumusuporta sa pag-ayos ng iba't-ibang naka-ugnay sa settings para sa iba't-ibang kumpigurasyon.
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+Para sa pagtakbo, ang Elektron ay gumagamit ng `gyp` variable `libchromiumcontent_component` upang malimitahan kung anong link settings ang maaaring gamitin at bubuo ng isang target kung ito'y gagana sa `gyp`.
 
-## Target Names
+## Mga Itinatanging Pangalan
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+Di katulad ng karamihan sa proyekto na gumagamit ng `Release` at `Debug` bilang mga tinatanging pangalan, sa halip, ang Elektron ay gumagamit ng `R` ay `D`. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
 This only affects developers, if you are just building Electron for rebranding you are not affected.
 
