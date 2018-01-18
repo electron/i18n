@@ -131,7 +131,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 `String`'i yanıt olarak gönderecek `şema` protokolünü kaydeder.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `String` veya `data` olan bir nesne ile çağrılmalıdır, `mimeType` ve `charset` özelliklerine sahiptir.
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
@@ -148,12 +148,12 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `method` Dizi
       * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (isteğe bağlı) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` Dize - İçeriğin MIME türünü gösterir.
+        * `data` Dize - Gönderilecek içerik.
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Yanıt olarak bir HTTP isteği göndererek `scheme` protokolünü kaydeder.
 
 `callback`, `url` olan bir `redirectRequest` nesnesi ile çağrılması dışında, `registerFileProtocol` ile kullanımı aynıdır. `method`, url ` referrer `, `uploadData` ve `session` özelliklerine sahiptir.
 
@@ -240,8 +240,8 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `method` Dizi
       * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (isteğe bağlı) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+        * `contentType` Dize - İçeriğin MIME türünü gösterir.
+        * `data` Dize - Gönderilecek içerik.
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
