@@ -16,11 +16,11 @@ Süreç: [Ana](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+`options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
 ### Statik yöntemler
 
-The `Notification` class has the following static methods:
+`Notification` sınıfının statik yöntemleri aşağıdaki gibidir:
 
 #### `Notification.isSupported()`
 
