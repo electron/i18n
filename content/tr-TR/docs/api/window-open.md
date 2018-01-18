@@ -30,9 +30,9 @@ Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçenekler
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Belirtilen kaynak ile ana pencereye bir ileti gönderir veya `*` ile hiçbir kaynağa göndermez.
 
-### Using Chrome's `window.open()` implementation
+### Chrome' un `window.open()` uygulaması kullanılarak
 
 Chrome'un dahili `window.open()` uygulamasını kullanmak istiyorsanız, `webPreferences` seçenekler nesnesinde `nativeWindowOpen` öğesini `true` olarak ayarlayın.
 
