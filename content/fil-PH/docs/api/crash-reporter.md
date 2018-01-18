@@ -30,7 +30,7 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `options` Bagay 
+* `mga pagpipilian` Bagay 
   * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
