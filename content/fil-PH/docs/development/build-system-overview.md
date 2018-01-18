@@ -9,9 +9,9 @@ Ang mga sumusunod na `gyp` file ay naglalaman ng mga pangunahing panuntuan para 
 * Ang `electron.gyp` ay tumutukoy sa kung paano ang Elektron ay binuo gamit ang kanyang sarili.
 * Ang `commom.gypi` ay tumutulong upang maisaayos ang pagsasagawa ng kumpigurasyon ng Node upang ito'y mabuo kasama ang Chromium.
 * Ang `brightray/brightray.gyp` ay tumutukoy sa kung paano ang <brightray</code> ay nabuo at kung saan ito'y nakapaloob sa mga default configuration para sa pag-uugnay nito sa Chromium.
-* `brightray/brightray.gypi` includes general build configurations about building.
+* Ang `brightray/brightray.gypi` ay kinabibilangan ng pangkalahatang pagsasagawa ng kumpigurasyon patungkol sa pagsasabuo nito.
 
-## Component Build
+## Ang Pagbuo ng Bawat Bahagi
 
 Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
 
