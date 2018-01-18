@@ -339,7 +339,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 * `exe` Ang kasalukuyang maipapatupad na file.
 * `module` Ang `libchromiumcontent` library.
 * `desktop` Ang kasalukuyang direktoryo ng Desktop ng gumagamit.
-* `documents` Directory for a user's "My Documents".
+* `documents` Direktoryo ng "My Documents" para sa gumagamit.
 * `downloads` Directory for a user's downloads.
 * `music` Directory for a user's music.
 * `pictures` Directory for a user's pictures.
