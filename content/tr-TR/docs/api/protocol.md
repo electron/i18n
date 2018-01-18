@@ -157,7 +157,7 @@ Yanıt olarak bir HTTP isteği göndererek `scheme` protokolünü kaydeder.
 
 `callback`, `url` olan bir `redirectRequest` nesnesi ile çağrılması dışında, `registerFileProtocol` ile kullanımı aynıdır. `method`, url ` referrer `, `uploadData` ve `session` özelliklerine sahiptir.
 
-By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+Varsayılan olarak HTTP isteği geçerli oturumu tekrar kullanır. İsteğin farklı bir oturuma sahip olmasını isterseniz `session`' ı `null` olarak ayarlamanız gerekir.
 
 POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 
@@ -175,7 +175,7 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 * `geri arama` Fonksiyon 
   * `error` Hata 
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+`callback`, `scheme` için zaten halihazırda bir işleyici olup olmadığını gösteren bir boolean ile çağrılır.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
