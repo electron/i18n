@@ -1,10 +1,10 @@
 # REPL
 
-Read-Eval-Print-Loop (REPL) is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user.
+Read-Eval-Print-Loop (REPL) ay isang simpling, interactive computer programming enviroment na tanging gumagamit ng inputs (halimbawa nag-iisang ekspresiyon), pagsusuri, at ibalik ang resulta sa gumagamit.
 
-The `repl` module provides a REPL implementation that can be accessed using:
+Ang `repl` modyul na ito ay nagbibigay ng isang REPL implementasyon na maaaring ma-access gamit ang:
 
-* Assuming you have `electron` or `electron-prebuilt` installed as a local project dependency:
+* Ipagpalagay na mayroon kang `elektron` o `elektron-prebuilt` naka-install bilang lokal pagiging palaasa sa isang lokal na proyekto:
     
     ```sh
 ./node_modules/.bin/electron --interactive
