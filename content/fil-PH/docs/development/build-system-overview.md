@@ -1,8 +1,8 @@
 # Pagbuo ng Buod ng Sistema
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Ang Elektron ay gumagamit ng [gyp](https://gyp.gsrc.io/) para sa makalikha ng proyeko at [ninja](https://ninja-build.org/) para sa pagbuo nito. Ang pagsasaayos ng proyekto ay maaaring matagpuan sa mga file ng `.gyp` at `.gypi`.
 
-## Gyp Files
+## Mga Files ng Gyp
 
 Following `gyp` files contain the main rules for building Electron:
 
