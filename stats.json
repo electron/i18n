@@ -237,14 +237,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "8261",
-    "translated": "4709",
+    "translated": "4823",
     "approved": "32",
     "words": "73792",
-    "words_translated": "38562",
+    "words_translated": "39498",
     "words_approved": "375",
-    "translated_progress": 52,
+    "translated_progress": 53,
     "approved_progress": 0,
-    "qa_issues": "1702"
+    "qa_issues": "1756"
   },
   {
     "name": "Thai",
