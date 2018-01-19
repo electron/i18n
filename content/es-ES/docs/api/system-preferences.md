@@ -41,30 +41,30 @@ Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
-* `event` String
-* `userInfo` Object
+* `evento` Cadena
+* `userInfo` Objeto
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
-* `event` String
-* `userInfo` Object
+* `evento` Cadena
+* `userInfo` Objeto
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
-* `event` String
+* `evento` Cadena
 * `llamada de vuelta` Función 
-  * `event` String
-  * `userInfo` Object
+  * `evento` Cadena
+  * `userInfo` Objeto
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
 
 The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
@@ -83,10 +83,10 @@ Removes the subscriber with `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
-* `event` String
+* `evento` Cadena
 * `llamada de vuelta` Función 
-  * `event` String
-  * `userInfo` Object
+  * `evento` Cadena
+  * `userInfo` Objeto
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
 
