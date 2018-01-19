@@ -42,7 +42,7 @@ The `session` module has the following properties:
 
 A `Session` object, the default session object of the app.
 
-## Class: Session
+## Uri: Pulong
 
 > Get and set properties of a session.
 
