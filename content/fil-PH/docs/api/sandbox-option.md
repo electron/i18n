@@ -8,13 +8,13 @@ In other words, when the sandbox is enabled, the renderers can only make changes
 
 Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `kaylangan()` halimbawa, hindi posible walang pahintulot sa file system, kung saan hindi magagamit sa sandboxed.
 
-Karaniwan hindi ito suliranin sa desktop application mula noon ang code ay palaging mapagkakatiwalaan, pero maaring ang electron ay hindi ligtas kaysa sa chromium para sa ipinapakitang hindi mapagkakatiwalaang web content. Para sa mga applikasyon nangangailangan ng mas higit na seguridad, ang `sandbox` palatandaan ay pipilitin ng electron lumitaw sa chromium na tagabigay ng kompatibol sa sandbox.
+Karaniwan hindi ito suliranin sa desktop application mula noon ang code ay palaging mapagkakatiwalaan, pero maaring ang electron ay hindi ligtas kaysa sa chromium para sa ipinapakitang hindi mapagkakatiwalaang web content. Para sa mga applikasyon nangangailangan ng mas higit na seguridad, ang `sandbox` maglagay ng palatandaan ay pipilitin ng electron lumitaw sa chromium na tagabigay tugma sa sandbox.
 
 A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
-## Example
+## Halimbawa
 
 To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
 
@@ -103,7 +103,7 @@ Important things to notice in the preload script:
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
 - The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
 
     browserify preload/index.js \
       -x electron \
