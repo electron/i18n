@@ -481,7 +481,7 @@ Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ib
 
 * `ok` - Walang nangyaring mali.
 * `error` - Isa or higit pang pagkakamali ang naganap, paganahin ang runtime logging para malaman ang inaasahang dahilan.
-* `invalidSeparatorError` - Isang pag-aatempt ang ginawa para magdagdag na isang separator sa isang custom na kategorya sa Jump List. Ang mga separator ay pinapayagan lamang sa mga standard `Tasks` na kategorya.
+* `invalidSeparatorError` - Isang pagtatangka ang ginawa para magdagdag ng isang separator sa isang pasadyang kategorya sa Jump List. Ang mga separator ay pinapayagan lamang sa mga standard na kategorya ng `Tasks`.
 * `fileTypeRegistrationError` - Isang attempt ang ginawa para magdagdag ng isang file link patungo sa Jump List para sa isang file type na hindi nairehistrong ma-handle ng app.
 * `customCategoryAccessDeniedError` - Ang mga custom na kategorya ay hindi pwede idagdag sa Jump List dahil sa user privacy o group policy na mga setting.
 
@@ -562,9 +562,9 @@ This method makes your application a Single Instance Application - instead of al
 
 Ang `callback` ay tatawagin ng unang instance gamit ang `callback(argv, workingDirectory)` kung ang ikalawang instance ay na-execute na. Ang `argv` ay isang Array ng mga command line argument ng ikalawang instance, at ang `workingDirectory` ay ang kasalukuyang working directory nito. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+Ang `callback` ay siguradong i-eexecute pagkatapos ibrobrodkast ang `ready` event ng `app`.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+Ang method na ito ay magbabalik ng `false` kung ang proseso mo ay ang primary instance ng application at ang iyong app ay dapat nag-concontinue magload. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
