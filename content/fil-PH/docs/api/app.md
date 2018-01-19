@@ -734,10 +734,10 @@ I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng 
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `switch` String - Ang swits ng command-line
+* `value` String (opsyonal) - Ang halaga para sa ibinigay na swits
 
-Append a switch (with optional `value`) to Chromium's command line.
+Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
 
 **Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
