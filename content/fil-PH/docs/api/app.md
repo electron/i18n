@@ -504,7 +504,7 @@ app.setJumpList([
     { type: 'file', path: 'C:\\Projects\\project2.proj' }
   ]
  },
- { // mayroon itong pangalan kaya ang `type` ay tinuturing na "custom"     
+ { // mayroon itong pangalan kaya ang `type` ay ituturing na "custom"     
    name: 'Tools',
    items: [
      {
@@ -528,7 +528,7 @@ app.setJumpList([
    ]  
  },   
  { type: 'frequent' },
- { // walang pangalan at walang type kaya ang `type` ay tinuturing na "tasks"
+ { // walang pangalan at walang type kaya ang `type` ay ituturing na "tasks"
    items: [       
      {
        type: 'task',
