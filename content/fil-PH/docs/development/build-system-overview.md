@@ -62,7 +62,7 @@ Kapag ika'y nagsagawa ng anumang pagbabago sa source code ng Electron, kinakaila
 $ npm run build && npm test
 ```
 
-Maaaring pabilis ang paggana nito kung ikaw ay magsasagawa ng bukod na pagsusuri tungkol dito o kaya nama'y maaari ring harangin ang kasalukuyan mong ginagawa gamit ang [exclusive tests](https://mochajs.org/#exclusive-tests) na code Mocha. Just append `.only` to any `describe` or `it` function call:
+Maaaring pabilis ang paggana nito kung ikaw ay magsasagawa ng bukod na pagsusuri tungkol dito o kaya nama'y maaari ring harangin ang kasalukuyan mong ginagawa gamit ang itinatampok ng Mocha na [exclusive tests](https://mochajs.org/#exclusive-tests). Idagdag lang ang `.only` sa kahit anumang `describe` o `it` na function call:
 
 ```js
 describe.only('some feature', function () {
