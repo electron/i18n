@@ -553,10 +553,10 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` String[] - Isang array ng mga command line argument na galing sa ikalawang instance
+  * `workingDirectory` String - Ang working directory ng ikalawang instance
 
-Returns `Boolean`.
+Magbabalik ng `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
