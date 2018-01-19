@@ -6,7 +6,7 @@ One of the key security features of Chromium is that all blink rendering/JavaScr
 
 In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Nandito](https://www.chromium.org/developers/design-documents/sandbox)na ang mas maraming impormasyon tungkol sa sandbox.
 
-Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `kaylangan()` halimbawa, hindi posible walang pahintulot sa file system, kung saan hindi magagamit sa sandboxed.
 
 Usually this is not a problem for desktop applications since the code is always trusted, but it makes electron less secure than chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
 
