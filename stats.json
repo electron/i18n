@@ -81,14 +81,14 @@
     "name": "Filipino",
     "code": "fil",
     "phrases": "8261",
-    "translated": "1514",
+    "translated": "1996",
     "approved": "0",
     "words": "73792",
-    "words_translated": "9641",
+    "words_translated": "13463",
     "words_approved": "0",
-    "translated_progress": 13,
+    "translated_progress": 18,
     "approved_progress": 0,
-    "qa_issues": "46"
+    "qa_issues": "52"
   },
   {
     "name": "French",
@@ -120,14 +120,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "8261",
-    "translated": "914",
+    "translated": "915",
     "approved": "0",
     "words": "73792",
-    "words_translated": "8029",
+    "words_translated": "8031",
     "words_approved": "0",
     "translated_progress": 10,
     "approved_progress": 0,
-    "qa_issues": "722"
+    "qa_issues": "723"
   },
   {
     "name": "Indonesian",
@@ -211,14 +211,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "8261",
-    "translated": "2395",
+    "translated": "2402",
     "approved": "77",
     "words": "73792",
-    "words_translated": "13867",
+    "words_translated": "13929",
     "words_approved": "153",
     "translated_progress": 18,
     "approved_progress": 0,
-    "qa_issues": "664"
+    "qa_issues": "665"
   },
   {
     "name": "Russian",
@@ -237,14 +237,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "8261",
-    "translated": "4595",
+    "translated": "4709",
     "approved": "32",
     "words": "73792",
-    "words_translated": "37435",
+    "words_translated": "38562",
     "words_approved": "375",
-    "translated_progress": 50,
+    "translated_progress": 52,
     "approved_progress": 0,
-    "qa_issues": "1656"
+    "qa_issues": "1702"
   },
   {
     "name": "Thai",
@@ -263,14 +263,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "8261",
-    "translated": "7445",
+    "translated": "7618",
     "approved": "2",
     "words": "73792",
-    "words_translated": "67053",
+    "words_translated": "69256",
     "words_approved": "2",
-    "translated_progress": 90,
+    "translated_progress": 93,
     "approved_progress": 0,
-    "qa_issues": "3391"
+    "qa_issues": "3494"
   },
   {
     "name": "Ukrainian",
