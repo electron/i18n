@@ -69,26 +69,26 @@ Esto es un resumen de los pasos necesarios para actualizar Chormium en Electron.
   - `$ ./script/build.py -c R`
   - A menudo el lanzamiento del constructo tiene diferentes errores de enlazamiento que usted necesitará arreglar.
   - Algunos errores de compilación y enlazamiento son causados por archivos de objetos o fuentes faltantes en la libcc `dist`
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+9. Actualice `./script/create-dist` en el repositorio de libcc, recree `dist`, y corra con los recursos que tiene el script de Electron de nuevo.
 
-### Tips for fixing compilation errors
+### Consejos para arreglar errores en compilación
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Corrija errores de configuración de la estructura primero
+- Corrija errores fatales primero, como archivos faltantes y errores relacionados con banderas o definiciones del compilador
+- Intente identificar errores complejos lo más rápido posible. 
+  - Pida ayuda si no está seguro cómo arreglarlos
+- Deshabilite las herramientas de Electro, corrija la estructura, luego habilitelas una por una
+- Añada más banderas de la estructura para deshabilitar características en el tiempo de la construcción.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Cuando una depuración de una estructura de Electron tiene éxito, corra la prueba `$ ./script/test.py` arregle los pruebas faltantes.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Siga todas los pasos anteriores para corregir el código Electron en todas las plataformas soportadas.
 
-## Updating Crashpad
+## Actualización de Crashpad
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
+Si hay algún error de compilaciones relacionados con el Crashpad, probablemente signifique que necesita una actualizar la horquilla a una revisión más reciente. Vea [Actualizando el Crashpad](upgrading-crashpad.md) para instrucciones de cómo hacer eso.
 
-## Updating NodeJS
+## Actualizando NodeJS
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
