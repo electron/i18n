@@ -1,31 +1,31 @@
-# Upgrading Chromium
+# Actualizando Chomium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Esto es un resumen de los pasos necesarios para actualizar Chormium en Electron.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- Actualice libcc a una versión nueva de Chromium
+- Haga compatible el código Electron con el nuevo libcc
+- Actualice las dependencias de Electron (crashpad, NodeJS, etc.) si es necesario
+- Haga estructuras internas de libcc y electron
+- Actualice los documentos de Electron si fuese necesario
 
-## Upgrade `libcc` to a new Chromium version
+## Actualice `libcc` a una versión nueva de Chromium
 
-1. Get the code and initialize the project: 
+1. Obtenga el código e inicie el proyecto: 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
+2. Actualice la instantánea de Chromium 
+  - Elija el número de versión de [OmahaProxy](https://omahaproxy.appspot.com/) y una actualización de `VERSION` archivada con él 
+    - Esto puede hacerse manualmente visitando OmahaProxy en un buscador, o automáticamente:
+    - Una línea de la última versión estable para mac: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
+    - Una línea para la última versión win64 beta `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
+  - ejecute `$ ./script/update` 
+    - Haga un te -- esto puede correr por 30m o más.
+    - Probablemente falle aplicando parches.
+3. Arregle los archivos `*.patch` en el `patches/` y carpetas `patches-mas/`.
+4. (Opcional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
