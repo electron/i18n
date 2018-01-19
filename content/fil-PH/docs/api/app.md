@@ -684,11 +684,11 @@ Returns `Object`:
 * `wasOpenedAsHidden` Boolean - `true` kung ang app ay bumukas bilang isang nakatagong item sa pag-login. Nagpapahiwatig ito na ang app ay hindi dapat magbukas ng kahit anong window sa startup. Ang setting na ito ay sinusuportahan lamang sa macOS.
 * `restoreState` Boolean - `true` kung ang app ay bumukas bilang aytem sa pag-login na dapat i-restore ang estado mula sa dating sesyon. Nagpapahiwatig ito na ang app ay dapat i-restore ang windows na bukas sa huling beses na ang app ay isinara. Ang setting na ito ay sinusuportahan lamang sa macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Note:** Ang API na ito ay walang epekto sa [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Bagay 
+* `mga setting` Bagay 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
@@ -713,7 +713,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Note:** Ang API na ito ay walang epekto sa [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
