@@ -460,9 +460,9 @@ Ang API ay ginagamit ang Windows Registry at LSCopyDefaultHandlerForURLScheme sa
 
 Idinadagdag ng `tasks` sa mga [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) na kategorya ng JumpList sa Windows.
 
-`tasks` ay isang array ng mga [`Task`](structures/task.md) object.
+`tasks` ay isang hanay ng [`Task`](structures/task.md) na mga bagay.
 
-Returns `Boolean` - Kung ang tawag ay naging matagumpay.
+Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 **Tandaan:** Kung gusto mo pang mag-customize ng Jump List gamitin sa halip ang `app.setJumpList(categories)`.
 
@@ -495,59 +495,58 @@ Ito ay isang napakasimpleng halimbawa ng paggawa ng isang custom na Jump List:
 
 ```javascript
 const {app} = require('electron')
-
 app.setJumpList([
-  {
-    type: 'custom',
-    name: 'Recent Projects',
-    items: [
-      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-      { type: 'file', path: 'C:\\Projects\\project2.proj' }
-    ]
-  },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
-    items: [
-      {
-        type: 'task',
-        title: 'Tool A',
-        program: process.execPath,
-        args: '--run-tool-a',
-        icon: process.execPath,
-        iconIndex: 0,
-        description: 'Runs Tool A'
-      },
-      {
-        type: 'task',
-        title: 'Tool B',
-        program: process.execPath,
-        args: '--run-tool-b',
-        icon: process.execPath,
-        iconIndex: 0,
-        description: 'Runs Tool B'
-      }
-    ]
-  },
-  { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
-    items: [
-      {
-        type: 'task',
-        title: 'New Project',
-        program: process.execPath,
-        args: '--new-project',
-        description: 'Create a new project.'
-      },
-      { type: 'separator' },
-      {
-        type: 'task',
-        title: 'Recover Project',
-        program: process.execPath,
-        args: '--recover-project',
-        description: 'Recover Project'
-      }
-    ]
-  }
+ {
+  type: 'custom',     
+  name: 'Recent Projects', 
+  items: [
+    { type: 'file', path: 'C:\\Projects\\project1.proj' },
+    { type: 'file', path: 'C:\\Projects\\project2.proj' }
+  ]
+ },
+ { // has a name so `type` is assumed to be "custom"     
+   name: 'Tools',
+   items: [
+     {
+      type: 'task',
+      title: 'Tool A',
+      program: process.execPath,
+      args: '--run-tool-a',
+      icon: process.execPath,
+      iconIndex: 0,
+      description: 'Runs Tool A'
+     }, 
+     {
+      type: 'task',
+      title: 'Tool B',
+      program: process.execPath,
+      args: '--run-tool-b',
+      icon: process.execPath,
+      iconIndex: 0,
+      description: 'Runs Tool B'
+     }
+   ]  
+ },   
+ { type: 'frequent' },
+ { // has no name and no type so `type` is assumed to be "tasks"
+   items: [       
+     {
+       type: 'task',
+       title: 'New Project',
+       program: process.execPath,
+       args: '--new-project',
+       description: 'Create a new project.'
+     },
+     { type: 'separator' },
+     {
+       type: 'task',
+       title: 'Recover Project',
+       program: process.execPath,
+       args: '--recover-project',
+       description: 'Recover Project'
+     }
+   ]   
+ }
 ])
 ```
 
