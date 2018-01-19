@@ -450,15 +450,15 @@ Returns `Boolean`
 
 Ang mga paran na ito ay sinusuri kung ang kasalukuyang naipapatupad ay ang default handler (aka URI scheme), Kung gayon, ito ay babalik na totoo. Knug hindi man, ito ay babalik na mali.
 
-**Note:** Sa macOS, magagamit mo ang pamamaraan na ito para suriin kung ang app ay nakarehistro na bilang default protocol handler para sa isang protocol. Maaari mo rin itong patunayan sa pamamagitan ng pagsusuri sa `-/Library/Preferences/com.apple.LaunchServices.plist` sa makina ng macOS. Paki-refer sa [dokumentasyon ng Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) para sa mga detalye.
+**Note:** Sa macOS, magagamit mo ang pamamaraan na ito para suriin kung ang app ay nakarehistro na bilang default protocol handler para sa isang protocol. Maaari mo rin itong patunayan sa pamamagitan ng pagsusuri sa `-/Library/Preferences/com.apple.LaunchServices.plist` sa makina ng macOS. Pakiusap sumangguni sa [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) para sa mga detalye.
 
-Ang API ay gugamit ng Windows Registry at LSCopyDefaultHandlerForURLScheme sa loob nito.
+Ang API ay ginagamit ang Windows Registry at LSCopyDefaultHandlerForURLScheme sa loob nito.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Array ng mga `Task` na object
+* `tasks` [Task[]](structures/task.md) - Hanay ng `Task` na mga bagay
 
-Nagdadagdag ng `tasks` sa [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) na kategorya ng JumpList sa Windows.
+Idinadagdag ng `tasks` sa mga [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) na kategorya ng JumpList sa Windows.
 
 `tasks` ay isang array ng mga [`Task`](structures/task.md) object.
 
@@ -489,9 +489,9 @@ Kung ang `categories` ay `null`, ang dating naset na custom Jump List (kung mayr
 
 **Tandaan:** Kung ang isang `JumpListCategory` na object ay hindi nai-set ang `type` ni ang `name` na property, ito ay i-assume na `type` ng `tasks`. Kung ang `name` na property ay na-set pero ang `type` na property ay hindi nasama, ang `type` ay ituturing na `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Tandaan:** Ang mga user ay pwedeng magtanggal ng mga item galing sa mga custom na kategorya, at ang Windows ay hindi nagpapahintulot na mag dagdag ng natanggal na na item pabalik sa custom na kategorya hanggang **pagkatapos** ng susunod na pagtawag sa `app.setJumpList(categories)`. Kahit na anong maagang pagtangkang pag-dagdag muli ng natanggal na na item patungo sa isang custom na kategorya ay magreresulta sa pagka-omit ng buong custom na kategorya sa Jump List. Ang listahan ng mga natanggal na na item ay maaring makuha gamit ang `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Ito ay isang napakasimpleng halimbawa ng paggawa ng isang custom na Jump List:
 
 ```javascript
 const {app} = require('electron')
