@@ -66,9 +66,9 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
 
 Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valores de ejemplo de `evento` son:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -79,7 +79,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 * `id` Íntegro
 
-Removes the subscriber with `id`.
+Remueve el subscriptor con el `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
