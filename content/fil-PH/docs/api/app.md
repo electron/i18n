@@ -728,9 +728,9 @@ Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `f
   * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
   * `copyright` String (opsyonal) - Ang impormasyon ng copyright.
   * `credits` String (opsyonal) - Ang impormasyon ng credit.
-  * `version` String (optional) - The app's build version number.
+  * `version` String (opsyonal) - Ang build version number ng app.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng ipinaliwanag na `.plist` na file ng app. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
