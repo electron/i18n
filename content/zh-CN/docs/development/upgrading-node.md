@@ -1,4 +1,4 @@
-# Upgrading Node
+# 升级 Node
 
 ## Discussion
 
