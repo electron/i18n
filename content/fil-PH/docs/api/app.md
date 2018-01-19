@@ -471,7 +471,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 Returns `Object`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang array ng mga `JumpListItem` na object na tumutugma sa mga item na malinaw na tinanggal ng user galing sa mga custom na kategorya ng Jump List. Ang mga item ay dapat hindi madagdag uli sa Jump List sa **next** na tawag ng `app.setJumpList()`, ang Windows ay hindi magdidisplay ng kahit anong custom na kategorya na maglalaman ng mga itinanggal ng mga item.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang hanay ng mga bagay sa `JumpListItem` na tumutugma sa mga item na tahasang tinanggal ng gumagamit galing sa ipinasadyang mga kategorya ng Jump List. Ang mga item ay dapat hindi madagdag uli sa Jump List sa **next** na tawag ng `app.setJumpList()`, ang Windows ay hindi magdidisplay ng kahit anong custom na kategorya na maglalaman ng mga itinanggal ng mga item.
 
 ### `app.setJumpList(categories)` *Windows*
 
