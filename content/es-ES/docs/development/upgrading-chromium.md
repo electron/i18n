@@ -25,24 +25,24 @@ Esto es un resumen de los pasos necesarios para actualizar Chormium en Electron.
     - Haga un te -- esto puede correr por 30m o más.
     - Probablemente falle aplicando parches.
 3. Arregle los archivos `*.patch` en el `patches/` y carpetas `patches-mas/`.
-4. (Opcional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
+4. (Opcional) `script/actualización` aplica parches, pero si se necesitan varios intentos puede correr manualmente el mismo escrito que `actualización` llamados: `$ ./script/apply-patches` 
+  - Hay un segundo script, `script/patch.py` que puede ser útil. Lea `./script/patch.py -h` para más información.
+5. Corra la estructura cuando todos los parches puedan ser aplicados sin errores 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
+  - Si algunos parches no son compatibles con el código de Chromium, arregle los errores de compilación.
+6. Cuando la estructura tenga éxito, cree un `dist` para Electron 
   - `$ ./script/create-dist --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+    - Creará una carpeta `dist/principal` en el repositorio libcc de raíz.
+7. (Opcional) Actualice el contenido de los scripts i hay algún error resultando de los archivos que fueron removidos o renombrados. Archivos (`--no_zip` prevents script from create `dist`. No los necesita.)
 
-## Update Electron's code
+## Código de actualización de Electron
 
-1. Get the code: 
+1. Obtenga el código: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. Si tiene una estructura libcc en su máquina en su própio repositorio, dígale Electron que la use: 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
