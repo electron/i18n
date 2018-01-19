@@ -489,7 +489,7 @@ Kung ang `categories` ay `null`, ang dati ng naitakda na pasadyang Jump List (ku
 
 **Note:** Kung ang isang bagay sa `JumpListCategory` ay wala ang `type` ni ang `name` itinakdang property pagkatapos nito `type` ay ipinapalagay na `tasks`. Kung ang property ng `name` ay naitakda ngunit ang property ng `type` ay tinanggal pagkatapos ang `type` ay ipinapalagay na `custom`.
 
-**Tandaan:** Ang mga user ay pwedeng magtanggal ng mga item galing sa mga custom na kategorya, at ang Windows ay hindi nagpapahintulot na mag dagdag ng natanggal na na item pabalik sa custom na kategorya hanggang **pagkatapos** ng susunod na pagtawag sa `app.setJumpList(categories)`. Kahit na anong maagang pagtangkang pag-dagdag muli ng natanggal na na item patungo sa isang custom na kategorya ay magreresulta sa pagka-omit ng buong custom na kategorya sa Jump List. Ang listahan ng mga natanggal na na item ay maaring makuha gamit ang `app.getJumpListSettings()`.
+**Note:** Ang mga user ay maaaring magtanggal ng mga item mula sa mga pasadyang kategorya, at ang Windows ay hindi pinapayagan na ang tinggal na aytem ay ibalik na muli sa pasadyang kategorya hanggang **after**ang susunod na matagumpay na pagtawag sa `app.setJumpList(categories)`. Kahit na anong maagang pagtangkang pag-dagdag muli ng natanggal na na item patungo sa isang custom na kategorya ay magreresulta sa pagka-omit ng buong custom na kategorya sa Jump List. Ang listahan ng mga natanggal na na item ay maaring makuha gamit ang `app.getJumpListSettings()`.
 
 Ito ay isang napakasimpleng halimbawa ng paggawa ng isang custom na Jump List:
 
