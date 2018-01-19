@@ -475,9 +475,9 @@ Returns `Object`:
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) o `null` - Array ng mga `JumpListCategory` na object.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) o `null` - Ang hanay ng mga bagay sa `JumpListCategory`.
 
-Nagseset o nagtatanggal ng isang custom na Jump List para sa application, at nagbabalik ng isa sa mga sumusunod na mga string:
+Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ibinabalik ang isa sa mga sumusunod na string:
 
 * `ok` - Walang nangyaring mali.
 * `error` - Isa or mas marami pang mga error ang nangyari, i-enable ang runtime logging para malaman ang dahilan.
