@@ -471,17 +471,17 @@ Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 Magbabalik ng `Object`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng value na ito tanawin ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang array ng mga `JumpListItem` na object na tumutugma sa mga item na malinaw na tinanggal ng user galing sa mga custom na kategorya ng Jump List. Ang mga item ay dapat hindi madagdag uli sa Jump List sa **next** na tawag ng `app.setJumpList()`, ang Windows ay hindi magdidisplay ng kahit anong custom na kategorya na maglalaman ng mga itinanggal ng mga item.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) o `null` - Array ng mga `JumpListCategory` na object.
 
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
+Nagseset o nagtatanggal ng isang custom na Jump List para sa application, at nagbabalik ng isa sa mga sumusunod na mga string:
 
-* `ok` - Nothing went wrong.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+* `ok` - Walang nangyaring mali.
+* `error` - Isa or mas marami pang mga error ang nangyari, i-enable ang runtime logging para malaman ang dahilan.
+* `invalidSeparatorError` - Isang pag-aatempt ang ginawa para magdagdag na isang separator sa isang custom na kategorya sa Jump List. Ang mga separator ay pinapayagan lamang sa mga standard `Tasks` na kategorya.
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
 * `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
 
