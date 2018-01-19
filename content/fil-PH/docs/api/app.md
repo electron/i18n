@@ -483,9 +483,9 @@ Nagseset o nagtatanggal ng isang custom na Jump List para sa application, at nag
 * `error` - Isa or mas marami pang mga error ang nangyari, i-enable ang runtime logging para malaman ang dahilan.
 * `invalidSeparatorError` - Isang pag-aatempt ang ginawa para magdagdag na isang separator sa isang custom na kategorya sa Jump List. Ang mga separator ay pinapayagan lamang sa mga standard `Tasks` na kategorya.
 * `fileTypeRegistrationError` - Isang attempt ang ginawa para magdagdag ng isang file link patungo sa Jump List para sa isang file type na hindi nairehistrong ma-handle ng app.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+* `customCategoryAccessDeniedError` - Ang mga custom na kategorya ay hindi pwede idagdag sa Jump List dahil sa user privacy o group policy na mga setting.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+Kung ang `categories` ay `null`, ang dating naset na custom Jump List (kung mayroon man) ay papalitan ng standard na Jump List para sa app (na minamanage ng Windows).
 
 **Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
 
