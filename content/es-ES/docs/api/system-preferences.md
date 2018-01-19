@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> Obtener las preferencias del sistema.
 
 Proceso: [Principal](../glossary.md#main-process)
 
