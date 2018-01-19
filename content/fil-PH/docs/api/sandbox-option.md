@@ -2,7 +2,7 @@
 
 > Lumikha ng isang browser window kasama ang tagabigay na pwedeng gamitin sa Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
 
-Isa sa mga ang susi sa pangseguridad tampok ang Chromium ay lahat ng kumukurap sa rendering/JavaScript code ay isinagawa sa loob ng sandbox. This sandbox uses OS-specific features to ensure that exploits in the renderer process cannot harm the system.
+Isa sa mga ang susi sa pangseguridad tampok ang Chromium ay lahat ng kumukurap sa rendering/JavaScript code ay isinagawa sa loob ng sandbox. Itong sandbox ay gumagamit ng OS ang partikular na tampok nito ay siguraduhin magamit ng tagabigay ang proseso na hindi makakaepekto sa sistema.
 
 In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Nandito](https://www.chromium.org/developers/design-documents/sandbox)na ang mas maraming impormasyon tungkol sa sandbox.
 
@@ -71,7 +71,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+at preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
