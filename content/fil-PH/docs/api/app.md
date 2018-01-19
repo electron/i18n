@@ -554,8 +554,8 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - Isang array ng mga command line argument na galing sa ikalawang instance
-  * `workingDirectory` String - Ang working directory ng ikalawang instance
+  * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
+  * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
 
 Magbabalik ng `Boolean`.
 
@@ -678,7 +678,7 @@ If you provided `path` and `args` options to `app.setLoginItemSettings` then you
 
 Returns `Object`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
+* `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
 * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
