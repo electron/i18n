@@ -8,7 +8,7 @@
 npm install electron --save-dev
 ```
 
-查看[Electron 版本管理](electron-versioning.md)查看如何在你的应用中管理Electron版本。
+See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
 
 ## 全局安装
 
@@ -26,7 +26,7 @@ npm install electron -g
 npm install --arch=ia32 electron
 ```
 
-此外, 您还可以使用 `--platform` 来指定开发平台 (例如, ` win32 `、` linux ` 等):
+In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
 
 ```shell
 npm install --platform=win32 electron
@@ -36,15 +36,62 @@ npm install --platform=win32 electron
 
 如果需要使用 HTTP 代理, 则可以 [ 设置这些环境变量 ](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)。
 
+## Custom Mirrors and Caches
+
+During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+
+If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+
+#### Mirror
+
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+
+```txt
+url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
+```
+
+For instance, to use the China mirror:
+
+```txt
+ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+```
+
+#### Cache
+
+Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+
+* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* MacOS: `~/Library/Caches/electron/`
+* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+
+On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+
+You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+
+The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+
+```sh
+├── electron-v1.7.9-darwin-x64.zip
+├── electron-v1.8.1-darwin-x64.zip
+├── electron-v1.8.2-beta.1-darwin-x64.zip
+├── electron-v1.8.2-beta.2-darwin-x64.zip
+├── electron-v1.8.2-beta.3-darwin-x64.zip
+├── SHASUMS256.txt-1.7.9
+├── SHASUMS256.txt-1.8.1
+├── SHASUMS256.txt-1.8.2-beta.1
+├── SHASUMS256.txt-1.8.2-beta.2
+├── SHASUMS256.txt-1.8.2-beta.3
+```
+
 ## 故障排查
 
 在运行 `npm install electron` 时，有些用户会偶尔遇到安装问题。
 
-在大多数情况下，这些错误都是由网络问题导致，而不是 `electron` npm 模块的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
+大多是时候，这些错误都是网络问题导致的而不是 `electron` npm 包的问题。 如 `ELIFECYCLE`、`EAI_AGAIN`、`ECONNRESET` 和 `ETIMEDOUT` 等错误都是此类网络问题的标志。 最佳的解决方法是尝试切换网络，或是稍后再尝试安装。
 
 如果通过 `npm` 安装失败，您可以尝试直接从 [electron/electron/releases](https://github.com/electron/electron/releases) 直接下载 Electron。
 
-如果安装失败并出现 ` EACCESS ` 错误, 则可能需要 [ 修复您的 npm 权限 ](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。（例如使用 sudo ）
+If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 如果上述错误仍然存在, 则可能需要将 [unsafe-perm ](https://docs.npmjs.com/misc/config#unsafe-perm) 标志设置为 true:
 
