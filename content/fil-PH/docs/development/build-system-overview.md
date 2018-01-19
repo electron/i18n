@@ -70,7 +70,7 @@ describe.only('some feature', function () {
 })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Maaari mong gamitin ang `grep` ng mocha bilang alternatibo para lamang masubukan kung gagana ang magkatugmang ibinigay na regular expression pattern:
 
 ```sh
 $ npm test -- --grep child_process
