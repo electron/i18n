@@ -480,7 +480,7 @@ Returns `Object`:
 Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ibinabalik ang isa sa mga sumusunod na string:
 
 * `ok` - Walang nangyaring mali.
-* `error` - Isa or mas marami pang mga error ang nangyari, i-enable ang runtime logging para malaman ang dahilan.
+* `error` - Isa or higit pang pagkakamali ang naganap, paganahin ang runtime logging para malaman ang inaasahang dahilan.
 * `invalidSeparatorError` - Isang pag-aatempt ang ginawa para magdagdag na isang separator sa isang custom na kategorya sa Jump List. Ang mga separator ay pinapayagan lamang sa mga standard `Tasks` na kategorya.
 * `fileTypeRegistrationError` - Isang attempt ang ginawa para magdagdag ng isang file link patungo sa Jump List para sa isang file type na hindi nairehistrong ma-handle ng app.
 * `customCategoryAccessDeniedError` - Ang mga custom na kategorya ay hindi pwede idagdag sa Jump List dahil sa user privacy o group policy na mga setting.
@@ -560,7 +560,7 @@ Magbabalik ng `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+Ang `callback` ay tatawagin ng unang instance gamit ang `callback(argv, workingDirectory)` kung ang ikalawang instance ay na-execute na. Ang `argv` ay isang Array ng mga command line argument ng ikalawang instance, at ang `workingDirectory` ay ang kasalukuyang working directory nito. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
 
 The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
 
