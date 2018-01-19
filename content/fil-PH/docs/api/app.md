@@ -485,7 +485,7 @@ Naglalagay o nagtatanggal ng isang pasadyang Jump List para sa aplikasyon, at ib
 * `fileTypeRegistrationError` - Isang pagtatangka ang ginawa para magdagdag ng file link sa Jump List para sa isang uri ng file na ang app ay hindi rehistrado para hawakan ito.
 * `customCategoryAccessDeniedError` - Ang mga pasadyang kategorya ay hindi maaaring idagdag sa Jump List dahil sa privacy ng gumagamit o mga setting ng group policy.
 
-Kung ang `categories` ay `null`, ang dating naset na custom Jump List (kung mayroon man) ay papalitan ng standard na Jump List para sa app (na minamanage ng Windows).
+Kung ang `categories` ay `null`, ang dati ng naitakda na pasadyang Jump List (kung mayroon man) ay mapapalitan ng standard na Jump List para sa app (na pinamamahalaan ng Windows).
 
 **Tandaan:** Kung ang isang `JumpListCategory` na object ay hindi nai-set ang `type` ni ang `name` na property, ito ay i-assume na `type` ng `tasks`. Kung ang `name` na property ay na-set pero ang `type` na property ay hindi nasama, ang `type` ay ituturing na `custom`.
 
@@ -566,7 +566,7 @@ Ang `callback` ay siguradong i-eexecute pagkatapos ibrobrodkast ang `ready` even
 
 Ang method na ito ay magbabalik ng `false` kung ang proseso mo ay ang primary instance ng application at ang iyong app ay dapat nag-concontinue magload. At magbabalik ng `true` kung ang iyong proseso ay nagpadala ng mga parameter nito sa ibang insance, at dapat mong agarang ihinto.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
 An example of activating the window of primary instance when a second instance starts:
 
