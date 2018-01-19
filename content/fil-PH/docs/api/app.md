@@ -495,58 +495,59 @@ Narito ang isang napakasimpleng halimbawa ng paggawa ng isang pasadyang Jump Lis
 
 ```javascript
 const {app} = require('electron')
+
 app.setJumpList([
- {
-  type: 'custom',     
-  name: 'Recent Projects', 
-  items: [
-    { type: 'file', path: 'C:\\Projects\\project1.proj' },
-    { type: 'file', path: 'C:\\Projects\\project2.proj' }
-  ]
- },
- { // mayroon itong pangalan kaya ang `type` ay ituturing na "custom"     
-   name: 'Tools',
-   items: [
-     {
-      type: 'task',
-      title: 'Tool A',
-      program: process.execPath,
-      args: '--run-tool-a',
-      icon: process.execPath,
-      iconIndex: 0,
-      description: 'Runs Tool A'
-     }, 
-     {
-      type: 'task',
-      title: 'Tool B',
-      program: process.execPath,
-      args: '--run-tool-b',
-      icon: process.execPath,
-      iconIndex: 0,
-      description: 'Runs Tool B'
-     }
-   ]  
- },   
- { type: 'frequent' },
- { // walang pangalan at walang type kaya ang `type` ay ituturing na "tasks"
-   items: [       
-     {
-       type: 'task',
-       title: 'New Project',
-       program: process.execPath,
-       args: '--new-project',
-       description: 'Create a new project.'
-     },
-     { type: 'separator' },
-     {
-       type: 'task',
-       title: 'Recover Project',
-       program: process.execPath,
-       args: '--recover-project',
-       description: 'Recover Project'
-     }
-   ]   
- }
+  {
+    type: 'custom',
+    name: 'Recent Projects',
+    items: [
+      { type: 'file', path: 'C:\\Projects\\project1.proj' },
+      { type: 'file', path: 'C:\\Projects\\project2.proj' } 
+    ]
+  },
+  { // ay may pangalan kaya `type` ay ipinapalagay na "custom"                                             
+     na pangalan: 'Tools',
+    items: [
+      { 
+        type: 'task',
+        title: 'Tool A',
+        program: process.execPath,
+        args: '--run-tool-a',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool A'
+      },
+      {
+        type: 'task',
+        title: 'Tool B',
+        program: process.execPath,
+        args: '--run-tool-b',
+        icon: process.execPath,
+        iconIndex: 0,
+        description: 'Runs Tool B'
+      }
+    ]
+  },
+  { type: 'frequent' },
+  { // ay walang pangalan at walang tayp kaya `type` ay ipinapalagay na "tasks"
+    mga aytem: [
+      {
+        type: 'task',
+        title: 'New Project',
+        program: process.execPath,
+        args: '--new-project',
+        description: 'Create a new project.'
+      },
+      { type: 'separator' },
+      {
+        type: 'task',
+        title: 'Recover Project',
+        program: process.execPath,
+        args: '--recover-project',
+        description: 'Recover Project'
+      }
+    ]
+  }
 ])
 ```
 
