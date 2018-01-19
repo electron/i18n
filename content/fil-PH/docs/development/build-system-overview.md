@@ -76,9 +76,9 @@ Maaari mong gamitin ang `grep` ng mocha bilang alternatibo para lamang masubukan
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Pagsusuri kasama ang mga naunang modyul (hal. `runas`) na hindi maipapakita gamit ang nabuong debug (tingnan ang [#2558](https://github.com/electron/electron/issues/2558) para sa mga detalye), ngunit ito'y mapapagana gamit ang release build.
 
-To run the tests with the release build use:
+Para masubukan kung gagana gamit ang release build gamitin ang:
 
 ```sh
 $ npm test -- -R
