@@ -44,7 +44,7 @@ Ito ay makaaaàpekto lamang sa mga bumubuo, kung ikaw ay nagsasagawa ng Elektron
 
 ## Mga Pagsusuri
 
-Test your changes conform to the project coding style using:
+Suriin ang mga pagbabago ayon sa code ng istilo ng proyekto na iyong gagamitin:
 
 ```sh
 $ npm run lint
