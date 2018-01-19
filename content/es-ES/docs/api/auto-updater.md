@@ -47,11 +47,11 @@ Devuelve:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Emitido cuando se esta actualizando 
 
 ### Evento: 'checking-for-update'
 
-Emitted when checking if an update has started.
+Emitido al comprobar si una actualización ya ha empezado
 
 ### Evento: 'update-available'
 
