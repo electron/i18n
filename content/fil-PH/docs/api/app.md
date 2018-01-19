@@ -719,15 +719,15 @@ Context | Request Context
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `false` kung hindi naman. Ang API na ito ay babalik sa `true` kung ang paggamit ng nakatutulong na teknolohiya, tulad ng mga screen reader, ay nakita. Tingnan ang https://www.chrmium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `mga pagpipilian` Bagay 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
+  * `applicationName` String (opsyonal) - Ang pangalan ng app.
+  * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
+  * `copyright` String (opsyonal) - Ang impormasyon ng copyright.
+  * `credits` String (opsyonal) - Ang impormasyon ng credit.
   * `version` String (optional) - The app's build version number.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
