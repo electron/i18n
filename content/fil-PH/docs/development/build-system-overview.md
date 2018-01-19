@@ -56,7 +56,7 @@ Subukan kung ito'y gumagana ng maayos gamit ang:
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Kapag ika'y nagsagawa ng anumang pagbabago sa source code ng Electron, kinakailangan mong muling paganahin ang naisagawang pagbabago bago ito suriin:
 
 ```sh
 $ npm run build && npm test
