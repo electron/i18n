@@ -681,8 +681,8 @@ Returns `Object`:
 * `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean - `true` Kung ang app ay naka-set na bumukas bilang nakatago sa pag-login. Ang setting na ito ay sinusuportahan lamang sa macOS.
 * `wasOpenedAtLogin` Boolean - `true` kung ang app ay awtomatikong bumukas sa pag-login. Ang setting na ito ay sinusuportahan lamang sa macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `wasOpenedAsHidden` Boolean - `true` kung ang app ay bumukas bilang isang nakatagong item sa pag-login. Nagpapahiwatig ito na ang app ay hindi dapat magbukas ng kahit anong window sa startup. Ang setting na ito ay sinusuportahan lamang sa macOS.
+* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. Ang setting na ito ay sinusuportahan lamang sa macOS.
 
 **Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
