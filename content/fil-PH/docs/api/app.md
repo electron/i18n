@@ -464,13 +464,13 @@ Idinadagdag ng `tasks` sa mga [Tasks](http://msdn.microsoft.com/en-us/library/wi
 
 Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
-**Tandaan:** Kung gusto mo pang mag-customize ng Jump List gamitin sa halip ang `app.setJumpList(categories)`.
+**Note:** Kung gusto mo pang ipasadya ang Jump List ng higit pa gamitin sa halip ang `app.setJumpList(categories)`.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Magbabalik ng `Object`:
+Returns `Object`:
 
-* `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng value na ito tanawin ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang array ng mga `JumpListItem` na object na tumutugma sa mga item na malinaw na tinanggal ng user galing sa mga custom na kategorya ng Jump List. Ang mga item ay dapat hindi madagdag uli sa Jump List sa **next** na tawag ng `app.setJumpList()`, ang Windows ay hindi magdidisplay ng kahit anong custom na kategorya na maglalaman ng mga itinanggal ng mga item.
 
 ### `app.setJumpList(categories)` *Windows*
@@ -504,7 +504,7 @@ app.setJumpList([
     { type: 'file', path: 'C:\\Projects\\project2.proj' }
   ]
  },
- { // has a name so `type` is assumed to be "custom"     
+ { // mayroon itong pangalan kaya ang `type` ay tinuturing na "custom"     
    name: 'Tools',
    items: [
      {
@@ -528,7 +528,7 @@ app.setJumpList([
    ]  
  },   
  { type: 'frequent' },
- { // has no name and no type so `type` is assumed to be "tasks"
+ { // walang pangalan at walang type kaya ang `type` ay tinuturing na "tasks"
    items: [       
      {
        type: 'task',
@@ -675,7 +675,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Magbabalik ng `Object`:
+Returns `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
