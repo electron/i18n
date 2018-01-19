@@ -487,7 +487,7 @@ Nagseset o nagtatanggal ng isang custom na Jump List para sa application, at nag
 
 Kung ang `categories` ay `null`, ang dating naset na custom Jump List (kung mayroon man) ay papalitan ng standard na Jump List para sa app (na minamanage ng Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Tandaan:** Kung ang isang `JumpListCategory` na object ay hindi nai-set ang `type` ni ang `name` na property, ito ay i-assume na `type` ng `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
