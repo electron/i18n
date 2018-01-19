@@ -5,13 +5,13 @@
 Proceso: [Principal](../glossary.md#main-process)
 
 ```javascript
-const {systemPreferences} = require('electron')
+const {systemPreferences} = requiere('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
 ## Eventos
 
-The `systemPreferences` object emits the following events:
+El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 ### Event: 'accent-color-changed' *Windows*
 
