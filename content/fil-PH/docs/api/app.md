@@ -696,7 +696,7 @@ Returns `Object`:
 
 I-set ang mga login aytem setting ng app.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Halimbawa:
+Makipagtulungan sa `autoUpdater` ng Electron sa Windows,kung saan gumagamit ng [Squirrel](https://github.com/Squirrel/Squirrel.Windows),gusto mong i-set ang landas ng pag-launch patungo sa Update.exe, at ipasa ang mga argumento na nagsasaad ng pangalan ng iyong aplikasyon. Halimbawa:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -711,6 +711,8 @@ app.setLoginItemSettings({
     '--process-start-args', `"--hidden"`
   ]
 })
+ 
+Context | Request Context
 ```
 
 **Note:** Ang API na ito ay walang epekto sa [MAS builds](../tutorial/mac-app-store-submission-guide.md).
