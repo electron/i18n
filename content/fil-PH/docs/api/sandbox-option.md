@@ -8,7 +8,7 @@ In other words, when the sandbox is enabled, the renderers can only make changes
 
 Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `kaylangan()` halimbawa, hindi posible walang pahintulot sa file system, kung saan hindi magagamit sa sandboxed.
 
-Karaniwan hindi ito suliranin sa desktop application mula noon ang code ay palaging mapagkakatiwalaan, pero maaring ang electron ay hindi ligtas kaysa sa chromium para sa ipinapakitang hindi mapagkakatiwalaang web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+Karaniwan hindi ito suliranin sa desktop application mula noon ang code ay palaging mapagkakatiwalaan, pero maaring ang electron ay hindi ligtas kaysa sa chromium para sa ipinapakitang hindi mapagkakatiwalaang web content. Para sa mga applikasyon nangangailangan ng mas higit na seguridad, ang `sandbox` palatandaan ay pipilitin ng electron lumitaw sa chromium na tagabigay ng kompatibol sa sandbox.
 
 A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
 
