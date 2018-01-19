@@ -13,12 +13,12 @@ console.log(systemPreferences.isDarkMode())
 
 El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
-### Event: 'accent-color-changed' *Windows*
+### Evento: 'acento-color-cambio' *Windows*
 
 Devuelve:
 
 * `evento` Evento
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* `nuevoColor` Cadena - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' *Windows*
 
@@ -26,18 +26,18 @@ Devuelve:
 
 * `evento` Evento
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Evento: 'color-invertido-esquema-cambiado' *Windows*
 
 Devuelve:
 
 * `evento` Evento
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+* `EsquemaColorinvertido` Boolean ' `verdad` si un color de esquema invertido, como un tema de alto contraste, está siendo usando, o de lo contrario `falso`.
 
 ## Métodos
 
-### `systemPreferences.isDarkMode()` *macOS*
+### `Preferenciasdesistema.esModoOscuro()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
