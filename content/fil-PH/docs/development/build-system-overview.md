@@ -50,7 +50,7 @@ Suriin ang mga pagbabago ayon sa code ng istilo ng proyekto na iyong gagamitin:
 $ npm run lint
 ```
 
-Test functionality using:
+Subukan kung ito'y gumagana ng maayos gamit ang:
 
 ```sh
 $ npm test
