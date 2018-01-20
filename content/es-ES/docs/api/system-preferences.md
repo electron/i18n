@@ -175,12 +175,12 @@ const alpha = color.substr(6, 2) // "dd"
   * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
   * `3d-light` - Color claro para elementos de tres dimensiones mostrados.
   * `3d-shadow` - Color oscuro para elementos de tres dimensiones mostrados.
-  * `active-border` - Active window border.
-  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-  * `app-workspace` - Background color of multiple document interface (MDI) applications.
-  * `button-text` - Text on push buttons.
-  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+  * `active-border` - Borde de ventana activo.
+  * `active-caption` - Título de barra de la ventana activo. Especifica el color del lado izquierdo en el tono del color de un título de barra de ventana activa si el efecto de tono está habilitado.
+  * `active-caption-gradient` - El color del lado derecho en el tono del color de un título de barra de una ventana activa.
+  * `app-workspace` - Color de fondo de múltiples documentos de aplicaciones de interfase.
+  * `button-text` - Texto en los botones de presión.
+  * `caption-text` - Textos en subtítulos, tamaño de la caja y la barra de desplazamiento de la caja de flecha.
   * `desktop` - Desktop background color.
   * `disabled-text` - Grayed (disabled) text.
   * `highlight` - Item(s) selected in a control.
