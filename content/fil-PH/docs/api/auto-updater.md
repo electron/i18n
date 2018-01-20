@@ -84,7 +84,7 @@ Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 * `url` String
 * `requestHeaders` Onject *macOS* (opsyonal) - kahilingan sa ulunan ng HTTP.
 
-Sets the `url` and initialize the auto updater.
+Tinatakda ang `url` at nagpapasimula ng auto-updater.
 
 ### `autoUpdater.getFeedURL()`
 
@@ -96,6 +96,6 @@ Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gam
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Uulitin ang app at iinstall ang mga update pagkatapos itong ma download. Ito ay dapat lamang tawagin pagkatapos ng `update-downloaded` ay lumabas na.
 
 **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
