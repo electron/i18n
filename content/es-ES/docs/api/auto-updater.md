@@ -51,11 +51,11 @@ Emitido cuando se esta actualizando
 
 ### Evento: 'checking-for-update'
 
-Emitido al comprobar si una actualización ya ha empezado
+Aparece al comprobar si una actualización ya ha empezado.
 
 ### Evento: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Aparece cuando hay una actualización disponible. La actualización se descargará automáticamente.
 
 ### Evento: 'update-not-available'
 
