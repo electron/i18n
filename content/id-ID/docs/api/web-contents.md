@@ -865,13 +865,13 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     
     #### `konten.apakahalatDevTerbuka()`
     
-    Returns `Boolean` - Whether the devtools is opened.
+    Mengembalikan `boolean` - apakah alatdev sudah terbuka.
     
-    #### `contents.isDevToolsFocused()`
+    #### `konten.apakahAlatDevsudahTerfokus()`
     
     Mengembalikan `Boolean` - Apakah tampilan devtools terfokus.
     
-    #### `contents.toggleDevTools()`
+    #### `konten.mematikanAlatDev()`
     
     Toggles alat pengembang.
     
