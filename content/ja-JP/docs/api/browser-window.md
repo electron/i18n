@@ -968,9 +968,9 @@ The `buttons` is an array of `Button` objects:
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
   * `tooltip` String (optional) - ボタンのツールチップのテキスト。
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `flags` String[] (optional) - 特定の状態や行動を制御する ボタン。デフォルトでは、 `['enabled']`。
 
-The `flags` is an array that can include following `String`s:
+`flags` は、 `String` を含むことができる配列です。
 
 * `enabled` - ボタンはアクティブで、ユーザーが使用できます。
 * `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
