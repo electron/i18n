@@ -27,8 +27,8 @@ Ang code ng C++ ay kadalasang gumagamit ng mga abstraction ng Chromium at mga ur
 Ang Electron APIs ay parehong gumagamit ng capitalization scheme bilang Node.js:
 
 * Kapag ang modyul mismo ay tulas ng nasa uri ng `BrowserWindow`, gumamit ng `CamelCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
-* When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Kapag ang modyul ay nasa ayos ng APIs, tulad ng `globalShortcut`, gumamit ng `mixedCase`.
+* Kapag ang API ay isang pag-aari ng object, at masyadong kumplikado upang maibukod ang bawat sangay tulad ng `win.webContents`, gumamit ng `mixedCase`.
+* Para sa iba pang non-module ng APIs, gumamit ng likas na mga pamagat, tulad ng `<webview> Tag` o kaya naman ay `Process Object`.
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Kapag gumagawa ng bagong API, mas mabuting gumamit ng getters at setters sa halip na istilo ng jQuery's one-function. Halimbawa, sa halip na gumamit ng `.getText()` at `.setText(text)` mas mabuting gamitin ang `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
