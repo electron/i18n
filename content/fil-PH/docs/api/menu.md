@@ -1,4 +1,4 @@
-## Class: Menu
+## Class: menu
 
 > Create native application menus and context menus.
 
