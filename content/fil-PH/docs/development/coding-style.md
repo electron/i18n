@@ -15,10 +15,10 @@ Ang code ng C++ ay kadalasang gumagamit ng mga abstraction ng Chromium at mga ur
 ## JavaScript
 
 * Isulat ang istilo ng JavaScript na [standard](https://npm.im/standard).
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
-* Use newer ES6/ES2015 syntax where appropriate 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
+* Ang mga pangalan ng file ay dapat na nakadugtong sa `-` sa halip sa `_`, hal. ang paggamit ng `file-name.js` kaysa sa `file_name.js`, dahil ang mga pangalan ng [github/atom](https://github.com/github/atom) na modyul ay madalas na nasa anyo ng `module-name`. Ang patakaran na ito ay ginagamit lamang sa mga file na `.js`.
+* Gumamit ng mas bagong ES6/ES2015 syntax kung saan ito'y naaangkop 
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) para sa mga kinailangan at iba pang mga constant
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) upang matukoy ang mga variable
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
