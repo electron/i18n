@@ -35,33 +35,33 @@ Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o 
 
 ### Linux
 
-There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Walang nakalagay na suporta para sa auto-updater para sa Linux, kaya't inirerekomenda na gamitin ang distribution's package manager para i-update ang iyong app.
 
 ## Pangyayari
 
-The `autoUpdater` object emits the following events:
+Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
-### Event: 'error'
+### Pangyayari: 'error'
 
 Magbabalik ng:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Lumabas kapag mayroong mali habang ina-update.
 
-### Event: 'checking-for-update'
+### Pangyayari:'checking-for-update'
 
-Emitted when checking if an update has started.
+Lumalabas kapag sinusuri kung ang update ay nagsimula na.
 
-### Event: 'update-available'
+### Pangyayari: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Lumalabas kapag mayroong pagbabago. Ang pag-update ay awtomatikong na-download.
 
-### Event: 'update-not-available'
+### Pangyayari: 'update-not-available'
 
-Emitted when there is no available update.
+Napalabas kapag walang available na pag-update.
 
-### Event: 'update-downloaded'
+### Pangyayari: 'update-downloaded'
 
 Magbabalik ng:
 
@@ -71,13 +71,13 @@ Magbabalik ng:
 * `releaseDate` Petsa
 * `updateURL` Lubid
 
-Emitted when an update has been downloaded.
+Lumalabas kung ang update ay nadownload na.
 
-On Windows only `releaseName` is available.
+Tanging Windows lamang`releaseName` is available.
 
 ## Pamamaraan
 
-The `autoUpdater` object has the following methods:
+Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
