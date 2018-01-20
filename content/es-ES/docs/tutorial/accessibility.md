@@ -20,7 +20,7 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Puede leer más acerca de esta herramienta en la [documentación de Spectron](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
@@ -38,7 +38,7 @@ Las aplicaciones electrónicas mantienen la accesibilidad desactivada de forma p
 
 ### Aplicación interna
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. Las utilidades de asistencia del sistema del usuario tienen prioridad sobre esta configuración y la anularán.
+Usando [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), puede exponer los cambios de accesibilidad a los usuarios en las preferencias de las aplicaciones. Las utilidades de asistencia del sistema del usuario tienen prioridad sobre esta configuración y la anularán.
 
 ### Tecnología de asistencia
 
