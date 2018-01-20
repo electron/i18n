@@ -6,21 +6,21 @@ Lubos na pinapayuhan na iayos ang nabagong code sa C++ bago magbukas ng mga pull
 
 Maaaring ikabit ang `clang-format` at `git-clang-format ` gamit ang `npm install -g clang-format`.
 
-To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
+Upang kusang iayos ang file ayon sa istilo ng code ng Electron C++, paganahin lamang ang `clang-format -i path/to/electron/file.cc`. Kailangan na ito'y gumana sa macOS/Linux/Windows.
 
-The workflow to format your changed code:
+Ang workflow upang iayos ang nabagong code ay:
 
-1. Make codes changes in Electron repository.
+1. Gumawa ng mga pagbabago sa mga code ng repository ng Electron.
 2. Run `git add your_changed_file.cc`.
-3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
-4. Run `git add your_changed_file.cc`, and commit your change.
-5. Now the branch is ready to be opened as a pull request.
+3. Run `git-clang-format`, at maaari mong makita ang ilang pagbabago sa `your_changed_file.cc`, ang mga pagbabago na ito ay gawa galing sa `clang-format`.
+4. Run `git add your_changed_file.cc`, at gumawa ng pagbabago.
+5. Ngayon, ang sangay ay maaari nang mabuksan bilang pull request.
 
-If you want to format the changed code on your latest git commit (HEAD), you can run `git-clang-format HEAD~1`. See `git-clang-format -h` for more details.
+Kung nais mong iayos ang code na nabago sa pinakabagong git commit (HEAD), maaaring paganahin ang `git-clang-format HEAD~1`. Tingnan ang `git-clang-format -h` para sa mga karagdagang detalye.
 
 ## Editor Integration
 
-You can also integrate `clang-format` directly into your favorite editors. For further guidance on setting up editor integration, see these pages:
+Maaari mo ring pagsamahin ang `clang-format` direkta sa iyong mga paboritong editor. Para sa karagdagang patnubay sa pagsasaayos ng editor integration, tingnan ang mga pahina:
 
 - [Atom](https://atom.io/packages/clang-format)
 - [Vim & Emacs](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
