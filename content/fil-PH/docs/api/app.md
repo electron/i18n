@@ -612,12 +612,12 @@ Nagbabalik ang `String` - Ang uri ng kasalukuyang aktibidad na tumatakbo.
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `mga pagpipilian` Bagay 
-  * `certificate` String - Path for the pkcs12 file.
+  * `certificate` String - Ang landas para sa mga file ng pkcs12.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
   * `result` Integer - Result of import.
