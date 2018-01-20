@@ -10,7 +10,7 @@ Gumawa ng bagong menu.
 
 ### Mga paraan ng static
 
-The `menu` class has the following static methods:
+Ang `menu` na object ay mga sumusunod na paraan ng static:
 
 #### `Menu.setApplicationMenu(menu)`
 
