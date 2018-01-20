@@ -47,9 +47,9 @@ Devuelve:
 
 * `error` Error
 
-Emitido cuando se esta actualizando 
+Aparece cuando hay un error al actualizar.
 
-### Evento: 'checking-for-update'
+### Evento: "comprobar si hay actualizaciones"
 
 Aparece al comprobar si una actualización ya ha empezado.
 
