@@ -98,4 +98,4 @@ Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gam
 
 Uulitin ang app at iinstall ang mga update pagkatapos itong ma download. Ito ay dapat lamang tawagin pagkatapos ng `update-downloaded` ay lumabas na.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Tandaan:** Ang `autoUpdater.quitAndInstall()`ay isasara ang lahat ng naunang applikasyon sa windows at maglalabas ng mga `bago-itigil` na pangyayari`app`pagkatapos nito. Ito ay kaiba mula sa normal na quit event sequence.
