@@ -1,15 +1,15 @@
-# Planned Breaking API Changes
+# Cambios planificados de API
 
-The following list includes the APIs that will be removed in Electron 2.0.
+La siguiente lista incluye las APIs que serán removidas en Electron 2.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+No hay un tiempo estipulado para este lanzamiento pero las advertencias de solicitudes de cambio serán añadidas por lo menos 90 días antes del hecho.
 
 ## `app`
 
 ```js
-// Deprecated
+// Cambiar
 app.getAppMemoryInfo()
-// Replace with
+// Reemplazar con
 app.getAppMetrics()
 ```
 
