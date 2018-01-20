@@ -129,7 +129,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Tests
 
-Tingnan [ Buod ng Pagbuo ng Sistema: Mga Pagsusuri ](build-system-overview.md#tests)
+Tingnan ang [ Buod ng Pagbuo ng Sistema: Mga Pagsusuri ](build-system-overview.md#tests)
 
 ## Advanced topics
 
