@@ -1,12 +1,12 @@
-# Coding Style
+# Istilo ng Code
 
-These are the style guidelines for coding in Electron.
+Ang mga ito ay mga patnubay sa istilo ng paggawa ng code sa Electron.
 
-You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
+Maaari mong paganahin ang `npm run lint` upang maipakita ang anumang istilo ng mga isyu na syang mahahanap gamit ang `cpplint` at `eslint`.
 
 ## C++ and Python
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Para sa C++ at Python, tayo ay sumusunod sa [Coding Style](https://www.chromium.org/developers/coding-style) ng Chromium. You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
 The Python version we are using now is Python 2.7.
 
