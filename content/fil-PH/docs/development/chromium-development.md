@@ -54,7 +54,7 @@ Kung ang bootstrap script ay di gumana habang ginagamit ang git cache, iiwanan d
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 ```
 
-It is possible to share this directory with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+Maaaring maibahagi ang directory sa iba pang mga makina sa pamamagitan ng paglabas nito bilang bahagi ng SMB sa linux, ngunit isang proseso/makina lamang ang maaaring gamitin. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
 
 On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
 
