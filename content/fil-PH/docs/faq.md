@@ -20,9 +20,9 @@ Para sa karagdagang impormasyon, mangyaring tignan lamang ang [ security introdu
 
 Kapag ang bagong bersyon ng Node.js ay nailabas, kadalasan ay naghihintay kami ng isang buwan bago i-upgrade ang isang nasa Electron. Para maiwasan naming maapektuhan ng mga bugs na kasama sa bagong bersyon ng Node.js, na nangyayari ng madalas.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Ang bagong tampok ng Node.js ay kadalasang dala ng V8 upgrade, dahil ang Electron ay gumagamit ng V8 na dala ni Chrome browser, ang makinang at bagong tampok mula sa JavaScript ng bagong bersyon ng Node.js ay kadalasang kasama na sa Electron.
 
-## How to share data between web pages?
+## Paano magbahagi ng data sa pagitan ng mga pahina ng web?
 
 To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
