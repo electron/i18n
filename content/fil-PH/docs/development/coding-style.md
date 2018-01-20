@@ -19,14 +19,14 @@ Ang code ng C++ ay kadalasang gumagamit ng mga abstraction ng Chromium at mga ur
 * Gumamit ng mas bagong ES6/ES2015 syntax kung saan ito'y naaangkop 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) para sa mga kinailangan at iba pang mga constant
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) upang matukoy ang mga variable
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) sa halip na `function () { }`
+  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) sa halip na magkakadugtong na string gamit ang `+`
 
-## Naming Things
+## Pagbibigay ng Pangalan sa mga Bagay
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Ang Electron APIs ay parehong gumagamit ng capitalization scheme bilang Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `CamelCase`.
+* Kapag ang modyul mismo ay tulas ng nasa uri ng `BrowserWindow`, gumamit ng `CamelCase`.
 * When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
 * When the API is a property of object, and it is complex enough to be in a separate chapter like `win.webContents`, use `mixedCase`.
 * For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
