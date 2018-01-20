@@ -10,11 +10,11 @@ Para sa C++ at Python, tayo ay sumusunod sa [Coding Style](https://www.chromium.
 
 Ang Python 2.7 ay bagong bersyon na ating ginagamit ngayon.
 
-Ang code ng C++ ay kadalasang gumagamit ng mga abstraction ng Chromium at mga uri nito, kaya naman pinapayuhan na kilalanin ang mga ito. Ang [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document ng Chromium ay syang magandang simulain. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Ang code ng C++ ay kadalasang gumagamit ng mga abstraction ng Chromium at mga uri nito, kaya naman pinapayuhan na kilalanin ang mga ito. Ang [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document ng Chromium ay syang magandang simulain. Ang mga naisaad na natatanging mga uri ng document, ang mga uri ng nasaklaw ( na syang kusang naglalabas ng kanilang memory kung ito'y 'di sinasaklawan), mekanismo ng pagla-log, atbp.
 
 ## JavaScript
 
-* Write [standard](https://npm.im/standard) JavaScript style.
+* Isulat ang istilo ng JavaScript na [standard](https://npm.im/standard).
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
