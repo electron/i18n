@@ -54,12 +54,12 @@ Kung ang bootstrap script ay di gumana habang ginagamit ang git cache, iiwanan d
 $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 ```
 
-Maaaring maibahagi ang directory sa iba pang mga makina sa pamamagitan ng paglabas nito bilang bahagi ng SMB sa linux, ngunit isang proseso/makina lamang ang maaaring gamitin. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+Maaaring maibahagi ang directory sa iba pang mga makina sa pamamagitan ng paglabas nito bilang bahagi ng SMB sa linux, ngunit isang proseso/makina lamang ang maaaring gamitin. Ang mga lock na nilikha ng git-cache script ay susubukang maiwasan ito, pero maaari pa rin itong di gumana ng maayos sa network.
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+Sa Windows, ang SMBv2 ay mayroong directory cache na maaaring maging sanhi ng problema gamit ang git cache script, kaya naman kailangan itong ihinto gamit ang setting sa registry key
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+hanggang 0. Para sa iba pang mga detalye: https://stackoverflow.com/a/9935126
