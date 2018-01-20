@@ -79,38 +79,38 @@ Devuelve:
 * `display` [Display](structures/display.md)
 * `changedMetrics` Cadena[]
 
-Emitido cuando o más métricos cambian en un `display`. El `changedMetrics` es un arreglo de cadenas que describen los cambios. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Emitido cuando o más métricos cambian en un `display`. El `changedMetrics` es un arreglo de cadenas que describen los cambios. Posibles cambios son `bounds`, `workArea`, `scaleFactor` y `rotation`.
 
 ## Métodos
 
-The `screen` module has the following methods:
+El módulo `screen` tiene los siguientes métodos:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Devuelve [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+La actual y absoluta posición del cursor del mouse.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+Devuelve `Integer` - La altura de la barra del menú en pixeles.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Devuelve [`Display`](structures/display.md) - La muestra primaria.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Devuelve [`Display[]`](structures/display.md) - Un arreglo de muestras que son actualmente disponibles.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Devuelve [`Display`](structures/display.md) - La muestra más cerca del punto especificado.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Devuelve [`Display`](structures/display.md) - La muestra que es más cercana intersecta a las bandas dadas.
