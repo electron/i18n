@@ -120,14 +120,14 @@ let image = nativeImage.createFromPath('/Users/somebody/images/icon.png')
 console.log(image)
 ```
 
-### `nativeImage.createFromBuffer(buffer[, options])`
+### `ativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Object (optional) * `width` Integer (optional) - Kinakailangan para sa mga bitmap buffers. * `height` Integer (optional) - Kinakailangan para sa mga bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+Gumawa ng bagong `NativeImage` instance mula `buffer`.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
@@ -135,35 +135,35 @@ Creates a new `NativeImage` instance from `buffer`.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+Gumawa ng bagong `NativeImage` instance mula `dataURL`. 
 
 ## Class: NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> Bumabalot ng imahe katulad ng trey, pantala, ang aplikasyon na icon. 
 
 Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
 ### Instance Methods
 
-The following methods are available on instances of the `NativeImage` class:
+Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase : 
 
 #### `image.toPNG([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng mga imaheng `PNG` encoded data.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer (**required**) - Between 0 - 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng mga imaheng`JPEG` encoded data
 
 #### `image.toBitmap([options])`
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng kopya ng mga imaheng hilaw na bitmap pixel data. 
 
 #### `image.toDataURL([options])`
 
