@@ -41,7 +41,7 @@ Ang pagbuo ng libchromiumcontent ay nangangailangan ng pinakamabisang makina at 
 
 ang`depot_tools`ay di nakasaad sa mapagpipilian na nagpapahintulot sa mga naglilinang na itakda ang global cache para sa lahat ng mga bagay sa git ng Chromium + dependencies. Ang mapagpipilian na ito ay gumagamit ng`git clone --shared`upang mapanatili ang bandwidth/space sa malaking bilang ng mga gumagaya ng kaparehong mga repository.
 
-Sa electron/libchromiumcontent, ang mapagpipilian na ito ay nakalabas gamit ang`LIBCHROMIUMCONTENT_GIT_CACHE`sa environment variable. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. Halimbawa:
+Sa electron/libchromiumcontent, ang mapagpipilian na ito ay nakalabas gamit ang`LIBCHROMIUMCONTENT_GIT_CACHE`sa environment variable. Kung nais mong magkaroon ng malaking bilang ng libchromiumcontent build trees sa kaparehong makina (halimbawa ng paggawa sa iba't-ibang mga sangay), pinapayuhang itakda ang variable upang mapabilis ang pagkuha ng pinanggalingan ng Chromium. Halimbawa:
 
 ```sh
 $ mkdir ~/.chromium-git-cache
