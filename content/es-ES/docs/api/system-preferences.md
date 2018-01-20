@@ -94,16 +94,16 @@ Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defec
 
 * `id` Íntegro
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `llave` Cadena
+* `type` Cadena - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in system preferences.
+Devuelve `any` - El valor de `key` en las preferencias del sistema.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -115,7 +115,7 @@ This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `key` String
+* `llave` Cadena
 * `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` String
 
@@ -123,7 +123,7 @@ Set the value of `key` in system preferences.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
