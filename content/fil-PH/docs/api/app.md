@@ -569,7 +569,7 @@ Ang method na ito ay magbabalik ng `false` kung ang proseso mo ay ang primary in
 
 Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. Gayunpaman kapag ang mga user ay binuksan ang iyong app sa linya ng command ang isahang pagkakataong mekanismo ng sistema ay mababalewala at kailangan mong gamitin ang pamamaraang ito para masiguro ang isahang pagkakataon.
 
-An example of activating the window of primary instance when a second instance starts:
+Ang isang halimbawa ng pag-aktibeyt ng window ng pangunahing pagkakataon ay kapag nagsimula na ang ikalawang pagkakataon:
 
 ```javascript
 const {app} = require('electron')
