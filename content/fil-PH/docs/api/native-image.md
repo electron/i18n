@@ -82,7 +82,7 @@ Ang mga sumusunod na suffixes ng DPI ay suportado rin.
 
 ## Template Image
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Ang template image ay binubuo ng itim at malinaw na kulay (at ang aplha channel). Ang template images ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
 
 The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
 
