@@ -16,6 +16,6 @@ Walang masyadong Phyton sa imbakan na ito, ngunit ito rin ay pinamamahalaan ng m
 
 ## Pagsusuri ng unit
 
-Para patakbuhin ang lahat ng pagsusuri ng unit, patakbuhin ang `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+Para patakbuhin ang lahat ng pagsusuri ng unit, patakbuhin ang `npm run test`. Ang yunit na pagsusulit ay isang elektron app (nagulat!) na matatagpuan sa folder ng `spec`. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
 
 To run only a selected number of tests, run `npm run test -match=NAME`, replacing the `NAME` with the file name of the test suite you would like to run. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
