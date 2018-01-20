@@ -132,8 +132,7 @@ and then check if it is in the following form:
 If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
 
 ```sh
-npm uninstall electron
-npm uninstall -g electron
+npm i-tanggalin ang electron npm tanggalin ang -g electron
 ```
 
 Subalit kung ikaw ay gumagamit ng mga built-in module at nakakakuha ka parin ng mga ganitong error, ito ay malamang na ang ginagamit mong module ay nasa maling proseso. Halimbawa`electron.app`ay maari lamang magamit sa pangunahing proseso, habang ang `electron.webFrame`ay tanging magagamit sa proseso ng tagasalin.
