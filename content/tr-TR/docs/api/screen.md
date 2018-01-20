@@ -2,9 +2,9 @@
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+`uygulama` modülünün `hazır` olayı belirtilmeden bu modülü kullanamazsınız yada bu modüle gerek olmaz.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -62,7 +62,7 @@ Dönüşler:
 
 `newDisplay` eklendiğinde ortaya çıkar.
 
-### Event: 'display-removed'
+### Olay: 'Görünüm-kaldırıldı'
 
 Dönüşler:
 
@@ -87,7 +87,7 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+[`Point`](structures/point.md) geri alır
 
 Fare işaretçisinin geçerli mutlak konumu.
 

@@ -137,3 +137,5 @@ _404:
   page_not_found: Stránka nenalezena.
   if_this_is_an_error: Pokud je to chyba
   please_file_an_issue: prosím dejte nám vědět.
+search:
+  description: Search within Electron documentations and community.

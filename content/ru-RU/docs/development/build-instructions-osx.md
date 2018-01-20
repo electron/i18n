@@ -6,7 +6,7 @@
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (внешнее)
+- [node.js](https://nodejs.org) (внешнее)
 
 Если вы используете Python, скачайте Homebrew, необходимо также установить следующие модули Python:
 
@@ -83,6 +83,6 @@ $ npm run clean-build
 
 **Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
 
-## Тестирование
+## Тесты
 
 Смотрите [Build System Overview: Tests](build-system-overview.md#tests)

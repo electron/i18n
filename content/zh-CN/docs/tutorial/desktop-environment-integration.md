@@ -20,14 +20,14 @@ Windows 和 macOS 分别通过打开跳转列表和dock菜单使应用程序能�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-若要增加一个文件到最近文件列表，你可以使用[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+若要增加一个文件到最近文件列表，你可以使用[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API 来清空最近文件列表。
+你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API 来清空最近文件列表。
 
 ```javascript
 const {app} = require('electron')
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Windows 注意事项
 
-为了在 Windows 上使用这个特性，你的应用需要被注册为这类文件的处理程序，否则，在你注册之前，文件是不会出现在跳转列表里的。 你可以在 [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx) 里找到所有关于注册事宜的说明。
+为了在 Windows 上使用这个特性，你的应用需要被注册为这类文件的处理程序，否则，在你注册之前，文件是不会出现在跳转列表里的。 你可以在 [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx) 里找到所有关于注册事宜的说明。
 
 当用户点击“跳转列表”上的一个文件时，系统会启动一个新的应用程序的实例 ，而文件的路径将作为一个命令行参数被传入这个实例。
 
@@ -80,7 +80,7 @@ app.dock.setMenu(dockMenu)
 
 **Internet Explorer 的 任务:**
 
-![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
+![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
 不同于 macOS 的dock菜单，Windows 上的用户任务表现得更像一个快捷方式，比如当用户点击一个任务，一个程序将会被传入特定的参数并且运行。
 
@@ -123,7 +123,7 @@ app.setUserTasks([])
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-你可以使用 [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) 来设置你的应用的缩略图工具栏。
+你可以使用 [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) 来设置你的应用的缩略图工具栏。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -195,7 +195,7 @@ win.setProgressBar(0.5)
 
 ![任务栏按钮的叠加](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-要设置窗口的叠加层图标，可以使用 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+要设置窗口的叠加层图标，可以使用 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -230,7 +230,7 @@ win.flashFrame(true)
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-要设置展示文件窗口，可以使用 [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) 和 [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs：
+要设置展示文件窗口，可以使用 [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) 和 [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs：
 
 ```javascript
 const {BrowserWindow} = require('electron')

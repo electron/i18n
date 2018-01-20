@@ -2,7 +2,7 @@
 
 > Varsayılan uygulamalarını kullanarak dosyaları ve URL'leri yönetin.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The `shell` module provides functions related to desktop integration.
 
@@ -61,9 +61,9 @@ Bip sesini oynatın.
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
+* `operasyon` Dize (İsteğe bağlı) - Fabrika ayarları şu şekilde `oluştur`Sıradakilerden biri olabilir: 
+  * `create` - Yeni kısayol oluşturur, gerekliyse üzerine kaydeder.
+  * `update` - Seçilen özellikleri sadece varolon kısayola günceller.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
@@ -75,7 +75,7 @@ Bip sesini oynatın.
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+[`ShortcutDetails`](structures/shortcut-details.md) geri al
 
 Kısayol bağlantısını `shortcutPath` adresinde çözer.
 

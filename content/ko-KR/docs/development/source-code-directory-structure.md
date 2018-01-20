@@ -2,7 +2,7 @@
 
 Electron의 소스 코드는 몇 개의 파트로 분리되어 있습니다. 그리고 Chromium의 분리 규칙(separation conventions) 을 주로 따르고 있습니다.
 
-이미 [Chromium의 멀티 프로세스 아키텍쳐](http://dev.chromium.org/developers/design-documents/multi-process-architecture)에 익숙해져 있다면 소스 코드를 이해하기 쉬울 것입니다.
+이미 [Chromium의 멀티 프로세스 아키텍쳐](https://dev.chromium.org/developers/design-documents/multi-process-architecture)에 익숙해져 있다면 소스 코드를 이해하기 쉬울 것입니다.
 
 ## 소스 코드 구조
 

@@ -126,7 +126,7 @@ pages:
   '/languages':
     title: bahasa
   '/userland':
-    title: Userland
+    title: Tanah pengguna
   '/devtron':
     title: Devtron
     description: Devtron adalah alat open source untuk membantu Anda memeriksa, memantau, dan debug aplikasi Elektron Anda. Dibangun di atas Alat Pengembang Chrome yang menakjubkan.
@@ -137,3 +137,5 @@ _404:
   page_not_found: Halaman tidak ditemukan.
   if_this_is_an_error: Jika ini adalah kesalahan
   please_file_an_issue: tolong ajukan masalah
+search:
+  description: Search within Electron documentations and community.

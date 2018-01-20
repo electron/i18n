@@ -57,6 +57,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [contentTracing](api/content-tracing.md)
 * [dialoog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 
 * [Codeerstijl](development/coding-style.md)
 * [Het gebruik van clang-format op C++ Code](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Bron Code Directory-structuur](development/source-code-directory-structure.md)
 * [Technische verschillen met NW.js (voorheen node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Bouwen Systeemoverzicht](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [Debug instructies (Windows)](development/debug-instructions-windows.md)
 * [Het instellen van Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentatie Styleguide](styleguide.md)
-* [Upgraden van Chrome](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Chromium ontwikkeling](development/chromium-development.md)
 * [V8 ontwikkeling](development/v8-development.md)

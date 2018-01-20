@@ -162,7 +162,7 @@ Web görünümünde ayarlanacak web tercihlerinde `, ` ile ayrılmış olarak be
 
 Dize, içindeki özelliklerin türü ile aynı biçimi izler `window.open`. Bir ismin başına `true` boolean değeri verilir. Bir seçenek, izlediği değere `=` dahil edilerek başka bir değere dönüştürülebilir. `yes` ve `1` şeklinde özel değerler `true`, `no` ve `` şeklindeki özel değerler de `false` olarak yorumlanır.
 
-### `blinkfeatures`
+### `yanıp sönme özellikleri`
 
 ```html
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
@@ -170,7 +170,7 @@ Dize, içindeki özelliklerin türü ile aynı biçimi izler `window.open`. Bir 
 
 Yanıp sönme özelliklerini belirten dizi listeleri `,` ayrılarak etkinleştirilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) dosyasında bulunabilir.
 
-### `disableblinkfeatures`
+### `yanıp sönme özelliklerini devre dışı bırak`
 
 ```html
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
@@ -184,7 +184,7 @@ Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dı
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. Bir webview ilk defa yüklenildiğinde, yeni bir webContents yaratılır ve bu nitelik onun durum tanımlayıcısına ayarlanır. Bu niteliği yeni ya da var olan bir webview üzerine ayarlamak, onu o anki farklı bir webview haline getiren mevcut webContents'e bağlar.
 
 Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url yüklendiğinde yeni bir webContents oluşturacaktır.
 
@@ -194,7 +194,7 @@ Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url y
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+Bu nitelik `webview`'ü sunduğunda, içeriklerinin boyutlandırılmalarını, `webview` öğesinin kendisini boyutlandırması durumunda engeller.
 
 Bu, [`webContents.setSize`](web-contents.md#contentssetsizeoptions) ile kombinasyonlu bir şekilde manuel olarak webview içeriklerini pencere büyüklüğüne boyutlandırmada kullanılabilir. Bu, içerikleri otomatik olarak yeniden boyutlandırmak için webview öğesi sınırlarına dayanmakla karşılaştırıldığında daha hızlı yeniden boyutlandırma yapabilir.
 
@@ -252,7 +252,7 @@ Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, ö
 
 Returns `String` - Misafir sayfasının URL'si.
 
-### `<webview>.getTitle()`
+### `<webview>.getURL()`
 
 Returns `String` - Misafir sayfasının başlığı.
 
@@ -262,7 +262,7 @@ Returns `Boolean` - Misafir sayfası hala kaynakları yüklüyorsa.
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+Returns `Boolean` - Misafir sayfası, sayfanın ana kaynağından gelecek bir ilk-karşılığı bekliyorsa.
 
 ### `<webview>.dur()`
 
@@ -337,7 +337,7 @@ CSS'i misafir sayfasının içine yerleştirir.
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` Dizi
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - Varsayılan `false`.
 * `geri arama` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
   * `result` Herhangi bir
 
@@ -361,8 +361,8 @@ Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığın
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` tamsayı
-* `x` tamsayı
+* `x` Tamsayı
+* `y` Tamsayı
 
 Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
 
@@ -480,7 +480,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfadaki alınacak bölge
 * `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
@@ -488,8 +488,8 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
-* `...args` any[]
+* `channel` Dizesi
+* `...args` herhangi[]
 
 İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Renderer işlemi, mesajları `ipcRenderer` modülü ile `channel` etkinliğini dinleyerek halledebilir.
 
@@ -507,13 +507,13 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 * `factor` Number - Yakınlaştırma fakötrü.
 
-Yakınlaştırma faktörünü belirtilen faktöre değiştirir. om factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma değeri, yakınlaştırma yüzdesi bölü 100'dür, bu yüzden %300 = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
 * `level` Number - Yakınlaştırma seviyesi
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artış veya azalış, orijinal boyutun %300'ü ve %50'si olan varsayılan değerler içerisinde %20'lik bir büyümeyi veya küçülmeyi temsil eder.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -527,7 +527,7 @@ Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişki
 
 Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
 
-### Event: 'load-commit'
+### Etkinlik: 'load-commit'
 
 Dönüşler:
 
@@ -549,7 +549,7 @@ Dönüşler:
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+Bu etkinlik `did-finish-load` gibidir, fakat yükleme başarısız olduğunda veya iptal edildiğinde, örneğin: `window.stop()` çağrılır.
 
 ### Olay: 'did-frame-finish-load'
 
@@ -557,15 +557,15 @@ Dönüşler:
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+Bir kare, navigasyonunu tamamladığında tetiklenir.
 
 ### Olay: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Sekmenin döndürücüsünün dönmeye başladığı andaki noktalara karşılık gelir.
 
 ### Olay: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Sekmenin döndürücüsünün dönmeyi durdurduğu andaki noktalara karşılık gelir.
 
 ### Olay: 'did-get-response-details'
 
@@ -580,7 +580,7 @@ Dönüşler:
 * `headers` Nesne
 * `resourceType` Dize
 
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+İstenen bir kaynağın geçerli olduğuyla ilgili ayrıntılar geldiğinde tetiklenir. `status` kaynağı yüklemek için olan soket bağlantısını belirtir.
 
 ### Olay: 'did-get-redirect-request'
 
@@ -590,11 +590,11 @@ Dönüşler:
 * `newURL` Dize
 * `isMainFrame` Boolean
 
-Fired when a redirect was received while requesting a resource.
+Bir kaynak sorgulanırken yönlendirme alınırsa tetiklenir.
 
 ### Olay: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Verilen karedeki belge yüklendiğinde tetiklenir.
 
 ### Etkinlik: 'sayfa-başlığı-güncellendi'
 
@@ -603,25 +603,25 @@ Dönüşler:
 * `başlık` Dizi
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
 
 ### Olay: 'page-favicon-updated'
 
 Dönüşler:
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - URL'lerin dizilişleri.
 
-Fired when page receives favicon urls.
+Sayfa favicon url'lerini aldığında tetiklenir.
 
 ### Etkinlik: 'enter-html-full-screen'
 
-Fired when page enters fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
 
 ### Etkinlik: 'leave-html-full-screen'
 
-Fired when page leaves fullscreen triggered by HTML API.
+Tam ekran HTML API tarafından çıkıldığında ateşlenir.
 
-### Event: 'console-message'
+### Etkinlik: 'console-message'
 
 Dönüşler:
 
@@ -630,7 +630,7 @@ Dönüşler:
 * `line` Integer
 * `sourceId` String
 
-Fired when the guest window logs a console message.
+Misafir pencere konsol mesajı girdiğinde ateşlenir.
 
 Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
 
@@ -647,9 +647,9 @@ Dönüşler:
 
 * `sonuç` Nesne 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
+  * `matches` Integer - Eşleşmelerin sayısı.
+  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
   * `finalUpdate` Boolean
 
 Bir sonuç [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) isteği için geçerli hale geldiğinde tetiklenir.
@@ -697,9 +697,9 @@ Dönüşler:
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Bu olay navigasyon programlı bir şekilde `<webview>.loadURL` ve `<webview>.back` API gibi başlatıldığında sinyal yaymaz.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Sayfa içi navigasyon sırasında, çapa linklere tıklama ya da `window.location.hash` güncellendiğindede sinyal yaymaz. `did*navigate-in-page` olayını bu amaçla kullanınız.
 
 `event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
 
@@ -728,7 +728,7 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+Misafir kapatmaya çalıştığında örnek kod `webview`, `about:blank` arasında dolaşmaya başlar.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -737,11 +737,11 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### Etkinlik: 'ipc-message'
 
 Dönüşler:
 
-* `channel` String
+* `channel` Dizesi
 * `args` Array
 
 Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
@@ -787,7 +787,7 @@ Plugin işlemi çöktüğünde tetiklenir.
 
 WebContents işlemi çöktüğünde tetiklenir.
 
-### Event: 'media-started-playing'
+### Olay: Medya oynamaya başladı
 
 Medya oynamaya başladığında belirir.
 
@@ -795,19 +795,19 @@ Medya oynamaya başladığında belirir.
 
 Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
 
-### Event: 'did-change-theme-color'
+### Olay: tema rengi değiştirildi
 
 Dönüşler:
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi ile karşılaşılmasından dolayıdır:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Etkinlik: 'update-target-url'
 
 Dönüşler:
 

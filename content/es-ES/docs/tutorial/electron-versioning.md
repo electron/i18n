@@ -47,7 +47,7 @@ Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categ
     * actualizaciones mayores de versión de node.js
     * Cambios de API por Electron
 * **Incrementos de version menores** 
-    * actualizaciones menores de versión de node.js
+    * node.js minor version updates
     * Cambios de API por otras razones de Electron
 * **Incrementos en la versión de parches** 
     * actualizaciones en la versión de parches de node.js
@@ -72,7 +72,7 @@ Líneas antiguas no serán soportadas por GitHub, pero otros grupos pueden tomar
 
 Los desarrolladores quieren saber cuáles publicaciones son *seguras*. Hasta características que parecen inocentes pueden introducir grandes regresiones en aplicaciones complejas. Al mismo tiempo, quedarse con una versión arreglada es peligroso porque está ignorando parches de seguridad y arreglos de errores que pudieron salir desde su versión. Nuestra meta es permitir que el siguiente rango semver estandar en `package.json` :
 
-* Usar `~2.0.0` para admitir solo arreglo relacionados con la estabilidad o seguridad de su publicación `2.0.0`.
+* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` para admitir características no frágiles y *razonablemente estables* que trabajen tanto en seguridad como en arreglo de errores.
 
 Lo que es importante del segundo punto es que las aplicaciones que usan `^` aún deben ser capaces de esperar cierto nivel de estabilidad. Para lograr esto, semver le permite a *identificador pre-lanzamiento* indicar que una versión particular no es *segura* o *estable* todavía.
@@ -99,7 +99,7 @@ Para cada cambio mayor o menor, debe esperar ver algo como lo siguiente:
 
 Un ejemplo del ciclo de vida en imágenes:
 
-* Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * Una corrección de un error viene al maestro que puede ser introducido por la puerta de atrás en la rama de interes. El parche es aplicado y una nueva versión beta es publicada como `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Luego, se revela una vulnerabilidad y es reparada y aplicada a la maestra. Nosotros entramos por la puerta de atrás para arreglar para la línea `2-0-x` y el lanzamiento `2.0.1`. ![](../images/versioning-sketch-6.png)

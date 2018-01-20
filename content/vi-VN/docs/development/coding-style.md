@@ -6,7 +6,7 @@ Bạn có thể chạy `npm run lint` và xem bất kỳ vấn đề gì về ph
 
 ## C ++ và Python
 
-Với C++ và Python, chúng tôi theo [phong cách lập trình của Chromium](http://www.chromium.org/developers/coding-style). Bạn có thể sử dụng [clang-format](clang-format.md) để tự động format cho code của C++. Hoặc cũng có thể sử dụng đoạn code trong `script/cpplint.py` để kiểm tra xem các file đã phù hợp hay chưa.
+Với C++ và Python, chúng tôi theo [phong cách lập trình của Chromium](https://www.chromium.org/developers/coding-style). Bạn có thể sử dụng [clang-format](clang-format.md) để tự động format cho code của C++. Hoặc cũng có thể sử dụng đoạn code trong `script/cpplint.py` để kiểm tra xem các file đã phù hợp hay chưa.
 
 Chúng tôi đang sử dụng phiên bản Python 2.7.
 
@@ -14,7 +14,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 
 ## JavaScript
 
-* [Các tiêu chuẩn](http://npm.im/standard) cho phong cách lập trình JavaScript.
+* [Các tiêu chuẩn](https://npm.im/standard) cho phong cách lập trình JavaScript.
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants

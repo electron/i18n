@@ -13,7 +13,7 @@ app.getAppMemoryInfo ()
 app.getAppMetrics ()
 ```
 
-## `JendelaBrowser`
+## `BrowserWindow`
 
 ```js
 // Deprecated
@@ -57,7 +57,7 @@ clipboard.writeHtml ()
 clipboard.writeHTML ()
 ```
 
-## `kerusakanReporter`
+## `kecelakaan reporter`
 
 ```js
 // Deprecated
@@ -83,7 +83,7 @@ menu.popup(browserWindow, 100, 200, 2)
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
-## `gambarasli`
+## `asli`
 
 ```js
 // Tidak berlaku lagi

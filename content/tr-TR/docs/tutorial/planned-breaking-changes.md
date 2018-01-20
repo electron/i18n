@@ -1,4 +1,4 @@
-# Planned Breaking API Changes
+# Planlanmış API Değişimleri
 
 Takip eden liste, Electron 2.0'da kaldırılacak API'leri içerir.
 
@@ -36,7 +36,7 @@ let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `pano`
 
 ```js
 // Deprecated
@@ -116,7 +116,7 @@ process.versions['atom-shell']
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` ve `process.version.chrome` okunacaktır - diğer tutarlılık için sadece özellikler `process.versions` Node tarafından belirlenen özellikler.
 
 ## `session`
 
@@ -197,14 +197,14 @@ Kullanımdan kaldırıldı: https://atom.io/download/atom-shell
 
 Şununla değiştirildi: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## ARM Varlıklarını Çoğaltın
 
 Her Electron sürümü, `electron-v1.7.3-linux-arm.zip` ve `electron-v1.7.3-linux-armv7l.zip` gibi, az farklılık içeren dosya adlarıyla iki özdeş ARM yapısı içerir. `v7l` ünvanlı öğe, kullanıcılara hangi ARM sürümünü desteklediğini açıklamak ve gelecekte üretilebilecek armv6l ve arm64 öğelerinden ayırt etmek için eklendi.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Herhangi bir dosya kırılmasını önlemek *without the prefix* için dosya hala yayınlanıyor. 2.0 ' dan başlayarak öneksiz dosya artık yayınlanmayacak.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Ayrıntılar için bknz. [6986](https://github.com/electron/electron/pull/6986) ve [7189](https://github.com/electron/electron/pull/7189).
 
 ## `FIXME` yorumları
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+`FIXME` dizesi, kod yorumlarında olması gereken şeyleri belirtmek için kullanılır 2.0 sürümü için sabit

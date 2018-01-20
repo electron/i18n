@@ -2,7 +2,7 @@
 
 Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。
 
-为了更好地理解源代码，您可能需要了解一下 [Chromium 的多进程架构](http://dev.chromium.org/developers/design-documents/multi-process-architecture)。
+为了更好地理解源代码，您可能需要了解一下 [Chromium 的多进程架构](https://dev.chromium.org/developers/design-documents/multi-process-architecture)。
 
 ## 源代码的目录结构
 

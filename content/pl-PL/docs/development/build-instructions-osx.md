@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron on macOS.
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (external)
+- [node.js](https://nodejs.org) (external)
 
 If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
 
@@ -32,7 +32,7 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 - Set the `MinimumSDKVersion` to `10.10`
 - Save the file
 
-## Getting the Code
+## Dostawanie kodu
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -69,13 +69,13 @@ Electron can only be built for a 64bit target on macOS and there is no plan to s
 
 ## Czyszczenie
 
-To clean the build files:
+Aby wyczyścić pliki kompilacji:
 
 ```sh
-$ npm run clean
+$ npm działa bez problemu
 ```
 
-To clean only `out` and `dist` directories:
+Aby oczyścić tylko `z` i `dist`katalogów:
 
 ```sh
 $ npm run clean-build
@@ -85,4 +85,4 @@ $ npm run clean-build
 
 ## Testy
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Zobacz [przegląd budowy systemu: Testy](build-system-overview.md#tests)

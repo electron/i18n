@@ -2,7 +2,7 @@
 
 Elektron kaynak kodunu çoğunlukla krom ayrılık kurallarına göre aşağıdaki birkaç parçaya ayrılır.
 
-Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](http://dev.chromium.org/developers/design-documents/multi-process-architecture) ile öğrenmeniz gerekebilir.
+Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.chromium.org/developers/design-documents/multi-process-architecture) ile öğrenmeniz gerekebilir.
 
 ## Kaynak Kod Yapısı
 
@@ -63,7 +63,7 @@ $ git durumu
 Bu satılan bağımlılıkları güncellemek için aşağıdaki komutu çalıştırın:
 
 ```sh
-git submodule güncelleme --init - tekrar başlatma
+git submodule update --init --recursive
 ```
 
 Kendinizi bu komutu sık sık çalıştırıyorsa, onun için bir takma ad oluşturabilirsiniz senin içinde `~/.gitconfig` dosya:

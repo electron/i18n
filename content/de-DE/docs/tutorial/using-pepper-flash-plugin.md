@@ -1,4 +1,4 @@
-# Verwendung des Pepper Flash-Plugin
+# Verwendung des Pepper Flash-Plugins
 
 Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
 
@@ -54,7 +54,7 @@ You can also try loading the system wide Pepper Flash plugin instead of shipping
 Add `plugins` attribute to `<webview>` tag.
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## Problemlösungen

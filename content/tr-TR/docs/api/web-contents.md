@@ -193,7 +193,7 @@ Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
-#### Event: 'will-prevent-unload'
+#### Olay: 'will-prevent-unload'
 
 Dönüşler:
 
@@ -245,20 +245,20 @@ Bir eklenti işlemi çöktüğünde ortaya çıkar.
 
 `webContents` imha edildiğinde ortaya çıkar.
 
-#### Event: 'before-input-event'
+#### Olay: 'before-input-event'
 
 Dönüşler:
 
 * `olay` Olay
 * `giriş` Nesne - Giriş özellikleri 
   * `type` String - Either `keyUp` or `keyDown`
-  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `key` Dize - Eşittir [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `code` Dize - Eşittir [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `isAutoRepeat` Boolean - Eşittir [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `shift` Boolean - Eşittir [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `control` Boolean - eşittir[KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `alt` Boolean - Eşittir [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `meta` Boolean - Eşittir [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
 
 Sayfada `keydown` ve `keyup` olaylarını göndermeden önce yayınlanır. `event.preventDefault` öğesinin çağrılması, `keydown`/`keyup` etkinliklerini ve menü kısayollarını engeller.
 
@@ -301,7 +301,7 @@ Dönüşler:
 
 Doğrulanamadığında ortaya çıkar `certificate` for `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+Kullanımı [the `certificate-error` olayı `app`](app.md#event-certificate-error) ile aynıdır.
 
 #### Olay: 'select-client-certificate' 
 
@@ -311,11 +311,11 @@ Dönüşler:
 * `url` URL
 * `certificateList` [Sertifika[]](structures/certificate.md)
 * `geri arama` Fonksiyon 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `certificate` [Certificate](structures/certificate.md) - Verilen listeden bir sertifika seçilmeli
 
 Bir istemci sertifikası talep edildiğinde yayılır.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+Kullanımı [the `select-client-certificate` olayı `app`](app.md#event-select-client-certificate) ile aynıdır.
 
 #### Etkinlik: 'giriş'
 
@@ -338,7 +338,7 @@ Dönüşler:
 
 `webContents` temel doğrulama yapmak istediğinde çıkarılır.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+Kullanımı [the `login` olayı `app`](app.md#event-login) ile aynıdır.
 
 #### Etkinlik: 'sayfa içinde kurmak'
 
@@ -347,14 +347,14 @@ Dönüşler:
 * `olay` Olay
 * `sonuç` Nesne 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
+  * `matches` Tamsayı - Numaraların eşleştirilmesi.
+  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+[`webContents.findInPage`] isteği için sonuç kullanılabilir olduğunda yayılıyor.
 
-#### Event: 'media-started-playing'
+#### Olay: Medya oynamaya başladı
 
 Medya oynatılmaya başladığında yayınlanır.
 
@@ -362,7 +362,7 @@ Medya oynatılmaya başladığında yayınlanır.
 
 Medya duraklatıldığında veya oynatıldığında yaydır.
 
-#### Event: 'did-change-theme-color'
+#### Olay: tema rengi değiştirildi
 
 Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşılaşılanlardan kaynaklanmaktadır bir meta etiketi:
 
@@ -379,16 +379,16 @@ Dönüşler:
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 
-#### Event: 'cursor-changed'
+#### Olay: 'cursor-changed'
 
 Dönüşler:
 
 * `olay` Olay
-* `type` String
+* `type` Dize
 * `image` NativeImage (optional)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `scale` Float (İsteğe Bağlı) Özel imleç için ölçekleme faktörü
+* `size` [Size](structures/size.md) (isteğe bağlı) - `image` boyutu
+* `hotspot` [Point](structures/point.md) (İsteğe bağlı) - Özel imlecin etkin noktasının koordinatları
 
 İmlecin türü değiştiğinde çıkar. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
@@ -399,15 +399,15 @@ Dönüşler:
 Dönüşler:
 
 * `olay` Olay
-* `params` Nesne 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+* `paramlar` Nesne 
+  * `x` tamsayı - x koordinatı
+  * `y` tamsayı - y koordinatı
+  * `linkURL` Dize - Bağlam menüsünde çağrılan düğümü çevreleyen bağlantının URL' si.
+  * `linkText` Dize - Bağlantıyla ilişkili metin. Bağlantının içeriği bir resim ise boş bir dize olabilir.
+  * `pageURL` Dize - Bağlantı menüsünde çağırılan üst düzey sayfanın URL' si.
+  * `frameURL` Dize - Bağlam menüsünün çağrıldığı alt çerçeveye ait URL.
+  * `srcURL` Dize - İçerik menüsünde çağrıldığı öğenin kaynak URL' si. Görüntü, ses ve resimler kaynak URL' lerine sahiptirler.
+  * `mediaType` Dize - Bağlam menüsünde çağırılan düğüm tipi. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
   * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
   * `isEditable` Boolean - Whether the context is editable.
   * `selectionText` String - Text of the selection that the context menu was invoked on.
@@ -416,7 +416,7 @@ Dönüşler:
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
+  * `medya bayrakları` Obje - İçerik menüsünün medya elemanı için yapılmış bayraklar. 
     * `inError` Boolean - Whether the media element has crashed.
     * `isPaused` Boolean - Whether the media element is paused.
     * `isMuted` Boolean - Ortam öğesinin sessiz olup olmadığı.
@@ -425,14 +425,14 @@ Dönüşler:
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+  * `bayrakları editle` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
+    * `canUndo` Boolean - Renderi alanın geri almasına inanması.
+    * `canRedo` Boolean - Renderi alanın tekrar yapılmasına inanması.
+    * `canCut` Boolean - Renderi alanın kesilmesine inanması.
+    * `canCopy` Boolean - Renderi alanın kopyalanmasına inanması
+    * `canPaste` Boolean - Renderi alanın yapıştırmaya inanması.
+    * `canDelete` Boolean - Renderi alanın silinmesine inanması.
+    * `canSelectAll` Boolean - Renderi alanın hepsinin seçilmesine inanması.
 
 Emitted when there is a new context menu that needs to be handled.
 
@@ -445,7 +445,7 @@ Dönüşler:
 * `geri arama` Fonksiyon 
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Bluetooth aygıtı `navigator.bluetooth.requestDevice` çağrı için seçilmesi gerektiğinde sinyal başlar. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
 const {app, webContents} = require('electron')
@@ -486,7 +486,7 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Olay:'devtools-reload-page'
 
 Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 
@@ -652,7 +652,7 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 
 Sayfadaki `code`'u değerlendirir.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -667,146 +667,146 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `ignore` Boolean
 
-Bu web içeriği odaklanmışken uygulama menüsü kısayollarını yok sayın.
+Bu web içeriklerine odaklanılmışken uygulama menüsü kısayolları görmezden gelinir.
 
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Yürürlükteki web sayfasında bulunan sesi kapatır.
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+`Boolean` olarak dönüt verir - Sayfanın sesinin kapatılıp kapatılmadığı.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Sayı - Yakınlaştırma değeri.
 
-Yakınlaştırma faktörünü belirtilen faktöre değiştirir. om factor is zoom percent divided by 100, so 300% = 3.0.
+Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma değeri, yakınlaştırma yüzdesi bölü 100'dür, bu yüzden %300 = 3.0.
 
 #### `contents.getZoomFactor(callback)`
 
 * `geri arama` Fonksiyon 
-  * `zoomFactor` Number
+  * `zoomFactor` Sayı
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+Yürürlükteki yakınlaştırma değerini almak için bir istek gönderir, `callback` , `callback(zoomFactor)` ile birlikte çağrılacaktır.
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Sayı - Yakınlaştırma düzeyi
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Yakınlaştırma düzeyini belirtilen düzeye değiştirir. Orijinal boyut 0'dır ve her bir artış veya azalış, orijinal boyutun %300'ü ve %50'si olan varsayılan değerler içerisinde %20'lik bir büyümeyi veya küçülmeyi temsil eder.
 
 #### `contents.getZoomLevel(callback)`
 
 * `geri arama` Fonksiyon 
-  * `zoomLevel` Number
+  * `zoomLevel` Sayı
 
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `callback`, `callback(zoomLevel)` ile birlikte çağrılacaktır.
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Sayı
+* `maximumLevel` Sayı
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Deprecated:** Görsel yakınlaştırma düzeyi sınırlarını ayarlamak için `setVisualZoomLevelLimits`'i çağırın. Bu metod Electron 2.0.'da kaldırılacaktır.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Sayı
+* `maximumLevel` Sayı
 
-Azami ve minimum tutam-zum seviyesini belirtir.
+Minimum ve maksimum çimdik-zoom düzeyini ayarlar.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `minimumLevel` Sayı
+* `maximumLevel` Sayı
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Maksimum ve minimum tasarımsal (görsel olmayan) yakınlaştırma düzeylerini ayarlar.
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+`undo` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+`redo` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+`cut` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+`copy` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` tamsayı
-* `x` tamsayı
+* `x` Tamsayı
+* `y` Tamsayı
 
-Copy the image at the given position to the clipboard.
+Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+`paste` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+`pasteAndMatchStyle` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+`delete` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+`selectAll` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+`unselect` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.replace(text)`
 
-* `text` Dizi
+* `text` Dizgi
 
-Executes the editing command `replace` in web page.
+`replace` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` Dizi
+* `text` Dizgi
 
-Executes the editing command `replaceMisspelling` in web page.
+`replaceMisspelling` düzenleme komutunu web sayfasında çalıştırır.
 
 #### `contents.insertText(text)`
 
-* `text` Dizi
+* `text` Dizgi
 
-Inserts `text` to the focused element.
+Odaklanılan ögeye `text`'i ekler.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
-* `ayarlar` Obje (isteğe bağlı) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+* `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
+* `ayarlar` Nesne (isteğe bağlı) 
+  * `forward` Boolean - (isteğe bağlı) İleriye veya geriye doğru arama yapılacağı, varsayılan olarak `true`'dur.
+  * `findNext` Boolean - (İsteğe bağlı) İşlemin ilk istek veya takip isteği olduğu, varsayılan olarak `false`'tur.
+  * `matchCase` Boolean - (İsteğe bağlı) Aramanın büyük-küçük harfe duyarlı olup olmayacağı, varsayılan olarak `false`'dur.
+  * `wordStart` Boolean - (isteğe bağlı) Sadece kelime başlarına bakılıp bakılmayacağı, varsayılan olarak `false`'tur.
+  * `medialCapitalAsWordStart` Boolean - (İsteğe bağlı) `wordStart` ile birleştirildiğinde, eğer eşleşme büyük harfle başlayıp küçük harf veya harf olmayan ifadeyle devam ediyorsa, eşleşmeyi kabul eder. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Web sayfasındaki tüm `text` eşleşmelerini bulmak için bir istek başlatır ve istek için kullanılan istek adını (id) temsil eden bir `Integer` olarak dönüt verir. İstek sonucu [`found-in-page`](web-contents.md#event-found-in-page) olayına sürdürümcü olunarak (subscribe) elde edilebilir.
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+* `hareket` Dize - Bitişteki hareketi belirler`webContents.findInPage`] istek. 
+  * `clearSelection` - Seçimi temizler.
+  * `keepSelection` - Seçimi normal bir seçime çevirir.
+  * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
-Stops any `findInPage` request for the `webContents` with the provided `action`.
+Sunulan `action` ile birlikte, `webContents` için olan tüm `findInPage` isteklerini durdurur.
 
 ```javascript
 const {webContents} = require('electron')
@@ -820,18 +820,18 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı
 * `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+`rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. `image`, anlık görüntünün verisini saklayan [NaviteImage](native-image.md)'in bir örneğidir. `rect` ifadesini çıkartmak görünebilen sayfanın tamamının yakalanmasını sağlar.
 
 #### `contents.hasServiceWorker(callback)`
 
 * `geri arama` Fonksiyon 
   * `hasWorker` Boolean
 
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
+Herhangi bir ServiceWorker kaydı olup olmadığını kontrol eder ve `callback`'e yanıt olarak bir boolean dönütü verir.
 
 #### `contents.unregisterServiceWorker(callback)`
 
@@ -842,42 +842,42 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Sistemdeki yazıcıların listesini alır.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+[`PrinterInfo[]`](structures/printer-info.md) dönütünü verir
 
 #### `contents.print([options])`
 
-* `ayarlar` Obje (isteğe bağlı) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+* `ayarlar` Nesne (isteğe bağlı) 
+  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
+  * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
+  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
 
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+Penceredeki web sayfasını yazdırır. `silent`, `true` olarak ayarlandığında Electron, eğer `deviceName` boş bırakıldıysa, sistemin varsayılan yazıcısını ve varsayılan yazdırma ayarlarını seçecektir.
 
-Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+Web sayfasında `window.print()`'i çağırmak, `webContents.print({silent: false, printBackground: false, deviceName: ''})`'i çağırmaya denktir.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stilini kullanın.
 
 #### `contents.printToPDF(options, callback)`
 
 * `ayarlar` Nesne 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
+  * `marginsType` Tamsayı - (İsteğe bağlı) Kullanılacak kenar boşlukları tipini belirler. Varsayılan kenar boşluğu için 0'ı , kenar boşluğu kullanmamak için 1'i , minimum kenar boşluğu için 2'yi kullanır.
+  * `pageSize` Dizgi - (İsteğe bağlı) üretilecek PDF'in sayfa boyutunu belirler. `A3`, `A4`, `A%`, `Legal`, `Letter`, `Tabloid` veya mikron formatında `height` ve `width` içeren bir nesne olabilir.
+  * `printBackground` Boolean - (İsteğe bağlı) CSS arkaplanlarının yazdırılıp yazdırılmayacağı.
+  * `printSelectionOnly` Boolean - (İsteğe bağlı) Sadece seçimin yazdırılıp yazdırılmayacağı.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
 * `geri arama` Fonksiyon 
   * `error` Hata 
   * `data` Buffer
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Penceredeki web sayfasını Chromiumun özel yazdırma ayarları önizlemesiyle PDF olarak yazdırır.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+İşlem tamamlandığında `callback`, `callback(error, data)` ile birlikte çağrılacaktır. `data` oluşturulan PDF'in verisini içeren bir `Buffer`'dır.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Eğer sayfada `@page` CSS kuralı (CSS at-rule) kullanıldıysa, `landscape` görmezden gelinecektir.
 
-By default, an empty `options` will be regarded as:
+Varsayılan olarak, boş bir `options` şöyle kabul edilir:
 
 ```javascript
 {
@@ -888,9 +888,9 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stilini kullanın.
 
-An example of `webContents.printToPDF`:
+Bir `webContents.printToPDF` örneği:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -913,9 +913,9 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* dizi `yolu`
+* `path` Dizgi
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Belirtilen yolu DevTools çalışma alanına ekler. DevTools yaratımından sonra kullanılması zorunludur:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -927,39 +927,39 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* dizi `yolu`
+* `path` Dizgi
 
-Removes the specified path from DevTools workspace.
+Belirtilen yolu DevTools çalışma alanından kaldırır.
 
 #### `contents.openDevTools([options])`
 
-* `ayarlar` Obje (isteğe bağlı) 
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+* `ayarlar` Nesne (isteğe bağlı) 
+  * `mode` Dizgi - Geliştirme araçlarını belirtilen yuvalama durumuyla açar, `right`, `bottom`, `undocked`, `detach` olabilir. Varsayılan olarak son kullanılan yuvalama durumunu kullanır. `undocked` moddayken, geri yuvalama (dock back) mümkündür. `detach` modda ise mümkün değildir.
 
-Opens the devtools.
+Geliştirme araçlarını açar.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Geliştirme araçlarını kapatır.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+`Boolean` olarak dönüt verir - Geliştirme araçlarının açılıp açılmadığı.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+`Boolean` olarak dönüt verir - Geliştirme araçları görünümüne odaklanıp odaklanılmadığı.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` tamsayı
-* `x` tamsayı
+* `x` Tamsayı
+* `y` Tamsayı
 
-Starts inspecting element at position (`x`, `y`).
+(`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
 
 #### `contents.inspectServiceWorker()`
 
@@ -967,14 +967,14 @@ Opens the developer tools for the service worker context.
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
-* `...args` any[]
+* `channel` Dizesi
+* `...args` herhangi[]
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
-The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+Render işlemi mesajı `channel` `ipcRenderer` modülü ile dinleyebilir.
 
-An example of sending messages from the main process to the renderer process:
+Ana işlemden render işlemine gönderilen mesaj örneği:
 
 ```javascript
 // Ana süreçte.
@@ -1005,23 +1005,23 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Nesne 
-  * `screenPosition` String - Specify the screen type to emulate (default: `masaüstü`) 
-    * `desktop` - Desktop screen type
-    * `mobile` - Mobile screen type
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
+* `parametreler` Nesne 
+  * `ekranPozisyonu` Dize - Ekran tipini emulasyon için belirtiniz. (default: `masaüstü`) 
+    * `desktop` - Masaüstü ekran tipi
+    * `mobile` - Mobil ekran tipi
+  * `screenSize`[Size](structures/size.md) - Emülasyon uygulanacak ekran genişliğini ayarlar (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
-  * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+  * `fitToView` Boolean - Emulated görünümü gerekiyorsa varolan alana sığacak şekilde ölçeklendirilmelidir.( Varsayılan:`false`)
+  * `offset` [Point](structures/point.md) - Emulated görüntünün kullanılabilir alan içerisindeki ofsetidir.(Görüntüleme moduna uygun değil) (varsayılan: `{x: 0, y: 0}`)
+  * `scale` Float - Emulated görüntünün kullanılabilir alan içerisindeki ölçeğidir.( Görüntüleme moduna uygun değil) (varsayılan: `1`)
 
-Enable device emulation with the given parameters.
+Verilen parametrelerle aygıt emülasyonuna izin verir.
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+`webContents.enableDeviceEmulation` tarafından izin verilen araç taklitini devredışı bırakır.
 
 #### `contents.sendInputEvent(event)`
 
@@ -1029,42 +1029,42 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
   * `type` String (**required**) -Olabilir, olayın türü `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+Sayfaya bir `event` girdisi gönderir. **Note:** `sendInputEvent()`'in çalışması için içeriği içeren `BrowserWindow`'a odaklanılmış olması gereklidir.
 
-For keyboard events, the `event` object also have following properties:
+Klavye olayları için `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` Dizgi (**gerekli**) - Klavye olayı olarak gönderilecek karakter. Sadece [Accelerator](accelerator.md)'daki geçerli anahtar kodları kullanılmalıdır.
 
-For mouse events, the `event` object also have following properties:
+Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`
-* `globalX` Integer
-* `globalY` Integer
-* `movementX` Integer
-* `movementY` Integer
-* `clickCount` Integer
+* `x` Tamsayı (**gerekli**)
+* `y` Tamsayı (**gerekli**)
+* `button` Dizgi - Basılan düğme, `left`, `middle` veya `right` olabilir
+* `globalX` Tamsayı
+* `globalY` Tam sayı
+* `movementX` Tamsayı
+* `movementY` Tamsayı
+* `clickCount` Tamsayı
 
-For the `mouseWheel` event, the `event` object also have following properties:
+`mouseWheel` olayı için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
-* `deltaX` Integer
-* `deltaY` Integer
-* `wheelTicksX` Integer
-* `wheelTicksY` Integer
-* `accelerationRatioX` Integer
-* `accelerationRatioY` Integer
+* `deltaX` Tamsayı
+* `deltaY` Tamsayı
+* `wheelTicksX` Tamsayı
+* `whellTicksY` Tamsayı
+* `accelerationRatioX` Tamsayı
+* `accelerationRatioY` Tamsayı
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (İsteğe bağlı) - Varsayılan olarak `false`'tur
 * `geri arama` Fonksiyon 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Olayların ve yakalanan çerçevelerin sunulması için sürdürümcü olur; Bir sunum olayı olduğunda `callback` , `callback(frameBuffer,dirtyRect)` ile birlikte çağrılacaktır.
 
 The `frameBuffer` is a `Buffer` that contains raw pixel data. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
 
@@ -1076,16 +1076,16 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Nesne 
+* `öğe` Nesne 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olarak ayarlar; `file` dosyanın sürükleneceği değişmez dosya yoludur ve `icon` sürükleme sırasında imlecin altında gösterilecek olan görüntüdür.
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
 * `fullPath` String - The full file path.
-* `saveType` String - Specify the save type. 
+* `kayıt tipi` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
@@ -1116,7 +1116,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
 * `ayarlar` Nesne 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) webgörünümü misafir içeriğine verilecek özelliği belirle. 
     * `width` Integer
     * `height` Integer
 
@@ -1138,7 +1138,7 @@ Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is cu
 
 #### `contents.setFrameRate(fps)`
 
-* `fps` Integer
+* `fps` tamsayı
 
 If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
 
@@ -1158,8 +1158,8 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+* `yönetmelik` String - Specify the WebRTC IP Handling Policy. 
+  * `default` - Exposes user's public and local IPs. Bu standart davranış. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
   * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. Ayrıca, varsayılan özel adresini de gösterir. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
@@ -1192,4 +1192,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Bu webİçerikleri için bir [Hata ayıklayıcı](debugger.md) örnek.

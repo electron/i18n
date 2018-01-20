@@ -1,16 +1,16 @@
 # Notification
 
-> Create OS desktop notifications
+> デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+レンダラープロセスから通知を表示したい場合[HTML5 通知 API](../tutorial/notifications.md) を使用する必要があります
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> デスクトップ通知を作成します。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -29,12 +29,12 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 ### `new Notification([options])` *Experimental*
 
 * `options` オブジェクト 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
+  * `title` String - 通知ウィンドウの上部に表示される通知のタイトル
+  * `subtitle` String - (optional) は、タイトルの下が表示されます、通知のサブタイトルです。*macOS*
+  * `body` String - タイトルやサブタイトルの下に表示さる、本文
+  * `silent` Boolean - (optional) 通知を表示するときに音を鳴らしてOSが通知するかどうか決めます
+  * `icon` [NativeImage](native-image.md) - (optional) 通知に使用されるアイコン
+  * `hasReply` Boolean - (optional) インラインを追加するかどうかの返信通知するオプションです。 *macOS*
   * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
   * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*

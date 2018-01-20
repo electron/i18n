@@ -4,14 +4,14 @@
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Bir işleyiciden gönderilecek mesajlar bu modüle yayılacaktır.
+`ipcMain` modülü [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) sınıfının bir örneğini teşkil eder. Ana işlem tarafından kullanıldığında eş zamansız işlemleri gerçekleştirir ve işleme sürecinden (web sayfası) senkronizasyon bilgisi alır. Bir işleyiciden gönderilecek mesajlar bu modüle yayılacaktır.
 
 ## Mesaj gönderiliyor
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) komutuna bakınız.
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
+* Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
 * Eşzamansız bir mesajı gönderene geri göndermek için,`event.sender.send(...)`.
 
 İşleyici ve ana işlemler arasında mesaj gönderme ve işleme ilişkin bir örneği:
@@ -47,28 +47,28 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ### `ipcMain.on(channel, listener)`
 
-* `channel` String
-* `listener` Function
+* `channel` Dizesi
+* `listener` Fonksiyon
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+`listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
 ### `ipcMain.once(channel, listener)`
 
-* `channel` String
-* `listener` Function
+* `channel` Dizesi
+* `listener` Fonksiyon
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
 ### `ipcMain.removeListener(channel, listener)`
 
-* `channel` String
-* `listener` Function
+* `channel` Dizesi
+* `listener` Fonksiyon
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
 ### `ipcMain.removeAllListeners([channel])`
 
-* `channel` String
+* `channel` Dizesi
 
 Belirtilen `kanalın` dinleyicilerini kaldırır.
 
@@ -82,4 +82,4 @@ Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+İletiyi gönderen `webContents` değerini döndürür, eşzamansız iletiyi yanıtlamak için `event.sender.send`' i arayabilir, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-)' e bakabilirsiniz.

@@ -52,7 +52,7 @@ app.on('ready', () => {
 
 * Windows'ta en iyi görsel efektleri almak için `ICO` simgeler kullanılması önerilir.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Eğer diğer platformlarda da tamamen aynı davranışları sergilemeye devam etmek istiyorsan, `tık` olayına bağlı kalmamalısın ve her zaman bağlam menüsüne tepsi simgesi ile ekli kalmalısın.
 
 ### `new Tray(image)`
 
@@ -226,16 +226,16 @@ win.on('hide', () => {
 * `ayarlar` Nesne 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
-  * `content` String - (optional)
+  * `content` Dize - (İsteğe Bağlı)
 
 Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menü (İsteğe bağlı)
+* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
 
 The `position` is only available on Windows, and it is (0, 0) by default.
 
@@ -249,7 +249,7 @@ Bu simgenin bağlam menüsünü ayarlar.
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-The `bounds` of this tray icon as `Object`.
+`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
 
 #### `tray.isDestroyed()`
 

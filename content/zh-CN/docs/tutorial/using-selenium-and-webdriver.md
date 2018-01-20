@@ -6,7 +6,7 @@
 
 ## 配置 Spectron
 
-[Spectron](https://electron.atom.io/spectron) 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](http://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
+[Spectron](https://electronjs.org/spectron) 是 Electron 官方支持的 ChromeDriver 测试框架。 它是建立在 [WebdriverIO](http://webdriver.io/) 的顶层，并且 帮助你在测试中访问 Electron API 和绑定 ChromeDriver。
 
 ```sh
 $ npm install --save-dev spectron

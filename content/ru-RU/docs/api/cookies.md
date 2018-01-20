@@ -1,6 +1,6 @@
-## Class: Cookies
+## Класс: Cookies
 
-> Query and modify a session's cookies.
+> Запрашивайте и изменяйте cookie.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -16,13 +16,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// Запрос всех файлы cookie, связанных с определенным Url-адресом.
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Установить cookie с данными объекта cookie;
+// перезаписывает эквивалентные cookie, если такие есть.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
@@ -80,18 +80,18 @@ Sends a request to get all cookies matching `details`, `callback` will be called
 * `callback` Function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Устанавливает cookie с соответствующим `details`. По завершению вызывается `callback(error)`.
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - URL-дарес, связанный с cookie.
+* `name` String - Название cookie для удаления.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Удаляет cookies с соответствующими `url` и `name`, по завершению вызывается `callback()`.
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Записывает непрочитанные cookies на диск.

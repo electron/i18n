@@ -1,104 +1,104 @@
-# Upgrading Chromium
+# Actualizando Chomium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Esto es un resumen de los pasos necesarios para actualizar Chormium en Electron.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- Actualice libcc a una versión nueva de Chromium
+- Haga compatible el código Electron con el nuevo libcc
+- Actualice las dependencias de Electron (crashpad, NodeJS, etc.) si es necesario
+- Haga estructuras internas de libcc y electron
+- Actualice los documentos de Electron si fuese necesario
 
-## Upgrade `libcc` to a new Chromium version
+## Actualice `libcc` a una versión nueva de Chromium
 
-1. Get the code and initialize the project: 
+1. Obtenga el código e inicie el proyecto: 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
+2. Actualice la instantánea de Chromium 
+  - Elija el número de versión de [OmahaProxy](https://omahaproxy.appspot.com/) y una actualización de `VERSION` archivada con él 
+    - Esto puede hacerse manualmente visitando OmahaProxy en un buscador, o automáticamente:
+    - Una línea de la última versión estable para mac: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
+    - Una línea para la última versión win64 beta `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
+  - ejecute `$ ./script/update` 
+    - Haga un te -- esto puede correr por 30m o más.
+    - Probablemente falle aplicando parches.
+3. Arregle los archivos `*.patch` en el `patches/` y carpetas `patches-mas/`.
+4. (Opcional) `script/actualización` aplica parches, pero si se necesitan varios intentos puede correr manualmente el mismo escrito que `actualización` llamados: `$ ./script/apply-patches` 
+  - Hay un segundo script, `script/patch.py` que puede ser útil. Lea `./script/patch.py -h` para más información.
+5. Corra la estructura cuando todos los parches puedan ser aplicados sin errores 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
-  - `$ ./script/create-dist  --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+  - Si algunos parches no son compatibles con el código de Chromium, arregle los errores de compilación.
+6. Cuando la estructura tenga éxito, cree un `dist` para Electron 
+  - `$ ./script/create-dist --no_zip` 
+    - Creará una carpeta `dist/principal` en el repositorio libcc de raíz.
+7. (Opcional) Actualice el contenido de los scripts i hay algún error resultando de los archivos que fueron removidos o renombrados. Archivos (`--no_zip` prevents script from create `dist`. No los necesita.)
 
-## Update Electron's code
+## Código de actualización de Electron
 
-1. Get the code: 
+1. Obtenga el código: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. Si tiene una estructura libcc en su máquina en su própio repositorio, dígale Electron que la use: 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
 
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. Si no ha estructurado todavía su libcc pero se supone que esta sea actualizada a un nuevo Chromium, use los recursos habituales `$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - Asegurese que el submódulo de libcc (`vendor/libchromiumcontent`) apunte a la revisión correcta
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. Configure `CLANG_REVISION` en `script/update-clang.sh` para coincidir con la versión que Chromium está usando.
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - Localice en `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
-5. Checkout Chromium if you haven't already:
+5. Verifique Chromium si no lo ha hecho todavía:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+    - (Reemplace el lugar de `{VERSION}` en la url arriba a la versión de Chromium que usa libcc)
+6. Estructure Electron. 
+  - Trate de estructurar una versión sin errores primero: `$ ./script/build.py -c D`
+  - Necesitará correr pruebas
+7. Arregle errores de compilación y de enlazamiento
+8. Asegúrese que la estructura liberada puede ser construida también 
   - `$ ./script/build.py -c R`
-  - Often the Release build will have different linking errors that you'll need to fix.
-  - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+  - A menudo el lanzamiento del constructo tiene diferentes errores de enlazamiento que usted necesitará arreglar.
+  - Algunos errores de compilación y enlazamiento son causados por archivos de objetos o fuentes faltantes en la libcc `dist`
+9. Actualice `./script/create-dist` en el repositorio de libcc, recree `dist`, y corra con los recursos que tiene el script de Electron de nuevo.
 
-### Tips for fixing compilation errors
+### Consejos para arreglar errores en compilación
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Corrija errores de configuración de la estructura primero
+- Corrija errores fatales primero, como archivos faltantes y errores relacionados con banderas o definiciones del compilador
+- Intente identificar errores complejos lo más rápido posible. 
+  - Pida ayuda si no está seguro cómo arreglarlos
+- Deshabilite las herramientas de Electro, corrija la estructura, luego habilitelas una por una
+- Añada más banderas de la estructura para deshabilitar características en el tiempo de la construcción.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Cuando una depuración de una estructura de Electron tiene éxito, corra la prueba `$ ./script/test.py` arregle los pruebas faltantes.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Siga todas los pasos anteriores para corregir el código Electron en todas las plataformas soportadas.
 
-## Updating Crashpad
+## Actualización de Crashpad
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) for instructions on how to do that.
+Si hay algún error de compilaciones relacionados con el Crashpad, probablemente signifique que necesita una actualizar la horquilla a una revisión más reciente. Vea [Actualizando el Crashpad](upgrading-crashpad.md) para instrucciones de cómo hacer eso.
 
-## Updating NodeJS
+## Actualizando NodeJS
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+Actualizar `vendor/node` al lanzamiento del nodo que corresponda a la versión v8 usada en el nuevo lanzamiento de Chromium. Vea la versión v8 en el nodo
 
-See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
+Vea [Actualizando nodo](upgrading-node.md) para instrucciones de cómo hacer eso.
 
-## Verify ffmpeg support
+## Verifique el soporte a ffmpeg
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron es entregado con una versión de `ffmpeg` que incluye el codecs del propietario por defecto. Una versión sin este codecs es estructurada y distribuida con cada lanzamiento. Cada actualización de Chrome debe verificar que cambia de esta versión todavía está soportado.
 
-Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por la carga de la página siguiente. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por la carga de la página siguiente. Debe trabajar con la librería por defecto `ffmpeg` distribuida con electron y no trabajar con la librería `ffmpeg` estructurada sin el codecs del propietario.
 
 ```html
 ¡<! DOCTYPE html><html> <head> <meta charset="utf-8"> <title>Proprietary Codec Check</title> </head> <body> <p>Checking si Electron utiliza codecs propietarios cargando video de http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p> <p id="outcome"></p> <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video> <script> const video = document.querySelector('video')
@@ -107,8 +107,8 @@ Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por 
      </html> de </body> de </script>})
 ```
 
-## Useful links
+## Enlaces útiles
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Calendario de lanzamientos de Chrome](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Seguidor de problemas de Chromium](https://bugs.chromium.org/p/chromium)

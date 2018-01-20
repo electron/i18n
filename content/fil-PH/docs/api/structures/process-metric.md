@@ -1,0 +1,6 @@
+# Mga bagay sa ProcessMetric
+
+* `pid` integer - Ang process id ng proseso.
+* `type` String - Uri ng proseso (Browser o Tab o GPU atbp).
+* `memory` [MemoryInfo](memory-info.md) - Mga impormasyon ng memory para sa proseso.
+* `cpu` [CPUUsage](cpu-usage.md) - Nagamit na CPU ng proseso.

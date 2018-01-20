@@ -6,7 +6,7 @@
 
 ## C++ 和 Python
 
-編寫 C++ 及 Python 程式時，我們遵循 Chromium 的 [程式碼撰寫風格](http://www.chromium.org/developers/coding-style)。 You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+編寫 C++ 及 Python 程式時，我們遵循 Chromium 的 [程式碼撰寫風格](https://www.chromium.org/developers/coding-style)。 You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
 我們目前用的 Python 是 2.7 版。
 
@@ -14,7 +14,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 
 ## JavaScript
 
-* Write [standard](http://npm.im/standard) JavaScript style.
+* Write [standard](https://npm.im/standard) JavaScript style.
 * File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants

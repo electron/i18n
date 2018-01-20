@@ -16,11 +16,11 @@
 
 2. Buatlah daftar checklist dari Electron patch yang perlu diaplikasikan dengan `git log --oneline`
     
-    - Or view http://github.com/electron/crashpad/commits/previous-branch-name
+    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
 
 3. Untuk setiap patch:
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum 
+    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick <checksum>`
     - Selesaikan konflik
     - Make sure it builds then add, commit, and push work to electron's crashpad fork

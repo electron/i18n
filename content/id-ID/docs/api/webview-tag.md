@@ -442,7 +442,7 @@ Prints `webview` 's web page. Same as `webContents.print ([options])`.
   * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
 * `callback` Fungsi 
   * `error` Kesalahan
-  * `data` Buffer
+  * `data` nomor
 
 Prints `webview` 's web page as PDF,Same as `webContents.printToPDF (options, callback)`.
 

@@ -26,7 +26,7 @@ Electron 中的 Node.js 跟 Chromium 共用同一份 V8，通常是 Chromium 用
 
 ### 版號規則
 
-Electron 2.0 版開始[遵照 `semver` 規範](http://semver.org)。 對大多數使用 npm 的應用程式而言，執行 `$ npm install electron` 就可以了。
+Electron 2.0 版開始[遵照 `semver` 規範](https://semver.org)。 對大多數使用 npm 的應用程式而言，執行 `$ npm install electron` 就可以了。
 
 詳細的版本升級流程請參考[版號規則文件](electron-versioning.md)。
 
@@ -51,8 +51,8 @@ Electron 2.0 版開始[遵照 `semver` 規範](http://semver.org)。 對大多�
 | :calendar:     | :tada:                                                                                                 |
 | -------------- | ------------------------------------------------------------------------------------------------------ |
 | **2013 年 4 月** | [Atom Shell 啟動](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45)。 |
-| **2014 年 5 月** | [Atom Shell 原始碼公開](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html)。                       |
+| **2014 年 5 月** | [Atom Shell 原始碼公開](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html)。                      |
 | **2015 年 4 月** | [Atom Shell 改名為 Electron](https://github.com/electron/electron/pull/1389)。                             |
 | **2016 年 5 月** | [Electron 發佈 `1.0.0` 版](https://electronjs.org/blog/electron-1-0)。                                     |
-| **2016 年 5 月** | [Electron 應用程式相容 Mac App Store](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide)。  |
-| **2016 年 8 月** | [Electron 應用程式支援 Windows Store](https://electronjs.org/docs/tutorial/windows-store-guide)。             |
+| **2016 年 5 月** | [Electron 應用程式相容 Mac App Store](mac-app-store-submission-guide.md)。                                    |
+| **2016 年 8 月** | [Electron 應用程式支援 Windows Store](windows-store-guide.md)。                                               |

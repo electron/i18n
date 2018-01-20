@@ -30,13 +30,13 @@ const {ipcMain} = require ('electron') ipcMain.on ('asynchronous_pesan', ( acara
 
 ```javascript
 // Dalam proses renderer (halaman web).
-const {ipcRenderer} = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+const {ipcRenderer} = require ('electron')
+console.log (ipcRenderer.sendSync ('pesan sinkron', 'ping')) // mencetak "pong"
 
-ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+ipcRenderer.on ('asinkron-reply', (event, arg) = > {
+   console.log (arg) // mencetak "pong"
 })
-ipcRenderer.send('asynchronous-message', 'ping')
+ipcRenderer.send ('asynchronous-message', 'ping')
 ```
 
 ## Metode

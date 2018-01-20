@@ -1,4 +1,4 @@
-# Keyboard Shortcuts
+# Cara pintas keyboard
 
 > Configure local and global keyboard shortcuts
 
@@ -41,7 +41,7 @@ Jika Anda ingin menangani jalan pintas keyboard untuk  BrowserWindow </ 0> , And
 
 Perhatikan parameter ketiga ` true </ 0> yang berarti pendengar akan selalu menerima penekanan tombol sebelum pendengar lainnya sehingga mereka tidak dapat menahan <code> stopPropagation () </ 0> memanggil mereka.</p>
 
-<p>The <a href="web-contents.md#event-before-input-event"><code> sebelum-input- acara </ 0>  acara 
+<p>The <a href="../api/web-contents.md#event-before-input-event"><code> sebelum-input- acara </ 0>  acara 
 dipancarkan sebelum pengiriman <code> keydown </ 1> dan <code> keyup </ 1> peristiwa di halaman. Ini bisa digunakan untuk menangkap dan menangani shortcut custom yang tidak terlihat pada menu.</p>
 
 <p>Jika Anda tidak ingin melakukan penguraian manual pintas ada perpustakaan yang melakukan deteksi kunci lanjut seperti <a href="https://github.com/ccampbell/mousetrap"> perangkap tikus </ 0> .</p>

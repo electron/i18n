@@ -1,6 +1,6 @@
 # Aksesibilitas
 
-Membuat aplikasi dapat diakses penting dan kami senang untuk memperkenalkan fungsi baru untuk [Devtron](https://electron.atom.io/devtron) dan [Spectron](https://electron.atom.io/spectron) yang memberikan pengembang kesempatan untuk membuat aplikasi mereka lebih baik bagi semua orang.
+Membuat aplikasi dapat diakses penting dan kami senang untuk memperkenalkan fungsi baru untuk [Devtron](https://electronjs.org/devtron) dan [Spectron](https://electronjs.org/spectron) yang memberikan pengembang kesempatan untuk membuat aplikasi mereka lebih baik bagi semua orang.
 
 * * *
 
@@ -38,7 +38,7 @@ Aplikasi elektron menjaga aksesibilitas dinonaktifkan secara default karena alas
 
 ### Di dalam aplikasi
 
-Dengan menggunakan [`app.setAccessibilitySupportEnabled (enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), Anda dapat mengekspos aksesibilitas beralih ke pengguna dalam preferensi aplikasi. Utilitas utilitas sistem pengguna memiliki prioritas atas pengaturan ini dan akan menggantikannya.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. Utilitas utilitas sistem pengguna memiliki prioritas atas pengaturan ini dan akan menggantikannya.
 
 ### Teknologi Pendukung
 

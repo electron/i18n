@@ -1,21 +1,21 @@
-# net
+# ağ
 
 > Chromium'un yerel ağ kütüphanesini kullanarak HTTP/HTTPS isteklerini yayınla
 
 Süreç: [Ana](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. Node.js'nin [HTTP](https://nodejs.org/api/http.html) ve [HTTPS](https://nodejs.org/api/https.html) modüllerine benzer ancak web proxy'leri için daha iyi destek sunan Node.js uygulaması yerine Chromium'un yerel ağ kitaplığını kullanıyor.
+`net` modülü HTTP(S) isteklerinin verilmesi için bir istemci tarafı olan API' dır. Node.js'nin [HTTP](https://nodejs.org/api/http.html) ve [HTTPS](https://nodejs.org/api/https.html) modüllerine benzer fakat web proxy'leri için daha iyi desteklenen Node.js uygulaması yerine Chromium'un yerel ağ kitaplığını kullanır.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+Aşağıdaki neden yerel Node.js modülleri yerine `ağ` modülünü kullanmayı düşünebileceğinizin ayrıntılı olmayan bir listesidir:
 
 * Sistem proxy yapılandırmasının otomatik yönetimi, wpad protokolü ve proxy pac yapılandırma dosyalarının desteği.
 * HTTPS isteklerine otomatik tünel açılması.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Temel, Özet, NTLM, Kerberos yada kimlik doğrulama düzenleri şeması kullanan kimlik doğrulama proxy sunucuları için destek.
+* Trafik izleme Proxy' leri için destek: Fiddler - erişim kontrolü ve izleme için kullanılan proxylere benzer.
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+`net` API modulü Node.js API modülünü birebir taklit edebilmek için özel olarak tasarlanmıştır. Sınıflar, yöntemler, özellikler ve olay adlarını içeren API bileşenleri genellikle Node.Js' dekilerle benzer özelliklere sahiptir.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Mesela, sıradaki örnek `ağ` API kullanımı hakkında hızlıca bilgi verir:
 
 ```javascript
 const {app} = require('electron')
@@ -36,18 +36,18 @@ app.on('ready', () => {
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) neredeyse Node.js modüllerinin kullanım şekli ile neredeyse aynı
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+`net` API uygulaması sadece `ready` yayınlandıktan sonra kullanılabilir. `ready` yayınlanmadan kullanmaya çalışmak hata verir.
 
 ## Metodlar
 
-`net` modülü aşağıdaki yöntemleri içerir:
+`ağ` modülü aşağıdaki yöntemleri içerir:
 
 ### `net.request(options)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Obje| Dizi) - `ClientRequest` Yapıcı seçenekleri.
 
 Returns [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Verilen `options` kullanarak direkt `ClientRequest` yapıcısına iletilen bir [`ClientRequest`](./client-request.md) örneği oluşturur. `net.request` yöntemi, `options` nesnesinde belirtilen kurallar güvenli ve güvensiz HTTP isteklerini vermek için kullanılır.

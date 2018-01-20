@@ -1,4 +1,4 @@
-# Jendela Peramban
+# BrowserWindow
 
 > mengatasi dan kendalikan jendela peramban
 

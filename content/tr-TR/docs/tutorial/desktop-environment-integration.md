@@ -20,14 +20,14 @@ Windows ve MacOS, tarafından açılan son belgelerin bir listesine kolay erişi
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-Yeni belgelere dosya eklemek için, [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-os-x-windows) API:
+Yeni belgelere dosya eklemek için, [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 const {app} = require('electron')
-app.addRecentDocument('/kullanıcı/kullanıcıadı/Masaüstü/iş.tipi')
+app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-Ve boşaltmak için [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-os-x-windows) API'sını kullanabilirsiniz son belgeler listesi:
+Ve boşaltmak için [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API'sını kullanabilirsiniz son belgeler listesi:
 
 ```javascript
 const {app} = require('electron')
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Windows notları
 
-Bu özelliği Windows'ta kullanabilmek için uygulamanızın belgenin dosya türünü bir işleyici olarak kaydetmesi gerekir, aksi halde dosya ekledikten sonra bile Görev listesi'nde görünmeyecektir. Her şeyi bulabilirsiniz Başvurunuzun tescili hakkında [Application Registration](http://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Bu özelliği Windows'ta kullanabilmek için uygulamanızın belgenin dosya türünü bir işleyici olarak kaydetmesi gerekir, aksi halde dosya ekledikten sonra bile Görev listesi'nde görünmeyecektir. Her şeyi bulabilirsiniz Başvurunuzun tescili hakkında [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
 Bir kullanıcı Görev Listesi'nden bir dosyayı tıkladığında, uygulamanızın yeni bir örneği komut satırı argümanı olarak eklenen dosyanın yolu ile başlatılacaktır.
 
@@ -80,7 +80,7 @@ Windows'ta, Görev listesi'nin `Tasks` kategorisinde özel eylemler belirtebilir
 
 **Internet Explorer'ın görevi:**
 
-![IE](https://msdn.microsoft.com/dynimg/IC420539.png)
+![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
 Gerçek bir menü olan macOS'taki dock menüsünün aksine, Windows'daki kullanıcı görevleri kullanıcı bir görevi tıkladığında programın uygulama kısayolları gibi belirtilen argümanlarla yürütülür.
 
@@ -123,7 +123,7 @@ MSDN'den örneklendirilmiştir:
 
 ![oynatıcı](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-[BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) Bunu uygulamanız içerisinde küçük resim araç çubuğunu ayarlamak için kullanabilirsiniz:
+[BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) Bunu uygulamanız içerisinde küçük resim araç çubuğunu ayarlamak için kullanabilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -195,7 +195,7 @@ Windows'ta bir görev çubuğu düğmesi, MSDN'den aktarıldığı gibi uygulama
 
 ![Arayüzü görev çubuğuna al](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-[BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API: Bunu bir pencereye yer paylaşım simgesi ayarlamak için kullanabilirisiniz:
+[BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API: Bunu bir pencereye yer paylaşım simgesi ayarlamak için kullanabilirisiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -209,7 +209,7 @@ Windows'ta, kullanıcının dikkatini çekmek amaçlı görev çubuğu düğmesi
 
 > Genellikle, kullanıcıya pencerenin dikkat gerektirdiğini ancak şu anda klavye odağına sahip olmadığını kullanıcıya belirten bir pencere görünür.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+BrowserWindow görev çubuğu düğmesine basmak için, BrowserWindow.flashFrame </ 0> API:</p> 
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -230,7 +230,7 @@ Bir pencerenin düzenlenmiş durumunu ayarlayabilirsiniz, böylece dosya simgesi
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-Gösterilen pencerenin dosyasını ayarlamak için [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) ve [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) API'lerini kullanabilirsiniz:
+Gösterilen pencerenin dosyasını ayarlamak için [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) ve [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) API'lerini kullanabilirsiniz:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -255,7 +255,7 @@ Web sayfasında:
 </script>
 ```
 
-Ana işlem içinde:
+Ana süreçte:
 
 ```javascript
 const {ipcMain} = require('electron')

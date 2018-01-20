@@ -57,6 +57,7 @@
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@
 
 * [程式碼撰寫風格](development/coding-style.md)
 * [在 C++ 程式碼中使用 Clang-Format](development/clang-format.md)
+* [測試](development/testing.md)
 * [原始碼目錄結構](development/source-code-directory-structure.md)
 * [與 NW.js (原名 node-webkit) 的技術差異](development/atom-shell-vs-node-webkit.md)
 * [建置系統概述](development/build-system-overview.md)
@@ -98,6 +100,6 @@
 * [Debug 步驟 (Windows)](development/debug-instructions-windows.md)
 * [在 Debugger 中設定符號伺服器](development/setting-up-symbol-server.md)
 * [文件編寫風格](styleguide.md)
-* [Chrome 升級](development/upgrading-chrome.md)
+* [Chromium 升版](development/upgrading-chromium.md)
 * [Chromium 開發](development/chromium-development.md)
 * [V8 開發](development/v8-development.md)

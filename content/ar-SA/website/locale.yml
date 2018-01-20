@@ -4,7 +4,7 @@ nav:
   blog: المدونة
   community: المجتمع
   apps: التطبيقات
-  userland: مساحة المستخدم
+  userland: Userland
   releases: اﻹصدارات
   contact: تواصل معنا
   languages: اللغات
@@ -137,3 +137,5 @@ _404:
   page_not_found: الصفحة غير موجودة.
   if_this_is_an_error: إذا كان هذا خطأ
   please_file_an_issue: يرجى تسجيل issue.
+search:
+  description: Search within Electron documentations and community.

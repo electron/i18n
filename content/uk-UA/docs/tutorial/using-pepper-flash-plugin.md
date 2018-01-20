@@ -10,7 +10,7 @@ On macOS and Linux, the details of the Pepper Flash plugin can be found by navig
 
 You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
 
-For example:
+Наприклад:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -54,7 +54,7 @@ You can also try loading the system wide Pepper Flash plugin instead of shipping
 Add `plugins` attribute to `<webview>` tag.
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## Troubleshooting

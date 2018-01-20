@@ -1,26 +1,26 @@
-# Locales
+# Yerliler
 
 > Yerel ayar değerleri `app.getLocale()` tarafından döndürüldü.
 
-Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
+Electron Chromium'un `l10n_util` kütüphanesinisi yerlileri almak için. İhtimal dahilindeki değerler aşağıdadır:
 
 | Kod dili | İsim dili                       |
 | -------- | ------------------------------- |
 | af       | Afrika dili                     |
-| am       | Amharic                         |
+| am       | Amharca                         |
 | ar       | Arapça                          |
 | az       | Azerice                         |
-| be       | Belarusian                      |
+| be       | Belarus'lu                      |
 | bg       | Bulgarca                        |
 | bh       | Bihari                          |
-| bn       | Bengali                         |
+| bn       | Bengal'li                       |
 | br       | Breton                          |
 | bs       | Boşnakça                        |
 | ca       | Katalanca                       |
-| co       | Corsican                        |
+| co       | Korsikaca                       |
 | cs       | Çekçe                           |
-| cy       | Welsh                           |
-| da       | Danish                          |
+| cy       | Galce                           |
+| da       | Danimarkalı                     |
 | de       | Almanca                         |
 | de-AT    | Almanca (Avusturya)             |
 | de-CH    | Almanca(İsviçre)                |
@@ -33,109 +33,109 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | en-NZ    | İngilizce (Yeni Zelanda)        |
 | en-US    | İngilizce (Birleşmiş Devletler) |
 | en-ZA    | İngilizce (Güney Afrika)        |
-| eo       | Esperanto                       |
+| eo       | İspanyol                        |
 | es       | İspanyolca                      |
 | es-419   | İspanyolca (Latin Amerika)      |
 | et       | Eston Dili                      |
-| eu       | Basque                          |
+| eu       | Baskça                          |
 | fa       | Farsça                          |
-| fi       | Finnish                         |
-| fil      | Filipino                        |
-| fo       | Faroese                         |
-| fr       | Fransızca                       |
+| fi       | Fin'li                          |
+| fil      | Filipin'li                      |
+| fo       | Faroe dili                      |
+| fransız  | Fransızca                       |
 | fr-CA    | Fransızca (Kanada)              |
 | fr-CH    | Fransızca (İsviçre)             |
 | fr-FR    | Fransızca (Fransa)              |
-| fy       | Frisian                         |
-| ga       | Irish                           |
+| fy       | Frizce                          |
+| ga       | İrlandaca                       |
 | gd       | İskoç Galcesi                   |
-| gl       | Galician                        |
+| gl       | Galiçyalı                       |
 | gn       | Guarani                         |
-| gu       | Gujarati                        |
-| ha       | Hausa                           |
-| haw      | Hawaiian                        |
-| he       | Hebrew                          |
-| hi       | Hindi                           |
+| gu       | Guceratça                       |
+| ha       | Hausaca                         |
+| haw      | Havaili                         |
+| he       | İbranice                        |
+| hi       | Hintli                          |
 | hr       | Hırvatça                        |
 | hu       | Macarca                         |
 | hy       | Ermenice                        |
 | ia       | Interlingua                     |
 | id       | Endonezce                       |
-| is       | Icelandic                       |
-| it       | Italian                         |
+| is       | İzlandaca                       |
+| it       | İtalyanca                       |
 | it-CH    | İtalyanca (İsviçre)             |
 | it-IT    | İtalyanca (İtalya)              |
 | ja       | Japonca                         |
-| jw       | Javanese                        |
+| jw       | Cavaca                          |
 | ka       | Gürcüce                         |
 | kk       | Kazakça                         |
-| km       | Cambodian                       |
-| kn       | Kannada                         |
+| km       | Kamboçyalı                      |
+| kn       | Kannadaca                       |
 | ko       | Korece                          |
 | ku       | Kürtçe                          |
-| ky       | Kyrgyz                          |
-| la       | Latin                           |
+| ky       | Kırgızca                        |
+| la       | Latince                         |
 | ln       | Lingala                         |
-| lo       | Laothian                        |
-| lt       | Lithuanian                      |
-| lv       | Latvian                         |
-| mk       | Macedonian                      |
-| ml       | Malayalam                       |
-| mn       | Mongolian                       |
-| mo       | Moldavian                       |
-| mr       | Marathi                         |
+| lo       | Letonyaca                       |
+| lt       | Litvanyalı                      |
+| lv       | Letonca                         |
+| mk       | Makedonyalı                     |
+| ml       | Malayam dili                    |
+| ml       | Moğolistanlı                    |
+| mo       | Moldova dili                    |
+| mr       | Marathice                       |
 | ms       | Malay                           |
-| mt       | Maltese                         |
+| mt       | Malta dili                      |
 | nb       | Norveççe (Bokmal)               |
-| ne       | Nepali                          |
+| ne       | Nepalli                         |
 | nl       | Flemenkçe                       |
-| nn       | Norwegian (Nynorsk)             |
-| no       | Norwegian                       |
-| oc       | Occitan                         |
-| om       | Oromo                           |
-| veya     | Oriya                           |
-| pa       | Punjabi                         |
-| pl       | Polish                          |
-| ps       | Pashto                          |
+| nn       | Norveççe (Nynorsk)              |
+| no       | Norveç                          |
+| oc       | Oksitanca                       |
+| om       | Oromo dili                      |
+| veya     | Oriya dili                      |
+| pa       | Pencapça                        |
+| pl       | Polonyalı                       |
+| ps       | Peştuca                         |
 | pt       | Portekizce                      |
 | pt-BR    | Portekizce (Brezilya)           |
 | pt-PT    | Portekizce (Portekiz)           |
-| qu       | Quechua                         |
-| rm       | Romansh                         |
-| ro       | Romanian                        |
+| qu       | Keçuva dili                     |
+| rm       | Romence                         |
+| ro       | Rumence                         |
 | ru       | Rusça                           |
-| sd       | Sindhi                          |
-| sh       | Serbo-Croatian                  |
-| si       | Sinhalese                       |
-| sk       | Slovak                          |
-| sl       | Slovenian                       |
+| sd       | Sintçe                          |
+| sh       | Hırvatistan Sırpçası            |
+| si       | Seylanca                        |
+| sk       | Slovakyalı                      |
+| sl       | Sloven                          |
 | sn       | Shona                           |
-| so       | Somali                          |
-| sq       | Albanian                        |
-| sr       | Serbian                         |
-| st       | Sesotho                         |
-| su       | Sundanese                       |
-| sv       | Swedish                         |
-| sw       | Swahili                         |
-| ta       | Tamil                           |
-| te       | Telugu                          |
-| tg       | Tajik                           |
-| th       | Thai                            |
+| so       | Somalice                        |
+| sq       | Arnavutlu                       |
+| sr       | Sırp                            |
+| st       | Sotho dili                      |
+| su       | Sundaca                         |
+| sv       | İsveçli                         |
+| sw       | Svahili dili                    |
+| ta       | Tamilce                         |
+| te       | Telugulu                        |
+| tg       | Tacikçe                         |
+| th       | Tayca                           |
 | ti       | Tigrinya                        |
-| tk       | Turkmen                         |
-| to       | Tonga                           |
+| tk       | Türkmen                         |
+| to       | Tongalı                         |
 | tr       | Türkçe                          |
 | tt       | Tatar                           |
 | tw       | Twi                             |
-| ug       | Uighur                          |
-| uk       | Ukrainian                       |
-| ur       | Urdu                            |
-| uz       | Uzbek                           |
-| vi       | Vietnamese                      |
-| xh       | Xhosa                           |
-| yi       | Yiddish                         |
-| yo       | Yoruba                          |
-| zh       | Chinese                         |
+| ug       | Uygurlu                         |
+| uk       | Ukraynalı                       |
+| ur       | Urduca                          |
+| uz       | Özbekçe                         |
+| vi       | Vietnamlı                       |
+| xh       | Zosa dili                       |
+| yi       | Yidce                           |
+| yo       | Yorubaca                        |
+| zh       | Çinli                           |
 | zh-CN    | Çince (Basitleştirilmiş)        |
 | zh-TW    | Çince (Geleneksel)              |
-| zu       | Zulu dili                       |
+| zu       | Zuluca                          |

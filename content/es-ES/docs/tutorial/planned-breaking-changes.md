@@ -1,15 +1,15 @@
-# Planned Breaking API Changes
+# Cambios planificados de API
 
-The following list includes the APIs that will be removed in Electron 2.0.
+La siguiente lista incluye las APIs que serán removidas en Electron 2.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+No hay un tiempo estipulado para este lanzamiento pero las advertencias de solicitudes de cambio serán añadidas por lo menos 90 días antes del hecho.
 
 ## `app`
 
 ```js
-// Deprecated
+// Cambiar
 app.getAppMemoryInfo()
-// Replace with
+// Reemplazar con
 app.getAppMetrics()
 ```
 
@@ -25,10 +25,10 @@ let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// Cambiar
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Reemplazar con
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -36,37 +36,37 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// Cambiar
 clipboard.readRtf()
-// Replace with
+// Reemplazar con
 clipboard.readRTF()
 
-// Deprecated
+// Cambiar
 clipboard.writeRtf()
-// Replace with
+// Reemplazar con
 clipboard.writeRTF()
 
-// Deprecated
+// Cambiar
 clipboard.readHtml()
-// Replace with
+// Reemplazar con
 clipboard.readHTML()
 
-// Deprecated
+// Cambiar
 clipboard.writeHtml()
-// Replace with
+// Reemplazar con
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Cambiar
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Reemplazar con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -77,28 +77,28 @@ crashReporter.start({
 ## `menu`
 
 ```js
-// Deprecated
+// Cambiar
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// Reemplazar con
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Cambiar
 nativeImage.toPng()
-// Replace with
+// Reemplazar con
 nativeImage.toPNG()
 
-// Deprecated
+// Cambiar
 nativeImage.toJpeg()
-// Replace with
+// Reemplazar con
 nativeImage.toJPEG()
 
-// Deprecated
+// Cambiar
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Reemplazar con
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -113,16 +113,16 @@ process.versions['atom-shell']
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `Versión de procesos de Electron` y `Versión de procesos de Chrome` Serán propiedades de solo lectura para la consistencia con otras propiedades de `process.versions` configuradas por Node.
 
 ## `session`
 
 ```js
-// Deprecated
+// Cambiar
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Reemplazar con
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -131,77 +131,77 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// Cambiar
 tray.setHighlightMode(true)
-// Replace with
+// Reemplazar con
 tray.setHighlightMode('on')
 
-// Deprecated
+// Cambiar
 tray.setHighlightMode(false)
-// Replace with
+// Reemplazar con
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// Cambiar
 webContents.openDevTools({detach: true})
-// Replace with
+// Reemplazar con
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
+// Cambiar
 webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// Reemplazar con
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Cambiar
 webFrame.setZoomLevelLimits(1, 2)
-// Replace with
+// Reemplazar con
 webFrame.setVisualZoomLevelLimits(1, 2)
 
-// Deprecated
+// Cambiar
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Reemplazar con
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// Cambiar
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// Reemplazar con
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
+// Cambiar
 webview.setZoomLevelLimits(1, 2)
-// Replace with
+// Reemplazar con
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## URL de cabecera de nodo
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.
 
-Deprecated: https://atom.io/download/atom-shell
+Cambiar: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Reemplazar con: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## Duplicado de brazo ARM
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Cada lanzamiento de Electron incluye dos estructuras ARM idénticas con pequeña diferencias en el nombre de sus archivos, como `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. El brazo con el prefijo `v7l` fue añadido para aclarar a los usuarios cuál versión de ARM soportaba, y para definir para un futuro los brazos armv6l y arm64 que sean producidos.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+El archivo *sin el prefijo* todavía está siendo publicado para evitar romper alguna configuración que lo esté usando. Con el 2.0, el archivo sin el prefijo no será publicado.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Para obtener más información, vea [6986](https://github.com/electron/electron/pull/6986) y [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## Comentarios `Arreglar`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+La cadena `Arreglar` es usada en los comentarios del código para señalar cosas que deben ser arregladas para el lanzamiento del 2.0. Vea https://github.com/electron/electron/search?q=fixme

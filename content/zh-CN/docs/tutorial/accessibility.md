@@ -1,6 +1,6 @@
 # 辅助功能
 
-创建具有辅助功能的应用程序是很重要的，我们很乐意介绍[Devtron](https://electron.atom.io/devtron)和[Spectron](https://electron.atom.io/spectron)，这两个新功能能让开发者们有机会让它们的应用程序对每个人都更加可用。
+创建具有辅助功能的应用程序是很重要的，我们很乐意介绍[Devtron](https://electronjs.org/devtron)和[Spectron](https://electronjs.org/spectron)，这两个新功能能让开发者们有机会让它们的应用程序对每个人都更加可用。
 
 * * *
 
@@ -38,7 +38,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ### 应用程序内部
 
-通过使用 [` app.setAccessibilitySupportEnabled(enabled) `](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), 可以在应用程序首选项中向用户开放辅助功能的开关。 用户的系统的辅助实用程序优先于此设置, 并将覆盖它。
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. 用户的系统的辅助实用程序优先于此设置, 并将覆盖它。
 
 ### 辅助功能技术
 

@@ -27,10 +27,10 @@ const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-Dan Anda dapat menggunakan [app.clearRecentDocuments ](../api/app.md#appclearrecentdocuments-os-x-windows) API untuk mengosongkan daftar dokumen baru-baru:
+Dan Anda dapat menggunakan [app.clearRecentDocuments ](../api/app.md#appclearrecentdocuments-macos-windows) API untuk mengosongkan daftar dokumen baru-baru:
 
 ```javascript
-onst {app} = require('electron')
+const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
@@ -95,7 +95,7 @@ Pada Windows Anda dapat menentukan tindakan kustom dalam ` Tugas </ 0> kategori 
 
 <p><strong>Tugas dari Internet Explorer:</strong></p>
 
-<p><img src="https://msdn.microsoft.com/dynimg/IC420539.png" alt="IE" /></p>
+<p><img src="http://i.msdn.microsoft.com/dynimg/IC420539.png" alt="IE" /></p>
 
 <p>Berbeda dengan menu dock di MacOS yang merupakan menu yang nyata, tugas-tugas pengguna di Windows bekerja seperti shortcut aplikasi tersebut bahwa ketika pengguna mengklik tugas, program akan dieksekusi dengan argumen tertentu.</p>
 
@@ -118,7 +118,7 @@ app.setUserTasks([
 Untuk membersihkan daftar tugas Anda, silahkan hubungi `app.setUserTasks` dengan array kosong:
 
 ```javascript
-const {app} = require('electron')
+onst {app} = require('electron')
 app.setUserTasks([])
 ```
 
@@ -138,7 +138,7 @@ Dari MSDN, itu bergambar:
 
 ![pemain](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-Anda dapat menggunakan [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows-7) untuk mengatur toolbar thumbnail dalam aplikasi Anda:
+Anda dapat menggunakan [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) untuk mengatur toolbar thumbnail dalam aplikasi Anda:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -206,11 +206,11 @@ Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan ap
 
 > Ikon hamparan berfungsi sebagai pemberitahuan status kontekstual, dan dimaksudkan untuk meniadakan kebutuhan akan ikon status area pemberitahuan terpisah untuk berkomunikasi informasi itu kepada pengguna. Misalnya, status mail baru di Microsoft Pandangan, yang saat ini ditampilkan di area notifikasi, sekarang dapat ditunjukkan melalui overlay pada tombol taskbar. Sekali lagi, Anda harus memutuskan selama Anda siklus pengembangan yang metode yang terbaik untuk aplikasi Anda. Ikon overlay adalah dimaksudkan untuk memasok status, notifikasi atau status lama yang penting status jaringan, status pesan, atau surat baru. Pengguna seharusnya tidak disajikan dengan hamparan atau animasi yang terus berubah.
 
-**Overlay pada tombol taskbar:**
+**Tampilan tombol taskbar:**
 
-![Tampilan tombol taskbar](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Overlay pada tombol taskbar](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows-7) API:
+Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
@@ -245,7 +245,7 @@ Anda juga dapat mengatur keadaan diedit dari jendela sehingga ikon file dapat me
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-Untuk mengatur file jendela yang terwakili, Anda bisa menggunakan [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-os-x) dan [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-os-x) APIs:
+Untuk mengatur file jendela yang terwakili, Anda bisa menggunakan [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) dan [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
 
 ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
@@ -270,7 +270,7 @@ Di halaman web:
 </script>
 ```
 
-Dalam proses utamanya:
+In the main process:
 
 ```javascript
 const {ipcMain} = require('electron')

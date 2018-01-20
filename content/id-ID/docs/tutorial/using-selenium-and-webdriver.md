@@ -6,7 +6,7 @@ Dari [ChromeDriver - WebDriver untuk Chrome](https://sites.google.com/a/chromium
 
 ## Menyiapkan Spectron
 
-[Spectron](https://electron.atom.io/spectron) adalah kerangka pengujian ChromeDriver yang didukung secara resmi untuk Elektron. Ini dibangun di atas [WebdriverIO](http://webdriver.io/) dan memiliki pembantu untuk mengakses API Elektron dalam pengujian dan kumpulan ChromeDriver Anda.
+[Spectron](https://electronjs.org/spectron) adalah kerangka pengujian ChromeDriver yang didukung secara resmi untuk Elektron. Ini dibangun di atas [WebdriverIO](http://webdriver.io/) dan memiliki pembantu untuk mengakses API Elektron dalam pengujian dan kumpulan ChromeDriver Anda.
 
 ```sh
 $ npm install --save-dev spectron

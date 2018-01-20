@@ -2,7 +2,7 @@
 
 Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasviridir.
 
-- Libcc'yi yeni bir Chromium sürümüne yükseltin
+- libcc ürünü yeni bir Chromium sürümüne yükseltin
 - Electron kodunu yeni libcc ile uyumlu hale getirin
 - Gerekirse Electron bağımlılıklarını (crashpad, NodeJS, etc.) Güncelleyin
 - Libcc ve electronun iç yapılarını oluşturun
@@ -22,16 +22,16 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
     - En son kararlı mac sürümü için: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - En yeni win64 beta sürümü için: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - çalıştır `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
+    - Biraz çay demleyin -- bu yaklaşık 30dk yada daha fazla sürebilir.
+    - Bu büyük ihtimalle ek paketler uygulanırken başarısız olacak.
 3. Klasör`*.patch` files in the `patches/` and `patches-mas/` düzenleme.
-4. (Tercihe bağlı) `komut/güncelleme` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
+4. (Tercihe bağlı) `script/update` yamaları uygular, ancak birden fazla deneme yapılması gerekiyorsa aynı komut dosyasını manuel olarak çalıştırabilirsiniz `güncelle` çağrılar: `$ ./script/apply-patches` 
   - İkinci bir senaryo var, `script/patch.py` that may be useful. Read `./script/patch.py -h` daha fazla bilgi için.
 5. Tüm yamalar hatasız uygulandığında derlemeyi çalıştırın 
   - `$ ./script/build`
   - Bazı yamalar Chromium kodu ile uyumlu değilse, Derleme hatalarını düzeltin.
-6. When the build succeeds, create a `dist` Electron hakkında 
-  - `$ ./script/create-dist  --no_zip` 
+6. Oluşturma başarılı olduğunda, oluşturun bir `dist` Electron hakkında 
+  - `$ ./script/create-dist --no_zip` 
     - Libcc repo'nun kökünde bir ` dist /main ` klasörü oluşturacaktır. Electron'u oluşturmak için buna ihtiyacınız olacak.
 7. (İsteğe bağlı) Dosyalardan kaynaklanan hatalar varsa komut dosyası içeriğini güncelleyin kaldırıldı veya yeniden adlandırıldı. (`--no_zip` prevents script from create `dist` Arşivler. Bunlar gerekmez.)
 
@@ -49,7 +49,7 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
 
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. Eğer hala bir libcc oluşturmadıysanız ama yine de yükseltilmesi gerekiyorsa yeni Chromium'a, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
   
   - Libcc alt modülünün(`vendor/libchromiumcontent`) işaret ettiğinden emin olun doğru revizyon
 
@@ -67,8 +67,8 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
 7. Derleme ve bağlantı hatalarını düzeltme
 8. Serbest bırakma derlemesininde oluşturulabileceğinden emin olun 
   - `$ ./script/build.py -c R`
-  - Often the Release build will have different linking errors that you'll need to fix.
-  - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
+  - Sürüm oluşturmak sıkça düzeltmeniz gereken birbirine bağlantılı farklı hatalar meydana getirir.
+  - Bazı tamamlamalar ve zincirleme hatalar libcc `dist`deki kayıp kaynak/nesne dosyası eksikliğinden kaynaklanır
 9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
 
 ### Derleme hatalarını düzeltmek için ipuçları
@@ -86,19 +86,19 @@ Desteklenen tüm platformlarda Electron kodunu düzeltmek için yukarıdaki adı
 
 ## Hata yolu güncelleştiriliyor
 
-Hata yolu ile ilgili herhangi bir derleme hatası varsa, muhtemelen ayrılmayı yeni bir revizyonla güncellemeniz gerekir. Gör [Upgrading Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) Bunun nasıl yapılacağı ile ilgili talimatlar için.
+Hata yolu ile ilgili herhangi bir derleme hatası varsa, muhtemelen ayrılmayı yeni bir revizyonla güncellemeniz gerekir. Gör [Upgrading Crashpad](upgrading-crashpad.md) Bunun nasıl yapılacağı ile ilgili talimatlar için.
 
 ## NodeJS güncelleniyor
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
-See [Upgrading Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) for instructions on this.
+Bununla ilgili bilgiler için [Upgrading Node](upgrading-node.md) ' a bakın.
 
 ## Ffmpeg desteği doğrulama
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron, varsayılan olarak özel codec bileşenlerini içeren `ffmpeg` sürümü ile birlikte gelir. Codec bileşenleri olmadan her sürümle birlikte dağıtılan bir sürüm insa edilmiştir. Her Chrome yükseltmesi halen desteklenmekte olan versiyonu değiştirdiğini doğrulamalıdır.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Sıradaki sayfayı yükleyerek çoklu `ffmpeg` yapıları için Electron desteğinini doğrulayabilirsin. Electron ile dağıtılan varsayılan `ffmpeg` kütüphanesi ile çalışmalıdır ve özel codec olmadan oluşturulmuş `ffmpeg` kütüphanesi ile çalışmamalıdır.
 
 ```html
 <!DOCTYPE html>
@@ -130,6 +130,6 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 
 ## Faydalı bağlantılar
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Chrome Açılış Planı](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
 - [Chromium konu takip](https://bugs.chromium.org/p/chromium)

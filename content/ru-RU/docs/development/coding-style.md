@@ -6,7 +6,7 @@
 
 ## C++ и Python
 
-Для C++ и Python мы следуем [стилю кодирования](http://www.chromium.org/developers/coding-style) Chromium. Для автоматического форматирования кода на C++ вы можете использовать [clang-format](clang-format.md). Есть также скрипт `script/cpplint.py`, позволяющий проверить, что все файлы соответствуют стилю.
+Для C++ и Python мы следуем [стилю кодирования](https://www.chromium.org/developers/coding-style) Chromium. Для автоматического форматирования кода на C++ вы можете использовать [clang-format](clang-format.md). Есть также скрипт `script/cpplint.py`, позволяющий проверить, что все файлы соответствуют стилю.
 
 Версией Python, которую мы используем в настоящее время, является Python 2.7.
 
@@ -14,7 +14,7 @@
 
 ## JavaScript
 
-* Пишите в стиле [стандартном](http://npm.im/standard) для JavaScript.
+* Пишите в стиле [стандартном](https://npm.im/standard) для JavaScript.
 * Имена файлов должны соединяться через `-` вместо `_`, например, `file-name.js` вместо `file_name.js`, поскольку имена в [github/atom](https://github.com/github/atom) обычно пишутся в форме `module-name`. Это правило применяется только к `.js`-файлам.
 * Используйте новый синтаксис ES6/ES2015 там, где это уместно 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants

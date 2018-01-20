@@ -474,7 +474,7 @@ console.log(installed)
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// bu örnekte örneğimiz "win"
+// bu örnekte örnek sınıfımız "win"
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
@@ -639,7 +639,7 @@ Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `wid
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+`Integer[]` Geri alır - Windowsun müşteri alanı boyu ve genişliği.
 
 #### `win.setMinimumSize(width, height)`
 
@@ -734,51 +734,52 @@ Linux'ta daima geri dönüyor `true`.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String opsiyonel) *macOS*- Değerleri içerir `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, ve ~~`dock`~~ (Artık kullanılmaz). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
-
-Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğini ayarlamaktadır. Bu ayarlamadan sonra, pencere hala odaklanılamayan bir araç kutusu penceresi değil normal bir pencere olacaktır.
-
-#### `win.isAlwaysOnTop()`
-
-Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
-
-#### `win.center()`
-
-Pencereyi ekranın ortasına taşır.
-
-#### `win.setPosition(x, y[, animate])`
-
-* `x` Integer
-* `x` Integer
-* `animate` Boolean (isteğe bağlı) *macOS*
-
-Pencereyi taşı `x` and `y`.
-
-#### `win.getPosition()`
-
-`Integer[]` 'ı geri getirir - Pencerenin mevcut pozisyonunu içerir.
-
-#### `win.setTitle(title)`
-
-* `başlık` Dizi
-
-Doğal pencerenin başlığını `title` olarak değiştirir.
-
-#### `win.getTitle()`
-
-`String` 'i geri getirir - Doğal pencerenin başlığı.
-
-**Note:** web sayfasının başlığı yerel unvanından farklı olabilir. pencere.
-
-#### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
-
-* `offsetY` Float
-* `offsetX` Float (isteğe bağlı)
-
-MacOS üzerindeki sayfalar için ek noktasını değiştirir. Varsayılan olarak, sayfalar pencere çerçevesinin hemen altına eklenir, ancak bunları HTML işlenmiş bir araç çubuğunun altında görüntülemek isteyebilirsiniz. Örnek olarak:
-
-```javascript
+* `level` String opsiyonel) *macOS*- Değerleri içerir `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, ve ~~`dock`~~ (Artık kullanılmaz). Varsayılan değer `floating`. Daha fazla ayrıntı için macOS docs</0' e bakın.</li> 
+  
+  * `relativeLevel` Tamsayı (isteğe bağlı)*macOS* - Bu pencerenin verilen `level` değerine göre katman sayısı daha yüksek. Varsayılan değer ``. Genellikle Apple 1 seviyesinin üstünde `screen-saver` ayarlanmasını istemez.</ul> 
+  
+  Pencerenin her zaman diğer pencerelerin üstünde gösterilip gösterilmeyeceğini ayarlamaktadır. Bu ayarlamadan sonra, pencere hala odaklanılamayan bir araç kutusu penceresi değil normal bir pencere olacaktır.
+  
+  #### `win.isAlwaysOnTop()`
+  
+  Returns `Boolean` - Pencerenin daima diğer pencerelerin üstünde olup olmadığı.
+  
+  #### `win.center()`
+  
+  Pencereyi ekranın ortasına taşır.
+  
+  #### `win.setPosition(x, y[, animate])`
+  
+  * `x` Integer
+  * `x` Integer
+  * `animate` Boolean (isteğe bağlı) *macOS*
+  
+  Pencereyi taşı `x` and `y`.
+  
+  #### `win.getPosition()`
+  
+  `Integer[]` 'ı geri getirir - Pencerenin mevcut pozisyonunu içerir.
+  
+  #### `win.setTitle(title)`
+  
+  * `başlık` Dizi
+  
+  Doğal pencerenin başlığını `title` olarak değiştirir.
+  
+  #### `win.getTitle()`
+  
+  `String` 'i geri getirir - Doğal pencerenin başlığı.
+  
+  **Note:** web sayfasının başlığı yerel unvanından farklı olabilir. pencere.
+  
+  #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
+  
+  * `offsetY` Float
+  * `offsetX` Float (isteğe bağlı)
+  
+  MacOS üzerindeki sayfalar için ek noktasını değiştirir. Varsayılan olarak, sayfalar pencere çerçevesinin hemen altına eklenir, ancak bunları HTML işlenmiş bir araç çubuğunun altında görüntülemek isteyebilirsiniz. Örnek olarak:
+  
+  ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
@@ -812,7 +813,7 @@ Kiosk moduna girer veya ayrılır.
 
 Returns `Buffer` - pencerenin platforma özel tutamacı.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Yerel türü Windows' ta `HWND`, macOS' ta `NSView*`, ve Linux' ta `Window` (`unsigned long`) on Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
@@ -825,7 +826,7 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+`Boolean` - İletinin sabit olup olmadığına bağlı olarak `true` or `false`' a döndürülür.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
@@ -845,7 +846,7 @@ Pencerenin temsil ettiği dosyanın yol adını belirler ve dosya simgesi pencer
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+`String` Windows' un temsil ettiği dosyanın yolunu değiştirir.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
@@ -855,7 +856,7 @@ Window's belgelerinin düzenlenip düzenlenmediğini belirtir ve `true` olarak a
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+`Boolean` - Window' s dosyalarının düzenlenmiş olup olmadığını döndürür.
 
 #### `win.focusOnWebView()`
 
@@ -863,11 +864,11 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - üst sınırlar
 * `geri arama` Fonksiyon 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+`webContents.capturePage([rect, ]callback)` ile aynı.
 
 #### `win.loadURL(url[, options])`
 
@@ -879,11 +880,11 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
-Same as `webContents.loadURL(url[, options])`.
+`webContents.loadURL(url[, options])` İle aynı.
 
 The `url` uzak bir adres olabilir (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Dosya URL lelerin düzgün formatlandığından emin olmak için, [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) düğümlerini kullanmanız önerilmektedir:
 
 ```javascript
 let url = require('url').format({
@@ -895,7 +896,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Aşağıdakileri yaparak, URL kodlu verilerle birlikte `POST` komutunu kullanarak bir URL yükleyebilirsiniz:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -909,25 +910,25 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+`webContents.reload`. ile aynı.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
-* `menu` Menu | null
+* `menu` Menü | boş
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Window's menu çubuğu olarak `menu` değerini ayarlar, bu değeri `null` olarak ayarlamak menü çubuğunu kaldırır.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` çift
 * `ayarlar` Obje (isteğe bağlı) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+  * `mode` dizi *Windows* - İlerleme çubuğunun modu: `none`, `normal`, `indeterminate`, `error` veya `paused` olabilir.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+İlerleme çubuğundaki süreç değerini ayarlar. Geçerli aralık [0, 1.0].
 
 İlerleme durumu <0 olduğunda ilerleme çubuğunu kaldırın; İlerleme durumu > 1 olduğu zaman belirlenemez moda geçin.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+Linux Platformu, yalnızca Unity Masaüstü ortamını desteklediği için `*.desktop` alanındaki `desktopName` alanına `package.json` dosya adını belirtmeniz gerekir. Fabrika ayarındayken `app.getName().desktop` olarak varsayar.
 
 Windows'ta, bir yöntem devredilebilir. Kabul edilen değerler `none`, `normal`, `indeterminate`, `error`, ve `paused`. `setProgressBar` 'ı bir yöntem kurulumu ile çağırırsanız (fakat geçerli aralıktaki bir değerle), `normal` varsayılacaktır.
 
@@ -936,7 +937,7 @@ Windows'ta, bir yöntem devredilebilir. Kabul edilen değerler `none`, `normal`,
 * `overlay` [DoğalGörüntü](native-image.md) - Görev çubuğu ikonunun sağ alt köşesinde gösterilecek simge. Eğer parametre `null` ise, üstteki ek sayfa temizlenir
 * `description` Dizi - Ekran okuyuculara erişilebilirliği sağlayacak olan açıklama
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Görevçubuğu ikonu üzerine 16 x 16 pixel ayarlar, genellikle kullanıcıyı pasif olarak uyarır.
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
@@ -946,19 +947,19 @@ Pencerenin bir karartıya sahip olup olmadığını ayarlamaktadır. Windows ve 
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+`Boolean` - Pencerenin bir gölgeye sahip olup olmadığını gösterir.
 
-On Windows and Linux always returns `true`.
+`true` Windows and Linux her zaman döndürür.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Returns `Boolean` - Tuşların başarılı bir şekilde eklenmesi veya eklenmemesi
 
-Görev çubuğu düğmesi üzerinde olan pencerenin küçük resim görüntüsüne belirli düğmeler kümesi içeren bir minik resim araç çubuğu ekleyin. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Görev çubuğu düğmesi üzerinde olan pencerenin küçük resim görüntüsüne belirli düğmeler kümesi içeren bir minik resim araç çubuğu ekleyin. `Boolean` nesnesi küçük resimlerin başarıyla eklenip eklenmediğini belirtir.
 
-Alan kısıtlamaları nedeniyle, minik resim araç çubuğundaki düğmelerin sayısı 7'yi geçmemelidir. Küçük resim araç çubuğunu kurduktan sonra araç çubuğu platformun sınırlaması sebebiyle kaldırılamamaktadır. But you can call the API with an empty array to clean the buttons.
+Alan kısıtlamaları nedeniyle, minik resim araç çubuğundaki düğmelerin sayısı 7'yi geçmemelidir. Küçük resim araç çubuğunu kurduktan sonra araç çubuğu platformun sınırlaması sebebiyle kaldırılamamaktadır. Ama API boş bir dizinle tuşları temizleyebilir.
 
 `buttons`, `Button` nesnelerinin dizilişidir:
 
@@ -979,28 +980,28 @@ Alan kısıtlamaları nedeniyle, minik resim araç çubuğundaki düğmelerin sa
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - Pencrenin gölgesi belirlenir
 
-Görev çubuğunda pencerenin üzerinde gezinirken görüntülenen küçük resim şeklinde gösterecek şekilde pencerenin bölgesini ayarlar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+Görev çubuğunda pencerenin üzerinde gezinirken görüntülenen küçük resim şeklinde gösterecek şekilde pencerenin bölgesini ayarlar. Bir bölge belirleyerek küçük resmi oraya yerleştirebilirsiniz: `{x: 0, y: 0, width: 0, height: 0}`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Pencere ikonunun üzerindeyken gözüken toolTip i görev çubuğunda ayarlar.
 
 #### `win.setAppDetails(options)` *Windows*
 
 * `ayarlar` Nesne 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Kurulmuş olması gerekir, yoksa diğer ayarların bir etkisi olmayacaktır.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
-  * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
-  * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
+  * `appIconIndex` Integer (isteğe bağlı) - Simge dizini `appIconPath`. `appIconPath` komutu ayarlanmadığında yokmuş gibi davranılır. Varsayılan değer ``.
+  * `relaunchCommand` String (isteğe bağlı) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
+  * `relaunchDisplayName` dizin (isteğe bağlı) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
 Pencerenin görev çubuğu düğmesinin özelliklerini ayarlar.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` ve `relaunchDisplayName` her zaman birlikte ayarlanmalıdır. Eğer herhangi biri ayarlanmamışsa ikisi de kullanılamaz.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
@@ -1032,7 +1033,7 @@ Menü çubuğu görünür olarak ayarlanırsa, menü çubuğu otomatik olarak gi
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+`Boolean` komutu menünün görünür olup olmadığını gösterir.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
@@ -1040,13 +1041,13 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamaktadır.
 
-**Note:** This API does nothing on Windows.
+**Not:** Bu API Windows'ta işe yaramaz.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+`Boolean` - Pencerenin bütün çalışma alanlarında görünüp görünmeyeceğini gösterir.
 
-**Note:** This API always returns false on Windows.
+**Not:** Bu API Windows'ta her zaman yanlış sonuç verir.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
@@ -1062,7 +1063,7 @@ Bu pencerede gerçekleşen tüm fare olayları aşağıdaki pencereye geçecekti
 
 Pencere içeriğinin diğer uygulamalar tarafından el konmasını engellemektedir.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+MacOS' ta NSWindow' un paylaşım türünü NSWindowSharinNone olarak ayarlar. Windows' ta SetWindowDisplayAffinity öğesini `WDA_MONITOR` ile çağırır.
 
 #### `win.setFocusable(focusable)` *Windows*
 
@@ -1074,7 +1075,7 @@ Pencerenin odaklanabilir olup olmadığını değiştirir.
 
 * `parent` TarayıcıPenceresi
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Geçerli pencerenin üst penceresi olarak `parent`' ı ayarlar, `null` geçildiğinde geçerli pencereyi üst düzey bir pencereye dönüştürecek.
 
 #### `win.getParentWindow()`
 
@@ -1082,7 +1083,7 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+`BrowserWindow[]` - Tüm alt pencereleri gösterir.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
@@ -1096,11 +1097,11 @@ Yazarken imlecin ne zaman kaybolacağını kontrol eder.
 
 Tarayıcı penceresine titreşim efekti ekler. `null` ve boş bir string göndermek penceredeki titreşim efektini kaldırır.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *Experimental</1</h4> 
 
 * `touchBar` TouchBar
 
-Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefined` dokunmatik çubuğu temizler. Bu metod sadece macOS 10.12.1+ üzerinde çalışıyorsa ve makinanın dokunmatiği varsa etkilidir.
 
 **Not:** TouchBar API'si şu anda deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 

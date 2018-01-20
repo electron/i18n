@@ -8,7 +8,7 @@
 
 **1. Точка входа в приложение**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+В NW.js точкой входа в приложение является веб страница или JS сценарий. Вы указываете html или js файл в `package.json` и он открывается в окне браузера как главное окно приложения(если точка входа - html) или выполняется как скрипт.
 
 В Electron точкой входа является JavaScript сценарий. Вместо того чтобы предоставлять URL адрес напрямую, вы вручную создаете окно браузера и загружаете в него HTML-файл используя API. Вам также необходимо прослушивать события окна для того, чтобы определить когда необходимо выйти из приложения.
 

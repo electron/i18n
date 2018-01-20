@@ -24,6 +24,7 @@ The following languages are currently being translated, but we can
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
 - [中文 (Chinese Traditional)](https://crowdin.com/project/electron/zh-TW)
 - [한국어 (Korean)](https://crowdin.com/project/electron/ko)
+- [Filipino](https://crowdin.com/project/electron/fil)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
 - [українська (Ukrainian)](https://crowdin.com/project/electron/uk)

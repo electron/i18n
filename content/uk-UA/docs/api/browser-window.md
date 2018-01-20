@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Створіть та керуйте вікнами браузера.
 
 Процес: [Main](../glossary.md#main-process)
 
@@ -23,15 +23,15 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Вікно без рамки
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Щоб створити вікно без chrome, чи прозоре вікно потрібної фігури, ви можете використати API [Вікна без рамки](frameless-window.md).
 
 ## Showing window gracefully
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
-### Using `ready-to-show` event
+### Використання події `ready-to-show`
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
@@ -45,7 +45,7 @@ win.once('ready-to-show', () => {
 
 This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
 
-### Setting `backgroundColor`
+### Встановлення кольору фону (`backgroundColor`)
 
 For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
 
@@ -58,9 +58,9 @@ win.loadURL('https://github.com')
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
-## Parent and child windows
+## Батьківські та дочірні вікна
 
-By using `parent` option, you can create child windows:
+Використовуючи параметр `parent`, ви можете створити дочірні вікна:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Дочірнє (`child`) вікно завжди відображається поверх верхнього (`top`) вікна.
 
 ### Модальні вікна
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Модальне вікно - це дочірнє вікно, що відключає батьківське вікно. Щоб створити модельне вікно, ви повинні встановити `parent` та `modal` параметри:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -87,7 +87,7 @@ child.once('ready-to-show', () => {
 })
 ```
 
-### Page visibility
+### Видимість сторінки
 
 The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Клас: BrowserWindow
 
-> Create and control browser windows.
+> Створіть та керуйте вікнами браузера.
 
 Процес: [Main](../glossary.md#main-process)
 
@@ -238,7 +238,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Наприклад:
 
 ```javascript
 window.onbeforeunload = (e) => {

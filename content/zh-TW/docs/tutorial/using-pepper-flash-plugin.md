@@ -54,7 +54,7 @@ You can also try loading the system wide Pepper Flash plugin instead of shipping
 將 `plugins` 屬性加到 `<webview>` 標籤裡。
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## 疑難排解

@@ -1,34 +1,34 @@
-# Planned Breaking API Changes
+# नियोजित ब्रेकिंग ऐपीआई परिवर्तन
 
-The following list includes the APIs that will be removed in Electron 2.0.
+निम्नलिखित सूचि में वे ऐपीआई शामिल हैं जो कि इलेक्ट्रॉन 2.0 में से निकाल दी जायेंगी |
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+यह रिलीज़ कब होगा इसकी कोई समय सारिणी नहीं है पर निरस्तीकरण चेतावनियाँ 90 दिन पहले ही जोड़ दी जायेंगी |
 
 ## `एप्प`
 
 ```js
-// Deprecated
+// निरस्त
 app.getAppMemoryInfo()
-// Replace with
+// इससे बदलें
 app.getAppMetrics()
 ```
 
 ## `ब्राउज़र विंडो`
 
 ```js
-// Deprecated
+// निरस्त
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// इससे बदलें
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// निरस्त
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// इससे बदलें
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -36,172 +36,173 @@ let windowB = new BrowserWindow(optionsB)
 ## `क्लिपबोर्ड`
 
 ```js
-// Deprecated
+// निरस्त
 clipboard.readRtf()
-// Replace with
+// इससे बदलें
 clipboard.readRTF()
-
-// Deprecated
-clipboard.writeRtf()
-// Replace with
+ 
+// निरस्त
+clipboard.writeRtf() 
+// इससे बदलें
 clipboard.writeRTF()
+ 
+// निरस्त
+clipboard.readHtml() 
+// इससे बदलें
+clipboard.readHTML() 
 
-// Deprecated
-clipboard.readHtml()
-// Replace with
-clipboard.readHTML()
-
-// Deprecated
-clipboard.writeHtml()
-// Replace with
+// निरस्त
+clipboard.writeHtml() 
+// इससे बदलें
 clipboard.writeHTML()
 ```
 
 ## `क्रेश रिपोर्टर`
 
 ```js
-// Deprecated
+// निरस्त
 crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  autoSubmit: true
-})
-// Replace with
+   companyName: 'Crashly',
+   submitURL: 'https://crash.server.com',
+   autoSubmit: true 
+}) 
+// इससे बदलें
 crashReporter.start({
-  companyName: 'Crashly',
-  submitURL: 'https://crash.server.com',
-  uploadToServer: true
-})
+   companyName: 'Crashly',
+   submitURL: 'https://crash.server.com',
+   uploadToServer: true
+ })
 ```
 
-## `menu`
+## `मेन्यु`
 
 ```js
-// Deprecated
+// निरस्त
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// इससे बदलें
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `मूल छवि`
 
 ```js
-// Deprecated
-nativeImage.toPng()
-// Replace with
+// निरस्त
+nativeImage.toPng() 
+// इससे बदलें
 nativeImage.toPNG()
+ 
+// निरस्त
+nativeImage.toJpeg() 
+// इससे बदलें
+nativeImage.toJPEG() 
 
-// Deprecated
-nativeImage.toJpeg()
-// Replace with
-nativeImage.toJPEG()
-
-// Deprecated
-nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
-nativeImage.createFromBuffer(buffer, {
-  scaleFactor: 1.0
+// निरस्त
+nativeImage.createFromBuffer(buffer, 1.0) 
+// इससे बदलें
+nativeImage.createFromBuffer(buffer, {   
+scaleFactor: 1.0 
 })
 ```
 
-## `process`
+## `प्रक्रिया`
 
 ```js
-// Deprecated
-process.versions['atom-shell']
-// Replace with
+// निरस्त
+process.versions['atom-shell'] 
+// इससे बदलें
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* नोड द्वारा सेट की गयी अन्य `process.versions` प्रॉपर्टीज के संग अनुरूपता बनाये रखने के लिए `process.versions.electron` और `process.version.chrome` को रीड-ओनली प्रॉपर्टीज बनाया जायेगा |
 
 ## `सत्र`
 
 ```js
-// Deprecated
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
-  callback(true)
-})
-// Replace with
+// निरस्त
+ses.setCertificateVerifyProc(function (hostname, certificate, 
+callback) {
+   callback(true) 
+}) 
+// इससे बदलें
 ses.setCertificateVerifyProc(function (request, callback) {
-  callback(0)
+   callback(0) 
 })
 ```
 
 ## `ट्रे`
 
 ```js
-// Deprecated
+// निरस्त
 tray.setHighlightMode(true)
-// Replace with
+// इससे बदलें
 tray.setHighlightMode('on')
 
-// Deprecated
+// निरस्त
 tray.setHighlightMode(false)
-// Replace with
+// इससे बदलें
 tray.setHighlightMode('off')
 ```
 
 ## `वेबसामग्री`
 
 ```js
-// Deprecated
-webContents.openDevTools({detach: true})
-// Replace with
+// निरस्त
+webContents.openDevTools({detach: true}) 
+// इससे बदलें
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
-webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// निरस्त
+webContents.setZoomLevelLimits(1, 2) 
+// इससे बदलें
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `वेबफ्रेम`
 
 ```js
-// Deprecated
-webFrame.setZoomLevelLimits(1, 2)
-// Replace with
-webFrame.setVisualZoomLevelLimits(1, 2)
+// निरस्त
+webFrame.setZoomLevelLimits(1, 2) 
+// इससे बदलें
+webFrame.setVisualZoomLevelLimits(1, 2) 
 
-// Deprecated
-webFrame.registerURLSchemeAsSecure('app')
-// Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+// निरस्त
+webFrame.registerURLSchemeAsSecure('app') 
+// इससे बदलें
+protocol.registerStandardSchemes(['app'], {secure: true}) 
 
-// Deprecated
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// निरस्त
+webFrame.registerURLSchemeAsPrivileged('app', {secure: true}) 
+// इससे बदलें
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
-webview.setZoomLevelLimits(1, 2)
-// Replace with
+// निरस्त
+webview.setZoomLevelLimits(1, 2) 
+// इससे बदलें
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## नोड हेडर्स युआरएल
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+यह युआरएल एक `.npmrc` फाइल में `disturl` की तरह निर्दिष्ट है या मूल नोड मोडयुल्स का निर्माण करने के दौरान `--dist-url` कमांड लाइन फ्लैग की तरह |
 
-Deprecated: https://atom.io/download/atom-shell
+निरस्त: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+इससे बदलें: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## अतिरिक्त ऐआरएम एसेट्स
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+हर इलेक्ट्रॉन रिलीज़ में थोड़े अलग फाइल नामों के साथ दो समरूप ऐआरएम बिल्डस शामिल होती हैं, जैसे कि `electron-v1.7.3-linux-arm.zip` और `electron-v1.7.3-linux-armv7l.zip` | `v7l` नाम के साथ मौज़ूद एसेट उपयोगकर्ताओं के यह बताने के लिए है कि वह कौन सा ऐआरएम संस्करण समर्थित करता है, और साथ ही उसे भविष्य में आने वाले ऐआरएमवी61 और ऐआरएमवी64 एसेट्स से अलग स्पष्ट करने के लिए |
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+*बिना v71 नाम के* मौज़ूद फाइल अभी भी प्रकाशित की जा रही है ताकि उसे उपयोग करने वाले सेटअप में कोई त्रुटी न आ जाये | पर 2.0 संस्करण से, बिना v71 नाम के मौज़ूद फाइल प्रकाशित होना बंद हो जायेगी |
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+और अधिक जानकारी के लिए, देखें [6986](https://github.com/electron/electron/pull/6986) और [7189](https://github.com/electron/electron/pull/7189) |
 
-## `FIXME` comments
+## `FIXME` टिप्पणियाँ
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+कोड टिप्पणियों में `FIXME` स्ट्रिंग का इस्तेमाल उन चीजों को चिन्हित करने के लिए है, जिन्हें 2.0 रिलीज़ में ठीक किया जाना चाहिये | इसे देखें: https://github.com/electron/electron/search?q=fixme

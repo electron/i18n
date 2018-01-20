@@ -26,7 +26,7 @@ In Electron, Node.js and Chromium share a single V8 instance—usually the versi
 
 ### Versioning
 
-As of version 2.0 Electron [follows `semver`](http://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
@@ -48,11 +48,11 @@ New features added to Electron should primarily be native APIs. If a feature can
 
 در زیر نقطه عطفی در تاریخچه الکترون را مشاهده می‌کنید.
 
-| :calendar:           | :tada:                                                                                                            |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **۲۲ فروردین ۱۳۹۲**  | [اتم شل آغاز شده است](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).      |
-| **۱۶ اردیبهشت ۱۳۹۳** | [اتم شل متن باز شد](http://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                                 |
-| **۲۸ فروردین ۱۳۹۴**  | [اتم شل به الکترون تغییر نام داد](https://github.com/electron/electron/pull/1389).                                |
-| **اردیبهشت ۱۳۹۵**    | [الکترون نسخه `1.0.0` را منتشر کرد](https://electronjs.org/blog/electron-1-0).                                    |
-| **۲۲ اردیبهشت ۱۳۹۵** | [برنامه‌های الکترون سازگار با مک اپ استور](https://electronjs.org/docs/tutorial/mac-app-store-submission-guide).  |
-| **مرداد ۱۳۹۵**       | [فروشگاه ویندوز از برنامه‌های الکترون پشتیبانی می‌کند](https://electronjs.org/docs/tutorial/windows-store-guide). |
+| :calendar:           | :tada:                                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **۲۲ فروردین ۱۳۹۲**  | [اتم شل آغاز شده است](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **۱۶ اردیبهشت ۱۳۹۳** | [اتم شل متن باز شد](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                           |
+| **۲۸ فروردین ۱۳۹۴**  | [اتم شل به الکترون تغییر نام داد](https://github.com/electron/electron/pull/1389).                           |
+| **اردیبهشت ۱۳۹۵**    | [الکترون نسخه `1.0.0` را منتشر کرد](https://electronjs.org/blog/electron-1-0).                               |
+| **۲۲ اردیبهشت ۱۳۹۵** | [برنامه‌های الکترون سازگار با مک اپ استور](mac-app-store-submission-guide.md).                               |
+| **مرداد ۱۳۹۵**       | [فروشگاه ویندوز از برنامه‌های الکترون پشتیبانی می‌کند](windows-store-guide.md).                              |

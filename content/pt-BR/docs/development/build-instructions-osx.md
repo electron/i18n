@@ -6,7 +6,7 @@ Siga as instruções abaixo para compilar o Electron no macOS.
 
 - macOS => 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](http://nodejs.org) (externo)
+- [node.js](https://nodejs.org) (externo)
 
 Se você esta usando o Python baixado pelo o Homebrew, você precisa instalar o seguinte modulo:
 

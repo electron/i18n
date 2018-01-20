@@ -1,4 +1,4 @@
-## Class: TouchBarGroup
+## Sınıf: TouchBarGroup
 
 > Yerel Macos uygulamaları için dokunma çubuğunda bir grup oluşturun
 

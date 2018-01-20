@@ -74,7 +74,7 @@ Używając `session` jako przykład:
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+Używając `autoUpdater` jako przykładu:
 
 ```markdown
 # autoUpdater
@@ -90,18 +90,18 @@ Using `autoUpdater` as an example:
 
 ### Klasy
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Właściwości instancji` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Klasy API lub klasy które są częścią modułu muszą być wymienione pod rozdziałem `## Class: TheClassName`.
+* Jedna strona może mieć wiele klas.
+* Konstruktorzy muszą być wymienieni z`###`-tytułami poziomów.
+* [Statyczne metody](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod`###Rozdziałem statycznych metod`.
+* [Metody instancji](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) muszą być wymienione pod`###Rozdziałem metod instancji`.
+* Wszystkie metody które mają wartość zwrotną muszą zacząć swój opis z "Zwrotami" `[TYPE]` - Przywróć opis" 
+  * Jeśli metoda przywróci `obiekt`, to jego struktura może być specyfikowana używając dwukropka następującego po nowej linii, gdzie znajduje się niezamówiona lista wartości w tym samym stylu jak funkcje parametrów.
+* Wydarzenia instancji muszą być wymienione pod `### Rozdział wydarzeń instancji `.
+* Właściwości instancji muszą być wymienione pod `### Właściwości instancji` rozdział. 
+  * Właściwości instancji muszą zaczynać się z "[Typ właściwości] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Używając `Sesji` i <->Ciasteczek</code>klas jako przykład:
 
 ```markdown
 # session
@@ -152,36 +152,36 @@ Tytuł może być `###` lub `####` poziomowy zależnie od tego, czy jest to meto
 
 Dla modułów, `objectName` jest nazwą modułu. Dla klas, to musi być nazwa wystąpienia klasy oraz nie może być taka sama jak nazwa modułu.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Na przykład, metody `sesji`klasy pod `sesją` modułu muszą używać `sesji`jako `Nazwa obiektu`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Opcjonalne argumenty są notowane w nawiasach `[]` otoczonych opcjonalnymi argumentami zarówno jak wymagane przecinki jeśli opcjonalny argument następuje następuje przed następnym:
 
 ```sh
-required[, optional]
+wymagane[. opcjonalnie]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Poniżej metoda jest bardziej szczegółowa na każdym argumencie. Typ argumentu jest notowany przez każdy z powszechnych typów:
 
 * [`Ciąg tekstu`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Numer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Obiekt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`Tablica`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Logiczny typ danych`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Lub wybrany tryp jak Electrony [`ZawartośćWitryny`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platformy są oznaczone używając nieograniczonego miejsca wymieniając następujący typ danych używając kursywy. Wartości mogą być `macOS`,`Windows`, lub `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+` ożywiony` Boolean (opcjonalnie) _macOS_ _Windows_ -Ożywić rzecz.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Szyk` typ argumentów musi specyfikować co mają zawierać elementy szyku w poniższym opisie.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Opis dla `Funkcji`typ argumentów powinien wyjaśnić jak powinno się to nazywać oraz wymienić typy parametrów które będą do tego podane.
 
 ### Zdarzenia
 
-The events chapter must be in following form:
+Rozdział wydarzeń musi byc w następującej formie:
 
 ```markdown
 ### Event: 'wake-up'
@@ -193,9 +193,9 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Tytuł może być `###` lub `###` poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
-The arguments of an event follow the same rules as methods.
+Argumenty wydarzenia muszą przestrzegać tych samych zasad co metody.
 
 ### Właściwości
 
@@ -207,8 +207,8 @@ Rozdział własności musi być w podanej formie:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
-## Documentation Translations
+## Tłumaczenia dokumentacji
 
 See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)

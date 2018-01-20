@@ -23,9 +23,9 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Бескаркасное окно
 
-Для создания окна без хрома, а также прозрачное окно произвольной формы, можно использовать [Frameless Window](frameless-window.md) API.
+Для создания окна без хрома или прозрачного окна произвольной формы, можно использовать API [Бескаркасного окна](frameless-window.md).
 
 ## Изящный показ окон
 
@@ -143,7 +143,7 @@ Process: [Main](../glossary.md#main-process)
   * `title` String (необязательно) - Название окна. По умолчанию - `"Electron"`.
   * `icon` ([NativeImage](native-image.md) | String) (необязательно) - Иконка окна. На Windows рекомендуется использовать иконки `ICO`, чтобы получить лучший визуальный эффект, Вы также можете оставить неопределенным, чтобы был использован значок исполняемого файла.
   * `show` Boolean (необязательно) - Будет ли показано окно, когда будет создано. По умолчанию - `true`.
-  * `frame` Boolean (необязательно) - Установите `false`, чтобы создать [Frameless Window](frameless-window.md). По умолчанию - `true`.
+  * `frame` Boolean (необязательно) - Установите `false`, чтобы создать [Бескаркасное окно](frameless-window.md). По умолчанию - `true`.
   * `parent` BrowserWindow (необязательно) - Устанавливает родительское окно. По умолчанию - `null`.
   * `modal` Boolean (необязательно) - Будет ли окно модальным. Работает только, когда окно является дочерним окном. По умолчанию - `false`.
   * `acceptFirstMouse` Boolean (необязательно) - Будет ли веб-окно принимать событие одиночного нажатия мыши, которое одновременно активирует окно. По умолчанию - `false`.
@@ -155,13 +155,13 @@ Process: [Main](../glossary.md#main-process)
   * `darkTheme` Boolean (необязательно) - Заставляет использовать темную тему для окна, работает только на некоторых GTK+3 окружениях рабочего стола. По умолчанию - `false`.
   * `transparent` Boolean (необязательно) - Делает окно [прозрачным](frameless-window.md). По умолчанию - `false`.
   * `type` String (необязательно) - Тип окна, по умолчанию - обычное окно. См. больше об этом ниже.
-  * `titleBarStyle` String (необязательно) - Стиль полосы наименования окна. По умолчанию - `обычное`. Возможные значения: 
-    * `по умолчанию` - результаты в Стандартный серой непрозрачной Mac панели.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hidden-inset` - Deprecated, use `hiddenInset` instead.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
+  * `titleBarStyle` String (необязательно) - Стиль полосы заголовка окна. По умолчанию - `default`. Возможные значения: 
+    * `default` - В результате стандартный, серый, непрозрачный Mac заголовок.
+    * `hidden` - В результате скрытый заголовок и содержимое во все окно, но заголовок по-прежнему имеет стандартное окно контроля ("светофоры") сверху слева.
+    * `hidden-inset` - Устарело, вместо этого используйте `hiddenInset`.
+    * `hiddenInset` - В результате скрытый заголовок с альтернативным видом, где кнопки контролирования немного больше вставки от края окна.
+    * `customButtonsOnHover` Boolean (необязательно) - Отобразить настраиваемые кнопки закрыть, свернуть и во весь экран на бескаркасных окнах в macOS. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Заметка:** Этот параметр в настоящее время экспериментален.
+  * `fullscreenWindowTitle` Boolean (необязательно) - Показывает заголовок в полноэкранном режиме на macOS для всех настроек `titleBarStyle`. По умолчанию - `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. По умолчанию - `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
   * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. По умолчанию - `false`.

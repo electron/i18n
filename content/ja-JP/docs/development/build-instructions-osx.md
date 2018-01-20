@@ -6,7 +6,7 @@ macOS 版 Electron のビルドについては、以下のガイドラインに�
 
 - macOS 10.11.6 以上
 - [Xcode](https://developer.apple.com/technologies/tools/) 8.2.1 以上
-- [Node.js](http://nodejs.org) (外部)
+- [Node.js](https://nodejs.org) (外部)
 
 Homebrew からダウンロードした Python をご利用の場合、以下の Python モジュールのインストールも必要です。
 

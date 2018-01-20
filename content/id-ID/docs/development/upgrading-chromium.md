@@ -2,7 +2,7 @@
 
 Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium di Elektron.
 
-- Tingkatkan versi beta ke versi Chromium baru
+- Tingkatkan versi libcc ke versi Chromium baru
 - Buat kode Elektron yang kompatibel dengan libcc baru
 - Update Elektron dependensi (crashpad, NodeJS, dll) jika diperlukan
 - Buatlah build internal dari libcc dan elektron
@@ -21,17 +21,17 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
     - Ini bisa dilakukan secara manual dengan mengunjungi OmahaProxy di browser, atau secara otomatis:
     - Satu-baris untuk versi mac terbaru yang stabil: `curl -so- https://omahaproxy.appspot.com/mac > VERSI`
     - Satu-baris untuk versi beta win64 terbaru: `curl -so- https://omahaproxy.appspot.com/all | grep "win64, beta" | awk -F, 'NR == 1{print $3}' > VERSI`
-  - jalankan `$ ./script/perbarui` 
+  - jalankan `$ ./script/update` 
     - Siapkan teh - ini bisa berlangsung 30m atau lebih.
     - Mungkin akan gagal menerapkan patch.
 3. Perbaiki berkas`*patch` di folder` patches /` dan `patches-mas/`.
-4. (Opsional) `script/perbarui` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` panggilan: `$ ./script/menerapkan-tambalan` 
+4. (Opsional) `script/update` berlaku tambalan, namun jika beberapa kali mencoba diperlukan Anda bisa menjalankan skrip yang sama secara manual `memperbarui` panggilan: `$ ./script/menerapkan-tambalan` 
   - Ada skrip kedua, `script/patch.py` yang mungkin berguna. Baca `./script/patch.py ​​-h` untuk informasi lebih lanjut.
 5. Jalankan build ketika semua patch bisa diaplikasikan tanpa kesalahan 
   - `$ ./script/membangun`
   - Jika beberapa tambalan tidak lagi kompatibel dengan kode Chromium, perbaiki kesalahan kompilasi.
 6. Saat build berhasil, buat a `dist` untuk Elektron 
-  - `$ ./script/membuat-dist --tidak ada-zip` 
+  - `$ ./script/create-dist --no_zip` 
     - Ini akan membuat folder `dist/main` di akar repo libcc. Anda akan membutuhkan ini untuk membangun Elektron.
 7. (Opsional) Memperbarui konten script jika terjadi kesalahan akibat berkas  yang telah dihapus atau diganti namanya. (`--no_zip` mencegah skrip membuat `dist`  arsip. Anda tidak membutuhkannya.)
 
@@ -86,13 +86,13 @@ Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform 
 
 ## Memperbarui Crashpad
 
-Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. Lihat [Upgrade Crashpad](https://github.com/electron/electron/tree/master/docs/development/upgrading-crashpad.md) untuk petunjuk bagaimana melakukan itu.
+Jika ada kesalahan kompilasi yang terkait dengan Crashpad, mungkin ini berarti Anda perlu memperbarui garpu ke revisi yang lebih baru. Lihat [Upgrade Crashpad](upgrading-crashpad.md) untuk petunjuk bagaimana melakukan itu.
 
 ## Memperbarui NodeJS
 
 Meningkatkan `vendor/node` ke rilis Node yang sesuai dengan versi v8 digunakan dalam rilis kromium baru. Lihat versi v8 di Node aktif
 
-Lihat [Upgrade Node](https://github.com/electron/electron/tree/master/docs/development/upgrading-node.md) untuk petunjuk tentang ini.
+Lihat [Upgrade Node](upgrading-node.md) untuk petunjuk tentang ini.
 
 ## Verifikasi dukungan ffmpeg
 

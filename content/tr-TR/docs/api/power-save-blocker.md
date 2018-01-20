@@ -21,17 +21,17 @@ powerSaveBlocker.stop(id)
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Güç tasarruf engelleyici tür. 
-  * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+* `tip` String - Güç tasarruf engelleyici tür. 
+  * `prevent-app-suspension` - Uygulamanın askıya alınmasını engeller. Sistemin aktif kalmasını sağlar, ancak ekranın kapatılmasına izin verir. Kullanım örnekleri: dosya indirme veya ses çalma.
+  * `prevent-display-sleep` - Ekranın uyku moduna geçmesini önler. Sistemi ve ekranı etkin tutar. Örnek kullanım durumu: video oynatma.
 
 `Integer` Döndürür - Güç engelleyiciye atanan engelleyici kimliği
 
 Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu bloklarını tanımlayan bir tam sayı döndürür.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
+**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Yalnızca en baskın öncelik türü etkili olabilir. Başka bir deyişle, `prevent-display-sleep` her zaman `prevent-app-suspension`' dan önceliklidir.
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
+For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` B isteği durdurulana kadar kullanılır. Bundan sonra `prevent-app-suspension` kullanılır.
 
 ### `powerSaveBlocker.stop(id)`
 

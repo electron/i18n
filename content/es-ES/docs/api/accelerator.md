@@ -2,14 +2,14 @@
 
 > Definir atajos del teclado.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Los Aceleradores son cadenas de texto que pueden contener múltiples modificadores y claves, combinadas por el caracter `+`, y son usadas para definir Atajos de Teclado a través de tu aplicación.
 
 Ejemplos:
 
 * `CommandOControl+A`
 * `CommandOControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Los atajos son registrados con el módulo e [`globalShortcut`](global-shortcut.md) usando el método [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ejemplo.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -17,18 +17,18 @@ const {app, globalShortcut} = require('electron')
 app.on('ready', () => {
   // Registrar un grabador de atajo 'CommandOControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Hacer cosas cuando Y o tanto Command como Control sean presionados.
+    // Hacer algo cuando se presiona tanto Tecla Command o Control + Y.
   })
 })
 ```
 
 ## Noticia de plataforma
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+En Linux y Windows, la clave `Command` no tiene ningún efecto, así que se utilizar `CommandOrControl` que representa `Command` para macOS y `Control` para Linux y Windows para definir algunos Aceleradores.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Usa `Alt` en vez de `Option`. La clave `Option` solo existe en macOS, mientras la clave `Alt` esta disponible en todas las plataformas.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+La clave `Super` esta asignada a la tecla `Windows` en Windows y Linux y `Cmd` para macOS.
 
 ## Modificadores disponibles
 

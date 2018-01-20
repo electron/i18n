@@ -54,10 +54,13 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// window オブジェクトはグローバル参照しなければなりません。
+// これがない場合、JavaScriptのオブジェクトがガベージコレクトされた時に、
+// ウィンドウが自動的に閉じてしまうでしょう。
+let win
+
 function createWindow () {
-  // browser window を生成
+  // browser window を生成する
   win = new BrowserWindow({width: 800, height: 600})
 
   // アプリの index.html を読み込む
@@ -79,8 +82,8 @@ function createWindow () {
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// このイベントは、Electronが初期化処理と
+// browser windowの作成を完了した時に呼び出されます。
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.on('ready', createWindow)
 
@@ -105,7 +108,7 @@ app.on('activate', () => {
 // code. You can also put them in separate files and require them here.
 ```
 
-Finally the `index.html` is the web page you want to show:
+最後に、表示させたいページを `index.html` に作成します：
 
 ```html
 <!DOCTYPE html>
@@ -159,7 +162,7 @@ $ npx electron .
 
 ### 手動でダウンロードした Electron バイナリ
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+もしElectronを手動でダウンロードした場合は、それに含まれるバイナリを使ってアプリケーションを直接実行できます。
 
 #### macOS
 
@@ -179,7 +182,7 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` はElectronのリリースパッケージの一部です。 [ここ](https://github.com/electron/electron/releases) からダウンロードできます。
 
 ### 配布用パッケージとして実行
 
@@ -187,7 +190,7 @@ After you're done writing your app, you can create a distribution by following t
 
 ### こちらのサンプルをお試しください
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+このチュートリアルのコードを [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) リポジトリからクローンして、実行してみてください。
 
 **Note**: 以下の手順でサンプルを実行する場合、[Git](https://git-scm.com) と [Node.js](https://nodejs.org/en/download/) （[npm](https://npmjs.org) を含む）をシステムにインストールしておく必要があります。
 

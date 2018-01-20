@@ -1,12 +1,12 @@
 # session
 
-> Tarayıcı oturumu, Çerezler, önbellek, proxy ayarlarını yönetin.
+> Tarayıcı oturumları, çerezler, önbellek, proxy ayarlarını, vb. yönetin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
 `oturum` modülü, yeni `Oturum` nesneleri oluşturmak için kullanılabilir.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Ayrıca mevcut sayfaların `oturum`larına `oturum` [`Webİçeriği`](web-contents.md) özelliğinden, yada `oturum` modülünden ulaşabilirsiniz.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,9 +18,9 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Metodlar
+## Yöntemler
 
-`session` modülü aşağıdaki yöntemleri içerir:
+`oturum` modülü aşağıdaki yöntemleri içerir:
 
 ### `session.fromPartition(partition[, options])`
 
@@ -30,7 +30,7 @@ console.log(ses.getUserAgent())
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Eğer `bölüm`ile başla`sürdür`ile başlarsa, sayfa kalıcı bir oturum kullanacaktır uygulamanın tüm sayfalarına aynı şekilde erişilebilir `bölüm`. yoksa `sürdür` önekini kullandığınızda, sayfa bir bellek içi oturum kullanacaktır. Eğer `bölüm` boş ise, uygulamanın varsayılan oturumu kullanılıcaktır.
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
@@ -66,7 +66,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 * `item` [DownloadItem](download-item.md)
 * `webContents` [webİçerikleri](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Elektron indirmek üzereyken ortaya çıkar `item` in `webContents`.
 
 Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
@@ -113,7 +113,7 @@ Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Nesne 
+* `konfigurasyon` Nesne 
   * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
   * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
@@ -178,23 +178,23 @@ When `pacScript` and `proxyRules` are provided together, the `proxyRules` option
 * `geri arama` Fonksiyon 
   * `proxy` String
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+`url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
 
 #### `ses.setDownloadPath(path)`
 
 * `yol` String - İndirme konumu
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+İndirme, kaydetme dizini ayarlar. Varsayılan olarak, karşıdan yükleme dizini `İndirilenler` uygulama klasörü altındadır.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `ayarlar` Nesne 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `offline` Boolean (İsteğe Bağlı) - Ağ bağlantısının kopmasını taklit eder. Varsayılan değer False.
+  * `latency` Double (İsteğe Bağlı) - RTT (ms cinsinden) Varsayılan değer 0, gecikmenin azaltılmasını devre dışı bırakır.
+  * `downloadThroughput` Double (isteğe bağlı) - Bps' de indirme hızı. Varsayılan değer 0, indirme hız sınırlamalarını devre dışı bırakır.
+  * `uploadThroughput` Double (isteğe bağlı) - Bps' de yükleme hızı. Varsayılan değer 0, yükleme sınırlamalarını devre dışı bırakır.
 
-Emulates network with the given configuration for the `session`.
+Emulates ağı için verilen yapılandırmayla `session`.
 
 ```javascript
 // GPRS bağlantısını 50kbps çıkış ve 500 ms gecikme ile taklit etmek.
@@ -210,7 +210,7 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılandırmasını sıfırlar.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -220,7 +220,7 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `certificate` [sertifika](structures/certificate.md)
     * `hata` Metin - Chromium doğrulama sonucu.
   * `geri arama` Fonksiyon 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
+    * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
       * `` - Başarıyı belirtir ve Sertifika Şeffaflık doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
@@ -245,13 +245,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Fonksiyon 
+* `halledici` Fonksiyon 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri arama` Fonksiyon 
     * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Sets the handler which can be used to respond to permission requests for the `session`. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder.
+Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder.
 
 ```javascript
 const {session} = require('electron')

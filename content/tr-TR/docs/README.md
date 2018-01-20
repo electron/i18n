@@ -46,7 +46,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [`File` Nesne](api/file-object.md)
 * [`<webview>`Etiket](api/webview-tag.md)
-* [`window.open` Fonksiyon](api/window-open.md)
+* [`window.open` Fonksiyonu](api/window-open.md)
 
 ### Ana Süreç İçin Modüller:
 
@@ -55,8 +55,9 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
+* [diyalog](api/dialog.md)
+* [evrenselKısayol](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -73,12 +74,12 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [uzak](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Her İki Süreç Modülleri:
 
-* [clipboard](api/clipboard.md)
+* [pano](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [screen](api/screen.md)
@@ -88,6 +89,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Kodlama Stili](development/coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
+* [Test ediliyor](development/testing.md)
 * [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
 * [NW.js (eski adı node-webkit)'le Teknik Farklılıkları](development/atom-shell-vs-node-webkit.md)
 * [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
 * [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
 * [Stil Kılavuz Dokümantasyonu](styleguide.md)
-* [Chrome Yükseltme](development/upgrading-chrome.md)
+* [Chromium yükseltme](development/upgrading-chromium.md)
 * [Chromium Geliştirme](development/chromium-development.md)
 * [V8 Geliştirme](development/v8-development.md)

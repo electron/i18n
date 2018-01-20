@@ -1,6 +1,6 @@
 # Hata Ayıklayıcıda Sembol Sunucusunu Kurma
 
-Hata ayıklama simgeleri daha iyi hata ayıklama oturumları yapmanızı sağlar. Çalıştırılabilir ve dinamik kütüphanelerde bulunan işlevler hakkında bilgi sahibidirler ve size temiz çağrı yığınları elde etmek için bilgi sağlarlar. Bir sembol sunucu doğru sembolleri, ikili dosyaları ve kaynakları otomatik olarak yüklemek için hata ayıklayıcı kullanıcıları, büyük hata ayıklama dosyalarını indirmeye zorlar. Sunucu, [Microsoft's symbol server](http://support.microsoft.com/kb/311503) gibi işlev görür, böylece dokümantasyon yararlı olabilir.
+Hata ayıklama simgeleri daha iyi hata ayıklama oturumları yapmanızı sağlar. Çalıştırılabilir ve dinamik kütüphanelerde bulunan işlevler hakkında bilgi sahibidirler ve size temiz çağrı yığınları elde etmek için bilgi sağlarlar. Bir sembol sunucu doğru sembolleri, ikili dosyaları ve kaynakları otomatik olarak yüklemek için hata ayıklayıcı kullanıcıları, büyük hata ayıklama dosyalarını indirmeye zorlar. Sunucu, [Microsoft's symbol server](https://support.microsoft.com/kb/311503) gibi işlev görür, böylece dokümantasyon yararlı olabilir.
 
 Yayınlanan Elektron yapıları ağır şekilde optimize edildiğinden, hata ayıklama her zaman kolay olmaz. Hata ayıklayıcı, tüm değişkenlerin içeriğini görüntüleyemez ve yürütme yolu, satır içi yerleştirme, kuyruğu çağırma ve diğer çizicileri optimize etme nedeniyle garip görünebilir. Tek geçici çözüm, optimize edilmemiş bir yerel yapı oluşturmaktır.
 
@@ -17,7 +17,7 @@ SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 Bu dizeyi ortamda, Windbg menülerini kullanarak veya `.sympath` komutunu yazarak `_NT_SYMBOL_PATH` olarak ayarlayın. Microsoft'un sembol sunucusundan sembol almak isterseniz, önce şunu listelemeniz gerekir:
 
 ```powershell
-SRV*c:\code\symbols\*http://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
 ## Sembol sunucusunu Visual Studio'da kullanma

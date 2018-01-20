@@ -6,7 +6,7 @@ Isso não significa que o Electron é uma ligação de Javascript a bibliotecas 
 
 ### Processo Principal
 
-No Electron, o proesso que executa o script `main` do `package.json` é chamado de **processo principal**. O script que executa no processo principal pode apresentar uma interface gráfica através da criação de páginas web.
+No Electron, o processo que executa o script `main` do `package.json` é chamado de **processo principal**. O script que executa no processo principal pode apresentar uma interface gráfica através da criação de páginas web.
 
 ### Processo de Renderização
 

@@ -4,23 +4,25 @@ To są wytyczne dotyczące stylów kodowania w Electron.
 
 You can run `npm run lint` to show any style issues detected by `cpplint` and `eslint`.
 
-## C++ and Python
+## C++ i Python
 
-For C++ and Python, we follow Chromium's [Coding Style](http://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Dla C++ i Pythona, podążamy za [stylem kodowania Chromium](https://www.chromium.org/developers/coding-style). Możesz użyć [clang-format](clang-format.md) aby sformatować kod C++ automatycznie. Tu jest również skrypt `script/cpplint.py<0>aby sprawdzić czy wszystkie pliki odpowiadają.</p>
 
-The Python version we are using now is Python 2.7.
+<p>Wersja Pythona której teraz używamy to Python 2.7.</p>
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+<p>Kod C++ używa mnóstwo abstrakcji i typów Chromium, więc zaleca się z nimi oswoić. Dobre miejsce do rozpoczęcia to dokument <a href="https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures">Ważne abstrakcje i struktury danych Chromium</a>. Dokument porusza niektóre specjalne typy, lub zakres typów (który automatycznie wypuszcza ich pamięć kiedy wychodzi z zakresu), mechanizmy logowania itd.</p>
 
-## JavaScript
+<h2>JavaScript</h2>
 
-* Write [standard](http://npm.im/standard) JavaScript style.
-* File names should be concatenated with `-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.
+<ul>
+<li>Napisz<a href="https://npm.im/standard">standardowym</a> stylem JavaScript.</li>
+<li>File names should be concatenated with <code>-` instead of `_`, e.g. `file-name.js` rather than `file_name.js`, because in [github/atom](https://github.com/github/atom) module names are usually in the `module-name` form. This rule only applies to `.js` files.</li> 
+
 * Use newer ES6/ES2015 syntax where appropriate 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) for defining variables
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`</ul> 
 
 ## Nazywanie rzeczy
 

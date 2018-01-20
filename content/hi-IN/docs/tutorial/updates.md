@@ -1,40 +1,41 @@
-# Updating Applications
+# एप्लीकेशन अपडेट
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+इलेक्ट्रॉन एप्प को अपडेट करने के कई तरीकें हैं | सबसे सरल और आधिकारिक तरीका है अंतर-निर्मित[स्कुइर्रेल](https://github.com/Squirrel) फ्रेमवर्क और इलेक्ट्रान के [ऑटोअपडेटर](../api/auto-updater.md) मोड्यूल का इस्तेमाल करना|
 
-## Deploying an update server
+## एक अपडेट सर्वर को स्थापित करना
 
-To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
+शुरुआत करने के लिए, आपको सबसे पहले एक सर्वर स्थापित करना होगा जिससे [ऑटोअपडेटर](../api/auto-updater.md) मोड्यूल नये अपडेटस डाउनलोड करेगा |
 
-Depending on your needs, you can choose from one of these:
+आपकी आवश्यकताओं के अनुसार, आप निम्नलिखित में से कोई भी चुन सकते हैं:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps. Can be deployed for free on [Now](https://zeit.co/now) (using a single command), pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [हेज़ल](https://github.com/zeit/hazel) - निजी या मुक्त-स्त्रोत एप्प्स के लिए अपडेट सर्वर | [नाउ](https://zeit.co/now) पर मुफ़्त में स्थापित किया जा सकता है (केवल एक कमांड इस्तेमाल कर के), [गिटहब रिलीज़](https://help.github.com/articles/creating-releases/) से पुल करता है और गिटहब की सीडीएन शक्ति का पूर्ण इस्तेमाल करता है |
+- [नट्स](https://github.com/GitbookIO/nuts) - यह भी [गिटहब रिलीज़](https://help.github.com/articles/creating-releases/) इस्तेमाल करता है, पर यह एप्प अपडेटस को डिस्क पर कैश करता है और निजी रिपॉजिटरिज़ का समर्थन करता है |
+- [इलेक्ट्रान-रिलीज़-सर्वर](https://github.com/ArekSredzki/electron-release-server) - रिलीज़ संभालने के लिए एक डैशबोर्ड प्रदान करता है
+- [न्यूकलिअस](https://github.com/atlassian/nucleus) - इलेक्ट्रॉन एप्प्स के लिए ऐटलेस्सियन द्वारा मेन्टेन किया गया एक पूर्ण अपडेट सर्वर | विभिन्न एप्लीकेशनस और चैनल्स का समर्थन करता है; सर्वर लागत कम करने के लिए एक स्टैटिक फाइल स्टोर का इस्तेमाल करता है |
 
-If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
+अगर आपकी एप्प [इलेक्ट्रॉन-बिल्डर](https://github.com/electron-userland/electron-builder) के साथ पैकेज्ड है तो आप [इलेक्ट्रान-अपडेटर](https://www.electron.build/auto-update) मोड्यूल का इस्तेमाल कर सकते हैं, जिसे एक सर्वर की आवश्यकता नहीं पड़ती और एस3, गिटहब या किसी अन्य स्टैटिक फाइल होस्ट से अपडेटस प्रदान कर सकता है|
 
-## Implementing updates in your app
+## अपनी एप्प में अपडेटस लागू करना
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+एक बार जब आपने अपना अपडेट सर्वर स्थापित कर दिया हो, फिर आप आवश्यक मोडयुल्स को अपने कोड में इम्पोर्ट करना शुरू कर सकते हैं | निम्नलिखित कोड विभिन्न सर्वर सॉफ्टवेर के लिए अलग हो सकता है, पर [हेज़ल](https://github.com/zeit/hazel) का इस्तेमाल करने के दौरान यह नीचे दिए गये विवरण की तरह काम करता है |
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**महत्वपूर्ण:** कृप्या ध्यान दें कि निम्नलिखित कोड केवल आपकी पैकेज्ड एप्प में चलेगा, न कि विकास में | वातावरण को जाँचने के लिए आप [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) का इस्तेमाल कर सकते हैं |
 
 ```js
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+उसके बाद, अपडेट सर्वर का यूआरएल निर्मित करें और [ऑटोअपडेटर](../api/auto-updater.md) को उसके बारे में बतायें:
 
 ```js
 const server = 'https://your-deployment-url.com'
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+const feed = `${server}/update/${process.platform}
+/${app.getVersion()}`
 
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+अंतिम चरण में, अपडेटस के लिए जाँचें | निम्नलिखित उदाहरण हर मिनट जाँचेगा:
 
 ```js
 setInterval(() => {
@@ -42,21 +43,22 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+एक बार जब आपकी एप्लीकेशन [पैकेज्ड](../tutorial/application-distribution.md) हो जाये, तो उसे हर नई [गिटहब रिलीज़](https://help.github.com/articles/creating-releases/) का अपडेट मिलेगा, जिसे आप प्रकाशित करेंगे |
 
-## Applying updates
+## अपडेटस लागू करना
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+अब जब आपने अपनी एप्लीकेशन के लिए बुनियादी अपडेट प्रणाली को कॉन्फ़िगर कर लिया है, तो आपको यह सुनिश्चित करना होगा कि जब भी एक अपडेट आये तो उपयोगकर्ता को उसके बारे में सुचना मिलें | इसे आप ऑटोअपडेटर ऐपीआई [इवेंट्स](../api/auto-updater.md#events) का इस्तेमाल कर के प्राप्त कर सकते हैं:
 
 ```js
-autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+autoUpdater.on('update-downloaded', (event, releaseNotes,
+releaseName) => {
   const dialogOpts = {
     type: 'info',
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
     detail: 'A new version has been downloaded. Restart the application to apply the updates.'
-  }
+ }
 
   dialog.showMessageBox(dialogOpts, (response) => {
     if (response === 0) autoUpdater.quitAndInstall()
@@ -64,7 +66,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+साथ ही यह भी सुनिश्चित करें कि त्रुटियाँ [संभाली जा रही है](../api/auto-updater.md#event-error) | `stderr` में उनकी लॉगिंग करने का यह एक उदाहरण है:
 
 ```js
 autoUpdater.on('error', message => {

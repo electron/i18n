@@ -16,15 +16,15 @@ Süreç: [Ana](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+`options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
 ### Statik yöntemler
 
-The `Notification` class has the following static methods:
+`Notification` sınıfının statik yöntemleri aşağıdaki gibidir:
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+`Boolean` - Varolan sistemde masaüstü bildirimlerinin desteklenip desteklenmediğini gösterir
 
 ### `new Notification([options])` *Experimental*
 
@@ -33,15 +33,15 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
   * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
   * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `icon` [NativeImage](native-image.md) - (İsteğe bağlı) Bildirimde kullanılacak simgeyi tanımlar
+  * `hasReply` Boolean - (İsteğe bağlı) Bildirimler için satır içi cevap seçeneği eklemek isteyip istemediğinizi gösterir. *macOS*
+  * `replyPlaceholder` Dizi - (İsteğe Bağlı) - Satır içerisindeki açıklama alanları için yer tutucu özelliği vardır. *macOS*
+  * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (İsteğe Bağlı) Bildirimlere eylem eklenebilir. Lütfen `NotificationAction` belgelerinde mevcut eylem ve sınırlamarı okuyunuz. *macOS*
 
 ### Örnek etkinlikler
 
-Objects created with `new Notification` emit the following events:
+`yeni Bildirim` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
 **Not:** Bazı özellikler sadece belirli işletim sistemlerinde mevcuttur ve çalıştıkları işletim sistemlerinin isimleriyle etiketlenmiştir.
 
@@ -76,20 +76,20 @@ Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilme
 Dönüşler:
 
 * `olay` Olay
-* `reply` String - The string the user entered into the inline reply field
+* `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
 
 #### Event: 'action' *macOS*
 
 Dönüşler:
 
 * `olay` Olay
-* `index` Number - The index of the action that was activated
+* `index` Numara - Etkin olan eylem dizinini gösterir
 
 ### Örnek yöntemleri
 
-Objects created with `new Notification` have the following instance methods:
+`new Notification` ile oluşturulan nesnelerin aşağıdaki örnek yöntemleri vardır:
 
 #### `notification.show()`
 
@@ -97,11 +97,11 @@ Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamas�
 
 ### Çalınan sesler
 
-Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Varsayılan seslerden herhangi biri ( Sistem tercihleri altında > Ses) özel ses dosyalarına ekstra olarak kullanılabilir. Ses dosyalarının uygulama paketi altında (e.g., `YourApp.app/Contents/Resources`) yada aşağıdaki yerlerden birinde kopyalanmış olduğundan emin olun:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Daha fazla bilgi için [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) dosyalarına bakın.

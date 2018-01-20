@@ -4,14 +4,14 @@
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarButton(options)` *Experimental*
+### `new TouchBarButton(options)` *Deneysel*
 
 * `options` Nesnesi 
   * `label` String (İsteğe bağlı) - Görüntülenecek metin.
   * `backgroundColor` String (isteğe bağlı) - Düğme arkaplan rengi hex formatında, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (isteğe bağlı) - Buton simgesi.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * `iconPosition` String (isteğe bağlı) - `left`, `right` yada `overlay` olabilir.
+  * `click` Fonksiyon (isteğe bağlı) - Tuşa tıklandığında aranan fonksiyon.
 
 ### Örnek özellikleri
 

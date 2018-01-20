@@ -1,136 +1,136 @@
 # सेलेनियम और वेबड्राईवर का इस्तेमाल
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+[क्रोमड्राईवर - क्रोम के लिए वेबड्राईवर](https://sites.google.com/a/chromium.org/chromedriver/) से:
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> वेबड्राईवर बहुत से ब्राउज़र्स में स्वतः परिक्षण करने के लिए एक मुक्त स्त्रोत औज़ार है| यह वेब पेजेस तक पहुँचने, उपयोगकर्ता इनपुट, जावास्क्रिप्ट एक्सीक्यूशन, और बहुत सी दूसरी क्षमतायें प्रदान करता है | क्रोमड्राईवर एक सम्पूर्ण सर्वर है जो कि क्रोमियम के लिए वेबड्राईवर की वायर प्रोटोकॉल को लागू करता है | यह क्रोमियम और वेबड्राईवर टीमों के सदस्यों द्वारा विकसित किया जा रहा है |
 
-## Setting up Spectron
+## स्पेक्ट्रोन को सेट करना
 
-[Spectron](https://electron.atom.io/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+इलेक्ट्रॉन के लिए [स्पेक्ट्रोन](https://electronjs.org/spectron) आधिकारिक रूप से समर्थित क्रोमड्राईवर परिक्षण फ्रेमवर्क है | यह [वेबड्राईवरआईओ](http://webdriver.io/) के ऊपर निर्मित है और इसके पास आपके परीक्षणों में मौज़ूद इलेक्ट्रॉन ऐपीआई तक पहुँचने के लिए सहायक है और यह क्रोमड्राईवर को भी बंडल करता है |
 
 ```sh
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-var Application = require('spectron').Application
-var assert = require('assert')
+// दृश्य विंडो एक शीर्षक के साथ खुली है, यह जाँचने के लिए एक सरल परिक्षण 
+var Application = require('spectron').Application 
+var assert = require('assert') 
 
-var app = new Application({
-  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+var app = new Application({   
+ path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
-
 app.start().then(function () {
-  // Check if the window is visible
-  return app.browserWindow.isVisible()
-}).then(function (isVisible) {
-  // Verify the window is visible
-  assert.equal(isVisible, true)
-}).then(function () {
-  // Get the window's title
-  return app.client.getTitle()
-}).then(function (title) {
-  // Verify the window's title
-  assert.equal(title, 'My App')
-}).catch(function (error) {
-  // Log any failures
-  console.error('Test failed', error.message)
-}).then(function () {
-  // Stop the application
-  return app.stop()
-})
+   // विंडोज दृश्य है या नहीं, यह जाँचें
+   return app.browserWindow.isVisible()
+ }).then(function (isVisible) {
+   // विंडोज दृश्य है, यह सत्यापित करें
+   assert.equal(isVisible, true)
+ }).then(function () {
+   // विंडोज का शीर्षक पायें
+   return app.client.getTitle()
+ }).then(function (title) {
+   // विंडोज के शीर्षक को सत्यापित करें
+   assert.equal(title, 'My App')
+ }).catch(function (error) {
+   // विफलताओं का लोग बनायें
+   console.error('Test failed', error.message)
+ }).then(function () {   
+// एप्लीकेशन रोकें
+   return app.stop()
+ })
 ```
 
-## Setting up with WebDriverJs
+## वेबड्राईवर जेएस सेटअप करना
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[वेबड्राईवरजेएस](https://code.google.com/p/selenium/wiki/WebDriverJs) वेब ड्राईवर के साथ परिक्षण करने के लिए एक नोड पैकेज प्रदान करता है, हम उसे एक उदाहरण के तौर पर इस्तेमाल करेंगे |
 
-### 1. Start ChromeDriver
+### 1. क्रोमड्राईवर शुरू करें
 
-First you need to download the `chromedriver` binary, and run it:
+सबसे पहले `क्रोमड्राईवर` बाइनरी डाउनलोड करें, और फिर उसे चलायें:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+पोर्ट 9515 पर क्रोमड्राईवर (v2.10.291558) शुरू हो रहा है
+केवल लोकल कनेक्शनस को अनुमति है |
 ```
 
-Remember the port number `9515`, which will be used later
+पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
 
-### 2. Install WebDriverJS
+### 2. वेबड्राईवरजेएस इनस्टॉल करें
 
 ```sh
 $ npm install selenium-webdriver
 ```
 
-### 3. Connect to ChromeDriver
+### 3. क्रोमड्राईवर से कनेक्ट करें
 
-The usage of `selenium-webdriver` with Electron is basically the same with upstream, except that you have to manually specify how to connect chrome driver and where to find Electron's binary:
+इलेक्ट्रॉन के साथ `सेलेनियम-वेबड्राईवर` का इस्तेमाल मूलतः अपस्ट्रीम के साथ समान ही है, सिवाय इस बात के कि आपको मैन्युअली यह निर्दिष्ट करना होगा कि क्रोम ड्राईवर से कैसे जुड़ें और इलेक्ट्रॉन की लाइब्रेरी कहाँ ढूँढें:
 
 ```javascript
 const webdriver = require('selenium-webdriver')
 
 const driver = new webdriver.Builder()
-  // The "9515" is the port opened by chrome driver.
+// "9515" वह पोर्ट है जो कि क्रोम ड्राईवर द्वारा खोला गया है |
   .usingServer('http://localhost:9515')
-  .withCapabilities({
-    chromeOptions: {
-      // Here is the path to your Electron binary.
+   .withCapabilities({
+     chromeOptions: {
+       // यह आपकी इलेक्ट्रॉन लाइब्रेरी का पथ है |
       binary: '/Path-to-Your-App.app/Contents/MacOS/Electron'
-    }
-  })
-  .forBrowser('electron')
-  .build()
+     }
+   })
+   .forBrowser('electron')
+   .build()
 
 driver.get('http://www.google.com')
-driver.findElement(webdriver.By.name('q')).sendKeys('webdriver')
+driver.findElement(webdriver.By.name('q')).sendKeys('webdriv
+er')
 driver.findElement(webdriver.By.name('btnG')).click()
-driver.wait(() => {
+driver.wait(() => {   
   return driver.getTitle().then((title) => {
-    return title === 'webdriver - Google Search'
-  })
-}, 1000)
+     return title === 'webdriver - Google Search'
+   })
+ }, 1000)
 
 driver.quit()
 ```
 
-## Setting up with WebdriverIO
+## वेबड्राईवरआईओ को सेटअप करना
 
-[WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
+[वेबड्राईवरआईओ](http://webdriver.io/) वेब ड्राईवर के साथ परिक्षण करने के लिए एक नोड पैकेज प्रदान करता है |
 
-### 1. Start ChromeDriver
+### 1. क्रोमड्राईवर शुरू करें
 
-First you need to download the `chromedriver` binary, and run it:
+सबसे पहले `क्रोमड्राईवर` बाइनरी डाउनलोड करें, और फिर उसे चलायें:
 
 ```sh
 $ npm install electron-chromedriver
 $ ./node_modules/.bin/chromedriver --url-base=wd/hub --port=9515
-Starting ChromeDriver (v2.10.291558) on port 9515
-Only local connections are allowed.
+पोर्ट 9515 पर क्रोमड्राईवर (v2.10.291558) शुरू हो रहा है
+केवल लोकल कनेक्शनस को अनुमति है |
 ```
 
-Remember the port number `9515`, which will be used later
+पोर्ट संख्या `9515` को याद रखें, यह बाद में इस्तेमाल होगी
 
-### 2. Install WebdriverIO
+### 2. वेबड्राईवरआईओ इनस्टॉल करें
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. क्रोम ड्राईवर से जुड़ें
 
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
   host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  port: 9515, // "9515" क्रोम ड्राईवर द्वारा खोला गया पोर्ट है |
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      binary: '/Path-to-Your-App/electron', // आपकी इलेक्ट्रॉन बाइनरी तक पथ |
+      args: [/* cli arguments */]           // वैकल्पिक, शायद 'app=' + /path/to/your/app/
     }
   }
 }
@@ -148,8 +148,8 @@ client
   .end()
 ```
 
-## Workflow
+## वर्कफ्लो
 
-To test your application without rebuilding Electron, simply [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
+इलेक्ट्रॉन का पुनर्निर्माण करे बिना अपनी एप्लीकेशन का परिक्षण करने के लिए, एप्प स्त्रोत को इलेक्ट्रॉन की रिसोर्स डायरेक्टरी में [रखें](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) |
 
-Alternatively, pass an argument to run with your electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+या फिर, इलेक्ट्रॉन बाइनरी के साथ चलने के लिए एक आर्गुमेंट भेजें को कि आपकी एप्प के फोल्डर की तरफ इशारा करता हो | इससे अपनी एप्प को इलेक्ट्रॉन की रिसोर्स डायरेक्टरी में कॉपी-पेस्ट करने की आपको ज़रुरत ही नहीं पड़ेगी |

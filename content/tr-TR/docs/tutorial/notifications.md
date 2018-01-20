@@ -28,7 +28,7 @@ Ayrıca, Windows 8'de bildirim gövdesi için maksimum uzunluk 250 karakterken, 
 
 Windows'un daha sonraki sürümleri, gelişmiş bildirimlere, özel şablonlara, görüntüler ve diğer esnek öğelere izin verir. Bu bildirimleri göndermek için (ana işlemde yada oluşturucu işleminde), göndermek için yerel düğüm eklentilerini `ToastNotification` ve `TileNotification` objelerini kullanan userland modülünü kullanın [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications).
 
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Düğmeleri de içeren butonlar yalnızca `electron-windows-notifications` ile çalışırken, yanıtlama işlemi [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) kullanılmasını gerektirir, gerekli COM bileşenlerini kaydettirmeye yardımcı olan ve girilen kullanıcı verileriyle Electron uygulamanızı çağırmanızı sağlar.
 
 ### Sessiz Saatler / Sunum modu
 
@@ -46,7 +46,7 @@ Not, bu bildirimler 256 byte ile sınırlıdır ve bu sınırı aşarsa kesilece
 
 MacOS'un daha sonraki sürümleri, kullanıcılara bildirimlere hızlıca cevap verebilmeleri için bildirimler ile bir girdi alanına izin verir. Bildirimleri bir girdi alanıyla göndermek için userland modülünü kullanın [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Rahatsız etmeyin / Seans anı
 
 Bir bildirim gönderme izninizin olup olmadığını saptamak için, userland modülünü kullanın [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
 

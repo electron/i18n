@@ -23,7 +23,7 @@ docs:
 languages:
   choose_language: Оберіть мову
   translation_progress: Прогрес перекладу
-  current: поточне виділення
+  current: поточний вибір
 community:
   title: Спільнота Electron
   description: 'Інструменти, шаблони коду, відео та більше від <a href="https://github.com/sindresorhus/awesome-electron">крутих</a> розробників Electron. Знайти чи створити <a href="/community#meetups">зустріч</a> поруч з вами.'
@@ -55,11 +55,11 @@ benefits:
   debugging_and_profiling: Налагоджування та профілювання
   windows_installers: Установник для Windows
 get_started:
-  title: Почати зараз
-  description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати встановники.
+  title: Початок роботи
+  description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати інсталятори.
 explore:
-  title: Дослідіть API Electron
-  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Дивіться що можливо завдяки Electron з прикладами коду та корисними підказками для створення вашого додатку."
+  title: Дізнайтеся про Electron API
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Подивіться можливості Electron з прикладами коду та корисними підказками для створення вашого додатку."
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
 quick_start:
@@ -137,3 +137,5 @@ _404:
   page_not_found: Сторінку не знайдено.
   if_this_is_an_error: Якщо це помилка, 
   please_file_an_issue: будь ласка, повідомте про проблему.
+search:
+  description: Пошук в документації Electron та спільноті.

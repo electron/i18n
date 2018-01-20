@@ -1,6 +1,6 @@
 ## Sınıf: BrowserWindowProxy
 
-> Çocuk tarayıcı penceresini değiştirme
+> Alt tarayıcı penceresini değiştirme
 
 İşlem: [Renderer](../glossary.md#renderer-process)
 
@@ -37,7 +37,7 @@ Alt pencerede yazdırma iletişim kutusunu çağırır.
 * `message` String
 * `targetOrigin` String
 
-Belirtilen origin ile alt pencereye bir mesaj gönderir veya `*` için origin seçeneği yoktur.
+Belirtilen başlangıç noktası ile alt pencereye bir mesaj gönderir veya `*` için başlangıç noktası seçeneği yoktur.
 
 Bu metodlara ek olarak, alt pencere seçeneksiz ve tek bir metod ile `window.opener` nesnesini implement eder.
 

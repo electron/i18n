@@ -1,6 +1,6 @@
 # Accesibilidad
 
-Hacer aplicaciones accesibles es importante y estamos encantados de presentar nuevas funcionalidades a [Devtron](https://electron.atom.io/devtron) y Spectron</ 1> que brindan a los desarrolladores la oportunidad de mejorar sus aplicaciones para todo el mundo.</p> 
+Hacer aplicaciones accesibles es importante y estamos encantados de presentar nuevas funcionalidades a [Devtron](https://electronjs.org/devtron) y Spectron</ 1> que brindan a los desarrolladores la oportunidad de mejorar sus aplicaciones para todo el mundo.</p> 
 
 * * *
 
@@ -20,13 +20,13 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Puede leer más acerca de esta herramienta en la [documentación de Spectron](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 
 En Devtron, hay una nueva pestaña de accesibilidad que le permitirá auditar una página en su aplicación, ordenar y filtrar los resultados.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![capturas de devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
 Ambas herramientas están utilizando la biblioteca [Herramientas de desarrollo de accesibilidad](https://github.com/GoogleChrome/accessibility-developer-tools) creada por Google para Chrome. Usted puede obtener más información sobre las reglas de auditoría de accesibilidad que esta biblioteca utiliza en la [wiki del repositorio](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
@@ -38,7 +38,7 @@ Las aplicaciones electrónicas mantienen la accesibilidad desactivada de forma p
 
 ### Aplicación interna
 
-Al usar [`app.setAccessibilitySupportEnabled (enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), puede exponer el interruptor de accesibilidad a los usuarios en las preferencias de la aplicación. Las utilidades de asistencia del sistema del usuario tienen prioridad sobre esta configuración y la anularán.
+Usando [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), puede exponer los cambios de accesibilidad a los usuarios en las preferencias de las aplicaciones. Las utilidades de asistencia del sistema del usuario tienen prioridad sobre esta configuración y la anularán.
 
 ### Tecnología de asistencia
 

@@ -2,8 +2,8 @@
 
 * `2d_canvas` String - キャンバス
 * `flash_3d` String - フラッシュ
-* `flash_stage3d`文字列 - Flash Stage3D
-* `flash_stage3d_baseline`文字列 - Flash Stage3D Baseline profile
+* `flash_stage3d` String - Flash Stage3D
+* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
 * `gpu_compositing` String - Compositing
 * `multiple_raster_threads` String - Multiple Raster Threads
 * `native_gpu_memory_buffers` String - Native GpuMemoryBuffers

@@ -81,14 +81,13 @@ To make things worse, since the context of previously installed callbacks has be
 
 Bu sorunu önlemek için, ana işleme aktarılan işleyici geri çağırımlarına yapılan tüm başvuruları temizlendiğinden emin olun. Bu, olay işleyicilerinin temizlenmesi veya ana işleme açık olarak, çıkmakta olan bir oluşturucu işleminden gelen geri arama çağrılarının yapılmasını saydığından emin olmayı içerir.
 
-## Accessing built-in modules in the main process
+## Ana işlemde yerleşik modüllere ulaşım
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Ana işlemdeki konulmuş modüller `remote` içinde alıcı olarak bulunur, bu sayede sizde direk `electron</0 modülündeki gibi kullanabilirsiniz.</p>
 
-```javascript
-const app = require('electron').remote.app
+<pre><code class="javascript">const app = require('electron').remote.app
 console.log(app)
-```
+`</pre> 
 
 ## Metodlar
 
@@ -100,7 +99,7 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+Örnek
 
     project/
     ├── main

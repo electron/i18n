@@ -13,10 +13,10 @@ MacOS ve Linux'ta biber eklentisi Chrome tarayıcı içinde gezinmeden `chrome:/
 Örneğin:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
+const {app, BrowserWindow} = require('electron') 
+const path = require('path') 
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// Flash yolunu, main.js ile aynı rehberde olduğu takdirde belirle.
 let pluginName
 switch (process.platform) {
   case 'win32':
@@ -43,18 +43,18 @@ app.on('ready', () => {
     }
   })
   win.loadURL(`file://${__dirname}/index.html`)
-  // Something else
+  // Başka birşey
 })
 ```
 
 Ayrıca, gönderim yerine sistem genelinde Pepper Flash eklentisi yüklemeyi deneyebilirsiniz. Eklentileri kendiniz, çağırarak yolunu alabilirsiniz. `app.getPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Flash Eklentisini `<webview>` Etiketinde Etkinleştir
 
-Add `plugins` attribute to `<webview>` tag.
+`plugins` özniteliğini `<webview>` etiketine ekleyin.
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## Arıza giderme

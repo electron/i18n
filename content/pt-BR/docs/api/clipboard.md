@@ -1,6 +1,6 @@
 # clipboard
 
-> Perform copy and paste operations on the system clipboard.
+> Realizar cópia e colar operações na área de transferência do sistema.
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 

@@ -105,24 +105,24 @@ console.log(dialog)
 <li><code>checkboxChecked` Boolean (isteğe bağlı) -Onay kutusunun başlangıçta kontrol edilmiş durumu. ` yanlış </ 0> varsayılan olarak.</li>
 <li><code>icon` [NativeImage](native-image.md) (isteğe bağlı)
       * `cancelId` Integer (isteğe bağlı) - Diyalogu iptal etmek için kullanılacak düğmenin indeksi,` Esc </ 0> tuşu ile. Varsayılan olarak bu, etiket olarak "iptal" veya "hayır" ile ilk düğmeye atanır. Böyle bir etiketli düğme yoksa ve bu seçenek ayarlanmamışsa, <code>0`dönüş değeri veya geri arama yanıtı olarak kullanılacaktır. Bu seçenek Windows'ta yok sayılır.
-      * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-      * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Varsayılan `false`'dur. Bunun etkinleştirilmesi, klavye kısayol erişim anahtarının yerleştirilmesi için düğme etiketlerinde `&` kullanıldığını ve etiketlerin her platformda doğru şekilde çalışacak şekilde dönüştürüleceğini varsayar, `&` karakterler macOS'ta kaldırılır, Linux'ta `_` olarak dönüştürülür ve Windows'ta dokunulmaz bırakılır. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+      * `noLink` Boolean (isteğe bağlı) - Windows Elektron' da `buttons`' dan hangisinin ortak düğmeler olduğunu ve diğer iletişim kutusundaki komutların bağlantılarını anlamaya çalışacağız ("İptal" veya "Evet" gibi). Bu işlem diyaloğun modern Windows aplikasyonu tarzında çıkmasını sağlar. Bu davranış hoşunuza gitmiyorsa, `noLink` `true` ayarlayabilirsiniz.
+      * `normalizeAccessKeys` Boolean (İsteğe Bağlı) - Platformlar arasında klavye erişim anahtarlarını normalize eder. Varsayılan `false`'dur. Bunun etkinleştirilmesi, klavye kısayol erişim anahtarının yerleştirilmesi için düğme etiketlerinde `&` kullanıldığını ve etiketlerin her platformda doğru şekilde çalışacak şekilde dönüştürüleceğini varsayar, `&` karakterler macOS'ta kaldırılır, Linux'ta `_` olarak dönüştürülür ve Windows'ta dokunulmaz bırakılır. Örneğin; `Vie&w` düğme etiketi Linux' ta `Vie_w` ve macOS' ta `View` olarak dönüştürülecektir, Windows ve Linux' ta `Alt-W` yoluyla seçilebilir.
     * `geri arama` Fonksiyon (isteğe bağlı) 
-      * `response` Number - The index of the button that was clicked
-      * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+      * `response` Number - Tıklanan düğmenin yolu
+      * `checkboxChecked` Boolean - `checkboxLabel` onay kutusu işaretli olarak ayarlanmış olmalıdır. Aksi halde `false`.
     
-    Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+    `Integer` tıklanan düğmenin indeksini döndürür, eğer bir geri dönüş sağlanırsa tanımsız bir şekilde geri döndürür.
     
-    Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+    Bir mesaj kutusu gösterir, ileti kutusu kapanıncaya kadar söz konusu işlemi engeller. Tıklanan düğmenin dizinini döndürür.
     
     `browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
     
-    If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+    Eğer bir `callback` geçilirse, Sonuç `callback(response)`üzerinden iletilecek ve API çağrısı eş zamansız olacaktır.
     
     ### `dialog.showErrorBox(title, content)`
     
-    * `title` String - The title to display in the error box
-    * `content` String - The text content to display in the error box
+    * `title` dizi - Hata kutusunda görüntülenecek başlığı belirler
+    * `content` dizi - Hata kutusunda görüntülenecek olan metnin içeriğini belirler
     
     Bir hata iletisi gösteren bir kalıcı iletişim kutusu görüntüler.
     
@@ -132,19 +132,19 @@ console.log(dialog)
     
     * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
     * `ayarlar` Nesne 
-      * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-      * `message` String - The message to display to the user.
-    * `callback` Function
+      * `certificate` [Certificate](structures/certificate.md) - Sertifika için güven ve önemi belirtir.
+      * `message` String - Kullanıcı tarafından görüntülenecek mesajı belirtir.
+    * `callback` Fonksiyon
     
-    MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+    MacOS'ta, bu, bir ileti ve sertifikayı gösteren bir kalıcı iletişim kutusu görüntüler kullanıcıya aşağıdakilere güven / giriş imkanı verir. `browserWindow` Argümentini sağladığınızda, iletişim kutusu ana pencereye eklenerek kalıcı hale gelir.
     
-    On Windows the options are more limited, due to the Win32 APIs used:
+    Windows işletim sisteminde Win32'de kullnaılan API nedeniyle seçenekler daha kısıtlıdır:
     
-    * The `message` argument is not used, as the OS provides its own confirmation dialog.
-    * The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+    * `message` argümanı İşletim sisteminin kendi onay diyaloğunu kullanması sebebiyle kullanılmıyor,.
+    * `browserWindow`' ı kalıcı bir onay kutusu haline getirmek mümkün olmadığından argümanı yok sayılır.
     
-    ## Sheets
+    ## Sayfalar
     
-    On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+    MacOS' ta iletişim kutuları `browserWindow` parametresinde bir `BrowserWindow` referans veya kalıp sağlanmazsa, bir pencereye eklenmiş sayfalar olarak sunulur.
     
-    You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+    Sayfalara eklenen Windows çerçevesinden ofset değerini değiştirmek için `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` komutunu çağırabilirsiniz.

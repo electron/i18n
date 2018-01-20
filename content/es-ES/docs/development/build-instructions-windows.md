@@ -1,21 +1,21 @@
 # Instrucciones para compilación (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Siga las indicaciones a continuación para construir Electron en Windows.
 
-## Prerequisites
+## Pre-requisitos
 
-* Windows 7 / Server 2008 R2 or higher
-* Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
+* Windows 7 / Servidor 2008 R2 o superior
+* Visual Studio 2015 actualización 3 - [descargar VS 2015 edición de la comunidad gratis](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Herramientas de depuración para Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) Si planea crear una distribución completa considerando que `symstore.exe` es usado para la creación de la biblioteca de símbolos para lo archivos `.pdb`.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Si no tiene una instalación de Windows actualmente, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Electron se construye casi completamente con script de comandos de linea y no puede ser hecho con Visual Studio. Puede desarrollar Electron con cualquier editor pero el soporte para la construcción con Visual Studio vendrá en el futuro.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Nota:** A pesar de que Visual Studio no es usado para la construcción, todavía se **requiere** debido a que necesitamos la cadena de herramientas que este provee para construir.
 
 ## Obteniendo Código
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Bootstrapping
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Note que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
 ```powershell
 $ cd electron
@@ -40,23 +40,23 @@ Compilar objetivos de Release y Debug:
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+También puede construir un objetivo de depuración:
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Después de que la construcción está hecha, usted puede encontrar `electron.exe` con el nombre `out\D` (objetivo de depuración) o como `out\R` (objetivo de lanzamiento).
 
-## 32bit Build
+## Estructuras en 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Para construir para el objetivo de 32bit, necessita pasar `--target_arch=ia32` cuando se corra el script de salida:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Los otros pasos de construcción son exactamente los mismos.
 
 ## Visual Studio project
 
@@ -68,33 +68,33 @@ $ python script\bootstrap.py --msvs
 
 ## Limpieza
 
-To clean the build files:
+Para limpiar archivos construidos:
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Para limpiar solo los directorios `out` y `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Nota:** Ambos comandos de limpieza requieren que se corra `bootstrap` de nuevo antes de la construcción.
 
-## Tests
+## Pruebas
 
 Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
 
 ## Problemas
 
-### Command xxxx not found
+### Comando xxxx no encontrado
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Si encuentra un error como `Comando xxxx no encontrado`, intente usar la consola `Comando rápido VS2015` para ejecutar los scripts construidos.
 
-### Fatal internal compiler error: C1001
+### Error de compilamienta interno falta: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Asegúrese que tiene la última versión de Visual Estudio instalada.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
@@ -115,24 +115,24 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Esto es causado por un error usando Cygwin Python y el nodo Win32 juntos. La solución es usar el Win32 Python para ejecutar rápidamente el script (Asumiendo que ha instalado python como `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: cannot open input file 'kernel32.lib'
+### LNK1181: No se puede abrir el archivo de entrada 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Intente reinstalar 32bit Node.js.
 
-### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
+### Error: ENOENT, estatus 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Simplemente hacer ese directorio [ debería solucionar el problema](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp no es reconocido como un comando interno o externo
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Debe obtener este error si está usando constructos Git Bash para la construcción, en vez debe usar PowerShell o el comando rápido VS2015.

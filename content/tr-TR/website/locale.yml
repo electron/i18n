@@ -59,7 +59,7 @@ get_started:
   description: Electron'la başlamak için, aşağıdaki kaynakları kontrol ediniz. Web uygulamanızı nasıl Electron ile paketleyebileceğinizi, tüm API'lere erişebileceğinizi ve yükleyeciler oluşturabileceğinizi öğrenin.
 explore:
   title: Elektron API'leri keşfetmek
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Demos uygulaması</a> Electron API' nin en önemli özelliklerini gösterir. Uygulamanızı oluşturmak için örnek kod ve yardımcı ipuçları ile Electron' da nelerin mümkün olduğunu görün."
 download_from_github: Github'dan indirin
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tüm sürümleri GitHub'da Göster</a>
 quick_start:
@@ -137,3 +137,5 @@ _404:
   page_not_found: Sayfa bulunamadı.
   if_this_is_an_error: Bu bir hata ise
   please_file_an_issue: lütfen sorunu bulunuz.
+search:
+  description: Electron' un belgelerinde ve topluğunda arama yapın.

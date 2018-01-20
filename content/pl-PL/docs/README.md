@@ -57,6 +57,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [zakupy w aplikacji](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 
 * [Styl Kodowania](development/coding-style.md)
 * [Używanie formatu clang w kodzie C++](development/clang-format.md)
+* [Testowanie](development/testing.md)
 * [Struktura Ścieżki Kodu Źródłowego](development/source-code-directory-structure.md)
 * [Techniczne Różnice wobec NW.js (wcześniej node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Przegląd Systemu Budowania](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Instrukcje Debugowania (Windows)](development/debug-instructions-windows.md)
 * [Ustawianie Serwera Symboli w Debuggerze](development/setting-up-symbol-server.md)
 * [Formatowanie Dokumentacji](styleguide.md)
-* [Aktualizacja Chrome](development/upgrading-chrome.md)
+* [Aktualizacja Chromium](development/upgrading-chromium.md)
 * [Programowanie Chrome](development/chromium-development.md)
 * [Rozwój V8](development/v8-development.md)

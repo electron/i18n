@@ -2,7 +2,7 @@
 
 ## Diskusi
 
-Salah satu masalah upgrade adalah membangun semua Elektron dengan satu salinan dari V8 untuk memastikan kompatibilitas. Hal ini penting karena hulu Node dan [libchromiumcontent](upgrading-chrome.md) keduanya menggunakan versi V8 mereka sendiri.
+Salah satu masalah upgrade adalah membangun semua Elektron dengan satu salinan dari V8 untuk memastikan kompatibilitas. Hal ini penting karena hulu Node dan [libchromiumcontent](upgrading-chromium.md) keduanya menggunakan versi V8 mereka sendiri.
 
 Upgrade Node jauh lebih mudah daripada meng-upgrade libchromiumcontent, jadi lebih sedikit konflik muncul jika seseorang mengupgrade konten libchromium terlebih dahulu, kemudian memilih rilis Node hulu yang V8 terdekat dengannya.
 
@@ -43,7 +43,7 @@ Kita perlu untuk menghasilkan file patch dari setiap patch yang diterapkan V8.
 
 1. Dapatkan salinan garpu libcc Electron 
   - `$ git klon https://github.com/electron/libchromiumcontent`
-2. Jalankan `script/update` untuk mendapatkan libcc terbaru 
+2. Jalankan `script/perbarui` untuk mendapatkan libcc terbaru 
   - Ini akan memakan-waktu
 3. Hapus salinan kita pada patch Node v8 yang lama 
   - (In libchromiumcontent repo) Baca `patches/v8/README.md` untuk melihat patchfiles mana diciptakan selama pembaharuan terakhir

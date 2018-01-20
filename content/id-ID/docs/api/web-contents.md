@@ -1,6 +1,6 @@
-# isi web
+# konten web
 
-> Kontrol dan render halaman web.
+> Membuat dan mengontrol halaman web.
 
 Proses: [Utama](../glossary.md#main-process)
 
@@ -681,15 +681,15 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
 
 Jalankan perintah pengeditan `undo` di halaman web.
 
-#### `contents.redo()`
+#### `konten.redo()`
 
 Jalankan perintah pengeditan `ulangi` di halaman web.
 
-#### `contents.cut()`
+#### `konten.potong()`
 
 Jalankan perintah pengeditan `potong` di halaman web.
 
-#### `contents.copy()`
+#### `konten.mengkopi()`
 
 Jalankan perintah pengeditan `copy` di halaman web.
 
@@ -708,15 +708,15 @@ Jalankan perintah pengeditan `paste` di halaman web.
 
 Jalankan perintah pengeditan `pasteAndMatchStyle` di halaman web.
 
-#### `contents.delete()`
+#### `konten.menghapus()`
 
 Jalankan perintah pengeditan `hapus` di halaman web.
 
-#### `contents.selectAll()`
+#### `konten.memilihsemua()`
 
 Jalankan perintah pengeditan `selectAll` di halaman web.
 
-#### `contents.unselect()`
+#### `konten.tidakmemilih()`
 
 Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
 
@@ -732,7 +732,7 @@ Jalankan perintah pengeditan `ganti` di halaman web.
 
 Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
 
-#### `contents.insertText(text)`
+#### `konten.mencaritek()`
 
 * `teks` String
 
@@ -752,7 +752,7 @@ Starts a request to find all matches for the `text ` in the web page and returns
 
 #### `contents.stopFindInPage(tindakan)`
 
-* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] request. 
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] permintaan. 
   * `clearSelection` - jelas pilihan.
   * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
   * `activateSelection` - fokus dan klik seleksi simpul.
@@ -782,17 +782,17 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     #### `contents.unregisterServiceWorker(callback)`
     
     * `callback` Fungsi 
-      * `success` Boolean
+      * `sukses` Boolean
     
     Unregisters ServiceWorker jika ada dan mengembalikan boolean sebagai respon terhadap `callback` ketika janji JS terpenuhi atau salah saat janji JS ditolak.
     
-    #### `contents.getPrinters()`
+    #### `konten.mendapatkanpercetakan()`
     
     Dapatkan daftar printer sistem.
     
-    Returns [`PrinterInfo[]`](structures/printer-info.md)
+    Mengembalikan [`membuatinfo[]`](structures/printer-info.md)
     
-    #### `contents.print([options])`
+    #### `konten.mencetak([options])`
     
     * `pilihan` Objek (opsional) 
       * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
@@ -809,13 +809,13 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     
     * `pilihan` Obyek 
       * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
-      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
       * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
       * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
       * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
     * `callback` Fungsi 
       * `error` Kesalahan
-      * `data` Buffer
+      * `data` nomor
     
     Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
     
@@ -846,32 +846,32 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
 
 <pre><code class="javascript">const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.webContents.on ('devtools-opened', () = > {win.webContents.addWorkSpace (__ dirname)})
 `</pre> 
-  #### `contents.removeWorkSpace(path)`
+  #### `konten.memindahkanruankerja(jalur)`
   
   * ` path </ 0>  String</li>
 </ul>
 
 <p>Menghapus jalur yang ditentukan dari ruang kerja DevTools.</p>
 
-<h4><code>contents.openDevTools([options])`</h4> 
+<h4><code>konten.membukaDevAlat([options])`</h4> 
     * `pilihan` Objek (opsional) 
-      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. In `detach` mode it's not.
+      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. Di dalam `melepaskan` bukan mode itu.
     
     Membuka devtools.
     
-    #### `contents.closeDevTools()`
+    #### `konten.menutupDevAlat()`
     
     Menutup devtools.
     
-    #### `contents.isDevToolsOpened()`
+    #### `konten.apakahalatDevTerbuka()`
     
-    Returns `Boolean` - Whether the devtools is opened.
+    Mengembalikan `boolean` - apakah alatdev sudah terbuka.
     
-    #### `contents.isDevToolsFocused()`
+    #### `konten.apakahAlatDevsudahTerfokus()`
     
     Mengembalikan `Boolean` - Apakah tampilan devtools terfokus.
     
-    #### `contents.toggleDevTools()`
+    #### `konten.mematikanAlatDev()`
     
     Toggles alat pengembang.
     

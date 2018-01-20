@@ -12,7 +12,7 @@ Electron, lisans nedeni ile Widevine CDM eklentisiyle birlikte gönderilmez, bun
 
 Chrome tarayıcısında `chrome://components/`'i açın, `WidevineCdm`'yi bulun ve güncel olduğundan emin olun, ardından tüm eklenti ikililiklerini`APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/`dizininden bulabilirsiniz.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` uygulama verilerini depolamak için sistemin bulunduğu konumdur. Windows' ta `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM eklentisinin sürüm dizesi, `1.4.8.866` gibi. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
 
 Windows'ta gerekli ikili dosyalar `widevinecdm.dll` ve `widevinecdmadapter.dll`, macOS'da `libwidevinecdm.dylib` ve `widevinecdmadapter.plugin`'dir. Onları istediğiniz bir yerde kopyalayabilirsiniz fakat bir araya getirilmeleri gerekmektedir.
 
@@ -24,7 +24,7 @@ Linux'ta eklenti ikili dosyaları Chrome tarayıcısı ile birlikte gönderilir,
 
 Eklenti dosyalarını aldıktan sonra, `widevinecdmadapter`'ın yolunu `--widevine-cdm-path` komut satırı anahtarına geçirmeli ve eklentinin versiyonunu `--widevine-cdm-version`'a geçirmelisiniz.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+**Note:** sadece `widevinecdmadapter` iki değeri elektrona geçmesine rağmen, `widevinecdm` ikili değerinin bir kenara bırakılması gerekir.
 
 Komut satırı anahtarları, `app` modülünün `ready` olayının yayımlanmasından önce geçirilmelidir ve bu eklentiyi kullanan sayfanın eklentisi etkinleştirilmiş olmalıdır.
 
@@ -33,12 +33,12 @@ Kod orneği:
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
+// Burada `widevinecdmadapter` dosya adını iletmek zorundasınız
 // * `widevinecdmadapter.plugin` on macOS,
 // * `libwidevinecdmadapter.so` on Linux,
 // * `widevinecdmadapter.dll` on Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// Eklenti sürümü Chrome' un `chrome://plugins` sayfasından edinilebilir.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
@@ -57,6 +57,6 @@ app.on('ready', () => {
 
 Eklentinin çalışıp çalışmadığını doğrulamak adına aşağıda bulunan adımları takip edebilirsiniz:
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Devtools' ı açın ve `navigator.plugins` Widevine CDM eklentisini içerip içermediğini kontrol edin.
+* Https://shaka-player-demo.appspot.com/ adresini açın ve `Widevine` kodunu kullanan bir komut ekleyin.
+* Http://www.dash-player.com/demo/drm-test-area/ sayfasın açın, Sayfanın `bitdash uses Widevine in your browser` komutunu verip vermediğini kontrol edin, ardından videoyu oynatın.

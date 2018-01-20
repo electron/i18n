@@ -1,6 +1,6 @@
 # 접근성
 
-접근 가능한 애플리케이션을 만드는 것은 중요합니다. 우리는 새 기능 [Devtron](https://electron.atom.io/devtron) 과 [Spectron](https://electron.atom.io/spectron) 을 소개할 수 있어 기쁩니다. 이것들은 개발자가 모두에게 더 좋은 앱을 만들 수 있는 기회를 제공합니다.
+접근 가능한 애플리케이션을 만드는 것은 중요합니다. 우리는 새 기능 [Devtron](https://electronjs.org/devtron) 과 [Spectron](https://electronjs.org/spectron) 을 소개할 수 있어 기쁩니다. 이것들은 개발자가 모두에게 더 좋은 앱을 만들 수 있는 기회를 제공합니다.
 
 * * *
 
@@ -38,7 +38,7 @@ Electron applications keep accessibility disabled by default for performance rea
 
 ### Inside Application
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
 
 ### Assistive Technology
 

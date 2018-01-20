@@ -1,10 +1,10 @@
 # Anwendungen aktualisieren
 
-Electron-Apps können auf verschiedenste Weise aktualisiert werden. Der einfachste und offiziell unterstütze Weg ist, das eingebaute [Squirrel](https://github.com/Squirrel)-Framework und Electrons [autoUpdater](../api/auto-updater.md)-Modul zu nutzen.
+Electron-Apps können auf verschiedenste Weise aktualisiert werden. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
 ## Einen Update-Server aufsetzen
 
-Zuallererst benötigen Sie einen Server, den das [autoUpdater](../api/auto-updater.md)-Modul nutzen kann, um neue Updates zu beziehen.
+To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 

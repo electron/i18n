@@ -57,6 +57,7 @@
 * [contentTracing](api/content-tracing.md)
 * [กล่องโต้ตอบ](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [เมนู](api/menu.md)
 * [รายการบนเมนู](api/menu-item.md)
@@ -88,6 +89,7 @@
 
 * [ลักษณะการเขียนโค้ด](development/coding-style.md)
 * [การใช้รูปแบบ clang ในโค้ด C++](development/clang-format.md)
+* [Testing](development/testing.md)
 * [โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ](development/source-code-directory-structure.md)
 * [ความแตกต่างทางเทคนิคระหว่าง NW.js (node-webkit ในอดีต)](development/atom-shell-vs-node-webkit.md)
 * [สร้างภาพรวมของระบบ](development/build-system-overview.md)
@@ -98,6 +100,6 @@
 * [คำแนะนำการดีบัก (Windows)](development/debug-instructions-windows.md)
 * [การตั้งค่าเซิร์ฟเวอร์ในตัวดีบักเกอร์](development/setting-up-symbol-server.md)
 * [เอกสารประกอบแนวทางลักษณะ](styleguide.md)
-* [อัพเกรดโครม](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [การพัฒนาโครเมี่ยม](development/chromium-development.md)
 * [การพัฒนา V8](development/v8-development.md)

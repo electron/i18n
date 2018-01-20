@@ -1,4 +1,4 @@
-# Bangun Instruksi (Linux)
+# Membangun petunjuk (Linux)
 
 Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
@@ -6,7 +6,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
 * Sedikitnya ruang disk 25GB dan RAM 8GB.
 * Python 2.7.x. Beberapa distribusi seperti CentOS 6.x masih menggunakan Python 2.6.x jadi Anda mungkin perlu memeriksa versi Python Anda dengan ` python -V `.
-* Node.js. Ada berbagai cara untuk menginstal Node. Anda dapat mendownload kode sumber dari [nodejs.org](http://nodejs.org) dan mengkompilasinya. Melakukan hal tersebut memungkinkan pemasangan Node di direktori home Anda sendiri sebagai pengguna standar. Atau coba repositori seperti [ NodeSource ](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Ada berbagai cara untuk menginstal Node. Anda dapat mendownload kode sumber dari [nodejs.org](https://nodejs.org) dan mengkompilasinya. Melakukan hal tersebut memungkinkan pemasangan Node di direktori home Anda sendiri sebagai pengguna standar. Atau coba repositori seperti [ NodeSource ](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [berdentang](https://clang.llvm.org/get_started.html) 3.4 atau yang lebih baru.
 * Header pengembangan GTK + dan libnotify.
 
@@ -40,15 +40,15 @@ GConf2-devel nss-devel
 
 Distribusi lainnya mungkin menawarkan paket yang serupa untuk instalasi melalui manajer paket seperti pacman. Atau seseorang bisa mengkompilasi dari source code.
 
-## Mendapatkan kode
+## Dapatkan kode
 
 ```sh
 $ git klon https://github.com/electron/electron
 ```
 
-## Bootstrap
+## Bootstrapping
 
-Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Anda harus memiliki Python 2.7.x agar naskahnya berhasil. Mengunduh file tertentu bisa memakan waktu lama. Perhatikan bahwa kami menggunakan ` ninja ` untuk membangun Elektron sehingga tidak ada ` Makefile ` yang dihasilkan.
+Skrip bootstrap akan men-download semua dependensi diperlukan membangun dan menciptakan membangun project file. Anda harus memiliki Python 2.7.x agar naskahnya berhasil. Mengunduh file tertentu bisa memakan waktu lama. Perhatikan bahwa kami menggunakan ` ninja ` untuk membangun Elektron sehingga tidak ada ` Makefile ` yang dihasilkan.
 
 ```sh
 $ cd elektron
@@ -77,7 +77,7 @@ Dan untuk mengkompilasi silang target ` lengan ` atau ` ia32 `, Anda harus melew
 $ ./script/bootstrap.py -v --target_arch=lengan
 ```
 
-## Membangun
+## Bangunan
 
 Jika Anda ingin membangun target ` Release ` dan ` Debug `:
 
@@ -96,26 +96,26 @@ Ini akan menempatkan distribusi kerja dengan ukuran file yang jauh lebih kecil d
 Anda juga dapat membangun target ` Debug ` saja:
 
 ```sh
-$ ./script/build.py
+$ ./script/build.py -c R
 ```
 
 Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
 
-## Pembersihan
+## Membersihkan
 
-Untuk membersihkan membangun file:
-
-```sh
-$ npm bersih
-```
-
-Untuk membersihkan hanya ` keluar ` dan ` dist ` direktori:
+Untuk membersihkan bangunan file:
 
 ```sh
 $ npm bersih
 ```
 
-** Catatan: ** Kedua perintah bersih mengharuskan menjalankan ` bootstrap ` lagi sebelum membangun.
+Untuk pembersihan hanya `keluar` dan `dist` direktori:
+
+```sh
+$ npm berjalan bersih-bangun
+```
+
+**Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
 
 ## Penyelesaian masalah
 
@@ -127,9 +127,9 @@ Prebuilt ` clang ` akan mencoba untuk link ke ` libtinfo.so.5 `. Bergantung pada
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Pengujian
+## Uji
 
-Lihat [ Bangun Ikhtisar Sistem: Pengujian ](build-system-overview.md#tests)
+Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
 
 ## Topik lanjutan
 
@@ -137,7 +137,7 @@ Konfigurasi bangunan default ditargetkan untuk distribusi desktop desktop utama.
 
 ### Membangun ` libchromiumcontent ` secara lokal
 
-Untuk menghindari penggunaan binari prebuilt dari ` libchromiumcontent `, Anda dapat membangun ` libchromiumcontent ` secara lokal. Untuk melakukannya, ikuti langkah-langkah ini:
+Untuk menghindari penggunaan binari setelah pembangunan dari `libchromiumcontent`, Anda dapat membangun `libchromiumcontent` secara lokal. Untuk melakukannya, ikuti langkah-langkah ini:
 
 1. Menginstal [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Install [ tambahan build dependencies ](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### Menggunakan sistem ` clang ` daripada download ` clang ` binari
 
-Secara default Elektron dibangun dengan prebuilt [` clang `](https://clang.llvm.org/get_started.html) binari yang disediakan oleh proyek Chromium. Jika karena alasan tertentu Anda ingin membangun dengan ` clang ` terinstal di sistem Anda, Anda dapat memanggil ` bootstrap.py ` dengan ` - clang_dir = <path> `. Dengan melewatkannya, skrip build akan mengasumsikan biner ` berdentang ` berada di ` <path> / bin / `.
+Secara default Elektron dibangun dengan pembangunan setelahnya [`clang`](https://clang.llvm.org/get_started.html) binari yang disediakan oleh Proyek kromium. Jika karena alasan tertentu Anda ingin membangun dengan `clang` terinstal di dalam sistem Anda, Anda dapat memanggil `bootstrap.py`with`--clang_dir=<path>` beralih. Dengan melewatkannya, skrip yang sedang dibangun akan mengasumsikan biner `clang` berada di `<path>/bin/`.
 
 Sebagai contoh jika Anda menginstal ` clang ` di bawah ` / user / local / bin / clang `:
 

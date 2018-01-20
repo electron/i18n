@@ -48,20 +48,20 @@ Devuelve:
 
 * `authInfo` Object 
   * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `esquema` Cadena
+  * `anfitrión` Cadena
+  * `puerto` Íntegro
+  * `realm` Cadena
 * `llamada de vuelta` Función 
-  * `username` String
-  * `password` String
+  * `username` Cadena
+  * `contraseña` Cadena
 
 Emitted when an authenticating proxy is asking for user credentials.
 
 The `callback` function is expected to be called back with user credentials:
 
-* `username` String
-* `password` String
+* `username` Cadena
+* `contraseña` Cadena
 
 ```JavaScript
 request.on('login', (authInfo, callback) => {
@@ -108,7 +108,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 Devuelve:
 
 * `statusCode` Integer
-* `method` String
+* `method` Cuerda
 * `redirectUrl` String
 * `responseHeaders` Object
 

@@ -2,11 +2,11 @@
 
 > Crear y controlar vistas.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Note:**: La API de BrowserView es experimental y puede ser cambiada o elindad enl futuro versiones de Electron.
 
 Proceso: [Principal](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` puede ser usado para embeber contenido web adicional en `BrowserWindow`. Es como una ventana hija, excepto que esta relativamente posicionada respecto su ventana propietaria. Se puede considerar una alternativa al tag `webview`.
 
 ## Ejemplo
 
@@ -31,24 +31,24 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `opciones` Objecto (opcional) 
+  * Objeto `webPreferences` (opcional) - vea [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Métodos Estáticos
 
 #### `BrowserView.fromId(id)`
 
-* `id` Íntegro
+* `id` Entero
 
-Returns `BrowserView` - The view with the given `id`.
+Devuelve `BrowserView` - La vista con el proveido `id`.
 
 ### Propiedades de Instancia
 
-Objects created with `new BrowserView` have the following properties:
+Los objetos creados con `new BrowserView` tienen las siguientes propiedades:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Un objeto [`WebContents`](web-contents.md), que pertenece a esta vista.
 
 #### `view.id` *Experimental*
 

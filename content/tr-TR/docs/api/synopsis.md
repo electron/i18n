@@ -6,7 +6,7 @@ All of [Node.js's built-in modules](https://nodejs.org/api/) are available in El
 
 Electron ayrıca yerli masaüstü uygulamaları üretiminin geliştirilmesi için ekstra yerleşik modüller de sağlamaktadır. Bazı modüller yalnızca ana süreçte bulunur; bazıları yalnızca işleyici sürecinde (internet sayfası) mevcuttur ve bazıları her iki işlemde de kullanılabilir.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
+Temek kural şudur: eğer modül [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) yada düşük-seviyeli bir sistemle alakalı ise, o zaman sadece ana işlemde olmalıdır. [main process vs. konsepti ile aşina olmalısınız. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
 
 Ana işlem komut dosyası normal bir Node.js komut dosyası gibidir:
 

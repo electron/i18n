@@ -1,4 +1,4 @@
-Si prega di assicurarsi di usare la documentazione corrispondente alla versione in uso di Electron. Il numero di versione dovrebbe essere una parte dell'URL della pagina. Se non lo è, probabilmente si sta utilizzando la documentazione di un ramo di sviluppo che può contenere modifiche alle API che non sono compatibili con la versione di Electron in uso. Per visualizzare le versioni precedenti della documentazione, è possibile [navigare per tag](https://github.com/electron/electron/tree/v1.4.0) su GitHub aprendo il menu a tendina "Switch branches/tags" e selezionando il tag che corrisponde alla versione in uso.
+Si prega di assicurarsi di usare la documentazione corrispondente alla propria versione in uso di Electron. Il numero della versione dovrebbe essere una parte dell'URL della pagina. Se non lo è, probabilmente si sta utilizzando la documentazione di un ramo di sviluppo che può contenere modifiche alle API che non sono compatibili con la versione di Electron in uso. Per visualizzare le versioni precedenti della documentazione, è possibile [navigare per tag](https://github.com/electron/electron/tree/v1.4.0) su GitHub aprendo il menu a tendina "Switch branches/tags" e selezionando il tag che corrisponde alla versione in uso.
 
 ## FAQ (Domande frequenti)
 
@@ -57,6 +57,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
@@ -88,6 +89,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 
 * [Stile Codice](development/coding-style.md)
 * [Uso di clang-format nel codice C++](development/clang-format.md)
+* [Testing](development/testing.md)
 * [Struttura della cartella del codice sorgente](development/source-code-directory-structure.md)
 * [Differenze tecniche da NW.js (ex node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Panoramica sul sistema di compilazione](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Istruzioni per il debug (Windows)](development/debug-instructions-windows.md)
 * [Impostazione di un Symbol Server nel debugger](development/setting-up-symbol-server.md)
 * [Linee guida per la documentazione](styleguide.md)
-* [Aggiornare Chrome](development/upgrading-chrome.md)
+* [Upgrading Chromium](development/upgrading-chromium.md)
 * [Sviluppo di Chrome](development/chromium-development.md)
 * [Sviluppo di V8](development/v8-development.md)

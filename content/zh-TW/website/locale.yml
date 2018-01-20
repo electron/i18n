@@ -137,3 +137,5 @@ _404:
   page_not_found: 找不到頁面。
   if_this_is_an_error: 如果這個情況不該發生
   please_file_an_issue: 請提出議題。
+search:
+  description: 在 Electron 文件及社群中搜尋。

@@ -137,3 +137,5 @@ _404:
   page_not_found: Không tìm thấy trang.
   if_this_is_an_error: Nếu đây là một lỗi
   please_file_an_issue: hãy tạo một issue về vấn đề này.
+search:
+  description: Search within Electron documentations and community.

@@ -1,6 +1,6 @@
 # Erişilebilirlik
 
-Erişilebilir uygulamalar yapmak önemlidir ve geliştiricilere uygulamalarını herkes için daha iyi hale getirme olanağı veren [Devtron](https://electron.atom.io/devtron) ve [Spectron](https://electron.atom.io/spectron)'e yeni işlevler sunmaktan mutluluk duyuyoruz.
+Erişilebilir uygulamalar yapmak önemlidir ve geliştiricilere uygulamalarını herkes için daha iyi hale getirme olanağı veren [Devtron](https://electronjs.org/devtron) ve [Spectron](https://electronjs.org/spectron)'e yeni işlevler sunmaktan mutluluk duyuyoruz.
 
 * * *
 
@@ -38,7 +38,7 @@ Elektron uygulamaları erişilebilirliğini performans nedenleriyle varsayılan 
 
 ### İç uygulama
 
-[`app.setAccessibilitySupportEnabled(enabled)`](https://electron.atom.io/docs/api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) kullanarak kullanıcılarınıza uygulama ayarlarında erişilebilirlik seçeneği sunablilirsiniz. Kullanıcının sistem yardım araçları, bu ayar üzerinde önceliğe sahiptir ve onu geçersiz kılacaktır.
+[`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) ' i kullanarak, uygulama ayarlarında erişebilirlik anahtarını kullanıcılara gösterebilirsiniz. Kullanıcının sistem yardım araçları, bu ayar üzerinde önceliğe sahiptir ve onu geçersiz kılacaktır.
 
 ### Yardımcı teknoloji
 

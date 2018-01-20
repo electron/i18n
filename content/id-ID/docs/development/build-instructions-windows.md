@@ -1,4 +1,4 @@
-# Membangun Intruksi (Windows)
+# Membangun petunjuk (Windows)
 
 Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 
@@ -7,7 +7,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 * Windows 7 / Server 2008 R2 atau lebih tinggi
 * Visual Studio 2015 Update 3 - [unduh VS 2015 Community Edition untuk gratis ](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * [Debugging Tools untuk Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) jika Anda berencana untuk membuat distribusi penuh sejak `symstore.exe` digunakan untuk membuat simbol dari `.pdb` file.
 
@@ -17,13 +17,13 @@ Bangunan Electron dilakukan sepenuhnya dengan script baris perintah dan tidak da
 
 **Catatan:** Walaupun Visual Studio tidak digunakan untuk membangun, hal ini masih **diperlukan** karena kita perlu membangun toolchains yang menyediakan.
 
-## Dapatkan kode
+## Mendapatkan kode
 
 ```powershell
-$ git clone https://github.com/electron/electron.git
+$ git klon https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## Bootstrap
 
 Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Perhatikan bahwa kita menggunakan `ninja` untuk membangun Electron sehingga tidak ada proyek Visual Studio yang dihasilkan.
 
@@ -34,7 +34,7 @@ $ python script\bootstrap.py -v
 
 ## Bangunan
 
-Membangun kedua rilis dan Debug target:
+Jika Anda ingin membangun target Release dan Debug :
 
 ```powershell
 $ python script\build.py
@@ -66,27 +66,27 @@ Untuk menghasilkan proyek Visual Studio, Anda bisa melewati `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Membersihkan
+## Pembersihan
 
 Untuk membersihkan membangun file:
 
 ```powershell
-$ npm run clean
+$ npm bersih
 ```
 
 Untuk pembersihan hanya `keluar` dan `dist` direktori:
 
 ```sh
-$ npm run clean-build
+$ npm berjalan bersih-bangun
 ```
 
 **Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
 
-## Uji
+## Coba
 
 Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
 
-## Pemecahan Masalah
+## Penyelesaian masalah
 
 ### Perintah xxxx tidak ditemukan
 
@@ -127,7 +127,7 @@ Try reinstalling 32bit Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Cukup membuat direktori itu [harus memperbaiki masalah](http://stackoverflow.com/a/25095327/102704):
+Cukup membuat direktori itu [harus memperbaiki masalah](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm

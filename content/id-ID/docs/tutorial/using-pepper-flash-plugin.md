@@ -56,7 +56,7 @@ Anda juga bisa mencoba memuat sistem plugin Pepper Flash yang luas alih-alih pen
 Tambahkan atribut ` plugin ` ke tag `<webview>`.
 
 ```html
-<webview src="http://www.adobe.com/software/flash/about/" plugins></webview>
+<webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
 ## Penyelesaian masalah

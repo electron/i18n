@@ -49,7 +49,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Üçüncü parametre olan `true`'ya dikkat edin. Bu, listener'ın diğer listener'lardan önce her zaman bir tuşa basması gerektiği anlamına gelir. Böylece onlar `stopPropagation()` çağıramazlar.
 
-[`before-input-event`](web-contents.md#event-before-input-event) etkinliği, sayfaya `keydown` ve `keyup` etkinlikleri gönderilmeden önce yayınlanır. Bu olabilir menüde görünmeyen özel kısayolları yakalamak ve işlemek için kullanılabilir.
+[`before-input-event`](../api/web-contents.md#event-before-input-event) etkinliği, sayfaya `keydown` ve `keyup` etkinlikleri gönderilmeden önce yayınlanır. Bu olabilir menüde görünmeyen özel kısayolları yakalamak ve işlemek için kullanılabilir.
 
 Eğer el ile kısayol ayrıştırmak istemiyorsanız, [mousetrap](https://github.com/ccampbell/mousetrap) benzeri gelişmiş anahtar algılaması yapan kütüphaneler var.
 
@@ -74,7 +74,7 @@ Mousetrap.bind('g i', () => { console.log('gelen kutusuna git') })
 Mousetrap.bind('* a', () => { console.log('hepsini seç') })
 
 // konami kodu!
-Mousetrap.bind('up up down down left right left right b a enter', () => {
+Mousetrap.bind('yukarı aşağı sola sağa sola b a girin', () => {
   console.log('konami code')
 })
 ```

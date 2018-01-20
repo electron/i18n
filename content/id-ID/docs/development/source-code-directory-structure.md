@@ -1,8 +1,8 @@
-# Struktur Direktori Sumber Kode
+# Struktur direktori sumber kode
 
 Kode sumber dari electron dipisahkan menjadi beberapa bagian, sebagian besar mengikuti Chromium pada konvensi pemisahan.
 
-Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](http://dev.chromium.org/developers/design-documents/multi-process-architecture) untuk memahami kode sumber yang lebih baik.
+Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](https://dev.chromium.org/developers/design-documents/multi-process-architecture) untuk memahami kode sumber yang lebih baik.
 
 ## Struktur Sumber Kode
 

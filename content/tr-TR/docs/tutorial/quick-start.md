@@ -101,9 +101,8 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
+// Bu dosyada, uygulamanızın özel ana işleminin geri kalan bölümünü ekleyebilirsiniz
+// Kod. Ayrıca bunları ayrı dosyalara koyabilir ve buradan isteyebilirsiniz.
 ```
 
 Kesin olarak göstermek istediğiniz web sayfası `index.html`:
@@ -117,9 +116,9 @@ Kesin olarak göstermek istediğiniz web sayfası `index.html`:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+Düğümü kullanıyoruz <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    ve elektron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
@@ -135,7 +134,7 @@ Başlangıç dosyanızı oluşturmadan önce `main.js`, `index.html`, ve `packag
 `npm`,'ni ayrıntılı olarak yüklediyseniz. devamında uygulamanızın kaynak dizinini çalıştırmanız yeterlidir:
 
 ```sh
-electron .
+elektron.
 ```
 
 Bölgesel olarak yükleme yaptıysanız, şunu çalıştırın:
@@ -152,13 +151,13 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Düğüm v8.2.0 ve sonrası
 
 ```sh
 $ npx electron.
 ```
 
-### Manually Downloaded Electron Binary
+### Kullanıcı tarafından indirilmiş Electron Dili
 
 Eğer Electron'u manuel olarak indirdiyseniz, uygulamanızı doğrudan çalıştırmak için birlikte verilen ikili de kullanabilirsiniz.
 
@@ -191,17 +190,17 @@ Uygulamanızı yazmayı bitirdikten sonra, [Application Distribution](./applicat
 
 Bu eiğitimdeki kodu kullanarak depoyu çalıştırın ve çoğaltın [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Note**: Bu işlemi yürütmek için [Git](https://git-scm.com) ve [Node.js](https://nodejs.org/en/download/) ([npm](https://npmjs.org) içeren) sisteminizde olması lazım.
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
-$ npm install
-# Run the app
-$ npm start
+# Depoyı klonla
+$ git klonu https://github.com/electron/electron-quick-start 
+# Depoya git
+$ Cd electron-quick-start 
+# Gereklilikleri yükle
+$ npm yükle
+# Aplikasyonu yürüt
+$ npm Başlat
 ```
 
 Daha fazla örnek uygulama için, muhteşem elektron topluluğu tarafından oluşturulan [list of boilerplates](https://electronjs.org/community#boilerplates)'e bakın.

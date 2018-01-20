@@ -49,7 +49,7 @@ window.addEventListener('keyup', doSomething, true)
 
 Zauważ, że trzeci parametr ma wartość `true`, co oznacza, że wyzwalacz będzie zawsze otrzymywał komunikat o wciśnięciu klawisza przed innymi wyzwalaczami, także nie można na nich użyć metody `stopPropagation()`.
 
-Wydarzenie [`before-input-event`](web-contents.md#event-before-input-event) jest emitowane tuż przed wysłaniem wydarzeń `keydown` oraz `keyup`. Może zostać ono użyte do przechwytywania konfigurowalnych skrótów, które nie są widoczne w menu.
+Wydarzenie [`before-input-event`](../api/web-contents.md#event-before-input-event) jest emitowane tuż przed wysłaniem wydarzeń `keydown` oraz `keyup`. Może zostać ono użyte do przechwytywania konfigurowalnych skrótów, które nie są widoczne w menu.
 
 Jeżeli nie chcesz manualnie ustalać skrótów klawiszowych, istnieje wiele bibliotek, które dysponują zaawansowanymi metodami detekcji, takimi jak [mousetrap](https://github.com/ccampbell/mousetrap).
 

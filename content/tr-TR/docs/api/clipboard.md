@@ -1,8 +1,8 @@
-# clipboard
+# pano
 
 > Kopyalama ve yapıştırma işlemlerini sistem panosunda gerçekleştirin.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Aşağıdaki örnek bir dizeyi panoya nasıl yazacağınızı gösterir:
 
@@ -105,49 +105,49 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. Önbelleğe alınmış olan değer, uygulama her etkinleştirildiğinde kartuşun bulunduğu sayfadan yeniden okunur.
+`String` - Karton üzerindeki metni bulmaya yarar. Oluşturucu işleminden çağrılan bu yöntem senkron IPC kullanır. Önbelleğe alınmış olan değer, uygulama her etkinleştirildiğinde kartuşun bulunduğu sayfadan yeniden okunur.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` Dizi
 
-Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+`text` komutu içerisindeki metin karton bulma alanına düz yazı olarak yazılır. Oluşturucu işleminden çağrılan bu yöntem senkron IPC kullanır.
 
 ### `clipboard.clear([type])`
 
 * `type` String (isteğe bağlı)
 
-Clears the clipboard content.
+Pano içeriğini temizler.
 
 ### `clipboard.availableFormats([type])`
 
 * `type` String (isteğe bağlı)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+`String[]` - Panodaki `type` için desteklenen formatlar dizisi.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *Deneysel*
 
 * `format` String
 * `type` String (isteğe bağlı)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+`Boolean` - Panoda belirtilen `format` komutunun desteklenip desteklenmediğini gösterir.
 
 ```javascript
 const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` *Deneysel*
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+`String` - Panoya `format` tipinde okuma yapar.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` *Deneysel*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+`Buffer` - `format` türünü panodan okur.
 
 ### `clipboard.writeBuffer (biçim, arabellek [, tür])` *Deneysel*
 
@@ -155,16 +155,16 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 * `buffer` Buffer
 * `type` String (isteğe bağlı)
 
-Writes the `buffer` into the clipboard as `format`.
+`buffer`' ı `format` olarak panoya yazar.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Nesne 
-  * `text` String (optional)
-  * `html` String (optional)
-  * `image` [NativeImage](native-image.md) (optional)
-  * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
+* `veri` Nesne 
+  * `text` dizin (isteğe bağlı)
+  * `html` dizi(isteğe bağlı)
+  * `image` [NativeImage](native-image.md) (isteğe bağlı)
+  * `rtf` Dizi (İsteğe Bağlı)
+  * `bookmark` Dizi (İsteğe bağlı) - `text` ' da url nin başlığı yer alır.
 * `type` String (isteğe bağlı)
 
 ```javascript

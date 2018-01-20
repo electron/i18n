@@ -7,17 +7,17 @@ Follow the guidelines below for building Electron on Windows.
 * Windows 7 / Server 2008 R2 or higher
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
-* [Node.js](http://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
 
 If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Getting the Code
+## Dostawanie kodu
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -40,7 +40,7 @@ Build both Release and Debug targets:
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Możesz również zbudować tylko cel debugowania:
 
 ```powershell
 $ python script\build.py -c D
@@ -56,7 +56,7 @@ To build for the 32bit target, you need to pass `--target_arch=ia32` when runnin
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Inne kroki budowania są dokładnie takie same.
 
 ## Visual Studio project
 
@@ -66,15 +66,15 @@ To generate a Visual Studio project, you can pass the `--msvs` parameter:
 $ python script\bootstrap.py --msvs
 ```
 
-## Cleaning
+## Czyszczenie
 
-To clean the build files:
+Aby wyczyścić pliki kompilacji:
 
 ```powershell
-$ npm run clean
+$ npm działa bez problemu
 ```
 
-To clean only `out` and `dist` directories:
+Aby oczyścić tylko `z` i `dist` katalogów:
 
 ```sh
 $ npm run clean-build
@@ -82,23 +82,23 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## Testy
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+Zobacz [przegląd budowy systemu: Testy](build-system-overview.md#tests)
 
 ## Rozwiązywanie problemów
 
-### Command xxxx not found
+### Komenda xxxx nie znaleziona
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Jeśli wystąpił bład taki ajk `Komenda xxxx nie znaleziona`, możesz spróbować użyć kompilacji skryptów za pomocą konsoli `Wiersza polecenia VS2015`.
 
-### Fatal internal compiler error: C1001
+### Błąd krytyczny wewnętrznego kompilatora: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Upewnij się, że masz zainstalowaną najnowszą aktualizację programu Visual Studio.
 
-### Assertion failed: ((handle))->activecnt >= 0
+### Potwierdzenie nie powiodło się: ((uchwyt))-> activecnt > = 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Jeśli budujesz pod Cygwin, możesz zobaczyć `bootstrap.py` nie powiodło się z następującym komunikatem o błędzie:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+This is caused by a bug when using Cygwin Python and Win32 Node together. Rozwiązaniem jest użycie Win32 Python aby wykonać skrypt startowy (zakładając, że zainstalowałeś Python pod `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -127,7 +127,7 @@ Try reinstalling 32bit Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](http://stackoverflow.com/a/25095327/102704):
+Simply making that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
@@ -135,4 +135,4 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Ten błąd może wystąpić, jeśli używasz Git Bash do budynku, zamiast tego należy użyć środowiska PowerShell lub wiersz polecenia VS2015.

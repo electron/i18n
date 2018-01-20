@@ -6,7 +6,7 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 
 * Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
 * Python 2.7x. Para algumas distribuições como o CentOS 6.x continue usando o Python 2.6.x, então você precisa verificar a versão do Python com o comando `python -V`.
-* Node.js. Existem várias maneiras para instalar o Node. Você pode baixar o código fonte do [nodejs.org](http://nodejs.org) e compilar. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Existem várias maneiras para instalar o Node. Você pode baixar o código fonte do [nodejs.org](https://nodejs.org) e compilar. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 ou mais antigo.
 * Cabeçalho do GTK+ e libnotify.
 
@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### Usando o `clang` em vez de fazer o download dos binários de `clang`
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. Se por alguma razão você queira compilar com o `clang` instalado, você pode executar o script `bootstrap.py` com o parâmetro `--clang_dir=<path>`. Todos os scripts irão assumir o binários de `clang` para `<path>/bin/`.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
 Por exemplo, se você instalou `clang` em `/user/local/bin/clang`:
 

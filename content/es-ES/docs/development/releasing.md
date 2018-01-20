@@ -55,7 +55,7 @@ El script `prepare-release` se disparará en la estructura mediante llamados API
 
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) para la tienda de aplicación Mac
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) para OS X
-- [circleci.com/gh/electron](https://circleci.com/gh/electron) para Linux
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) para Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para Windows
 
 ## Compilar notas de publicación

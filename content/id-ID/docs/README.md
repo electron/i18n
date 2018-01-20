@@ -4,7 +4,7 @@ Pastikan Anda menggunakan dokumen yang sesuai dengan versi Elektron Anda . Versi
 
 Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
-* [FAQ Elektronika](faq.md)
+* [Elektron FAQ](faq.md)
 
 ## Panduan
 
@@ -24,7 +24,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Menggunakan Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Rendering di luar layar](tutorial/offscreen-rendering.md)
-* [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
+* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 * [Memperbarui Aplikasi](tutorial/updates.md)
 
 ## Tutorial
@@ -39,24 +39,25 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
 * [Ringkasan](api/synopsis.md)
 * [Proses objek](api/process.md)
-* [Saklar Baris Perintah Chrome yang Didukung](api/chrome-command-line-switches.md)
+* [Didukung saklar baris perintah Chrome](api/chrome-command-line-switches.md)
 * [Variabel Lingkungan](api/environment-variables.md)
 
 ### Elemen DOM Khusus:
 
-* [`File` Objek](api/file-object.md)
-* [`<webview>`Tag](api/webview-tag.md)
-* [`window.open` fungsi](api/window-open.md)
+* [` File </ 0> Objek</a></li>
+<li><a href="api/webview-tag.md"><code><webview>`Tag](api/file-object.md)
+* [`window.open` Fungsi](api/window-open.md)
 
 ### Modul untuk Proses Utama:
 
 * [aplikasi](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [TampilanBrowser](api/browser-view.md)
-* [JendelaBrowser](api/browser-window.md)
+* [BrowserWindow](api/browser-window.md)
 * [pelacakan konten](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [jalan pintas global](api/global-shortcut.md)
+* [inAppPurchase](api/in-app-purchase.md)
 * [ipc Utama](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [ItemMenu](api/menu-item.md)
@@ -71,23 +72,24 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 
 ### Modul untuk proses Renderer (halaman Web):
 
-* [penangkapDesktop](api/desktop-capturer.md)
-* [ipcRenderer](api/ipc-renderer.md)
+* [desktopmenangkap](api/desktop-capturer.md)
+* [ipc Renderer](api/ipc-renderer.md)
 * [remot](api/remote.md)
 * [webBingkai](api/web-frame.md)
 
 ### Modul untuk kedua proses:
 
 * [clipboard](api/clipboard.md)
-* [kerusakanReporter](api/crash-reporter.md)
-* [gambarasli](api/native-image.md)
-* [layar](api/screen.md)
+* [kecelakaan reporter](api/crash-reporter.md)
+* [asli](api/native-image.md)
+* [screen](api/screen.md)
 * [kulit](api/shell.md)
 
 ## Pengembangan
 
-* [Model coding](development/coding-style.md)
-* [Menggunakan dentang-format pada kode C++ Code](development/clang-format.md)
+* [Gaya coding](development/coding-style.md)
+* [Menggunakan clang-format pada C ++ Code](development/clang-format.md)
+* [Pengujian](development/testing.md)
 * [Struktur direktori sumber kode](development/source-code-directory-structure.md)
 * [Perbedaan teknis untuk NW.js (sebelumnya node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Membangun sistem Tinjauan](development/build-system-overview.md)
@@ -98,6 +100,6 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Debug petunjuk (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Server simbol di debugger](development/setting-up-symbol-server.md)
 * [Dokumentasi Styleguide](styleguide.md)
-* [Meningkatkan Chrome](development/upgrading-chrome.md)
+* [Mengupgrade Chromium](development/upgrading-chromium.md)
 * [Kromium pengembangan](development/chromium-development.md)
 * [Pengembangan V8](development/v8-development.md)

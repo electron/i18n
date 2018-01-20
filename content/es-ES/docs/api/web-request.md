@@ -40,7 +40,7 @@ The following methods are available on instances of `WebRequest`:
   * `details` Object 
     * `id` Íntegro
     * `url` String
-    * `method` String
+    * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -66,7 +66,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
 * `details` Object 
   * `id` Íntegro
   * `url` String
-  * `method` String
+  * `method` Cuerda
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
@@ -85,7 +85,7 @@ The `callback` has to be called with an `response` object.
   * `details` Object 
     * `id` Íntegro
     * `url` String
-    * `method` String
+    * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
@@ -101,9 +101,9 @@ The `listener` will be called with `listener(details)` just before a request is 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `details` Object 
-  * `id` String
+  * `id` Cadena
   * `url` String
-  * `method` String
+  * `method` Cuerda
   * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
@@ -125,7 +125,7 @@ The `callback` has to be called with an `response` object.
   * `details` Object 
     * `id` Íntegro
     * `url` String
-    * `method` String
+    * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -141,9 +141,9 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función 
   * `details` Object 
-    * `id` String
+    * `id` Cadena
     * `url` String
-    * `method` String
+    * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
@@ -162,7 +162,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
   * `details` Object 
     * `id` Íntegro
     * `url` String
-    * `method` String
+    * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
@@ -180,7 +180,7 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `details` Object 
     * `id` Íntegro
     * `url` String
-    * `method` String
+    * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean

@@ -1,4 +1,4 @@
-# app
+# uygulama
 
 > Uygulamanızın etkinlik ömrünü kontrol edin.
 
@@ -626,7 +626,7 @@ app.on('ready', () => {
   * `callback` Fonksiyon 
     * `sonuç` Tamsayı - sonuç alma</ul> 
   
-  Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+  Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` içe aktarma işlemi `result` ile çağırılır. `` değeri çalıştığını gösterirken herhangi başka bir değer kroma göre başarısızlığı gösterir. [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
   
   ### `app.disableHardwareAcceleration()`
   
@@ -731,8 +731,8 @@ const exeName = path.basename(process.execPath)
     * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
     * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
     * `copyright` String (seçilebilir) - telif bilgisi.
-    * `credits` String (optional) - Credit information.
-    * `version` String (optional) - The app's build version number.
+    * `credits` Dize (isteğe bağlı) - Kredi bilgileri.
+    * `version` Dize (İsteğe Bağlı) - Uygulamanın versiyon numarasını oluşturun.
   
   Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için.
   
@@ -743,7 +743,7 @@ const exeName = path.basename(process.execPath)
   
   Chromium komut satırına bir anahtar ekleyin (isteğe bağlı `değer`).
   
-  **Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+  **Note:** `process.argv`'ı etkilemez ve esas geliştiriciler tarafından düşük seviyeli bazı Krom hareketlerini kontrol etmek için kullanılır.
   
   ### `app.commandLine.appendArgument(value)`
   
@@ -761,17 +761,17 @@ const exeName = path.basename(process.execPath)
   
   ### `app.dock.bounce([type])` *macOS*
   
-  * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+  * `type` Dize (İsteğe bağlı) - `critical` veya `informational` olabilir. Varsayılan değer `informational`
   
-  When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+  `critical` geçildiğinde, dock simgesi uygulama aktifleşinceye veya istek iptal edilene kadar sıçrar.
   
-  When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+  `informational` geçildiğinde, dock simgesi bir saniyeliğine sıçrar. Ancak, uygulamaya ya aktif hale gelir ya da istek iptal olana kadar talep etkin kalır.
   
   Returns `Integer` isteği temsil eden bir kimlik.
   
   ### `app.dock.cancelBounce(id)` *macOS*
   
-  * `id` Integer
+  * `id` tamsayı
   
   `id` sıçramasını iptal et.
   

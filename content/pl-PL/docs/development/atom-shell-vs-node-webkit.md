@@ -1,22 +1,22 @@
-# Technical Differences Between Electron and NW.js (formerly node-webkit)
+# Techniczne różnice pomiędzy elektronami i NW.js (dawniej węzłami-webkit)
 
-**Note: Electron was previously named Atom Shell.**
+**Uwaga: Electron wcześniej nosił Atom powłoki.**
 
 Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+Ale istnieją również zasadnicze różnice między dwa projekty, które sprawiają, że elektron jest całkowicie oddzielnym produktem od NW.js:
 
-**1. Entry of Application**
+**1. wpis aplikacji**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+W NW.js punkt wejścia głównego aplikacji to strona sieci web lub skrypt JS. Określ plik html lub js w ` plików package.json` i jest on otwarty w oknie przeglądarki jako główne okno aplikacji (w przypadku html entrypoint) lub gdy skrypt jest wykonany.
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+W Electron, głównym punktem jest skrypt JavaScript. Zamiast podawać adres URL bezpośrednio, możesz ręcznie tworzyć okno przeglądarki i ładować pliki HTML przy użyciu interfejsu API. Musisz również słuchać wydarzeń w oknie aby decydować kiedy zamknąć aplikacje.
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron dziala bardziej jak w czasie wykonywania Node.js Interfejsy API elektronu są na niższym poziomie, więc możesz używać go do testowania zamiast [PhantomJS](http://phantomjs.org/).
 
-**2. Build System**
+**2. Budowanie systemu**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+W celu uniknięcia złożoności budowania całego Chromium, Electron używa [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) aby mieć dostęp do Zawartości Chromium Interfejsu API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
 
 **3. Node Integration**
 

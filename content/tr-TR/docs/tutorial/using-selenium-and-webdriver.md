@@ -6,7 +6,7 @@
 
 ## Spectron'u Ayarlama
 
-[Spectron](https://electron.atom.io/spectron), Electron için resmi olarak desteklenen test çatısıdır. [WebdriverIO](http://webdriver.io/) üzerinde yapılmıştır, testlerinizde Electron API'lerine erişim için yardımcı olur ve içinde ChromeDriver'ı barındırır.
+[Spectron](https://electronjs.org/spectron), Electron için resmi olarak desteklenen test çatısıdır. [WebdriverIO](http://webdriver.io/) üzerinde yapılmıştır, testlerinizde Electron API'lerine erişim için yardımcı olur ve içinde ChromeDriver'ı barındırır.
 
 ```sh
 $ npm install --save-dev spectron

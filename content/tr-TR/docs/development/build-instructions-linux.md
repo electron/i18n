@@ -6,7 +6,7 @@ Electron'u linux üzerinde inşaa etmek için aşağıdaki yönlendirmeleri taki
 
 * En az 25GB disk alanı ve 8GB hafıza.
 * Python 2.7.x. CentOS gibi bazı dağıtımlar hala Python 2.6.x kullanmakta, dolayısıyla Python versiyonunuzu `python -V` komutu ile ile kontrol edin.
-* Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](http://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
+* Node.js. Node'u kurmanın birden fazla yolu var. [nodejs.org](https://nodejs.org)'tan indirip derleyebilirsiniz. Bu şekilde Node'u kullanıcı dizinine standart bir şekilde kurabilirsiniz. Ya da [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories) gibi depoları deneyebilirsiniz.
 * [clang](https://clang.llvm.org/get_started.html) 3.4 veya sonrası.
 * GTK+ ve libnotify için geliştirme başlıkları.
 
@@ -137,15 +137,16 @@ Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımlar�
 
 ### `libchromiumcontent`'i yerelinize inşaa etme
 
-Önceden inşaa edilmiş`libchromiumcontent`'i kullanmak istemezseniz, `libchromiumcontent`'i kendiniz aşağıdaki adımlarla inşaa edebilirsiniz:
+` libchromiumcontent </ 0 > koduna ai önceden hazırlanmış ikili dosyaları kullanmaktan kaçınmak için, <code> libchromiumcontent </ 0> 'ı yerel olarak oluşturabilirsiniz. Bunu yapmak için şu adımları izleyin:</p>
 
-1. [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)'u kurun
-2. [Ek inşaa bağımlılıklarını](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies) kurun
-3. Git alt modullerini çekin:
+<ol>
+<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install">depot_tools</a>'u kurun</li>
+<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies">Ek inşaa bağımlılıklarını</a> kurun</li>
+<li>Git alt modullerini çekin:</li>
+</ol>
 
-```sh
-$ git submodule update --init --recursive
-```
+<pre><code class="sh">$ git submodule güncelleme --init - tekrar başlatma
+`</pre> 
 
 1. `--build_release_libcc` argümanını `bootstrap.py` betiğine geçin:
 
@@ -161,7 +162,7 @@ $ ./script/build.py -c R
 
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-Electron, varsayılan olarak Chromium projesi tarafından sağlanan [`clang`](https://clang.llvm.org/get_started.html) ile inşaa edilir. Eğer bir sebepten dolayı `clang` ile inşa etmek isterseniz, sisteminize kurulu, `bootstrap.py` ögesini `--clang_dir=<path>` ile arayabilirsiniz geçin. Geçiş yaparsanız, yapı komut dosyası `clang` ikililerinin `<path>/bin/` içinde bulunduğu varsayılacaktır.
+Varsayılan olarak önceden oluşturulmuş electron [`clang`](https://clang.llvm.org/get_started.html) tarafından sağlanan iki dosyalar chromium projesi. Eğer bir nedenden dolayı `clang` ile inşa etmek isterseniz sisteminize kurulu, `bootstrap.py` öğesinden `--clang_dir=<path>` öğesine geçin. Geçerek yapılan komut dosyası `clang` dillerin `<path>/bin/` içinde bulunduğu varsayılacaktır.
 
 Örneğin, `clang` 'ı `/user/local/bin/clang` dizinine yüklediyseniz:
 

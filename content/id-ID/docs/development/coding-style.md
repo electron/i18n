@@ -1,4 +1,4 @@
-# Gaya coding
+# Model coding
 
 Berikut adalah pedoman gaya untuk penulisan coding di Electron.
 
@@ -6,7 +6,7 @@ Anda dapat menjalankan `npm run lint` untuk menunjukkan macam gaya yang terdetek
 
 ## C ++ dan Python
 
-Untuk C ++ dan Python, kita mengikuti [Gaya coding](http://www.chromium.org/developers/coding-style) Chromium. Anda dapat menggunakan [clang-format](clang-format.md) untuk memformat kode C ++ secara otomatis. Ada juga script `script/cpplint.py` untuk memeriksa apakah semua file sesuai.
+Untuk C ++ dan Python, kita mengikuti [Gaya coding](https://www.chromium.org/developers/coding-style) Chromium. Anda dapat menggunakan [clang-format](clang-format.md) untuk memformat kode C ++ secara otomatis. Ada juga script `script/cpplint.py` untuk memeriksa apakah semua file sesuai.
 
 Versi Python yang kita gunakan sekarang adalah Python 2.7.
 
@@ -14,7 +14,7 @@ Kode C ++ menggunakan banyak abstraksi dan tipe Chromium, jadi disarankan untuk 
 
 ## JavaScript
 
-* Menulis [standar](http://npm.im/standard) gaya JavaScript.
+* Menulis [standar](https://npm.im/standard) gaya JavaScript.
 * Nama file harus dihubungkan dengan `-` bukan `_`, misalnya `nama-file.js` bukannya `nama_file.js`, karena di [github/atom](https://github.com/github/atom) nama-nama modul biasanya dalam bentuk berupa `nama-modul`. Aturan ini hanya berlaku untuk file-file `.js`.
 * Gunakan sintaks ES6 / ES2015 yang lebih baru yang tepat 
   * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) untuk persyaratan dan konstanta lainnya

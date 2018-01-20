@@ -2,88 +2,88 @@
 
 ## Discusión
 
-Un problema para la actualización es construir todo Electrón solo con una copia de V8 para asegurar la compatibilidad. Esto es importante porque tanto el nodo ascendente como el contenido de ibchromium usan sus propias versiones de V8.
+Un problema para la actualización es construir todo Electrón solo con una copia de V8 para asegurar la compatibilidad. Esto es importante debido a que tanto el nodo ascendente y el [libchromiumcontent](upgrading-chromium.md) usan sus propias versiones de V8.
 
 Actualizar el Nodo es mucho más fácil que actualizar el contenido de Libchromium, por lo que se producen menos problemas si se actualiza primero el contenido de Libchromium, y luego se elige la versión del Nodo ascendente cuyo V8 está más cerca de él.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Electron tiene su propio [Node fork](https://github.com/electron/node) con modificaciones para los detalles de construcción del V8 mencionados anteriormente y para exponer el API necesitado por Electron. Una vez que se elija la liberación del nodo ascendente, es colocado en una ramificación en la bifurcación del Nodo de Electron y cualquier parche del Nodo del Electron son colocados ahí.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+Otro factor es que el proyecto del Nodo arregla su versión V8. Como es mencionado anteriormente, Electron construye todo con una sola copia de V8, así que los parches V8 de Nodo deben ser presentados a esa copia.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+Una vez que todas las dependencias de Electron están construyendo y usando la misma copia V8, el siguiente paso es arreglar cualquier problema de código de Electron causado por la actualización del Nodo.
 
-[FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
+[FIXME] Algo acerca de un depurador del Nodo que (e.g. deepak) usemos y necesitemos confirmar no rompa con la actualización del Nodo?
 
-So in short, the primary steps are:
+En resumidas cuentas, los principales pasos son:
 
-1. Update Electron's Node fork to the desired version
-2. Backport Node's V8 patches to our copy of V8
-3. Update Electron to use new version of Node 
-  - Update submodules
-  - Update Node.js build configuration
+1. Actualizar la bifurcación del Nodo de Electron a la versión deseada
+2. Hacerle un backport a los parches V8 del Nodo a nuestra copia V8
+3. Actualiza Electron para usar la nueva versión de Nodo 
+  - Actualiza los submódulos
+  - Actualiza la configuración de construcción de Node.js
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Actualizando la [bifurcación](https://github.com/electron/node) del Nodo del Electrón
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
-  - `vX.X.X` Must use a version of node compatible with our current version of chromium
-3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
-    2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
-    1. `git add <conflict-file>`
-    2. `git cherry-pick --continue`
-    3. Repeat until finished
+1. Asegúrate que el `maestro` en `electron/nodo` ha actualizado las etiquetas de liberación de `nodejs/nodo`
+2. Crea una ramificación en https://github.com/electron/node: `electron-node-vX.X.X` la base en la que está ramificando es la etiqueta para la actualización deseada 
+  - `vX.X.X` debe usar la versión de nodo compatible con nuestra versión actual de chromium
+3. Volver a aplicar nuestros encomendares de la versión anterior del nodo que estábamos usando (`vY.Y.Y`) to `v.X.X.X` 
+  - Revise la etiqueta de liberación y selecciona el rango de encomendares que necesitamos para volver a aplicar
+  - Escoger el rango de encomendares: 
+    1. Revisa los `vY.Y.Y` & `v.X.X.X`
+    2. `escoge FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
+  - Resuelve los conflictos de fusión en cada una de las filas encontradas, entonces: 
+    1. `git agrega <conflict-file>`
+    2. `git elige --continuar`
+    3. Repite hasta haber terminado
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## Actualizando Parches [V8](https://github.com/electron/node/src/V8)
 
-We need to generate a patch file from each patch applied to V8.
+Necesitamos generar un archivo de parche para cada uno de los parches aplicados al V8.
 
-1. Get a copy of Electron's libcc fork 
+1. Consigue una copia de la bifurcación libcc de Electron 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
-  - This will be time-consuming
-3. Remove our copies of the old Node v8 patches 
-  - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
-  - Remove those files from `patches/v8/`: 
-    - `git rm` the patchfiles
-    - edit `patches/v8/README.md`
-    - commit these removals
-4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
+2. Ejecuta `script/update` para obtener el último libcc 
+  - Esto te consumirá mucho tiempo
+3. Remueve nuestras copias del viejo parche del Nodo V8 
+  - (En el repo de libchromiumcontent) Lee `patches/v8/README.md`para ver cuáles archivos de parches fueron creados durante la última actualización
+  - Remueve esos archivos de `parches/v8/`: 
+    - `git rm` los parches de archivos
+    - edita `patches/v8/README.md`
+    - cometer estas eliminaciones
+4. Inspecciona Nodo [repo](https://github.com/electron/node) para ver qué parches del Nodo ascendente usados con sus V8 luego de botar su versión 
   - `git log --oneline deps/V8`
-5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
-6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
-  - Delete each patchfile referenced in `patches/v8/README.md`
-7. For each patch, do: 
-  - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` is an incremented three-digit number (to force patch order)
-    - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
-  - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
-    - If a diff section has no instances of `deps/V8`, remove it altogether. 
-      - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
-      - This is needed because upstream Node keeps its V8 files in a subdirectory
-  - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
-  - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Create a new copy of the patch: 
+5. Crea una lista de los parches. Esto es bastante útil para seguir tu trabajo y para tener una rápida referencia de realizar hashes que usar en el siguiente paso `git diff-tree`.
+6. Lee `patches/v8/README.md` para ver cuáles archivos de parches de la anterior versión de V8 y, por lo tanto, necesitan ser removidos. 
+  - Elimina cada archivo de parche de `patches/v8/README.md`
+7. Para cada parche, realice: 
+  - (En el repo del nodo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
+    - `xxx` es un número de tres dígitos incrementado (para forzar el orden del parche)
+    - `patch_name`debería coincidir con los mensajes realizados del nodo, e.g. `030-cherry_pick_cc55747,patch` si los mensajes realizados del nodo eran "cherry-pick cc55747"
+  - (recordatorio de los pasos en libchromium repo) Edita manualmente el `.parche` archivo para que coincida con el directorio V8 ascendente: 
+    - Si una sección de diff no tiene instancias de `deps/V8`, elimínalo todo. 
+      - No queremos esos parches porque solo estamos usando el parche V8.
+    - Reemplaza instancias de `a/deps/v8/filename.ext` con `a/filename.ext` 
+      - Esto es necesario porque el nodo ascendente mantiene sus archivos V8 en un subdirectorio
+  - Asegura que el estatus local esté limpio: `git status` para asegurarse de que no haya cambios.
+  - Confirma que el parche se aplique limpiamente con `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
+  - Crea una nueva copia del parche: 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - This is needed because the first patch has Node commit checksums that we don't want
-  - Confirm that checksums are the only difference between the two patches: 
+    - Esto es necesario debido a que el primer parche ha realizado sumas de comprobación en el Nodo que no queremos
+  - Confirma que las sumas de comprobación son la única diferencia entre dos parches: 
     - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Replace the old patch with the new: 
+  - Reemplaza el viejo parce con el nuevo: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Add the patched code to the index *without* committing: 
+  - Agrega el código con el parche al índice *sin* realizar: 
     - `cd src/v8 && git add . && cd ../..`
-    - We don't want to commit the changes (they're kept in the patchfiles) but need them locally so that they don't show up in subsequent diffs while we iterate through more patches
-  - Add the patch file to the index: 
-    - `git add a patches/v8/`
-  - (Optionally) commit each patch file to ensure you can back up if you mess up a step: 
-    - `git commit patches/v8/`
-8. Update `patches/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
-9. Update Electron's submodule references: 
-      sh
+    - No queremos realizar cambios (estos se mantienen en el archivo de los parches) pero se necesitan localmente para que no se aparezcan de manera subsecuente mientras que interactuamos a través de más parches
+  - Agrega el archivo de parches al índice: 
+    - `git agregar a patches/v8/`
+  - (Opcionalmente) realiza cada archivo de parche para asegurar que puedes respaldar si te equivocas en algún paso: 
+    - `git realizar patches/v8/`
+8. Actualiza `patches/v8/README.md` con referencias a todos los nuevos parches que han sido agregados para que la siguiente persona sepa cuál debe ser eliminado.
+9. Actualiza los submódulos de referencia de Electron: 
+      h
       $ cd electron/vendor/node
       electron/vendor/node$ git fetch
       electron/vendor/node$ git checkout electron-node-vA.B.C
@@ -99,17 +99,17 @@ We need to generate a patch file from each patch applied to V8.
 
 ## Notas
 
-- libcc and V8 are treated as a single unit
-- Node maintains its own fork of V8 
-  - They backport a small amount of things as needed
-  - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of electron 
-  - E.g electron, libcc, and node
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a node version bump in electron.
-- libcc is large and time-consuming to update, so we typically choose the node version based on which of its releases has a version of V8 that’s closest to the version in libcc that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
-  - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
-    - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
+- libcc y V8 son tratados como una unidad simple
+- Los nodos mantiene su propia bifurcación de V8 
+  - Ellos le hacen backport a una pequeña cantidad de cosas, cuanto sean necesitadas
+  - La documentación en el nodo acerca de cómo [funcionan con V8](https://nodejs.org/api/v8.html)
+- Actualizamos el código para que solo usemos una copia de V8 a través de electron 
+  - E.g electron, libcc, y nodo
+- No rastreamos el stream ascendente debido a logística: 
+  - El Stream ascendente usa múltiples repos, por lo que fusionarse con un solo repo resultaría en una pérdida de historia. Así que solo actualizamos cuando estamos planeando botar una versión de nodo en electron.
+- libcc es largo y consume mucho tiempo para actualizar, así que típicamente elegimos la versión del nodo basados en cuál de sus lanzamientos tiene una versión de V8 que esté más cerca en libcc que la que estamos usando. 
+  - A veces tenemos que esperar para el siguiente lanzamiento periódico del nodo porque se sincronizará más acercadamente con la versión V8 en el nuevo libcc
+  - Electron mantiene todos sus parches en libcc debido a que es más simple que mantener diferentes repos para parches por cada uno de los proyectos ascendentes. 
+    - Crashpad, nodo, libcc, etc. parches se mantienen en el mismo lugar
+  - Construyendo un nodo: 
+    - Existe una probabilidad de que necesitemos cambiar la configuración para que coincida con las banderas de construcción que el nodo quiere en `node/common.gypi`
