@@ -29,13 +29,13 @@ Kapag nabuo tulad nito, maaaring gumawa ng mga pagbabago sa mga file na nakapalo
 $ ./script/build.py -c D --libcc
 ```
 
-Kapag pinapaunlad ang linux gamit ang gdb, pinapayuhang magdagdag ng gdb index para sa mabilis na pagkarga ng mga simbolo. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+Kapag pinapaunlad ang linux gamit ang gdb, pinapayuhang magdagdag ng talatuntunan ng gdb upang mapabilis na pagkarga ng mga simbolo. Ito ay di nangangailangan na maipakita sa bawat na nabubuo, pero pinapayuhang gamitin ito kahit isang beses para matuntunan ang pinaka-shared libraries:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+Ang pagbuo ng libchromiumcontent ay nangangailangan ng pinakamabisang makina at nagtatagal ng mahabang panahon (kahit pa mapabilis ang pagdagdag ng muling nagawa sa bahagi ng shared library). Gamit ang 8-core/16-thread Ryzen 1700 na pumapalo sa 3ghz, ang mabilis na SSD at 32GB ng RAM, ito ay tumatagal ng mga apatnapung minuto. Hindi pinahihintulutan na gumawa ng mas mababa sa 16GB ng RAM.
 
 ## Chromium git cache
 
