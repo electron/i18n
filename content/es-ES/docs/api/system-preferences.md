@@ -157,24 +157,24 @@ si (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+Devuelve `Cadena` - El sistema actual de usuarios amplía el acento del color de preferencia en la forma hexadecimal de RGBA.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
-const red = color.substr(0, 2) // "aa"
-const green = color.substr(2, 2) // "bb"
-const blue = color.substr(4, 2) // "cc"
+const rojo = color.substr(0, 2) // "aa"
+const verde = color.substr(2, 2) // "bb"
+const azul = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
-  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-  * `3d-highlight` - Highlight color for three-dimensional display elements.
-  * `3d-light` - Light color for three-dimensional display elements.
-  * `3d-shadow` - Shadow color for three-dimensional display elements.
+* `color` Cadena - Uno de los siguientes valores: 
+  * `3d-dark-shadow` - Sombra oscura para elementos de tres dimensiones mostrados.
+  * `3d-face` - Color facial para elementos de tres dimensiones mostrados y para cuadro de fondos de las caja de diálogo.
+  * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
+  * `3d-light` - Color claro para elementos de tres dimensiones mostrados.
+  * `3d-shadow` - Color oscuro para elementos de tres dimensiones mostrados.
   * `active-border` - Active window border.
   * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
   * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
