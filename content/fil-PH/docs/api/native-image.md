@@ -202,19 +202,19 @@ Nagmamarka ng imahe bilang template image.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Nagbabalik `Boolean` - Kung ang imahe ay isang template image. 
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* `rect` [Rectangle](structures/rectangle.md) -Ang lugar kung saan ika-crop ang imahe. 
 
-Returns `NativeImage` - The cropped image.
+Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (optional) - Default sa lapad ng imahe. * `height` Integer (optional) - Default sa taas ng imahe * `quality` String (optional) - Ang nais na kalidad sa imaheng binago ang laki. Posibleng halaga ay mga `good`, `better` or `best`. Ang default ay `best`. Ang mga halagan ito ay nagpapahayag ng ninais na kalidad/bilis ng tradeooff. Ito ay isinalin sa algorithm-specific na paraan na nag depende sa kapabilidad (CPU, GPU) sa pinagbatayan na platform. Ito ay posible sa lahat ng tatlong pamamaraan na mai-map sa parehong algorithm sa binigay na platform. 
 
-Returns `NativeImage` - The resized image.
+Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 
 If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
