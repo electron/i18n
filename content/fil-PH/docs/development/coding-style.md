@@ -6,9 +6,9 @@ Maaari mong paganahin ang `npm run lint` upang maipakita ang anumang istilo ng m
 
 ## C++ and Python
 
-Para sa C++ at Python, tayo ay sumusunod sa [Coding Style](https://www.chromium.org/developers/coding-style) ng Chromium. You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Para sa C++ at Python, tayo ay sumusunod sa [Coding Style](https://www.chromium.org/developers/coding-style) ng Chromium. Maaaring gamitin ang [clang-format](clang-format.md) upang kusang iayos ang code ng C++. Mayroon ding isang script na `script/cpplint.py` upang malaman kung ang lahat ng file ay nakasunod.
 
-The Python version we are using now is Python 2.7.
+Ang Python 2.7 ay bagong bersyon na ating ginagamit ngayon.
 
 The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
