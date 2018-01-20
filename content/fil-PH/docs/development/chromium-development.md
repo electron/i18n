@@ -1,4 +1,4 @@
-# Chromium Development
+# Pagpapaunlad ng Chromium
 
 > A collection of resources for learning about Chromium and tracking its development
 
