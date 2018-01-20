@@ -602,11 +602,11 @@ Binuksan ang lahat ng mga trangka na ginawa ng `makeSingleInstance`. Pinapayagan
 * `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
 * `webpageURL` String (opsyonal) - ay ang webpage sa isang browser na ilo-load kung walang angkop na app ang naka-install sa aparatong nagpasimulang muli. Ang dapat na pamamaraan ay `http` o `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Ay lumilikha ng isang `NSUserActivity` at ito ang nagtatakda bilang kasalukuyang aktibidad. Ang aktibidad ay karapat-dapat para sa [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sa iba pang aparato pagkatapos nito.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Nagbabalik ang `String` - Ang uri ng kasalukuyang aktibidad na tumatakbo.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
