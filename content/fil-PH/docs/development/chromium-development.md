@@ -23,13 +23,13 @@ $ ./script/bootstrap.py -d --build_debug_libcc
 
 Gamit ang code sa itaas, makukuha at mabubuo ang lokal na libchromiumcontent, tulad sa `--build_release_libcc`, ngunit ito ay lilikha ng shared library na gawa sa libchromiumcontent at hindi magtatanggal ng kahit anumang mga simbolo, na syang magagamit para sa paghahanap o pagtatanggal ng mga mali.
 
-When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
+Kapag nabuo tulad nito, maaaring gumawa ng mga pagbabago sa mga file na nakapaloob sa`vendor/libchromiumcontent/src`at muling buuin ng madali gamit ang:
 
 ```sh
 $ ./script/build.py -c D --libcc
 ```
 
-When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+Kapag pinapaunlad ang linux gamit ang gdb, pinapayuhang magdagdag ng gdb index para sa mabilis na pagkarga ng mga simbolo. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
