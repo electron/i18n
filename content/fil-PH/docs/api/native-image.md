@@ -216,7 +216,7 @@ Nagbabalik sa`NativeImage` - Ang naka-crop na imahe.
 
 Nagbabalik `NativeImage` - Ang imaheng nibago ang laki.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng aspeto ay mapapangalagaan sa imaheng binago ang laki.
 
 #### `image.getAspectRatio()`
 
