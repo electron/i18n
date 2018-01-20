@@ -43,18 +43,18 @@ Sa Windows, pwede ka ring mag load ng `ICO` icons galing sa file paths. Para pin
  * 64x64 (200% DPI scale) 
 * 256x256
 
-Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
+Itsek ang *Size requirements* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## High Resolution Image
+## Mataas na Resolusyong Imahe 
 
-On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
+Sa platform na may high-DPI support katulod ng Apple Retina displays, pwede kang magdagdag ng `@2x` pagkatapos ng image's base filename para markahan ito bilang mataas na resolusyong imahe. 
 
-For example if `icon.png` is a normal image that has standard resolution, then `icon@2x.png` will be treated as a high resolution image that has double DPI density.
+Halmibawa kung `icon.png` ay normal na imahe na may standard na resolusyon, pagkatapos ay `icon@2x.png` ito ay mabibilang na mataas na resolusyong imahe na mayroong dobleng DPI density.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+Kung gusto mong sumuporta ng displey nay mag magkaibang DPI densities na magkasabay, pwede kang maglagay ng imahe na may iba-ibang laki sa parehong folder at gamitin ang filename sa walang DPI suffixes. Halimbawa:
 
 ```text
-images/
+imahe/
 ├── icon.png
 ├── icon@2x.png
 └── icon@3x.png
@@ -66,13 +66,13 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+Ang mga sumusunod na suffixes ng DPI ay suportado rin.
 
 * `@1x`
 * `@1.25x`
 * `@1.33x`
 * `@1.4x`
-* `@1.5x`
+* `@1.4x`
 * `@1.8x`
 * `@2x`
 * `@2.5x`
