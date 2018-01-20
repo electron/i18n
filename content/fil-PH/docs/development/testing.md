@@ -14,8 +14,8 @@ Upang matiyak na ang iyong C++ ay sumusunod sa estilo ng pagko code ng Electron,
 
 Walang masyadong Phyton sa imbakan na ito, ngunit ito rin ay pinamamahalaan ng mga tuntunin ng istilo ng pag ko code.`npm run lint-py`ay titignan ang lahat ng Phyton gamit ang `pylint` upang gawin ito.
 
-## Unit Tests
+## Pagsusuri ng unit
 
-To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+Para patakbuhin ang lahat ng pagsusuri ng unit, patakbuhin ang `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
 
 To run only a selected number of tests, run `npm run test -match=NAME`, replacing the `NAME` with the file name of the test suite you would like to run. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
