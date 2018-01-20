@@ -1,10 +1,10 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Gumawa ng trey, pantalan, at aplikasyon na icon gamit ang PNG o JPG files.
 
-Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
+Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` mga pagkakataon. Ang walang laman na imahe ay gagamitin kung `null` ay maipasa.
 
 For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
 
