@@ -16,9 +16,9 @@ Ang `menu` na object ay mga sumusunod na paraan ng static:
 
 * `menu` Menu
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux, ang `menu<0/> ang magtatakda sa bawat window's sa taas ng menu.</p>
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+<p>Passing <code>null` will remove the menu bar on Windows and Linux but has no effect on macOS.
 
 **Note:** This API has to be called after the `ready` event of `app` module.
 
