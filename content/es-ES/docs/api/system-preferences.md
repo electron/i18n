@@ -116,12 +116,12 @@ Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `llave` Cadena
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
-* `value` String
+* `type` Cadena - Ver [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `value` Cadena
 
-Set the value of `key` in system preferences.
+Establecer el valor de `key` en las preferencias del sistema.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+Nota que `type` debería coincidir el tipo actual de `value`. Una excepción es arrojada si no es así.
 
 Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
 
@@ -129,7 +129,7 @@ Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) está habilitada, y `false` de lo contrario.
 
 An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
