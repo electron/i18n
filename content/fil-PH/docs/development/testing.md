@@ -6,11 +6,11 @@ Ang imbakang ito ay mayroon nang kasamang panaling tuntunin para sa parehong Jav
 
 ## Linting
 
-Upang matiyak na ang iyong JavaScript ay sumusunod sa estilo ng pag co code ng Electron, paganahin ang run `npm run lint-js`, kung saan pagaganahin ang `standard` salungat sa kapwa Electron paati narin ang mga pagsusuri sa yunit. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](standard-addons) to be informed of coding style violations before you ever commit them.
+Upang matiyak na ang iyong JavaScript ay sumusunod sa estilo ng pag co code ng Electron, paganahin ang run `npm run lint-js`, kung saan pagaganahin ang `standard` salungat sa kapwa Electron paati narin ang mga pagsusuri sa yunit. Kung ikaw ay gumagamit ng editor na may sistema na plugin/addon, maaari mo ring gamitin ang isa sa maraming [StandardJS addons](standard-addons) na nagpapaalam ng mga paglabag sa pag co code bago mo man ito magawa.
 
-To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
+Para paganahin `standard` na may parameter; paganahin `npm run lint-js --` kasunod nito ay ang mga katwiran na gusto mong ipatupad `standard`.
 
-To ensure that your C++ is in compliance with the Electron coding style, run `npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+Upang matiyak na ang iyong C++ ay sumusunod sa estilo ng pagko code ng Electron, paganahin ang `npm run lint-cpp`, na nagpapagana ng isang `cpplint` script. Inirerekomenda namin na inyong gamitin ay ang `clang-format` at maghanda ng [isang maiksing tutorial](clang-format.md).
 
 There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
