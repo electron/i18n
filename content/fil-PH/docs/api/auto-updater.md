@@ -10,16 +10,16 @@ Maaari mong mabilis na ilunsad ang isang multi-platform release server para sa p
 
 * [nuts](https://github.com/GitbookIO/nuts):*Ang smart release server para sa iyong mga applikasyon, gamit ang Github bilang isang backend. Nag a update ng automatiko sa Squirrel (Mac & Windows)*
 * [electron-release-server](https://github.com/ArekSredzki/electron-release-server):* Isang ganap at tampok, na mayroong sariling naka-host release server para sa mga aplikason ng electron, magkabagay sa auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server):* Isang simpleng node.js server para sa Squirrel.Mac at Squirrel.Windows na kung saan gumagamit ng inilabas ng Github*
+* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server):*Isang simpleng PHP na applikasyon para sa Squirrel.Windows na nagbabasa ng mga update mula sa isang folder. Supports delta updates.*
 
 ## Babala sa plataporma
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+Bagama't ang `autoUpdater` ay nagbibigay ng isang magkaparehong API para sa iba't ibang plataporma, mayroon pa rin ilang mga bahagyang pagkakaiba sa bawat plataporma.
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+Sa macOS, ang `autoUpdater` na modyul ay ginawa [sa Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), ibig sabihin hindi mo kailangan ng kahit anong espesyal na set-up para mapagana ito. Para sa mga kinakailangan ng panig ng server, maari mong basahin ang [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Tandaan lamang na ang [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35)(ATS) ay nalalapat sa lahat ng mga kahilingan na ginawa bilang bahagi ng proseso ng pag-update. Ang mga apps na kailangan hindi isama sa ATS ay maaaring idadag sa susi ng `NSAllowsArbitraryLoads` para sa kanilang app plist.
 
 **Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
