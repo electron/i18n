@@ -6,7 +6,7 @@ Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-
 
 Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` mga pagkakataon. Ang walang laman na imahe ay gagamitin kung `null` ay maipasa.
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+Halimbawa, kung gagawa ng trey o pagtatakda sa window's icon, pwede mong ipasa ang file path ng imahe bilang `String`:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+O basahin ang imahe mula sa klipbord na nagbabalik sa `NativeImage`:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
@@ -25,22 +25,22 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## Suportadong Pormat 
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+Sa kasalukuyan `PNG` and `JPEG` ipormat ng imahe ay suportad. `PNG` ay inirerekomenda dahil ito ay sumusuporta sa aninaw at walang pagkakawalang compression.
 
-On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
+Sa Windows, pwede ka ring mag load ng `ICO` icons galing sa file paths. Para pinakamahusay na biswal na kalidad, nirerekomenda ang pag sama sa mga sumusunod na laki sa:
 
-* Small icon 
+* Maliit na icon 
  * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
  * 32x32 (200% DPI scale)
-* Large icon 
- * 32x32 (100% DPI scale)
+* Malaking Icon 
+ * 32x32 (100% DPI scale) 
  * 40x40 (125% DPI scale)
  * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale)
+ * 64x64 (200% DPI scale) 
 * 256x256
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
