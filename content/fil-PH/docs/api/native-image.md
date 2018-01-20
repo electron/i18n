@@ -84,24 +84,26 @@ Ang mga sumusunod na suffixes ng DPI ay suportado rin.
 
 Ang template image ay binubuo ng itim at malinaw na kulay (at ang aplha channel). Ang template images ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+Ang pinaka karaniwang kaso ay ang paggamit ng template images para sa menu bar icon upang maakma sa kapwa maliwanag at madilim na menu bars.
 
-**Note:** Template image is only supported on macOS.
+**Note:** Template image ay suportado lamang ng macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+Para markahan ang imahe bilang template image, ang filename at dapat magtatapos sa salitang `Template`. Halimbawa:
 
 * `xxxTemplate.png`
-* `xxxTemplate@2x.png`
+* `xxxTemplate@2x.png
+
+`
 
 ## Pamamaraan
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+Ang ` nativeimage ` modyul ay may mga sumusunod na pamamaraan, lahat ng ito ay bumalik sa isang halimbawa ng `NativeImage` na klase:
 
 ### `nativeImage.createEmpty()`
 
 Returns `NativeImage`
 
-Creates an empty `NativeImage` instance.
+Gumawa ng walang lamang `NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
@@ -109,7 +111,7 @@ Creates an empty `NativeImage` instance.
 
 Returns `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+Gumawa ng bagong 0>NativeImage</code> instance mula sa file na matatagpuan sa `path`. Ang pamamaraan ay bumabalik ng walang lamang imahe kapag ang `path` ay hindi umiiral, hindi mababasa or walang bisang imahe. 
 
 ```javascript
 const nativeImage = require('electron').nativeImage
