@@ -1,14 +1,14 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Recuperar información acerca del tamaño de la pantalla, posiciones del cursor, posiciones, etc.
 
 Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let {screen} = require('electron')` no funcionará.
 
 An example of creating a window that fills the whole screen:
 
