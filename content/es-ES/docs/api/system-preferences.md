@@ -193,16 +193,16 @@ const alpha = color.substr(6, 2) // "dd"
   * `info-background` - Color de fondo para control de información de herramientas.
   * `info-text` - Color de texto para controles de información de herramientas.
   * `menu` - Fondo del menú.
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+  * `menu-highlight` - El color usado para resaltar los objetos del menú cuando el menú aparece como un menú plano.
+  * `menubar` - El color de fondo para la barra del menú cuando los menús aparecen como menús planos.
+  * `menu-text` - Textos en menús.
+  * `scrollbar` - Desplazar la barra en el área gris.
+  * `window` - Fondo de la ventana.
+  * `window-frame` - Cuadro de ventana.
+  * `window-text` - Texto en ventanas.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Ver el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) para más detalles.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Devuelve `Boolean` - `true` si un esquema de color invertido, como un tema de alto contraste, es activo, `false` de lo contrario.
