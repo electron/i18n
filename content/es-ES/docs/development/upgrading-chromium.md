@@ -90,13 +90,13 @@ Si hay algún error de compilaciones relacionados con el Crashpad, probablemente
 
 ## Actualizando NodeJS
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+Actualizar `vendor/node` al lanzamiento del nodo que corresponda a la versión v8 usada en el nuevo lanzamiento de Chromium. Vea la versión v8 en el nodo
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+Vea [Actualizando nodo](upgrading-node.md) para instrucciones de cómo hacer eso.
 
-## Verify ffmpeg support
+## Verifique el soporte a ffmpeg
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron es entregado con una versión de `ffmpeg` que incluye el codecs del propietario por defecto. Una versión sin este codecs es estructurada y distribuida con cada lanzamiento. Cada actualización de Chrome debe verificar que cambia de esta versión todavía está soportado.
 
 Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por la carga de la página siguiente. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
 
