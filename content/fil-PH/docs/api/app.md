@@ -594,7 +594,7 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Binuksan ang lahat ng mga trangka na ginawa ng `makeSingleInstance`. Pinapayagan nito ang maramihang mga instansya ng mga aplikasyon na gumanang muli ng magkakatabi.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
