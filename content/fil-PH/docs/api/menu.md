@@ -1,14 +1,14 @@
 ## Class: menu
 
-> Create native application menus and context menus.
+> Lumikha ng katutubong menu ng application at menu ng konteksto.
 
 Proseso: [Main](../glossary.md#main-process)
 
-### `new Menu()`
+### `bagong menu()`
 
-Creates a new menu.
+Gumawa ng bagong menu.
 
-### Static Methods
+### Mga paraan ng static
 
 The `menu` class has the following static methods:
 
