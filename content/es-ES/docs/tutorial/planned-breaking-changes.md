@@ -25,10 +25,10 @@ let windowB = new BrowserWindow(optionsB)
 ```
 
 ```js
-// Deprecated
+// Cambiar
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Reemplazar con
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -36,24 +36,24 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+// Cambiar
 clipboard.readRtf()
-// Replace with
+// Reemplazar con
 clipboard.readRTF()
 
-// Deprecated
+// Cambiar
 clipboard.writeRtf()
-// Replace with
+// Reemplazar con
 clipboard.writeRTF()
 
-// Deprecated
+// Cambiar
 clipboard.readHtml()
-// Replace with
+// Reemplazar con
 clipboard.readHTML()
 
-// Deprecated
+// Cambiar
 clipboard.writeHtml()
-// Replace with
+// Reemplazar con
 clipboard.writeHTML()
 ```
 
@@ -196,12 +196,12 @@ Replace with: https://atom.io/download/electron
 
 ## Duplicado de brazo ARM
 
-Cada lanzamiento de Electron incluye dos estructuras ARM idénticas con pequeña diferencias en el nombre de sus archivos, como `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Cada lanzamiento de Electron incluye dos estructuras ARM idénticas con pequeña diferencias en el nombre de sus archivos, como `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. El brazo con el prefijo `v7l` fue añadido para aclarar a los usuarios cuál versión de ARM soportaba, y para definir para un futuro los brazos armv6l y arm64 que sean producidos.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+El archivo *sin el prefijo* todavía está siendo publicado para evitar romper alguna configuración que lo esté usando. Con el 2.0, el archivo sin el prefijo no será publicado.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Para obtener más información, vea [6986](https://github.com/electron/electron/pull/6986) y [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## Comentarios `Arreglar`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+La cadena `Arreglar` es usada en los comentarios del código para señalar cosas que deben ser arregladas para el lanzamiento del 2.0. Vea https://github.com/electron/electron/search?q=fixme
