@@ -622,9 +622,9 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `callback` Function 
   * `result` Integer - Ang resulta ng pag-import.
 
-Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
 
-### `app.disableHardwareAcceleration()`
+### `ang app.disableHardwareAcceleration()`
 
 Disables hardware acceleration for current app.
 
