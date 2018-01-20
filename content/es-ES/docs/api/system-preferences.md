@@ -131,26 +131,26 @@ Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
 
 Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) está habilitada, y `false` de lo contrario.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Un ejemplo de usarlo para determinar si deberías crear una ventana transparente o no (las ventanas transparentes no funcionarán correctamente cuando la composición de DWM está deshabilitada):
 
 ```javascript
-const {BrowserWindow, systemPreferences} = require('electron')
+onst {BrowserWindow, systemPreferences} = requiere('electron')
 let browserOptions = {width: 1000, height: 800}
 
-// Make the window transparent only if the platform supports it.
-if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
-  browserOptions.transparent = true
-  browserOptions.frame = false
+// Haz la ventana transparente solo si la plataforma los soporta.
+si (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
+  browserOptions.transparent = verdad
+  browserOptions.frame = falso
 }
 
-// Create the window.
-let win = new BrowserWindow(browserOptions)
+// Crea la  ventana.
+dejar ganar = VentanadeBuscador(Opcionesdebuscador)
 
-// Navigate.
-if (browserOptions.transparent) {
+// Navegar.
+si (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
+ // No hay transparencia, así que cargamos un retroceso que usa estilos básicos.
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
