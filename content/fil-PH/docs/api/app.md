@@ -577,17 +577,17 @@ let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
   // May isang tao na sinubukang paandarin ang ikalawang instansya, kailangan nating i-pokus ang ating window.
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
+  kung ang (myWindow) {
+    kung ang (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
   }
 })
 
-if (isSecondInstance) {
+kung ang (isSecondInstance) {
   app.quit()
 }
 
-// Create myWindow, load the rest of the app, etc...
+// Gumawa ng  myWindow, i-load ang natitira pang mga app, atbp...
 app.on('ready', () => {
 })
 ```
