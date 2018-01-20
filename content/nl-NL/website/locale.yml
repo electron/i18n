@@ -109,7 +109,7 @@ pages:
     description: API reference documentation for the latest Electron release
   '/docs/development':
     title: Ontwikkeling
-    description: Developing with Electron
+    description: Ontwikkelen met Electron
   '/docs/tutorial':
     title: Tutorial
     description: Guides and tutorials for the latest Electron release
