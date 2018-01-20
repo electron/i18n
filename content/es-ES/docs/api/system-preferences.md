@@ -181,18 +181,18 @@ const alpha = color.substr(6, 2) // "dd"
   * `app-workspace` - Color de fondo de múltiples documentos de aplicaciones de interfase.
   * `button-text` - Texto en los botones de presión.
   * `caption-text` - Textos en subtítulos, tamaño de la caja y la barra de desplazamiento de la caja de flecha.
-  * `desktop` - Desktop background color.
-  * `disabled-text` - Grayed (disabled) text.
-  * `highlight` - Item(s) selected in a control.
-  * `highlight-text` - Text of item(s) selected in a control.
-  * `hotlight` - Color for a hyperlink or hot-tracked item.
-  * `inactive-border` - Inactive window border.
-  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-  * `inactive-caption-text` - Color of text in an inactive caption.
-  * `info-background` - Background color for tooltip controls.
-  * `info-text` - Text color for tooltip controls.
-  * `menu` - Menu background.
+  * `desktop` - Color de fondo del escritorio.
+  * `disabled-text` - Gris (desactivado) texto.
+  * 0>highlight</code> - objeto(s) seleccionados en un control.
+  * `highlight-text` - Texto de objeto(s) seleccionados en un control.
+  * `hotlight` - Color para un hiperlink o un muy rastreado objeto.
+  * `inactive-border` - Borde de ventana inactivo.
+  * `inactive-caption` - Subtítulo de ventana inactivo. Especifica el color del lado izquierdo en el tono de color de una barra de título de una ventana inactiva si el efecto de tono está habilitado.
+  * `inactive-caption-gradient` - Color del lado derecho en el tono de color de un título de barra de una ventana inactiva.
+  * `inactive-caption-text` - Color del texto en un subtítulo inactivo.
+  * `info-background` - Color de fondo para control de información de herramientas.
+  * `info-text` - Color de texto para controles de información de herramientas.
+  * `menu` - Fondo del menú.
   * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
   * `menubar` - The background color for the menu bar when menus appear as flat menus.
   * `menu-text` - Text in menus.
