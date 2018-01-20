@@ -4,19 +4,19 @@
 
 Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+No puedes requerir o usar este módulo hasta que el evento `ready` de el módulo `app` sea emitido.
 
 `screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 **Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let {screen} = require('electron')` no funcionará.
 
-An example of creating a window that fills the whole screen:
+Un ejemplo de crear una ventana que llene toda la pantalla:
 
 ```javascript
 const electron = require('electron')
 const {app, BrowserWindow} = electron
 
-let win
+dejar ganar
 
 app.on('ready', () => {
   const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
@@ -25,10 +25,10 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+Otro ejemplo de crear una ventana el display externo es:
 
 ```javascript
-const electron = require('electron')
+onst electron = require('electron')
 const {app, BrowserWindow} = require('electron')
 
 let win
@@ -51,35 +51,35 @@ app.on('ready', () => {
 
 ## Eventos
 
-The `screen` module emits the following events:
+El módulo `screen` emite los siguientes eventos:
 
-### Event: 'display-added'
+### Evento: 'display-added'
 
 Devuelve:
 
 * `evento` Evento
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Emitido cuando `newDisplay` ha sido añadido.
 
-### Event: 'display-removed'
+### Evento: 'display-removed'
 
 Devuelve:
 
 * `evento` Evento
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Emitido cuando `oldDisplay` ha sido eliminado.
 
-### Event: 'display-metrics-changed'
+### Evento: 'display-metrics-changed'
 
 Devuelve:
 
 * `evento` Evento
 * `display` [Display](structures/display.md)
-* `changedMetrics` String[]
+* `changedMetrics` Cadena[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Emitido cuando o más métricos cambian en un `display`. El `changedMetrics` es un arreglo de cadenas que describen los cambios. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Métodos
 
