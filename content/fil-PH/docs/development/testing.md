@@ -18,4 +18,4 @@ Walang masyadong Phyton sa imbakan na ito, ngunit ito rin ay pinamamahalaan ng m
 
 Para patakbuhin ang lahat ng pagsusuri ng unit, patakbuhin ang `npm run test`. Ang yunit na pagsusulit ay isang elektron app (nagulat!) na matatagpuan sa folder ng `spec`. Tandaan na mayroon itong sariling `package.json`at hindi na tinukoy ang mga pinagkakatiwalaan nito sa pinaka mataas na atas ng `package.json`.
 
-To run only a selected number of tests, run `npm run test -match=NAME`, replacing the `NAME` with the file name of the test suite you would like to run. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
+Upang patakbuhin ang napiling bilang ng pagsusuri, patakbuhin `npm subukang patakbuhin-katugma=NAME`, palitan ang `NAME` pangal ng file ng test suiite na gusto mong paganahin. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
