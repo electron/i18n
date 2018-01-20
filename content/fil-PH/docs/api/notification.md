@@ -1,16 +1,16 @@
-# Notification
+# Mga Abiso
 
-> Create OS desktop notifications
+> Lumikha ng abiso sa OS ng desktop
 
 Proseso: [Main](../glossary.md#main-process)
 
-## Using in the renderer process
+## Paggamit ng mga proseso ng tagasalin
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> Lumikha ng abiso sa OS ng desktop
 
 Proseso: [Main](../glossary.md#main-process)
 
