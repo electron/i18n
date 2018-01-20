@@ -31,4 +31,4 @@ Ang Electron APIs ay parehong gumagamit ng capitalization scheme bilang Node.js:
 * Kapag ang API ay isang pag-aari ng object, at masyadong kumplikado upang maibukod ang bawat sangay tulad ng `win.webContents`, gumamit ng `mixedCase`.
 * Para sa iba pang non-module ng APIs, gumamit ng likas na mga pamagat, tulad ng `<webview> Tag` o kaya naman ay `Process Object`.
 
-Kapag gumagawa ng bagong API, mas mabuting gumamit ng getters at setters sa halip na istilo ng jQuery's one-function. Halimbawa, sa halip na gumamit ng `.getText()` at `.setText(text)` mas mabuting gamitin ang `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+Kapag gumagawa ng bagong API, mas mabuting gumamit ng getters at setters sa halip na istilo ng jQuery's one-function. Halimbawa, sa halip na gumamit ng `.getText()` at `.setText(text)` mas mabuting gamitin ang `.text([text])`. Mayroong [discussion](https://github.com/electron/electron/issues/46) tungkol dito.
