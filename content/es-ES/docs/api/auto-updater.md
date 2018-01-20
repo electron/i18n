@@ -53,49 +53,49 @@ Aparece cuando hay un error al actualizar.
 
 Aparece al comprobar si una actualización ya ha empezado.
 
-### Evento: 'update-available'
+### Evento: "actualización disponible"
 
 Aparece cuando hay una actualización disponible. La actualización se descargará automáticamente.
 
 ### Evento: 'update-not-available'
 
-Emitted when there is no available update.
+Aparece cuando no hay una actualización disponible.
 
-### Evento: 'update-downloaded'
+### Evento: "actualización descargada"
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Fecha
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Aparece cuando se ha descargado una actualización.
 
-On Windows only `releaseName` is available.
+Solo esta disponible en Windows `releaseName`.
 
 ## Métodos
 
-The `autoUpdater` object has the following methods:
+El objeto `autoUpdater` tiene los siguientes métodos:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Sets the `url` and initialize the auto updater.
+Configura el `url` e inicializa la actualización automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Devuelve `String` - La actualización actual provee el URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Solicita al servidor si hay actualizaciones. Se debe llamar a `setFeedURL` antes de utilizar esta API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Reinicia la aplicación e instala la actualización luego de que se haya descargado. Solo se debería llamar luego de que aparezca `update-downloaded`.
 
 **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
