@@ -567,7 +567,7 @@ Ang `callback` ay siguradong i-eexecute pagkatapos ibrobrodkast ang `ready` even
 
 Ang method na ito ay magbabalik ng `false` kung ang proseso mo ay ang primary instance ng application at ang iyong app ay dapat nag-concontinue magload. At magbabalik ng `true` kung ang iyong proseso ay nagpadala ng mga parameter nito sa ibang insance, at dapat mong agarang ihinto.
 
-Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. Gayunpaman kapag ang mga user ay binuksan ang iyong app sa linya ng command ang isahang pagkakataong mekanismo ng sistema ay mababalewala at kailangan mong gamitin ang pamamaraang ito para masiguro ang isahang pagkakataon.
 
 An example of activating the window of primary instance when a second instance starts:
 
