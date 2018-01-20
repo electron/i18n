@@ -60,13 +60,13 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Cambiar
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Reemplazar con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -77,28 +77,28 @@ crashReporter.start({
 ## `menu`
 
 ```js
-// Deprecated
+// Cambiar
 menu.popup(browserWindow, 100, 200, 2)
-// Replace with
+// Reemplazar con
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Cambiar
 nativeImage.toPng()
-// Replace with
+// Reemplazar con
 nativeImage.toPNG()
 
-// Deprecated
+// Cambiar
 nativeImage.toJpeg()
-// Replace with
+// Reemplazar con
 nativeImage.toJPEG()
 
-// Deprecated
+// Cambiar
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Reemplazar con
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -118,11 +118,11 @@ process.versions.electron
 ## `session`
 
 ```js
-// Deprecated
+// Cambiar
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Reemplazar con
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -131,68 +131,68 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// Cambiar
 tray.setHighlightMode(true)
-// Replace with
+// Reemplazar con
 tray.setHighlightMode('on')
 
-// Deprecated
+// Cambiar
 tray.setHighlightMode(false)
-// Replace with
+// Reemplazar con
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// Cambiar
 webContents.openDevTools({detach: true})
-// Replace with
+// Reemplazar con
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
+// Cambiar
 webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// Reemplazar con
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Cambiar
 webFrame.setZoomLevelLimits(1, 2)
-// Replace with
+// Reemplazar con
 webFrame.setVisualZoomLevelLimits(1, 2)
 
-// Deprecated
+// Cambiar
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Reemplazar con
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// Cambiar
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// Reemplazar con
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
+// Cambiar
 webview.setZoomLevelLimits(1, 2)
-// Replace with
+// Reemplazar con
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## URL de cabecera de nodo
 
 Este es el URL especificado como `disturl` en un archivo `.npmrc` o como el comando de linea `--dist-url` al construir los módulos nativos de nodo.
 
-Deprecated: https://atom.io/download/atom-shell
+Cambiar: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Reemplazar con: https://atom.io/download/electron
 
 ## Duplicado de brazo ARM
 
