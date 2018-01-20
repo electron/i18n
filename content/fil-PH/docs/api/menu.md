@@ -76,7 +76,7 @@ Appends the `menuItem` to the menu.
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `menuItem`MenuItem
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
