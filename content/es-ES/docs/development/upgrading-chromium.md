@@ -98,7 +98,7 @@ Vea [Actualizando nodo](upgrading-node.md) para instrucciones de cómo hacer eso
 
 Electron es entregado con una versión de `ffmpeg` que incluye el codecs del propietario por defecto. Una versión sin este codecs es estructurada y distribuida con cada lanzamiento. Cada actualización de Chrome debe verificar que cambia de esta versión todavía está soportado.
 
-Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por la carga de la página siguiente. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por la carga de la página siguiente. Debe trabajar con la librería por defecto `ffmpeg` distribuida con electron y no trabajar con la librería `ffmpeg` estructurada sin el codecs del propietario.
 
 ```html
 ¡<! DOCTYPE html><html> <head> <meta charset="utf-8"> <title>Proprietary Codec Check</title> </head> <body> <p>Checking si Electron utiliza codecs propietarios cargando video de http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p> <p id="outcome"></p> <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video> <script> const video = document.querySelector('video')
@@ -107,8 +107,8 @@ Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por 
      </html> de </body> de </script>})
 ```
 
-## Useful links
+## Enlaces útiles
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Calendario de lanzamientos de Chrome](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Seguidor de problemas de Chromium](https://bugs.chromium.org/p/chromium)
