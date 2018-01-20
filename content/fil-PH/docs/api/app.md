@@ -626,15 +626,15 @@ Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plata
 
 ### `ang app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Hindi pinagana ang akselerasyon ng hardware para sa kasalukuyang app.
 
-This method can only be called before app is ready.
+Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-This method can only be called before app is ready.
+Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
@@ -753,7 +753,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.dock.bounce([type])` *macOS*
 
