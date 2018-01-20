@@ -6,10 +6,10 @@ Proseso: [Main](../glossary.md#main-process)
 
 Ang`autoUpdater`modyul ay nagbibigay ng isang interface para sa [Squirrel](https://github.com/Squirrel) na balangkas.
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+Maaari mong mabilis na ilunsad ang isang multi-platform release server para sa pamamahagi ng iyong applikasyon sa pamamagitan ng paggamit ng isa sa mga proyektong ito:
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
+* [nuts](https://github.com/GitbookIO/nuts):*Ang smart release server para sa iyong mga applikasyon, gamit ang Github bilang isang backend. Nag a update ng automatiko sa Squirrel (Mac & Windows)*
+* [electron-release-server](https://github.com/ArekSredzki/electron-release-server):* Isang ganap at tampok, na mayroong sariling naka-host release server para sa mga aplikason ng electron, magkabagay sa auto-updater*
 * [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
 * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 
