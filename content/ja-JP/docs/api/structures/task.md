@@ -1,8 +1,8 @@
 # Task オブジェクト
 
-* `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
-* `arguments` String - The command line arguments when `program` is executed.
-* `title` String - The string to be displayed in a JumpList.
-* `description` String - Description of this task.
-* `iconPath` String - The absolute path to an icon to be displayed in a JumpList, which can be an arbitrary resource file that contains an icon. You can usually specify `process.execPath` to show the icon of the program.
-* `iconIndex` Number - The icon index in the icon file. If an icon file consists of two or more icons, set this value to identify the icon. If an icon file consists of one icon, this value is 0.
+* `program` String - 実行するプログラムのパス。通常は `process.execPath` を指定すると、現在のプログラムが開きます。
+* `arguments` String - `program` が実行される時のコマンドラインの引数。
+* `title` String - JumpListに表示される文字列。
+* `description` String - このタスクの説明。
+* `iconPath` String - JumpListで表示するアイコンへの絶対パス。アイコンを含む任意のリソースファイルである必要性があります。 通常、`process.execPath` を指定すると、プログラムのアイコンが表示されます。
+* `iconIndex` Number - アイコンファイル内のアイコンインデックス。 アイコンファイルが2つ以上のアイコンで構成されている場合は、この値を設定してアイコンを識別します。 アイコンファイルが1つのアイコンで構成されている場合、この値は0です。
