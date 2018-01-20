@@ -2,9 +2,9 @@
 
 Ang gamit ng[`clang-format`](http://clang.llvm.org/docs/ClangFormat.html)ay upang kusang umayos ang code na C/C++/Objective-C, upang sa gayon, ang mga naglilinang ay 'di nangangailangan na mangamba tungkol sa istilo ng mga isyu sa tuwing nagsasagawa ng mga pagsusuri sa code.
 
-It is highly recommended to format your changed C++ code before opening pull requests, which will save you and the reviewers' time.
+Lubos na pinapayuhan na iayos ang nabagong code sa C++ bago magbukas ng mga pull request, na syang magpapadali para sa'yo at sa nagsusuri.
 
-You can install `clang-format` and `git-clang-format` via `npm install -g clang-format`.
+Maaaring ikabit ang `clang-format` at `git-clang-format ` gamit ang `npm install -g clang-format`.
 
 To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
