@@ -809,13 +809,13 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     
     * `pilihan` Obyek 
       * `marginType` Integer - (opsional) Menentukan jenis margin yang akan digunakan. Menggunakan 0 untuk margin default, 1 tanpa margin, dan 2 untuk margin minimum.
-      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+      * `pageSize` String - (opsional) Tentukan ukuran halaman PDF yang dihasilkan. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
       * `printBackground` Boolean - (opsional) Baik untuk mencetak latar belakang CSS.
       * `printSelectionOnly` Boolean - (opsional) Baik untuk mencetak pilihan saja.
       * `landscape` Boolean - (opsional) `true` untuk landscape, `false` untuk potret.
     * `callback` Fungsi 
       * `error` Kesalahan
-      * `data` Buffer
+      * `data` nomor
     
     Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
     
@@ -846,24 +846,24 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
 
 <pre><code class="javascript">const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.webContents.on ('devtools-opened', () = > {win.webContents.addWorkSpace (__ dirname)})
 `</pre> 
-  #### `contents.removeWorkSpace(path)`
+  #### `konten.memindahkanruankerja(jalur)`
   
   * ` path </ 0>  String</li>
 </ul>
 
 <p>Menghapus jalur yang ditentukan dari ruang kerja DevTools.</p>
 
-<h4><code>contents.openDevTools([options])`</h4> 
+<h4><code>konten.membukaDevAlat([options])`</h4> 
     * `pilihan` Objek (opsional) 
-      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. In `detach` mode it's not.
+      * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. Di dalam `melepaskan` bukan mode itu.
     
     Membuka devtools.
     
-    #### `contents.closeDevTools()`
+    #### `konten.menutupDevAlat()`
     
     Menutup devtools.
     
-    #### `contents.isDevToolsOpened()`
+    #### `konten.apakahalatDevTerbuka()`
     
     Returns `Boolean` - Whether the devtools is opened.
     
