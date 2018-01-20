@@ -21,7 +21,7 @@ Maaaring mag-alis ng mga mali sa Chromium gamit ag Electron sa pamamagitan ng pa
 $ ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-This will download and build libchromiumcontent locally, similarly to the `--build_release_libcc`, but it will create a shared library build of libchromiumcontent and won't strip any symbols, making it ideal for debugging.
+Gamit ang code sa itaas, makukuha at mabubuo ang lokal na libchromiumcontent, tulad sa `--build_release_libcc`, ngunit ito ay lilikha ng shared library na gawa sa libchromiumcontent at hindi magtatanggal ng kahit anumang mga simbolo, na syang magagamit para sa paghahanap o pagtatanggal ng mga mali.
 
 When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
 
