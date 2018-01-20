@@ -12,7 +12,7 @@ Para paganahin `standard` na may parameter; paganahin `npm run lint-js --` kasun
 
 Upang matiyak na ang iyong C++ ay sumusunod sa estilo ng pagko code ng Electron, paganahin ang `npm run lint-cpp`, na nagpapagana ng isang `cpplint` script. Inirerekomenda namin na inyong gamitin ay ang `clang-format` at maghanda ng [isang maiksing tutorial](clang-format.md).
 
-There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
+Walang masyadong Phyton sa imbakan na ito, ngunit ito rin ay pinamamahalaan ng mga tuntunin ng istilo ng pag ko code.`npm run lint-py`ay titignan ang lahat ng Phyton gamit ang `pylint` upang gawin ito.
 
 ## Unit Tests
 
