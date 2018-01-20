@@ -169,15 +169,16 @@ Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `String` - The data URL of the image.
+Nagbabalik `String` - Ang data URL ng imahe.
 
-#### `image.getBitmap([options])`
+#### `image.getBitmap([options])
+ `
 
 * `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) na naglalaman ng hilaw na bitmap pixel data.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+Ang pagkakaiba ng `getBitmap()` and `toBitmap()` ay, `getBitmap()` hindi kinukopya ang bitmap data, kaya dapat gumamit ng returned Buffer agad kasalukuyang kaganapang loop tick, kunghindi ay baka magbago o mawasak ang data.
 
 #### `image.getNativeHandle()` *macOS*
 
