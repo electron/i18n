@@ -10,7 +10,7 @@ Para sa C++ at Python, tayo ay sumusunod sa [Coding Style](https://www.chromium.
 
 Ang Python 2.7 ay bagong bersyon na ating ginagamit ngayon.
 
-The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+Ang code ng C++ ay kadalasang gumagamit ng mga abstraction ng Chromium at mga uri nito, kaya naman pinapayuhan na kilalanin ang mga ito. Ang [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document ng Chromium ay syang magandang simulain. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
 ## JavaScript
 
