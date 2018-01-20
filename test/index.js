@@ -1,6 +1,7 @@
 const chai = require('chai')
 chai.should()
 chai.use(require('chai-date-string'))
+const {expect} = chai
 const {describe, it} = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
@@ -163,7 +164,10 @@ describe('i18n.locales', () => {
     const keys = Object.keys(i18n.locales)
     keys.length.should.be.above(10)
     keys.forEach(locale => {
-      i18n.locales[locale].countryName.should.be.a('string')
+      expect(
+        i18n.locales[locale].countryName,
+        `${locale} does not nave a country name`
+      ).to.be.a('string')
     })
     i18n.locales['en-US'].countryName.should.equal('United States')
     i18n.locales['pt-BR'].countryName.should.equal('Brazil')
