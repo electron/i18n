@@ -182,23 +182,23 @@ Ang pagkakaiba ng `getBitmap()` and `toBitmap()` ay, `getBitmap()` hindi kinukop
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Nagbabalik ng `image.getNativeHandle()` [macOS](https://nodejs.org/api/buffer.html#buffer_class_buffer) na nagiimbak ng C pointer na pinagbabatayan ng native handle ng imahe. Sa macOS, ang panturo sa `NSImage` na pagkakataon ay ibinabalik. 
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Pansinin na ang mga binabalik sa panturo ay mahinang panturo sa pinagbatayang native image sa halip na isang kopya, kaya ikaw * ay dapat * isigurado ng ang mga kaugnayang `nativeImage` pagkakataon ay nasa paligid. 
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Nagbabalik ng `Boolean` - kung ang imahe ay walang laman.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Nagbabalik [`Size`](structures/size.md) 
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Marks the image as a template image.
+Nagmamarka ng imahe bilang template image. 
 
 #### `image.isTemplateImage()`
 
