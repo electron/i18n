@@ -1,6 +1,6 @@
-# isi web
+# konten web
 
-> Kontrol dan render halaman web.
+> Membuat dan mengontrol halaman web.
 
 Proses: [Utama](../glossary.md#main-process)
 
@@ -681,15 +681,15 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
 
 Jalankan perintah pengeditan `undo` di halaman web.
 
-#### `contents.redo()`
+#### `konten.redo()`
 
 Jalankan perintah pengeditan `ulangi` di halaman web.
 
-#### `contents.cut()`
+#### `konten.potong()`
 
 Jalankan perintah pengeditan `potong` di halaman web.
 
-#### `contents.copy()`
+#### `konten.mengkopi()`
 
 Jalankan perintah pengeditan `copy` di halaman web.
 
@@ -708,15 +708,15 @@ Jalankan perintah pengeditan `paste` di halaman web.
 
 Jalankan perintah pengeditan `pasteAndMatchStyle` di halaman web.
 
-#### `contents.delete()`
+#### `konten.menghapus()`
 
 Jalankan perintah pengeditan `hapus` di halaman web.
 
-#### `contents.selectAll()`
+#### `konten.memilihsemua()`
 
 Jalankan perintah pengeditan `selectAll` di halaman web.
 
-#### `contents.unselect()`
+#### `konten.tidakmemilih()`
 
 Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
 
@@ -732,7 +732,7 @@ Jalankan perintah pengeditan `ganti` di halaman web.
 
 Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
 
-#### `contents.insertText(text)`
+#### `konten.mencaritek()`
 
 * `teks` String
 
@@ -752,7 +752,7 @@ Starts a request to find all matches for the `text ` in the web page and returns
 
 #### `contents.stopFindInPage(tindakan)`
 
-* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] request. 
+* `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] permintaan. 
   * `clearSelection` - jelas pilihan.
   * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
   * `activateSelection` - fokus dan klik seleksi simpul.
@@ -782,17 +782,17 @@ const {webContents} = require('electron') webContents.on (' ditemukan-di-halaman
     #### `contents.unregisterServiceWorker(callback)`
     
     * `callback` Fungsi 
-      * `success` Boolean
+      * `sukses` Boolean
     
     Unregisters ServiceWorker jika ada dan mengembalikan boolean sebagai respon terhadap `callback` ketika janji JS terpenuhi atau salah saat janji JS ditolak.
     
-    #### `contents.getPrinters()`
+    #### `konten.mendapatkanpercetakan()`
     
     Dapatkan daftar printer sistem.
     
-    Returns [`PrinterInfo[]`](structures/printer-info.md)
+    Mengembalikan [`membuatinfo[]`](structures/printer-info.md)
     
-    #### `contents.print([options])`
+    #### `konten.mencetak([options])`
     
     * `pilihan` Objek (opsional) 
       * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
