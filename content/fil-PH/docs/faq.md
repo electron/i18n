@@ -24,7 +24,7 @@ Ang bagong tampok ng Node.js ay kadalasang dala ng V8 upgrade, dahil ang Electro
 
 ## Paano magbahagi ng data sa pagitan ng mga pahina ng web?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Para magbahagi ng mga datos sa pagitan ng pahina ng web ( ang nagbabahagi ay nagpoproseso) ang pinaka simpleng paraan ay ang paggamit ng HTML5 API na maari nang gamitin sa mga browser. Ang mabuting kandidato ay [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
 Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
 
