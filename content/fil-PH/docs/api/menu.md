@@ -78,9 +78,9 @@ Appends the `menuItem` to the menu.
 * `pos` Integer
 * `menuItem`MenuItem
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
-### Instance Properties
+### Katangian ng mga pag-aari
 
 `menu` objects also have the following properties:
 
