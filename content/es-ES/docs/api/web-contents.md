@@ -31,15 +31,15 @@ Volver `ContenidoWeb` a la matriz de todo el caso `ContenidoWeb`. Esto incluirá
 
 ### `contenidoweb.conseguirContenidoWebEnfocado()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Volver `ContenidoWeb` - El contenido web que se centra en esta aplicación, de lo contrario regresa `inválido`.
 
-### `webContents.fromId(id)`
+### `contenidoweb.deId(id)`
 
 * `id` Íntegro
 
 Returns `WebContents` - A WebContents instance with the given ID.
 
-## Class: WebContents
+## Clase: ContenidoWeb
 
 > Render and control the contents of a BrowserWindow instance.
 
