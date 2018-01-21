@@ -86,9 +86,9 @@ Magbabalik ng:
 * `event` Event
 * `url` String
 
-Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong application ay dapat magtukoy ng url scheme sa loob ng `CFBundleURLTypes` key, at e-set ang `NSPrincipalClass` sa `AtomApplication`.
+Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong aplikasyon ay dapat tukuyin ang url scheme sa loob ng key ng `CFBundleURLTypes`, at i-set ang `NSPrincipalClass` sa `AtomApplication`.
 
-Dapat mong tawagin ang `event.preventDefault()` kung gusto mong e-handol ang event na ito.
+Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
 ### Event: 'activate' *macOS*
 
