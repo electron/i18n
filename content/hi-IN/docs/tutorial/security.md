@@ -30,10 +30,10 @@
 * नोड इंटीग्रेशन को उन सभी रेंदेरेर में डिसएबल कर दें जो दूरस्थ सामग्री प्रदर्शित करते हैं (`webPreferences` में `nodeIntegration` को `false` सेट करना)
 * कॉन्टेक्स्ट आइसोलेशन को उन सभी रेंदेरेर में डिसएबल कर दें जो दूरस्थ सामग्री प्रदर्शित करते हैं (`webPreferences` में `contextIsolation` को `true` सेट करना)
 * दूरस्थ सामग्री लोड करने वाले सभी सत्रों में `ses.setPermissionRequestHandler()` का उपयोग करें
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
+* `webSecurity` को डिसएबल न करें | उसे डिसएबल करने से सेम-ओरिजिन पॉलिसी भी डिसएबल हो जायेगी |
+* एक [`सामग्री-सुरक्षा-नीति`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) परिभाषित करें, और प्रतिबंधक नियम (यानी कि `script-src 'self'`) इस्तेमाल करें
+* [`eval` को ओवरराइड और डिसएबल करें](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8), जो कि स्ट्रिंग्स को कोड की तरह चलने की क्षमता प्रदान करता है |
+* `allowRunningInsecureContent` को true सेट न करें |
 * Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
 * Do not use `blinkFeatures` unless you know what you're doing.
 * WebViews: Do not add the `nodeintegration` attribute.
