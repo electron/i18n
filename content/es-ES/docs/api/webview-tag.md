@@ -575,15 +575,15 @@ Devuelve:
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
-* `httpResponseCode` Integer
+* `httpResponseCode` Entero
 * `requestMethod` String
 * `referrer` String
-* `headers` Object
+* `headers` Objeto
 * `resourceType` String
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Evento: 'did-get-redirect-request'
 
 Devuelve:
 
@@ -671,7 +671,7 @@ Devuelve:
 
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
 Fired when the guest page attempts to open a new browser window.
