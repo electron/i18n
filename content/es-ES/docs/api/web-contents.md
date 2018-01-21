@@ -57,7 +57,7 @@ Devuelve:
 
 * `evento` Evento
 * `CódigodeError` Entero
-* `errorDescription` String
+* `errordeDescripción`
 * `validatedURL` String
 * `isMainFrame` Boolean
 
