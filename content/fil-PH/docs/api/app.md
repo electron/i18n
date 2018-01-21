@@ -165,7 +165,7 @@ Magbabalik ng:
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
 * `tumawag muli` Punsyon 
-  * `isTrusted` Boolean - Kung ituturing ang sertipiko na pinagkakatiwalaan
+  * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwaan
 
 Ibrobrodkast kapag nabigo ang pag beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
 
