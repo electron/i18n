@@ -743,11 +743,11 @@ Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
 
 ### `app.commandLine.appendArgument(halaga)`
 
-* `value` String - The argument to append to the command line
+* `value` String - Ang argumento ay ilakip sa linya ng command
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-qoute ng tama.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ito ay hindi makaka-apekto sa `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
