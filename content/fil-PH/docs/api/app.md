@@ -761,7 +761,7 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa mga aplikasyon ay naging aktibo o ang kahilingan ay kinansela.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
 
 Returns `Integer` an ID representing the request.
 
