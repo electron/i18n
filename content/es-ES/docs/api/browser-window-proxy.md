@@ -12,25 +12,25 @@ El objeto `BrowserWindowProxy` tiene los siguientes métodos de instancia:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Elimina el enfoque de la ventana secundaria.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Cierra a la fuerza la ventana secundaria sin llamar a su evento de descarga.
 
 #### `win.eval(code)`
 
 * `codigo` String
 
-Evaluates the code in the child window.
+Evalúa el código en la ventana secundaria.
 
 #### `win.focus()`
 
-Focuses the child window (brings the window to front).
+Enfoca la ventana secundaria (trae la ventana al frente).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Invoca en cuadro de diálogo en la ventana secundaria.
 
 #### `win.postMessage(message, targetOrigin)`
 
