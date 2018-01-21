@@ -1,8 +1,8 @@
 # app
 
-> Ikontrol ang event lifecycle ng iyong application.
+> Kontrolin ang event lifecycle ng iyong aplikasyon.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 Ang susunod na halimbawa ay magpapakita kung papano ihinto ang application kapag ang huling window ay isinara:
 
@@ -809,4 +809,4 @@ I-set ang [dock menu](https://developer.apple.com/library/mac/documentation/Carb
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this dock icon.
+I-set ang `image` na may kaugnayan sa dock icon na ito.
