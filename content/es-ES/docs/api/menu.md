@@ -69,14 +69,14 @@ Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `Elemento del menú` Elemento del menú
 
 Appends the `menuItem` to the menu.
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` MenuItem
+* `Elemento del menú` Elemento del menú
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
