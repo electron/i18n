@@ -781,7 +781,7 @@ Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder n
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Ise-set ang string upang maipakita sa badging area ng dock.
 
 ### `app.dock.getBadge()` *macOS*
 
