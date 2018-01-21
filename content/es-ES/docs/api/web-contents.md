@@ -61,30 +61,30 @@ Devuelve:
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-Este evento es como `terminó-la-carga` pero emitido cuando la carga falló o fue cancelada, e.g `window.detener`. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Este evento es como `did-finish-load` pero emitido cuando la carga falló o fue cancelada, e.g `window.stop()`. La lista completa de errores de código y su significado está disponible [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Evento: 'did-frame-finish-load'
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+Emite cuando un frame ha terminado la navegación.
 
-#### Event: 'did-start-loading'
+#### Evento: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab started spinning.
 
-#### Event: 'did-stop-loading'
+#### Evento: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### Event: 'did-get-response-details'
+#### Evento: 'did-get-response-details'
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
