@@ -106,15 +106,15 @@ Se recomienda pausar operaciones costosas cuando el estado de visibilidad está 
 * En Linux el tipo de ventanas modales se cambiará a `dialog`.
 * En Linux, muchos entornos de escritorio no admiten ocultar una ventana modal.
 
-## Class: BrowserWindow
+## Clase: BrowserWindow
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` es un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por las `options`.
 
 ### `new BrowserWindow([options])`
 
