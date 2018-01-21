@@ -47,7 +47,7 @@ Este evento generalmente se emite después del evento `did-finish-load`, pero pa
 
 ### Configurar `backgroundColor`
 
-Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación se sienta lenta. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación se sienta lenta. En este caso, se recomienda mostrar la ventana inmediatamente, y usar un cierre `backgroundColor` para el fondo de la aplicación:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Tenga en cuenta que incluso para aplicaciones que utilizan el evento `ready-to-show`, aún se recomienda establecer `backgroundColor` para que la aplicación se sienta más nativa.
 
-## Parent and child windows
+## Ventana principal y ventana secundaria
 
-By using `parent` option, you can create child windows:
+Al usar la opción `parent`, se pueden crean ventanas secundarias:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+La ventana `child` se mostrará encima de la ventana `top`.
 
-### Modal windows
+### Ventanas modales
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Una ventana modal es una ventana secundaria que deshabilita la ventana principal para crear una ventana modal. Hay que establecer ambas opciones `parent` y `modal`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
