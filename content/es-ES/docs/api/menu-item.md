@@ -1,22 +1,22 @@
 ## Clase: MenuItem
 
-> Add items to native application menus and context menus.
+> Agregue elementos a los menús y menús de contexto de la aplicación nativa.
 
 Proceso: [Principal](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Vea [`Menú`](menu.md) para obtener ejemplos.
 
 ### `new MenuItem(options)`
 
 * `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
-    * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+  * `click` Función (opcional) - Será llamado con `click(menuItem, browserWindow, event)` cuando se hace click en el elemento del menú. 
+    * `Elemento del menú` Elemento del menú
+    * `Ventana de navegador` Ventana de navegador
     * `evento` Evento
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
+  * `rol` Cadena (opcional) - Define la acción del elemento del menú, cuando se especifica el `click` la propiedad será ignorada. Vea [roles](#roles).
+  * `tipo` Cadena (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
+  * `etiqueta` Cadena - (opcional)
+  * `subetiqueta` Cadena - (opcional)
   * `accelerator` [Accelerator](accelerator.md) (optional)
   * `icon` ([NativeImage](native-image.md) | String) (optional)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
