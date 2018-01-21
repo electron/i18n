@@ -4,7 +4,7 @@
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-Ang susunod na halimbawa ay magpapakita kung papano ihinto ang application kapag ang huling window ay isinara:
+Ang sumusunod na halimbawa ay nagpapakita kung paano ihinto ang aplikasyon kapag ang huling window ay isinara na:
 
 ```javascript
 const {app} = require('electron')
@@ -13,11 +13,11 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Mga event
 
-Ang `app` na object ay maglalabas ng mga sumusunod na mga event:
+Ang bagay ng `app` ay naglalabas ng mga sumusunod na mga event:
 
-### Event: 'will-finish-launching'
+### Ang event: 'will-finish-launching'
 
 Ibrobrodkast kapag ang application ay tapos nang mag basic startup. Sa Windows at Linux, ang `will-finish-launching` na event ay kapareha ng `ready` na event; sa macOS, ang event na ito ay nagrerepresenta ng `applicationWillFinishLaunching` na notipikasyon ng `NSApplication`. Kadalasan, gusto mong mag setup ng mga listener para sa `open-file` at `open-url` na mga events dito, at magsimula ng crash reporter at auto updater.
 
