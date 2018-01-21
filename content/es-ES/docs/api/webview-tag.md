@@ -395,27 +395,27 @@ Ejecuta comando de edición `cut` en página.
 
 ### `<webview>.copy()`
 
-Executes editing command `copy` in page.
+Ejecuta comando de edición `copy` en página.
 
 ### `<webview>.paste()`
 
-Executes editing command `paste` in page.
+Ejecuta el comando de edición `paste` en la página.
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Executes editing command `pasteAndMatchStyle` in page.
+Ejecuta el comando de edición `pasteAndMatchStyle` en la página.
 
 ### `<webview>.delete()`
 
-Executes editing command `delete` in page.
+Ejecuta el comando de edición `delete` en página.
 
 ### `<webview>.selectAll()`
 
-Executes editing command `selectAll` in page.
+Ejecuta el comando de edición `selectAll` en página.
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+Ejecuta el comando de edición `unselect` en página.
 
 ### `<webview>.replace(text)`
 
