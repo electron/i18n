@@ -63,11 +63,11 @@ Los siguientes roles adicionales están disponibles para macOS:
 * `ocultar` - mapa de la acción de `ocultar`
 * `ocultar otros` - Mapa de acción `ocultar otras aplicaciones`
 * `mostrar` - Mapa de acción de `mostrar todas las aplicaciones`
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `window` - The submenu is a "Window" menu
+* `empezar a hablar` - Mapa de acción de `Empezar a hablar`
+* `detener el habla` - Mapa de acción de `detener el habla`
+* `frente` - Mapa de acción de `Arreglo del frente`
+* `zoom` - mapa de acción de `Realizar zoom`
+* `ventana` - El submenú es un menú de la "ventana"
 * `help` - The submenu is a "Help" menu
 * `services` - The submenu is a "Services" menu
 
