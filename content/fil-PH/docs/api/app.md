@@ -153,9 +153,9 @@ Magbabalik ng:
 * `event` Event
 * `webContents` WebContents
 
-Ibrobrodkast kapang ang bagong [webContents](web-contents.md) ay nagawa na.
+Lalabas kapag ang bagong [webContents](web-contents.md) ay nagawa na.
 
-### Event: 'certificate-error'
+### Mga event: 'certificate-error'
 
 Magbabalik ng:
 
@@ -164,7 +164,7 @@ Magbabalik ng:
 * `url` String
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `isTrusted` Boolean - Kung ituturing ang sertipiko na pinagkakatiwalaan
 
 Ibrobrodkast kapag nabigo ang pag beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
@@ -354,7 +354,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -619,7 +619,7 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `mga pagpipilian` Bagay 
   * `certificate` String - Ang landas para sa mga file ng pkcs12.
   * `password` String - Ang passphrase para sa mga sertipiko.
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `result` Integer - Ang resulta ng pag-import.
 
 Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
