@@ -44,20 +44,21 @@
 
 ```js
 app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+   contents.on('will-attach-webview', (event, webPreferences,
+params) => {
+     // अगर प्रीलोड स्क्रिप्ट्स इस्तेमाल न हों तो उन्हें हटा दें या यह सत्यापित करें कि उनकी लोकेशन वैध है
+     delete webPreferences.preload
+     delete webPreferences.preloadURL
 
-    // Disable node integration
+     // नोडइंटीग्रेशन डिसएबल करें
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
-      event.preventDefault()
-    }
-  })
-})
+     // यूआरएल लोड हो रहा है या नहीं, यह सत्यापित करें
+     if (!params.src.startsWith('https://yourapp.com/')) {
+       event.preventDefault()
+     }
+   })
+ })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+यह सूचि केवल खतरों को कम से कम करने के लिए, यह उन्हें हटाती नहीं है |अगर आपका लक्ष्य एक वेबसाइट को प्रदर्शित करना है, तो एक ब्राउज़र ज्यादा सुरक्षित विकल्प है |
