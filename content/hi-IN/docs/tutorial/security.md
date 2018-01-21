@@ -34,13 +34,13 @@
 * एक [`सामग्री-सुरक्षा-नीति`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) परिभाषित करें, और प्रतिबंधक नियम (यानी कि `script-src 'self'`) इस्तेमाल करें
 * [`eval` को ओवरराइड और डिसएबल करें](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8), जो कि स्ट्रिंग्स को कोड की तरह चलने की क्षमता प्रदान करता है |
 * `allowRunningInsecureContent` को true सेट न करें |
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
-* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+* `experimentalFeatures` या `experimentalCanvasFeatures` को इनेबल न करें अगर आप नहीं जानते कि इससे क्या हो सकता है |
+* `blinkFeatures` इस्तेमाल तब तक न करें जब तक कि आपको पूरी जानकारी न हो |
+* WebViews: `nodeintegration` एट्रिब्यूट न जोड़ें |
+* WebViews: `disablewebsecurity` न इस्तेमाल करें
+* WebViews: `allowpopups` न इस्तेमाल करें
+* WebViews: दूरस्थ सीएसएस/जेएस के साथ `insertCSS` या `executeJavaScript` न इस्तेमाल करें |
+* WebViews: सभी `<webview>` टैग्स के विकल्प और पैरामीटर्स को जाँचें इससे पहले कि वे `will-attach-webview` इवेंट से जुड़ें:
 
 ```js
 app.on('web-contents-created', (event, contents) => {
