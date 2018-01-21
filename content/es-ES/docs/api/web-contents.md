@@ -25,11 +25,11 @@ const {webContents} = require('electron')
 console.log(webContents)
 ```
 
-### `contenidosweb.conseguirtodoslosContenidosWeb()`
+### `contenidoweb.conseguirtodoContenidoWeb()`
 
 Volver `ContenidoWeb` a la matriz de todo el caso `ContenidoWeb`. Esto incluirá contenido web para todos los windows, páginas web, devtools abiertos y extensión de páginas de origen devtools.
 
-### `webContents.getFocusedWebContents()`
+### `contenidoweb.conseguirContenidoWebEnfocado()`
 
 Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
 
