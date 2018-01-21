@@ -17,34 +17,34 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `tipo` Cadena (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `etiqueta` Cadena - (opcional)
   * `subetiqueta` Cadena - (opcional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
-  * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * `Acelerador` [Acelerador](accelerator.md) (opcional)
+  * `ícono` ([imagen nativa](native-image.md) | Cadena) (opcional)
+  * `Habilitado` Booleano (opcional) - Si falso, el elemento de menú será gris y no se podrá hacer click en él.
+  * `visible` Booleano (opcional) - Si falso, el elemento del menú será totalmente invisible.
+  * `verificado` Booleano (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (opcional) - Debe ser especificado para elementos del menú tipo `submenu`. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. Si el valor no es un `Menú` entonces será convertido automáticamente utilizando `Menu.buildFromTemplate`.
+  * `identificación` Cadena (opcional) - único para cada menú. Si se define entonces puede ser usado como referencia a sus elementos en la posición de atributo.
+  * `posición` Cadena (opcional) - Este campo permite la definición propia de la localización específica en un menú dado.
 
 ### Roles
 
-Roles allow menu items to have predefined behaviors.
+Los roles le permiten a los elementos del menú tener comportamientos predeterminados.
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+Es mejor especificar el `rol` para todos los elementos del menú de tal manera que coincidan con los roles estandar, en vez de tratar de implementar un comportamiento manualmente en una función `click`. El comportamiento incorporador `rol` dará la mejor experiencia nativa.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+Los valores de `etiqueta` y `acelerador` son opcionales mientras se usa un `rol` y por defecto se apropiarán valores de cada plataforma.
 
-The `role` property can have following values:
+La propiedad `role` puede tener los siguientes valores:
 
-* `undo`
-* `redo`
-* `cut`
-* `copy`
-* `paste`
-* `pasteandmatchstyle`
-* `selectall`
-* `delete`
-* `minimize` - Minimize current window
+* `deshacer`
+* `rehacer`
+* `cortar`
+* `copiar`
+* `pegar`
+* `pegar y coincidir con el estilo`
+* `seleccionar todo`
+* `eliminar`
+* `minimizar` - Minimiza la ventana actual
 * `close` - Close current window
 * `quit`- Quit the application
 * `reload` - Reload the current window
