@@ -339,37 +339,37 @@ Inyecta CSS en la página de invitado.
 
 * `codigo` String
 * `userGesture` Boolean - Por defecto `false`.
-* `llamada de vuelta` Function (optional) - Called after script has been executed. 
-  * `result` Any
+* `llamada de vuelta` Función (opcional) - La llamada luego del guión ha sido ejecutada. 
+  * `result` Cuaquiera
 
-Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Evaluar `code` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Abre una ventana de DevTools para la página de invitado.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Cierra la ventana de DevTools para la página de invitado.
 
 ### `<webview>.isDevToolsOpened()`
 
-Returns `Boolean` - Whether guest page has a DevTools window attached.
+Devuelve `Boolean` - Aunque la página de invitado tenga una ventana de DevTools unida.
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Whether DevTools window of guest page is focused.
+Devuelve `Boolean` - Aunque la ventana de DevTools de la página de invitado esté centrada.
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Integer
-* `y` Integer
+* `x` Íntegro
+* `y` Íntegro
 
-Starts inspecting element at position (`x`, `y`) of guest page.
+Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitado.
 
 ### `<webview>.inspectServiceWorker()`
 
-Opens the DevTools for the service worker context present in the guest page.
+Abre el DevTools para el contexto del trabajador de servicio presente en la página de invitado.
 
 ### `<webview>.setAudioMuted(muted)`
 
