@@ -29,7 +29,7 @@ Magbabalik ng:
 
 * `launchInfo` Mga bagay *MacOS*
 
-Lalabas kapag ang Electron ay tapos ng mag-initialize. Sa macOS, ang `launchInfo` ay may hawak ng `userInfo` ng `NSUserNotification` na ginamit para buksan ang application, kung ito ay isinimula galing sa Notification Center. Pwedeng mag tawag ng `app.isReady()` para suriin kung ang event ay isinimula na.
+Lalabas kapag ang Electron ay tapos ng mag-initialize. Sa macOS, hawak ng `launchinfo` ang `userinfo` ng `NSUserNotification` na ginamit para buksan ang aplikasyon, kung ito ay ini-launch mula sa Notification Center. Pwedeng mag tawag ng `app.isReady()` para suriin kung ang event ay isinimula na.
 
 ### Event: 'window-all-closed'
 
@@ -86,7 +86,7 @@ Magbabalik ng:
 * `event` Event
 * `url` String
 
-Ibrobrodkast kapang ang user ay gustong mag open ng URL gamit ang application. Ang `info.plist` file ng iyong application ay dapat magtukoy ng url scheme sa loob ng `CFBundleURLTypes` key, at e-set ang `NSPrincipalClass` sa `AtomApplication`.
+Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong application ay dapat magtukoy ng url scheme sa loob ng `CFBundleURLTypes` key, at e-set ang `NSPrincipalClass` sa `AtomApplication`.
 
 Dapat mong tawagin ang `event.preventDefault()` kung gusto mong e-handol ang event na ito.
 
