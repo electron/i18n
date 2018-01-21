@@ -20,7 +20,7 @@ Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux
 
 <p>Pagpasa sa <code>null` para alisin ang menu bar sa Widows at Linux pero wala itong epekto sa Masco.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Note:** itong API ang dapat tawagin pagkatapos ng `handa` kaganapan ng `app` module.
 
 #### `Menu.getApplicationMenu()`
 
