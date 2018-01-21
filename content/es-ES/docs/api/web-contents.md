@@ -88,15 +88,15 @@ Devuelve:
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
-* `httpResponseCode` Integer
+* `httpResponseCode` Entero
 * `requestMethod` String
 * `referrer` String
-* `headers` Object
+* `headers` Objeto
 * `resourceType` String
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### Event: 'did-get-redirect-request'
+#### Evento: 'did-get-redirect-request'
 
 Devuelve:
 
@@ -104,10 +104,10 @@ Devuelve:
 * `viejoURL` String
 * `nuevoURL` String
 * `EsElFramePrincipal` Boolean
-* `httpResponseCode` Integer
+* `httpResponseCode` Entero
 * `requestMethod` String
 * `referencia` String
-* `headers` Object
+* `headers` Objeto
 
 Emitted when a redirect is received while requesting a resource.
 
@@ -135,11 +135,11 @@ Devuelve:
 * `evento` Evento
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
+* `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `options` Objeto - las opciones que se usarán para crear crear el nuevo `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
 By default a new `BrowserWindow` will be created for the `url`.
 
@@ -185,7 +185,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `url` String
 * `isMainFrame` Boolean
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `killed` Booleano
 
 Emitted when the renderer process crashes or is killed.
