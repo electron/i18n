@@ -785,15 +785,15 @@ Ise-set ang string upang maipakita sa badging area ng dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Nagbabalik ang `String` - Ang string ng badge ng dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Itinatago ang icon ng dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Ipinapakita ang icon ng dock.
 
 ### `app.dock.isVisible()` *macOS*
 
