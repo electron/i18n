@@ -666,7 +666,7 @@ Nagbabalik ang `Integer` - Ang kasalukuyang halaga ay ipinapakita sa mga tagabil
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
