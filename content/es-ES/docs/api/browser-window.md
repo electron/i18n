@@ -118,8 +118,8 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
 
 ### `new BrowserWindow([options])`
 
-* `options` Objecto (opcional) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
+* `options` Object (opcional) 
+  * `ancho` Integer (opcional) - ancho de la ventana en píxeles. Por defecto es `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
