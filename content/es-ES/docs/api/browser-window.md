@@ -101,10 +101,10 @@ Se recomienda pausar operaciones costosas cuando el estado de visibilidad está 
 ### Notas según la plataforma
 
 * En macOS las ventanas modales se mostrarán como hojas adjuntas a la ventana principal.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* En macOS las ventanas secundarias mantendrán la posición en relación a la ventana principal cuando se mueve la ventana principal. En Windows y Linux las ventanas secundarias no se mueven.
+* En Windows no admite cambiar la ventana principal dinámicamente.
+* En Linux el tipo de ventanas modales se cambiará a `dialog`.
+* En Linux, muchos entornos de escritorio no admiten ocultar una ventana modal.
 
 ## Class: BrowserWindow
 
