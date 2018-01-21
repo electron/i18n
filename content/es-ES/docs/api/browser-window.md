@@ -140,12 +140,12 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
   * `fullscreenable` Boolean (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
   * `skipTaskbar` Boolean (opcional) - si se va a mostrar la ventana en la barra de tareas. Por defecto es `false`.
   * `kiosk` Boolean (opcional) - El modo kiosco. Por defecto es `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
+  * `title` String (opcional) - Título de la ventana por defecto. Por defecto es `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (opcional) - El icono de la ventana. En Windows, se recomienda usar iconos `ICO` para obtener mejores efectos visuales. También se se puede dejar sin definir, de esta manera se utilizará el icono del ejecutable.
+  * `show` Boolean (opcional) - si la ventana debería ser mostrada cuando es creada. Por defecto es `true`.
+  * `frame` Boolean (opcional) - Especifica `false` para crear una [Frameless Window](frameless-window.md). Por defecto es `true`.
+  * `parent` BrowserWindow (opcional) - Especifica la ventana principal. Por defecto es `null`.
+  * `modal` Boolean (opcional) - si esta es una ventana modal. Esto solo funciona si la ventana es una ventana secundaria. Por defecto es `false`.
   * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
