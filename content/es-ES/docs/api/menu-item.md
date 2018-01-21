@@ -68,10 +68,10 @@ Los siguientes roles adicionales están disponibles para macOS:
 * `frente` - Mapa de acción de `Arreglo del frente`
 * `zoom` - mapa de acción de `Realizar zoom`
 * `ventana` - El submenú es un menú de la "ventana"
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `ayuda` - el submenú es un menú de "ayuda"
+* `Servicios` - El submenú es un menú de "servicios"
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+Cuando se especifica un `rol` en macOS, la `etiqueta` y el `acelerador` son solo opciones que afectarán a los elementos del menú. Todas las demás opciones serán ignoradas.
 
 ### Propiedades de Instancia
 
