@@ -45,11 +45,11 @@ La propiedad `role` puede tener los siguientes valores:
 * `seleccionar todo`
 * `eliminar`
 * `minimizar` - Minimiza la ventana actual
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
+* `cerrar` - cierra la ventana actual
+* `cerrar`- cierra la aplicación
+* `recargar` - Recarga la ventana actual
+* `cargar forzadamente` - Recarga la ventana ignorando el caché.
+* `herramientas de desarrollador` - herramientas de desarrollador de alterar la ventana actual
 * `togglefullscreen`- Toggle full screen mode on the current window
 * `resetzoom` - Reset the focused page's zoom level to the original size
 * `zoomin` - Zoom in the focused page by 10%
