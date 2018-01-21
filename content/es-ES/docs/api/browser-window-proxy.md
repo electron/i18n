@@ -1,14 +1,14 @@
 ## Clase: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Manipula la ventana secundaria del navegador
 
-Proceso: [Renderizador](../glossary.md#renderer-process)
+Proceso: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+El objeto `BrowserWindowProxy` es devuelto de `window.open` y proporciona una funcionalidad limitada con la ventana secundaria.
 
 ### Métodos de Instancia
 
-The `BrowserWindowProxy` object has the following instance methods:
+El objeto `BrowserWindowProxy` tiene los siguientes métodos de instancia:
 
 #### `win.blur()`
 
