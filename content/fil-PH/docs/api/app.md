@@ -654,7 +654,7 @@ Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga 
 
 Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay ``.
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
