@@ -97,7 +97,7 @@ Magbabalik ng:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Lalabas kapag ang aplikasyon ay naka-aktibeyt. Ibat-ibang mga action ay makakatrigger ng event, tulad ng paglaunch ng application sa unang pagkakataon, pagtangkang mag relaunch ng application kahit na ito ay gumagana na, o ang pagclick sa dock ng application o taskbar icon.
+Lalabas kapag ang aplikasyon ay naka-aktibeyt. Iba't-ibang mga aksyon ang maaaring mag-trigger ng event na ito, tulad ng pagla-launch ng aplikasyon para sa unang pagkakataon, sinusubukang muling i-launch ang aplikasyon kahit ito ay tumatakbo na, o pagpindot sa icon ng dock o taskbar ng aplikasyon.
 
 ### Event: 'continue-activity' *macOS*
 
