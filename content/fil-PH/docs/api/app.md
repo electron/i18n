@@ -97,7 +97,7 @@ Magbabalik ng:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Ibrobrodkast kung ang application na-activate. Ibat-ibang mga action ay makakatrigger ng event, tulad ng paglaunch ng application sa unang pagkakataon, pagtangkang mag relaunch ng application kahit na ito ay gumagana na, o ang pagclick sa dock ng application o taskbar icon.
+Lalabas kapag ang aplikasyon ay naka-aktibeyt. Ibat-ibang mga action ay makakatrigger ng event, tulad ng paglaunch ng application sa unang pagkakataon, pagtangkang mag relaunch ng application kahit na ito ay gumagana na, o ang pagclick sa dock ng application o taskbar icon.
 
 ### Event: 'continue-activity' *macOS*
 
