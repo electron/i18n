@@ -49,14 +49,14 @@ Proceso: [Principal](../glossary.md#main-process)
 
 #### Event: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Emite cuando la navegación está hecha, i.e.
 
 #### Event: 'did-fail-load'
 
 Devuelve:
 
 * `evento` Evento
-* `errorCode` Integer
+* `CódigodeError` Entero
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
