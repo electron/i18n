@@ -587,7 +587,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 Devuelve:
 
-* `oldURL` String
+* `viejoURL` String
 * `newURL` String
 * `isMainFrame` Boolean
 
