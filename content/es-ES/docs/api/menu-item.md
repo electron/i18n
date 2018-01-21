@@ -75,30 +75,30 @@ Cuando se especifica un `rol` en macOS, la `etiqueta` y el `acelerador` son solo
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `MenuItem`:
+Las siguientes propiedades están disponibles en instancias del `menú de elementos`:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Un `booleano` indicando si el elementos está habilitado, esta propiedad puede ser cambiada dinámicamente.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Un `booleano` indicando si el elemento es visible, esta propiedad puede ser cambiada dinámicamente.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Un `Booleano` indicando si el elemento está verificado, esta propiedad puede ser cambiada dinámicamente.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Un elemento del menú `checkbox` que cambiará la propiedad `verificado` en sí y no cuando se selecciona.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Un elemento del menú `radio` que activará su propiedad `verificado` cuando se haga click en él, y que desactivará su propiedad para todos los elementos adyacentes en el mismo menú.
 
-You can add a `click` function for additional behavior.
+Puede añadir la función `click` para comportamientos adicionales.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label
+Una `Cadena` Representando la etiqueta de los elementos visibles en el menú
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+Una `función` que se desencadena cuando los elementos del menú reciben un evento click
