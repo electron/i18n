@@ -1,8 +1,8 @@
 # सुरक्षा, मूल क्षमतायें, और आपकी जिम्मेदारी
 
-वेब डेवलपर्स के रूप में हम अक्सर ब्राउज़र के सुरक्षा कवच से सुरक्षित महसूस करते हैं - कोडिंग से जुड़े जोखिम अपेक्षाकृत कम होते हैं | Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+वेब डेवलपर्स के रूप में हम अक्सर ब्राउज़र के सुरक्षा कवच से सुरक्षित महसूस करते हैं - कोडिंग से जुड़े जोखिम अपेक्षाकृत कम होते हैं | हमारी वेबसाइट्स को एक सैंडबॉक्स में सीमित शक्तियाँ ही मिलती हैं, और हमें विश्वास है कि हमारे उपयोगकर्ता एक ऐसा ब्राउज़र इस्तेमाल करते हैं जिसे इंजिनियर्स की एक बड़ी टीम ने बनाया है और जो नये सुरक्षा खतरों के पता चलने पर त्वरित प्रतिक्रिया देते हैं |
 
-When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+इलेक्ट्रॉन इस्तेमाल करते समय, यह समझना बेहद ज़रूरी है कि यह एक वेब ब्राउज़र नहीं है | It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
 
 With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
