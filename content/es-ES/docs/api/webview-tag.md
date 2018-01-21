@@ -445,7 +445,7 @@ Inserta `texto` al elemento centrado.
   * `wordStart` Boolean - (opcional) Aunque mires solo al principio de las palabras.. Por defecto a `falso`.
   * `medialCapitalAsWordStart` Boolean - (opcional) Cuando Combinas con`wordStart`, acepta un partido en la mitad d una palabra si el partido comienza con una letra mayúscula seguida por un símbolo, no letra, minúscula. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Empieza un pedido para encontrar todas las coincidencias para el `text` en la página web y devuelve un `Integer` representando id pedido para la solicitud. El resultado del pedido puede ser obtenido al subscribirse al evento [`found-in-page`](webview-tag.md#event-found-in-page).
 
 ### `<webview>.stopFindInPage(action)`
 
