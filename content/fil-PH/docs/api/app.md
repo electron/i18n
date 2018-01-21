@@ -638,11 +638,11 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.getAppMemoryinfo()` *Deprecated*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app.
 
 ### `app.getGpuFeatureStatus()`
 
