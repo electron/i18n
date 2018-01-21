@@ -37,14 +37,14 @@ Invoca en cuadro de diálogo en la ventana secundaria.
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Envía un mensaje a la ventana secundaria con el origen específicado o `*` sin origen de preferencia.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+Además de estos métodos, la ventana secundaria implementa el objeto `window.opener` sin ninguna propiedad y un método único.
 
 ### Propiedades de Instancia
 
-The `BrowserWindowProxy` object has the following instance properties:
+El objeto `BrowserWindowProxy` tiene las siguientes propiedades de instancia:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+Un `Boolean` que cambia a true cuando la ventana secundaria se cierra.
