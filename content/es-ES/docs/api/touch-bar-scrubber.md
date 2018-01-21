@@ -1,16 +1,16 @@
-## Class: TouchBarScrubber
+## Clase: depurador de la barra tactil
 
-> Create a scrubber (a scrollable selector)
+> Crear un depurador (un selector de desplazamiento)
 
 Proceso: [principal](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarScrubber(options)` *Experimental*
+### `Nuevo depurador de la barra táctil(opciones)` *Experimental*
 
 * `options` Object 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
-    * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
+  * `elementos` [elemento a depurar[]](structures/scrubber-item.md) - Un arreglo de elementos a depurar
+  * `seleccionar` Función - llamado cuando el usuario toca un elemento que no era el último elemento tocado 
+    * `seleccionar índice` Entero - El índice del elemento que el usuario seleccionó
+  * `destacado` Función - llamado cuando el usuario toca cualquier elemento 
     * `highlightedIndex` Integer - The index of the item the user touched
   * `selectedStyle` String - Selected item style. Defaults to `null`.
   * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
