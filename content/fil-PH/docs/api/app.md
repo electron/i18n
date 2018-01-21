@@ -763,19 +763,19 @@ Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa
 
 Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
 
-Returns `Integer` an ID representing the request.
+Nagbabalik ang `integer` ang isang ID na kumakatawan sa mga kahilingan.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Kanselahin ang pagtalon ng `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder ng mga Download.
 
 ### `app.dock.setBadge(text)` *macOS*
 
