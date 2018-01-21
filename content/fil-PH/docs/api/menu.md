@@ -52,7 +52,7 @@ Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -63,7 +63,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
 
 Closes the context menu in the `browserWindow`.
 
