@@ -545,7 +545,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 Devuelve:
 
-* `errorCode` Integer
+* `CódigodeError` Entero
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
