@@ -600,63 +600,63 @@ Binuksan ang lahat ng mga trangka na ginawa ng `makeSingleInstance`. Pinapayagan
 
 * `type` String - Kakaibang pagkakilala sa aktibidad. Nagmamap sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `webpageURL` String (opsyonal) - ay ang webpage sa isang browser na ilo-load kung walang angkop na app ang naka-install sa aparatong nagpasimulang muli. Ang dapat na pamamaraan ay `http` o `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Ay lumilikha ng isang `NSUserActivity` at ito ang nagtatakda bilang kasalukuyang aktibidad. Ang aktibidad ay karapat-dapat para sa [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sa iba pang aparato pagkatapos nito.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Nagbabalik ang `String` - Ang uri ng kasalukuyang aktibidad na tumatakbo.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) tungo sa `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `mga pagpipilian` Bagay 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+  * `certificate` String - Ang landas para sa mga file ng pkcs12.
+  * `password` String - Ang passphrase para sa mga sertipiko.
 * `callback` Function 
-  * `result` Integer - Result of import.
+  * `result` Integer - Ang resulta ng pag-import.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
 
-### `app.disableHardwareAcceleration()`
+### `ang app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Hindi pinagana ang akselerasyon ng hardware para sa kasalukuyang app.
 
-This method can only be called before app is ready.
+Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Sa pamamagitan ng default, hindi pinagana ng Chromium ang mga 3D API (hal.WebGL) hanggang sa muling pagbukas sa bawat domain na basehan kung ang mga proseso ng GPU ay masyadong madalas bumagsak. Ang punsyon na ito ay hindi pinapagana ang ganoong katangian.
 
-This method can only be called before app is ready.
+Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryinfo()` *Deprecated*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app. **Note:** Ang pamamaraang ito ay hindi na magagamit, sa halip ay gumamit ng `app.getAppMetrics()`.
 
-### `app.getAppMetrics()`
+### `ang app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app.
 
-### `app.getGpuFeatureStatus()`
+### `ang app.getGpuFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga Tampok na Katayuan ng mga Grapiko mula sa `chrome://gpu/`.
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.setBadgeCount(bilangin)` *Linux* *macOS*
 
-* `count` Integer
+* ang `count` Integer
 
 Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay ``.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
@@ -753,7 +753,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.dock.bounce([type])` *macOS*
 

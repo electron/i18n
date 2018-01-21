@@ -18,13 +18,13 @@ Ang `menu` na object ay mga sumusunod na paraan ng static:
 
 Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux, ang `menu<0/> ang magtatakda sa bawat window's sa taas ng menu.</p>
 
-<p>Passing <code>null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+<p>Pagpasa sa <code>null` para alisin ang menu bar sa Widows at Linux pero wala itong epekto sa Masco.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Note:** itong API ang dapat tawagin pagkatapos ng `handa` kaganapan ng `app` module.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Nagbabalik ang `Menu` - Ang menu ng application, kung nakatakda o`null`, kung hindi nakatakda.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
