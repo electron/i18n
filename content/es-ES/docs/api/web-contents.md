@@ -4,7 +4,7 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-`Contenidoweb` es un [EmisordeEvento](https://nodejs.org/api/events.html#events_class_eventemitter). Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BuscadorWindow`](browser-window.md). Un ejemplo de acceso del objeto `Contenidosweb`:
+`Contenidoweb` es un [EmisordeEvento](https://nodejs.org/api/events.html#events_class_eventemitter). Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BuscadorWindow`](browser-window.md). Un ejemplo de acceso del objeto `Contenidoweb`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## Métodos
 
-Se pueden acceder a estos métodos desde el módulo `Contenidosweb`:
+Se pueden acceder a estos métodos desde el módulo `Contenidoweb`:
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,7 +27,7 @@ console.log(webContents)
 
 ### `contenidosweb.conseguirtodoslosContenidosWeb()`
 
-Volver `ContenidosWeb` a la matriz de todo el caso `ContenidosWeb`. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Volver `ContenidoWeb` a la matriz de todo el caso `ContenidoWeb`. Esto incluirá contenido web para todos los windows, páginas web, devtools abiertos y extensión de páginas de origen devtools.
 
 ### `webContents.getFocusedWebContents()`
 
