@@ -55,7 +55,7 @@ Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
 * `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `y` (opsyonal) - bilang Default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung `x` ay ipinahayag.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 
