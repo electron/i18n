@@ -421,27 +421,27 @@ Ejecuta el comando de edición `unselect` en página.
 
 * `texto` String
 
-Executes editing command `replace` in page.
+Ejecuta el comando de edición `replace` en página.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `texto` String
+* `texto` Cadena
 
-Executes editing command `replaceMisspelling` in page.
+Ejecuta el comando de edición `replaceMisspelling` en página.
 
 ### `<webview>.insertText(text)`
 
-* `texto` String
+* `texto` Cadena
 
-Inserts `text` to the focused element.
+Inserta `texto` al elemento centrado.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` Cadena - Contenido para ser buscado, no debe ser vaciado.
 * `options` Objecto (opcional) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
+  * `forward` Boolean - (opcional) Aunque busques adelante o hacia atrás, por defecto a `true`.
+  * `findNext` Boolean - (opcional) Aunque la operación sea primero pedida o seguida por defecto a `false`.
+  * `matchCase` Boolean - (opcional) Aunque la búsqueda deba ser sensible a letra, por defecto a `false`.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
