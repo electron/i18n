@@ -317,28 +317,28 @@ Navega a la compensación especifica desde la "entrada actual".
 
 ### `<webview>.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Devuelve `Boolean` - Aunque el proceso del renderizador se haya arruinado.
 
 ### `<webview>.setUserAgent(userAgent)`
 
 * `userAgent` cadena
 
-Overrides the user agent for the guest page.
+Anula el agente usuario para la página de invitado.
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+Devuelve `String` - El agente usuario para la página de invitado.
 
 ### `<webview>.insertCSS(css)`
 
-* `css` String
+* `css` Cadena
 
-Injects CSS into the guest page.
+Inyecta CSS en la página de invitado.
 
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `codigo` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean - Por defecto `false`.
 * `llamada de vuelta` Function (optional) - Called after script has been executed. 
   * `result` Any
 
