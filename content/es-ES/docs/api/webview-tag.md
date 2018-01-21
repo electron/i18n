@@ -251,43 +251,43 @@ Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. 
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+Devuelve `String` - El URL de la página de invitado.
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+Devuelve `Cadena` - El título de la página de invitado.
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+Devuelve `Boolean` - Aunque la página de invitado esté cargando recursos.
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+Devuelve `Boolean` - Aunque la página de invitado esté esperando por una primera respuesta de el principal recurso de la página.
 
 ### `<webview>.stop()`
 
-Stops any pending navigation.
+Detiene cualquier navegación pendiente.
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+Recarga la página de invitado.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Recarga la página de invitado e ignora el caché.
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+Devuelve `Boolean` - Aunque la página de invitado pueda retroceder.
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Whether the guest page can go forward.
+Devuelve `Boolean` - Aunque la página de invitado úeda ir hacia adelante.
 
 ### `<webview>.canGoToOffset(offset)`
 
-* `offset` Integer
+* `offset` Íntegro
 
 Returns `Boolean` - Whether the guest page can go to `offset`.
 
