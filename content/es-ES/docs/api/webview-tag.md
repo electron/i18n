@@ -552,7 +552,7 @@ Devuelve:
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### Evento: 'did-frame-finish-load'
 
 Devuelve:
 
@@ -560,15 +560,15 @@ Devuelve:
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Evento: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Evento: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Evento: 'did-get-response-details'
 
 Devuelve:
 
