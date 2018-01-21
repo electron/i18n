@@ -36,7 +36,7 @@ The following methods are available on instances of `WebRequest`:
 
 * `filter` Bagay 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Punsyon 
   * `details` Bagay 
     * `id` Integer
     * `url` String
@@ -44,7 +44,7 @@ The following methods are available on instances of `WebRequest`:
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `tumawag muli` Punsyon 
     * `response` Bagay 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -70,7 +70,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `response` Bagay 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
@@ -81,7 +81,7 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Bagay 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Punsyon 
   * `details` Bagay 
     * `id` Integer
     * `url` String
@@ -109,7 +109,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `response` Bagay 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
@@ -121,7 +121,7 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Bagay 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Punsyon 
   * `details` Bagay 
     * `id` Integer
     * `url` String
@@ -139,7 +139,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Bagay 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Punsyon 
   * `details` Bagay 
     * `id` String
     * `url` String
@@ -158,7 +158,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Bagay 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Punsyon 
   * `details` Bagay 
     * `id` Integer
     * `url` String
@@ -176,7 +176,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Bagay 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Punsyon 
   * `details` Bagay 
     * `id` Integer
     * `url` String
