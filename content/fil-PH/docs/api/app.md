@@ -656,7 +656,7 @@ Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
 Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay ``.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
