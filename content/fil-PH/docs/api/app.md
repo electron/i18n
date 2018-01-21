@@ -109,7 +109,7 @@ Magbabalik ng:
 
 Lalabas sa panahon ng [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kapag ang isang aktibidad mula sa ibang aparato ay nais na maipagpatuloy. Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
-Ang isang user na aktibidad ay pwede lamang magpatuloy sa isang app na may kaparehong developer Team ID bilang source app ng aktibidad at kung ito ay nagsusuporta ng uri ng aktibidad. Ang sinusuportahan na mga uri ng aktibidad ay tinutukoy sa `Info.plist` ng app sa ilalim ng `NSUserActivityTypes` na key.
+Ang aktibidad ng isang user ay maaari lamang magpatuloy sa isang app na may kaparehong developer Team ID bilang source app ng aktibidad at kung ito ay sumusuporta sa uri ng aktibidad. Ang sinuportahan na mga uri ng aktibidad ay tinukoy sa `Info.plist` ng app sa ilalim ng key ng `NSUserActivityTypes`.
 
 ### Event: 'new-window-for-tab' *macOS*
 
