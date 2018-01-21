@@ -6,7 +6,7 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-`BrowserView` puede ser usado para embeber contenido web adicional en `BrowserWindow`. Es como una ventana hija, excepto que esta relativamente posicionada respecto su ventana propietaria. Se puede considerar una alternativa al tag `webview`.
+`BrowserView` puede ser usado para incrustar contenido web adicional en `BrowserWindow`. Es como una ventana hija, excepto que esta relativamente posicionada respecto a su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
 
 ## Ejemplo
 
@@ -52,11 +52,11 @@ Un objeto [`WebContents`](web-contents.md), que pertenece a esta vista.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Un `Integer` representa el id único de la vista.
 
 ### Métodos de Instancia
 
-Objects created with `new BrowserView` have the following instance methods:
+Los objetos creados con `new BrowserView` tiene los siguientes métodos de instancia:
 
 #### `view.setAutoResize(options)` *Experimental*
 
