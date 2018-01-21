@@ -129,8 +129,8 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
   * `minHeight` Integer (opcional) - La altura mínima de la ventana. Por defecto es ``.
   * `maxWidth` Integer (opcional) - La anchura máxima de la ventana. No tiene límites por defecto.
   * `maxHeight` Integer (opcional) - La altura máxima de la ventana. No tiene límites por defecto.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
+  * `resizable` Boolean (opcional) - si la ventana es redimensionable. Por defecto es `true`.
+  * `movable` Boolean (opcional) - si la ventana es movible. Esto no esta implementado en Linux. Por defecto es `true`.
   * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
   * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
   * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
