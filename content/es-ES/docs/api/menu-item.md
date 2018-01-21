@@ -50,19 +50,19 @@ La propiedad `role` puede tener los siguientes valores:
 * `recargar` - Recarga la ventana actual
 * `cargar forzadamente` - Recarga la ventana ignorando el caché.
 * `herramientas de desarrollador` - herramientas de desarrollador de alterar la ventana actual
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `Conmutador de pantalla completa`- Palanca de modo pantalla completa en la ventana actual
+* `Reiniciar zoom` - Resetea el nivel de zoom de la ventana enfocada a su tamaño original
+* `acercar zoom` - zoom en la página enfocada del 10%
+* `Alejar zoom` - Aleja el zoom de la página enfocada en 10%
+* `editar menú` - "editar" todo el menú por defecto (deshacer, copiar, etc.)
+* `Menú de ventana` - Menú completo de "ventana" por defecto (minimizar, cerrar. etc.)
 
-The following additional roles are available on macOS:
+Los siguientes roles adicionales están disponibles para macOS:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
+* `acerca` - mapa de la acción `orderFrontStandardAboutPanel`
+* `ocultar` - mapa de la acción de `ocultar`
+* `ocultar otros` - Mapa de acción `ocultar otras aplicaciones`
+* `mostrar` - Mapa de acción de `mostrar todas las aplicaciones`
 * `startspeaking` - Map to the `startSpeaking` action
 * `stopspeaking` - Map to the `stopSpeaking` action
 * `front` - Map to the `arrangeInFront` action
