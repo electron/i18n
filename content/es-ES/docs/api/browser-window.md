@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> Crea y controla ventanas del navegador.
+> Crea y controla las ventanas del navegador.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Mainl](../glossary.md#main-process)
 
 ```javascript
 // En el proceso principal.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// O usar "remote" desde el proceso de renderizado.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,14 +16,14 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Carga un URL remoto
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// O carga un archivo locar HTML
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Ventana sin marco
 
 To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Crea y controla ventanas del navegador.
+> Crea y controla las ventanas del navegador.
 
 Proceso: [Principal](../glossary.md#main-process)
 
