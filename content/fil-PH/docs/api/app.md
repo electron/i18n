@@ -671,8 +671,8 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
+  * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
