@@ -638,13 +638,13 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.getAppMemoryinfo()` *Deprecated*
 
-Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app. **Note:** Ang pamamaraang ito ay hindi na magagamit, sa halip ay gumamit ng `app.getAppMetrics()`.
 
-### `app.getAppMetrics()`
+### `ang app.getAppMetrics()`
 
 Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng mga bagay sa `ProcessMetric` na tumutugma sa memorya at sa istatistiko ng paggamit ng cpu ng lahat ng mga prosesong may kaugnayan sa mga app.
 
-### `app.getGpuFeatureStatus()`
+### `ang app.getGpuFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
