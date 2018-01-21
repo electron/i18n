@@ -31,9 +31,9 @@ Se puede usar la API [Frameless Window](frameless-window.md) para crear una vent
 
 Cuando una página cargue la ventana directamente, los usuarios pueden ver la página cargar gradualmente, lo cual no es una buena experiencia para una aplicación nativo. Para hacer que la ventana aparezca sin el visual flash, hay dos soluciones para distintas situaciones.
 
-### Using `ready-to-show` event
+### Usando el evento `ready-to-show`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Al cargar la ventana, se emitirá el evento `ready-to-show` cuando el proceso de renderizado haya procesado la página por primera vez si aún no se ha muestrado la ventana. Showing the window after this event will have no visual flash:
 
 ```javascript
 const {BrowserWindow} = require('electron')
