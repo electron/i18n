@@ -26,7 +26,7 @@ Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux
 
 Nagbabalik ang `Menu` - Ang menu ng application, kung nakatakda o`null`, kung hindi nakatakda.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
+**Note:** Ng nakauwi na halimbawa ng `Menu` ay hindi suportado ng dinamikong Pagdagdag o pagtanggal ng mga item sa menu. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
