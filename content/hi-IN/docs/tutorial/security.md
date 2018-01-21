@@ -8,9 +8,9 @@
 
 ## सुरक्षा समस्याओं को रिपोर्ट करना
 
-For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+एक इलेक्ट्रॉन सुरक्षाछिद्र को कैसे रिपोर्ट करें, इसकी जानकारी पाने के लिए [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md) देखें
 
-## Chromium Security Issues and Upgrades
+## क्रोमियम सुरक्षा समस्यायें और अपग्रेडस
 
 While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
 
