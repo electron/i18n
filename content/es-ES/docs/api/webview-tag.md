@@ -375,23 +375,23 @@ Abre el DevTools para el contexto del trabajador de servicio presente en la pág
 
 * `muted` Boolean
 
-Set guest page muted.
+Establece la página de invitado silenciada.
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Whether guest page has been muted.
+Devuelve `Boolean` - Aunque a página de invitado haya sido silenciada.
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+Ejecuta el comando de edición `undo` en página.
 
 ### `<webview>.redo()`
 
-Executes editing command `redo` in page.
+Ejecuta el comando de edición `redo` en página.
 
 ### `<webview>.cut()`
 
-Executes editing command `cut` in page.
+Ejecuta comando de edición `cut` en página.
 
 ### `<webview>.copy()`
 
