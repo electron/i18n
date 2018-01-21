@@ -658,7 +658,7 @@ Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge
 
 Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
 
-**Note:** Launcher ng pagkakaisa ay nangangailangan ng pagkakaroon ng isang file na `.desktop` sa trabaho, para sa karagdagang impormasyon mangyaring basahin ang [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
