@@ -646,11 +646,11 @@ Nagbabalik ang [`ProcessMetric[]`](structures/process-metric.md): Ang hanay ng m
 
 ### `ang app.getGpuFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Nagbabalik ang [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Ang mga Tampok na Katayuan ng mga Grapiko mula sa `chrome://gpu/`.
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.setBadgeCount(bilangin)` *Linux* *macOS*
 
-* `count` Integer
+* ang `count` Integer
 
 Returns `Boolean` - Kung ang tawag ay naging matagumpay.
 
