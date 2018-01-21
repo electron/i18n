@@ -14,11 +14,11 @@
 
 हालाँकि इलेक्ट्रॉन की कोशिश क्रोमियम के नये संस्करणों को जल्द से जल्द समर्थित करने की होती है, डेवलपर्स के लिए यह जानना आवश्यक है कि अपग्रेड करना एक बेहद बड़ा काम है - जिसमे कई दर्जन या फिर कई बार सैकड़ों फाइल्स को भी खुद एडिट करना होता पड़ता है | आज के हिसाब से मौज़ूद संसाधनों और योगदानों के हिसाब से, इलेक्ट्रॉन के पास अक्सर क्रोमियम का नवीनतम संस्करण उपलब्ध नहीं होगा, और यह देरी कुछ दिनों या हफ़्तों की भी हो सकती है |
 
-हमें लगता है कि क्रोमियम तत्व को अपडेट करने का हमारा मौजादा सिस्टम हमारे पास उपलब्ध संसाधनों और फ्रेमवर्क पर निर्मित ज्यादातर एप्लीकेशनस की आवश्यकताओं के बीच में एक उचित संतुलन बनाता है | We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+हमें लगता है कि क्रोमियम तत्व को अपडेट करने का हमारा मौजादा सिस्टम हमारे पास उपलब्ध संसाधनों और फ्रेमवर्क पर निर्मित ज्यादातर एप्लीकेशनस की आवश्यकताओं के बीच में एक उचित संतुलन बनाता है | जो लोग इलेक्ट्रॉन के ऊपर एप्लीकेशनस का निर्माण करते हैं, हम उनसे निश्चित रूप से विशिष्ट उपयोग मामलों के बारे में और अधिक जानना चाहेंगे | इस प्रयास का समर्थन करने वाले पुल रेकुएस्ट्स और योगदानों का सर्वदा स्वागत है |
 
-## Ignoring Above Advice
+## उपरोक्त सलाह की अनदेखी
 
-A security issue exists whenever you receive code from a remote destination and execute it locally. As an example, consider a remote website being displayed inside a browser window. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+जब भी आप एक दूरस्थ स्त्रोत से कोड प्राप्त कर उसे स्थानीय रूप से चलाते है तो एक सुरक्षा समस्या जरूर उत्पन्न होती है | उदाहरण के तौर पर, एक दूरस्थ वेबसाइट लीजिये जो कि एक ब्राउज़र विंडो में प्रदर्शित हो रही है | If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
 
 > :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
 
