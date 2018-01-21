@@ -24,7 +24,7 @@ Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Nagbabalik ang `Menu` - Ang menu ng application, kung nakatakda o`null`, kung hindi nakatakda.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
