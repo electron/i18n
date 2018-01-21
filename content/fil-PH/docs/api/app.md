@@ -632,11 +632,11 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Sa pamamagitan ng default, hindi pinagana ng Chromium ang mga 3D API (hal.WebGL) hanggang sa muling pagbukas sa bawat domain na basehan kung ang mga proseso ng GPU ay masyadong madalas bumagsak. Ang punsyon na ito ay hindi pinapagana ang ganoong katangian.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryinfo()` *Deprecated*
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
