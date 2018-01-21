@@ -27,7 +27,7 @@ console.log(webContents)
 
 ### `contenidosweb.conseguirtodoslosContenidosWeb()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Volver `ContenidosWeb` a la matriz de todo el caso `ContenidosWeb`. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 
 ### `webContents.getFocusedWebContents()`
 
