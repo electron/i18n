@@ -119,11 +119,11 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
 ### `new BrowserWindow([options])`
 
 * `options` Object (opcional) 
-  * `ancho` Integer (opcional) - ancho de la ventana en píxeles. Por defecto es `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
+  * `ancho` Integer (opcional) - ancho de la ventana en píxeles. El valor por defecto es `800`.
+  * `altura` Integer (opcional) - altura de la ventana en píxeles. El valor por defecto es `600`.
+  * `x` Integer (opcional) (**required** si se utiliza y) - el offset izquierdo de la ventana de la pantalla. Por defecto la ventana es centrada.
+  * `y` Integer (opcional) (**required** si se utiliza x) - el offset de arriba de la ventana de la pantalla. Por defecto la ventana es centrada.
+  * `useContentSize` Boolean (opcional) - La `width` y la `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
   * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
   * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
