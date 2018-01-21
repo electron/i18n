@@ -48,7 +48,7 @@ Makakabitan mo din ang iba pang mga patlang sa mga elemento ng mga `template` at
 
 ### Mga pamamaraan ng pagkakataon
 
-The `menu` object has the following instance methods:
+Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
 
 #### `menu.popup([browserWindow, options])`
 
