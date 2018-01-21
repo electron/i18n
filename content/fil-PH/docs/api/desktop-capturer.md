@@ -69,7 +69,7 @@ The `desktopCapturer` module has the following methods:
 * `mga opsyon` Bagay 
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Ang laki](structures/size.md) (opsyonal) - ang laki ng media sourceay thumbnail dapat sukatan. Default ay `150` x `150`.
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
