@@ -4,7 +4,7 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-`Contenidoweb` es un [EmisordeEvento](https://nodejs.org/api/events.html#events_class_eventemitter). Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BuscadorWindow`](browser-window.md). Un ejemplo de acceso del objeto `Contenidoweb`:
+`webContents` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,22 +18,22 @@ console.log(contents)
 
 ## Métodos
 
-Se pueden acceder a estos métodos desde el módulo `Contenidoweb`:
+Se pueden acceder a estos métodos desde el módulo `webContents`:
 
 ```javascript
 const {webContents} = require('electron')
 console.log(webContents)
 ```
 
-### `contenidoweb.conseguirtodoContenidoWeb()`
+### `webContents.getAllWebContents()`
 
-Volver `ContenidoWeb` a la matriz de todo el caso `ContenidoWeb`. Esto incluirá contenido web para todos los windows, páginas web, devtools abiertos y extensión de páginas de origen devtools.
+Volver `WebContents[]` a la matriz de todo el caso `WebContents`. Esto incluirá contenido web para todos los windows, páginas web, devtools abiertos y extensión de páginas de origen devtools.
 
-### `contenidoweb.conseguirContenidoWebEnfocado()`
+### `webContents.getFocusedWebContents()`
 
-Volver `ContenidoWeb` - El contenido web que se centra en esta aplicación, de lo contrario regresa `inválido`.
+Volver `WebContents` - El contenido web que se centra en esta aplicación, de lo contrario regresa `null`.
 
-### `contenidoweb.deId(id)`
+### `webContents.fromId(id)`
 
 * `id` Íntegro
 
@@ -55,9 +55,9 @@ Emite cuando la navegación está hecha, i.e.
 
 Devuelve:
 
-* `evento` Evento
-* `CódigodeError` Entero
-* `errordeDescripción`
+* `event` Evento
+* `errorCode` Entero
+* `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
 
