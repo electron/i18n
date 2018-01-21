@@ -21,15 +21,15 @@ Ang bagay ng `app` ay naglalabas ng mga sumusunod na mga event:
 
 Ay lalabas kapag ang aplikasyon ay natapos na karaniwang startup. Sa Windows at Linux, ang event ng `will-finish-launching` ay parehas ng event ng `ready`: sa macOS, ang event na ito ay nagrerepresenta ng `applicationWillFinishLaunching` na notipikasyon ng `NSApplication`. Karaniwan mong ise-set up ang mga tagapakinig para sa mga event ng`open-file` at `open-url` dito, at i-start ang crash repoter at auto updater.
 
-Sa karamihan, dapat mong gawin ang lahat sa `ready` na event handler.
+Sa karamihan, dapat mo lang gawin ang lahat sa mga `ready` handler ng event.
 
-### Event: 'ready'
+### Mga event: 'ready'
 
 Magbabalik ng:
 
-* `launchInfo` na Object *MacOS*
+* `launchInfo` Mga bagay *MacOS*
 
-Ibrobrodkast kapag ang Electron ay tapos ng mag-initialize. Sa macOS, ang `launchInfo` ay may hawak ng `userInfo` ng `NSUserNotification` na ginamit para buksan ang application, kung ito ay isinimula galing sa Notification Center. Pwedeng mag tawag ng `app.isReady()` para suriin kung ang event ay isinimula na.
+Lalabas kapag ang Electron ay tapos ng mag-initialize. Sa macOS, ang `launchInfo` ay may hawak ng `userInfo` ng `NSUserNotification` na ginamit para buksan ang application, kung ito ay isinimula galing sa Notification Center. Pwedeng mag tawag ng `app.isReady()` para suriin kung ang event ay isinimula na.
 
 ### Event: 'window-all-closed'
 
