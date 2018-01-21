@@ -2,7 +2,7 @@
 
 > Add items to native application menus and context menus.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 See [`Menu`](menu.md) for examples.
 
