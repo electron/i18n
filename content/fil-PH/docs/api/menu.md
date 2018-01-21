@@ -26,13 +26,13 @@ Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux
 
 Nagbabalik ang `Menu` - Ang menu ng application, kung nakatakda o`null`, kung hindi nakatakda.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Ipadala ang mga `Pagkilos` Sa mga unang responder ng aplikasyon. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
 
