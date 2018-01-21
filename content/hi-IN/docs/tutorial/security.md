@@ -22,14 +22,14 @@
 
 > :warning: किसी भी परिस्थिति में आपको उस दूरस्थ कोड को लोड और एक्सीक्यूट नहीं करना चहिये जिसमे नोड इंटीग्रेशन इनेबल्ड हो | इसकी जगह, नोड कोड को चलाने के लिए केवल स्थानीय फाइल्स (आपकी एप्लीकेशन संग पैकेज्ड) का इस्तेमाल करें | दूरस्थ सामग्री को प्रदर्शित करने के लिए, `webview` टैग का इस्तेमाल करें और यह सुनिश्चित करें कि `nodeIntegration` डिसेबल्ड है |
 
-#### Checklist
+#### जाँच सूची
 
-This is not bulletproof, but at the least, you should attempt the following:
+यह पूरी तरह से अभेद्य नहीं है, पर आपको कम से कम इनको तो अपनाना ही चाहिये:
 
-* Only display secure (https) content
-* Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
+* केवल सुरक्षित (https) सामग्री प्रदर्शित करें
+* नोड इंटीग्रेशन को उन सभी रेंदेरेर में डिसएबल कर दें जो दूरस्थ सामग्री प्रदर्शित करते हैं (`webPreferences` में `nodeIntegration` को `false` सेट करना)
+* कॉन्टेक्स्ट आइसोलेशन को उन सभी रेंदेरेर में डिसएबल कर दें जो दूरस्थ सामग्री प्रदर्शित करते हैं (`webPreferences` में `contextIsolation` को `true` सेट करना)
+* दूरस्थ सामग्री लोड करने वाले सभी सत्रों में `ses.setPermissionRequestHandler()` का उपयोग करें
 * Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
 * Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
 * [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
