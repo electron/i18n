@@ -11,36 +11,36 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
   * `seleccionar` Función - llamado cuando el usuario toca un elemento que no era el último elemento tocado 
     * `seleccionar índice` Entero - El índice del elemento que el usuario seleccionó
   * `destacado` Función - llamado cuando el usuario toca cualquier elemento 
-    * `highlightedIndex` Integer - The index of the item the user touched
-  * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
-  * `showArrowButtons` Boolean - Defaults to `false`.
-  * `mode` String - Defaults to `free`.
-  * `continuous` Boolean - Defaults to `true`.
+    * `índice destacado` Entero - El índice del elemento que el usuario tocó
+  * `Seleccionar estilo` Cadena - Estilo del elemento seleccionado. Por defecto `nulo`.
+  * `cubrir estilo` Cadena - Selecciona el estilo cubierto del elemento. Por defecto es `nulo`.
+  * `Mostrar botones de flechas` Booleano - Por defecto es `falso`.
+  * `modo` Cadena - Por defecto es `libre`.
+  * `continuo` Booleano - Por defecto es `verdad`.
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `TouchBarScrubber`:
+Las siguientes propiedades está disponibles en instancias del `depurador de barra tactil`:
 
 #### `touchBarScrubber.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Un arreglo de`Elemento a depurar[]` representando los elementos en este depurador. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Mientras se actualicen propiedades profundas en este arreglo **no actualice la barra táctil**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Una `Cadena` representando el estilo que deben tener los elementos en el depurador. Actulizar este valor inmediatamente actualiza el control en la barra táctil. Valores positivos:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles
+* `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`
+* `nulo` - Actualiza nulo, no una cadena, remueve todos los estilos
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Posibles valores:
+Una `Cadena` que representa el estilo que deben tener los elementos seleccionados por el depurador. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Posibles valores:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles
+* `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`
+* `nulo` - Actualiza nulo, no una cadena, remueve todos los estilos
 
 #### `touchBarScrubber.showArrowButtons`
 
