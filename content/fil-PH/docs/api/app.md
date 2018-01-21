@@ -117,25 +117,25 @@ Magbabalik ng:
 
 * `event` Event
 
-Ibrobrodkast kapag ang user ay nagclick sa native macOS new tab na pindutan. Ang bagong tab na pindutan ay makikita lamang kung ang kasalukuyang `BrowserWindow` ay may `tabbingIdentifier`
+Lalabas kapag ang user ay nag-klik sa natural na pindutan ng bagong tab sa macOS. Ang bagong tab na pindutan ay makikita lamang kung ang kasalukuyang `BrowserWindow` ay may `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
-
-Magbabalik ng:
-
-* `event` Event
-* `window` BrowserWindow
-
-Ibrobrodkast kapang a [browserWIndow](browser-window.md) ay magiging malabo.
-
-### Event: 'browser-window-focus'
+### Mga event: 'browser-window-blur'
 
 Magbabalik ng:
 
 * `event` Event
 * `window` BrowserWindow
 
-Ibrobrodkast kapag ang [browserWindow](browser-window.md) ay ipopokus.
+Lalabas kapag ang [browserWIndow](browser-window.md) ay nagiging malabo.
+
+### Mga event: 'browser-window-focus'
+
+Magbabalik ng:
+
+* `event` Event
+* `window` BrowserWindow
+
+Lalabas kapag ang [browserWindow](browser-window.md) ay ipopokus.
 
 ### Event: 'browser-window-created'
 
@@ -144,7 +144,7 @@ Magbabalik ng:
 * `event` Event
 * `window` BrowserWindow
 
-Ibrobrodkast kapang ang bagong [browserWindow](browser-window.md) ay nagawa na.
+Lalabas kapag ang bagong [browserWindow](browser-window.md) ay nagawa na.
 
 ### Event: 'web-contents-created'
 
