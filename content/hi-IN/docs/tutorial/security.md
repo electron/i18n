@@ -18,9 +18,9 @@
 
 ## उपरोक्त सलाह की अनदेखी
 
-जब भी आप एक दूरस्थ स्त्रोत से कोड प्राप्त कर उसे स्थानीय रूप से चलाते है तो एक सुरक्षा समस्या जरूर उत्पन्न होती है | उदाहरण के तौर पर, एक दूरस्थ वेबसाइट लीजिये जो कि एक ब्राउज़र विंडो में प्रदर्शित हो रही है | If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+जब भी आप एक दूरस्थ स्त्रोत से कोड प्राप्त कर उसे स्थानीय रूप से चलाते है तो एक सुरक्षा समस्या जरूर उत्पन्न होती है | उदाहरण के तौर पर, एक दूरस्थ वेबसाइट लीजिये जो कि एक ब्राउज़र विंडो में प्रदर्शित हो रही है | अगर एक हमलावर किसी तरह से इस सामग्री में बदलाव कर दे (चाहे सीधे स्त्रोत पर हमला कर के, या फिर आपकी एप्प और असल गंतव्य के बीच में बैठ कर), तो वह उपयोगकर्ता की मशीन पर मूल कोड चलाने में सक्षम हो जायेगा |
 
-> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: किसी भी परिस्थिति में आपको उस दूरस्थ कोड को लोड और एक्सीक्यूट नहीं करना चहिये जिसमे नोड इंटीग्रेशन इनेबल्ड हो | इसकी जगह, नोड कोड को चलाने के लिए केवल स्थानीय फाइल्स (आपकी एप्लीकेशन संग पैकेज्ड) का इस्तेमाल करें | दूरस्थ सामग्री को प्रदर्शित करने के लिए, `webview` टैग का इस्तेमाल करें और यह सुनिश्चित करें कि `nodeIntegration` डिसेबल्ड है |
 
 #### Checklist
 
