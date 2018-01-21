@@ -289,31 +289,31 @@ Devuelve `Boolean` - Aunque la página de invitado úeda ir hacia adelante.
 
 * `offset` Íntegro
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+Devuelve `Boolean` - Aunque la página de invitado pueda ir a `offset`.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+Limpia el historial de navegación.
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+Hace que la página de invitado vaya hacia atrás.
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+Hace que la página de invitado vaya hacia adelante.
 
 ### `<webview>.goToIndex(index)`
 
-* `index` Integer
+* `index` Íntegro
 
-Navigates to the specified absolute index.
+Navega a el índice absoluto específico.
 
 ### `<webview>.goToOffset(offset)`
 
-* `offset` Integer
+* `offset` Íntegro
 
-Navigates to the specified offset from the "current entry".
+Navega a la compensación especifica desde la "entrada actual".
 
 ### `<webview>.isCrashed()`
 
