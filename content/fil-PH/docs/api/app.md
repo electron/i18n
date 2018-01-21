@@ -807,6 +807,6 @@ I-set ang [dock menu](https://developer.apple.com/library/mac/documentation/Carb
 
 ### `app.dock.setIcon(image)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` [NativeImage](native-image.md) (String)
 
 Sets the `image` associated with this dock icon.
