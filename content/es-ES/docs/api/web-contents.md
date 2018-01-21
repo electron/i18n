@@ -106,7 +106,7 @@ Devuelve:
 * `EsElFramePrincipal` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
+* `referencia` String
 * `headers` Object
 
 Emitted when a redirect is received while requesting a resource.
@@ -117,14 +117,14 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when the document in the given frame is loaded.
+Emitido cuando el documento en el frame dado es cargado.
 
 #### Event: 'page-favicon-updated'
 
 Devuelve:
 
 * `evento` Evento
-* `favicons` String[] - Array of URLs
+* `favicons` String[] - matriz de URLs
 
 Emitted when page receives favicon urls.
 
