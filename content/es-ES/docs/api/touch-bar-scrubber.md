@@ -36,7 +36,7 @@ Una `Cadena` representando el estilo que deben tener los elementos en el depurad
 
 #### `touchBarScrubber.overlayStyle`
 
-Una `Cadena` que representa el estilo que deben tener los elementos seleccionados por el depurador. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Posibles valores:
+Una `Cadena` que representa el estilo que deben tener los elementos seleccionados por el depurador. Este estilo es cubierto en la parte superior del elemento depurador en vez de posicionarse detrás de él. Actualizar este valor inmediatamente actualiza el control en la barra de herramientas. Posibles valores:
 
 * `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`
@@ -44,15 +44,15 @@ Una `Cadena` que representa el estilo que deben tener los elementos seleccionado
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+Un `Booleano` representando si se muestran las flechas izquierda / derecha en el depurador. Actualizar este valor actualizará inmediatamente el control en la barra táctil.
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+Una `Cadena` representando el modo de este depurador. Actualizar este valor actualizará inmediatamente el control de la barra táctil. Valores posibles:
 
-* `fixed` - Maps to `NSScrubberModeFixed`
-* `free` - Maps to `NSScrubberModeFree`
+* `fijo` - Mapa a `NSScrubberModeFixed`
+* `libre` - Mapa a `NSScrubberModeFree`
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+Un `Booleano` representando si este depurador es continuo o no. Actualizar este valor actualizará inmediatamente el control en la barra táctil.
