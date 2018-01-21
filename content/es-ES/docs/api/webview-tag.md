@@ -185,9 +185,9 @@ Una lista de cadenas que especifican las cadenas de blink para ser desactivadas,
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+Un valor que conecta el webview a un contenido de web especifico. Cuando una vista de web primero carga, un nuevo contenido de web es creado y este atributo está establecido para su identificador ejemplo. Ajustar este atributo en un nuevo o existente webview lo conecta a el contenido de web existente que actualmente renderiza en un webview diferente.
 
-The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
+El webview existente verá el evento `destruir` y entonces creará un nuevo contenido web cuando un nuevo url es cargado.
 
 ### `disableguestresize`
 
@@ -195,15 +195,15 @@ The existing webview will see the `destroy` event and will then create a new web
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+Cuando este atributo es presentado, el contenido `webview` será prevenido de reajustarse cuando el elemento `webview` es reajustado por sí mismo.
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+Esto puede ser usado en combinación con [`webContents.setSize`](web-contents.md#contentssetsizeoptions) para reajustar manualmente el contenido web en reacción con un cambio de tamaño de una cadena. Esto puede hacer que el reajuste sea más rápido en comparación a confiar en que el elemento del webview se reajuste automáticamente.
 
 ```javascript
 const {webContents} = require('electron')
 
-// We assume that `win` points to a `BrowserWindow` instance containing a
-// `<webview>` with `disableguestresize`.
+// Asumimos que `ganar` apunta al ejemplo `BrowserWindow` conteniendo un 
+// `<webview>` con `disableguestresize`.
 
 win.on('resize', () => {
   const [width, height] = win.getContentSize()
