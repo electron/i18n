@@ -443,7 +443,7 @@ Inserta `texto` al elemento centrado.
   * `findNext` Boolean - (opcional) Aunque la operación sea primero pedida o seguida por defecto a `false`.
   * `matchCase` Boolean - (opcional) Aunque la búsqueda deba ser sensible a letra, por defecto a `false`.
   * `wordStart` Boolean - (opcional) Aunque mires solo al principio de las palabras.. Por defecto a `falso`.
-  * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean - (opcional) Cuando Combinas con`wordStart`, acepta un partido en la mitad d una palabra si el partido comienza con una letra mayúscula seguida por un símbolo, no letra, minúscula. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
 Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
