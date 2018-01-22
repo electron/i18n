@@ -1150,7 +1150,7 @@ Eğer *offscreen rendering* etkinleştirildiyse kare hızını belirli bir sayı
 
 Bu web içeriklerinin içinde olduğu pencereyi tamamen yeniden boyamak için zaman ayarlar.
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+Eğer *offscreen rendering* etkinleştirildiyse çerçeveyi geçersiz kılar ve `'paint'` olayı aracılığıyla yeni bir tane oluşturur.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
@@ -1158,7 +1158,7 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `yönetmelik` String - Specify the WebRTC IP Handling Policy. 
+* `yönetmelik` String - WebRTC IP Yönetme İlkesini belirler. 
   * `default` - Kullanıcının açık ve yerel IP'lerini açığa çıkarır. Bu varsayılan davranıştır. Bu ilke kullanıldığında WebRTC bütün arayüzleri sıralama ve açık arayüzleri keşfetmek için onları bağlama hakkına sahip olur.
   * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. Bu ilke kullanıldığında WebRTC yalnızca http tarafından varsayılan yolu kullanmalıdır. Bu herhangi bir yerel adresi açığa çıkarmaz.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Bu ilke kullanıldığında WebRTC yalnızca http tarafından kullanılan varsayılan yolu kullanmalıdır. Bu ayrıca ilgili varsayılan özel adresleri de açığa çıkarır. Varsayılan yol, çok merkezli bir bitim noktasında İşletim Sistemi tarafından seçilen yoldur.
@@ -1168,21 +1168,21 @@ WebRTC IP yönetme ilkesini ayarlamak size hangi IPlerin WebRTC tarafından gös
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The `pid` of the associated renderer process.
+`Integer` döner- İlgili işleyici işleminin `pid`'si.
 
 ### Örnek özellikleri
 
 #### `contents.id`
 
-A `Integer` representing the unique ID of this WebContents.
+Bir `Integer` WebContents'in benzersiz bir kimliği temsil eder.
 
 #### `contents.session`
 
-A [`Session`](session.md) used by this webContents.
+Bir [`Session`](session.md) webContents tarafından kullanılır.
 
 #### `contents.hostWebContents`
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+Bir [`WebContents`](web-contents.md) örneği `WebContents`'e sahip olabilir.
 
 #### `contents.devToolsWebContents`
 
