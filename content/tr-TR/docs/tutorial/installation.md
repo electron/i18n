@@ -8,7 +8,7 @@
 npm yükle electron --kaydet-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Uygulamalarınızdaki Electron sürümlerini nasıl yöneteceğinizle ilgili bilgiler için [Electron versioning doc](electron-versioning.md)'a bakın.
 
 ## Genel kurulum
 
@@ -26,7 +26,7 @@ Eğer bu makinedeki yüklenen mimariyi değiştirmek istiyorsanız (örneğin. `
 npm yükle --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Mimariyi değiştirmeye ek olarak, `--platform` işaretini kullanarak platformu da belirleyebilirsiniz (örneğin `win32`, `linux`, vb.):
 
 ```shell
 npm yükle --platform=win32 electron
