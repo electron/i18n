@@ -179,11 +179,11 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
     * `webSecurity` Boolean (opcional) - Cuando es `false`, deshabilitará la política de un mismo origen (por lo general se utiliza cuando la gente testea los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
     * `allowRunningInsecureContent` Boolean (opcional) - Permite que una página https ejecute JavaScript, CSS o plugins de URLS http. Por defecto es `false`.
     * `images` Boolean (optional) - Habilita el soporte a imagen. Por defecto es `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-    * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
-    * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
+    * `textAreasAreResizable` Boolean (opcional) - Hace que los elementos de TextArea sean redimensionables. Por defecto es `true`.
+    * `webgl` Boolean (opcional) - Habilita el soporte a WebGL. Por defecto es `true`.
+    * `webaudio` Boolean (opcional) - Habilita el soporte a WebAudio. Por defecto es `true`.
+    * `plugins` Boolean (opcional) - Si los plugins se habilitan o no. Por defecto es `false`.
+    * `experimentalFeatures` Boolean (opcional) - Habilita las características experimentales de Chromium. Por defecto es `false`.
     * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
     * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
