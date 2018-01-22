@@ -496,7 +496,7 @@ Dönüşler:
 
 * `olay` Olay
 * `webPreferences` Nesne - Konuk sayfanın kullanacağı web tercihleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
-* `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `params` Nesne - `src` URL gibi diğer `<webview>` parametreleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
@@ -648,13 +648,13 @@ Yürürlükteki web sayfasına CSS ekler.
 * `geri arama` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Herhangi bir
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+`Promise` döner - Çalıştırılan kodun sonucuyla çözülen veya eğer kod sonucu promise reddedildiyse reddedilen bir promise.
 
 Sayfadaki `code`'u değerlendirir.
 
 Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+Eğer çalıştırılan kodun sonucu bir promise ise, geri çağırma sonucu promise'un çözülen bir değeri olacaktır. Bir Promise ile sonuçlanan kodları işlemek için dönen Promise kullanmanızı tavsiye ederiz.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
