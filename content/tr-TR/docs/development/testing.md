@@ -8,14 +8,14 @@ Depo birim ve entegrasyon testlerinin yanı sıra JavaScript ve C++ için lintin
 
 JavaScript'inizin Electron'un kodlama stili ile uyumlu olduğundan emin olmak için `npm run lint-js` komutunu çalıştırın. Komut Electron'a ve unit testlere karşı `standard`'ı çalıştıracaktır. Plugin/eklenti sistem içeren bir düzenleyici kullanıyorsanız, Commit'lemeden önce kodlama stili ihlallerinden haberdar olmak için [StandardJS eklentileri](standard-addons)nden birini kullanmak isteyebilirsiniz.
 
-To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
+`standard`'ı parametrelerle çalıştırmak için,`standard`'a geçirdiğiniz parametrelere takiben `npm run lint-js --` komutunu çalıştırın.
 
-To ensure that your C++ is in compliance with the Electron coding style, run `npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+C++ kodunuzun Electron kodlama stiliyle uyumlu olduğundan emin olmak için `cpplint` komut dizisini çalıştıracak olan `npm run lint-cpp` komutunu çalıştırın. `clang-format` kullanmanızı ve [kısa bir tutorial](clang-format.md) hazırlamanızı tavsiye ediyoruz.
 
 There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
 ## Unit Tests
 
-To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+Bütün birim testlerini koşmak için, `npm run test` komutunu çalıştırın. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
 
-To run only a selected number of tests, run `npm run test -match=NAME`, replacing the `NAME` with the file name of the test suite you would like to run. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
+Yalnızca belli sayıda test koşmak için `npm run test -match=NAME` komutunu çalıştırın, `NAME`'i koşmak istediğiniz test suitinin dosya ismiyle değiştirin. Örnek olarak: Eğer sadece IPC suitlerini koşmak istiyorsanız `npm run test -match=ipc` komutunu çalıştırmalısınız.
