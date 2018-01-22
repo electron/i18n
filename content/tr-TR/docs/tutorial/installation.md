@@ -38,19 +38,19 @@ Bir vekil sunucu kullanmaya ihtiyacınız varsa [ bu çevre değişkenleri ayarl
 
 ## Custom Mirrors and Caches
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Yükleme sırasında, `electron` modülü platformunuz için önceden hazırlanmış Electron binary'lerini indirmek için [`electron-download`](https://github.com/electron-userland/electron-download)'u çağıracaktır. Bu aynı zamanda GitHub'ın sürüm indirme sayfasına başvurarak da yapılabilir.(`https://github.com/electron/electron/releases/tag/v$VERSION`, `$VERSION` sürümü Elektron'un doğru sürümüdür).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Eğer GitHub'a erişemiyorsanız veya özel bir kurulum sağlamanız gerekiyorsa bunu bir ayna veya varolan bir önbellek dizini sağlayarak da yapabilirsiniz.
 
-#### Mirror
+#### Ayna
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+Ana URL'i geçersiz saymak için çevre değişkenlerini kullanabilirsiniz, dosya yolu Electron binary'lerine ve binary dosya isimlerine bakmalıdır. `electron-download` tarafından kullanılan url aşağıdaki gibi oluşturulur:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Örneğin, Çin aynası kullanmak için:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -58,7 +58,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternatif olarak yerel öncelleği geçersiz kılabilirsiniz. `electron-download` will cache downloaded binaries in a local directory to not stress your network. Önbellek klasörünü Elektronun özel kurulumlarını sağlamak veya ağ ile iletişimi tamamen kesmek için kullanabilirsiniz.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
