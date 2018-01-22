@@ -838,7 +838,7 @@ Herhangi bir ServiceWorker kaydı olup olmadığını kontrol eder ve `callback`
 * `geri arama` Fonksiyon 
   * `success` Boolean
 
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
+Olan bütün ServiceWorker'ların kaydını siler ve JS promise çözüldüğünde veya reddedildiğinde, `callback`'e cevap olarak bir boolean döner.
 
 #### `contents.getPrinters()`
 
@@ -970,7 +970,7 @@ Opens the developer tools for the service worker context.
 * `channel` Dizesi
 * `...args` herhangi[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
+İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
 Render işlemi mesajı `channel` `ipcRenderer` modülü ile dinleyebilir.
 
@@ -1068,7 +1068,7 @@ Olayların ve yakalanan çerçevelerin sunulması için sürdürümcü olur; Bir
 
 The `frameBuffer` is a `Buffer` that contains raw pixel data. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+`dirtyRect`, sayfanın hangi bölümlerinin yeniden boyandığını tanımlayan `x, y, width, height` özelliklerini barındıran bir nesnedir. Eğer `onlyDirty`, `true`'ya ayarlandıysa, `frameBuffer` sadece yeniden boyanan alanları içerecektir. `onlyDirty` varsayılanı `false`'tur.
 
 #### `contents.endFrameSubscription()`
 
@@ -1092,7 +1092,7 @@ Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olar
 * `geri arama` Function - `(error) => {}`. 
   * `error` Hata 
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Eğer sayfayı kaydetme işlemi başarıyla gerçekleştirilirse `Boolean` - true döner.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -1109,11 +1109,11 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+Sayfadan seçilen sözcüğü arayan bir pop-up sözlük gösterir.
 
 #### `contents.setSize(options)`
 
-Set the size of the page. This is only supported for `<webview>` guest contents.
+Sayfanın boyutunu ayarlayın. Bu yalnızca `<webview>` konuk içerikler için desteklenmektedir.
 
 * `ayarlar` Nesne 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) webgörünümü misafir içeriğine verilecek özelliği belirle. 
