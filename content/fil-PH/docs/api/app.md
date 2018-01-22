@@ -43,7 +43,7 @@ Magbabalik ng:
 
 * `event` Event
 
-Ibrobrodkast bago magsimula ang application sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag sara ng application.
+Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-aalis ng aplikasyon.
 
 **Note:** Kung sinimulan ang paghinto sa application ng `autoUpdater.quitAndInstall()` tapos ang `before-quit` ay ibrinodkast *after* ibinibrodkast ang `close` na event sa lahat ng mga window at isasarado sila.
 
