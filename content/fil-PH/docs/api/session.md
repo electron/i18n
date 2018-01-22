@@ -174,7 +174,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 #### `ses.resolveProxy(url, callback)`
 
-* `url` URL
+* `url` Ang URL
 * `tumawag muli` Punsyon 
   * `proxy` String
 
