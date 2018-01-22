@@ -2,11 +2,11 @@
 
 Electron'un kod kapsamını yüksek tutmayı hedefliyoruz. Bütün pull request'lerin var olan testleri geçmesini ve ideal olarak değişen kodu ve yeni senaryolarını da kapsaması için yeni testler eklemesini istiyoruz. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
 
-This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style(coding-style.md) document.
+Depo birim ve entegrasyon testlerinin yanı sıra JavaScript ve C++ için linting kuralları ile birlikte geliyor. Electron'un kodlama stili hakkında daha fazlasını öğrenmek için lütfen [coding-style(coding-style.md) dökümanına bakın.
 
 ## Linting
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](standard-addons) to be informed of coding style violations before you ever commit them.
+JavaScript'inizin Electron'un kodlama stili ile uyumlu olduğundan emin olmak için `npm run lint-js` komutunu çalıştırın. Komut Electron'a ve unit testlere karşı `standard`'ı çalıştıracaktır. Plugin/eklenti sistem içeren bir düzenleyici kullanıyorsanız, Commit'lemeden önce kodlama stili ihlallerinden haberdar olmak için [StandardJS eklentileri](standard-addons)nden birini kullanmak isteyebilirsiniz.
 
 To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
 
