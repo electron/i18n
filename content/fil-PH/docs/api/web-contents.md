@@ -308,7 +308,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 Magbabalik ng:
 
 * `event` Event
-* `url` URL
+* `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `tumawag muli` Punsyon 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
@@ -324,7 +324,7 @@ Magbabalik ng:
 * `event` Event
 * `request` Bagay 
   * `method` String
-  * `url` URL
+  * `url` Ang URL
   * `referrer` URL
 * `authInfo` Bagay 
   * `isProxy` Boolean
