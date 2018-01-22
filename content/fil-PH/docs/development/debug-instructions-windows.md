@@ -1,6 +1,6 @@
 # Paghahanap at pagtama ng mali sa Windows
 
-Kung ikaw ay nakararanas ng pagbagsak o isyu sa electron na pinaniniwalaan mo na hindi sanhi ng JavaScript application, sa halip ay sa pamamagitan ng Electron, ang pagtatama ng mali ay medyo nakakalito, lalo na sa mga developer na nagtatama ng mali na hindi gamit ang native/C++. Gayunpaman, gamit ang Visuall Studio, GitsHub's ay naka-host sa Electron Symbol Server, at ang Electron source code, ito ay madaling paganahin patungo sa pagtatama ng mali kasama ng beeakpoints sa loob ng Electron's source code.
+Kung ikaw ay nakararanas ng pagbagsak o isyu sa electron na pinaniniwalaan mo na hindi sanhi ng JavaScript application, sa halip ay sa pamamagitan ng Electron, ang pagtatama ng mali ay medyo nakakalito, lalo na sa mga developer na nagtatama ng mali na hindi gamit ang native/C++. Gayunpaman, gamit ang Visuall Studio, GitsHub's ay naka-host sa Electron Symbol Server, at ang Electron source code, ito ay madaling paganahin patungo sa pagtatama ng mali kasama ng breakpoints sa loob ng Electron's source code.
 
 ## Mga kinakailangan
 
