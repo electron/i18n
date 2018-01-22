@@ -24,9 +24,9 @@ let win = new BrowserWindow({
 
 किसी भी मूल नोड.जेएस मोड्यूल को वेब वर्कर्स में सीधे ही लोड किया जा सकता है, हालाँकि ऐसा न करने की सलाह दी जाती है| वर्तमान में ज्यादातर मूल मोडयुल्स सिंगल-थ्रेडेड वातावरण में चलने के लिए लिखे गये हैं, उन्हें वेब वर्कर्स में इस्तेमाल करने से क्रेशेस और मेमोरी करप्शन हो सकते हैं |
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+ध्यान रखें कि भले ही एक मूल नोड.जेएस मोड्यूल थ्रेड-सुरक्षित हो, फिर भी उसे वेब वर्कर में लोड करना सुरक्षित नहीं है क्योंकि `process.dlopen` फंक्शन थ्रेड-सुरक्षित नहीं है |
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+अभी के लिए एक मूल मोड्यूल को सुरक्षित लोड करने का एक ही तरीका है, और वह यह कि सुनिश्चित करना कि वेबवर्कर्स के शुरू होने के बाद एप्प किसी भी मूल मोड्यूल को लोड न करें |
 
 ```javascript
 process.dlopen = () => {
