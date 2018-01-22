@@ -175,7 +175,7 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
     * `session` [Session](session.md#class-session) (opcional) - Configura la sesión usada por la página. En lugar de pasar directamente el objeto de la sesión, se puede optar por utilizar la opción de `partition`, la cual acepta una cadena de partición. Cuando se proporcionen `session` y `partition`, se preferirá `session`. Default es la sesión por defecto.
     * `partition` String (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Default es la sesión por defecto.
     * `zoomFactor` Number (opcional) - El factor zoom de la página por defecto `3.0` representa el `300%`. Por defecto es `1.0`.
-    * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
+    * `javascript` Boolean (opcional) - Habilita el soporte a JavaScript. Por defecto es `true`.
     * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Por defecto es `true`.
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
     * `images` Boolean (optional) - Enables image support. Default is `true`.
