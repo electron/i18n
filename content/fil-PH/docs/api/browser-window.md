@@ -29,9 +29,9 @@ Upang gumawa ng isang window na walang chrome, o isang transparent window sa hin
 
 ## Pag-papakita ng magandang bintana
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Kapag direktang nagkakarga ng pahina sa bintana, pweding makita ng mga taga-gamit ang pag-kakarga ng pahina nang paunti-unti, na hindi isang magandang karanasan para sa isang katutubong app. Upang gawing ipakita ang window walang visual flash, may dalawang solusyon para sa iba't ibang sitwasyon.
 
-### Using `ready-to-show` event
+### Gamitin ang `mag-handa na upang ipakita` okasyon
 
 While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
 
