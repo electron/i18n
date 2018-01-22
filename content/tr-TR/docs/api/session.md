@@ -68,7 +68,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 Elektron indirmek üzereyken ortaya çıkar `item` in `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+`event.preventDefault()` çağırmak indirmeyi iptal edecektir ve `item` işlemin bir sonraki işaretine kadar uygun olmayacaktır.
 
 ```javascript
 const {session} = require('electron')
@@ -103,7 +103,7 @@ Oturumun HTTP önbelleğini temizler.
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (isteğe bağlı) - İşlem bittiğinde çağırıldı.
 
 Web depolama alanları verilerini siler.
 
