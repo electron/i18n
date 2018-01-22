@@ -77,7 +77,7 @@ Lalabas kung ang gusto ng user na mag-bukas ng isang file gamit ang aplikasyon. 
 
 Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
-Sa Windows, ikaw ay dapat mag-parse `process.argv` (sa main na process) para makuha ang filepath.
+Sa Windows, kailangan mong i-parse ang `process.argv` (sa pangunahing proseso) para makuha ang filepath.
 
 ### Event: 'open-url' *macOS*
 
@@ -165,7 +165,7 @@ Magbabalik ng:
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
 * `tumawag muli` Punsyon 
-  * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwaan
+  * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwalaan
 
 Ibrobrodkast kapag nabigo ang pag beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
 
