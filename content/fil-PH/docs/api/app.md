@@ -194,9 +194,9 @@ Magbabalik ng:
 * `ganting-tawag` Punsyon 
   * `certificate` [Certificate](structures/certificate.md) (opsyonal)
 
-Ibrobrodkast kapang ang sertipiko na client ay hiniling.
+Lalabas kapag ang sertipiko ng kliyente ay hiniling.
 
-Ang `url` na tumutugma sa navigation entry na humihiling sa sertipiko na client at ang `callback` ay maaring tawagin gamit ang entry na pinili galing sa lista. Ang paggamit ng `event.preventDefault()` ay makakapigil sa application na gamitin ang unang sertipiko galing sa store.
+Ang `url` na tumutugma sa entry ng nabigasyon na humihiling sa sertipiko ng kliyente at ang `callback` ay maaring tawagin gamit ang entry na pinili galing sa listahan. Ang paggamit ng `event.preventDefault()` ay makakapigil sa application na gamitin ang unang sertipiko galing sa store.
 
 ```javascript
 const {app} = require('electron')
