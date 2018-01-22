@@ -156,10 +156,10 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
   * `transparent` Boolean (opcional) - Hace que la ventana sea [transparent](frameless-window.md). Por defecto es `false`.
   * `type` String (opcional) - El tipo de ventana, por defecto es ventana normal. See more about this below. Ver más sobre esto más abajo.
   * `titleBarStyle` String (opcional) - El estilo de la barra de título de la ventana. Por defecto es `default`. Los valores posibles son: 
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hidden-inset` - Deprecated, use `hiddenInset` instead.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+    * `default` - Es la barra de título gris opaca estándar de Mac.
+    * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
+    * `hidden-inset` - Función obsoleta, en vez de esa utilice `hiddenInset`.
+    * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Por defecto es `true`.
