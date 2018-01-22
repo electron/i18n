@@ -6,7 +6,7 @@ Ang imbakang ito ay mayroon nang kasamang panaling tuntunin para sa parehong Jav
 
 ## Linting
 
-Upang matiyak na ang iyong JavaScript ay sumusunod sa estilo ng pag co code ng Electron, paganahin ang run `npm run lint-js`, kung saan pagaganahin ang `standard` salungat sa kapwa Electron paati narin ang mga pagsusuri sa yunit. Kung ikaw ay gumagamit ng editor na may sistema na plugin/addon, maaari mo ring gamitin ang isa sa maraming [StandardJS addons](standard-addons) na nagpapaalam ng mga paglabag sa pag co code bago mo man ito magawa.
+Upang matiyak na ang iyong JavaScript ay sumusunod sa estilo ng pag co code ng Electron, paganahin ang run `npm run lint-js`, kung saan pagaganahin ang `standard` salungat sa kapwa Electron paati narin ang mga pagsusuri sa yunit. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
 
 Para paganahin `standard` na may parameter; paganahin `npm run lint-js --` kasunod nito ay ang mga katwiran na gusto mong ipatupad `standard`.
 
