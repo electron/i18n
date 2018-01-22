@@ -118,12 +118,12 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (opcional) 
-  * `ancho` Integer (opcional) - ancho de la ventana en píxeles. El valor por defecto es `800`.
-  * `altura` Integer (opcional) - altura de la ventana en píxeles. El valor por defecto es `600`.
-  * `x` Integer (opcional) (**required** si se utiliza y) - el offset izquierdo de la ventana de la pantalla. Por defecto la ventana es centrada.
-  * `y` Integer (opcional) (**required** si se utiliza x) - el offset de arriba de la ventana de la pantalla. Por defecto la ventana es centrada.
-  * `useContentSize` Boolean (opcional) - La `width` y la `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
+* `options` Objeto (opcional) 
+  * `ancho` Entero (opcional) - ancho de la ventana en píxeles. El valor por defecto es `800`.
+  * `altura` Entero (opcional) - altura de la ventana en píxeles. El valor por defecto es `600`.
+  * `x` Entero (opcional) (**necesario** si se utiliza y) - el offset izquierdo de la ventana de la pantalla. Por defecto la ventana es centrada.
+  * `y` Entero (opcional) (**necesario** si se utiliza x) - el offset de arriba de la ventana de la pantalla. Por defecto la ventana es centrada.
+  * `useContentSize` Booleano (opcional) - La `width` y la `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
   * `center` Boolean (opcional) - Muestra la ventana en el centro de la pantalla.
   * `minWidth` Integer (opcional) - La anchura mínima de la ventana. Por defecto es ``.
   * `minHeight` Integer (opcional) - La altura mínima de la ventana. Por defecto es ``.
