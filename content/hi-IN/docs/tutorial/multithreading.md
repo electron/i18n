@@ -1,10 +1,10 @@
 # मल्टीथ्रेडिंग
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers) के साथ, जावास्क्रिप्ट को ओएस-स्तर के थ्रेड्स में चलाना संभव है |
 
-## Multi-threaded Node.js
+## मल्टी-थ्रेडेड नोड.जेएस
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+इलेक्ट्रॉन के वेब वर्कर्स में नोड.जेएस की सुविधाओं को इस्तेमाल करना संभव है, इसके लिए आपको `webPreferences` में `nodeIntegrationInWorker` विकल्प को `true` सेट करना होगा |
 
 ```javascript
 let win = new BrowserWindow({
