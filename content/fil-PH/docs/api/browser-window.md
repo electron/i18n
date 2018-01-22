@@ -1,11 +1,11 @@
-# BrowserWindow
+# Ang Browser ng Window
 
-> Create and control browser windows.
+> Ang pag-gawa at pag-kontrol ng window na browser.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// Ang pangunahing pag-proseso.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.
@@ -25,9 +25,9 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Frameless window
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Upang gumawa ng isang window na walang chrome, o isang transparent window sa hindi tumutunton sa katwiran ng korte, pwedi mong gamitin ang [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Pag-papakita ng magandang bintana
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Ang pag-gawa at pag-kontrol ng window na browser.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
