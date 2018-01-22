@@ -238,7 +238,7 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.loadURL(url[, options])`
 
-* `url` URL
+* `url` Ang URL
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
