@@ -53,9 +53,9 @@ Magbabalik ng:
 
 * `event` Event
 
-Ibrobrodkast kung ang lahat ng mga window ay isinirado at ang application ay ihihinto. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag wakas ng application.
+Ilalabas kung ang lahat ng mga window ay isinarado at ang aplikasyon ay ihihinto. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-alis ng aplikasyon.
 
-Tingnan ang deskripsyon ng `window-all-closed` na event para sa mga pagkakaiba sa pagitan ng `will-quit` at `window-all-closed` na mga event.
+Tingnan ang deskripsyon ng event ng `window-all-closed` para sa mga pagkakaiba sa pagitan ng mga event ng `will-quit` at `window-all-closed`.
 
 ### Event: 'quit'
 
