@@ -176,9 +176,9 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
     * `partition` String (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Default es la sesión por defecto.
     * `zoomFactor` Number (opcional) - El factor zoom de la página por defecto `3.0` representa el `300%`. Por defecto es `1.0`.
     * `javascript` Boolean (opcional) - Habilita el soporte a JavaScript. Por defecto es `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Por defecto es `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
+    * `webSecurity` Boolean (opcional) - Cuando es `false`, deshabilitará la política de un mismo origen (por lo general se utiliza cuando la gente testea los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
+    * `allowRunningInsecureContent` Boolean (opcional) - Permite que una página https ejecute JavaScript, CSS o plugins de URLS http. Por defecto es `false`.
+    * `images` Boolean (optional) - Habilita el soporte a imagen. Por defecto es `true`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
     * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
     * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
