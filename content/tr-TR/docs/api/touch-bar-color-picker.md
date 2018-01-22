@@ -18,7 +18,7 @@ Aşağıdaki özellikler `TouchBarColorPicker` örnekleri üzerinde mevcuttur:
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Renk seçicinin kullanılabilir renklerini gösteren bir `String[]` dizini. Bu değeri değiştirmek doğrudan dokunmatik çubuktaki renk seçiciyi günceller.
 
 #### `touchBarColorPicker.selectedColor`
 
