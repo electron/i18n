@@ -39,7 +39,7 @@ status.html`)
  </html>
 ```
 
-ऐसे भी कुछ उदाहरण हो सकते हैं जहाँ आप इन इवेंट्स की मुख्य प्रक्रिया में भी प्रतिक्रिया देना चाहेंगे | लेकिन मुख्य प्रक्रिया के पास एक `navigator` ऑब्जेक्ट नहीं होता और इसलिए वह इन इवेंट्स को सीधे नहीं खोज सकता | Using Electron's inter-process communication utilities, the events can be forwarded to the main process and handled as needed, as shown in the following example.
+ऐसे भी कुछ उदाहरण हो सकते हैं जहाँ आप इन इवेंट्स की मुख्य प्रक्रिया में भी प्रतिक्रिया देना चाहेंगे | लेकिन मुख्य प्रक्रिया के पास एक `navigator` ऑब्जेक्ट नहीं होता और इसलिए वह इन इवेंट्स को सीधे नहीं खोज सकता | इलेक्ट्रॉन की अंतर-प्रक्रिया संचार यूटिलिटीज का प्रयोग कर, इवेंट्स को मुख्य प्रक्रिया तक भेजा जा सकता है और फिर ज़रुरत के हिसाब से संभाला जा सकता है, जैसे कि निम्नलिखित उदाहरण में दिखाया गया है |
 
 *main.js*
 
@@ -48,7 +48,8 @@ const {app, BrowserWindow, ipcMain} = require('electron')
 let onlineStatusWindow
 
 app.on('ready', () => {
-  onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
+  onlineStatusWindow = new BrowserWindow({ width: 0, height: 
+0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
 })
 
