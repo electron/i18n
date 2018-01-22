@@ -1012,7 +1012,7 @@ app.on('ready', () => {
   * `screenSize`[Size](structures/size.md) - Emülasyon uygulanacak ekran genişliğini ayarlar (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `viewSize` [Size](structures/size.md) -Benzetilmiş görüntü boyutunu ayarlar (boş demek üstüne yazma yok demek)
   * `fitToView` Boolean - Emulated görünümü gerekiyorsa varolan alana sığacak şekilde ölçeklendirilmelidir.( Varsayılan:`false`)
   * `offset` [Point](structures/point.md) - Emulated görüntünün kullanılabilir alan içerisindeki ofsetidir.(Görüntüleme moduna uygun değil) (varsayılan: `{x: 0, y: 0}`)
   * `scale` Float - Emulated görüntünün kullanılabilir alan içerisindeki ölçeğidir.( Görüntüleme moduna uygun değil) (varsayılan: `1`)
@@ -1066,7 +1066,7 @@ Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
 Olayların ve yakalanan çerçevelerin sunulması için sürdürümcü olur; Bir sunum olayı olduğunda `callback` , `callback(frameBuffer,dirtyRect)` ile birlikte çağrılacaktır.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
+`frameBuffer` işlenmemiş piksel verilerini içeren bir `Buffer`'dır. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
 
 `dirtyRect`, sayfanın hangi bölümlerinin yeniden boyandığını tanımlayan `x, y, width, height` özelliklerini barındıran bir nesnedir. Eğer `onlyDirty`, `true`'ya ayarlandıysa, `frameBuffer` sadece yeniden boyanan alanları içerecektir. `onlyDirty` varsayılanı `false`'tur.
 
@@ -1085,11 +1085,11 @@ Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olar
 #### `contents.savePage(fullPath, saveType, callback)`
 
 * `fullPath` String - The full file path.
-* `kayıt tipi` String - Specify the save type. 
-  * `HTMLOnly` - Save only the HTML of the page.
+* `saveType` String - Kayıt türünü belirtir. 
+  * `HTMLOnly` - Yalnızca sayfanın HTML'ını kaydeder.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `geri arama` Function - `(error) => {}`. 
+* `gerçi çağırma` Function - `(error) => {}`. 
   * `error` Hata 
 
 Eğer sayfayı kaydetme işlemi başarıyla gerçekleştirilirse `Boolean` - true döner.
@@ -1126,29 +1126,29 @@ Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+Eğer *offscreen rendering* etkinleştirildiyse ve boyama yapılmıyorsa, boyamaya başla.
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+Eğer *offscreen rendering* etkinleştirildiyse ve boyama yapılıyorsa, boyamayı durdur.
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+`Boolean` döner- Eğer *offscreen rendering* etkinleştirildiyse şu anda boyama yapılıp yapılmadığını döner.
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` tamsayı
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+Eğer *offscreen rendering* etkinleştirildiyse kare hızını belirli bir sayıya ayarlar. Yalnızca 1 ve 60 arasındaki değerler kabul edilir.
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+`Integer` döner - Eğer *offscreen rendering* etkinleştirildiyse şu anki kare hızını döner.
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+Bu web içeriklerinin içinde olduğu pencereyi tamamen yeniden boyamak için zaman ayarlar.
 
 If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
@@ -1162,9 +1162,9 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
   * `default` - Kullanıcının açık ve yerel IP'lerini açığa çıkarır. Bu varsayılan davranıştır. Bu ilke kullanıldığında WebRTC bütün arayüzleri sıralama ve açık arayüzleri keşfetmek için onları bağlama hakkına sahip olur.
   * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. Bu ilke kullanıldığında WebRTC yalnızca http tarafından varsayılan yolu kullanmalıdır. Bu herhangi bir yerel adresi açığa çıkarmaz.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Bu ilke kullanıldığında WebRTC yalnızca http tarafından kullanılan varsayılan yolu kullanmalıdır. Bu ayrıca ilgili varsayılan özel adresleri de açığa çıkarır. Varsayılan yol, çok merkezli bir bitim noktasında İşletim Sistemi tarafından seçilen yoldur.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+  * `disable_non_proxied_udp` - açık veya yerel IP'leri açığa çıkarmaz. Bu ilke kullanıldığında WebRTC, proxy sunucusu UDP'yi desteklemediği sürece eşlere veya servislere erişmek için yalnızca TCP kullanmalıdır.
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+WebRTC IP yönetme ilkesini ayarlamak size hangi IPlerin WebRTC tarafından gösterildiğini kontrol etme izni verir. Daha fazla detay için [BrowserLeaks](https://browserleaks.com/webrtc)'e bakın.
 
 #### `contents.getOSProcessId()`
 
@@ -1188,7 +1188,7 @@ A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
 
 A `WebContents` of DevTools for this `WebContents`.
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**Not:** Kullanıcılar asla bu nesneyi depolamamalıdırlar çünkü DevTools kapandığında nesne `null`'a dönebilir.
 
 #### `contents.debugger`
 
