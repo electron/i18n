@@ -64,7 +64,7 @@ Magbabalik ng:
 * `event` Event
 * `exitCode` Integer
 
-Ibrobrodkast kung humihinto ang application.
+Lalabas kung humihinto ang aplikasyon.
 
 ### Event: 'open-file' *macOS*
 
@@ -73,7 +73,7 @@ Magbabalik ng:
 * `event` Event
 * `path` String
 
-Ibrobroadkast kung ang gusto ng user na mag-bukas ng isang file gamit ang application. Ang `open-file` na event ay kadalasang ibrobrodkast kung ang application ay bukas na at ang OS ay gustong gumamit muli ng application para buksan ang file. `open-file` ay ibrobrodkast din kapag ang file ay inihulog sa dock at ang application ay hindi pa gumagana. Siguraduhin na pinapakinggan ang `open-file` na event sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang `ready` na event ay ibrinodkast).
+Lalabas kung ang gusto ng user na mag-bukas ng isang file gamit ang aplikasyon. Ang event ng `open-file` ay kadalasang lumalabas kung ang aplikasyon ay bukas na at ang OS ay gustong muling gumamit ng aplikasyon para buksan ang file. Ang `open-file` ay ilalabas din kapag ang file ay ilinaglag sa dock at ang aplikasyon ay hindi pa gumagana. Siguraduhin na pinapakinggan ang `open-file` na event sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang `ready` na event ay ibrinodkast).
 
 Dapat mong tawagin ang `event.preventDefault()` kung gusto mong e-handol ang event na ito.
 
