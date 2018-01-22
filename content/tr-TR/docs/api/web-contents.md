@@ -1174,11 +1174,11 @@ WebRTC IP yönetme ilkesini ayarlamak size hangi IPlerin WebRTC tarafından gös
 
 #### `contents.id`
 
-Bir `Integer` WebContents'in benzersiz bir kimliği temsil eder.
+A `Integer` representing the unique ID of this WebContents.
 
 #### `contents.session`
 
-Bir [`Session`](session.md) webContents tarafından kullanılır.
+WebContents tarafından kullanılan bir [`Integer`](session.md).
 
 #### `contents.hostWebContents`
 
@@ -1192,4 +1192,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-Bu webİçerikleri için bir [Hata ayıklayıcı](debugger.md) örnek.
+Bu web içerikleri için bir [Hata ayıklayıcı](debugger.md) örneği.
