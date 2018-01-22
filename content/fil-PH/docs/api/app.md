@@ -35,9 +35,9 @@ Lalabas kapag ang Electron ay tapos ng mag-initialize. Sa macOS, hawak ng `launc
 
 Lalabas kapag ang lahat ng mga window ay sarado na.
 
-Kung ikaw ay hindi nag-subscribe sa event na ito at ang lahat ng mga window ay sarado na, ang default na aksyon nito ay ang pag hinto ng app; gayunpaman, kung ikaw ay naka-subscribe, maaaring magpasya kung ihihinto ang app o hindi. Kung ang user ay pumindot ng `Cmd + Q`, o ang developer ay tumawag ng `app.quit()`, ang Electron ay unang susubukang isara ang lahat ng mga window at pagkatapos ay magbrobrodkast ng `will-quit` na event, at sa kasong ito ang `window-all-closed` na event ay hindi ibrobrodkast.
+Kung ikaw ay hindi nag-subscribe sa event na ito at ang lahat ng mga window ay sarado na, ang default na aksyon nito ay ang pag hinto ng app; gayunpaman, kung ikaw ay naka-subscribe, maaaring magpasya kung ihihinto ang app o hindi. Kung ang user ay pumindot ng `Cmd + Q`, o ang developer ay tumawag ng `app.quit()`, ang Electron ay unang susubukang isara ang lahat ng mga window at pagkatapos ay maglalabas ng event na `will-quit`, at sa kasong ito ang event na `window-all-closed` ay hindi lalabas.
 
-### Event: 'before-quit'
+### Ang event: 'before-quit'
 
 Magbabalik ng:
 
