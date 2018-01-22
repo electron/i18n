@@ -184,7 +184,7 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
     * `webaudio` Boolean (opcional) - Habilita el soporte a WebAudio. Por defecto es `true`.
     * `plugins` Boolean (opcional) - Si los plugins se habilitan o no. Por defecto es `false`.
     * `experimentalFeatures` Boolean (opcional) - Habilita las características experimentales de Chromium. Por defecto es `false`.
-    * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
+    * `experimentalCanvasFeatures` Boolean (opcional) - Habilita las características experimentales de canvas de Chromium. Por defecto es `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
     * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
     * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
