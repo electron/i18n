@@ -1,6 +1,6 @@
 # Istilo ng Code
 
-Ang mga ito ay mga patnubay sa istilo ng paggawa ng code sa Electron.
+Ito ay mga patnubay sa mga istilo ng paggawa ng code sa Electron.
 
 Maaari mong paganahin ang `npm run lint` upang maipakita ang anumang istilo ng mga isyu na syang mahahanap gamit ang `cpplint` at `eslint`.
 
