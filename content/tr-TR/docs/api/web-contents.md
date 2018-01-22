@@ -963,7 +963,7 @@ Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+Servis işçisisi bağlamı için geliştirici araçları açar.
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
@@ -1084,7 +1084,7 @@ Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olar
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
+* `fullPath` String - Tam dosya yolu.
 * `saveType` String - Kayıt türünü belirtir. 
   * `HTMLOnly` - Yalnızca sayfanın HTML'ını kaydeder.
   * `HTMLComplete` - Save complete-html page.
@@ -1122,7 +1122,7 @@ Sayfanın boyutunu ayarlayın. Bu yalnızca `<webview>` konuk içerikler için d
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+`Boolean` döner- *offscreen rendering*'in etkinleştirilip etkinleştirilmediğini gösterir.
 
 #### `contents.startPainting()`
 
