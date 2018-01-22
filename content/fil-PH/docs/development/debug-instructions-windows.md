@@ -1,8 +1,8 @@
 # Paghahanap at pagtama ng mali sa Windows
 
-If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Kung ikaw ay nakararanas ng pagbagsak o isyu sa electron na pinaniniwalaan mo na hindi sanhi ng JavaScript application, sa halip ay sa pamamagitan ng Electron, ang pagtatama ng mali ay medyo nakakalito, lalo na sa mga developer na nagtatama ng mali na hindi gamit ang native/C++. Gayunpaman, gamit ang Visuall Studio, GitsHub's ay naka-host sa Electron Symbol Server, at ang Electron source code, ito ay madaling paganahin patungo sa pagtatama ng mali kasama ng beeakpoints sa loob ng Electron's source code.
 
-## Requirements
+## Mga kinakailangan
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
