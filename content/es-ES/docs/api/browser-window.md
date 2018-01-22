@@ -2,7 +2,7 @@
 
 > Crea y controla las ventanas del navegador.
 
-Proceso: [Mainl](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
 // En el proceso principal.
@@ -124,80 +124,80 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
   * `x` Entero (opcional) (**necesario** si se utiliza y) - el offset izquierdo de la ventana de la pantalla. Por defecto la ventana es centrada.
   * `y` Entero (opcional) (**necesario** si se utiliza x) - el offset de arriba de la ventana de la pantalla. Por defecto la ventana es centrada.
   * `useContentSize` Booleano (opcional) - La `width` y la `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
-  * `center` Boolean (opcional) - Muestra la ventana en el centro de la pantalla.
-  * `minWidth` Integer (opcional) - La anchura mínima de la ventana. Por defecto es ``.
-  * `minHeight` Integer (opcional) - La altura mínima de la ventana. Por defecto es ``.
-  * `maxWidth` Integer (opcional) - La anchura máxima de la ventana. No tiene límites por defecto.
-  * `maxHeight` Integer (opcional) - La altura máxima de la ventana. No tiene límites por defecto.
-  * `resizable` Boolean (opcional) - si la ventana es redimensionable. Por defecto es `true`.
-  * `movable` Boolean (opcional) - si la ventana es movible. Esto no esta implementado en Linux. Por defecto es `true`.
-  * `minimizable` Boolean (opcional) - si la ventana se minimiza. Esto no está implementado en Linux. Por defecto es `true`.
-  * `maximizable` Boolean (opcional) - si la ventana se máximiza. Esto no está implementado en Linux. Por defecto es `true`.
-  * `closable` Boolean (opcional) - si la ventana se cierra. Esto no esta implementado en Linux. Por defecto es `true`.
-  * `focusable` Boolean (opcional) - si la ventana se puede enfocar. Por defecto es `true`. En Windows, la configuración `focusable: false` también quiere decir que `skipTaskbar: true`. En Linux, la configuración `focusable: false` hace que la ventana deje de interactuar con wm, así la ventana siempre se mantendrá en la parte superior en todas las áreas de trabajo.
-  * `alwaysOnTop` Boolean (opcional) - si la ventana debería estar siempre por encima de otras ventanas. Por defecto es `false`.
-  * `fullscreen` Boolean (opcional) - si la ventana debería mostrarse en pantalla completa. Cuando se establece explícitamente `false` el botón de la pantalla completa estará oculta o deshabilitada en macOS. Por defecto es `false`.
-  * `fullscreenable` Boolean (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
-  * `skipTaskbar` Boolean (opcional) - si se va a mostrar la ventana en la barra de tareas. Por defecto es `false`.
-  * `kiosk` Boolean (opcional) - El modo kiosco. Por defecto es `false`.
-  * `title` String (opcional) - Título de la ventana por defecto. Por defecto es `"Electron"`.
+  * `center` Booleano (opcional) - Muestra la ventana en el centro de la pantalla.
+  * `minWidth` Entero (opcional) - La anchura mínima de la ventana. Por defecto es ``.
+  * `minHeight` Entero (opcional) - La altura mínima de la ventana. Por defecto es ``.
+  * `maxWidth` Entero (opcional) - La anchura máxima de la ventana. No tiene límites por defecto.
+  * `maxHeight` Entero (opcional) - La altura máxima de la ventana. No tiene límites por defecto.
+  * `resizable` Booleano (opcional) - si la ventana es redimensionable. Por defecto es `true`.
+  * `movable` Booleano (opcional) - si la ventana es movible. Esto no esta implementado en Linux. Por defecto es `true`.
+  * `minimizable` Booleano (opcional) - si la ventana se minimiza. Esto no está implementado en Linux. Por defecto es `true`.
+  * `maximizable` Booleano (opcional) - si la ventana se máximiza. Esto no está implementado en Linux. Por defecto es `true`.
+  * `closable` Booleano (opcional) - si la ventana se cierra. Esto no esta implementado en Linux. Por defecto es `true`.
+  * `focusable` Booleano (opcional) - si la ventana se puede enfocar. Por defecto es `true`. En Windows, la configuración `focusable: false` también quiere decir que `skipTaskbar: true`. En Linux, la configuración `focusable: false` hace que la ventana deje de interactuar con wm, así la ventana siempre se mantendrá en la parte superior en todas las áreas de trabajo.
+  * `alwaysOnTop` Booleano (opcional) - si la ventana debería estar siempre por encima de otras ventanas. Por defecto es `false`.
+  * `fullscreen` Booleano (opcional) - si la ventana debería mostrarse en pantalla completa. Cuando se establece explícitamente `false` el botón de la pantalla completa estará oculta o deshabilitada en macOS. Por defecto es `false`.
+  * `fullscreenable` Booleano (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
+  * `skipTaskbar` Booleano (opcional) - si se va a mostrar la ventana en la barra de tareas. Por defecto es `false`.
+  * `kiosk` Booleano (opcional) - El modo kiosco. Por defecto es `false`.
+  * `title` Cadena (opcional) - Título de la ventana por defecto. Por defecto es `"Electron"`.
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - El icono de la ventana. En Windows, se recomienda usar iconos `ICO` para obtener mejores efectos visuales. También se se puede dejar sin definir, de esta manera se utilizará el icono del ejecutable.
-  * `show` Boolean (opcional) - si la ventana debería ser mostrada cuando es creada. Por defecto es `true`.
-  * `frame` Boolean (opcional) - Especifica `false` para crear una [Frameless Window](frameless-window.md). Por defecto es `true`.
+  * `show` Booleano (opcional) - si la ventana debería ser mostrada cuando es creada. Por defecto es `true`.
+  * `frame` Booleano (opcional) - Especifica `false` para crear una [Frameless Window](frameless-window.md). Por defecto es `true`.
   * `parent` BrowserWindow (opcional) - Especifica la ventana principal. Por defecto es `null`.
-  * `modal` Boolean (opcional) - si esta es una ventana modal. Esto solo funciona si la ventana es una ventana secundaria. Por defecto es `false`.
-  * `acceptFirstMouse` Boolean (opcional) - Si la vista web acepta un único evento mouse-down que activa simultáneamente la ventana. Por defecto es `false`.
-  * `disableAutoHideCursor` Boolean (opcional) - si se oculta el cursor al escribir. Por defecto es `false`.
-  * `autoHideMenuBar` Boolean (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
-  * `enableLargerThanScreen` Boolean (opcional) - Permite que el tamaño de la ventana sea más grande que la pantalla. Por defecto es `false`.
-  * `backgroundColor` String (opcional) - El color de fondo de la ventana como valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alpha es soportado). Por defecto es `#FFF` (blanco).
-  * `hasShadow` Boolean (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
-  * `darkTheme` Boolean (opcional) - Obliga a utilizar un tema oscuro en la ventana, solamente funciona en algunos GTK+3 desktop environments. Por defecto es `false`.
-  * `transparent` Boolean (opcional) - Hace que la ventana sea [transparente](frameless-window.md). Por defecto es `false`.
-  * `type` String (opcional) - El tipo de ventana, por defecto es ventana normal. See more about this below. Ver más sobre esto más abajo.
-  * `titleBarStyle` String (opcional) - El estilo de la barra de título de la ventana. Por defecto es `default`. Los valores posibles son: 
+  * `modal` Booleano (opcional) - si esta es una ventana modal. Esto solo funciona si la ventana es una ventana secundaria. Por defecto es `false`.
+  * `acceptFirstMouse` Booleano (opcional) - Si la vista web acepta un único evento mouse-down que activa simultáneamente la ventana. Por defecto es `false`.
+  * `disableAutoHideCursor` Booleano (opcional) - si se oculta el cursor al escribir. Por defecto es `false`.
+  * `autoHideMenuBar` Booleano (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
+  * `enableLargerThanScreen` Booleano (opcional) - Permite que el tamaño de la ventana sea más grande que la pantalla. Por defecto es `false`.
+  * `backgroundColor` Cadena (opcional) - El color de fondo de la ventana como valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alpha es soportado). Por defecto es `#FFF` (blanco).
+  * `hasShadow` Booleano (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
+  * `darkTheme` Booleano (opcional) - Obliga a utilizar un tema oscuro en la ventana, solamente funciona en algunos GTK+3 desktop environments. Por defecto es `false`.
+  * `transparent` Booleano (opcional) - Hace que la ventana sea [transparente](frameless-window.md). Por defecto es `false`.
+  * `type` Cadena (opcional) - El tipo de ventana, por defecto es ventana normal. See more about this below. Ver más sobre esto más abajo.
+  * `titleBarStyle` Cadena (opcional) - El estilo de la barra de título de la ventana. Por defecto es `default`. Los valores posibles son: 
     * `default` - Es la barra de título gris opaca estándar de Mac.
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hidden-inset` - Función obsoleta, en vez de esa utilice `hiddenInset`.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
-    * `customButtonsOnHover` Boolean (opcional) - Dibuja botones personalizados de cerrar, minimizar y pantalla completa en las ventanas sin marco de macOS. Estos botones no aparecerán a menos que se esté ubicado sobre la parte superior izquierda de la ventana. Estos botones personalizados previenen problemas con los eventos del ratón que suceden con los botones estándar de la barra de herramientas de la ventana. **Nota:** Actualmente esta opción es experimental.
-  * `fullscreenWindowTitle` Boolean (opcional) - Muestra el título en la barra de mosaico en modo pantalla completa en macOS para todas las opciones `titleBarStyle`. Por defecto es `false`.
-  * `thickFrame` Boolean (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
-  * `vibrancy` String (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
-  * `zoomToPageWidth` Boolean (opcional) - Controla el comportamiento en macOS al hacer clic en el botón verde de semáforo en la pestaña de opciones de la barra de herramientas o al hacer click en el elemento del menú Ventana>Zoom. Si es `true`, la ventana crecerá al ancho recomendado de la página web cuando se haga zoom. `false` hará que haga zoom hasta el ancho de la pantalla. Esto también afectará el comportamiento cuando se llama directamente `maximize()`. Por defecto es `false`.
-  * `tabbingIdentifier` String (opcional) - Crea una pestaña del nombre del grupo. Permite abrir la ventana como una pestaña nativa en macOC 10.12+. Las ventanas con el mismo identificador de pestaña se agruparán juntos. Esto también añade un nuevo botón de pestañas nativo a la barra de pestañas de la ventana y permite que la `app` y la ventana reciban el evento `new-window-for-tab`.
-  * `webPreferences` Object (opcional) - Configuración de las características de la página web. 
-    * `devTools` Boolean (opcional) - Si se habilita el DevTools. Si se configura a `false`, no puede utilizarse `BrowserWindow.webContents.openDevTools()` para abrir DevTools. Por defecto es `true`.
-    * `nodeIntegration` Boolean (opcional) - Si la integración de nodos esta habilitada. Por defecto es `true`.
-    * `nodeIntegrationInWorker` Boolean (opcional) - Si la integración de nodos está habilitada en los trabajadores de la web. Por defecto es `false`. Se pueden encontrar más detalles en [Multithreading](../tutorial/multithreading.md).
-    * `preload` String (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [here](process.md#event-loaded).
-    * `sandbox` Boolean (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](sandbox-option.md). **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
+    * `customButtonsOnHover` Booleano (opcional) - Dibuja botones personalizados de cerrar, minimizar y pantalla completa en las ventanas sin marco de macOS. Estos botones no aparecerán a menos que se esté ubicado sobre la parte superior izquierda de la ventana. Estos botones personalizados previenen problemas con los eventos del ratón que suceden con los botones estándar de la barra de herramientas de la ventana. **Nota:** Actualmente esta opción es experimental.
+  * `fullscreenWindowTitle` Booleano (opcional) - Muestra el título en la barra de mosaico en modo pantalla completa en macOS para todas las opciones `titleBarStyle`. Por defecto es `false`.
+  * `thickFrame` Booleano (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
+  * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
+  * `zoomToPageWidth` Booleano (opcional) - Controla el comportamiento en macOS al hacer clic en el botón verde de semáforo en la pestaña de opciones de la barra de herramientas o al hacer click en el elemento del menú Ventana>Zoom. Si es `true`, la ventana crecerá al ancho recomendado de la página web cuando se haga zoom. `false` hará que haga zoom hasta el ancho de la pantalla. Esto también afectará el comportamiento cuando se llama directamente `maximize()`. Por defecto es `false`.
+  * `tabbingIdentifier` Cadena (opcional) - Crea una pestaña del nombre del grupo. Permite abrir la ventana como una pestaña nativa en macOC 10.12+. Las ventanas con el mismo identificador de pestaña se agruparán juntos. Esto también añade un nuevo botón de pestañas nativo a la barra de pestañas de la ventana y permite que la `app` y la ventana reciban el evento `new-window-for-tab`.
+  * `webPreferences` Objeto (opcional) - Configuración de las características de la página web. 
+    * `devTools` Booleano (opcional) - Si se habilita el DevTools. Si se configura a `false`, no puede utilizarse `BrowserWindow.webContents.openDevTools()` para abrir DevTools. Por defecto es `true`.
+    * `nodeIntegration` Booleano (opcional) - Si la integración de nodos esta habilitada. Por defecto es `true`.
+    * `nodeIntegrationInWorker` Booleano (opcional) - Si la integración de nodos está habilitada en los trabajadores de la web. Por defecto es `false`. Se pueden encontrar más detalles en [Multithreading](../tutorial/multithreading.md).
+    * `preload` Cadena (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](process.md#event-loaded).
+    * `sandbox` Booleano (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](sandbox-option.md). **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
     * `session` [Session](session.md#class-session) (opcional) - Configura la sesión usada por la página. En lugar de pasar directamente el objeto de la sesión, se puede optar por utilizar la opción de `partition`, la cual acepta una cadena de partición. Cuando se proporcionen `session` y `partition`, se preferirá `session`. Default es la sesión por defecto.
-    * `partition` String (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Default es la sesión por defecto.
-    * `zoomFactor` Number (opcional) - El factor zoom de la página por defecto `3.0` representa el `300%`. Por defecto es `1.0`.
-    * `javascript` Boolean (opcional) - Habilita el soporte a JavaScript. Por defecto es `true`.
-    * `webSecurity` Boolean (opcional) - Cuando es `false`, deshabilitará la política de un mismo origen (por lo general se utiliza cuando la gente testea los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
-    * `allowRunningInsecureContent` Boolean (opcional) - Permite que una página https ejecute JavaScript, CSS o plugins de URLS http. Por defecto es `false`.
-    * `images` Boolean (optional) - Habilita el soporte a imagen. Por defecto es `true`.
-    * `textAreasAreResizable` Boolean (opcional) - Hace que los elementos de TextArea sean redimensionables. Por defecto es `true`.
-    * `webgl` Boolean (opcional) - Habilita el soporte a WebGL. Por defecto es `true`.
-    * `webaudio` Boolean (opcional) - Habilita el soporte a WebAudio. Por defecto es `true`.
-    * `plugins` Boolean (opcional) - Si los plugins se habilitan o no. Por defecto es `false`.
-    * `experimentalFeatures` Boolean (opcional) - Habilita las características experimentales de Chromium. Por defecto es `false`.
-    * `experimentalCanvasFeatures` Boolean (opcional) - Habilita las características experimentales de canvas de Chromium. Por defecto es `false`.
-    * `scrollBounce` Boolean (opcional) - Habilita el efecto de rebote de desplazamiento (rubber banding) en macOS. Por defecto es `false`.
-    * `blinkFeatures` String (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para habilitar. La lista completa de cadenas distintivas soportadas pueden encontrarse en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
-    * `disableblinkFeatures` String (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para deshabilitar. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
+    * `partition` Cadena (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Default es la sesión por defecto.
+    * `zoomFactor` Numero (opcional) - El factor zoom de la página por defecto `3.0` representa el `300%`. Por defecto es `1.0`.
+    * `javascript` Booleano (opcional) - Habilita el soporte a JavaScript. Por defecto es `true`.
+    * `webSecurity` Booleano (opcional) - Cuando es `false`, deshabilitará la política de un mismo origen (por lo general se utiliza cuando la gente testea los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
+    * `allowRunningInsecureContent` Booleano (opcional) - Permite que una página https ejecute JavaScript, CSS o plugins de URLS http. Por defecto es `false`.
+    * `images` Booleano (opcional) - Habilita el soporte a imagen. Por defecto es `true`.
+    * `textAreasAreResizable` Booleano (opcional) - Hace que los elementos de TextArea sean redimensionables. Por defecto es `true`.
+    * `webgl` Booleano (opcional) - Habilita el soporte a WebGL. Por defecto es `true`.
+    * `webaudio` Booleano (opcional) - Habilita el soporte a WebAudio. Por defecto es `true`.
+    * `plugins` Booleano (opcional) - Si los plugins se habilitan o no. Por defecto es `false`.
+    * `experimentalFeatures` Booleano (opcional) - Habilita las características experimentales de Chromium. Por defecto es `false`.
+    * `experimentalCanvasFeatures` Booleano (opcional) - Habilita las características experimentales de canvas de Chromium. Por defecto es `false`.
+    * `scrollBounce` Booleano (opcional) - Habilita el efecto de rebote de desplazamiento (rubber banding) en macOS. Por defecto es `false`.
+    * `blinkFeatures` Cadena (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para habilitar. La lista completa de cadenas distintivas soportadas pueden encontrarse en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
+    * `disableblinkFeatures` Cadena (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para deshabilitar. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
     * `defaultFontFamily` Objeto (opcional) - establece la fuente por defecto para la familia de fuentes. 
-      * `standard` String (opcional) - Por defecto es `Times New Roman`.
-      * `serif` String (opcional) - Por defecto es `Times New Roman`.
-      * `sansSerif` String (opcional) - Por defecto es `Arial`.
-      * `monospace` String (opcional) - Por defecto es `Courier New`.
-      * `cursive` String (opcional) - Por defecto es `Script`.
-      * `fantasy` String (opcional) - Por defecto es `Impact`.
-    * `defaultFontSize` Integer (opcional) - Por defecto es `16`.
-    * `defaultMonospaceFontSize` Integer (opcional) - Por defecto es `13`.
-    * `minimumFontSize` Integer (opcional) - Por defecto es ``.
+      * `standard` Cadena (opcional) - Por defecto es `Times New Roman`.
+      * `serif` Cadena (opcional) - Por defecto es `Times New Roman`.
+      * `sansSerif` Cadena (opcional) - Por defecto es `Arial`.
+      * `monospace` Cadena (opcional) - Por defecto es `Courier New`.
+      * `cursive` Cadena (opcional) - Por defecto es `Script`.
+      * `fantasy` Cadena (opcional) - Por defecto es `Impact`.
+    * `defaultFontSize` Entero (opcional) - Por defecto es `16`.
+    * `defaultMonospaceFontSize` Entero (opcional) - Por defecto es `13`.
+    * `minimumFontSize` Entero (opcional) - Por defecto es ``.
     * `defaultEncoding` String (opcional) - Por defecto es `ISO-8859-1`.
     * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. Esto también afecta la \[Page Visibility API\]\[#page-visibility\]. Por defecto es `true`.
     * `offscreen` Boolean (optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
