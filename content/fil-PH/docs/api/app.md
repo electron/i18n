@@ -167,13 +167,13 @@ Magbabalik ng:
 * `tumawag muli` Punsyon 
   * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwalaan
 
-Ibrobrodkast kapag nabigo ang pag beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
+Lalabas kapag nabigo ang pag-beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
-  if (url === 'https://github.com') {
+  kung ang (url === 'https://github.com') {
     // Lohika ng pagberipika.
     event.preventDefault()
     callback(true)
@@ -189,9 +189,9 @@ Magbabalik ng:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `url` URL
+* `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `ganting-tawag` Punsyon 
   * `certificate` [Certificate](structures/certificate.md) (opsyonal)
 
 Ibrobrodkast kapang ang sertipiko na client ay hiniling.
