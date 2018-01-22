@@ -1,4 +1,4 @@
-# app
+# ang app
 
 > Kontrolin ang event lifecycle ng iyong aplikasyon.
 
