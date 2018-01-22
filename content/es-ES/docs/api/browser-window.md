@@ -185,20 +185,20 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
     * `plugins` Boolean (opcional) - Si los plugins se habilitan o no. Por defecto es `false`.
     * `experimentalFeatures` Boolean (opcional) - Habilita las características experimentales de Chromium. Por defecto es `false`.
     * `experimentalCanvasFeatures` Boolean (opcional) - Habilita las características experimentales de canvas de Chromium. Por defecto es `false`.
-    * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
-    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
-    * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to ``.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
+    * `scrollBounce` Boolean (opcional) - Habilita el efecto de rebote de desplazamiento (rubber banding) en macOS. Por defecto es `false`.
+    * `blinkFeatures` String (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para habilitar. La lista completa de cadenas distintivas soportadas pueden encontrarse en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
+    * `disableblinkFeatures` String (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para deshabilitar. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
+    * `defaultFontFamily` Objeto (opcional) - establece la fuente por defecto para la familia de fuentes. 
+      * `standard` String (opcional) - Por defecto es `Times New Roman`.
+      * `serif` String (opcional) - Por defecto es `Times New Roman`.
+      * `sansSerif` String (opcional) - Por defecto es `Arial`.
+      * `monospace` String (opcional) - Por defecto es `Courier New`.
+      * `cursive` String (opcional) - Por defecto es `Script`.
+      * `fantasy` String (opcional) - Por defecto es `Impact`.
+    * `defaultFontSize` Integer (opcional) - Por defecto es `16`.
+    * `defaultMonospaceFontSize` Integer (opcional) - Por defecto es `13`.
+    * `minimumFontSize` Integer (opcional) - Por defecto es ``.
+    * `defaultEncoding` String (opcional) - Por defecto es `ISO-8859-1`.
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the \[Page Visibility API\]\[#page-visibility\]. Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
