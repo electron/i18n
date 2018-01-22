@@ -4,7 +4,7 @@ Kung ikaw ay nakararanas ng pagbagsak o isyu sa electron na pinaniniwalaan mo na
 
 ## Mga kinakailangan
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for Windows](build-instructions-windows.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Ang debug na nabuo ng Electron **: Ang pinakamadaling paraan ay ang magbuo ng mag-isa, sa pamamagitang ng mga gamit at listahan ng pangunahing kailangan sa [pagbuo ng mga pagtuturo sa Windows](build-instructions-windows.md). While you can easily attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Visual Studio with C++ Tools**: The free community editions of Visual Studio 2013 and Visual Studio 2015 both work. Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
 
