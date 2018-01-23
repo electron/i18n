@@ -75,11 +75,11 @@ Huwag gumamit ng proxy server at palaging gumawa ng mga direktang koneksiyon. pa
 
 ## --host-rules=`rules`
 
-A comma-separated list of `rules` that control how hostnames are mapped.
+Ang kuwit ay nag hihiwalay sa listan ng `rules` na nag kokontrol kung paano ang hostname ay itinalaga.
 
 Halimbawa:
 
-* `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
+* `MAP * 127.0.0.1` ang lahat ng hostname ay ginawa na 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
 * `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
 * `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
