@@ -522,26 +522,26 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
 
-## DOM events
+## Eventos DOM
 
-The following DOM events are available to the `webview` tag:
+Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 
-### Event: 'load-commit'
+### Evento: 'load-commit'
 
 Devuelve:
 
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
 
-### Event: 'did-finish-load'
+### Evento: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+Disparado cuando la navegación es terminada, i.e. el girador del tabulador dejará de girar, y el evento `onload` es discapacitado.
 
-### Event: 'did-fail-load'
+### Evento: 'did-fail-load'
 
 Devuelve:
 
@@ -550,7 +550,7 @@ Devuelve:
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
 ### Evento: 'did-frame-finish-load'
 
@@ -558,15 +558,15 @@ Devuelve:
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+Disparado cuando un frame ha terminado la navegación.
 
 ### Evento: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador empieza a girar.
 
 ### Evento: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador termina de girar.
 
 ### Evento: 'did-get-response-details'
 
@@ -577,11 +577,11 @@ Devuelve:
 * `originalURL` String
 * `httpResponseCode` Entero
 * `requestMethod` String
-* `referrer` String
+* `referrer` Cadena
 * `headers` Objeto
 * `resourceType` String
 
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+Disparado cuando los detalles que corresponden a una fuente pedida está disponible. `status` indica conexión de media para descargar la fuente.
 
 ### Evento: 'did-get-redirect-request'
 
@@ -591,7 +591,7 @@ Devuelve:
 * `newURL` String
 * `isMainFrame` Boolean
 
-Fired when a redirect was received while requesting a resource.
+Disparado cuando una redirección fue recibida mientras se solicitaba una fuente.
 
 ### Event: 'dom-ready'
 
