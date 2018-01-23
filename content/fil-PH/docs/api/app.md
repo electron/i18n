@@ -372,9 +372,9 @@ Sa *Linux* at *macOS*, ang mga icon ay nakadepende sa aplikasyon na may kaugnaya
 * `name` String
 * `path` String
 
-Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi matatagpuan, ang direktoryo ay lilikhain gamit ang paraan na ito. Isang `Error` ay itatapon kung hindi ito gagana.
+Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi umiiral, ang direktoryo ay lilikhain sa pamamagitan ng paraan na ito. Ang isang `Error` ay itatapon kapag nabigo.
 
-Pwede mo lang ma-override ang mga path ng isang `name` na dinefine sa `app.getPath`.
+Maaari mo lang i-override ang mga landas ng isang `name` na tinukoy sa `app.getPath`.
 
 Ang cookies at caches ng web page ay iii-store sa ilalim ng `userData` na direktoryo bilang default. Kung gusto mong bagohin ang lokasyon, kailangan mong i-override ang `userData` na path bago ang `ready` na event ng module na `app` ay ibrobrodkast.
 
