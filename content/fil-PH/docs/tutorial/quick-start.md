@@ -8,7 +8,7 @@ Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa gra
 
 Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script **ang mga pangunahing proseso**. Ang iskrip na tumatakbo sa pangunahing proseso ay maaring maipakita ang isang GUI sa pamamagitan ng paggawa ng web pages.
 
-### Renderer Process
+### Proseso ng tagasalin
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
