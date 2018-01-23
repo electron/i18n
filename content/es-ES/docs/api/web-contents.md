@@ -1,6 +1,6 @@
 # webContents
 
-> Render and control web pages.
+> Procesamiento y control de páginas webs.
 
 Proceso: [Principal](../glossary.md#main-process)
 
