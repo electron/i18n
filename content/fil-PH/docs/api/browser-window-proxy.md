@@ -48,4 +48,4 @@ Ang na to `BrowserWindowProxy` ay bahagi ng mga sumusunod na halimbawa ng mga ba
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+Ang `Boolean` ay itinalaga para itama bago isara ang maliit na window.
