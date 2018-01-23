@@ -71,7 +71,7 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Ang `anak` Ang window ay palaging ipapakita sa ibabaw `ibabaw` window.
 
 ### Modal windows
 
