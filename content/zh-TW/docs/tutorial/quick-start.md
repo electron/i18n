@@ -205,4 +205,4 @@ $ npm install
 $ npm start
 ```
 
-更多 apps 例子，可以參考 electron 社群中所建立的 [list of boilerplates](https://electronjs.org/community#boilerplates).
+更多應用程式的例子，可以參考 electron 社群中所建立的[模板清單](https://electronjs.org/community#boilerplates).
