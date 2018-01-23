@@ -52,7 +52,7 @@ Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na it
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
 ### Instance Methods
 
