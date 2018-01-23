@@ -11,23 +11,23 @@ const {dialog} = kailangan('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Ang dayalogo ay bukas mula sa pangunahing thread ng Electron. Kung gusto mong gamitin ang mga bagay sa dayalogo mula sa isang prosesong tagabigay, tandaan na ma-access ito gamit ang remote:
 
 ```javascript
-const {dialog} = require('electron').remote
+const {dialog} = kailangan('electron').remote
 console.log(dialog)
 ```
 
 ## Pamamaraan
 
-The `dialog` module has the following methods:
+Ang module ng `dialog` ay mayroong mga sumusunod na pamamaraan:
 
-### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
+### `dialog.showOpenDialog([browserWindow, ]mga opsyon[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
+  * `title` String (opsyonal)
+  * `defaultPath` String (opsyonal)
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
@@ -68,9 +68,9 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
-  * `title` String (optional)
+  * `title` String (opsyonal)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -127,7 +127,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
