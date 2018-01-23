@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-`package.json` का फॉर्मेट बिल्कुल नोड के मोडयुल्स समान है, और `main` फील्ड द्वारा निर्दिष्ट स्क्रिप्ट आपकी एप्प की स्टार्टअप स्क्रिप्ट है, जो कि मुख्य प्रक्रिया को चलायेगी | An example of your `package.json` might look like this:
+`package.json` का फॉर्मेट बिल्कुल नोड के मोडयुल्स समान है, और `main` फील्ड द्वारा निर्दिष्ट स्क्रिप्ट आपकी एप्प की स्टार्टअप स्क्रिप्ट है, जो कि मुख्य प्रक्रिया को चलायेगी | `package.json` का एक उदाहरण कुछ इस तरह का होता है:
 
 ```json
 {
@@ -45,34 +45,34 @@ your-app/
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**नोट**: अगर `package.json` में `main` फील्ड मौज़ूद नहीं है, तो इलेक्ट्रॉन एक `index.js` लोड करने की कोशिश करेगा |
 
-The `main.js` should create windows and handle system events, a typical example being:
+`main.js` को विंडोज निर्मित करनी चाहिये और सिस्टम इवेंट्स को संभालना चाहिये, इसका एक आम तौर पर इस्तेमाल होने वाला उदाहरण:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// विंडो ऑब्जेक्ट का एक वैश्विक रेफरेंस रखिये, अगर आप नहीं रखेंगे, तो विंडोज
+// स्वतः ही बंद हो जायेगी जब जावास्क्रिप्ट ऑब्जेक्ट गार्बेज में एकत्र होगा |
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // ब्राउज़र विंडो निर्मित कीजिये |
   win = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // और एप्प का इंडेक्स.एचटीएमएल लोड कीजिये |
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // डेवटूल्स खोलें |
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // विंडो के बंद होने के बाद निकलता है |
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
