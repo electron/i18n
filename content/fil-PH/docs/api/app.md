@@ -199,11 +199,11 @@ Lalabas kapag ang sertipiko ng kliyente ay hiniling.
 Ang `url` na tumutugma sa entry ng nabigasyon na humihiling sa sertipiko ng kliyente at ang `callback` ay maaring tawagin gamit ang entry na pinili galing sa listahan. Ang paggamit ng `event.preventDefault()` ay makakapigil sa aplikasyon na gamitin ang unang sertipiko mula sa Imbakan.
 
 ```javascript
-const {app} = require('electron')
+const {app} = kailangan('electron')
 
-app.on('select-client-certificate', (event, webContents, url, list, callback) => {
+app.on('select-client-certificate', (mga event, mga webContents, mga url, mga talaan, mga mulingtawag) => {
   event.preventDefault()
-  callback(list[0])
+  mulingtawag(talaan[0])
 })
 ```
 
@@ -211,19 +211,19 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Magbabalik ng:
 
-* `event` Event
+* `event` Ang event
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `kahilingan` Bagay 
   * `method` String
   * `url` URL
-  * `referrer` URL
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
+  * `referrer`Ang URL
+* `ang authInfo` Bagay 
+  * `isProxy` Ang Boolean
+  * `scheme` Ang string
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `mulingtawag` Punsyon 
   * `username` String
   * `password` String
 
