@@ -40,4 +40,4 @@ Ito ay maaaring ikabit sa karamihan ng programs kapag isinasagawa ang debugging,
 
 Kung ang Visual Studio ang pinakamagandang gamitin upang siyasatin ang code paths, ang ProcMon naman ang pinakamagandang gamitin upang pag-aralan ang lahat ng application na ginagawa gamit ang operating system - ito ay kumukuha ng File, Registry, Network, Process at Profiling details ng processes. Ito ay sinusubukang mag-log **all** ng mga nangyayari at maaaring ito ay maging hindi madali, ngunit kung pag-aaralan ng mabuti kung ano at paano ang iyong application ay gumagana sa operating system, ito ay maaaring maging mahalang pinagkukunan.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+Para sa panimula ng pundasyon ng ProcMon at advanced debugging features nito, puntahan at tingnan ang [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) na gawa ng Microsoft.
