@@ -589,7 +589,7 @@ Ang pag-sasa alang alang ng normal na window na may HD bidyo player at mga nauug
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `daan` String - Ang ganap na daan sa file upang i-ipakita gamit ang QuickLook. Ang mahalaga nito habang ginagamit ng Quick Look ang pangalan ng file at lawig ng file sa daan upang matukoy ang tipo ng nilalaman ng file upang buksan.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `Ang pagpakita sa pangalan` String (pag-pipilian) - Ang pangalan ng file na ipapakita sa Quick Look modal na tanaw. Ito ay ang malinis na viswal at hindi nakakaapekto sa nilalaman na uri ng file. Defaults to `path`.
 
 Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
 
