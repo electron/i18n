@@ -35,11 +35,11 @@ iyong-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+Ang format ng `package.json` ay eksakto sa katulad ng Node's modules, at ang iskrip na tinukoy ng `pangunahing`field ay ang mga iskrip sa pagsisimula ng iyong app, na kung saan tatakbo ang pangunahing proseso. Ang halimbawa ng iyong `package.json` ay maaring ganito ang hitsura:
 
 ```json
 {
-  "name"    : "your-app",
+  "name"    : "iyong-app",
   "version" : "0.1.0",
   "main"    : "main.js"
 }
