@@ -16,11 +16,11 @@
 
 ### मुख्य प्रक्रिया और रेंडरर प्रक्रिया के बीच अंतर
 
-मुख्य प्रक्रिया `BrowserWindow` इंस्टेंसेस बना कर वेब पेजेज़ बनाता है । प्रत्येक `BrowserWindow` इंस्टैंस अपनी खुद की रेंदेरेर प्रक्रिया में वेब पेज चलाती है | When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+मुख्य प्रक्रिया `BrowserWindow` इंस्टेंसेस बना कर वेब पेजेज़ बनाता है । प्रत्येक `BrowserWindow` इंस्टैंस अपनी खुद की रेंदेरेर प्रक्रिया में वेब पेज चलाती है | जब एक `BrowserWindow` इंस्टैंस नष्ट होती है, तो उसके अनुरूप रेंदेरेर प्रक्रिया भी समाप्त हो जाती है |
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+मुख्य प्रक्रिया सभी वेब पेजेज और उनके अनुरूप रेंदेरेर प्रक्रियाओं का प्रबंधन करती है | हर रेंदेरेर प्रक्रिया अलग-थलक होती है और केवल अपने भीतर चल रहे वेब पेज पर ध्यान देती है |
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+वेब पेजेज में, मूल जीयुआई सम्बंधित ऐपीआई को बुलाने की इज़ाज़त नहीं होती क्योंकि वेब पेजेज में मूल जीयुआई संसाधनों का प्रबंधन करना बेहद खतरनाक है और इससे संसाधन बड़ी आसानी से लीक हो सकते हैं | If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
