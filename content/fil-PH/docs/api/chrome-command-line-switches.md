@@ -40,7 +40,7 @@ Gamitin ang pinakamataas na bakante ng disk cache, na magagamit, sa byte.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Tukuyin ang mga flag na nalampasan ng Node JS engine. ito ay kailangang malampasan habang gumagana ang electron. kung gusto mong gumana ang `flags` na pangunahing process.
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
@@ -67,7 +67,7 @@ Gamitin ang proxy server nat sa lahat, maliban sa local address (`localhost`, `1
 
 ## --proxy-pac-url=`url`
 
-Uses the PAC script at the specified `url`.
+Gumagamit ng mga PAC script sa tinukoy na mga `url`.
 
 ## --no-proxy-server
 
