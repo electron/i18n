@@ -2,11 +2,11 @@
 
 Ang Electron ang nagbibigay-daan para makalikha ng desktop application na may malinis na JavaScript sa pamamagitan ng pagbibigay ng runtime na may rich native (operating system)APIs. Maari mong makita ang mga ito bilang isang variant ng Node.js runtime na nakatuon sa desktop applications na sa halip na mga server ng web.
 
-Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa graphical user interface (GUI) libraries. Sa halip, ang Electron ay gumagamit ng mga web pages bilang GUI, kaya pwede mong makita ito bilang isang minimal Chromium browser, kontrolado ng JavaScript.
 
-### Main Process
+### Pangunahing Proseso
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script **ang mga pangunahing proseso**. The script that runs in the main process can display a GUI by creating web pages.
 
 ### Renderer Process
 
