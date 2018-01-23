@@ -28,9 +28,9 @@ Ang module ng `dialog` ay mayroong mga sumusunod na pamamaraan:
 * `mga pagpipilian` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
+  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
+  * `mga katangian` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
     * `openFile` - Allow files to be selected.
     * `openDirectory` - Allow directories to be selected.
     * `multiSelections` - Allow multiple paths to be selected.
@@ -72,8 +72,8 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `mga pagpipilian` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
