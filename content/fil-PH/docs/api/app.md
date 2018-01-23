@@ -227,16 +227,16 @@ Magbabalik ng:
   * `username` String
   * `password` String
 
-Ibrobrodkast kapang ang `webContents` ay gustong gawin ang basic auth.
+Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
-Ang default na aksyon ay ang pagkansela ng lahat ng mga pagpapatunay, dapat mong gamitin ang `event.preventDefault()` at itawag ang `callback(username, password)` gamit ang mga kredensyal para ma-override ito.
+Ang default na aksyon ay ang pagkansela ng lahat ng mga pagpapatunay, dapat mong pigilan ang default na aksyon gamit ang `event.preventDefault()` at tawagin ang `callback(username, password)` gamit ang mga kredensyal para ma-override ito.
 
 ```javascript
 const {app} = require('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
+app.on('login', (mga event, mga webContents, mga kahilingan, mga authInfo, mga mulingtawag) => {
   event.preventDefault()
-  callback('username', 'secret')
+  mulingtawag('username', 'secret')
 })
 ```
 
@@ -244,8 +244,8 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Magbabalik ng:
 
-* `event` Event
-* `killed` Boolean
+* `event` Ang event
+* `killed` Ang Boolean
 
 Ibrobrodkast kapang ang proseso na gpu ay nasira o pinatay.
 
