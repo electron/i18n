@@ -50,7 +50,7 @@ Tingnan ang [Node documentation](https://nodejs.org/api/cli.html) o kaya paganah
 
 ## --proxy-server=`address:port`
 
-Gumamit ng isang uri ng proxy server, para mapatungan ang system setting. Lumipat lamang kung nakakaapekto ang request ng HTTP protocol, pati na ang HTTPS at WebSocker request. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Gumamit ng isang uri ng proxy server, para mapatungan ang system setting. Lumipat lamang kung nakakaapekto ang request ng HTTP protocol, pati na ang HTTPS at WebSocker request. Maaring kapansin-pansin na ang lahat ng proxy servers ay sumusuporta sa HTTPS at sa hiling ng WebSocket.
 
 ## --proxy-bypass-list=`hosts`
 
