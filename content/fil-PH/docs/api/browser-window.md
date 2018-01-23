@@ -47,7 +47,7 @@ Ang okasyong ito ay karaniwang ibinubuga pagkatapos ng `natapos ba ang pag-kakar
 
 ### Ang pag-tatagpo ng `likurang kulay`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Ang isangkumplikado na app, ang `handa na upang ipakita` Ang okasyon ay pweding napalabas nang huli, na ginagawa pakiramdam ang app ay mabagal. Sa kasong ito, ito ay inirerekomenda na ipakita ang window kaagad, at gumamit ng isang `backgroundColor` isarado ang background na mga app:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -56,11 +56,11 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Tandaan na kahit sa ginamit na app `ihanda upang ipakita` lokasyon, Dito inirerekomenda ang lokasyon `backgroundColor` upang gawing mas likas ang nararamdaman sa app.
 
-## Parent and child windows
+## Ang magulang at batang window
 
-By using `parent` option, you can create child windows:
+Sa pamamagitan ng pag-gamit `ang magulang` opsyon, pwedi kang gumawa ng mga window ng bata:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -106,17 +106,17 @@ Ang Inirerekomenda na i-hinto mo ang mga mahahalagang operasyon kapag ang may ka
 * On Linux the type of modal windows will be changed to `dialog`.
 * On Linux many desktop environments do not support hiding a modal window.
 
-## Class: BrowserWindow
+## Ang Klase: ng BrowserWindow
 
 > Ang pag-gawa at pag-kontrol ng window na browser.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` ay ang [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na itinakda ng`opsyon`.
 
-### `new BrowserWindow([options])`
+### `ang bagong BrowserWindow([pag-pipilian])`
 
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
