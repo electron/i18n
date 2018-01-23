@@ -26,9 +26,9 @@ Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na
 
 ### Pagkakabit (Attaching)
 
-Maaari mong ikabit ang Visual Studio debugger sa running process sa lokal o remote computer. Matapos paganahin ang process, pindutin ang Debug / Attach to Process (o pindutin ang `CTRL+ALT+P`) para mabuksan ang "Attach to Process" na dialog box. Maaaring gumamit ng capability para ma-debug ang mga apps na gumagana sa lokal o remote computer, sabay-sabaying i-debug ang lahat na nagpo-proseso.
+Maaari mong ikabit ang Visual Studio debugger sa running process sa lokal o remote computer. Matapos paganahin ang process, pindutin ang Debug / Attach to Process (o pindutin ang `CTRL+ALT+P`) para mabuksan ang "Attach to Process" na dialog box. Maaaring kakayahang ito para ma-debug ang mga apps na gumagana sa lokal o remote computer, pagsabay-sabaying i-debug ang lahat na nagpo-proseso.
 
-Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang check box na `Show processes from all users`. Nakadepende sa dami ng BrowserWindows ang nakabukas na app, makikita mo na marami ang magpo-proseso. Ang karaniwang one-window app ay magreresulta sa Visual Studio na nagpapakita ng dalawang entry na `Electron.exe` - isa para sa main process at isa para sa renderer process. Sa kasalukuyan, walang ibang paraan upang malaman ang pagkakaiba dahil mga pangalan lang ang ibinibigay sa listahan.
+Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang check box na `Show processes from all users`. Nakadepende sa dami ng BrowserWindows ang nakabukas na app, makikita mo ang karamihan sa mga nagpo-proseso. Ang karaniwang one-window app ay magreresulta sa Visual Studio na nagpapakita ng dalawang entry na `Electron.exe` - isa para sa main process at isa para sa renderer process. Sa kasalukuyan, walang ibang paraan upang malaman ang pagkakaiba dahil mga pangalan lang ang ibinibigay sa listahan.
 
 ### Alin sa mga proseso ang dapat ikabit?
 
@@ -38,6 +38,6 @@ Ito ay maaaring ikabit sa karamihan ng programs kapag isinasagawa ang debugging,
 
 ## Pagmasdan ang Proseso Gamit ang ProcMon
 
-Kung ang Visual Studio ang pinakamagandang gamitin upang siyasatin ang code paths, ang ProcMon naman ang pinakamagandang gamitin upang pag-aralan ang lahat ng application na ginagawa gamit ang operating system - ito ay kumukuha ng File, Registry, Network, Process at Profiling details ng processes. Ito ay sinusubukang mag-log **all** ng mga nangyayari at maaaring ito ay maging hindi madali, ngunit kung pag-aaralan ng mabuti kung ano at paano ang iyong application ay gumagana sa operating system, ito ay maaaring maging mahalang pinagkukunan.
+Kung ang Visual Studio ang pinakamagandang gamitin upang siyasatin ang code paths, ang ProcMon naman ang pinakamagandang gamitin upang pag-aralan ang lahat ng application na ginagawa gamit ang operating system - ito ay kumukuha ng File, Registry, Network, Process at Profiling details ng processes. Ito ay sinusubukang mag-log **all** ng mga nangyayari at maaaring ito ay maging hindi madali, ngunit kung pag-aaralan ng mabuti kung ano at paano ang iyong application ay gumagana sa operating system, ito ay maaaring maging mahalagang pinagkukunan.
 
 Para sa panimula ng pundasyon ng ProcMon at advanced debugging features nito, puntahan at tingnan ang [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) na gawa ng Microsoft.
