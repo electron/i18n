@@ -471,28 +471,28 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
   * `marginsType` Íntegro (opcional) Especifica el tipo de márgenes a usar. Usa por defecto el margen 0, 1 para ningún margen y 2 para el margen mínimo.
   * `pageSize` Cadena - (opcional) Especifica el tamaño de página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean - (opcional) Aunque imprima fondos CSS.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+  * `printSelectionOnly` Boolean - (opcional) Aunque imprima solo la selección.
+  * `landscape` Boolean - (opcional) `true` para paisajes, `false` para retratos.
 * `llamada de vuelta` Función 
   * `error` Error
   * `data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Imprime la página web de `webview` como un PDF, al igual que `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada
 * `llamada de vuelta` Función 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+Captura una instantánea de la página de `webview`. Al igual que `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
-* `channel` String
-* `...args` any[]
+* `channel` Cadena
+* `...args` cualquiera[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. El proceso de renderizado puede manejar el mensaje escuchando al evento `channel` con el módulo `ipcRenderer`.
 
 See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
