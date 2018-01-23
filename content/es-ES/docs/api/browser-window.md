@@ -215,17 +215,17 @@ Los valores posibles y el comportamiento de la opción `type` son dependientes d
   * El tipo `desktop` coloca la ventana en el nivel de la ventana de fondo de escritorio (`kCGDesktopWindowLevel - 1`). Tenga en cuenta que la ventana de escritorio no recibirá enfoque alguno, ni eventos del ratón o del teclado, pero se puede utilizar `globalShortcut` para recibir input con moderación.
 * En Windows, el tipo posible es `toolbar`.
 
-### Instance Events
+### Eventos de Instancia
 
-Objects created with `new BrowserWindow` emit the following events:
+Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
-#### Event: 'page-title-updated'
+#### Evento: "page-title-updated"
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
