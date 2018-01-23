@@ -28,7 +28,7 @@ Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na
 
 Maaari mong ikabit ang Visual Studio debugger sa running process sa lokal o remote computer. Matapos paganahin ang process, pindutin ang Debug / Attach to Process (o pindutin ang `CTRL+ALT+P`) para mabuksan ang "Attach to Process" na dialog box. Maaaring gumamit ng capability para ma-debug ang mga apps na gumagana sa lokal o remote computer, sabay-sabaying i-debug ang lahat na nagpo-proseso.
 
-Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang check box na `Show processes from all users`. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang check box na `Show processes from all users`. Nakadepende sa dami ng BrowserWindows ang nakabukas na app, makikita mo na marami ang magpo-proseso. Ang karaniwang one-window app ay magreresulta sa Visual Studio na nagpapakita ng dalawang entry na `Electron.exe` - isa para sa main process at isa para sa renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
 
 ### Which Process Should I Attach to?
 
