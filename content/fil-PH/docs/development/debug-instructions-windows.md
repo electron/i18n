@@ -22,9 +22,9 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 Buksan ang Visual Studio. Ang Electron ay di gawa gamit ang Visual Studio kung kaya naman ito ay di naglalaman ng project file - ganoon pa man, ikaw ay maaaring magbukas ng source code files bilang "As File", ibig sabihin ang Visual Studio ay magbubukas lamang gamit ang kanyang sarili. Maaari ka pa ring magtakda ng mga breakpoint - ang Visual Studio ay kusang hahanap ng source code na tutugma sa code running ayon sa attached process at break nito.
 
-Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
+Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
 
-### Attaching
+### Pagkakabit
 
 You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
 
