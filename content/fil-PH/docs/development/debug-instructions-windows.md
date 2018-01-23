@@ -12,15 +12,15 @@ Kung ikaw ay nakararanas ng pagbagsak o may nagaganap na di tama sa Electron at 
 
 ## Pagkakabit at Pagde-debug sa Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Sa pagsisimula ng debugging session, buksan ang PowerShell/CMD at paganahin ang debug na gawa ng Electron gamit ang application upang magbukas ito bilang parameter.
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
 ```
 
-### Setting Breakpoints
+### Pagtatakda ng mga Breakpoint
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Buksan ang Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
 Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
 
