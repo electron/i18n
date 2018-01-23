@@ -20,7 +20,7 @@ Ipagsawalang bahala ang limitasyon ng iyong koneksyon ng `domains` para paghiwah
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Wag paganahin ang dish cache para sa kahilingan ng HTTP.
 
 ## --disable-http2
 
