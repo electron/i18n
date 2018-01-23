@@ -1,6 +1,6 @@
 # Debugging on macOS
 
-Kung ikaw ay nakararanas ng pagbagsak o isyu sa electron na pinaniniwalaan mo na hindi sanhi ng JavaScript application, sa halip ay sa pamamagitan ng Electron, ang pagtatama ng mali ay medyo nakakalito, lalo na sa mga developer na nagtatama ng mali na hindi gamit ang native/C++. However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
+Kung ikaw ay nakararanas ng pagbagsak o may nagaganap na di tama sa Electron at alam mo na ito'y di sanhi hindi ng JavaScript application, sa halip ang problema ay nasa mismong Electron, ang pagtatama ng mali (debugging) ay medyo nakakalito lalo na sa mga naglilinang nito na hindi gumagamit ng native/C++ upang mahanap o maitama ang mga mali nito (debugging). However, using lldb, and the Electron source code, it is fairly easy to enable step-through debugging with breakpoints inside Electron's source code.
 
 ## Mga kinakailangan
 
