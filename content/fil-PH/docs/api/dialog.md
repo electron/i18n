@@ -34,9 +34,9 @@ Ang module ng `dialog` ay mayroong mga sumusunod na pamamaraan:
     * `openFile` - Pinapayagan ang mga file para mapili.
     * `openDirectory` - Pinapayagan ang mga direktoryo para mapili.
     * `multiSelections` - Pinapayagan ang maramihang mga landas para mapili.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
+    * `showHiddenFiles` - Ipakita ang mga nakatagong file sa dayalogo.
+    * `createDirectory` - Pinapayagang gumawa ng bagong mga direktoryo mula sa dayalogo. *macOS*
+    * `promptToCreate` - Magmadali para sa paglikha kung ang landas ng file na pumasok sa dayalogo ay hindi lumitaw. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
     * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
