@@ -386,7 +386,7 @@ Magbabalik ng `String` - Ang bersyon ng na-load na aplikasyon. Kung walang bersy
 
 Magbabalik ng `String` - Ang pangalan ng kasalukuyang aplikasyon, kung saan ito ang pangalan ng `package.json` file ng aplikasyon.
 
-Karaniwang maikling lowercased na pangalan ang `name` field ng `package.json`, ayon sa npm modules spec. Kadalasan, dapat mong itukoy ang `productName` field kung saan ito ang full capitalized na pangalan ng application, at kung saan mas prini-prefer ito kaysa sa `name` naayon sa Electron.
+Karaniwang ang `name` field ng `package.json`ay isang maikling naka-lowercase na pangalan, ayon sa mga npm module spec. Kadalasan, dapat mong itukoy ang `productName` field kung saan ito ang full capitalized na pangalan ng application, at kung saan mas prini-prefer ito kaysa sa `name` naayon sa Electron.
 
 ### `app.setName(name)`
 
