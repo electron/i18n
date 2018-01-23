@@ -738,16 +738,16 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### Evento: 'ipc-message'
 
 Devuelve:
 
-* `channel` String
-* `args` Array
+* `channel` Cadena
+* `args` Arreglo
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte fácilmente entre la pagina de invitado y la de embebido:
 
 ```javascript
 // In embedder page.
@@ -760,18 +760,18 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// En la página de invitado.
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })
 ```
 
-### Event: 'crashed'
+### Evento: 'crashed'
 
-Fired when the renderer process is crashed.
+Disparado cuando el proceso de renderizado se cierra.
 
-### Event: 'gpu-crashed'
+### Evento: 'gpu-crashed'
 
 Fired when the gpu process is crashed.
 
