@@ -24,13 +24,13 @@ Buksan ang Visual Studio. Ang Electron ay di gawa gamit ang Visual Studio kung k
 
 Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
 
-### Pagkakabit
+### Pagkakabit (Attaching)
 
 Maaari mong ikabit ang Visual Studio debugger sa running process sa lokal o remote computer. Matapos paganahin ang process, pindutin ang Debug / Attach to Process (o pindutin ang `CTRL+ALT+P`) para mabuksan ang "Attach to Process" na dialog box. Maaaring gumamit ng capability para ma-debug ang mga apps na gumagana sa lokal o remote computer, sabay-sabaying i-debug ang lahat na nagpo-proseso.
 
-Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang check box na `Show processes from all users`. Nakadepende sa dami ng BrowserWindows ang nakabukas na app, makikita mo na marami ang magpo-proseso. Ang karaniwang one-window app ay magreresulta sa Visual Studio na nagpapakita ng dalawang entry na `Electron.exe` - isa para sa main process at isa para sa renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang check box na `Show processes from all users`. Nakadepende sa dami ng BrowserWindows ang nakabukas na app, makikita mo na marami ang magpo-proseso. Ang karaniwang one-window app ay magreresulta sa Visual Studio na nagpapakita ng dalawang entry na `Electron.exe` - isa para sa main process at isa para sa renderer process. Sa kasalukuyan, walang ibang paraan upang malaman ang pagkakaiba dahil mga pangalan lang ang ibinibigay sa listahan.
 
-### Which Process Should I Attach to?
+### Alin sa mga proseso ang dapat ikabit?
 
 Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
 
