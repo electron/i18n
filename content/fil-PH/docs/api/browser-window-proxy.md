@@ -22,9 +22,10 @@ Forcefully closes the child window without calling its unload event.
 
 * `code` String
 
-Evaluates the code in the child window.
+ipakita ang code sa maliit na window
 
-#### `win.focus()`
+#### `win.focus()
+ `
 
 Focuses the child window (brings the window to front).
 
