@@ -1,10 +1,10 @@
 # I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Ipakita ang mga dayalogo ng sinaunang sistema para sa pagbukas at pag-seyb ng mga file, pag-alerto, atbp.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Ang isang halimbawa ng pagpapakita ng isang dayalogo para pumili ng maramihang mga file at mga direktoryo:
 
 ```javascript
 const {dialog} = require('electron')
