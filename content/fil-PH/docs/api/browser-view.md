@@ -61,8 +61,8 @@ Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamar
 #### `view.setAutoResize(options)` *Experimental*
 
 * `mga pagpipilian` Bagay 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
+  * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
