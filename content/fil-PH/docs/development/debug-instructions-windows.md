@@ -20,7 +20,7 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 ### Pagtatakda ng mga Breakpoint
 
-Buksan ang Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Buksan ang Visual Studio. Ang Electron ay di gawa gamit ang Visual Studio kung kaya naman ito ay di naglalaman ng project file - ganoon pa man, ikaw ay maaaring magbukas ng source code files bilang "As File", ibig sabihin ang Visual Studio ay magbubukas lamang gamit ang kanyang sarili. Maaari ka pa ring magtakda ng mga breakpoint - ang Visual Studio ay kusang hahanap ng source code na tutugma sa code running ayon sa attached process at break nito.
 
 Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`. If you're hardcore, you can also debug Chromium directly, which is obviously found in `chromium_src`.
 
