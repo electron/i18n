@@ -10,17 +10,17 @@ Kung ikaw ay nakararanas ng pagbagsak o may nagaganap na di tama sa Electron at 
 
 ## Pagkakabit at Pagde-debug sa Electron
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+Para simulan ang debugging session, buksan ang Terminal at umpisahan ang `lldb`, na dadaan sa debug na gawa ng Electron bilang parameter.
 
 ```sh
-$ lldb ./out/D/Electron.app
+lldb ./out/D/Electron.app
 (lldb) target create "./out/D/Electron.app"
 Current executable set to './out/D/Electron.app' (x86_64).
 ```
 
 ### Pagtatakda ng mga Breakpoint
 
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+Ang LLDB ang pinakamahalagang kasangkapan at sumusuporta sa karamihan ng estratihiya para siyasatin ang code. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
 
 Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
 
