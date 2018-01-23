@@ -32,7 +32,7 @@ Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang 
 
 ### Alin sa mga proseso ang dapat ikabit?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Maipapalabas ang code sa loob ng main process ( ito ay ang code na matatagpuan o sa kalaunan ay mapapagana gamit ang file ng main JavaScript) tulad ng code na tinatawag na gamit ang remote (`require('electron').remote`) na gagana sa loob ng main process habang ang isang code naman ay gagana sa loob ng renderer process.
 
 You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 
