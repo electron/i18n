@@ -24,7 +24,7 @@ Ang LLDB ang pinakamahalagang kasangkapan at sumusuporta sa karamihan ng estrati
 
 Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Ipagpalagay natin na ang gusto mong i-debug ay `app.setName()`, na syang tumutukoy sa `browser.cc` bilang `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
