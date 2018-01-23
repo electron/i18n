@@ -4,9 +4,9 @@ Kung ikaw ay nakararanas ng pagbagsak o may nagaganap na di tama sa Electron at 
 
 ## Mga kinakailangan
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-osx.md). Kapag ang Electron ay tuwirang kinuha (download), ito ay madaling maikakabit at matutukoy ang problema (debug), at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema (debugging): Ang debugger ay hindi kayang ipakita ang lahat ng laman ng variable at mapapansin ang execution path ay maaaring maging kakaiba dahil sa inlining, tail calls at iba pang compiler optimizations.
+* **Ang debug na gawa ng Electron**: Kadalasan, ang pinakamadaling paraan upang buuin ito ay gamit ang kanyang sarili sa pamamagitan ng mga gamit at mga pangunahing kailangan na nasa [build instructions para sa Windows](build-instructions-osx.md). Kapag ang Electron ay tuwirang kinuha (download), ito ay madaling maikakabit at matutukoy ang problema (debug), at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema (debugging): Ang debugger ay hindi kayang ipakita ang lahat ng laman ng variable at mapapansin ang execution path ay maaaring maging kakaiba dahil sa inlining, tail calls at iba pang compiler optimizations.
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Sa karagdagan, ang Xcode ay ginagamit din ang Xcode command line tools. Kasama rin ang LLDB, ang default debugger ng Xcode sa Mac OS X. Sinusuportahan nito ang debugging C, Objective-C and C++ sa desktop at iOS devices at simulator.
 
 ## Pagkakabit at Pagde-debug sa Electron
 
