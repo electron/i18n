@@ -1,6 +1,6 @@
-# Supported Chrome Command Line Switches
+# Sinusuportahan ang Chrome Command Line Switches
 
-> Command line switches supported by Electron.
+> Ang Command line switches ay sinusuportahan ng Electron.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
