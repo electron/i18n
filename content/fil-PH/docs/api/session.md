@@ -330,7 +330,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Halimbawa ng mga bagagi nito
 
 The following properties are available on instances of `Session`:
 
