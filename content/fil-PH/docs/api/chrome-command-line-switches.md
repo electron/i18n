@@ -88,11 +88,11 @@ Ang mga mappings ay inaplay sa dulo ng host sa kahilingan ng net (ang TCP kumone
 
 ## --host-resolver-rules=`rules`
 
-Like `--host-rules` but these `rules` only apply to the host resolver.
+Gusto ng `--host-rules` subalit ang `rules` ay maaplay lamang sa host resolver.
 
 ## --auth-server-whitelist=`url`
 
-A comma-separated list of servers for which integrated authentication is enabled.
+Ang kuwit ang nag hihiwalay sa listahan ng mga servers para paganahin ang integrated authentication.
 
 Halimbawa:
 
