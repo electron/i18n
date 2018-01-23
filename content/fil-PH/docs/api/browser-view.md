@@ -12,19 +12,19 @@ Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalam
 
 ```javascript
 // Sa mga pangunahing proseso.
-const {BrowserView, BrowserWindow} = require('electron')
+const {BrowserView, BrowserWindow} = kailangan('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+hayaang manalo = bagong BrowserWindow({width: 800, height: 600})
 win.on('closed', () => {
-  win = null
+  manalo = null
 })
 
-let view = new BrowserView({
+hayaang makita = bagong BrowserView({
   webPreferences: {
     nodeIntegration: false
   }
 })
-win.setBrowserView(view)
+win.setBrowserView(tingnan)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
@@ -32,19 +32,19 @@ view.webContents.loadURL('https://electron.atom.io')
 ### `new BrowserView([options])` *Experimental*
 
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Mga statik na pamamaraan
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
 
 ### Humahalimbawa sa bahagi nito
 
-Objects created with `new BrowserView` have the following properties:
+Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
 #### `view.webContents` *Experimental*
 
