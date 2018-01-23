@@ -42,7 +42,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Returns `BrowserView` - The view with the given `id`.
 
-### Halimbawa ng mga bagagi nito
+### Humahalimbawa sa bahagi nito
 
 Objects created with `new BrowserView` have the following properties:
 
