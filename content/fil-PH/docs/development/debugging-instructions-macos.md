@@ -20,7 +20,7 @@ Current executable set to './out/D/Electron.app' (x86_64).
 
 ### Pagtatakda ng mga Breakpoint
 
-Ang LLDB ang pinakamahalagang kasangkapan at sumusuporta sa karamihan ng estratihiya para siyasatin ang code. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+Ang LLDB ang pinakamahalagang kasangkapan at sumusuporta sa karamihan ng estratihiya para siyasatin ang code. Para sa simula ng pundasyon, ipagpalagay natin na ang tinatawag na command galing sa JavaScript ay di gumagana ng maayos - at ngayon, hindi mo nanaisin na gamitin ang C++ bilang command katapat sa loob ng source ng Electron.
 
 Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
 
