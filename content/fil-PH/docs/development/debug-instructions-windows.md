@@ -36,8 +36,8 @@ Maipapalabas ang code sa loob ng main process ( ito ay ang code na matatagpuan o
 
 Ito ay maaaring ikabit sa karamihan ng programs kapag isinasagawa ang debugging, ngunit para sa anumang oras, isang program lang ang maaaring gumana sa debugger. Maaaring itakda ang program na gumagana sa toolbar na `Debug Location` o ang `Processes window`.
 
-## Using ProcMon to Observe a Process
+## Pagmasdan ang Proseso Gamit ang ProcMon
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Kung ang Visual Studio ang pinakamagandang gamitin upang siyasatin ang code paths, ang ProcMon naman ang pinakamagandang gamitin upang pag-aralan ang lahat ng application na ginagawa gamit ang operating system - ito ay kumukuha ng File, Registry, Network, Process at Profiling details ng processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
 For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
