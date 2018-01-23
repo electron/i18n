@@ -84,7 +84,7 @@ Halimbawa:
 * `MAP test.com [::1]:77` pinilit ng "test.com" na maayos ng IPv6 loopback. at pilitin ang port na resulta ng socket address kailangan ay 77.
 * `MAP * baz http, IBUKOD www.google.com` inilipat sa lahat ng bagay na "baz http", maliban sa "www.google.com".
 
-These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
+Ang mga mappings ay inaplay sa dulo ng host sa kahilingan ng net (ang TCP kumonekta at mag-host ng resolver ay isang direktang koneksyon, at ang `CONNECT` sa koneksiyon ng HTTP proxy, at ang dulo ng host sa `SOCKS` proxy connection).
 
 ## --host-resolver-rules=`rules`
 
@@ -127,7 +127,7 @@ Prevents Chromium from lowering the priority of invisible pages' renderer proces
 
 This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
 
-## --enable-logging
+## --Enable-logging
 
 Prints Chromium's logging into console.
 
