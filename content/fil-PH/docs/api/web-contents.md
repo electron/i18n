@@ -227,7 +227,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Magbabalik ng:
 
 * `event` Event
-* `killed` Boolean
+* `killed` Ang Boolean
 
 Emitted when the renderer process crashes or is killed.
 
@@ -336,7 +336,7 @@ Magbabalik ng:
   * `username` String
   * `password` String
 
-Ibrobrodkast kapang ang `webContents` ay gustong gawin ang basic auth.
+Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
