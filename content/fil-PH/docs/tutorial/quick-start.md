@@ -10,11 +10,11 @@ Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script
 
 ### Proseso ng tagasalin
 
-Dahil ang Electron ay gumagamit ng Chromium para sa pagpapakita ng web pages, Chromium's multi-process na arkitektura ay ginagamit din. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Dahil ang Electron ay gumagamit ng Chromium para sa pagpapakita ng web pages, Chromium's multi-process na arkitektura ay ginagamit din. Bawat web page ng Electron ay tumatakbo sa sarili nitong proseso, tinatawag itong **the renderer process**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Sa normal na mga browsers, ang mga web pages ay karaniwang tumatabko sa sanboxed na kapaligiran at hindi ito pinapayagan na mag access sa native resources. Gayunman , sa mga gumagamit ng Electron ay may kapangyarihan na gamitin ang Node.js APIs sa web pages na nagpapahintulot sa mas mababang antas ng operating system ng interaksyon.
 
-### Differences Between Main Process and Renderer Process
+### Ang pagkakaiba ng pangunahing proseso at proseso ng tagasalin
 
 The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
