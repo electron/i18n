@@ -46,11 +46,11 @@ Specifies the flags passed to the Node JS engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Tingnan ang [Node documentation](https://nodejs.org/api/cli.html) o kaya paganahin ang `node --help` sa iyong terminal para sa listahan ng mga magagamit na flag. Bukod pa dito, paganahin ang `node --v8-options` para makita ang listahan ng mga flags na tumutukoy sa Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Gumamit ng isang uri ng proxy server, para mapatungan ang system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
 
 ## --proxy-bypass-list=`hosts`
 
