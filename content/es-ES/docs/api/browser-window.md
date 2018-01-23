@@ -226,17 +226,17 @@ Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 Devuelve:
 
 * `event` Evento
-* `title` String
+* `title` Cadena
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie.
 
-#### Event: 'close'
+#### Evento: 'close'
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Aparece cuando la ventana se va a cerrar. Se emite antes de el evento del DOM `beforeunload` y `unload`. Llamar a `event.preventDefault()` cancelará el cierre.
 
 Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Por ejemplo:
 
@@ -763,7 +763,7 @@ Returns `Integer[]` - Contains the window's current position.
 
 #### `win.setTitle(title)`
 
-* `title` String
+* `title` Cadena
 
 Changes the title of native window to `title`.
 
