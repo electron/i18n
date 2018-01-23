@@ -412,7 +412,7 @@ Ang listahan na ito ay pinamamahalaan ng OS. Sa Windows maaari mong bisitahin an
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Aalisin ang lahat ng laman ng kamakailan lang na lista ng mga dokumento.
+Buburahin ang listahan ng mga bagong dokumento.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
