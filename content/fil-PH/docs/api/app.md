@@ -398,9 +398,9 @@ Ino-override ang pangalan ng kasalukuyang aplikasyon.
 
 Magbabalik ng `String` - Ang lokal ng kasalukuyang aplikasyon. Ang posibleng mga halaga ng pagbabalik ay dokumentado na sa [here](locales.md).
 
-**Tandaan:** Habang dinidistribute ang iyong packaged app, dapat mo ring i-ship ang `locales` na folder.
+**Tandaan:** Habang ipinamamahagi ang iyong naka-package na app, dapat mo ring isama ang polder ng `locales`.
 
-**Tandaan:** Sa Windows, dapat mo itong tawagin pagkatapos ibrobrodkast ang mga `ready` na mga event.
+**Tandaan:** Sa Windows dapat mo itong tawagin pagkatapos na ang mga event ng `ready` ay mapalabas.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
