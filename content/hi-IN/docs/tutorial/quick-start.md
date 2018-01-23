@@ -20,13 +20,13 @@
 
 मुख्य प्रक्रिया सभी वेब पेजेज और उनके अनुरूप रेंदेरेर प्रक्रियाओं का प्रबंधन करती है | हर रेंदेरेर प्रक्रिया अलग-थलक होती है और केवल अपने भीतर चल रहे वेब पेज पर ध्यान देती है |
 
-वेब पेजेज में, मूल जीयुआई सम्बंधित ऐपीआई को बुलाने की इज़ाज़त नहीं होती क्योंकि वेब पेजेज में मूल जीयुआई संसाधनों का प्रबंधन करना बेहद खतरनाक है और इससे संसाधन बड़ी आसानी से लीक हो सकते हैं | If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+वेब पेजेज में, मूल जीयुआई सम्बंधित ऐपीआई को बुलाने की इज़ाज़त नहीं होती क्योंकि वेब पेजेज में मूल जीयुआई संसाधनों का प्रबंधन करना बेहद खतरनाक है और इससे संसाधन बड़ी आसानी से लीक हो सकते हैं | अगर आप एक वेब पेज में जीयुआई ऑपरेशनस करना चाहते हैं, तो वेब पेज की रेंदेरेर प्रक्रिया को मुख्य प्रक्रिया से संचार करना होगा और इन ऑपरेशनस को करने का अनुरोध करना होगा |
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+इलेक्ट्रॉन में, रेंदेरेर प्रक्रिया और मुख्य प्रक्रिया के बीच संचार करने के लिए हमारे पास अनेक मार्ग हैं | जैसे कि सन्देश भेजने के लिए [`ipcRenderer`](../api/ipc-renderer.md) और [`ipcMain`](../api/ipc-main.md) मोडयुल्स, और आरपीसी स्टाइल के संचार के लिए [remote](../api/remote.md) मोड्यूल | अक्सर पूछे जाने वाले सवालों में [वेब पेजेज के बीच डाटा साझा कैसे करें ](../faq.md#how-to-share-data-between-web-pages) की एक प्रविष्टि भी है |
 
-## Write your First Electron App
+## अपनी पहली इलेक्ट्रॉन एप्प लिखिये
 
-Generally, an Electron app is structured like this:
+आम तौर पर, एक इलेक्ट्रॉन एप्प की सरंचना कुछ इस तरह से होती है:
 
 ```text
 your-app/
@@ -35,7 +35,7 @@ your-app/
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+`package.json` का फॉर्मेट बिल्कुल नोड के मोडयुल्स समान है, और `main` फील्ड द्वारा निर्दिष्ट स्क्रिप्ट आपकी एप्प की स्टार्टअप स्क्रिप्ट है, जो कि मुख्य प्रक्रिया को चलायेगी | An example of your `package.json` might look like this:
 
 ```json
 {
