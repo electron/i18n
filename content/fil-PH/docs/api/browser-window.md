@@ -100,11 +100,11 @@ Ang Inirerekomenda na i-hinto mo ang mga mahahalagang operasyon kapag ang may ka
 
 ### Babala sa plataporma
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* Sa macOS na modal windows ay ipinapakita ang bilang ng mga sheet na naka-sama sa window ng magulang.
+* Sa macOS ang mga bintana ng anak ay pinapanatili ang kamag-anak na posisyon sa bintana ng magulang kapag ang window ng magulang ay gumagalaw, habang sa Windows at Linux bintana ng bata ay hindi nailipat.
+* Sa bintana hindi ito suportado upang baguhin ang panimulang bintana ng magulang.
+* Sa Linux ang tipo ng modal windows ay mababago sa `dayalogo`.
+* Ang ay Linux maraming mga kapaligiran sa desktop ang hindi suportado sa pagtatago ng modal window.
 
 ## Ang Klase: ng BrowserWindow
 
@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Halimbawa ng mga bagagi nito
 
 Objects created with `new BrowserWindow` have the following properties:
 
