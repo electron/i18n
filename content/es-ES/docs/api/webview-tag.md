@@ -461,16 +461,16 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 * `options` Objecto (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario ajustes de impresión. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
+  * `marginsType` Íntegro (opcional) Especifica el tipo de márgenes a usar. Usa por defecto el margen 0, 1 para ningún margen y 2 para el margen mínimo.
+  * `pageSize` Cadena - (opcional) Especifica el tamaño de página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `printBackground` Boolean - (opcional) Aunque imprima fondos CSS.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
 * `llamada de vuelta` Función 
