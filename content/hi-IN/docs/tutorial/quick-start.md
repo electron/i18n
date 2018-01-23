@@ -181,17 +181,17 @@ $ ./electron/electron your-app/
 $ .\electron\electron.exe your-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app` यह इलेक्ट्रॉन के रिलीज़ पैकेज का हिस्सा है, आप इसे [यहाँ](https://github.com/electron/electron/releases) से डाउनलोड कर सकते हैं |
 
-### Run as a distribution
+### एक डिस्ट्रीब्यूशन के तरह चलायें
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+अपनी एप्प को लिखने के बाद, आप [एप्लीकेशन डिस्ट्रीब्यूशन](./application-distribution.md) गाइड को पढ़ कर एक डिस्ट्रीब्यूशन का निर्माण कर सकते हैं और फिर पैकेज्ड एप्प को चला सकते हैं |
 
-### Try this Example
+### इस उदाहरण को अजमायें
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) रिपॉजिटरी का इस्तेमाल कर के इस उदाहरण में शामिल कोड को क्लोन करें और चलायें |
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**नोट**: इसे चलाने के आपको अपने सिस्टम पर [गिट](https://git-scm.com) और [नोड.जेएस](https://nodejs.org/en/download/) (जिसमे [npm](https://npmjs.org) शामिल है) की ज़रुरत पड़ेगी |
 
 ```sh
 # Clone the repository
