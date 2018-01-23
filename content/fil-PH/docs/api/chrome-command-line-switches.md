@@ -1,4 +1,4 @@
-# Sinusuportahan ang Chrome Command Line Switches
+# Suportado ng Chrome Command Line Switches
 
 > Ang Command line switches ay sinusuportahan ng Electron.
 
@@ -24,11 +24,11 @@ Wag paganahin ang dish cache para sa kahilingan ng HTTP.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Huwag paganahin ang HTTP/2 at SPDY/3.1 protocol.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Debug-related flags, tingnan ang [Debugging ang pangunahing Process](../tutorial/debugging-main-process.md) tingnan ang detalye.
 
 ## --remote-debugging-port=`port`
 
