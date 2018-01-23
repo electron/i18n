@@ -376,7 +376,7 @@ Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugna
 
 Maaari mo lang i-override ang mga landas ng isang `name` na tinukoy sa `app.getPath`.
 
-Ang cookies at caches ng web page ay iii-store sa ilalim ng `userData` na direktoryo bilang default. Kung gusto mong bagohin ang lokasyon, kailangan mong i-override ang `userData` na path bago ang `ready` na event ng module na `app` ay ibrobrodkast.
+Sa pamamagitan ng default, ang cookies at caches ng web page ay ii-imbak sa ilalim ng direktoryo ng `userData`. Kung gusto mong baguhin ang lokasyon, kailangan mong i-override ang landas ng `userData` bago ang event ng `ready` sa module ng `app` ay ilalabas.
 
 ### `app.getVersion()`
 
