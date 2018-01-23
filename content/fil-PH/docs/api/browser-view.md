@@ -1,8 +1,8 @@
 ## Class: ng BrowserView
 
-> Create and control views.
+> Lumikha at kontrolin ang mga nakikita.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
