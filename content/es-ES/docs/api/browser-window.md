@@ -242,23 +242,23 @@ Generalmente se desea utilizar el controlador `beforeunload` para decidir si la 
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+  console.log("No quiero cerrarme")
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
+  // A diferencia de los navegadores habituales en donde un cuadro de mensaje le aparecece al usuario,
+  // devolviendo un valor non-void que cancelará silenciosamente el cierre.
+  // Se recomienda usar el cuadro de diálogo API para dejar que el usuario confirme el cierre de la
+  //aplicación.
   e.returnValue = false
 }
 ```
 
-#### Event: 'closed'
+#### Evento: "closed"
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Aparece cuando se cierra la ventana. Después de recibir este evento se debería eliminar la referencia a la ventana y evitar su uso.
 
-#### Event: 'session-end' *Windows*
+#### Evento: "session-end" *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Aparece cuando la sesión de la ventana va a terminarse debido a un cierre forzoso o el reinicio de la máquina o el cierre de la sesión.
 
 #### Event: 'unresponsive'
 
