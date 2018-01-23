@@ -8,22 +8,22 @@ Ang proseso: [Main](../glossary.md#main-process)
 // Ang pangunahing pag-proseso.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
-// const {BrowserWindow} = require('electron').remote
+// O gamitin ang `remote` galing sa rendere process.
+// const {BrowserWindow} = kinakailangan ('electron').remote
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = bagong BrowserWindow({width: 800, height: 600})
 win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Load ng remote ngURL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// O mag load sa local HTML file
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Hindi maayos na window
 
 Upang gumawa ng isang window na walang chrome, o isang transparent window sa hindi tumutunton sa katwiran ng korte, pwedi mong gamitin ang [Frameless Window](frameless-window.md) API.
 
@@ -73,7 +73,7 @@ top.show()
 
 Ang `anak` Ang window ay palaging ipapakita sa ibabaw `ibabaw` window.
 
-### Modal windows
+### Mga windows na Modal
 
 Ang isang modal na window ay isang window ng bata na hindi pinapagana ang window ng magulang, upang gumawa ng modal window, kailangan mong itakda ang mag-katulad `magulang` at `modal` pagpipilian:
 
@@ -121,7 +121,7 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
+  * `x` Integer (optional) (**required** if y is used) -ioffset ang kaliwang Window mula sa screen. Idefault ang window sa sentro.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
