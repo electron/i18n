@@ -16,7 +16,7 @@ Sa normal na mga browsers, ang mga web pages ay karaniwang tumatabko sa sanboxed
 
 ### Ang pagkakaiba ng pangunahing proseso at proseso ng tagasalin
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Ang pangunahing proseso and gumagawa ng web pages sa pamamagitan ng `BrowserWindow` mga pagkakataon. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
 The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
