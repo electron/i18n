@@ -773,57 +773,57 @@ Disparado cuando el proceso de renderizado se cierra.
 
 ### Evento: 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Disparado cuando el proceso gpu se cae.
 
-### Event: 'plugin-crashed'
+### Evento: 'plugin-crashed'
 
 Devuelve:
 
 * `name` String
-* `version` String
+* `version` Cadena
 
-Fired when a plugin process is crashed.
+Disparado cuando el proceso de plugin se cae.
 
-### Event: 'destroyed'
+### Evento: 'destroyed'
 
-Fired when the WebContents is destroyed.
+Disparado cuando el WebContents es destrozado.
 
-### Event: 'media-started-playing'
+### Evento: 'media-started-playing'
 
-Emitted when media starts playing.
+Emitido cuando la media empieza a reproducirse.
 
-### Event: 'media-paused'
+### Evento: 'media-paused'
 
-Emitted when media is paused or done playing.
+Emitido cuando la media es pausada o ha terminado de reproducirse.
 
-### Event: 'did-change-theme-color'
+### Evento: 'did-change-theme-color'
 
 Devuelve:
 
-* `themeColor` String
+* `themeColor` Cadena
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a encontrar una etiqueta meta:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Evento: 'update-target-url'
 
 Devuelve:
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Emitido cuando el mouse se mueve sobre un link o el teclado se mueve el concentrado a un link.
 
-### Event: 'devtools-opened'
+### Evento: 'devtools-opened'
 
-Emitted when DevTools is opened.
+Emitido cuando DevTools es abierto.
 
-### Event: 'devtools-closed'
+### Evento: 'devtools-closed'
 
-Emitted when DevTools is closed.
+Emitido cuando DevTools es cerrado.
 
-### Event: 'devtools-focused'
+### Evento: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Emitido cuando DevTools es centrado o abierto.
