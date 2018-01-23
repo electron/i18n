@@ -494,31 +494,31 @@ Captura una instantánea de la página de `webview`. Al igual que `webContents.c
 
 Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. El proceso de renderizado puede manejar el mensaje escuchando al evento `channel` con el módulo `ipcRenderer`.
 
-See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+Ver [webContents.send](web-contents.md#webcontentssendchannel-args) para ejemplos.
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` Object
+* `event` Objeto
 
-Sends an input `event` to the page.
+Envía un input `event` a la página.
 
-See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
+Ver [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) para una descripción detallada del objeto `event`.
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Número - Factor zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Cambia el factor zoom al factor específico. El factor zoom está dividido en porcentaje por 100, así que 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Número - Nivel de zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Cambia el nivel de zoom al nivel específico. El tamaño original es 0 y cada incremento por encima o por debajo representa acercarse en un 20% más largo o más pequeño, por defecto limita de 300% y 50% del tamaño original, respectivamente.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()`
 
