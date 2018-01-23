@@ -48,7 +48,7 @@ Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na ito.
 
 #### `view.id` *Experimental*
 
