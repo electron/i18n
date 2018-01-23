@@ -54,9 +54,9 @@ Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na it
 
 Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
-Objects created with `new BrowserView` have the following instance methods:
+Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
 #### `view.setAutoResize(options)` *Experimental*
 
