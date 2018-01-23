@@ -61,7 +61,7 @@ Devuelve:
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Evento: 'close'
 
 Devuelve:
 
