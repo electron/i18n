@@ -131,51 +131,51 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) एक `npm` मोड्यूल है जिसमे इलेक्ट्रॉन के प्री-कमपाईल्ड संस्करण होते हैं |
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+अगर आपने उसे `npm` के साथ वैश्विक तौर पर इनस्टॉल किया है, तो आपको केवल निम्नलिखित को अपनी एप्प की स्त्रोत डायरेक्टरी में चलाना होगा:
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+अगर आपने उसे स्थानीय तौर पर इनस्टॉल किया है, तो चलायें:
 
-#### macOS / Linux
+#### मैकओएस/लिनक्स
 
 ```sh
 $ ./node_modules/.bin/electron .
 ```
 
-#### Windows
+#### विंडोज
 
 ```sh
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### नोड v8.2.0 और उसके बाद के
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### मैन्युअली डाउनलोड की गयी इलेक्ट्रॉन बाइनरी
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+अगर आपने इलेक्ट्रॉन को मैन्युअली डाउनलोड किया है, तो आप अपनी एप्प को सीधे ही चलाने के लिए शामिल की गयी बाइनरी का भी इस्तेमाल कर सकते हैं |
 
-#### macOS
+#### मैकओएस
 
 ```sh
 $ ./Electron.app/Contents/MacOS/Electron your-app/
 ```
 
-#### Linux
+#### लिनक्स
 
 ```sh
 $ ./electron/electron your-app/
 ```
 
-#### Windows
+#### विंडोज
 
 ```sh
 $ .\electron\electron.exe your-app\
