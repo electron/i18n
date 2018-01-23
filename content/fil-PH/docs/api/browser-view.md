@@ -68,7 +68,7 @@ Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamar
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Binabago ang laki at inililipat ang view mula sa ibinibigay na hangganan na may kaugnayan sa window.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
