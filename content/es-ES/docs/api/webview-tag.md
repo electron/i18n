@@ -449,18 +449,18 @@ Empieza un pedido para encontrar todas las coincidencias para el `text` en la p�
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+* `acción` Cadena - Especifica la acción que tendrá lugar al finalizar [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) pedido. 
+  * `clearSelection` - Borrar la selección.
+  * `keepSelection` - Traduce la selección en una selección normal.
+  * `activateSelection` - Enfoque y haga click en el nodo de selección.
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 ### `<webview>.print([options])`
 
 * `options` Objecto (opcional) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
+  * `silent` Boolean (opcional) - No le pide al usuario ajustes de impresión. Por defecto es `false`.
+  * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
 Prints `webview`'s web page. Same as `webContents.print([options])`.
