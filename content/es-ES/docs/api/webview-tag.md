@@ -593,47 +593,47 @@ Devuelve:
 
 Disparado cuando una redirección fue recibida mientras se solicitaba una fuente.
 
-### Event: 'dom-ready'
+### Evento: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Disparado cuando el documento en el frame dado es cargado.
 
-### Event: 'page-title-updated'
-
-Devuelve:
-
-* `title` String
-* `explicitSet` Boolean
-
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
-
-### Event: 'page-favicon-updated'
+### Evento: 'page-title-updated'
 
 Devuelve:
 
-* `favicons` String[] - Array of URLs.
+* `title` Cadena
+* `explicitSet` Boolen
 
-Fired when page receives favicon urls.
+Disparado cuando el título de la página es establecido durante la navegación. `explicitSet` es falso cuando el título es sintetizado del archivo url.
 
-### Event: 'enter-html-full-screen'
-
-Fired when page enters fullscreen triggered by HTML API.
-
-### Event: 'leave-html-full-screen'
-
-Fired when page leaves fullscreen triggered by HTML API.
-
-### Event: 'console-message'
+### Evento: 'page-favicon-updated'
 
 Devuelve:
 
-* `level` Integer
+* `favicons` Cadena[] - Arreglo para URLs.
+
+Disparado cuando la página recibe urls de favicon.
+
+### Evento: 'enter-html-full-screen'
+
+Disparado cuando la página entra en pantalla entera i¿y es activado por HTML API.
+
+### Evento: 'leave-html-full-screen'
+
+Disparado cuando la página deja la pantalla completa activada por HTML API.
+
+### Evento: 'console-message'
+
+Devuelve:
+
+* `level` Íntegro
 * `message` String
-* `line` Integer
-* `sourceId` String
+* `line` Íntegro
+* `sourceId` Cadena
 
-Fired when the guest window logs a console message.
+Disparado cuando la ventana invitada entra un mensaje de consola.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+El siguiente código ejemplo sigue con todos los mensajes guardados a la consola embebedora sin preocupación por el nivel de guardado u otras propiedades.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -642,14 +642,14 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Evento: 'found-in-page'
 
 Devuelve:
 
-* `result` Object 
-  * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
+* `resultado` Object 
+  * `requestId` Íntegro
+  * `activeMatchOrdinal` Íntegro - Posición de un partido activo.
+  * `matches` Íntegro - Número de Coincidencias.
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
