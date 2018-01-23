@@ -396,7 +396,7 @@ Ino-override ang pangalan ng kasalukuyang aplikasyon.
 
 ### `app.getLocale()`
 
-Magbabalik ng `String` - Ang kasalakuyang locale ng application. Posible na ibabalik ang mga value na documented [dito](locales.md).
+Magbabalik ng `String` - Ang lokal ng kasalukuyang aplikasyon. Ang posibleng mga halaga ng pagbabalik ay dokumentado na sa [here](locales.md).
 
 **Tandaan:** Habang dinidistribute ang iyong packaged app, dapat mo ring i-ship ang `locales` na folder.
 
