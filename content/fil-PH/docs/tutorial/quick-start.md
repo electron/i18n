@@ -22,14 +22,14 @@ Ang pangunahing proceso ay namamahala sa lahat ng web pages at kaukulang mga pro
 
 Sa web pages, ang pagtawag sa native GUI na may kaugnayan sa APIs ay hindi pinapayagan dahil ang pamamahala ng native GUI resources sa web pages ay lubhang mapanganib at madali itong i leak ang mga resources. Kapag gusto ninyong magsagawa ng GUI operations sa inyung web page, ang proseso ng tagasalin ng web page ay dapat makipag-ugnayan sa pangunahing proseso upang humiling sa pangunahing proseso para magsagawa ng lahat ng operasyon.
 
-Sa Electron, may ilang paraan para makipagusap sa pagitan ng pangunahing proseso at proseso ng tagasalin. Katulad na lng ng [`ipcRenderer`](../api/ipc-renderer.md) at [`ipcMain`](../api/ipc-main.md)modules para sa pagpapadala ng mga mensahe,at sa [remote](../api/remote.md) module para sa RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+Sa Electron, may ilang paraan para makipagusap sa pagitan ng pangunahing proseso at proseso ng tagasalin. Katulad na lng ng [`ipcRenderer`](../api/ipc-renderer.md) at [`ipcMain`](../api/ipc-main.md)modules para sa pagpapadala ng mga mensahe,at sa [remote](../api/remote.md) module para sa RPC style communication. Mayroon ding isang FAQ entry sa [ kung paano magbahagi ng data sa pagitan ng web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Isulat ang iyong unang Elecron App
 
-Generally, an Electron app is structured like this:
+Sa pangkalahatan, isang app ng Electron ay nakaayos katulad na lng nito:
 
 ```text
-your-app/
+iyong-app/
 ├── package.json
 ├── main.js
 └── index.html
