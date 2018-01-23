@@ -8,15 +8,15 @@
 
 इलेक्ट्रॉन में, `package.json` की `main` स्क्रिप्ट चलाने वाली प्रक्रिया को **मुख्य प्रक्रिया** कहते है | मुख्य प्रक्रिया में चलने वाली स्क्रिप्ट, वेब पेजेज का निर्माण कर जीयुआई को प्रदर्शित कर सकती है |
 
-### Renderer Process
+### रेंदेरेर प्रक्रिया
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+चूँकि इलेक्ट्रॉन वेब पेजेज को प्रदशित करने के लिए क्रोमियम का इस्तेमाल करता है, इसलिए क्रोमियम के बहु-प्रक्रिया बनावट का भी इस्तेमाल होता है | इलेक्ट्रॉन में हर वेब पेज अपनी खुद की प्रक्रिया में चलता है, जिसे **रेंदेरेर प्रक्रिया** कहा जाता है |
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+सामान्य ब्राउज़र्स में, वेब पेजेज अक्सर एक सैंडबॉक्स वातावरण में चलते हैं और उन्हें मूल संसाधनों तक पहुँचने की अनुमति नहीं होती | पर इलेक्ट्रॉन उपयोगकर्ताओं के पास वेब पेजेज में नोड.जेएस ऐपीआई का इस्तेमाल करने की शक्ति होती है, जिससे कि वे ऑपरेटिंग सिस्टम के निचले स्तर की इंटरेक्शन कर सकते हैं |
 
-### Differences Between Main Process and Renderer Process
+### मुख्य प्रक्रिया और रेंडरर प्रक्रिया के बीच अंतर
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+मुख्य प्रक्रिया `BrowserWindow` इंस्टेंसेस बना कर वेब पेजेज़ बनाता है । प्रत्येक `BrowserWindow` इंस्टैंस अपनी खुद की रेंदेरेर प्रक्रिया में वेब पेज चलाती है | When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
 The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
