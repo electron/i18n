@@ -8,7 +8,7 @@ nav:
   releases: نسخه‌ها
   contact: تماس با ما
   languages: زبان‌ها
-  code_of_conduct: Code of Conduct
+  code_of_conduct: منشور اخلاقی
 docs:
   title: مستندات الکترون
   description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
@@ -28,10 +28,10 @@ community:
   title: پرسش و پاسخ الکترون
   description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
   tools: ابزارها
-  boilerplates: Boilerplates
+  boilerplates: برنامه ی آماده
   components: کامپوننت ها
   videos: فیلم ها
-  meetups: Meetups
+  meetups: ملاقات‌ ها
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
@@ -63,19 +63,19 @@ explore:
 download_from_github: دانلود از گیت‌هاب
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "در برنامه ی <a href='https://github.com/electron/electron-quick-start' target='_blank'>شروع سریع</a> ثبت نام کنید تا الکترون را در عمل ببینید:"
+  description: یک برنامه ی کوچک الکترون همراه با توضیحات مفید.
   clone: یک کپی از پروژه ی شروع سریع را دریافت کنید
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  go_into_repo: برو به مخزن
+  install_deps: نصب وابستگیها و اجرا
+  dive_deeper: یا پایین تر بروید و <a href='/docs'>مستندات</a> را بخوانید.
 need_help:
-  title: کمکی نیاز دارید؟
+  title: کمک نیاز دارید؟
   description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
-  languages: زبان‌ها
+  languages: زبان‌ ها
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: محتوای بومی سازی شده توسط جامعه ی توسعه دهندگان جهانی فوق العاده ی ما.
 help_translate: "همکاری در ترجمه"
 footer:
   see_the_faq: پرسش های متداول را ببینید
@@ -115,27 +115,27 @@ pages:
     description: راهنمایی ها و آموزش های آخرین نسخه الکترون
   '/blog':
     title: وبلاگ الکترون
-    description: All the latest news from the Electron team and community.
+    description: آخرین اخبار تیم الکترون و انجمن.
   '/community':
     title: جامعه
   '/releases':
     title: نسخه‌ها
   '/contact':
     title: تماس به ما
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: با تیم الکترون در توییتر، Slack، GitHub و یا توسط ایمیل در تماس باشید.
   '/languages':
     title: زبان‌ها
   '/userland':
     title: فضای کاربری
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron یک ابزار متن باز است که به شما کمک می کند برنامه ی الکترون خود را بررسی، مانیتور و اشکال زدایی کنید. Devtron بر روی ابزار شگفت انگیز Chrome Developer ساخته شده است.
   '/spectron':
     title: اسپکترون
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron یک چارچوب متن باز برای نوشتن تست های یک پارچه برای برنامه ی الکترون شما است. Spectron بر پایه ی ChromeDriver و WebDriverIO ساخته شده است.
 _404:
   page_not_found: صفحه یافت نشد.
   if_this_is_an_error: اگر این یک خطا است
-  please_file_an_issue: please file an issue.
+  please_file_an_issue: لطفا یک مشکل ثبت کنید.
 search:
-  description: Search within Electron documentations and community.
+  description: داخل مستندات الکترون و انجمن جستجو کنید.
