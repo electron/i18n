@@ -189,7 +189,7 @@ Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
-* `title` String
+* `title` Cadena
 
 Sets the title displayed aside of the tray icon in the status bar.
 
