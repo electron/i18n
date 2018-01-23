@@ -406,9 +406,9 @@ Magbabalik ng `String` - Ang lokal ng kasalukuyang aplikasyon. Ang posibleng mga
 
 * `path` String
 
-Nagdadagdag ng `path` sa bagong listahan ng mga dokumento.
+Nagdadagdag ng `path` sa listahan ng mga bagong dokumento.
 
-Ang lista na ito ay pinamamahalaan ng OS. Sa Windows, pwede mong bisitahin ang lista mula sa task bar, at pwede mong bisitahin mula sa dock menu sa macOS.
+Ang listahan na ito ay pinamamahalaan ng OS. Sa Windows maaari mong bisitahin ang listahan mula sa task bar, at sa macOSmaaari mong bisitahin mula sa menu ng dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
