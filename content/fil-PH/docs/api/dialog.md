@@ -30,10 +30,10 @@ Ang module ng `dialog` ay mayroong mga sumusunod na pamamaraan:
   * `defaultPath` String (opsyonal)
   * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
-  * `mga katangian` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
+  * `mga katangian` String[] (opsyonal) - Ay naglalaman ng kung aling katangian ng dayalogo ang gagamitin. Ang mga sumusunod na halaga ay suportado: 
+    * `openFile` - Pinapayagan ang mga file para mapili.
+    * `openDirectory` - Pinapayagan ang mga direktoryo para mapili.
+    * `multiSelections` - Pinapayagan ang maramihang mga landas para mapili.
     * `showHiddenFiles` - Show hidden files in dialog.
     * `createDirectory` - Allow creating new directories from dialog. *macOS*
     * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
