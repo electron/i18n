@@ -6,7 +6,7 @@ Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa gra
 
 ### Pangunahing Proseso
 
-Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script **ang mga pangunahing proseso**. The script that runs in the main process can display a GUI by creating web pages.
+Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script **ang mga pangunahing proseso**. Ang iskrip na tumatakbo sa pangunahing proseso ay maaring maipakita ang isang GUI sa pamamagitan ng paggawa ng web pages.
 
 ### Renderer Process
 
