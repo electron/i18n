@@ -380,7 +380,7 @@ Sa pamamagitan ng default, ang cookies at caches ng web page ay ii-imbak sa ilal
 
 ### `app.getVersion()`
 
-Magbabalik ng `String` - Ang bersyon ng na-load na application. Kung walang bersyon ang nakita sa loob ng `package.json` file ng application, ang bersyon ng kasalukuyang bundle o executable ay ibabalik.
+Magbabalik ng `String` - Ang bersyon ng na-load na aplikasyon. Kung walang bersyon ang nakita sa loob ng `package.json` file ng aplikasyon, ang bersyon ng kasalukuyang bundle o executable ay ibabalik.
 
 ### `app.getName()`
 
