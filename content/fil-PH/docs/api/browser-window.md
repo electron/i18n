@@ -507,7 +507,8 @@ Force closing the window, the `unload` and `beforeunload` event won't be emitted
 
 Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
-#### `win.focus()`
+#### `win.focus()
+ `
 
 Focuses on the window.
 
