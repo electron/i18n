@@ -37,7 +37,7 @@ Pagkatapos, simulan ang Electron:
 (lldb) run
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Ang app ay mabilis na hihinto dahil ang Electron ay nagtatakda ng pangalan ng app sa launch:
 
 ```sh
 (lldb) run
