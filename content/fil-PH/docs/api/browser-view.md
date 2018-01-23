@@ -11,7 +11,7 @@ Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalam
 ## Halimbawa
 
 ```javascript
-// In the main process.
+// Sa mga pangunahing proseso.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
