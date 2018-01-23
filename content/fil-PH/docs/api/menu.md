@@ -26,36 +26,36 @@ Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux
 
 Nagbabalik ang `Menu` - Ang menu ng application, kung nakatakda o`null`, kung hindi nakatakda.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Note:** Ng nakauwi na halimbawa ng `Menu` ay hindi suportado ng dinamikong Pagdagdag o pagtanggal ng mga item sa menu. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Ipadala ang mga `Pagkilos` Sa mga unang responder ng aplikasyon. Ito ay ginagamit para sa pagtulad sa default macOS menu ng pag-uugali. Karaniwan mong ginagamit ang [`papel`](menu-item.md#roles)pag-aari ng isang[`Menultem`](menu-item.md).
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Tingnan ang [mascOS Cocoa kaganapan sa pag-aasikso ng paggabay](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) Para sa mga karagdagang impormasyon sa mascOS' katutubong pagkilos.
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenuItemConstructorOptions[]
+* `ang template` [MenuItemConstructorOptions]
 
-Returns `Menu`
+Nagbabalik ang `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Sa pangkalahatan, ang `template` ay lamang ng isang hanay ng mga `pagpipilian` para sa pagpapagawa ng isang [MenuItem](menu-item.md). Ang paggamit ay maaaring binanggit sa itaas.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Makakabitan mo din ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga constructed menu item.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
-The `menu` object has the following instance methods:
+Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `y` (opsyonal) - bilang Default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung `x` ay ipinahayag.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 
@@ -63,7 +63,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
 
 Closes the context menu in the `browserWindow`.
 

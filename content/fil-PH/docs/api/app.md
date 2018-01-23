@@ -1,10 +1,10 @@
-# app
+# ang app
 
-> Ikontrol ang event lifecycle ng iyong application.
+> Kontrolin ang event lifecycle ng iyong aplikasyon.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
-Ang susunod na halimbawa ay magpapakita kung papano ihinto ang application kapag ang huling window ay isinara:
+Ang sumusunod na halimbawa ay nagpapakita kung paano ihinto ang aplikasyon kapag ang huling window ay isinara na:
 
 ```javascript
 const {app} = require('electron')
@@ -13,39 +13,39 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Mga event
 
-Ang `app` na object ay maglalabas ng mga sumusunod na mga event:
+Ang bagay ng `app` ay naglalabas ng mga sumusunod na mga event:
 
-### Event: 'will-finish-launching'
+### Ang event: 'will-finish-launching'
 
-Ibrobrodkast kapag ang application ay tapos nang mag basic startup. Sa Windows at Linux, ang `will-finish-launching` na event ay kapareha ng `ready` na event; sa macOS, ang event na ito ay nagrerepresenta ng `applicationWillFinishLaunching` na notipikasyon ng `NSApplication`. Kadalasan, gusto mong mag setup ng mga listener para sa `open-file` at `open-url` na mga events dito, at magsimula ng crash reporter at auto updater.
+Ay lalabas kapag ang aplikasyon ay natapos na karaniwang startup. Sa Windows at Linux, ang event ng `will-finish-launching` ay parehas ng event ng `ready`: sa macOS, ang event na ito ay nagrerepresenta ng `applicationWillFinishLaunching` na notipikasyon ng `NSApplication`. Karaniwan mong ise-set up ang mga tagapakinig para sa mga event ng`open-file` at `open-url` dito, at i-start ang crash repoter at auto updater.
 
-Sa karamihan, dapat mong gawin ang lahat sa `ready` na event handler.
+Sa karamihan, dapat mo lang gawin ang lahat sa mga `ready` handler ng event.
 
-### Event: 'ready'
+### Mga event: 'ready'
 
 Magbabalik ng:
 
-* `launchInfo` na Object *MacOS*
+* `launchInfo` Mga bagay *MacOS*
 
-Ibrobrodkast kapag ang Electron ay tapos ng mag-initialize. Sa macOS, ang `launchInfo` ay may hawak ng `userInfo` ng `NSUserNotification` na ginamit para buksan ang application, kung ito ay isinimula galing sa Notification Center. Pwedeng mag tawag ng `app.isReady()` para suriin kung ang event ay isinimula na.
+Lalabas kapag ang Electron ay tapos ng mag-initialize. Sa macOS, hawak ng `launchinfo` ang `userinfo` ng `NSUserNotification` na ginamit para buksan ang aplikasyon, kung ito ay ini-launch mula sa Notification Center. Maaari mong tawagin ang `app.isReady()` para suriin kung ang event ay nagsimula na.
 
 ### Event: 'window-all-closed'
 
-Ibrobrodkast kung ang lahat ng mga window ay isinarado.
+Lalabas kapag ang lahat ng mga window ay sarado na.
 
-Kung ikaw ay hindi nagsubscribe sa event na ito at ang lahat ng mga window ay sarado, ang default na aksyon nito ay ang pag hinto ng app; gayunpaman, kung ikaw ay nakasubscribe, pwedeng magpasya kung ihihinto ang app o hindi. Kung ang user ay pumindot ng `Cmd + Q`, o ang developer ay tumawag ng `app.quit()`, ang Electron ay unang susubukang isara ang lahat ng mga window at pagkatapos ay magbrobrodkast ng `will-quit` na event, at sa kasong ito ang `window-all-closed` na event ay hindi ibrobrodkast.
+Kung ikaw ay hindi nag-subscribe sa event na ito at ang lahat ng mga window ay sarado na, ang default na aksyon nito ay ang pag hinto ng app; gayunpaman, kung ikaw ay naka-subscribe, maaaring magpasya kung ihihinto ang app o hindi. Kung ang user ay pumindot ng `Cmd + Q`, o ang developer ay tumawag ng `app.quit()`, ang Electron ay unang susubukang isara ang lahat ng mga window at pagkatapos ay maglalabas ng event na `will-quit`, at sa kasong ito ang event na `window-all-closed` ay hindi lalabas.
 
-### Event: 'before-quit'
+### Ang event: 'before-quit'
 
 Magbabalik ng:
 
 * `event` Event
 
-Ibrobrodkast bago magsimula ang application sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag sara ng application.
+Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-aalis ng aplikasyon.
 
-**Note:** Kung sinimulan ang paghinto sa application ng `autoUpdater.quitAndInstall()` tapos ang `before-quit` ay ibrinodkast *after* ibinibrodkast ang `close` na event sa lahat ng mga window at isasarado sila.
+**Note:** Kung sinimulan ang paghinto sa aplikasyon ng `autoUpdater.quitAndInstall()` tapos ang `before-quit` ay lumabas *after* ilalabas ang event na `close` sa lahat ng mga window at isasarado sila.
 
 ### Event: 'will-quit'
 
@@ -53,9 +53,9 @@ Magbabalik ng:
 
 * `event` Event
 
-Ibrobrodkast kung ang lahat ng mga window ay isinirado at ang application ay ihihinto. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag wakas ng application.
+Ilalabas kung ang lahat ng mga window ay isinarado at ang aplikasyon ay ihihinto. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-alis ng aplikasyon.
 
-Tingnan ang deskripsyon ng `window-all-closed` na event para sa mga pagkakaiba sa pagitan ng `will-quit` at `window-all-closed` na mga event.
+Tingnan ang deskripsyon ng event ng `window-all-closed` para sa mga pagkakaiba sa pagitan ng mga event ng `will-quit` at `window-all-closed`.
 
 ### Event: 'quit'
 
@@ -64,7 +64,7 @@ Magbabalik ng:
 * `event` Event
 * `exitCode` Integer
 
-Ibrobrodkast kung humihinto ang application.
+Lalabas kung humihinto ang aplikasyon.
 
 ### Event: 'open-file' *macOS*
 
@@ -73,11 +73,11 @@ Magbabalik ng:
 * `event` Event
 * `path` String
 
-Ibrobroadkast kung ang gusto ng user na mag-bukas ng isang file gamit ang application. Ang `open-file` na event ay kadalasang ibrobrodkast kung ang application ay bukas na at ang OS ay gustong gumamit muli ng application para buksan ang file. `open-file` ay ibrobrodkast din kapag ang file ay inihulog sa dock at ang application ay hindi pa gumagana. Siguraduhin na pinapakinggan ang `open-file` na event sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang `ready` na event ay ibrinodkast).
+Lalabas kung ang gusto ng user na mag-bukas ng isang file gamit ang aplikasyon. Ang event ng `open-file` ay kadalasang lumalabas kung ang aplikasyon ay bukas na at ang OS ay gustong muling gumamit ng aplikasyon para buksan ang file. Ang `open-file` ay ilalabas din kapag ang file ay ilinaglag sa dock at ang aplikasyon ay hindi pa gumagana. Siguraduhin na pinapakinggan ang event ng `open-file` sa maagang startup ng iyong application para mapamahalaan ang sitwasyon na ito (kahit bago pa ang event ng `ready` ay lumabas).
 
-Dapat mong tawagin ang `event.preventDefault()` kung gusto mong e-handol ang event na ito.
+Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
-Sa Windows, ikaw ay dapat mag-parse `process.argv` (sa main na process) para makuha ang filepath.
+Sa Windows, kailangan mong i-parse ang `process.argv` (sa pangunahing proseso) para makuha ang filepath.
 
 ### Event: 'open-url' *macOS*
 
@@ -86,9 +86,9 @@ Magbabalik ng:
 * `event` Event
 * `url` String
 
-Ibrobrodkast kapang ang user ay gustong mag open ng URL gamit ang application. Ang `info.plist` file ng iyong application ay dapat magtukoy ng url scheme sa loob ng `CFBundleURLTypes` key, at e-set ang `NSPrincipalClass` sa `AtomApplication`.
+Lalabas kapag ang user ay gustong buksan ang isang URL kasama ang aplikasyon. Ang `info.plist` file ng iyong aplikasyon ay dapat tukuyin ang url scheme sa loob ng key ng `CFBundleURLTypes`, at i-set ang `NSPrincipalClass` sa `AtomApplication`.
 
-Dapat mong tawagin ang `event.preventDefault()` kung gusto mong e-handol ang event na ito.
+Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
 ### Event: 'activate' *macOS*
 
@@ -97,19 +97,19 @@ Magbabalik ng:
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Ibrobrodkast kung ang application na-activate. Ibat-ibang mga action ay makakatrigger ng event, tulad ng paglaunch ng application sa unang pagkakataon, pagtangkang mag relaunch ng application kahit na ito ay gumagana na, o ang pagclick sa dock ng application o taskbar icon.
+Lalabas kapag ang aplikasyon ay naka-aktibeyt. Iba't-ibang mga aksyon ang maaaring mag-trigger ng event na ito, tulad ng pagla-launch ng aplikasyon para sa unang pagkakataon, sinusubukang muling i-launch ang aplikasyon kahit ito ay tumatakbo na, o pagpindot sa icon ng dock o taskbar ng aplikasyon.
 
 ### Event: 'continue-activity' *macOS*
 
 Magbabalik ng:
 
 * `event` Event
-* `type` String - Isang string na nagkikilanlan ng isang aktibidad. Nagmamap sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Naglalaman ng estado na partikular sa app na nilalagay sa aktibidad ng ibang aparato.
+* `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Naglalaman ng espesipikong estado ng app na itinago sa pamamagitan ng aktibidad sa ibang aparato.
 
-Ibrobrodkast habang ang [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kapag ang aktibidad ng isang ibang aparato ay gustong tapusin. Dapat kang tumawag ng `event.preventDefault()` kung gusto mong e-handol ang event na ito.
+Lalabas sa panahon ng [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kapag ang isang aktibidad mula sa ibang aparato ay nais na maipagpatuloy. Dapat mong tawagin ang `event.preventDefault()` kung gusto mong hawakan ang event na ito.
 
-Ang isang user na aktibidad ay pwede lamang magpatuloy sa isang app na may kaparehong developer Team ID bilang source app ng aktibidad at kung ito ay nagsusuporta ng uri ng aktibidad. Ang sinusuportahan na mga uri ng aktibidad ay tinutukoy sa `Info.plist` ng app sa ilalim ng `NSUserActivityTypes` na key.
+Ang aktibidad ng isang user ay maaari lamang magpatuloy sa isang app na may kaparehong developer Team ID bilang source app ng aktibidad at kung ito ay sumusuporta sa uri ng aktibidad. Ang sinuportahan na mga uri ng aktibidad ay tinukoy sa `Info.plist` ng app sa ilalim ng key ng `NSUserActivityTypes`.
 
 ### Event: 'new-window-for-tab' *macOS*
 
@@ -117,25 +117,25 @@ Magbabalik ng:
 
 * `event` Event
 
-Ibrobrodkast kapag ang user ay nagclick sa native macOS new tab na pindutan. Ang bagong tab na pindutan ay makikita lamang kung ang kasalukuyang `BrowserWindow` ay may `tabbingIdentifier`
+Lalabas kapag ang user ay nag-klik sa natural na pindutan ng bagong tab sa macOS. Ang bagong tab na pindutan ay makikita lamang kung ang kasalukuyang `BrowserWindow` ay may `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
-
-Magbabalik ng:
-
-* `event` Event
-* `window` BrowserWindow
-
-Ibrobrodkast kapang a [browserWIndow](browser-window.md) ay magiging malabo.
-
-### Event: 'browser-window-focus'
+### Mga event: 'browser-window-blur'
 
 Magbabalik ng:
 
 * `event` Event
 * `window` BrowserWindow
 
-Ibrobrodkast kapag ang [browserWindow](browser-window.md) ay ipopokus.
+Lalabas kapag ang [browserWIndow](browser-window.md) ay nagiging malabo.
+
+### Mga event: 'browser-window-focus'
+
+Magbabalik ng:
+
+* `event` Event
+* `window` BrowserWindow
+
+Lalabas kapag ang [browserWindow](browser-window.md) ay ipopokus.
 
 ### Event: 'browser-window-created'
 
@@ -144,7 +144,7 @@ Magbabalik ng:
 * `event` Event
 * `window` BrowserWindow
 
-Ibrobrodkast kapang ang bagong [browserWindow](browser-window.md) ay nagawa na.
+Lalabas kapag ang bagong [browserWindow](browser-window.md) ay nagawa na.
 
 ### Event: 'web-contents-created'
 
@@ -153,9 +153,9 @@ Magbabalik ng:
 * `event` Event
 * `webContents` WebContents
 
-Ibrobrodkast kapang ang bagong [webContents](web-contents.md) ay nagawa na.
+Lalabas kapag ang bagong [webContents](web-contents.md) ay nagawa na.
 
-### Event: 'certificate-error'
+### Mga event: 'certificate-error'
 
 Magbabalik ng:
 
@@ -164,16 +164,16 @@ Magbabalik ng:
 * `url` String
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
-  * `isTrusted` Boolean - Kung ituturing ang sertipiko na pinagkakatiwalaan
+* `tumawag muli` Punsyon 
+  * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwalaan
 
-Ibrobrodkast kapag nabigo ang pag beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
+Lalabas kapag nabigo ang pag-beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
-  if (url === 'https://github.com') {
+  kung ang (url === 'https://github.com') {
     // Lohika ng pagberipika.
     event.preventDefault()
     callback(true)
@@ -189,21 +189,21 @@ Magbabalik ng:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `url` URL
+* `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `ganting-tawag` Punsyon 
   * `certificate` [Certificate](structures/certificate.md) (opsyonal)
 
-Ibrobrodkast kapang ang sertipiko na client ay hiniling.
+Lalabas kapag ang sertipiko ng kliyente ay hiniling.
 
-Ang `url` na tumutugma sa navigation entry na humihiling sa sertipiko na client at ang `callback` ay maaring tawagin gamit ang entry na pinili galing sa lista. Ang paggamit ng `event.preventDefault()` ay makakapigil sa application na gamitin ang unang sertipiko galing sa store.
+Ang `url` na tumutugma sa entry ng nabigasyon na humihiling sa sertipiko ng kliyente at ang `callback` ay maaring tawagin gamit ang entry na pinili galing sa listahan. Ang paggamit ng `event.preventDefault()` ay makakapigil sa aplikasyon na gamitin ang unang sertipiko mula sa Imbakan.
 
 ```javascript
-const {app} = require('electron')
+const {app} = kailangan('electron')
 
-app.on('select-client-certificate', (event, webContents, url, list, callback) => {
+app.on('select-client-certificate', (mga event, mga webContents, mga url, mga talaan, mga mulingtawag) => {
   event.preventDefault()
-  callback(list[0])
+  mulingtawag(talaan[0])
 })
 ```
 
@@ -211,32 +211,32 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Magbabalik ng:
 
-* `event` Event
+* `event` Ang event
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `kahilingan` Bagay 
   * `method` String
   * `url` URL
-  * `referrer` URL
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
+  * `referrer`Ang URL
+* `ang authInfo` Bagay 
+  * `isProxy` Ang Boolean
+  * `scheme` Ang string
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `mulingtawag` Punsyon 
   * `username` String
   * `password` String
 
-Ibrobrodkast kapang ang `webContents` ay gustong gawin ang basic auth.
+Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
-Ang default na aksyon ay ang pagkansela ng lahat ng mga pagpapatunay, dapat mong gamitin ang `event.preventDefault()` at itawag ang `callback(username, password)` gamit ang mga kredensyal para ma-override ito.
+Ang default na aksyon ay ang pagkansela ng lahat ng mga pagpapatunay, dapat mong pigilan ang default na aksyon gamit ang `event.preventDefault()` at tawagin ang `callback(username, password)` gamit ang mga kredensyal para ma-override ito.
 
 ```javascript
 const {app} = require('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
+app.on('login', (mga event, mga webContents, mga kahilingan, mga authInfo, mga mulingtawag) => {
   event.preventDefault()
-  callback('username', 'secret')
+  mulingtawag('username', 'secret')
 })
 ```
 
@@ -244,19 +244,19 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Magbabalik ng:
 
-* `event` Event
-* `killed` Boolean
+* `event` Ang event
+* `killed` Ang Boolean
 
-Ibrobrodkast kapang ang proseso na gpu ay nasira o pinatay.
+Lalabas kapag ang proseso na gpu ay nasira o pinatay.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
 Magbabalik ng:
 
-* `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` kapag ang Chrome accessibility support ay pinapagana, `false` kung hindi.
+* `event` Ang event
+* `accessibilitySupportEnabled` Boolean - `true` kapag ang parating na suporta ng Chrome ay pinagana, `false` kung hindi.
 
-Ibrobrodkast kapang ang accessibility support ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
+Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
 ## Mga Method
 
@@ -354,7 +354,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -598,7 +598,7 @@ Binuksan ang lahat ng mga trangka na ginawa ng `makeSingleInstance`. Pinapayagan
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Kakaibang pagkakilala sa aktibidad. Nagmamap sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userinfo` Object - App-tiyak na estado para itago upang magamit ng ibang aparato.
 * `webpageURL` String (opsyonal) - ay ang webpage sa isang browser na ilo-load kung walang angkop na app ang naka-install sa aparatong nagpasimulang muli. Ang dapat na pamamaraan ay `http` o `https`.
 
@@ -619,7 +619,7 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `mga pagpipilian` Bagay 
   * `certificate` String - Ang landas para sa mga file ng pkcs12.
   * `password` String - Ang passphrase para sa mga sertipiko.
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `result` Integer - Ang resulta ng pag-import.
 
 Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.
@@ -658,23 +658,23 @@ Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge
 
 Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Ang tagalunsad ng Unity ay nangangailangan ng pagkakaroon ng isang file na `.desktop` para gumana, para sa karagdagan impormasyon mangyaring basahin ang [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Nagbabalik ang `Integer` - Ang kasalukuyang halaga ay ipinapakita sa mga tagabilang ng badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
+  * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
 
 Returns `Object`:
 
@@ -739,74 +739,74 @@ I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng 
 
 Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Note:** Ito ay hindi makaka-apekto sa `process.argv`, at ito ay pangunahing ginagamit ng mga developer para kontrolin ang ilang mabababang mga katangian ng Chromium.
 
-### `app.commandLine.appendArgument(value)`
+### `app.commandLine.appendArgument(halaga)`
 
-* `value` String - The argument to append to the command line
+* `value` String - Ang argumento ay ilakip sa linya ng command
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-qoute ng tama.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ito ay hindi makaka-apekto sa `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Ang pinaghalong paraan ng sandbox sa app ay pinagana.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (opsyonal) - ay maaaring `critical` o `informational`. Ang default ay `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa mga aplikasyon ay naging aktibo o ang kahilingan ay kinansela.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
 
-Returns `Integer` an ID representing the request.
+Nagbabalik ang `integer` ang isang ID na kumakatawan sa mga kahilingan.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Kanselahin ang pagtalon ng `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder ng mga Download.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Ise-set ang string upang maipakita sa badging area ng dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Nagbabalik ang `String` - Ang string ng badge ng dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Itinatago ang icon ng dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Ipinapakita ang icon ng dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Nagbabalik ang `Boolean` - Kung ang mga icon sa dock ay nakikita. Ang tawag ng `app.dock.show()` ay asynchronous kaya ang pamamaraan na ito ay hindi babalik na totoo agad-agad matapos ang tawag na iyon.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+I-set ang [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) ng aplikasyon.
 
 ### `app.dock.setIcon(image)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this dock icon.
+I-set ang `image` na may kaugnayan sa dock icon na ito.

@@ -2,7 +2,7 @@
 
 > Paganahin ang app na awtomatikong mag-update ang kanilang sarili.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 Ang`autoUpdater`modyul ay nagbibigay ng isang interface para sa [Squirrel](https://github.com/Squirrel) na balangkas.
 

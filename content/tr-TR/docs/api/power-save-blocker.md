@@ -1,4 +1,4 @@
-# powerSaveBlocker
+# güç Tasarrufu Engelleyici
 
 > Sistemin düşük güç (uyku) moduna girmesini engelleyin.
 

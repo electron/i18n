@@ -4,7 +4,7 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## Métodos
 
-These methods can be accessed from the `webContents` module:
+Se pueden acceder a estos métodos desde el módulo `webContents`:
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,11 +27,11 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Volver `WebContents[]` a la matriz de todo el caso `WebContents`. Esto incluirá contenido web para todos los windows, páginas web, devtools abiertos y extensión de páginas de origen devtools.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Volver `WebContents` - El contenido web que se centra en esta aplicación, de lo contrario regresa `null`.
 
 ### `webContents.fromId(id)`
 
@@ -39,7 +39,7 @@ Returns `WebContents` - The web contents that is focused in this application, ot
 
 Returns `WebContents` - A WebContents instance with the given ID.
 
-## Class: WebContents
+## Clase: ContenidoWeb
 
 > Render and control the contents of a BrowserWindow instance.
 
@@ -49,65 +49,65 @@ Proceso: [Principal](../glossary.md#main-process)
 
 #### Event: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Emite cuando la navegación está hecha, i.e.
 
 #### Event: 'did-fail-load'
 
 Devuelve:
 
-* `evento` Evento
-* `errorCode` Integer
+* `event` Evento
+* `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Este evento es como `did-finish-load` pero emitido cuando la carga falló o fue cancelada, e.g `window.stop()`. La lista completa de errores de código y su significado está disponible [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Evento: 'did-frame-finish-load'
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `isMainFrame` Boolean
 
-Emitted when a frame has done navigation.
+Emite cuando un frame ha terminado la navegación.
 
-#### Event: 'did-start-loading'
+#### Evento: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab started spinning.
 
-#### Event: 'did-stop-loading'
+#### Evento: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### Event: 'did-get-response-details'
+#### Evento: 'did-get-response-details'
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
-* `httpResponseCode` Integer
+* `httpResponseCode` Entero
 * `requestMethod` String
 * `referrer` String
-* `headers` Object
+* `headers` Objeto
 * `resourceType` String
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### Event: 'did-get-redirect-request'
+#### Evento: 'did-get-redirect-request'
 
 Devuelve:
 
 * `evento` Evento
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-* `httpResponseCode` Integer
+* `viejoURL` String
+* `nuevoURL` String
+* `EsElFramePrincipal` Boolean
+* `httpResponseCode` Entero
 * `requestMethod` String
-* `referrer` String
-* `headers` Object
+* `referencia` String
+* `headers` Objeto
 
 Emitted when a redirect is received while requesting a resource.
 
@@ -117,14 +117,14 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when the document in the given frame is loaded.
+Emitido cuando el documento en el frame dado es cargado.
 
 #### Event: 'page-favicon-updated'
 
 Devuelve:
 
 * `evento` Evento
-* `favicons` String[] - Array of URLs
+* `favicons` String[] - matriz de URLs
 
 Emitted when page receives favicon urls.
 
@@ -135,11 +135,11 @@ Devuelve:
 * `evento` Evento
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which will be used for creating the new `BrowserWindow`.
+* `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `options` Objeto - las opciones que se usarán para crear crear el nuevo `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
 By default a new `BrowserWindow` will be created for the `url`.
 
@@ -185,7 +185,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `url` String
 * `isMainFrame` Boolean
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `killed` Booleano
 
 Emitted when the renderer process crashes or is killed.

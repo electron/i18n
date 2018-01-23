@@ -6,7 +6,7 @@
 
 Proceso: [Principal](../glossary.md#main-process)
 
-`BrowserView` puede ser usado para embeber contenido web adicional en `BrowserWindow`. Es como una ventana hija, excepto que esta relativamente posicionada respecto su ventana propietaria. Se puede considerar una alternativa al tag `webview`.
+`BrowserView` puede ser usado para incrustar contenido web adicional en `BrowserWindow`. Es como una ventana hija, excepto que esta relativamente posicionada respecto a su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
 
 ## Ejemplo
 
@@ -52,24 +52,24 @@ Un objeto [`WebContents`](web-contents.md), que pertenece a esta vista.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Un `Integer` representa el id único de la vista.
 
 ### Métodos de Instancia
 
-Objects created with `new BrowserView` have the following instance methods:
+Los objetos creados con `new BrowserView` tiene los siguientes métodos de instancia:
 
 #### `view.setAutoResize(options)` *Experimental*
 
 * `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - If `true`, la anchura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
+  * `height` Boolean - If `true`, la altura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
 
 #### `view.setBounds(bounds)` *Experimental*
 
-* `bounds` [Rectángulo](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Redimensiona y mueve la vista a los limites proporcionados en relación a la ventana.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Color en forma `#aarrggbb` o `#argb`. El canal alfa es opcional.

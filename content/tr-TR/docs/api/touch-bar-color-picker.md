@@ -1,8 +1,8 @@
 ## Class: TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> MacOS uygulamaları için dokunmatik çubuk içinde bir renk seçici oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
@@ -18,7 +18,7 @@ Aşağıdaki özellikler `TouchBarColorPicker` örnekleri üzerinde mevcuttur:
 
 #### `touchBarColorPicker.availableColors`
 
-A `String[]` array representing the color picker's available colors to select. Changing this value immediately updates the color picker in the touch bar.
+Renk seçicinin kullanılabilir renklerini gösteren bir `String[]` dizini. Bu değeri değiştirmek doğrudan dokunmatik çubuktaki renk seçiciyi günceller.
 
 #### `touchBarColorPicker.selectedColor`
 

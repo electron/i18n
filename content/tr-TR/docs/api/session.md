@@ -28,11 +28,11 @@ console.log(ses.getUserAgent())
 * `ayarlar` Nesne 
   * `cache` Boolean - Whether to enable cache.
 
-`Oturum` Döndürür - `bölümden` bir oturum örneği metini. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+`Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
 
 Eğer `bölüm`ile başla`sürdür`ile başlarsa, sayfa kalıcı bir oturum kullanacaktır uygulamanın tüm sayfalarına aynı şekilde erişilebilir `bölüm`. yoksa `sürdür` önekini kullandığınızda, sayfa bir bellek içi oturum kullanacaktır. Eğer `bölüm` boş ise, uygulamanın varsayılan oturumu kullanılıcaktır.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+`options` ile bir `Session` yaratmadan önce `partition`'lı `Session`'ın daha önce hiç kullanılmadığından emin olmalısınız. Var olan bir `Session` nesnesinin `options`'ını değiştirmenin bir yolu yoktur.
 
 ## Özellikler
 
@@ -68,7 +68,7 @@ Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 Elektron indirmek üzereyken ortaya çıkar `item` in `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+`event.preventDefault()` çağırmak indirmeyi iptal edecektir ve `item` işlemin bir sonraki işaretine kadar uygun olmayacaktır.
 
 ```javascript
 const {session} = require('electron')
@@ -103,7 +103,7 @@ Oturumun HTTP önbelleğini temizler.
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (isteğe bağlı) - İşlem bittiğinde çağırıldı.
 
 Web depolama alanları verilerini siler.
 

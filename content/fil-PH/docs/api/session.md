@@ -2,7 +2,7 @@
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 The `session` module can be used to create new `Session` objects.
 
@@ -46,7 +46,7 @@ A `Session` object, the default session object of the app.
 
 > Get and set properties of a session.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
@@ -86,7 +86,7 @@ The following methods are available on instances of `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `size` Integer - Cache size used in bytes.
 
 Callback is invoked with the session's current cache size.
@@ -174,8 +174,8 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 
 #### `ses.resolveProxy(url, callback)`
 
-* `url` URL
-* `callback` Function 
+* `url` Ang URL
+* `tumawag muli` Punsyon 
   * `proxy` String
 
 Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
@@ -214,12 +214,12 @@ Disables any network emulation already active for the `session`. Resets to the o
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Function 
-  * `request` Bagay 
+* `proc` Punsyon 
+  * `kahilingan` Bagay 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Verification result from chromium.
-  * `callback` Function 
+  * `tumawag muli` Punsyon 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
       * `-2` - Indicates failure.
@@ -245,10 +245,10 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Function 
+* `handler` Punsyon 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Function 
+  * `tumawag muli` Punsyon 
     * `permissionGranted` Boolean - Allow or deny the permission
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
@@ -304,7 +304,7 @@ Returns `String` - The user agent for this session.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `tumawag muli` Punsyon 
   * `result` Buffer - Blob data.
 
 Returns `Blob` - The blob data associated with the `identifier`.

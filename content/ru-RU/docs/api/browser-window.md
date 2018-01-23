@@ -217,7 +217,7 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 ### События экземпляра
 
-Objects created with `new BrowserWindow` emit the following events:
+Объекты созданные с помощью `new BrowserWindow` имеют следующие события:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
@@ -262,7 +262,7 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### Событие: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Вызывается, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
@@ -270,11 +270,11 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Событие: 'blur'
 
-Emitted when the window loses focus.
+Вызывается, когда окно теряет фокус.
 
 #### Событие: 'focus'
 
-Emitted when the window gains focus.
+Вызывается, когда на окне фокусируются.
 
 #### Событие: 'show'
 

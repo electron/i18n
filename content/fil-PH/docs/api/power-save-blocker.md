@@ -2,7 +2,7 @@
 
 > Block the system from entering low-power (sleep) mode.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 Halimbawa:
 

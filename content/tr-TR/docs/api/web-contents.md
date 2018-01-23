@@ -251,7 +251,7 @@ Dönüşler:
 
 * `olay` Olay
 * `giriş` Nesne - Giriş özellikleri 
-  * `type` String - Either `keyUp` or `keyDown`
+  * `type` Dize - `keyUp` veya `keyDown`
   * `key` Dize - Eşittir [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `code` Dize - Eşittir [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `isAutoRepeat` Boolean - Eşittir [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -390,7 +390,7 @@ Dönüşler:
 * `size` [Size](structures/size.md) (isteğe bağlı) - `image` boyutu
 * `hotspot` [Point](structures/point.md) (İsteğe bağlı) - Özel imlecin etkin noktasının koordinatları
 
-İmlecin türü değiştiğinde çıkar. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+İmlecin türü değiştiğinde çıkar. `type` parametresi bunlardan biri olabilir: `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
 `type` parametre `custom` ise, `image` değişken özel imleç görüntüsünü `NativeImage` 'de ve `scale`, `size` ve `hotspot` özel imleç hakkında ek bilgi tutacaktır.
 
@@ -407,14 +407,14 @@ Dönüşler:
   * `pageURL` Dize - Bağlantı menüsünde çağırılan üst düzey sayfanın URL' si.
   * `frameURL` Dize - Bağlam menüsünün çağrıldığı alt çerçeveye ait URL.
   * `srcURL` Dize - İçerik menüsünde çağrıldığı öğenin kaynak URL' si. Görüntü, ses ve resimler kaynak URL' lerine sahiptirler.
-  * `mediaType` Dize - Bağlam menüsünde çağırılan düğüm tipi. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
+  * `mediaType` Dize - Bağlam menüsünde çağırılan düğüm tipi. `none`, `image`, `audio`, `video`, `canvas`, `file` veya `plugin` olabilir.
   * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
   * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
+  * `selectionText` Dize - Bağlam menüsünün üzerinde çağırılan seçimin metni.
+  * `titleText` Dize - Bağlam menüsü üzerinde çağırılan seçimin alt metni veya başlığı.
   * `misspelledWord` Metin - İmlecin altındaki yanlış yazılan sözcük.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+  * `frameCharset` Dize - Menüden çağırılan çerçevenin karakter şifrelemesi.
+  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Olası değerler: `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
   * `medya bayrakları` Obje - İçerik menüsünün medya elemanı için yapılmış bayraklar. 
     * `inError` Boolean - Whether the media element has crashed.
@@ -495,8 +495,8 @@ Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 Dönüşler:
 
 * `olay` Olay
-* `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferences` Nesne - Konuk sayfanın kullanacağı web tercihleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
+* `params` Nesne - `src` URL gibi diğer `<webview>` parametreleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
@@ -648,13 +648,13 @@ Yürürlükteki web sayfasına CSS ekler.
 * `geri arama` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Herhangi bir
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+`Promise` döner - Çalıştırılan kodun sonucuyla çözülen veya eğer kod sonucu promise reddedildiyse reddedilen bir promise.
 
 Sayfadaki `code`'u değerlendirir.
 
 Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+Eğer çalıştırılan kodun sonucu bir promise ise, geri çağırma sonucu promise'un çözülen bir değeri olacaktır. Bir Promise ile sonuçlanan kodları işlemek için dönen Promise kullanmanızı tavsiye ederiz.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -838,7 +838,7 @@ Herhangi bir ServiceWorker kaydı olup olmadığını kontrol eder ve `callback`
 * `geri arama` Fonksiyon 
   * `success` Boolean
 
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
+Olan bütün ServiceWorker'ların kaydını siler ve JS promise çözüldüğünde veya reddedildiğinde, `callback`'e cevap olarak bir boolean döner.
 
 #### `contents.getPrinters()`
 
@@ -963,14 +963,14 @@ Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+Servis işçisisi bağlamı için geliştirici araçları açar.
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
 * `...args` herhangi[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
+İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
 Render işlemi mesajı `channel` `ipcRenderer` modülü ile dinleyebilir.
 
@@ -1012,7 +1012,7 @@ app.on('ready', () => {
   * `screenSize`[Size](structures/size.md) - Emülasyon uygulanacak ekran genişliğini ayarlar (screenPosition == mobile)
   * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+  * `viewSize` [Size](structures/size.md) -Benzetilmiş görüntü boyutunu ayarlar (boş demek üstüne yazma yok demek)
   * `fitToView` Boolean - Emulated görünümü gerekiyorsa varolan alana sığacak şekilde ölçeklendirilmelidir.( Varsayılan:`false`)
   * `offset` [Point](structures/point.md) - Emulated görüntünün kullanılabilir alan içerisindeki ofsetidir.(Görüntüleme moduna uygun değil) (varsayılan: `{x: 0, y: 0}`)
   * `scale` Float - Emulated görüntünün kullanılabilir alan içerisindeki ölçeğidir.( Görüntüleme moduna uygun değil) (varsayılan: `1`)
@@ -1066,9 +1066,9 @@ Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
 Olayların ve yakalanan çerçevelerin sunulması için sürdürümcü olur; Bir sunum olayı olduğunda `callback` , `callback(frameBuffer,dirtyRect)` ile birlikte çağrılacaktır.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
+`frameBuffer` işlenmemiş piksel verilerini içeren bir `Buffer`'dır. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+`dirtyRect`, sayfanın hangi bölümlerinin yeniden boyandığını tanımlayan `x, y, width, height` özelliklerini barındıran bir nesnedir. Eğer `onlyDirty`, `true`'ya ayarlandıysa, `frameBuffer` sadece yeniden boyanan alanları içerecektir. `onlyDirty` varsayılanı `false`'tur.
 
 #### `contents.endFrameSubscription()`
 
@@ -1084,15 +1084,15 @@ Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olar
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
-* `kayıt tipi` String - Specify the save type. 
-  * `HTMLOnly` - Save only the HTML of the page.
+* `fullPath` String - Tam dosya yolu.
+* `saveType` String - Kayıt türünü belirtir. 
+  * `HTMLOnly` - Yalnızca sayfanın HTML'ını kaydeder.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `geri arama` Function - `(error) => {}`. 
+* `gerçi çağırma` Function - `(error) => {}`. 
   * `error` Hata 
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Eğer sayfayı kaydetme işlemi başarıyla gerçekleştirilirse `Boolean` - true döner.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -1109,11 +1109,11 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+Sayfadan seçilen sözcüğü arayan bir pop-up sözlük gösterir.
 
 #### `contents.setSize(options)`
 
-Set the size of the page. This is only supported for `<webview>` guest contents.
+Sayfanın boyutunu ayarlayın. Bu yalnızca `<webview>` konuk içerikler için desteklenmektedir.
 
 * `ayarlar` Nesne 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) webgörünümü misafir içeriğine verilecek özelliği belirle. 
@@ -1122,35 +1122,35 @@ Set the size of the page. This is only supported for `<webview>` guest contents.
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+`Boolean` döner- *offscreen rendering*'in etkinleştirilip etkinleştirilmediğini gösterir.
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+Eğer *offscreen rendering* etkinleştirildiyse ve boyama yapılmıyorsa, boyamaya başla.
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+Eğer *offscreen rendering* etkinleştirildiyse ve boyama yapılıyorsa, boyamayı durdur.
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+`Boolean` döner- Eğer *offscreen rendering* etkinleştirildiyse şu anda boyama yapılıp yapılmadığını döner.
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` tamsayı
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+Eğer *offscreen rendering* etkinleştirildiyse kare hızını belirli bir sayıya ayarlar. Yalnızca 1 ve 60 arasındaki değerler kabul edilir.
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+`Integer` döner - Eğer *offscreen rendering* etkinleştirildiyse şu anki kare hızını döner.
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+Bu web içeriklerinin içinde olduğu pencereyi tamamen yeniden boyamak için zaman ayarlar.
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+Eğer *offscreen rendering* etkinleştirildiyse çerçeveyi geçersiz kılar ve `'paint'` olayı aracılığıyla yeni bir tane oluşturur.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
@@ -1158,17 +1158,17 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `yönetmelik` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. Bu standart davranış. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. Ayrıca, varsayılan özel adresini de gösterir. Default route is the route chosen by the OS on a multi-homed endpoint.
-  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+* `yönetmelik` String - WebRTC IP Yönetme İlkesini belirler. 
+  * `default` - Kullanıcının açık ve yerel IP'lerini açığa çıkarır. Bu varsayılan davranıştır. Bu ilke kullanıldığında WebRTC bütün arayüzleri sıralama ve açık arayüzleri keşfetmek için onları bağlama hakkına sahip olur.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. Bu ilke kullanıldığında WebRTC yalnızca http tarafından varsayılan yolu kullanmalıdır. Bu herhangi bir yerel adresi açığa çıkarmaz.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Bu ilke kullanıldığında WebRTC yalnızca http tarafından kullanılan varsayılan yolu kullanmalıdır. Bu ayrıca ilgili varsayılan özel adresleri de açığa çıkarır. Varsayılan yol, çok merkezli bir bitim noktasında İşletim Sistemi tarafından seçilen yoldur.
+  * `disable_non_proxied_udp` - açık veya yerel IP'leri açığa çıkarmaz. Bu ilke kullanıldığında WebRTC, proxy sunucusu UDP'yi desteklemediği sürece eşlere veya servislere erişmek için yalnızca TCP kullanmalıdır.
 
-Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+WebRTC IP yönetme ilkesini ayarlamak size hangi IPlerin WebRTC tarafından gösterildiğini kontrol etme izni verir. Daha fazla detay için [BrowserLeaks](https://browserleaks.com/webrtc)'e bakın.
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The `pid` of the associated renderer process.
+`Integer` döner- İlgili işleyici işleminin `pid`'si.
 
 ### Örnek özellikleri
 
@@ -1178,18 +1178,18 @@ A `Integer` representing the unique ID of this WebContents.
 
 #### `contents.session`
 
-A [`Session`](session.md) used by this webContents.
+WebContents tarafından kullanılan bir [`Integer`](session.md).
 
 #### `contents.hostWebContents`
 
-A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+Bir [`WebContents`](web-contents.md) örneği `WebContents`'e sahip olabilir.
 
 #### `contents.devToolsWebContents`
 
 A `WebContents` of DevTools for this `WebContents`.
 
-**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+**Not:** Kullanıcılar asla bu nesneyi depolamamalıdırlar çünkü DevTools kapandığında nesne `null`'a dönebilir.
 
 #### `contents.debugger`
 
-Bu webİçerikleri için bir [Hata ayıklayıcı](debugger.md) örnek.
+Bu web içerikleri için bir [Hata ayıklayıcı](debugger.md) örneği.

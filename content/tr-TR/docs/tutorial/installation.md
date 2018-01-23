@@ -8,7 +8,7 @@
 npm yükle electron --kaydet-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Uygulamalarınızdaki Electron sürümlerini nasıl yöneteceğinizle ilgili bilgiler için [Electron versioning doc](electron-versioning.md)'a bakın.
 
 ## Genel kurulum
 
@@ -26,7 +26,7 @@ Eğer bu makinedeki yüklenen mimariyi değiştirmek istiyorsanız (örneğin. `
 npm yükle --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Mimariyi değiştirmeye ek olarak, `--platform` işaretini kullanarak platformu da belirleyebilirsiniz (örneğin `win32`, `linux`, vb.):
 
 ```shell
 npm yükle --platform=win32 electron
@@ -38,19 +38,19 @@ Bir vekil sunucu kullanmaya ihtiyacınız varsa [ bu çevre değişkenleri ayarl
 
 ## Custom Mirrors and Caches
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Yükleme sırasında, `electron` modülü platformunuz için önceden hazırlanmış Electron binary'lerini indirmek için [`electron-download`](https://github.com/electron-userland/electron-download)'u çağıracaktır. Bu aynı zamanda GitHub'ın sürüm indirme sayfasına başvurarak da yapılabilir.(`https://github.com/electron/electron/releases/tag/v$VERSION`, `$VERSION` sürümü Elektron'un doğru sürümüdür).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Eğer GitHub'a erişemiyorsanız veya özel bir kurulum sağlamanız gerekiyorsa bunu bir ayna veya varolan bir önbellek dizini sağlayarak da yapabilirsiniz.
 
-#### Mirror
+#### Ayna
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+Ana URL'i geçersiz saymak için çevre değişkenlerini kullanabilirsiniz, dosya yolu Electron binary'lerine ve binary dosya isimlerine bakmalıdır. `electron-download` tarafından kullanılan url aşağıdaki gibi oluşturulur:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Örneğin, Çin aynası kullanmak için:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -58,17 +58,17 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternatif olarak yerel öncelleği geçersiz kılabilirsiniz. `electron-download` will cache downloaded binaries in a local directory to not stress your network. Önbellek klasörünü Elektronun özel kurulumlarını sağlamak veya ağ ile iletişimi tamamen kesmek için kullanabilirsiniz.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+Electron'un daha eski sürümlerinin kullanıldığı çevrelerde önbelleği `~/.electron` içinde bulabilirsiniz.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+Yerel önbellek konumunu `ELECTRON_CACHE` çevre değişkenini sağlayarak değiştirebilirsiniz.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+Önbellek, sağlama toplamını barındırdığı gibi, sürümün resmi zip dosyasını da bir metin dosyası şeklinde barındırır. Tipik bir önbellek aşağıdaki gibidir:
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -91,7 +91,7 @@ Hemen hemen tüm durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi 
 
 Eğer `npm` ile kurulum hataya düşüyorsa, Electron'u doğrudan [electron/electron/releases](https://github.com/electron/electron/releases)' den indirmeyi deneyebilirsiniz.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Eğer yükleme bir `EACCESS` hatası ile başarısız olursa [npm izinlerini düzeltmeniz](https://docs.npmjs.com/getting-started/fixing-npm-permissions) gerekebilir.
 
 Üstteki devam ediyorsa, [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) bayrağının Doğru olarak ayarlanması gerekebilir:
 

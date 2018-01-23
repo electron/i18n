@@ -1,63 +1,64 @@
-# Security, Native Capabilities, and Your Responsibility
+# सुरक्षा, मूल क्षमतायें, और आपकी जिम्मेदारी
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+वेब डेवलपर्स के रूप में हम अक्सर ब्राउज़र के सुरक्षा कवच से सुरक्षित महसूस करते हैं - कोडिंग से जुड़े जोखिम अपेक्षाकृत कम होते हैं | हमारी वेबसाइट्स को एक सैंडबॉक्स में सीमित शक्तियाँ ही मिलती हैं, और हमें विश्वास है कि हमारे उपयोगकर्ता एक ऐसा ब्राउज़र इस्तेमाल करते हैं जिसे इंजिनियर्स की एक बड़ी टीम ने बनाया है और जो नये सुरक्षा खतरों के पता चलने पर त्वरित प्रतिक्रिया देते हैं |
 
-When working with Electron, it is important to understand that Electron is not a web browser. It allows you to build feature-rich desktop applications with familiar web technologies, but your code wields much greater power. JavaScript can access the filesystem, user shell, and more. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+इलेक्ट्रॉन इस्तेमाल करते समय, यह समझना बेहद ज़रूरी है कि यह एक वेब ब्राउज़र नहीं है | यह आपको परिचित वेब तकनीकों का इस्तेमाल कर सुविधा-संपन्न डेस्कटॉप एप्लीकेशनस बनाने की क्षमता प्रदान करता है, पर आपके कोड के पास कहीं ज्यादा शक्ति होती है | जावास्क्रिप्ट फाइलसिस्टम, यूजर शैल और दूसरी बहुत सी चीजों तक पहुँच सकता है | इससे आप उच्च गुणवत्ता की मूल एप्लीकेशनस बना सकते हैं, पर आपके कोड को मिली अधिक शक्तियों से सुरक्षा जोकिम भी अधिक हो जाते हैं |
 
-With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
+इस बात को ध्यान में रखते हुए, आपके के लिये यह जानना ज़रूरी है कि अविश्वश्नीय स्त्रोतों से मनमानी सामग्री प्रदर्शित करने पर एक गंभीर सुरक्षा जोखिम उत्पन्न हो सकता है, जिसे संभालने के लिए इलेक्ट्रॉन हस्तक्षेप नहीं कर सकता | असल में, बहुत सी लोकप्रिय इलेक्ट्रॉन एप्प्स (एटम, स्लैक, विसुअल स्टूडियो कोड, आदि) मूलतः स्थनीय सामग्री प्रदर्शित करती हैं (या विश्वसनीय, नोड इंटीग्रेशन के बिना सुरक्षित दूरस्थ सामग्री ) - अगर आपकी एप्लीकेशन एक ऑनलाइन स्त्रोत से कोड चलाती है, तो यह यह सुनिश्चित करने की आपकी जिम्मेदारी है कि वह कोड बुरा नहीं है|
 
-## Reporting Security Issues
+## सुरक्षा समस्याओं को रिपोर्ट करना
 
-For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
+एक इलेक्ट्रॉन सुरक्षाछिद्र को कैसे रिपोर्ट करें, इसकी जानकारी पाने के लिए [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md) देखें
 
-## Chromium Security Issues and Upgrades
+## क्रोमियम सुरक्षा समस्यायें और अपग्रेडस
 
-While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+हालाँकि इलेक्ट्रॉन की कोशिश क्रोमियम के नये संस्करणों को जल्द से जल्द समर्थित करने की होती है, डेवलपर्स के लिए यह जानना आवश्यक है कि अपग्रेड करना एक बेहद बड़ा काम है - जिसमे कई दर्जन या फिर कई बार सैकड़ों फाइल्स को भी खुद एडिट करना होता पड़ता है | आज के हिसाब से मौज़ूद संसाधनों और योगदानों के हिसाब से, इलेक्ट्रॉन के पास अक्सर क्रोमियम का नवीनतम संस्करण उपलब्ध नहीं होगा, और यह देरी कुछ दिनों या हफ़्तों की भी हो सकती है |
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+हमें लगता है कि क्रोमियम तत्व को अपडेट करने का हमारा मौजादा सिस्टम हमारे पास उपलब्ध संसाधनों और फ्रेमवर्क पर निर्मित ज्यादातर एप्लीकेशनस की आवश्यकताओं के बीच में एक उचित संतुलन बनाता है | जो लोग इलेक्ट्रॉन के ऊपर एप्लीकेशनस का निर्माण करते हैं, हम उनसे निश्चित रूप से विशिष्ट उपयोग मामलों के बारे में और अधिक जानना चाहेंगे | इस प्रयास का समर्थन करने वाले पुल रेकुएस्ट्स और योगदानों का सर्वदा स्वागत है |
 
-## Ignoring Above Advice
+## उपरोक्त सलाह की अनदेखी
 
-A security issue exists whenever you receive code from a remote destination and execute it locally. As an example, consider a remote website being displayed inside a browser window. If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+जब भी आप एक दूरस्थ स्त्रोत से कोड प्राप्त कर उसे स्थानीय रूप से चलाते है तो एक सुरक्षा समस्या जरूर उत्पन्न होती है | उदाहरण के तौर पर, एक दूरस्थ वेबसाइट लीजिये जो कि एक ब्राउज़र विंडो में प्रदर्शित हो रही है | अगर एक हमलावर किसी तरह से इस सामग्री में बदलाव कर दे (चाहे सीधे स्त्रोत पर हमला कर के, या फिर आपकी एप्प और असल गंतव्य के बीच में बैठ कर), तो वह उपयोगकर्ता की मशीन पर मूल कोड चलाने में सक्षम हो जायेगा |
 
-> :warning: Under no circumstances should you load and execute remote code with Node integration enabled. Instead, use only local files (packaged together with your application) to execute Node code. To display remote content, use the `webview` tag and make sure to disable the `nodeIntegration`.
+> :warning: किसी भी परिस्थिति में आपको उस दूरस्थ कोड को लोड और एक्सीक्यूट नहीं करना चहिये जिसमे नोड इंटीग्रेशन इनेबल्ड हो | इसकी जगह, नोड कोड को चलाने के लिए केवल स्थानीय फाइल्स (आपकी एप्लीकेशन संग पैकेज्ड) का इस्तेमाल करें | दूरस्थ सामग्री को प्रदर्शित करने के लिए, `webview` टैग का इस्तेमाल करें और यह सुनिश्चित करें कि `nodeIntegration` डिसेबल्ड है |
 
-#### Checklist
+#### जाँच सूची
 
-This is not bulletproof, but at the least, you should attempt the following:
+यह पूरी तरह से अभेद्य नहीं है, पर आपको कम से कम इनको तो अपनाना ही चाहिये:
 
-* Only display secure (https) content
-* Disable the Node integration in all renderers that display remote content (setting `nodeIntegration` to `false` in `webPreferences`)
-* Enable context isolation in all renderers that display remote content (setting `contextIsolation` to `true` in `webPreferences`)
-* Use `ses.setPermissionRequestHandler()` in all sessions that load remote content
-* Do not disable `webSecurity`. Disabling it will disable the same-origin policy.
-* Define a [`Content-Security-Policy`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) , and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8) , which allows strings to be executed as code.
-* Do not set `allowRunningInsecureContent` to true.
-* Do not enable `experimentalFeatures` or `experimentalCanvasFeatures` unless you know what you're doing.
-* Do not use `blinkFeatures` unless you know what you're doing.
-* WebViews: Do not add the `nodeintegration` attribute.
-* WebViews: Do not use `disablewebsecurity`
-* WebViews: Do not use `allowpopups`
-* WebViews: Do not use `insertCSS` or `executeJavaScript` with remote CSS/JS.
-* WebViews: Verify the options and params of all `<webview>` tags before they get attached using the `will-attach-webview` event:
+* केवल सुरक्षित (https) सामग्री प्रदर्शित करें
+* नोड इंटीग्रेशन को उन सभी रेंदेरेर में डिसएबल कर दें जो दूरस्थ सामग्री प्रदर्शित करते हैं (`webPreferences` में `nodeIntegration` को `false` सेट करना)
+* कॉन्टेक्स्ट आइसोलेशन को उन सभी रेंदेरेर में डिसएबल कर दें जो दूरस्थ सामग्री प्रदर्शित करते हैं (`webPreferences` में `contextIsolation` को `true` सेट करना)
+* दूरस्थ सामग्री लोड करने वाले सभी सत्रों में `ses.setPermissionRequestHandler()` का उपयोग करें
+* `webSecurity` को डिसएबल न करें | उसे डिसएबल करने से सेम-ओरिजिन पॉलिसी भी डिसएबल हो जायेगी |
+* एक [`सामग्री-सुरक्षा-नीति`](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) परिभाषित करें, और प्रतिबंधक नियम (यानी कि `script-src 'self'`) इस्तेमाल करें
+* [`eval` को ओवरराइड और डिसएबल करें](https://github.com/nylas/N1/blob/0abc5d5defcdb057120d726b271933425b75b415/static/index.js#L6-L8), जो कि स्ट्रिंग्स को कोड की तरह चलने की क्षमता प्रदान करता है |
+* `allowRunningInsecureContent` को true सेट न करें |
+* `experimentalFeatures` या `experimentalCanvasFeatures` को इनेबल न करें अगर आप नहीं जानते कि इससे क्या हो सकता है |
+* `blinkFeatures` इस्तेमाल तब तक न करें जब तक कि आपको पूरी जानकारी न हो |
+* WebViews: `nodeintegration` एट्रिब्यूट न जोड़ें |
+* WebViews: `disablewebsecurity` न इस्तेमाल करें
+* WebViews: `allowpopups` न इस्तेमाल करें
+* WebViews: दूरस्थ सीएसएस/जेएस के साथ `insertCSS` या `executeJavaScript` न इस्तेमाल करें |
+* WebViews: सभी `<webview>` टैग्स के विकल्प और पैरामीटर्स को जाँचें इससे पहले कि वे `will-attach-webview` इवेंट से जुड़ें:
 
 ```js
 app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+   contents.on('will-attach-webview', (event, webPreferences,
+params) => {
+     // अगर प्रीलोड स्क्रिप्ट्स इस्तेमाल न हों तो उन्हें हटा दें या यह सत्यापित करें कि उनकी लोकेशन वैध है
+     delete webPreferences.preload
+     delete webPreferences.preloadURL
 
-    // Disable node integration
+     // नोडइंटीग्रेशन डिसएबल करें
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
-      event.preventDefault()
-    }
-  })
-})
+     // यूआरएल लोड हो रहा है या नहीं, यह सत्यापित करें
+     if (!params.src.startsWith('https://yourapp.com/')) {
+       event.preventDefault()
+     }
+   })
+ })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+यह सूचि केवल खतरों को कम से कम करने के लिए, यह उन्हें हटाती नहीं है |अगर आपका लक्ष्य एक वेबसाइट को प्रदर्शित करना है, तो एक ब्राउज़र ज्यादा सुरक्षित विकल्प है |

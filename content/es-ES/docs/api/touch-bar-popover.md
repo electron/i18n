@@ -1,25 +1,25 @@
-## Class: TouchBarPopover
+## Clase: notificación de la barra táctil
 
-> Create a popover in the touch bar for native macOS applications
+> Crea una notificación en la barra táctil para aplicaciones nativas macOS
 
 Proceso: [principal](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarPopover(options)` *Experimental*
+### `nueva notificación en la barra táctil(opciones)` *Experimental*
 
 * `options` Object 
-  * `label` String (optional) - Popover button text.
-  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
-  * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
+  * `Etiqueta` Cadena (opcional) - tecto del botón en la notificación.
+  * `ícono` [imagen nativa](native-image.md) (opcional) - ícono del botón de la notificación.
+  * `Elemento` [barra táctil](touch-bar.md) (opcional) - elementos a mostrar en la notificación.
+  * `mostrar botón de cerrado` Booleano (opcional) - `verdad` para mostrar un botón de cerrado a la izquierda de la notificación, `falso` para no mostrarlo. Por defecto es `verdad`.
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `TouchBarPopover`:
+Las siguiente propiedades están disponibles en instancias de `notificaciones de la barra táctil`:
 
 #### `touchBarPopover.label`
 
-A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
+Una `Cadena` representando el botón de texto actual de la notificación. Cambiar este valor actualizará inmediatamente la notificación en la barra táctil.
 
 #### `touchBarPopover.icon`
 
-A `NativeImage` representing the popover's current button icon. Changing this value immediately updates the popover in the touch bar.
+Una `Imagen nativa` representando el botón de icono actual de la notificación. Cambiar esto actualizará inmediatamente la notificación en la barra táctil.

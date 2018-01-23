@@ -1,23 +1,23 @@
 ## Clase: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Crea una etiqueta en la barra táctil para aplicaciones nativas a macOS
 
 Proceso: [principal](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `Nueva etiqueta en la barra táctil(opciones)` *Experimental*
 
 * `options` Object 
-  * `label` String (optional) - Text to display.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `etiqueta` Cadena (opcional) - texto a mostrar.
+  * `Color del texto` cadena (opcional) - color del texto en hex, ejemplo `#ABCDEF`.
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `TouchBarLabel`:
+Las siguientes propiedades están disponibles en instancias de `etiqueta de barra táctil`:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+Una `cadena` representando la etiqueta actual del texto. Cambiar este valor actualizará inmediatamente la etiqueta en la barra táctil.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+Una `Cadena` de código hex representando la etiqueta del color del texto actual. Cambiar este valor actualizará inmediatamente la etiqueta en la barra de táctil.

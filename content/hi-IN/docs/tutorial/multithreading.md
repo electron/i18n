@@ -1,10 +1,10 @@
-# Multithreading
+# मल्टीथ्रेडिंग
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+[Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers) के साथ, जावास्क्रिप्ट को ओएस-स्तर के थ्रेड्स में चलाना संभव है |
 
-## Multi-threaded Node.js
+## मल्टी-थ्रेडेड नोड.जेएस
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+इलेक्ट्रॉन के वेब वर्कर्स में नोड.जेएस की सुविधाओं को इस्तेमाल करना संभव है, इसके लिए आपको `webPreferences` में `nodeIntegrationInWorker` विकल्प को `true` सेट करना होगा |
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,19 +14,19 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+`nodeIntegration` से स्वतंत्र `nodeIntegrationInWorker` का इस्तेमाल किया जा सकता है, पर `sandbox` सेट नहीं होना चाहिये `true` पर|
 
-## Available APIs
+## उपलब्ध ऐपीआई
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+नोड.जेएस के सभी अंतर-निर्मित मोडयुल्स वेब वर्कर्स में समर्थित हैं, और `asar` आर्काइव्ज अभी भी नोड.जेएस ऐपीआई के साथ पढ़ी जा सकती हैं | पर इलेक्ट्रॉन का कोई भी मोड्यूल, मल्टी-थ्रेडेड वातावरण में इस्तेमाल नहीं किया जा सकता|
 
-## Native Node.js modules
+## मूल नोड.जेएस मोडयुल्स
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+किसी भी मूल नोड.जेएस मोड्यूल को वेब वर्कर्स में सीधे ही लोड किया जा सकता है, हालाँकि ऐसा न करने की सलाह दी जाती है| वर्तमान में ज्यादातर मूल मोडयुल्स सिंगल-थ्रेडेड वातावरण में चलने के लिए लिखे गये हैं, उन्हें वेब वर्कर्स में इस्तेमाल करने से क्रेशेस और मेमोरी करप्शन हो सकते हैं |
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+ध्यान रखें कि भले ही एक मूल नोड.जेएस मोड्यूल थ्रेड-सुरक्षित हो, फिर भी उसे वेब वर्कर में लोड करना सुरक्षित नहीं है क्योंकि `process.dlopen` फंक्शन थ्रेड-सुरक्षित नहीं है |
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+अभी के लिए एक मूल मोड्यूल को सुरक्षित लोड करने का एक ही तरीका है, और वह यह कि सुनिश्चित करना कि वेबवर्कर्स के शुरू होने के बाद एप्प किसी भी मूल मोड्यूल को लोड न करें |
 
 ```javascript
 process.dlopen = () => {

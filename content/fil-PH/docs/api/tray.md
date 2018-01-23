@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -56,7 +56,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` [NativeImage](native-image.md) (String)
 
 Creates a new tray icon associated with the `image`.
 
@@ -171,7 +171,7 @@ Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` [NativeImage](native-image.md) (String)
 
 Sets the `image` associated with this tray icon.
 

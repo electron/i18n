@@ -2,7 +2,7 @@
 
 > Monitor power state changes.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Main](../glossary.md#main-process)
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 

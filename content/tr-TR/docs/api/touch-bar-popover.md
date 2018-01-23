@@ -18,7 +18,7 @@ Aşağıdaki özellikler `TouchBarPover` örnekleri için uygundur:
 
 #### `touchBarPopover.label`
 
-A `String` representing the popover's current button text. Changing this value immediately updates the popover in the touch bar.
+Popover'ın şu anki buton metinini gösteren bir `String`. Bu değeri değiştirmek doğrudan dokunmatik çubuktaki popover'ı günceller.
 
 #### `touchBarPopover.icon`
 
