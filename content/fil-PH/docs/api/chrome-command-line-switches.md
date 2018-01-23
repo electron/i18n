@@ -81,8 +81,8 @@ Halimbawa:
 
 * `MAP * 127.0.0.1` ang lahat ng hostname ay ginawa na 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
-* `MAP test.com [::1]:77` Forces "test.com" to resolve to IPv6 loopback. Will also force the port of the resulting socket address to be 77.
-* `MAP * baz, EXCLUDE www.google.com` Remaps everything to "baz", except for "www.google.com".
+* `MAP test.com [::1]:77` pinilit ng "test.com" na maayos ng IPv6 loopback. at pilitin ang port na resulta ng socket address kailangan ay 77.
+* `MAP * baz http, IBUKOD www.google.com` inilipat sa lahat ng bagay na "baz http", maliban sa "www.google.com".
 
 These mappings apply to the endpoint host in a net request (the TCP connect and host resolver in a direct connection, and the `CONNECT` in an HTTP proxy connection, and the endpoint host in a `SOCKS` proxy connection).
 
