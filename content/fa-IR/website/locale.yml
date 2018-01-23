@@ -36,36 +36,36 @@ community:
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
   title: ساده‌تر از آن چیزی است که فکر می‌کنید
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
+  description: اگر می توانید یک وب سایت بسازید، پس می توانید یک برنامه ی دسکتاپی هم بسازید. الکترون چارچوبی برای ساخت برنامه های بومی با استفاده از فناوری هایی مثل جاوا اسکریپت، HTML و CSS است. بخش های دشوار توسط الکترون انجام می شوند، بنابراین شما می توانید بر روی مرکز برنامه تان تمرکز کنید.
   video_link: ویدئو را مشاهده کنید
 web_technologies:
   title: فناوری‌های وب
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  description: الکترون از Chromium و Node.js استفاده می کند، بنابراین شما می توانید برنامه تان را با HTML، CSS و جاوا اسکریپت بسازید.
 open_source:
   title: متن‌باز
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: الکترون یک پروژه ی متن باز است که توسط GitHub و مجموعه ای از مشارکت کنندگان فعال نگهداری می شود.
 cross_platform:
   title: چندسکویی
   description: برنامه‌های ساخته شده با الکترون بر روی سه سیستم‌عامل اجرا می‌شود، سازگار با مک، ویندوز و لینوکس می‌باشد.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
+  hard_parts_made_easy: قسمت های دشوار آسان شده اند
   automatic_updates: به‌روز رسانی خودکار
-  native_menus_and_notifications: Native menus & notifications
+  native_menus_and_notifications: منو ها و اعلان های بومی
   crash_reporting: گزارش دادن خرابی و بهم ریختگی
-  debugging_and_profiling: Debugging & profiling
+  debugging_and_profiling: اشکال زدایی و پروفایل سازی
   windows_installers: نصب کننده ویندوز
 get_started:
   title: شروع کنید
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: برای شروع استفاده از الکترون منابع زیر را بررسی کنید. چگونگی طراحی برنامه ی تحت وب خودتان با الکترون را یاد بگیرید، به همه ی API ها دسترسی داشته باشید و فایل های اجرایی برنامه تان را بسازید.
 explore:
-  title: Explore the Electron APIs
+  title: API های الکترون را کاوش کنید
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: دانلود از گیت‌هاب
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
+  clone: یک کپی از پروژه ی شروع سریع را دریافت کنید
   go_into_repo: Go into the repository
   install_deps: Install the dependencies and run
   dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
