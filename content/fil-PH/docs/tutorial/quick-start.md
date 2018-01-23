@@ -45,44 +45,42 @@ Ang format ng `package.json` ay eksakto sa katulad ng Node's modules, at ang isk
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Paalala**: kung ang `pangunahing` field ay hindi naroroon sa `package.json`,ang Electron ay magtatangkang i-load ang isang`index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+Ang `main.js` ay dapat lumikha ng windows at hawakan ang system events,isang tipikal na halimbawa :
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win
+//Panatilihin ang global reference sa window object, kung hindi, ang window ay maaring isarado ng awtomatiko kapag ang JavaScript object ay nakakolekta ng basura.
+hayaang manalo
 
-function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+function gumawa ngWindow () {
+  // Gumawa ng browser window.
+  win = bagong BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // i-load ang index.html sa app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Buksan ang DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
-  win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+  //Emitted kapag sarado na ang window.
+  win.on('sarado', () => {
+    // Dereference ang window object, karaniwang itago mo ang windows
+   //sa isang array kung ang iyong app ay sumusuporta sa multi windows, ito ay ang oras kung kailan mo dapat burahin ang kaukulang elemento.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Ang paraang ito ay tinatawag kapag and Electron ay tapos na
+// Inisyalisasyon at handa na itong gumawa ng browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
