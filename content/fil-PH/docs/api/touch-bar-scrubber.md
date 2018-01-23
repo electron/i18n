@@ -18,7 +18,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `mode` String - Defaults to `free`.
   * `continuous` Boolean - Defaults to `true`.
 
-### Halimbawa ng mga bagagi nito
+### Humahalimbawa sa bahagi nito
 
 The following properties are available on instances of `TouchBarScrubber`:
 
