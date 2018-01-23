@@ -42,9 +42,9 @@ Ipasa ang mensahe sa maliit na window kasama ang tamang origin o kaya `*` sa hin
 
 Bukod sa mga pamamaraang ito, ay ipinatutupad ng maliit na widow na to na ang `window.opener` ay bagay na walang katangian at iisa ang pamamaraan.
 
-### Halimbawa ng mga bagagi nito
+### Humahalimbawa sa bahagi nito
 
-The `BrowserWindowProxy` object has the following instance properties:
+Ang na to `BrowserWindowProxy` ay bahagi ng mga sumusunod na halimbawa ng mga bahagi:
 
 #### `win.closed`
 
