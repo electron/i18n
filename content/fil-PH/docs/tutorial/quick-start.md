@@ -8,7 +8,7 @@ Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa gra
 
 Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script **ang mga pangunahing proseso**. Ang iskrip na tumatakbo sa pangunahing proseso ay maaring maipakita ang isang GUI sa pamamagitan ng paggawa ng web pages.
 
-### Proseso ng tagasalin
+### Proseso ng Tagasalin
 
 Dahil ang Electron ay gumagamit ng Chromium para sa pagpapakita ng web pages, Chromium's multi-process na arkitektura ay ginagamit din. Bawat web page ng Electron ay tumatakbo sa sarili nitong proseso, tinatawag itong **the renderer process**.
 
@@ -16,7 +16,7 @@ Sa normal na mga browsers, ang mga web pages ay karaniwang tumatabko sa sanboxed
 
 ### Ang pagkakaiba ng pangunahing proseso at proseso ng tagasalin
 
-Ang pangunahing proseso and gumagawa ng web pages sa pamamagitan ng `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Ang pangunahing proseso and gumagawa ng web pages sa pamamagitan ng `BrowserWindow` instances. Bawat `BrowserWindow` instance ay nagpapatakbo ng web page sa sarili nitong proseso ng tagasalin. Kapag ang `BrowserWindow` instance ay nasira ,ang kaukulang renderer process ay mapuputol din.
 
 The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
