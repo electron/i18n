@@ -79,12 +79,11 @@ function gumawa ngWindow () {
   })
 }
 
-// Ang paraang ito ay tinatawag kapag and Electron ay tapos na
+// Ang paraang ito ay tinatawag kapag ang Electron ay tapos na
 // Inisyalisasyon at handa na itong gumawa ng browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
-
-// Quit when all windows are closed.
+Ilang APIs ay maari lamang gamitin matapos ang pangyayaring ito ay nangyayari.
+app.on('humanda', lumikhangWindow)
+Tumigil kapag sarado na ang lahat ng windows.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
