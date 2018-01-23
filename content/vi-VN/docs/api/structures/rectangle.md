@@ -1,6 +1,6 @@
 # Đối tượng Rectangle
 
-* `x` Number - The x coordinate of the origin of the rectangle (must be an integer)
-* `y` Number - The y coordinate of the origin of the rectangle (must be an integer)
-* `width` Number - The width of the rectangle (must be an integer)
-* `height` Number - The height of the rectangle (must be an integer)
+* `x` Number - Tọa độ x gốc của hình chữ nhật (phải là một số nguyên)
+* `y` Number - Tọa độ y gốc của hình chữ nhật (phải là một số nguyên)
+* `width` Number - Chiều rộng của hình chữ nhật (phải là một số nguyên)
+* `height` Number - Chiều cao của hình chữ nhật (phải là một số nguyên)
