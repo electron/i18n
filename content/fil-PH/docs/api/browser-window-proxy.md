@@ -38,11 +38,11 @@ Invokes the print dialog on the child window.
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Ipasa ang mensahe sa maliit na window kasama ang tamang origin o kaya `*` sa hindi tamang husto ng origin.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+Bukod sa mga pamamaraang ito, ay ipinatutupad ng maliit na widow na to na ang `window.opener` ay bagay na walang katangian at iisa ang pamamaraan.
 
-### Instance Properties
+### Halimbawa ng mga bagagi nito
 
 The `BrowserWindowProxy` object has the following instance properties:
 
