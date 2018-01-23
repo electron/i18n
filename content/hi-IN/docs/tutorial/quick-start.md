@@ -194,13 +194,13 @@ $ .\electron\electron.exe your-app\
 **नोट**: इसे चलाने के आपको अपने सिस्टम पर [गिट](https://git-scm.com) और [नोड.जेएस](https://nodejs.org/en/download/) (जिसमे [npm](https://npmjs.org) शामिल है) की ज़रुरत पड़ेगी |
 
 ```sh
-# Clone the repository
+# रिपॉजिटरी क्लोन करें
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# रिपॉजिटरी में जायें
 $ cd electron-quick-start
-# Install dependencies
+# डिपेंडेंसिस इनस्टॉल करें
 $ npm install
-# Run the app
+# एप्प चलायें
 $ npm start
 ```
 
