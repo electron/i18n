@@ -40,11 +40,11 @@ Invokes the print dialog on the child window.
 
 Ipasa ang mensahe sa maliit na window kasama ang tamang origin o kaya `*` sa hindi tamang husto ng origin.
 
-Bukod sa mga pamamaraang ito, ay ipinatutupad ng maliit na widow na to na ang `window.opener` ay bagay na walang katangian at iisa ang pamamaraan.
+Bukod sa mga pamamaraang ito, ay ipinatutupad ng maliit na window na to na ang `window.opener` ay bagay na walang katangian at iisa ang pamamaraan.
 
 ### Humahalimbawa sa bahagi nito
 
-Ang na to `BrowserWindowProxy` ay bahagi ng mga sumusunod na halimbawa ng mga bahagi:
+Ang `BrowserWindowProxy` na to ay bahagi ng mga sumusunod na halimbawa ng mga bahagi:
 
 #### `win.closed`
 
