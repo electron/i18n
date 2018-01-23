@@ -1,4 +1,4 @@
-## Class: BrowserView
+## Class: ng BrowserView
 
 > Create and control views.
 
