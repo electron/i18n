@@ -582,7 +582,7 @@ Returns `Boolean` - Whether the window is in fullscreen mode.
 * `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
 * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Gagawin nitong isang window na mapanatili ang hichura ng ratio. Ang sobrang laki ay nagbibigay ng pahintulot sa isang ang developer ay may puwang, na tinukoy sa mga pixel, hindi kasama sa loob ng aspeto Ang ratio kalkulasyon. This API already takes into account the difference between a window's size and its content size.
 
 Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
 
@@ -707,19 +707,19 @@ Nagtatakda kung ang window ay pweding manu-manong mapakinabangan ng taga-gamit. 
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Ibalik ang `Boolean` - Kung ang manu-manong window ay pweding manu-mano-paliitin ng taga-gamit.
 
-On Linux always returns `true`.
+Ang Linux ay palaging bumabalik `tama`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Nagtatakda kung ang pindutan ng window ng pag-papalaki/zoom ay lumilipat sa fullscreen na anyo o magpapakinabang sa window.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Ang pag-balik `Boolean` - Kung ang pindutan ng Pag-papalaki/zoom window ay i-toggle ang fullscreen na anyo o magpapakinabang sa window.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
