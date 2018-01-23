@@ -7,7 +7,7 @@ Ang proseso: [Main](../glossary.md#main-process)
 Ang isang halimbawa ng pagpapakita ng isang dayalogo para pumili ng maramihang mga file at mga direktoryo:
 
 ```javascript
-const {dialog} = require('electron')
+const {dialog} = kailangan('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
