@@ -695,15 +695,15 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Ibalik ang `Boolean` - Kung manu-mano ang pinaliit na window ng taga-gamit
 
-On Linux always returns `true`.
+Ang Linux ay palaging bumabalik `tama`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Nagtatakda kung ang window ay pweding manu-manong mapakinabangan ng taga-gamit. Sa Linux ay wala.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
