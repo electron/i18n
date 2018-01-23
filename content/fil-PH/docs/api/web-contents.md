@@ -322,13 +322,13 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Magbabalik ng:
 
 * `event` Event
-* `request` Bagay 
+* `kahilingan` Bagay 
   * `method` String
   * `url` Ang URL
-  * `referrer` URL
-* `authInfo` Bagay 
-  * `isProxy` Boolean
-  * `scheme` String
+  * `referrer`Ang URL
+* `ang authInfo` Bagay 
+  * `isProxy` Ang Boolean
+  * `scheme` Ang string
   * `host` String
   * `port` Integer
   * `realm` String
