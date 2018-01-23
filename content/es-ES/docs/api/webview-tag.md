@@ -650,10 +650,10 @@ Devuelve:
   * `requestId` Íntegro
   * `activeMatchOrdinal` Íntegro - Posición de un partido activo.
   * `matches` Íntegro - Número de Coincidencias.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `selectionArea` Objeto - Coordinación de la primera región de casualidad.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
+Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -665,18 +665,18 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Evento: 'new-window'
 
 Devuelve:
 
 * `url` String
-* `frameName` String
+* `frameName` Cadena
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which should be used for creating the new `BrowserWindow`.
+* `options` Objeto - Las opciones que deberían ser usados para crear el nuevo `BrowserWindow`.
 
-Fired when the guest page attempts to open a new browser window.
+Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
-The following example code opens the new url in system's default browser.
+El siguiente código ejemplo abre el nuevo url en el buscador por defecto del sistema.
 
 ```javascript
 const {shell} = require('electron')
@@ -690,46 +690,46 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Evento: 'will-navigate'
 
 Devuelve:
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Tampoco es emitido durante la navegación en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+Llamar a `event.preventDefault()`, **NO** tiene ningún efecto.
 
-### Event: 'did-navigate'
+### Evento: 'did-navigate'
 
 Devuelve:
 
 * `url` String
 
-Emitted when a navigation is done.
+Emitido cuando la navegación es finalizada.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-### Event: 'did-navigate-in-page'
+### Evento: 'did-navigate-in-page'
 
 Devuelve:
 
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Emitido cuando una navegación dentro de la página sucede.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de esto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Event: 'close'
+### Evento: 'close'
 
-Fired when the guest page attempts to close itself.
+Disparado cuando la página de invitado intenta cerrarse.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+El siguiente código ejemplo navega el `webview` a `about:blank` cuando el invitado intenta cerrase.
 
 ```javascript
 const webview = document.querySelector('webview')
