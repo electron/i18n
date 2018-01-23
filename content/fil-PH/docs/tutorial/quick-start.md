@@ -18,9 +18,9 @@ Sa normal na mga browsers, ang mga web pages ay karaniwang tumatabko sa sanboxed
 
 Ang pangunahing proseso and gumagawa ng web pages sa pamamagitan ng `BrowserWindow` instances. Bawat `BrowserWindow` instance ay nagpapatakbo ng web page sa sarili nitong proseso ng tagasalin. Kapag ang `BrowserWindow` instance ay nasira ,ang kaukulang renderer process ay mapuputol din.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Ang pangunahing proceso ay namamahala sa lahat ng web pages at kaukulang mga proseso ng tagasalin. Bawat proseso ng tagasalin ay nakahiwalay at nagmamalasakit lamang sa web page na tumatakbo dito.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Sa web pages, ang pagtawag sa native GUI na may kaugnayan sa APIs ay hindi pinapayagan dahil ang pamamahala ng native GUI resources sa web pages ay lubhang mapanganib at madali itong i leak ang mga resources. Kapag gusto ninyong magsagawa ng GUI operations sa inyung web page, ang proseso ng tagasalin ng web page ay dapat makipag-ugnayan sa pangunahing proseso upang humiling sa pangunahing proseso para magsagawa ng lahat ng operasyon.
 
 In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
