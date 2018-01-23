@@ -32,11 +32,11 @@ Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Paganahin ang remote debugging bago ang HTTP sa pag tukoy sa `port`.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Gamitin ang pinakamataas na bakante ng disk cache, na magagamit, sa byte.
 
 ## --js-flags=`flags`
 
