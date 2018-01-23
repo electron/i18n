@@ -10,7 +10,7 @@ Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script
 
 ### Proseso ng tagasalin
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Dahil ang Electron ay gumagamit ng Chromium para sa pagpapakita ng web pages, Chromium's multi-process na arkitektura ay ginagamit din. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
 In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
 
