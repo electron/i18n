@@ -24,14 +24,14 @@ Ang LLDB ang pinakamahalagang kasangkapan at sumusuporta sa karamihan ng estrati
 
 Ang mga mahahalagang code file ay matatagpuan sa `./atom/` tulad ng Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`. Kung ikaw ay harcore, maaaring mo ring direktang i-debug si Chromium na matatagpuan sa `chromium_src`.
 
-Ipagpalagay natin na ang gusto mong i-debug ay `app.setName()`, na syang tumutukoy sa `browser.cc` bilang `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+Ipagpalagay natin na ang gusto mong i-debug ay `app.setName()`, na syang tumutukoy sa `browser.cc` bilang `Browser::SetName()`. Itakda ang breakpoint gamit ang command na `breakpoint` na tumutukoy sa file at linya:
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+Pagkatapos, simulan ang Electron:
 
 ```sh
 (lldb) run
