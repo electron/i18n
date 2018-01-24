@@ -967,10 +967,10 @@ Los `buttons` es un arreglo de objetos `Button`:
 * `Button` Objeto 
   * `icon` [NativeImage](native-image.md) - El icono que muestra la barra de herramientas de la vista previa.
   * `click` Función
-  * `tooltip` String (opcional): el texto de la información sobre el botón.
-  * `flags` String[] (opcional) - Controle estados específicos y comportamientos del botón. Por defecto, es `['enabled']`.
+  * `tooltip` Cadena (opcional)- el texto de la descripción emergente del botón.
+  * `flags` String[] (opcional) - Controla los estados específicos y comportamientos del botón. Por defecto es `['enabled']`.
 
-Los `flags` es una matriz que puede incluir siguientes `String`s:
+Las `flags` es un arreglo que puede incluir los siguientes `String`s:
 
 * `enabled` - El botón está activo y disponible para el usuario.
 * `disabled` - El botón está deshabilitado. Está presente, pero tiene un estado visual que indica que no responderá a la acción del usuario.
