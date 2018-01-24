@@ -10,7 +10,7 @@ May dalawang mode ng rendering na pwedeng magamit at ang maruming lugar lamang a
 
 ### Pinabilis na GPU
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+Pinabilis na GPU rendering na ang ibig sabihin ay ginagamit ang GPU para sa komposisyon. Dahil sa ang frame ay may kinopya sa GPU na nangangailangan ng karagdagang performance, kaya ang mode na ito ay lubos na mas mabagal kaysa sa isa. Ang mga benepisyo nitong mode na WebGL at 3D CSS animations ay suportado.
 
 ### Software output device
 
