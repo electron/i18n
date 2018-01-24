@@ -885,7 +885,7 @@ Es igual a `webContents.loadURL(url[, options])`.
 
 El `url` puede ser una dirección remota (por ejemplo `http://`) o una de un archivo locar HTML utilizando el protocolo `file://`.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Para garantizar que los URLs del archivo estén adecuadamente formateados, se recomienda utilizar el método [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) del Nodo:
 
 ```javascript
 let url = require('url').format({
@@ -897,7 +897,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Se puede cargar un URL utilizando la solicitud `POST` con los datos codificados de URL haciendo lo siguiente:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -911,7 +911,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Es igual a `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
