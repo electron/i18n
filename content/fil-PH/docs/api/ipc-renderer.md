@@ -57,7 +57,7 @@ Magbabalik ng `any` - Ang halaga ay ipinadala pabalik sa pamamagitan ng tagahawa
 
 Magpadala ng mensahe sa pangunahing proseso ng magkasabay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `channel` na may modyul ng `ipcMain`, at tumugon sa pamamagitan ng pagtatakda ng `event.returnValue`.
 
 **Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
 
