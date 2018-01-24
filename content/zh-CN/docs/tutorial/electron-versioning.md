@@ -40,25 +40,25 @@ Electron版本 * < 2.0 * 不符合 [ semver ](http://semver.org) 规范。 主�
 
 从 2.0 开始，Electron 将遵循 semver。
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+下面是一个表格，明确地将变化的类型映射到它们对应的 semver 类别 (例如Major，Minor，Patch)。
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **Major 版本增量** 
+    * Chromium 版本更新
+    * node.js major 版本更新
+    * Electron 突破性 API 变更
+* **Minor 版本增量** 
+    * node.js minor 版本更新
+    * Electron 无突破性 API 变更
+* **Patch 版本增量** 
+    * node.js patch 版本更新
+    * 修复相关的 chromium 补丁
+    * electron bug 修复
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+请注意，大多数 chromium 更新将被视为突破性更新。 可以被回溯的修复可能会被修补为修补程序。
 
 # 稳定分支
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+稳定分支是与主控并行运行的分支，仅接受与安全性或稳定性有关的最优提交。 这些分支从不合并回主分支。
 
 ![](../images/versioning-sketch-1.png)
 
