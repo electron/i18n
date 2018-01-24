@@ -411,7 +411,7 @@ Devuelve:
   * `<0>hasImageContents` Boolean - si el menú del contexto fue invocado en una imagen la cual tiene contenido no vacío.
   * `isEditable` Boolean - Si el contexto es editable.
   * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
+  * `titleText` String - Título o texto alt de la selección la cual el contexto fue invocado.
   * `misspelledWord` String - The misspelled word under the cursor, if any.
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
