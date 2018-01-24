@@ -22,7 +22,7 @@ Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay
 ### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
