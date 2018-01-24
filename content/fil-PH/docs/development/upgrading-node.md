@@ -10,11 +10,11 @@ Ang Elektron ay may sariling [Node fork](https://github.com/electron/node) na ma
 
 Isa pang dahilan sa mga proyekto ng Node ay nagpapatch ito sa bersyon V8. Tulad ng naibanggit sa itaas, ang Elektron ay ginagawa ang lahat sa isang kopya ng V8, kaya lahat ng Node's V8 patches ay kailangang mailagay sa kopyang iyon.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+Kapag lahat ng nagdedepende sa Elektron ay tumataas at gumagamit ng parehong kopya ng V8, ang sususnod na hakbang ay ang pag-ayos ng Elektron code na nagbibigay problema sa pag-upgrade ng Node.
 
-[FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
+[FIXME] isang bagay tungkol sa Node debugger na nasa Atom na (hal. deepak) gagamitin at kailangan para kumpirmahin na hindi masisira sa pag-uupgrade ng Node?
 
-So in short, the primary steps are:
+Sa madaling salita, ang kinakaylangan nating gawin ay:
 
 1. Update Electron's Node fork to the desired version
 2. Backport Node's V8 patches to our copy of V8
