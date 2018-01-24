@@ -171,13 +171,13 @@ Sa Windows, may isang pipindutin na pwedeng magagamit upang ipakita ang progress
 
 Sa macOs, ang progress bar ay maipapakita bilang isang bahagi ng dock icon.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Ang Unity DE ay mayroon ding kaparehas na katangian na nagpapahintulot nito na itukoy ang progress bar sa launcher.
 
-**Progress bar in taskbar button:**
+**Progress bar sa taskbar na pipindutin:**
 
 ![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Upang itakda ang progress bar para sa isang Window, pwedeng gamitin ang [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) na API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,11 +185,11 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Mga Icon Overlay sa Taskbar (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Sa Windows, ang isang taskbar na pipindutin ay pwedeng gumamit ng maliit na overlay upang ipakita ang katayuan ng isang aplikasyon, ayon sa sinabi ng MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Ang mga icon overlay ay nagsisilbi bilang kontestwal na paalala ng katayuan, at para tanggalin ang pangangailangan sa naiibang icon na pang-estado ng lugar ng paalala upang mailahad ang impormasyon sa gumagamit. Halimbawa, ang isang bagong estado ng mail sa Microsoft Outlook, na kasalukuyang ipinapakita sa lugar ng paalala, ay pwede nang ilagay sa pamamagitan ng isang overlay sa pipindutin sa taskbar. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
 **Overlay on taskbar button:**
 
