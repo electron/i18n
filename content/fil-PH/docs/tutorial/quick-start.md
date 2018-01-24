@@ -119,7 +119,7 @@ Sa huli ang`index.html` ay ang web page na gusto mong ipakita:
 
 ## Patakbuhin ang iyong app
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Kapag ginawa mo ang iyong inisyal `main.js`, `index.html`, at `package.json` mga files, Malamang gusto mong patakbuhin ang iyong app ng lokal para masubukan ito at tiyaking na gumagana ito tulad ng inaasahan.
 
 ### `electron`
 
