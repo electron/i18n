@@ -37,7 +37,7 @@ Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa 
 
 * `channel` String (opsyonal)
 
-Removes all listeners, or those of the specified `channel`.
+Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
