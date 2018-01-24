@@ -110,14 +110,14 @@ Sa huli ang`index.html` ay ang web page na gusto mong ipakita:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    Kami ay gumagamit ng node<script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    and Electron <script>document.write(process.versions.electron)</6.
   </body>
 </html>
 ```
 
-## Run your app
+## Patakbuhin ang iyong app
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
 
