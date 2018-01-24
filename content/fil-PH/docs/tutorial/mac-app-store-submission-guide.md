@@ -1,6 +1,6 @@
 # Gabay sa pagsmite sa Mac App Store
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng packaged apps sa Mac App Store (IMAS). Ang gabay na ito ay nagbibigay impormasyon sa: paano magsumite ng iyong app at ang limitasyon ng MAS build.
 
 **Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
