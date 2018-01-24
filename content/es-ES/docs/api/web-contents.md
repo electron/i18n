@@ -445,7 +445,7 @@ Devuelve:
 * `llamada de vuelta` Función 
   * `deviceId` String
 
-Emite cuando el dispositivo bluetooth necesita ser seleccionado en la llamada `navigator.bluetooth.requestDevice`. Para usar `navigator.bluetooth` api `webBluetooth` debe ser activada. Si no se llama `event.preventDefault` el primer dispositivo disponible será seleccionado. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Emite cuando el dispositivo bluetooth necesita ser seleccionado en la llamada `navigator.bluetooth.requestDevice`. Para usar `navigator.bluetooth` api `webBluetooth` debe ser activada. Si no se llama `event.preventDefault` el primer dispositivo disponible será seleccionado. `callback` puede ser llamado con `deviceId` ser seleccionado,.
 
 ```javascript
 const {app, webContents} = require('electron')
