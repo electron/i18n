@@ -34,22 +34,22 @@ npm paganahin ang prepare-release -- minor
 ### Patch bersyon ay nabago
 
 ```sh
-npm run prepare-release -- patch
+npm paganahin ang prepare-release -- patch
 ```
 
-### Beta version change
+### Beta bersyon ay nabago
 
 ```sh
-npm run prepare-release -- beta
+npm paganahin ang prepare-release -- beta
 ```
 
 ### Promote beta to stable
 
 ```sh
-npm run prepare-release -- --stable
+npm paganahin ang prepare-release -- stable
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## Hintayin ang pagkabuo ng :hourglass_flowing_sand:
 
 The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
