@@ -44,16 +44,16 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang fo             | Ay Faroese                 |
 | ang fr             | Ay French                  |
 | ang fr-CA          | Ay French (Canada)         |
-| ang fr-CH          | French (Switzerland)       |
-| fr-FR              | French (France)            |
-| fy                 | Frisian                    |
-| ga                 | Irish                      |
-| gd                 | Scots Gaelic               |
-| gl                 | Galician                   |
-| gn                 | Guarani                    |
-| gu                 | Gujarati                   |
-| ha                 | Hausa                      |
-| haw                | Ay Hawaiian                |
+| ang fr-CH          | Ay French Switzerland)     |
+| ang fr-FR          | Ay French (France)         |
+| ang fy             | Ay Frisian                 |
+| ang ga             | Ay Irish                   |
+| ang gd             | Ay Scots Gaelic            |
+| ang gi             | Ay Galician                |
+| ang gn             | Ay Guarani                 |
+| ang gu             | Ay Gujarati                |
+| ang ha             | Ay Hausa                   |
+| ang haw            | Ay Hawaiian                |
 | ang he             | Ay Hebrew                  |
 | ang hi             | Ay Hindi                   |
 | ang hr             | Ay Croatian                |
@@ -78,10 +78,10 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang ln             | Ay Lingala                 |
 | ang lo             | Ay Laothian                |
 | ang it             | Ay Lithuanian              |
-| ang lv             | Latvian                    |
-| mk                 | Macedonian                 |
-| ml                 | Malayalam                  |
-| mn                 | Mongolian                  |
+| ang lv             | Ay Latvian                 |
+| ang mk             | Ay Macedonian              |
+| ang mi             | Ay Malayalam               |
+| ang mn             | Mongolian                  |
 | mo                 | Moldavian                  |
 | mr                 | Marathi                    |
 | ms                 | Malay                      |
