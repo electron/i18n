@@ -53,7 +53,7 @@ Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `
 * `channel` String
 * `...args` anuman[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+Magbabalik ng `any` - Ang halaga ay ipinadala pabalik sa pamamagitan ng tagahawak ng [`ipcMain`](ipc-main.md).
 
 Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
