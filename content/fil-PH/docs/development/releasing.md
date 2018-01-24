@@ -1,11 +1,11 @@
 # Releasing
 
-This document describes the process for releasing a new version of Electron.
+Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng Electron.
 
 ## Determine which branch to release from
 
-- **If releasing beta,** run the scripts below from `master`.
-- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
+- ** kapag nailabas na ang beta,** patakbuhin ang scrip sa ilalim ng `master`.
+- ** kapag ang nilabas na ang bersyon at matatag na it.** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
 
 ## Find out what version change is needed
 
