@@ -44,11 +44,11 @@ Kung ini-click ng isang tagagamit ang isang file mula sa JumpList, ang isang ins
 
 Kung ang isang file ay hinihingi mula sa menu ng kagagamit lamang na mga dokumento, ang `open-file` na pangyayari ng module ng `app` ay mailalabas para dito.
 
-## Custom Dock Menu (macOS)
+## Karaniwang Dock Menu (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+Nagbibigay daan ang mga macOS na tagabuo sa pagtukoy sa karaniwang menu para sa dock, na madalas na naglalaman ng mga shortcut para sa karaniwang ginagamit na katangian ng iyong aplikasyon:
 
-**Dock menu of Terminal.app:**
+**Ang Dock Menu ng Terminal.app:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
