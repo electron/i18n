@@ -408,9 +408,9 @@ Devuelve:
   * `framseURL` String - URL de la parte inferior del marco que se invocó en el menú del contexto.
   * `srcURL` String - Source URL para el elemento que el menú del contexto fue invocado. Elementos con fuente URLs son imágenes, audio y video.
   * `mediaType` String - Tipo de nodo que el menú del contexto fue invocado. Puede ser `none`, `image`, `audio`, `video`, `canvas`, `file` o `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
+  * `<0>hasImageContents` Boolean - si el menú del contexto fue invocado en una imagen la cual tiene contenido no vacío.
+  * `isEditable` Boolean - Si el contexto es editable.
+  * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
   * `titleText` String - Title or alt text of the selection that the context was invoked on.
   * `misspelledWord` String - The misspelled word under the cursor, if any.
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
