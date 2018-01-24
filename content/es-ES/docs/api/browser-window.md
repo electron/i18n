@@ -917,21 +917,21 @@ Es igual a `webContents.reload`.
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Establece el `menú` como la barra del menú de la ventana, estableciéndolo a `null` eliminará la barra de menú.
 
 #### `win.setProgressBar(progress[, options])`
 
-* `progress` Double
-* `options` Objecto (opcional) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+* `progress` Doble
+* `options` Objeto (opcional) 
+  * `mode` String *Windows* - Modo para la barra de progreso. Puede ser `none`, `normal`, `indeterminate`, `error`, o `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Establece el valor del progreso en la barra de progreso. El rango válido es [0, 1.0].
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Elimina la barra de progreso cuando el progreso es < 0; cambia a modo indeterminado cuando el progreso es >1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto, se asumirá `app.getName().desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, `indeterminate`, `error`, y `paused`. Si se llama a`setProgressBar` sin establecer un modo (pero con un valor dentro del rango válido), se asumirá el modo `normal`.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
