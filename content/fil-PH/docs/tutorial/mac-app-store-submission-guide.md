@@ -20,7 +20,7 @@ Bago lagdaan ang iyong app, kailangan mong malaman ang Team ID ng iyong account.
 
 Matapos magtapos ang paghahanda ng gawain, maaari mong i-package ang iyong app sa pamamagitan ng pagsunod sa [Application Distribution](application-distribution.md), at pagkatapos ipagpatuloy lagdaan ang iyong app.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+Una, kailangan mong magdagdag ng isang `ElectronTeamID` na key sa app ng iyong `Info.plist`, kung saan may halaga ang iyong Team ID:
 
 ```xml
 <plist version="1.0">
