@@ -60,7 +60,7 @@ npm run prepare-release -- --stable
 
 ## 编译发布说明
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+编写发行说明是在生成运行时保持忙碌的好方法。 有关以前的技术, 请参阅 [ 发布页 ](https://github.com/electron/electron/releases) 上的现有版本。
 
 Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
@@ -157,10 +157,10 @@ Tips: - Each listed item should reference a PR on electron/electron, not an issu
 
 1. 访问 [发行页面](https://github.com/electron/electron/releases) 然后你将看到一个新的带有发行说明的草稿版本.
 2. 编辑版本并添加发行说明.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
+3. 如果要发布稳定版本, 请取消选中 `prerelease` 复选框。让它检查测试版。
 4. 点击 'Save draft'. **不要点 'Publish release'!**
-5. Wait for all builds to pass before proceeding.
-6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
+5. 等待所有生成通过, 然后再继续。
+6. 您可以运行 `npm run release --validateRelease` 来验证是否已为该版本创建了所有所需的文件。
 
 ## 合并临时分支
 
@@ -186,28 +186,28 @@ Once the merge has finished successfully, run the `release` script via `npm run 
 
 一旦发布成功，运行 `npm run publish-to-npm` 发布到 npm。
 
-## Fix missing binaries of a release manually
+## 手动修复发行版的缺失二进制文件
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+在发布版本受损的情况下，则可能需要重新上传已发布版本的二进制文件。
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+第一步是转到[Releases](https://github.com/electron/electron/releases)页面，并使用 `SHASUMS256.txt`校验文件和删除损坏的二进制文件。
 
-Then manually create distributions for each platform and upload them:
+然后手动为每个平台创建分发并上传它们：
 
 ```sh
-# Checkout the version to re-upload.
+# 检出要重新上传的版本。
 git checkout vTHE.RELEASE.VERSION
 
-# Do release build, specifying one target architecture.
+# 发布构建，指定一个目标体系结构。
 ./script/bootstrap.py --target_arch [arm|x64|ia32]
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+# 明确允许覆盖已发布的版本.
 ./script/upload.py --overwrite
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+重新上传所有发行版之后，再次发布以上载校验和文件：
 
 ```sh
 npm run release
