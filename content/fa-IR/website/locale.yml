@@ -7,8 +7,9 @@ nav:
   userland: فضای کاربری
   releases: نسخه‌ها
   contact: تماس با ما
-  languages: زبان‌ها
+  languages: زبان‌ ها
   code_of_conduct: منشور اخلاقی
+  search: Search
 docs:
   title: مستندات الکترون
   description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: اگر این یک خطا است
   please_file_an_issue: لطفا یک مشکل ثبت کنید.
 search:
-  description: داخل مستندات الکترون و انجمن جستجو کنید.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: and
+    repos: <a href="/search/repos">GitHub repos</a>
