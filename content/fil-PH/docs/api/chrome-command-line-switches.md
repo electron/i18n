@@ -16,11 +16,11 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ipagsawalang bahala ang limitasyon ng iyong koneksyon ng `domains` para paghiwahiwalayin ang mga `,`.
+Ipagsawalang bahala ang limitasyon ng koneksyon para sa `domains` pagbukudin ang listahan ng `,`.
 
 ## --disable-http-cache
 
-Wag paganahin ang dish cache para sa kahilingan ng HTTP.
+Wag paganahin ang disk cache para sa kahilingan ng HTTP.
 
 ## --disable-http2
 
