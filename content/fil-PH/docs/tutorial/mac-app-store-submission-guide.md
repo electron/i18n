@@ -1,4 +1,4 @@
-# Gabay sa pagsumite sa Mac App Store
+# Gabay sa pagsmite sa Mac App Store
 
 Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
 
