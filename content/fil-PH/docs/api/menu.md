@@ -214,9 +214,9 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Ang mga tala sa Menu ng Aplikasyon sa macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula saWindows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
 
-### Standard Menus
+### Mga pamantayan ng Menu
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
