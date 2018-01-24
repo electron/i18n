@@ -561,28 +561,28 @@ Minimiza la ventana. En algunas plataformas se mostrará la ventana minimizada e
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Restaura la ventana desde un estado minimizado a su estado previo.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Devuelve `Boolean` - Si la ventana está minimizada o no.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Booleano
 
-Sets whether the window should be in fullscreen mode.
+Establece si la ventana debe estar o no en modo pantalla completa.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Devuelve `Boolean` - Si la ventana está o no en pantalla completa.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Flotador - La relación de aspecto para mantener parte de la vista de contenido.
+* `extraSize` [Size](structures/size.md) - El tamaño extra no se incluye mientras se mantiene la relación de aspecto.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Esto hará que la ventana mantenga una relación de aspecto. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
 Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
 
