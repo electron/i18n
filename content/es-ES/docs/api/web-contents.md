@@ -239,13 +239,13 @@ Devuelve:
 * `name` String
 * `version` String
 
-Emitted when a plugin process has crashed.
+Emitido cuando el proceso de enchufe se ha caído.
 
-#### Event: 'destroyed'
+#### Evento: 'destroyed'
 
-Emitted when `webContents` is destroyed.
+Emitido cuando `webContents` es destruido.
 
-#### Event: 'before-input-event'
+#### Evento: 'before-input-event'
 
 Devuelve:
 
@@ -260,7 +260,7 @@ Devuelve:
   * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
 
-Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
 
 To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
 
