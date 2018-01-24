@@ -1,16 +1,16 @@
-## Class: TouchBar
+## Klase : TouchBar
 
-> Create TouchBar layouts for native macOS applications
+> Gumawa ng TouchBar layout para sa native macOS na aplikasyon.
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proseso: [Main](../tutorial/quick-start.md#main-process)
 
-### `new TouchBar(options)` *Experimental*
+### `bagong TouchBar(pagpipilian)`*Experimental*
 
 * `mga pagpipilian` Bagay 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (opsyonal) 
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+Gumawa ng bagong touch bar kasama ang mga tinukoy na aytem. Gamitin ang `BrowserWindow.setTouchBar` para idagdag `TouchBar` sa isang window. 
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
