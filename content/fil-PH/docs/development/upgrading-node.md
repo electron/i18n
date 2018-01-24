@@ -53,12 +53,12 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
     - isagawa lahat ng mga pagtatanggal
 4. Inspeksyunin ang Node [repo](https://github.com/electron/node) para makita kung anong patches upstream Node ang gumamit ng kanilang sariling V8 pagkatapos makasira ito sa bersyon 
   - `git log --oneline deps/V8`
-5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
-6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
-  - Delete each patchfile referenced in `patches/v8/README.md`
-7. For each patch, do: 
-  - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` is an incremented three-digit number (to force patch order)
+5. Gumawa ng listahan para sa patches. Ito ay nakakatulong para sa pagsubaybay sa iyong gawain at para may mabilis na kasanggunian ng commit hashes na magagamit sa `git diff-tree` mga hakbang na nasa ibaba.
+6. Basahin ang `patches/v8/README.md` para makita kung aling patchfiles galing sa nakaraang bersyon sa V8 at kinakailangang tanggalin. 
+  - Tanggalin bawat patchfile na binanggit sa `patches/v8/README.md`
+7. Para sa bawat patch, gawin ang mga sumusunod: 
+  - (Sa node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
+    - `xxx` ay isang three-digit incremented na numero (para pilitin ang kaayusan ng patch)
     - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
   - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
     - If a diff section has no instances of `deps/V8`, remove it altogether. 
