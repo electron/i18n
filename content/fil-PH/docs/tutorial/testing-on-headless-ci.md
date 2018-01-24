@@ -1,6 +1,6 @@
-# Testing on Headless CI Systems (Travis CI, Jenkins)
+# Pagsusuri sa Headless na mga Cl System (Travis Cl, Jenkins)
 
-Being based on Chromium, Electron requires a display driver to function. If Chromium can't find a display driver, Electron will simply fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+Dahil nababase ito sa Chromium, ang Electron ay nangangailangan ng isang driver na pang-display upang gumana. Kung hindi makakakita ng driver na pang-display ang Chromium, ang Electron ay papalya sa paglunsad, at sa madaling salita, hindi makapagpagana ng kahit isa sa iyong mga pagsusuri, anuman ang paraan mo ng pagpapatakbo nito. Ang pagsusuri sa mga app na nakabatay sa Electron sa Travis, Circle, Jenkins o mga katulad na mga sistema, sa madaling salita, ay nangangailangan ng kaunting konpigurasyon. In essence, we need to use a virtual display driver.
 
 ## Configuring the Virtual Display Server
 
