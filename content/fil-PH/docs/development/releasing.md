@@ -64,7 +64,7 @@ Isulatang mga talang nailabas na ito ay mabuting paraan upang mapanatiling abala
 
 Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Paglabas ng patch
 
 For a `patch` release, use the following format:
 
