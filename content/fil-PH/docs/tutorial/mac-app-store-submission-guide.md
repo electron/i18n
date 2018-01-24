@@ -6,9 +6,9 @@ Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng packaged apps sa Mac
 
 ## Paano mag-sumite ng Iyong App
 
-Ang sumusunod na hakbang ay nagpapakilala ng simpleng paraan upang isumite ang iyong app sa Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+Ang sumusunod na hakbang ay nagpapakilala ng simpleng paraan upang isumite ang iyong app sa Mac App Store. Ngunit, ang mga hakbang na ito ay hindi matitiyak na maapruban ng Apple ang iyong app; kailangan mo parin basahin ang hakbang ng [Pagsumite ng Iyong App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) ng Apple upang matugunan ang pangangailangan ng Mac App Store.
 
-### Get Certificate
+### Kumuha ng Sertipiko
 
 To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
 
