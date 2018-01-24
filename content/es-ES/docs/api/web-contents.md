@@ -412,9 +412,9 @@ Devuelve:
   * `isEditable` Boolean - Si el contexto es editable.
   * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
   * `titleText` String - Título o texto alt de la selección la cual el contexto fue invocado.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+  * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
+  * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
+  * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
   * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
     * `inError` Boolean - Whether the media element has crashed.
