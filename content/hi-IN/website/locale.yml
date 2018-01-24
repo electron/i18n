@@ -9,6 +9,7 @@ nav:
   contact: संपर्क
   languages: भाषायें
   code_of_conduct: आचार संहिता
+  search: Search
 docs:
   title: इलेक्ट्रान दस्तावेज़ीकरण
   description: <a href="/docs/all">एक ही पेज पर सभी दस्तावेज़</a> देखें या फ़िर <a href="/docs/faq">अक्सर पूछे जाने वाले सवाल (FAQ)</a> पढ़ें |
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: यदि यह कोई त्रुटि है
   please_file_an_issue: कृपया समस्या दर्ज करें ।
 search:
-  description: इलेक्ट्रॉन दस्तावेज़ और समुदाय के भीतर खोजें ।
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: and
+    repos: <a href="/search/repos">GitHub repos</a>
