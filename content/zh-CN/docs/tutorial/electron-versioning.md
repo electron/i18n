@@ -2,7 +2,7 @@
 
 > 详细查看我们的版本控制策略和实现。
 
-从版本 2.0.0, Electron遵循 [ semver ](#semver)。以下命令将安装Electron最新稳定的版本:
+从版本 2.0.0, Electron 遵循 [ semver ](#semver)。以下命令将安装 Electron 最新稳定的版本:
 
 ```sh
 npm install --save-dev electron
@@ -16,29 +16,29 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-Electron版本 * < 2.0 * 不符合 [ semver ](http://semver.org) 规范。 主版本号对应于 end-user API 的变化。 次版本号对应于Chromium的主版本的发布 修订号对应于新功能和bug修复。 While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron版本 * < 2.0 * 不符合 [ semver ](http://semver.org) 规范。 主版本号对应于 end-user API 的变化。 次版本号对应于Chromium的主版本的发布 修订号对应于新功能和bug修复。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
-Here is an example of the 1.x strategy:
+以下是 1.x 策略的一个例子：
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+使用 `1.8.1`开发的应用程序无法吸收 `1.8.2 ` 的功能，或者通过反向移植修复和维护新的发行版，无法采用 `1.8.3`错误修复。
 
-## Version 2.0 and Beyond
+## 版本 2.0 和之后版本
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+下面列出的 1.x 策略有几个主要的变化。 每个更改都是为了满足开发人员/维护人员和应用程序开发人员的需求和优先级。
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. 严格使用 semver
+2. 引入符合 semver 的 `-beta` 标签
+3. 引入[常规提交消息](https://conventionalcommits.org/)
+4. 明确定义的稳定分支
+5. `master` 分支是无版本的; 只有稳定性分支包含版本信息
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+我们将详细介绍 git 分支是如何工作的，npm 标记是如何工作的，开发人员应该看到什么，以及如何能够支持更改。
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+从 2.0 开始，Electron 将遵循 semver。
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
@@ -56,7 +56,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 
 Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
-# Stabilization Branches
+# 稳定分支
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
@@ -68,7 +68,7 @@ We allow for multiple stabilization branches to exist simultaneously, and intend
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
-# Beta Releases and Bug Fixes
+# 测试版和Bug修复
 
 Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
@@ -142,7 +142,7 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
 
-# Versionless `master`
+# 无版本的 `master`
 
 * The `master` branch will always contain `0.0.0-dev` in its `package.json`
 * Release branches are never merged back to master
