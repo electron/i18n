@@ -443,7 +443,7 @@ Devuelve `Object` - Las llaves son los nombres de la extensión y cada valor es 
 
 Añade una extensión de DevTools ubicada en `path`, y devuelve el nombre de la extensión.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+La extensión será recordada, por lo tanto sólo se necesitará llamar a la API una vez. Esta API no es para uso de la programación. Si se intenta añadir una extensión que ya ha sido cargada, este método no devolverá nada y en su lugar aparecerá una advertencia en la consola.
 
 El método no devolverá nada si el manifiesto de la extensión falta o está incompleta.
 
@@ -451,9 +451,9 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `name` Cadena
 
-Remove a DevTools extension by name.
+Elimina una extensión de Devtools mediante su nombre.
 
 **Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
@@ -461,7 +461,7 @@ Remove a DevTools extension by name.
 
 Devuelve `Object` - Las llaves son los nombres de la extensión y cada valor es un objeto que contiene las propiedades `name` y `version`.
 
-To check if a DevTools extension is installed you can run the following:
+Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -474,18 +474,18 @@ console.log(installed)
 
 ### Propiedades de Instancia
 
-Objects created with `new BrowserWindow` have the following properties:
+Los objetos creados con `new BrowserWindow` tienen las siguientes propiedades:
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// En este ejemplo `win` es nuestra instancia
+// En este ejemplo "win" es nuestra instancia
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Un objeto `WebContents` que posee la ventana. Todas eventos y operaciones relacionados a las páginas web ocurrirán por medio del objeto.
 
 See the [`webContents` documentation](web-contents.md) for its methods and events.
 
