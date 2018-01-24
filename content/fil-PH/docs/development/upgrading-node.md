@@ -59,12 +59,12 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
 7. Para sa bawat patch, gawin ang mga sumusunod: 
   - (Sa node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
     - `xxx` ay isang three-digit incremented na numero (para pilitin ang kaayusan ng patch)
-    - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
-  - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
-    - If a diff section has no instances of `deps/V8`, remove it altogether. 
-      - We don’t want those patches because we’re only patching V8.
-    - Replace instances of `a/deps/v8/filename.ext` with `a/filename.ext` 
-      - This is needed because upstream Node keeps its V8 files in a subdirectory
+    - `patch_name` dapat ay maluwag na tugma sa node commit messages e.g. `030-cherry_pick_cc55747,patch` kung ang Node commit message ay "cherry-pick cc55747"
+  - (mga natitirang hakbang sa libchromium repo) Mano-manong i-edit ang `.patch` file para itugma sa upstream V8's direktoryo: 
+    - Kung ang diff na seksyon ay walang mga pagkakataon ng `deps/V8`, tanggalin ito lahat ng sabay. 
+      - Hindi natin kailangan yung mga patches na iyon kasi nagpa-patch lang tayo sa V8.
+    - Palitan ang mga pagkakataon ng `a/deps/v8/filename.ext` na may `a/filename.ext` 
+      - Ito'y kailangan dahil ang upstream Node ay nagpapanatili sa V8 file sa isang subdirectory
   - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
   - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
   - Create a new copy of the patch: 
