@@ -43,7 +43,7 @@ npm paganahin ang prepare-release -- patch
 npm paganahin ang prepare-release -- beta
 ```
 
-### Promote beta to stable
+### Pataasin ang beta para maging maayos
 
 ```sh
 npm paganahin ang prepare-release -- stable
