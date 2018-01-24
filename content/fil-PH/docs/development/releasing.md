@@ -7,7 +7,7 @@ Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng El
 - ** kapag nailabas na ang beta,** patakbuhin ang scrip sa ilalim ng `master`.
 - ** kapag ang nilabas na ang bersyon at matatag na it.** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
 
-## Find out what version change is needed
+## Hanapin kung aling bersyon ang nabago ito ay kinakailangan
 
 Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
