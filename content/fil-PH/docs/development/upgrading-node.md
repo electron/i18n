@@ -107,9 +107,9 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
   - Hal. electron, libcc, at node
 - Hindi namin maiging sinusubaybayan ang upstream dahil sa logistics: 
   - Ang upstreams ay gumagamit ng maraming repos at ang pagsasama nito sa isang repo ay magdudulot ng kawalan ng resulta sa history. Kung kaya nagu-update lang kami kung may planong pagbump ng node sa elektron.
-- libcc is large and time-consuming to update, so we typically choose the node version based on which of its releases has a version of V8 that’s closest to the version in libcc that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
-  - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
+- ang libcc ay malaki at napakatagal mag-update, kung kaya't karaniwang pinipili ang node bersyon ay base sa release ng bersyon ng V8 na pinakamalapit sa bersyon ng libcc na ating ginagamit. 
+  - Minsan kailangan rin nating maghintay para sa susunod na Node release dahil ito'y isy-sync malapit sa bersyon ng V8 sa bago nitong libcc
+  - Ipinapanatili ng elektron lahat ng patches sa libcc dahil ito'y mas simple kaysa pag papanatili ng iba't-ibang repos para sa patches para sa bawat upstream na proyekto. 
+    - Crashpad, node, libcc, atbp. patches ay nakatago lahat sa iisang lugar
+  - Paggawa ng Node: 
     - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
