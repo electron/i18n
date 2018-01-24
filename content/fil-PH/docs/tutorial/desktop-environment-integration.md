@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Upang alisin ang thumbnail toolbar na pipindutin, tawagin lang ang `BrowserWindow.setThumbarButtons` gamit ang blankong array:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,19 +157,19 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Mga Shortcut sa Unity Launcher (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Sa Unity, pwede kang magdagdag ng mga entry sa kanyang launcher sa pamamagitan ng pagbabago sa `.desktop` na file, tingnan ang [Pagdagdag ng mga Shortcut sa isang Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Ang mga Launcher shortcut ng Audacious:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Ang Progress Bar sa Taskbar (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Sa Windows, may isang pipindutin na pwedeng magagamit upang ipakita ang progress bar. Binibigyang daan nito ang isang window na makakapagbigay ng impormasyon sa katayuan sa isang tagagamit nang hindi na kailangang palitan ang window nito.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Sa macOs, ang progress bar ay maipapakita bilang isang bahagi ng dock icon.
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
