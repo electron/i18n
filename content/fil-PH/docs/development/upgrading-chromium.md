@@ -96,9 +96,9 @@ Tingnan [pag-upgrade ng Node](upgrading-node.md) para sa mga instruksiyon tungko
 
 ## I-verify ang suporta ng ffmpeg
 
-Electron ships na may bersyon ng `ffmpeg` kabilang dito ang proprietary codecs sa pamamagitan ng default. Ang isang bersyon na walang mga codec na ito ay binuo at ipinamamahagi sa bawat release din. Each Chrome upgrade should verify that switching this version is still supported.
+Electron ships na may bersyon ng `ffmpeg` kabilang dito ang proprietary codecs sa pamamagitan ng default. Ang isang bersyon na walang mga codec na ito ay binuo at ipinamamahagi sa bawat release din. Dapat i-verify ng bawat pag-upgrade ng Chrome na lumipat sa bersyong ito ay sinusuportahan pa rin.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Maaaari mong i-verify ang suporta ng Electron para sa maramihang `ffmpeg` builds sa pamamagitan ng paglo-load ng sumusunod na pahina. Dapat itong gumana sa default `ffmpeg` ipinamahagi ang librerya na may Electron at hindi gumagana sa `ffmpeg` ang librerya ay itinayo nang walang proprietary codecs.
 
 ```html
 <!DOCTYPE html>
@@ -126,10 +126,12 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
     </script>
   </body>
 </html>
+ 
+Context | Request Context
 ```
 
-## Useful links
+## Mga kapakipakinabang na link
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Chrome Release Iskedyul](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Chromium Isyu Tracker](https://bugs.chromium.org/p/chromium)
