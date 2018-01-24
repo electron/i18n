@@ -87,19 +87,19 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang ms             | Ay Malay                   |
 | ang mt             | Ay Maltese                 |
 | ang nb             | Ay Norwegian (Bokmal)      |
-| ne                 | Nepali                     |
-| nl                 | Dutch                      |
-| nn                 | Norwegian (Nynorsk)        |
-| no                 | Norwegian                  |
-| oc                 | Occitan                    |
-| om                 | Oromo                      |
-| or                 | Oriya                      |
-| pa                 | Punjabi                    |
-| pl                 | Polish                     |
-| ps                 | Pashto                     |
-| pt                 | Portuguese                 |
-| pt-BR              | Portuguese (Brazil)        |
-| pt-PT              | Portuguese (Portugal)      |
+| ang ne             | Ay Nepali                  |
+| ang nl             | Ay Dutch                   |
+| ang nn             | Ay Norwegian (Nynorsk)     |
+| ang no             | Ay Norwegian               |
+| ang oc             | Ay Occitan                 |
+| ang om             | Ay Oromo                   |
+| ang or             | Ay Oriya                   |
+| ang pa             | Ay Punjabi                 |
+| ang pl             | Ay Polish                  |
+| ang ps             | Ay Pashto                  |
+| ang pt             | Ay Portuguese              |
+| ang pt-BR          | Ay Portuguese (Brazil)     |
+| ang pt-PT          | Portuguese (Portugal)      |
 | qu                 | Quechua                    |
 | rm                 | Romansh                    |
 | ro                 | Romanian                   |
