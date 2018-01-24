@@ -87,7 +87,7 @@ Magbabalik ng:
 * `event` Event
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
 Objects created with `new Notification` have the following instance methods:
 
