@@ -14,11 +14,11 @@ Pinabilis na GPU rendering na ang ibig sabihin ay ginagamit ang GPU para sa komp
 
 ### Software output device
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Ang mode ay gumagamit ng software output device para sa rendering ng CPU, kaya ang frame generation ay mas mabilis, kaya naman ang mode na ito ay ginustong sa ibabaw ng mas pinabilis na isang GPU.
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Upang paganahin ang mode na ito ng GPU acceleration ay dapat hindi paganahin sa pamamagitan ng pagtawag sa[`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-## Usage
+## Paggamit
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -38,4 +38,6 @@ app.once('ready', () => {
   })
   win.webContents.setFrameRate(30)
 })
+ 
+Context | Request Context
 ```
