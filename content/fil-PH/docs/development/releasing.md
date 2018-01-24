@@ -91,23 +91,23 @@ Para sa `patch` na nilabas, gumamit ng mga sumusunod na format:
 Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 
 ```sh
-- Itinaas ang Node ' mula sa lumang bersyon' patungo sa 'bagong berston'. #123
+- Itinaas ang Node ' mula sa lumang bersyon' patungo sa 'bagong berston'. #123 
 
-## API Changes
+## Mga pagbabago sa ApI 
 
-* Changed a thing. #123
+* Nabago ang isang bahagi. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Nabago ang isang bahagi ng Linux. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* Nabago ang isang bahagi macOS. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Nabago ang isang bahagi Windows. #123
 ```
 
 ### Major releases
@@ -124,15 +124,15 @@ Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Nabago ang isang bahagi ng Linux. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* Nabago ang isang bahagi macOS. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Nabago ang isang bahagi Windows. #123
 
 ## Other Changes
 
