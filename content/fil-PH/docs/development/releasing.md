@@ -2,7 +2,7 @@
 
 Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng Electron.
 
-## Alamin kung aling sangay na-mula
+## Alamin kung aling sangay nagmula ang ilalabas
 
 - ** kapag nailabas na ang beta,** patakbuhin ang scrip sa ilalim ng `master`.
 - ** kapag ang nilabas na ang bersyon at matatag na it.** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
@@ -110,7 +110,7 @@ Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 * Nabago ang isang bahagi Windows. #123
 ```
 
-### Major releases
+### Mga pangunahing nilabas
 
 ```sh
 ## Upgrades
