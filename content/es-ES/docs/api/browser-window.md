@@ -759,19 +759,19 @@ Mueve la ventana a `x` y `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Devuelve `Integer[]` - Contiene la posición actual de la ventana.
 
 #### `win.setTitle(title)`
 
 * `title` Cadena
 
-Changes the title of native window to `title`.
+Cambia el título de la ventana nativa a `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Devuelve `String` - El título de la ventana nativa.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Nota:** El título de la página web puede ser diferente del título de la ventana nativa.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
