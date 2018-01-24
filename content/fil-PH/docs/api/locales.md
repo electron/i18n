@@ -81,12 +81,12 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang lv             | Ay Latvian                 |
 | ang mk             | Ay Macedonian              |
 | ang mi             | Ay Malayalam               |
-| ang mn             | Mongolian                  |
-| mo                 | Moldavian                  |
-| mr                 | Marathi                    |
-| ms                 | Malay                      |
-| mt                 | Maltese                    |
-| nb                 | Norwegian (Bokmal)         |
+| ang mn             | Ay Mongolian               |
+| ang mo             | Ay Moldavian               |
+| ang mr             | Ay Marathi                 |
+| ang ms             | Ay Malay                   |
+| ang mt             | Ay Maltese                 |
+| ang nb             | Ay Norwegian (Bokmal)      |
 | ne                 | Nepali                     |
 | nl                 | Dutch                      |
 | nn                 | Norwegian (Nynorsk)        |
