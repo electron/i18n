@@ -23,11 +23,11 @@ Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`:
 #### `touchBar.escapeItem
  `
 
-Ang `TouchBarButton` na papalitan ng "esc" button sa touch bar ng set. Setting na`null` nagbabalik ng default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+Ang `TouchBarButton` na papalitan ng "esc" button sa touch bar ng set. Setting na`null` nagbabalik ng default "esc" button. Ang pagbabago ng value ay kaagad na nag nag-aapdeyt sa escape item sa touch bar.
 
-## Examples
+## Halimbawa
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+Sa ibaba ay halimbawa ng simpleng laro ng slot machine touch bar kasama ang button na may mga pangalan.
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -49,9 +49,9 @@ const spin = new TouchBarButton({
   label: '
 ```
 
-### Running the above example
+### Pinapatakbo ang mga halimbawa sa taas.
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+Para patakbohin ang mga halimbawa sa taas, dapat kang (ipagpapalagay na mayroong kang terminal open sa direktori na gusto mong patakbuhin na halimbawa.
 
 1. Save the above file to your computer as `touchbar.js`
 2. Install Electron via `npm install electron`
