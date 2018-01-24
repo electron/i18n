@@ -59,19 +59,19 @@ Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
   * `async` Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito ay tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Ang mga default para sa `false`.
   * `positioningItem` Number (opsyonal) *macOS* - Ang indise ng mga aytem ng menu upang maging nakaposisyon sa ilalim ng cursor ng mouse sa tinukoy na pagkakatugma. Ang default ay -1.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Pasulputin ang menu na ito bilang isang menu ng konteksto sa `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
 * `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
 
-Closes the context menu in the `browserWindow`.
+Isinasara ang konteksto ng menu sa `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` MenuItem
+* `menuItem` Ang MenuItem
 
-Appends the `menuItem` to the menu.
+Idinagdag ang `menuItem` sa menu.
 
 #### `menu.insert(pos, menuItem)`
 
@@ -82,7 +82,7 @@ Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
 ### Katangian ng mga pag-aari
 
-`menu` objects also have the following properties:
+Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
 
 #### `menu.items`
 
