@@ -94,9 +94,9 @@ Mag-upgrade `vendor/node` sa release ng Node na tumutugon sa v8 na bersyon na gi
 
 Tingnan [pag-upgrade ng Node](upgrading-node.md) para sa mga instruksiyon tungkol dito.
 
-## Verify ffmpeg support
+## I-verify ang suporta ng ffmpeg
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron ships na may bersyon ng `ffmpeg` kabilang dito ang proprietary codecs sa pamamagitan ng default. Ang isang bersyon na walang mga codec na ito ay binuo at ipinamamahagi sa bawat release din. Each Chrome upgrade should verify that switching this version is still supported.
 
 You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
 
