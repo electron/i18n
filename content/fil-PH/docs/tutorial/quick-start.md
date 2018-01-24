@@ -181,9 +181,9 @@ Pagkatapos mong magsulat ng iyong app, pwede kang gumawa ng distribusyon sa pama
 
 ### Subukan ang mga halimbawang ito
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Iclone at magpatakbo ng code sa tutorial sa pamamagitan ng[`electron/electron-madaling-pagsisimula`](https://github.com/electron/electron-quick-start) imbakan.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Note**:Tumatakbo ang mga ito na nangangailangan ng [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (na kinabibilangan ng[npm](https://npmjs.org))sa iyong sistema.
 
 ```sh
 # Clone the repository
