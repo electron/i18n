@@ -11,6 +11,7 @@ const locales = require('../lib/locales')
 const hrefType = require('href-type')
 const URL = require('url')
 const packageJSON = require('../package.json')
+const getIds = require('get-crowdin-file-ids')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -21,7 +22,11 @@ const categoryNames = {
   tutorial: 'Guides'
 }
 
+let ids = {}
+
 async function parseDocs () {
+  ids = await getIds('electron')
+
   const IGNORE_PATTERN = '<!-- i18n-ignore -->'
 
   console.time('parsed docs in')
@@ -45,17 +50,22 @@ async function parseFile (file) {
   // derive category from file path
   // {locale}/docs/api/{filename} -> api
   file.category = file.relativePath
-    .split(path.sep)
+    .split('/') // path.sep => /, separator in file.relativePath is just / in any OS
     .slice(2, -1)
-    .join(path.sep)
+    .join('/')
 
   // nice categories for use in nav
   file.categoryFancy = categoryNames[file.category]
 
-  file.href = path.join('/docs', file.category, file.slug)
+  file.href = `/docs/${file.category}/${file.slug}`.replace('//', '/')
 
   // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
+
+  if (file.locale !== 'en-US') {
+    // goto exactly translate URL
+    file.translateUrl = `https://crowdin.com/translate/electron/${ids[`master/content/en-US${file.href}.md`]}/en-${locales[file.locale].stats.code}`
+  }
 
   // convenience booleans for use in templates
   file.isTutorial = file.category === 'tutorial'
@@ -73,30 +83,48 @@ async function parseFile (file) {
     $('h2').first().text().replace('Class: ', '')
   file.description = $('blockquote').first().text().trim()
 
+  const dirname = path.dirname(file.href)
+
   // fix HREF for relative links
   $('a').each((i, el) => {
     const href = $(el).attr('href')
     const type = hrefType(href)
+
     if (type !== 'relative' && type !== 'rooted') return
-    const dirname = path.dirname(file.href)
-    const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
+
+    let newHref = href
+    if (href.startsWith('../')) {
+      newHref = path.resolve(dirname, href.replace(/\.md/, ''))
+              // need to have this two lines because of
+              // `path.resolve` will return C:\\ (in Windows) if it's root (/)
+              .replace(/C:\\/g, '/')
+              .replace(/\\/g, '/')
+    }
+
     $(el).attr('href', newHref)
   })
 
   // fix SRC for relative images
   $('img').each((i, el) => {
     const baseUrl = 'https://cdn.rawgit.com/electron/electron'
-    const dirname = path.dirname(file.href)
     let src = $(el).attr('src')
     const type = hrefType(src)
+
     if (type !== 'relative' && type !== 'rooted') return
 
     // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
-    src = path.resolve(dirname, src)
+    if (src.startsWith('../')) {
+      src = path.resolve(dirname, src)
+              // the same with line 88
+              .replace(/C:\\/g, '/')
+              .replace(/\\/g, '/')
+    }
 
-    const newSrc = file.isApiDoc
+    let newSrc = file.isApiDoc
       ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
       : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
+
+    newSrc = newSrc.replace(/[^:](\/\/)/g, '/')
 
     const parsed = URL.parse(newSrc)
     parsed.path = path.normalize(parsed.path)
