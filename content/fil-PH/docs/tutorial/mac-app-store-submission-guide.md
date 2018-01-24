@@ -2,11 +2,11 @@
 
 Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng packaged apps sa Mac App Store (IMAS). Ang gabay na ito ay nagbibigay impormasyon sa: paano magsumite ng iyong app at ang limitasyon ng MAS build.
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**Palatandaan:** Ang pagsumite ng app sa Mac App Store ay nangangailangan ng pag-enrol ng [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), kung saan nagkakahalaga ng pera.
 
-## How to Submit Your App
+## Paano mag-sumite ng Iyong App
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+Ang sumusunod na hakbang ay nagpapakilala ng simpleng paraan upang isumite ang iyong app sa Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
 
 ### Get Certificate
 
