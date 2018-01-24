@@ -99,7 +99,7 @@ Halimbawa:
     --auth-server-whitelist='*example.com, *foobar.com, *baz'
     
 
-then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
+ang anumang `url` na nagtatapos sa `example.com`,`foobar.com`, `baz` ay isinaalang-alang Para sa pinagsama-samang pag papatunay. Walang `*` ang prefix ng url ay kailangang tugmang-tugma.
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
