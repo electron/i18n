@@ -60,7 +60,7 @@ Ang `prepare-release` script ang nag-trigger ng pag buo ang via API calls. para 
 
 ## Tipunin ang mga talang nailabas na
 
-Isulatang mga talang nailabas na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo pa ang pagbuo. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Isulatang mga talang nailabas na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo pa ang pagbuo. Para sa bagong art, tingnan ung mga dating nailabas na sa [the releases page](https://github.com/electron/electron/releases).
 
 Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
@@ -91,9 +91,7 @@ Para sa `patch` na nilabas, gumamit ng mga sumusunod na format:
 Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 
 ```sh
-## Upgrades
-
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Itinaas ang Node ' mula sa lumang bersyon' patungo sa 'bagong berston'. #123
 
 ## API Changes
 
