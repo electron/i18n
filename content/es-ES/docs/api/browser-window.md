@@ -731,29 +731,29 @@ Establece si la ventana puede ser cerrada manualmente por el usuario. En Linux n
 
 Devuelve `Boolean` - Si la ventana puede ser o no cerrada manualmente por el usuario.
 
-En Linux siempre devuelve `verdadero`.
+En Linux siempre devuelve `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Booleano
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` Cadena (opcional) *macOS* - Los valores incluyen `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Obsoleto). Por defecto es `floating`. Para más detalles, ver [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels).
+* `relativeLevel` Entero (opcional) *macOS* - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es ``. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Establece si la ventana debe mostrarse siempre encima de otras ventanas. Después de establecer esta opción, la ventana sigue siendo una ventana normal, no una ventana de herramientas sobre la cual no puede ser enfocada.
 
 #### `win.isAlwaysOnTop()`
 
-Devuelve `Booleano` - Si la ventana siempre está sobre de otras ventanas.
+Devuelve `Booleano` - Si la ventana está siempre sobre las otras ventanas.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Mueve la ventana al centro de la pantalla.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Íntegro
-* `y` Íntegro
-* `animate` Booleano (optional) *macOS*
+* `x` Entero
+* `y` Entero
+* `animate` Booleano (opcional) *macOS*
 
 Mueve la ventana a `x` y `y`.
 
