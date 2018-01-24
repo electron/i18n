@@ -4,15 +4,15 @@
 
 Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lokal. Ang posibleng halaga ay nakalista sa ibaba:
 
-| Code ng Lengguwahe | Language Name           |
+| Code ng Lengguwahe | Pangalan ng Lengguwahe  |
 | ------------------ | ----------------------- |
-| af                 | Afrikaans               |
-| am                 | Amharic                 |
-| ar                 | Arabic                  |
-| az                 | Azerbaijani             |
-| be                 | Belarusian              |
-| bg                 | Bulgarian               |
-| bh                 | Bihari                  |
+| ang af             | Ay Afrikaans            |
+| ang am             | Ay Amharic              |
+| ang ar             | Ay Arabic               |
+| ang az             | Ay Azerbaijani          |
+| ang be             | Ay Belarusian           |
+| ang bg             | Ay Bulgarian            |
+| ang bh             | Bihari                  |
 | bn                 | Bengali                 |
 | br                 | Breton                  |
 | bs                 | Bosnian                 |
