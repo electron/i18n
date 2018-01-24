@@ -4,15 +4,15 @@
 
 Mga proseso: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+Ang mga bagay sa `BrowserWindowProxy` ay bumabalik mula sa `window.open` at nagbibigay ng limitadong pag-andar sa maliliit na window.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
-The `BrowserWindowProxy` object has the following instance methods:
+Ang mga bagay sa `BrowserWindowProxy` ay mayroon ng mga sumusunod pamamaraan ng pagkakataon:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Tinatanggal ang pokus mula sa maliit na window.
 
 #### `win.close()`
 
