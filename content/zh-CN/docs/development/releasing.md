@@ -7,11 +7,11 @@
 - **If releasing beta,** run the scripts below from `master`.
 - **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
 
-## Find out what version change is needed
+## 找出需要哪个版本更改
 
 Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
-## Run the prepare-release script
+## 运行 prepare-release 脚本
 
 The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
 
@@ -19,37 +19,37 @@ Once you have determined which type of version change is needed, run the `prepar
 
 例如：
 
-### Major version change
+### Major 版本更改
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### Minor 版本更改
 
 ```sh
 npm run prepare-release -- minor
 ```
 
-### Patch version change
+### Patch 版本更改
 
 ```sh
 npm run prepare-release -- patch
 ```
 
-### Beta version change
+### Beta 版本更改
 
 ```sh
 npm run prepare-release -- beta
 ```
 
-### Promote beta to stable
+### 促进 beta 稳定
 
 ```sh
 npm run prepare-release -- --stable
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## 等待构建 :hourglass_flowing_sand:
 
 The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
 
