@@ -99,7 +99,7 @@ Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo
 Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
 
 ```javascript
-const {app, Menu} = require('electron')
+const {app, Menu} = kailangan('electron')
 
 const template = [
   {
@@ -148,7 +148,7 @@ const template = [
   }
 ]
 
-if (process.platform === 'darwin') {
+kung (process.platform === 'darwin') {
   template.unshift({
     label: app.getName(),
     submenu: [
@@ -164,7 +164,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // I-edit ang menu
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -176,7 +176,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // Menu ng window
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -190,9 +190,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Prosesong tagabigay
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul ng [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
 
 ```html
 <!-- index.html -->
