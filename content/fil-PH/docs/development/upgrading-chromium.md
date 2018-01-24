@@ -29,20 +29,20 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
   - Mayroong pangalawang iskrip, `script/patch.py` na maaaring maging kapaki-pakinabang. Basahin `./script/patch.py -h` para sa karagdagang impormasyon.
 5. Patakbuhin ang build kapag ang lahat ng mga patch ay maaaring mailapat nang walang mga error 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
+  - Kung ang ilang patches ay hindi katugma sa iyong Chromium kowd, ayusing ang mga mali sa paglista.
+6. Kapag matagumpay ang build, gumawa ng isang `dist` para sa Electron 
   - `$ ./script/create-dist --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+    - Ito ay lilikha ng `dist/main`polder sa root ng libcc repo. Kakailanganin mo ito upang gumawa ng Electron.
+7. (Opsyonal) I-update ang mga nilalaman ng script kung may mga error na nagreresulta mula sa mga file na inalis o pinalitan ng pangalan. (`--no_zip` pinipigilan ang iskrip mula sa paglikha `dist` arkibos. Hindi mo ito kinakailangan.)
 
-## Update Electron's code
+## I-update Electron's kowd
 
-1. Get the code: 
+1. Kuning ang kowd: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. Kung ikaw ay merong libcc na binuo sa iyong makina sa sarili nitong repo, sabihan ang Electron na gamitin ito: 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
