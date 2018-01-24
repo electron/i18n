@@ -51,12 +51,12 @@ npm run prepare-release -- --stable
 
 ## 等待构建 :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+`prepare-release` 脚本将通过 API 调用触发生成。要监视生成进度, 请参阅以下页面:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) 对于 Mac App Store
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) 对于 OS X
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) 对于 Linux
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) 对于 Windows
 
 ## 编译发布说明
 
@@ -88,69 +88,69 @@ Tips: - Each listed item should reference a PR on electron/electron, not an issu
 
 ### Minor 发布
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+对于 ` 次要 ` 版本, 如 ` 1.8.0 `, 请使用以下格式:
 
 ```sh
-## Upgrades
+## 升级
 
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- 升级 Node 从 `oldVersion` 到 `newVersion`. #123
 
-## API Changes
+## API 变更
 
-* Changed a thing. #123
+* 变更内容. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* 变更 Linux 内容. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* 变更 macOS 内容. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* 变更 Windows 内容. #123
 ```
 
-### Major releases
+### Major 发布
 
 ```sh
-## Upgrades
+## 升级
 
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- 升级 Chromium 从 `oldVersion` 到 `newVersion`. #123
+- 升级 Node 从 `oldVersion` 到 `newVersion`. #123
 
-## Breaking API changes
+## 破坏性 API 变更
 
-* Changed a thing. #123
+* 变更内容. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* 变更 Linux 内容. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* 变更 macOS 内容. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* 变更 Windows 内容. #123
 
-## Other Changes
+## 其它变更
 
-- Some other change. #123
+- 其它变更内容. #123
 ```
 
-### Beta releases
+### Beta 发布
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+使用与上述建议相同的格式, 但在日志的开头添加以下注释:
 
 ```sh
-**Note:** This is a beta release and most likely will have have some instability and/or regressions.
+**注意:** 这是一个测试版本，很可能会有一些不稳定 和/或 复原。
 
-Please file new issues for any bugs you find in it.
+请为您在其中找到的任何错误提出新问题。
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+此版本发布到 [npm] (https://www.npmjs.com/package/electron) 下的 ' beta ' 标签, 并可以通过 'npm install electron@beta' 安装。
 ```
 
 ## 编辑发布草稿
@@ -166,13 +166,13 @@ This release is published to [npm](https://www.npmjs.com/package/electron) under
 
 Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
 
-### Merging back into master
+### 合并回 master
 
 ```sh
 npm run merge-release -- master
 ```
 
-### Merging back into old release branch
+### 合并回旧版本分支
 
 ```sh
 npm run merge-release -- 1-7-x
@@ -182,9 +182,9 @@ npm run merge-release -- 1-7-x
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
-## Publish to npm
+## 发布到 npm
 
-Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
+一旦发布成功，运行 `npm run publish-to-npm` 发布到 npm。
 
 ## Fix missing binaries of a release manually
 
