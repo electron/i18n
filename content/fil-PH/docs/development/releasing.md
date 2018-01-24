@@ -13,25 +13,25 @@ Paganahin ang `npm ihandang paganahin ang paglabas ng -- --notesOnly` para makit
 
 ## Paganahing ang prepare-release script
 
-Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang branch na ilalabas. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
 
 Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
 Halimbawa:
 
-### Major version change
+### Pangunahing pagbabago ng bersyon
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### Minor bersyon ay nabago
 
 ```sh
-npm run prepare-release -- minor
+npm paganahin ang prepare-release -- minor
 ```
 
-### Patch version change
+### Patch bersyon ay nabago
 
 ```sh
 npm run prepare-release -- patch
