@@ -20,13 +20,13 @@ Electron 프로젝트는 GitHub 팀과 커뮤니티에서 [열심히 활동하�
 
 일반적으로 새로운 Chromium 안정 버전이 출시된 후 1~2주 안에 Electron의 Chromium 버전을 업데이트하며, 업그레이드에 필요한 작업의 양에 따라 업데이트 시기는 달라집니다.
 
-새로운 Node.js 버전이 릴리즈되면, Electron은 좀 더 안정된 Node.js 버전이 나올 때까지 한달정도 기다렸다가 업그레이드를 진행합니다.
+새로운 버전의 Node.js이 출시되면, Electron은 좀 더 안정된 Node.js 버전이 나올 때까지 한 달 정도 기다렸다가 업그레이드를 진행합니다.
 
 Electron에서는 Node.js와 Chromium이 1 개의 V8 엔진 인스턴스를 공유하며 인스턴스의 버전은 보통 Chromium이 사용하고 있는 버전과 일치합니다. 대부분의 경우에는 *문제없이 동작하지만* Node.js 패치가 필요할 때도 있습니다.
 
 ### 버전 관리
 
-Electron 2.0 버전부터 [`semver`](https://semver.org) 규칙에 따라 버전을 관리하고 있습니다. For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Electron 2.0 버전부터 [`semver`](https://semver.org) 규칙에 따라 버전을 관리하고 있습니다. 최신 버전의 npm을 사용해 `$ npm install electron` 명령을 실행하기만 하면 Electron 버전은 쉽게 관리할 수 있을 것입니다.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
