@@ -4,9 +4,9 @@
 
 Mga proseso: [Renderer](../glossary.md#renderer-process)
 
-Ang modyul ng `ipcRenderer` ay ang instansya ng uri ng [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+Ang modyul ng `ipcRenderer` ay ang instansya ng uri ng [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay nagbibigay ng ilang mga pamamaraan kaya maaari kang magpadala ng magkasabay at sabay-sabay na mga mensahe mula sa proseso ng pagsalin (pahina ng web) patungo sa pangunahing proseso. Maaari ka ring makatanggap ng kasagutan mula sa pangunahing proseso.
 
-See [ipcMain](ipc-main.md) for code examples.
+Tingnan ang [ipcMain](ipc-main.md) para sa mga halimbawa ng code.
 
 ## Pamamaraan
 
