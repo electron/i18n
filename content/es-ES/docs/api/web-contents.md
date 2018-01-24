@@ -420,11 +420,11 @@ Devuelve:
     * `enError` Boolean - Si el elemento multimedia se ha dañado.
     * `estáPausado` Boolean - Si el elemento multimedia está pausado.
     * `estáSilenciado` Boolean - Si el elemento multimedia está silenciado.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
+    * `tieneAudio` Boolean - Si el elemento multimedia tiene audio.
+    * `estáLooping` Boolean - Si el elemento multimedia está enredado.
+    * `esControlVisible` Boolean - Si los controles del elemento multimedia son visibles.
+    * `puedeToggleControles` Boolean - Si los controles de los elementos multimedia son toggleable.
+    * `puedeRotar` Boolean - Si el elemento multimedia puede ser rotado.
   * `editFlags` Objeto - Estas banderas indican si el procesador se cree capaz de realizar la acción correspondiente. 
     * `canUndo` Boolean - Si cree que el procesador puede deshacer.
     * `canRedo` Boolean - Si cree que el procesador pueda rehacer.
