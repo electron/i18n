@@ -9,6 +9,7 @@ nav:
   contact: Contacto
   languages: Idiomas
   code_of_conduct: Código de conducta
+  search: Search
 docs:
   title: Documentación de Electron
   description: Ver todos los <a href="/docs/all"> documentos en una sola página</a> o consulte la <a href="/docs/faq"> FAQ</a>.
@@ -87,7 +88,7 @@ apps:
   something_missing: '¿Falta algo?'
   edit_this_app: Editar esta aplicación.
 clipboard:
-  copy: Copy
+  copy: Copiar
   copy_to_clipboard: Copy to Clipboard
   copied: Copied
 or: o
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: Si esto es un error
   please_file_an_issue: por favor notifica un problema.
 search:
-  description: Search within Electron documentations and community.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: y
+    repos: <a href="/search/repos">GitHub repos</a>
