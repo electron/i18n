@@ -1,6 +1,6 @@
 # Offscreen Rendering
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Ang offscreen rendering ay nagpapahintulot sa iyo na kumuha ng nilalaman ng isang browser window sa bitmap, kaya ito ay nai-render kahit saan, halimbawa sa isang texture ng 3D scene. Ang offscreen rendering sa electron ay gumagamit ng katulad na pamamaraan kaysa sa[Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) na proyekto.
 
 Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
 
