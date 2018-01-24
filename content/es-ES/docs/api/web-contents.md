@@ -377,7 +377,7 @@ Devuelve:
 * `evento` Evento
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Emitido cuando el mouse se mueve sobre un link o el teclado se mueve el concentrado a un link.
 
 #### Event: 'cursor-changed'
 
@@ -392,7 +392,7 @@ Devuelve:
 
 Emitted when the cursor's type changes. El `type` parámetro puede ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, ``ne-resize</code>, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom</0>.</p>
 
-<p>If the <code>type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+<p>Si el parámetro <code>type` es `custom`, el parámetro de la `image` mantendrá la imagen del cursor personalizado en un `NativeImage`, y `scale`, `size` y`hotpost` mantendrá información adicional sobre el cursor personalizado.
 
 #### Evento: 'context-menu'
 
