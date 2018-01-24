@@ -16,16 +16,16 @@ Kapag lahat ng nagdedepende sa Elektron ay tumataas at gumagamit ng parehong kop
 
 Sa madaling salita, ang kinakaylangan nating gawin ay:
 
-1. Update Electron's Node fork to the desired version
-2. Backport Node's V8 patches to our copy of V8
-3. Update Electron to use new version of Node 
-  - Update submodules
-  - Update Node.js build configuration
+1. I-update ang Elektron's Node fork sa dapat na bersyon
+2. I-patch ang backport Node's V8 sa kopya ng ating V8
+3. I-update din ang Elektron para magamit ang bagong version ng Node 
+  - I-update ang mga submodules
+  - At i-update rin ang kumpigurasyon ng Node.js
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Pag-uupdate ng Elektron's Node [fork](https://github.com/electron/node)
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
+1. Siguraduhin na `master` sa `electron/node` ay may updated na release tags galing sa `nodejs/node`
+2. Gumawa ng sangay sa https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
   - `vX.X.X` Must use a version of node compatible with our current version of chromium
 3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
