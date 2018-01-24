@@ -2,7 +2,7 @@
 
 > Ang Command line switches ay sinusuportahan ng Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Maaari mong gamitin ang [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) upang idagdag ito sa iyong app's ang iyong pangunahing script bago ang [ready](app.md#event-ready) event ng [app](app.md) modyul ay emitted:
 
 ```javascript
 const {app} = require('electron')
@@ -10,7 +10,7 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // ilagay mo ang code mo dto
+  // ilagay mo ang code mo dito
 })
 ```
 
