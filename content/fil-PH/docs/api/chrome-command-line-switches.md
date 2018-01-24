@@ -16,7 +16,7 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ipagsawalang bahala ang limitasyon ng koneksyon para sa `domains` pagbukudin ang listahan ng `,`.
+Ipagsawalang bahala ang limitasyon ng koneksyon para sa `domains` bukod na listahan ng `,`.
 
 ## --disable-http-cache
 
@@ -111,7 +111,7 @@ Balewalain ang sertipiko na may kaugnay sa mga pagkakamali.
 
 ## --ppapi-flash-path=`path`
 
-Sets the `path` of the pepper flash plugin.
+Italaga ang `path` para sa plugin ng pepper flash.
 
 ## --ppapi-flash-version=`version`
 
