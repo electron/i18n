@@ -135,13 +135,13 @@ Ang Switch na ito ay hindi pwedeng magamit ng `app.commandLine.appendSwitch` dah
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Binigyan ng default na pinaka mainam at aktibo antas ng V-logging: 0 ang default. pangkaraniwan na ang mga positibong halaga ay ginagamit sa antas ng V-logging.
 
 Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
 
 ## --vmodule=`pattern`
 
-Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
+Binigyan ang kada-modyul ng mainam na antas ng V-logging para i-override ang halaga na binigay ng `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
