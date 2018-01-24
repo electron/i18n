@@ -415,11 +415,11 @@ Devuelve:
   * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
+  * `menúFuenteTipo` Cadena - Fuente de entrada que invoca el menú de contexto. Puede ser `ninguno`, `ratón`, `teclado`, `toque`, `toqueMenú`.
+  * `mediaFlags` Objeto - Las banderas para el elemento multimedia la cual el menú contextual fue invocado. 
+    * `enError` Boolean - Si el elemento multimedia se ha dañado.
+    * `estáPausado` Boolean - Si el elemento multimedia está pausado.
+    * `estáSilenciado` Boolean - Si el elemento multimedia está silenciado.
     * `hasAudio` Boolean - Whether the media element has audio.
     * `isLooping` Boolean - Whether the media element is looping.
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
