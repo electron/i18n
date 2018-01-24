@@ -14,11 +14,11 @@ Para isumite ang iyong app sa Mac App Store, una ay kailangan mong kumuha ng ser
 
 ### Kumuha ng Team ID
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+Bago lagdaan ang iyong app, kailangan mong malaman ang Team ID ng iyong account. Para mahanap ang Team ID, mag-sign in sa [Apple Developer Center](https://developer.apple.com/account/), at i-klik ang Membership sa sidebar. Ang iyong Team ID ay makikita sa Membership impormasyon na seksyon ilalim ng pangalan ng team.
 
-### Sign Your App
+### Lagdaan ang Iyong App
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+Matapos magtapos ang paghahanda ng gawain, maaari mong i-package ang iyong app sa pamamagitan ng pagsunod sa [Application Distribution](application-distribution.md), at pagkatapos ipagpatuloy lagdaan ang iyong app.
 
 First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
 
