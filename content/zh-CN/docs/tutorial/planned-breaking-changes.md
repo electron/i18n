@@ -60,13 +60,13 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 替换为
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -86,19 +86,19 @@ menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 过时的
 nativeImage.toPng()
-// Replace with
+// 替换为
 nativeImage.toPNG()
 
-// Deprecated
+// 过时的
 nativeImage.toJpeg()
-// Replace with
+// 替换为
 nativeImage.toJPEG()
 
-// Deprecated
+// 过时的
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 替换为
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -107,9 +107,9 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-//旧写法
+// 过时的
 process.versions['atom-shell']
-//新写法
+// 替换为
 process.versions.electron
 ```
 
@@ -118,11 +118,11 @@ process.versions.electron
 ## `session`
 
 ```js
-// Deprecated
+// 过时的
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// 替换为
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -131,30 +131,30 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 过时的
 tray.setHighlightMode(true)
-// Replace with
+// 替换为
 tray.setHighlightMode('on')
 
-// Deprecated
+// 过时的
 tray.setHighlightMode(false)
-// Replace with
+// 替换为
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 过时的
 webContents.openDevTools({detach: true})
-// Replace with
+// 替换为
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
+// 过时的
 webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// 替换为
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
