@@ -366,32 +366,32 @@ Aparece cuando la fase del evento de la rueda de desplazamiento ha concluido.
 
 #### Evento: "scroll-touch-edge"*macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Aparece cuando la fase del evento de la rueda desplazamiento ha alcanzado el borde del elemento.
 
-#### Event: 'swipe' *macOS*
+#### Evento: "swipe" *macOS*
 
 Devuelve:
 
-* `evento` Evento
-* `direction` String
+* `event` Evento
+* `direction` Cadena
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Aparece al pasar 3 dedos. Las direcciones posibles son `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Evento: "sheet-begin" *macOS*
 
-Emitted when the window opens a sheet.
+Aparece cuando la ventana abre una hoja.
 
-#### Event: 'sheet-end' *macOS*
+#### Evento: "sheet-end" *macOS*
 
-Emitted when the window has closed a sheet.
+Aparece cuando la ventana cierra una hoja.
 
-#### Evento: 'new-window-for-tab' *macOS*
+#### Evento: "new-window-for-tab" *macOS*
 
-Emitted when the native new tab button is clicked.
+Aparece cuando se hace clic al botón de nueva pestaña nativa.
 
-### Static Methods
+### Métodos Estáticos
 
-The `BrowserWindow` class has the following static methods:
+La clase `BrowserWindow` tiene los siguientes métodos estáticos:
 
 #### `BrowserWindow.getAllWindows()`
 
