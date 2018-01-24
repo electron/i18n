@@ -59,9 +59,9 @@ Magpadala ng mensahe sa pangunahing proseso ng magkasabay sa pamamagitan ng `cha
 
 Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `channel` na may modyul ng `ipcMain`, at tumugon sa pamamagitan ng pagtatakda ng `event.returnValue`.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
 
-### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.sendToHost(channel[,arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
