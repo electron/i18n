@@ -179,9 +179,9 @@ Devuelve:
 
 Emitido cuando la navegación es finalizada.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-#### Event: 'did-navigate-in-page'
+#### Evento: 'did-navigate-in-page'
 
 Devuelve:
 
@@ -189,9 +189,9 @@ Devuelve:
 * `url` String
 * `isMainFrame` Boolean
 
-Emitted when an in-page navigation happened.
+Emitido cuando una navegación dentro de la página sucede.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
 #### Event: 'will-prevent-unload'
 
@@ -199,7 +199,7 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+Emite cuando un controlador de eventos `beforeunload` está tratando de cancelar una descarga de la página.
 
 Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
