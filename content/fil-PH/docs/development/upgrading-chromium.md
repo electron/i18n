@@ -49,21 +49,21 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
 
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. Kung hindi ka pa nakagawa ng libcc ngunit dapat na itong ma-upgrade sa isang bagong Chromium, bootstrap Electron gaya ng dati `$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - Tiyakin na ang libcc na submodule (`vendor/libchromiumcontent`) tumugma sa tamang rebisyon
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. Itakda `CLANG_REVISION` sa `script/update-clang.sh` upang tumugma sa bersyon gumamit ng Chromium.
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - Matatagpuan sa `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
-5. Checkout Chromium if you haven't already:
+5. Tingnan mo ang Chromium kung d mo pa nagagawa:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
+    - (Palitan ang `{VERSION}` placeholder na nasa url sa itaas sa Chromium bersyon libbc na ginagamit.)
+6. Gumawa ng Electron. 
+  - Subukang gumawa ng Debug bersyon muna: `$ ./script/build.py -c D`
+  - Kakailanganin mo itong subukang patakbuhin
 7. Fix compilation and linking errors
 8. Ensure that Release build can be built too 
   - `$ ./script/build.py -c R`
