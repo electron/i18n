@@ -81,10 +81,10 @@ Halimbawa:
 
 * `MAP * 127.0.0.1` kailangang gawin na ang lahat ng hostname ay 127.0.0.1
 * `MAP *.google.com proxy` kailangang lahat ng google.com subdomains ay maresolbahan ng "proxy".
-* `MAP test.com [::1]:77` pinilit ng "test.com" na maayos ng IPv6 loopback. at pilitin ang port na resulta ng socket address kailangan ay 77.
-* `MAP * baz http, IBUKOD www.google.com` inilipat sa lahat ng bagay na "baz http", maliban sa "www.google.com".
+* `MAP test.com [::1]:77` pinilit ng "test.com" na maayos ng IPv6 loopback. at pilitin ang port na resultahan ang socket address kailangan ay 77.
+* `MAP * baz http, ibukod ang www.google.com` ilipat sa lahat ng bagay na may "baz http", maliban sa "www.google.com".
 
-Ang mga mappings ay inaplay sa dulo ng host sa kahilingan ng net (ang TCP kumonekta at mag-host ng resolver ay isang direktang koneksyon, at ang `CONNECT` sa koneksiyon ng HTTP proxy, at ang dulo ng host sa `SOCKS` proxy connection).
+Ang pag mappings ay inaaplay sa dulo ng host. sa kahilingan ng net (ang TCP kumonekta at mag-host ng resolver ay isang direktang koneksyon, at ang `CONNECT` sa koneksiyon ng HTTP proxy connection, at ang dulo ng host sa `SOCKS` proxy connection).
 
 ## --host-resolver-rules=`rules`
 
