@@ -32,7 +32,7 @@ Una, kailangan mong magdagdag ng isang `ElectronTeamID` na key sa app ng iyong `
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Tapos, dapat mong ihanda ang tatlong mga file na may karapatan.
 
 `child.plist`:
 
@@ -77,9 +77,9 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Dapat mong palitan ang `TEAM_ID` sa iyong Team ID, at palitan ang `your.bundle.id` sa Bundle ID ng iyong app.
 
-And then sign your app with the following script:
+At pagkatapos, lagdaan ang iyong app sa sumusunod na mga iskrip:
 
 ```sh
 #!/bin/bash
