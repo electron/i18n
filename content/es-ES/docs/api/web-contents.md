@@ -407,11 +407,11 @@ Devuelve:
   * `pageURL` String - URL de la parte superior del nivel de la página que se invocó en el menú del contexto.
   * `framseURL` String - URL de la parte inferior del marco que se invocó en el menú del contexto.
   * `srcURL` String - Source URL para el elemento que el menú del contexto fue invocado. Elementos con fuente URLs son imágenes, audio y video.
-  * `mediaType` String - Tipo de nodo que el menú del contexto fue invocado. Puede ser `none`, `image`, `audio`, `video`, `canvas`, `file` o `plugin`.
-  * `<0>hasImageContents` Boolean - si el menú del contexto fue invocado en una imagen la cual tiene contenido no vacío.
-  * `isEditable` Boolean - Si el contexto es editable.
+  * `mediaTipo` String - Tipo de nodo que el menú del contexto fue invocado. Puede ser `none`, `image`, `audio`, `video`, `canvas`, `file` o `plugin`.
+  * `<0>tieneImagenContenido` Boolean - si el menú del contexto fue invocado en una imagen la cual tiene contenido no vacío.
+  * `esEditable` Boolean - Si el contexto es editable.
   * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
-  * `titleText` String - Título o texto alt de la selección la cual el contexto fue invocado.
+  * `tituloTexto` String - Título o texto alt de la selección la cual el contexto fue invocado.
   * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
@@ -488,14 +488,14 @@ win.loadURL('http://github.com')
 
 #### Event: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+Emitido cuando la ventana devtools instruya la webContents para recargar
 
 #### Event: 'will-attach-webview'
 
 Devuelve:
 
 * `evento` Evento
-* `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* `webPreferencias` Objeto - Las preferencias de la web que será utilizada por la página de invitado. Este objeto puede modificarse para ajustar las preferencias de la página de invitado.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
