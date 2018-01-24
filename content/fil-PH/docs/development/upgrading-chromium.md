@@ -1,9 +1,9 @@
-# Upgrading Chromium
+# Pagpapaganda ng Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipaganda ang Chromium sa Electron.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
+- E-upgrade ang libcc sa bagong Chromium bersyon
+- Gumawa ng Electron kowd tugma sa bagong libcc
 - Update Electron dependencies (crashpad, NodeJS, etc.) if needed
 - Make internal builds of libcc and electron
 - Update Electron docs if necessary
