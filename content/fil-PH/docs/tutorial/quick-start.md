@@ -123,17 +123,17 @@ Kapag ginawa mo ang iyong inisyal `main.js`, `index.html`, at `package.json` mga
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) ay isang `npm`module na naglalaman ng pre-compiled na bersyon ng Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Kapag naka-install ka nito globally sa `npm`, pagkatapos kailangan mo lang na patakbuhin ang mga sumusunud sa iyong app's source directory:
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+Kapag naka-install ka nito locally, pagkatapos ay pwede mo nang patakbuhin:
 
-#### macOS / Linux
+#### macOS/Linux
 
 ```sh
 $ ./node_modules/.bin/electron .
@@ -145,7 +145,7 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 at sa kalaunan
 
 ```sh
 $ npx electron .
