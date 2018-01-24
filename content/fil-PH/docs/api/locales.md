@@ -25,10 +25,10 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang de-AT          | Ay German (Austria)     |
 | ang de-CH          | Ay German (Switzerland) |
 | ang de-DE          | Ay German (Germany)     |
-| el                 | Greek                   |
-| en                 | English                 |
-| en-AU              | English (Australia)     |
-| en-CA              | English (Canada)        |
+| ang el             | Ay Greek                |
+| ang en             | Ay English              |
+| ang en-AU          | Ay English (Australia)  |
+| ang en-CA          | English (Canada)        |
 | en-GB              | English (UK)            |
 | en-NZ              | English (New Zealand)   |
 | en-US              | English (US)            |
@@ -53,17 +53,17 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | gn                 | Guarani                 |
 | gu                 | Gujarati                |
 | ha                 | Hausa                   |
-| haw                | Hawaiian                |
-| he                 | Hebrew                  |
-| hi                 | Hindi                   |
-| hr                 | Croatian                |
-| hu                 | Hungarian               |
-| hy                 | Armenian                |
-| ia                 | Interlingua             |
-| id                 | Indonesian              |
-| is                 | Icelandic               |
-| it                 | Italian                 |
-| it-CH              | Italian (Switzerland)   |
+| haw                | Ay Hawaiian             |
+| ang he             | Ay Hebrew               |
+| ang hi             | Ay Hindi                |
+| ang hr             | Ay Croatian             |
+| ang hu             | Ay Hungarian            |
+| ang hy             | Ay Armenian             |
+| ang ia             | Ay Interlingua          |
+| ang id             | Ay Indonesian           |
+| ang is             | Ay Icelandic            |
+| ang it             | Ay Italian              |
+| ang it-CH          | Italian (Switzerland)   |
 | it-IT              | Italian (Italy)         |
 | ja                 | Japanese                |
 | jw                 | Javanese                |
