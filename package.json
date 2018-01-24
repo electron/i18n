@@ -35,12 +35,12 @@
     "walk-sync": "^0.3.2"
   },
   "scripts": {
-    "collect": "script/collect.js",
+    "collect": "node script/collect.js",
     "build": "npm-run-all build:*",
-    "build:stats": "script/stats.js",
-    "build:module": "script/build-module.js",
-    "build:readme": "script/readme.js",
-    "update-source-content": "script/update-source-content.sh",
+    "build:stats": "node script/stats.js",
+    "build:module": "node script/build-module.js",
+    "build:readme": "node script/readme.js",
+    "update-source-content": "node script/update-source-content.sh",
     "test": "mocha && standard --fix",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks",
