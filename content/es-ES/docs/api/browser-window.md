@@ -659,27 +659,27 @@ Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 * `ancho` Entero
 * `alto` Entero
 
-Sets the maximum size of window to `width` and `height`.
+Establece el tamaño máximo de la ventana a `width`y `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura máxima de la ventana.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Booleano
 
-Sets whether the window can be manually resized by user.
+Establece si la ventana puede ser redimensionada manualmente por el usuario.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Devuelve `Boolean` - Si la ventana puede ser redimensionada manualmente por el usuario.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Booleano
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Establece si la ventana puede ser movida por el usuario. En Linux no hace nada.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -691,11 +691,11 @@ En Linux siempre devuelve `verdadero`.
 
 * `minimizable` Booleano
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Establece si la ventana puede ser minimizada manualmente por el usuario. En Linux no hace nada.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Devuelve `Boolean` - Si la ventana puede ser minimizada manualmente por el usuario
 
 En Linux siempre devuelve `true`.
 
@@ -703,33 +703,33 @@ En Linux siempre devuelve `true`.
 
 * `maximizable` Booleano
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Establece si la ventana puede ser maximizada manualmente por el usuario. En Linux no hace nada.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Devuelve `Boolean` - Si la ventana puede ser maximizada manualmente por el usuario.
 
-En Linux siempre devuelve `verdadero`.
+En Linux siempre devuelve `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Booleano
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Establece si el botón de la ventana de maximizar/acercar activa el modo pantalla completa o maximiza la ventana.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Devuelve `Boolean` - Si el botón de la ventana de maximizar/acercar activa o no el modo pantalla completa o maximiza la ventana.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Booleano
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Establece si la ventana puede ser cerrada manualmente por el usuario. En Linux no hace nada.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Devuelve `Boolean` - Si la ventana puede ser o no cerrada manualmente por el usuario.
 
 En Linux siempre devuelve `verdadero`.
 
