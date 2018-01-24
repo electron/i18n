@@ -2,26 +2,26 @@
 
 Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipaganda ang Chromium sa Electron.
 
-- E-upgrade ang libcc sa bagong Chromium bersyon
+- I-upgrade ang libcc sa bagong Chromium bersyon
 - Gumawa ng Electron kowd tugma sa bagong libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- I-update ang mga dependency ng Electron (crashpad, NodeJS, atbp.) kung kinakailangan
+- Gumawa ng panloob na mga build ng libcc at elektron
+- I-update ang Electron dokumento kung kinakailangan
 
-## Upgrade `libcc` to a new Chromium version
+## I-upgrade `libcc`sa bagong Chromium bersyon
 
-1. Get the code and initialize the project: 
+1. Kuning ang kown at magsimula sa proyekto: 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
+2. I-upgrade ang Chromium sa retrato 
+  - Pumili ng numero ng bersyon mula sa [OmahaProxy](https://omahaproxy.appspot.com/) at i-update ang `Bersyon` ng file 
+    - Maaari itong gawin nang manu-mano sa pamamagitan ng pagbisita sa OmahaProxy sa isang browser, o awtomatikong:
+    - One-liner para sa pinakabagong bersyon ng matibay na mac:`curl -so- https://omahaproxy.appspot.com/mac > Bersyon `
+    - One-liner para sa pinakabagong beta version ng win64: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > Bersyon`
+  - tumakbo `$ ./script/update` 
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
