@@ -28,7 +28,7 @@ Huwag paganahin ang HTTP/2 at SPDY/3.1 protocol.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, tingnan ang [Debugging ang pangunahing Process](../tutorial/debugging-main-process.md) tingnan ang detalye.
+Kaugnayan ng debug sa mga flags, tingnan ang [ Debugging ang pangunahing Proseso ](../tutorial/debugging-main-process.md) gabay para sa mga detalye.
 
 ## --remote-debugging-port=`port`
 
@@ -63,11 +63,11 @@ const {app} = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
-Gamitin ang proxy server nat sa lahat, maliban sa local address (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, ang host na nag lalaman ng suffix na `foo.com` and anything at `1.2.3.4:5678`.
+Gamitin ang proxy server sa lahat ng host, maliban sa local address (`localhost`, `127.0.0.1` etc.), `google.com` subdomains, ang host na nag lalaman ng suffix na `foo.com` at kahit ano sa `1.2.3.4:5678`.
 
 ## --proxy-pac-url=`url`
 
-Gumagamit ng mga PAC script sa tinukoy na mga `url`.
+Gumagamit ng mga PAC script at tukuyin ang `url`.
 
 ## --no-proxy-server
 
