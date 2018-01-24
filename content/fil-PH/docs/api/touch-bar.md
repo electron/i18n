@@ -12,17 +12,18 @@ Proseso: [Main](../tutorial/quick-start.md#main-process)
 
 Gumawa ng bagong touch bar kasama ang mga tinukoy na aytem. Gamitin ang `BrowserWindow.setTouchBar` para idagdag `TouchBar` sa isang window. 
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa panghinaharap na pag-release ng Electron. 
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Tip:** Kung wala kang MacBook na may Touch Bar, pwede kang gumamit ng [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) upang subukan ang paggamit ng Bar ng Touch sa inyong app.
 
 ### Humahalimbawa sa bahagi nito
 
-The following properties are available on instances of `TouchBar`:
+Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`: 
 
-#### `touchBar.escapeItem`
+#### `touchBar.escapeItem
+ `
 
-The `TouchBarButton` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+Ang `TouchBarButton` na papalitan ng "esc" button sa touch bar ng set. Setting na`null` nagbabalik ng default "esc" button. Changing this value immediately updates the escape item in the touch bar.
 
 ## Examples
 
