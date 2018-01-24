@@ -2,9 +2,9 @@
 
 ## Pagtatalakay
 
-Isang problema ay ang paggawa ng lahat ng Electron sa isang kopya ng V8 para masigurado ang compatabilidad nito. This is important because upstream Node and [libchromiumcontent](upgrading-chromium.md) both use their own versions of V8.
+Isang problema ay ang paggawa ng lahat ng Electron sa isang kopya ng V8 para masigurado ang compatabilidad nito. Ito ay mahalaga dahil ang upstrem Node at [libchromiumcontent](upgrading-chromium.md) ay parehong gumagamit ng sariling version ng V8.
 
-Upgrading Node is much easier than upgrading libchromiumcontent, so fewer conflicts arise if one upgrades libchromiumcontent first, then chooses the upstream Node release whose V8 is closest to it.
+Ang pag-uupgrade ng Node ay mas madali kaysa pag-uupgrade ng libchromiumcontent, dahil maliit lang ang nagiging problema kapag unang nag-uupgrade ng libchromiumcontent, at ang pagpili ng bagong upstream Node na mas malapit sa V8.
 
 Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
 
