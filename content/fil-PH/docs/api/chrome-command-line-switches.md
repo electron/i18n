@@ -103,11 +103,11 @@ ang anumang `url` na nagtatapos sa `example.com`,`foobar.com`, `baz` ay isinaala
 
 ## --auth-negotiate-delegate-whitelist=`url`
 
-A comma-separated list of servers for which delegation of user credentials is required. Without `*` prefix the url has to match exactly.
+Ang kuwit ay nag hihiwalay sa listahan ng mga server para sa kung aling delegasyon ng mga kredensyal ay kinakailangan. Walang `*` ang prefix ng url ay kailangang tugmang-tugma.
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Balewalain ang sertipiko na may kaugnay sa mga pagkakamali.
 
 ## --ppapi-flash-path=`path`
 
