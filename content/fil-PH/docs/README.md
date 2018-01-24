@@ -100,6 +100,6 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Debug Instructions (Windows)](development/debug-instructions-windows.md)
 * [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
+* [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
 * [Pagpapaunlad ng Chromium](development/chromium-development.md)
 * [V8 Development](development/v8-development.md)
