@@ -201,7 +201,7 @@ Devuelve:
 
 Emite cuando un controlador de eventos `beforeunload` está tratando de cancelar una descarga de la página.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+Llamando a `event.preventDefault()` ignorará el controlador de eventos `beforeunload` y permite que la página sea descargada.
 
 ```javascript
 const {BrowserWindow, dialog} = require('electron')
@@ -229,7 +229,7 @@ Devuelve:
 * `event` Evento
 * `killed` Booleano
 
-Emitted when the renderer process crashes or is killed.
+Emitido cuando el proceso se crashea o es terminado.
 
 #### Event: 'plugin-crashed'
 
