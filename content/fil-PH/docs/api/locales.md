@@ -99,11 +99,11 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang ps             | Ay Pashto                  |
 | ang pt             | Ay Portuguese              |
 | ang pt-BR          | Ay Portuguese (Brazil)     |
-| ang pt-PT          | Portuguese (Portugal)      |
-| qu                 | Quechua                    |
-| rm                 | Romansh                    |
-| ro                 | Romanian                   |
-| ru                 | Russian                    |
+| ang pt-PT          | Ay Portuguese (Portugal)   |
+| ang qu             | Ay Quechua                 |
+| ang rm             | Ay Romansh                 |
+| ang ro             | Ay Romanian                |
+| ang ru             | Russian                    |
 | sd                 | Sindhi                     |
 | sh                 | Serbo-Croatian             |
 | si                 | Sinhalese                  |
@@ -128,14 +128,14 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | tt                 | Tatar                      |
 | tw                 | Twi                        |
 | ug                 | Uighur                     |
-| uk                 | Ukrainian                  |
-| ur                 | Urdu                       |
-| uz                 | Uzbek                      |
-| vi                 | Vietnamese                 |
-| xh                 | Xhosa                      |
-| yi                 | Yiddish                    |
-| yo                 | Yoruba                     |
-| zh                 | Chinese                    |
-| zh-CN              | Chinese (Simplified)       |
-| zh-TW              | Chinese (Traditional)      |
-| zu                 | Zulu                       |
+| uk                 | Ay Ukrainian               |
+| ang ur             | Ay Urdu                    |
+| ang uz             | Ay Uzbek                   |
+| ang vi             | Ay Vietnamese              |
+| ang xh             | Ay Xhosa                   |
+| ang yi             | Ay Yiddish                 |
+| ang yo             | Ay Yoruba                  |
+| ang zh             | Ay Chinese                 |
+| ang zh-CN          | Ay Chinese (Simplified)    |
+| ang zh-TW          | Ay Chinese (Traditional)   |
+| ang zu             | Ay Zulu                    |
