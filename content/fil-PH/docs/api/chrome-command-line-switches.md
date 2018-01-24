@@ -71,7 +71,7 @@ Gumagamit ng mga PAC script at tukuyin ang `url`.
 
 ## --no-proxy-server
 
-Huwag gumamit ng proxy server at palaging gumawa ng mga direktang koneksiyon. patungan ang iba pang mga proxy server flag na lumipas.
+Huwag gumamit ng proxy server at palaging gumawa ng mga direktang koneksiyon. patungan ang iba pang mga proxy server flag na nkalipas na.
 
 ## --host-rules=`rules`
 
@@ -79,8 +79,8 @@ Ang kuwit ay nag hihiwalay sa listan ng `rules` na nag kokontrol kung paano ang 
 
 Halimbawa:
 
-* `MAP * 127.0.0.1` ang lahat ng hostname ay ginawa na 127.0.0.1
-* `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
+* `MAP * 127.0.0.1` kailangang gawin na ang lahat ng hostname ay 127.0.0.1
+* `MAP *.google.com proxy` kailangang lahat ng google.com subdomains ay maresolbahan ng "proxy".
 * `MAP test.com [::1]:77` pinilit ng "test.com" na maayos ng IPv6 loopback. at pilitin ang port na resulta ng socket address kailangan ay 77.
 * `MAP * baz http, IBUKOD www.google.com` inilipat sa lahat ng bagay na "baz http", maliban sa "www.google.com".
 
