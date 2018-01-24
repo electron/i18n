@@ -9,9 +9,9 @@ Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng El
 
 ## Hanapin kung aling bersyon ang nabago ito ay kinakailangan
 
-Paganahin ang `npm ihandang paganahin ang paglabas ng -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+Paganahin ang `npm ihandang paganahin ang paglabas ng -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. Ang mga talang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na bago ang bersyon. [ ang panuntunan ng pag bago ng bersyon ](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
 
-## Run the prepare-release script
+## Paganahing ang prepare-release script
 
 The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
 
