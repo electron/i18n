@@ -22,12 +22,12 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
     - One-liner para sa pinakabagong bersyon ng matibay na mac:`curl -so- https://omahaproxy.appspot.com/mac > Bersyon `
     - One-liner para sa pinakabagong beta version ng win64: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > Bersyon`
   - tumakbo `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
+    - Magluto ng ilang tsaa - maaaring tumakbo ito nang 30m o higit pa.
+    - Maaaring ito ay mabibigo sa pag-aaplay ng mga patch.
+3. Ayusin `*.patch` mga file na nasa `patches` at `patches-mas/` mga polder.
+4. (Opsyonal) `script/update` gamitin ang mga patches, ngunit kung kinakailangan ang maraming pagsubok maaari mong manu-manong patakbuhin ang parehong script na iyon `i-update` mga tawag: `$ ./script/apply-patches` 
+  - Mayroong pangalawang iskrip, `script/patch.py` na maaaring maging kapaki-pakinabang. Basahin `./script/patch.py -h` para sa karagdagang impormasyon.
+5. Patakbuhin ang build kapag ang lahat ng mga patch ay maaaring mailapat nang walang mga error 
   - `$ ./script/build`
   - If some patches are no longer compatible with the Chromium code, fix compilation errors.
 6. When the build succeeds, create a `dist` for Electron 
