@@ -117,7 +117,7 @@ As a future consideration, we may introduce one or both of the following:
 * nightly builds off of master; these would allow folks to test new features quickly and give feedback
 * alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
 
-# Feature Flags
+# 功能标志
 
 Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
@@ -130,7 +130,7 @@ We reconcile flagged code with our versioning strategy as follows:
 1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
 2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
 
-# Semantic Commits
+# 语义提交
 
 We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
