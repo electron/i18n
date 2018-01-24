@@ -2,7 +2,7 @@
 
 > Node.js ve Electron API'leri nasıl kullanılır.
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+Bütün [Node.js'in built-in modülleri](https://nodejs.org/api/) Electron'da kullanılabilir ve üçüncü parti node modülleri de tamamıyla desteklenir ([native modüller ](../tutorial/using-native-node-modules.md) dahil).
 
 Electron ayrıca yerli masaüstü uygulamaları üretiminin geliştirilmesi için ekstra yerleşik modüller de sağlamaktadır. Bazı modüller yalnızca ana süreçte bulunur; bazıları yalnızca işleyici sürecinde (internet sayfası) mevcuttur ve bazıları her iki işlemde de kullanılabilir.
 
