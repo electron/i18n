@@ -64,17 +64,17 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
 6. Gumawa ng Electron. 
   - Subukang gumawa ng Debug bersyon muna: `$ ./script/build.py -c D`
   - Kakailanganin mo itong subukang patakbuhin
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+7. Ayusin ang kompilasyon at naglilink ng mga error
+8. Siguradihin na ang Release build ay magawa din 
   - `$ ./script/build.py -c R`
-  - Often the Release build will have different linking errors that you'll need to fix.
-  - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+  - Kadalasan ang Release build ay magkakaroon ng iba't ibang mga error sa pag-uugnay na kinakailangan mong ayusin.
+  - Ang ilang mga kompilasyon at nalilink na mga error ay sanhi ng nawawalang pinagmulan / bagay mga file sa libcc `dist`
+9. I-update `./script/create-dist` sa libcc repo, gumawa muli ng `dist`, at patakbuhin ang Electron Bootstrap iskrip muli.
 
-### Tips for fixing compilation errors
+### Mga tip para sa pag-aayos ng mga error sa kompilasyon
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
+- Ayusin ang Build config na mga mali muna
+- Ayusin muna ang nakamamatay na mga error, tulad ng nawawalang mga file at mga error na may kaugnayan sa tagatala mga flag o mga takda
 - Try to identify complex errors as soon as possible. 
   - Ask for help if you're not sure how to fix them
 - Disable all Electron features, fix the build, then enable them one by one
