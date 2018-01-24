@@ -28,22 +28,22 @@ Sa madaling salita, ang kinakaylangan nating gawin ay:
 2. Gumawa ng sangay sa https://github.com/electron/node: `electron-node-vX.X.X` kung saan galing ang base na ginamit mo sa branching ay ang tag na kailangan para sa update 
   - `vX.X.X` Dapat gumamit ng bersyon ng node na tugma sa aming kasalukayang bersyon ng chromium
 3. Gumamit ulit sa aming mga commits galing sa nakaraang bersyon ng node na aming ginagamit (`vY.Y.Y`) hanggang `v.X.X.X` 
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
+  - Suriin ang mga release tag at piliin ang range of commits na kailangan nating muling i-aplay
+  - Ang range para sa Cherry-pick commit: 
+    1. Suriin pareho `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
+  - Resolbahin ang mga naaipon at dumadating na problema bawat file, at pagkatapos ay: 
     1. `git add <conflict-file>`
     2. `git cherry-pick --continue`
-    3. Repeat until finished
+    3. Ulit-ulitin hanggang sa matapos
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## Pag-uupdate ng [V8](https://github.com/electron/node/src/V8) Patches
 
-We need to generate a patch file from each patch applied to V8.
+Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
 
-1. Get a copy of Electron's libcc fork 
+1. Kumuha ng kopya ng Elektron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
+2. I-run ang `script/update` to get the latest libcc 
   - This will be time-consuming
 3. Remove our copies of the old Node v8 patches 
   - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
