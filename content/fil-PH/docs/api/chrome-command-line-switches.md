@@ -28,7 +28,7 @@ Huwag paganahin ang HTTP/2 at SPDY/3.1 protocol.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Kaugnayan ng debug sa mga flags, tingnan ang [ Debugging ang pangunahing Proseso ](../tutorial/debugging-main-process.md) gabay para sa mga detalye.
+May Kaugnayan ang debug sa mga flags, tingnan ang [ Debugging ang pangunahing Proseso ](../tutorial/debugging-main-process.md) gabay para sa mga detalye.
 
 ## --remote-debugging-port=`port`
 
@@ -135,7 +135,7 @@ Ang Switch na ito ay hindi pwedeng magamit ng `app.commandLine.appendSwitch` dah
 
 ## --v=`log_level`
 
-Binigyan ng default na pinaka mainam at aktibo antas ng V-logging: 0 ang default. pangkaraniwan na ang mga positibong halaga ay ginagamit sa antas ng V-logging.
+Binigyan ng default na pinaka mainam at aktibong antas ng V-logging: 0 ang default. pangkaraniwan na ang mga positibong halaga ay ginagamit sa antas ng V-logging.
 
 Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
 
