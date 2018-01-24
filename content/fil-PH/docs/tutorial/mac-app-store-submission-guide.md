@@ -84,16 +84,16 @@ At pagkatapos, lagdaan ang iyong app sa sumusunod na mga iskrip:
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# Pangalan ng iyong app.
 APP="YourApp"
-# The path of your app to sign.
+# Ang landas na mag-sign ang iyong app.
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# Ang landas sa lokasyon na gusto mong ilagay ang signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
-APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
-INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Ang pangalan ng mga sertipikong hiniling mo.
+APP_KEY="3rd Party Mac Developer Application: Pangalan ng Kompanya (APPIDENTITY)"
+INSTALLER_KEY="3rd Party Mac Developer Installer: Pangalan ng Kompanya (APPIDENTITY)"
+# Ang landas ng iyong plist na mga file.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
