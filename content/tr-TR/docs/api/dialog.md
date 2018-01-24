@@ -119,7 +119,7 @@ console.log(dialog)
     
     Eğer bir `callback` geçilirse, Sonuç `callback(response)`üzerinden iletilecek ve API çağrısı eş zamansız olacaktır.
     
-    ### `dialog.showErrorBox(title, content)`
+    ### `diyalog.showErrorBox(başlık, içerik)`
     
     * `title` dizi - Hata kutusunda görüntülenecek başlığı belirler
     * `content` dizi - Hata kutusunda görüntülenecek olan metnin içeriğini belirler
