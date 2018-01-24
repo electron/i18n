@@ -6,19 +6,19 @@
 
 이후 Electron은 오픈 소스 개발자, 스타트업, 기존 회사들이 사용하는 인기있는 도구가 되었습니다. [누가 Electron을 사용하고 있는지 확인해보세요](https://electronjs.org/apps).
 
-Electron 프로젝트 공헌자, 릴리즈 정보 또는 Electron을 이용한 개발 시작하기에 관한 정보는 [빠른 시작 가이드](quick-start.md) 문서를 참고하시길 바랍니다.
+Electron 프로젝트 공헌자, 출시(release) 정보 또는 Electron을 이용한 개발 시작하기에 관한 정보는 [빠른 시작 가이드](quick-start.md) 문서를 참고하시길 바랍니다.
 
 ## 코어 팀과 공헌자
 
 Electron 프로젝트는 GitHub 팀과 커뮤니티에서 [열심히 활동하는 공헌자들](https://github.com/electron/electron/graphs/contributors)이 함께 관리하고 있습니다. 개인들이 공헌한 부분도 있고 Electron으로 개발을 하는 큰 회사들이 공헌한 작업도 있습니다. 프로젝트에 자주 공헌하는 분들에게는 프로젝트 관리자 역할을 부여해드립니다. 좀 더 자세한 정보는 [Electron에 기여하기](https://github.com/electron/electron/blob/master/CONTRIBUTING.md)를 참고하세요.
 
-## 릴리즈
+## 출시
 
-[Electron](https://github.com/electron/electron/releases)은 자주 릴리즈합니다. 중요한 버그 수정, 신규 API 추가 또는 Chromium 및 Node.js 버전 업데이트 등이 발생할 때마다 새로운 Electron 버전을 릴리즈합니다.
+[Electron](https://github.com/electron/electron/releases)은 자주 출시됩니다. 중요한 버그 수정, 신규 API 추가 또는 Chromium 및 Node.js 버전 업데이트 등이 발생할 때마다 새로운 Electron 버전을 출시합니다.
 
 ### 업데이트 의존성
 
-일반적으로 새로운 Chromium 안정 버전이 릴리즈된 후 1~2주 안에 Electron의 Chromium 버전을 업데이트하며, 업데이트 주기는 업그레이드에 필요한 작업의 양에 따라 달라집니다.
+일반적으로 새로운 Chromium 안정 버전이 출시된 후 1~2주 안에 Electron의 Chromium 버전을 업데이트하며, 업그레이드에 필요한 작업의 양에 따라 업데이트 시기는 달라집니다.
 
 새로운 Node.js 버전이 릴리즈되면, Electron은 좀 더 안정된 Node.js 버전이 나올 때까지 한달정도 기다렸다가 업그레이드를 진행합니다.
 
