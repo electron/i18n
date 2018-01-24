@@ -1,6 +1,6 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Makipag-usap ng sabay-sabay mula sa prosesong tagasalin hanggang sa pangunahing proseso.
 
 Mga proseso: [Renderer](../glossary.md#renderer-process)
 
