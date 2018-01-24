@@ -400,11 +400,11 @@ Devuelve:
 
 * `evento` Evento
 * `params` Object 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
+  * Entero `x` - coordenadas x
+  * Entero `y` - coordenadas x
+  * `linkURL` String - URL del enlace que incluye el nodo del menú contextual que fue invocado.
+  * `linkText` String - Texto asociado con el enlace. Puede ser una cadena vacía si el contenido del enlace es una imagen.
+  * `pageURL` String - URL de la parte superior del nivel de la página que se invocó en el menú del contexto.
   * `frameURL` String - URL of the subframe that the context menu was invoked on.
   * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
   * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
