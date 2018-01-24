@@ -2,7 +2,7 @@
 
 Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng Electron.
 
-## Determine which branch to release from
+## Alamin kung aling sangay na-mula
 
 - ** kapag nailabas na ang beta,** patakbuhin ang scrip sa ilalim ng `master`.
 - ** kapag ang nilabas na ang bersyon at matatag na it.** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
