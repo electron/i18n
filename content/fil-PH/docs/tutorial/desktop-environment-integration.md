@@ -52,7 +52,7 @@ Nagbibigay daan ang mga macOS na tagabuo sa pagtukoy sa karaniwang menu para sa 
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Upang i-set ang iyong karaniwang dock menu, pwede mong gamitin ang `app.dock.setMenu` na API, na magagamit lamang sa macOS:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -70,9 +70,9 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Mga Gawain ng Tagagamit (Windows)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Sa Windows, pwede mong tukuyin ang mga karaniwang aksyon sa kategoryang `Tasks` ng JumpList, ayon sa sinabi ng MSDN:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
