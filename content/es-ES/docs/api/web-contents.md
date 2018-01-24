@@ -94,7 +94,7 @@ Devuelve:
 * `headers` Objeto
 * `resourceType` String
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+Emite cuando los detalles acerca de un recurso solicitado está disponible. `estado` indica la toma de conexión para descargar el recurso.
 
 #### Evento: 'did-get-redirect-request'
 
@@ -126,7 +126,7 @@ Devuelve:
 * `evento` Evento
 * `favicons` String[] - matriz de URLs
 
-Emitted when page receives favicon urls.
+Emite cuando la página recibe urls de favicon.
 
 #### Event: 'new-window'
 
@@ -141,7 +141,7 @@ Devuelve:
 
 Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Por defecto se creará un nuevo `BrowserWindow` para la `dirección url`.
 
 Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Por ejemplo:
 
