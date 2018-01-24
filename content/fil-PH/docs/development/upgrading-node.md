@@ -43,15 +43,15 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
 
 1. Kumuha ng kopya ng Elektron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. I-run ang `script/update` to get the latest libcc 
-  - This will be time-consuming
-3. Remove our copies of the old Node v8 patches 
-  - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
-  - Remove those files from `patches/v8/`: 
-    - `git rm` the patchfiles
-    - edit `patches/v8/README.md`
-    - commit these removals
-4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
+2. I-run ang `script/update` para makakuha ng panibagong libcc 
+  - Kinakailangan ito ng mahabang oras
+3. Tanggalin ang lumang kopya ng ating Node v8 patches 
+  - (Sa libchromiumcontent repo) Basahin ang `patches/v8/README.md` upang makita kung anong patchfiles ang nilikha sa nakaraang update
+  - Tanggalin lahat ng files mula sa `patches/v8/`: 
+    - `git rm` ang patchfiles
+    - i-edit ang mga `patches/v8/README.md`
+    - isagawa lahat ng mga pagtatanggal
+4. Inspeksyunin ang Node [repo](https://github.com/electron/node) para makita kung anong patches upstream Node ang gumamit ng kanilang sariling V8 pagkatapos makasira ito sa bersyon 
   - `git log --oneline deps/V8`
 5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
 6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
