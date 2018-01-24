@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### Eventos de Instancia
 
 The `Tray` module emits the following events:
 
@@ -189,7 +189,7 @@ Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
-* `title` String
+* `title` Cadena
 
 Sets the title displayed aside of the tray icon in the status bar.
 

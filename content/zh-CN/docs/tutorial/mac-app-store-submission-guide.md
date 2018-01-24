@@ -32,7 +32,7 @@
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+之后，你需要准备2个授权文件。
 
 `child.plist`:
 

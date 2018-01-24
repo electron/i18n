@@ -59,8 +59,8 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 如果你安装了一个原生模块并发现它不能工作，你需要检查 以下事项：
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
+* 模块的对应的操作系统和 Electron 对应的操作系统是否匹配(ia32 或 x64)。
+* 如果升级了 Electron，你通常需要重新编译这些模块。
 * 当有疑问时，请先执行 `electron-rebuild`。
 
 ## 依赖于 `prebuild` 的模块

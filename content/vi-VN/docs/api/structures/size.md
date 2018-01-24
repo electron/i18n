@@ -1,4 +1,4 @@
-# Size Object
+# Kích thước đối tượng
 
 * `width` Number
-* `height` Number
+* `height` Số

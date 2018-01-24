@@ -1,24 +1,24 @@
 # Offscreen Rendering
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Ang offscreen rendering ay nagpapahintulot sa iyo na kumuha ng nilalaman ng isang browser window sa bitmap, kaya ito ay nai-render kahit saan, halimbawa sa isang texture ng 3D scene. Ang offscreen rendering sa electron ay gumagamit ng katulad na pamamaraan kaysa sa[Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) na proyekto.
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+May dalawang mode ng rendering na pwedeng magamit at ang maruming lugar lamang ay nakapasa sa `'pintura'`event upang maging mas mahusay. Ang rendering ay maaring tumigil, magpatuloy at maaring magtakda ng frame rate. Ang tinukoy na frame rate ay isang nangungunang limit value, kapag mayroong walang nangyayari sa isang webpage, walang mga frame ang nabuo. Ang pinakamataas na frame rate ay 60, dahil sa itaas na walang pakinabang, lamang pagkawala ng pagganap.
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**Note:** Ang offscreen window ay laging nilikha bilang isang[Frameless Window](../api/frameless-window.md).
 
-## Two modes of rendering
+## Dalawang mga mode ng rendering
 
-### GPU accelerated
+### Pinabilis na GPU
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+Pinabilis na GPU rendering na ang ibig sabihin ay ginagamit ang GPU para sa komposisyon. Dahil sa ang frame ay may kinopya sa GPU na nangangailangan ng karagdagang performance, kaya ang mode na ito ay lubos na mas mabagal kaysa sa isa. Ang mga benepisyo nitong mode na WebGL at 3D CSS animations ay suportado.
 
 ### Software output device
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Ang mode ay gumagamit ng software output device para sa rendering ng CPU, kaya ang frame generation ay mas mabilis, kaya naman ang mode na ito ay ginustong sa ibabaw ng mas pinabilis na isang GPU.
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Upang paganahin ang mode na ito ng GPU acceleration ay dapat hindi paganahin sa pamamagitan ng pagtawag sa[`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-## Usage
+## Paggamit
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -38,4 +38,6 @@ app.once('ready', () => {
   })
   win.webContents.setFrameRate(30)
 })
+ 
+Context | Request Context
 ```

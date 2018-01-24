@@ -9,6 +9,7 @@ nav:
   contact: تواصل معنا
   languages: اللغات
   code_of_conduct: قواعد السلوك
+  search: Search
 docs:
   title: توثيقات الكترون
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: إذا كان هذا خطأ
   please_file_an_issue: يرجى تسجيل issue.
 search:
-  description: Search within Electron documentations and community.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: and
+    repos: <a href="/search/repos">GitHub repos</a>

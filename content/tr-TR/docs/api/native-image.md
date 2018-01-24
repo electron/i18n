@@ -120,7 +120,7 @@ console.log(image)
 
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
-* `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+* `arabellek` [Arabellek](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` obje (isteğe bağlı) *`width` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir. * `height` tamsayı (isteğe bağlı) - Bitmap tamponları için gereklidir. * `scaleFactor` Double (isteğe bağlı) - Varsayılan değer 1.0.
 
 `NativeImage` döndürür
@@ -129,7 +129,7 @@ console.log(image)
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
-* `dataURL` String
+* `dataURL`Dizesi
 
 `NativeImage` döndürür
 

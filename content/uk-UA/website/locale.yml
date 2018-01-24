@@ -9,6 +9,7 @@ nav:
   contact: Контакти
   languages: Мови
   code_of_conduct: Норми поведінки
+  search: Search
 docs:
   title: Документація Electron
   description: Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.
@@ -90,7 +91,7 @@ clipboard:
   copy: Копіювати
   copy_to_clipboard: Копіювати до буферу обміну
   copied: Скопійовано
-or: чи
+or: or
 pages:
   '/':
     title: Electron | Створюйте прикладні програми з JavaScript, HTML та CSS для будь-якої платформи.
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: Якщо це помилка, 
   please_file_an_issue: будь ласка, повідомте про проблему.
 search:
-  description: Пошук в документації Electron та спільноті.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: and
+    repos: <a href="/search/repos">GitHub repos</a>

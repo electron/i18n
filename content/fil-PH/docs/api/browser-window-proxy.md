@@ -1,30 +1,31 @@
 ## Class: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Manipulahin ang mga maliliit na window ng browser
 
-Process: [Renderer](../glossary.md#renderer-process)
+Mga proseso: [Renderer](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+Ang mga bagay sa `BrowserWindowProxy` ay bumabalik mula sa `window.open` at nagbibigay ng limitadong pag-andar sa maliliit na window.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
-The `BrowserWindowProxy` object has the following instance methods:
+Ang mga bagay sa `BrowserWindowProxy` ay mayroon ng mga sumusunod pamamaraan ng pagkakataon:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Tinatanggal ang pokus mula sa maliit na window.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Sapilitang isasara ang maliit ma window ng walang pagtawag sa kanyang event ng pag-unload.
 
 #### `win.eval(code)`
 
 * `code` String
 
-Evaluates the code in the child window.
+ipakita ang code sa maliit na window
 
-#### `win.focus()`
+#### `win.focus()
+ `
 
 Focuses the child window (brings the window to front).
 
@@ -37,14 +38,14 @@ Invokes the print dialog on the child window.
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Ipasa ang mensahe sa maliit na window kasama ang tamang origin o kaya `*` sa hindi tamang husto ng origin.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+Bukod sa mga pamamaraang ito, ay ipinatutupad ng maliit na window na to na ang `window.opener` ay bagay na walang katangian at iisa ang pamamaraan.
 
-### Instance Properties
+### Humahalimbawa sa bahagi nito
 
-The `BrowserWindowProxy` object has the following instance properties:
+Ang `BrowserWindowProxy` na to ay bahagi ng mga sumusunod na halimbawa ng mga bahagi:
 
 #### `win.closed`
 
-A `Boolean` that is set to true after the child window gets closed.
+Ang `Boolean` ay itinalaga para itama bago isara ang maliit na window.

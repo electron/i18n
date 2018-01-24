@@ -10,7 +10,7 @@ ASAR là viết tắt của Atom Shell Archive Format. Một tập tin [asar](ht
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [là](https://github.com/electron-archive/brightray) một thư viện riêng dùng tạo ra [libchromiumcontent](#libchromiumcontent) dễ dàng hơn để sử dụng trong các ứng dụng. It is now deprecated and has been merged into Electron's codebase.
 
 ### CRT
 
@@ -92,7 +92,7 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 là một JavaScript engine mã nguồn mở của Google. Nó được viết bằng C++ và được sử dụng trong Google Chrome. V8 có thể chạy độc lập hoặc có thể được nhúng vào bất ký ứng dụng C++ nào.
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
@@ -104,4 +104,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+Những thẻ `webview` được sử dụng để tích hợp nội dung 'khách' (như các trang web bên ngoài) trong ứng dụng Electron của bạn. Chúng tương tự như các thẻ `iframe`, nhưng khác biệt ở chổ mỗi một webview chạy trên một tiến trình riêng biệt. Nó không có các quyền như những trang web của bạn và mọi tương tác giữa ứng dụng của bạn với nội dung được tích hợp đều là bất đồng bộ. Điều này giúp ứng dụng của bạn an toàn đối với những nội dung được tích hợp.
