@@ -78,7 +78,7 @@ Corresponds to the points in time when the spinner of the tab started spinning.
 
 #### Evento: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador terminó de girar.
 
 #### Evento: 'did-get-response-details'
 
@@ -1192,4 +1192,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Una instancia del [depurador](debugger.md) para éste webContents.
