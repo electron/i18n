@@ -173,7 +173,7 @@ $ ./electron/electron iyong-app/
 $ .\electron\electron.exe iyong-app\
 ```
 
-`Electron.app`Narito ang bahagi ng release package ng Electron, maari mong madownload ang mga ito mula[here](https://github.com/electron/electron/releases).
+`Electron.app`Narito ang bahagi ng release package ng Electron, maari mong madownload ang mga ito mula[dito](https://github.com/electron/electron/releases).
 
 ### Tumakbo bilang isang distribusyon
 
@@ -181,19 +181,19 @@ Pagkatapos mong magsulat ng iyong app, pwede kang gumawa ng distribusyon sa pama
 
 ### Subukan ang mga halimbawang ito
 
-Iclone at magpatakbo ng code sa tutorial sa pamamagitan ng[`electron/electron-madaling-pagsisimula`](https://github.com/electron/electron-quick-start) imbakan.
+Iclone at magpatakbo ng code sa tutorial sa pamamagitan ng[`electron/electron-madaling-pagsisimula`](https://github.com/electron/electron-quick-start) repository.
 
 **Note**:Tumatakbo ang mga ito na nangangailangan ng [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (na kinabibilangan ng[npm](https://npmjs.org))sa iyong sistema.
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
+# i-clone ang repository
+$ git clone https://github.com/electron/electron-madaling-pagsisimula
+# Pumunta sa repository
+$ cd electron-madaling-pagsisimula
+# I-install dependencies
 $ npm install
-# Run the app
-$ npm start
+# Patakbuhin ang app
+$ npm simula
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Para sa iba pang mga halimbawa ng app, tingnan ang[listahan ng mga boilerplates](https://electronjs.org/community#boilerplates)nilikha sa pamamagitan ng mga kahanga-hangang communidad ng electron.
