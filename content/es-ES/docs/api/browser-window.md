@@ -343,28 +343,28 @@ Devuelve:
 
 Aparece cuando se invoca un [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Estos están generalmente relacionados a las teclas del teclado o a los comandos del navegador, así como el botón "Back" está en algunos ratones en Windows.
 
-Los comandos están en minuscula, los guiones bajos son remplazados por guiones, y el prefijo `APPCOMMAND_` se elimina. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Los comandos están en minuscula, los guiones bajos son remplazados por guiones, y el prefijo `APPCOMMAND_` se elimina. por ejemplo, `APPCOMMAND_BROWSER_BACKWARD` aparece como `browser-backward`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navega la ventana hasta cuando el usuario hag clic sobre el botón de atrás
+  // La ventana retrocede cuando el usuario hace clic sobre el botón de atrás
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Evento: "scroll-touch-begin"*macOS*
 
-Emitted when scroll wheel event phase has begun.
+Aparece cuando la fase del evento de la rueda de desplazamiento ha empezado.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Evento: "scroll-touch-end"*macOS*
 
-Emitted when scroll wheel event phase has ended.
+Aparece cuando la fase del evento de la rueda de desplazamiento ha concluido.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Evento: "scroll-touch-edge"*macOS*
 
 Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
