@@ -974,16 +974,16 @@ Las `flags` es un arreglo que puede incluir los siguientes `String`s:
 
 * `enabled` - El botón está activo y disponible para el usuario.
 * `disabled` - El botón está deshabilitado. Está presente, pero tiene un estado visual que indica que no responderá a la acción del usuario.
-* `dismissonclick` - Cuando se hace clic en el botón, la ventana de miniatura se cierra de inmediato.
+* `dismissonclick` - Cuando se hace clic en el botón, la ventana de vista previa se cierra de inmediato.
 * `nobackground` - No dibuja un borde del botón, usa solo la imagen.
-* `hidden` - El botón no es mostrado al usuario.
+* `hidden` - El botón no se muestra usuario.
 * `noninteractive` - El botón está habilitado pero no es interactivo; no se dibuja un estado de botón presionado. Este valor está destinado a instancias donde el botón se usa en una notificación.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - la región de la ventana
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+Establece la región de la ventana para mostrar como la vista previa de la imagen es mostrada cuando se pasa sobre la ventana en la barra de tareas. Se puede restablecer la vista previa de toda la ventana especificando una región vacía: `{x: 0, y: 0, width: 0, height: 0}`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
