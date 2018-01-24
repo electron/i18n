@@ -64,29 +64,29 @@ Writing release notes is a good way to keep yourself busy while the builds are r
 
 Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Patch 发布
 
-For a `patch` release, use the following format:
+对于 ` 修补程序 ` 版本, 请使用以下格式:
 
 ```sh
-## Bug Fixes
+## Bug 修复
 
-* Fixed a cross-platform thing. #123
+* 修复跨平台问题. #123
 
 ### Linux
 
-* Fixed a Linux thing. #123
+* 修复 Linux 问题. #123
 
 ### macOS
 
-* Fixed a macOS thing. #123
+* 修复 macOS 问题. #123
 
 ### Windows
 
-* Fixed a Windows thing. #1234
+* 修复 Windows 问题. #1234
 ```
 
-### Minor releases
+### Minor 发布
 
 For a `minor` release, e.g. `1.8.0`, use this format:
 
