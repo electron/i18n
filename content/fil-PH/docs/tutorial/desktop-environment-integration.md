@@ -2,11 +2,11 @@
 
 Ang iba't-ibang mga operating system ay nagbibigay ng iba't-ibang mga katangian para sa pag-iintegrate ng mga aplikasyong pang-desktop sa mga desktop environment. Halimbawa, sa Windows, ang mga aplikasyon ay pwedeng maglagay ng mga shortcut sa JumpList ng task bar, at sa Mac, ang mga aplikasyon ay nakakapaglagay ng karaniwang menu sa dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Ang gabay na ito ay nagpapaliwanag kung paano i-integrate ang iyong aplikasyon sa mga desktop environment na iyon gamit ang mga Electron API.
 
-## Notifications
+## Mga Paalala
 
-See [Notifications](notifications.md)
+Tingnan ang [Mga Paalala](notifications.md)
 
 ## Recent documents (Windows & macOS)
 
