@@ -264,55 +264,55 @@ Aparece cuando la sesión de la ventana va a terminarse debido a un cierre forzo
 
 Aparece cuando la página web deja de responder.
 
-#### Event: 'responsive'
+#### Evento: "responsive"
 
-Emitted when the unresponsive web page becomes responsive again.
+Aparece cuando la página web que no responde vuelve a responder.
 
-#### Event: 'blur'
+#### Evento: "blur"
 
-Emitted when the window loses focus.
+Aparece cuando la ventana pierde el enfoque.
 
-#### Event: 'focus'
+#### Evento: "focus"
 
-Emitted when the window gains focus.
+Aparece cuando la ventana recupera el enfoque.
 
-#### Event: 'show'
+#### Evento: "show"
 
-Emitted when the window is shown.
+Aparece cuando se muestra la ventana.
 
-#### Event: 'hide'
+#### Evento: "hide"
 
-Emitted when the window is hidden.
+Aparece cuando se oculta la ventana.
 
-#### Event: 'ready-to-show'
+#### Evento: "ready-to-show"
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Aparece cuando la página web ha sido renderizada (mientras no está siendo mostrada) y la ventana puede mostrarse sin un visual flash.
 
-#### Event: 'maximize'
+#### Evento: "maximize"
 
-Emitted when window is maximized.
+Aparece cuando se maximiza la ventana.
 
-#### Event: 'unmaximize'
+#### Evento: "unmaximize"
 
-Emitted when the window exits from a maximized state.
+Aparece cuando la ventana sale de un estado maximizado.
 
-#### Event: 'minimize'
+#### Evento: "minimize"
 
-Emitted when the window is minimized.
+Aparece cuando se minimiza la ventana.
 
-#### Event: 'restore'
+#### Evento: "restore"
 
-Emitted when the window is restored from a minimized state.
+Aparece cuando se restaura la ventana de un estado minimizado.
 
-#### Event: 'resize'
+#### Evento: "resize"
 
-Emitted when the window is being resized.
+Aparece cuando se redimensiona la ventana.
 
-#### Event: 'move'
+#### Evento: "move"
 
-Emitted when the window is being moved to a new position.
+Aparece cuando la ventana se mueve a una nueva posición.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Nota**: en macOS este evento es solamente un alias de `move`.
 
 #### Event: 'moved' *macOS*
 
