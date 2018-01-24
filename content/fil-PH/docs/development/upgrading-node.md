@@ -25,9 +25,9 @@ Sa madaling salita, ang kinakaylangan nating gawin ay:
 ## Pag-uupdate ng Elektron's Node [fork](https://github.com/electron/node)
 
 1. Siguraduhin na `master` sa `electron/node` ay may updated na release tags galing sa `nodejs/node`
-2. Gumawa ng sangay sa https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
-  - `vX.X.X` Must use a version of node compatible with our current version of chromium
-3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
+2. Gumawa ng sangay sa https://github.com/electron/node: `electron-node-vX.X.X` kung saan galing ang base na ginamit mo sa branching ay ang tag na kailangan para sa update 
+  - `vX.X.X` Dapat gumamit ng bersyon ng node na tugma sa aming kasalukayang bersyon ng chromium
+3. Gumamit ulit sa aming mga commits galing sa nakaraang bersyon ng node na aming ginagamit (`vY.Y.Y`) hanggang `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
   - Cherry-pick commit range: 
     1. Checkout both `vY.Y.Y` & `v.X.X.X`
