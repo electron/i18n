@@ -821,43 +821,43 @@ El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Lin
 * `message` Entero
 * `callback` Función
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Ancla un mensaje en la ventana. El `callback` es llamado cuando el mensaje se recibe en el WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
-* `message` Íntegro
+* `message` Entero
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Devuelve `Boolean` - `true` o `false` dependiendo de si el mensaje esta anclado o no.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
-* `message` Íntegro
+* `message` Entero
 
-Unhook the window message.
+Desancla el mensaje de la ventana.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Desbloquea todos los mensajes de la venta.
+Desancla todos los mensajes de la ventana.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Establece el nombre de la ruta del archivo que la ventana representa, y el icono del archivo se mostrará en la barra de título de la ventana.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Devuelve `String` - El nombre de la ruta del archivo que la ventana representa.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Booleano
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Especifica si se ha editado el documento de la ventana y el icono en la barra de título se volverá gris cuando se establece en `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 
 #### `win.focusOnWebView()`
 
