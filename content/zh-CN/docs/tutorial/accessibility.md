@@ -38,7 +38,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 ### 应用程序内部
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. 用户的系统的辅助实用程序优先于此设置, 并将覆盖它。
+通过使用 [` app.setAccessibilitySupportEnabled(enabled) `](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), 可以在应用程序首选项中向用户开放辅助功能的开关。 用户的系统的辅助实用程序优先于此设置, 并将覆盖它。
 
 ### 辅助功能技术
 
