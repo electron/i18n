@@ -1,6 +1,6 @@
 # Electron 에 대하여
 
-[Electron](https://electronjs.org)은 HTML, CSS, 자바스크립트를 사용해 크로스 플랫폼 데스크탑 애플리케이션을 만들기 위해 GitHub에서 개발한 오픈 소스 라이브러리입니다. Electron 은 Chromium 와 Node. js 를 단일 실행으로 합치고 앱을 Mac, Windows 와 Linux 용으로 패키지화 할 수 있게 함으로써 이것을 가능하게 합니다.
+[Electron](https://electronjs.org)은 HTML, CSS, 자바스크립트를 사용해 크로스 플랫폼 데스크탑 애플리케이션을 만들기 위해 GitHub에서 개발한 오픈 소스 라이브러리입니다. Electron은 크로스 플랫폼을 지원하기 위해 [Chromium](https://www.chromium.org/Home)과[Node.js](https://nodejs.org)를 1개의 런타임으로 통합했고, Electron을 이용해 작성한 앱은 맥, Windows, 리눅스용으로 패키지할 수 있습니다.
 
 Electron 은 2013년에 Github 의 해킹 가능한 텍스트 편집기 Atom 의 프레임워크로 시작하였습니다. 이 둘은 2014년에 오픈소스화 됩니다.
 
