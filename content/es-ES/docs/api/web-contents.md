@@ -168,16 +168,16 @@ Este evento no se emitirá cuando la navegación es iniciada con programación c
 
 Tampoco es emitido para las navegaciones en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-Calling `event.preventDefault()` will prevent the navigation.
+Llamando `event.preventDefault()` evitará la navegación.
 
-#### Event: 'did-navigate'
+#### Evento: 'did-navigate'
 
 Devuelve:
 
 * `evento` Evento
 * `url` String
 
-Emitted when a navigation is done.
+Emitido cuando la navegación es finalizada.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
