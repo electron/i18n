@@ -599,65 +599,65 @@ Cierra el panel actual de [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Booleano (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Booleano (opcional) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Redimensiona y mueve la ventana a los límites proporcionados
 
 #### `win.getBounds()`
 
-Devuelve [`Rectángulo`](structures/rectangle.md)
+Devuelve [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Booleano (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Booleano (opcional) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página web) hasta los límites proporcionados.
 
 #### `win.getContentBounds()`
 
-Devuelve [`Rectángulo`](structures/rectangle.md)
+Devuelve [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
-* `ancho` Íntegro
-* `alto` Íntegro
-* `animate` Booleano (optional) *macOS*
+* `ancho` Entero
+* `alto` Entero
+* `animate` Booleano (opcional) *macOS*
 
-Cambia el tamaño de la ventana a `ancho` y `altura`.
+Cambia el tamaño de la ventana a `width` y `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura de la ventana.
 
 #### `win.setContentSize(width, height[, animate])`
 
-* `ancho` Íntegro
-* `alto` Íntegro
-* `animate` Booleano (optional) *macOS*
+* `ancho` Entero
+* `alto` Entero
+* `animate` Booleano (opcional) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Cambia el área del cliente de la ventana (por ejemplo, la página web) a la `width` y `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura del área del cliente de la ventana.
 
 #### `win.setMinimumSize(width, height)`
 
-* `ancho` Íntegro
-* `alto` Íntegro
+* `width` Entero
+* `height` Entero
 
-Sets the minimum size of window to `width` and `height`.
+Establece el tamaño mínimo de la ventana a `width`y `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 
 #### `win.setMaximumSize(width, height)`
 
-* `ancho` Íntegro
-* `alto` Íntegro
+* `ancho` Entero
+* `alto` Entero
 
 Sets the maximum size of window to `width` and `height`.
 
