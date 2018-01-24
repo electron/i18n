@@ -81,10 +81,10 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 过程如下:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+1. 所有新的主要和次要发布行都以 ` beta 为起点。n ` 标记为 ` n > = 1 `。 此时，功能集是 **被锁定** 的. 该版本不接纳更多功能，只关注安全性和稳定性。 例如 `2.0.0-beta.1`.
+2. 错误修复，复原修复和安全修补程序可以被接受。 一旦这样做，一个新的测试版被释放增加 `N`. 例如`2.0.0-beta.2`
+3. 如果特定的beta版本*通常被认为*是稳定的，那么它将作为稳定版本被重新发布，只改变版本信息。 例如`2.0.0`。
+4. 如果将来的错误修复或安全补丁需要在发布稳定后进行，则会应用这些修补程序并相应地增加* patch *程序版本 例如`2.0.1`.
 
 对于每个主要和次要的颠覆，你都应该期望看到如下的东西：
 
@@ -122,28 +122,28 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 功能标志是 Chromium 的一种常见的做法, 在网络开发生态系统中得到了很好的确立。 在 Electron 环境中, 功能标志或 ** 软分支 ** 必须具有以下属性:
 
 * 是在运行时或生成时启用/禁用的。我们不支持请求作用域功能标志的概念
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* 它完全细分新的和旧的代码路径; 重构旧代码以允许新功能 * 违反 * 功能标志内容
+* 在合并软分支后, 功能标志最终将被删除
 
-We reconcile flagged code with our versioning strategy as follows:
+我们将标记的代码与我们的版本控制策略进行协调, 如下所示:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. 我们不考虑在稳定分支中对特征标记的代码进行迭代; 即使明智地使用功能标志也不是没有风险
+2. 您可能会在功能标记的代码中中断 API 协定, 而不会冲突主版本。标记的代码不遵守 semver
 
-# 语义提交
+# 提交语义
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* 提交会导致 semver **major** 必须以 `BREAKING CHANGE:` 开头。
+* 提交会导致 semver **minor** 必须以 `feat:` 开头。
+* 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* 我们允许压缩提交，只要压缩的消息符合上述消息格式。
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* 只要稍后在相同的拉取请求中提交包含有意义的包含语义消息，拉取请求中的一些提交就不包括语义前缀是可接受的。
 
 # 无版本的 `master`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
+* Release 分支永远不会合并回 master 分支
+* 发布分支 *在* 其`package.json ` 中包含正确的版本
