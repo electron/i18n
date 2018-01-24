@@ -9,7 +9,7 @@ Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng El
 
 ## Hanapin kung aling bersyon ang nabago ito ay kinakailangan
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+Paganahin ang `npm ihandang paganahin ang paglabas ng -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
 ## Run the prepare-release script
 
