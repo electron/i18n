@@ -101,12 +101,12 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
 
 - ang libcc at V8 ay itinuturing bilang isang solong yunit
 - Pinapanatili ng Node ang sariling fork ng V8 
-  - They backport a small amount of things as needed
-  - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
-- We update code such that we only use one copy of V8 across all of electron 
-  - E.g electron, libcc, and node
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a node version bump in electron.
+  - Bina-backport nila ang isang maliit na halaga sa mga bagay na kinakailangan
+  - Dokumentasyon sa node kung paano [sila nagtratrabaho na may V8](https://nodejs.org/api/v8.html)
+- Nagu-update kami ng code subalit isa lang ang ginagamit naming kopya ng V8 sa lahat ng elektron 
+  - Hal. electron, libcc, at node
+- Hindi namin maiging sinusubaybayan ang upstream dahil sa logistics: 
+  - Ang upstreams ay gumagamit ng maraming repos at ang pagsasama nito sa isang repo ay magdudulot ng kawalan ng resulta sa history. Kung kaya nagu-update lang kami kung may planong pagbump ng node sa elektron.
 - libcc is large and time-consuming to update, so we typically choose the node version based on which of its releases has a version of V8 that’s closest to the version in libcc that we’re using. 
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
   - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
