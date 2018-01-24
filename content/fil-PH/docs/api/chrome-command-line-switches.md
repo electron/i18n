@@ -115,11 +115,11 @@ Italaga ang `path` para sa plugin ng pepper flash.
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+Italaga ang `version` para sa plugin ng pepper flash.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Paganahin ang net log ng mga nangyari isulat at i-save sila sa `path`.
 
 ## --disable-renderer-backgrounding
 
