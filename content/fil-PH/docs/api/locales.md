@@ -28,9 +28,9 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang el             | Ay Greek                 |
 | ang en             | Ay English               |
 | ang en-AU          | Ay English (Australia)   |
-| ang en-CA          | English (Canada)         |
-| en-GB              | English (UK)             |
-| en-NZ              | English (New Zealand)    |
+| ang en-CA          | Ay English (Canada)      |
+| ang en-GB          | Ay English (UK)          |
+| ang en-NZ          | Ay English (New Zealand) |
 | en-US              | English (US)             |
 | en-ZA              | English (South Africa)   |
 | eo                 | Esperanto                |
@@ -64,21 +64,21 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang is             | Ay Icelandic             |
 | ang it             | Ay Italian               |
 | ang it-CH          | Ay Italian (Switzerland) |
-| it-IT              | Italian (Italy)          |
-| ja                 | Japanese                 |
-| jw                 | Javanese                 |
-| ka                 | Georgian                 |
-| kk                 | Kazakh                   |
-| km                 | Cambodian                |
-| kn                 | Kannada                  |
-| ko                 | Korean                   |
-| ku                 | Kurdish                  |
-| ky                 | Kyrgyz                   |
-| la                 | Latin                    |
-| ln                 | Lingala                  |
-| lo                 | Laothian                 |
-| lt                 | Lithuanian               |
-| lv                 | Latvian                  |
+| ang it-IT          | Ay Italian (Italy)       |
+| ang ja             | Ay Japanese              |
+| ang jw             | Ay Javanese              |
+| ang ka             | Ay Georgian              |
+| ang kk             | Ay Kazakh                |
+| ang km             | Ay Cambodian             |
+| ang kn             | Ay Kannada               |
+| ang ko             | Ay Korean                |
+| ang ku             | Ay Kurdish               |
+| ang ky             | Ay Kyrgyz                |
+| ang la             | Ay Latin                 |
+| ang ln             | Ay Lingala               |
+| ang lo             | Ay Laothian              |
+| ang it             | Ay Lithuanian            |
+| ang lv             | Latvian                  |
 | mk                 | Macedonian               |
 | ml                 | Malayalam                |
 | mn                 | Mongolian                |
