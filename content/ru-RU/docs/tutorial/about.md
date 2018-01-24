@@ -26,9 +26,9 @@ Electron версия обычно обновляется в течение од
 
 ### Версионность
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Electron начиная с версии 2.0 [использует `семантическое версионирование`](https://semver.org). Для большинства приложений и при использовании последних версий npm, запуск команды `$ npm install electron` сделает свое дело.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Процесс обновления детально описан в нашей статье [Нумерация версий Electron](electron-versioning.md).
 
 ### LTS
 
