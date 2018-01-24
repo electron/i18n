@@ -1,6 +1,6 @@
-# Locales
+# Mga lokal
 
-> Locale values returned by `app.getLocale()`.
+> Ang kahalagahan ng lokal ay ibinabalik ng `app.getLocale()`.
 
 Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
