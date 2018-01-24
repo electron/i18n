@@ -6,16 +6,16 @@
 
 ## Linting
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
+为确保您的JavaScript符合Electron编码风格，请运行`npm run lint-js`，它将针对Electron本身以及单元运行`标准`测试。 如果您正在使用带有插件/插件系统的编辑器，则可能需要使用多个 [StandardJS插件](https://standardjs.com/#are-there-text-editor-plugins)之一来通知编码风格违规。
 
-To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
+要用参数运行`标准测试`，运行`npm run lint-js --` 然后输入要传递给`标准测试`的参数。
 
-To ensure that your C++ is in compliance with the Electron coding style, run `npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+要确保您的C ++符合Electron编码风格，请运行运行`cpplint`脚本的`npm run lint-cpp`。 我们建议您使用`clang-format`并准备[一个简短的教程](clang-format.md)。
 
 这个版本库中没有太多的Python，但是它也受编码风格规则的支配。 `npm run lint-py`将使用`pylint`检查所有的Python。
 
 ## 单元测试
 
-To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+要运行所有单元测试，请运行 `npm run test`。 单元测试是一个 Electron 应用程序(惊喜！)，可以在`spec`文件夹中找到。 请注意，它有自己的 `package.json`，因此它的依赖关系没有在顶层`package.json`中定义。
 
-To run only a selected number of tests, run `npm run test -match=NAME`, replacing the `NAME` with the file name of the test suite you would like to run. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
+要仅运行选定数量的测试，请运行`npm run test -match=NAME`，将`NAME`替换为您要运行的测试套件的文件名。 举个例子：如果你只想运行IPC套件，你可以运行`npm run test -match=ipc`。
