@@ -65,16 +65,16 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
       - Hindi natin kailangan yung mga patches na iyon kasi nagpa-patch lang tayo sa V8.
     - Palitan ang mga pagkakataon ng `a/deps/v8/filename.ext` na may `a/filename.ext` 
       - Ito'y kailangan dahil ang upstream Node ay nagpapanatili sa V8 file sa isang subdirectory
-  - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
-  - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Create a new copy of the patch: 
+  - Tiyakin na ang lokal na status ay malinis: `git status` upang tiyakin na walang unstaged na mga pagbabago.
+  - Kumpirmahin na ang patch ay angkop at malinis sa `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
+  - Lumikha ng bagong kopya ng patch: 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - This is needed because the first patch has Node commit checksums that we don't want
-  - Confirm that checksums are the only difference between the two patches: 
+    - Ito ay kailangan dahil ang unang patch ay may Node commit checksums na hindi natin kailangan
+  - Kumpirmahin na ang checksums lang ang tanging pinagkaiba ng dalawang patches: 
     - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Replace the old patch with the new: 
+  - Palitan ang lumang patch ng bago: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Add the patched code to the index *without* committing: 
+  - Ilagay ang patched code sa index *na walang* committing: 
     - `cd src/v8 && git add . && cd ../..`
     - We don't want to commit the changes (they're kept in the patchfiles) but need them locally so that they don't show up in subsequent diffs while we iterate through more patches
   - Add the patch file to the index: 
