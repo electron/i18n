@@ -53,8 +53,8 @@ const spin = new TouchBarButton({
 
 Para patakbohin ang mga halimbawa sa taas, dapat kang (ipagpapalagay na mayroong kang terminal open sa direktori na gusto mong patakbuhin na halimbawa.
 
-1. Save the above file to your computer as `touchbar.js`
-2. Install Electron via `npm install electron`
-3. Run the example inside Electron: `./node_modules/.bin/electron touchbar.js`
+1. I-save ang itaas na file sa iyong kompyuter bilang `touchbar.js`
+2. Mag instala ng Electron sa pamamagitan ng `npm mag instala ng electron`
+3. Patakbohin ang mga halimbawa sa loob ng Electron: `./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+Makakakita ka ng bagong Electron window at ang aplikasyon na tumatakbo sa iyong touch bar (o touch bar emulator).
