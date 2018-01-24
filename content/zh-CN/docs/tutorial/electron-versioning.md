@@ -72,21 +72,21 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 开发人员想知道哪个版本可以 *安全* 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
+* 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 * 合理稳定 * 功能以及安全性和 bug 修复。
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 为了达到这个目的，semver允许一个 *pre-release 标识* 来表示一个特定的版本还不 *安全* 或 *稳定*.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+无论你选择什么，你将定期不得不在 `package.json` 中打破版本，因为突破性变更是 Chromium 的一个常态。
 
-The process is as follows:
+过程如下:
 
 1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
 2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
 
-For each major and minor bump, you should expect too see something like the following:
+对于每个主要和次要的颠覆，你都应该期望看到如下的东西：
 
 ```text
 2.0.0-beta.1
@@ -97,31 +97,31 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+图片中的生命周期示例:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* 将创建一个新的发布分支, 其中包括最新的一组功能。它被发布为 ` 2.0. 0-beta 1 `。 ![](../images/versioning-sketch-3.png)
+* 一个 bug 修复进入了一个可以打包移植到发布分支的主机。将应用该修补程序, 并将新的测试版发布为 ` 2.0. 0-beta 2 `。 ![](../images/versioning-sketch-4.png)
+* 测试版被认为是 * 一般稳定 * 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![](../images/versioning-sketch-5.png)
+* 之后，会显示一个零日漏洞，并将修复应用于 master。 我们将修补程序移植到 `2-0-x `行并释放` 2.0.1 `。 ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+几个不同的 semver 范围将如何接收新版本的示例:
 
 ![](../images/versioning-sketch-7.png)
 
 # 缺少的功能: Alphas, 和 Nightly
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+我们的战略有几个权衡, 现在我们觉得是适当的。 最重要的是, 新的功能在掌握可能需要一段时间才能达到稳定的释放。 如果你想立即尝试一个新的功能, 你将不得不建立自己的Electron 。
 
-As a future consideration, we may introduce one or both of the following:
+作为未来的考虑, 我们可以介绍以下一种或两种情况:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* 由 master 构建的 nightly; 这些将允许人们快速测试新的功能, 并提供反馈
+* 具有松散稳定性限制的 alpha 释放版; 例如, 当稳定通道在 * alpha * 中时, 允许接纳新特性
 
 # 功能标志
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+功能标志是 Chromium 的一种常见的做法, 在网络开发生态系统中得到了很好的确立。 在 Electron 环境中, 功能标志或 ** 软分支 ** 必须具有以下属性:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+* 是在运行时或生成时启用/禁用的。我们不支持请求作用域功能标志的概念
 * it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
 * feature flags are eventually removed after the soft-branch is merged
 
