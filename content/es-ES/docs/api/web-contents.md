@@ -286,7 +286,7 @@ Emitido cuando Devtools es cerrado.
 
 #### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Emitido cuando DevTools es centrado o abierto.
 
 #### Evento: 'error-certificado'
 
@@ -297,9 +297,9 @@ Devuelve:
 * `error` cadena - el error del código
 * `certificate` [certificate](structures/certificate.md)
 * `llamada de vuelta` Función 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `isTrusted` Boolean - indica si el certificado se puede considerar de confianza
 
-Emitted when failed to verify the `certificate` for `url`.
+Emitido cuando no se pudo verificar el `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
@@ -311,7 +311,7 @@ Devuelve:
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
 * `llamada de vuelta` Función 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `certificate`[Certificate](structures/certificate.md) - Debe ser un certificado de la lista dada
 
 Emitido cuando el certificado de un cliente es requerido.
 
