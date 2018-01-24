@@ -10,9 +10,9 @@ Ang sumusunod na hakbang ay nagpapakilala ng simpleng paraan upang isumite ang i
 
 ### Kumuha ng Sertipiko
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+Para isumite ang iyong app sa Mac App Store, una ay kailangan mong kumuha ng sertipiko mula sa Apple. Maaari mong sundin ang mga [nananatili na gabay](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) sa web.
 
-### Get Team ID
+### Kumuha ng Team ID
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
