@@ -489,7 +489,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `...args` anuman[]
 
 Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
