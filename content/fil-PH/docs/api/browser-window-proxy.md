@@ -1,8 +1,8 @@
 ## Class: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Manipulahin ang mga maliliit na window ng browser
 
-Process: [Renderer](../glossary.md#renderer-process)
+Mga proseso: [Renderer](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
