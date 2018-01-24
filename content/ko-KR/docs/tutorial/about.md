@@ -42,7 +42,7 @@ Electron을 작고(파일 크기) 지속 가능한 상태로(의존성 및 API�
 
 예를 들어, Electron은 Chromium의 모든 부분을 사용하는 대신 렌더링 라이브러리 부분만 사용합니다. 이런 특성 때문에 Chromium을 쉽게 업그레이드할 수 있습니다. 단, Electron에는 구글 크롬에서 볼 수 있는 브라우저와 관련된 몇몇 기능들이 존재하지 않습니다.
 
-Electron에 추가되는 새로운 기능은 기본적으로 네이티브 API여야 합니다. 기능은 가능한한 Node. js 모듈로 해야합니다. See the [Electron tools built by the community](https://electronjs.org/community).
+Electron에 추가되는 새로운 기능은 기본적으로 네이티브 API여야 합니다. 새로운 기능이 자체적으로 Node.js 모듈이 될 수 있으면, 네이티브 API가 될 수 있습니다. [커뮤니티에서 만든 Electron 도구를 ](https://electronjs.org/community)확인해보세요.
 
 ## 역사
 
