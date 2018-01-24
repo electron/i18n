@@ -22,20 +22,20 @@
     
     - Sa `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick<checksum>`
-    - Resolve any conflicts
-    - Make sure it builds then add, commit, and push work to electron's crashpad fork
-    - `git push electron electron-crashpad-vA.B.C.D`
+    - Lutasin ang ano mang kasalungat
+    - Tiyaking bumuo ito pagkatapos ay idagdag, gumawa, at itulak ang trabaho sa electron's crashpad fork
+    - `git itulak ang electron electron-crashpad-vA.B.C.D`
 
-4. Update Electron to build the new crashpad:
+4. I-update ang Electron na gumawa ng bagong crashpad:
     
     - `cd vendor/crashpad`
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
-    - From Electron root's root, run `script/update.py`
+5. Muling buuhin ang Ninja files laban sa parehong target 
+    - Mula sa Electron root's ugat, paganahin ang `cript/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
-6. Push changes to submodule reference 
-    - (From electron root) `git add vendor/crashpad`
-    - `git push origin upgrade-to-chromium-62`
+    - Dapat parehong walang mga mali sa paggawa
+6. Isulong ang mga pagbabago sa reperensiya ng submodule 
+    - (Mula sa ugat ng electron) `git add vendor/crashpad`
+    - `git pinagmulang ng tulak upgrade-to-chromium-62`
