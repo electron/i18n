@@ -78,13 +78,13 @@ Sa Windows, pwede mong tukuyin ang mga karaniwang aksyon sa kategoryang `Tasks` 
 > 
 > Inirerekomenda na ang dapat nakatigil lang ang listahan ng mga gawain. Dapat hindi ito nagbabago ano man ang estado ng aplikasyon. Pwede mang baguhin ang listahan sa dinamikong paraan, dapat isaalang-alang na pwedeng makalilito ito sa mga tagagamit na hindi inaasahan ang pagbabago sa parte ng listahan ng destinasyon.
 
-**Tasks of Internet Explorer:**
+**Mga Gawain ng Internet Explorer:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+Hindi tulad ng dock menu sa macOS na isang tunay na menu, ang mga gawain ng tagagamit sa Windows ay parang mga shortcut ng aplikasyon na kung ang tagagamit ay nagclick sa isang gawain, ang program na may sumusunod na argumento ay pagaganahin.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Upang itakda ang ang mga gawain ng tagagamit para sa iyong aplikasyon, pwede mong gamitin ang [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) na API:
 
 ```javascript
 const {app} = require('electron')
@@ -100,18 +100,18 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Upang linisin ang listahan ng mga gawain, tawagin lang ang `app.setUserTasks` gamit ang array na walang laman:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Ang mga gawain ng tagagamit ay magpapakita parin kahit na nakasara na ang iyong aplikasyon, kaya ang icon at path ng program na itinakda para sa isang gawain ay nanatili pa hanggang i-uninstall na ang aplikasyon.
 
-## Thumbnail Toolbars
+## Mga Thumbnail Toolbar
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+Sa Windows, maaari kang magdagdag ng isang thumbnail toolbar na may partikular na mga pipindutin sa isang taskbar na layout ng isang window ng aplikasyon. It provides users a way to access to a particular window's command without restoring or activating the window.
 
 From MSDN, it's illustrated:
 
