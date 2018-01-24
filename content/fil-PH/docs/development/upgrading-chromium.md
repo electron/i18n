@@ -75,24 +75,24 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
 
 - Ayusin ang Build config na mga mali muna
 - Ayusin muna ang nakamamatay na mga error, tulad ng nawawalang mga file at mga error na may kaugnayan sa tagatala mga flag o mga takda
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Subukang kilalanin ang mga kumplikadong mga error sa lalong madaling panahon. 
+  - Humingi ng tulong kung hindi ka sigurado kung paano ayusin ang mga ito
+- Huwag paganahin ang lahat ng mga tampok ng Electron, ayusin ang build, pagkatapos paganahin ang mga ito ng isa-isa
+- Magdagdag pa ng mga flags ng build upang huwag paganahin ang mga tampok sa build-time.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Kung ang Debug build ng Electron ay matagumpay, subukang patakbuhin: `$ ./script/test.py` Ayusing ang mga maling subok.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Sundin ang lahat ng mga hakbang sa itaas upang ayusin ang Electron kowd sa lahat ng mga sinusuportahang plataporma.
 
-## Updating Crashpad
+## Ina-update ang Crashpad
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
+Kung mayroong anumang mga error sa kompilasyon na may kaugnayan sa Crashpad, marahil ay nangangahulugan ito kailangan mong i-update ang fork sa isang mas bagong rebisyon. Tingnan [pag-upgrade ng Crashpad](upgrading-crashpad.md) para sa mga instruksiyon kung paano gawin iyon.
 
-## Updating NodeJS
+## Pag-upgrade ng NodeJS
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+Mag-upgrade `vendor/node` sa release ng Node na tumutugon sa v8 na bersyon na ginamit sa bagong paglabas ng Chromium. Tingnan ang v8 na bersyon sa Node on
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+Tingnan [pag-upgrade ng Node](upgrading-node.md) para sa mga instruksiyon tungkol dito.
 
 ## Verify ffmpeg support
 
