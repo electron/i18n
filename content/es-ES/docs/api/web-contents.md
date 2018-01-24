@@ -143,7 +143,7 @@ Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría
 
 Por defecto se creará un nuevo `BrowserWindow` para la `dirección url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Por ejemplo:
+Llamando `event.preventDefault()` evitará Electron automáticamente creando un nuevo `BrowserWindow`. Si llama `event.preventDefault()` y manualmente creas un nuevo `BrowserWindow` luego debe establecer `event.newGuest` para referenciar la nueva instancia de `BrowserWindow`, al no hacerlo así puede resultar un comportamiento inesperado. Por ejemplo:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
