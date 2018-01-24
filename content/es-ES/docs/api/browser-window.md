@@ -529,35 +529,35 @@ Muestra la ventana y la enfoca.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Muestra la ventana pero no la enfoca.
 
 #### `win.hide()`
 
-Hides the window.
+Oculta la ventana.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Devuelve `Boolean` - Si la ventana es visible o no al usuario.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Devuelve `Boolean` - Si la ventana actual es una ventana modal o no.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Maximiza la ventana. Esta también muestra la ventana (pero no la enfoca) si todavía no ha sido mostrada.
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Sale del estado maximizado de la ventana.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Devuelve `Boolean` - Si la ventana está maximizada.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Minimiza la ventana. En algunas plataformas se mostrará la ventana minimizada en el Dock.
 
 #### `win.restore()`
 
