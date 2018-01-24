@@ -425,16 +425,16 @@ Devuelve:
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+  * `editFlags` Objeto - Estas banderas indican si el procesador se cree capaz de realizar la acción correspondiente. 
+    * `canUndo` Boolean - Si cree que el procesador puede deshacer.
+    * `canRedo` Boolean - Si cree que el procesador pueda rehacer.
+    * `canCut` Boolean - Si cree que el procesador puede cortar.
+    * `canCopy` Boolean - Si cree que el procesador puede copiar
+    * `canPaste` Boolean - Si cree que el procesador puede pegar.
+    * `canDelete` Boolean - Si cree que el procesador puede borrar.
+    * `canSelectAll` Boolean - Si cree que el procesador puede seleccionar todo.
 
-Emitted when there is a new context menu that needs to be handled.
+Emitido cuando hay un nuevo menú de contexto que debe ser manejado.
 
 #### Event: 'select-bluetooth-device'
 
