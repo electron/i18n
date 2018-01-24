@@ -198,7 +198,7 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 每个 Electron 版本包含两个相同的 ARM 版本, 但是文件名略有不同, 比如 `electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip`. 带有 `v7l` 前缀的资源被添加 以向用户阐明其支持的 ARM 版本, 并且将其从将来可能产生的 armv6l 和 arm64 资源中消除.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+仍然在发布 *没有前缀* 的文件, 以避免可能破坏正在使用它的任何设置. 从 2.0 开始，没有前缀的文件将不再被发布.
 
 更多详情, 参考 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189).
 
