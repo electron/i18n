@@ -39,10 +39,10 @@ Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa 
 
 Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 
-### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.send(channel[,arg1][,arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `...args` anuman[]
 
 Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
 
@@ -51,7 +51,7 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `...args` anuman[]
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
@@ -64,6 +64,6 @@ The main process handles it by listening for `channel` with `ipcMain` module, an
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `...args` anuman[]
 
 Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
