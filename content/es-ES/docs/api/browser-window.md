@@ -778,7 +778,7 @@ Devuelve `String` - El título de la ventana nativa.
 * `offsetY` Float
 * `offsetX` Float (opcional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Cambia el punto de adjunto para hojas en macOS. Por defecto, las hojas son adjuntas en la parte de abajo del marco de la ventana, pero puede que se quiera mostrarlas debajo de una barra de herramientas renderizada HTML. Por ejemplo:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -792,33 +792,33 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Booleano
 
-Starts or stops flashing the window to attract user's attention.
+Empieza y deja de hacer parpadear la ventana para atraer la atención del usuario.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Booleano
 
-Makes the window not show in the taskbar.
+Hace que la ventana no se muestre en la barra de tareas.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Booleano
 
-Enters or leaves the kiosk mode.
+Entra o sale del modo kiosko.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Devuelve `Boolean` - Si la ventana está o no en modo kiosco.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Devuelve `Buffer` - El controlador específico de la plataforma de la ventana.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Linux `Window` (`unsigned long`).
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
-* `message` Íntegro
+* `message` Entero
 * `callback` Función
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
