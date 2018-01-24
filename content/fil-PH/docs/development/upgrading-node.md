@@ -76,13 +76,13 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
     - `mv test.patch patches/v8/xxx-patch_name.patch`
   - Ilagay ang patched code sa index *na walang* committing: 
     - `cd src/v8 && git add . && cd ../..`
-    - We don't want to commit the changes (they're kept in the patchfiles) but need them locally so that they don't show up in subsequent diffs while we iterate through more patches
-  - Add the patch file to the index: 
+    - Hindi natin kailangan gumawa ng pagbabago(naka-save sila sa patchfiles) pero kailangan sila locally para hindi magpakita ng kasunod na diffs habang nagi-iterate sa pamamagitan ng higit pang patches
+  - Ilagay ang patchfile sa index: 
     - `git add a patches/v8/`
-  - (Optionally) commit each patch file to ensure you can back up if you mess up a step: 
+  - (Opsyonal) gumawa ng back up sa bawat patch file para siguraduhin kung ikaw ay magkamali: 
     - `git commit patches/v8/`
-8. Update `patches/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
-9. Update Electron's submodule references: 
+8. I-update `patches/v8/README.md` kasama ang mga references sa lahat ng bagong patches na nailagay para malaman ng susunod na tao kung alin ang tatanggalin.
+9. I-update ang mga Elektron's submodule references: 
       sh
       $ cd electron/vendor/node
       electron/vendor/node$ git fetch
@@ -97,10 +97,10 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
       electron$ script/bootstrap.py -d
       electron$ script/build.py -c -D
 
-## Notes
+## Mga Paalala
 
-- libcc and V8 are treated as a single unit
-- Node maintains its own fork of V8 
+- ang libcc at V8 ay itinuturing bilang isang solong yunit
+- Pinapanatili ng Node ang sariling fork ng V8 
   - They backport a small amount of things as needed
   - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
 - We update code such that we only use one copy of V8 across all of electron 
