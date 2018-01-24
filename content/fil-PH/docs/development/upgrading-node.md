@@ -112,4 +112,4 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
   - Ipinapanatili ng elektron lahat ng patches sa libcc dahil ito'y mas simple kaysa pag papanatili ng iba't-ibang repos para sa patches para sa bawat upstream na proyekto. 
     - Crashpad, node, libcc, atbp. patches ay nakatago lahat sa iisang lugar
   - Paggawa ng Node: 
-    - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
+    - May pagkakataon na kailangan natin baguhin ang ating build configuration para tumugma sa build flags na kailangan ng node `node/common.gypi`
