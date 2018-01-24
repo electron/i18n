@@ -314,36 +314,36 @@ Aparece cuando la ventana se mueve a una nueva posición.
 
 **Nota**: en macOS este evento es solamente un alias de `move`.
 
-#### Event: 'moved' *macOS*
+#### Evento: "moved" *macOS*
 
-Emitted once when the window is moved to a new position.
+Aparece solo una vez cuando la ventana se mueve a una nueva posición.
 
-#### Event: 'enter-full-screen'
+#### Evento: "enter-full-screen"
 
-Emitted when the window enters a full-screen state.
+Aparece cuando la ventana entra en un estado pantalla completa.
 
-#### Event: 'leave-full-screen'
+#### Evento: "leave-full-screen"
 
-Emitted when the window leaves a full-screen state.
+Aparece cuando la ventana sale del estado pantalla completa.
 
-#### Event: 'enter-html-full-screen'
+#### Evento: "enter-html-full-screen"
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Aparece cuando la ventana entra en un estado pantalla completa activado por la API HTML.
 
-#### Event: 'leave-html-full-screen'
+#### Evento: "leave-html-full-screen"
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Aparece cuando la ventana sale de un estado pantalla completa activado por la API HTML.
 
-#### Event: 'app-command' *Windows*
+#### Evento: "app-command" *Windows*
 
 Devuelve:
 
-* `evento` Evento
-* `command` String
+* `event` Evento
+* `command` Cadena
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Aparece cuando se invoca un [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Estos están generalmente relacionados a las teclas del teclado o a los comandos del navegador, así como el botón "Back" está en algunos ratones en Windows.
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Los comandos están en minuscula, los guiones bajos son remplazados por guiones, y el prefijo `APPCOMMAND_` se elimina. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
