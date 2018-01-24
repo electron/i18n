@@ -38,7 +38,7 @@ Electron 2.0 버전부터 [`semver`](https://semver.org) 규칙에 따라 버전
 
 ## 핵심 철학
 
-Electron 을 작고 (파일 크기) 지속가능하게 (의존성 및 Api 의 확산) 할 목적으로 중심 프로젝트의 범위를 제한합니다.
+Electron을 작고(파일 크기) 지속 가능한 상태로(의존성 및 API의 확장) 유지하기 위해 Electron 프로젝트는 핵심 프로젝트의 범위를 제한합니다.
 
 예를 들어, Electron 은 Chromium 전체가 아닌 렌더링 라이브러리만 사용합니다. 이것은 Chromium 업그레이드를 쉽게 하지만 Google Chrome 에서 볼 수 있는 몇몇 브라우저 기능이 Electron 에서는 지원하지 않습니다.
 
