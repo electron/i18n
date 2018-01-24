@@ -218,19 +218,19 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Wag kalimutang tawagin ang `flashFrame` na pamamaraan kasama ang `false` upang itigil ang flash. Sa halimbawa sa taas, itinatawag ito kung ang window ay naging pokus na, pero baka kailangan mong gumamit ng isang timeout o iba pang pangyayari para itigil ito.
 
-## Represented File of Window (macOS)
+## Nirerepresentang File ng Window (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Sa macOS, ang isang window ay pwedeng magtakda ng nirerepresentang file, upang ang icon nito ay lalabas sa title bar, at kung ang mga gumagamit ay nag Command-Click o Control-Click sa titulo, ang isang path popup ay lalabas.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Pwede mo ring itakda ang binagong katayuan ng isang window upang ang file icon ay makapagpakita na ang dokumento sa window nito ay nabago na.
 
-**Represented file popup menu:**
+**Narepresentang menu ng file popup:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+Upang itakda ang narepresentang file ng window, pwede mong gamitin ang [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) at [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) na mga API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,7 +239,7 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## Paghila ng mga file palabas sa window
 
 For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
