@@ -395,31 +395,31 @@ La clase `BrowserWindow` tiene los siguientes métodos estáticos:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Devuelve `BrowserWindow[]`- Un arreglo de todas las ventanas abiertas del navegador.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+Devuelve `BrowserWindow`- La ventana que se enfoca en esta aplicación, de lo contrario devuelve `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Íntegro
+* `id` Entero
 
-Returns `BrowserWindow` - The window with the given `id`.
+Devuelve `BrowserWindow` - La ventana que posee el `id`dado.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` String
+* `path` Cadena
 
-Adds Chrome extension located at `path`, and returns extension's name.
+Añade una extensión de Chrome ubicada en `path`, y devuelve el nombre de la extensión.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+El método no devolverá nada si el manifiesto de la extensión falta o está incompleta.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -445,7 +445,7 @@ Adds DevTools extension located at `path`, and returns extension's name.
 
 The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+El método no devolverá nada si el manifiesto de la extensión falta o está incompleta.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
