@@ -1,66 +1,66 @@
 # Releasing
 
-This document describes the process for releasing a new version of Electron.
+Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng Electron.
 
 ## Determine which branch to release from
 
-- **If releasing beta,** run the scripts below from `master`.
-- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
+- ** kapag nailabas na ang beta,** patakbuhin ang scrip sa ilalim ng `master`.
+- ** kapag ang nilabas na ang bersyon at matatag na it.** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
 
-## Find out what version change is needed
+## Hanapin kung aling bersyon ang nabago ito ay kinakailangan
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+Paganahin ang `npm ihandang paganahin ang paglabas ng -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. Ang mga talang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na bago ang bersyon. [ ang panuntunan ng pag bago ng bersyon ](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
 
-## Run the prepare-release script
+## Paganahing ang prepare-release script
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang branch na ilalabas. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
 
 Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
 
 Halimbawa:
 
-### Major version change
+### Pangunahing pagbabago ng bersyon
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### Minor bersyon ay nabago
 
 ```sh
-npm run prepare-release -- minor
+npm paganahin ang prepare-release -- minor
 ```
 
-### Patch version change
+### Patch bersyon ay nabago
 
 ```sh
-npm run prepare-release -- patch
+npm paganahin ang prepare-release -- patch
 ```
 
-### Beta version change
+### Beta bersyon ay nabago
 
 ```sh
-npm run prepare-release -- beta
+npm paganahin ang prepare-release -- beta
 ```
 
 ### Promote beta to stable
 
 ```sh
-npm run prepare-release -- --stable
+npm paganahin ang prepare-release -- stable
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## Hintayin ang pagkabuo ng :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+Ang `prepare-release` script ang nag-trigger ng pag buo ang via API calls. para masubaybayan ang pagbuo ng proseso. tingnan ang mga sumusunod na pahina:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) ito ay para sa Mac App Store
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) ito ay para sa OS X
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) ito ay para sa Linux
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) ito ay para sa Windows
 
-## Compile release notes
+## Tipunin ang mga talang nailabas na
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Isulatang mga talang nailabas na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo pa ang pagbuo. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
 
 Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 

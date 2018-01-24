@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('response请求中没有更多数据。')
     })
   })
   request.end()

@@ -9,6 +9,7 @@ nav:
   contact: 연락처
   languages: 언어
   code_of_conduct: 윤리 강령
+  search: Search
 docs:
   title: Electron 문서
   description: 모든 문서는<a href="/docs/all">여기</a>에서 확인할 수 있고 <a href="/docs/faq"> FAQ</a>를 확인하세요.
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: 만약 이것이 오류라면
   please_file_an_issue: 이슈를 첨부해주세요.
 search:
-  description: Search within Electron documentations and community.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: and
+    repos: <a href="/search/repos">GitHub repos</a>

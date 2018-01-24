@@ -1,42 +1,42 @@
 # I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Ipakita ang mga dayalogo ng sinaunang sistema para sa pagbukas at pag-seyb ng mga file, pag-alerto, atbp.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-An example of showing a dialog to select multiple files and directories:
+Ang isang halimbawa ng pagpapakita ng isang dayalogo para pumili ng maramihang mga file at mga direktoryo:
 
 ```javascript
-const {dialog} = require('electron')
+const {dialog} = kailangan('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-The Dialog is opened from Electron's main thread. If you want to use the dialog object from a renderer process, remember to access it using the remote:
+Ang dayalogo ay bukas mula sa pangunahing thread ng Electron. Kung gusto mong gamitin ang mga bagay sa dayalogo mula sa isang prosesong tagabigay, tandaan na ma-access ito gamit ang remote:
 
 ```javascript
-const {dialog} = require('electron').remote
+const {dialog} = kailangan('electron').remote
 console.log(dialog)
 ```
 
 ## Pamamaraan
 
-The `dialog` module has the following methods:
+Ang module ng `dialog` ay mayroong mga sumusunod na pamamaraan:
 
-### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
+### `dialog.showOpenDialog([browserWindow, ]mga opsyon[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` - Allow creating new directories from dialog. *macOS*
-    * `promptToCreate` - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
+  * `title` String (opsyonal)
+  * `defaultPath` String (opsyonal)
+  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
+  * `mga katangian` String[] (opsyonal) - Ay naglalaman ng kung aling katangian ng dayalogo ang gagamitin. Ang mga sumusunod na halaga ay suportado: 
+    * `openFile` - Pinapayagan ang mga file para mapili.
+    * `openDirectory` - Pinapayagan ang mga direktoryo para mapili.
+    * `multiSelections` - Pinapayagan ang maramihang mga landas para mapili.
+    * `showHiddenFiles` - Ipakita ang mga nakatagong file sa dayalogo.
+    * `createDirectory` - Pinapayagang gumawa ng bagong mga direktoryo mula sa dayalogo. *macOS*
+    * `promptToCreate` - Magmadali para sa paglikha kung ang landas ng file na pumasok sa dayalogo ay hindi lumitaw. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
     * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
@@ -68,12 +68,12 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
-  * `title` String (optional)
+  * `title` String (opsyonal)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
@@ -90,7 +90,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -127,7 +127,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` Ang Browser Window (opsyonal)
 * `mga pagpipilian` Bagay 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.

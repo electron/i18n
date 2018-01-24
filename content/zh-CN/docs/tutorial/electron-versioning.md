@@ -2,7 +2,7 @@
 
 > 详细查看我们的版本控制策略和实现。
 
-从版本 2.0.0, Electron遵循 [ semver ](#semver)。以下命令将安装Electron最新稳定的版本:
+从版本 2.0.0, Electron 遵循 [ semver ](#semver)。以下命令将安装 Electron 最新稳定的版本:
 
 ```sh
 npm install --save-dev electron
@@ -16,77 +16,77 @@ npm install --save-dev electron@latest
 
 ## 版本1.x
 
-Electron版本 * < 2.0 * 不符合 [ semver ](http://semver.org) 规范。 主版本号对应于 end-user API 的变化。 次版本号对应于Chromium的主版本的发布 修订号对应于新功能和bug修复。 While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron版本 * < 2.0 * 不符合 [ semver ](http://semver.org) 规范。 主版本号对应于 end-user API 的变化。 次版本号对应于Chromium的主版本的发布 修订号对应于新功能和bug修复。 虽然方便开发人员合并功能，但却为面向客户端应用程序的开发人员带来了麻烦。 像Slack，Stride，Teams，Skype，VS Code，Atom和Desktop等主要应用程序的QA测试周期可能很长，稳定性是一个非常理想的结果。 尝试吸收错误修复时，采用新功能的风险很高。
 
-Here is an example of the 1.x strategy:
+以下是 1.x 策略的一个例子：
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+使用 `1.8.1`开发的应用程序无法吸收 `1.8.2 ` 的功能，或者通过反向移植修复和维护新的发行版，无法采用 `1.8.3`错误修复。
 
-## Version 2.0 and Beyond
+## 版本 2.0 和之后版本
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+下面列出的 1.x 策略有几个主要的变化。 每个更改都是为了满足开发人员/维护人员和应用程序开发人员的需求和优先级。
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. 严格使用 semver
+2. 引入符合 semver 的 `-beta` 标签
+3. 引入[常规提交消息](https://conventionalcommits.org/)
+4. 明确定义的稳定分支
+5. `master` 分支是无版本的; 只有稳定性分支包含版本信息
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+我们将详细介绍 git 分支是如何工作的，npm 标记是如何工作的，开发人员应该看到什么，以及如何能够支持更改。
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+从 2.0 开始，Electron 将遵循 semver。
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+下面是一个表格，明确地将变化的类型映射到它们对应的 semver 类别 (例如Major，Minor，Patch)。
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **Major 版本增量** 
+    * Chromium 版本更新
+    * node.js major 版本更新
+    * Electron 突破性 API 变更
+* **Minor 版本增量** 
+    * node.js minor 版本更新
+    * Electron 无突破性 API 变更
+* **Patch 版本增量** 
+    * node.js patch 版本更新
+    * 修复相关的 chromium 补丁
+    * electron bug 修复
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+请注意，大多数 chromium 更新将被视为突破性更新。 可以被回溯的修复可能会被修补为修补程序。
 
-# Stabilization Branches
+# 稳定分支
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+稳定分支是与主控并行运行的分支，仅接受与安全性或稳定性有关的最优提交。 这些分支从不合并回主分支。
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+稳定分支始终是 **major** 或 **minor** 版本, 并按照以下模板命名`$MAJOR-$MINOR-x`.例如 `2-0-x`.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+我们允许同时存在多个稳定分支，并且打算在任何时候至少支持两个并行支持安全修复。 ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+GitHub不支持旧线路，但是其他分组可以自行获取所有权和返回稳定性和安全修复。 我们不鼓励这样做，但是认识到它使得许多应用程序开发人员的生活更轻松。
 
-# Beta Releases and Bug Fixes
+# 测试版和Bug修复
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+开发人员想知道哪个版本可以 *安全* 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* 使用 ` ~ 2.0. 0 ` 只接受您的 ` 2.0.0 ` 版本的稳定性或安全性相关的修复程序。
+* 使用 ` ^ 2.0. 0 ` 可允许不破坏性的 * 合理稳定 * 功能以及安全性和 bug 修复。
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+第二点重要的是使用 `^` 的应用程序仍然能够期望合理的稳定性水平。 为了达到这个目的，semver允许一个 *pre-release 标识* 来表示一个特定的版本还不 *安全* 或 *稳定*.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+无论你选择什么，你将定期不得不在 `package.json` 中打破版本，因为突破性变更是 Chromium 的一个常态。
 
-The process is as follows:
+过程如下:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+1. 所有新的主要和次要发布行都以 ` beta 为起点。n ` 标记为 ` n > = 1 `。 此时，功能集是 **被锁定** 的. 该版本不接纳更多功能，只关注安全性和稳定性。 例如 `2.0.0-beta.1`.
+2. 错误修复，复原修复和安全修补程序可以被接受。 一旦这样做，一个新的测试版被释放增加 `N`. 例如`2.0.0-beta.2`
+3. 如果特定的beta版本*通常被认为*是稳定的，那么它将作为稳定版本被重新发布，只改变版本信息。 例如`2.0.0`。
+4. 如果将来的错误修复或安全补丁需要在发布稳定后进行，则会应用这些修补程序并相应地增加* patch *程序版本 例如`2.0.1`.
 
-For each major and minor bump, you should expect too see something like the following:
+对于每个主要和次要的颠覆，你都应该期望看到如下的东西：
 
 ```text
 2.0.0-beta.1
@@ -97,53 +97,53 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+图片中的生命周期示例:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* 将创建一个新的发布分支, 其中包括最新的一组功能。它被发布为 ` 2.0. 0-beta 1 `。 ![](../images/versioning-sketch-3.png)
+* 一个 bug 修复进入了一个可以打包移植到发布分支的主机。将应用该修补程序, 并将新的测试版发布为 ` 2.0. 0-beta 2 `。 ![](../images/versioning-sketch-4.png)
+* 测试版被认为是 * 一般稳定 * 的, 它在 ` 2.0.0 ` 下作为非 beta 版本再次被发布。 ![](../images/versioning-sketch-5.png)
+* 之后，会显示一个零日漏洞，并将修复应用于 master。 我们将修补程序移植到 `2-0-x `行并释放` 2.0.1 `。 ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+几个不同的 semver 范围将如何接收新版本的示例:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# 缺少的功能: Alphas, 和 Nightly
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+我们的战略有几个权衡, 现在我们觉得是适当的。 最重要的是, 新的功能在掌握可能需要一段时间才能达到稳定的释放。 如果你想立即尝试一个新的功能, 你将不得不建立自己的Electron 。
 
-As a future consideration, we may introduce one or both of the following:
+作为未来的考虑, 我们可以介绍以下一种或两种情况:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* 由 master 构建的 nightly; 这些将允许人们快速测试新的功能, 并提供反馈
+* 具有松散稳定性限制的 alpha 释放版; 例如, 当稳定通道在 * alpha * 中时, 允许接纳新特性
 
-# Feature Flags
+# 功能标志
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+功能标志是 Chromium 的一种常见的做法, 在网络开发生态系统中得到了很好的确立。 在 Electron 环境中, 功能标志或 ** 软分支 ** 必须具有以下属性:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* 是在运行时或生成时启用/禁用的。我们不支持请求作用域功能标志的概念
+* 它完全细分新的和旧的代码路径; 重构旧代码以允许新功能 * 违反 * 功能标志内容
+* 在合并软分支后, 功能标志最终将被删除
 
-We reconcile flagged code with our versioning strategy as follows:
+我们将标记的代码与我们的版本控制策略进行协调, 如下所示:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. 我们不考虑在稳定分支中对特征标记的代码进行迭代; 即使明智地使用功能标志也不是没有风险
+2. 您可能会在功能标记的代码中中断 API 协定, 而不会冲突主版本。标记的代码不遵守 semver
 
-# Semantic Commits
+# 提交语义
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* 提交会导致 semver **major** 必须以 `BREAKING CHANGE:` 开头。
+* 提交会导致 semver **minor** 必须以 `feat:` 开头。
+* 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* 我们允许压缩提交，只要压缩的消息符合上述消息格式。
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* 只要稍后在相同的拉取请求中提交包含有意义的包含语义消息，拉取请求中的一些提交就不包括语义前缀是可接受的。
 
-# Versionless `master`
+# 无版本的 `master`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
+* Release 分支永远不会合并回 master 分支
+* 发布分支 *在* 其`package.json ` 中包含正确的版本

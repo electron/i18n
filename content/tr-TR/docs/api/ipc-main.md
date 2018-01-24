@@ -31,7 +31,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```
 
 ```javascript
-// In renderer process (web page).
+// Oluşturucu işleminde (web sayfası).
 const {ipcRenderer} = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
@@ -45,14 +45,14 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 `ipcMain` modülü olayları dinlemek için aşağıdaki yöntemi içerir:
 
-### `ipcMain.on(channel, listener)`
+### `ipcMain.on(kanal, dinleyici)`
 
 * `channel` Dizesi
 * `listener` Fonksiyon
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
-### `ipcMain.once(channel, listener)`
+### `ipcMain.once(kanal, dinleyici)`
 
 * `channel` Dizesi
 * `listener` Fonksiyon

@@ -9,6 +9,7 @@ nav:
   contact: Contato
   languages: Idiomas
   code_of_conduct: Código de Conduta
+  search: Search
 docs:
   title: Documentação do Electron
   description: Veja toda os <a href="/docs/all">documentos em uma só página</a> ou verifique as <a href="/docs/faq">perguntas frequente</a>.
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: Se isto é um erro
   please_file_an_issue: por favor, registre o problema.
 search:
-  description: Pesquisar dentro de documentações do Elétron e a Comunidade.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: and
+    repos: <a href="/search/repos">GitHub repos</a>

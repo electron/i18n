@@ -71,7 +71,7 @@ const constraints = {
   * `thumbnailSize` [Size](structures/size.md) (İsteğe Bağlı) - Ortam kaynağı küçük resminin boyutlandırılacağı boyut. Varsayılan `150` x `150`.
 * `geri arama` Fonksiyon 
   * `error` Hata 
-  * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
+  * `kaynaklar`[DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
 Bittiğinde tüm mevcut masaüstü medya kaynakları hakkıda bilgi toplamaya başlar ve `callback(error, sources)`ı arar.
 

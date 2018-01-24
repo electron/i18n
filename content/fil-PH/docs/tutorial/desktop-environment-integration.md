@@ -1,58 +1,58 @@
-# Desktop Environment Integration
+# Ang Pag-iintegrate ng Desktop Environment
 
-Different operating systems provide different features for integrating desktop applications into their desktop environments. For example, on Windows, applications can put shortcuts in the JumpList of task bar, and on Mac, applications can put a custom menu in the dock menu.
+Ang iba't-ibang mga operating system ay nagbibigay ng iba't-ibang mga katangian para sa pag-iintegrate ng mga aplikasyong pang-desktop sa mga desktop environment. Halimbawa, sa Windows, ang mga aplikasyon ay pwedeng maglagay ng mga shortcut sa JumpList ng task bar, at sa Mac, ang mga aplikasyon ay nakakapaglagay ng karaniwang menu sa dock menu.
 
-This guide explains how to integrate your application into those desktop environments with Electron APIs.
+Ang gabay na ito ay nagpapaliwanag kung paano i-integrate ang iyong aplikasyon sa mga desktop environment na iyon gamit ang mga Electron API.
 
-## Notifications
+## Mga Paalala
 
-See [Notifications](notifications.md)
+Tingnan ang [Mga Paalala](notifications.md)
 
-## Recent documents (Windows & macOS)
+## Mga Kagagamit lang na Dokumento (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Ang Windows at macOS ay nagbibigay ng madaling access sa listahan ng mga kagagamit lang na mga dokumento na binuksan gamit ang aplikasyon sa pamamagitan ng JumpList o dock menu.
 
 **JumpList:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Dock Menu ng Aplikasyon:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+Pwede mong gamitin sa pagdagdag ng file sa kagagamit lang na mga dokumento ang [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) na API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+At pwede mong gamitin ang [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API upang linisin ang listahan ng kagagamit lang na mga dokumento:
 
 ```javascript
 const {app} = require('electron')
 app.clearRecentDocuments()
 ```
 
-### Windows Notes
+### Mga Tala ng Windows
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+Upang magamit ang katangiang ito sa Windows, kailangang ang aplikasyon mo ay nakarehistro bilang tagahawak ng uri ng file ng dokumento, kung hindi ang file ay hindi makikita sa JumpList kahit na nadagdag mo na ito. Makikita mo lahat tungkol sa pagrehistro ng iyong aplikasyon sa [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+Kung ini-click ng isang tagagamit ang isang file mula sa JumpList, ang isang instance ng iyang aplikasyon ay masisimulan gamit ang isang path ng file na idinadagdag bilang argumento ng command line.
 
-### macOS Notes
+### Mga Tala ng macOS
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+Kung ang isang file ay hinihingi mula sa menu ng kagagamit lamang na mga dokumento, ang `open-file` na pangyayari ng module ng `app` ay mailalabas para dito.
 
-## Custom Dock Menu (macOS)
+## Karaniwang Dock Menu (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+Nagbibigay daan ang mga macOS na tagabuo sa pagtukoy sa karaniwang menu para sa dock, na madalas na naglalaman ng mga shortcut para sa karaniwang ginagamit na katangian ng iyong aplikasyon:
 
-**Dock menu of Terminal.app:**
+**Ang Dock Menu ng Terminal.app:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+Upang i-set ang iyong karaniwang dock menu, pwede mong gamitin ang `app.dock.setMenu` na API, na magagamit lamang sa macOS:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -70,9 +70,9 @@ const dockMenu = Menu.buildFromTemplate([
 app.dock.setMenu(dockMenu)
 ```
 
-## User Tasks (Windows)
+## Mga Gawain ng Tagagamit (Windows)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Sa Windows, pwede mong tukuyin ang mga karaniwang aksyon sa kategoryang `Tasks` ng JumpList, ayon sa sinabi ng MSDN:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 

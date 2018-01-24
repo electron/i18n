@@ -1,104 +1,104 @@
-# Upgrading Chromium
+# Pagpapaganda ng Chromium
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipaganda ang Chromium sa Electron.
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- I-upgrade ang libcc sa bagong Chromium bersyon
+- Gumawa ng Electron kowd tugma sa bagong libcc
+- I-update ang mga dependency ng Electron (crashpad, NodeJS, atbp.) kung kinakailangan
+- Gumawa ng panloob na mga build ng libcc at elektron
+- I-update ang Electron dokumento kung kinakailangan
 
-## Upgrade `libcc` to a new Chromium version
+## I-upgrade `libcc`sa bagong Chromium bersyon
 
-1. Get the code and initialize the project: 
+1. Kuning ang kown at magsimula sa proyekto: 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
-3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
-  - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
-5. Run the build when all patches can be applied without errors 
+2. I-upgrade ang Chromium sa retrato 
+  - Pumili ng numero ng bersyon mula sa [OmahaProxy](https://omahaproxy.appspot.com/) at i-update ang `Bersyon` ng file 
+    - Maaari itong gawin nang manu-mano sa pamamagitan ng pagbisita sa OmahaProxy sa isang browser, o awtomatikong:
+    - One-liner para sa pinakabagong bersyon ng matibay na mac:`curl -so- https://omahaproxy.appspot.com/mac > Bersyon `
+    - One-liner para sa pinakabagong beta version ng win64: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > Bersyon`
+  - tumakbo `$ ./script/update` 
+    - Magluto ng ilang tsaa - maaaring tumakbo ito nang 30m o higit pa.
+    - Maaaring ito ay mabibigo sa pag-aaplay ng mga patch.
+3. Ayusin `*.patch` mga file na nasa `patches` at `patches-mas/` mga polder.
+4. (Opsyonal) `script/update` gamitin ang mga patches, ngunit kung kinakailangan ang maraming pagsubok maaari mong manu-manong patakbuhin ang parehong script na iyon `i-update` mga tawag: `$ ./script/apply-patches` 
+  - Mayroong pangalawang iskrip, `script/patch.py` na maaaring maging kapaki-pakinabang. Basahin `./script/patch.py -h` para sa karagdagang impormasyon.
+5. Patakbuhin ang build kapag ang lahat ng mga patch ay maaaring mailapat nang walang mga error 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
+  - Kung ang ilang patches ay hindi katugma sa iyong Chromium kowd, ayusing ang mga mali sa paglista.
+6. Kapag matagumpay ang build, gumawa ng isang `dist` para sa Electron 
   - `$ ./script/create-dist --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+    - Ito ay lilikha ng `dist/main`polder sa root ng libcc repo. Kakailanganin mo ito upang gumawa ng Electron.
+7. (Opsyonal) I-update ang mga nilalaman ng script kung may mga error na nagreresulta mula sa mga file na inalis o pinalitan ng pangalan. (`--no_zip` pinipigilan ang iskrip mula sa paglikha `dist` arkibos. Hindi mo ito kinakailangan.)
 
-## Update Electron's code
+## I-update Electron's kowd
 
-1. Get the code: 
+1. Kuning ang kowd: 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. Kung ikaw ay merong libcc na binuo sa iyong makina sa sarili nitong repo, sabihan ang Electron na gamitin ito: 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
 
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. Kung hindi ka pa nakagawa ng libcc ngunit dapat na itong ma-upgrade sa isang bagong Chromium, bootstrap Electron gaya ng dati `$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - Tiyakin na ang libcc na submodule (`vendor/libchromiumcontent`) tumugma sa tamang rebisyon
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. Itakda `CLANG_REVISION` sa `script/update-clang.sh` upang tumugma sa bersyon gumamit ng Chromium.
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - Matatagpuan sa `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
 
-5. Checkout Chromium if you haven't already:
+5. Tingnan mo ang Chromium kung d mo pa nagagawa:
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+    - (Palitan ang `{VERSION}` placeholder na nasa url sa itaas sa Chromium bersyon libbc na ginagamit.)
+6. Gumawa ng Electron. 
+  - Subukang gumawa ng Debug bersyon muna: `$ ./script/build.py -c D`
+  - Kakailanganin mo itong subukang patakbuhin
+7. Ayusin ang kompilasyon at naglilink ng mga error
+8. Siguradihin na ang Release build ay magawa din 
   - `$ ./script/build.py -c R`
-  - Often the Release build will have different linking errors that you'll need to fix.
-  - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+  - Kadalasan ang Release build ay magkakaroon ng iba't ibang mga error sa pag-uugnay na kinakailangan mong ayusin.
+  - Ang ilang mga kompilasyon at nalilink na mga error ay sanhi ng nawawalang pinagmulan / bagay mga file sa libcc `dist`
+9. I-update `./script/create-dist` sa libcc repo, gumawa muli ng `dist`, at patakbuhin ang Electron Bootstrap iskrip muli.
 
-### Tips for fixing compilation errors
+### Mga tip para sa pag-aayos ng mga error sa kompilasyon
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- Ayusin ang Build config na mga mali muna
+- Ayusin muna ang nakamamatay na mga error, tulad ng nawawalang mga file at mga error na may kaugnayan sa tagatala mga flag o mga takda
+- Subukang kilalanin ang mga kumplikadong mga error sa lalong madaling panahon. 
+  - Humingi ng tulong kung hindi ka sigurado kung paano ayusin ang mga ito
+- Huwag paganahin ang lahat ng mga tampok ng Electron, ayusin ang build, pagkatapos paganahin ang mga ito ng isa-isa
+- Magdagdag pa ng mga flags ng build upang huwag paganahin ang mga tampok sa build-time.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Kung ang Debug build ng Electron ay matagumpay, subukang patakbuhin: `$ ./script/test.py` Ayusing ang mga maling subok.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+Sundin ang lahat ng mga hakbang sa itaas upang ayusin ang Electron kowd sa lahat ng mga sinusuportahang plataporma.
 
-## Updating Crashpad
+## Ina-update ang Crashpad
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
+Kung mayroong anumang mga error sa kompilasyon na may kaugnayan sa Crashpad, marahil ay nangangahulugan ito kailangan mong i-update ang fork sa isang mas bagong rebisyon. Tingnan [pag-upgrade ng Crashpad](upgrading-crashpad.md) para sa mga instruksiyon kung paano gawin iyon.
 
-## Updating NodeJS
+## Pag-upgrade ng NodeJS
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+Mag-upgrade `vendor/node` sa release ng Node na tumutugon sa v8 na bersyon na ginamit sa bagong paglabas ng Chromium. Tingnan ang v8 na bersyon sa Node on
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+Tingnan [pag-upgrade ng Node](upgrading-node.md) para sa mga instruksiyon tungkol dito.
 
-## Verify ffmpeg support
+## I-verify ang suporta ng ffmpeg
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron ships na may bersyon ng `ffmpeg` kabilang dito ang proprietary codecs sa pamamagitan ng default. Ang isang bersyon na walang mga codec na ito ay binuo at ipinamamahagi sa bawat release din. Dapat i-verify ng bawat pag-upgrade ng Chrome na lumipat sa bersyong ito ay sinusuportahan pa rin.
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+Maaaari mong i-verify ang suporta ng Electron para sa maramihang `ffmpeg` builds sa pamamagitan ng paglo-load ng sumusunod na pahina. Dapat itong gumana sa default `ffmpeg` ipinamahagi ang librerya na may Electron at hindi gumagana sa `ffmpeg` ang librerya ay itinayo nang walang proprietary codecs.
 
 ```html
 <!DOCTYPE html>
@@ -126,10 +126,12 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
     </script>
   </body>
 </html>
+ 
+Context | Request Context
 ```
 
-## Useful links
+## Mga kapakipakinabang na link
 
-- [Chrome Release Schedule](https://www.chromium.org/developers/calendar)
+- [Chrome Release Iskedyul](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Chromium Isyu Tracker](https://bugs.chromium.org/p/chromium)

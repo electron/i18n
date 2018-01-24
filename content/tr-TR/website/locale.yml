@@ -9,6 +9,7 @@ nav:
   contact: İletişim
   languages: Diller
   code_of_conduct: Davranış Kodu
+  search: Search
 docs:
   title: Electron Dokümanları
   description: Dokümanları <a href="/docs/all">tek bir sayfada</a> görün veya <a href="/docs/faq"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: Bu bir hata ise
   please_file_an_issue: lütfen sorunu bulunuz.
 search:
-  description: Electron' un belgelerinde ve topluğunda arama yapın.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: ve
+    repos: <a href="/search/repos">GitHub repos</a>
