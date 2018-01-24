@@ -22,11 +22,11 @@ Electron 프로젝트는 GitHub 팀과 커뮤니티에서 [열심히 활동하�
 
 새로운 Node.js 버전이 릴리즈되면, Electron은 좀 더 안정된 Node.js 버전이 나올 때까지 한달정도 기다렸다가 업그레이드를 진행합니다.
 
-Electron 에서, Node. js 와 Chromium 은 단일 V8 인스턴스를 공유합니다--보통 Chromium 이 사용하는 버전. 대부분은 동작하지만 가끔 Node. js 를 패치해야 합니다.
+Electron에서는 Node.js와 Chromium이 1 개의 V8 엔진 인스턴스를 공유하며 인스턴스의 버전은 보통 Chromium이 사용하고 있는 버전과 일치합니다. 대부분의 경우에는 *문제없이 동작하지만* Node.js 패치가 필요할 때도 있습니다.
 
 ### 버전 관리
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Electron 2.0 버전부터 [`semver`](https://semver.org) 규칙에 따라 버전을 관리하고 있습니다. For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
