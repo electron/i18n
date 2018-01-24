@@ -10,16 +10,16 @@ Tingnan ang [ipcMain](ipc-main.md) para sa mga halimbawa ng code.
 
 ## Pamamaraan
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makinig sa mga event at magpadala ng mga mensahe:
 
-### `ipcRenderer.on(channel, listener)`
+### `ipcRenderer.on(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay tatawagin pati ang `listener(event, args....)`.
 
-### `ipcRenderer.once(channel, listener)`
+### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
 * `listener` Function
