@@ -92,11 +92,11 @@ Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuI
 
 ## Mga halimbawa
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
 
-### Main process
+### Pangunahing proseso
 
-An example of creating the application menu in the main process with the simple template API:
+Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
 
 ```javascript
 const {app, Menu} = require('electron')
