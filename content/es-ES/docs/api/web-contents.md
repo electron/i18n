@@ -260,9 +260,9 @@ Devuelve:
   * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
 
-Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Llamando a `event.preventDefault` evitará la página `keydown`/ eventos `keyup` y los accesos rápidos al menú.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+Para evitar sólo los accesos directos del menú, use [`setignoreMenuShortcuts`](#contentssetignoremenushortcuts):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -278,11 +278,11 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+Emitido cuando DevTools es abierto.
 
-#### Event: 'devtools-closed'
+#### Evento: 'devtools-closed'
 
-Emitted when DevTools is closed.
+Emitido cuando Devtools es cerrado.
 
 #### Event: 'devtools-focused'
 
