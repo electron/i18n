@@ -119,16 +119,16 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang sw             | Ay Swahili                 |
 | ang ta             | Ay Tamil                   |
 | ang te             | Ay Telugu                  |
-| ang tg             | Tajik                      |
-| th                 | Thai                       |
-| ti                 | Tigrinya                   |
-| tk                 | Turkmen                    |
-| to                 | Tonga                      |
-| tr                 | Turkish                    |
-| tt                 | Tatar                      |
-| tw                 | Twi                        |
-| ug                 | Uighur                     |
-| uk                 | Ay Ukrainian               |
+| ang tg             | Ay Tajik                   |
+| ang th             | Ay Thai                    |
+| ang ti             | Ay Tigrinia                |
+| ang tk             | Ay Turkmen                 |
+| ang to             | Ay Tonga                   |
+| ang tr             | Ay Turkish                 |
+| ang tt             | Ay Tatar                   |
+| ang tw             | Ay Twi                     |
+| ang ug             | Ay Uighur                  |
+| ang uk             | Ay Ukrainian               |
 | ang ur             | Ay Urdu                    |
 | ang uz             | Ay Uzbek                   |
 | ang vi             | Ay Vietnamese              |
