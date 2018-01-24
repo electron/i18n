@@ -987,13 +987,13 @@ Establece la región de la ventana para mostrar como la vista previa de la image
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
-* `toolTip` String
+* `toolTip` Cadena
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Configura la descripción emergente que se muestra cuando se pasa sobre la vista previa de la ventana en la barra de tareas.
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Object 
+* `options` Objeto 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
