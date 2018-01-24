@@ -260,9 +260,9 @@ Aparece cuando se cierra la ventana. Después de recibir este evento se debería
 
 Aparece cuando la sesión de la ventana va a terminarse debido a un cierre forzoso o el reinicio de la máquina o el cierre de la sesión.
 
-#### Event: 'unresponsive'
+#### Evento: "unresponsive"
 
-Emitted when the web page becomes unresponsive.
+Aparece cuando la página web deja de responder.
 
 #### Event: 'responsive'
 
