@@ -8,15 +8,15 @@ Ang gabay na ito ay nagpapaliwanag kung paano i-integrate ang iyong aplikasyon s
 
 Tingnan ang [Mga Paalala](notifications.md)
 
-## Recent documents (Windows & macOS)
+## Mga Kagagamit lang na Dokumento (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Ang Windows at macOS ay nagbibigay ng madaling access sa listahan ng mga kagagamit lang na mga dokumento na binuksan gamit ang aplikasyon sa pamamagitan ng JumpList o dock menu.
 
 **JumpList:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
-**Application dock menu:**
+**Dock Menu ng Aplikasyon:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
