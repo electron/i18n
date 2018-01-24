@@ -151,35 +151,35 @@ $ .\node_modules\.bin\electron .
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### Manu-mano na-download ang electron Binary
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Kapag na-download mo ang Electron na mano-mano, pwede mong magamit ang kasamang binary upang isagawa ang iyong mga app nag direkta.
 
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron iyong-app/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron iyong-app/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe iyong-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app`Narito ang bahagi ng release package ng Electron, maari mong madownload ang mga ito mula[here](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Tumakbo bilang isang distribusyon
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Pagkatapos mong magsulat ng iyong app, pwede kang gumawa ng distribusyon sa pamamagitan ng mga sumusunod na[Application Distribusyon](./application-distribution.md) gabay at pagkatapos isinasagawa ang packaged app.
 
-### Try this Example
+### Subukan ang mga halimbawang ito
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 
