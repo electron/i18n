@@ -66,7 +66,7 @@ Tips: - Each listed item should reference a PR on electron/electron, not an issu
 
 ### Paglabas ng patch
 
-For a `patch` release, use the following format:
+Para sa `patch` na nilabas, gumamit ng mga sumusunod na format:
 
 ```sh
 ## Bug Fixes
