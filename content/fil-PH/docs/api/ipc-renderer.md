@@ -24,18 +24,18 @@ Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay
 * `channel` String
 * `listener` Punsyon
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Nagdadagdag ng isang beses na punsyon ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
 
-### `ipcRenderer.removeListener(channel, listener)`
+### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` String (opsyonal)
 
 Removes all listeners, or those of the specified `channel`.
 
