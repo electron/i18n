@@ -96,10 +96,10 @@ app.on('activate', () => {
     lumikhangWindow()
   }
 })
-//Sa file na ito pwede mong isama ang iba mo pang app's specific sa pangunahing code. You can also put them in separate files and require them here.
+//Sa file na ito pwede mong isama ang iba mo pang app's specific sa pangunahing code. Maari mo rin ilagay ang mga ito sa magkakahiwalay na mga file at dito nangangailangan sila.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Sa huli ang`index.html` ay ang web page na gusto mong ipakita:
 
 ```html
 <!DOCTYPE html>
