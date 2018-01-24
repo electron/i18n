@@ -9,15 +9,15 @@ Una, i-install ang [Xvfb](https://en.wikipedia.org/wiki/Xvfb). Ito ay isang virt
 Pagkatapos, gumawa ng isang virtual na xvfb screen at i-export sa isang environment na varyabol na tinatawag na DISPLAY na nakaturo dito. Ang Chromium sa Electron ay awtomatikong maghahanap ng `$DISPLAY`, kaya wala nang konpigurasyon sa app na kailangan. Ang hakbang na ito ay mapapadali gamit ang [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe) ni Paul Betts: I-prepend ang iyong mga utos-pagsusuri gamit ang `xvfb-maybe` at ang maliit na kasangkapan ay awtomatikong i-configure ang xvfb kung kailangan ng kasalukuyang sistema. Sa Windows o macOS, wala lang itong gagawin.
 
 ```sh
-## On Windows or macOS, this just invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
+## Sa Windows o macOS, tinatawag lang nito ang electron-mocha
+## Sa Linux, kung nasa headless environment tayo, pantay lang ito
+## sa electron-mocha na pinapatakbo ng xvfb ./test/*.js
 xvfb-maybe electron-mocha ./test/*.js
 ```
 
 ### Travis CI
 
-On Travis, your `.travis.yml` should look roughly like this:
+Sa Travis, ang iyong `.travis.yml` ay dapat nakikitang ganito:
 
 ```yml
 addons:
@@ -32,12 +32,12 @@ install:
 
 ### Jenkins
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+Sa Jenkins, ang isang [Xvfb plugin ay matatagpuan](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
 
-### Circle CI
+### Circle Cl
 
-Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further configuration is required](https://circleci.com/docs/environment#browsers).
+Ang Circle Cl ay kahanga-hanga at mayroong xvfb at `$DISPLAY` [na naka-setup na kaya wala nang dagdag na konpigurasyon ang kailangan](https://circleci.com/docs/environment#browsers).
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+Ang AppVeyor ay gumagana sa Windows, sumusuporta sa Selenium, Chromium, Electron at mga katulad na kasangkapan - walang konpigurasyon na kailangan.
