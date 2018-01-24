@@ -10,7 +10,7 @@ Electron 프로젝트 공헌자, 릴리즈 정보 또는 Electron을 이용한 �
 
 ## 코어 팀과 공헌자
 
-Electron 은 Gihub 의 팀과 커뮤니티에서 활동중인 기여자 그룹에 의해 유지됩니다 일부 기여자는 개인이고, 일부는 Electron 으로 개발을 하는 큰 회사입니다. 프로젝트에 자주 공여하는 분은 기꺼이 메인테이너로 추가하겠습니다. Electron 에 기여하기를 참고하세요.
+Electron 프로젝트는 GitHub 팀과 커뮤니티에서 [열심히 활동하는 공헌자들](https://github.com/electron/electron/graphs/contributors)이 함께 관리하고 있습니다. 개인들이 공헌한 부분도 있고 Electron으로 개발을 하는 큰 회사들이 공헌한 작업도 있습니다. 프로젝트에 자주 공헌하는 분들에게는 프로젝트 관리자 역할을 부여해드립니다. Electron 에 기여하기를 참고하세요.
 
 ## 릴리즈
 
