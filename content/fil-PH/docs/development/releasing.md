@@ -69,26 +69,26 @@ Tips: - Each listed item should reference a PR on electron/electron, not an issu
 Para sa `patch` na nilabas, gumamit ng mga sumusunod na format:
 
 ```sh
-## Bug Fixes
+# # Bug fix 
 
-* Fixed a cross-platform thing. #123
+* Naayos na ang bahagi ng cross-platform na ito. #123
 
 ### Linux
 
-* Fixed a Linux thing. #123
+* Naayos na ang bahagi ng Linux. #123
 
 ### macOS
 
-* Fixed a macOS thing. #123
+* Naayos na ang bahagi ng macOS. #123
 
-### Windows
+###Windows
 
-* Fixed a Windows thing. #1234
+* Naayos na ang bahagi ng Windows. #1234
 ```
 
-### Minor releases
+### Mga Minor na nailabas na
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 
 ```sh
 ## Upgrades
