@@ -1,27 +1,27 @@
-# Upgrading Crashpad
+# Pag-upgrade ng Crashpad
 
-1. Get the version of crashpad that we're going to use.
+1. Kuning ang bersyon ng crashpad na gagamitin namin.
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the correponding branch.
+    - `libcc/src/third_party/crashpad/README.chromium` magkakaroon ng linya `Rebisyon:` na may checksum
+    - Kailangan nating tingnan ang kaukulang sangay.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - Tingnan ang sangay na may rebisyon na may checksum: 
         - `git checkout <revision checksum>`
-    - Add electron's crashpad fork as a remote
+    - Magdagdag ng electon's crashpad fork bilang isang remote
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - Tingnan ang bagong sangay para sa update
     - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
+    - `A.B.C.D` ay ang Chromium bersyon na matatagpuan sa `libcc/VERSION` at magiging tulad nito `62.0.3202.94`
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. Gumawa ng isang checklist ng mga patong ng Electron na kailangang ilapat `git log --oneline`
     
-    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
+    - O tingnan sa https://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. Para sa bawat patch:
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
-    - `git cherry-pick <checksum>`
+    - Sa `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
+    - `git cherry-pick<checksum>`
     - Resolve any conflicts
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
     - `git push electron electron-crashpad-vA.B.C.D`
