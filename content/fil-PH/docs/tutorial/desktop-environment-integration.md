@@ -14,7 +14,7 @@ Ang Windows at macOS ay nagbibigay ng madaling access sa listahan ng mga kagagam
 
 **JumpList:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Kagagamit lang na mga file sa JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **Dock Menu ng Aplikasyon:**
 
@@ -175,7 +175,7 @@ Ang Unity DE ay mayroon ding kaparehas na katangian na nagpapahintulot nito na i
 
 **Progress bar sa taskbar na pipindutin:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Progress bar ng Taskbar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
 Upang itakda ang progress bar para sa isang Window, pwedeng gamitin ang [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) na API:
 
@@ -193,7 +193,7 @@ Sa Windows, ang isang taskbar na pipindutin ay pwedeng gumamit ng maliit na over
 
 **Ang Overlay sa taskbar na pipindutin:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Ang Overlay sa Taskbar na pipindutin](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 Upang itakda ang overlay icon para sa isang window, pwede mong gamitin ang [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) na API:
 
@@ -241,9 +241,9 @@ win.setDocumentEdited(true)
 
 ## Paghila ng mga file palabas sa window
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Para sa ilang uri ng mga app na nagkokontrol sa mga file, mahalagang makakahila ka ng mga file mula sa Electron papunta sa ibang mga app. Upang mailunsad ang katangiang ito sa iyong app, kailangan mong tawagin ang `webContents.startDrag(item)` na API sa `ondragstart` na pangyayari.
 
-In web page:
+Sa web na pahina:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+Sa pangunahing proseso:
 
 ```javascript
 const {ipcMain} = require('electron')
