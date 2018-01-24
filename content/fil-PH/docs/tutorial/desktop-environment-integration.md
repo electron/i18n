@@ -111,19 +111,19 @@ Ang mga gawain ng tagagamit ay magpapakita parin kahit na nakasara na ang iyong 
 
 ## Mga Thumbnail Toolbar
 
-Sa Windows, maaari kang magdagdag ng isang thumbnail toolbar na may partikular na mga pipindutin sa isang taskbar na layout ng isang window ng aplikasyon. It provides users a way to access to a particular window's command without restoring or activating the window.
+Sa Windows, maaari kang magdagdag ng isang thumbnail toolbar na may partikular na mga pipindutin sa isang taskbar na layout ng isang window ng aplikasyon. Binibigyang-daan nito ang mga tagagamit na ma-access ang isang partikular na utos ng window habang walang ibinabalik o pinapaganang window.
 
-From MSDN, it's illustrated:
+Mula sa MSDN, inihahayag ito:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Ang toolbar ay isa lamang karaniwang control ng istandard na toolbar. Mayroon itong hindi lalagpas sa pitong pipindutin. Ang bawat ID ng pipindutin, imahe, tooltip, at estado ay inilarawan sa isang balangkas, na ipinapasa sa taskbar. Ang aplikasyon ay nakapagpakita, nagpapagana, nagpapatigil, o nagtatago ng mga pipindutin mula sa thumbnail toolbar na itinutugon ng kanyang kasalukuyang estado.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Halimbawa, ang Windows Media Player ay possibleng magbibigay ng istandard na kontrol sa paglilipat ng media, katulad ng play, pause, mute at stop.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Ang Thumbnail Toolbar ng Windows Media Player:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+Pwede mong gamiting ang [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) para itakda ang thumbnail toolbar sa iyong aplikasyon:
 
 ```javascript
 const {BrowserWindow} = require('electron')
