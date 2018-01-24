@@ -16,7 +16,7 @@ Tinatanggal ang pokus mula sa maliit na window.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Sapilitang isasara ang maliit ma window ng walang pagtawag sa kanyang event ng pag-unload.
 
 #### `win.eval(code)`
 
