@@ -6,7 +6,7 @@ Isang problema ay ang paggawa ng lahat ng Electron sa isang kopya ng V8 para mas
 
 Ang pag-uupgrade ng Node ay mas madali kaysa pag-uupgrade ng libchromiumcontent, dahil maliit lang ang nagiging problema kapag unang nag-uupgrade ng libchromiumcontent, at ang pagpili ng bagong upstream Node na mas malapit sa V8.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Ang Elektron ay may sariling [Node fork](https://github.com/electron/node) na may kasamang modipikasyon para sa V8 na ang mga detalye ay naibanggit sa itaas at para sa paglalantad ng API na kinakailangan ng Elektron. Kapag ang isang upstream Node release ay napili, ito'y nilalagay sa isang branch ng Elektron's Node fork at bawat Elektron Node patch ay inilalapat doon.
 
 Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
