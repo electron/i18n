@@ -44,7 +44,7 @@ Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 * `channel` String
 * `...args` anuman[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Magpadala ng mensahe sa pangunahing proseso ng sabay-sabay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
 
 The main process handles it by listening for `channel` with `ipcMain` module.
 
