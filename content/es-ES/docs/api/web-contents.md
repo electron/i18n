@@ -301,7 +301,7 @@ Devuelve:
 
 Emitido cuando no se pudo verificar el `certificate` for `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+El uso es el mismo con [the `certificate-error` evento de `app`](app.md#event-certificate-error).
 
 #### Evento: 'select--client-certificate'
 
@@ -315,7 +315,7 @@ Devuelve:
 
 Emitido cuando el certificado de un cliente es requerido.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+El uso es el mismo con [the `select-client-certificate` evento de `app`](app.md#event-select-client-certificate).
 
 #### Evento:'login'
 
@@ -352,19 +352,19 @@ Devuelve:
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Emitido cuando un resultado está disponible para la petición de [`webContents.findInPage`].
 
 #### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+Emitido cuando la media empieza a reproducirse.
 
 #### Event: 'media-paused'
 
-Emitted when media is paused or done playing.
+Emitido cuando la media es pausada o ha terminado de reproducirse.
 
 #### Event: 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitido cuando el color de tema de una página cambia. Esto usualmente se debe al encuentro de una meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
