@@ -25,7 +25,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Pag-update sa mga Aplikasyon](tutorial/updates.md)
 
 ## Tutorials
 
