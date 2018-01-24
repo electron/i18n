@@ -12,19 +12,19 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang az             | Ay Azerbaijani          |
 | ang be             | Ay Belarusian           |
 | ang bg             | Ay Bulgarian            |
-| ang bh             | Bihari                  |
-| bn                 | Bengali                 |
-| br                 | Breton                  |
-| bs                 | Bosnian                 |
-| ca                 | Catalan                 |
-| co                 | Corsican                |
-| cs                 | Czech                   |
-| cy                 | Welsh                   |
-| da                 | Danish                  |
-| de                 | German                  |
-| de-AT              | German (Austria)        |
-| de-CH              | German (Switzerland)    |
-| de-DE              | German (Germany)        |
+| ang bh             | Ay Bihari               |
+| ang bn             | Ay Bengali              |
+| ang br             | Ay Breton               |
+| ang bs             | Ay Bosnian              |
+| ang ca             | Ay Catalan              |
+| ang co             | Ay Corsican             |
+| ang cs             | Ay Czech                |
+| ang cy             | Ay Welsh                |
+| ang da             | Ay Danish               |
+| ang de             | Ay German               |
+| ang de-AT          | Ay German (Austria)     |
+| ang de-CH          | Ay German (Switzerland) |
+| ang de-DE          | Ay German (Germany)     |
 | el                 | Greek                   |
 | en                 | English                 |
 | en-AU              | English (Australia)     |
