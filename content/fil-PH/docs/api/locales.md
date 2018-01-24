@@ -103,23 +103,23 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang qu             | Ay Quechua                 |
 | ang rm             | Ay Romansh                 |
 | ang ro             | Ay Romanian                |
-| ang ru             | Russian                    |
-| sd                 | Sindhi                     |
-| sh                 | Serbo-Croatian             |
-| si                 | Sinhalese                  |
-| sk                 | Slovak                     |
-| sl                 | Slovenian                  |
-| sn                 | Shona                      |
-| so                 | Somali                     |
-| sq                 | Albanian                   |
-| sr                 | Serbian                    |
-| st                 | Sesotho                    |
-| su                 | Sundanese                  |
-| sv                 | Swedish                    |
-| sw                 | Swahili                    |
-| ta                 | Tamil                      |
-| te                 | Telugu                     |
-| tg                 | Tajik                      |
+| ang ru             | Ay Russian                 |
+| ang sd             | Ay Sindhi                  |
+| ang sh             | Ay Serbo-Croatian          |
+| ang si             | Ay Sinhalese               |
+| ang sk             | Ay Slovak                  |
+| ang sl             | Ay Slovenian               |
+| ang sn             | Ay Shona                   |
+| ang so             | Ay Somali                  |
+| ang sq             | Ay Albanian                |
+| ang sr             | Ay Serbian                 |
+| ang st             | Ay Sesotho                 |
+| ang su             | Ay Sundanese               |
+| ang sv             | Ay Swedish                 |
+| ang sw             | Ay Swahili                 |
+| ang ta             | Ay Tamil                   |
+| ang te             | Ay Telugu                  |
+| ang tg             | Tajik                      |
 | th                 | Thai                       |
 | ti                 | Tigrinya                   |
 | tk                 | Turkmen                    |
