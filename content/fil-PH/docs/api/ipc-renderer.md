@@ -44,18 +44,18 @@ Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 * `channel` String
 * `...args` anuman[]
 
-Magpadala ng mensahe sa pangunahing proseso ng sabay-sabay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Magpadala ng mensahe sa pangunahing proseso ng sabay-sabay sa pamamagitan ng `channel`, maaari ka ring magpadala ng hindi makatwiran na mga argumento. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `channel` na may modyul ng `ipcMain`.
 
-### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.sendSync(channel[, arg1][,arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
