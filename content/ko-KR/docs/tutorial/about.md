@@ -28,7 +28,7 @@ Electron에서는 Node.js와 Chromium이 1 개의 V8 엔진 인스턴스를 공�
 
 Electron 2.0 버전부터 [`semver`](https://semver.org) 규칙에 따라 버전을 관리하고 있습니다. 최신 버전의 npm을 사용해 `$ npm install electron` 명령을 실행하기만 하면 Electron 버전은 쉽게 관리할 수 있을 것입니다.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+자세한 버전 업데이트 과정은 [버전 관리 문서](electron-versioning.md)에서 확인할 수 있습니다.
 
 ### LTS
 
