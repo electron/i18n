@@ -62,15 +62,15 @@ Electron版本 * < 2.0 * 不符合 [ semver ](http://semver.org) 规范。 主�
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+稳定分支始终是 **major** 或 **minor** 版本, 并按照以下模板命名`$MAJOR-$MINOR-x`.例如 `2-0-x`.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+我们允许同时存在多个稳定分支，并且打算在任何时候至少支持两个并行支持安全修复。 ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+GitHub不支持旧线路，但是其他分组可以自行获取所有权和返回稳定性和安全修复。 我们不鼓励这样做，但是认识到它使得许多应用程序开发人员的生活更轻松。
 
 # 测试版和Bug修复
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+开发人员想知道哪个版本可以 *安全* 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
@@ -108,7 +108,7 @@ A few examples of how various semver ranges will pick up new releases:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# 缺少的功能: Alphas, 和 Nightly
 
 Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
