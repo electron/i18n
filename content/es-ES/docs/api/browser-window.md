@@ -487,45 +487,45 @@ win.loadURL('https://github.com')
 
 Un objeto `WebContents` que posee la ventana. Todas eventos y operaciones relacionados a las páginas web ocurrirán por medio del objeto.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eventos.
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+Un `Integer` que representa el ID único de la ventana.
 
 ### Métodos de Instancia
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Los objetos creados con `new BrowserWindow` tienen los siguientes métodos de instancia:
 
 **Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Al forzar el cierre de una ventana, el evento `unload` y `beforeunload` no se emitirá en la página web. El evento `close` tampoco se emitirá en la ventana, pero es seguro que el evento `closed` sí será emitido.
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Intenta cerrar la ventana. Este tiene el mismo efecto que hacer clic manualmente al botón de cerrar la ventana. Sin embargo la página web podría cancelar el cierre. Ver [close event](#event-close).
 
 #### `win.focus()`
 
-Focuses on the window.
+Enfoca la ventana.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Elimina el enfoque de la ventana.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Devuelve `Boolean` - Si la ventana está centrada o no.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Devuelve `Boolean` - Si la ventana fue destruida o no.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Muestra la ventana y la enfoca.
 
 #### `win.showInactive()`
 
