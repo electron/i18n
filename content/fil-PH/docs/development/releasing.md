@@ -4,7 +4,7 @@ Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng El
 
 ## Alamin kung aling sangay nagmula ang ilalabas
 
-- **If releasing beta,** patakbuhin ang scrip sa ilalim ng `master`.
+- **If releasing beta,** paganahin ang scrip sa ilalim ng `master`.
 - **If releasing a stable version,** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
 
 ## Hanapin kung aling bersyon ang nabago ito ay kinakailangan
