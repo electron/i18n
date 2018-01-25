@@ -1030,11 +1030,11 @@ Devuelve `Boolean` - Si la barra de menú se oculta o no automáticamente.
 
 * `visible` Booleano
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+Establece si la barra de menú debe ser visible o no. Si la barra de menú se oculta automáticamente, los usuarios pueden todavía traer la barra de herramientas al presionar la tecla `Alt`.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Devuelve `Boolean` - Si la barra de tareas es visible o no.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
