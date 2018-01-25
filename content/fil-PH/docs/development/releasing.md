@@ -153,9 +153,9 @@ Ang release na to ay nailathala sa [npm] (https://www.npmjs.com/package/electron
 
 ## I-edit ang release draft
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
+1. Bisitahin ang [the releases page](https://github.com/electron/electron/releases) at makikita mo ang bagong draft na narelease kasama ng placeholder release ng mga tala.
+2. I-edit ang release at magdagdag ng mga release notes.
+3. Tanggalan ng tsek ang `prerelease` checkbox kung kayo ay maglalathala ng isang matatag na release; iwanan itong naka tsek para sa beta release.
 4. Click 'Save draft'. **Do not click 'Publish release'!**
 5. Wait for all builds to pass before proceeding.
 6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
