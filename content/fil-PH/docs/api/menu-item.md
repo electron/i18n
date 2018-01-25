@@ -9,9 +9,9 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 ### `bagong MenuItem(opsyon)`
 
 * `mga pagpipilian` Bagay 
-  * `i-klik` Punsyon (opsyonal) - Ay tatawagin na may `click(menuItem, browserWindow, event)` when the menu item is clicked. 
-    * `menuItem` MenuItem
-    * `browserWindow` BrowserWindow
+  * `i-klik` Punsyon (opsyonal) - Ay tatawagin na may `i-klik ang(menuItem, browserWindow, event)` kapag ang aytem ng menu ay na-klik na. 
+    * `menuItem` ang MenuItem
+    * `browserWindow` ang BrowserWindow
     * `event` Event
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
