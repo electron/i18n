@@ -14,15 +14,15 @@ Proceso: [Principal](../glossary.md#main-process)
   * `sesion` Objecto (opcional) - La instancia de [`Sesión`](session.md) en la cual está asociada la solicitud.
   * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
   * `protocolo` Cadena (opcional) -El esquema de protocolo en la forma "esquema": Valores soportados actualmente son 'http:' o 'https:'. Por defecto es 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `central` Cadena (opcional) - El servidor central proporcionado como una concatenación de nombres de anfitrión y el número de puerto "nombre de anfitrión:puerto"
+  * `nombre de anfitrión` Cadena (opcional) - el nombre del servidor central.
+  * `Puerto` Entero (opcional) - el número de puerto listado en el servidor.
+  * `ruta` Cadena (opcional) - La parte de la ruta de la solicitud URL.
+  * `Redirigir` cadena (opcional) - El modo de redirección de esta solicitud. Debe ser `seguir`, `error` o `manual`. Por defecto es `seguir`. Cuando el modo es `error`, cualquier redirección será abortada. Cuando el modo es `manual` la redirección será aplaza hasta que el procedimiento [`request.followRedirect`](#requestfollowRedirect) sea llamado. Listado por el evento [`redirigir`](#event-redirect) en este modo para obtener más detalles sobre las solicitudes de redirección.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+`opcions` propiedades como `protocolo`, `central`, `nombre de anfitrión`, `puerto` y `ruta` siguen estrictamente al modo Node.js como es descrito en el módulo [URL](https://nodejs.org/api/url.html).
 
-For instance, we could have created the same request to 'github.com' as follows:
+Por ejemplo, podemos haber creado la misma solicitud a 'github.com' como sigue:
 
 ```JavaScript
 const request = net.request({
@@ -40,7 +40,7 @@ const request = net.request({
 
 Devuelve:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `respuesta` IncomingMessage - Un objeto representando el mensaje de respuesta de HTTP.
 
 #### Evento: 'login'
 
@@ -56,9 +56,9 @@ Devuelve:
   * `username` Cadena
   * `contraseña` Cadena
 
-Emitted when an authenticating proxy is asking for user credentials.
+Emitido cuando un proxy de autenticación requiere las credenciales del usuario.
 
-The `callback` function is expected to be called back with user credentials:
+Se espera que la función `retrollamada` sea llamada de vuelta con las credenciales del usuario:
 
 * `username` Cadena
 * `contraseña` Cadena
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Proporcional credenciales vacías cancelará la solicitud y reportará un error de autenticación en el objeto de respuesta:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -83,11 +83,11 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Evento: "terminado"
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Emitido justo antes de que el último paquete de los datos de la `solicitud` haya sido escrito en el objeto `solicitud`.
 
-#### Event: 'abort'
+#### Evento: "abortar"
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
