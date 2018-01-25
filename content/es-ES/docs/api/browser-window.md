@@ -1064,13 +1064,13 @@ Todos los eventos del ratón ocurridos en esta ventana se pasarán a la ventana 
 
 Evita que los contenidos de la ventana sean capturados por otras aplicaciones.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+En macOS se configura el NSWindow's sharingType a NSWindowSharingNone. En Windows se llama SetWindowDisplayAffinity con `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
-* `focusable` Boolean
+* `focusable` Booleano
 
-Changes whether the window can be focused.
+Cambia si se puede enfocar o no la ventana.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
