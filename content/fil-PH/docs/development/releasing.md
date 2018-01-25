@@ -141,7 +141,7 @@ Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 
 ### Beta releases
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+Gumamit ng kaparehong format katulad ng naimungkahi na sa itaas. Ngunit dagdagan ang mga sumusunod na tala sa simula ng changelog:
 
 ```sh
 **Note:** This is a beta release and most likely will have have some instability and/or regressions.
