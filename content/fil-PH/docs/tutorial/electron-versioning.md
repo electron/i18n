@@ -1,79 +1,79 @@
-# Electron Versioning
+# Pagbebersyon ng Electron
 
-> A detailed look at our versioning policy and implementation.
+> Isang detelyadong pagtanaw sa ating pagbebersyon na mga patakaran at implementasyon.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Sa ngayon ang bersyon ng 2.0.0, Electron ay sumusunod sa [semver](#semver). Ang mga sumusunod na command ay mag-iinstall ng mga pinakabago at matatag na build ng Electron:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Upang maka-update ng umiiral na proyekto para makagamit sa matatag at pinakabagong bersyon:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Bersyon 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Ang mga bersyon ng Electron *< 2.0* ay hindi naaayon sa [semver](http://semver.org) na spesifikasyon. Malaking bersyon na magkatugon sa mga huling-tagagamit ng pagbabago sa API. Ang mga maliliit na bersyon ay nakatugon sa mga malaking release ng Chromium. Ang mga bersyon ng patch ay nakatugon sa mga bagong tampok at pagreresolba ng mga di kanais-nais na bug. Madali lang para sa mga developers ang pagsasama ng mga katangian, ngunit ito'y nagbibigay ng porblema sa mga developer ng client-facing na mga aplikasyon. Ang pagsusuri sa QA ng mga pangunahing aplikasyon gaya ng Slack, Stride, Teams, Skype, VS Code, Atom, at Desktop ay maaring napakahaba at ang katatagan ay isang tanging hinahangad na resulta. Ngunit mayroong napakapanganib na resulta sa paggamit ng mga bagong katangian para maresolba ng mga bugs na problema.
 
-Here is an example of the 1.x strategy:
+Isang halimbawa ng 1.x na istratehiya ay:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Ang app na binuo sa `1.8.1` ay hindi makukuha sa `1.8.3` pagsasaayos ng mga bugs na hindi gumagamit ng `1.8.2` na katangian, o sa pagba-backport ng pagsasaayos at pagpapanatili sa linya ng mga bagong labas.
 
-## Version 2.0 and Beyond
+## Bersyon 2.0 at Pataas
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+May mga ilang malaking pagbabago mula sa ating 1.x na stratehiya na nakabalangkas sa ibaba. Bawat pagbabago ay dapat matugunan ang mga pangangailangan at prayoridad ng mga taga-likha o taga-maintain at sa mga tagalikha ng mga aplikasyon.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. Striktong paggamit ng semver
+2. Pambungad ng semver-compliant `-beta` tags
+3. Pambungad sa [conventional commit messages](https://conventionalcommits.org/)
+4. Malinaw na pagpapaliwanag sa pagpapanatag ng mga sangay
+5. Ang `master` na branch ay walang bersyon; tanging ang katatagan ng branches lamang ang naglalaman ng mga impormasyon tungkol sa bersyon
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Tatalakayin natin bawat detalye kung paano gumagana ang git branching, pati ang nmp tagging, at kung ano ang aasahang makikita ng mga developers, at kung paano ka makapagbabago ng backport.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Mula sa 2.0 pataas, ang Electron ay sususnod sa semver.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagbabago sa nararapat na kategorya ng semver (hal. Major, Minor, Patch).
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **Mga karagdagan sa Major na Bersyon** 
+    * Mga updates sa Chromium version
+    * malaking updates sa node.js
+    * Ang pagpapalit ng API dahil sa pagsisira ng Electron nito
+* **Mga karagdagan sa Minor na Bersyon** 
+    * mga maliit na updates sa node.js
+    * Pagpapalit ng API ng hindi lumalabag sa Electron
+* **Mga karagdagan sa Patch na Bersyon** 
+    * mga updates sa bersyon ng node.js patch
+    * pagsasaayos ng may kaugnayan sa chromium patches
+    * ang electron ay nagsasaayos ng mga bug
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Tandaan na karamihan sa chromium updates ay itinuturing nakakasira. Ang pagsasaayos na pwedeng i-backport ay maaring maging cherry-picked na patches.
 
-# Stabilization Branches
+# Pagpapapanatag ng mga Branch
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+Ang pagpapapanatag ng mga branch ay mga branch na tumatakbo kahilera sa master, sa pagkuha lang ng cherry-picked commits na may kinalaman sa seguridad at katatagan. Ang mga branch na ito ay hindi na masasama ulit sa master.
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+Ang pagpapanatag ng branches ay palaging linya sa bersyon ng alinman sa **major** o **minor**, at may pangalan laban sa mga sumusunod na template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+Pumapayag kami sa maramihang pagpapanatag ng mga branches para umiral nang sabay-sabay, at tangkain na suportahan kahit sa dalawang magkahanay sa lahat ng oras, ang pagsasaayos ng seguridad sa pagba-backport na kinakailangan. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Ang mga lumang linya ay hindi suportado ng GitHub, pero pwedeng may ibang grupo na magmamay-ari at magba-backport ng katatagan at seguridad na pwedeng umayos sa kanilang sarili. Hindi namin ito minumungkahi, pero kinikilala namin ito dahil ito'y nagpapadali sa buhat ng maraming app developers.
 
-# Beta Releases and Bug Fixes
+# Beta Releases at ang pagsasaayos ng Bug
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Gustong malaman ng mga developers kung aling release ang mga *ligtas* gamitin. Kahit mga bagong tampok ay tila maaaring ipakilala ang pagbabalik sa mga kumplikadong applications. Kasabay nito, ang pagla-lock sa isang permanenteng bersyon ay delikado dahil ikaw ay nagbabalewala sa seguridad ng patches at pagsasaayos ng bug naa maaring dumating sa iyong bersyon. Ang hangad namin ay upang payagan ang mga sumusunod na pamantayan ng semver na saklaw ng `package.json` :
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* Gumamit ng `~2.0.0` para aminin lamang ang katatagan o seguridad katulad ng pagsasaayos sa `2.0.0` na release.
+* Gumamit ng `^2.0.0` para aminin ang di paglabag sa *matatag na katwiran* sa tampok na trabaho pati na rin ang seguridad at pagsasaayos ng mga bug.
 
 What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
 

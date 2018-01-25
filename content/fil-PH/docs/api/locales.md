@@ -87,55 +87,55 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang ms             | Ay Malay                   |
 | ang mt             | Ay Maltese                 |
 | ang nb             | Ay Norwegian (Bokmal)      |
-| ne                 | Nepali                     |
-| nl                 | Dutch                      |
-| nn                 | Norwegian (Nynorsk)        |
-| no                 | Norwegian                  |
-| oc                 | Occitan                    |
-| om                 | Oromo                      |
-| or                 | Oriya                      |
-| pa                 | Punjabi                    |
-| pl                 | Polish                     |
-| ps                 | Pashto                     |
-| pt                 | Portuguese                 |
-| pt-BR              | Portuguese (Brazil)        |
-| pt-PT              | Portuguese (Portugal)      |
-| qu                 | Quechua                    |
-| rm                 | Romansh                    |
-| ro                 | Romanian                   |
-| ru                 | Russian                    |
-| sd                 | Sindhi                     |
-| sh                 | Serbo-Croatian             |
-| si                 | Sinhalese                  |
-| sk                 | Slovak                     |
-| sl                 | Slovenian                  |
-| sn                 | Shona                      |
-| so                 | Somali                     |
-| sq                 | Albanian                   |
-| sr                 | Serbian                    |
-| st                 | Sesotho                    |
-| su                 | Sundanese                  |
-| sv                 | Swedish                    |
-| sw                 | Swahili                    |
-| ta                 | Tamil                      |
-| te                 | Telugu                     |
-| tg                 | Tajik                      |
-| th                 | Thai                       |
-| ti                 | Tigrinya                   |
-| tk                 | Turkmen                    |
-| to                 | Tonga                      |
-| tr                 | Turkish                    |
-| tt                 | Tatar                      |
-| tw                 | Twi                        |
-| ug                 | Uighur                     |
-| uk                 | Ukrainian                  |
-| ur                 | Urdu                       |
-| uz                 | Uzbek                      |
-| vi                 | Vietnamese                 |
-| xh                 | Xhosa                      |
-| yi                 | Yiddish                    |
-| yo                 | Yoruba                     |
-| zh                 | Chinese                    |
-| zh-CN              | Chinese (Simplified)       |
-| zh-TW              | Chinese (Traditional)      |
-| zu                 | Zulu                       |
+| ang ne             | Ay Nepali                  |
+| ang nl             | Ay Dutch                   |
+| ang nn             | Ay Norwegian (Nynorsk)     |
+| ang no             | Ay Norwegian               |
+| ang oc             | Ay Occitan                 |
+| ang om             | Ay Oromo                   |
+| ang or             | Ay Oriya                   |
+| ang pa             | Ay Punjabi                 |
+| ang pl             | Ay Polish                  |
+| ang ps             | Ay Pashto                  |
+| ang pt             | Ay Portuguese              |
+| ang pt-BR          | Ay Portuguese (Brazil)     |
+| ang pt-PT          | Ay Portuguese (Portugal)   |
+| ang qu             | Ay Quechua                 |
+| ang rm             | Ay Romansh                 |
+| ang ro             | Ay Romanian                |
+| ang ru             | Ay Russian                 |
+| ang sd             | Ay Sindhi                  |
+| ang sh             | Ay Serbo-Croatian          |
+| ang si             | Ay Sinhalese               |
+| ang sk             | Ay Slovak                  |
+| ang sl             | Ay Slovenian               |
+| ang sn             | Ay Shona                   |
+| ang so             | Ay Somali                  |
+| ang sq             | Ay Albanian                |
+| ang sr             | Ay Serbian                 |
+| ang st             | Ay Sesotho                 |
+| ang su             | Ay Sundanese               |
+| ang sv             | Ay Swedish                 |
+| ang sw             | Ay Swahili                 |
+| ang ta             | Ay Tamil                   |
+| ang te             | Ay Telugu                  |
+| ang tg             | Ay Tajik                   |
+| ang th             | Ay Thai                    |
+| ang ti             | Ay Tigrinia                |
+| ang tk             | Ay Turkmen                 |
+| ang to             | Ay Tonga                   |
+| ang tr             | Ay Turkish                 |
+| ang tt             | Ay Tatar                   |
+| ang tw             | Ay Twi                     |
+| ang ug             | Ay Uighur                  |
+| ang uk             | Ay Ukrainian               |
+| ang ur             | Ay Urdu                    |
+| ang uz             | Ay Uzbek                   |
+| ang vi             | Ay Vietnamese              |
+| ang xh             | Ay Xhosa                   |
+| ang yi             | Ay Yiddish                 |
+| ang yo             | Ay Yoruba                  |
+| ang zh             | Ay Chinese                 |
+| ang zh-CN          | Ay Chinese (Simplified)    |
+| ang zh-TW          | Ay Chinese (Traditional)   |
+| ang zu             | Ay Zulu                    |

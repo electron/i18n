@@ -159,7 +159,7 @@ $ .\node_modules\.bin\electron .
 $ npx electron .
 ```
 
-### File binario scaricato manualemente
+### File binario scaricato manualmente
 
 Se hai scaricato Electron manualmente, è possibile utilizzare anche il file binario incluso per eseguire l'app direttamente.
 

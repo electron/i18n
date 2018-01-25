@@ -1,16 +1,16 @@
 # Build Instructions (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
 
-## Prerequisites
+## Mga Pangunahing Kailangan
 
-* At least 25GB disk space and 8GB RAM.
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* Hindi bababa sa 25GB disk space at 8GB RAM.
+* Python 2.7.x. Ilang mga distribusyon tulad ng CentOS 6.x ay gumagamit pa rin ng Python 2.6.x kaya maaaring kailanganing suriin ang iyong Python version kasama ang `python -V`.
+* Node.js. May iba't-ibang paraan upang i-install ang Node. Maaaring kunin o i-download ang source code galing sa [nodejs.org](https://nodejs.org) at i-compile ito. Ang paggawa nito ay hinahayaang i-install ang Node sa sarili nitong home directory bilang pamantayan ng gumagamit o user. O subukan ang mga repository tulad ng [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* [clang](https://clang.llvm.org/get_started.html) 3.4 o mamaya.
+* Ang pagpapaunlad ng mga header ng GTK+ at libnotify.
 
-On Ubuntu, install the following libraries:
+Sa Ubuntu, i-install ang mga susunod na mga library:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+Sa RHEL / CentOS, i-install ang mga sumusunod na library:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Sa Fedora, i-install ang mga sumusunod na mga library:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,9 +38,9 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Ang ibang mga distribution ay maaaring ialok ang parehong mga package para sa installation gamit ang package managers tulad ng pacman. O ang isa ay maaaring i-compile galing sa cource code.
 
-## Getting the Code
+## Ang Pagkuha ng Code
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Ang bootstrap script ay kinukuha o dina-download ang lahat ng kailangang build dependencies at nililikha ang build project files. Kailangan mo ng Python 2.7.x para sa skrip upang magtagumpay. Ang pagda-download ng mga tiyak na file ay maaaring tumagal ang pagproseso. Pansinin na tayo'y gumagamit ng `ninja` upang buuin ang Electron para walang mabuo na `Makefile`.
 
 ```sh
 $ cd electron
@@ -57,53 +57,53 @@ $ ./script/bootstrap.py --verbose
 
 ### Cross compilation
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Kung nais nating bumuo para sa `arm` target, dapat din nating i-install ang mga sumusunod na dependency:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Gayundin para sa `arm64`, kailangang i-install ang mga sumusunod:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+At para mai-cross-compile ang `arm` o `ia32` targets, kailangan mong idaan ang parameter na `--target_arch` sa skrip na `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## Ang Pagbubuo
 
-If you would like to build both `Release` and `Debug` targets:
+Kung ninanais mong layunin ay bumuo ng parehong `Release` at `Debug`:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Ang skrip na ito ang magiging dahilan upang mapalabas o maipakita ang napakalaking Electron na ilalagay sa loob ng directory ng `out/R`. Ang sukat ng file ay lagpas sa 1.3 gigabytes. Ito ay mangyayari dahil ang Release target binary ay naglalaman ng mga simbolo ng debugging. Upang mabawasan ang sukat ng file, patakbuhin ang skrip na `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Itatakda nito ang working distribution na may mas maliit ng sukat ng file sa loob ng directory ng `dist`. Matapos paganahin ang skrip na `create-dist.py`, maaaring naisin mo na tanggalin ang 1.3+ gigabyte binary na nasa loob pa rin ng `out/R`.
 
-You can also build the `Debug` target only:
+Maaari ka ring bumuo lamang ng `Debug` target:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Matapos itong buuin, hanapin ang `electron` debug binary sa ilalim ng `out/D`.
 
-## Cleaning
+## Ang Paglilinis
 
-Upang malinis ang binubuong files:
+Upang malinis ang binubuong mga file:
 
 ```sh
 $ npm run clean

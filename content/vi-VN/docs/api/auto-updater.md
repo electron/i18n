@@ -43,7 +43,7 @@ The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Trả về:
 
 * `error` Error
 
@@ -63,7 +63,7 @@ Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `releaseNotes` String

@@ -14,7 +14,7 @@ Ang Windows at macOS ay nagbibigay ng madaling access sa listahan ng mga kagagam
 
 **JumpList:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Kagagamit lang na mga file sa JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **Dock Menu ng Aplikasyon:**
 
@@ -74,17 +74,17 @@ app.dock.setMenu(dockMenu)
 
 Sa Windows, pwede mong tukuyin ang mga karaniwang aksyon sa kategoryang `Tasks` ng JumpList, ayon sa sinabi ng MSDN:
 
-> Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
+> Ang mga aplikasyon ay naglalarawan sa mga gawain depende sa mga katangian ng programa at ng pangunahing mga bagay na gagawin ng mga tagagamit sa kanila. Ang mga gawain ay dapat walang konteksto, sa ganyan, hindi na kailangan ng aplikasyon na nakatakbo para lang gumana sila. Sila dapat ay ang pinakakaraniwang gawaing pang-istatistika na ginagawa ng normal na tagagamit sa isang aplikasyon, tulad ng paglikha ng isang mensahe sa email o pagbukas ng kalendaryo sa mail program, paggawa ng bagong dokumento sa isang word processor, maglunsad ng aplikasyon sa isang pamamaraan, o paglunsad ng isa sa kanyang mga subcommand. Hindi dapat ginugulo ng isang aplikasyon ang menu ng makabagong mga katangian na hindi kinakailangan ng karaniwang tagagamit o isang beses lang na mga aksyon tulad ng pagrerehistro. Wag gamitin ang mga gawain para sa pagtataguyod ng mga aytem katulad ng mga upgrade o natatanging mga alok.
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> Inirerekomenda na ang dapat nakatigil lang ang listahan ng mga gawain. Dapat hindi ito nagbabago ano man ang estado ng aplikasyon. Pwede mang baguhin ang listahan sa dinamikong paraan, dapat isaalang-alang na pwedeng makalilito ito sa mga tagagamit na hindi inaasahan ang pagbabago sa parte ng listahan ng destinasyon.
 
-**Tasks of Internet Explorer:**
+**Mga Gawain ng Internet Explorer:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+Hindi tulad ng dock menu sa macOS na isang tunay na menu, ang mga gawain ng tagagamit sa Windows ay parang mga shortcut ng aplikasyon na kung ang tagagamit ay nagclick sa isang gawain, ang program na may sumusunod na argumento ay pagaganahin.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+Upang itakda ang ang mga gawain ng tagagamit para sa iyong aplikasyon, pwede mong gamitin ang [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) na API:
 
 ```javascript
 const {app} = require('electron')
@@ -100,30 +100,30 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+Upang linisin ang listahan ng mga gawain, tawagin lang ang `app.setUserTasks` gamit ang array na walang laman:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Ang mga gawain ng tagagamit ay magpapakita parin kahit na nakasara na ang iyong aplikasyon, kaya ang icon at path ng program na itinakda para sa isang gawain ay nanatili pa hanggang i-uninstall na ang aplikasyon.
 
-## Thumbnail Toolbars
+## Mga Thumbnail Toolbar
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+Sa Windows, maaari kang magdagdag ng isang thumbnail toolbar na may partikular na mga pipindutin sa isang taskbar na layout ng isang window ng aplikasyon. Binibigyang-daan nito ang mga tagagamit na ma-access ang isang partikular na utos ng window habang walang ibinabalik o pinapaganang window.
 
-From MSDN, it's illustrated:
+Mula sa MSDN, inihahayag ito:
 
-> This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> Ang toolbar ay isa lamang karaniwang control ng istandard na toolbar. Mayroon itong hindi lalagpas sa pitong pipindutin. Ang bawat ID ng pipindutin, imahe, tooltip, at estado ay inilarawan sa isang balangkas, na ipinapasa sa taskbar. Ang aplikasyon ay nakapagpakita, nagpapagana, nagpapatigil, o nagtatago ng mga pipindutin mula sa thumbnail toolbar na itinutugon ng kanyang kasalukuyang estado.
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> Halimbawa, ang Windows Media Player ay possibleng magbibigay ng istandard na kontrol sa paglilipat ng media, katulad ng play, pause, mute at stop.
 
-**Thumbnail toolbar of Windows Media Player:**
+**Ang Thumbnail Toolbar ng Windows Media Player:**
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+Pwede mong gamiting ang [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) para itakda ang thumbnail toolbar sa iyong aplikasyon:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Upang alisin ang thumbnail toolbar na pipindutin, tawagin lang ang `BrowserWindow.setThumbarButtons` gamit ang blankong array:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -157,27 +157,27 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Mga Shortcut sa Unity Launcher (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+Sa Unity, pwede kang magdagdag ng mga entry sa kanyang launcher sa pamamagitan ng pagbabago sa `.desktop` na file, tingnan ang [Pagdagdag ng mga Shortcut sa isang Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Ang mga Launcher shortcut ng Audacious:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-## Progress Bar in Taskbar (Windows, macOS, Unity)
+## Ang Progress Bar sa Taskbar (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Sa Windows, may isang pipindutin na pwedeng magagamit upang ipakita ang progress bar. Binibigyang daan nito ang isang window na makakapagbigay ng impormasyon sa katayuan sa isang tagagamit nang hindi na kailangang palitan ang window nito.
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Sa macOs, ang progress bar ay maipapakita bilang isang bahagi ng dock icon.
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Ang Unity DE ay mayroon ding kaparehas na katangian na nagpapahintulot nito na itukoy ang progress bar sa launcher.
 
-**Progress bar in taskbar button:**
+**Progress bar sa taskbar na pipindutin:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Progress bar ng Taskbar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+Upang itakda ang progress bar para sa isang Window, pwedeng gamitin ang [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) na API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -185,17 +185,17 @@ let win = new BrowserWindow()
 win.setProgressBar(0.5)
 ```
 
-## Icon Overlays in Taskbar (Windows)
+## Mga Icon Overlay sa Taskbar (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Sa Windows, ang isang taskbar na pipindutin ay pwedeng gumamit ng maliit na overlay upang ipakita ang katayuan ng isang aplikasyon, ayon sa sinabi ng MSDN:
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> Ang mga icon overlay ay nagsisilbi bilang kontestwal na paalala ng katayuan, at para tanggalin ang pangangailangan sa naiibang icon na pang-estado ng lugar ng paalala upang mailahad ang impormasyon sa gumagamit. Halimbawa, ang isang bagong estado ng mail sa Microsoft Outlook, na kasalukuyang ipinapakita sa lugar ng paalala, ay pwede nang ilagay sa pamamagitan ng isang overlay sa pipindutin sa taskbar. Gaya ng dati, kailangan magdesisyon ka na habang nagbubuo ka pa sa kung anong pamamaraan ang nababagay sa iyong aplikasyon. Ang mga overlay icon ay para sa paghahatid ng mahalaga at matagal nang katayuan o mga paalala, katulad ng estado ng network, estado ng messenger, o bagong mail. Ang tagagamit ay hindi dapat pinapakitaan ng pabago-bagong mga overlay o animation.
 
-**Overlay on taskbar button:**
+**Ang Overlay sa taskbar na pipindutin:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![Ang Overlay sa Taskbar na pipindutin](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+Upang itakda ang overlay icon para sa isang window, pwede mong gamitin ang [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) na API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -203,13 +203,13 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame (Windows)
+## Flash Frame ( Sa Windows)
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Sa Windows, pwede mong i-highlight ang taskbar na pipindutin upang makuha ang atensyon ng gumagamit. Katulad ito sa bouncing sa dock icon sa macOS. Mula sa isang pangsangguniang dokumentasyon sa MSDN:
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> Karaniwang ipinalalabas ang isang window upang ipaalam sa gumagamit na ang window ay nangangailangan ng atensyon pero hindi pa ito nakapansin sa keyboard.
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+Upang ilabas ang BrowserWindow na pipindutin sa taskbar, pwede mong gamitin ang [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) na API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -218,19 +218,19 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+Wag kalimutang tawagin ang `flashFrame` na pamamaraan kasama ang `false` upang itigil ang flash. Sa halimbawa sa taas, itinatawag ito kung ang window ay naging pokus na, pero baka kailangan mong gumamit ng isang timeout o iba pang pangyayari para itigil ito.
 
-## Represented File of Window (macOS)
+## Nirerepresentang File ng Window (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+Sa macOS, ang isang window ay pwedeng magtakda ng nirerepresentang file, upang ang icon nito ay lalabas sa title bar, at kung ang mga gumagamit ay nag Command-Click o Control-Click sa titulo, ang isang path popup ay lalabas.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+Pwede mo ring itakda ang binagong katayuan ng isang window upang ang file icon ay makapagpakita na ang dokumento sa window nito ay nabago na.
 
-**Represented file popup menu:**
+**Narepresentang menu ng file popup:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+Upang itakda ang narepresentang file ng window, pwede mong gamitin ang [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) at [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) na mga API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -239,11 +239,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## Paghila ng mga file palabas sa window
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Para sa ilang uri ng mga app na nagkokontrol sa mga file, mahalagang makakahila ka ng mga file mula sa Electron papunta sa ibang mga app. Upang mailunsad ang katangiang ito sa iyong app, kailangan mong tawagin ang `webContents.startDrag(item)` na API sa `ondragstart` na pangyayari.
 
-In web page:
+Sa web na pahina:
 
 ```html
 <a href="#" id="drag">item</a>
@@ -255,7 +255,7 @@ In web page:
 </script>
 ```
 
-In the main process:
+Sa pangunahing proseso:
 
 ```javascript
 const {ipcMain} = require('electron')

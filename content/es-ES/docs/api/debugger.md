@@ -1,10 +1,10 @@
 ## Clase: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Un transporte alternativo para el protocolo de depuración remoto de Chrome.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Las herramientas para desarrolladores de Chrome tiene un [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -35,41 +35,41 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` Cadena (opcional) - Versión solicitada del protocolo de depuración.
 
-Attaches the debugger to the `webContents`.
+Adjunta el depurador al `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Devuelve `Boolean` - Si un depurador se adjunta o no a la `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Desasocia el depurador de la `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `llamada de vuelta` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+* `method` Cadena - Nombre del método, debe ser uno de los métodos definidos por el protocolo de depuración remoto.
+* `commandParams` Objeto (opcional) - El objeto JSON con parámetros de la solicitud.
+* `callback` Function (opcional) - Respuesta 
+  * `error` Objeto- Mensaje de error que indica el fallo del comando.
+  * `result` Any - Respuesta definida por el atributo "returns" de la descripción del comando en el protocolo de depuración remoto.
 
-Send given command to the debugging target.
+Envía el comando al objetivo de la depuración.
 
 ### Eventos de Instancia
 
-#### Event: 'detach'
+#### Evento: 'detach'
 
 * `evento` Evento
-* `reason` String - Reason for detaching debugger.
+* `reason` Cadena - Razón para desasociar el depurador.
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Aparece cuando la sesión del depurador es finalizada. Esto sucede ya sea cuando se cierra `webContents` o cuando se invoca las herramientas del desarrollador para el adjunto `webContents`.
 
-#### Event: 'message'
+#### Evento: 'message'
 
-* `evento` Evento
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `event` Evento
+* `method` Cadena- Nombre del método.
+* `params` Objeto - Los parámetros del evento definidos por el atributo "parameters" en el protocolo de depuración remoto.
 
-Emitted whenever debugging target issues instrumentation event.
+Aparece cada vez que se depura el evento de instrumentación de problemas del objetivo.

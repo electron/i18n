@@ -9,7 +9,7 @@ nav:
   contact: Контакти
   languages: Мови
   code_of_conduct: Норми поведінки
-  search: Search
+  search: Пошук
 docs:
   title: Документація Electron
   description: Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.
