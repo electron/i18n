@@ -146,7 +146,7 @@ Para sa `minor` release, e.g. `1.8.0`, gamitin ang format na ito:
 Gumamit ng kaparehong format nanakatulad katulad ng naimungkahi na sa itaas. Ngunit dagdagan ang mga sumusunod na tala sa simula ng changelog:
 
 ```sh
-**Note:** This is a beta release and most likely will have have some instability and/or regressions.
+**Paalala:** eto ay beta release at malamang na magkakaroon ng ilang kawalang katatagan o regressions.
 
 Mangyaring mag file ng bagong isyu para sa anumang bug na makikita mo dito.
 
@@ -169,16 +169,16 @@ Kapag ang release builds ay tapus na. Pagsamahin ang `release` pabalik sa pinang
 ### Pagsamasamahin pabalik sa master
 
 ```sh
-npm run merge-release -- master
+npm paganahin ang merge-release -- master
 ```
 
-### Merging back into old release branch
+### Pagsamasamahin pabalik sa lumang sangay ng release
 
 ```sh
-npm run merge-release -- 1-7-x
+npm paganahin ang merge-release -- 1-7-x
 ```
 
-## Publish the release
+## Ilathala ang release
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
