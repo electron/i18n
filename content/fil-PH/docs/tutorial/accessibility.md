@@ -4,7 +4,7 @@ Paggawa ng mga ma-access na applikasyon ay importante at masaya kami na ipakilal
 
 * * *
 
-Aksesibilidad ng mga alalahanin sa mga aplikasyon ng Elektron ay medyo kapareho sa mga website dahil pareho silang nasa huli ng HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Aksesibilidad ng mga alalahanin sa mga aplikasyon ng Elektron ay medyo kapareho sa mga website dahil pareho silang nasa huli ng HTML. Sa mga app ng elektron, Gayunpaman, hindi mo magagamit ang mga pagkukunan sa online para sa aksesibilidad dahil ang iyong app ay walang URL sa punto ng auditor sa.
 
 These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
 
