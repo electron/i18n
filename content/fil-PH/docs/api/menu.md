@@ -26,7 +26,7 @@ Ang pagpasa sa `null` ay aalisin ang bar ng menu sa Windows at sa Linux ngunit w
 
 Nagbabalik ang `Menu` - Ang aplikasyon ng menu, kung nakatakda o `null`, kung hindi nakatakda.
 
-**Note:** Ng nakauwi na halimbawa ng `Menu` ay hindi suportado ng dinamikong Pagdagdag o pagtanggal ng mga item sa menu. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
+**Note:** Ang nagbalik na instansya ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
