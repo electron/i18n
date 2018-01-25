@@ -1,6 +1,6 @@
 # Accelerator
 
-> Define keyboard shortcuts.
+> Định phím tắt.
 
 Phím tắt được định nghĩa bởi các chuỗi kí tự – String, những chuỗi này có thể bao gồm một hoặc nhiều các phím biến đổi – modifiers như Ctrl/Alt/Shift hoặc mã phím – key codes bằng cách sử dụng kí tự `+` để kết hợp.
 
@@ -43,19 +43,19 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Available key codes
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* `` đến `9`
+* `A` đến `Z`
+* `F1` đến `F24`
+* Các dấu câu như `~`, `!`, `@`, `#`, `$`, vâng vâng.
+* `Cộng`
+* `Dấu cách`
 * `Tab`
-* `Backspace`
+* `Phím xóa lùi`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
+* Phím `Return` (hoặc phím `Enter`)
+* `Lên`, `Xuống`, `Trái` và `Phải`
+* `Home` và `End`
 * `PageUp` and `PageDown`
 * `Escape` (or `Esc` for short)
 * `VolumeUp`, `VolumeDown` and `VolumeMute`
