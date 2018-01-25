@@ -60,13 +60,13 @@ Ang `prepare-release` script ay nag-trigger sa builds sa pamamagitan ng API call
 
 ## Tipunin ang mga tala ng release
 
-Isulatang mga talang na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang builds. Para sa naunang art, tingnan ung mga dating nailabas na sa [the releases page](https://github.com/electron/electron/releases).
+Isulat ang mga tala ng release ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang builds. Para sa bagong art, tingnan kung merong releases sa [the releases page](https://github.com/electron/electron/releases).
 
-Tips: - Ang bawat aytem na nakalista na ay kinakailangang isangguni sa PR sa electron/electron, hindi ito isyu, at hind rin PR na galing sa ibang repo katulad ng libcc. - Hindi na kailangang gamitin ang link markup kapag tinutukoy ay ang PRs. Ang mga string na kagaya ng `#123` ay awtomatikong na convert na sa links ng github.com. - para makita ang mga bersyon ng Chromioum, V8 at Node ang kada bersyon ng Electron, bisitahin ang [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Ang bawat aytem na nakalista na ay kinakailangang isangguni sa PR sa electron/electron, hindi ito isyu, at hind rin PR na galing sa ibang repo katulad ng libcc. - Hindi na kailangang gamitin ang link na markup kapag tinutukoy ay ang PRs. Ang mga string na kagaya ng `#123` ay awtomatikong na convert na sa links ng github.com. - Maaaring tingnan ang mga bersyon ng Chromioum, V8 at Node ang kada bersyon ng Electron, bisitahin ang [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Ang Patch ay nailabas na
+### Ang Patch releases
 
-Para sa `patch` na nilabas, gumamit ng mga sumusunod na format:
+Para sa `patch` release, gumamit ng mga sumusunod na format:
 
 ```sh
 # # Bug fix 
@@ -88,10 +88,12 @@ Para sa `patch` na nilabas, gumamit ng mga sumusunod na format:
 
 ### Mga Minor na nailabas na
 
-Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
+Para sa `minor` release, e.g. `1.8.0`, gamitin ang format na ito:
 
 ```sh
-- Itinaas ang Node ' mula sa lumang bersyon' patungo sa 'bagong berston'. #123 
+## Upgrades
+
+- I-upgrade ang Node ' mula sa lumang bersyon' patungo sa 'bagong berston'. #123 
 
 ## Mga pagbabago sa ApI 
 
