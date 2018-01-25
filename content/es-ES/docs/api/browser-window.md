@@ -16,14 +16,14 @@ win.on('closed', () => {
   win = null
 })
 
-// Carga un URL remoto
+// Carga una URL remota
 win.loadURL('https://github.com')
 
-// O carga un archivo locar HTML
+// O carga un archivo HTML local
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Ventana sin marco
+## Ventana sin borde
 
 Se puede usar la API [Frameless Window](frameless-window.md) para crear una ventana sin cromo, o una ventana transparente de forma arbitraria.
 
@@ -1030,11 +1030,11 @@ Devuelve `Boolean` - Si la barra de menú se oculta o no automáticamente.
 
 * `visible` Boolean
 
-Establece si la barra de menú debe ser visible o no. Si la barra de menú se oculta automáticamente, los usuarios todavía pueden mostrar la barra de herramientas al presionar la tecla `Alt`.
+Establece si la barra de menú debe ser visible o no. Si la barra de menú se oculta automáticamente, los usuarios todavía pueden mostrar la barra de menú al presionar la tecla `Alt`.
 
 #### `win.isMenuBarVisible()`
 
-Devuelve `Boolean` - Si la barra de tareas es visible o no.
+Devuelve `Boolean` - Si la barra de menú es visible o no.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
