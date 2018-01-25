@@ -246,7 +246,7 @@ Ang katangian ng `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kun
 * `after` - Isisingit ang item na ito pagkatapos ng id ng isinangguning item, Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
 * `endof` - Isisingit ang item na ito sa hulihan ng lohikal na grupo na naglalaman ng id ng isinangguning item (ang mga grupo ay ginawa nang taga-hiwalay ng mga item). Kung ang isinangguning aytem ay hindi umiiral, isang bagong grupo ng taga-hiwalay ay lilikhain kasama ang ibinigay na id at ang aytem na ito ay ilalagay pagkatapos nang taga-hiwalay.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Kapag ang aytem ay naka-posisyon na, lahat ng hindi naka-posisyon na mga aytem ay ilalagay pagkatapos nito hanggang ang isang bagong aytem ay nai-posisyon na. Kaya kung gusto mong i-posisyon ang isang grupo ng mga aytem ng menu sa kaparehas na lokasyon kailangan mo lang tukuyin ang posisyon para sa unang aytem.
 
 ### Mga halimbawa
 
@@ -256,19 +256,21 @@ Template:
 [
   {label: '4', id: '4'},
   {label: '5', id: '5'},
-  {label: '1', id: '1', position: 'before=4'},
+  {label: '1', id: '1', posisyon: 'before=4'},
   {label: '2', id: '2'},
   {label: '3', id: '3'}
 ]
 ```
 
-Menu:
+Ang Menu:
 
     <br />- 1
     - 2
     - 3
     - 4
     - 5
+     
+    Context | Request Context
     
 
 Template:
@@ -284,7 +286,7 @@ Template:
 ]
 ```
 
-Menu:
+Ang Menu:
 
     <br />- ---
     - a
