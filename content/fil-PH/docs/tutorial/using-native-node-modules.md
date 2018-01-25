@@ -65,13 +65,13 @@ Kung naka-install ka ng isang native na modyul at nalamang hindi ito gumagana, k
 
 ## Mga Modyul na nakadepende sa `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+Ang [`prebuild`](https://github.com/mafintosh/prebuild) ay nagbibigay daan sa madaling paglathala ng mga native node na modyul kasama ang prebuilt na mga binary para sa sari-saring bersyon ng Node at Electron.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Kung ang mga modyul ay nagbibigay ng mga binary para sa paggamit nito sa Electron, siguraduhing wag isali ang `--build-from-source` at ang `--build-from-source` na varyabol pang-environment upang magamit nang husto ang mga binary na prebuilt.
 
-## Modules that rely on `node-pre-gyp`
+## Mga modyul na nakadepende sa `node-pre-gyp`
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+Ang [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) ay nagbibigay ng paraan sa pag-deploy ng native na mga node modyul gamit ang mga prebuilt na mga binary, at maraming mga sikat na modyul ang gumagamit nito.
 
 Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
 
