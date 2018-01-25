@@ -1076,25 +1076,25 @@ Cambia si se puede enfocar o no la ventana.
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Establece `parent` como la ventana de la ventana principal actual. Al pasar `null` cambiará la ventana actual a una ventana de nivel superior.
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Devuelve `BrowserWindow` - La ventana principal.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Devuelve `BrowserWindow[]` - Todas las ventanas secundarias.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
-* `autoHide` Boolean
+* `autoHide` Booleano
 
-Controls whether to hide cursor when typing.
+Controla si se debe ocultar el cursor al escribir.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
+* `type` Cadena - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
