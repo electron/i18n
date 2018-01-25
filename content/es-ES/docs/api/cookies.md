@@ -42,23 +42,23 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
   * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
   * `expired` - La cookie se eliminó automáticamente debido a que expiró.
   * `evicted` - La cookie fue desecha automáticamente durante la recolección de desechos.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+  * `expired-overwrite` - La cookie fue sobreescrita con una fecha de vencimiento ya expirada.
+* `removed` Booleano - `true` si la cookie se eliminó, `false` si no lo hizo.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Aparece cuando se cambia una cookie porque fue añadida, editada, eliminada o expirada.
 
 ### Métodos de Instancia
 
-The following methods are available on instances of `Cookies`:
+Los siguientes métodos están disponibles en las instancias de `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
+* `filter` Objeto 
+  * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
+  * `name` Cadena (opcional) - Filtra las cookies por nombre.
+  * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`
+  * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
+  * `secure` Booleano (opcional) - Filtra las cookies por su propiedad Secure.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `llamada de vuelta` Función 
   * `error` Error
