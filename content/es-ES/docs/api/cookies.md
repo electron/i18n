@@ -59,10 +59,10 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`
   * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
   * `secure` Booleano (opcional) - Filtra las cookies por su propiedad Secure.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `llamada de vuelta` Función 
+  * `session` Booleano (opcional) - Filtra las cookies fuera de la sesión o cookies persistentes.
+* `callback` Función 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - un arreglo con objetos de cookies.
 
 Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
 
