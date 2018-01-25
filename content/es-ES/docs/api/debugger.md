@@ -1,6 +1,6 @@
 ## Clase: Debugger
 
-> Un transporte alternativo para el protocolo de debugging remoto de Chrome.
+> Un transporte alternativo para el protocolo de depuración remoto de Chrome.
 
 Proceso: [Main](../glossary.md#main-process)
 
@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` Cadena (opcional) - Versión solicitada del protocolo de debugging.
 
 Attaches the debugger to the `webContents`.
 
