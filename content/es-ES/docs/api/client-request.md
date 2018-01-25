@@ -101,24 +101,24 @@ Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamen
 
 #### Evento: 'close'
 
-Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. El evento `cerrar` indica que ningún otro evento será emitido en los objetos `solicitud` o `respuesta`.
 
-#### Event: 'redirect'
+#### Evento: "redirigir"
 
 Devuelve:
 
-* `statusCode` Integer
+* `Estatus de código` entero
 * `method` Cuerda
-* `redirectUrl` String
-* `responseHeaders` Object
+* `Redirigir Url` Cadena
+* `headers de respuesta` objeto
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+Emitido cuando hay una redirección y el modo es `manual`. Llamar a [`request.followRedirect`](#requestfollowRedirect) continuará con la redirección.
 
 ### Propiedades de Instancia
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es falso. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
