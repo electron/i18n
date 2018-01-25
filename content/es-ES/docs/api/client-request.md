@@ -89,19 +89,19 @@ Emitido justo antes de que el último paquete de los datos de la `solicitud` hay
 
 #### Evento: "abortar"
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Emitido cuando la `solicitud` es abortada. El evento `abortar` no será disparado si la `solicitud` ya está cerrada.
 
 #### Evento: 'error'
 
 Devuelve:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - un objeto error proporciona cierta información sobre la falla.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Emitido cuando el módulo `net` falla en emitir una solicitud de red. Típicamente cuando el objeto `solicitud` emite un evento `error`, un evento `cerrar` lo seguirá subsecuentemente y ningún objeto respuesta será proporcionado.
 
 #### Evento: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Emitido cuando el último evento en la transacción solicitud-respuesta HTTP. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
 #### Event: 'redirect'
 
