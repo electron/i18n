@@ -13,24 +13,24 @@ Sa pagtatakda ng ilang mga varyabol na pang-environment, maaari kang gumamit ng 
 Isang halimbawa ng pag-iinstall ng lahat ng mga dependency para sa Electron:
 
 ```sh
-# Electron's version.
+# Bersyon ng Electron.
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+# Ang arkitektura ng Electron, pwedeng ia32 o x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# I-download ang mga header para sa Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# Sinasabihan ang node-pre-gyp na naglilikha tayo para sa Electron.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# Sinasabihan ang node-pre-gyp to gumawa ng module mula sa pinagmulang code.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# I-install ang lahat ng mga dependency, at iponin ang cache sa ~/.electron-gyp.
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### Pag-iinstall ng mga modyul at pagre-rebuild para sa Electron
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+Pwede mong piliing i-install ang mga modyul katulad ng ibang mga Node na proyekto, at pagkatapos ay i-rebuild ang mga modyul para sa Electron gamit ang paketeng [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Ang modyul na ito ay makakakuha ng bersyon ng Electron at makakahawak ng mga manu-manong hakbang sa pagda-download ng mga header at paggawa ng native na modyul para sa iyong app.
 
 An example of installing `electron-rebuild` and then rebuild modules with it:
 
