@@ -80,18 +80,18 @@ Envía una solicitud para obtener todas las cookies que coinciden con `details`,
 * `callback` Función 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Configura una cookie con `details`, `callback` y sera llamada con `callback(error)` cuando termine.
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` Cadena - La URL asociada con la cookie.
+* `name` Cadena - El nombre de la cookie que será eliminada.
 * `callback` Función
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Elimina las cookies que coinciden con `url` and `name`, `callback` y serán llamadas con `callback()` cuando termine.
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Función
 
-Writes any unwritten cookies data to disk.
+Escribe cualquier dato de cookies en el disco que no haya sido escrito.
