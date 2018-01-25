@@ -1,4 +1,4 @@
-# Gamit ang sariling mga modyul ng node
+# Paggamit sa Native Node na mga Modyul
 
 The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
 
