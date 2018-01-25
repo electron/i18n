@@ -115,8 +115,8 @@ Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 ```sh
 ## Upgrades
 
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123 
+- Upgraded na ang Chromium mula sa 'lumang bersyon' patungo sa 'bagong bersyon'. #123
+- Itinaas ang Node ' mula sa lumang bersyon' patungo sa 'bagong bersyon'. #123 
 
 ## Mga paglabag sa ApI na nabago
 
@@ -139,9 +139,9 @@ Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 - yun iba ay nabago. #123
 ```
 
-### Beta releases
+### Beta na release
 
-Gumamit ng kaparehong format katulad ng naimungkahi na sa itaas. Ngunit dagdagan ang mga sumusunod na tala sa simula ng changelog:
+Gumamit ng kaparehong format nanakatulad katulad ng naimungkahi na sa itaas. Ngunit dagdagan ang mga sumusunod na tala sa simula ng changelog:
 
 ```sh
 **Note:** This is a beta release and most likely will have have some instability and/or regressions.
