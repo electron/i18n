@@ -48,11 +48,11 @@ Electron에 추가되는 새로운 기능은 기본적으로 네이티브 API여
 
 다음은 Electron 역사의 요점입니다.
 
-| 📆            | 🎉                                                                                           |
-| ------------ | ------------------------------------------------------------------------------------------- |
-| **2013년 4월** | Atom Shell 탄생.                                                                              |
-| **2014년 5월** | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html). |
-| **2015년 4월** | Electron 으로 개명.                                                                             |
-| **2016년 5월** | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                     |
-| **2016년 5월** | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).           |
-| **2016년 8월** | [Windows Store support for Electron apps](windows-store-guide.md).                          |
+| 📆            | 🎉                                                                                       |
+| ------------ | --------------------------------------------------------------------------------------- |
+| **2013년 4월** | Atom Shell 탄생.                                                                          |
+| **2014년 5월** | [Atom Shell을 오픈 소스로 공개함](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html). |
+| **2015년 4월** | [Atom Shell은 Electron으로 이름이 변경됨](https://github.com/electron/electron/pull/1389).       |
+| **2016년 5월** | [Electron `v1.0.0` 출시](https://electronjs.org/blog/electron-1-0).                       |
+| **2016년 5월** | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).       |
+| **2016년 8월** | [Windows Store support for Electron apps](windows-store-guide.md).                      |
