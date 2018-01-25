@@ -31,7 +31,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```
 
 ```javascript
-// In renderer process (web page).
+// Sa proseso ng redererer (web page).
 const {ipcRenderer} = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
@@ -43,7 +43,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## Pamamaraan
 
-The `ipcMain` module has the following method to listen for events:
+Ang `ipcMain` Modyul ay may mga sumusunod na pamamaraan upang pakinggan ang mga kaganapan:
 
 ### `ipcMain.on(channel, listener)`
 
