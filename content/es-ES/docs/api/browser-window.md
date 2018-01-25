@@ -25,7 +25,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Ventana sin borde
 
-Se puede usar la API [Frameless Window](frameless-window.md) para crear una ventana sin cromo, o una ventana transparente de forma arbitraria.
+Para crear una ventana sin usar chrome, o una vertana transparente de cualquier forma, Se puede usar la API [Frameless Window](frameless-window.md).
 
 ## Mostrar ventana con gracia
 
