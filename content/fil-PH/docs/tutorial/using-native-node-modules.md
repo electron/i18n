@@ -57,13 +57,13 @@ Ang `HOME=~/.electron-gyp` ay nagbabago sa lokasyon ng mga development header. A
 
 ## Paghahanap ng Problema
 
-If you installed a native module and found it was not working, you need to check following things:
+Kung naka-install ka ng isang native na modyul at nalamang hindi ito gumagana, kailangan mong tingnan ang mga sumusunod na mga bagay:
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* Ang arkitektura ng modyul ay dapat tugma sa arkitektura ng Electron (ia32 o x64).
+* Pagkatapos mong i-upgrade ang Electron, kadalasan kailangan mong i-rebuild ang mga modyul.
+* Kung hindi sigurado, paganahin muna ang `electron-rebuild`.
 
-## Modules that rely on `prebuild`
+## Mga Modyul na nakadepende sa `prebuild`
 
 [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
 
