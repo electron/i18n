@@ -29,7 +29,7 @@ Para crear una ventana sin usar chrome, o una vertana transparente de cualquier 
 
 ## Mostrar ventana con elegancia
 
-Cuando una página cargue la ventana directamente, los usuarios pueden ver la página cargar gradualmente, lo cual no es una buena experiencia para una aplicación nativo. Para hacer que la ventana aparezca sin el visual flash, hay dos soluciones para distintas situaciones.
+Cuando los usuarios cargan una página directamente en la ventana, pueden ver como se carga gradualmente la página, lo cual no es una buena experiencia para una aplicación nativa. Para hacer que la ventana aparezca sin fogonazos, hay dos soluciones para distintas situaciones.
 
 ### Usando el evento `ready-to-show`
 
