@@ -23,7 +23,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
   * `visible` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay lubusang itatago.
   * `checked` Boolean (opsyonal) - Dapat lamang na tinukoy para sa uri ng `checkbox` o `radio` ng mga aytem ng menu.
   * `submenu` (MenuItemConstructorOptions[] | Menu) (opsyonal) - Dapat lamang na tinukoy para sa uri ng `submenu` ng mga aytem ng menu. Kung ang `submenu` ay tinukoy na, ang `type: 'submenu'` ay maaaring tanggalin. Kung ang halaga ay hindi isang `Menu` pagkatapos ito ay awtomatikong iko-konbert sa isa gamit ang `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * `id` String (opsyonal) - Kakaiba sa loob ng nag-iisang menu. Kung tinukoy samakatuwid ito ay maaaring gamitin bilang isang sanggunian sa aytem na ito sa pamamagitan ngkatangian ng posisyon.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
 ### Roles
