@@ -16,11 +16,11 @@ Ang klase ng `menu` na mayroon ng mga sumusunod na mga istatikong pamamaraan:
 
 * `menu` Menu
 
-Nagtatakda ng `menu` bilang paggamit ng menu sa mascOs. Para sa Windows at Linux, ang `menu<0/> ang magtatakda sa bawat window's sa taas ng menu.</p>
+Nagtatakda ng `menu` bilang ang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay magtatakda sa ibabaw ng menu sa bawat window.
 
-<p>Pagpasa sa <code>null` para alisin ang menu bar sa Widows at Linux pero wala itong epekto sa Masco.
+Ang pagpasa sa `null` ay aalisin ang bar ng menu sa Windows at sa Linux ngunit walang epekto sa macOS.
 
-**Note:** itong API ang dapat tawagin pagkatapos ng `handa` kaganapan ng `app` module.
+**Note:** Ang API na ito ay dapat tawagin pagkatapos ng `ready` sa event ng modyul ng `app`.
 
 #### `Menu.getApplicationMenu()`
 
