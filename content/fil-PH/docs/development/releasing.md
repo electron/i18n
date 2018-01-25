@@ -62,7 +62,7 @@ Ang `prepare-release` script ang nag-trigger ng pagkabuo ng via API calls. para 
 
 Isulatang mga talang na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang builds. Para sa naunang art, tingnan ung mga dating nailabas na sa [the releases page](https://github.com/electron/electron/releases).
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Ang bawat aytem na nakalista na ay kinakailangang isangguni sa PR sa electron/electron, hindi ito isyu, at hind rin PR na galing sa ibang repo katulad ng libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Paglabas ng patch
 
