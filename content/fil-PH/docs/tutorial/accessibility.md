@@ -1,10 +1,10 @@
 # Aksesibilidad
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Paggawa ng mga ma-access na applikasyon ay importante at masaya kami na ipakilala ang bagong pag-andar ng [Devtron](https://electronjs.org/devtron) at [Spectron](https://electronjs.org/spectron) nabibigay ito sa mga developer ng opportunidad upang mapabuti ang kanilang app para sa lahat.
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Aksesibilidad ng mga alalahanin sa mga aplikasyon ng Elektron ay medyo kapareho sa mga website dahil pareho silang nasa huli ng HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
 
 These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
 
