@@ -2,21 +2,21 @@
 
 > Isang detelyadong pagtanaw sa ating pagbebersyon na mga patakaran at implementasyon.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Sa ngayon ang bersyon ng 2.0.0, Electron ay sumusunod sa [semver](#semver). Ang mga sumusunod na command ay mag-iinstall ng mga pinakabago at matatag na build ng Electron:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Upang maka-update ng umiiral na proyekto para makagamit sa matatag at pinakabagong bersyon:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Bersyon 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Ang mga bersyon ng Electron *< 2.0* ay hindi naaayon sa [semver](http://semver.org) na spesifikasyon. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
