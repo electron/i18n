@@ -141,18 +141,18 @@ Matapos ang mga hakbang na ito, maaari mong [i-sumite ang iyong app para sa pags
 
 ## Mga limitasyon ng MAS Build
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Upang matugunan ang pangangailangan ng app sandboxing, ang sumusunod na modyul ay hindi pinagana sa MAS build:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+at ang mga sumusunod na paguugali ay binago:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Ang bidyo capture ay maaaring hindi gumana sa ibang mga makina.
+* Siguradong accessibility features ay maaaring hindi gumana.
+* Ang mga app ay hindi makakaalam sa mga pagbabago ng DNS.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+Tsaka, dahil sa paggagamit ng app sandboxing, ang mga sagguniang maaaring ma-access sa pamamagitan ng app ay striktong limitado; maaari mong basahin ang [App Sandboxing](https://developer.apple.com/app-sandboxing/) para sa karagdagang impormasyon.
 
 ### Additional Entitlements
 
