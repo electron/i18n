@@ -129,9 +129,9 @@ Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung g
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Mga bersyon 8.1.0 at luma pa ay iniiwasan ang mga file na iyon sa pamamagitan ng default.
 
-### Upload Your App
+### I-upload aang iyong app
 
 After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
 
