@@ -146,7 +146,7 @@ Gumamit ng kaparehong format nanakatulad katulad ng naimungkahi na sa itaas. Ngu
 ```sh
 **Note:** This is a beta release and most likely will have have some instability and/or regressions.
 
-Please file new issues for any bugs you find in it.
+Mangyaring mag file ng bagong isyu para sa anumang bug na makikita mo dito.
 
 This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
