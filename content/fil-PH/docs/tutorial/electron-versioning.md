@@ -40,14 +40,14 @@ Tatalakayin natin bawat detalye kung paano gumagana ang git branching, pati ang 
 
 Mula sa 2.0 pataas, ang Electron ay sususnod sa semver.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagbabago sa nararapat na kategorya ng semver (hal. Major, Minor, Patch).
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
+* **Mga karagdagan sa Major na Bersyon** 
+    * Mga updates sa Chromium version
+    * malaking updates sa node.js
+    * Ang pagpapalit ng API dahil sa pagsisira ng Electron nito
+* **Mga karagdagan sa Minor na Bersyon** 
+    * mga maliit na updates sa node.js
     * Electron non-breaking API changes
 * **Patch Version Increments** 
     * node.js patch version updates
