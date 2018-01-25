@@ -232,11 +232,11 @@ ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, 
 
 Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Itinatakda ang Menu para sa Specific Browser Window ng (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
 
-## Menu Item Position
+## Posisyon ng Item ng Menu
 
 You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
