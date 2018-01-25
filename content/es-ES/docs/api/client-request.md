@@ -141,13 +141,13 @@ Devuelve `objeto` - el valor de un nombre de encabezado extra configurado anteri
 
 * `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Remueve un nombre extra de encabezado configurado anteriormente. Este método puede ser llamado solo antes de escribir. Tratar de llamarlo después de la primera escritura arrojará un error.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `paquete` (Cadena | Almacenamiento temporal) - Un paquete del cuerpo de información de la solicitud. Si es una cadena, se convierte a en un almacenador interno usando codificación especial.
+* `Codificación` Cadena (opcional) - Usado para convertir paquetes de cadenas en objetos de almacenamiento. Por defecto es 'utf-8'.
+* `retrollamada` función (opcional) - Llamado cuando se haya realizado la operación de escritura.
 
 `callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
