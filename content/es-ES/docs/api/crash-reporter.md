@@ -77,17 +77,17 @@ Devuelve todos los informes de fallos subidos. Cada informe contiene la fecha y 
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Devuelve `Boolean` - Si los informes deben enviarse o no al servidor. Establecer a través del método `start` o `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - Si los informes deben enviarse o no al servidor
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+Esto es controlado normalmente por las preferencias del usuario. Esto no tiene efecto alguno si se llama antes de que se llame `start`.
 
-**Note:** This API can only be called from the main process.
+**Nota:** Esta API sólo se puede llamar desde el proceso principal.
 
 ### `crashReporter.setExtraParameter(key, value)` *macOS*
 
