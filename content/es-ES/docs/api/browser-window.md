@@ -101,8 +101,8 @@ Se recomienda detener operaciones costosas cuando el estado de visibilidad está
 ### Notas según la plataforma
 
 * En macOS las ventanas modales se mostrarán como hojas adjuntas a la ventana principal.
-* En macOS las ventanas secundarias mantendrán la posición en relación a la ventana principal cuando se mueve la ventana principal. En Windows y Linux las ventanas secundarias no se mueven.
-* En Windows no admite cambiar la ventana principal dinámicamente.
+* En macOS las ventanas secundarias mantendrán la posición relativa a la ventana principal cuando ésta se mueve, mientras que en Windows y Linux las ventanas secundarias no se moverán.
+* En Windows no se admite cambiar la ventana principal dinámicamente.
 * En Linux el tipo de ventanas modales se cambiará a `dialog`.
 * En Linux, muchos entornos de escritorio no admiten ocultar una ventana modal.
 
@@ -114,13 +114,13 @@ Proceso: [Main](../glossary.md#main-process)
 
 `BrowserWindow` es un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por las `options`.
+Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por las `options`.
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (opcional) 
-  * `ancho` Integer (opcional) - ancho de la ventana en píxeles. El valor por defecto es `800`.
-  * `altura` Integer (opcional) - altura de la ventana en píxeles. El valor por defecto es `600`.
+  * `width` Integer (opcional) - ancho de la ventana en píxeles. El valor por defecto es `800`.
+  * `height` Integer (opcional) - altura de la ventana en píxeles. El valor por defecto es `600`.
   * `x` Integer (opcional) (**necesario** si se utiliza y) - el offset izquierdo de la ventana de la pantalla. Por defecto la ventana es centrada.
   * `y` Integer (opcional) (**necesario** si se utiliza x) - el offset de arriba de la ventana de la pantalla. Por defecto la ventana es centrada.
   * `useContentSize` Boolean (opcional) - La `width` y la `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
