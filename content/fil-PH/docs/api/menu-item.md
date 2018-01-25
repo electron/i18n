@@ -21,8 +21,8 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
   * `icon` ([NativeImage](native-image.md) | String) (opsyonal)
   * `enabled` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay naka-grey out at hindi maki-klik.
   * `visible` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay lubusang itatago.
-  * `checked` Boolean (opsyonal) - Dapat lamang na tinukoy para sa `checkbox` o `radio` uri ng mga aytem ng menu.
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `checked` Boolean (opsyonal) - Dapat lamang na tinukoy para sa uri ng `checkbox` o `radio` ng mga aytem ng menu.
+  * `submenu` (MenuItemConstructorOptions[] | Menu) (opsyonal) - Dapat lamang na tinukoy para sa uri ng `submenu` ng mga aytem ng menu. Kung ang `submenu` ay tinukoy na, ang `type: 'submenu'` ay maaaring tanggalin. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
   * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
 
