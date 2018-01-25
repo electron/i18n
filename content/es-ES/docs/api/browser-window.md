@@ -91,12 +91,12 @@ child.once('ready-to-show', () => {
 
 La [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) funciona de la siguiente manera:
 
-* En todas las plataformas, el estado de visibilidad rastrea si la ventana está oculta o minimizada o si no lo está.
-* Además, en macOS, el estado de visibilidad también rastrea el estado de la oclusión de la ventana. Si la ventana esta atascada, es decir, completamente cubierta por otra ventana, el estado de visibilidad será `hidden`. En otras plataformas, el estado de visibilidad será `hidden` solo si la ventana esta minimizada o explícitamente oculta con `win.hide()`.
+* En todas las plataformas, el estado de visibilidad identifica si la ventana está oculta/minimizada o si no lo está.
+* Además, en macOS, el estado de visibilidad también indica el estado de oclusión de la ventana. Si la ventana esta tapada, es decir, completamente cubierta por otra ventana, el estado de visibilidad será `hidden`. En otras plataformas, el estado de visibilidad será `hidden` solo si la ventana esta minimizada o explícitamente oculta con `win.hide()`.
 * Si se crea un `BrowserWindow` con `show: false`, el estado de visibilidad inicial será `visible` a pesar de que la ventana esté oculta realmente.
-* Si `backgroundThrottling` está deshabilitada, el estado de visibilidad permanecerá `visible` incluso si la ventana está minimizada, atascada o escondida.
+* Si `backgroundThrottling` está deshabilitado, el estado de visibilidad permanecerá `visible` incluso si la ventana está minimizada, tapada o oculta.
 
-Se recomienda pausar operaciones costosas cuando el estado de visibilidad está `hidden` con el fin de minimizar el consumo de energía.
+Se recomienda detener operaciones costosas cuando el estado de visibilidad está `hidden` con el fin de minimizar el consumo de energía.
 
 ### Notas según la plataforma
 
