@@ -158,11 +158,11 @@ Ang release na to ay nailathala sa [npm] (https://www.npmjs.com/package/electron
 3. Tanggalan ng tsek ang `prerelease` checkbox kung kayo ay maglalathala ng isang matatag na release; iwanan itong naka tsek para sa beta release.
 4. Ipindutin ang 'Save draft'. **Do not click 'Publish release'!**
 5. Antayin ang lahat ng build na pumasa bago magpatuloy.
-6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
+6. Maari mong paganahin ang `npm run release --validateRelease` para ma i-verify na ang lahat na kailangan files para makagawa ng para sa release.
 
-## Merge temporary branch
+## Pagsamahin ang mga sangay ng pansamantala
 
-Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
+Kapag ang release builds ay tapus na. Pagsamahin ang `release` pabalik sa pinang galingang sangay ng release gamit ang `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
 
 ### Merging back into master
 
