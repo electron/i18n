@@ -188,7 +188,7 @@ Sa sandaling ang paglathala ay matagumpay, tumakbo `npm patakbuhin ang paglathal
 
 ## Ayusin ang mga nawawalang binary ng release ng mano-mano
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+Sa kaso ng isang nasirang release na may sirang CI machines, maaari nating muling i-upload ang binary para sa isang nailathalang release.
 
 Ang unang hakbang ay pumunta sa [Releases](https://github.com/electron/electron/releases) pahina at tanggalin ang nasirang binary kasama ang `SHASUMS256.txt` checksum file.
 
