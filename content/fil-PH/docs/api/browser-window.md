@@ -128,8 +128,8 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
   * `minWidth` Integer (optional) - Ang windows na mayroong maliit ng lapad Default ay ``.
   * `minHeight` Integer (optional) - Ang minimum na height ng windows. Default ay ``.
   * `maxWidth` Integer (optional) - Ang lapad ng windows Default ay hindi limitado.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
+  * `maxHeight` Integer (opsyonal) - Pinakamalakas na taas ng window. Ang default ay hindi limitado.
+  * `resizable` Boolean (opsyonal) - Kung ang window ay pweding baguhin. Ang default ay `true`.
   * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
   * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
   * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
