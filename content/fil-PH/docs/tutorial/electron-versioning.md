@@ -64,7 +64,7 @@ Ang pagpapapanatag ng mga branch ay mga branch na tumatakbo kahilera sa master, 
 
 Ang pagpapanatag ng branches ay palaging linya sa bersyon ng alinman sa **major** o **minor**, at may pangalan laban sa mga sumusunod na template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+Pumapayag kami sa maramihang pagpapanatag ng mga branches para umiral nang sabay-sabay, at tangkain na suportahan kahit sa dalawang magkahanay sa lahat ng oras, ang pagsasaayos ng seguridad sa pagba-backport na kinakailangan. ![](../images/versioning-sketch-2.png)
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
