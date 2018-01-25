@@ -50,14 +50,14 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Cộng`
 * `Dấu cách`
 * `Tab`
-* `Phím xóa lùi`
+* `Backspace`
 * `Delete`
 * `Insert`
 * Phím `Return` (hoặc phím `Enter`)
 * `Lên`, `Xuống`, `Trái` và `Phải`
 * `Home` và `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
+* `PageUp` và `PageDown`
+* Phím `Escape` (hoặc phím `Esc`)
 * `VolumeUp`, `VolumeDown` and `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
 * `PrintScreen`
