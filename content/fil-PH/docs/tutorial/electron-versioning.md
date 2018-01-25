@@ -16,13 +16,13 @@ npm install --save-dev electron@latest
 
 ## Bersyon 1.x
 
-Ang mga bersyon ng Electron *< 2.0* ay hindi naaayon sa [semver](http://semver.org) na spesifikasyon. Malaking bersyon na magkatugon sa mga huling-tagagamit ng pagbabago sa API. Ang mga maliliit na bersyon ay nakatugon sa mga malaking release ng Chromium. Ang mga bersyon ng patch ay nakatugon sa mga bagong tampok at pagreresolba ng mga di kanais-nais na bug. Madali lang para sa mga developers ang pagsasama ng mga katangian, ngunit ito'y nagbibigay ng porblema sa mga developer ng client-facing na mga aplikasyon. Ang pagsusuri sa QA ng mga pangunahing aplikasyon gaya ng Slack, Stride, Teams, Skype, VS Code, Atom, at Desktop ay maaring napakahaba at ang katatagan ay isang tanging hinahangad na resulta. There is a high risk in adopting new features while trying to absorb bug fixes.
+Ang mga bersyon ng Electron *< 2.0* ay hindi naaayon sa [semver](http://semver.org) na spesifikasyon. Malaking bersyon na magkatugon sa mga huling-tagagamit ng pagbabago sa API. Ang mga maliliit na bersyon ay nakatugon sa mga malaking release ng Chromium. Ang mga bersyon ng patch ay nakatugon sa mga bagong tampok at pagreresolba ng mga di kanais-nais na bug. Madali lang para sa mga developers ang pagsasama ng mga katangian, ngunit ito'y nagbibigay ng porblema sa mga developer ng client-facing na mga aplikasyon. Ang pagsusuri sa QA ng mga pangunahing aplikasyon gaya ng Slack, Stride, Teams, Skype, VS Code, Atom, at Desktop ay maaring napakahaba at ang katatagan ay isang tanging hinahangad na resulta. Ngunit mayroong napakapanganib na resulta sa paggamit ng mga bagong katangian para maresolba ng mga bugs na problema.
 
-Here is an example of the 1.x strategy:
+Isang halimbawa ng 1.x na istratehiya ay:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Ang app na binuo sa `1.8.1` ay hindi makukuha sa `1.8.3` pagsasaayos ng mga bugs na hindi gumagamit ng `1.8.2` na katangian, o sa pagba-backport ng pagsasaayos at pagpapanatili sa linya ng mga bagong labas.
 
 ## Version 2.0 and Beyond
 
