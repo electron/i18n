@@ -1,6 +1,6 @@
 # Объект CertificatePrincipal
 
-* `commonName` String - общее имя
+* `commonName` String - Общее имя
 * `organizations` String[] - имя организации
 * `organizationUnits` String[] - названия организационных подразделений
 * `locality` String - местонахождение
