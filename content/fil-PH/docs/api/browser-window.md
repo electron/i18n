@@ -132,7 +132,7 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
   * `resizable` Boolean (opsyonal) - Kung ang window ay pweding baguhin. Ang default ay `true`.
   * `movable` Boolean (opsyonal) - Kung ang window ay nagagalaw. Ito ay hindi inaisakatuparan sa Linux. Ang default ay `true`.
   * `napapaliit` Boolean (opsyonal) - Kung ang window ay napapaliit. Hindi ito maisasakatuparan sa Linux. Ang default ay `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
+  * `maximizable` Boolean (opsyonal) - Kapag ang window ay napapalaki. Hindi ito maisasakatuparan sa Linux. Ang default ay `true`.
   * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
   * `focusable` Boolean (opsyonal) - Kung ang window ay kayang mag focused. Default ay `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. Sa setting ng Linux `focusable: false </ 0> ay may kakayahang patigilin ang interaksyon sa wm, kaya ang window ay laging manatili na tuktok sa lahat ng lugar ng pinagtatrabahuhan.</li>
 <li><code>alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
