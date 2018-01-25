@@ -27,7 +27,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Para crear una ventana sin usar chrome, o una vertana transparente de cualquier forma, puede usar la API [Frameless Window](frameless-window.md).
 
-## Mostrar ventana con gracia
+## Mostrar ventana con elegancia
 
 Cuando una página cargue la ventana directamente, los usuarios pueden ver la página cargar gradualmente, lo cual no es una buena experiencia para una aplicación nativo. Para hacer que la ventana aparezca sin el visual flash, hay dos soluciones para distintas situaciones.
 
