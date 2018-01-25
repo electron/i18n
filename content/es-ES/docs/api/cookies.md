@@ -64,20 +64,20 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - un arreglo con objetos de cookies.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Envía una solicitud para obtener todas las cookies que coinciden con `details`, `callback` y será llamada con `callback(error, cookies)` cuando termine.
 
 #### `cookies.set(details, callback)`
 
-* `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `llamada de vuelta` Función 
+* `details` Objeto 
+  * `url` Cadena - La url para asociarla con la cookie.
+  * `name` Cadena (opcional) - El nombre de la cookie. Por defecto estará vacío si se omite.
+  * `value` Cadena (opcional) - El valor de la cookie. Por defecto estará vacío si se omite.
+  * `domain` Cadena (opcional) - El dominio de la cookie. Por defecto estará vacío si se omite.
+  * `path` Cadena (opcional) - La ruta de la cookie. Por defecto estará vacío si se omite.
+  * `secure` Booleano (opcional) - Si la cookie debe ser marcada como Secure. Por defecto es false.
+  * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
+  * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
+* `callback` Función 
   * `error` Error
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
