@@ -1021,11 +1021,11 @@ Changes window icon.
 
 Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Kpag ang menu bar ay kasalukuyang makikita, ang pag-tawag `setAutoHideMenuBar(true)` hindi ito kayang itago agad.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Ang mga pagbalik `Boolean` - kung ito ay awtomatikong itinatago ng menu bar.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
