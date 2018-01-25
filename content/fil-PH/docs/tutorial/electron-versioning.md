@@ -48,11 +48,11 @@ Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagba
     * Ang pagpapalit ng API dahil sa pagsisira ng Electron nito
 * **Mga karagdagan sa Minor na Bersyon** 
     * mga maliit na updates sa node.js
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+    * Pagpapalit ng API ng hindi lumalabag sa Electron
+* **Mga karagdagan sa Patch na Bersyon** 
+    * mga updates sa bersyon ng node.js patch
+    * pagsasaayos ng may kaugnayan sa chromium patches
+    * ang electron ay nagsasaayos ng mga bug
 
 Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
