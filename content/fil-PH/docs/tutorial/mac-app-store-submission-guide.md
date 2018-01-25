@@ -154,7 +154,7 @@ at ang mga sumusunod na paguugali ay binago:
 
 Tsaka, dahil sa paggagamit ng app sandboxing, ang mga sagguniang maaaring ma-access sa pamamagitan ng app ay striktong limitado; maaari mong basahin ang [App Sandboxing](https://developer.apple.com/app-sandboxing/) para sa karagdagang impormasyon.
 
-### Additional Entitlements
+### Karagdagang mga Karapatan
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
