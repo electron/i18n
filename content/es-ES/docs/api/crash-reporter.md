@@ -91,14 +91,14 @@ Esto es controlado normalmente por las preferencias del usuario. Esto no tiene e
 
 ### `crashReporter.setExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+* `key` Cadena - La clave del parámetro debe tener menos de 64 caracteres.
+* `value` Cadena - El valor del parámetro debe tener menos de 64 caracteres. Especificar `null` o `undefined`eliminará la clave de los parámetros adicionales.
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Establecer un parámetro adicional que se enviará con el informe de fallos. Los valores aquí especificados serán enviados junto a cualquier valor adicional establecido mediante la opción `extra` cuando `start` sea llamado. Esta API sólo está disponible en macOS, si se necesita añadir o actualizar parámetros adicionales en Linux y Windows después de su primera llamada a `start`, se puede llamar otra vez a `start` con las opciones `extra` actualizadas.
 
-## Crash Report Payload
+## Carga útil del informe de fallos
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+El informador de fallos enviará la siguiente información al `submitURL` como un `multipart/form-data` `POST`:
 
 * `ver` String - The version of Electron.
 * `platform` String - e.g. 'win32'.
