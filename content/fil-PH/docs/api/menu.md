@@ -226,7 +226,7 @@ Sa macOS ay maraming tukoy na sistema ng standard na menu, tulad ng `Services` a
 
 ### Mga Aksyon ng Standard Menu
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### Main Menu's Name
 
