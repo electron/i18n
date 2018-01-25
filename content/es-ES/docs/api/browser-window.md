@@ -1018,17 +1018,17 @@ Cambia el icono de la ventana.
 
 * `hide` Booleano
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Establece si la barra de menú de la ventana debe ocultarse o no automáticamente. Una vez que se establece la barra de menú solo se mostrará al usuario cuando se presione únicamente la tecla `Alt`.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Si la barra de menú ya es visible, llamar `setAutoHideMenuBar(true)` no la ocultará inmediatamente.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Devuelve `Boolean` - Si la barra de menú se oculta o no automáticamente.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
-* `visible` Boolean
+* `visible` Booleano
 
 Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
 
@@ -1038,7 +1038,7 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
-* `visible` Boolean
+* `visible` Booleano
 
 Sets whether the window should be visible on all workspaces.
 
