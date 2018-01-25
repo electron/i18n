@@ -33,7 +33,7 @@ Cuando los usuarios cargan una página directamente en la ventana, pueden ver co
 
 ### Usando el evento `ready-to-show`
 
-Al cargar la ventana, se emitirá el evento `ready-to-show` cuando el proceso de renderizado haya procesado la página por primera vez si aún no se ha muestrado la ventana. Si se muestra la ventana luego de este evento, no tendrá visual flash:
+Mientras se carga la página, se emitirá el evento `ready-to-show` cuando el proceso de renderizado haya procesado la página por primera vez si aún no se ha mostrado la ventana. Si se muestra la ventana luego de este evento, no tendrá visual flash:
 
 ```javascript
 const {BrowserWindow} = require('electron')
