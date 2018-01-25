@@ -162,9 +162,9 @@ Ang release na to ay nailathala sa [npm] (https://www.npmjs.com/package/electron
 
 ## Pagsamahin ang mga sangay ng pansamantala
 
-Kapag ang release builds ay tapus na. Pagsamahin ang `release` pabalik sa pinang galingang sangay ng release gamit ang `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
+Kapag ang release builds ay tapus na. Pagsamahin ang `release` pabalik sa pinang galingang sangay ng release gamit ang `merge-release` script. Kung branch hindi maging matagumpay nagsanib muli ang script na ito ay awtomatikong rebase ang `release ng` branch at itulak ang mga pagbabago na kung saan ay mag-trigger ang release builds muli, na ibig sabihin ay kailangan mong maghintay para sa release build na gumana muli bago magpatuloy.
 
-### Merging back into master
+### Pagsamasamahin pabalik sa master
 
 ```sh
 npm run merge-release -- master
