@@ -1,6 +1,6 @@
-# Electron Versioning
+# Pagbebersyon ng Electron
 
-> A detailed look at our versioning policy and implementation.
+> Isang detelyadong pagtanaw sa ating pagbebersyon na mga patakaran at implementasyon.
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
