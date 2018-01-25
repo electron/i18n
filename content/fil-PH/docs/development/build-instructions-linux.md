@@ -1,6 +1,6 @@
 # Build Instructions (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
 
 ## Prerequisites
 
