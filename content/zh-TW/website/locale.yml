@@ -9,7 +9,7 @@ nav:
   contact: 聯絡
   languages: 語言
   code_of_conduct: 行為準則
-  search: Search
+  search: 搜尋
 docs:
   title: Electron 文件
   description: 也可以一次<a href="/docs/all">單頁顯示所有文件</a>，或到<a href="/docs/faq">常見問題集</a>看看。
@@ -141,7 +141,7 @@ _404:
 search:
   description:
     start: Find Electron resources from
-    docs: <a href="/search/docs">documentation</a>
-    npm: <a href="/search/npmPackages">npm packages</a>
+    docs: <a href="/search/docs">文件</a>
+    npm: <a href="/search/npmPackages">npm 套件</a>
     and: 及
-    repos: <a href="/search/repos">GitHub repos</a>
+    repos: <a href="/search/repos">GitHub 儲存庫</a>
