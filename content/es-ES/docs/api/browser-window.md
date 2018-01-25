@@ -8,7 +8,7 @@ Proceso: [Main](../glossary.md#main-process)
 // En el proceso principal.
 const {BrowserWindow} = require('electron')
 
-// O usar "remote" desde el proceso de renderizado.
+// O usa "remote" desde el proceso de renderizado.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -25,7 +25,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## Ventana sin borde
 
-Para crear una ventana sin usar chrome, o una vertana transparente de cualquier forma, Se puede usar la API [Frameless Window](frameless-window.md).
+Para crear una ventana sin usar chrome, o una vertana transparente de cualquier forma, puede usar la API [Frameless Window](frameless-window.md).
 
 ## Mostrar ventana con gracia
 
