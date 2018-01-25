@@ -66,11 +66,11 @@ Ang pagpapanatag ng branches ay palaging linya sa bersyon ng alinman sa **major*
 
 Pumapayag kami sa maramihang pagpapanatag ng mga branches para umiral nang sabay-sabay, at tangkain na suportahan kahit sa dalawang magkahanay sa lahat ng oras, ang pagsasaayos ng seguridad sa pagba-backport na kinakailangan. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+Ang mga lumang linya ay hindi suportado ng GitHub, pero pwedeng may ibang grupo na magmamay-ari at magba-backport ng katatagan at seguridad na pwedeng umayos sa kanilang sarili. Hindi namin ito minumungkahi, pero kinikilala namin ito dahil ito'y nagpapadali sa buhat ng maraming app developers.
 
-# Beta Releases and Bug Fixes
+# Beta Releases at ang pagsasaayos ng Bug
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+Gustong malaman ng mga developers kung aling release ang mga *ligtas* gamitin. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
