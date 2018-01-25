@@ -6,9 +6,9 @@ Ang Proseso: [Main](../glossary.md#main-process)
 
 ### `bagong Menu()`
 
-Gumawa ng bagong menu.
+Lumilikha ng isang bagong menu.
 
-### Mga paraan ng static
+### Mga istatikong pamamaraan
 
 Ang `menu` na object ay mga sumusunod na paraan ng static:
 
