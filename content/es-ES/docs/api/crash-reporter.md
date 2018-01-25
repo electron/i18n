@@ -1,10 +1,10 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Envía los informes de fallas a un servidor remoto.
 
-Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
+Proceso [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+A continuación, un ejemplo de un envío automático de un informe de fallos a un servidor remoto:
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,24 +17,24 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Para configurar un servidor que acepte y procese los informes de fallo, se puede utilizar los siguientes proyectos:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Los reportes de fallos se guardan localmente en una carpeta de directorio temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de fallos serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de fallos.
 
 ## Métodos
 
-The `crashReporter` module has the following methods:
+El módulo `crashReporter` tiene los siguientes métodos:
 
 ### `crashReporter.start(options)`
 
-* `options` Object 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
+* `options` Objeto 
+  * `companyName` Cadena (opcional)
+  * `submitURL` Cadena - Un URL a donde se enviarán los reportes de fallos como un POST.
+  * `productName` Cadena (opcional) - Por defecto es `app.getName()`.
+  * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
   * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
   * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
 
