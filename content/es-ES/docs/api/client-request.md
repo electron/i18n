@@ -10,10 +10,10 @@ Proceso: [Principal](../glossary.md#main-process)
 
 * `options` (Objecto | Cadena) - Si `opciones` es una cadena, es interpretada como la URL de la solicitud. Si es un objeto, se espera que especifique una olicitud HTTP por medio de las siguientes propiedades: 
   * `método` Cadena (opcional) - El método de la solicitud HTTP. por defenteto al método GET.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `url` Cadena (opcional) - La URL solicitada. Debe proporcionarse en la forma absoluta con el esquema de protocolo especificado como http o https.
+  * `sesion` Objecto (opcional) - La instancia de [`Sesión`](session.md) en la cual está asociada la solicitud.
+  * `partición` Cadena (opcional) - el nombre de la [`partición`](session.md) en la cual está asociada la solicitud. Por defecto es la cadena vacía. La opción `sesión` prevalece sobre `partición`. De esta manera si una `sesión` está explícitamente especificada, `partición` es ignorada.
+  * `protocolo` Cadena (opcional) -El esquema de protocolo en la forma "esquema": Valores soportados actualmente son 'http:' o 'https:'. Por defecto es 'http:'.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
   * `hostname` String (optional) - The server host name.
   * `port` Integer (optional) - The server's listening port number.
