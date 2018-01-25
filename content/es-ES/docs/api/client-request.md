@@ -149,17 +149,17 @@ Remueve un nombre extra de encabezado configurado anteriormente. Este método pu
 * `Codificación` Cadena (opcional) - Usado para convertir paquetes de cadenas en objetos de almacenamiento. Por defecto es 'utf-8'.
 * `retrollamada` función (opcional) - Llamado cuando se haya realizado la operación de escritura.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+La `retrollamada` es esencialmente una función sencilla introducida con el propósito de mantener similitudes con el API Node.js. Es llamada asincrónicamente en el siguiente tick después de que el contenido del `paquete` haya sido entregado a la capa de red de Chromium. A diferencia de la implementación de Node.js, no está garantizado que el contenido del `paquete` haya sido entregado en el hilo antes de que sea llamada `retrollamada`.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Agrega un paquete de datos al cuerpo de la solicitud. La primera operación de escritura pudiese causar que el encabezado de la solicitud sea cambiado en el hilo. Después de la primera operación de escritura, no está permitido el añadir o remover un encabezado personalizado.
 
 #### `request.end([chunk][, encoding][, callback])`
 
-* `chunk` (String | Buffer) (optional)
-* `encoding` String (optional)
-* `callback` Function (optional)
+* `paquete` (Cadena | Almacenamiento) (opcional)
+* `codificación` Cadena (opcional)
+* `retrocallback` Funcion (opcional)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Envía el último paquete de datos solicitado. Subsecuentemente escribir o terminar operaciones no estará permitido. El evento `final` es emitido justo después de que termina la operación.
 
 #### `request.abort()`
 
