@@ -73,6 +73,6 @@ Kung ang mga modyul ay nagbibigay ng mga binary para sa paggamit nito sa Electro
 
 Ang [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) ay nagbibigay ng paraan sa pag-deploy ng native na mga node modyul gamit ang mga prebuilt na mga binary, at maraming mga sikat na modyul ang gumagamit nito.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+Kadalasan ang mga modyul na ito ay gumagana nang maayos sa ilalim ng Electron, pero minsan kapag gumagamit ang Electron ng mas bagong bersyon ng V8 kaysa Node, at may pagbabago sa ABI, maraming hindi magagandang mga bagay ang posibleng mangyari. Kaya sa pangkalahatan, inirerekomenda na palaging gamitin ang build native na mga module mula sa pinagmulang code.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Kung sinusunod mo ang paraang `npm` sa pag-iinstall ng mga modyul, magagawa ito nang naka-default, kung hindi, kailangan mong ipasa ang `--build-from-source` sa `npm`, o i-set ang `npm_config_build_from_source` na varyabol pag-environment.
