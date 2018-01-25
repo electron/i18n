@@ -35,8 +35,8 @@ El módulo `crashReporter` tiene los siguientes métodos:
   * `submitURL` Cadena - Un URL a donde se enviarán los reportes de fallos como un POST.
   * `productName` Cadena (opcional) - Por defecto es `app.getName()`.
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
-  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
+  * `ignoreSystemCrashHandler` Booleano (opcional) - Por defecto es `false`.
+  * `extra` Objeto (opcional) - Un objeto que se puede definir que será enviado a través del informe. Solo las propiedades de la cadena son enviadas correctamente. Nested objects are not supported and the property names and values must be less than 64 characters long.
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
