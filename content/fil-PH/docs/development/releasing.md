@@ -184,9 +184,9 @@ Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa 
 
 ## Ilathala sa npm
 
-Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
+Sa sandaling ang paglathala ay matagumpay, tumakbo `npm patakbuhin ang paglathala sa npm` mailathala sa release sa npm. mailathaka sa release sa npm.
 
-## Fix missing binaries of a release manually
+## Ayusin ang mga nawawalang binary ng release ng mano-mano
 
 In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
 
