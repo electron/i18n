@@ -11,21 +11,21 @@ Depende sa iyong mga pangangailangan, makakapili ka ng isa mula dito:
 - [Hazel](https://github.com/zeit/hazel) – nag-a-update ng server mula sa pribado o open-source na mga app. Nakade-deploy nang libre sa [Now](https://zeit.co/now) (gamit ang isang utos), mga pull mula sa [Mga Lathala ng GitHub](https://help.github.com/articles/creating-releases/) at isinasataas ang kapangyarihan ng CDN ng Github.
 - [Nuts](https://github.com/GitbookIO/nuts) - Gumagamit din ng [Mga Lathala ng Github](https://help.github.com/articles/creating-releases/), pero nagka-cache sa mga update ng app sa disk at sumusuporta sa mga pribadong repositori.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – nagbibigay ng dashboard sa paghahawak ng mga lathala
-- [Nucleus](https://github.com/atlassian/nucleus) - Isang kompletong update server para sa nga apps ng Electron na pinapanatili ng Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nucleus](https://github.com/atlassian/nucleus) - Isang kompletong update server para sa nga apps ng Electron na pinapanatili ng Atlassian. Sumusuporta sa maraming mga aplikasyon at tsanel; gumagamit ng istatik na imbakan ng mga file upang paliitin ang gastos ng server.
 
-If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
+Kung ang iyong app ay ginugrupo kasama ang [electron-builder](https://github.com/electron-userland/electron-builder) pwede kang gumamit ng module na [electron-updater](https://www.electron.build/auto-update), na hindi na nangangailangan ng server at pinapahintulutan ang mga update mula S3, GitHub o kahit anong host ng istatik na file.
 
-## Implementing updates in your app
+## Pagtatag ng mga update sa iyong app
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Kapag na-deploy mo na ang iyong update server, ipagpapatuloy ang pag-import ng mga kinakailangang mga modyul sa iyong code. Ang sumusunod na code ay possibleng naiiba sa mga iba't - ibang server software, pero gumagana ito katulad ng inilalarawan kapag gumagamit ng [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Important:** Siguraduhing ang code sa baba ay pinapagana lang sa iyong naka-package na app, at hindi sa paglilinang. Pwede mong gamitin ang [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) upang tingnan ang environment.
 
 ```js
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Sunod, gawin ang URL ng update server at sabihin ito sa [autoUpdater](../api/auto-updater.md):
 
 ```js
 const server = 'https://your-deployment-url.com'
