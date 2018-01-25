@@ -119,11 +119,11 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 
 Kung baguhan ka sa app sandboxing ng macOS, dapat mo rin basahin sa pamamagitan ng [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) ng Apple para magkaroon ng pangunahing ideya, tapos magdagdag ng mga ideya na kailangan upang pahintulutan ang iyong app ng mga entitlement file. 
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Bukod sa pag mano-manong pag-sign ng iyong app, maaari ka ring pumili na gumamit ng [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) na modyul para gawin ang trabaho.
 
-#### Sign Native Modules
+#### Mga sign ng mga Native na Modyul
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung gagamit ng electron-osx-sign, siguraduhing isama ang landas ng built binaries sa lista ng argumento:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
