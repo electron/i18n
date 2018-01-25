@@ -64,17 +64,17 @@ Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listene
 * `channel` String
 * `listener` Function
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Tinanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` String
 
-Removes listeners of the specified `channel`.
+Tinatanggal ang mga tagapakinig ng tinukoy na `channel`.
 
 ## Event object
 
-The `event` object passed to the `callback` has the following methods:
+Ang `event` bagay na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
 
 ### `event.returnValue`
 
