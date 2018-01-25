@@ -1094,9 +1094,9 @@ Controla si se debe ocultar el cursor al escribir.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` Cadena - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`. See the [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) for more details.
+* `type` Cadena - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`. Para más detalles, ver [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc).
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Añade un efecto de vibración a la ventana del navegador. Al pasar `null` o una cadena vacía hará que se elimine el efecto de vibración en la ventana.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
