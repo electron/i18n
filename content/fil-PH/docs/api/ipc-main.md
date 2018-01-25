@@ -14,10 +14,10 @@ Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papun
 * Upang tumugon sa mensahe ng synchronous, maaari mong i-set ang `event.returnValue`.
 * Magpadala ng isang nmensahe ng asynchronous pabalik sa nag padala, maaari mong gamitin ang `event.sender.send(...)`.
 
-An example of sending and handling messages between the render and main processes:
+Isang halimbawa ng pagpapadala at paghawak ng mensahe sa pagitan ng render at ng pangunahing proseso:
 
 ```javascript
-// In main process.
+// Sa pangunahing proseso.
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg)  // prints "ping"
