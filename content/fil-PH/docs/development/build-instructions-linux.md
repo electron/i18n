@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-On RHEL / CentOS, install the following libraries:
+Sa RHEL / CentOS, i-install ang mga sumusunod na library:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Sa Fedora, i-install ang mga sumusunod na mga library:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,9 +38,9 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Ang ibang mga distribution ay maaaring ialok ang parehong mga package para sa installation gamit ang package managers tulad ng pacman. O ang isa ay maaaring i-compile galing sa cource code.
 
-## Getting the Code
+## Ang Pagkuha ng Code
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Ang bootstrap script ay kinukuha o dina-download ang lahat ng kailangang build dependencies at nililikha ang build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
 ```sh
 $ cd electron
