@@ -34,11 +34,11 @@ May mga ilang malaking pagbabago mula sa ating 1.x na stratehiya na nakabalangka
 4. Malinaw na pagpapaliwanag sa pagpapanatag ng mga sangay
 5. Ang `master` na branch ay walang bersyon; tanging ang katatagan ng branches lamang ang naglalaman ng mga impormasyon tungkol sa bersyon
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Tatalakayin natin bawat detalye kung paano gumagana ang git branching, pati ang nmp tagging, at kung ano ang aasahang makikita ng mga developers, at kung paano ka makapagbabago ng backport.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Mula sa 2.0 pataas, ang Electron ay sususnod sa semver.
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
