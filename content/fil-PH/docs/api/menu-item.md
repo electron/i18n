@@ -13,7 +13,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
     * `menuItem` ang MenuItem
     * `browserWindow` ang BrowserWindow
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (opsyonal) - tukuyin ang aksyon ng mga aytem ng menu, kapag tinukoy ang katangian `click` ay hindi na papansinin. Tingnan ang [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String - (optional)
   * `sublabel` String - (optional)
