@@ -59,10 +59,10 @@ Envía el comando al objetivo de la depuración.
 
 ### Eventos de Instancia
 
-#### Event: 'detach'
+#### Evento: 'detach'
 
 * `evento` Evento
-* `reason` String - Reason for detaching debugger.
+* `reason` Cadena - Razón para desasociar el depurador.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
