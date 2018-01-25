@@ -35,27 +35,27 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` Cadena (opcional) - Versión solicitada del protocolo de debugging.
+* `protocolVersion` Cadena (opcional) - Versión solicitada del protocolo de depuración.
 
-Attaches the debugger to the `webContents`.
+Adjunta el depurador al `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Devuelve `Boolean` - Si un depurador se adjunta o no a la `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Desasocia el depurador de la `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `llamada de vuelta` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+* `method` Cadena - Nombre del método, debe ser uno de los métodos definidos por el protocolo de depuración remoto.
+* `commandParams` Objeto (opcional) - El objeto JSON con parámetros de la solicitud.
+* `callback` Function (opcional) - Respuesta 
+  * `error` Objeto- Mensaje de error que indica el fallo del comando.
+  * `result` Any - Respuesta definida por el atributo "returns" de la descripción del comando en el protocolo de depuración remoto.
 
-Send given command to the debugging target.
+Envía el comando al objetivo de la depuración.
 
 ### Eventos de Instancia
 
