@@ -121,9 +121,9 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
 * `options` Object (opcional) 
   * `width` Integer (opcional) - ancho de la ventana en píxeles. El valor por defecto es `800`.
   * `height` Integer (opcional) - altura de la ventana en píxeles. El valor por defecto es `600`.
-  * `x` Integer (opcional) (**necesario** si se utiliza y) - el offset izquierdo de la ventana de la pantalla. Por defecto la ventana es centrada.
-  * `y` Integer (opcional) (**necesario** si se utiliza x) - el offset de arriba de la ventana de la pantalla. Por defecto la ventana es centrada.
-  * `useContentSize` Boolean (opcional) - La `width` y la `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
+  * `x` Integer (opcional) (**requerido** si se utiliza y) - distancia a la izquierda respecto la pantalla. Valor por defecto centrará la ventana.
+  * `y` Integer (opcional) (**necesario** si se utiliza x) - el offset de arriba de la ventana respecto la pantalla. Por defecto la ventana es centrada.
+  * `useContentSize` Boolean (opcional) - `width` y `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
   * `center` Booleano (opcional) - Muestra la ventana en el centro de la pantalla.
   * `minWidth` Entero (opcional) - La anchura mínima de la ventana. Por defecto es ``.
   * `minHeight` Entero (opcional) - La altura mínima de la ventana. Por defecto es ``.
