@@ -15,29 +15,29 @@ Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang kusang pa
 
 Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang sangay na ilalabas. 3. Bump the version number in several files. Tingnan ang [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) para sa halimbawa. 4. Gumawa ng isang draft na I rerelease sa GitHub kasama ang auto-generated na release ng mga tala. 5. Itulak ang pag release ng mga sangay. 6. Tawagin ang API para paganahin ang release ng builds.
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+Kung natukoy mo na kung aling type ng bersyon ang kailangang baguhin. Patakbuhin ang `prepare-release` script sa argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` pagtaas sa isa sa mga numero ng bersyon. O - `--stable` upang ito ay ipahiwatin na matatag ang bersyon
 
 Halimbawa:
 
 ### Pangunahing pagbabago ng bersyon
 
 ```sh
-npm run prepare-release -- major
+npm paganahin ang prepare-release -- major
 ```
 
-### Minor bersyon ay nabago
+### Minor ng bersyon ay nabago
 
 ```sh
 npm paganahin ang prepare-release -- minor
 ```
 
-### Patch bersyon ay nabago
+### Patch ng bersyon ay nabago
 
 ```sh
 npm paganahin ang prepare-release -- patch
 ```
 
-### Beta bersyon ay nabago
+### Patch ng bersyon ay nabago
 
 ```sh
 npm paganahin ang prepare-release -- beta
