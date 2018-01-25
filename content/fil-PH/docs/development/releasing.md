@@ -148,10 +148,10 @@ Gumamit ng kaparehong format nanakatulad katulad ng naimungkahi na sa itaas. Ngu
 
 Mangyaring mag file ng bagong isyu para sa anumang bug na makikita mo dito.
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+Ang release na to ay nailathala sa [npm] (https://www.npmjs.com/package/electron) sa ilalim ng 'beta' I tag at maaring i-instal sa pamamagoitan ng `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## I-edit ang release draft
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Edit the release and add release notes.
