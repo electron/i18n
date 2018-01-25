@@ -6,7 +6,7 @@ Processus : [Main](../glossary.md#main-process)
 
 Les instances de la classe `WebRequest` sont accessibles à l'aide de la propriété `WebRequest` d'une `Session`.
 
-Les méthodes de `WebRequest` acceptent un `filter` et un `listener` optionnels. Le `listener` va être appelé avec `listener(details)` quand l'événement de l'API est émis. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+Les méthodes de `WebRequest` acceptent un `filter` et un `listener` optionnels. Le `listener` va être appelé avec `listener(details)` quand l'événement de l'API est émis. L'objet `details` représente la requête. Passer `null` comme argument désabonnera le `listener` de l'événement.
 
 The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
