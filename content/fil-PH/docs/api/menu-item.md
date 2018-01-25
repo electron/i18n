@@ -9,7 +9,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 ### `bagong MenuItem(opsyon)`
 
 * `mga pagpipilian` Bagay 
-  * `i-klik` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `i-klik` Punsyon (opsyonal) - Ay tatawagin na may `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
