@@ -58,11 +58,11 @@ Tandaan na karamihan sa chromium updates ay itinuturing nakakasira. Ang pagsasaa
 
 # Pagpapapanatag ng mga Branch
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+Ang pagpapapanatag ng mga branch ay mga branch na tumatakbo kahilera sa master, sa pagkuha lang ng cherry-picked commits na may kinalaman sa seguridad at katatagan. Ang mga branch na ito ay hindi na masasama ulit sa master.
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+Ang pagpapanatag ng branches ay palaging linya sa bersyon ng alinman sa **major** o **minor**, at may pangalan laban sa mga sumusunod na template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
 
 We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
 
