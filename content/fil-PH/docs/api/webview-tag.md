@@ -59,7 +59,7 @@ Paki tandaan na ang `webview` tag's na estilo ay gumagamit `displey:fleks;` inte
 
 ## Katangian ng Tag
 
-The `webview` tag has the following attributes:
+Ang `webview` na tag ay may sumusunod na katangian:
 
 ### `src`
 
@@ -67,11 +67,11 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+Ibinabalik ang makikitang URL. Pagsulat sa mga katangian ang nagsimula ng top-lebel nabigasyon.
 
-Assigning `src` its own value will reload the current page.
+Pag-aatas `src` sa kanyang sariling balyu ay pagreload ng kasalukuyang pahina.
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+Ang `src` katangian ay maaring ding tumanggap ng mga datos sa URL, tulad ng `datos:text/plain,Hello,world!`.
 
 ### `autosize`
 
