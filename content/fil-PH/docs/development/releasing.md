@@ -116,11 +116,11 @@ Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 ## Upgrades
 
 - Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Upgraded from Node `oldVersion` to `newVersion`. #123 
 
-## Breaking API changes
+## Mga paglabag sa ApI na nabago
 
-* Changed a thing. #123
+* Nabago ang isang bahagi. #123
 
 ### Linux
 
@@ -134,9 +134,9 @@ Para sa `minor` na nilabas, e.g. `1.8.0`, gamitin ang format na ito:
 
 * Nabago ang isang bahagi Windows. #123
 
-## Other Changes
+## Iba pang pagbabago 
 
-- Some other change. #123
+- yun iba ay nabago. #123
 ```
 
 ### Beta releases
