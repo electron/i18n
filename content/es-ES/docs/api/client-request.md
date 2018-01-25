@@ -163,8 +163,8 @@ Envía el último paquete de datos solicitado. Subsecuentemente escribir o termi
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Cancela una transacción HTTP en proceso. Si la solicitud ya emitió el evento de `cerrar`, la operación abortar no tendrá ningún efecto. De otra manera un evento en proceso emitirá los eventos `abortar` y `cerrar`. Adicionalmente, si hay algún objeto de respuesta activo, será emitido el evento `abortado`.
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Sigue cualquier solicitud de redirección diferida cuando el modo de redirección es `manual`.
