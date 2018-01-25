@@ -47,7 +47,7 @@ Este evento generalmente se emite después del evento `did-finish-load`, pero pa
 
 ### Configurar `backgroundColor`
 
-Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación parezca lenta. En este caso, se recomienda mostrar la ventana inmediatamente, y usar un cierre `backgroundColor` para el fondo de la aplicación:
+Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación parezca lenta. En este caso, se recomienda mostrar la ventana inmediatamente, y usar un color de fondo `backgroundColor` parecido al color de fondo de la aplicación:
 
 ```javascript
 const {BrowserWindow} = require('electron')
