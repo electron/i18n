@@ -51,16 +51,16 @@ npm paganahin ang prepare-release -- stable
 
 ## Hintayin ang pagkabuo ng :hourglass_flowing_sand:
 
-Ang `prepare-release` script ang nag-trigger ng pag buo ang via API calls. para masubaybayan ang pagbuo ng proseso. tingnan ang mga sumusunod na pahina:
+Ang `prepare-release` script ang nag-trigger ng pagkabuo ng via API calls. para masubaybayan ang pagbuo ng proseso. tingnan ang mga sumusunod na pahina:
 
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) ito ay para sa Mac App Store
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) ito ay para sa OS X
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) ito ay para sa Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) ito ay para sa Windows
 
-## Tipunin ang mga talang nailabas na
+## Tipunin ang mga talang na i-release na
 
-Isulatang mga talang nailabas na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo pa ang pagbuo. Para sa bagong art, tingnan ung mga dating nailabas na sa [the releases page](https://github.com/electron/electron/releases).
+Isulatang mga talang na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang builds. Para sa naunang art, tingnan ung mga dating nailabas na sa [the releases page](https://github.com/electron/electron/releases).
 
 Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
