@@ -124,14 +124,14 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `x` Integer (opcional) (**requerido** si se utiliza y) - distancia a la izquierda respecto la pantalla. Valor por defecto centrará la ventana.
   * `y` Integer (opcional) (**necesario** si se utiliza x) - el offset de arriba de la ventana respecto la pantalla. Por defecto la ventana es centrada.
   * `useContentSize` Boolean (opcional) - `width` y `height` se utilizan como el tamaño de la página web. Esto significa que el tamaño actual de la ventana incluirá el tamaño del marco de la ventana y será un poco más grande. Por defecto es `false`.
-  * `center` Booleano (opcional) - Muestra la ventana en el centro de la pantalla.
-  * `minWidth` Entero (opcional) - La anchura mínima de la ventana. Por defecto es ``.
-  * `minHeight` Entero (opcional) - La altura mínima de la ventana. Por defecto es ``.
-  * `maxWidth` Entero (opcional) - La anchura máxima de la ventana. No tiene límites por defecto.
-  * `maxHeight` Entero (opcional) - La altura máxima de la ventana. No tiene límites por defecto.
-  * `resizable` Booleano (opcional) - si la ventana es redimensionable. Por defecto es `true`.
-  * `movable` Booleano (opcional) - si la ventana es movible. Esto no esta implementado en Linux. Por defecto es `true`.
-  * `minimizable` Booleano (opcional) - si la ventana se minimiza. Esto no está implementado en Linux. Por defecto es `true`.
+  * `center` Boolean (opcional) - Muestra la ventana en el centro de la pantalla.
+  * `minWidth` Integer (opcional) - La anchura mínima de la ventana. Por defecto es ``.
+  * `minHeight` Integer (opcional) - La altura mínima de la ventana. Por defecto es ``.
+  * `maxWidth` Integer (opcional) - La anchura máxima de la ventana. No tiene límites por defecto.
+  * `maxHeight` Integer (opcional) - La altura máxima de la ventana. No tiene límites por defecto.
+  * `resizable` Boolean (opcional) - si la ventana es redimensionable. Por defecto es `true`.
+  * `movable` Boolean (opcional) - si la ventana es movible. Esto no esta implementado en Linux. Por defecto es `true`.
+  * `minimizable` Boolean (opcional) - si la ventana se minimiza. Esto no está implementado en Linux. Por defecto es `true`.
   * `maximizable` Booleano (opcional) - si la ventana se máximiza. Esto no está implementado en Linux. Por defecto es `true`.
   * `closable` Booleano (opcional) - si la ventana se cierra. Esto no esta implementado en Linux. Por defecto es `true`.
   * `focusable` Booleano (opcional) - si la ventana se puede enfocar. Por defecto es `true`. En Windows, la configuración `focusable: false` también quiere decir que `skipTaskbar: true`. En Linux, la configuración `focusable: false` hace que la ventana deje de interactuar con wm, así la ventana siempre se mantendrá en la parte superior en todas las áreas de trabajo.
