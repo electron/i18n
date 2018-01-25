@@ -107,7 +107,7 @@ Tinutukoy ang isang iskrip ma makakarga bago ang ibang iskrips na tumakbo sa pah
 
 Habang ang pahina ng panauhin ay walang integrasyon na node ang iskrip na ito ay maari paring maka-access sa lahat ng Node APIs, pero gobal na objeks ay naka-injek kay Node at ito ay matatangal pagkatapos ng iskrip na matapos ang ginagawa.
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**Paalala:** Ang opsyon na ito ay maaring lumitaw bilang `preloadURL`(hindi `preload`) sa `webPreferences` na tumutukoy sa `will-attach-webview` na pangyayari.
 
 ### `httpreferrer`
 
@@ -115,7 +115,7 @@ Habang ang pahina ng panauhin ay walang integrasyon na node ang iskrip na ito ay
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+Nagtatakda ng referral na URL para sa pahina ng mga panauhin.
 
 ### `useragent`
 
