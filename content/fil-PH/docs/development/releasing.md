@@ -180,9 +180,9 @@ npm paganahin ang merge-release -- 1-7-x
 
 ## Ilathala ang release
 
-Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang script nato ay gagawin ang mga sumusunod. Gumawa ng proyekto para patunayan na tama ang numero ng bersyon na nailabas na. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS files na nakatabi sa S3 para sa node files. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na prinisinta sa GitHub at S3 at magkaroon ng tamang checksums gaya ng tinutukoy sa SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang script nato ay gagawin ang mga sumusunod. Gumawa ng proyekto para patunayan na tama ang numero ng bersyon na nailabas na. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS files na nakatabi sa S3 para sa node files. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na prinisinta sa GitHub at S3 at magkaroon ng tamang checksums gaya ng tinutukoy sa SHASUMS files. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `release` na sangay.
 
-## Publish to npm
+## Ilathala sa npm
 
 Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
 
