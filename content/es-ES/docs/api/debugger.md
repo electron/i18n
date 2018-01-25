@@ -64,12 +64,12 @@ Envía el comando al objetivo de la depuración.
 * `evento` Evento
 * `reason` Cadena - Razón para desasociar el depurador.
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Aparece cuando la sesión del depurador es finalizada. Esto sucede ya sea cuando se cierra `webContents` o cuando se invoca las herramientas del desarrollador para el adjunto `webContents`.
 
-#### Event: 'message'
+#### Evento: 'message'
 
-* `evento` Evento
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `event` Evento
+* `method` Cadena- Nombre del método.
+* `params` Objeto - Los parámetros del evento definidos por el atributo "parameters" en el protocolo de depuración remoto.
 
-Emitted whenever debugging target issues instrumentation event.
+Aparece cada vez que se depura el evento de instrumentación de problemas del objetivo.
