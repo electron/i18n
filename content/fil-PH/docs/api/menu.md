@@ -10,7 +10,7 @@ Lumilikha ng isang bagong menu.
 
 ### Mga istatikong pamamaraan
 
-Ang `menu` na object ay mga sumusunod na paraan ng static:
+Ang klase ng `menu` na mayroon ng mga sumusunod na mga istatikong pamamaraan:
 
 #### `Menu.setApplicationMenu(menu)`
 
