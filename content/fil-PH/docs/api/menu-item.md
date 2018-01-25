@@ -14,11 +14,11 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
     * `browserWindow` ang BrowserWindow
     * `event` Event
   * `role` String (opsyonal) - tukuyin ang aksyon ng mga aytem ng menu, kapag tinukoy ang katangian `click` ay hindi na papansinin. Tingnan ang [roles](#roles).
-  * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String - (optional)
-  * `sublabel` String - (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
+  * `type` String (opsyonal) - Ay maaaring `normal`, `separator`, `submenu`, `checkbox` o `radio`.
+  * `label` String - (opsyonal)
+  * `sublabel` String - (opsyonal)
+  * `accelerator` [Accelerator](accelerator.md) (opsyonal)
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
