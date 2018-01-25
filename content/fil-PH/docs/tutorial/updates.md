@@ -55,7 +55,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: 'Ang bagong bersyon ay nai-download na. I-restart ang aplikasyon upang maaplay ang mga update.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -64,11 +64,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Siguraduhin din na ang mga mali ay [nahahawakan](../api/auto-updater.md#event-error). Narito ang isang halimbawa sa paglagay sa kanila sa `stderr`:
 
 ```js
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
+  console.error('May problema sa pag-update ng aplikasyon')
   console.error(message)
 })
 ```
