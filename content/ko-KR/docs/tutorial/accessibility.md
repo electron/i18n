@@ -32,17 +32,17 @@ Devtron 에서 앱의 페이지를 검사할 수 있는 접근성 탭이 생겼�
 
 Electron 을 위한 다른 훌륭한 접근성 도구를 알고계시다면, [접근성 문서](https://electronjs.org/docs/tutorial/accessibility) 에 풀 요청과 함께 추가해 주세요.
 
-## Enabling Accessibility
+## 접근성 활성화
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Electron 은 성능상의 이유로 기본적으로 접근성을 비활성화 하지만, 활성화 할 수 있는 방법이 있습니다.
 
-### Inside Application
+### 애플리케이션 내부
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+[`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows) 함수를 사용하면, 사용자가 설정하는 애플리케이션 설정 옵션에 접근성 메뉴가 나타납니다. 만약, 사용자의 시스템에 assistive 유틸리티가 있다면, 애플리케이션 설정은 무시됩니다.
 
-### Assistive Technology
+### Assistive 유틸리티
 
-Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
+Electron 애플리케이션은 Assistive technology (Windows) 나 VoiceOver (macOS) 유틸리티가 설정된걸 감지하면, 자동으로 접근성을 활성화합니다. 더 자세한 내용은 Chrome 의 [접근성 문서](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)를 참고해주세요.
 
 On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
 
