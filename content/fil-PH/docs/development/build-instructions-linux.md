@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-Ang bootstrap script ay kinukuha o dina-download ang lahat ng kailangang build dependencies at nililikha ang build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+Ang bootstrap script ay kinukuha o dina-download ang lahat ng kailangang build dependencies at nililikha ang build project files. Kailangan mo ng Python 2.7.x para sa skrip upang magtagumpay. Ang pagda-download ng mga tiyak na file ay maaaring tumagal ang pagproseso. Pansinin na tayo'y gumagamit ng `ninja` upang buuin ang Electron para walang mabuo na `Makefile`.
 
 ```sh
 $ cd electron
@@ -57,14 +57,14 @@ $ ./script/bootstrap.py --verbose
 
 ### Cross compilation
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Kung nais nating bumuo para sa `arm` target, dapat din nating i-install ang mga sumusunod na dependency:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Gayundin para sa `arm64`, kailangang i-install ang mga sumusunod:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
