@@ -1102,12 +1102,12 @@ Añade un efecto de vibración a la ventana del navegador. Al pasar `null` o una
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Configura el plano de la touchBar para la ventana actual. Espeficando `null` o `undefined` elimina la barra táctil. Este método solo es efectivo si la máquina tiene una barra táctil y si se está ejecutando en macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** actualmente la API TouchBar es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:**: La API de BrowserView es experimental y puede ser cambiada o elindad enl futuro versiones de Electron.
+**Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
