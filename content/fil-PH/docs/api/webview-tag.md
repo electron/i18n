@@ -40,9 +40,9 @@ Kung gusto mong ikontrol ang nilalaman ng panauhin sa anumang paraan, maari kang
 
 ## Mga pamamaraan ng CSS notes
 
-Paki tandaan na ang `webview` tag's na estilo ay gumagamit `displey:fleks;` internali upang makasiguro na ang batang `object` elemento pumuno sa buong taas at lapad ng `webview` container kung saan magagamit na may tradisyonal at layout na fleksbaks (mula v.0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Paki tandaan na ang `webview` tag's na estilo ay gumagamit `displey:fleks;` internali upang makasiguro na ang batang `object` elemento pumuno sa buong taas at lapad ng `webview` container kung saan magagamit na may tradisyonal at layout na fleksbaks (mula v.0.36.11). Pakisuyo na hindi magpatung-sulat sa defolt `displey:fleks;` CSS na ari-arian, maliban sa isinasaad `displey:fleks;` para sa inlayn na layout.
 
-`webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
+`webview` ay may isyo habang nakatago gamit ang `hidden` katangian o gamit `displey: wala;`. Na makasanhi ng di-pangkaraniwang pagsasalin sa loob ng bata `browserplugin` objek at ang pahina ng web ay naka-relod habang `webview` ay hindi nakatago. Ang rekomendadong pamamaraan ay dapat itago ang `webview` gamit ang `pagpapakita: nakatago`.
 
 ```html
 <style>
@@ -57,7 +57,7 @@ Paki tandaan na ang `webview` tag's na estilo ay gumagamit `displey:fleks;` inte
 </style>
 ```
 
-## Tag Attributes
+## Katangian ng Tag
 
 The `webview` tag has the following attributes:
 
