@@ -32,7 +32,7 @@ $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Building
+## Ang Pagbubuo
 
 Build both Release and Debug targets:
 
