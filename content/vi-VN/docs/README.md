@@ -25,9 +25,9 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Các phím tắt](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Cập nhật ứng dụng](tutorial/updates.md)
 
-## Các Tut
+## Hướng dẫn
 
 * [Bắt đầu nhanh](tutorial/quick-start.md)
 * [Môi trường làm việc tích hợp (Desktop Environment Integration)](tutorial/desktop-environment-integration.md)
