@@ -201,12 +201,12 @@ git checkout vTHE.RELEASE.VERSION # gawin ang release build, pagtukoy ng isang t
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+#Malinaw na pinayagan i-overwriting ang nailathala na release.
 ./script/upload.py --overwrite
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+Matapos muling pag-upload ang lahat distribusyon, ilathala muli upang mag-upload ang checksum:
 
 ```sh
-npm run release
+npm paganahin ang release
 ```
