@@ -1,16 +1,16 @@
 # Paggamit sa Native Node na mga Modyul
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Ang native Node na mga modyul ay sinusuportahan ng Electron, pero dahil ang Electron ay madalas gumagamit ng ibang V8 na bersyon mula sa binary ng Node na naka-install sa iyong system, kailangang manu-mano mong tukuyin ang kinalalagyan ng mga header ng Electron kapag gumagawa ng native na modyul.
 
-## How to install native modules
+## Paano mag-install ng native na mga modyul
 
-Three ways to install native modules:
+May tatlong mga paraan sa pag-install ng native na mga modyul:
 
-### Using `npm`
+### Paggamit ng `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Sa pagtatakda ng ilang mga varyabol na pang-environment, maaari kang gumamit ng `npm` sa direktang pag-iinstall ng modyul.
 
-An example of installing all dependencies for Electron:
+Isang halimbawa ng pag-iinstall ng lahat ng mga dependency para sa Electron:
 
 ```sh
 # Electron's version.
