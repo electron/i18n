@@ -1,15 +1,15 @@
 ## Class: MenuItem
 
-> Add items to native application menus and context menus.
+> Magdagdag ng mga aytem sa likas na aplikasyon ng mga menu at konteksto ng mga menu.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 
-### `new MenuItem(options)`
+### `bagong MenuItem(opsyon)`
 
 * `mga pagpipilian` Bagay 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `i-klik` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
