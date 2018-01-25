@@ -38,9 +38,9 @@ Kung gusto mong ikontrol ang nilalaman ng panauhin sa anumang paraan, maari kang
 </script>
 ```
 
-## CSS Styling Notes
+## Mga pamamaraan ng CSS notes
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Paki tandaan na ang `webview` tag's na estilo ay gumagamit `displey:fleks;` internali upang makasiguro na ang batang `object` elemento pumuno sa buong taas at lapad ng `webview` container kung saan magagamit na may tradisyonal at layout na fleksbaks (mula v.0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
 `webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
 
