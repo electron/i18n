@@ -56,7 +56,7 @@ let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
 ```
 
-Tenga en cuenta que incluso para aplicaciones que utilizan el evento `ready-to-show`, aún se recomienda establecer `backgroundColor` para que la aplicación se sienta más nativa.
+Tenga en cuenta que incluso para aplicaciones que utilizan el evento `ready-to-show`, aún se recomienda establecer `backgroundColor` para que la aplicación parezca más nativa.
 
 ## Ventana principal y ventana secundaria
 
@@ -71,11 +71,11 @@ child.show()
 top.show()
 ```
 
-La ventana `child` se mostrará encima de la ventana `top`.
+La ventana `child` se mostrará siempre por encima de la ventana `top`.
 
 ### Ventanas modales
 
-Una ventana modal es una ventana secundaria que deshabilita la ventana principal para crear una ventana modal. Hay que establecer ambas opciones `parent` y `modal`:
+Una ventana modal es una ventana secundaria que deshabilita la ventana principal, para crear una ventana modal, hay que establecer ambas opciones `parent` y `modal`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
