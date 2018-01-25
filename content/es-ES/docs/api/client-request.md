@@ -118,28 +118,28 @@ Emitido cuando hay una redirección y el modo es `manual`. Llamar a [`request.fo
 
 #### `request.chunkedEncoding`
 
-Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es falso. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+Un `Booleano` especificando cuando la solicitud usará el la codificación de transferencia del paquete HTTP o no. Por defecto es falso. La propiedad es de lectura y escritura, sin embargo puede ser configurada antes de la primera operación de escritura debido a que el encabezado HTTP no se ha puesto en el hilo. Tratar de configurar la propiedad `codificación empaquetada` después de la primera escritura arrojará un error.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Utilizar codificación empaquetada es fuertemente recomendado si no necesita enviar una solicitud grande dado que lo datos serán transmitidos en paquetes pequeños en lugar de ser cargados internamente en la memoria de proceso de Electron.
 
 ### Métodos de Instancia
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `nombre` Cadena - Un nombre de encabezado HTTP extra.
+* `valor` Objecto - Un valor de encabezado HTTP extra.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Añade otro encabezado HTTP. El nombre del encabezado será publicado como es sin minúsculas. Será llamado solo antes de la primera escritura. Llamar a este método despues de la primera escritura arrojará un error. Si el valor pasado no es una `Cadena`, llamará a su método `toString()` para obtener el valor final.
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `nombre` Cadena - Especifica el nombre del encabezado extra.
 
-Returns `Object` - The value of a previously set extra header name.
+Devuelve `objeto` - el valor de un nombre de encabezado extra configurado anteriormente.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `nombre` Cadena - Especifica el nombre del encabezado extra.
 
 Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
 
