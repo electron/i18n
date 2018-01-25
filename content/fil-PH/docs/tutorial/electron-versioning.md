@@ -24,15 +24,15 @@ Isang halimbawa ng 1.x na istratehiya ay:
 
 Ang app na binuo sa `1.8.1` ay hindi makukuha sa `1.8.3` pagsasaayos ng mga bugs na hindi gumagamit ng `1.8.2` na katangian, o sa pagba-backport ng pagsasaayos at pagpapanatili sa linya ng mga bagong labas.
 
-## Version 2.0 and Beyond
+## Bersyon 2.0 at Pataas
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+May mga ilang malaking pagbabago mula sa ating 1.x na stratehiya na nakabalangkas sa ibaba. Bawat pagbabago ay dapat matugunan ang mga pangangailangan at prayoridad ng mga taga-likha o taga-maintain at sa mga tagalikha ng mga aplikasyon.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. Striktong paggamit ng semver
+2. Pambungad ng semver-compliant `-beta` tags
+3. Pambungad sa [conventional commit messages](https://conventionalcommits.org/)
+4. Malinaw na pagpapaliwanag sa pagpapanatag ng mga sangay
+5. Ang `master` na branch ay walang bersyon; tanging ang katatagan ng branches lamang ang naglalaman ng mga impormasyon tungkol sa bersyon
 
 We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
 
