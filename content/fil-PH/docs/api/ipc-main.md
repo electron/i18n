@@ -50,14 +50,14 @@ Ang `ipcMain` Modyul ay may mga sumusunod na pamamaraan upang pakinggan ang mga 
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Makinig sa `channel`, kapag ang bagong mensaheng dumating ang `listener` ay tawagin pait ang `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` String
 * `listener` Function
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
 
 ### `ipcMain.removeListener(channel, listener)`
 
