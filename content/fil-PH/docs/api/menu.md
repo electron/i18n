@@ -24,7 +24,7 @@ Ang pagpasa sa `null` ay aalisin ang bar ng menu sa Windows at sa Linux ngunit w
 
 #### `Menu.getApplicationMenu()`
 
-Nagbabalik ang `Menu` - Ang menu ng application, kung nakatakda o`null`, kung hindi nakatakda.
+Nagbabalik ang `Menu` - Ang aplikasyon ng menu, kung nakatakda o `null`, kung hindi nakatakda.
 
 **Note:** Ng nakauwi na halimbawa ng `Menu` ay hindi suportado ng dinamikong Pagdagdag o pagtanggal ng mga item sa menu. [mga katangian ng pagkakataon ](#instance-properties) na maaring dynamic na binago.
 
