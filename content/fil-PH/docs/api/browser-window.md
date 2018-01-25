@@ -135,7 +135,7 @@ Ito ay gumagawa ng panibagong `BrowserWindow` na may likas na mga ari-arian na i
   * `maximizable` Boolean (opsyonal) - Kapag ang window ay napapalaki. Hindi ito maisasakatuparan sa Linux. Ang default ay `true`.
   * `closable` Boolean (opsyonal) - Pwedi ring maging closable ang window. Hindi ito maisasakatuparan sa Linux. Ang default ay `true`.
   * `focusable` Boolean (opsyonal) - Kung ang window ay kayang mag focused. Default ay `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. Sa setting ng Linux `focusable: false </ 0> ay may kakayahang patigilin ang interaksyon sa wm, kaya ang window ay laging manatili na tuktok sa lahat ng lugar ng pinagtatrabahuhan.</li>
-<li><code>alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
+<li><code>alwaysOnTop` Boolean (opsyonal) - Kapag ang window ay dapat nalaging manatili sa taas ng iba pang mga window. Ang default ay `false`.
   * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
