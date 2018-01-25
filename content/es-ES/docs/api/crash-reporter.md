@@ -61,19 +61,19 @@ Es necesario llamar este método antes de utilizar cualquier otra API `crashRepo
  })
 ```
 
-**Nota:** En macOS, Electron utiliza un nuevo cliente `crashpad` para recopilar e informar fallos. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**Nota:** En macOS, Electron utiliza un nuevo cliente `crashpad` para recopilar e informar fallos. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+Devuelve [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+Devuelve la fecha y el ID del último informe de fallos. Devuelve `null` si ningún informe de fallos ha sido enviado o si el informador de fallos no ha sido iniciado.
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+Devuelve [`CrashReport []`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+Devuelve todos los informes de fallos subidos. Cada informe contiene la fecha y el ID subido.
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
