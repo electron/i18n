@@ -91,19 +91,19 @@ Ang skrip na ito ang magiging dahilan upang mapalabas o maipakita ang napakalaki
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Itatakda nito ang working distribution na may mas maliit ng sukat ng file sa loob ng directory ng `dist`. Matapos paganahin ang skrip na `create-dist.py`, maaaring naisin mo na tanggalin ang 1.3+ gigabyte binary na nasa loob pa rin ng `out/R`.
 
-You can also build the `Debug` target only:
+Maaari ka ring bumuo lamang ng `Debug` target:
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Matapos itong buuin, hanapin ang `electron` debug binary sa ilalim ng `out/D`.
 
-## Cleaning
+## Ang Paglilinis
 
-Upang malinis ang binubuong files:
+Upang malinis ang binubuong mga file:
 
 ```sh
 $ npm run clean
