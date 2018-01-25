@@ -32,30 +32,30 @@ HOME=~/.electron-gyp npm install
 
 Pwede mong piliing i-install ang mga modyul katulad ng ibang mga Node na proyekto, at pagkatapos ay i-rebuild ang mga modyul para sa Electron gamit ang paketeng [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Ang modyul na ito ay makakakuha ng bersyon ng Electron at makakahawak ng mga manu-manong hakbang sa pagda-download ng mga header at paggawa ng native na modyul para sa iyong app.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+Isang halimbawa ng pag-iinstall ng `electron-rebuild` at pagkatapos, gumawa ng mga modyul kasama ito:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# kapag pinapatakbo mo ang "npm install", paganahin ito:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# Sa Windows kung may problema, subukan ito:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### Manu-manong pagtatayo para sa Electron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Kung ikaw ay isang tagabuo na gumagawa ng native na modyul at gustong suriin ito kontra Electron, baka gusto mong manu-manong mag-rebuild ng modyul para sa Electron. Pwede mong direktang gamitin ang `node-gyp` upang maglikha para sa Electron:
 
 ```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+Ang `HOME=~/.electron-gyp` ay nagbabago sa lokasyon ng mga development header. Ang `--target=1.2.3` ay bersyon ng Electron. Ang `--dist-url=...` ay nagtutukoy kung saan ida-download ang mga header. Ang `--arch=x64` ay nagsasabing ang modyul ay ginawa para sa 64bit na sistema.
 
-## Troubleshooting
+## Paghahanap ng Problema
 
 If you installed a native module and found it was not working, you need to check following things:
 
