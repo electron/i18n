@@ -8,9 +8,9 @@ Ang `ipcMain` modyul ay isang halimbawa ng [EventEmitter](https://nodejs.org/api
 
 ## Ipinadalang mga mensahe
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papunta sa proseso ng renderer, tingnan [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
 
-* When sending a message, the event name is the `channel`.
+* Kapag nagpadala ng mensahe, ang event name ay ang `channel`.
 * To reply to a synchronous message, you need to set `event.returnValue`.
 * To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
 
