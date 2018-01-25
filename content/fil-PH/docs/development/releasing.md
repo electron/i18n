@@ -7,13 +7,13 @@ Ang Dokumentong ito ay nag papakita ng proseso ng pag papalabas ng bersyon ng El
 - **If releasing beta,** paganahin ang scrip sa ilalim ng `master`.
 - **If releasing a stable version,** paganahin na ang script sa ilalim ng `1-7-x` ok kaya `1-6-x`, depende kung anung bersyon ang ilalabas.
 
-## Hanapin kung aling bersyon ang nabago ito ay kinakailangan
+## Alamin kung alung bersyon ang nabago ito ay kinakailangan
 
-Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. Ang mga talang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na nabago ang bersyon. [Version Change Rules](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
+Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang kusang pag generate ng paglabas ng mga tala. Ang mga talang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na nabago ang bersyon. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
 
 ## Paganahing ang prepare-release script
 
-Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang sangay na ilalabas. 3. Bump the version number in several files. Tingnan ang [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) para sa halimbawa. 4. Gumawa ng isang draft na I rerelease sa GitHub kasama ang auto-generated na release ng mga tala. 5. Itulak ang pag release ng mga sangay. 6. Tawagin ang API para paganahin ang release ng builds.
+Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang sangay na ilalabas. 3. I-Bump ang numero ng bersyon ng ilang files. Tingnan ang [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) isang halimbawa. 4. Gumawa ng isang draft na I rerelease sa GitHub kasama ang auto-generated na release ng mga tala. 5. Itulak ang pag release ng mga sangay. 6. Tawagin ang API para paganahin ang release ng builds.
 
 Kung natukoy mo na kung aling type ng bersyon ang kailangang baguhin. Patakbuhin ang `prepare-release` script sa argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` pagtaas sa isa sa mga numero ng bersyon. O - `--stable` upang ito ay ipahiwatin na matatag ang bersyon
 
