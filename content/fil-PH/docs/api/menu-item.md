@@ -19,8 +19,8 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
   * `sublabel` String - (opsyonal)
   * `accelerator` [Accelerator](accelerator.md) (opsyonal)
   * `icon` ([NativeImage](native-image.md) | String) (opsyonal)
-  * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
-  * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
+  * `enabled` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay naka-grey out at hindi maki-klik.
+  * `visible` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay lubusang itatago.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
   * `submenu` (MenuItemConstructorOptions[] | Menu) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a `Menu` then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
