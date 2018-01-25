@@ -1040,29 +1040,29 @@ Devuelve `Boolean` - Si la barra de menú es visible o no.
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+Establece si la ventana debe ser visible o no en todos los espacios de trabajo.
 
-**Note:** This API does nothing on Windows.
+**Nota:** Esta API no hace nada en Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 
-**Note:** This API always returns false on Windows.
+**Nota:** Esta API siempre devuelve false en Windows.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
-* `ignore` Boolean
+* `ignore` Booleano
 
-Makes the window ignore all mouse events.
+Hace que la ventana ignore todos los eventos del ratón.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Todos los eventos del ratón ocurridos en esta ventana se pasarán a la ventana debajo de esta ventana, pero si esta ventana esta enfocada, todavía recibirá los eventos del teclado.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
-* `enable` Boolean
+* `enable` Booleano
 
-Prevents the window contents from being captured by other apps.
+Evita que los contenidos de la ventana sean capturados por otras aplicaciones.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
