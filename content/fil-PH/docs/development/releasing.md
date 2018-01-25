@@ -13,13 +13,13 @@ Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang kusang pa
 
 ## Paganahing ang prepare-release script
 
-Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang sangay na ilalabas. 3. I-Bump ang numero ng bersyon ng ilang files. Tingnan ang [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) isang halimbawa. 4. Gumawa ng isang draft na I rerelease sa GitHub kasama ang auto-generated na release ng mga tala. 5. Itulak ang pag release ng mga sangay. 6. Tawagin ang API para paganahin ang release ng builds.
+Ang hanada ng ilabas na script ay gagawin ang mga sumusunod: 1. Tingnan ang nilabas kung nasa proseso na at kung ganon ito ay ihinto na. 2. Gumawa ng isang sangay na ilalabas. 3. I-Bump ang numero ng bersyon ng ilang files. Tingnan ang [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) isang halimbawa. 4. Gumawa ng isang draft na I rerelease sa GitHub kasama ang auto-generated na release ng mga tala. 5. Itulak ang paglabas ng sangay. 6. Tawagin ang API para paganahin ang release builds.
 
-Kung natukoy mo na kung aling type ng bersyon ang kailangang baguhin. Patakbuhin ang `prepare-release` script sa argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` pagtaas sa isa sa mga numero ng bersyon. O - `--stable` upang ito ay ipahiwatin na matatag ang bersyon
+Kung natukoy mo na kung aling type ng bersyon ang kailangang baguhin. paganahin ang `prepare-release` script sa argumento ayon sa iyong pangangailangan: - `[major|minor|patch|beta]` pagtaas ng isa sa mga numero ng bersyon. O - `--stable` upang ito ay ipahiwatig na matatag ang bersyon
 
 Halimbawa:
 
-### Pangunahing pagbabago ng bersyon
+### Major ng bersyon ay nabago
 
 ```sh
 npm paganahin ang prepare-release -- major
@@ -49,16 +49,16 @@ npm paganahin ang prepare-release -- beta
 npm paganahin ang prepare-release -- stable
 ```
 
-## Hintayin ang pagkabuo ng :hourglass_flowing_sand:
+## Hintayin ang builds :hourglass_flowing_sand:
 
-Ang `prepare-release` script ang nag-trigger ng pagkabuo ng via API calls. para masubaybayan ang pagbuo ng proseso. tingnan ang mga sumusunod na pahina:
+Ang `prepare-release` script ay nag-trigger sa builds sa pamamagitan ng API calls. para masubaybayan ang pagbuo ng proseso. tingnan ang mga sumusunod na pahina:
 
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) ito ay para sa Mac App Store
 - [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) ito ay para sa OS X
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) ito ay para sa Linux
 - [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) ito ay para sa Windows
 
-## Tipunin ang mga talang na i-release na
+## Tipunin ang mga tala ng release
 
 Isulatang mga talang na ito ay mabuting paraan upang mapanatiling abala ang iyong sarili habang tumatakbo ang builds. Para sa naunang art, tingnan ung mga dating nailabas na sa [the releases page](https://github.com/electron/electron/releases).
 
