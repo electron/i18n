@@ -28,7 +28,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 
 ### Mga tungkulin
 
-Roles allow menu items to have predefined behaviors.
+Ang mga tungkulin ay nagpapahintulot sa mga aytem ng menu na may paunang tinukoy na mga katangian.
 
 It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
 
