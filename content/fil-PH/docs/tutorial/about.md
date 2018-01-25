@@ -1,8 +1,8 @@
 # Tungkol sa Electron
 
-[Electron](https://electronjs.org) ay isang bukas na akalatan na binuo ni GitHub para sa pagtatayo ng mga aplikasyon ng desktop ng krus-platform na may HTML, CSS, at JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electronjs.org) ay isang bukas na akalatan na binuo ni GitHub para sa pagtatayo ng mga aplikasyon ng desktop ng krus-platform na may HTML, CSS, at JavaScript. Ginagawa ito ng elektron sa pamamagitan ng pagsasama ng [Chromium](https://www.chromium.org/Home) at [Node.js](https://nodejs.org) sa isang runtime at mga apps na maaaring ma-pakete para sa Mac, Windows, at Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Nagsimula ang Electron noong 2013 bilang balangkas kung saan ang [Atom](https://atom.io), ang editor ng text na hack ng GitHub, ay itatayo. Ang dalawa ay bukas na pinagmulan galing sa tagsibol noong 2014.
 
 It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
