@@ -1002,21 +1002,21 @@ Configura la descripción emergente que se muestra cuando se pasa sobre la vista
 
 Establece las propiedades para el botón de la barra de herramientas de la ventana.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Nota:** `relaunchCommand` y `relaunchDisplayName` deben configurarse juntas. Si una de estas propiedades no se configura, ninguna se podrá utilizar.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Igual como `webContents.showDefinitionForSelection()`.
+Es igual a `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `ícono` [NativeImage](native-image.md)
+* `icon` [NativeImage](native-image.md)
 
-Cambia ícono de la ventana.
+Cambia el icono de la ventana.
 
 #### `win.setAutoHideMenuBar(hide)`
 
-* `hide` Boolean
+* `hide` Booleano
 
 Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
 
