@@ -1,10 +1,10 @@
 ## Clase: Cookies
 
-> Query and modify a session's cookies.
+> Busca y modifica las cookies de la sesión.
 
 Proceso: [Principal](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Las instancias de la clase `Cookies` son accedidas utilizado la propiedad `cookies` de una `Session`.
 
 Por ejemplo:
 
@@ -21,7 +21,7 @@ session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cooki
   console.log(error, cookies)
 })
 
-// Establecer una cookie con la información de cookie ofrecida;
+// Establece una cookie con la información de cookie ofrecida;
 // puede sobreescribir cookies equivalentes si existen.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
@@ -31,13 +31,13 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### Eventos de Instancia
 
-The following events are available on instances of `Cookies`:
+Los siguientes eventos están disponibles en las instancias de `Cookies`:
 
-#### Event: 'changed'
+#### Evento: "changed"
 
 * `evento` Evento
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
+* `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado
+* `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
   * `expired` - The cookie was automatically removed as it expired.
