@@ -38,10 +38,10 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 * `evento` Evento
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado
 * `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
+  * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
+  * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
+  * `expired` - La cookie se eliminó automáticamente debido a que expiró.
+  * `evicted` - La cookie fue desecha automáticamente durante la recolección de desechos.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
 * `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
 
