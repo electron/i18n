@@ -79,13 +79,13 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Ang Pagbubuo
 
-If you would like to build both `Release` and `Debug` targets:
+Kung ninanais mong layunin ay bumuo ng parehong `Release` at `Debug`:
 
 ```sh
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Ang skrip na ito ang magiging dahilan upang mapalabas o maipakita ang napakalaking Electron na ilalagay sa loob ng directory ng `out/R`. Ang sukat ng file ay lagpas sa 1.3 gigabytes. Ito ay mangyayari dahil ang Release target binary ay naglalaman ng mga simbolo ng debugging. Upang mabawasan ang sukat ng file, patakbuhin ang skrip na `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
