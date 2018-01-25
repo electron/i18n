@@ -240,9 +240,9 @@ Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api
 
 Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang mga item kapag bumubuo ng isang menu sa pamamagitan ng `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+Ang katangian ng `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `before` - Isingit ang item na ito bago ang isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
 * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
 * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
 
