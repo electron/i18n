@@ -54,9 +54,9 @@ Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagba
     * pagsasaayos ng may kaugnayan sa chromium patches
     * ang electron ay nagsasaayos ng mga bug
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+Tandaan na karamihan sa chromium updates ay itinuturing nakakasira. Ang pagsasaayos na pwedeng i-backport ay maaring maging cherry-picked na patches.
 
-# Stabilization Branches
+# Pagpapapanatag ng mga Branch
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
