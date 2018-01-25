@@ -190,12 +190,12 @@ Sa sandaling ang paglathala ay matagumpay, tumakbo `npm patakbuhin ang paglathal
 
 In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+Ang unang hakbang ay pumunta sa [Releases](https://github.com/electron/electron/releases) pahina at tanggalin ang nasirang binary kasama ang `SHASUMS256.txt` checksum file.
 
-Then manually create distributions for each platform and upload them:
+Pagkatapos ay imanu-manong gawin ang pag-distribusyon para sa bawat platform at i-upload ang mga ito:
 
 ```sh
-# Checkout the version to re-upload.
+# Tingnan ang bersyon na muling i-upload.
 git checkout vTHE.RELEASE.VERSION
 
 # Do release build, specifying one target architecture.
