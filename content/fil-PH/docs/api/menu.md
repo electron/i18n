@@ -1,10 +1,10 @@
-## Class: menu
+## Class: Menu
 
-> Lumikha ng katutubong menu ng application at menu ng konteksto.
+> Lumikha ng natural na mga menu ng aplikasyon at mga menu ng konteksto.
 
-Proseso: [Main](../glossary.md#main-process)
+Ang Proseso: [Main](../glossary.md#main-process)
 
-### `bagong menu()`
+### `bagong Menu()`
 
 Gumawa ng bagong menu.
 
@@ -250,7 +250,7 @@ Kapag ang aytem ay naka-posisyon na, lahat ng hindi naka-posisyon na mga aytem a
 
 ### Mga halimbawa
 
-Template:
+Ang Template:
 
 ```javascript
 [
@@ -273,7 +273,7 @@ Ang Menu:
     Context | Request Context
     
 
-Template:
+Ang Template:
 
 ```javascript
 [
