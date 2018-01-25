@@ -33,7 +33,7 @@ Cuando los usuarios cargan una página directamente en la ventana, pueden ver co
 
 ### Usando el evento `ready-to-show`
 
-Mientras se carga la página, se emitirá el evento `ready-to-show` cuando el proceso de renderizado haya procesado la página por primera vez si aún no se ha mostrado la ventana. Si se muestra la ventana luego de este evento, no tendrá visual flash:
+Mientras se carga la página, se emitirá el evento `ready-to-show` cuando el proceso de renderizado haya procesado la página por primera vez si aún no se ha mostrado la ventana. Si se muestra la ventana despues de este evento, no tendrá fogonazos:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -47,7 +47,7 @@ Este evento generalmente se emite después del evento `did-finish-load`, pero pa
 
 ### Configurar `backgroundColor`
 
-Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación se sienta lenta. En este caso, se recomienda mostrar la ventana inmediatamente, y usar un cierre `backgroundColor` para el fondo de la aplicación:
+Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación parezca lenta. En este caso, se recomienda mostrar la ventana inmediatamente, y usar un cierre `backgroundColor` para el fondo de la aplicación:
 
 ```javascript
 const {BrowserWindow} = require('electron')
