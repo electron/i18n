@@ -196,9 +196,7 @@ Pagkatapos ay imanu-manong gawin ang pag-distribusyon para sa bawat platform at 
 
 ```sh
 # Tingnan ang bersyon na muling i-upload.
-git checkout vTHE.RELEASE.VERSION
-
-# Do release build, specifying one target architecture.
+git checkout vTHE.RELEASE.VERSION # gawin ang release build, pagtukoy ng isang target sa arkitektura.
 ./script/bootstrap.py --target_arch [arm|x64|ia32]
 ./script/build.py -c R
 ./script/create-dist.py
