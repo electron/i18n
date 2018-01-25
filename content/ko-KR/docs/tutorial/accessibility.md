@@ -44,7 +44,7 @@ Electron 은 성능상의 이유로 기본적으로 접근성을 비활성화 �
 
 Electron 애플리케이션은 Assistive technology (Windows) 나 VoiceOver (macOS) 유틸리티가 설정된걸 감지하면, 자동으로 접근성을 활성화합니다. 더 자세한 내용은 Chrome 의 [접근성 문서](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology)를 참고해주세요.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+MacOS 에서는 Electron 애플리케이션 내부에서 써드파티 assitive 유틸리티를 사용하도록 설정할 수 있습니다. `AXManualAccessibility` 속성을 설정하면 됩니다.
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");
