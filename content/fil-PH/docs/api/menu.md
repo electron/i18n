@@ -242,7 +242,7 @@ Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang
 
 Ang katangian ng `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
 
-* `before` - Isingit ang item na ito bago ang isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
+* `before` - Isisingit ang item na ito bago ang id ng isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
 * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
 * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
 
