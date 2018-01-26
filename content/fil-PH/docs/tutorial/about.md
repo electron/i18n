@@ -18,9 +18,9 @@ Ang elektron ay pinananatili ng isang koponan sa GitHub pati na rin ang isang gr
 
 ### Ina-update ang Dependencies
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Ang bersyon ng kromo ng elektron ay kadalasang na-update sa loob ng isa o dalawang linggo matapos ang isang bagong matatag na bersyon ng kromo na inilabas, depende sa pagsisikap ng kasangkot sa pag-upgrade.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Kapag ang isang bagong bersyon ng Node.js ay inilabas, ang Elektron ay karaniwang inaabot ng isang buwan bago mag-upgrade upang magdala ng isang mas matatag na bersyon.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
