@@ -86,11 +86,11 @@ Pausa la descarga.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Devuelve `Boolean` - Si la ventana esta pausada o no.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Reanuda la descarga que ha sido pausada.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
