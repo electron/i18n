@@ -91,11 +91,11 @@ Ang isang `Boolean` ay nagpapakita kung ang aytem ay nasuri na, ang katangian na
 
 Ang isang `checkbox` na aytem ng menu ay ito-toggle ang katangian ng `checked` ng pagbukas at pagpatay kapag napili.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Ang isang `radio` na aytem ng menu ay bubuksan ang kanyang `checked` na katangian kapag na-klik, at papatayin ang nasabing katangian para sa lahat ng mga katabing aytem sa loob ng parehong menu.
 
-You can add a `click` function for additional behavior.
+Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
 
-#### `menuItem.label`
+#### `ang menuItem.label`
 
 A `String` representing the menu items visible label
 
