@@ -36,18 +36,18 @@ global.sharedObject = {
 ```
 
 ```javascript
-// In page 1.
+// Na stronie 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// Na stronie 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Okno/pole mojej aplikacji zniknęło po kilku minutach.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Ma to miejsce w przypadku, gdy zmienna używana do przechowywania okna/pola jest poddawana automatycznej dealokacji.
 
 If you encounter this problem, the following articles may prove helpful:
 
