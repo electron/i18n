@@ -18,8 +18,8 @@ The following languages are currently being translated, but we can
 <!-- start language-table -->
 - [Indonesian](https://crowdin.com/project/electron/id)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
-- [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
+- [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [Filipino](https://crowdin.com/project/electron/fil)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)

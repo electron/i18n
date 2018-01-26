@@ -92,14 +92,11 @@ async function parseFile (file) {
 
     if (type !== 'relative' && type !== 'rooted') return
 
-    let newHref = href
-    if (href.startsWith('../')) {
-      newHref = path.resolve(dirname, href.replace(/\.md/, ''))
+    const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
               // need to have this two lines because of
               // `path.resolve` will return C:\\ (in Windows) if it's root (/)
               .replace(/C:\\/g, '/')
               .replace(/\\/g, '/')
-    }
 
     $(el).attr('href', newHref)
   })
@@ -113,12 +110,11 @@ async function parseFile (file) {
     if (type !== 'relative' && type !== 'rooted') return
 
     // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
-    if (src.startsWith('../')) {
-      src = path.resolve(dirname, src)
-              // the same with line 88
-              .replace(/C:\\/g, '/')
-              .replace(/\\/g, '/')
-    }
+
+    src = path.resolve(dirname, src)
+            // the same with line 88
+            .replace(/C:\\/g, '/')
+            .replace(/\\/g, '/')
 
     let newSrc = file.isApiDoc
       ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')

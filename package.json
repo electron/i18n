@@ -18,7 +18,7 @@
     "del": "^2.2.2",
     "dotenv-safe": "^4.0.4",
     "electron-docs": "^3.0.2",
-    "get-crowdin-file-ids": "github:electron/get-crowdin-file-ids#get-method",
+    "get-crowdin-file-ids": "^1.1.1",
     "github": "^9.2.0",
     "got": "^6.7.1",
     "href-type": "^1.0.1",
