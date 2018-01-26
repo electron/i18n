@@ -53,12 +53,14 @@ You can rename `electron.exe` to any name you like, and edit its icon and other 
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Maari mong palitan ng pangalan ang `Electron.app` sa anumang gusto mo, at maari mo ring palitan ng pangalan anh `CFBundleDisplayName`,</code>CFBundleIdentifier</code> at `CFBundleName</0> sa mga larangan sa mga sumusunod na file:</p>
 
-* `Electron.app/Contents/Info.plist`
-* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
+<ul>
+<li><code>Electron.app/Contents/Info.plist`</li> 
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`</ul> 
+
+Maari mo ring palitan ng pangalan ang tumutulong na app upang maiwasan ang pagpapakita `Electron Helper` sa aktibidad ng monitor, ngunit siguraduhin na palitan mo nang pangalan ang helper app's para mapalitan ng pangalan ang mga file.
 
 The structure of a renamed app would be like:
 
