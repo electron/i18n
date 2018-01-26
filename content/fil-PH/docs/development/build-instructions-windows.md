@@ -82,7 +82,7 @@ $ npm run clean-build
 
 Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
 
-<h2>Tests</h2>
+<h2>Mga Pag-susuri</h2>
 
 <p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
 
