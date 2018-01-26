@@ -64,12 +64,12 @@ Cuando Electron lee desde un archivo ASAR, registra la lectura offset y la ruta 
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Imprime el rastro de la pila a la consola cuando Electron falla.
 
-This environment variable will not work if the `crashReporter` is started.
+Esta variable de entorno no funcionará si se inicia el `crashReporter`.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Muestra el cuadro de dialogo del fallo de Windows cuando falla Electron.
 
-This environment variable will not work if the `crashReporter` is started.
+Esta variable de entorno no funcionará si se inicia el `crashReporter`.
