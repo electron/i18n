@@ -22,9 +22,9 @@ Ang bersyon ng kromo ng elektron ay kadalasang na-update sa loob ng isa o dalawa
 
 Kapag ang isang bagong bersyon ng Node.js ay inilabas, ang Elektron ay karaniwang inaabot ng isang buwan bago mag-upgrade upang magdala ng isang mas matatag na bersyon.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Sa Elektron, Node.js at Kromo binabahagi ang isang solong halimbawa V8-ito ang karaniwang bersyon na ginagamit ng Kromo. Karamihan sa mga oras na ito ay *gumagana lamang* ngunit kung minsan ay nangangahulugan ito ng patching Node.js.
 
-### Versioning
+### Bersyon
 
 As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
 
