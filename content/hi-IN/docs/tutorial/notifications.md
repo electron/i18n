@@ -26,19 +26,19 @@ myNotification.onclick = () => {
 
 ### उन्नत नोटीफीकेशंस
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+विंडोज के नवीनतम संस्करणों में उन्नत नोटीफीकेशंस भेजने की सुविधा मौज़ूद है, जिसमे कि कस्टम टेम्पलेटस, चित्र, और दुसरे लचीले तत्व शामिल हैं | उन नोटीफीकेशंस को भेजेने के लिए (मुख्य प्रक्रिया से या फिर रेंदेरेर प्रक्रिया से), यूजरलैंड मोड्यूल [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) का इस्तेमाल करें, जो कि `ToastNotification` और `TileNotification` ऑब्जेक्ट्स को भेजने के लिए मूल नोड ऐडओंन्स का इस्तेमाल करते हैं |
 
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+हालाँकि बटन्स को शामिल करने वाली नोटीफीकेशंस केवल `electron-windows-notifications` के साथ भी सही काम करती है, पर उत्तरों को सँभालने के लिए [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) के इस्तेमाल की ज़रुरत पड़ती है, जो कि आवश्यक COM तत्वों को रजिस्टर करने और आपकी इलेक्ट्रॉन एप्प को उपयोगकर्ता द्वारा एंटर किये गये डाटा के साथ कॉल करने में मदद करता है |
 
-### Quiet Hours / Presentation Mode
+### शांत घंटे/ प्रेजेंटेशन मोड
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+आपको एक नोटीफीकेशन भेजने की इजाज़त है या नहीं, यह जाँचने के लिए, यूजरलैंड मोड्यूल [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) का इस्तेमाल करें |
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+इससे आपको समय से पहले ही यह पता चल जायेगा कहीं विंडोज आपकी नोटीफीकेशन को चुपके से फेंक तो नहीं देगी |
 
-## macOS
+## मैकओएस
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+मैकओएस पर नोटीफीकेशंस भेजना काफी सरल है, पर आपको [नोटीफीकेशंस सम्बंधित एप्पल की ह्यूमन इंटरफ़ेस गाइडलाइन्स](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) के बारे में ज्ञात होना चाहिये |
 
 Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
@@ -48,7 +48,7 @@ Later versions of macOS allow for notifications with an input field, allowing th
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+आपको एक नोटीफीकेशन भेजने की इजाज़त है या नहीं, यह जाँचने के लिए, यूजरलैंड मोड्यूल [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) का इस्तेमाल करें |
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
