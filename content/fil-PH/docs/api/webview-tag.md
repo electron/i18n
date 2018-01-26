@@ -250,15 +250,15 @@ Kakargahin ang `url` sa webview, ang `url` ay dapat magkaroon ng protokol na pan
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+Nagbabalik `String` - Ang URL ng pahina ng panauhin.
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+Nagbabalik `String` - Ang titulo ng pahina ng panauhin.
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+Return `Boolean` - Kung ang pahina ng panauhin ay nakakarga pa rin.
 
 ### `<webview>.isWaitingForResponse()`
 
