@@ -83,9 +83,9 @@ Ang isang `Boolean` ay nagpapakita kung ang aytem ay pinagana na, ang katangian 
 
 #### `ang menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay nakikita, ang katangian na ito ay maaaring mabago ng matindi.
 
-#### `menuItem.checked`
+#### `ang menuItem.checked`
 
 A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
