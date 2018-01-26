@@ -372,47 +372,47 @@ Sa *Linux* at *macOS*, ang mga icon ay nakadepende sa aplikasyon na may kaugnaya
 * `name` String
 * `path` String
 
-Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi matatagpuan, ang direktoryo ay lilikhain gamit ang paraan na ito. Isang `Error` ay itatapon kung hindi ito gagana.
+Ipawalangbisa ang `path` sa isang espesyal na direktoryo o sa file na may kaugnayan sa `name`. Kung ang path ay nagtutukoy sa isang direktoryo na hindi umiiral, ang direktoryo ay lilikhain sa pamamagitan ng paraan na ito. Ang isang `Error` ay itatapon kapag nabigo.
 
-Pwede mo lang ma-override ang mga path ng isang `name` na dinefine sa `app.getPath`.
+Maaari mo lang i-override ang mga landas ng isang `name` na tinukoy sa `app.getPath`.
 
-Ang cookies at caches ng web page ay iii-store sa ilalim ng `userData` na direktoryo bilang default. Kung gusto mong bagohin ang lokasyon, kailangan mong i-override ang `userData` na path bago ang `ready` na event ng module na `app` ay ibrobrodkast.
+Sa pamamagitan ng default, ang cookies at caches ng web page ay ii-imbak sa ilalim ng direktoryo ng `userData`. Kung gusto mong baguhin ang lokasyon, kailangan mong i-override ang landas ng `userData` bago ang event ng `ready` sa module ng `app` ay ilalabas.
 
 ### `app.getVersion()`
 
-Magbabalik ng `String` - Ang bersyon ng na-load na application. Kung walang bersyon ang nakita sa loob ng `package.json` file ng application, ang bersyon ng kasalukuyang bundle o executable ay ibabalik.
+Magbabalik ng `String` - Ang bersyon ng na-load na aplikasyon. Kung walang bersyon ang nakita sa loob ng `package.json` file ng aplikasyon, ang bersyon ng kasalukuyang bundle o executable ay ibabalik.
 
 ### `app.getName()`
 
-Magbabalik ng `String` - Ang kasalukuyang pangalan ng application, kung saan matatagapuan ito sa `package.json` file ng application.
+Magbabalik ng `String` - Ang pangalan ng kasalukuyang aplikasyon, kung saan ito ang pangalan ng `package.json` file ng aplikasyon.
 
-Karaniwang maikling lowercased na pangalan ang `name` field ng `package.json`, ayon sa npm modules spec. Kadalasan, dapat mong itukoy ang `productName` field kung saan ito ang full capitalized na pangalan ng application, at kung saan mas prini-prefer ito kaysa sa `name` naayon sa Electron.
+Karaniwang ang `name` field ng `package.json`ay isang maikling naka-lowercase na pangalan, ayon sa mga npm module spec. Dapat mo ring tukuyin ang karaniwang field ng `productName`, kung saan ito ang buong malalaking titik na pangalan ng iyong aplikasyon, at kung saan ay mas gugustuhin na `name` nang Electron.
 
-### `app.setName(name)`
+### `app.setName(pangalan)`
 
 * `name` String
 
-Ino-override ang kasalukuyang pangalan ng application.
+Ino-override ang pangalan ng kasalukuyang aplikasyon.
 
 ### `app.getLocale()`
 
-Magbabalik ng `String` - Ang kasalakuyang locale ng application. Posible na ibabalik ang mga value na documented [dito](locales.md).
+Magbabalik ng `String` - Ang lokal ng kasalukuyang aplikasyon. Ang posibleng mga halaga ng pagbabalik ay dokumentado na sa [here](locales.md).
 
-**Tandaan:** Habang dinidistribute ang iyong packaged app, dapat mo ring i-ship ang `locales` na folder.
+**Tandaan:** Habang ipinamamahagi ang iyong naka-package na app, dapat mo ring isama ang polder ng `locales`.
 
-**Tandaan:** Sa Windows, dapat mo itong tawagin pagkatapos ibrobrodkast ang mga `ready` na mga event.
+**Tandaan:** Sa Windows dapat mo itong tawagin pagkatapos na ang mga event ng `ready` ay mapalabas.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Nagdadagdag ng `path` sa bagong listahan ng mga dokumento.
+Nagdadagdag ng `path` sa listahan ng mga bagong dokumento.
 
-Ang lista na ito ay pinamamahalaan ng OS. Sa Windows, pwede mong bisitahin ang lista mula sa task bar, at pwede mong bisitahin mula sa dock menu sa macOS.
+Ang listahan na ito ay pinamamahalaan ng OS. Sa Windows maaari mong bisitahin ang listahan mula sa task bar, at sa macOSmaaari mong bisitahin mula sa menu ng dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Aalisin ang lahat ng laman ng kamakailan lang na lista ng mga dokumento.
+Buburahin ang listahan ng mga bagong dokumento.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -619,7 +619,7 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 * `mga pagpipilian` Bagay 
   * `certificate` String - Ang landas para sa mga file ng pkcs12.
   * `password` String - Ang passphrase para sa mga sertipiko.
-* `tumawag muli` Punsyon 
+* `ganting-tawag` Punsyon 
   * `result` Integer - Ang resulta ng pag-import.
 
 Ini-import ang mga sertipiko mula sa pormat ng pkcs12 patungo sa taguan ng plataporma ng sertipiko. Ang `callback` ay tinatawag na kasama ng `result` ng operasyon ng pag-import, ang halaga ng `` ay nagpapahiwatig ng tagumpay samantalang ang iba pang mga halaga ay nagpapahiwatig ng kabiguan ayon sa [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) ng chromium.

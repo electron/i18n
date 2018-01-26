@@ -203,265 +203,265 @@ Crea un nuevo `BrowserWindow` con propiedades nativas como las establecidas por 
     * `offscreen` Booleano (optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
     * `contextIsolation` Booleano (opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. El contexto que ejecuta el script `preload` tendrá acceso completo a los globales `document` y a `window` pero utilizará su propia configuración integrada de JavaScript (`Array`, `Object`, `JSON`, etc.) y estará apartada de cualquier cambio que se le haga al contexto global por la página cargada. El API Electron solo estará disponible en el script `preload` y no en la página cargada. Esta opción debe utilizarse cuando se carga contenido remoto potencialmente dañino para asegurar que el contenido cargado no pueda modificar el script `preload` o cualquier API de Electron en uso. Esta opción utiliza la misma técnica utilizada por [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Se puede acceder a este contexto en las herramientas de desarrollo al seleccionar la entrada 'Electron Isolated Context' en el cuadro combo en la parte superior de la pestaña de la Consola. **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
     * `nativeWindowOpen` Booleano (opcional) - Si se utiliza la `window.open()` nativa. Por defecto es `false`. **Nota:** actualmente esta opción es experimental.
-    * `webviewTag` Booleano (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto tiene el valor de la opción `nodeIntegration`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
+    * `webviewTag` Booleano (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto tiene el valor de la opción `nodeIntegration`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
 
-When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
+Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
-The possible values and behaviors of the `type` option are platform dependent. Possible values are:
+Los valores posibles y el comportamiento de la opción `type` son dependientes de la plataforma. Los valores posibles son:
 
-* On Linux, possible types are `desktop`, `dock`, `toolbar`, `splash`, `notification`.
-* On macOS, possible types are `desktop`, `textured`. 
-  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+* En linux, los tipos posibles son `desktop`, `dock`, `toolbar`, `splash`, `notification`.
+* En macOS, los tipos posibles son `desktop`, `textured`. 
+  * El tipo `textured` añade una aspecto de tono metálico (`NSTexturedBackgroundWindowMask`).
+  * El tipo `desktop` coloca la ventana en el nivel de la ventana de fondo de escritorio (`kCGDesktopWindowLevel - 1`). Tenga en cuenta que la ventana de escritorio no recibirá enfoque alguno, ni eventos del ratón o del teclado, pero se puede utilizar `globalShortcut` para recibir input con moderación.
+* En Windows, el tipo posible es `toolbar`.
 
-### Instance Events
+### Eventos de Instancia
 
-Objects created with `new BrowserWindow` emit the following events:
+Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
-#### Event: 'page-title-updated'
-
-Devuelve:
-
-* `evento` Evento
-* `title` String
-
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
-
-#### Event: 'close'
+#### Evento: "page-title-updated"
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
+* `title` Cadena
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Por ejemplo:
+#### Evento: 'close'
+
+Devuelve:
+
+* `event` Evento
+
+Aparece cuando la ventana se va a cerrar. Se emite antes de el evento del DOM `beforeunload` y `unload`. Llamar a `event.preventDefault()` cancelará el cierre.
+
+Generalmente se desea utilizar el controlador `beforeunload` para decidir si la ventana debería ser cerrada, el cual también será llamado cuando la ventada se vuelva a cargar. En Electron, devolver cualquier valor que no sea `undefined` cancelará el cierre. Por ejemplo:
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+  console.log("No quiero cerrarme")
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
+  // A diferencia de los navegadores habituales en donde un cuadro de mensaje le aparecece al usuario,
+  // devolviendo un valor non-void que cancelará silenciosamente el cierre.
+  // Se recomienda usar el cuadro de diálogo API para dejar que el usuario confirme el cierre de la
+  //aplicación.
   e.returnValue = false
 }
 ```
 
-#### Event: 'closed'
+#### Evento: "closed"
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Aparece cuando se cierra la ventana. Después de recibir este evento se debería eliminar la referencia a la ventana y evitar su uso.
 
-#### Event: 'session-end' *Windows*
+#### Evento: "session-end" *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Aparece cuando la sesión de la ventana va a terminarse debido a un cierre forzoso o el reinicio de la máquina o el cierre de la sesión.
 
-#### Event: 'unresponsive'
+#### Evento: "unresponsive"
 
-Emitted when the web page becomes unresponsive.
+Aparece cuando la página web deja de responder.
 
-#### Event: 'responsive'
+#### Evento: "responsive"
 
-Emitted when the unresponsive web page becomes responsive again.
+Aparece cuando la página web que no responde vuelve a responder.
 
-#### Event: 'blur'
+#### Evento: "blur"
 
-Emitted when the window loses focus.
+Aparece cuando la ventana pierde el enfoque.
 
-#### Event: 'focus'
+#### Evento: "focus"
 
-Emitted when the window gains focus.
+Aparece cuando la ventana recupera el enfoque.
 
-#### Event: 'show'
+#### Evento: "show"
 
-Emitted when the window is shown.
+Aparece cuando se muestra la ventana.
 
-#### Event: 'hide'
+#### Evento: "hide"
 
-Emitted when the window is hidden.
+Aparece cuando se oculta la ventana.
 
-#### Event: 'ready-to-show'
+#### Evento: "ready-to-show"
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Aparece cuando la página web ha sido renderizada (mientras no está siendo mostrada) y la ventana puede mostrarse sin un visual flash.
 
-#### Event: 'maximize'
+#### Evento: "maximize"
 
-Emitted when window is maximized.
+Aparece cuando se maximiza la ventana.
 
-#### Event: 'unmaximize'
+#### Evento: "unmaximize"
 
-Emitted when the window exits from a maximized state.
+Aparece cuando la ventana sale de un estado maximizado.
 
-#### Event: 'minimize'
+#### Evento: "minimize"
 
-Emitted when the window is minimized.
+Aparece cuando se minimiza la ventana.
 
-#### Event: 'restore'
+#### Evento: "restore"
 
-Emitted when the window is restored from a minimized state.
+Aparece cuando se restaura la ventana de un estado minimizado.
 
-#### Event: 'resize'
+#### Evento: "resize"
 
-Emitted when the window is being resized.
+Aparece cuando se redimensiona la ventana.
 
-#### Event: 'move'
+#### Evento: "move"
 
-Emitted when the window is being moved to a new position.
+Aparece cuando la ventana se mueve a una nueva posición.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Nota**: en macOS este evento es solamente un alias de `move`.
 
-#### Event: 'moved' *macOS*
+#### Evento: "moved" *macOS*
 
-Emitted once when the window is moved to a new position.
+Aparece solo una vez cuando la ventana se mueve a una nueva posición.
 
-#### Event: 'enter-full-screen'
+#### Evento: "enter-full-screen"
 
-Emitted when the window enters a full-screen state.
+Aparece cuando la ventana entra en un estado pantalla completa.
 
-#### Event: 'leave-full-screen'
+#### Evento: "leave-full-screen"
 
-Emitted when the window leaves a full-screen state.
+Aparece cuando la ventana sale del estado pantalla completa.
 
-#### Event: 'enter-html-full-screen'
+#### Evento: "enter-html-full-screen"
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Aparece cuando la ventana entra en un estado pantalla completa activado por la API HTML.
 
-#### Event: 'leave-html-full-screen'
+#### Evento: "leave-html-full-screen"
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Aparece cuando la ventana sale de un estado pantalla completa activado por la API HTML.
 
-#### Event: 'app-command' *Windows*
+#### Evento: "app-command" *Windows*
 
 Devuelve:
 
-* `evento` Evento
-* `command` String
+* `event` Evento
+* `command` Cadena
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Aparece cuando se invoca un [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Estos están generalmente relacionados a las teclas del teclado o a los comandos del navegador, así como el botón "Back" está en algunos ratones en Windows.
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Los comandos están en minuscula, los guiones bajos son remplazados por guiones, y el prefijo `APPCOMMAND_` se elimina. por ejemplo, `APPCOMMAND_BROWSER_BACKWARD` aparece como `browser-backward`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navega la ventana hasta cuando el usuario hag clic sobre el botón de atrás
+  // La ventana retrocede cuando el usuario hace clic sobre el botón de atrás
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Evento: "scroll-touch-begin"*macOS*
 
-Emitted when scroll wheel event phase has begun.
+Aparece cuando la fase del evento de la rueda de desplazamiento ha empezado.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Evento: "scroll-touch-end"*macOS*
 
-Emitted when scroll wheel event phase has ended.
+Aparece cuando la fase del evento de la rueda de desplazamiento ha concluido.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Evento: "scroll-touch-edge"*macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Aparece cuando la fase del evento de la rueda desplazamiento ha alcanzado el borde del elemento.
 
-#### Event: 'swipe' *macOS*
+#### Evento: "swipe" *macOS*
 
 Devuelve:
 
-* `evento` Evento
-* `direction` String
+* `event` Evento
+* `direction` Cadena
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Aparece al pasar 3 dedos. Las direcciones posibles son `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Evento: "sheet-begin" *macOS*
 
-Emitted when the window opens a sheet.
+Aparece cuando la ventana abre una hoja.
 
-#### Event: 'sheet-end' *macOS*
+#### Evento: "sheet-end" *macOS*
 
-Emitted when the window has closed a sheet.
+Aparece cuando la ventana cierra una hoja.
 
-#### Evento: 'new-window-for-tab' *macOS*
+#### Evento: "new-window-for-tab" *macOS*
 
-Emitted when the native new tab button is clicked.
+Aparece cuando se hace clic al botón de nueva pestaña nativa.
 
-### Static Methods
+### Métodos Estáticos
 
-The `BrowserWindow` class has the following static methods:
+La clase `BrowserWindow` tiene los siguientes métodos estáticos:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Devuelve `BrowserWindow[]`- Un arreglo de todas las ventanas abiertas del navegador.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+Devuelve `BrowserWindow`- La ventana que se enfoca en esta aplicación, de lo contrario devuelve `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Íntegro
+* `id` Entero
 
-Returns `BrowserWindow` - The window with the given `id`.
+Devuelve `BrowserWindow` - La ventana que posee el `id`dado.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` String
+* `path` Cadena
 
-Adds Chrome extension located at `path`, and returns extension's name.
+Añade una extensión de Chrome ubicada en `path`, y devuelve el nombre de la extensión.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+El método no devolverá nada si el manifiesto de la extensión falta o está incompleta.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `name` Cadena
 
-Remueve una extensión de Chrome por nombre.
+Elimina una extensión de Chrome por su nombre.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Object` - Las llaves son los nombres de la extensión y cada valor es un objeto que contiene las propiedades `name` y `version`.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `path` String
+* `path` Cadena
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Añade una extensión de DevTools ubicada en `path`, y devuelve el nombre de la extensión.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+La extensión será recordada, por lo tanto sólo se necesitará llamar a la API una vez. Esta API no es para uso de la programación. Si se intenta añadir una extensión que ya ha sido cargada, este método no devolverá nada y en su lugar aparecerá una advertencia en la consola.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+El método no devolverá nada si el manifiesto de la extensión falta o está incompleta.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `name` Cadena
 
-Remove a DevTools extension by name.
+Elimina una extensión de Devtools mediante su nombre.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Devuelve `Object` - Las llaves son los nombres de la extensión y cada valor es un objeto que contiene las propiedades `name` y `version`.
 
-To check if a DevTools extension is installed you can run the following:
+Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -470,216 +470,216 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 ### Propiedades de Instancia
 
-Objects created with `new BrowserWindow` have the following properties:
+Los objetos creados con `new BrowserWindow` tienen las siguientes propiedades:
 
 ```javascript
 const {BrowserWindow} = require('electron')
-// En este ejemplo `win` es nuestra instancia
+// En este ejemplo "win" es nuestra instancia
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Un objeto `WebContents` que posee la ventana. Todas eventos y operaciones relacionados a las páginas web ocurrirán por medio del objeto.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Consulte la [documentation `webContents`](web-contents.md) de sus métodos y eventos.
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+Un `Integer` que representa el ID único de la ventana.
 
 ### Métodos de Instancia
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Los objetos creados con `new BrowserWindow` tienen los siguientes métodos de instancia:
 
 **Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Al forzar el cierre de una ventana, el evento `unload` y `beforeunload` no se emitirá en la página web. El evento `close` tampoco se emitirá en la ventana, pero es seguro que el evento `closed` sí será emitido.
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Intenta cerrar la ventana. Este tiene el mismo efecto que hacer clic manualmente al botón de cerrar la ventana. Sin embargo la página web podría cancelar el cierre. Ver [close event](#event-close).
 
 #### `win.focus()`
 
-Focuses on the window.
+Enfoca la ventana.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Elimina el enfoque de la ventana.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Devuelve `Boolean` - Si la ventana está centrada o no.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Devuelve `Boolean` - Si la ventana fue destruida o no.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Muestra la ventana y la enfoca.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Muestra la ventana pero no la enfoca.
 
 #### `win.hide()`
 
-Hides the window.
+Oculta la ventana.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Devuelve `Boolean` - Si la ventana es visible o no al usuario.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Devuelve `Boolean` - Si la ventana actual es una ventana modal o no.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Maximiza la ventana. Esta también muestra la ventana (pero no la enfoca) si todavía no ha sido mostrada.
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Sale del estado maximizado de la ventana.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Devuelve `Boolean` - Si la ventana está maximizada.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Minimiza la ventana. En algunas plataformas se mostrará la ventana minimizada en el Dock.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Restaura la ventana desde un estado minimizado a su estado previo.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Devuelve `Boolean` - Si la ventana está minimizada o no.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Booleano
 
-Sets whether the window should be in fullscreen mode.
+Establece si la ventana debe estar o no en modo pantalla completa.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Devuelve `Boolean` - Si la ventana está o no en pantalla completa.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Flotador - La relación de aspecto para mantener parte de la vista de contenido.
+* `extraSize` [Size](structures/size.md) - El tamaño extra no se incluye mientras se mantiene la relación de aspecto.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Esto hará que la ventana mantenga una relación de aspecto. El tamaño extra permite al desarrollador tener espacio especificado en píxeles, el cual no está incluido dentro de los cálculos de la relación de aspecto. Esta API ya toma en cuenta la diferencia entre el tamaño de la ventana y el tamaño del contenido.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
+Considere una ventana normal con un reproductor de video HD y los controles asociados. Quizá hay 15 pixeles de controles en el borde izquierdo, 25 pixeles de control en el borde derecho y 50 pixeles de control bajo el reproductor. Para mantener una relación de aspecto de 16:9 (la relación de aspecto estándar para HD@1920x1080) dentro del reproductor, tendríamos que llamar esta función con argumentos de 16/9 y [ 40, 50 ]. En el segundo argumento no importa donde están la anchura extra ni altura extra dentro de la vista del contenido, solo importa que existan. Simplemente se suma el área de la anchura extra y la altura extra dentro de la vista del contenido total.
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
-* `path` String - The absolute path to the file to preview with QuickLook. This is important as Quick Look uses the file name and file extension on the path to determine the content type of the file to open.
-* `displayName` String (optional) - The name of the file to display on the Quick Look modal view. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `path` Cadena - La ruta de acceso absoluta al archivo para vista previa con QuickLook. Esto es importante a medida que Quick Look utiliza el nombre del archivo y la extensión del archivo en la ruta para determinar el tipo de contenido del archivo que se va a abrir.
+* `displayName` Cadena (opcional) - El nombre del archivo a mostrar en la vista modal de Quick Look. Esto es puramente visual y no afecta el tipo de contenido del archivo. Por defecto es `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Utiliza [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) para previsualizar un archivo de una ruta determinada.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Cierra el panel actual de [Quick Look](https://en.wikipedia.org/wiki/Quick_Look).
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Booleano (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Booleano (opcional) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Redimensiona y mueve la ventana a los límites proporcionados
 
 #### `win.getBounds()`
 
-Devuelve [`Rectángulo`](structures/rectangle.md)
+Devuelve [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectángulo](structures/rectangle.md)
-* `animate` Booleano (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Booleano (opcional) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página web) hasta los límites proporcionados.
 
 #### `win.getContentBounds()`
 
-Devuelve [`Rectángulo`](structures/rectangle.md)
+Devuelve [`Rectangle`](structures/rectangle.md)
 
 #### `win.setSize(width, height[, animate])`
 
-* `ancho` Íntegro
-* `alto` Íntegro
-* `animate` Booleano (optional) *macOS*
+* `ancho` Entero
+* `alto` Entero
+* `animate` Booleano (opcional) *macOS*
 
-Cambia el tamaño de la ventana a `ancho` y `altura`.
+Cambia el tamaño de la ventana a `width` y `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura de la ventana.
 
 #### `win.setContentSize(width, height[, animate])`
 
-* `ancho` Íntegro
-* `alto` Íntegro
-* `animate` Booleano (optional) *macOS*
+* `ancho` Entero
+* `alto` Entero
+* `animate` Booleano (opcional) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Cambia el área del cliente de la ventana (por ejemplo, la página web) a la `width` y `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura del área del cliente de la ventana.
 
 #### `win.setMinimumSize(width, height)`
 
-* `ancho` Íntegro
-* `alto` Íntegro
+* `width` Entero
+* `height` Entero
 
-Sets the minimum size of window to `width` and `height`.
+Establece el tamaño mínimo de la ventana a `width`y `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 
 #### `win.setMaximumSize(width, height)`
 
-* `ancho` Íntegro
-* `alto` Íntegro
+* `ancho` Entero
+* `alto` Entero
 
-Sets the maximum size of window to `width` and `height`.
+Establece el tamaño máximo de la ventana a `width`y `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Devuelve `Integer[]` - Contiene la anchura y altura máxima de la ventana.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Booleano
 
-Sets whether the window can be manually resized by user.
+Establece si la ventana puede ser redimensionada manualmente por el usuario.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Devuelve `Boolean` - Si la ventana puede ser redimensionada manualmente por el usuario.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Booleano
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Establece si la ventana puede ser movida por el usuario. En Linux no hace nada.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -691,11 +691,11 @@ En Linux siempre devuelve `verdadero`.
 
 * `minimizable` Booleano
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Establece si la ventana puede ser minimizada manualmente por el usuario. En Linux no hace nada.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Devuelve `Boolean` - Si la ventana puede ser minimizada manualmente por el usuario
 
 En Linux siempre devuelve `true`.
 
@@ -703,82 +703,82 @@ En Linux siempre devuelve `true`.
 
 * `maximizable` Booleano
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Establece si la ventana puede ser maximizada manualmente por el usuario. En Linux no hace nada.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Devuelve `Boolean` - Si la ventana puede ser maximizada manualmente por el usuario.
 
-En Linux siempre devuelve `verdadero`.
+En Linux siempre devuelve `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Booleano
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Establece si el botón de la ventana de maximizar/acercar activa el modo pantalla completa o maximiza la ventana.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Devuelve `Boolean` - Si el botón de la ventana de maximizar/acercar activa o no el modo pantalla completa o maximiza la ventana.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Booleano
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Establece si la ventana puede ser cerrada manualmente por el usuario. En Linux no hace nada.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Devuelve `Boolean` - Si la ventana puede ser o no cerrada manualmente por el usuario.
 
-En Linux siempre devuelve `verdadero`.
+En Linux siempre devuelve `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Booleano
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` Cadena (opcional) *macOS* - Los valores incluyen `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Obsoleto). Por defecto es `floating`. Para más detalles, ver [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels).
+* `relativeLevel` Entero (opcional) *macOS* - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es ``. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Establece si la ventana debe mostrarse siempre encima de otras ventanas. Después de establecer esta opción, la ventana sigue siendo una ventana normal, no una ventana de herramientas sobre la cual no puede ser enfocada.
 
 #### `win.isAlwaysOnTop()`
 
-Devuelve `Booleano` - Si la ventana siempre está sobre de otras ventanas.
+Devuelve `Booleano` - Si la ventana está siempre sobre las otras ventanas.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Mueve la ventana al centro de la pantalla.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Íntegro
-* `y` Íntegro
-* `animate` Booleano (optional) *macOS*
+* `x` Entero
+* `y` Entero
+* `animate` Booleano (opcional) *macOS*
 
 Mueve la ventana a `x` y `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Devuelve `Integer[]` - Contiene la posición actual de la ventana.
 
 #### `win.setTitle(title)`
 
-* `title` String
+* `title` Cadena
 
-Changes the title of native window to `title`.
+Cambia el título de la ventana nativa a `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Devuelve `String` - El título de la ventana nativa.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Nota:** El título de la página web puede ser diferente del título de la ventana nativa.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
 * `offsetX` Float (opcional)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Cambia el punto de adjunto para hojas en macOS. Por defecto, las hojas son adjuntas en la parte de abajo del marco de la ventana, pero puede que se quiera mostrarlas debajo de una barra de herramientas renderizada HTML. Por ejemplo:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -792,72 +792,72 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Booleano
 
-Starts or stops flashing the window to attract user's attention.
+Empieza y deja de hacer parpadear la ventana para atraer la atención del usuario.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Booleano
 
-Makes the window not show in the taskbar.
+Hace que la ventana no se muestre en la barra de tareas.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Booleano
 
-Enters or leaves the kiosk mode.
+Entra o sale del modo kiosko.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Devuelve `Boolean` - Si la ventana está o no en modo kiosco.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Devuelve `Buffer` - El controlador específico de la plataforma de la ventana.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Linux `Window` (`unsigned long`).
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
-* `message` Íntegro
+* `message` Entero
 * `callback` Función
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Ancla un mensaje en la ventana. El `callback` es llamado cuando el mensaje se recibe en el WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
-* `message` Íntegro
+* `message` Entero
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Devuelve `Boolean` - `true` o `false` dependiendo de si el mensaje esta anclado o no.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
-* `message` Íntegro
+* `message` Entero
 
-Unhook the window message.
+Desancla el mensaje de la ventana.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Desbloquea todos los mensajes de la venta.
+Desancla todos los mensajes de la ventana.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Establece el nombre de la ruta del archivo que la ventana representa, y el icono del archivo se mostrará en la barra de título de la ventana.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Devuelve `String` - El nombre de la ruta del archivo que la ventana representa.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Booleano
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Especifica si se ha editado el documento de la ventana y el icono en la barra de título se volverá gris cuando se establece en `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Devuelve `Boolean` - Si se ha editado el documento de la ventana.
 
 #### `win.focusOnWebView()`
 
@@ -865,27 +865,27 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `llamada de vuelta` Función 
+* `rect` [Rectangle](structures/rectangle.md) (opcional) - Los límites para capturar
+* `callback` Función 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+Es igual a `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
-* `options` Objecto (opcional) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+* `url` Cadena
+* `options` Objeto (opcional) 
+  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
+  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
+  * `extraHeaders` Cadena (opcional) - Cabeceras extras separadas por "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
+  * `baseURLForDataURL` Cadena (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
-Same as `webContents.loadURL(url[, options])`.
+Es igual a `webContents.loadURL(url[, options])`.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+El `url` puede ser una dirección remota (por ejemplo `http://`) o una de un archivo locar HTML utilizando el protocolo `file://`.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Para garantizar que los URLs del archivo estén adecuadamente formateados, se recomienda utilizar el método [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) del Nodo:
 
 ```javascript
 let url = require('url').format({
@@ -897,7 +897,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Se puede cargar un URL utilizando la solicitud `POST` con los datos codificados de URL haciendo lo siguiente:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -911,27 +911,27 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Es igual a `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Establece el `menú` como la barra del menú de la ventana, estableciéndolo a `null` eliminará la barra de menú.
 
 #### `win.setProgressBar(progress[, options])`
 
-* `progress` Double
-* `options` Objecto (opcional) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
+* `progress` Doble
+* `options` Objeto (opcional) 
+  * `mode` String *Windows* - Modo para la barra de progreso. Puede ser `none`, `normal`, `indeterminate`, `error`, o `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Establece el valor del progreso en la barra de progreso. El rango válido es [0, 1.0].
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Elimina la barra de progreso cuando el progreso es < 0; cambia a modo indeterminado cuando el progreso es >1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+En la plataforma Linux, solo es compatible con el environment de escritorio Unity. Se necesita especificar el nombre del archivo `*.desktop` en el campo `desktopName` dentro de `package.json`. Por defecto, se asumirá `app.getName().desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+En Windows, se puede pasar de modo. Los valores aceptados son `none`, `normal`, `indeterminate`, `error`, y `paused`. Si se llama a`setProgressBar` sin establecer un modo (pero con un valor dentro del rango válido), se asumirá el modo `normal`.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 

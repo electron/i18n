@@ -504,7 +504,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
 #### `contents.loadURL(url[, options])`
 
@@ -968,16 +968,16 @@ Opens the developer tools for the service worker context.
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
-* `...args` any[]
+* `...args` anuman[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 
 An example of sending messages from the main process to the renderer process:
 
 ```javascript
-// In the main process.
+// Sa mga pangunahing proseso.
 const {app, BrowserWindow} = require('electron')
 let win = null
 
@@ -1170,7 +1170,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Humahalimbawa sa bahagi nito
 
 #### `contents.id`
 

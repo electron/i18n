@@ -37,7 +37,7 @@ $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 
 Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
 
-## Chromium git cache
+## Chromium git 缓存
 
 `depot_tools` has an undocumented option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
 
@@ -62,4 +62,4 @@ On Windows, SMBv2 has a directory cache that will cause problems with the git ca
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+为 0. 更多内容: https://stackoverflow.com/a/9935126

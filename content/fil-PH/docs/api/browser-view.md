@@ -1,30 +1,30 @@
-## Class: BrowserView
+## Class: ng BrowserView
 
-> Create and control views.
+> Lumikha at kontrolin ang mga nakikita.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalaman ng web patungo sa isang `BrowserWindow`. Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
-## Example
+## Halimbawa
 
 ```javascript
-// In the main process.
-const {BrowserView, BrowserWindow} = require('electron')
+// Sa mga pangunahing proseso.
+const {BrowserView, BrowserWindow} = kailangan('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+hayaang manalo = bagong BrowserWindow({width: 800, height: 600})
 win.on('closed', () => {
-  win = null
+  manalo = null
 })
 
-let view = new BrowserView({
+hayaang makita = bagong BrowserView({
   webPreferences: {
     nodeIntegration: false
   }
 })
-win.setBrowserView(view)
+win.setBrowserView(tingnan)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
@@ -32,44 +32,44 @@ view.webContents.loadURL('https://electron.atom.io')
 ### `new BrowserView([options])` *Experimental*
 
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+  * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
-### Static Methods
+### Mga statik na pamamaraan
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
 
-### Instance Properties
+### Humahalimbawa sa bahagi nito
 
-Objects created with `new BrowserView` have the following properties:
+Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na ito.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
-Objects created with `new BrowserView` have the following instance methods:
+Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
 #### `view.setAutoResize(options)` *Experimental*
 
 * `mga pagpipilian` Bagay 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+  * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
+  * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Binabago ang laki at inililipat ang view mula sa ibinibigay na hangganan na may kaugnayan sa window.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `color` String - Ang kulay sa form ng `#aarrggbb` o sa `#argb`. Ang channel ng alpha ay opsyonal.

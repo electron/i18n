@@ -152,7 +152,7 @@ console.log(clipboard.has('<p>selection</p>'))
 ### `clipboard.writeBuffer (biçim, arabellek [, tür])` *Deneysel*
 
 * `format` String
-* `buffer` Buffer
+* `arabellek` Arabelleği
 * `type` String (isteğe bağlı)
 
 `buffer`' ı `format` olarak panoya yazar.

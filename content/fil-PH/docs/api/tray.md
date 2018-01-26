@@ -161,7 +161,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Mga pamamaraan ng pagkakataon
 
 The `Tray` class has the following methods:
 

@@ -137,7 +137,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ### 本地编译 `libchromiumcontent`
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+若要避免使用 ` libchromiumcontent` 的预生成二进制文件, 可以在本地构建 `libchromiumcontent`。 为此, 请按照下列步骤操作:
 
 1. 安装 [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. 安装 [其他生成依赖项](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
@@ -147,7 +147,7 @@ To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `lib
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. 将 `--build_release_libcc` 传给 `bootstrap.py` 脚本:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### 使用系统提供的 `clang` 替换下载的 `clang` 二进制文件
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+默认情况下, Electron 是由 Chromium 项目提供的预生成的 [`clang`](https://clang.llvm.org/get_started.html) 二进制文件构建的。 如果基于某些原因你想要使用已经安装到系统的 `clang` 进行编译, 可以给 `bootstrap.py` 传递 `--clang_dir=<path>` 参数来指定 `clang` 安装路径. 上面参数告诉编译脚本, `clang` 程序在目录 `<path>/bin/` 下.
 
 假设你的 `clang` 安装路径为 `/user/local/bin/clang`:
 
@@ -183,7 +183,7 @@ $ ./script/build.py -c R
 
 ### 环境变量
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+除了 `CC` 及 `CXX`, 你还可以设置以下环境变量来自定义编译配置:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`

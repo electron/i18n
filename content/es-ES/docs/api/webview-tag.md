@@ -593,47 +593,47 @@ Devuelve:
 
 Disparado cuando una redirección fue recibida mientras se solicitaba una fuente.
 
-### Event: 'dom-ready'
+### Evento: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Disparado cuando el documento en el frame dado es cargado.
 
-### Event: 'page-title-updated'
-
-Devuelve:
-
-* `title` String
-* `explicitSet` Boolean
-
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
-
-### Event: 'page-favicon-updated'
+### Evento: 'page-title-updated'
 
 Devuelve:
 
-* `favicons` String[] - Array of URLs.
+* `title` Cadena
+* `explicitSet` Boolen
 
-Fired when page receives favicon urls.
+Disparado cuando el título de la página es establecido durante la navegación. `explicitSet` es falso cuando el título es sintetizado del archivo url.
 
-### Event: 'enter-html-full-screen'
-
-Fired when page enters fullscreen triggered by HTML API.
-
-### Event: 'leave-html-full-screen'
-
-Fired when page leaves fullscreen triggered by HTML API.
-
-### Event: 'console-message'
+### Evento: 'page-favicon-updated'
 
 Devuelve:
 
-* `level` Integer
+* `favicons` Cadena[] - Arreglo para URLs.
+
+Disparado cuando la página recibe urls de favicon.
+
+### Evento: 'enter-html-full-screen'
+
+Disparado cuando la página entra en pantalla entera i¿y es activado por HTML API.
+
+### Evento: 'leave-html-full-screen'
+
+Disparado cuando la página deja la pantalla completa activada por HTML API.
+
+### Evento: 'console-message'
+
+Devuelve:
+
+* `level` Íntegro
 * `message` String
-* `line` Integer
-* `sourceId` String
+* `line` Íntegro
+* `sourceId` Cadena
 
-Fired when the guest window logs a console message.
+Disparado cuando la ventana invitada entra un mensaje de consola.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+El siguiente código ejemplo sigue con todos los mensajes guardados a la consola embebedora sin preocupación por el nivel de guardado u otras propiedades.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -642,18 +642,18 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Evento: 'found-in-page'
 
 Devuelve:
 
-* `result` Object 
-  * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+* `resultado` Object 
+  * `requestId` Íntegro
+  * `activeMatchOrdinal` Íntegro - Posición de un partido activo.
+  * `matches` Íntegro - Número de Coincidencias.
+  * `selectionArea` Objeto - Coordinación de la primera región de casualidad.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
+Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -665,18 +665,18 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Evento: 'new-window'
 
 Devuelve:
 
 * `url` String
-* `frameName` String
+* `frameName` Cadena
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which should be used for creating the new `BrowserWindow`.
+* `options` Objeto - Las opciones que deberían ser usados para crear el nuevo `BrowserWindow`.
 
-Fired when the guest page attempts to open a new browser window.
+Disparado cuando la página de invitado intenta abrir una nueva ventana de buscador.
 
-The following example code opens the new url in system's default browser.
+El siguiente código ejemplo abre el nuevo url en el buscador por defecto del sistema.
 
 ```javascript
 const {shell} = require('electron')
@@ -690,46 +690,46 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Evento: 'will-navigate'
 
 Devuelve:
 
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `<webview>.loadURL` y `<webview>.back`.
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Tampoco es emitido durante la navegación en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+Llamar a `event.preventDefault()`, **NO** tiene ningún efecto.
 
-### Event: 'did-navigate'
+### Evento: 'did-navigate'
 
 Devuelve:
 
 * `url` String
 
-Emitted when a navigation is done.
+Emitido cuando la navegación es finalizada.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-### Event: 'did-navigate-in-page'
+### Evento: 'did-navigate-in-page'
 
 Devuelve:
 
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Emitido cuando una navegación dentro de la página sucede.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de esto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Event: 'close'
+### Evento: 'close'
 
-Fired when the guest page attempts to close itself.
+Disparado cuando la página de invitado intenta cerrarse.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+El siguiente código ejemplo navega el `webview` a `about:blank` cuando el invitado intenta cerrase.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -738,16 +738,16 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### Evento: 'ipc-message'
 
 Devuelve:
 
-* `channel` String
-* `args` Array
+* `channel` Cadena
+* `args` Arreglo
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte fácilmente entre la pagina de invitado y la de embebido:
 
 ```javascript
 // In embedder page.
@@ -760,70 +760,70 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// En la página de invitado.
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })
 ```
 
-### Event: 'crashed'
+### Evento: 'crashed'
 
-Fired when the renderer process is crashed.
+Disparado cuando el proceso de renderizado se cierra.
 
-### Event: 'gpu-crashed'
+### Evento: 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Disparado cuando el proceso gpu se cae.
 
-### Event: 'plugin-crashed'
+### Evento: 'plugin-crashed'
 
 Devuelve:
 
 * `name` String
-* `version` String
+* `version` Cadena
 
-Fired when a plugin process is crashed.
+Disparado cuando el proceso de plugin se cae.
 
-### Event: 'destroyed'
+### Evento: 'destroyed'
 
-Fired when the WebContents is destroyed.
+Disparado cuando el WebContents es destrozado.
 
-### Event: 'media-started-playing'
+### Evento: 'media-started-playing'
 
-Emitted when media starts playing.
+Emitido cuando la media empieza a reproducirse.
 
-### Event: 'media-paused'
+### Evento: 'media-paused'
 
-Emitted when media is paused or done playing.
+Emitido cuando la media es pausada o ha terminado de reproducirse.
 
-### Event: 'did-change-theme-color'
+### Evento: 'did-change-theme-color'
 
 Devuelve:
 
-* `themeColor` String
+* `themeColor` Cadena
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a encontrar una etiqueta meta:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Evento: 'update-target-url'
 
 Devuelve:
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Emitido cuando el mouse se mueve sobre un link o el teclado se mueve el concentrado a un link.
 
-### Event: 'devtools-opened'
+### Evento: 'devtools-opened'
 
-Emitted when DevTools is opened.
+Emitido cuando DevTools es abierto.
 
-### Event: 'devtools-closed'
+### Evento: 'devtools-closed'
 
-Emitted when DevTools is closed.
+Emitido cuando DevTools es cerrado.
 
-### Event: 'devtools-focused'
+### Evento: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Emitido cuando DevTools es centrado o abierto.

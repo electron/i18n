@@ -9,6 +9,7 @@ nav:
   contact: Kontak
   languages: bahasa
   code_of_conduct: Kode etik
+  search: Search
 docs:
   title: Dokumentasi Elektron
   description: Lihat semua <a href="/dokumen/semua"> dokumen pada satu laman </a> atau lihat <a href="/dokumen/format"> FORMAT </a>.
@@ -138,4 +139,9 @@ _404:
   if_this_is_an_error: Jika ini adalah kesalahan
   please_file_an_issue: tolong ajukan masalah
 search:
-  description: Search within Electron documentations and community.
+  description:
+    start: Find Electron resources from
+    docs: <a href="/search/docs">documentation</a>
+    npm: <a href="/search/npmPackages">npm packages</a>
+    and: dan
+    repos: <a href="/search/repos">GitHub repos</a>

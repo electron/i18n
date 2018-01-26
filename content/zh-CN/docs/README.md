@@ -89,7 +89,7 @@
 
 * [编码风格](development/coding-style.md)
 * [在 C++ 代码中使用clang-format](development/clang-format.md)
-* [Testing](development/testing.md)
+* [测试](development/testing.md)
 * [源码目录结构](development/source-code-directory-structure.md)
 * [与 NW.js（原 node-webkit）在技术上的差异](development/atom-shell-vs-node-webkit.md)
 * [构建系统概览](development/build-system-overview.md)
@@ -100,6 +100,6 @@
 * [调试步骤 (Windows)](development/debug-instructions-windows.md)
 * [在调试中使用 Symbol Server](development/setting-up-symbol-server.md)
 * [文档风格指南](styleguide.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
+* [升级 Chromium](development/upgrading-chromium.md)
 * [Chromium 开发](development/chromium-development.md)
 * [V8 开发](development/v8-development.md)

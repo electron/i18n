@@ -60,13 +60,13 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 替换为
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -86,19 +86,19 @@ menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 过时的
 nativeImage.toPng()
-// Replace with
+// 替换为
 nativeImage.toPNG()
 
-// Deprecated
+// 过时的
 nativeImage.toJpeg()
-// Replace with
+// 替换为
 nativeImage.toJPEG()
 
-// Deprecated
+// 过时的
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 替换为
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -107,9 +107,9 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-//旧写法
+// 过时的
 process.versions['atom-shell']
-//新写法
+// 替换为
 process.versions.electron
 ```
 
@@ -118,11 +118,11 @@ process.versions.electron
 ## `session`
 
 ```js
-// Deprecated
+// 过时的
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// 替换为
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -131,77 +131,77 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 过时的
 tray.setHighlightMode(true)
-// Replace with
+// 替换为
 tray.setHighlightMode('on')
 
-// Deprecated
+// 过时的
 tray.setHighlightMode(false)
-// Replace with
+// 替换为
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 过时的
 webContents.openDevTools({detach: true})
-// Replace with
+// 替换为
 webContents.openDevTools({mode: 'detach'})
 ```
 
 ```js
-// Deprecated
+// 过时的
 webContents.setZoomLevelLimits(1, 2)
-// Replace with
+// 替换为
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// 过时的
 webFrame.setZoomLevelLimits(1, 2)
-// Replace with
+// 替换为
 webFrame.setVisualZoomLevelLimits(1, 2)
 
-// Deprecated
+// 过时的
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// 替换为
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// 过时的
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// 替换为
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Deprecated
+// 过时的
 webview.setZoomLevelLimits(1, 2)
-// Replace with
+// 替换为
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
 
-Deprecated: https://atom.io/download/atom-shell
+过时的: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+替换为: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## 重复的 ARM 资源
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+每个 Electron 版本包含两个相同的 ARM 版本, 但是文件名略有不同, 比如 `electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip`. 带有 `v7l` 前缀的资源被添加 以向用户阐明其支持的 ARM 版本, 并且将其从将来可能产生的 armv6l 和 arm64 资源中消除.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+仍然在发布 *没有前缀* 的文件, 以避免可能破坏正在使用它的任何设置. 从 2.0 开始，没有前缀的文件将不再被发布.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+更多详情, 参考 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## `FIXME` 注释
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+代码注释中使用 `FIXME` 字符串 来表示 2.0 版本 应该解决的问题. 参考 https://github.com/electron/electron/search?q=fixme

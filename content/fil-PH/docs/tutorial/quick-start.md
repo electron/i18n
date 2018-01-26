@@ -1,113 +1,105 @@
-# Quick Start
+# Madali na pagsisimula
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+Ang Electron ang nagbibigay-daan para makalikha ng desktop application na may malinis na JavaScript sa pamamagitan ng pagbibigay ng runtime na may rich native (operating system)APIs. Maari mong makita ang mga ito bilang isang variant ng Node.js runtime na nakatuon sa desktop applications na sa halip na mga server ng web.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+Hindi ito nangangahulugan na ang Electron ay isang JavaScript na may bisa sa graphical user interface (GUI) libraries. Sa halip, ang Electron ay gumagamit ng mga web pages bilang GUI, kaya pwede mong makita ito bilang isang minimal Chromium browser, kontrolado ng JavaScript.
 
-### Main Process
+### Pangunahing Proseso
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+Sa Electron, ang tawag sa proseso na tumatakbo ay `package.json`'s `main` script **ang mga pangunahing proseso**. Ang iskrip na tumatakbo sa pangunahing proseso ay maaring maipakita ang isang GUI sa pamamagitan ng paggawa ng web pages.
 
-### Renderer Process
+### Proseso ng Tagasalin
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Dahil ang Electron ay gumagamit ng Chromium para sa pagpapakita ng web pages, Chromium's multi-process na arkitektura ay ginagamit din. Bawat web page ng Electron ay tumatakbo sa sarili nitong proseso, tinatawag itong **the renderer process**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+Sa normal na mga browsers, ang mga web pages ay karaniwang tumatabko sa sanboxed na kapaligiran at hindi ito pinapayagan na mag access sa native resources. Gayunman , sa mga gumagamit ng Electron ay may kapangyarihan na gamitin ang Node.js APIs sa web pages na nagpapahintulot sa mas mababang antas ng operating system ng interaksyon.
 
-### Differences Between Main Process and Renderer Process
+### Ang pagkakaiba ng pangunahing proseso at proseso ng tagasalin
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Ang pangunahing proseso and gumagawa ng web pages sa pamamagitan ng `BrowserWindow` instances. Bawat `BrowserWindow` instance ay nagpapatakbo ng web page sa sarili nitong proseso ng tagasalin. Kapag ang `BrowserWindow` instance ay nasira ,ang kaukulang renderer process ay mapuputol din.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Ang pangunahing proceso ay namamahala sa lahat ng web pages at kaukulang mga proseso ng tagasalin. Bawat proseso ng tagasalin ay nakahiwalay at nagmamalasakit lamang sa web page na tumatakbo dito.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Sa web pages, ang pagtawag sa native GUI na may kaugnayan sa APIs ay hindi pinapayagan dahil ang pamamahala ng native GUI resources sa web pages ay lubhang mapanganib at madali itong i leak ang mga resources. Kapag gusto ninyong magsagawa ng GUI operations sa inyung web page, ang proseso ng tagasalin ng web page ay dapat makipag-ugnayan sa pangunahing proseso upang humiling sa pangunahing proseso para magsagawa ng lahat ng operasyon.
 
-In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+Sa Electron, may ilang paraan para makipagusap sa pagitan ng pangunahing proseso at proseso ng tagasalin. Katulad na lng ng [`ipcRenderer`](../api/ipc-renderer.md) at [`ipcMain`](../api/ipc-main.md)modules para sa pagpapadala ng mga mensahe,at sa [remote](../api/remote.md) module para sa RPC style communication. Mayroon ding isang FAQ entry sa [ kung paano magbahagi ng data sa pagitan ng web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Write your First Electron App
+## Isulat ang iyong unang Elecron App
 
-Generally, an Electron app is structured like this:
+Sa pangkalahatan, isang app ng Electron ay nakaayos katulad na lng nito:
 
 ```text
-your-app/
+iyong-app/
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-The format of `package.json` is exactly the same as that of Node's modules, and the script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+Ang format ng `package.json` ay eksakto sa katulad ng Node's modules, at ang iskrip na tinukoy ng `pangunahing`field ay ang mga iskrip sa pagsisimula ng iyong app, na kung saan tatakbo ang pangunahing proseso. Ang halimbawa ng iyong `package.json` ay maaring ganito ang hitsura:
 
 ```json
 {
-  "name"    : "your-app",
+  "name"    : "iyong-app",
   "version" : "0.1.0",
   "main"    : "main.js"
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js`.
+**Paalala**: kung ang `pangunahing` field ay hindi naroroon sa `package.json`,ang Electron ay magtatangkang i-load ang isang`index.js`.
 
-The `main.js` should create windows and handle system events, a typical example being:
+Ang `main.js` ay dapat lumikha ng windows at hawakan ang system events,isang tipikal na halimbawa :
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win
+//Panatilihin ang global reference sa window object, kung hindi, ang window ay maaring isarado ng awtomatiko kapag ang JavaScript object ay nakakolekta ng basura.
+hayaang manalo
 
-function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+function gumawa ngWindow () {
+  // Gumawa ng browser window.
+  win = bagong BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
+  // i-load ang index.html sa app.
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  // Open the DevTools.
+  // Buksan ang DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
-  win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+  //Emitted kapag sarado na ang window.
+  win.on('sarado', () => {
+    // Dereference ang window object, karaniwang itago mo ang windows
+   //sa isang array kung ang iyong app ay sumusuporta sa multi windows, ito ay ang oras kung kailan mo dapat burahin ang kaukulang elemento.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
-
-// Quit when all windows are closed.
-app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
+// Ang paraang ito ay tinatawag kapag ang Electron ay tapos na
+// Inisyalisasyon at handa na itong gumawa ng browser windows.
+Ilang APIs ay maari lamang gamitin matapos ang pangyayaring ito ay nangyayari.
+app.on('humanda', lumikhangWindow)
+Tumigil kapag sarado na ang lahat ng windows.
+app.on('window-lahat-sarado', () => {
+  // Sa macOS ito ay karaniwan para sa mga aplikasyon at kanilang menu bar
+  //para manatiling aktibo hanggang ang gumagamit ay tahasang huminto sa Cmd+Q
+  Kung (proseso.platporm !== 'darwin') {
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (win === null) {
-    createWindow()
+  //Sa macOS ito ay karaniwan upang muling lumikha ng window sa app kapag ang 
+  //ang dock icon ay nag-click at wla nang iba pang windows na nakabukas.
+  kung (win === null) {
+    lumikhangWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+//Sa file na ito pwede mong isama ang iba mo pang app's specific sa pangunahing code. Maari mo rin ilagay ang mga ito sa magkakahiwalay na mga file at dito nangangailangan sila.
 ```
 
-Finally the `index.html` is the web page you want to show:
+Sa huli ang`index.html` ay ang web page na gusto mong ipakita:
 
 ```html
 <!DOCTYPE html>
@@ -118,30 +110,30 @@ Finally the `index.html` is the web page you want to show:
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
+    Kami ay gumagamit ng node<script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    and Electron <script>document.write(process.versions.electron)</6.
   </body>
 </html>
 ```
 
-## Run your app
+## Patakbuhin ang iyong app
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+Kapag ginawa mo ang iyong inisyal `main.js`, `index.html`, at `package.json` mga files, Malamang gusto mong patakbuhin ang iyong app ng lokal para masubukan ito at tiyaking na gumagana ito tulad ng inaasahan.
 
 ### `electron`
 
-[`electron`](https://github.com/electron-userland/electron-prebuilt) is an `npm` module that contains pre-compiled versions of Electron.
+[`electron`](https://github.com/electron-userland/electron-prebuilt) ay isang `npm`module na naglalaman ng pre-compiled na bersyon ng Electron.
 
-If you've installed it globally with `npm`, then you will only need to run the following in your app's source directory:
+Kapag naka-install ka nito globally sa `npm`, pagkatapos kailangan mo lang na patakbuhin ang mga sumusunud sa iyong app's source directory:
 
 ```sh
 electron .
 ```
 
-If you've installed it locally, then run:
+Kapag naka-install ka nito locally, pagkatapos ay pwede mo nang patakbuhin:
 
-#### macOS / Linux
+#### macOS/Linux
 
 ```sh
 $ ./node_modules/.bin/electron .
@@ -153,55 +145,55 @@ $ ./node_modules/.bin/electron .
 $ .\node_modules\.bin\electron .
 ```
 
-#### Node v8.2.0 and later
+#### Node v8.2.0 at sa kalaunan
 
 ```sh
 $ npx electron .
 ```
 
-### Manually Downloaded Electron Binary
+### Manu-mano na-download ang electron Binary
 
-If you downloaded Electron manually, you can also use the included binary to execute your app directly.
+Kapag na-download mo ang Electron na mano-mano, pwede mong magamit ang kasamang binary upang isagawa ang iyong mga app nag direkta.
 
 #### macOS
 
 ```sh
-$ ./Electron.app/Contents/MacOS/Electron your-app/
+$ ./Electron.app/Contents/MacOS/Electron iyong-app/
 ```
 
 #### Linux
 
 ```sh
-$ ./electron/electron your-app/
+$ ./electron/electron iyong-app/
 ```
 
 #### Windows
 
 ```sh
-$ .\electron\electron.exe your-app\
+$ .\electron\electron.exe iyong-app\
 ```
 
-`Electron.app` here is part of the Electron's release package, you can download it from [here](https://github.com/electron/electron/releases).
+`Electron.app`Narito ang bahagi ng release package ng Electron, maari mong madownload ang mga ito mula[dito](https://github.com/electron/electron/releases).
 
-### Run as a distribution
+### Tumakbo bilang isang distribusyon
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+Pagkatapos mong magsulat ng iyong app, pwede kang gumawa ng distribusyon sa pamamagitan ng mga sumusunod na[Application Distribusyon](./application-distribution.md) gabay at pagkatapos isinasagawa ang packaged app.
 
-### Try this Example
+### Subukan ang mga halimbawang ito
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Iclone at magpatakbo ng code sa tutorial sa pamamagitan ng[`electron/electron-madaling-pagsisimula`](https://github.com/electron/electron-quick-start) repository.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**Note**:Tumatakbo ang mga ito na nangangailangan ng [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (na kinabibilangan ng[npm](https://npmjs.org))sa iyong sistema.
 
 ```sh
-# Clone the repository
-$ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-$ cd electron-quick-start
-# Install dependencies
+# i-clone ang repository
+$ git clone https://github.com/electron/electron-madaling-pagsisimula
+# Pumunta sa repository
+$ cd electron-madaling-pagsisimula
+# I-install dependencies
 $ npm install
-# Run the app
-$ npm start
+# Patakbuhin ang app
+$ npm simula
 ```
 
-For more example apps, see the [list of boilerplates](https://electronjs.org/community#boilerplates) created by the awesome electron community.
+Para sa iba pang mga halimbawa ng app, tingnan ang[listahan ng mga boilerplates](https://electronjs.org/community#boilerplates)nilikha sa pamamagitan ng mga kahanga-hangang communidad ng electron.
