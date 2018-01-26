@@ -154,4 +154,4 @@ Devuelve `String` - El valor de cabecera Etag.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Devuelve `Double` - Número de segundos desde el UNIX epoch cuando se inició la descarga.
