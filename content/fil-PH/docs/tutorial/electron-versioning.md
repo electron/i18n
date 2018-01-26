@@ -108,9 +108,9 @@ Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha 
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# Mga nawawalang tampok: Alphas, at Nightly
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang aming angkop. Higit sa lahat ang mga bagong tampok sa master ay maaring tumagal bago umabot sa matatag na release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
 As a future consideration, we may introduce one or both of the following:
 
