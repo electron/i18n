@@ -3,6 +3,6 @@
 * `Nomecomune` Stringa - Nome Comune
 * `organizzazione` Stringa[] - Nomi organizzazione
 * `Unitàorganizzazione` Stringa[] - Nomi unità di organizzazione
-* `locality` String - Locality
-* `state` String - State or province
-* `country` String - Country or region
+* `località` Stringa - Località
+* `stato` Stringa - Stato o provincia
+* `paese` Stringa - Paese o regione
