@@ -38,7 +38,7 @@ Isang malaking update ang dumating na may bersyon `v1.0.0`. Kung hindi mo pa gin
 
 ## Pangunahing Pilosopiya
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Upang mapanatili ang Elektron na maliit (laki ng file) at pangmatagalan (ang pagkalat ng dependencies at API) nililimitahan ng proyekto ang saklaw ng pangunahing proyekto.
 
 For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
 
