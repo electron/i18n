@@ -83,10 +83,10 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
 
 1. 모든 신규 메이저, 마이너 버전 출시 라인은 `-beta.N` 태그로 시작하고, `N >= 1` 이어야 한다. 이 시점에서는, 기능과 관련된 부분은 **잠깁니다(locked)**. 이 출시 라인은 기능 추가는 허용되지 않으며, 보안과 안정성에만 초점을 맞추고 있습니다. 예. `2.0.0-beta.1`.
 2. 버그 수정, 회귀(regression) 수정, 보안 패치가 허용됩니다. 이를 위해 새로운 베타 버전은 `N` 을 증가시켜 출시합니다. 예. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+3. 특정 베타 출시 버전이 *일반적으로* 안정적이라고 여겨지면, 안정적인 빌드 버전으로 버전 정보만 수정해서 재출시될 것입니다. 예. `2.0.0`.
+4. 안정 버전이 출시된 이후에 버그 수정이나 보안 패치 등이 필요한 경우 *패치* 버전을 증가시킵니다 예. `2.0.1`.
 
-For each major and minor bump, you should expect too see something like the following:
+메이저, 마이너 버전 증가를 위해 아래와 같은 것을 보길 원할 것입니다.
 
 ```text
 2.0.0-beta.1
@@ -97,7 +97,7 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+주기(lifecycle) 예제를 그림으로 표현했습니다:
 
 * A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
