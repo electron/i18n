@@ -77,11 +77,11 @@ Gustong malaman ng mga developers kung aling release ang mga *ligtas* gamitin. K
 
 Ang importante sa ikalawang punto ay ang mga aplikasyon ay gumagamit ng `^` na dapat paring asahan ang makatuwirang antas ng stabilidad. Para maisakatuparan ito, pinapahintulot ng semver ang *indikasyon sa bagong release* upang ipahiwatig ang isang partikular na bersyon na hindi *ligtas* o *matatag*.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+Anuman ang piliin mo, pana-panahon mo pa ring i-bump ang bersyon ng iyong `package.json` para sa mga bagong pagsira ay isang katotohanan sa buhay ng Chromium.
 
-The process is as follows:
+Ang mga sumusunod ay ang proseso:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
+1. Lahat ng mga bagong release na maliit man o malaki ay nagsisimula sa isang `-beta.N` na tag para sa `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
 2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
