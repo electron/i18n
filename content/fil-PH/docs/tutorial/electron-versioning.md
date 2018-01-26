@@ -101,10 +101,10 @@ Isang halimbawa ng lifecycle na makikita sa larawan ay:
 
 * Isang bagong labas na branch ang nilikha na may pinakabagong tampok. Ito ay inilathala bilang `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * Ang pag-ayos ng bug ay darating sa master na pwedeng ipack-port sa release branch. Ang patch ay inilapat, at may bagong beta na inilathala bilang `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Itinuturi ang beta na *pangkalahatang matatag* at ito ay inilathala muli bilang di-beta sa ilalim ng `2.0.0`. ![](../images/versioning-sketch-5.png)
+* Kalaunan, isang araw na walang pagsamantalahan ang inihayag at ang pagsasaayos ay inilapat sa master. Pinapack-port namin ang pag-ayos sa linya ng `2-0-x` at inilabas ang `2.0.1`. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha sa mga bagong labas:
 
 ![](../images/versioning-sketch-7.png)
 
