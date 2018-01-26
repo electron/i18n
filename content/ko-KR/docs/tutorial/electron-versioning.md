@@ -72,10 +72,10 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
 
 개발자들은 어떤 출시 버전을 *안전하게* 사용할 수 있는지 알고 싶어합니다. 문제가 없는 것처럼 보이는 기능도 복잡한 애플리케이션에서는 회귀(regression) 버그를 일으킬 수 있습니다. 또한, 특정 버전만 고집하는 것은 해당 버전이후에 발생할 수 있는 보안 패치와 버그 수정을 무시하는 것이기 때문에 매우 위험합니다. 우리의 목표는 `package.json` 안에서 아래의 표준 semver 범위를 따르도록 하는 것입니다:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* `~2.0.0`을 사용하면 `2.0.0` 출시 버전에 안정화, 보안과 관련된 수정사항만 허락합니다.
+* `^2.0.0`을 사용하면 보안, 버그 수정 뿐만 아니라 매우 크지는 않지만 *상당히 안정적인* 기능들도 허락합니다.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+두 번째 항목에서 중요한 점은 `^`을 사용하는 앱에서도 상당한 수준의 안정성이 보장되어야 한다는 것입니다. 이를 위해, semver는 아직 *안전하거나* *안정적이지 않은* 특정 버전을 나타내기 위해 *pre-release identifier*를 제공합니다.
 
 Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
 
