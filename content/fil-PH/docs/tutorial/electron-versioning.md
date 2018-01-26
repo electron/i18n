@@ -128,9 +128,9 @@ Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na iti
 Pinagkasundo namin ang flagged code sa aming bersyoning na istratehiya gaya ng sumusunod:
 
 1. hindi namin isinasaalang-alang ang pag-uulit sa feature-flagged code sa stabilidad ng branch; kahit matalino ang paggamit sa mga tampok na bandila ay walang hindi mapanganib
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+2. maari mong itigil ang API na kontrata sa feature-flagged code na walang pagbu-bump sa malaking bersyon. Dahil hindi umaayon ang flagged-code sa semver
 
-# Semantic Commits
+# Mga Commit ng Semantiko
 
 We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
