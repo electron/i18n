@@ -81,8 +81,8 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
 
 프로세스는 다음과 같습니다:
 
-1. 모든 신규 메이저, 마이너 버전 출시 라인은 `-beta.N` 태그로 시작하고, `N >= 1` 이어야 한다. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
+1. 모든 신규 메이저, 마이너 버전 출시 라인은 `-beta.N` 태그로 시작하고, `N >= 1` 이어야 한다. 이 시점에서는, 기능과 관련된 부분은 **잠깁니다(locked)**. 이 출시 라인은 기능 추가는 허용되지 않으며, 보안과 안정성에만 초점을 맞추고 있습니다. 예. `2.0.0-beta.1`.
+2. 버그 수정, 회귀(regression) 수정, 보안 패치가 허용됩니다. 이를 위해 새로운 베타 버전은 `N` 을 증가시켜 출시합니다. 예. `2.0.0-beta.2`
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
 
