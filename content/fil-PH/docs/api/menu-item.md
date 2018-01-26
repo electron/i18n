@@ -62,7 +62,7 @@ Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 * `about` - Ibalangkas sa mga aksyon ng `orderFrontStandardAboutPanel`
 * `hide` - Ibalangkas sa mga aksyon ng `hide`
 * `hideothers` - Ibalangkas sa mga aksyon ng `hideOtherApplicatios`
-* `unhide` - Map to the `unhideAllApplications` action
+* `unhide` - Ibalangkas sa mga aksyon ng `unhideAllApplications`
 * `startspeaking` - Map to the `startSpeaking` action
 * `stopspeaking` - Map to the `stopSpeaking` action
 * `front` - Map to the `arrangeInFront` action
