@@ -6,7 +6,7 @@ Una ventana sin bordes es una ventana que no tiene [chrome](https://developer.mo
 
 ## Crear una ventana sin bordes
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+Para crear una ventana sin marco, necesitas establecer `frame` a `false` en las `options` de [BrowserWindow](browser-window.md):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -16,11 +16,11 @@ win.show()
 
 ### Alternativas en macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+En macOS 10.9 Mavericks y más reciente, hay una manera alternativa de especificar una ventana sin chromes. En lugar de establecer `frame` a `false`, el cual deshabilita tanto los controles de la ventana como la barra de títulos, puedes ocultar la barra de tareas y ampliar el contenido hasta el tamaño completo de la ventana, aún así se mantienen los controles de la ventana ("traffic lights") para las acciones estándares de la ventana. Puede hacerse especificando la opción `titleBarStyle`:
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Es una barra de título oculta y una ventana de contenido de tamaño completo. Sin embargo, la barra de título mantiene los controles estándares de la ventana (“traffic lights”) en la parte superior izquierda.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
+Es una barra de título oculta con un aspecto alternativo donde los botones de traffic light están ligeramente mas insertados desde el borde de la ventana.
 
 ```javascript
 const {BrowserWindow} = require('electron')
