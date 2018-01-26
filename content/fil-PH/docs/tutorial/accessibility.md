@@ -28,11 +28,11 @@ Sa Devtron, may isang bagong tab ng aksesibilidad kung saan na pinahintulutan ka
 
 ![ang screen ng devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
-Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
+Parehong sa mga kagamitan na ito ay ginagamit ng [ Mga kagamitan sa Aksesibilidad ng nag-develop](https://github.com/GoogleChrome/accessibility-developer-tools) binuong library sa google para sa chrome. Marami kang matutunan tungkol sa mga panuntunan sa aksesibilidad ng pag audit dito sa silid-aklatan na gumagamit ng [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
-If you know of other great accessibility tools for Electron, add them to the [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) with a pull request.
+Kung alam mo ang ibang malakong aksebilidad na mga kagamitan sa Elektron, idagdag ang mga ito sa [dokumentasyon ng aksebilidad](https://electronjs.org/docs/tutorial/accessibility) sa pull request.
 
-## Enabling Accessibility
+## Paganahin ang aksesibilidad
 
 Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
 
