@@ -1,15 +1,14 @@
 # Pamamahagi ng aplikasyon
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Elektron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Upang maipamahagi ang iyong app sa elektron, kailangan mong i-download ang elektron mga binary ng prebuilt<0/>. Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Elektron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Elektron prebuilt ay ipinapahiwatig ng `elektron/<0> sa mga halimbawa sa ibaba.</p>
 
-On macOS:
+<p>Sa macOs:</p>
 
-```text
-electron/Electron.app/Contents/Resources/app/
+<pre><code class="text">electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
 └── index.html
-```
+`</pre> 
 
 On Windows and Linux:
 
@@ -28,7 +27,7 @@ Apart from shipping your app by copying all of its source files, you can also pa
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
-On macOS:
+Sa macOs:
 
 ```text
 electron/Electron.app/Contents/Resources/
