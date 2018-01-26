@@ -161,7 +161,7 @@ $ ./script/build.py -c R
 
 ### Gamitin ang sistema ng `clang` sa halip na "downloaded `clang` binaries"
 
-Bilang "default", ang Electron ay binuo gamit ang bagong buo ng "[`clang`](https://clang.llvm.org/get_started.html) binaries" na binibigay ng proyekto ng Chromium. Para sa ilang rason, nais mong bumuo gamit ang `clang` na "naka-install" sa sistema, maaaring gamitin ang `bootstrap.py` kasama ang "`--clang_dir=<path>` switch". Bilang paggamit nito, ang nabuong iskrip ay ipagpapalagay na ang "`clang` binaries" ay nasa `<path>/bin/`.
+Bilang "default", ang Electron ay binuo gamit ang bagong buo ng "[`clang`](https://clang.llvm.org/get_started.html) binaries" na binibigay ng proyekto ng Chromium. Para sa ilang rason, nais mong bumuo gamit ang `clang` na "naka-install" sa sistema, maaaring gamitin ang `bootstrap.py` kasama ang "switch" ng `--clang_dir=<path>`. Bilang paggamit nito, ang nabuong iskrip ay ipagpapalagay na ang "`clang` binaries" ay nasa `<path>/bin/`.
 
 Halimbawa, kapag "in-install" ang `clang` sa ilalim ng `/user/local/bin/clang`:
 
