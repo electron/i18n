@@ -321,7 +321,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
   * `eTag` String - ETag başlık değeri.
   * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
 #### `ses.clearAuthCache(options[, callback])`
 
