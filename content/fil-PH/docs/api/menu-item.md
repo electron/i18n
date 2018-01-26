@@ -50,9 +50,9 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `reload` - Ikarga ulit ang kasalukuyang window
 * `forceload` - Ikarga ulit ang kasalukuyang window nang hindi pinapansin ang cache.
 * `toggledevtools` - Mga gamit ng taga-buo ng toggle sa kasalukuyang window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
+* `togglefullscreen` - I-togel ang buong iskrin na moda ng kasalukuyang window
+* `resetzoom` - I-set na muli ang lebel na pampalaki sa orihinal na sukat ng nakapokus na pahina
+* `zoomin` - Palakihin ang nakapokus na pahina ng 10 porsyento
 * `zoomout` - Zoom out the focused page by 10%
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
