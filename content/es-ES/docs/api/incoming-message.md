@@ -46,20 +46,20 @@ Una `String` representando el mensaje de estado HTTP.
 
 #### `response.headers`
 
-Un `Object` que representa las cabeceras HTTP de respuesta. El objeto `headers` es formateado de la siguiente manera:
+Un `Object` que representa los encabezados HTTP de respuesta. El objeto `headers` es formateado de la siguiente manera:
 
-* Todos los nombres de cabecera son puestos en minúsculas.
-* Cada nombre de cabecera produce una propiedad de valores del arreglo en el objeto de las cabeceras.
-* Cada valor de cabecera es puesto dentro del arreglo asociado al nombre de cabecera.
+* Todos los nombres de los encabezados son puestos en minúsculas.
+* Cada nombre de encabezado produce una propiedad de valores del arreglo en el objeto de las cabeceras.
+* Cada valor de encabezado es puesto dentro del arreglo asociado al nombre de encabezado.
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Una `String` que indica el número de versión de protocolo HTTP. Los valores típicos son "1.0" o "1.1". Adicionalmente `httpVersionMajor` y `httpVersionMinor` son dos propiedades legibles de valores enteros que devuelven los números de la versión principal y secundaria de HTTP respectivamente.
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+Un `Integer` que indica el número de la versión principal del protocolo HTTP.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+Un `Integer` que indica el número de la versión secundaria del protocolo HTTP.
