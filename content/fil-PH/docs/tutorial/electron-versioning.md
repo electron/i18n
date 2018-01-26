@@ -110,11 +110,11 @@ Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha 
 
 # Mga nawawalang tampok: Alphas, at Nightly
 
-Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang aming angkop. Higit sa lahat ang mga bagong tampok sa master ay maaring tumagal bago umabot sa matatag na release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang aming angkop. Higit sa lahat ang mga bagong tampok sa master ay maaring tumagal bago umabot sa matatag na release line. Kung gusto mong subukan kaagad ang bagong tampok, dapat mong i-build ang Electron ng iyong sarili.
 
-As a future consideration, we may introduce one or both of the following:
+Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho ang mga sumusunod:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
+* nightly builds off ng master; ito'y nagpapahintulot sa mga folks para subukan kaagad ang mga bagong tampok at magbigay ng feedback
 * alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
 
 # Feature Flags
