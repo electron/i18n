@@ -1,17 +1,17 @@
 # Variables de entorno
 
-> Control application configuration and behavior without changing code.
+> Configuración y comportamiento de la aplicación de control sin cambiar el código.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Ciertos comportamientos de Electron están controlados por variables de entorno debido a que son inicializadas antes que las flags de la línea de comandos y que el código de la applicación.
 
-POSIX shell example:
+Ejemplo de shell POSIX:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Ejemplo de consola de Windows:
+Ejemplo de la consola de Windows:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
@@ -20,7 +20,7 @@ Ejemplo de consola de Windows:
 
 ## Variables de producción
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+Las siguientes variables de entorno están diseñadas principalmente para usarse en los módulos de ejecución en las aplicaciones preconfiguradas de Electron.
 
 ### `GOOGLE_API_KEY`
 
