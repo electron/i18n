@@ -16,7 +16,7 @@ Ang elektron ay pinananatili ng isang koponan sa GitHub pati na rin ang isang gr
 
 [Ang paglalabas ng elektron](https://github.com/electron/electron/releases) ng madalas. Inilalabas namin kapag may mga makabuluhang pag-aayos ng bug, mga bagong API o pag-update ng mga bersyon ng Chromium o Node.js.
 
-### Updating Dependencies
+### Ina-update ang Dependencies
 
 Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
 
