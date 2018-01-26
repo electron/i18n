@@ -5,8 +5,8 @@ Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
 ## Mga Pangunahing Kailangan
 
 * Hindi bababa sa 25GB disk space at 8GB RAM.
-* Python 2.7.x. Ilang mga distribusyon tulad ng CentOS 6.x ay gumagamit pa rin ng Python 2.6.x kaya maaaring kailanganing suriin ang iyong Python version kasama ang `python -V`.
-* Node.js. May iba't-ibang paraan upang i-install ang Node. Maaaring kunin o i-download ang source code galing sa [nodejs.org](https://nodejs.org) at i-compile ito. Ang paggawa nito ay hinahayaang i-install ang Node sa sarili nitong home directory bilang pamantayan ng gumagamit o user. O subukan ang mga repository tulad ng [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Ang ilang distribusyon ng Python 2.7.x. tulad ng CentOS 6.x ay gumagamit pa rin hanggang ngayon ng Python 2.6.x kaya naman maaaring suriin ang Python version gamit ang `python -V`.
+* Node.js. May iba't-ibang paraan upang i-install ang Node. Maaaring "i-download" ang "source code" galing sa [nodejs.org](https://nodejs.org) at ikompayl ito. Ang paggawa nito ay hinahayaang i-install ang Node sa sarili nitong home directory bilang pamantayan ng gumagamit o user. O subukan ang mga repository tulad ng [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o mamaya.
 * Ang pagpapaunlad ng mga header ng GTK+ at libnotify.
 
