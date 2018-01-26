@@ -258,27 +258,27 @@ Nagbabalik `String` - Ang titulo ng pahina ng panauhin.
 
 ### `<webview>.isLoading()`
 
-Return `Boolean` - Kung ang pahina ng panauhin ay nakakarga pa rin.
+Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay nakakarga pa rin.
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay naghihintay ng unang-sagot para sa pangunahing mapagkukunan ng pahina.
 
 ### `<webview>.stop()`
 
-Stops any pending navigation.
+Nagtitigil ng anumang nakabingbing na nabigasyon.
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+Ikarga muli ang pahina ng panauhin.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Ikarga muli ang pahina ng panauhin at ang hindi napansin na cache.
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay hindi makabalik.
 
 ### `<webview>.canGoForward()`
 
