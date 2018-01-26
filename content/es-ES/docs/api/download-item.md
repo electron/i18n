@@ -92,19 +92,19 @@ Devuelve `Boolean` - Si la ventana esta pausada o no.
 
 Reanuda la descarga que ha sido pausada.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Nota:** Para habilitar las descargas reanudables, el servidor desde donde se descarga debe soportar las solicitudes de rango y proporcionar los valores de cabecera `Last-Modified` y `ETag`. De lo contrario, `resume()` descartará los bytes recibidos anteriormente y reiniciará la descarga desde el principio.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Reanuda `Boolean` - Si la descarga puede reanudarse o no.
 
 #### `downloadItem.cancel()`
 
-Cancela la operación de descarga.
+Cancela la operación de la descarga.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Devuelve `String` - El url de origen desde donde se descargó el elemento.
 
 #### `downloadItem.getMimeType()`
 
