@@ -84,7 +84,7 @@ AngAkingApp.app/Mga Nilalaman
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Maari mong palitan ng pangalan ang `elektron` maaring palitan sa anumang gusto mo.
 
 ## Packaging Tools
 
