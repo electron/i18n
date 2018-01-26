@@ -121,7 +121,7 @@ Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 
 Proxy ayarlarını yap.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+`pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
 
 `proxyRules` aşağıdaki kurallara uymak zorundadır:
 
