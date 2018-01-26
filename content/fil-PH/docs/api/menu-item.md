@@ -59,9 +59,9 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 
 Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
+* `about` - Ibalangkas sa mga aksyon ng `orderFrontStandardAboutPanel`
+* `hide` - Ibalangkas sa mga aksyon ng `hide`
+* `hideothers` - Ibalangkas sa mga aksyon ng `hideOtherApplicatios`
 * `unhide` - Map to the `unhideAllApplications` action
 * `startspeaking` - Map to the `startSpeaking` action
 * `stopspeaking` - Map to the `stopSpeaking` action
