@@ -127,7 +127,7 @@ app.on('activate', () => {
 
 ## अपनी एप्प चलायें
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you'll probably want to try running your app locally to test it and make sure it's working as expected.
+एक बार जब आपने अपनी `main.js`, `index.html`, और `package.json` फाइल्स निर्मित कर ली हो, तो आप अपनी एप्प को स्थानीय तौर पर चला कर उसका परिक्षण करना चाहेंगे और यह सुनिश्चित करेंगे कि वह वैसे ही काम कर रही है जैसा कि अपेक्षित था |
 
 ### `electron`
 
