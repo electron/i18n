@@ -104,9 +104,9 @@ Posible rin ito na i-rebrand ang elektron sa pamamagitan ng pagbabago ng pangala
 
 Lumikha ng pasadyang fork sa elektron ay halos tiyak na walang iba kinakailngan mong gumawa sa pagkasunod-sunod upang mabuo ang iyong app, pantay para sa "Level ng produksyon" ng mga aplikasyon. Gamit ng kagamitan tulad ng `packager ng elekron` o `elektron-forge` ay nagbibigay daan sayo upang "i-Rebrand" ang elektron kahit walang pakakaroon nitong ng mga hakbang.
 
-Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iyong ipinatched direkta sa Electron, na alinmang hindi pwedeng i-upstream, o na tinanggihan mula sa opisyal na bersyon. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iyong ipinatched direkta sa Electron, na alinmang hindi pwedeng i-upstream, o na tinanggihan mula sa opisyal na bersyon. Bilang mga maintainer ng Elektron, napakagusto naming gawin ang sitwasyon ng iyong trabaho, kaya mangyaring subukan ng maigi hanggang makukuha mo ang mga pagbabago sa opisyal na bersyon ng Elektron, mas madali para sayo, at pinahahalagahan namin ang iyong tulong.
 
-#### Creating a Custom Release with surf-build
+#### Paglikha ng isa pasadyang release sa pagbuo ng surf
 
 1. I-install ang [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
