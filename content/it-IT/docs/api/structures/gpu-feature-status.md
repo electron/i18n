@@ -1,7 +1,7 @@
-# GPUFeatureStatus Object
+# Oggetto FunzioneStatoGPU
 
-* `2d_canvas` String - Canvas
-* `flash_3d` String - Flash
+* `2d_tela` Stringa - Tela
+* `flash_3d` Stringa - Flash
 * `flash_stage3d` String - Flash Stage3D
 * `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
 * `gpu_compositing` String - Compositing
