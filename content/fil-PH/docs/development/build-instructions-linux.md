@@ -161,18 +161,18 @@ $ ./script/build.py -c R
 
 ### Gamitin ang sistema ng `clang` sa halip na "downloaded `clang` binaries"
 
-Bilang "default", ang Electron ay binuo gamit ang bagong buo ng "[`clang`](https://clang.llvm.org/get_started.html) binaries" na binibigay ng proyekto ng Chromium. Para sa ilang rason, nais mong bumuo gamit ang `clang` na "naka-install" sa sistema, maaaring gamitin ang `bootstrap.py` kasama ang "`--clang_dir=<path>` switch". By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Bilang "default", ang Electron ay binuo gamit ang bagong buo ng "[`clang`](https://clang.llvm.org/get_started.html) binaries" na binibigay ng proyekto ng Chromium. Para sa ilang rason, nais mong bumuo gamit ang `clang` na "naka-install" sa sistema, maaaring gamitin ang `bootstrap.py` kasama ang "`--clang_dir=<path>` switch". Bilang paggamit nito, ang nabuong iskrip ay ipagpapalagay na ang "`clang` binaries" ay nasa `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Halimbawa, kapag "in-install" ang `clang` sa ilalim ng `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Gamit ang kompayler kaysa sa `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
+Para mabuo ang Electron gamit ang mga kompayler tulag ng `g++`, ang unang kailangang gawin ay ihinto ang paggana ng `clang` gamit ang "switch" ng `--disable_clang`, pagkatapos ay itakda ang `CC` at `CXX` bilang "environment variables" na nais mong gamitin.
 
 For example building with GCC toolchain:
 
