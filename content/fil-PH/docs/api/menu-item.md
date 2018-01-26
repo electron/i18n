@@ -53,9 +53,9 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `togglefullscreen` - I-togel ang buong iskrin na moda ng kasalukuyang window
 * `resetzoom` - I-set na muli ang lebel na pampalaki sa orihinal na sukat ng nakapokus na pahina
 * `zoomin` - Palakihin ang nakapokus na pahina ng 10 porsyento
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `zoomout` - Paliitin ang nakapokus na pahina ng 10 porsyento
+* `editMenu` - Ang kabuoang default na menu ng "Edit" (Undo, Kopya, atbp.)
+* `windowMenu` - Ang kabuoang default na menu ng "Window" (Paliitin, Isara, atbp.)
 
 The following additional roles are available on macOS:
 
