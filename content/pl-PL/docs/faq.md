@@ -12,7 +12,7 @@ Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/
 
 Wersja Chrome w bibliotece Electron jest zazwyczaj aktualizowana 1 lub 2 tygodnie po wydaniu nowej, stabilnej wersji Chrome. Nie możemy jednak zagwarantować, iż zostanie to wykonane w powyższym czasie i zależy to głównie od nakładu pracy, jaki będziemy musieli włożyć przy aktualizacji.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Tylko stabilny kanał Chrome jest używany. Jeśli ważna naprawa jest w fazie beta lub kanale dev, zostanie backportowana.
 
 Aby uzyskać więcej informacji zobacz [wprowadzenie do zabezpieczeń](tutorial/security.md).
 
@@ -24,12 +24,12 @@ Nowe funkcje Node.js są zazwyczaj wdrażane przez aktualizacje V8, dlatego, że
 
 ## Jak udostępniać dane między stronami internetowymi?
 
-Aby udostępniać dane między stronami internetowymi (procesy renderowania) najlepiej jest użyć HTML5 API, które są dostępne w przeglądarkach. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Aby udostępniać dane między stronami internetowymi (procesy renderowania) najlepiej jest użyć HTML5 API, które są dostępne w przeglądarkach. Dobrymi kandydatami są [pamięć API](https://developer.mozilla.org/en-US/docs/Web/API/Storage),[`lokalnaPamięć`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`Pamięć sesji`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), i [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Lub możesz użyć systemu IPC, wyszczególnionego dla Electronu, aby przechowywać obiekty w głównym procesie jako zmienna globalna, a potem by uzyskać do nich dostęp z renderowania za pomocą modułu `zdalna`właściwość`electron`:
 
 ```javascript
-// In the main process.
+// W procesie głównym.
 global.sharedObject = {
   someProperty: 'default value'
 }
