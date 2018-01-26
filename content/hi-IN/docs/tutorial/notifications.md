@@ -19,12 +19,12 @@ myNotification.onclick = () => {
 ## विंडोज
 
 * विंडोज 10 पर, नोटीफीकेशंस "बस काम" करती है ।
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* विंडोज 8.1 और विंडोज 8 पर, एक [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) के साथ आपके एप्प की एक शॉर्टकट, स्टार्ट स्क्रीन पर इनस्टॉल होनी चाहिये | हालाँकि, उसका स्टार्ट स्क्रीन पर पिनड होना ज़रूरी नहीं है |
+* विंडोज 7 पर, नोटीफीकेशंस एक कस्टम इम्प्लीमेंटेशन के द्वारा काम करती हैं जो कि नये सिस्टम्स पर मूल वाले की तरह दिखाई देता है |
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+इसके अलावा, विंडोज 8 में नोटीफीकेशन की अधिकतम लम्बाई सीमा 250 अक्षरों की है, और विंडोज टीम की सलाह है कि इसे 200 अक्षरों तक ही सीमित रखा जाये | विंडोज 10 में यह सीमा हटा दी गयी है, पर विंडोज टीम ने डेवलपर्स को वाज़िब सीमा रखने की सलाह दी है | ऐपीआई को बहुत सारा टेक्स्ट (हजारों अक्षर) भेजने की कोशिश करने से अस्थिरता उत्पन्न हो सकती है |
 
-### Advanced Notifications
+### उन्नत नोटीफीकेशंस
 
 Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
@@ -42,7 +42,7 @@ Notifications are straight-forward on macOS, but you should be aware of [Apple's
 
 Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
-### Advanced Notifications
+### उन्नत नोटीफीकेशंस
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
