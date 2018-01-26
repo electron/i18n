@@ -63,13 +63,13 @@ Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 * `hide` - Ibalangkas sa mga aksyon ng `hide`
 * `hideothers` - Ibalangkas sa mga aksyon ng `hideOtherApplicatios`
 * `unhide` - Ibalangkas sa mga aksyon ng `unhideAllApplications`
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `startspeaking` - Ibalangkas sa mga aksyon ng `startspeaking`
+* `stopspeaking` - Ibalangkas sa mga aksyon ng `stopspeaking`
+* `front` - Ibalangkas sa mga aksyon ng `arrangeInFront`
+* `zoom` - Ibalangkas sa mga aksyon ng `performZoom`
+* `window` - Ang submenu ay isang menu ng "Window"
+* `help` - Ang submenu ay isang menu ng "Help"
+* `services` - Ang submenu ay isang menu ng "Services"
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
 
