@@ -18,7 +18,7 @@ myNotification.onclick = () => {
 
 ## विंडोज
 
-* On Windows 10, notifications "just work".
+* विंडोज 10 पर, नोटीफीकेशंस "बस काम" करती है ।
 * On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
 * On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
