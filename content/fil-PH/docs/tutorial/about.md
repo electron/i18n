@@ -4,9 +4,9 @@
 
 Nagsimula ang Electron noong 2013 bilang balangkas kung saan ang [Atom](https://atom.io), ang editor ng text na hack ng GitHub, ay itatayo. Ang dalawa ay bukas na pinagmulan galing sa tagsibol noong 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Mula noon ito ay naging isang sikat na kasangkapan na ginagamit ng mga nagdedevelop, nagpoproseso, at ng mga Establisadong kumpanya.[Tingnan kung sino ang nagtatayo sa Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Magbasa pa upang matuto nang higit pa tungkol sa mga tagapag-ambag at paglabas ng Elektron o makapagsimula sa pagbuo gamit ang Elektron sa [Gabay sa Mabilis na Pagsisimula](quick-start.md).
 
 ## Core Team and Contributors
 
