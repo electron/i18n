@@ -40,11 +40,11 @@ myNotification.onclick = () => {
 
 मैकओएस पर नोटीफीकेशंस भेजना काफी सरल है, पर आपको [नोटीफीकेशंस सम्बंधित एप्पल की ह्यूमन इंटरफ़ेस गाइडलाइन्स](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) के बारे में ज्ञात होना चाहिये |
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+याद रखें कि नोटीफीकेशंस का आकार 256 बाय्टेस तक ही सीमीत है और अगर आप इस सीमा के बाहर जाते हैं, तो बाकी की नोटीफीकेशन काट दी जायेगी |
 
 ### उन्नत नोटीफीकेशंस
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+मैकओएस के नवीनतम संस्करणों में नोटीफीकेशंस में एक इनपुट फील्ड भी शामिल है, जिससे कि उपयोगकर्ता एक नोटीफीकेशन को तुरंत रिप्लाई कर सकता है | In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
 ### Do not disturb / Session State
 
