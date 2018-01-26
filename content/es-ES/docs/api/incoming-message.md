@@ -12,19 +12,19 @@ Proceso: [Main](../glossary.md#main-process)
 
 Devuelve:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Un fragmento de la colección de datos de respuesta.
 
-The `data` event is the usual method of transferring response data into applicative code.
+El evento `data` es el método habitual de transferir datos de respuesta en código aplicativo.
 
-#### Event: 'end'
+#### Evento: "end"
 
-Indicates that response body has ended.
+Indica que la respuesta del cuerpo ha finalizado.
 
-#### Event: 'aborted'
+#### Evento: "aborted"
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Aparece cuando una solicitud ha sido cancelada durante una transacción HTTP en curso.
 
-#### Evento: 'error'
+#### Evento: "error"
 
 Devuelve:
 
