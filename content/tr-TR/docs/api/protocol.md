@@ -77,7 +77,7 @@ app.on('ready', () => {
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
+Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. `handler`, bir `request``scheme` ile oluşturulacağı zaman `handler(request, callback)` ile çağırılacak. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
 To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({path: filePath})`.
 
