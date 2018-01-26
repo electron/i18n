@@ -22,17 +22,17 @@ Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않�
 
 ![](../images/versioning-sketch-0.png)
 
-`1.8.1` 버전 앱은 `1.8.2` 기능을 추가하거나 버그를 backport로(rebase 와 같은 방식) 수정하고 새로운 출시 라인(release line)을 유지하는 방법을 적용하기 전에는`1.8.3` 버전 버그 수정을 적용할 수 없습니다.
+`1.8.1` 버전 앱은 `1.8.2` 기능을 추가하거나 버그를 백포트(backport) 방식으로 수정하고 새로운 출시 라인(release line)을 유지하기 전까지는 `1.8.3` 버전 버그 수정을 적용할 수 없습니다.
 
 ## 2.0 버전 이상
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+1.x 전략과 비교하면 아래와 같은 몇 가지 주요한 변화가 있습니다. 각 변경사항은 개발자/관리자, 앱 개발자들의 우선 순위와 요구를 만족시키는데 그 목적이 있습니다.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. 엄격한 semver 규칙 사용
+2. semver 규칙을 준수하는 `-beta` 태그 도입
+3. [관례적인 커밋 메시지](https://conventionalcommits.org/) 도입
+4. 확실하게 정의된 안정화(stabilization) 브랜치
+5. `master` 브랜치는 버전이 없음; stability 브랜치만 버전 정보를 포함하고 있음
 
 We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
 
