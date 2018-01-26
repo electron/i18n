@@ -14,7 +14,7 @@ Ang elektron ay pinananatili ng isang koponan sa GitHub pati na rin ang isang gr
 
 ## Paglalabas
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Ang paglalabas ng elektron](https://github.com/electron/electron/releases) ng madalas. Inilalabas namin kapag may mga makabuluhang pag-aayos ng bug, mga bagong API o pag-update ng mga bersyon ng Chromium o Node.js.
 
 ### Updating Dependencies
 
