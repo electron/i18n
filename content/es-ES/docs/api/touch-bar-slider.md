@@ -11,7 +11,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
   * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
+  * `cambiar` Function (optional) - Function to call when the slider is changed. 
     * `newValue` Number - The value that the user selected on the Slider
 
 ### Propiedades de Instancia
