@@ -92,11 +92,11 @@ Maari mong palitan ng pangalan ang `elektron` maaring palitan sa anumang gusto m
 
 Bukod sa pagmano mano ng packaging sa iyong app, pwede ka ring pumili para gumamit ng ikatlong partido na kagamitan ng packaging para gawin ang trabaho para sayo:
 
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
+* [pagpipilit ng elektron](https://github.com/electron-userland/electron-forge)
+* [pagbubuo ng elektron](https://github.com/electron-userland/electron-builder)
+* [pagpapackage ng elektron](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Rebranding sa pamamagitan ng pagbubuo muli ng Elekron mula sa pinagmulan
 
 It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
 
