@@ -44,10 +44,10 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `istilongidikitatipares`
 * `piliinlahat`
 * `idilit`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
+* `minimize` - Paliitin ang kasalukuyang window
+* `close` - Isara ang kasalukuyang window
+* `quit` - Alisin ang aplikasyon
+* `reload` - Ikarga ulit ang kasalukuyang window
 * `forcereload` - Reload the current window ignoring the cache.
 * `toggledevtools` - Toggle developer tools in the current window
 * `togglefullscreen`- Toggle full screen mode on the current window
