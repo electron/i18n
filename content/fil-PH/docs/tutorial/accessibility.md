@@ -26,7 +26,7 @@ Maari kang basahin ng higit pa tungkol sa tampok na ito sa [Spectron's dokumenta
 
 Sa Devtron, may isang bagong tab ng aksesibilidad kung saan na pinahintulutan kayo na mag-awdit ng pahina sa iyong app, ayusin at salain ang mga resulta.
 
-![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
+![ang screen ng devtron](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
 Both of these tools are using the [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools) library built by Google for Chrome. You can learn more about the accessibility audit rules this library uses on that [repository's wiki](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules).
 
