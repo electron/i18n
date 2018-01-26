@@ -26,7 +26,7 @@ Anumang native Node.js modyul ay maaaring i-karga ng direkta sa Web Workers, ngu
 
 Tandaan na kahit na ang native Node.js modyul ay isang thread-safe hindi parin ligtas na ikarga ito sa Web Worker dahil ang `process.dlopen` na ginagawa ay hindi ligtas na thread.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+Ang tanging paraan para i-load ang native modyul na ligtas sa ngayon, ay siguraduhin na ang karga ng apps ay walang native modyul simulan ng mga Web Workers.
 
 ```javascript
 process.dlopen = () => {
