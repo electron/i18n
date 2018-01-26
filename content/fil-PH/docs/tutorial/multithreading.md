@@ -1,10 +1,10 @@
 # Multithreading
 
-With [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), it is possible to run JavaScript in OS-level threads.
+Sa mga [ nagtra-trabaho ng Web](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_API/Using_web_workers), posibling magpatakbo ng JavaScript sa OS-level threads.
 
 ## Multi-threaded Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Posibling gumamit ng mga tampok ng Node.js sa manggagawa ng Electron's Web, upang gawin ito ay ang `nodeIntegrationInWorker` na opsyon ay dapat na itakda sa `true` sa `webPreferences`.
 
 ```javascript
 let win = new BrowserWindow({
@@ -14,9 +14,9 @@ let win = new BrowserWindow({
 })
 ```
 
-The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but `sandbox` must not be set to `true`.
+Ang `nodeIntegrationInWorker` ay pwedeng gamitin ng nagsasarili sa `nodeIntegration`, pero `sandbox` ay dapat hindi itakda sa `true`.
 
-## Available APIs
+## Magagamit na APIs
 
 All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
 
