@@ -57,21 +57,21 @@ $ ./script/bootstrap.py --verbose
 
 ### Cross compilation
 
-Kung nais nating bumuo para sa `arm` target, dapat din nating i-install ang mga sumusunod na dependency:
+Kung nais nating bumuo para sa "`arm` target", dapat din nating "i-install" ang mga sumusunod na "dependency":
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Gayundin para sa `arm64`, kailangang i-install ang mga sumusunod:
+Gayundin para sa `arm64`, kailangang "i-install" ang mga sumusunod:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-At para mai-cross-compile ang `arm` o `ia32` targets, kailangan mong idaan ang parameter na `--target_arch` sa skrip na `bootstrap.py`:
+At para "mai-cross-compile" ang `arm` o `ia32` "targets", kailangan mong idaan ang "parameter" na `--target_arch` sa skrip na `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
@@ -79,43 +79,43 @@ $ ./script/bootstrap.py -v --target_arch=arm
 
 ## Ang Pagbubuo
 
-Kung ninanais mong layunin ay bumuo ng parehong `Release` at `Debug`:
+Kung ang nais mo ay bumuo ng parehong `Release` at `Debug` "targets":
 
 ```sh
 $ ./script/build.py
 ```
 
-Ang skrip na ito ang magiging dahilan upang mapalabas o maipakita ang napakalaking Electron na ilalagay sa loob ng directory ng `out/R`. Ang sukat ng file ay lagpas sa 1.3 gigabytes. Ito ay mangyayari dahil ang Release target binary ay naglalaman ng mga simbolo ng debugging. Upang mabawasan ang sukat ng file, patakbuhin ang skrip na `create-dist.py`:
+Ang skrip na ito ang magiging dahilan upang mapalabas o maipakita ang napakalaking Electron na ilalagay sa loob ng "directory" ng `out/R`. Ang sukat ng payl ay lalagpas sa "1.3 gigabytes". Ito ay mangyayari dahil ang "Release target binary" ay naglalaman ng mga simbolo ng "debugging". Upang mabawasan ang sukat ng payl, patakbuhin ang skrip na `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-Itatakda nito ang working distribution na may mas maliit ng sukat ng file sa loob ng directory ng `dist`. Matapos paganahin ang skrip na `create-dist.py`, maaaring naisin mo na tanggalin ang 1.3+ gigabyte binary na nasa loob pa rin ng `out/R`.
+Itatakda nito ang "working distribution" na may mas maliit ng sukat ng payl sa loob ng "directory" ng `dist`. Matapos paganahin ang skrip na `create-dist.py`, maaaring mong tanggalin ang "1.3+ gigabyte binary" na nasa loob pa rin ng `out/R`.
 
-Maaari ka ring bumuo lamang ng `Debug` target:
+Maaari ka ring bumuo lamang ng "`Debug` target":
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-Matapos itong buuin, hanapin ang `electron` debug binary sa ilalim ng `out/D`.
+Matapos itong buuin, hanapin ang "`electron` debug binary" sa ilalim ng `out/D`.
 
 ## Ang Paglilinis
 
-Upang malinis ang binubuong mga file:
+Upang malinis ang binubuong mga payl:
 
 ```sh
 $ npm run clean
 ```
 
-Na maglilinis lamang ng mga direktoryong `out` at `dist`:
+Na maglilinis lamang ng mga "directory" na `out` at `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
+**Paalala:** Ang parehong "codes" para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</0> bago mabuo.</p>
 
 <h2>Troubleshooting</h2>
 
