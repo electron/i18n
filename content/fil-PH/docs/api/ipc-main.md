@@ -43,7 +43,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## Pamamaraan
 
-Ang `ipcMain` Modyul ay may mga sumusunod na pamamaraan upang pakinggan ang mga kaganapan:
+Ang modyul ng `ipcRenderer` ay mayroong mga sumusunod na pamamaraan sa pakikinig sa mga event:
 
 ### `ipcMain.on(channel, listener)`
 
