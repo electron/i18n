@@ -4,7 +4,7 @@
 
 La interfaz del archivo de DOM proporciona abstracción alrededor de los archivos nativos para permitir a los usuarios trabajar sobre los archivos nativos directamente con la API del archivo HTML5. Electron tiene un atributo `path` adicional a la interfaz `File` el cual revela la ruta real del archivo en filesystem.
 
-Example of getting a real path from a dragged-onto-the-app file:
+Ejemplo para obtener una ruta real desde un archivo dragged-onto-the-app:
 
 ```html
 <div id="holder">
