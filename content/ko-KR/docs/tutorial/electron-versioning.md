@@ -102,9 +102,9 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
 * 최신 기능이 포함된 신규 출시(release) 브랜치가 생성되었습니다. 이 브랜치는 `2.0.0-beta.1`라는 이름을 갖고 있습니다. ![](../images/versioning-sketch-3.png)
 * 출시(release) 브랜치로 백포트 가능한 master 브랜치에서 버그 수정이 발생했습니다. 패치를 적용하고 새로운 베타 버전이 `2.0.0-beta.2`라는 이름으로 출시되었습니다. ![](../images/versioning-sketch-4.png)
 * 베타 버전이*일반적으로 안정적*이라고 평가받아서 베타 버전이 아닌 `2.0.0`라는 이름으로 다시 출시되었습니다. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* 이후에, zero-day 익스플로잇이 발견되어 master 브랜치가 수정되었습니다. `2-0-x` 라인에서 백포트로 수정 사항을 반영한 다음 `2.0.1` 버전을 출시합니다. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+다양한 semver 범위에 따라 새로운 출시 버전이 결정되는 것을 보여주는 예제들입니다:
 
 ![](../images/versioning-sketch-7.png)
 
