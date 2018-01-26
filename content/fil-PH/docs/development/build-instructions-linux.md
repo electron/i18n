@@ -8,9 +8,9 @@ Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
 * Ang ilang distribusyon ng Python 2.7.x. tulad ng CentOS 6.x ay gumagamit pa rin hanggang ngayon ng Python 2.6.x kaya naman maaaring suriin ang Python version gamit ang `python -V`.
 * Node.js. May iba't-ibang paraan upang i-install ang Node. Maaaring "i-download" ang "source code" galing sa [nodejs.org](https://nodejs.org) at ikompayl ito. Ang paggawa nito ay hahayaang "i-install" ang Node sa iyong "home directory" bilang "standard user". Maaari din namang subukan ang mga "repository" tulad ng [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 o mamaya.
-* Ang pagpapaunlad ng mga header ng GTK+ at libnotify.
+* Ang pagpapaunlad ng mga "header" ng GTK+ at libnotify.
 
-Sa Ubuntu, i-install ang mga susunod na mga library:
+Sa Ubuntu, "i-install" ang mga susunod na mga "library":
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -20,7 +20,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
                        gperf bison
 ```
 
-Sa RHEL / CentOS, i-install ang mga sumusunod na library:
+Sa RHEL / CentOS, "i-install" ang mga sumusunod na "library":
 
 ```sh
 $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Sa Fedora, i-install ang mga sumusunod na mga library:
+Sa Fedora, "i-install" ang mga sumusunod na mga "library":
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,9 +38,9 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Ang ibang mga distribution ay maaaring ialok ang parehong mga package para sa installation gamit ang package managers tulad ng pacman. O ang isa ay maaaring i-compile galing sa cource code.
+Ang ibang mga distribusyon ay maaaring ipagamit ang parehong "package" para sa "installation" gamit ang "package managers" tulad ng "pacman". Pwede ring ikompayl ang isa galing sa "source code".
 
-## Ang Pagkuha ng Code
+## Ang Pagkuha ng "Code"
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-Ang bootstrap script ay kinukuha o dina-download ang lahat ng kailangang build dependencies at nililikha ang build project files. Kailangan mo ng Python 2.7.x para sa skrip upang magtagumpay. Ang pagda-download ng mga tiyak na file ay maaaring tumagal ang pagproseso. Pansinin na tayo'y gumagamit ng `ninja` upang buuin ang Electron para walang mabuo na `Makefile`.
+Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Para magtagumpay, dapat meron kang Python 2.7.x para sa skrip. Ang "pagda-download" ng mga tiyak na payl ay maaaring tumagal ang pagpoproseso. Kung papansinin, tayo'y gumagamit ng `ninja` upang buuin ang Electron para hindi magkaroon ng `Makefile`.
 
 ```sh
 $ cd electron
