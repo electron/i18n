@@ -51,8 +51,8 @@ Nasa ibaba ang mga mahahalagang pangyayari sa kasaysayan ng Elektron.
 | :Kalendaryo:    | :tada:                                                                                                            |
 | --------------- | ----------------------------------------------------------------------------------------------------------------- |
 | **Abril 2013**  | [Sinimulan ang Atom Shell](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **Mayo 2014**   | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                       |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                                |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                           |
-| **May 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                                 |
-| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                                |
+| **Mayo 2014**   | [Atom Shell ay bukas na pingmulan](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                 |
+| **Abril 2015**  | [Ang Atom Shell ay muling pinangalanang Elektron](https://github.com/electron/electron/pull/1389).                |
+| **Mayo 2016**   | [Inilabas ang elektron`v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
+| **Mayo 2016**   | [Ang mga app ng elektron ay tugma sa Mac App Store](mac-app-store-submission-guide.md).                           |
+| **Agosto 2017** | [sinusuportahan ng Windows Store ang Elektron apps](windows-store-guide.md).                                      |
