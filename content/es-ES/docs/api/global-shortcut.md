@@ -4,9 +4,9 @@
 
 Process: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+El módulo `globalShortcut` puede registrar o quitar un atajo del teclado global con el sistema operativo para que se puedan personalizar las operaciones para varios atajos.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Nota:** El atajo es global; funcionará incluso si la aplicación no tiene enfocado el teclado. No se debe utilizar este módulo hasta que el evento `ready` del módulo de la aplicación no se emita.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
@@ -36,7 +36,7 @@ app.on('will-quit', () => {
 
 ## Métodos
 
-The `globalShortcut` module has the following methods:
+El módulo `globalShortcut` tiene los siguientes métodos:
 
 ### `globalShortcut.register(accelerator, callback)`
 
