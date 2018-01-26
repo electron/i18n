@@ -1,10 +1,10 @@
-# JumpListCategory Object
+# Oggetto CategoriaSaltaLista
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
+* `tipo` Stringa (opzionale) - Uno dei seguenti: 
+  * `compiti` - Gli oggetti di questa categoria saranno posti nella categoria `Compiti` stamdard. Può esserci solo una categoria, che sarà sempre mostrata sul fondo della Lista di Salto.
+  * `frequente` - Mostra una lista di file aperti frequentemente dall'app, il nome della categoria ed i suoi elementi sono impostati da Windows.
+  * `recenti` - Mostra una lista di file recentemente aperti dall'app, il nome della categoria ed i suoi elementi sono impostati da Windows. Gli elementi potrebbero essere indirettamente aggiunti a questa categoria usando `app.aggiungiDocumentiRecenti(percorso)`.
+  * `custom` - Mostra compiti o link di file, il `nome` deve essere impostato dall'app.
 * `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
 * `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
 
