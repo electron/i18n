@@ -26,13 +26,13 @@ Sa Elektron, Node.js at Kromo binabahagi ang isang solong halimbawa V8-ito ang k
 
 ### Bersyon
 
-Bilang ng bersyon 2.0 Elektron [ay sumusunod sa `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Bilang ng bersyon 2.0 Elektron [ay sumusunod sa `semver`](https://semver.org). Para sa karamihan ng mga aplikasyon, at gamit ang anumang makabagong bersyon ng npm, na napapatakbo ng`$ npm install elektron` ay gagawin ang tama.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Ang proseso ng pag-update ng bersyon ay malinaw na detalyado sa aming [Bersyon Doc ](electron-versioning.md).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Ang pangmatagalang suporta ng mas lumang mga bersyon ng Elektron ay kasalukuyang hindi umiiral. Kung gumagana sa iyo ang kasalukuyang bersyon ng Elektron, maaari kang manatili dito hangga't gusto mo. If you want to make use of new features as they come in you should upgrade to a newer version.
 
 A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
 
