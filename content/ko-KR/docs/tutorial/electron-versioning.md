@@ -34,25 +34,25 @@ Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않�
 4. 확실하게 정의된 안정화(stabilization) 브랜치
 5. `master` 브랜치는 버전이 없음; stability 브랜치만 버전 정보를 포함하고 있음
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 원하는 것, 백포트 방식으로 변경하는 방법에 대해서는 아래에서 자세히 다룰 예정입니다.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+2.0 버전 이후부터 Electron은 semver 규칙을 따르고 있습니다.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+변경사항 종류와 semver 카테고리(예. 메이저, 마이너, 패치)를 서로 연결시키면 아래와 같습니다.
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **메이저 버전 증가** 
+    * Chromium 버전 업데이트
+    * node.js 메이저 버전 업데이트
+    * Electron API의 큰 변화
+* **마이너 버전 증가** 
+    * node.js 마이너 버전 업데이트
+    * Electron API의 미세한 변경
+* **패치 버전 증가** 
+    * node.js 패치 버전 업데이트
+    * 수정 관련 chromium 패치
+    * electron 버그 수정
 
 Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
