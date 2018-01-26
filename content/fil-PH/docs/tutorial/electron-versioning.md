@@ -122,12 +122,12 @@ Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho 
 Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. Sa konteksto ng Electron, ang tampok na bandila o **malambot na branch** ay dapat magkaroon ng sumusunod na katangian:
 
 * ay pinagana/di pinagana alinman sa runtime, o sa build-time; hindi namin sinusuportahan ang konsepto ng request-scoped na tampok sa bandila
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* ito'y kumukumpleto sa bahagi ng bago at lumang landas ng kodigo para masuportahan ang bagong tampok na *lumalabag* sa kontrata ng tampok na bandila
+* natatanggal agad ang mga tampok na bandila pagkatapos isanib ang ang malambot na branch
 
-We reconcile flagged code with our versioning strategy as follows:
+Pinagkasundo namin ang flagged code sa aming bersyoning na istratehiya gaya ng sumusunod:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
+1. hindi namin isinasaalang-alang ang pag-uulit sa feature-flagged code sa stabilidad ng branch; kahit matalino ang paggamit sa mga tampok na bandila ay walang hindi mapanganib
 2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
 
 # Semantic Commits
