@@ -306,17 +306,17 @@ Gawin ang pahina ng panauhin na sumulong.
 
 * `index` Integer
 
-Navigates to the specified absolute index.
+Ang nabigasyon sa tinutukoy na lubos na index.
 
 ### `<webview>.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Ang nabigasyon sa tinutukoy na offset galing sa "kasalukuyang entri".
 
 ### `<webview>.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Nagbabalik `Boolean` - Kung saan ang proseso ng tagapagbigay ay nasira.
 
 ### `<webview>.setUserAgent(userAgent)`
 
