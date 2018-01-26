@@ -282,13 +282,13 @@ Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay hindi makabalik.
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Whether the guest page can go forward.
+Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay makaka-abanti.
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay makakapunta sa `offset`.
 
 ### `<webview>.clearHistory()`
 
