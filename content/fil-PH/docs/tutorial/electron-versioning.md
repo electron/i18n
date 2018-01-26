@@ -100,7 +100,7 @@ Para sa bawat bump na malaki at maliit, dapat aasahan mong makikita ang mga sumu
 Isang halimbawa ng lifecycle na makikita sa larawan ay:
 
 * Isang bagong labas na branch ang nilikha na may pinakabagong tampok. Ito ay inilathala bilang `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* Ang pag-ayos ng bug ay darating sa master na pwedeng ipack-port sa release branch. Ang patch ay inilapat, at may bagong beta na inilathala bilang `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
