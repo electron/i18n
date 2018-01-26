@@ -23,7 +23,7 @@ Pagkatapos magsagawa ng `Electron.app` (o `elektron` sa Linux,`electron.exe` sa 
 
 ## Pagkaging ng iyong App sa isang File
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Bukod sa pagpapadala sa iyong app sa pamamagitan ng pag-kopya sa lahat ng mga pinagkukunan ng file, maari mong i-package ang iyong app sa [asar](https://github.com/electron/asar) archive upang maiwasan ang paglalantad sa iyong app source sa mga gumagamit.
 
 To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
 
@@ -43,13 +43,13 @@ electron/resources/
 
 Sa mga karagdagang detalye ay matatagpuan sa [Aplikasyon ng packaging](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Rebranding sa na-download ng mga binary
 
 Pagkatapos mong pag-bundle ng iyong app sa Elektron, gusto mong i-rebrand ang elektron bago ipamamahagi ito sa mga gumagamit.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Maari mong palitan ang `electron.exe` sa anumang pangalan na gusto mo, at i-edit ang icon nito at iba pang impormasyong sa mga kagamitang [credit](https://github.com/atom/rcedit).
 
 ### macOS
 
@@ -62,7 +62,7 @@ Maari mong palitan ng pangalan ang `Electron.app` sa anumang gusto mo, at maari 
 
 Maari mo ring palitan ng pangalan ang tumutulong na app upang maiwasan ang pagpapakita `Electron Helper` sa aktibidad ng monitor, ngunit siguraduhin na palitan mo nang pangalan ang helper app's para mapalitan ng pangalan ang mga file.
 
-The structure of a renamed app would be like:
+Ang istraktura na pinalitang pangalan ng app ay magiging tulad ng:
 
 ```text
 AngAkingApp.app/Mga Nilalaman
