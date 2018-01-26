@@ -322,34 +322,34 @@ Nagbabalik `Boolean` - Kung saan ang proseso ng tagapagbigay ay nasira.
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+Pumupatong sa gumagamit na ahente para sa pahina ng panauhin.
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+Nagbabalik `String` - Ang gumagamit na ahente para sa pahina ng panauhin.
 
 ### `<webview>.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the guest page.
+Paglagay ng CSS sa pahina ng panauhin.
 
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
 * `code` String
 * `userGesture` Boolean - Default `false`.
-* `tumawag muli` Function (optional) - Called after script has been executed. 
+* `pagbalik tawag` Gumagana (opsyonal) - Tinawag pagkatapos ang iskrip ay ginawa. 
   * `result` Any
 
-Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+Sinusuri `code` sa pahina. Kung `userGesture` ay nakatakda, ito ay lilikha ng konteksto ng kilos ng gugamit sa pahina. HTML APIs tulad ng `requestFullScreen`, na nangangailangan ng aksyon sa gugamit, ay maaring kumuha ng kalamangan para sa opsyon ng otomasyon.
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Ang pagbukas ng DevTools na bintana para sa pahina ng panauhin.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Ang pagsirado ng DevTools na bintana para sa pahina ng panauhin.
 
 ### `<webview>.isDevToolsOpened()`
 
