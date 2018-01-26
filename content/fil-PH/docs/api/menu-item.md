@@ -48,8 +48,8 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `close` - Isara ang kasalukuyang window
 * `quit` - Alisin ang aplikasyon
 * `reload` - Ikarga ulit ang kasalukuyang window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
+* `forceload` - Ikarga ulit ang kasalukuyang window nang hindi pinapansin ang cache.
+* `toggledevtools` - Mga gamit ng taga-buo ng toggle sa kasalukuyang window
 * `togglefullscreen`- Toggle full screen mode on the current window
 * `resetzoom` - Reset the focused page's zoom level to the original size
 * `zoomin` - Zoom in the focused page by 10%
