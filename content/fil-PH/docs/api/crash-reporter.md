@@ -1,23 +1,22 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Ipasa ang crash reports para ma kontrol ang server
 
 Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
-The following is an example of automatically submitting a crash report to a remote server:
+Ang mga ito ay halimbawa ng awtomatikong pag pasa ng mga crash report patungo sa remote server:
 
 ```javascript
-const {crashReporter} = require('electron')
+const{crashReporter} = require('electron')
 
 crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
-})
+Pangalan ng produkto : 'Pangalan mo''
+Pangalan ng Kompanya: 'Pangalan ng Kompanya mo'
+ipasa sa URL: 'https;//your-domain.com/url-to-submit',uploadToServer: true
+}}
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Para pag set up sa server para tanggapin at iproseso ang mga bagsak na ulat, puwedeng gamitin ang mga halimbawa na proyekto:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
