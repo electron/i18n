@@ -204,7 +204,7 @@ webview.addEventListener ('dom-ready', () => {
 })
 ```
 
-### `<webview>.loadURL(url[, options])`
+### `<webview>.muatURL(url[, pilihan])`
 
 * `url` URL
 * `pilihan` Objek (pilihan) 
@@ -216,11 +216,11 @@ webview.addEventListener ('dom-ready', () => {
 
 Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
-### `<webview>.getURL()`
+### `<webview>.dapatkanURL()`
 
 Mengembalikan ` String ` - URL halaman tamu.
 
-### `<webview>.getTitle()`
+### `<webview>.dapatkanTitle()`
 
 Mengembalikan `String` - Judul halaman tamu.
 
