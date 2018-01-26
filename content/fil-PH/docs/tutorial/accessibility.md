@@ -34,13 +34,13 @@ Kung alam mo ang ibang malakong aksebilidad na mga kagamitan sa Elektron, idagda
 
 ## Paganahin ang aksesibilidad
 
-Electron applications keep accessibility disabled by default for performance reasons but there are multiple ways to enable it.
+Mga aplikasyon ng electron na pinapanatili ang di pinaga na aksesibilidad sa pag default para sa pagganap na mga rason pero mayroon ding mga karamihang paraan para mapagana ito.
 
-### Inside Application
+### Loobang aplikasyon
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. User's system assistive utilities have priority over this setting and will override it.
+Sa paggamit ng [`app.setAccesibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), ikaw ay pwedeng maglantad ng aksesibilidad na paglipat sa gumagamit doon sa kagustuhang aplikasyon. Ang sistema ng gumagamit na assistive ng mga utilities ay mayroong prayoridad higit sa setting nito at pwedeng i-override ito.
 
-### Assistive Technology
+### Teknolohiyang assistive
 
 Electron application will enable accessibility automatically when it detects assistive technology (Windows) or VoiceOver (macOS). See Chrome's [accessibility documentation](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) for more details.
 
