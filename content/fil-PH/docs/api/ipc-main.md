@@ -74,7 +74,7 @@ Tinatanggal ang mga tagapakinig ng tinukoy na `channel`.
 
 ## Ang bagay ng event
 
-Ang `event` bagay na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
+Ang bagay `event` na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
 
 ### `event.returnValue`
 
