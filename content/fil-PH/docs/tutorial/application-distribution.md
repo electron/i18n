@@ -98,7 +98,7 @@ Bukod sa pagmano mano ng packaging sa iyong app, pwede ka ring pumili para gumam
 
 ## Rebranding sa pamamagitan ng pagbubuo muli ng Elekron mula sa pinagmulan
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Posible rin ito na i-rebrand ang elektron sa pamamagitan ng pagbabago ng pangalan sa produkto at binuong ito mula sa pinagmulan. Upang magawa ito kailangan mong baguhin ang `atom.gyp` ng file at malinis itong binubuo ulit.
 
 ### Creating a Custom Electron Fork
 
