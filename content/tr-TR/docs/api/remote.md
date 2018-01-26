@@ -138,7 +138,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 * `name` Dizi
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+`any` diner - Ana işlemin içindeki `name`'in evrensel değişkeni (örneğin `global[name]`).
 
 ## Özellikler
 
