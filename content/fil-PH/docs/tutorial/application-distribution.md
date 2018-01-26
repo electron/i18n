@@ -102,7 +102,7 @@ Posible rin ito na i-rebrand ang elektron sa pamamagitan ng pagbabago ng pangala
 
 ### Lumikha ng Pasadyang Elektron Fork
 
-Lumikha ng pasadyang fork sa elektron ay halos tiyak na walang iba kinakailngan mong gumawa sa pagkasunod-sunod upang mabuo ang iyong app, pantay para sa "Level ng produksyon" ng mga aplikasyon. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Lumikha ng pasadyang fork sa elektron ay halos tiyak na walang iba kinakailngan mong gumawa sa pagkasunod-sunod upang mabuo ang iyong app, pantay para sa "Level ng produksyon" ng mga aplikasyon. Gamit ng kagamitan tulad ng `packager ng elekron` o `elektron-forge` ay nagbibigay daan sayo upang "i-Rebrand" ang elektron kahit walang pakakaroon nitong ng mga hakbang.
 
 You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
