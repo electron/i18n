@@ -115,7 +115,7 @@ Na maglilinis lamang ng mga "directory" na `out` at `dist`:
 $ npm run clean-build
 ```
 
-**Paalala:** Ang parehong "codes" para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</0> bago mabuo.</p>
+**Paalala:** Ang parehong "codes" para sa paglilinis ay kailangang muling patakbuhin ng `bootstrap</0> bago mabuo.</p>
 
 <h2>"Troubleshooting"</h2>
 
@@ -133,7 +133,7 @@ Tingnan ang [Buod ng Pagbuo ng Sistema: Mga Pagsusuri](build-system-overview.md#
 
 ## Mga Pinatiunang Paksa
 
-Ang kompigurasyon ng "default building" ay tinatarget para sa mga pangunahing distribusyon ng "desktop Linux". Ang mga sumusunod na impormasyon ay maaaring makatulong para makabuo ng tiyak na distribusyon.
+Ang kumpigurasyon ng "default building" ay tinatarget para sa mga pangunahing distribusyon ng "desktop Linux". Ang mga sumusunod na impormasyon ay maaaring makatulong para makabuo ng tiyak na distribusyon.
 
 ### Ang pagbuo ng lokal na `libchromiumcontent`
 
@@ -153,7 +153,7 @@ $ git submodule update --init --recursive
 $ ./script/bootstrap.py -v --build_release_libcc
 ```
 
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
+Paalala, hindi kasama ang kumpigurasyon ng `shared_library` bilang "default", at maaari lang buuin ang "`Release` version" ng Electron kung ginagamit ang "mode" na ito:
 
 ```sh
 $ ./script/build.py -c R
