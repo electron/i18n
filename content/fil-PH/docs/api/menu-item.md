@@ -32,18 +32,18 @@ Ang mga tungkulin ay nagpapahintulot sa mga aytem ng menu na may paunang tinukoy
 
 Ito ang mabisang paraan para matukoy ang `role` para sa kahit anong aytem ng menu na pumaparehas sa standard na tungkulin, sa halip na manu-manong sinusubukang i-implementa ang katangian sa isang punsyon ng `click`. Ang dati ng gawang katangian ng `role` ay magbibigay ng pinakanatural na karanasan.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+Ang mga halaga ng `label` at `accelerator` ay opsyonal kapag ginagamit ang`role` at magiging default sa naaangkop na halaga para sa bawat plataporma.
 
-The `role` property can have following values:
+Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 
-* `undo`
-* `redo`
-* `cut`
-* `copy`
-* `paste`
-* `pasteandmatchstyle`
-* `selectall`
-* `delete`
+* `ang ibalik sa dating ginawa`
+* `gawin-ulit`
+* `putulin`
+* `kopyahin`
+* `idikit`
+* `istilongidikitatipares`
+* `piliinlahat`
+* `idilit`
 * `minimize` - Minimize current window
 * `close` - Close current window
 * `quit`- Quit the application
