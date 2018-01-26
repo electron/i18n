@@ -378,35 +378,35 @@ Ang pagtakda nag pahina sa panauhin na naka tahimik.
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Whether guest page has been muted.
+Nagbabalik `Boolean` - Kung saan ang pahina ng panauhin ay naka tahimik.
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+Paggawa ng pag-edit na utos `undo` sa pahina.
 
 ### `<webview>.redo()`
 
-Executes editing command `redo` in page.
+Ang paggawa ng pag-edit sa utos na `redo` sa pahina.
 
 ### `<webview>.cut()`
 
-Executes editing command `cut` in page.
+Paggawa ng pag-edit na utos na `cut` sa pahina.
 
 ### `<webview>.copy()`
 
-Executes editing command `copy` in page.
+Paggawa ng pag-edit sa utos na `copy` sa pahina.
 
 ### `<webview>.paste()`
 
-Executes editing command `paste` in page.
+Paggawa ng pag-edit sa utos na `paste` sa pahina.
 
-### `<webview>.pasteAndMatchStyle()`
+### `<webview>.pasteAnd MatchStyle()`
 
-Executes editing command `pasteAndMatchStyle` in page.
+Paggawa ng pag-edit sa utos na `pasteAndMatchStyle` sa pahina.
 
 ### `<webview>.delete()`
 
-Executes editing command `delete` in page.
+Paggawa ng pag-edit sa utos na `delete` sa pahina.
 
 ### `<webview>.selectAll()`
 
