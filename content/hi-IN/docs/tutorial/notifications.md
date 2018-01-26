@@ -44,14 +44,14 @@ myNotification.onclick = () => {
 
 ### उन्नत नोटीफीकेशंस
 
-मैकओएस के नवीनतम संस्करणों में नोटीफीकेशंस में एक इनपुट फील्ड भी शामिल है, जिससे कि उपयोगकर्ता एक नोटीफीकेशन को तुरंत रिप्लाई कर सकता है | In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+मैकओएस के नवीनतम संस्करणों में नोटीफीकेशंस में एक इनपुट फील्ड भी शामिल है, जिससे कि उपयोगकर्ता एक नोटीफीकेशन को तुरंत रिप्लाई कर सकता है | नोटीफीकेशंस को इनपुट फील्ड के साथ भेजने के लिए, यूजरलैंड मोड्यूल [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) का इस्तेमाल करें |
 
-### Do not disturb / Session State
+### परेशान न करें/ सेशन स्टेट
 
 आपको एक नोटीफीकेशन भेजने की इजाज़त है या नहीं, यह जाँचने के लिए, यूजरलैंड मोड्यूल [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) का इस्तेमाल करें |
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+इससे आपको समय से पहले यह पता चल जायेगा कि नोटीफीकेशन को दिखाया जायेगा या नहीं |
 
-## Linux
+## लिनक्स
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+नोटीफीकेशंस को भेजने के लिए `libnotify` का इस्तेमाल किया जाता है, जो कि [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/) का अनुसरण करने वाले सभी डेस्कटॉप वातावरणों में नोटीफीकेशंस को दिखा सकता है, जिनमे शामिल हैं सिन्नामन, एनलाइटमेंट, यूनिटी, ग्नोम, केडीई आदि |
