@@ -97,8 +97,8 @@ Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
 
 #### `ang menuItem.label`
 
-A `String` representing the menu items visible label
+Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak
 
-#### `menuItem.click`
+#### `ang menuItem.click`
 
 A `Function` that is fired when the MenuItem receives a click event
