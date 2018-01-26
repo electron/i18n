@@ -24,7 +24,7 @@ Maari kang basahin ng higit pa tungkol sa tampok na ito sa [Spectron's dokumenta
 
 ## Devtron
 
-In Devtron, there is a new accessibility tab which will allow you to audit a page in your app, sort and filter the results.
+Sa Devtron, may isang bagong tab ng aksesibilidad kung saan na pinahintulutan kayo na mag-awdit ng pahina sa iyong app, ayusin at salain ang mga resulta.
 
 ![devtron screenshot](https://cloud.githubusercontent.com/assets/1305617/17156618/9f9bcd72-533f-11e6-880d-389115f40a2a.png)
 
