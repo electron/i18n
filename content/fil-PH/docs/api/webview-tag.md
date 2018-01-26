@@ -194,9 +194,9 @@ Ang umiiral na webview ay makikita ang `destroy` na kaganapan at lilikha ng bago
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+Habang ang katangian na naroroon sa `webview` ang nilalaman ay nahadlang sa pag-resizing habang ang `webview` na elemento ay mismong naka resized.
 
-This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+Ito ay magagamit sa kombinasyon na may [`webContents.setSize`](web-contents.md#contentssetsizeoptions) na manu-manong baguhin ang laki sa nilalaman ng webview bilang reaksyon sa pagbago ng laki sa bintana. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
 
 ```javascript
 const {webContents} = require('electron')
