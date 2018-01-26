@@ -70,7 +70,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
 
 # 베타 출시와 버그 수정
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+개발자들은 어떤 출시 버전을 *안전하게* 사용할 수 있는지 알고 싶어합니다. 문제가 없는 것처럼 보이는 기능도 복잡한 애플리케이션에서는 회귀(regression) 버그를 일으킬 수 있습니다. 또한, 특정 버전만 고집하는 것은 해당 버전이후에 발생할 수 있는 보안 패치와 버그 수정을 무시하는 것이기 때문에 매우 위험합니다. 우리의 목표는 `package.json` 안에서 아래의 표준 semver 범위를 따르도록 하는 것입니다:
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
