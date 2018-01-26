@@ -115,11 +115,11 @@ Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang am
 Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho ang mga sumusunod:
 
 * nightly builds off ng master; ito'y nagpapahintulot sa mga folks para subukan kaagad ang mga bagong tampok at magbigay ng feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* inilabas ng alpha ang maluwag na katatagan na balakid sa mga beta; halimbawa ito'y pinapahintulutan para umamin ang bagong tampok habang ang stabilidad channel ay nasa *alpha*
 
-# Feature Flags
+# Mga tampok na Bandila
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
 * is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 * it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
