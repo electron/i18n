@@ -40,9 +40,9 @@ Isang malaking update ang dumating na may bersyon `v1.0.0`. Kung hindi mo pa gin
 
 Upang mapanatili ang Elektron na maliit (laki ng file) at pangmatagalan (ang pagkalat ng dependencies at API) nililimitahan ng proyekto ang saklaw ng pangunahing proyekto.
 
-Halimbawa, ang Elektron ay ginagamit lamang upang makapagsalin mula sa mga kromo sa halip lahat ng kromo. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Halimbawa, ang Elektron ay ginagamit lamang upang makapagsalin mula sa mga kromo sa halip lahat ng kromo. Pinapadali nito ang pag-upgrade ng Kromo ngunit lahat ng mga tampok na makikita sa Google Chrome ay hindi makikita sa Elektron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Ang mga bagong tampok na idinagdag sa Elektron ay dapat na maging pangunahing mga API. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
 
 ## History
 
