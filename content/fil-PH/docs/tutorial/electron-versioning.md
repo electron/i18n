@@ -132,7 +132,7 @@ Pinagkasundo namin ang flagged code sa aming bersyoning na istratehiya gaya ng s
 
 # Mga Commit ng Semantiko
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at release. Simula sa `2.0.0` kinakailangan natin hilahin ang mga request para umayon sa [Conventional Commits](https://conventionalcommits.org/) spec, na pwedeng ibuod sa sumusunod:
 
 * Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
 * Commits that would result in a semver **minor** bump must start with `feat:`.
