@@ -1,6 +1,6 @@
-# net
+# ang net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Mag-isyu ng mga kahilingan ng HTTP/HTTPS gamit ang natural na networking library ng Chromium
 
 Ang proseso: [Main](../glossary.md#main-process)
 
