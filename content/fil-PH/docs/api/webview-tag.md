@@ -410,33 +410,33 @@ Paggawa ng pag-edit sa utos na `delete` sa pahina.
 
 ### `<webview>.selectAll()`
 
-Executes editing command `selectAll` in page.
+Paggawa ng pag-edit sa utos na `selectAll` sa pahina.
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+Paggawa ng pag-edit sa utos na `unselect` sa pahina.
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-Executes editing command `replace` in page.
+Paggawa ng pag-edit sa utos na `replace` sa pahina.
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` String
 
-Executes editing command `replaceMisspelling` in page.
+Paggawa ng pag-edit sa utos na `replaceMisspelling` sa pahina.
 
 ### `<webview>.insertText(text)`
 
 * `text` String
 
-Inserts `text` to the focused element.
+Pagsingit `text` para sa nakapukos na elemento.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - Ang nilalaman na maaring suriin, ay dapat may laman.
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
