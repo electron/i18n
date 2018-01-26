@@ -16,7 +16,7 @@ npm install --save-dev electron@latest
 
 ## 버전 1.x
 
-Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않았습니다. 메이저 버전은 사용자(end-user) API 변화와 관련있습니다. 마이너 버전은 Chromium 메이저 버전 출시에 연관되어 있습니다. 패치 버전은 새로운 기능, 버그 수정에 해당합니다. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않았습니다. 메이저 버전은 사용자(end-user) API 변화와 관련있습니다. 마이너 버전은 Chromium 메이저 버전 출시에 연관되어 있습니다. 패치 버전은 새로운 기능, 버그 수정에 해당합니다. 기능 추가(merge)는 일부 개발자들은 편리하게 느낄 수 있을지 모르겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
