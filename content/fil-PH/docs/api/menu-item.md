@@ -79,9 +79,9 @@ Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
 #### `ang menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay pinagana na, ang katangian na ito ay maaaring mabago ng matindi.
 
-#### `menuItem.visible`
+#### `ang menuItem.visible`
 
 A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
