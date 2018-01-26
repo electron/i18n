@@ -59,8 +59,8 @@ Cuando el acelerador ha sido tomado por otras aplicaciones, esta llamada aun dev
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Anula el registro del atajo del `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Desregistra todos los atajos globales.
+Anula el registro todos los atajos globales.
