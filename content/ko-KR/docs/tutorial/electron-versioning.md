@@ -54,15 +54,15 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
     * 수정 관련 chromium 패치
     * electron 버그 수정
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+대부분의 chromium 업데이트는 큰 변화로 인식된다는 점을 기억하세요. 백포트 가능한 수정사항들은 패치로 체리-피크(cherry-pick)될 수 있습니다.
 
-# Stabilization Branches
+# 안정화(Stabilization) 브랜치
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+안정화 브랜치들은 master 브랜치와 병행해서 운영하는 브랜치이며, 보안과 안정성과 관련된 체리-피크 커밋만 받아들입니다. 이들 브랜치들은 master에 절대 병합(merge)하지 않습니다.
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+안정화 브랜치들은 항상 **메이저** 또는 **마이너** 버전이며, `$MAJOR-$MINOR-x`와 같은 형태의 이름을 사용하며 예를 들어 `2-0-x`와 같은 이름으로 구성됩니다.
 
 We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
 
