@@ -57,7 +57,7 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `editMenu` - Ang kabuoang default na menu ng "Edit" (Undo, Kopya, atbp.)
 * `windowMenu` - Ang kabuoang default na menu ng "Window" (Paliitin, Isara, atbp.)
 
-The following additional roles are available on macOS:
+Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 
 * `about` - Map to the `orderFrontStandardAboutPanel` action
 * `hide` - Map to the `hide` action
