@@ -108,49 +108,49 @@ Devuelve `String` - El url de origen desde donde se descargó el elemento.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Devuelve `String` - El tipo de archivo.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Devuelve `Boolean` - Si la descarga tiene o no gestos de usuario.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Devuelve `String` - El nombre de archivo del elemento descargado.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Nota:** El nombre del archivo no siempre es el mismo que el que está guardado en el disco local. Si el usuario cambia el nombre del archivo en el cuadro de diálogo de guardado de la descarga, el nombre actual del archivo guardado será diferente.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Devuelve `Integer` - El tamaño total en bytes del elemento descargado.
 
 Si se desconoce el tamaño, devuelve 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Devuelve `Integer` - Los bytes recibidos del elemento descargado.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Devuelve `String` - El campo Content-Disposition desde la cabecera de respuesta.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Devuelve `String` - El estado actual. Puede ser `progressing`, `completed`, `cancelled` o `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Nota:** Los siguientes métodos son útiles específicamente para reanudar un elemento `cancelled` cuando se reinicia la sesión.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Devuelve `String[]` - La cadena del url completa del elemento, incluyendo cualquier redirección.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Devuelve `String` - El valor de cabecera Last-Modified.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Devuelve `String` - El valor de cabecera Etag.
 
 #### `downloadItem.getStartTime()`
 
