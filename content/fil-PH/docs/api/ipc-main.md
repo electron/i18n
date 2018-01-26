@@ -64,7 +64,7 @@ Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listene
 * `channel` String
 * `listener` Punsyon
 
-Tinanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
+Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
 ### `ipcMain.removeAllListeners([channel])`
 
