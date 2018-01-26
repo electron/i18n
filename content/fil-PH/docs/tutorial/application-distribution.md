@@ -10,7 +10,7 @@ Upang maipamahagi ang iyong app sa elektron, kailangan mong i-download ang elekt
 └── index.html
 `</pre> 
 
-On Windows and Linux:
+Sa windows at linux:
 
 ```text
 electron/resources/app
@@ -34,7 +34,7 @@ electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Sa windows at linux:
 
 ```text
 electron/resources/
