@@ -61,7 +61,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [ang net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
