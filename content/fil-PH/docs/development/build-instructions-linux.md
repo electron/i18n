@@ -46,7 +46,7 @@ Ang ibang mga distribusyon ay maaaring ipagamit ang parehong "package" para sa "
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## "Bootstrapping"
 
 Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Para magtagumpay, dapat meron kang Python 2.7.x para sa skrip. Ang "pagda-download" ng mga tiyak na payl ay maaaring tumagal ang pagpoproseso. Kung papansinin, tayo'y gumagamit ng `ninja` upang buuin ang Electron para hindi magkaroon ng `Makefile`.
 
@@ -55,7 +55,7 @@ $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### "Cross Compilation"
 
 Kung nais nating bumuo para sa "`arm` target", dapat din nating "i-install" ang mga sumusunod na "dependency":
 
@@ -117,7 +117,7 @@ $ npm run clean-build
 
 **Paalala:** Ang parehong "codes" para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</0> bago mabuo.</p>
 
-<h2>Troubleshooting</h2>
+<h2>"Troubleshooting"</h2>
 
 <h3>Mga Mali na Maaaring Lumabas Habang ang "Shared Libraries" ay "Loading": libtinfo.so.5</h3>
 
@@ -131,7 +131,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 Tingnan ang [Buod ng Pagbuo ng Sistema: Mga Pagsusuri](build-system-overview.md#tests)
 
-## Advanced topics
+## Mga Pinatiunang Paksa
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
