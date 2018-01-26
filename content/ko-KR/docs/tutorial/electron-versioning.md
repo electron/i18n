@@ -64,11 +64,11 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
 
 안정화 브랜치들은 항상 **메이저** 또는 **마이너** 버전이며, `$MAJOR-$MINOR-x`와 같은 형태의 이름을 사용하며 예를 들어 `2-0-x`와 같은 이름으로 구성됩니다.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+필요에 따라 보안 관련 백포팅 수정이 필요하기 때문에 최소한 두 개의 안정화 브랜치를 병행해서 지원하며 이로 인해 여러 개의 안정화 브랜치들이 동시에 존재할 수 있습니다. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+오래된 라인은 GitHub가 지원하지 않을 것입니다. 하지만 다른 그룹들이 이들에 대해 소유권을 가질 수 있으며 백포트 안정화, 보안 관련 사항 수정 등을 할 수 있습니다. 저희는 이를 장려하지는 않지만, 이것이 많은 앱 개발자들의 삶을 훨씬 쉽게 만들어 준다는 사실은 알아두시길 바랍니다.
 
-# Beta Releases and Bug Fixes
+# 베타 출시와 버그 수정
 
 Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
