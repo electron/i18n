@@ -41,38 +41,38 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Devuelve:
 
-* `evento` Evento
-* `state` String
+* `event` Evento
+* `state` Cadena
 
-Emitted when the download has been updated and is not done.
+Aparece cuando la descara ha sido actualizada y no está terminada.
 
-The `state` can be one of following:
+El `state` puede ser uno de los siguientes:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - La descarga está en proceso.
+* `interrupted` - La descarga ha sido interrumpida y puede ser reanudada.
 
-#### Event: 'done'
+#### Evento: "done"
 
 Devuelve:
 
-* `evento` Evento
-* `state` String
+* `event` Evento
+* `state` Cadena
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Aparece cuando la descarga está en un estado terminal. Esto incluye una descarga completa, una descarga cancelada (a través de `downloadItem.cancel()`), y una descarga interrumpida que no puede ser reanudada.
 
-The `state` can be one of following:
+El `state` puede ser uno de los siguientes:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - La descarga se ha completado con éxito.
+* `cancelled` - La descarga ha sido cancelada.
+* `interrupted` - La descarga ha sido interrumpida y no puede ser reanudada.
 
 ### Métodos de Instancia
 
-The `downloadItem` object has the following methods:
+El objeto `downloadItem` tiene los siguientes métodos:
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` Cadena - Configura la ruta del archivo de guardado del elemento descargado.
 
 The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
 
