@@ -48,9 +48,9 @@ Ang modyul ng `ipcRenderer` ay mayroong mga sumusunod na pamamaraan sa pakikinig
 ### `ipcMain.on(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
 
-Makinig sa `channel`, kapag ang bagong mensaheng dumating ang `listener` ay tawagin pait ang `listener(event, args...)`.
+Makinig sa `channel`, kapag ang bagong mensaheng dumating sa `listener` ay tinawag pati ang `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
@@ -62,7 +62,7 @@ Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listene
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` String
-* `listener` Function
+* `listener` Punsyon
 
 Tinanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
@@ -72,7 +72,7 @@ Tinanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa ti
 
 Tinatanggal ang mga tagapakinig ng tinukoy na `channel`.
 
-## Event object
+## Ang bagay ng event
 
 Ang `event` bagay na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
 
