@@ -69,14 +69,14 @@ Pada lingkungan yang telah menggunakan Elektron versi lama, Anda mungkin juga me
 <p>Anda juga dapat mengganti lokasi cache lokal dengan menyediakan <code> ELEKTRON_CACHE </ 0>
 variabel lingkungan.</p>
 
-<p>The cache contains the version's official zip file as well as a checksum, stored as
-a text file. A typical cache might look like this:</p>
+<p>Cache berisi file zip yang baik seperti versi checksum, yang disimpan sebagai
+sebuah file teks. Sebuah tipikal Cache mungkin terlihat seperti ini:</p>
 
-<pre><code class="sh">├── electron-v1.7.9-darwin-x64.zip
-├── electron-v1.8.1-darwin-x64.zip
-├── electron-v1.8.2-beta.1-darwin-x64.zip
-├── electron-v1.8.2-beta.2-darwin-x64.zip
-├── electron-v1.8.2-beta.3-darwin-x64.zip
+<pre><code class="sh">├── elektron-v1.7.9-darwin-x64.zip
+├── elektron-v1.8.1-darwin-x64.zip
+├── elektron-v1.8.2-beta.1-darwin-x64.zip
+├── elektron-v1.8.2-beta.2-darwin-x64.zip
+├── elektron-v1.8.2-beta.3-darwin-x64.zip
 ├── SHASUMS256.txt-1.7.9
 ├── SHASUMS256.txt-1.8.1
 ├── SHASUMS256.txt-1.8.2-beta.1
@@ -92,13 +92,12 @@ Di hampir semua kasus, kesalahan ini adalah hasil dari masalah jaringan dan tida
 
 Anda juga dapat mencoba mendownload Electron langsung dari [Electron/Electron/pelepasan](https://github.com/electron/electron/releases) Jika memasang melalui `npm`gagal.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Jika penginstalan gagal dengan kesalahan ` EACCESS </ 0> Anda mungkin memerlukan <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions"> perbaiki izin npm anda </ 1>.</p>
 
-Jika kesalahan di atas terus berlanjut, flag [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) mungkin perlu disetel ke true:
+<p>Jika kesalahan di atas terus berlanjut, flag <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> mungkin perlu disetel ke true:</p>
 
-```sh
-sudo npm menginstal elektron--tidak aman-perm = true
-```
+<pre><code class="sh">sudo npm menginstal elektron--tidak aman-perm = true
+`</pre> 
 
 Pada jaringan yang lebih lambat, disarankan untuk menggunakan flag `--verbose` untuk menunjukkan kemajuan download:
 
