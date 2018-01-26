@@ -87,9 +87,9 @@ Ang isang `Boolean` ay nagpapakita kung ang aytem ay nakikita, ang katangian na 
 
 #### `ang menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay nasuri na, ang katangian na ito ay maaaring mabago ng matindi.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Ang isang `checkbox` na aytem ng menu ay ito-toggle ang katangian ng `checked` ng pagbukas at pagpatay kapag napili.
 
 A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
