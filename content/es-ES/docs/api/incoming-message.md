@@ -1,14 +1,14 @@
 ## Clase: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> Maneja las respuestas a las solicitudes HTTP/HTTPS.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` implementa la interfaz [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) y es por lo tanto un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### Eventos de Instancia
 
-#### Event: 'data'
+#### Evento: "data"
 
 Devuelve:
 
