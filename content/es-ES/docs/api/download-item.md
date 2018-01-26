@@ -1,10 +1,10 @@
 ## Clase: DownloadItem
 
-> Control file downloads from remote sources.
+> El archivo de control descarga desde fuentes remotas.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` es un `EventEmitter` que representa un elemento descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
 ```javascript
 // En el proceso principal.
@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Eventos de Instancia
 
-#### Event: 'updated'
+#### Evento: "updated"
 
 Devuelve:
 
