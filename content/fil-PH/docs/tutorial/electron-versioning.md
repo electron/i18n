@@ -75,7 +75,7 @@ Gustong malaman ng mga developers kung aling release ang mga *ligtas* gamitin. K
 * Gumamit ng `~2.0.0` para aminin lamang ang katatagan o seguridad katulad ng pagsasaayos sa `2.0.0` na release.
 * Gumamit ng `^2.0.0` para aminin ang di paglabag sa *matatag na katwiran* sa tampok na trabaho pati na rin ang seguridad at pagsasaayos ng mga bug.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+Ang importante sa ikalawang punto ay ang mga aplikasyon ay gumagamit ng `^` na dapat paring asahan ang makatuwirang antas ng stabilidad. Para maisakatuparan ito, pinapahintulot ng semver ang *indikasyon sa bagong release* upang ipahiwatig ang isang partikular na bersyon na hindi *ligtas* o *matatag*.
 
 Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
 
