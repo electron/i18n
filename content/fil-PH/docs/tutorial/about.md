@@ -12,7 +12,7 @@ Magbasa pa upang matuto nang higit pa tungkol sa mga tagapag-ambag at paglabas n
 
 Ang elektron ay pinananatili ng isang koponan sa GitHub pati na rin ang isang grupo ng [aktibong mga kontribyutor](https://github.com/electron/electron/graphs/contributors) mula sa komunidad. Ang ilan sa mga nag-aambag ay mga indibidwal at ilang mga trabaho sa mas malalaking kumpanya na bumubuo sa Elektron. Kami ay nalulugod na magdagdag ng mga madalas na tagapag-ambag sa proyekto bilang mga tagapanatili. Magbasa pa tungkol sa [nag-aambag sa Elektron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## Pagpapakawala
+## Paglalabas
 
 [Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
 
