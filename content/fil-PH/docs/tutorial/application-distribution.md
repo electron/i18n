@@ -108,18 +108,18 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 1. I-install ang [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Gumawa ng bagong S3 bucket at gumawa ng sumusunod na walang laman na direktoryong istraktura:
     
     ```sh
 - atom-shell/
-  - symbols/
+  - simbolo/
   - dist/
 ```
 
-3. Set the following Environment Variables:
+3. Itakda ang mga sumusunod na baryabol ng kapaligiran:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
+* `ELEKTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub.
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - ang lugar kung saan maari kang mag-upload ng mga header sa node.js pati na rin ang mga simbolo
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
 * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
