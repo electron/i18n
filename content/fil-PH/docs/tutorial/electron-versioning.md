@@ -134,11 +134,11 @@ Pinagkasundo namin ang flagged code sa aming bersyoning na istratehiya gaya ng s
 
 Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at release. Simula sa `2.0.0` kinakailangan natin hilahin ang mga request para umayon sa [Conventional Commits](https://conventionalcommits.org/) spec, na pwedeng ibuod sa sumusunod:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* Ang mga commits na magreresulta sa semver ang **major** bump ay dapat nagsisimula sa `BREAKING CHANGE:`.
+* Ang mga commits na magreresulta sa semver ang **minor** bump ay dapat nagsisimula sa `feat:`.
+* Ang mga commits na magreresulta sa semver ang **patch** bump ay dapat nagsisimula sa `fix:`.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* Pumapayag kami sa squashing ng commits, ngunit dapat ang squashed na mensahe ay sumusunod sa format na nasa itaas.
 
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
 
