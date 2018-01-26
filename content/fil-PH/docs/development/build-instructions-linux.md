@@ -119,17 +119,17 @@ $ npm run clean-build
 
 <h2>Troubleshooting</h2>
 
-<h3>Error While Loading Shared Libraries: libtinfo.so.5</h3>
+<h3>Mga Mali na Maaaring Lumabas Habang ang "Shared Libraries" ay "Loading": libtinfo.so.5</h3>
 
-<p>Prebuilt <code>clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+<p>Ang muling nabuo na <code>clang` ay susubukang "i-link" sa `libtinfo.so.5`. Depende sa "host architecture" kung ang "symlink" ay iaangkop ang `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## Mga Pag-susuri
 
-Tingnan ang [ Buod ng Pagbuo ng Sistema: Mga Pagsusuri ](build-system-overview.md#tests)
+Tingnan ang [Buod ng Pagbuo ng Sistema: Mga Pagsusuri](build-system-overview.md#tests)
 
 ## Advanced topics
 
