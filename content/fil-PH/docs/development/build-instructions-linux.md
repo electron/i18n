@@ -174,16 +174,16 @@ $ ./script/build.py -c R
 
 Para mabuo ang Electron gamit ang mga kompayler tulag ng `g++`, ang unang kailangang gawin ay ihinto ang paggana ng `clang` gamit ang "switch" ng `--disable_clang`, pagkatapos ay itakda ang `CC` at `CXX` bilang "environment variables" na nais mong gamitin.
 
-For example building with GCC toolchain:
+Halimbawa, ang pagbuo gamit ang GCC toolchain:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### "Environment Variables"
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+Bukod sa `CC` at `CXX`, maaari mo ring itakda ng mga sumusunod na environment variable para baguhin ang pagkakabuo ng kumpigurasyon ayon sa nais mo:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +199,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Ang "environment variables" ay dapat nakatakda na kapag pagaganahin ang iskrip ng `bootstrap.py`, at ito'y 'di gaganasa iskrip na `build.py`.
