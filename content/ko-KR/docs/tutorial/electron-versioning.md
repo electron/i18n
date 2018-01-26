@@ -16,15 +16,15 @@ npm install --save-dev electron@latest
 
 ## 버전 1.x
 
-Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않았습니다. 메이저 버전은 사용자(end-user) API 변화와 관련있습니다. 마이너 버전은 Chromium 메이저 버전 출시에 연관되어 있습니다. 패치 버전은 새로운 기능, 버그 수정에 해당합니다. 기능 추가(merge)는 일부 개발자들은 편리하게 느낄 수 있을지 모르겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않았습니다. 메이저 버전은 사용자(end-user) API 변화와 관련있습니다. 마이너 버전은 Chromium 메이저 버전 출시에 연관되어 있습니다. 패치 버전은 새로운 기능, 버그 수정에 해당합니다. 기능 추가(merge)는 일부 개발자들은 편리하게 느낄 수 있을지 모르겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. Slack, Stride, Teams, Skype, VS Code, Atom, Desktop 과 같은 유명 앱들의 QA 테스트 사이클은 오래 걸리고, 높은 수준의 안정성이 요구됩니다. 버그 수정을 하면서 새로운 기능을 추가하는 것은 상당한 위험 부담이 있습니다.
 
-Here is an example of the 1.x strategy:
+1.x 버전 전략 예제입니다.
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+`1.8.1` 버전 앱은 `1.8.2` 기능을 추가하거나 버그를 backport로(rebase 와 같은 방식) 수정하고 새로운 출시 라인(release line)을 유지하는 방법을 적용하기 전에는`1.8.3` 버전 버그 수정을 적용할 수 없습니다.
 
-## Version 2.0 and Beyond
+## 2.0 버전 이상
 
 There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
 
