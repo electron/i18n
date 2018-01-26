@@ -43,17 +43,17 @@ El módulo `globalShortcut` tiene los siguientes métodos:
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Función
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Registra un atajo global de`accelerator`. El `callback` es llamado cuando el atajo registrado es presionado por el usuario.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Cuando el acelerador ha sido tomado por otras aplicaciones, esta llamada fallará silenciosamente. Este comportamiento está diseñado por los sistemas operativos, debido a que no desean que las aplicaciones tengan conflictos por los atajos globales.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Devuelve `Boolean` - Si esta aplicación tiene registrado `accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Cuando el acelerador ha sido tomado por otras aplicaciones, esta llamada aun devolverá `false`. Este comportamiento está diseñado por los sistemas operativos, debido a que no desean que las aplicaciones tengan conflictos por los atajos globales.
 
 ### `globalShortcut.unregister(accelerator)`
 
