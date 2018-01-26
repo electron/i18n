@@ -73,11 +73,11 @@ Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 
 Kapag tinutukoy ang isang `role` sa macOS, ang `label` at ang `accelerator` ay ang tanging opsyon na makaka-apekto sa aytem ng menu. Lahat ng ibang opsyon ay hindi papansinin.
 
-### Humahalimbawa sa bahagi nito
+### Mga Katangian ng Instansya
 
-The following properties are available on instances of `MenuItem`:
+Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
-#### `menuItem.enabled`
+#### `ang menuItem.enabled`
 
 A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
