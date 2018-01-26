@@ -29,7 +29,7 @@ app.on('ready', () => {
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
 * Uygulama göstergesi yalnızca bağlam menüsü olduğunda gösterilir.
 * Linux'ta uygulama göstergesi kullanıldığındathe `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Linux'ta bağımsız `MenuItem`'a yapılan değişikliklerin etkili olabilmesi için `setContextMenu`'yü tekrar çağırmalısınız. Örneğin:
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
