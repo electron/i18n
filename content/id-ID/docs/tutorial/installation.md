@@ -36,11 +36,13 @@ Jika Anda perlu menggunakan proxy HTTP, Anda dapat [ menetapkan variabel lingkun
 
 ## Kustom cermin dan caches
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Selama instalasi, modul ` elektron </ 0> akan memanggil <a href="https://github.com/electron-userland/electron-download"><code> elektron-download </ 1> untuk mendownload prebuilt
+binari Elektron untuk platform Anda. Ini juga dapat dilakukan dengan menghubungi GitHub's
+halaman download yang dirilis (<code>https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Jika Anda tidak dapat mengakses GitHub atau Anda memerlukan penyediaan kustom build, Anda dapat melakukannya dengan menyediakan mirror atau direktori cache yang ada.
 
-#### Mirror
+#### Cermin
 
 You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
 
