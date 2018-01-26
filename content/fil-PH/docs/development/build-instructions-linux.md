@@ -159,9 +159,9 @@ Paalala, hindi kasama ang kumpigurasyon ng `shared_library` bilang "default", at
 $ ./script/build.py -c R
 ```
 
-### Using system `clang` instead of downloaded `clang` binaries
+### Gamitin ang sistema ng `clang` sa halip na "downloaded `clang` binaries"
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Bilang "default", ang Electron ay binuo gamit ang bagong buo ng "[`clang`](https://clang.llvm.org/get_started.html) binaries" na binibigay ng proyekto ng Chromium. Para sa ilang rason, nais mong bumuo gamit ang `clang` na "naka-install" sa sistema, maaaring gamitin ang `bootstrap.py` kasama ang "`--clang_dir=<path>` switch". By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
 For example if you installed `clang` under `/user/local/bin/clang`:
 
