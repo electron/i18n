@@ -292,15 +292,15 @@ Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay makakapunta sa `offset`.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+Linisin ang kasaysayan ng nabigasyon.
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+Gawin na ang pahina ng panauhin na bumalik.
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+Gawin ang pahina ng panauhin na sumulong.
 
 ### `<webview>.goToIndex(index)`
 
