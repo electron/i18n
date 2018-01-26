@@ -7,7 +7,7 @@ Untuk memasang binari elektron prebuilt , gunakan ` npm </ 0> . Metode yang disu
 <pre><code class="sh">npm menginstal elektron - menyimpan-dev
 `</pre> 
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Lihat  Dokumen versi elektron </ 0> untuk info tentang cara mengelola versi Elektron di aplikasi Anda.</p> 
 
 ## Instalasi global
 
