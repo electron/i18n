@@ -25,7 +25,7 @@ Pagkatapos magsagawa ng `Electron.app` (o `elektron` sa Linux,`electron.exe` sa 
 
 Bukod sa pagpapadala sa iyong app sa pamamagitan ng pag-kopya sa lahat ng mga pinagkukunan ng file, maari mong i-package ang iyong app sa [asar](https://github.com/electron/asar) archive upang maiwasan ang paglalantad sa iyong app source sa mga gumagamit.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Para gamitin ang `asar` i-archive para palitan ang `app` na folder, kailangan mo ring palitan ang pangalan ang archive sa `app.asar`, at ilagay ito sa ilalim ng mga mapagkukunan sa Electron na direktoryo kagaya ng nasa ilalim at ang Electron ay susubukin ulit basahin ang archive at simulan ulit ito.
 
 Sa macOs:
 
@@ -88,9 +88,9 @@ AngAkingApp.app/Mga Nilalaman
 
 Maari mong palitan ng pangalan ang `elektron` maaring palitan sa anumang gusto mo.
 
-## Packaging Tools
+## Mga kagamitan sa packaging
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Bukod sa pagmano mano ng packaging sa iyong app, pwede ka ring pumili para gumamit ng ikatlong partido na kagamitan ng packaging para gawin ang trabaho para sayo:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
