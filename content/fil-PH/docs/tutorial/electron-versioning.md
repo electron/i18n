@@ -83,8 +83,8 @@ Ang mga sumusunod ay ang proseso:
 
 1. Lahat ng mga bagong release na maliit man o malaki ay nagsisimula sa isang `-beta.N` na tag para sa `N >= 1`. Sa puntong iyon, ang itinakdang tampok ay **naka-kandado**. Inaamin ng linyang tampok na iyon na walang higit pang mga tampok, at naka-focus lamang sa seguridad at estabilidad. hal. `2.0.0-beta.1`.
 2. Ang mga pagaayos ng bug, regression at seguridad ng patches ay maaring makapasok. Sa paggawa nito, ang isang bagong beta ay inilabas pataas `N`. hal. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+3. Kung ang partikyular na beta release ay *itinuturing pangkalahatan* na matatag, ito ay muling ilalabas bilang isang matatag na katayuan, papalitan lang ang impormasyon ng bersyon.
+4. Kung may mga pagsasaayos ng bug o para sa seguridad ng patches na kailangan pang gawin pero ang bagong labas ay matatag na, ang mga ito'y ilalapat at ang *patch* na bersyon ay pinapataas nang naaayon hal. `2.0.1`.
 
 For each major and minor bump, you should expect too see something like the following:
 
