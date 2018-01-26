@@ -1,10 +1,10 @@
-## Class: Tray
+## Clase: Tray
 
-> Add icons and context menus to the system's notification area.
+> Añadir los iconos y menús contextuales al área de notificación del sistema.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`Tray` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
