@@ -81,8 +81,8 @@ Anuman ang piliin mo, pana-panahon mo pa ring i-bump ang bersyon ng iyong `packa
 
 Ang mga sumusunod ay ang proseso:
 
-1. Lahat ng mga bagong release na maliit man o malaki ay nagsisimula sa isang `-beta.N` na tag para sa `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
+1. Lahat ng mga bagong release na maliit man o malaki ay nagsisimula sa isang `-beta.N` na tag para sa `N >= 1`. Sa puntong iyon, ang itinakdang tampok ay **naka-kandado**. Inaamin ng linyang tampok na iyon na walang higit pang mga tampok, at naka-focus lamang sa seguridad at estabilidad. hal. `2.0.0-beta.1`.
+2. Ang mga pagaayos ng bug, regression at seguridad ng patches ay maaring makapasok. Sa paggawa nito, ang isang bagong beta ay inilabas pataas `N`. hal. `2.0.0-beta.2`
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
 
