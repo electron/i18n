@@ -140,10 +140,10 @@ Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at
 
 * Pumapayag kami sa squashing ng commits, ngunit dapat ang squashed na mensahe ay sumusunod sa format na nasa itaas.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* Ito ay katanggap-tanggap para sa ilang commits sa isang pull request upang hindi isama ang semantikong panlapi, hangga't ang commit ay nasa parehong pull request na may makahulugang nakapalibot na semantik na mensahe.
 
-# Versionless `master`
+# Walang pagbabago sa bersyon ng `master`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* Ang `master` branch ay palaging naglalaman ng `0.0.0-dev` sa loob ng `package.json`
+* Ang mga release na branch ay hindi maaring isama ulit sa master
+* Ang mga release branches *ba*ay may laman nang tamang bersyon sa kanilang `package.json`
