@@ -34,7 +34,7 @@ Selain mengubah arsitektur, Anda juga bisa menentukan platformnya (misalnya, ` w
 
 Jika Anda perlu menggunakan proxy HTTP, Anda dapat [ menetapkan variabel lingkungan ini ](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
-## Kustom cermin dan caches
+## Custom Mirrors and Caches
 
 Selama instalasi, modul ` elektron </ 0> akan memanggil <a href="https://github.com/electron-userland/electron-download"><code> elektron-download </ 1> untuk mendownload prebuilt
 binari Elektron untuk platform Anda. Ini juga dapat dilakukan dengan menghubungi GitHub's
@@ -42,23 +42,23 @@ halaman download yang dirilis (<code>https://github.com/electron/electron/releas
 
 Jika Anda tidak dapat mengakses GitHub atau Anda memerlukan penyediaan kustom build, Anda dapat melakukannya dengan menyediakan mirror atau direktori cache yang ada.
 
-#### Cermin
+#### Mirror
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+Anda dapat menggunakan variabel lingkungan untuk mengganti URL dasar, jalan di mana untuk memeriksa biner elektron, dan nama berkas biner. Url yang digunakan oleh ` elektron-download </ 0>
+disusun sebagai berikut:</p>
+
+<pre><code class="txt">url = ELEKTRON_MIRROR + ELECTRON_KUSTOM_DIR + '/' + ELEKTRON_KUSTOM_NAMABERKAS
+`</pre> 
+
+Misalnya, untuk menggunakan mirror China:
 
 ```txt
-url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
-```
-
-For instance, to use the China mirror:
-
-```txt
-ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELEKTRON_MIRROR="https://npm.taobao.org/mirrors/elektron/"
 ```
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Sebagai alternatif, Anda dapat mengganti cache lokal. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
