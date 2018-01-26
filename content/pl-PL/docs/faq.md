@@ -49,12 +49,12 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 Ma to miejsce w przypadku, gdy zmienna używana do przechowywania okna/pola jest poddawana automatycznej dealokacji.
 
-If you encounter this problem, the following articles may prove helpful:
+Jeśli wystąpi ten problem, poniższe artykuły mogą okazać się pomocne:
 
 * [Zarządzanie pamięcią](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Zakres Zmiennej](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Jeśli chcesz szybkiej naprawy, możesz zglobalizować zmienne poprzez zmianę kodu z tego:
 
 ```javascript
 const {app, Tray} = require('electron')
