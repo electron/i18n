@@ -191,7 +191,7 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+`scheme` protokolünü böler ve cevap olarak bir dosya yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -207,7 +207,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+`scheme` protokolünü böler ve cevap olarak bir `String` yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -223,7 +223,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
+`scheme` protokolünü böler ve cevap olarak bir `Buffer` yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
@@ -245,7 +245,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Hata 
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+`scheme` protokolünü böler ve cevap olarak yeni bir HTTP isteği yollayan `handler`'ı protokolün yeni işleyicisi gibi kullanır.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
