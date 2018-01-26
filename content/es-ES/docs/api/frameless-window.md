@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, miniaturize, and fullscreen buttons that display when hovering in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+Utiliza un dibujo personalizado de los botones cerrar, miniaturizar y pantalla completa que se muestran cuando se pasa por encima de la parte superior izquierda de la ventana. Estos botones personalizados evitan problemas con los eventos del ratón que ocurren con los botones estándares de la barra de tareas de la ventana. Esta opción solo es aplicable para ventanas sin marco.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -50,7 +50,7 @@ win.show()
 
 ## Ventana transparente
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+Al configurar la opción `transparent` a `true`, se puede hacer transparente la ventana sin bordes:
 
 ```javascript
 const {BrowserWindow} = require('electron')
