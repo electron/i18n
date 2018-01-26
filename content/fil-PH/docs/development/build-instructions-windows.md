@@ -23,7 +23,7 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## "Bootstrapping"
 
 Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
 
@@ -86,7 +86,7 @@ Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo 
 
 <p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
 
-<h2>Troubleshooting</h2>
+<h2>"Troubleshooting"</h2>
 
 <h3>Command xxxx not found</h3>
 
