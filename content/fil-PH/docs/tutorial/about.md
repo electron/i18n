@@ -42,17 +42,17 @@ Upang mapanatili ang Elektron na maliit (laki ng file) at pangmatagalan (ang pag
 
 Halimbawa, ang Elektron ay ginagamit lamang upang makapagsalin mula sa mga kromo sa halip lahat ng kromo. Pinapadali nito ang pag-upgrade ng Kromo ngunit lahat ng mga tampok na makikita sa Google Chrome ay hindi makikita sa Elektron.
 
-Ang mga bagong tampok na idinagdag sa Elektron ay dapat na maging pangunahing mga API. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Ang mga bagong tampok na idinagdag sa Elektron ay dapat na maging pangunahing mga API. Kung ang tampok ay maaaring maging sarili nitong Node.js modyul, marahil ito ay dapat. Tingnan ang [mga kasangkapan ng elektron na binuo ng komunidad](https://electronjs.org/community).
 
-## History
+## Kasaysayan
 
-Below are milestones in Electron's history.
+Nasa ibaba ang mga mahahalagang pangyayari sa kasaysayan ng Elektron.
 
-| :calendar:      | :tada:                                                                                                         |
-| --------------- | -------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **May 2014**    | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
-| **May 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
+| :Kalendaryo:    | :tada:                                                                                                            |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Abril 2013**  | [Sinimulan ang Atom Shell](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Mayo 2014**   | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                       |
+| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                                |
+| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                           |
+| **May 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                                 |
+| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                                |
