@@ -71,7 +71,7 @@ Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 * `help` - Ang submenu ay isang menu ng "Help"
 * `services` - Ang submenu ay isang menu ng "Services"
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+Kapag tinutukoy ang isang `role` sa macOS, ang `label` at ang `accelerator` ay ang tanging opsyon na makaka-apekto sa aytem ng menu. Lahat ng ibang opsyon ay hindi papansinin.
 
 ### Humahalimbawa sa bahagi nito
 
