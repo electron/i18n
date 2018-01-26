@@ -106,7 +106,7 @@ You need to fork Electron when you have custom C++ code that you have patched di
 
 #### Creating a Custom Release with surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. I-install ang [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
 2. Create a new S3 bucket and create the following empty directory structure:
     
@@ -126,8 +126,8 @@ You need to fork Electron when you have custom C++ code that you have patched di
 * `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
 * `TARGET_ARCH` - set to `ia32` or `x64`
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. Sa `script/upload.py`, maari *kang* magtakda nf `ELECTRON_REPO` sa iyong fork (`MYORG/electron`), lalo na kung ikaw ay isang kontribyutor sa Elektron proper.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Maghintay ng napaka, napakataas na panahon para makompleto ang build.
