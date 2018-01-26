@@ -119,9 +119,9 @@ Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho 
 
 # Mga tampok na Bandila
 
-Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. Sa konteksto ng Electron, ang tampok na bandila o **malambot na branch** ay dapat magkaroon ng sumusunod na katangian:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+* ay pinagana/di pinagana alinman sa runtime, o sa build-time; hindi namin sinusuportahan ang konsepto ng request-scoped na tampok sa bandila
 * it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
 * feature flags are eventually removed after the soft-branch is merged
 
