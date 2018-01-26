@@ -32,11 +32,11 @@ Ang proseso ng pag-update ng bersyon ay malinaw na detalyado sa aming [Bersyon D
 
 ### LTS
 
-Ang pangmatagalang suporta ng mas lumang mga bersyon ng Elektron ay kasalukuyang hindi umiiral. Kung gumagana sa iyo ang kasalukuyang bersyon ng Elektron, maaari kang manatili dito hangga't gusto mo. If you want to make use of new features as they come in you should upgrade to a newer version.
+Ang pangmatagalang suporta ng mas lumang mga bersyon ng Elektron ay kasalukuyang hindi umiiral. Kung gumagana sa iyo ang kasalukuyang bersyon ng Elektron, maaari kang manatili dito hangga't gusto mo. Kung gusto mong magamit ang mga bagong tampok kapag ito ay nakapasok na kailangan mong i-upgrade ang maka-bagong bersiyon.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Isang malaking update ang dumating na may bersyon `v1.0.0`. Kung hindi mo pa ginagamit ang bersyon na ito, dapat mong [basahin nang higit pa ang tungkol sa `v1.0.0`mga pagbabago](https://electronjs.org/blog/electron-1-0).
 
-## Core Philosophy
+## Pangunahing Pilosopiya
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
