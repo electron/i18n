@@ -5,7 +5,7 @@ nav:
   community: Community
   apps: Apps
   userland: Userland
-  releases: Pagpapakawala
+  releases: Paglalabas
   contact: Contact
   languages: Languages
   code_of_conduct: Code of Conduct
@@ -120,7 +120,7 @@ pages:
   '/community':
     title: Community
   '/releases':
-    title: Pagpapakawala
+    title: Paglalabas
   '/contact':
     title: Contact
     description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
