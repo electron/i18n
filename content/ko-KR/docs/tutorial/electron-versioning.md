@@ -99,9 +99,9 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보기를 �
 
 주기(lifecycle) 예제를 그림으로 표현했습니다:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
+* 최신 기능이 포함된 신규 출시(release) 브랜치가 생성되었습니다. 이 브랜치는 `2.0.0-beta.1`라는 이름을 갖고 있습니다. ![](../images/versioning-sketch-3.png)
+* 출시(release) 브랜치로 백포트 가능한 master 브랜치에서 버그 수정이 발생했습니다. 패치를 적용하고 새로운 베타 버전이 `2.0.0-beta.2`라는 이름으로 출시되었습니다. ![](../images/versioning-sketch-4.png)
+* 베타 버전이*일반적으로 안정적*이라고 평가받아서 베타 버전이 아닌 `2.0.0`라는 이름으로 다시 출시되었습니다. ![](../images/versioning-sketch-5.png)
 * Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 A few examples of how various semver ranges will pick up new releases:
