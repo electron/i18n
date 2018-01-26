@@ -1,6 +1,6 @@
 # Pamamahagi ng aplikasyon
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Elektron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
 
 On macOS:
 
