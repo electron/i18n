@@ -196,7 +196,7 @@ Ang umiiral na webview ay makikita ang `destroy` na kaganapan at lilikha ng bago
 
 Habang ang katangian na naroroon sa `webview` ang nilalaman ay nahadlang sa pag-resizing habang ang `webview` na elemento ay mismong naka resized.
 
-Ito ay magagamit sa kombinasyon na may [`webContents.setSize`](web-contents.md#contentssetsizeoptions) na manu-manong baguhin ang laki sa nilalaman ng webview bilang reaksyon sa pagbago ng laki sa bintana. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+Ito ay magagamit sa kombinasyon na may [`webContents.setSize`](web-contents.md#contentssetsizeoptions) na manu-manong baguhin ang laki sa nilalaman ng webview bilang reaksyon sa pagbago ng laki sa bintana. Ito ay maaring gawin na resizing na mas mabilis kompara kung nag-aasa sa elemento ng webview papunta sa awtomatic pag bago ng laki sa mga nilalaman.
 
 ```javascript
 const {webContents} = require('electron')
@@ -223,9 +223,9 @@ win.on('resize', () => {
 
 ## Pamamaraan
 
-The `webview` tag has the following methods:
+Nag `webview` na tag ay may mga susmusunod na pamamaraan:
 
-**Note:** The webview element must be loaded before using the methods.
+**Paalala:** Ang webview na elemento ay dapat makarga bago gamitin ang mga pamamaraan.
 
 **Halimbawa**
 
