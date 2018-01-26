@@ -58,20 +58,21 @@ ELEKTRON_MIRROR="https://npm.taobao.org/mirrors/elektron/"
 
 #### Cache
 
-Sebagai alternatif, Anda dapat mengganti cache lokal. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Sebagai alternatif, Anda dapat mengganti cache lokal. `elektron-download` akan cache download binari di direktori lokal agar tidak memberatkan jaringan Anda. Anda dapat memakai folder cache itu untuk menyediakan custom build Electron atau untuk menghindari sentuhan sama sekali dengan jaringan.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Linux: `$XDG_CACHE_HOME` or `~/.cache/elektron/`
+* MacOS: `~/Library/Caches/elektron/`
+* Windows: `$LOCALAPPDATA/elektron/Cache` or `~/AppData/Local/elektron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+Pada lingkungan yang telah menggunakan Elektron versi lama, Anda mungkin juga menemukan cache di ` ~ /.elektron </ 0>.</p>
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+<p>Anda juga dapat mengganti lokasi cache lokal dengan menyediakan <code> ELEKTRON_CACHE </ 0>
+variabel lingkungan.</p>
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+<p>The cache contains the version's official zip file as well as a checksum, stored as
+a text file. A typical cache might look like this:</p>
 
-```sh
-├── electron-v1.7.9-darwin-x64.zip
+<pre><code class="sh">├── electron-v1.7.9-darwin-x64.zip
 ├── electron-v1.8.1-darwin-x64.zip
 ├── electron-v1.8.2-beta.1-darwin-x64.zip
 ├── electron-v1.8.2-beta.2-darwin-x64.zip
@@ -81,7 +82,7 @@ The cache contains the version's official zip file as well as a checksum, stored
 ├── SHASUMS256.txt-1.8.2-beta.1
 ├── SHASUMS256.txt-1.8.2-beta.2
 ├── SHASUMS256.txt-1.8.2-beta.3
-```
+`</pre> 
 
 ## Penyelesaian masalah
 
