@@ -293,7 +293,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`acceptLanguages` virgülle ayrılmış dil kodlarının sıralı bir listesi olmalıdır, örneğin `"en-US,fr,de,ko,zh-CN,ja"`.
 
 Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `webContents.setUserAgent` yapısını oturum genelinde kullanıcı aracısını geçersiz kılmak için kullanabilir.
 
@@ -307,7 +307,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 * `geri arama` Fonksiyon 
   * `result` Buffer - Blob data.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+`Blob` döner - `identifier` ile ilişkili blob verisi.
 
 #### `ses.createInterruptedDownload(options)`
 
