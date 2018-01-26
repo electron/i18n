@@ -99,8 +99,9 @@ Untuk setiap benturan besar dan kecil, Anda harus berharap juga melihat sesuatu 
 
 Contoh siklus hidup dalam gambar:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Perbaikan bug masuk ke master yang bisa di-pack ke cabang rilis. Patch ini diterapkan, dan beta baru diterbitkan sebagai `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* Cabang rilis baru dibuat yang mencakup rangkaian fitur terbaru. Ini diterbitkan menjadi` 2.0.0-beta.1 </ 0>.
+<img src="../images/versioning-sketch-3.png" alt="" /></li>
+<li>Perbaikan bug masuk ke master yang bisa di-pack ke cabang rilis. Patch ini diterapkan, dan beta baru diterbitkan sebagai <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * Beta dianggap *umumnya stabil* dan diterbitkan lagi sebagai non-beta di bawah `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Kemudian, eksploitasi zero-day terungkap dan sebuah perbaikan diterapkan pada master. Kami memasang port-port ke garis `2-0-x` dan melepaskan `2.0.1`. ![](../images/versioning-sketch-6.png)
 
