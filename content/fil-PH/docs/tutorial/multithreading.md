@@ -18,7 +18,7 @@ Ang `nodeIntegrationInWorker` ay pwedeng gamitin ng nagsasarili sa `nodeIntegrat
 
 ## Magagamit na APIs
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
+Lahat ng built-in na modyul ng Node.js ay suportado ng manggagawa ng Web, at `asar` archives ay maari paring mabasa gamit ang Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
 
 ## Native Node.js modules
 
