@@ -133,21 +133,21 @@ Tingnan ang [Buod ng Pagbuo ng Sistema: Mga Pagsusuri](build-system-overview.md#
 
 ## Mga Pinatiunang Paksa
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+Ang kompigurasyon ng "default building" ay tinatarget para sa mga pangunahing distribusyon ng "desktop Linux". Ang mga sumusunod na impormasyon ay maaaring makatulong para makabuo ng tiyak na distribusyon.
 
-### Building `libchromiumcontent` locally
+### Ang pagbuo ng lokal na `libchromiumcontent`
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Gamit ang "prebuilt binaries" ng `libchromiumcontent`, maaaring maiwasan ang sa pamamagitan ng pagbuo ng lokal na `libchromiumcontent`. Para magawa ito, sundin lang ang mga hakbang:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+1. "I-install" ang [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+2. "I-install" ang [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+3. Kunin ang "git submodules":
 
 ```sh
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. Ipasa ang `--build_release_libcc` at pagpalitin sa skrip na `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
