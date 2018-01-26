@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# Oggetto del CertificatoPrincipale
 
-* `commonName` String - Common Name
-* `organizations` String[] - Organization names
-* `organizationUnits` String[] - Organization Unit names
+* `Nomecomune` Stringa - Nome Comune
+* `organizzazione` Stringa[] - Nomi organizzazione
+* `Unitàorganizzazione` Stringa[] - Nomi unità di organizzazione
 * `locality` String - Locality
 * `state` String - State or province
 * `country` String - Country or region
