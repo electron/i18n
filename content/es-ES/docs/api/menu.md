@@ -2,7 +2,7 @@
 
 > Crea menús de aplicaciones nativas y menús contextuales.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -16,9 +16,9 @@ La clase `menú` tiene los siguientes métodos estáticos:
 
 * `menu` Menu
 
-Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
+Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux, el `menu` se configurará como menú superior de cada ventana.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efecto en macOS.
 
 **Note:** This API has to be called after the `ready` event of `app` module.
 
