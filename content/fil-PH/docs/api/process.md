@@ -1,10 +1,10 @@
-# process
+# proseso
 
-> Extensions to process object.
+> Karugtong sa prosesong bagay.
 
-Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
+Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay](https://nodejs.org/api/process.html). Ito ay nagdaragdag ng mga sumusunod na pangyayari, katangian, at mga pamamaraan:
 
 ## Pangyayari
 
