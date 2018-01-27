@@ -96,7 +96,7 @@ La clase `Menu` solo está disponible en el proceso principal, pero también se 
 
 ### Proceso principal
 
-An example of creating the application menu in the main process with the simple template API:
+Ejemplo de la creación del menú de la aplicación en el proceso principal con la API de plantilla:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -192,7 +192,7 @@ Menu.setApplicationMenu(menu)
 
 ### Proceso de renderizado
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+A continuación, un ejemplo de cómo crear un menú dinámicamente en una página web (proceso de renderizado) utilizando el módulo [`remote`](remote.md), y mostrarlo cuando el usuario le dé clic derecho a la ventana:
 
 ```html
 <!-- index.html -->
@@ -212,13 +212,13 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Notas sobre el menú de la aplicación en macOS
 
 macOS tiene un estilo de menú de aplicaciones completamente diferente de Windows y Linux. Aquí hay algunas notas sobre cómo hacer que el menú de su aplicación sea más parecido a un nativo.
 
 ### Menús Estándar
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+En macOS hay muchos menús estándares definidos por el sistema, como los menus `Services` y `Windows`. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `ventana`
 * `ayuda`
