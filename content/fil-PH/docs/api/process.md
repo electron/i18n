@@ -121,4 +121,4 @@ Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Itakda ang file na tagapaglarawan sa mahinang limitasyon sa `maxDescriptors` o sa OS malakas na limitasyon, alinman ang mas mababa sa kasalukuyang proseso.
