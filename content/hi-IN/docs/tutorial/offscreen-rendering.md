@@ -8,13 +8,13 @@
 
 ## रेंडरिंग के दो मोड
 
-### GPU accelerated
+### जीपीयु एक्स्सलरेटेड
 
-GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
+जीपीयु एक्स्सलरेटेड रेंडरिंग का मतलब है कि कम्पोजीशन के लिए जीपीयु का इस्तेमाल किया जाता है | इसकी वज़ह से फ्रेम को जीपीयु से कॉपी किया जाता है जिसे ज्यादा शक्ति की ज़रुरत पड़ती है, और इसलिए यह मोड दुसरे मोड के मुकाबले थोड़ा धीरे है | इसका मोड का फायदा यह है कि इससे वेबजीएल और 3डी सीएसएस एनीमेशनस समर्थित है |
 
-### Software output device
+### सॉफ्टवेयर आउटपुट डिवाइस
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+यह मोड सीपीयु में रेंडरिंग के लिए एक सॉफ्टवेयर आउटपुट डिवाइस का इस्तेमाल करता है, जिससे कि फ्रेम रेट का उत्पादन कही ज्यादा तेज़ी से होता है, और इसलिए जीपीयु एक्स्सलरेटेड मोड से ज्यादा प्राथमिकता इसे मिलती है |
 
 To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
