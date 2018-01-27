@@ -40,23 +40,23 @@ To work around this Electron uses a `gyp` variable `libchromiumcontent_component
 
 Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
-This only affects developers, if you are just building Electron for rebranding you are not affected.
+Esto solo afecta a los desarrolladores, si solo estás compilando Electron para cambiar la marca usted no estás afectado.
 
 ## Pruebas
 
-Test your changes conform to the project coding style using:
+Pruebe sus cambios conforme al estilo de codificación del proyecto usando:
 
 ```sh
 $ npm run lint
 ```
 
-Test functionality using:
+Pruebe la funcionalidad usando:
 
 ```sh
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Cada vez que realice cambios en el código fuente de Electron, deberá volver a ejecutar la compilación antes de las pruebas:
 
 ```sh
 $ npm run build && npm test
@@ -78,7 +78,7 @@ $ npm test -- --grep child_process
 
 Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
 
-To run the tests with the release build use:
+Para ejecutar las pruebas con el lanzamiento compila el uso:
 
 ```sh
 $ npm test -- -R
