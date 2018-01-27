@@ -47,15 +47,15 @@ Patatakda nito sa `totoo` ay patatahimikin ang babala ng deprecation. Ang propey
 
 Ang `String` nag representa ng landas patungo sa pangunahing panuto.
 
-### `process.throwDeprecation`
+### `proseso.itaponDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matatapon bilang eskepsyon. Ang pagtatakda ng mga ito na `totoo` ay magtatapon ng mali para sa deprecations. Ang propeyedad na ito ay ginagamit sa halip na `--tapon-deprecation` naguutos sa bandilang linya.
 
-### `process.traceDeprecation`
+### `proseso.bakasDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Ang pagtatakda nito sa `totoo` ay maglilimbag ng isinalansan na bakas. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
 
-### `process.traceProcessWarnings`
+### `proseso.bakasProsesoBabala`
 
 A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
