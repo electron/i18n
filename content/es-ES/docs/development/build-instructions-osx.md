@@ -1,6 +1,6 @@
 # Instrucciones para compilación (macOS)
 
-Follow the guidelines below for building Electron on macOS.
+Siga las pautas a continuación para construir Electron en macOS.
 
 ## Pre-requisitos
 
@@ -8,15 +8,15 @@ Follow the guidelines below for building Electron on macOS.
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (external)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Si está utilizando el Python descargado por Homebrew, también debe instalar los siguientes módulos de Python:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-If you're simply developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Si simplemente estás desarrollando Electron y no planeas redistribuir tu compilación personalizada de Electron, puede omitir esta sección.
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+Para que ciertas funciones (por ejemplo, pellizcar-zoom) funcionen correctamente, debe orientar el macOS 10.10 SDK.
 
 Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
 
@@ -26,7 +26,7 @@ Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and t
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+También necesitarás habilitar Xcode para compilar contra el SDK 10.10:
 
 - Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
 - Set the `MinimumSDKVersion` to `10.10`
