@@ -42,19 +42,19 @@ Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/libra
 
 Devuelve `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Generalmente, la `template` es sólo un arreglo de `options` para la construcción de un [MenuItem](menu-item.md). El uso hace referencia a lo anteriormente mencionado.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Se pueden anexar otros campos al elemento de la `template` y pueden convertirse en propiedades de los elementos del menú creado.
 
 ### Métodos de Instancia
 
-The `menu` object has the following instance methods:
+El objeto`menu` tiene los siguientes métodos de instancia:
 
 #### `menu.popup([browserWindow, options])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
-* `options` Objecto (opcional) 
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
+* `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
+* `options` Objeto (opcional) 
+  * `x` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Por defecto es `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
@@ -63,7 +63,7 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` BrowserWindow (optional) - Default is the focused window.
+* `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
 
 Closes the context menu in the `browserWindow`.
 
