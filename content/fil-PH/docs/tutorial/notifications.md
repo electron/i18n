@@ -44,7 +44,7 @@ Tandaan na ang mga notipikasyon ay limitado sa 256 bytes na laki at itoy mapuput
 
 ### Mga Advanced na abiso
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Ang mga sumusunod na bersyon ng macOS ay nagbibigay-daan para sa mga abiso sa isang input field, na nagpapahintulot sa gumagamit upang mabilis na tumugon sa isang abiso. Upang magpadala ng mga abiso sa isang input field, gamitin ang userland modyul [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
 ### Huwag abalahin / Estado ng Sesyon
 
