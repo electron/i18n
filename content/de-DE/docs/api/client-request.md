@@ -129,25 +129,25 @@ Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen 
 * `name` String - Ein extra HTTP header Name.
 * `value` Object - Ein extra HTTP header Wert.
 
-Fügt einen extra HTTP header hinzu. Der Header-Name wird ausgestellt, da es ohne Standardspeicherort ist. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Fügt einen extra HTTP header hinzu. Der Header-Name wird ausgestellt, da es ohne Standardspeicherort ist. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. Falls der übergebene wert kein `String` ist, wird die `toString()` Methode aufgerufen, um den Finalen wert zu erhalten.
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - Spezifiziert einen extra Header Namen.
 
-Returns `Object` - The value of a previously set extra header name.
+Gibt ein `Object` wieder - Den wert des davor gesetzten extra Header Namen.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - Spezifiziert einen extra Header Namen.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Entfernt den zuvor gesetzten extra Header Namen. Diese Methode kann nur vor dem ersten Schreiben aufgerufen werden. Der Versuch diese Methode danach Aufzurufen, wird einen Fehler erzeugen.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - Ein Teil der Requests body Daten. Falls der wert ein String ist, wird dieser in einen Buffer konvertiert, mittels einer spezifischen Codierung.
+* `encoding` String (optional) - Wird benutzt um einen String chunk in ein Buffer Objekt zu konvertieren. Der Standardwert ist 'utf-8'.
+* `callback` Function (optional) - Wird aufgerufen, nachdem der Schreibvorgang beendet ist.
 
 `callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
 
