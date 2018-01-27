@@ -14,7 +14,7 @@ Buksan ang `chrome: //components/` sa browser ng Chrome, hanapin ang `WidevineCd
 
 `APP_DATA` ay ang lokasyon ng system para sa pagtatago ng data ng app, sa Windows ito ay `%LOCALAPPDATA%`, sa macOS ito ay `~/Library/Application Support`. `BERSYON` ay Bersyon string ng Widevine CDM plugin, tulad ng `1.4.8.866`. `PLATFORM` ay `mac` o `manalo`. `ARKO` ay `x86` o `x64`.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+Sa Windows ang mga kinakailangang binary ay `widevinecdm.dll` at `widevinecdmadapter.dll`, sa macOS ang mga ito ay `libwidevinecdm.dylib ` at `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
 
 ### Linux
 
