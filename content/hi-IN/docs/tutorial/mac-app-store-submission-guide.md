@@ -118,19 +118,19 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+अगर आप मैकओएस के अंतर्गत एप्प सैंडबॉक्सिंग में नये हैं, तो आपको एक शुरूआती विचार के लिए एप्पल की [एप्प सैंडबॉक्स इनेबल करना](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) गाइड भी पढ़नी चहिये, और फिर एनटाइटलमेंट फाइल्स में उन अनुमतियों के लिए कुंजियाँ जोड़ें जिनकी आपकी एप्प को आवश्यकता हैं |
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+अपनी एप्प पर मैन्युअली हस्ताक्षर करने के अलावा, आप चाहे तो इस काम के लिए [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) मोड्यूल का भी इस्तेमाल कर सकते हैं |
 
-#### Sign Native Modules
+#### मूल मोडयुल्स पर हस्ताक्षर करना
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+आपकी एप्प में इस्तेमाल हुए मूल मोडयुल्स पर भी हस्ताक्षर करना ज़रूरी है | अगर electron-osx-sign का इस्तेमाल कर रहे हैं, तो आर्गुमेंट लिस्ट में निर्मित बाइनरिज़ के पथ को शामिल करना न भूलें:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+साथ ही यह भी याद रखें कि मूल मोडयुल्स की कुछ मध्यवर्ती फाइल्स भी हो सकती है जिन्हें शामिल नहीं करना (नहीं तो उन पर भी हस्ताक्षर करना पड़ेगा) | If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
 
 ### Upload Your App
 
