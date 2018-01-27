@@ -98,20 +98,20 @@ Nagbabalik `Object`:
 * `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
 * `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
 * `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi sa ibang mga proseso, tulad ng JS heap o HTML na nilalaman.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `sharedBytes` Integer - Ang halaga ng memorya na ibinahagi sa pagitan ng mga proseso, kadalasan ang memorya ay natupok ng Electron code mismo.
 
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
+Nagbabalik ng mga bagay at nagbibigay ng memoryang paggamit ng istatistika tungkol sa kasalukuyang proseso. Tandaan na ang lahat ng istatistik ay iniulat sa Kilobytes.
 
-### `process.getSystemMemoryInfo()`
+### `proseso.getSystemMemoryInfo()`
 
-Returns `Object`:
+Nagbabalik `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
-* `swapTotal` Integer - The total amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
-* `swapFree` Integer - The free amount of swap memory in Kilobytes available to the system. *Windows* *Linux*
+* `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
+* `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
+* `swapTotal` Integer - Ang kabuuang halaga ng mapagpalitang memorya sa Kilobytes ay maggagamit sa sistema. *Windows**Linux*
+* `swapFree` Integer - Ang libreng halaga ng pinagpalitang memorya sa Kilobytes na magagamit sa sistema. *Windows**Linux*
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
 
 ### `process.hang()`
 
