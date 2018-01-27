@@ -1,14 +1,14 @@
-# Electron Documentation Styleguide
+# Poradnik Formatowania Dokumentacji Electron
 
 To są wytyczne do pisania dokumentacji Electron.
 
 ## Tytuły
 
-* Każda strona musi zawierać pojedynczy tytuł o poziomie `#` u góry.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Każda strona musi zawierać pojedynczy `#`-poziomowy tytuł u góry.
+* Rozdziały na tej samej stronie muszą mieć `##`-poziomowe tytuły.
+* Podrozdziały muszą zwiększyć swą liczbę `#` w tytule zgodnie z głębokością zagnieżdżenia.
+* Wszystkie słowa w tytule strony muszą być z wielkiej litery, poza spójnikami, takimi jak "i" oraz "z".
+* Tylko pierwsze słowo tytułu rozdziału musi być z wielkiej litery.
 
 Używając `Quick Start` jako przykładu:
 
