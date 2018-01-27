@@ -40,7 +40,7 @@ Ito ay nagbibigay-daan sa iyo upang matukoy sa tamang oras at panahon o hindi Wi
 
 Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Tandaan na ang mga notipikasyon ay limitado sa 256 bytes na laki at itoy mapuputol kung lalampas ka na sa limitasyon.
 
 ### Mga Advanced na abiso
 
