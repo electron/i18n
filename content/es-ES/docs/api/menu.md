@@ -234,13 +234,13 @@ En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es
 
 ## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) de las ventanas del navegador pueden configurar el menú de ciertas ventanas del navegador.
 
-## Menu Item Position
+## La posición del elemento del menú
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Se puede hacer uso de `position` y `id` para controlar cómo el elemento será colocado cuando se cree un menú con `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+El atributo `position` del `MenuItem` tiene la forma `[placement]=[id]`, donde `placement` es uno de `before`, `after`, o `endof` y `id` es el ID único de un elemento existente en el menú:
 
 * `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
 * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
