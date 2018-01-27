@@ -38,7 +38,7 @@ You will also need to enable Xcode to build against the 10.10 SDK:
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Inicialización
 
 El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
 
