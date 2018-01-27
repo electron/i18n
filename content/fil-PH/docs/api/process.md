@@ -36,9 +36,9 @@ Ang `Boolean`. Para sa itinayo na Mac App Store, ang propyedad na ito ay `totoo`
 
 ### `proseso.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. Ang pag set nito sa `totoo` ay hindi mapapagana ang suporta para `asar`arkibos sa Node's built-in modyul.
 
-### `process.noDeprecation`
+### `proseso.noDeprecation`
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
 Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
