@@ -1,4 +1,4 @@
-# Planned Breaking API Changes
+# Naplano na Paglabag ng API na mga Pagbabago
 
 The following list includes the APIs that will be removed in Electron 2.0.
 
