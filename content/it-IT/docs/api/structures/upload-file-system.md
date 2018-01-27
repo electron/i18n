@@ -1,7 +1,7 @@
-# UploadFileSystem Object
+# Oggetto AggiornamentoFileSistema
 
-* `type` String - `fileSystem`.
-* `filsSystemURL` String - FileSystem url to read data for upload.
-* `offset` Integer - Defaults to ``.
-* `length` Integer - Number of bytes to read from `offset`. Defaults to ``.
-* `modificationTime` Double - Last Modification time in number of seconds sine the UNIX epoch.
+* `tipo` Stringa - `fileSistema`.
+* `UrlfileSistema` Stringa - Url del file di sistema per leggere i dati per il caricamento.
+* `compensare` Numero Intero - Default a ``.
+* `lunghezza` Numero Intero - Numero di byte da leggere per `compensare`. Default a ``.
+* `Tempomodifica` Doppio - Ultima modifica in numero di secondi dall'epoca UNIX.
