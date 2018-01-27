@@ -20,11 +20,11 @@ Bagama 't magkatulad ang code at gumagamit ng mga karanasan sa iba 't ibang mga 
 
 * Sa Windows 10, ang mga abiso ay "gumagana lamang".
 * Sa Windows 8.1 at Windows 8, Ang sikretong daan papunta sa iyong app, ay [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), dapat installed sa start screen. Paalala, Bagamat, ito ay hindi kailangan naka pin para magsimula ang screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Sa Windows 7, ang notipikasyon trabaho sa via pasadya at implementadong biswal ay kahawig noong luma sa panibagong sistema.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+At saka, Windows 8, ang maximum na haba para sa notipikasyon ng katawan ay 250 characters, sa koponan ng Windows na nagrerekomenda na ang mga notipikasyon ay dapat manatilisa 200 mga characters. Na sinabi, na ang limitasyon ay inalis sa Windows 10, dahil ang koponan ng Windows na nagtatanong sa mga developer na maging makatwiran. Pagsubok na magpadala ng napakalaking halaga ng teksto sa API (libu-libong mga characters) ay maaaring magresulta sa kawalang-tatag.
 
-### Advanced Notifications
+### Mga Advanced na abiso
 
 Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
@@ -42,7 +42,7 @@ Notifications are straight-forward on macOS, but you should be aware of [Apple's
 
 Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
 
-### Advanced Notifications
+### Mga Advanced na abiso
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
