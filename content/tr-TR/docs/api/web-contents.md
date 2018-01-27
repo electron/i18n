@@ -1027,7 +1027,7 @@ Verilen parametrelerle aygıt emülasyonuna izin verir.
 
 * `event` Nesne 
   * `type` String (**required**) -Olabilir, olayın türü `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
-  * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+  * `modifiers` String[] - Bir olay düzenleyici dizisi şunları içerebilir `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
 Sayfaya bir `event` girdisi gönderir. **Note:** `sendInputEvent()`'in çalışması için içeriği içeren `BrowserWindow`'a odaklanılmış olması gereklidir.
 
