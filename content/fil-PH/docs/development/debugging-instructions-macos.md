@@ -81,11 +81,11 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-Sa puntong ito, para matapos ang "debugging", patakbuhin ang `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+Sa puntong ito, para matapos ang "debugging", patakbuhin ang `process continue`. Maaari ka ring magpatuloy hanggang ang tiyak na linya ay matamaan sa "thread" na to (`thread until 100`). Ang "command" na ito ay patatakbuhin ang "thread" sa kasalukuyan nitong balangkas hanggang ito'y umabot sa 100 na linya o patigilin kapag iniwan ang kasalukuyang balangkas.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+Ngayon, kung iyong bubuksan ang "developer tools" ng Elektron at tinatawag na `setName`, matatamaan mong muli ang "breakpoint".
 
-### Further Reading
+### Para sa Pagpapatuloy ng Pagbabasa
 
 LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
