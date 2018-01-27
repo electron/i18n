@@ -83,6 +83,6 @@ $ npm run clean-build
 
 **Note:** Both clean commands require running `bootstrap` again before building.
 
-## Tests
+## Pruebas
 
 Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
