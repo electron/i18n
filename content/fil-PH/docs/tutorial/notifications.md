@@ -30,9 +30,9 @@ Ang susunod na mga bersyon ng Windows ay nagbibigay-daan para sa mga advanced na
 
 Habang gumagana ng mga abisong kasama ang mga pindutan na may lamang ` mga abiso na elektron-bintana `, Ang paghawak ng mga sagot ay nangangailangan ng paggamit ng [` elektron-bintana-interactive-abiso `](https://github.com/felixrieseberg/electron-windows-interactive-notifications), na tumutulong sa pagrerehistro ng mga kinakailangang sangkap ng COM at pagtawag sa iyong app para sa Electron ang ipinasok na ditalye ng user.
 
-### Quiet Hours / Presentation Mode
+### Mga Oras ng Tahimikan / Pagtatanghal
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Upang matukoy kung pinapayagan kang magpadala ng isang abiso, gamitin ang module ng userland [ elektron-abiso-estado](https://github.com/felixrieseberg/electron-notification-state).
 
 This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
@@ -48,7 +48,7 @@ Later versions of macOS allow for notifications with an input field, allowing th
 
 ### Do not disturb / Session State
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Upang matukoy kung pinapayagan kang magpadala ng isang abiso, gamitin ang module ng userland [ elektron-abiso-estado](https://github.com/felixrieseberg/electron-notification-state).
 
 This will allow you to detect ahead of time whether or not the notification will be displayed.
 
