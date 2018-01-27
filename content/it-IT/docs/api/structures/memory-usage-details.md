@@ -2,4 +2,4 @@
 
 * `conta` Numero
 * `taglia` Numero
-* `liveSize` Number
+* `Tagliadiretta` Numero
