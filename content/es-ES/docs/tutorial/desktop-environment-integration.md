@@ -224,9 +224,9 @@ No olvide llamar el método `flashFrame` con `false` a apagar la iluminación. E
 
 On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+También puede establecer el estado editado de una ventana para que el ícono del archivo pueda indicar si el documento en esta ventana ha sido modificado.
 
-**Represented file popup menu:**
+**Menú emergente de archivo representado:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
@@ -239,11 +239,11 @@ win.setRepresentedFilename('/etc/passwd')
 win.setDocumentEdited(true)
 ```
 
-## Dragging files out of the window
+## Arrastrando archivos fuera de la ventana
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+Para ciertos tipos de aplicaciones que manipulan archivos, es importante poder arrastrar archivos de Electron a otras aplicaciones. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
 
-In web page:
+En página web:
 
 ```html
 <a href="#" id="drag">item</a>
