@@ -1,12 +1,12 @@
 # nativeImage
 
-> Cree iconos de bandeja, base y aplicación usando archivos PNG o JPG.
+> Crea iconos de bandeja, base y aplicación usando archivos PNG o JPG.
 
-Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
+Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
+En Electron, para las APIs que toman imágenes, se puede pasar cualquier ruta de archivo o las instancias `NativeImage`. Una imagen vacía será utilizada cuando se pasa `null`.
 
-For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
+Por ejemplo, cuando se crea una bandeja o se configura un icono de la ventana, se puede pasar una ruta de archivo de imagen como un `String`:
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -16,7 +16,7 @@ let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+O leer la imagen desde el portapapeles, lo cual devuelve un `NativeImage`:
 
 ```javascript
 const {clipboard, Tray} = require('electron')
