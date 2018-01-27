@@ -4,7 +4,7 @@ Sa Elektron maaari mong gamitin ang Widevine CDM plugin na naipadala sa Chrome b
 
 ## Pagkuha ng plugin
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Ang elektron ay hindi nagpapadala sa Widevine CDM plugin para sa mga dahilan ng lisensya, upang makuha ito, kailangan mong i-install muna ang opisyal na browser ng Chrome, na kailangang tumugma ang arkitektura at Chrome na bersyon ng Elektron na iyong ginagamit.
 
 **Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
 
