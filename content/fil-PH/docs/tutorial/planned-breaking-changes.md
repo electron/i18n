@@ -2,7 +2,7 @@
 
 Ang mga sumusunod na lista ay kabilang sa mga API na aalisin sa Electron 2.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+Walang takdang panahon kung kailan pakakawalan ang release na ito ngunit ang pamumura ng mga babala na ito ay makakadagdag sa hindi bababa sa 90 na araw una pa man.
 
 ## `app`
 
@@ -36,7 +36,7 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+/ Deprecated
 clipboard.readRtf()
 // Replace with
 clipboard.readRTF()
@@ -104,7 +104,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `proseso`
 
 ```js
 // Deprecated
@@ -113,9 +113,9 @@ process.versions['atom-shell']
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` and `process.version.chrome` ay gagawin para read-only na mga property para palagian ng ibang `proseso.mga bersyon` mga proseso na-i-set ng Node.
 
-## `session`
+## `sesyon`
 
 ```js
 // Deprecated
