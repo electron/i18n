@@ -30,9 +30,9 @@ En el ejemplo anterior, tanto `BrowserWindow` y `win` fueron objetos remotos y `
 
 Electron se asegura que mientras que el objeto remoto exista en el proceso de renderizado (en otras palabra, que no haya sido recopilado como desecho), el objeto correspondiente no se liberará en el proceso principal. Cuando el objeto remoto haya sido recopilado como desecho, la referencia del objeto correspondiente en el proceso principal se elimina.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Si el objeto remoto se filtra en el proceso de renderizado (por ejemplo, almancenado en un mapa pero nunca liberado), el objeto correspondiente en el proceso principal también se filtrará, por lo tanto hay que tener cuidado de no filtrar objetos remotos.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Los tipos de valor primario como cadenas y números, sin embargo, son enviados por copia.
 
 ## Passing callbacks to the main process
 
