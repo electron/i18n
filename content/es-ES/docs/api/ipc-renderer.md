@@ -44,9 +44,9 @@ Elimina todos los oyentes, o aquellos del `channel` especificado.
 * `channel` Cadena
 * `...args` any[]
 
-Send a message to the main process asynchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Envíe un mensaje al proceso principal de forma asíncrona a través de `canal`, también puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
-The main process handles it by listening for `channel` with `ipcMain` module.
+El proceso principal lo maneja al escuchar por el `canal` con `ipcMain` módulo.
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
@@ -55,7 +55,7 @@ The main process handles it by listening for `channel` with `ipcMain` module.
 
 Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
 
-Send a message to the main process synchronously via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Envía un mensaje al proceso principal sincrónicamente a través de `canal`, también puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
