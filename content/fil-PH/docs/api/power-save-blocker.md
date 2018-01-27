@@ -1,13 +1,13 @@
 # ang powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Hahadlangan ang sistema sa pagpasok mula sa moda ng low-power (pagtulog).
 
 Ang proseso: [Main](../glossary.md#main-process)
 
 Halimbawa:
 
 ```javascript
-const {powerSaveBlocker} = require('electron')
+const {powerSaveBlocker} = kailangan('electron')
 
 const id = powerSaveBlocker.start('prevent-display-sleep')
 console.log(powerSaveBlocker.isStarted(id))
