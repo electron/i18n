@@ -15,11 +15,11 @@ app.on('finestra-tutta-chiusa', () => {
 
 ## Eventi
 
-The `app` object emits the following events:
+L'oggetto `app` emette i seguenti eventi:
 
-### Event: 'will-finish-launching'
+### Evento: 'finirà-lancio'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Emetti quando l'app ha finito la startup di base. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should just do everything in the `ready` event handler.
 
