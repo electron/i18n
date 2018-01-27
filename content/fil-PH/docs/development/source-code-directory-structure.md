@@ -30,7 +30,7 @@ Electron
 ├── docs/ - Mga Dokumentasyon.
 ├── lib/ - Ang "source code" ng "JavaScript".
 |   ├── browser/ - Ang pangunahing proseso ng inisyalisasyon ng "Javascript code".
-|   |   └── api/ - Javascript API implementation.
+|   |   └── api/ - Ang pagpapatupad ng Javascript API.
 |   ├── common/ - JavaScript used by both the main and renderer processes
 |   |   └── api/ - Javascript API implementation.
 |   └── renderer/ - Javascript renderer process initialization code.
