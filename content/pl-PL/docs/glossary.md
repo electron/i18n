@@ -40,9 +40,9 @@ Proces główny, zazwyczaj plik nazwany `main.js`, jest punktem wejścia do każ
 
 Plik głównego procesu każdej aplikacji jest określony we właściwości `main` w `package.json`. W ten sposób `electron .` wie co należy wykonać podczas uruchamiania.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+W Chromium proces ten jest określany jako "proces przeglądarki". W Electronie jego nazwa jest zmieniona by nie pomylić go z procesami renderowania.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Zobacz też: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
