@@ -34,13 +34,13 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Beispiel Events
 
 #### Event: 'response'
 
 Rückgabewert:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` Eingehende Nachricht - Ein Objekt, welches die HTTP Antwort Nachricht repräsentiert.
 
 #### Event: 'login'
 
@@ -56,9 +56,9 @@ Rückgabewert:
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Ausgegeben, wenn ein Authentifizierung Proxy die Benutzeranmeldeinformationen anfragt.
 
-The `callback` function is expected to be called back with user credentials:
+The `callback` Funktion erwartet zurückgerufen zu werden mit den Benutzerdaten:
 
 * `username` String
 * `password` String
