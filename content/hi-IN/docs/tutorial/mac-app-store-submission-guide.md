@@ -157,25 +157,25 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ### अतिरिक्त एनटाइटलमेंट्स
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+आपकी एप्प के द्वारा उपयोग किए जाने वाले इलेक्ट्रॉन ऐपीआई के आधार पर, आपको `parent.plist` फाइल में अतिरिक्त एनटाइटलमेंट्स जोड़नी पड़ सकती हैं, ताकि आप इन ऐपीआई का इस्तेमाल अपनी एप्प के मैक एप्पल स्टोर बनवात से कर सकें|
 
-#### Network Access
+#### नेटवर्क पहुँच
 
-Enable outgoing network connections to allow your app to connect to a server:
+अपनी एप्प को एक सर्वर से कनेक्ट होने की अनुमति देने के लिए आउटगोइंग नेटवर्क कनेक्शनस इनेबल करें:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+अपनी एप्प को एक नेटवर्क लिसनिंग पोर्ट खोलने की अनुमति देने के लिए इनकमिंग नेटवर्क कनेक्शनस इनेबल करें:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+ज्यादा जानकारी के लिए [नेटवर्क पहुँच इनेबल कैसे करें](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) पढ़ें |
 
 #### dialog.showOpenDialog
 
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+ज्यादा जानकारी के लिए [उपयोगकर्ता-चयनित फाइल पहुँच कैसे इनेबल करें](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) पढ़ें |
 
 #### dialog.showSaveDialog
 
@@ -193,9 +193,9 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+ज्यादा जानकारी के लिए [उपयोगकर्ता-चयनित फाइल पहुँच कैसे इनेबल करें](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) पढ़ें |
 
-## Known issues
+## ज्ञात समस्यायें
 
 ### `shell.openItem(filePath)`
 
