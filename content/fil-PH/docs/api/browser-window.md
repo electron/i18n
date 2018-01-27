@@ -506,7 +506,7 @@ Ang sapilitang pagsarado ng window, ang `unload` at `beforeunload` hindi mapapal
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Sumukang isarado ang window. Ito ay mayroong kaparehong epekto sa gumagamitng mano-manong pag-pindut. Ang pahina ng web ay pweding kanselahin ang pag-sarado sa pamamagitan. Tingnan the [close event](#event-close).
 
 #### `win.focus()
  `
