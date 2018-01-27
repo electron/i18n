@@ -121,33 +121,33 @@ $ npm run clean-build
 
 ### Error al cargar las bibliotecas compartidas: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+El precompilado `clang` tratará enlazar a `libtinfo.so.5`. Dependiendo de la arquitectura centrar, habrá un enlace simbólico apropiado a `libncurses`:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Tests
+## Pruebas
 
 Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
 
-## Advanced topics
+## Tópicos Avanzados
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+La configuración por defecto de la compilación es dirigida a las principales distribuidoras de linux de escritorio. Para compilar una distribución en específico o dispositivo, la siguiente información puede ayudarte.
 
-### Building `libchromiumcontent` locally
+### Compilar localmente `libchromiumcontent`
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+Para evitar usar un precompilado binario de `libchromiumcontent`, puede compilar localmente `libchromiumcontent` para hacer eso siga los siguientes pasos:
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+1. Instale [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
+2. Instale [dependencias adicionales de compilación](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
+3. Buscar los submodulos de git:
 
 ```sh
 $ git submodule update --init --recursive
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+1. Pase del comando `--build_release_libcc` a `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc
@@ -159,7 +159,7 @@ Tenga en cuenta que por defecto no se construye la configuración de `shared_lib
 $ ./script/build.py -c R
 ```
 
-### Using system `clang` instead of downloaded `clang` binaries
+### Usando el sistema `clang` en vez del binario descarado `clang`
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
 
