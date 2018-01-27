@@ -6,15 +6,15 @@ Ang proseso: [Main](../glossary.md#main-process)
 
 ## Ginagamit sa mga proseso ng tagasalin
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Kung gusto mong ipakita ang mga Paunawa mula sa proseso ng tagasalin kailangan mong gamitin ang [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## Klase: Paunawa
 
 > Lumikha ng mga paunawa sa OS ng desktop
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+Ang `Notification` ay isang [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 It creates a new `Notification` with native properties as set by the `options`.
 
