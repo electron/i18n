@@ -37,10 +37,10 @@ community:
   meetup_notice: Para magdagdag ng meetup, mag-edit ng <code>data/meetups.json</code> at <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">gumawa ng pull na request</a>.
 electron_is_easy:
   title: Mas madali kaysa sa iyong tingin
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  description: Kung makakabuo ka ng website, makakabuo ka ng desktop na app. Ang electron na ito ay isang framework para lumikha ng native na aplikasyon sa web na mga teknolohiya gaya ng JavaScript, HTML, at CSS. Ito ay responsable sa mga mahirap na parte para maka pokus ka sa core ng iyong aplikasyon.
+  video_link: Panuorin ang bidyo
 web_technologies:
-  title: Web Technologies
+  title: Mga teknolohiya ng web
   description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
 open_source:
   title: Open Source
