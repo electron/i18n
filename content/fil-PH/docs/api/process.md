@@ -28,9 +28,9 @@ process.once('loaded', () => {
 
 ### `proseso.defaultApp`
 
-A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
+Ang `Boolean`. Kung ang app ay nagsimula sa pamamagitan ng ipinapasa bilang parametro sa default app, ang katangiang ito ay `totoo` sa pangunahing proseso, kunghindiman ito ay `malabo`
 
-### `process.mas`
+### `proseso.mas`
 
 A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
