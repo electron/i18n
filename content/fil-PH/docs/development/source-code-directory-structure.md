@@ -65,7 +65,7 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-Upang "i-update" itong mga vendored dependencies, patakbuhin ang mga sumusunod na "command":
+Upang hindi mahuli ang mga "vendored dependency", patakbuhin ang mga sumusunod na "command":
 
 ```sh
 git submodule update --init --recursive
