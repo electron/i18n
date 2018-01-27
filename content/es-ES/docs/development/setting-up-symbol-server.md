@@ -1,8 +1,8 @@
-# Setting Up Symbol Server in Debugger
+# Configuración del servidor de símbolos en el depurador
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
+Los símbolos de depuración le permiten tener mejores sesiones de depuración. Ellos tienen información acerca de las funciones contenidas en ejecutables y bibliotecas dinámicas y le proporciona información para obtener pilas de llamadas limpias. Un servidor de símbolos permite al depurador cargar los símbolos, binarios y fuentes correctas automáticamente sin obligar a los usuarios a descargar grandes archivos de depuración. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Tenga en cuenta que debido a que las compilaciones de Electron liberadas están muy optimizadas, la depuración no siempre es fácil. El depurador no podrá mostrarle el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a la alineación, las llamadas de cola y otras optimizaciones del compilador. The only workaround is to build an unoptimized local build.
 
 The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
 
