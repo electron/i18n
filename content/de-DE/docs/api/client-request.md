@@ -163,8 +163,8 @@ Sendet den letzten Teil der request Daten. Nachfolgende Schreib- oder End Vorgä
 
 #### `request.abort()`
 
-Bricht die laufende HTTP-Interaktion ab. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Bricht die laufende HTTP-Interaktion ab. Falls die Anfrage bereits das `close` Event ausgegeben hat, hat der Abbruch-Aktion keinen Effekt. Ansonsten wird ein laufendes Event `abort` und `close` Events ausgeben. Zusätzlich, falls es ein laufendes response-Objekt gibt, wir dieses ein `aborted` Event ausgeben.
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Setzt alle aufgeschobenen Weiterleitungsanfragen fort, falls der Weiterleitung Modus `manual` ist.
