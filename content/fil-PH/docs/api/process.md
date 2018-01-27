@@ -8,7 +8,7 @@ Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay]
 
 ## Pangyayari
 
-### Event: 'loaded'
+### Pangyayari: 'puno'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
