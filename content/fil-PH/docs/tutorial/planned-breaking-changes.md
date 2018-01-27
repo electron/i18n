@@ -196,7 +196,7 @@ Palitan ng: https://atom.io/download/electron
 
 ## Gayahin ang mga ARM Asset
 
-Bawat Electron na pakawalan ay kasama sa dalawang kaparehang ARM na mga build na bahagyang naiiba na mga filename, gaya ng `electron-v1.7.3-linux-arm.zip` at `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Bawat Electron na pakawalan ay kasama sa dalawang kaparehang ARM na mga build na bahagyang naiiba na mga filename, gaya ng `electron-v1.7.3-linux-arm.zip` at `electron-v1.7.3-linux-armv7l.zip`. Ang asset na mayroong `v7l` na prefix ay dinadagdag para linawin sa mga gumagamit kung saang ARM na bersyon ang sinusuportahan, at upang ma-disambiguate ito sa hinaharap galing sa armv6l at arm64 na mga asset na maaaring mabuo.
 
 The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
