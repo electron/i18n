@@ -218,21 +218,21 @@ macOS tiene un estilo de menú de aplicaciones completamente diferente de Window
 
 ### Menús Estándar
 
-En macOS hay muchos menús estándares definidos por el sistema, como los menus `Services` y `Windows`. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+En macOS hay muchos menús estándares definidos por el sistema, como los menus `Services` y `Windows`. Para hacer que el menú sea un menú estándar, se debe configurar el `role` del menú a uno de los siguientes y Electron los reconocerá y convertirá en menús estándares:
 
-* `ventana`
-* `ayuda`
-* `servicios`
+* `window`
+* `help`
+* `services`
 
-### Acciones de Elementos del Menú Estándar
+### Acciones estándares de los elementos del menú
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. Para establecer la acción de un elemento de menú en una acción estándar, debe establecer el atributo `función` del elemento del menú.
+macOS ha proporcionado acciones estándares para algunos elementos del menú, como `About xxx`, `Hide xxx`, y `Hide Others`. Para establecer la acción de un elemento de menú en una acción estándar, debe establecer el atributo `función` del elemento del menú.
 
 ### Nombre del menú principal
 
-En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+En macOS, la etiqueta del primer elemento del menú de la aplicación siempre es su nombre de aplicación, sin importar la etiqueta que establezca. Para cambiarlo, modifique el archivo `Info.plist` file del conjunto de la app. Para mayor información, ver[About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html).
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Menú de configuración para la ventana del navegador específico (*Linux* *Windows*)
 
 The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
