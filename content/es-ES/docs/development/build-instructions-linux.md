@@ -99,27 +99,27 @@ También puede construir solo el objetivo de `Depucación`:
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find the `electron` debug binary under `out/D`.
+Después que la construcción está lista, también puede encontrar depurado binario `electron` con el nombre de `out/D`.
 
-## Cleaning
+## Limpieza
 
-To clean the build files:
+Para limpiar archivos construidos:
 
 ```sh
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+Para limpiar solo los directorios `out` y `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**Nota:** Ambos comandos de limpieza requieren ejecutar la `inicialización` nuevamente después de la construcción.
 
 ## Problemas
 
-### Error While Loading Shared Libraries: libtinfo.so.5
+### Error al cargar las bibliotecas compartidas: libtinfo.so.5
 
 Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
 
