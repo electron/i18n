@@ -64,7 +64,7 @@ Creates a new tray icon associated with the `image`.
 
 The `Tray` module emits the following events:
 
-#### Event: 'click'
+#### Event: 'klik'
 
 * `event` Event 
   * `altKey` Boolean
