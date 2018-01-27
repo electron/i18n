@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+En Fedora, instala las siguientes librerías:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,7 +38,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Otras distribuciones pueden ofrecer paquetes similares para instalación a través de gestores de paquetes como pacman. O uno puede compilar desde el código fuente.
 
 ## Obteniendo Código
 
@@ -46,18 +46,18 @@ Other distributions may offer similar packages for installation via package mana
 $ git clone https://github.com/electron/electron
 ```
 
-## Bootstrapping
+## Inicialización
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Aviso que estamos usando `ninja` para compilar Electron no hay `Makefile` generado.
+El comando de inicialización descargará el conjunto de archivos necesarios y creará archivos de proyecto. Debe tener Python 2.7.x para que el comando funcione. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando `ninja` para compilar Electron no hay `Makefile` generado.
 
 ```sh
 $ cd electron
 $ ./script/bootstrap.py --verbose
 ```
 
-### Cross compilation
+### Compilación cruzada
 
-If you want to build for an `arm` target you should also install the following dependencies:
+Si quiere construir un objetivo `brazo` debe instalar también las siguientes dependencias:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
