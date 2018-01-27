@@ -50,7 +50,7 @@ Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hin
 
 ## Ang Istraktura ng Iba pang mga Direktoryo
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
+* **script** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
 * **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
 * **node_modules** - Third party node modules used for building.
