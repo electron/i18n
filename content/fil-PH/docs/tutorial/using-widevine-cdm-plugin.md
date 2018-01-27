@@ -1,8 +1,8 @@
-# Using Widevine CDM Plugin
+# Gamit ang Widevine CMD Plugin
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+Sa Elektron maaari mong gamitin ang Widevine CDM plugin na naipadala sa Chrome browser.
 
-## Getting the plugin
+## Pagkuha ng plugin
 
 Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
 
