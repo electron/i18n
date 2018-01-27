@@ -28,36 +28,36 @@ Su Linux e Windows, la chiave `Comando` non ha effetto quindi usa `ComandoOContr
 
 Usa `Alt` al posto di `Opzione`. La chiave `opzione` esiste solo su macOS mentre la chiave `Alt` è disponibile su tutte le piattaforme.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` su macOS.
 
-## Available modifiers
+## Modificatori disponibili
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Comando` (o `Cmd` in breve)
+* `Controllo` (o`Ctrl` in breve)
+* `ComandoOControllo` (o `CmdOCtrl` in breve)
 * `Alt`
-* `Option`
+* `Opzione`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Codici chiave disponibili
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* Da `` a `9`
+* Da `A` a `Z`
+* Da `F1` a `F24`
+* Punteggiature come `~`, `!`, `@`, `#`, `$`, etc.
+* `Più`
+* `Spazio`
 * `Tab`
 * `Backspace`
-* `Delete`
-* `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
-* `PrintScreen`
+* `Cancella`
+* `Inserisci`
+* `Indietro` (o `Entra` come alternativa)
+* `Su`, `Giù`, `Sinistra` e `Destra`
+* `Home` e `Fine`
+* `PaginaSu` e `PaginaGiù`
+* `Escape` (abbreviato `Esc`)
+* `VolumeSu`, `VolumeGiù` e `VolumeMuto`
+* `MediaProssimaTraccia`, `MediaPrecedenteTraccia`, `MediaStop` e `MediaPlayPausa`
+* `StampaSchermo`
