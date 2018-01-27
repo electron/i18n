@@ -1,10 +1,10 @@
-# Debugging the Main Process
+# Depuración del proceso principal
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+DevTools en una ventana del navegador Electron solo puede depurar JavaScript ejecutado en esa ventana (es decir, las páginas web). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
 
-## Command Line Switches
+## Conmutadores de línea de comando
 
-Use one of the following command line switches to enable debugging of the main process:
+Use uno de los siguientes interruptores de línea de comando para habilitar la depuración del proceso principal:
 
 ### `--inspect=[port]`
 
@@ -18,9 +18,9 @@ electron --inspect=5858 your/app
 
 Like `--inspect` but pauses execution on the first line of JavaScript.
 
-## External Debuggers
+## Depuradores externos
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Tendrá que usar un depurador que admita el protocolo de inspector V8.
 
 - Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
 - [Depurando el Proceso Principal en VSCode](debugging-main-process-vscode.md)
