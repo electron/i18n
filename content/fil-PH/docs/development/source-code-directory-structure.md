@@ -37,8 +37,7 @@ Electron
 |       └── api/ - Ang pagpapatupad ng "Javascript API".
 ├── spec/ - Kusang pagsubok.
 ├── electron.gyp - Ang pagbuo ng mga panuntunan ng Elektron.
-└── common.gypi - Compiler specific settings and building rules for other
-    components like `node` and `breakpad`.
+└── common.gypi - Ang tiyak na pagsasaayos ng kompayler at pagbuo ng mga panuntunan para sa ibang mga bahagi tulad `node` at `breakpad`.
 ```
 
 ## `/chromium_src`
