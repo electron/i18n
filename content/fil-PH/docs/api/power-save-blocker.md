@@ -23,7 +23,7 @@ Ang modyul ng `powerSaveBlock` ay mayroon ng mga sumusunod na mga pamamaraan:
 
 * `ang uri` String - Ang uri ng tagaharang ng power save. 
   * Ang `prevent-app-suspension` - Pinipigilan ang aplikasyon mula sa pagiging suspendido. Panatilihin ang sistema sa pagiging aktibo ngunit pinapayagan ang iskrin na mamatay. Halimbawa ng mga ginamit na pagkakataon: pagda-download ng isang file o pagpapatugtog ng audio.
-  * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
+  * `prevent-display-sleep` - Pipigilan ang displey mula sa pagtulog, pinapanatiling aktibo ang sistema at ang iskrin. Halimbawa ng ginamit na pagkakataon: naglalaro ng video.
 
 Returns `Integer` - The blocker ID that is assigned to this power blocker
 
