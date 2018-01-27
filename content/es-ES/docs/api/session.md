@@ -245,7 +245,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Función 
+* `manejador` Función 
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
   * `llamada de vuelta` Función 
