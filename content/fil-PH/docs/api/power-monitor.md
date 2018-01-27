@@ -23,13 +23,13 @@ app.on('ready', () => {
 
 Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
-### Event: 'suspend'
+### Event: 'isuspindi'
 
-Emitted when the system is suspending.
+Ay lalabas kapag ang sistema ay sususpindihin.
 
-### Event: 'resume'
+### Event: 'magpatuloy'
 
-Emitted when system is resuming.
+Ay lalabas kapag ang sistema ay nagpapatuloy.
 
 ### Event: 'on-ac' *Windows*
 
