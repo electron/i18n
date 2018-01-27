@@ -1,6 +1,6 @@
 # Naplano na Paglabag ng API na mga Pagbabago
 
-The following list includes the APIs that will be removed in Electron 2.0.
+Ang mga sumusunod na lista ay kabilang sa mga API na aalisin sa Electron 2.0.
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
