@@ -4,7 +4,7 @@ To są wytyczne do pisania dokumentacji Electron.
 
 ## Tytuły
 
-* Each page must have a single `#`-level title at the top.
+* Każda strona musi zawierać pojedynczy tytuł o poziomie `#` u góry.
 * Chapters in the same page must have `##`-level titles.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
 * All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
