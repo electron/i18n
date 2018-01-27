@@ -30,7 +30,7 @@ También necesitarás habilitar Xcode para compilar contra el SDK 10.10:
 
 - Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
 - Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Guarda el archivo
 
 ## Obteniendo Código
 
@@ -40,7 +40,7 @@ $ git clone https://github.com/electron/electron
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Tenga en cuenta que estamos usando [ninja](https://ninja-build.org/) para construir Electron por lo que no se genera ningún proyecto de Xcode.
 
 ```sh
 $ cd electron
@@ -63,13 +63,13 @@ $ ./script/build.py -c D
 
 After building is done, you can find `Electron.app` under `out/D`.
 
-## 32bit Support
+## Soporta 32bit
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron solo se puede construir para un objetivo de 64 bits en macOS y no hay un plan para admitir macOS de 32 bits en el futuro.
 
 ## Limpieza
 
-To clean the build files:
+Para limpiar los archivos de compilación:
 
 ```sh
 $ npm run clean
