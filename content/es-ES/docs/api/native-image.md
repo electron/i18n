@@ -1,6 +1,6 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> Cree iconos de bandeja, base y aplicación usando archivos PNG o JPG.
 
 Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
 
@@ -25,18 +25,18 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## Formatos Soportados
 
 Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
-* Small icon 
+* Ícono pequeño 
  * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
  * 32x32 (200% DPI scale)
-* Large icon 
+* Ícono Grande 
  * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
  * 48x48 (150% DPI scale)
@@ -82,9 +82,9 @@ Following suffixes for DPI are also supported:
 
 ## Template Image
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Las imágenes de plantilla consisten en colores negros y claros (y un canal alfa). Las imágenes de plantilla no están destinadas a ser utilizadas como imágenes independientes y son generalmente mezcladas con otro contenido para crear la apariencia final deseada.
 
-The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
+El caso más común es usar imágenes de plantilla para un icono de barra de menú para que pueda adaptarse a barras de menú tanto claras como oscuras.
 
 **Note:** Template image is only supported on macOS.
 
@@ -137,7 +137,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 ## Class: NativeImage
 
-> Natively wrap images such as tray, dock, and application icons.
+> Envuelve nativamente imágenes como la bandeja, el muelle y los íconos de las aplicaciones.
 
 Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
 
@@ -195,7 +195,7 @@ Returns [`Size`](structures/size.md)
 
 * `option` Boolean
 
-Marks the image as a template image.
+Marca la imagen como una imagen de plantilla.
 
 #### `image.isTemplateImage()`
 
@@ -209,7 +209,7 @@ Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. Estos valores expresan una compensación de calidad/velocidad deseada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
 
 Returns `NativeImage` - The resized image.
 
