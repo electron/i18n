@@ -101,7 +101,7 @@ Por defecto el `esquema` es tratado como `http:`, que es analizado diferente que
 
 Registra un protocolo de `esquema` que enviará un `Buffer` como respuesta.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
+El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada` debe ser llamada bien con un objeto `Buffer` o con un objeto que tenga las propiedades `data`, `mimeType`, y `charset`.
 
 Ejemplo:
 
@@ -129,9 +129,9 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `completion` Función (opcional) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+Registra un protocolo de `esquema` que enviará una `cadena` como respuesta.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada` debe ser llamada bien sea con una `cadena` o un objeto que tienen las propiedades`data`, `mimeType`, and `charset`.
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
@@ -153,13 +153,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 * `completion` Función (opcional) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send an HTTP request as a response.
+Registra un protocolo de `esquema` que enviará una solicitud HTTP como respuesta.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
+El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada` debe ser llamada con un objeto `redirectRequest` que tenga las propiedades `url`, `metodo`, `referenciar`, `uploadData` y `sesion`.
 
-By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
+Por defecto la solicitud HTTP reutilizará la sesión actual. Si quiere que solicitud tenga una sesión diferente debe configurarla de `sesion` a `nulo`.
 
-For POST requests the `uploadData` object must be provided.
+Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
@@ -167,7 +167,7 @@ For POST requests the `uploadData` object must be provided.
 * `completion` Función (opcional) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+Anula el registro del protocolo predeterminado de `esquema`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
