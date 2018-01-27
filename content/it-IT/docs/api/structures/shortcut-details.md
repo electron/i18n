@@ -1,9 +1,9 @@
-# ShortcutDetails Object
+# Oggetto DettagliShortcut
 
-* `target` String - The target to launch from this shortcut.
-* `cwd` String (optional) - The working directory. Default is empty.
-* `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
-* `description` String (optional) - The description of the shortcut. Default is empty.
-* `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
-* `iconIndex` Number (optional) - The resource ID of icon when `icon` is a DLL or EXE. Default is 0.
-* `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
+* `obiettivo` Stringa - L'obiettivo da lanciare dalla shortcut.
+* `cwd` Stringa (opzionale) - La directory in uso. Di default è vuota.
+* `arg` Stringa (opzionale) - L'argomento da applicare all'`obiettivo` quando si lancia da questa shortcut. Di default è vuota.
+* `descrizione` Stringa (opzionale) - La descrizione della shortcut. Di default è vuota.
+* `icona` Stringa (opzionale) - Il percorso per l'icona, può essere DLL o EXE. `icona` e `Indiceicona` vanno impostati insieme. Di default è vuota ed usa l'icona dell'obiettivo.
+* `Indiceicona` Numero (opzionale) - La risorsa ID dell'icona quando l'`icona` é un DLL o un EXE. Di default è 0.
+* `IdModelloappUtente` Stringa (opzionale) - L'ID del Modello Utente dell'applicazione. Di default è vuoto.
