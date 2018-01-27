@@ -4,7 +4,7 @@ Kung ikaw ay nakararanas ng pagbagsak o may nagaganap na di tama sa Electron at 
 
 ## Mga kinakailangan
 
-* **Ang debug na gawa ng Electron**: Kadalasan, ang pinakamadaling paraan upang buuin ito ay gamit ang kanyang sarili sa pamamagitan ng mga gamit at mga pangunahing kailangan na nasa [build instructions para sa Windows](build-instructions-osx.md). Habang ang Elektron " ay tuwirang "dina-download", ito ay madaling maikakabit at matutukoy ang problema o "debug", at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema o "debugging": Kapag ang "debugger" ay hindi kayang ipakita ang lahat ng laman ng "variable" at mapapansin ang "execution path" ay maaaring maging kakaiba dahil sa "inlining", "tail calls" at iba pang "compiler optimizations".
+* **Ang debug na gawa ng Elektron**: Kadalasan, ang pinakamadaling paraan upang buuin ito ay gamit ang kanyang sarili sa pamamagitan ng mga gamit at mga pangunahing kailangan na nasa [build instructions para sa Windows](build-instructions-osx.md). Habang ang Elektron " ay tuwirang "dina-download", ito ay madaling maikakabit at matutukoy ang problema o "debug", at ito'y siguradong gagana nang higit na mas maayos. Ginagawa nitong mas mahirap ang paghahanap at pag-aayos ng mga problema o "debugging": Kapag ang "debugger" ay hindi kayang ipakita ang lahat ng laman ng "variable" at mapapansin ang "execution path" ay maaaring maging kakaiba dahil sa "inlining", "tail calls" at iba pang "compiler optimizations".
 
 * **Xcode**: Sa karagdagan, ang "Xcode" ay ginagamit din ang "Xcode command line tools". Kasama rin ang "LLDB", ang "default debugger" ng "Xcode" sa "Mac OS X". Sinusuportahan nito ang "debugging C", "Objective-C" at "C++" sa "desktop" at "iOS devices" at "simulator".
 
@@ -65,7 +65,7 @@ Para maipakita ang mga argumento at mga lokal na "variable" para sa kasalukuyang
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+Para magawa ang lebel ng "source" sa isang hakbang sa kasalukuyang napiling "thread", palabasin ang `step` (o `s`). Ito ang magdadala sa'yo sa `name_override_.empty()`. Para magpatuloy at isagawa ang hakbang, patakbuhin ang `next` (o `n`).
 
 ```sh
 (lldb) step
@@ -81,7 +81,7 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+Sa puntong ito, para matapos ang "debugging", patakbuhin ang `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
 
 Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
 
