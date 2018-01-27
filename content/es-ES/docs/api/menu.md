@@ -242,9 +242,9 @@ Se puede hacer uso de `position` y `id` para controlar cómo el elemento será c
 
 El atributo `position` del `MenuItem` tiene la forma `[placement]=[id]`, donde `placement` es uno de `before`, `after`, o `endof` y `id` es el ID único de un elemento existente en el menú:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `before` - Inserta este elemento antes del elemento al que hace referencia el id. Si el elemento al que hace referencia no existe, el elemento será insertado al final del menú.
+* `before` - Inserta este elemento despues del elemento al que hace referencia el id. Si el elemento al que hace referencia no existe, el elemento será insertado al final del menú.
+* `endof` - Inserta este elemento al final del grupo lógico que contiene el elemento al que hace referencia el id (los grupos son creados por los elementos separadores). Si el elemento al que se hace la referencia no existe, se crea un nuevo grupo separador con el id proporcionado y este elemento se inserta después del separador.
 
 Cuando se coloca un elemento, todos los elementos desubicados se insertan después hasta que se coloca un nuevo elemento. Entonces, si quieres posicionar un grupo de elementos de menú en la misma ubicación solo necesitas especificar una posición para el primer artículo.
 
@@ -262,7 +262,7 @@ Plantilla:
 ]
 ```
 
-Menu:
+Menú:
 
     <br />- 1
     - 2
