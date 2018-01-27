@@ -48,21 +48,21 @@ El módulo `ipcMain` tiene el siguiente método para escuchar los eventos:
 ### `ipcMain.on(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `listener(event, args...)`.
 
 ### `ipcMain.once(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
 
 Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` Cadena
-* `listener` Function
+* `listener` Función
 
 Removes the specified `listener` from the listener array for the specified `channel`.
 
