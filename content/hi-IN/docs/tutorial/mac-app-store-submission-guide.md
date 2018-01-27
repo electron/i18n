@@ -130,27 +130,27 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-साथ ही यह भी याद रखें कि मूल मोडयुल्स की कुछ मध्यवर्ती फाइल्स भी हो सकती है जिन्हें शामिल नहीं करना (नहीं तो उन पर भी हस्ताक्षर करना पड़ेगा) | If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+साथ ही यह भी याद रखें कि मूल मोडयुल्स की कुछ मध्यवर्ती फाइल्स भी हो सकती है जिन्हें शामिल नहीं करना (नहीं तो उन पर भी हस्ताक्षर करना पड़ेगा) | अगर आपने 8.1.0 संस्करण से पहले [electron-packager](https://github.com/electron-userland/electron-packager) का इस्तेमाल किया है, तो आप बिल्ड स्टेप में `--ignore=.+\.o$` जोड़ दें ताकि इन फाइल्स को शामिल न किया जायें | 8.1.0 और उसके बाद के संस्करण उन फाइल्स को स्वतः ही शामिल नहीं करते हैं |
 
-### Upload Your App
+### अपनी एप्प अपलोड करें
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+अपनी एप्प पर हस्ताक्षर करने के बाद, आप उसे प्रोसेसिंग के लिए एप्लीकेशन लोडर का इस्तेमाल कर आईट्यून्स कनेक्ट पर अपलोड कर सकते हैं, इस बात का ध्यान रखते हुए कि अपलोड करने से पहले आपने [एक रिकॉर्ड निर्मित कर लिया है](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) |
 
-### Submit Your App for Review
+### अपनी एप्प को समीक्षा के लिए सबमिट करें
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+इन चरणों के बाद, आप [ अपनी एप्प को समीक्षा के लिए सबमिट कर सकते है](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html) |
 
-## Limitations of MAS Build
+## एमऐएस बनावट की सीमायें
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+एप्प सैंडबॉक्सिंग की सभी आवश्यकताओं को पूरा करने के लिए, निम्लिखित मोडयुल्स एमऐएस बनावट में डिसएबल कर दिए गये हैं:
 
 * `क्रेश रिपोर्टर`
 * `स्वतः अपडेटर`
 
-and the following behaviors have been changed:
+और निम्नलिखित व्यवहार बदल दिए गये हैं:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
+* कुछ मशीनों में विडियो कैप्चर शायद काम न करें |
+* कुछ एक्सेसबिलिटी सुविधायें शायद काम न करें |
 * Apps will not be aware of DNS changes.
 
 Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
