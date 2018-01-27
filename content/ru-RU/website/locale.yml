@@ -9,7 +9,7 @@ nav:
   contact: Контакты
   languages: Языки
   code_of_conduct: Нормы поведения
-  search: Search
+  search: Поиск
 docs:
   title: Документация Electron
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
@@ -140,8 +140,8 @@ _404:
   please_file_an_issue: пожалуйста, сообщите о проблеме.
 search:
   description:
-    start: Find Electron resources from
-    docs: <a href="/search/docs">documentation</a>
-    npm: <a href="/search/npmPackages">npm packages</a>
-    and: and
-    repos: <a href="/search/repos">GitHub repos</a>
+    start: Поиск информации по Electron в
+    docs: <a href="/search/docs">документации</a>
+    npm: <a href="/search/npmPackages">npm пакетах</a>
+    and: и
+    repos: <a href="/search/repos">GitHub репозиториях</a>

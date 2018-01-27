@@ -58,7 +58,7 @@ IPC стенды для взаимодействия между процесса
 
 ### NSIS
 
-Nullsoft Scriptable Install System это управляемое скриптом средство установки для Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) поддерживает NSIS как целевой объект компиляции.
+Nullsoft Scriptable Install System это управляемое скриптом средство установки для Microsoft Windows. Оно выпускается под сочетанием различных лицензий на свободное программное обеспечение и является широко используемой альтернативой коммерческим проприетарным продуктам, таким как например InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) поддерживает NSIS как целевой объект компиляции.
 
 ### OSR
 
@@ -88,13 +88,13 @@ Squirrel является фреймворком с открытым исход�
 
 This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Как и Node, Electron сфокусирован на наличии небольшого набора API функций, которые обеспечивают весь необходимый базис для разработки кросс-платформенных настольных приложений. Такая философия позволяет Electron оставаться гибким инструментом, будучи не предписывая того как им пользоваться. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 
 V8 - JavaScript движок с открытым исходным кодом компании Google. Он написан на C++ и используется в Google Chrome. V8 может быть запущен автономно или может быть встроен в любое C++ приложение.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron компилирует V8 как часть Chromium а затем указывает Node использовать этот V8 при сборке.
 
 V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 

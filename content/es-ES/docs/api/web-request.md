@@ -107,8 +107,8 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
-  * `statusCode` Integer
-  * `responseHeaders` Object
+  * `Estatus de código` entero
+  * `headers de respuesta` objeto
 * `llamada de vuelta` Función 
   * `response` Object 
     * `cancel` Boolean
@@ -128,9 +128,9 @@ The `callback` has to be called with an `response` object.
     * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `headers de respuesta` objeto
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
-    * `statusCode` Integer
+    * `Estatus de código` entero
     * `statusLine` String
 
 The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
@@ -147,10 +147,10 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
-    * `statusCode` Integer
+    * `Estatus de código` entero
     * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
-    * `responseHeaders` Object
+    * `headers de respuesta` objeto
 
 The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
@@ -165,9 +165,9 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `method` Cuerda
     * `resourceType` String
     * `timestamp` Double
-    * `responseHeaders` Object
+    * `headers de respuesta` objeto
     * `fromCache` Boolean
-    * `statusCode` Integer
+    * `Estatus de código` entero
     * `statusLine` String
 
 The `listener` will be called with `listener(details)` when a request is completed.

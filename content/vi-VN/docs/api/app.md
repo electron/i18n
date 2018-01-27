@@ -25,7 +25,7 @@ In most cases, you should just do everything in the `ready` event handler.
 
 ### Event: 'ready'
 
-Returns:
+Trả về:
 
 * `launchInfo` Object *macOS*
 
@@ -39,7 +39,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 ### Event: 'before-quit'
 
-Returns:
+Trả về:
 
 * `event` Event
 
@@ -49,7 +49,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+Trả về:
 
 * `event` Event
 
@@ -59,7 +59,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `exitCode` Integer
@@ -68,7 +68,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+Trả về:
 
 * `event` Event
 * `path` String
@@ -81,7 +81,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Trả về:
 
 * `event` Event
 * `url` String
@@ -92,7 +92,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Trả về:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -101,7 +101,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Trả về:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -113,7 +113,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Trả về:
 
 * `event` Event
 
@@ -121,7 +121,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `window` BrowserWindow
@@ -130,7 +130,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `window` BrowserWindow
@@ -139,7 +139,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `window` BrowserWindow
@@ -148,7 +148,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `webContents` WebContents
@@ -157,7 +157,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -185,7 +185,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -209,7 +209,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -242,7 +242,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Trả về:
 
 * `event` Event
 * `killed` Boolean
@@ -251,7 +251,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Trả về:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -315,11 +315,11 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Hiển thị tất cả cửa sổ của ứng dụng sau khi chúng đã được ẩn đi. Không tự động focus vào các cửa sổ đó.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Trả về `String` - thư mục ứng dụng hiện tại.
 
 ### `app.getPath(name)`
 
@@ -432,9 +432,9 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Tên của protocol của bạn, không chứa `://`.
+* `path` String (optional) *Windows* - Mặc định là `process.execPath`
+* `args` String[] (optional) *Windows* - Mặc định là một array rỗng
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -446,7 +446,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean`
+Trả về `Boolean`
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -468,7 +468,7 @@ Returns `Boolean` - Whether the call succeeded.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Trả về các `Object`:
 
 * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
@@ -557,7 +557,7 @@ app.setJumpList([
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
-Returns `Boolean`.
+Trả về các `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -676,7 +676,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Trả về các `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.

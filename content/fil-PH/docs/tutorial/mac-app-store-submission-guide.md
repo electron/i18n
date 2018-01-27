@@ -32,7 +32,7 @@ Una, kailangan mong magdagdag ng isang `ElectronTeamID` na key sa app ng iyong `
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+Tapos, dapat mong ihanda ang tatlong mga file na may karapatan.
 
 `child.plist`:
 
@@ -77,23 +77,23 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+Dapat mong palitan ang `TEAM_ID` sa iyong Team ID, at palitan ang `your.bundle.id` sa Bundle ID ng iyong app.
 
-And then sign your app with the following script:
+At pagkatapos, lagdaan ang iyong app sa sumusunod na mga iskrip:
 
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# Pangalan ng iyong app.
 APP="YourApp"
-# The path of your app to sign.
+# Ang landas na mag-sign ang iyong app.
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# Ang landas sa lokasyon na gusto mong ilagay ang signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
-APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
-INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# Ang pangalan ng mga sertipikong hiniling mo.
+APP_KEY="3rd Party Mac Developer Application: Pangalan ng Kompanya (APPIDENTITY)"
+INSTALLER_KEY="3rd Party Mac Developer Installer: Pangalan ng Kompanya (APPIDENTITY)"
+# Ang landas ng iyong plist na mga file.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
@@ -114,48 +114,47 @@ codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Content
 codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
 codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
 codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
-
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+Kung baguhan ka sa app sandboxing ng macOS, dapat mo rin basahin sa pamamagitan ng [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) ng Apple para magkaroon ng pangunahing ideya, tapos magdagdag ng mga ideya na kailangan upang pahintulutan ang iyong app ng mga entitlement file. 
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+Bukod sa pag mano-manong pag-sign ng iyong app, maaari ka ring pumili na gumamit ng [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) na modyul para gawin ang trabaho.
 
-#### Sign Native Modules
+#### Mga sign ng mga Native na Modyul
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung gagamit ng electron-osx-sign, siguraduhing isama ang landas ng built binaries sa lista ng argumento:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Mga bersyon 8.1.0 at luma pa ay iniiwasan ang mga file na iyon sa pamamagitan ng default.
 
-### Upload Your App
+### I-upload aang iyong app
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+Matapos lagdaan ang iyong app, maaari kang gumamit ng Application Loader para mag-upload sa iTunes Connect upang ma proseso, sinisigurado na ikaw ay [nakalikha ng record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) bago mag-upload.
 
-### Submit Your App for Review
+### I-sumite ang Iyong App upang Suriin
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+Matapos ang mga hakbang na ito, maaari mong [i-sumite ang iyong app para sa pagsusuri](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
 
-## Limitations of MAS Build
+## Mga limitasyon ng MAS Build
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+Upang matugunan ang pangangailangan ng app sandboxing, ang sumusunod na modyul ay hindi pinagana sa MAS build:
 
 * `crashReporter`
 * `autoUpdater`
 
-and the following behaviors have been changed:
+at ang mga sumusunod na paguugali ay binago:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* Ang bidyo capture ay maaaring hindi gumana sa ibang mga makina.
+* Siguradong accessibility features ay maaaring hindi gumana.
+* Ang mga app ay hindi makakaalam sa mga pagbabago ng DNS.
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+Tsaka, dahil sa paggagamit ng app sandboxing, ang mga sagguniang maaaring ma-access sa pamamagitan ng app ay striktong limitado; maaari mong basahin ang [App Sandboxing](https://developer.apple.com/app-sandboxing/) para sa karagdagang impormasyon.
 
-### Additional Entitlements
+### Karagdagang mga Karapatan
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 

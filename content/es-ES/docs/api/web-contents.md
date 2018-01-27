@@ -78,7 +78,7 @@ Corresponds to the points in time when the spinner of the tab started spinning.
 
 #### Evento: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Corresponde a los puntos en tiempo cuando el girador del tabulador terminó de girar.
 
 #### Evento: 'did-get-response-details'
 
@@ -94,7 +94,7 @@ Devuelve:
 * `headers` Objeto
 * `resourceType` String
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+Emite cuando los detalles acerca de un recurso solicitado está disponible. `estado` indica la toma de conexión para descargar el recurso.
 
 #### Evento: 'did-get-redirect-request'
 
@@ -126,7 +126,7 @@ Devuelve:
 * `evento` Evento
 * `favicons` String[] - matriz de URLs
 
-Emitted when page receives favicon urls.
+Emite cuando la página recibe urls de favicon.
 
 #### Event: 'new-window'
 
@@ -141,9 +141,9 @@ Devuelve:
 
 Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Por defecto se creará un nuevo `BrowserWindow` para la `dirección url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Por ejemplo:
+Llamando `event.preventDefault()` evitará Electron automáticamente creando un nuevo `BrowserWindow`. Si llama `event.preventDefault()` y manualmente creas un nuevo `BrowserWindow` luego debe establecer `event.newGuest` para referenciar la nueva instancia de `BrowserWindow`, al no hacerlo así puede resultar un comportamiento inesperado. Por ejemplo:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -162,26 +162,26 @@ Devuelve:
 * `evento` Evento
 * `url` String
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
-This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+Este evento no se emitirá cuando la navegación es iniciada con programación con APIs como `webContents.loadURL` y `webContents.back`.
 
-It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Tampoco es emitido para las navegaciones en la página, como hacerle click a links o actualizando el `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-Calling `event.preventDefault()` will prevent the navigation.
+Llamando `event.preventDefault()` evitará la navegación.
 
-#### Event: 'did-navigate'
+#### Evento: 'did-navigate'
 
 Devuelve:
 
 * `evento` Evento
 * `url` String
 
-Emitted when a navigation is done.
+Emitido cuando la navegación es finalizada.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-#### Event: 'did-navigate-in-page'
+#### Evento: 'did-navigate-in-page'
 
 Devuelve:
 
@@ -189,9 +189,9 @@ Devuelve:
 * `url` String
 * `isMainFrame` Boolean
 
-Emitted when an in-page navigation happened.
+Emitido cuando una navegación dentro de la página sucede.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
 #### Event: 'will-prevent-unload'
 
@@ -199,9 +199,9 @@ Devuelve:
 
 * `evento` Evento
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+Emite cuando un controlador de eventos `beforeunload` está tratando de cancelar una descarga de la página.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+Llamando a `event.preventDefault()` ignorará el controlador de eventos `beforeunload` y permite que la página sea descargada.
 
 ```javascript
 const {BrowserWindow, dialog} = require('electron')
@@ -229,7 +229,7 @@ Devuelve:
 * `event` Evento
 * `killed` Booleano
 
-Emitted when the renderer process crashes or is killed.
+Emitido cuando el proceso se crashea o es terminado.
 
 #### Event: 'plugin-crashed'
 
@@ -239,13 +239,13 @@ Devuelve:
 * `name` String
 * `version` String
 
-Emitted when a plugin process has crashed.
+Emitido cuando el proceso de enchufe se ha caído.
 
-#### Event: 'destroyed'
+#### Evento: 'destroyed'
 
-Emitted when `webContents` is destroyed.
+Emitido cuando `webContents` es destruido.
 
-#### Event: 'before-input-event'
+#### Evento: 'before-input-event'
 
 Devuelve:
 
@@ -260,9 +260,9 @@ Devuelve:
   * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
 
-Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Llamando a `event.preventDefault` evitará la página `keydown`/ eventos `keyup` y los accesos rápidos al menú.
 
-To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+Para evitar sólo los accesos directos del menú, use [`setignoreMenuShortcuts`](#contentssetignoremenushortcuts):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -278,15 +278,15 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+Emitido cuando DevTools es abierto.
 
-#### Event: 'devtools-closed'
+#### Evento: 'devtools-closed'
 
-Emitted when DevTools is closed.
+Emitido cuando Devtools es cerrado.
 
 #### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Emitido cuando DevTools es centrado o abierto.
 
 #### Evento: 'error-certificado'
 
@@ -297,11 +297,11 @@ Devuelve:
 * `error` cadena - el error del código
 * `certificate` [certificate](structures/certificate.md)
 * `llamada de vuelta` Función 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `isTrusted` Boolean - indica si el certificado se puede considerar de confianza
 
-Emitted when failed to verify the `certificate` for `url`.
+Emitido cuando no se pudo verificar el `certificate` for `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+El uso es el mismo con [the `certificate-error` evento de `app`](app.md#event-certificate-error).
 
 #### Evento: 'select--client-certificate'
 
@@ -311,11 +311,11 @@ Devuelve:
 * `url` URL
 * `certificateList`[Certificate[]](structures/certificate.md)
 * `llamada de vuelta` Función 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `certificate`[Certificate](structures/certificate.md) - Debe ser un certificado de la lista dada
 
 Emitido cuando el certificado de un cliente es requerido.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+El uso es el mismo con [the `select-client-certificate` evento de `app`](app.md#event-select-client-certificate).
 
 #### Evento:'login'
 
@@ -352,19 +352,19 @@ Devuelve:
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Emitido cuando un resultado está disponible para la petición de [`webContents.findInPage`].
 
 #### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+Emitido cuando la media empieza a reproducirse.
 
 #### Event: 'media-paused'
 
-Emitted when media is paused or done playing.
+Emitido cuando la media es pausada o ha terminado de reproducirse.
 
 #### Event: 'did-change-theme-color'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Emitido cuando el color de tema de una página cambia. Esto usualmente se debe al encuentro de una meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -377,7 +377,7 @@ Devuelve:
 * `evento` Evento
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Emitido cuando el mouse se mueve sobre un link o el teclado se mueve el concentrado a un link.
 
 #### Event: 'cursor-changed'
 
@@ -392,7 +392,7 @@ Devuelve:
 
 Emitted when the cursor's type changes. El `type` parámetro puede ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, ``ne-resize</code>, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom</0>.</p>
 
-<p>If the <code>type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+<p>Si el parámetro <code>type` es `custom`, el parámetro de la `image` mantendrá la imagen del cursor personalizado en un `NativeImage`, y `scale`, `size` y`hotpost` mantendrá información adicional sobre el cursor personalizado.
 
 #### Evento: 'context-menu'
 
@@ -400,41 +400,41 @@ Devuelve:
 
 * `evento` Evento
 * `params` Object 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+  * Entero `x` - coordenadas x
+  * Entero `y` - coordenadas x
+  * `linkURL` String - URL del enlace que incluye el nodo del menú contextual que fue invocado.
+  * `linkText` String - Texto asociado con el enlace. Puede ser una cadena vacía si el contenido del enlace es una imagen.
+  * `pageURL` String - URL de la parte superior del nivel de la página que se invocó en el menú del contexto.
+  * `framseURL` String - URL de la parte inferior del marco que se invocó en el menú del contexto.
+  * `srcURL` String - Source URL para el elemento que el menú del contexto fue invocado. Elementos con fuente URLs son imágenes, audio y video.
+  * `mediaTipo` String - Tipo de nodo que el menú del contexto fue invocado. Puede ser `none`, `image`, `audio`, `video`, `canvas`, `file` o `plugin`.
+  * `<0>tieneImagenContenido` Boolean - si el menú del contexto fue invocado en una imagen la cual tiene contenido no vacío.
+  * `esEditable` Boolean - Si el contexto es editable.
+  * `selectrionText` String. Texto de la selección la cual el menú del contexto fue invocado.
+  * `tituloTexto` String - Título o texto alt de la selección la cual el contexto fue invocado.
+  * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
+  * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
+  * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
+  * `menúFuenteTipo` Cadena - Fuente de entrada que invoca el menú de contexto. Puede ser `ninguno`, `ratón`, `teclado`, `toque`, `toqueMenú`.
+  * `mediaFlags` Objeto - Las banderas para el elemento multimedia la cual el menú contextual fue invocado. 
+    * `enError` Boolean - Si el elemento multimedia se ha dañado.
+    * `estáPausado` Boolean - Si el elemento multimedia está pausado.
+    * `estáSilenciado` Boolean - Si el elemento multimedia está silenciado.
+    * `tieneAudio` Boolean - Si el elemento multimedia tiene audio.
+    * `estáLooping` Boolean - Si el elemento multimedia está enredado.
+    * `esControlVisible` Boolean - Si los controles del elemento multimedia son visibles.
+    * `puedeToggleControles` Boolean - Si los controles de los elementos multimedia son toggleable.
+    * `puedeRotar` Boolean - Si el elemento multimedia puede ser rotado.
+  * `editFlags` Objeto - Estas banderas indican si el procesador se cree capaz de realizar la acción correspondiente. 
+    * `canUndo` Boolean - Si cree que el procesador puede deshacer.
+    * `canRedo` Boolean - Si cree que el procesador pueda rehacer.
+    * `canCut` Boolean - Si cree que el procesador puede cortar.
+    * `canCopy` Boolean - Si cree que el procesador puede copiar
+    * `canPaste` Boolean - Si cree que el procesador puede pegar.
+    * `canDelete` Boolean - Si cree que el procesador puede borrar.
+    * `canSelectAll` Boolean - Si cree que el procesador puede seleccionar todo.
 
-Emitted when there is a new context menu that needs to be handled.
+Emitido cuando hay un nuevo menú de contexto que debe ser manejado.
 
 #### Event: 'select-bluetooth-device'
 
@@ -488,19 +488,19 @@ win.loadURL('http://github.com')
 
 #### Event: 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+Emitido cuando la ventana devtools instruya la webContents para recargar
 
 #### Event: 'will-attach-webview'
 
 Devuelve:
 
 * `evento` Evento
-* `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferencias` Objeto - Las preferencias de la web que será utilizada por la página de invitado. Este objeto puede modificarse para ajustar las preferencias de la página de invitado.
+* `params` Objeto - Los otros `<webview>` parámetros tales como la URL de la `fuente`. Este objeto puede ser modificado para ajustar los parámetros de la página de invitado.
 
-Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
+Cuando emite contenidos de la web de `<webview>` se está conectando a los contenidos de esta web. Llamando a `event.preventDefault()` destruirá la página de invitado.
 
-This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
+Este evento puede utilizarse para configurar `webPreferences` para la `webContents` de un `<webview>`antes de que se carga y proporciona la capacidad de configuración que no se puede establecer a través de atributos `<webview>`.
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
@@ -1192,4 +1192,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Una instancia del [depurador](debugger.md) para éste webContents.

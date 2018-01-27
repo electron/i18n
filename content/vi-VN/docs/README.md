@@ -1,4 +1,4 @@
-Hãy chắc chắn rằng bạn sử dụng các tài liệu phù hợp với phiên bản Electron của bạn. Các đánh số của phiên bản là một phần của URL. Nếu bạn không thấy, thì bạn đang sử dụng tài liệu của một nhánh, tài liệu này có thể chứa các thay đổi trong các API mà nó có thể không tương thích với phiên bản Electron hiện tại mà bạn đang sử dụng. Để xem các tài liệu của phiên bản cũ hơn, bạn có thể [duyệt theo thẻ](https://github.com/electron/electron/tree/v1.4.0) trên GitHub mở trình đơn thả xuống "Swich branches/tags" và chọn từ khóa phù hợp với phiên bản của bạn.
+Hãy chắc chắn rằng bạn đang sử dụng các tài liệu phù hợp với phiên bản Electron của bạn. Các đánh số của phiên bản là một phần của URL. Nếu bạn không thấy, thì bạn đang sử dụng tài liệu của một nhánh, tài liệu này có thể chứa các thay đổi trong các API mà nó có thể không tương thích với phiên bản Electron hiện tại mà bạn đang sử dụng. Để xem các tài liệu của phiên bản cũ hơn, bạn có thể [duyệt theo thẻ](https://github.com/electron/electron/tree/v1.4.0) trên GitHub mở trình đơn thả xuống "Swich branches/tags" và chọn từ khóa phù hợp với phiên bản của bạn.
 
 ## FAQ (câu hỏi thường gặp)
 
@@ -25,9 +25,9 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Các phím tắt](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Cập nhật ứng dụng](tutorial/updates.md)
 
-## Các Tut
+## Hướng dẫn
 
 * [Bắt đầu nhanh](tutorial/quick-start.md)
 * [Môi trường làm việc tích hợp (Desktop Environment Integration)](tutorial/desktop-environment-integration.md)
@@ -89,7 +89,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 
 * [Phong cách lập trình](development/coding-style.md)
 * [Sử dụng clang-format trên Code C++](development/clang-format.md)
-* [Testing](development/testing.md)
+* [Kiểm thử](development/testing.md)
 * [Cấu trúc cây thư mục của Source Code](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (tiền thân là node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Tổng qua về Hệ thống cần thiết để Build](development/build-system-overview.md)
@@ -100,6 +100,6 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Các hướng dẫn debug (Windows)](development/debug-instructions-windows.md)
 * [Cài đặt Symbol Server trên debugger](development/setting-up-symbol-server.md)
 * [Tài liệu về Styleguide](styleguide.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
+* [Nâng cấp Chromium](development/upgrading-chromium.md)
 * [Chromium Development](development/chromium-development.md)
 * [V8 Development](development/v8-development.md)

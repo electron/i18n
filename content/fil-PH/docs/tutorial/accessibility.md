@@ -1,16 +1,16 @@
-# Accessibility
+# Aksesibilidad
 
-Making accessible applications is important and we're happy to introduce new functionality to [Devtron](https://electronjs.org/devtron) and [Spectron](https://electronjs.org/spectron) that gives developers the opportunity to make their apps better for everyone.
+Paggawa ng mga ma-access na applikasyon ay importante at masaya kami na ipakilala ang bagong pag-andar ng [Devtron](https://electronjs.org/devtron) at [Spectron](https://electronjs.org/spectron) nabibigay ito sa mga developer ng opportunidad upang mapabuti ang kanilang app para sa lahat.
 
 * * *
 
-Accessibility concerns in Electron applications are similar to those of websites because they're both ultimately HTML. With Electron apps, however, you can't use the online resources for accessibility audits because your app doesn't have a URL to point the auditor to.
+Aksesibilidad ng mga alalahanin sa mga aplikasyon ng Elektron ay medyo kapareho sa mga website dahil pareho silang nasa huli ng HTML. Sa mga app ng elektron, Gayunpaman, hindi mo magagamit ang mga pagkukunan sa online para sa aksesibilidad dahil ang iyong app ay walang URL sa punto ng auditor sa.
 
-These new features bring those auditing tools to your Electron app. You can choose to add audits to your tests with Spectron or use them within DevTools with Devtron. Read on for a summary of the tools or checkout our [accessibility documentation](https://electronjs.org/docs/tutorial/accessibility) for more information.
+Ang mga bagong tampok na ito ay dalhin ang mga tool sa pag-awdit sa iyong Elektron app. Maari kang pumili upang maidagdag ang mga pag-awdit sa iyong pag-subok sa Spectron o gamitin ang mga iyon sa loob ng DevTools sa Devtron. Basahin para sa buod ng mga tools o i-checkout ang aming [ aksesibilidad ng dokumentasyon ](https://electronjs.org/docs/tutorial/accessibility) para s karagdagang impormasyon.
 
 ## Spectron
 
-In the testing framework Spectron, you can now audit each window and `<webview>` tag in your application. For example:
+Para sa pag-susubok ng framework spectron, maari kang mag-awdit ngayon sa bawsat window at `<webview>` i-tag in sa iyong aplikasyon. Halimbawa:
 
 ```javascript
 app.client.auditAccessibility().then(function (audit) {
@@ -20,7 +20,7 @@ app.client.auditAccessibility().then(function (audit) {
 })
 ```
 
-You can read more about this feature in [Spectron's documentation](https://github.com/electron/spectron#accessibility-testing).
+Maari kang basahin ng higit pa tungkol sa tampok na ito sa [Spectron's dokumentasyon ](https://github.com/electron/spectron#accessibility-testing).
 
 ## Devtron
 

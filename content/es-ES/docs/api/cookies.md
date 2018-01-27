@@ -1,10 +1,10 @@
 ## Clase: Cookies
 
-> Query and modify a session's cookies.
+> Busca y modifica las cookies de la sesión.
 
 Proceso: [Principal](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Las instancias de la clase `Cookies` son accedidas utilizado la propiedad `cookies` de una `Session`.
 
 Por ejemplo:
 
@@ -21,7 +21,7 @@ session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cooki
   console.log(error, cookies)
 })
 
-// Establecer una cookie con la información de cookie ofrecida;
+// Establece una cookie con la información de cookie ofrecida;
 // puede sobreescribir cookies equivalentes si existen.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
@@ -31,67 +31,67 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### Eventos de Instancia
 
-The following events are available on instances of `Cookies`:
+Los siguientes eventos están disponibles en las instancias de `Cookies`:
 
-#### Event: 'changed'
+#### Evento: "changed"
 
 * `evento` Evento
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado
+* `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
+  * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
+  * `overwrite` - La cookie se eliminó automáticamente debido a una operación insertada que la sobreescribió.
+  * `expired` - La cookie se eliminó automáticamente debido a que expiró.
+  * `evicted` - La cookie fue desecha automáticamente durante la recolección de desechos.
+  * `expired-overwrite` - La cookie fue sobreescrita con una fecha de vencimiento ya expirada.
+* `removed` Booleano - `true` si la cookie se eliminó, `false` si no lo hizo.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Aparece cuando se cambia una cookie porque fue añadida, editada, eliminada o expirada.
 
 ### Métodos de Instancia
 
-The following methods are available on instances of `Cookies`:
+Los siguientes métodos están disponibles en las instancias de `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `llamada de vuelta` Función 
+* `filter` Objeto 
+  * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
+  * `name` Cadena (opcional) - Filtra las cookies por nombre.
+  * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`
+  * `path` Cadena (opcional) - Recupera las cookies de cuya ruta coincide con `path`.
+  * `secure` Booleano (opcional) - Filtra las cookies por su propiedad Secure.
+  * `session` Booleano (opcional) - Filtra las cookies fuera de la sesión o cookies persistentes.
+* `callback` Función 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - un arreglo con objetos de cookies.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Envía una solicitud para obtener todas las cookies que coinciden con `details`, `callback` y será llamada con `callback(error, cookies)` cuando termine.
 
 #### `cookies.set(details, callback)`
 
-* `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `llamada de vuelta` Función 
+* `details` Objeto 
+  * `url` Cadena - La url para asociarla con la cookie.
+  * `name` Cadena (opcional) - El nombre de la cookie. Por defecto estará vacío si se omite.
+  * `value` Cadena (opcional) - El valor de la cookie. Por defecto estará vacío si se omite.
+  * `domain` Cadena (opcional) - El dominio de la cookie. Por defecto estará vacío si se omite.
+  * `path` Cadena (opcional) - La ruta de la cookie. Por defecto estará vacío si se omite.
+  * `secure` Booleano (opcional) - Si la cookie debe ser marcada como Secure. Por defecto es false.
+  * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
+  * `expirationDate` Doble (opcional) - La fecha de vencimiento de la cookie como el número de segundos desde la época UNIX. Si se omite, entonces la cookie cambia a una cookie de sesión y no se conservará entre sesiones.
+* `callback` Función 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Configura una cookie con `details`, `callback` y sera llamada con `callback(error)` cuando termine.
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` Cadena - La URL asociada con la cookie.
+* `name` Cadena - El nombre de la cookie que será eliminada.
 * `callback` Función
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Elimina las cookies que coinciden con `url` and `name`, `callback` y serán llamadas con `callback()` cuando termine.
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Función
 
-Writes any unwritten cookies data to disk.
+Escribe cualquier dato de cookies en el disco que no haya sido escrito.

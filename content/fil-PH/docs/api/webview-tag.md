@@ -1,22 +1,22 @@
 # `<webview>` Tag
 
-> Display external web content in an isolated frame and process.
+> Ipakita ang panlabas na nilalaman ng web sa mga liblib na anyu at proseso.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Proseso:[Tagabigay](../tutorial/quick-start.md#renderer-process)
 
-Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
+Gumamit ng `webview` tag sa embed na 'panauhin' nilalaman(tulad ng pahina sa web) sa iyong Electron app. Ang nilalaman ng panauhin ay may nakalagay sa loob ng container na `webview`. Ang naka-embed na pahina sa loob ng iyong app kontrol kung paano ang nilalaman ng panauhin ay nailatag at naibigay.
 
-Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+Hindi tulad ng `iframe`, ang `webview` ay tumatakbo sa hiwalay na proseso kaysa ginagamit mong app. Ito ay walang parehang pahintulot tulad ng web na pahina at ang lahat ng mga interaskyon pagitan sa iyong app ang naka-embed na nilalaman ay magiging asinkrunos. Ito ay pinapanatili ang iyong app na ligtas sa mga naka-embed na nilalaman. **Paalala:** Lahat ng paraan ay tinatawag sa webview galing sa unang pahina na nangangailangan a asinkrunos na tawag papunta sa pangunahing proseso.
 
 ## Halimbawa
 
-To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
+Para i-embed ang pahina ng web sa iyong app, Idagdag ang `webview` tag sa iyong app's na taga-embed na pahina (Ito ang app na pahina na makikita sa panauhin na nilalaman). Sa kanyang pinakasimpleng porma, ang `webview` tag kasama ang `src` sa pahina ng web at css na estilo na ikontrol ang itsura ng `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
+Kung gusto mong ikontrol ang nilalaman ng panauhin sa anumang paraan, maari kang sumulat sa JavaScript na nakikinig para `webview` pangyayari at tumutugon sa mga pangyayari gamit ang `webview` na pamamaraan. Ito ang mga halimbawang kod na may dalawang tagapakinig na pangyayari: isa na nakikinig sa pahina ng web upang simulan ang pagloloding, ang isa naman sa pahina ng web na patigilin ang pag loloding, at nagpapakita ng "loding..." na mensahe habang sa lod taym:
 
 ```html
 <script>
@@ -38,11 +38,11 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## CSS Styling Notes
+## Mga pamamaraan ng CSS notes
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Paki tandaan na ang `webview` tag's na estilo ay gumagamit `displey:fleks;` internali upang makasiguro na ang batang `object` elemento pumuno sa buong taas at lapad ng `webview` container kung saan magagamit na may tradisyonal at layout na fleksbaks (mula v.0.36.11). Pakisuyo na hindi magpatung-sulat sa defolt `displey:fleks;` CSS na ari-arian, maliban sa isinasaad `displey:fleks;` para sa inlayn na layout.
 
-`webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
+`webview` ay may isyo habang nakatago gamit ang `hidden` katangian o gamit `displey: wala;`. Na makasanhi ng di-pangkaraniwang pagsasalin sa loob ng bata `browserplugin` objek at ang pahina ng web ay naka-relod habang `webview` ay hindi nakatago. Ang rekomendadong pamamaraan ay dapat itago ang `webview` gamit ang `pagpapakita: nakatago`.
 
 ```html
 <style>
@@ -57,9 +57,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## Katangian ng Tag
 
-The `webview` tag has the following attributes:
+Ang `webview` na tag ay may sumusunod na katangian:
 
 ### `src`
 
@@ -67,11 +67,11 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+Ibinabalik ang makikitang URL. Pagsulat sa mga katangian ang nagsimula ng top-lebel nabigasyon.
 
-Assigning `src` its own value will reload the current page.
+Pag-aatas `src` sa kanyang sariling balyu ay pagreload ng kasalukuyang pahina.
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+Ang `src` katangian ay maaring ding tumanggap ng mga datos sa URL, tulad ng `datos:text/plain,Hello,world!`.
 
 ### `autosize`
 
@@ -79,7 +79,7 @@ The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, w
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-When this attribute is present the `webview` container will automatically resize within the bounds specified by the attributes `minwidth`, `minheight`, `maxwidth`, and `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
+Habang ang katangian na ito ay naroroon sa `webview` kontayner ay magiging awtomatikong magbago ng laki sa loob ng hangganan na tinutukoy sa mga katangian `minwidth`, `minheight`. `maxwidth`, at `maxheight`. Mga limitasong hindi makakaapekto sa `webview` maliban `autosize` ay pinagana. Habang ang `autosize` ay pinagana, ang `webview` kontayner na laki ay hindi maging mababa kaysa sa minimum na balyos o hindi tataas sa pinakamataas.
 
 ### `nodeintegration`
 
@@ -87,7 +87,7 @@ When this attribute is present the `webview` container will automatically resize
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+Kapag itong katangian ay mayroon sa pahina ng panauhin sa `webview` ay magkakaroon ng integrasyon sa nod ang maaring maggamit sa node APIs tulad `require` at `process` para maka-access sa maliliit na lebel sa antas ng sistema. Integarason sa node ay hindi pinagana batay sa default ng pahina nag panauhin.
 
 ### `plugins`
 
@@ -95,7 +95,7 @@ When this attribute is present the guest page in `webview` will have node integr
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+Habang ang katangian na ito ay mayroon sa pahina ng panauhin sa `webview` ay maaring maggamit samga browser plugins. Plugins ay hindi pinagana sa default.
 
 ### `preload`
 
@@ -103,11 +103,11 @@ When this attribute is present the guest page in `webview` will be able to use b
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
+Tinutukoy ang isang iskrip ma makakarga bago ang ibang iskrips na tumakbo sa pahina ng panauhin. Ang protokol ng iskrips URL ay dapat maging `file:` or `asar:`, dahil ito ay makakarga sa `require` sa pahina ng panauhin sa ilalim ng hood.
 
-When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
+Habang ang pahina ng panauhin ay walang integrasyon na node ang iskrip na ito ay maari paring maka-access sa lahat ng Node APIs, pero gobal na objeks ay naka-injek kay Node at ito ay matatangal pagkatapos ng iskrip na matapos ang ginagawa.
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**Paalala:** Ang opsyon na ito ay maaring lumitaw bilang `preloadURL`(hindi `preload`) sa `webPreferences` na tumutukoy sa `will-attach-webview` na pangyayari.
 
 ### `httpreferrer`
 
@@ -115,7 +115,7 @@ When the guest page doesn't have node integration this script will still have ac
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+Nagtatakda ng referral na URL para sa pahina ng mga panauhin.
 
 ### `useragent`
 
@@ -123,7 +123,7 @@ Sets the referrer URL for the guest page.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+Nagtatakda sa mga gumagamit na ahente para sa pahina ng panauhin bago i-navigate sa pahina. Kapag ang pahina ay nakarga na, gamitin and `setUserAgent` na paraan para palitan ang ahente ang gumagamit.
 
 ### `disablewebsecurity`
 
@@ -131,7 +131,7 @@ Sets the user agent for the guest page before the page is navigated to. Once the
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+Habang itong katangian mayroon ang pahina ng panauhin hindi pinagana ang seguridad sa web. Ang seguridad sa web ay pinagana sa default.
 
 ### `partition`
 
@@ -140,9 +140,9 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electron.atom.io" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
+Itakda ang sesyon na ginamit sa pahina. Kapag `partition` ay nagsimula sa `persist:`, ang pahina ay gagamit ng masugid na sesyon na magagamit sa lahat ng pahina sa app na may kaparihang `partition`. kung wala naman `persist:` na panlapi, ang pahina ay gagamit na in-memory na sesyon. Sa pag-aatas ng kaparihang `partition`, maramihang pahina ang pwede maibahagi sa parehang sesyon. Kung ang `partition` ay di pa na set pagkatapos ang default na sesyon ng app ay magagamit.
 
-This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
+Itong balyo lang ang pwede mabago bago ang unang nabigasyon, mula sa sesyon sa aktibong tagabahagi ang proseso ay di magbabago. Kasunod na pagtatangka na baguhin ang balyo ay mabibigo na may DOM eksepsyon.
 
 ### `allowpopups`
 
@@ -150,7 +150,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+Habang itong katangian ay mayroon ang pahina ng panauhin ay maaring buksan ang mga bagong bintana. Popups ay hindi pinagana sa default.
 
 ### `webpreferences`
 
@@ -158,9 +158,9 @@ When this attribute is present the guest page will be allowed to open new window
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
+Isang listahan mg mga string na tumutukoy sa web preferencies na iiset sa webview, pinaghihiwaly ng `,`. Ang buong listahan ay supportado ng preference strings na makikita sa [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `` are interpreted as `false`.
+Ang string sumusunod sa kapareihang pormat bilang sa katangian ng string sa `window.open`. Ang pangalan ay ibinigay mismo ng `true` bollean balyo. Isang preference ay maaring mag takda ng ibang balyo kabilang ang `=`, kasunod ng balyo. Tumutukoy sa balyo na `yes` at `1` ay inerterprit sa `true`, habang `no` at `` ay binigyang-kahulugan ng `false`.
 
 ### `blinkfeatures`
 

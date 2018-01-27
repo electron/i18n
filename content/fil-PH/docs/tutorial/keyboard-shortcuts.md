@@ -1,20 +1,19 @@
-# Keyboard Shortcuts
+# Mga shortcut ng keyboard
 
-> Configure local and global keyboard shortcuts
+> I-configure ang lokal at ang global na mga shortcut ng keyboard
 
-## Local Shortcuts
+## Mga lokal na shortcut
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Pwedi kang maggamit ng [Menu](../api/menu.md) na modyul para i-configure ang keyboard shortcuts na nagti-trigger lamang kapag nka pokus ang app. Upang magawa, i-specify ang [`accelerator`] property kapag gumagawa ng [Menultem](../api/menu-item.md).
 
 ```js
-const {Menu, MenuItem} = require('electron')
-const menu = new Menu()
+const {Menu, Menultem} = nangangailangan ng ('electron')
+const menu = bagong Menu()
 
-menu.append(new MenuItem({
+menu.append(nee menultem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
-}))
+  click: () => { console.log('time to print stuff') }}))
 ```
 
 It's easy to configure different key combinations based on the user's operating system.

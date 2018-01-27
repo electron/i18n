@@ -1,78 +1,78 @@
-# Gamit ang sariling mga modyul ng node
+# Paggamit sa Native Node na mga Modyul
 
-The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
+Ang native Node na mga modyul ay sinusuportahan ng Electron, pero dahil ang Electron ay madalas gumagamit ng ibang V8 na bersyon mula sa binary ng Node na naka-install sa iyong system, kailangang manu-mano mong tukuyin ang kinalalagyan ng mga header ng Electron kapag gumagawa ng native na modyul.
 
-## How to install native modules
+## Paano mag-install ng native na mga modyul
 
-Three ways to install native modules:
+May tatlong mga paraan sa pag-install ng native na mga modyul:
 
-### Using `npm`
+### Paggamit ng `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Sa pagtatakda ng ilang mga varyabol na pang-environment, maaari kang gumamit ng `npm` sa direktang pag-iinstall ng modyul.
 
-An example of installing all dependencies for Electron:
+Isang halimbawa ng pag-iinstall ng lahat ng mga dependency para sa Electron:
 
 ```sh
-# Electron's version.
+# Bersyon ng Electron.
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+# Ang arkitektura ng Electron, pwedeng ia32 o x64.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# I-download ang mga header para sa Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# Sinasabihan ang node-pre-gyp na naglilikha tayo para sa Electron.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# Sinasabihan ang node-pre-gyp to gumawa ng module mula sa pinagmulang code.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# I-install ang lahat ng mga dependency, at iponin ang cache sa ~/.electron-gyp.
 HOME=~/.electron-gyp npm install
 ```
 
-### Installing modules and rebuilding for Electron
+### Pag-iinstall ng mga modyul at pagre-rebuild para sa Electron
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+Pwede mong piliing i-install ang mga modyul katulad ng ibang mga Node na proyekto, at pagkatapos ay i-rebuild ang mga modyul para sa Electron gamit ang paketeng [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Ang modyul na ito ay makakakuha ng bersyon ng Electron at makakahawak ng mga manu-manong hakbang sa pagda-download ng mga header at paggawa ng native na modyul para sa iyong app.
 
-An example of installing `electron-rebuild` and then rebuild modules with it:
+Isang halimbawa ng pag-iinstall ng `electron-rebuild` at pagkatapos, gumawa ng mga modyul kasama ito:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# kapag pinapatakbo mo ang "npm install", paganahin ito:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# Sa Windows kung may problema, subukan ito:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Manually building for Electron
+### Manu-manong pagtatayo para sa Electron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Kung ikaw ay isang tagabuo na gumagawa ng native na modyul at gustong suriin ito kontra Electron, baka gusto mong manu-manong mag-rebuild ng modyul para sa Electron. Pwede mong direktang gamitin ang `node-gyp` upang maglikha para sa Electron:
 
 ```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-The `HOME=~/.electron-gyp` changes where to find development headers. The `--target=1.2.3` is version of Electron. The `--dist-url=...` specifies where to download the headers. The `--arch=x64` says the module is built for 64bit system.
+Ang `HOME=~/.electron-gyp` ay nagbabago sa lokasyon ng mga development header. Ang `--target=1.2.3` ay bersyon ng Electron. Ang `--dist-url=...` ay nagtutukoy kung saan ida-download ang mga header. Ang `--arch=x64` ay nagsasabing ang modyul ay ginawa para sa 64bit na sistema.
 
-## Troubleshooting
+## Paghahanap ng Problema
 
-If you installed a native module and found it was not working, you need to check following things:
+Kung naka-install ka ng isang native na modyul at nalamang hindi ito gumagana, kailangan mong tingnan ang mga sumusunod na mga bagay:
 
-* The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
-* When in doubt, run `electron-rebuild` first.
+* Ang arkitektura ng modyul ay dapat tugma sa arkitektura ng Electron (ia32 o x64).
+* Pagkatapos mong i-upgrade ang Electron, kadalasan kailangan mong i-rebuild ang mga modyul.
+* Kung hindi sigurado, paganahin muna ang `electron-rebuild`.
 
-## Modules that rely on `prebuild`
+## Mga Modyul na nakadepende sa `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to easily publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+Ang [`prebuild`](https://github.com/mafintosh/prebuild) ay nagbibigay daan sa madaling paglathala ng mga native node na modyul kasama ang prebuilt na mga binary para sa sari-saring bersyon ng Node at Electron.
 
-If modules provide binaries for the usage in Electron, make sure to omit `--build-from-source` and the `npm_config_build_from_source` environment variable in order to take full advantage of the prebuilt binaries.
+Kung ang mga modyul ay nagbibigay ng mga binary para sa paggamit nito sa Electron, siguraduhing wag isali ang `--build-from-source` at ang `--build-from-source` na varyabol pang-environment upang magamit nang husto ang mga binary na prebuilt.
 
-## Modules that rely on `node-pre-gyp`
+## Mga modyul na nakadepende sa `node-pre-gyp`
 
-The [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) provides a way to deploy native Node modules with prebuilt binaries, and many popular modules are using it.
+Ang [`node-pre-gyp` tool](https://github.com/mapbox/node-pre-gyp) ay nagbibigay ng paraan sa pag-deploy ng native na mga node modyul gamit ang mga prebuilt na mga binary, at maraming mga sikat na modyul ang gumagamit nito.
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node, and there are ABI changes, bad things may happen. So in general it is recommended to always build native modules from source code.
+Kadalasan ang mga modyul na ito ay gumagana nang maayos sa ilalim ng Electron, pero minsan kapag gumagamit ang Electron ng mas bagong bersyon ng V8 kaysa Node, at may pagbabago sa ABI, maraming hindi magagandang mga bagay ang posibleng mangyari. Kaya sa pangkalahatan, inirerekomenda na palaging gamitin ang build native na mga module mula sa pinagmulang code.
 
-If you are following the `npm` way of installing modules, then this is done by default, if not, you have to pass `--build-from-source` to `npm`, or set the `npm_config_build_from_source` environment variable.
+Kung sinusunod mo ang paraang `npm` sa pag-iinstall ng mga modyul, magagawa ito nang naka-default, kung hindi, kailangan mong ipasa ang `--build-from-source` sa `npm`, o i-set ang `npm_config_build_from_source` na varyabol pag-environment.

@@ -35,8 +35,8 @@ The following languages are currently being translated, but we can
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [Italiano (Italian)](https://crowdin.com/project/electron/it)
+- [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 <!-- end language-table -->
