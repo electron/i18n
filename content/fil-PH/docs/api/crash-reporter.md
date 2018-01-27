@@ -37,9 +37,9 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
   * `ignoreSystemCrashHandler`Boolean (optional) - ang default ay `false`.
   * `extra`Object (optional) - Ang bagay na kaya mong bigyan ng kahulogan ay maisama sa pag submit ng mga report. Ang katangian lang ng string ang maipasa ng wasto. Ang mga bagay na Nested ay hindi suportado at ang pangalan ng ari-arian at ang halaga ay hindi bababa sa 64 na mga character.
 
-Ikaw ay kailangan na tumawag sa mga pamaraan bago mag gamit ng ibang `crashReporter` APIs at bawas proseso (main/renderer) kung saan ka mangolekta ng mga bagsak na ulat. You can pass different options to `crashReporter.start` when calling from different processes.
+Ikaw ay kailangan na tumawag sa mga pamaraan bago mag gamit ng ibang `crashReporter` APIs at bawas proseso (main/renderer) kung saan ka mangolekta ng mga bagsak na ulat. Puwede kang mag pasa ng iba't-ibang opsyon sa `crashReporter.start`kung tumawag sa iba't-ibang proseso.
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
+**Tala**Magkakaron ng mga proseso sa mga bata gamit ang `child_process`modyul ay hindi maka access sa elektron modyul. Samakatuwid, para makakolekta ng mga bagsak na ulat mula sa kanila, gamitin ang `process.crashReporter.start`sa halip. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
 
 **Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
 
