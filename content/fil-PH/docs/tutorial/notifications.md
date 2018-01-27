@@ -14,11 +14,11 @@ myNotification.onclick = () = & gt; {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Bagama 't magkatulad ang code at gumagamit ng mga karanasan sa iba 't ibang mga operating system, doon ay may mga bahagyang pagkakaiba.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
+* Sa Windows 10, ang mga abiso ay "gumagana lamang".
 * On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
 * On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
 
