@@ -1,6 +1,6 @@
 # Mga Abiso (Windows, Linux, macOS)
 
-Ang tatlong operating system ay nagbibigay ng paraan para sa mga aplikasyon na magpadala ng abiso sa mga gumagamit. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Ang tatlong operating system ay nagbibigay ng paraan para sa mga aplikasyon na magpadala ng abiso sa mga gumagamit. Maginhawang nagbibigay-daan ang Elektron sa mga developer upang magpadala ng mga abiso kasama ang [HTML5 Abiso API](https://notifications.spec.whatwg.org/), gamit ang tumatakbong operating system sa native notification APIs upang ipakita ito.
 
 **Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
 
