@@ -16,9 +16,9 @@
 
 यह मोड सीपीयु में रेंडरिंग के लिए एक सॉफ्टवेयर आउटपुट डिवाइस का इस्तेमाल करता है, जिससे कि फ्रेम रेट का उत्पादन कही ज्यादा तेज़ी से होता है, और इसलिए जीपीयु एक्स्सलरेटेड मोड से ज्यादा प्राथमिकता इसे मिलती है |
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+इस मोड को चालु करने के लिए जीपीयु एक्स्सलरेशन को [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) ऐपीआई कॉल कर डिसएबल करना होगा |
 
-## Usage
+## उपयोग
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
