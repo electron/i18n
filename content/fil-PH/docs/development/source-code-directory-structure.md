@@ -53,14 +53,14 @@ Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hin
 * **iskrip** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
 * **tools** - Katuwang ng mga iskrip na gamit ng "gyp files", di tulad ng `iskrip`, ang mga iskrip na inilagay dito ay di na dapat direktang gamitin pa ng mga gumagamit.
 * **vendor** - Ang "source code" ng pangatlong partido ng mga dependency, tayo ay 'di gumagamit nito `third_party` bilang pangalan dahil ito'y nakakalito para sa kaparehong direktoryo sa "source code tree" ng "Chromium".
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **node_modules**, Ang pangatlong partido ng mga modyul ng "node" para sa pagbuo.
+* **out** - Ang pansamantalang "output" ng direktoryo ng `ninja`.
+* **dist** - Ang pansamantalang direktoryo na likha ng `script/create-dist.py` iskrip kapag gumagawa ng distribusyon.
+* **external_binaries** - Ang "downloaded binaries" ng pangatlong partido ng mga balangkas ay di sinusuportahan ang pagbuo gamit ang `gyp`,.
 
-## Keeping Git Submodules Up to Date
+## Pagpapanatili ng "Git Submodules" sa Tamang Oras
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Ang Electron repository ay mayroon ilang "vendored dependencies", at matatagpuan sa direktoryo na [/vendor](https://github.com/electron/electron/tree/master/vendor). Paminsan-minsan, maaari mong makita ang mensahe tulad nito kapag tumatakbo ang `git status`:
 
 ```sh
 $ git status
@@ -69,13 +69,13 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Upang "i-update" itong mga vendored dependencies, patakbuhin ang mga sumusunod na "command":
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Kung ang "command" na ito ay iyong parating pinapatakbo, maaari kang lumikha ng "alias" para dito sa iyong payl na `~/.gitconfig`:
 
 ```sh
 [alias]
