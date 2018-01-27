@@ -76,7 +76,7 @@ Ang event na ito ay hindi garantisado na lalabas sa lahat ng mga pagkakataon kun
 Magbabalik ng:
 
 * `event` Event
-* `reply` String - The string the user entered into the inline reply field
+* `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
