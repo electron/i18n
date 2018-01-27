@@ -161,29 +161,29 @@ $ ./script/build.py -c R
 
 ### Usando el sistema `clang` en vez del binario descarado `clang`
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
+Por defecto Electron está compilado con un [`clang`](https://clang.llvm.org/get_started.html) binario de recompilación proporcionado por el proyecto Chromium. Si por alguna razón quiere compilar con el `clang` instalado en su sistema, puede llamar `bootstrap.py` con el `--clang_dir=<path>` cambiado. Al pasarlo el comando de compilación asumirá que el binario del `clang` reside en `<path>/bin/`.
 
-For example if you installed `clang` under `/user/local/bin/clang`:
+Por ejemplo si usted instaló `clang` en `/user/local/bin/clang`:
 
 ```sh
 $ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
-### Using compilers other than `clang`
+### Usando otros compiladores además de `clang`
 
 Compilar Electron con compiladores como `g ++`, primera necesidad para desactivar el `clang` con ` - disable_clang` interruptor primero y luego establecer variables de entorno `CC` y `CXX` a los que desee.
 
-For example building with GCC toolchain:
+Por ejemplo compilar con la cadena de herramientas GCC:
 
 ```sh
 $ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
 $ ./script/build.py -c R
 ```
 
-### Environment variables
+### Variables de entorno
 
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
+Además de `CC` y `CXX`, usted también puede configurar las siguientes variables de entorno para personalizar las configuración de compilación:
 
 * `CPPFLAGS`
 * `CPPFLAGS_host`
@@ -199,4 +199,4 @@ Apart from `CC` and `CXX`, you can also set the following environment variables 
 * `CXX_host`
 * `LDFLAGS`
 
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+Las variables de entorno tienen que ser configuradas cuando se esté ejecutando el comando `bootstrap.py` no funcionarán en el comando `build.py`.
