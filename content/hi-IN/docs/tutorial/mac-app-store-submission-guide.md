@@ -151,11 +151,11 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 * कुछ मशीनों में विडियो कैप्चर शायद काम न करें |
 * कुछ एक्सेसबिलिटी सुविधायें शायद काम न करें |
-* Apps will not be aware of DNS changes.
+* एप्प्स को डीएनएस बदलावों के बारे में पता नहीं चलेगा |
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+साथ ही, एप्प सैंडबॉक्सिंग के इस्तेमाल के कारण, एप्प के लिए संसाधनों तक पहुँच बेहद सीमित है; ज्यादा जानकारी के लिए आप [एप्प सैंडबॉक्सिंग](https://developer.apple.com/app-sandboxing/) पढ़ सकते हैं |
 
-### Additional Entitlements
+### अतिरिक्त एनटाइटलमेंट्स
 
 Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
 
