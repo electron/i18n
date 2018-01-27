@@ -79,11 +79,11 @@ Pero recuerde que el callback está referenciado por el proceso principal hasta 
 
 Para empeorar las cosas, debido a que el contexto de los callbacks previamente instalados han sido liberados, las excepciones surgirán en el proceso principal cuando se emita el evento `close`.
 
-Para evitar esto, asegúrese de borrar cualquier referencia a los callbacks del renderizador passados al proceso principal. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+Para evitar esto, asegúrese de borrar cualquier referencia a los callbacks del renderizador passados al proceso principal. Esto incluye borrar los controladores de evento, o asegurarse de que se le diga al proceso principal que elimine las referencia de los callbacks que vinieron desde un proceso de renderizado que esta cerrándose.
 
-## Accessing built-in modules in the main process
+## Acceso a módulos incorporados en el proceso principal
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Los módulos incorporados en el proceso principal se añaden como captadores en el módulo `remoto`, por lo que se puede utilizar directamente como el módulo de `electron`.
 
 ```javascript
 const app = require('electron').remote.app
@@ -92,15 +92,15 @@ console.log(app)
 
 ## Métodos
 
-The `remote` module has the following methods:
+El módulo `remote` tiene los siguientes métodos:
 
 ### `remote.require(module)`
 
-* `module` String
+* `module` Cadena
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Devuelve `any` - El objeto devuelto por `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
-e.g.
+por ejemplo.
 
     project/
     ├── main
@@ -129,20 +129,20 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+Devuelve [`BrowserWindow`](browser-window.md) - La ventana a la cual pertenece esta página web.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Devuelve [`WebContents`](web-contents.md) - Los contenidos web de esta página web.
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `name` Cadena
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el proceso principal.
 
 ## Propiedades
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+El objeto `process` en el proceso principal. Este es igual a `remote.getGlobal('process')` pero está almacenado en caché.
