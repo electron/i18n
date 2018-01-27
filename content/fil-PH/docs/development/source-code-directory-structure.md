@@ -1,10 +1,10 @@
-# Source Code Directory Structure
+# Ang Direktoryo ng Istraktura ng "Source Code"
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Ang "source code" ng Elektron ay nakahiwalay sa ilang mga bahagi, kadalasan ay sinusundan nito ang magkahiwalay na mga kombensyon ng Chromium.
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Kinakailangan mong maging pamilyar sa [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) upang mas maunawaan ang "source code".
 
-## Structure of Source Code
+## Ang Istraktura ng "Source Code"
 
 ```sh
 Electron
