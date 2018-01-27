@@ -12,7 +12,7 @@ Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay]
 
 Napalabas kapag na-load ng Electron ang kanyang panloob na inisyalisasyon iskrip at simulang mag load ang web page o sa pangunahin iskrip.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Pwede rin itong magamit ng preload iskrip para magdagdag ang tinanggal na Node global na simbolo pabalik sa global scope kung ang integrasyon ng node ay nakapatay. 
 
 ```javascript
 // preload.js
@@ -26,7 +26,7 @@ process.once('loaded', () => {
 
 ## Mga Katangian
 
-### `process.defaultApp`
+### `proseso.defaultApp`
 
 A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
