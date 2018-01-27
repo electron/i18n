@@ -175,7 +175,7 @@ El Unity DE también tiene una función similar que le permite especificar la ba
 
 **Barra de progreso en el botón de la barra de tareas:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![Barra de progreso de la barra de tareas](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
 Para configurar la barra de progreso para una ventana, puede usar la API [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress):
 
@@ -218,9 +218,9 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-No olvide llamar el método `flashFrame` con `false` a apagar la iluminación. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+No olvide llamar el método `flashFrame` con `false` a apagar la iluminación. En el ejemplo anterior, se llama cuando la ventana entra en foco, pero es posible que use un tiempo de espera u otro evento para deshabilitarlo.
 
-## Represented File of Window (macOS)
+## Archivo Representado de Window (macOS)
 
 On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
 
