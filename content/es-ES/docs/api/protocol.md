@@ -67,13 +67,13 @@ app.on('ready', () => {
 
 * `esquema` Cadena
 * `manejador` Función 
-  * `request` Object 
-    * `url` String
-    * `referrer` String
+  * `request` Objeto 
+    * `url` Cadena
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
-    * `filePath` String (optional)
+    * `filePath` Cadena (opcional)
 * `completion` Función (opcional) 
   * `error` Error
 
@@ -89,13 +89,13 @@ Por defecto el `esquema` es tratado como `http:`, que es analizado diferente que
 
 * `esquema` Cadena
 * `manejador` Función 
-  * `request` Object 
-    * `url` String
-    * `referrer` String
+  * `request` Objeto 
+    * `url` Cadena
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opcional)
 * `completion` Función (opcional) 
   * `error` Error
 
@@ -121,7 +121,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `manejador` Función 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
@@ -139,7 +139,7 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
 * `manejador` Función 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
@@ -183,7 +183,7 @@ La `retrollamada` será cancelada con un booleano que indique si ya es un contro
 * `manejador` Función 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
@@ -199,7 +199,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 * `manejador` Función 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
@@ -215,7 +215,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador 
 * `manejador` Función 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
@@ -231,7 +231,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `manejador` Función 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `llamada de vuelta` Función 
@@ -245,7 +245,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlador del protocolo, el cual envía una nueva solicitud HTTP como respuesta.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -253,4 +253,4 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Función (opcional) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Elimina el interceptor instalado para el `scheme` y restaura su controlador original.
