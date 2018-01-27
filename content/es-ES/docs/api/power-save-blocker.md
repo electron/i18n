@@ -35,12 +35,12 @@ Por ejemplo, una API llamada A solicita a `prevent-app-suspension`, y otra llama
 
 ### `powerSaveBlocker.stop(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Entero - El id de bloqueo de ahorro de energía devuelto por `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Detiene el bloqueador de ahorro de energía especificado.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Entero - El id de bloqueo de ahorro de energía devuelto por `powerSaveBlocker.start`.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+Devuelve `Boolean` - Si ha iniciado el `powerSaveBlocker` correspondiente.
