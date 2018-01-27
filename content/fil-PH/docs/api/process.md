@@ -32,9 +32,9 @@ Ang `Boolean`. Kung ang app ay nagsimula sa pamamagitan ng ipinapasa bilang para
 
 ### `proseso.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Ang `Boolean`. Para sa itinayo na Mac App Store, ang propyedad na ito ay `totoo`, para sa ibang initayo ito ay `malabo`.
 
-### `process.noAsar`
+### `proseso.noAsar`
 
 A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
