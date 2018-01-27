@@ -37,11 +37,11 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
   * `hasReply` Booleano - (opcional) Si se agrega o no una opción de respuesta insertada en la notificación. *macOS*
   * `replyPlaceholder` Cadena- (opcional) El marcador de posición para escribir en el campo insertado de entrada de respuesta. *macOS*
   * `sound` Cadena - (opcional) El nombre del archivo de sonido que se reproduce cuando se muestra la notificación. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (opcional) Las acciones que se añaden a la notificación. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * `actions` [NotificationAction[]](structures/notification-action.md) - (opcional) Las acciones que se añaden a la notificación. Por favor lea las acciones disponibles y limitaciones en la documentación de `NotificationAction` *macOS*
 
 ### Eventos de Instancia
 
-Objects created with `new Notification` emit the following events:
+Los objetos creados con `new Notification` emite los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
@@ -49,47 +49,47 @@ Objects created with `new Notification` emit the following events:
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Se emite cuando la notificación se muestra al usuario. Tenga en cuenta que este puede emitirse tantas veces como se muestre la notificación a través del método `show()`.
 
-#### Event: 'click'
-
-Devuelve:
-
-* `evento` Evento
-
-Emitted when the notification is clicked by the user.
-
-#### Evento: 'close'
+#### Evento: "click"
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 
-Emitted when the notification is closed by manual intervention from the user.
+Se emite cuando el usuario hace clic en la notificación.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
-
-#### Event: 'reply' *macOS*
+#### Evento: "close"
 
 Devuelve:
 
-* `evento` Evento
-* `reply` String - The string the user entered into the inline reply field
+* `event` Evento
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
-#### Event: 'action' *macOS*
+No se garantiza que este evento se emita en todos los casos donde se cierre la notificación.
+
+#### Evento: "reply" *macOS*
 
 Devuelve:
 
-* `evento` Evento
-* `index` Number - The index of the action that was activated
+* `event` Evento
+* `reply` Cadena - La cadena que ingreso el usuario dentro del campo de respuesta insertado
+
+Se emite cuando el usuario hace clic en el botón "Reply" en una notificación con `hasReply: true`.
+
+#### Evento: "action" *macOS*
+
+Devuelve:
+
+* `event` Evento
+* `index` Númerp - El indice de la acción que fue activado
 
 ### Métodos de Instancia
 
-Objects created with `new Notification` have the following instance methods:
+Los objetos creados con `new Notification` tienen los siguientes métodos de instancia:
 
 #### `notification.show()`
 
