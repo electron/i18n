@@ -17,11 +17,11 @@ powerSaveBlocker.stop(id)
 
 ## Pamamaraan
 
-The `powerSaveBlocker` module has the following methods:
+Ang modyul ng `powerSaveBlock` ay mayroon ng mga sumusunod na mga pamamaraan:
 
-### `powerSaveBlocker.start(type)`
+### `ang powerSaveBlock.start(uri)`
 
-* `type` String - Power save blocker type. 
+* `ang uri` String - Ang uri ng tagaharang ng power save. 
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
