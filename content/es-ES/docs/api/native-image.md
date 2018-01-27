@@ -205,13 +205,13 @@ Devuelve `Boolean` - Si la imagen es una imagen de plantilla.
 
 * `rect` [Rectangle](structures/rectangle.md) - El área de la imagen para ser recortada
 
-Returns `NativeImage` - The cropped image.
+Devuelve `NativeImage` - La imagen recortada.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. Estos valores expresan una compensación de calidad/velocidad deseada. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Entero (opcional) - Por defecto es la altura de la imagen * `quality` Cadena (opcional) - La calidad deseada de la imagen redimensionada. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
 
-Returns `NativeImage` - The resized image.
+Devuelve `NativeImage` - La imagen redimensionada.
 
 If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
