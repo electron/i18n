@@ -2,11 +2,11 @@
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-El módulo `sesion` puede ser usado para crear un nuevo objeto `sesion`.
+El módulo `sesion` puede ser usado para crear nuevos objetos `sesion`.
 
-También puede accesar la `sesión` de las páginas existentes usando la propiedad `sesión` de [`WebContents`](web-contents.md), o desde el módulo `sesión`.
+También puede acceder la `sesión` de las páginas existentes utilizando la propiedad `sesión` de [`WebContents`](web-contents.md), o desde el módulo `sesión`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
