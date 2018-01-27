@@ -50,4 +50,4 @@ Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
 Ang nagbabalik na [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Lumilikha ng isang instansya sa [`ClientRequest`](./client-request.md) na ginagamit ang ibinigay na `options` kung saan ay direktang ipapasa sa tagapagbuo ng `ClientRequest`. Ang pamamaraan ng `net.request` ay maaaring gamitin para mag-isyu ng kapwa ligtas at hindi ligtas na mga kahilingan ng HTTP ayon sa tinukoy na pamamaraan ng protocol sa mga bagay ng `options`.
