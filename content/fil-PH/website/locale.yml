@@ -50,16 +50,16 @@ cross_platform:
   description: Katugma sa Mac na mga Window, at Linux, ang Electron na mga app ay binuo at pinatakbo sa tatlong mga plataporma.
 benefits:
   hard_parts_made_easy: Ang mga mahihirap na parte ay pinadali
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  automatic_updates: Awtomatikong mga update
+  native_menus_and_notifications: Natibong mga menu & mga notification
+  crash_reporting: Crash na pag-uulat
+  debugging_and_profiling: Pagde-debug & profiling
+  windows_installers: Intstaller ng mga Windows
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: Magsimula
+  description: Para makapagsimula sa Electron, tingnan ang resources sa ilalim. Alamin paano maibalot ang iyong web app sa Electron, ma-akses lahat ng mga API, at bumuo ng mga installer.
 explore:
-  title: Explore the Electron APIs
+  title: Galurin ang mga API ng Electron
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
 download_from_github: Download from GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
