@@ -1,6 +1,6 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Tuklasin ang pangyayari sa keyboard kung ang aplikasyon ay walang tumutuon na keyboard.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
