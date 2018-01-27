@@ -71,28 +71,28 @@ Cierra el menú de contexto en la `browserWindow`.
 
 * `menuItem` Elemento del menú
 
-Appends the `menuItem` to the menu.
+Anexa el `menuItem` al menú.
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Integer
-* `Elemento del menú` Elemento del menú
+* `pos` Entero
+* `menuItem` Elemento del menú
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Inserta el `menuItem` en la posición `pos` del menú.
 
 ### Propiedades de Instancia
 
-`menu` objects also have the following properties:
+Los objetos `menu` también tienen las siguientes propiedades:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Un arreglo `MenuItem[]` contiene los elementos del menú.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Cada `Menu` se compone de múltiples [`MenuItem`](menu-item.md) y cada `MenuItem` tiene un submenú.
 
 ## Ejemplos
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+La clase `Menu` solo está disponible en el proceso principal, pero también se puede usar en el proceso de renderizado a través del módulo [`remote`](remote.md).
 
 ### Proceso principal
 
