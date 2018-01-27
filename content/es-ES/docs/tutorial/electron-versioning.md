@@ -132,7 +132,7 @@ Nosotros reconciliamos el código con bandera con nuestras estrategias de versio
 
 # Semantic Commits
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Buscamos aumentar la claridad en todos los niveles del proceso de actualización y publicación. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
 * Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
 * Commits that would result in a semver **minor** bump must start with `feat:`.
@@ -140,7 +140,7 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 * We allow squashing of commits, provided that the squashed message adheres the the above message format.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* Es aceptable que algunas confirmaciones en una solicitud de extracción no incluyan un prefijo semántico, siempre que una confirmación posterior en la misma solicitud de extracción contenga un mensaje semántico significativo que lo abarque.
 
 # Versionless `master`
 
