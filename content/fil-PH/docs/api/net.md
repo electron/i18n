@@ -13,7 +13,7 @@ Ang mga sumusunod ay isang hindi kompletong listahan ng kung bakit mo isinaalang
 * Suporta para sa pagpapatunay sa mga proksi gamit ang basic, digest, NTLM, Kerberos o makipag-ayos sa mga pamamaraan ng pagpapatunay.
 * Suporta para sa mga proksi na nagmo-monitor ng trapik: Ang mga proksi na katulad ng fiddler ang ginamit para ma-access ang pagkontrol at pagmo-monitor.
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+Ang modyul ng API ng `net` ay partikular na dinisenyo para gayahin, ng mas malapit hangga,t maaari, sa API ng pamilyar na Node.js. Ang mga bahagi ng API kabilang ang mga uri, mga pamamaraan, mga katangian at mga pangalan ng event ay kapareho sa mga laging ginagamit sa Node.js.
 
 For instance, the following example quickly shows how the `net` API might be used:
 
