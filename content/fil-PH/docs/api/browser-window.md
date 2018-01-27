@@ -511,7 +511,7 @@ Sumukang isarado ang window. Ito ay mayroong kaparehong epekto sa gumagamitng ma
 #### `win.focus()
  `
 
-Focuses on the window.
+Mag-focus sa window.
 
 #### `win.blur()`
 
