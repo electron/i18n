@@ -4,7 +4,7 @@
 
 Lahat ng [built-in na mga modyul ng Node.js](https://nodejs.org/api/) ay makikita sa Electron at ang mga pangatlong partido na mga modyul ay buong sinusuportahan rin (kasali na ang [mga modyul na native](../tutorial/using-native-node-modules.md)).
 
-Ang Electron ay nagbibigay din ng ilang sobrang built-in na mga modyul para sa pagbubuo ng native na mga aplikasyong pang-desktop. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Ang Electron ay nagbibigay din ng ilang sobrang built-in na mga modyul para sa pagbubuo ng native na mga aplikasyong pang-desktop. Ang ibang mga modyul ay magagamit lamang sa pangunahing mga proseso, ang iba ay nasa prosesong renderer lamang (web na pahina), ang iba ay pwedeng gamitin sa dalawang proseso.
 
 The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
 
