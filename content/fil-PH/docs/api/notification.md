@@ -30,8 +30,8 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
 
 * `mga pagpipilian` Bagay 
   * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
+  * Ang `subtitle` String - (opsyonal) Ang pangalawang pamagat para sa paunawa, kung saan ay makikita sa ilalim ng pamagat. *macOS*
+  * Ang `body` String - Ang kabuuang teksto ng mga paunawa, kung saan ay makikita sa ilalim ng pamagat o pangalawang pamagat
   * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
   * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
