@@ -20,11 +20,9 @@ Electron
 |   |   ├── net/ - Network na may kaugnayan sa "code".
 |   |   ├── mac/ - Mac espesipikong "Objective-C source code".
 |   |   └── resources/ - Icons, platform-dependent files, at iba pa.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       including some utility functions and code to integrate node's message
-|       loop into Chromium's message loop.
+|   ├── renderer/ - Ang "code" na pinapatakbo ng proseso ng "renderer".
+|   |   └── api/ - Ang pagpapatupad ng proseso ng "renderer" ng "APIs".
+|   └── common/ - Ang "code" na ginamit ng parehong "main" at mga proseso ng "renderer", |       kasama ang ilang "utility functions" at "code" para maisama sa mensahe ng "node" |       umiikot sa loob ng "Chromium's message loop".
 |       └── api/ - The implementation of common APIs, and foundations of
 |           Electron's built-in modules.
 ├── chromium_src/ - Source code copied from Chromium. See below.
