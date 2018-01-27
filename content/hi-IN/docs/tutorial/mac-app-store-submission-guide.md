@@ -6,13 +6,13 @@ v0.34.0 संस्करण से, इलेक्ट्रॉन पैक�
 
 ## अपनी एप्प कैसे सबमिट करें
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+निम्नलिखित चरण आपको अपनी एप्प को मैक एप्पल स्टोर में सबमिट करने के लिए एक सरल मार्ग सुझायेंगे | हालाँकि, यह चरण यह सुनिश्चित नहीं करते कि आपकी एप्प एप्पल से अप्परुव होगी ही; आपको अभी भी मैक एप्पल स्टोर की आवश्यकताओं को कैसे पूरा करने पर लिखी गाइड [अपनी एप्प सबमिट करना](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) पढ़नी होगी |
 
-### Get Certificate
+### प्रमाणपत्र प्राप्त करें
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+अपनी एप्प को मैक एप्पल स्टोर में सबमिट करने के लिए, आपको पहले एप्पल से एक प्रमाण पत्र प्राप्त करना होगा | आप वेब पर उपलब्ध इन [मौजूदा गाइड्स](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) को पढ़ सकते हैं |
 
-### Get Team ID
+### टीम आईडी प्राप्त करें
 
 Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
 
