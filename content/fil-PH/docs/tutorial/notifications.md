@@ -46,11 +46,11 @@ Note that notifications are limited to 256 bytes in size and will be truncated i
 
 Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Huwag abalahin / Estado ng Sesyon
 
 Upang matukoy kung pinapayagan kang magpadala ng isang abiso, gamitin ang module ng userland [ elektron-abiso-estado](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Ito ang magbibigay-daan sa iyo upang tuklasin nang maaga kung ipapakita o hindi ipapakita ang notipikasyon.
 
 ## Linux
 
