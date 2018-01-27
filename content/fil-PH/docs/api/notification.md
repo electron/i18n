@@ -35,7 +35,7 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
   * Ang `silent` Boolean - (opsyonal) Kung hindi man ay maglalabas ng isang paunawang ingay kapag ipinapakita ang paunawa
   * Ang `icon` [NativeImage](native-image.md) - (opsyonal) Ang isang icon na ginagamit sa mga paunawa
   * Ang `hasReply` Boolean - (opsyonal) Kung hindi man ay magdagdag ng isang opsyon ng nasa linyang pagtugon sa mga paunawa. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
+  * Ang `replyPlaceholder` String - (opsyonal) Ang placeholder para sumulat sa input field ng nasa linyang pagtugon. *macOS*
   * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
 
