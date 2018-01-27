@@ -1,32 +1,32 @@
-# Accelerator
+# Acceleratore
 
-> Define keyboard shortcuts.
+> Definisci scorciatoie tastiera.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Gli acceleratori sono stringhe che possono contenere modificatori multipli e codici chiave combinati dal carattere `+` ed usate per definire le scorciatoie della tastiera attraverso la tua applicazione.
 
-Examples:
+Esempi:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `ComandoOControllo+A`
+* `ComandoOControllo+Shift+A`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Le scorciatoie sono registrate con il modulo [`Scorciatoiaglobale`](global-shortcut.md) usando il metodo [`registra`](global-shortcut.md#globalshortcutregisteraccelerator-callback).
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const {app, globalShortcut} = richiedi('electron')
 
-app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
-  globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+App.on('pronto', () => {
+ // Registra una scorciatoia d'ascolto 'ComandoOControllo+Y'.
+  registro.Scorciatoiaglobale('ComandoOControllo+Y', () => {
+   // Fai azioni con Y ed entrambi i Comando/Contollo premuti.
   })
 })
 ```
 
-## Platform notice
+## Avviso piattaforma
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Su Linux e Windows, la chiave `Comando` non ha effetto quindi usa `ComandoOControllo` che rappresenta `Comando` su macOS e `Controllo` su Linux e Windows per definire alcuni acceleratori.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Usa `Alt` al posto di `Opzione`. La chiave `opzione` esiste solo su macOS mentre la chiave `Alt` è disponibile su tutte le piattaforme.
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
