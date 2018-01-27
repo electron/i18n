@@ -11,7 +11,7 @@ Ang mga sumusunod ay isang hindi kompletong listahan ng kung bakit mo isinaalang
 * Awtomatikong pamamahala ng pagsasaayos ng mga proksi ng sistema, suporta ng protocol ng wpad at pagsasaayos ng mga file ng proxy pac.
 * Awtomatikong pag ta-tunnel ng mga kahilingan ng HTTPS.
 * Suporta para sa pagpapatunay sa mga proksi gamit ang basic, digest, NTLM, Kerberos o makipag-ayos sa mga pamamaraan ng pagpapatunay.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Suporta para sa mga proksi na nagmo-monitor ng trapik: Ang mga proksi na katulad ng fiddler ang ginamit para ma-access ang pagkontrol at pagmo-monitor.
 
 The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
 
