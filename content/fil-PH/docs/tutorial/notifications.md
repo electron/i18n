@@ -54,4 +54,4 @@ Ito ang magbibigay-daan sa iyo upang tuklasin nang maaga kung ipapakita o hindi 
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Ipinapadala ang mga notipikasyon gamit ang `libnotify` na maaaring magpakita ng mga abiso sa anumang kapaligiran sa desktop na sumusunod sa [Pagtutukoy sa mga Notipikasyon ng Desktop](https://developer.gnome.org/notification-spec/), kabilang ang Cinnamon, Paliwanag, Pagkakaisa, GNOME, KDE.
