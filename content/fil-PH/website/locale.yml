@@ -116,32 +116,32 @@ pages:
     description: Gabay at mga tutorial para sa pinakabagong Electron na release
   '/blog':
     title: Electron na Blog
-    description: All the latest news from the Electron team and community.
+    description: Lahat ng mga pinakabagong balita galing sa Electron team at komunidad.
   '/community':
     title: Komonidad
   '/releases':
     title: Paglalabas
   '/contact':
     title: Contact
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Makipag-ugnayan sa Electron team sa Twitter, Slack, GitHub, o sa pamamagitan ng email.
   '/languages':
     title: Mga Lengwahe
   '/userland':
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Ang Devtron ay isang open source tool na makakatulong inspeksyunin, i-monitor, at mag-debug ng iyong Electron app. Binuo sa tuktok ng kamangha-manghang Chrome Developer na mga Tool.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Ang Spectron ay isang open source framework para mapadaling maisulat ang mga integrasyon na mga test sa iyong Electron app. Binuo sa tuktok ng ChromeDriver at WebDriverIO.
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: Hindi matagpuan ang pahina.
+  if_this_is_an_error: Kung ito ay isang error
+  please_file_an_issue: magsampa ng isyu.
 search:
   description:
-    start: Find Electron resources from
+    start: Hanapin ang Electron na mga resource galing sa
     docs: <a href="/search/docs">documentation</a>
-    npm: <a href="/search/npmPackages">npm packages</a>
+    npm: "<a href=\"/search/npmPackages\">npm packages</a>\n"
     and: at
     repos: <a href="/search/repos">GitHub repos</a>
