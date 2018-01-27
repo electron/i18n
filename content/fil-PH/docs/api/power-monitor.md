@@ -1,15 +1,15 @@
 # ang powerMonitor
 
-> Monitor power state changes.
+> I-monitor ang mga pagbabago sa estado ng power.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
 Halimbawa:
 
 ```javascript
-const electron = require('electron')
+const electron = kailangan('electron')
 const {app} = electron
 
 app.on('ready', () => {
@@ -21,7 +21,7 @@ app.on('ready', () => {
 
 ## Pangyayari
 
-The `powerMonitor` module emits the following events:
+Ang modyul ng `powerMonitor` ay maglalabas ng mga sumusunod na event:
 
 ### Event: 'suspend'
 
