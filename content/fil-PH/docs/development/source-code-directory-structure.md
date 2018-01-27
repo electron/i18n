@@ -10,9 +10,9 @@ Kinakailangan mong maging pamilyar sa [Chromium's multi-process architecture](ht
 Electron
 ├── atom/ - C++ source code.
 |   ├── app/ - System entry code.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   main process things. This talks to the renderer to manage web pages.
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
+|   ├── browser/ - Ang "frontend" kasama ang pangunahing window, UI, at ang lahat ng
+|   |   mga bagay na pangunahing pinoproseso. Ito ang kumakausap sa "renderer" para pamahalaan ang mga pahina ng "web".
+|   |   ├── ui/ - Pagpapatupad ng "UI stuff" para sa iba't-ibang "platform".
 |   |   |   ├── cocoa/ - Cocoa specific source code.
 |   |   |   ├── win/ - Windows GUI specific source code.
 |   |   |   └── x/ - X11 specific source code.
