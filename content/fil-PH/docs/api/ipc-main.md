@@ -78,7 +78,7 @@ Ang bagay `event` na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Itakda ang mga ito sa halaga na ibabalik sa isang mensahe ng synchronous.
 
 ### `event.sender`
 
