@@ -43,7 +43,7 @@ Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusupor
 
 Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusunod na mga event:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Note:** Ang ilang mga event ay magagamit lamang sapartikular na mga operating system at ay tinatakan tulad nito.
 
 #### Event: 'show'
 
