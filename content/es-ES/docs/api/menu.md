@@ -26,21 +26,21 @@ Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efec
 
 Devuelve `Menu` - El menú de la aplicación si se configura, o `null`, si no se configura.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Nota:** La instancia devuelta `Menu` no soporta adiciones dinámicas o la eliminación de elementos del menú. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `action` String
+* `action` Cadena
 
-Sends the `action` to the first responder of application. Esto es usado para emular los comportamientos del menú macOS por defecto. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Envía la `action` al primer respondedor de la aplicación. Esto es usado para emular los comportamientos del menú macOS por defecto. Normalmente se usa la propiedad [`role`](menu-item.md#roles) de un [`MenuItem`](menu-item.md).
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) para más información sobre las acciones nativas de macOS.
 
 #### `Menu.buildFromTemplate(template)`
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+Devuelve `Menu`
 
 Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
