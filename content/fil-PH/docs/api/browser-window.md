@@ -444,7 +444,7 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 Adds DevTools extension located at `path`, and returns extension's name.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Ang ekstensyon ay maaalala kaya kinakailangan mo lamang tumawag ng isang beses sa API na ito, ito Ang API ay hindi magagamit sa programming. Kung susubukin mong magdagdag ng ekstensyon na pweding mayroon na Na-ikarga, ang paraan na ito ay hindi mai-babalik at sa halip mag-log ng babala sa console.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
