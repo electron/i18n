@@ -41,15 +41,15 @@ electron_is_easy:
   video_link: Panuorin ang bidyo
 web_technologies:
   title: Mga teknolohiya ng web
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  description: Ang Electron ay gumagmit ng Chromium at Node.js para mabuo mo ang iyong app gamit ang HTML, CSS, at JavaScript.
 open_source:
   title: Open Source
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Ang Electron ay isang open source na proyektong pinananatili sa pamamagitan ng Github at mga aktibong komunidad ng mga kontributor.
 cross_platform:
   title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  description: Katugma sa Mac na mga Window, at Linux, ang Electron na mga app ay binuo at pinatakbo sa tatlong mga plataporma.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
+  hard_parts_made_easy: Ang mga mahihirap na parte ay pinadali
   automatic_updates: Automatic updates
   native_menus_and_notifications: Native menus & notifications
   crash_reporting: Crash reporting
