@@ -33,8 +33,8 @@ Se emite cuando se reanuda el sistema.
 
 ### Eventp: "on-ac" *Windows*
 
-Emitted when the system changes to AC power.
+Se emite cuando el sistema se cambia a la corriente alterna.
 
-### Event: 'on-battery' *Windows*
+### Evento: "on-battery" *Windows*
 
-Emitted when system changes to battery power.
+Se emite cuando el sistema se cambia a la energía de batería.
