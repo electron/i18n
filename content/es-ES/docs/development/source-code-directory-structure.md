@@ -11,7 +11,7 @@ Electron
 ├── atom/ - C++ source code.
 |   ├── app/ - System entry code.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   main process things. This talks to the renderer to manage web pages.
+|   |   main process things. Esto habla con el procesador para administrar páginas web.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
 |   |   |   ├── cocoa/ - Cocoa specific source code.
 |   |   |   ├── win/ - Windows GUI specific source code.
@@ -45,9 +45,9 @@ Default_app ├── / - página de predeterminada para mostrar cuando el Elect
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. Por ejemplo, para implementar Pepper API, necesitamos un poco de cableado similar a lo que hace Chrome oficial. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. Estos podrían haber fácilmente sido parches en libcc, pero en el momento en que estos se escribieron el objetivo de libcc fue mantener parches muy mínimos y los cambios de chromium_src tienden a ser grandes. Además, tenga en cuenta que estos parches nunca se pueden subir de nivel a diferencia de otros parches libcc que mantenemos ahora.
 
-## Structure of Other Directories
+## Estructura de otros directorios
 
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
@@ -68,7 +68,7 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Para actualizar estas dependencias independientes, ejecute el siguiente comando:
 
 ```sh
 git submodule update --init --recursive
