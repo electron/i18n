@@ -67,11 +67,11 @@ Magbabalik ng:
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+Ay lalabas kapag ang paunawa ay isinara sa pamamagitan ng manu-manong pakikialam mula sa mga gumagamit.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+Ang event na ito ay hindi garantisado na lalabas sa lahat ng mga pagkakataon kung saan ang paunawa ay sarado na.
 
-#### Event: 'reply' *macOS*
+#### Event: 'sumagot' sa *macOS*
 
 Magbabalik ng:
 
