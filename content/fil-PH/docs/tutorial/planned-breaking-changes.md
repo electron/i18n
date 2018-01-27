@@ -186,9 +186,9 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## Mga URL ng Node Header 
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--dist-url` na utos ng line flag kung bubuo ng mga modyul na Native.
 
 Deprecated: https://atom.io/download/atom-shell
 
