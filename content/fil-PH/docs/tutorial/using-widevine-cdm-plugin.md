@@ -12,7 +12,7 @@ Ang elektron ay hindi nagpapadala sa Widevine CDM plugin para sa mga dahilan ng 
 
 Buksan ang `chrome: //components/` sa browser ng Chrome, hanapin ang `WidevineCdm` at gawing sigurado na napapanahon, pagkatapos ay maaari mong mahanap ang lahat ng mga binaries ng plugin mula sa `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` direktoryo.
 
-`APP_DATA` ay ang lokasyon ng system para sa pagtatago ng data ng app, sa Windows ito ay `%LOCALAPPDATA%`, sa macOS ito ay `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` ay `mac` o `manalo`. `ARCH` is `x86` or `x64`.
+`APP_DATA` ay ang lokasyon ng system para sa pagtatago ng data ng app, sa Windows ito ay `%LOCALAPPDATA%`, sa macOS ito ay `~/Library/Application Support`. `BERSYON` ay Bersyon string ng Widevine CDM plugin, tulad ng `1.4.8.866`. `PLATFORM` ay `mac` o `manalo`. `ARKO` ay `x86` o `x64`.
 
 On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
 
