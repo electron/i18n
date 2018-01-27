@@ -8,8 +8,8 @@ Ang modyul ng `net` ay isang client-side API para sa pag-i-isyu ng mga kahilinga
 
 Ang mga sumusunod ay isang hindi kompletong listahan ng kung bakit mo isinaalang-alang na gamitin ang modyul ng `net` sa halip na ang mga sinaunang modyul ng Node.js:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
+* Awtomatikong pamamahala ng pagsasaayos ng mga proksi ng sistema, suporta ng protocol ng wpad at pagsasaayos ng mga file ng proxy pac.
+* Awtomatikong pag ta-tunnel ng mga kahilingan ng HTTPS.
 * Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
 * Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
 
