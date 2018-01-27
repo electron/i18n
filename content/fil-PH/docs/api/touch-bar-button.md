@@ -6,11 +6,11 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `options` Bagay 
-  * `label` Lubid (opsyonal) - Buton na texsto.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
+* `options` Object 
+  * `label` String (opsyonal) - Pipinduting teksto.
+  * `backgroundColor` String (opsyonal) - Ang kulay ng background ng pipindutin ay naka hex format, i.e `#ABCDEF`.
+  * `icon` [NativeImage](native-image.md) (opsyonal) - Button icon.
+  * `iconPosition` String (opsyonal) - Pwedeng `kaliwa`, `kanan` o `naka-overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
 
 ### Halimbawa ng Ari-arian
