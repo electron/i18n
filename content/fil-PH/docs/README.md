@@ -62,7 +62,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [ang net](api/net.md)
-* [powerMonitor](api/power-monitor.md)
+* [ang powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
 * [session](api/session.md)
