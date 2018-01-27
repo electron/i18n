@@ -1,6 +1,6 @@
 ## Clase: Menu
 
-> Create native application menus and context menus.
+> Crea menús de aplicaciones nativas y menús contextuales.
 
 Proceso: [Principal](../glossary.md#main-process)
 
@@ -10,7 +10,7 @@ Crea un nuevo menú.
 
 ### Métodos estáticos
 
-The `menu` class has the following static methods:
+La clase `menú` tiene los siguientes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -32,7 +32,7 @@ Returns `Menu` - The application menu, if set, or `null`, if not set.
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Sends the `action` to the first responder of application. Esto es usado para emular los comportamientos del menú macOS por defecto. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
 
@@ -220,11 +220,11 @@ macOS has a completely different style of application menu from Windows and Linu
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
-* `window`
-* `help`
-* `services`
+* `ventana`
+* `ayuda`
+* `servicios`
 
-### Standard Menu Item Actions
+### Acciones de Elementos del Menú Estándar
 
 macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
