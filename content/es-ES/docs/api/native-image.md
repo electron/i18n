@@ -47,11 +47,11 @@ Revise la sección *Size requirements* en [este artículo](https://msdn.microsof
 
 ## Imagen de alta resolución
 
-En las plataformas compatibles con high-DPI como las pantallas Apple Retina, se puede anexar `@2x` luego del nombre del archivo base de la imagen para marcarlo como una imagen de alta resolución.
+En las plataformas compatibles con altos PPP como las pantallas Apple Retina, se puede anexar `@2x` luego del nombre del archivo base de la imagen para marcarlo como una imagen de alta resolución.
 
-Por ejemplo, si `icon.png` es una imagen normal que tiene una resolución estándar, entonces `icon@2x.png` será tratado como una imagen de alta resolución que tiene una densidad doble de DPI.
+Por ejemplo, si `icon.png` es una imagen normal que tiene una resolución estándar, entonces `icon@2x.png` será tratado como una imagen de alta resolución que tiene una densidad doble de PPP.
 
-If you want to support displays with different DPI densities at the same time, you can put images with different sizes in the same folder and use the filename without DPI suffixes. For example:
+Si se desea soportar pantallas con distintas densidades PPP al mismo tiempo, se pueden poner imágenes con distintos tamaños en la misma carpeta y usar el nombre del archivo sin los sufijos PPP. Por ejemplo:
 
 ```text
 images/
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+También se admiten los siguientes sufijos para PPP:
 
 * `@1x`
 * `@1.25x`
@@ -80,36 +80,36 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## Imagen de plantilla
 
 Las imágenes de plantilla consisten en colores negros y claros (y un canal alfa). Las imágenes de plantilla no están destinadas a ser utilizadas como imágenes independientes y son generalmente mezcladas con otro contenido para crear la apariencia final deseada.
 
 El caso más común es usar imágenes de plantilla para un icono de barra de menú para que pueda adaptarse a barras de menú tanto claras como oscuras.
 
-**Note:** Template image is only supported on macOS.
+**Nota:** La imagen de plantilla sólo es soportada en macOS.
 
-To mark an image as a template image, its filename should end with the word `Template`. For example:
+Para marcar una imagen como una imagen de plantilla, su nombre de archivo debe terminar con la palabra `Template`. Por ejemplo:
 
 * `xxxTemplate.png`
 * `xxxTemplate@2x.png`
 
 ## Métodos
 
-The `nativeImage` module has the following methods, all of which return an instance of the `NativeImage` class:
+El módulo `nativeImage` tiene los siguientes métodos, de los cuales todos devuelven una instancia de la clase `NativeImage`:
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Devuelve `NativeImage`
 
-Creates an empty `NativeImage` instance.
+Crea una instancia vacía `NativeImage`.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* `path` Cadena
 
-Returns `NativeImage`
+Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
+Crea una instancia `NativeImage` desde un archivo ubicado en `path`. Este método devuelve una imagen si la `path` no existe, o si no puede ser leída o si la imagen no es válida.
 
 ```javascript
 const nativeImage = require('electron').nativeImage
@@ -123,7 +123,7 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Devuelve `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer`.
 
@@ -131,7 +131,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 * `dataURL` String
 
-Returns `NativeImage`
+Devuelve `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
