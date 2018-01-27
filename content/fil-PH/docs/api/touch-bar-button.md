@@ -2,11 +2,11 @@
 
 > Maglikha ng isang pipindutin sa touch para sa native na macOS na mga aplikasyon
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `label` Lubid (opsyonal) - Buton na texsto.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.
