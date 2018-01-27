@@ -11,7 +11,7 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
   * `backgroundColor` String (opsyonal) - Ang kulay ng background ng pipindutin ay naka hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (opsyonal) - Button icon.
   * `iconPosition` String (opsyonal) - Pwedeng `kaliwa`, `kanan` o `naka-overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * `click` Function (opsyonal) - Ang function na tatawagin kung ang napindot ang pipindutin.
 
 ### Halimbawa ng Ari-arian
 
