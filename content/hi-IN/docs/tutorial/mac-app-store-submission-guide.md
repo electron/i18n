@@ -77,23 +77,23 @@ v0.34.0 संस्करण से, इलेक्ट्रॉन पैक�
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+आपको `TEAM_ID` को अपनी टीम आई डी से बदलना होगा, और `your.bundle.id` को अपनी एप्प की बंडल आईडी से |
 
-And then sign your app with the following script:
+और फिर अपनी एप्प पर निम्नलिखित स्क्रिप्ट से हस्ताक्षर करना होगा:
 
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# आपकी एप्प का नाम |
 APP="YourApp"
-# The path of your app to sign.
+# आपकी एप्प का पथ जिस पर हस्ताक्षर करना है |
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# हस्ताक्षरित पैकेज को भेजने की जगह का पथ
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# उन प्रमाणपत्रों के नाम जिनका आपने अनुरोध किया हैं |
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# आपकी पीलिस्ट फाइल्स तक का पथ |
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
