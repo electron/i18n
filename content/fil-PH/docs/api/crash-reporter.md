@@ -34,7 +34,7 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.
   * `uploadToServer`Boolean(optional) - kung ang mga bagsak na ulat ay dapat ma i-sent sa server. Ang default ay `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
+  * `ignoreSystemCrashHandler`Boolean (optional) - ang default ay `false`.
   * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
