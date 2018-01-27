@@ -117,7 +117,7 @@ Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa b
 
 Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `proseso.setFdLimit(maxDescriptors)`macOS</em>*Linux*
 
 * `maxDescriptors` Integer
 
