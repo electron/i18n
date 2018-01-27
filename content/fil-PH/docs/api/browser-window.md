@@ -143,7 +143,7 @@ sa macOS. Default is <code>false`.
   * `kiosk` Boolean (optional) - Ang kiosk mode. Ang Default ay `false`.
   * `title` String (optional) - Default window title. Default is `"Electron"`.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. Sa windos mismo ay nirerekomenda na gamitin ang `ICO` para makakuha ng magandang mga effects ay pwede mong gawin lagyan ito ng guhit sa ilalim nang sa ganun ito ay maeexecute at ang icon ay pwede ng magamit.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
+  * `show` Boolean (opsyonal) - kapag kinakailangang ipakita ang window kapag ginawa. Ang default ay `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
