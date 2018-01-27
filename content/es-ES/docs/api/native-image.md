@@ -121,59 +121,59 @@ console.log(image)
 ### `nativeImage.createFromBuffer(buffer[, options])`
 
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
-* `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Objeto (opcional) * `width` Entero (opcional) - Necesario para los búferes de mapa de bits. * `height` Entero (opcional) - Necesario para los búferes de mapa de bits. * `scaleFactor` Doble (opcional) -Por defecto es 1.0.
 
 Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from `buffer`.
+Crea una nueva instancia `NativeImage` desde `buffer`.
 
 ### `nativeImage.createFromDataURL(dataURL)`
 
-* `dataURL` String
+* `dataURL` Cadena
 
 Devuelve `NativeImage`
 
-Creates a new `NativeImage` instance from `dataURL`.
+Crea una nueva instancia `NativeImage` desde `dataURL`.
 
-## Class: NativeImage
+## Clase: NativeImage
 
 > Envuelve nativamente imágenes como la bandeja, el muelle y los íconos de las aplicaciones.
 
-Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
+Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Métodos de Instancia
 
-The following methods are available on instances of the `NativeImage` class:
+Los siguientes métodos están disponibles para las distancias de la clase `NativeImage`:
 
 #### `image.toPNG([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene la información codificada de la imagen `PNG`.
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` Entero (**required**) - Entre 0 - 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)que contiene la información codificada de la imagen `JPEG`.
 
 #### `image.toBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene una copia de la información sin procesar de pixeles del mapa de bits de la imagen.
 
 #### `image.toDataURL([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `String` - The data URL of the image.
+Devuelve `String` - El URL de información de la imagen.
 
 #### `image.getBitmap([options])`
 
-* `options` Object (optional) * `scaleFactor` Double (optional) - Defaults to 1.0.
+* `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene la información sin procesar de pixeles del mapa de bits de la imagen.
 
 The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
 
