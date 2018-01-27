@@ -46,9 +46,9 @@ Electron
 
 ## `/chromium_src`
 
-Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hindi kabilang sa "layer" nito. Halimbawa, upang maipatupad ang "Pepper API", tayo ay nangangailangan ng ilang "wiring" na pareho sa kung ano ang ginagawa sa opisyal na "Chrome". Maaari tayong magtayo ng mga mahahalagang "source" na may kinalaman bilang parte ng [libcc](../glossary.md#libchromiumcontent), ngunit kadalasan, hindi naman natin kailangan ang lahat ng mga tinatampok (maaaring ang iba ay sa nagmamay-ari nito, tulad ng mga bagay na analitiko) kaya kinukuha lang natin ang ilang bahagi ng "code". These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hindi kabilang sa "layer" nito. Halimbawa, upang maipatupad ang "Pepper API", tayo ay nangangailangan ng ilang "wiring" na pareho sa kung ano ang ginagawa sa opisyal na "Chrome". Maaari tayong magtayo ng mga mahahalagang "source" na may kinalaman bilang parte ng [libcc](../glossary.md#libchromiumcontent), ngunit kadalasan, hindi naman natin kailangan ang lahat ng mga tinatampok (maaaring ang iba ay sa nagmamay-ari nito, tulad ng mga bagay na analitiko) kaya kinukuha lang natin ang ilang bahagi ng "code". Ang mga ito ay madaling matatakpan sa "libcc", ngunit kapag dumating ang oras na ito'y nakasulat, ang layunin ng "libcc" ay mapanatili ang minimal na mga "patch" at ang mga pagbabago sa chromium_src ay marahil na lumaki. Tandaan din na ang mga "patch" ay 'di na maaari pang "i-upstream" 'di tulad ng ibang mga "libcc patch" na ating pinapanatili ngayon.
 
-## Structure of Other Directories
+## Ang Istraktura ng Iba pang mga Direktoryo
 
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
