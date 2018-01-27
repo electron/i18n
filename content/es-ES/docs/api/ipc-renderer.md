@@ -55,9 +55,9 @@ El proceso principal lo maneja al escuchar por el `canal` con `ipcMain` módulo.
 
 Devuelve `any` - El valor enviado de vuelta por el controlador [`ipcMain`](ipc-main.md).
 
-Envía un mensaje al proceso principal sincrónicamente a través de `canal`, también puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
+Envía un mensaje al proceso principal sincrónicamente a través de `channel`, también puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
-The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
+El proceso principal lo controla escuchando para `channel` con el módulo `ipcMain`, y responde al configurar `event.returnValue`.
 
 **Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
 
