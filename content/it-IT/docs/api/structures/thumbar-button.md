@@ -1,15 +1,15 @@
-# ThumbarButton Object
+# Oggetto PulsantebarraPollice
 
-* `icon` [NativeImage](../native-image.md) - The icon showing in thumbnail toolbar.
-* `click` Function
-* `tooltip` String (optional) - The text of the button's tooltip.
-* `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+* `icona` [ImmagineNativa](../native-image.md) - L'icona mostrata nella barra degli strumenti miniaturizzata.
+* `click` Funzione
+* `aiuto` Stringa (opzionale) - Il testo del pulsante di aiuto.
+* `bandiere` Stringa[] (opzionale) - Controlla specifici comportamenti e stati del pulsante. Di default é `['abilitato']`.
 
-The `flags` is an array that can include following `String`s:
+La `bandiera` é un insieme che include le seguenti `Stringhe`:
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
+* `abilitato` - Il pulsante è attivato e disponibile all'utente.
+* `disabilitato` - Il pulsante é disabilitato. È presente ma lo stato visuale che lo indica non risponderà all'azione dell'utente.
+* `dismessoalclick` - Quando il pulsante è cliccato, la finestra miniaturizzata si chiude immediatamente.
+* `nobackground` - Non disegnare un limite del pulsante, usa solo l'immagine.
+* `nascosto` - Il pulsante non è mostrato all'utente.
 * `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
