@@ -18,11 +18,11 @@ Prozess: [Haupt](../glossary.md#main-process)
   * `hostname` String (optional) - Der Server Host Name.
   * `port` Integer (optional) - Die Port Nummer des Servers.
   * `path` String (optional) - Der Pfad teil der URL Anfrage.
-  * `redirect` String (optional) - Der Umleitung-Modus für die Anfrage. Sollte eins der folgenden sein: `follow`, `error` or `manual`. Der Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (optional) - Der Umleitung-Modus für die Anfrage. Sollte eins der folgenden sein: `follow`, `error` or `manual`. Der Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. Wenn der Modus `manual` ist, werden alle Weiterleitungen aufgeschoben bis [`request.followRedirect`](#requestfollowRedirect) aufgerufen wird. Höre nach dem [`redirect`](#event-redirect) Event in diesem Modus um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+`options` Eigenschaften wie zum Beispiel `protocol`, `host`, `hostname`, `port` und `path`, folgen strikt dem Node.js Modell, wie im [URL](https://nodejs.org/api/url.html) Modul beschrieben.
 
-For instance, we could have created the same request to 'github.com' as follows:
+Zum Beispiel hätten wir die gleiche Anfrage an "github.com" wie folgt erstellen können:
 
 ```JavaScript
 const request = net.request({
