@@ -82,13 +82,13 @@ footer:
   see_the_faq: Tingnan ang madalas na mga katanungan
 apps:
   title: Mga app na binuo sa Electron
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  description: Sa Electron, ang paglikha ng isang desktop na aplikasyon para sa iyong kompanya o mga ideya ay madali. Ang pangunang bumubuo ng Github <a href='https://atom.io' target='_blank'>editor ng Atom</a>, ang Electron ay ginagamit noong una pa man bilang pagbuo ng mga apliksayon sa mga kompanya gaya ng Microsoft, Facebook, Slack, at Docker.
+  view_more: Tingnan ang mas marami pang mga app
+  submit_your_own: isumite ang iyong pag-aari
+  something_missing: May kulang ba?
+  edit_this_app: Baguhin ang app na ito.
 clipboard:
-  copy: Copy
+  copy: Kopyahin
   copy_to_clipboard: Copy to Clipboard
   copied: Copied
 or: or
