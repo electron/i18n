@@ -53,7 +53,7 @@ El proceso principal lo maneja al escuchar por el `canal` con `ipcMain` módulo.
 * `channel` Cadena
 * `...args` any[]
 
-Returns `any` - The value sent back by the [`ipcMain`](ipc-main.md) handler.
+Devuelve `any` - El valor enviado de vuelta por el controlador [`ipcMain`](ipc-main.md).
 
 Envía un mensaje al proceso principal sincrónicamente a través de `canal`, también puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
