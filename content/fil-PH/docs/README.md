@@ -90,7 +90,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Coding Style](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
 * [Pagsusuri](development/testing.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
+* [Ang Direktoryo ng Istraktura ng "Source Code"](development/source-code-directory-structure.md)
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Pagbuo ng Buod ng Sistema](development/build-system-overview.md)
 * [Pagbuo ng mga tagubilin (macOS)](development/build-instructions-osx.md)
