@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Das nicht angeben von Anmeldeinformationen wird die Anfrage abbrechen und einen Authentifizierungsfehler auf das Response-Objekt melden:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,17 +85,17 @@ request.on('login', (authInfo, callback) => {
 
 #### Event: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Ausgesendet, direkt nachdem der letzte Block der `request` Daten in das `request` Objekt geschrieben worden sind.
 
 #### Event: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Ausgesendet, wenn `request` abgebrochen wird. Das `abort` Event wird nicht ausgelöst, wenn `request` bereits geschlossen ist.
 
-#### Ereignis : "Fehler
+#### Event: 'error'
 
 Rückgabewert:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Fehler - Ein Fehler Objekt, welches Informationen über den Fehler enthält.
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
