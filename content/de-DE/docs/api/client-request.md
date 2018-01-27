@@ -9,16 +9,16 @@ Prozess: [Haupt](../glossary.md#main-process)
 ### `new ClientRequest(optionen)`
 
 * `optionen` (Object | String) - Wenn `optionen` ein String ist, wird dieser als die request URL interpretiert. Wenn es ein Objekt ist, wird erwartet das dieses ein HTTP anfrage komplett spezifiziert, mittels den folgenden Eigenschaften: 
-  * `method` String (optional) - The HTTP anfrage Methode. Standard ist die GET Methode.
+  * `method` String (optional) - The HTTP anfrage Methode. Der Standardwert ist die GET Methode.
   * `url` String (optional) - Die Angefragte URL. Muss in der absoluten Form angegeben werden, welche den Protokoll Schema von HTTP oder HTTPS entspricht.
   * `session` Object (optional) - Der [`Session`](session.md) Fall, welcher mit der Anfrage zusammenhängt.
   * `partition` String (optional) - Der name der [`partition`](session.md) mit welcher der Anfrage in Verbindung steht. Standard ist ein leerer String. Die `session` option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `protocol` String (optional) - Das Protokoll Schema im 'scheme' Formular:. Die momentan unterstützten Werte sind 'http:' oder 'https:' Der Standardwert ist 'http:'.
+  * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung von dem Hostnamen und der Port Nummer 'hostname:port'
+  * `hostname` String (optional) - Der Server Host Name.
+  * `port` Integer (optional) - Die Port Nummer des Servers.
+  * `path` String (optional) - Der Pfad teil der URL Anfrage.
+  * `redirect` String (optional) - Der Umleitung-Modus für die Anfrage. Sollte eins der folgenden sein: `follow`, `error` or `manual`. Der Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 `options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
