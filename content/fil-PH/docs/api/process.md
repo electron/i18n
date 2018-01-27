@@ -113,9 +113,9 @@ Nagbabalik `Object`:
 
 Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
 
-### `process.hang()`
+### `proseso.hang()`
 
-Causes the main thread of the current process hang.
+Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
