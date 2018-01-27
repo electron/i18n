@@ -1,8 +1,8 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> Bloquea al sistema para evitar que entre en el modo de bajo consumo (suspensión).
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 Por ejemplo:
 
@@ -17,11 +17,11 @@ powerSaveBlocker.stop(id)
 
 ## Métodos
 
-The `powerSaveBlocker` module has the following methods:
+El módulo `powerSaveBlocker` tiene los siguientes métodos:
 
 ### `powerSaveBlocker.start(type)`
 
-* `type` String - Power save blocker type. 
+* `type` Cadena - El tipo de bloqueo de ahorro de energía. 
   * `prevent-app-suspension` - Prevent the application from being suspended. Keeps system active but allows screen to be turned off. Example use cases: downloading a file or playing audio.
   * `prevent-display-sleep` - Prevent the display from going to sleep. Keeps system and screen active. Example use case: playing video.
 
