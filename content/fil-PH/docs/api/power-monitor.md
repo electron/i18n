@@ -31,10 +31,10 @@ Ay lalabas kapag ang sistema ay sususpindihin.
 
 Ay lalabas kapag ang sistema ay nagpapatuloy.
 
-### Event: 'on-ac' *Windows*
+### Event: 'on-ac' sa *Windows*
 
-Emitted when the system changes to AC power.
+Ay lalabas kapag ang sistema ay nagbago sa AC power.
 
-### Event: 'on-battery' *Windows*
+### Event: 'on-battery' sa *Windows*
 
-Emitted when system changes to battery power.
+Ay lalabas kapag ang sistema ay nagbago sa power ng baterya.
