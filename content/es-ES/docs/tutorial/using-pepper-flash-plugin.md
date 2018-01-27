@@ -4,7 +4,7 @@ Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Ele
 
 ## Prepare a Copy of Flash Plugin
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. You can also copy it to another location.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. También puedes copiarlo a otro ubicación.
 
 ## Add Electron Switch
 
@@ -61,7 +61,7 @@ Add `plugins` attribute to `<webview>` tag.
 
 You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
 
-The architecture of Pepper Flash plugin has to match Electron's one. On Windows, a common error is to use 32bit version of Flash plugin against 64bit version of Electron.
+La arquitectura del complemento de Pepper Flash debe coincidir con la de Electron. En Windows, un error común es usar la versión de 32 bits del complemento Flash contra la versión de 64 bits de Electrón.
 
 On Windows the path passed to `--ppapi-flash-path` has to use `` as path delimiter, using POSIX-style paths will not work.
 
