@@ -1,12 +1,12 @@
 # ऑफस्क्रीन रेंडरिंग
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+ऑफस्क्रीन रेंडरिंग आपको ब्राउज़र विंडो की सामग्री एक बिटमैप में प्राप्त करने की सुविधा प्रदान करती है, ताकि उसे कही भी रेंडर किया जा सके, जैसे कि एक 3डी दृश्य में एक टेक्सचर के ऊपर | इलेक्ट्रॉन में ऑफस्क्रीन रेंडरिंग वही तरीका इस्तेमाल करती है जो [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) प्रोजेक्ट करता है |
 
-Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, just performance loss.
+रेंडरिंग के दो मोड इस्तेमाल किये जा सकते हैं और ज्यादा कुशलता के लिए `'paint'` इवेंट में केवल गन्दा क्षेत्र पास किया जाता है | रेंडरिंग को रोका या जारी रखा जा सकता है और फ्रेम रेट को भी सेट किया जा सकता है | निर्दिष्ट फ्रेम रेट एक शीर्ष सीमा मान है, जब एक वेबपेज पर कुछ न हो रहा हो, तो कोई फ्रेम्स उत्पन्न नहीं होते हैं | अधिकतम फ्रेम रेट 60 है, क्योंकि इससे ज्यादा का कोई फायदा नहीं है, केवल कार्यक्षमता का नुक्सान है |
 
-**Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
+**नोट:** एक ऑफस्क्रीन विंडो हमेशा एक [फ्रेमलेस विंडो](../api/frameless-window.md) की तरह निर्मित होती है |
 
-## Two modes of rendering
+## रेंडरिंग के दो मोड
 
 ### GPU accelerated
 
