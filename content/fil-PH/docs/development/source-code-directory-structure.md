@@ -46,7 +46,7 @@ Electron
 
 ## `/chromium_src`
 
-Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hindi kabilang sa "layer" nito. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hindi kabilang sa "layer" nito. Halimbawa, upang maipatupad ang "Pepper API", tayo ay nangangailangan ng ilang "wiring" na pareho sa kung ano ang ginagawa sa opisyal na "Chrome". We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Structure of Other Directories
 
