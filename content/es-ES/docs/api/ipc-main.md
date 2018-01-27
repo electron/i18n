@@ -57,29 +57,29 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
 * `channel` Cadena
 * `listener` Función
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Agrega una función `listener` para el evento. Este `listener` es invocado solo la próxima vez que se envía un mensaje a `channel`, después que se elimina.
 
 ### `ipcMain.removeListener(channel, listener)`
 
 * `channel` Cadena
 * `listener` Función
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
 
 ### `ipcMain.removeAllListeners([channel])`
 
 * `channel` Cadena
 
-Removes listeners of the specified `channel`.
+Elimina los oyentes del `channel` especificado.
 
-## Event object
+## Objeto de evento
 
-The `event` object passed to the `callback` has the following methods:
+El objeto `event` pasado a la `callback` tiene los siguientes métodos:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Lo configura al valor que será devuelto en un mensaje sincrónico.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Devuelve el `webContents` que envió el mensaje. Puede llamar a `event.sender.send` para responder al mensaje asincrónico. Consulte [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) para obtener más información.
