@@ -23,17 +23,17 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Paggamit ng ekstensyong Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Paggamit ng ekstensyong Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
+* [Mga shortcut ng keyboard](tutorial/keyboard-shortcuts.md)
 * [Pag-update sa mga Aplikasyon](tutorial/updates.md)
 
-## Tutorials
+## Pagtuturo
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Mabilisang Pagsisimula](tutorial/quick-start.md)
+* [Pagsama sa Desktop Environment](tutorial/desktop-environment-integration.md)
+* [Pagtukoy sa mga ganap Online/Offline](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Mga abisong natibo](tutorial/notifications.md)
 
 ## API References
 
