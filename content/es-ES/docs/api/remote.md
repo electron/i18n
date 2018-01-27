@@ -34,13 +34,13 @@ Si el objeto remoto se filtra en el proceso de renderizado (por ejemplo, almance
 
 Los tipos de valor primario como cadenas y números, sin embargo, son enviados por copia.
 
-## Passing callbacks to the main process
+## Pasar los callbacks al proceso principal
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+El código en el proceso principal puede aceptar callbacks desde el renderizador, por ejemplo el módulo `remote`, pero hay que extremo cuidado cuando se usa esta característica.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Primero, para evitar interbloqueos, los callbacks pasados al proceso principal se llaman asincrónicamente. No hay que esperar a que el proceso principal obtenga el valor devuelto de los callbacks pasados.
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Por ejemplo, no se puede utilizar una función del proceso de renderizado en un `Array.map` llamado en el proceso principal:
 
 ```javascript
 // proceso principal mapNumbers.js
@@ -63,9 +63,9 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Como puede observarse, el valor devuelto sincrónico del callback renderizador no era como se esperaba, y no coincide con el valor devuelto de un callback idéntico que existe en el proceso principal.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+Segundo, los callbacks pasados al proceso principal persistirán hasta que los desechos del proceso principal los recopile.
 
 For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
