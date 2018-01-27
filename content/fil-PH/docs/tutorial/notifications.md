@@ -5,12 +5,12 @@ Ang tatlong operating system ay nagbibigay ng paraan para sa mga aplikasyon na m
 **Tandaan:** Dahil ito ay isang HTML5 API magagamit lamang ito sa proseso ng tagasalin. Kung gusto mong makita ang mga abiso sa pangunahing proseso mangyaring tignan ang [Notification](../api/notification.md) modyul.
 
 ```javascript
-let myNotification = new Notification('Title', {
-  body: 'Lorem Ipsum Dolor Sit Amet'
+hayaan myNotification = bagong Abiso ('Pamagat', {
+ katawan: 'Lorem Ipsum Dolor Sit Amet'
 })
 
-myNotification.onclick = () => {
-  console.log('Notification clicked')
+myNotification.onclick = () = & gt; {
+  console.log ('Na-click ang abiso')
 }
 ```
 
