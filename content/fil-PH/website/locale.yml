@@ -60,12 +60,12 @@ get_started:
   description: Para makapagsimula sa Electron, tingnan ang resources sa ilalim. Alamin paano maibalot ang iyong web app sa Electron, ma-akses lahat ng mga API, at bumuo ng mga installer.
 explore:
   title: Galurin ang mga API ng Electron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
-download_from_github: Download from GitHub
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">View all releases</a> on GitHub
+  description: "Ang <a href='https://github.com/electron/electron-api-demos'>Mga Demo ng Electron API na app</a>interactive na ipapakita ang pinaka importante na mga tampok sa API na Electron. Tingnan ano ang posible sa Electron na may sampol code at makakatulog na mga tip para sa pagbuo ng iyong app."
+download_from_github: I-download mula sa GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tingnan lahat ng releases</a>sa GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
+  title: "ikotin ang <a href='https://github.com/electron/electron-quick-start' target='_blank'>Mabilisang Simula</a>na app para makita ang Electron sa pagkilos:"
+  description: Isang minimal sa app ng Electron na mayroong makakatulong na mga tip
   clone: Clone the Quick Start repository
   go_into_repo: Go into the repository
   install_deps: Install the dependencies and run
