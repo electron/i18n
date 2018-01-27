@@ -1,6 +1,6 @@
 ## Class: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Maglikha ng isang pipindutin sa touch para sa native na macOS na mga aplikasyon
 
 Process: [Main](../tutorial/quick-start.md#main-process)
 
