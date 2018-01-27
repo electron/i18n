@@ -81,23 +81,23 @@ Ang `proseso` na bagay ay may mga sumusunod na paraan:
 
 ### `proseso.crash()`
 
-Causes the main thread of the current process crash.
+Ang mga dahilan ng pangunahing thread sa kasalukuyang proseso ay lumagpak.
 
-### `process.getCPUUsage()`
+### `proseso.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
-### `process.getIOCounters()` *Windows* *Linux*
+### ` proseso.kuhaIOCounter()`*Windows**Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Pagbabalik [`IOCounters`](structures/io-counters.md)
 
-### `process.getProcessMemoryInfo()`
+### `proseso.getProsesoMemoryaInfo()`
 
-Returns `Object`:
+Nagbabalik `Object`:
 
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
+* `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
+* `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
+* `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi sa ibang mga proseso, tulad ng JS heap o HTML na nilalaman.
 * `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
