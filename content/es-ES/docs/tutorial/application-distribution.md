@@ -133,4 +133,4 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Espere un tiempo muy, muy largo para que se complete la compilación.
