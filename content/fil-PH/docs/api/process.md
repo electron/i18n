@@ -40,12 +40,12 @@ Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. 
 
 ### `proseso.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`.  
-Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+Ang `Boolean` na nag kokontrol kung ang mga babala ng deprecation ay ililimbag sa `stderr`.  
+Patatakda nito sa `totoo` ay patatahimikin ang babala ng deprecation. Ang propeyedad na ito ai ginagamit sa halip na `--walang-deprecation` nagt-utos ng linya ng bandila.
 
-### `process.resourcesPath`
+### `proseso.pinagkukunanPath`
 
-A `String` representing the path to the resources directory.
+Ang `String` nag representa ng landas patungo sa pangunahing panuto.
 
 ### `process.throwDeprecation`
 
