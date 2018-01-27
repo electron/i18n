@@ -1,10 +1,10 @@
 # मैक एप्प स्टोर सबमिशन गाइड
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+v0.34.0 संस्करण से, इलेक्ट्रॉन पैकेज्ड एप्प्स को मैक एप्प स्टोर (एमऐएस) में सबमिट करने की सुविधा प्रदान करता है | यह गाइड जानकारी उपलब्ध कराती है कि: कैसे अपनी एप्प को सबमिट करें और एमऐएस बनावट की सीमायें |
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**नोट:** मैक एप्प स्टोर में एक एप्प को सबमिट करने के लिए [एप्पल डेवलपर प्रोग्राम](https://developer.apple.com/support/compare-memberships/) में शामिल होना ज़रूरी है, जिसके लिए पैसे खर्चने पड़ते हैं |
 
-## How to Submit Your App
+## अपनी एप्प कैसे सबमिट करें
 
 The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
 
