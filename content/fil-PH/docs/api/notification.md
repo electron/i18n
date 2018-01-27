@@ -24,12 +24,12 @@ Ang klase ng `Notification` ay may mga sumusunod na mga istatikong pamamaraan:
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusuportahan sa kasalukuyang sistema
 
-### `new Notification([options])` *Experimental*
+### Ang `new Notification([options])` ay *Experimental*
 
 * `mga pagpipilian` Bagay 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
+  * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita
   * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle
   * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
