@@ -1,16 +1,16 @@
-# Mga Abiso
+# Ang paunawa
 
-> Lumikha ng abiso sa OS ng desktop
+> Lumikha ng mga paunawa sa OS ng desktop
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-## Paggamit ng mga proseso ng tagasalin
+## Ginagamit sa mga proseso ng tagasalin
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Class: Notification
 
-> Lumikha ng abiso sa OS ng desktop
+> Lumikha ng mga paunawa sa OS ng desktop
 
 Ang proseso: [Main](../glossary.md#main-process)
 
