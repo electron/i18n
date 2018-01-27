@@ -18,7 +18,7 @@ La clase `menú` tiene los siguientes métodos estáticos:
 
 Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux, el `menu` se configurará como menú superior de cada ventana.
 
-Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efecto en macOS.
+Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efecto alguno en macOS.
 
 **Note:** This API has to be called after the `ready` event of `app` module.
 
