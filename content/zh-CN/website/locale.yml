@@ -41,7 +41,7 @@ electron_is_easy:
   video_link: 观看视频
 web_technologies:
   title: Web 技术
-  description: Electron 基于 Chromium 和 Node.js, 使用 HTML, CSS 和 JavaScript 构建你的应用。
+  description: Electron 基于 Chromium 和 Node.js, 让你可以使用 HTML, CSS 和 JavaScript 构建应用。
 open_source:
   title: 开源
   description: Electron 是一个由 GitHub 和由贡献者组成的活跃社区维护的开源项目。
