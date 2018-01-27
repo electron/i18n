@@ -12,14 +12,14 @@ Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
 `ipcRenderer` modülü olayları dinlemek ve mesaj göndermek için aşağıdaki yöntemi içerir:
 
-### `ipcRenderer.on(channel, listener)`
+### `ipcRenderer.on(kanal, dinleyici)`
 
 * `channel` Dizesi
 * `listener` fonksiyon
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
-### `ipcRenderer.once(channel, listener)`
+### `ipcRenderer.once(kanal, dinleyici)`
 
 * `channel` Dizesi
 * `listener` Fonksiyon
