@@ -235,4 +235,4 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+ERN अप्रूवल कैसे पायें, इस बारे में ज्यादा जानकारी इस लेख से प्राप्त की जा सकती है: [एप्पल के एप्प स्टोर में कैसे कानूनी तौर पर एप्प सबमिट करें जब वह एन्क्रिप्शन का इस्तेमाल करती हो (या ERN कैसे प्राप्त करें)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/)
