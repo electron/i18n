@@ -506,7 +506,7 @@ Ang sapilitang pagsarado ng window, ang `unload` at `beforeunload` hindi mapapal
 
 #### `win.close()`
 
-Sumukang isarado ang window. Ito ay mayroong kaparehong epekto sa gumagamitng mano-manong pag-pindut. Ang pahina ng web ay pweding kanselahin ang pag-sarado sa pamamagitan. Tingnan the [close event](#event-close).
+Subukang isarado ang window. Ito ay mayroong kaparehong epekto sa gumagamitng mano-manong pag-pindut. Ang pahina ng web ay pweding kanselahin ang pag-sarado sa pamamagitan. Tingnan the [close event](#event-close).
 
 #### `win.focus()
  `
