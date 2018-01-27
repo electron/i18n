@@ -26,7 +26,7 @@ At saka, Windows 8, ang maximum na haba para sa notipikasyon ng katawan ay 250 c
 
 ### Mga Advanced na abiso
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Ang susunod na mga bersyon ng Windows ay nagbibigay-daan para sa mga advanced na abiso, na may custom na mga template, mga imahe, at iba pang mga nabagong elemento. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
 
 While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
 
