@@ -198,10 +198,10 @@ Palitan ng: https://atom.io/download/electron
 
 Bawat Electron na pakawalan ay kasama sa dalawang kaparehang ARM na mga build na bahagyang naiiba na mga filename, gaya ng `electron-v1.7.3-linux-arm.zip` at `electron-v1.7.3-linux-armv7l.zip`. Ang asset na mayroong `v7l` na prefix ay dinadagdag para linawin sa mga gumagamit kung saang ARM na bersyon ang sinusuportahan, at upang ma-disambiguate ito sa hinaharap galing sa armv6l at arm64 na mga asset na maaaring mabuo.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Ang file na *walang prefix* ay nalathala pa rin para maiwasan ang paglabag ng anomang setup na maaaring naubos. Simula sa 2.0, ang hindi pre-fixed na file ay hindi na maaaring malathala.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Para sa mg detalye, tingnan ang [6986](https://github.com/electron/electron/pull/6986) at [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## `FIXME` na mga comment
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+Ang `FIXME` na string ay ginagamit sa code na mga comment ya nagpapatunay na sa mga bagay na karapatdapat ayusin para sa 2.0 na release. Tingnan ang https://github.com/electron/electron/search?q=fixme
