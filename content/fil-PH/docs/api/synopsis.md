@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Kung kailangan mo ang kabuuang modyul ng `electron`, pwede mong i-require ito at gamitin ang destructuring upang i-access ang bawat mga modyul mula sa `electron`.
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Katumbas ito sa sumusunod na code:
 
 ```javascript
 const electron = require('electron')
