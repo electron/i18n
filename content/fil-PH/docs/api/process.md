@@ -57,29 +57,29 @@ Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stder
 
 ### `proseso.bakasProsesoBabala`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Ang pagtatakda nito sa `totoo` ay maglilimbag nga isinalansan na bakas para sa mga babalang proseso (kasama ang deprecation). Ang propeyedad na ito ay sa halip sa `--bakas-babala`nag uutos na linya ng bandila.
 
-### `process.type`
+### `proseso.uri`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+Ang `String` ay nagrepresenta sa kasalukuyang prosesong uri, pwede ring `"browser"`(i.e pangunahing proses) o `"gumawa"`.
 
-### `process.versions.chrome`
+### `proseso.bersyon.chrome`
 
-A `String` representing Chrome's version string.
+Ang `String` nagrepresenta sa bersyon ng Chrome string.
 
-### `process.versions.electron`
+### `proseso.bersyon.electron`
 
-A `String` representing Electron's version string.
+Ang `String` nag representang bersyon ng Electron string.
 
-### `process.windowsStore`
+### `proseso.windowsStore`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
 
 ## Pamamaraan
 
-The `process` object has the following methods:
+Ang `proseso` na bagay ay may mga sumusunod na paraan:
 
-### `process.crash()`
+### `proseso.crash()`
 
 Causes the main thread of the current process crash.
 
