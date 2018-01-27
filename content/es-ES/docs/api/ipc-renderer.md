@@ -4,13 +4,13 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-El módulo `ipcRenderer` es una instancia de la clase [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+El módulo `ipcRenderer` es una instancia de la clase [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Proporciona un par de métodos para enviar mensajes sincrónicos y asincrónicos desde el proceso de renderizado (página web) al proceso principal. También puede recibir respuestas del proceso principal.
 
-See [ipcMain](ipc-main.md) for code examples.
+Ver [ipcMain](ipc-main.md) para ejemplos de códigos.
 
 ## Métodos
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+El módulo `ipcRenderer` tiene los siguientes métodos para escuchar los eventos y mensajes enviados:
 
 ### `ipcRenderer.on(channel, listener)`
 
@@ -31,13 +31,13 @@ Agrega una función `listener` para el evento. Este `listener` es invocado solo 
 * `channel` Cadena
 * `listener` Función
 
-Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
+Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
-* `channel` String (optional)
+* `channel` Cadena (opcional)
 
-Removes all listeners, or those of the specified `channel`.
+Elimina todos los oyentes, o aquellos del `channel` especificado.
 
 ### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
 
