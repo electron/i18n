@@ -38,32 +38,32 @@ Abre el archivo determinado en el escritorio por defecto.
 
 * `url` Cadena
 * `options` Objeto (opcional) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `llamada de vuelta` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `activate` Booleano - `true` para traer la aplicación abierta al primer plano. Por defecto es `true`.
+* `callback` Función (opcional) - Si se especifica se abrirá de forma asincrónica. *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+Devuelve `Boolean` - Si una aplicación estaba disponible para abrir el URL. Si el callback se especifica, siempre devuelve true.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Abre el URL determinado de protocolo externo en el escritorio de forma predeterminada. (Por ejemplo, mailto: URLs en el agente de correo predeterminado del usuario).
 
 ### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` Cadena
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+Devuelve `Boolean` - Si el elemento se movió o no con éxito a la papelera
 
-Move the given file to trash and returns a boolean status for the operation.
+Mueve el archivo determinado a la papelera y devuelve un valor boleano para la operación.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Reproduce el sonido bip.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
+* `operation` Cadena (optional) - Por defecto es `create`, puede ser uno de los siguientes: 
+  * `create` - Crea un nuevo acceso directo, sobrescribiendo si es necesario.
+  * `update` - Actualiza las propiedades especificadas solo en un acceso directo existente.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
