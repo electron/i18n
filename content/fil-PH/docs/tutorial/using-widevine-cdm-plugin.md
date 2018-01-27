@@ -6,11 +6,11 @@ Sa Elektron maaari mong gamitin ang Widevine CDM plugin na naipadala sa Chrome b
 
 Ang elektron ay hindi nagpapadala sa Widevine CDM plugin para sa mga dahilan ng lisensya, upang makuha ito, kailangan mong i-install muna ang opisyal na browser ng Chrome, na kailangang tumugma ang arkitektura at Chrome na bersyon ng Elektron na iyong ginagamit.
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**Tandaan:** Ang pangunahing bersyon ng Chrome browser ay dapat na pareho sa Chrome sa bersyon na ginamit ng Elektron, kung hindi ang plugin ay hindi gagana kahit na `navigator.plugins ` ay ipapakita na ito ay na-load.
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
+Buksan ang `chrome: //components/` sa browser ng Chrome, hanapin ang `WidevineCdm` at gawing sigurado na napapanahon, pagkatapos ay maaari mong mahanap ang lahat ng mga binaries ng plugin mula sa `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` direktoryo.
 
 `APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
 
