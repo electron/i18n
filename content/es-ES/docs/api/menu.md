@@ -214,9 +214,9 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Notes on macOS Application Menu
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS tiene un estilo de menú de aplicaciones completamente diferente de Windows y Linux. Aquí hay algunas notas sobre cómo hacer que el menú de su aplicación sea más parecido a un nativo.
 
-### Standard Menus
+### Menús Estándar
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
@@ -246,7 +246,7 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 * `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
 * `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Cuando se coloca un elemento, todos los elementos desubicados se insertan después hasta que se coloca un nuevo elemento. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
 ### Ejemplos
 
