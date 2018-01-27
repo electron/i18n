@@ -1,10 +1,10 @@
 # app
 
-> Control your application's event lifecycle.
+> Controlla il ciclo di vita degli eventi della tua applicazione.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+I seguenti esempi mostrano come uscire dall'applicazione quando l'ultima finestra è chiusa:
 
 ```javascript
 const {app} = require('electron')
