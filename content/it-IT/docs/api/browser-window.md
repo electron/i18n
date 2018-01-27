@@ -977,7 +977,7 @@ La `bandiera` é un insieme che include le seguenti `Stringhe`:
 * `dismessoalclick` - Quando il pulsante è cliccato, la finestra miniaturizzata si chiude immediatamente.
 * `nobackground` - Non disegnare un limite del pulsante, usa solo l'immagine.
 * `nascosto` - Il pulsante non è mostrato all'utente.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `noninterattivo` - Il pulsante è abilitato ma non interattivo; il pulsante non premuto è disegnato. Questo valore è inteso per istanze in cui il pulsante è usato in una notifica.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
