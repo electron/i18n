@@ -203,13 +203,13 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 #### वैकल्पिक हल
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+जब तक एक्सटेंशन एक इन्सटाल्ड एप्प के साथ जुड़ी रहे, तब तक `shell.openExternal('file://' + filePath)` फाइल को एक डिफ़ॉल्ट एप्लीकेशन में खोलेगा |
 
-## Cryptographic Algorithms Used by Electron
+## इलेक्ट्रॉन द्वारा इस्तेमाल क्रिप्टोग्राफ़िक अल्गोरिथ्म्स
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+आप जहाँ रह रहे हैं उस देश और क्षेत्र पर निर्भर करते हुए, मैक एप्प स्टोर आपकी एप्प में इस्तेमाल हुए क्रिप्टोग्राफ़िक अल्गोरिथम का दस्तावेज़ीकरण मांग सकता है, और वह आपको U.S. Encryption Registration (ERN) approval की एक कॉपी जमा कराने के लिए भी कह सकता है |
 
-Electron uses following cryptographic algorithms:
+इलेक्ट्रॉन निम्नलिखित क्रिप्टोग्राफ़िक अल्गोरिथम इस्तेमाल करता है:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
