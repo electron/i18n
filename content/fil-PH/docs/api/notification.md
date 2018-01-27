@@ -16,11 +16,11 @@ Ang proseso: [Main](../glossary.md#main-process)
 
 Ang `Notification` ay isang [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+Ito ay lumilikha ng isang bagong `Notification` na may sinaunang mga katangian na itinakda sa pamamagitan ng `options`.
 
-### Static Methods
+### Mga istatikong pamamaraan
 
-The `Notification` class has the following static methods:
+Ang klase ng `Notification` ay may mga sumusunod na mga istatikong pamamaraan:
 
 #### `Notification.isSupported()`
 
