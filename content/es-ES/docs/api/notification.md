@@ -1,26 +1,26 @@
 # Notificación
 
-> Create OS desktop notifications
+> Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-## Usando el proceso de renderizado
+## Utilizando el proceso de renderizado
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Si quieres mostrar notificaciones desde un proceso de renderizado se debe utilizar [HTML5 Notification API](../tutorial/notifications.md)
 
-## Class: Notification
+## Clase: Notification
 
-> Create OS desktop notifications
+> Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` es un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `Notification` with native properties as set by the `options`.
+Crea una nueva `Notification` con propiedades nativas como las configuradas por `options`.
 
 ### Métodos Estáticos
 
-The `Notification` class has the following static methods:
+La clase `Notification` tiene los siguientes métodos estáticos:
 
 #### `Notification.isSupported()`
 
