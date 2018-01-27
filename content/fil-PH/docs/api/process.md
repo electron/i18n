@@ -10,7 +10,7 @@ Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay]
 
 ### Pangyayari: 'puno'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Napalabas kapag na-load ng Electron ang kanyang panloob na inisyalisasyon iskrip at simulang mag load ang web page o sa pangunahin iskrip.
 
 It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
 
