@@ -199,9 +199,9 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+मैक एप्पल स्टोर में जब वितरण के लिए एप्प पर हस्ताक्षर किया जायेगा तो यह विफल हो जायेगा | अपडेटस के लिए [#9005](https://github.com/electron/electron/issues/9005) को सब्सक्राइब करें |
 
-#### Workaround
+#### वैकल्पिक हल
 
 `shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
