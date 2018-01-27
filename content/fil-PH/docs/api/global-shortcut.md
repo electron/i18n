@@ -4,24 +4,26 @@
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+Ang `globalShortcut` modyul ay pwedeng irehistrp/hindi-irehistro ang global keyboard shortcut na may operating systm para maka customize ang operasyon sa iba-ibang shortcut.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang keyboard focus. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+onst {app, globalShortcut} = kailangan('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('CommandOrControl+X', () => {
+  // Magrehistro ng a 'CommandOrControl+X' shortcut tagapakinig.
+
+
+  const ret = globalShortcut.irehistro('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('bigong pagparehistro')
   }
 
-  // Check whether a shortcut is registered.
+  //I-tsek kung ang shortcut ay rehistrado.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
