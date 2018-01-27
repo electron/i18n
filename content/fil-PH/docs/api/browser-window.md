@@ -446,7 +446,7 @@ Adds DevTools extension located at `path`, and returns extension's name.
 
 Ang ekstensyon ay maaalala kaya kinakailangan mo lamang tumawag ng isang beses sa API na ito, ito Ang API ay hindi magagamit sa programming. Kung susubukin mong magdagdag ng ekstensyon na pweding mayroon na Na-ikarga, ang paraan na ito ay hindi mai-babalik at sa halip mag-log ng babala sa console.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawawala o hindi kumpleto.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -486,17 +486,17 @@ win.loadURL('https://github.com')
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Ang `WebContents` layunin ng amay-ari ng window na ito. Lahat ng mga koneksyon na pangyayari sa web at ang mga operasyon ay gagawin sa paraan nito.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Tignan ang [`webContents` dokomentasyon](web-contents.md) para sa pamamaraang ito at sa okasyon.
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+Ang `Integer` Ini-rerepresenta ang kakaibang ID ng window na ito.
 
 ### Mga pamamaraan ng pagkakataon
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Ang mga layunin na gumawa ng `bagong BrowserWindow` magkaroon ng sumusunod na halimbawa ng pamamaraan:
 
 **Note:** Ang ilang mga method ay magagamit lamang sa ibang partikular na mga operating system at may label na katulad nito.
 
