@@ -44,9 +44,9 @@ Por ejemplo cuando usted carga la siguiente carga con un protocolo personalizado
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Registrando un esquema como estándar permitirá el acceso a archivos mediante la [Api de archivos de sistema](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). De otra manera el renderizador arrojará un error de seguridad en el sistema.
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme:
+Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) está deshabilitado para esquemas no estándar. Así que en general si quiere registrar un protocolo personalizado para reemplazar el protocolo el `http`, tiene que registrarlo como un esquema estándar:
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -57,16 +57,16 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** This method can only be used before the `ready` event of the `app` module gets emitted.
+**Nota:** Este método puede ser usado antes del evento `Listo` del módulo `app` sea emitido.
 
 ### `protocol.registerServiceWorkerSchemes(schemes)`
 
-* `schemes` String[] - Custom schemes to be registered to handle service workers.
+* `esquemas` Cadena[] - Esquema personalizado a ser registrado para facilitar servicios.
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -88,7 +88,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -118,7 +118,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -136,7 +136,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -180,7 +180,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -196,7 +196,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -212,7 +212,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
@@ -228,7 +228,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
-* `handler` Función 
+* `manejador` Función 
   * `request` Object 
     * `url` String
     * `referrer` String
