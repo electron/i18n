@@ -67,19 +67,19 @@ Como puede observarse, el valor devuelto sincrónico del callback renderizador n
 
 Segundo, los callbacks pasados al proceso principal persistirán hasta que los desechos del proceso principal los recopile.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Por ejemplo, el siguiente código parece inocente a primera vista. Instala un callback para el evento `close` en un objeto remoto:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // la ventana está cerrada...
+  // la ventana se cerró...
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Pero recuerde que el callback está referenciado por el proceso principal hasta que se desinstale explícitamente. Si no lo haces, cada vez que recargues la ventana el callback se instalará de nuevo, filtrando un callback por cada reinicio.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+Para empeorar las cosas, debido a que el contexto de los callbacks previamente instalados han sido liberados, las excepciones surgirán en el proceso principal cuando se emita el evento `close`.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+Para evitar esto, asegúrese de borrar cualquier referencia a los callbacks del renderizador passados al proceso principal. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
 
 ## Accessing built-in modules in the main process
 
