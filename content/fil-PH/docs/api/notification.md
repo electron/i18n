@@ -45,23 +45,23 @@ Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusuno
 
 **Note:** Ang ilang mga event ay magagamit lamang sapartikular na mga operating system at ay tinatakan tulad nito.
 
-#### Event: 'show'
+#### Event: 'ipakita'
 
 Magbabalik ng:
 
 * `event` Event
 
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
+Ay lalabas kapag ang paunawa ay ipinakita sa mga gumagamit, tandaan na ito ay ititira ng maraming beses bilang isang paunawa na maaaring ipakita ng maraming beses sa pamamagitan ng pamamaraan ng `show()`.
 
-#### Event: 'click'
+#### Event: 'klik'
 
 Magbabalik ng:
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+Ay lalabas kapag ang paunawa ay na-klik na ng gumagamit.
 
-#### Event: 'close'
+#### Event: 'isara'
 
 Magbabalik ng:
 
