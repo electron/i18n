@@ -68,15 +68,15 @@ OSR (Off-screen rendering) może być używane do ładowania dużych stron w tle
 
 Proces jest instancją programu komputerowego, który jest wykonywany. Electron aplikacje, która używają procesu [main](#main-process) i jednego lub wielu procesów [renderer](#renderer-process) to w rzeczywistości kilka programów uruchomionych jednocześnie.
 
-W Node.js i Electron, każdy z uruchomionych procesów ma objekt `process`. Ten obiekt jest globalny i zapewnia informacje o obecnym procesie oraz kontrolę nad nim. Jako globalny, jest on zawsze dostępny dla aplikacji bez użycia require().
+W Node.js i Electron, każdy z uruchomionych procesów ma obiekt `process`. Ten obiekt jest globalny i zapewnia informacje o obecnym procesie oraz kontrolę nad nim. Jako globalny, jest on zawsze dostępny dla aplikacji bez użycia require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Zobacz też: [główny proces](#main-process), [proces renderowania](#renderer-process)
 
 ### proces renderowania
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Proces renderowania jest oknem przeglądarki w Twojej aplikacji. W przeciwieństwie do procesu głównego, tych procesów może być wiele i każdy z nich jest uruchomiony w osobnym procesie. Mogą one również zostać schowane.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+W normalnych przeglądarkach, strony internetowe zazwyczaj są zazwyczaj uruchamiane w środowisku piaskownicy i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na interakcje systemu operacyjnego na niższym poziomie.
 
 See also: [process](#process), [main process](#main-process)
 
