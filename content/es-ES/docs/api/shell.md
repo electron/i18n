@@ -64,19 +64,19 @@ Reproduce el sonido bip.
 * `operation` Cadena (optional) - Por defecto es `create`, puede ser uno de los siguientes: 
   * `create` - Crea un nuevo acceso directo, sobrescribiendo si es necesario.
   * `update` - Actualiza las propiedades especificadas solo en un acceso directo existente.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+  * `replace` - Sobrescribe un acceso directo existente. Y falla si el acceso directo no existe.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+Devuelve `Boolean` - Si el acceso directo fue creado con éxito
 
-Creates or updates a shortcut link at `shortcutPath`.
+Crea o actualiza un enlace de acceso directo a `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Devuelve [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Resuelve el enlace de acceso directo a `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Aparecerá una excepción cuando ocurre cualquier error.
