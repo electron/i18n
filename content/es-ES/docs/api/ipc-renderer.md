@@ -1,10 +1,10 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> Comunica asincrónicamente desde un proceso de renderizado al proceso principal.
 
-Proceso: [Renderizador](../glossary.md#renderer-process)
+Proceso: [Renderer](../glossary.md#renderer-process)
 
-The `ipcRenderer` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
+El módulo `ipcRenderer` es una instancia de la clase [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It provides a few methods so you can send synchronous and asynchronous messages from the render process (web page) to the main process. You can also receive replies from the main process.
 
 See [ipcMain](ipc-main.md) for code examples.
 
@@ -24,14 +24,14 @@ Escucha al `channel`. Cuando llega un nuevo mensaje `listener` es llamado con `l
 * `channel` Cadena
 * `listener` Función
 
-Adds a one time `listener` function for the event. This `listener` is invoked only the next time a message is sent to `channel`, after which it is removed.
+Agrega una función `listener` para el evento. Este `listener` es invocado solo la próxima vez que se envía un mensaje a `channel`, después que se elimina.
 
 ### `ipcRenderer.removeListener(channel, listener)`
 
 * `channel` Cadena
 * `listener` Función
 
-Removes the specified `listener` from the listener array for the specified `channel`.
+Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
 
 ### `ipcRenderer.removeAllListeners([channel])`
 
