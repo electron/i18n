@@ -180,19 +180,19 @@ npm run merge-release -- 1-7-x
 
 ## Publica el lanzamiento
 
-Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. Este script hará lo siguiente: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. Este script hará lo siguiente: 1. Compile el proyecto para validar que se está lanzando el número de versión correcto. 2. Descargue los binarios y genere los encabezados de los nodos y el enlazador .lib utilizado en Windows por node-gyp para compilar módulos nativos. 3. Cree y cargue los archivos SHASUMS almacenados en S3 para los archivos de nodo. 4. Cree y cargue el archivo SHASUMS256.txt almacenado en la versión de GitHub. 5. Valide que todos los archivos requeridos estén presentes en GitHub y S3 y que tengan las sumas de comprobación correctas como se especifica en los archivos SHASUMS. 6. Publica la versión en GitHub 7. Delete the `release` branch.
 
 ## Publish to npm
 
 Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
 
-## Fix missing binaries of a release manually
+## Repare los binarios que faltan de una versión manualmente
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+En el caso de una versión corrupta con máquinas CI descompuestas, es posible que tengamos que volver a subir los binarios para una versión ya publicada.
 
 The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
 
-Then manually create distributions for each platform and upload them:
+Luego, cree manualmente distribuciones para cada plataforma y cárguelas:
 
 ```sh
 # Checkout the version to re-upload.
