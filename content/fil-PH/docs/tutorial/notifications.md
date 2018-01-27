@@ -34,9 +34,9 @@ Habang gumagana ng mga abisong kasama ang mga pindutan na may lamang ` mga abiso
 
 Upang matukoy kung pinapayagan kang magpadala ng isang abiso, gamitin ang module ng userland [ elektron-abiso-estado](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Ito ay nagbibigay-daan sa iyo upang matukoy sa tamang oras at panahon o hindi Windows ay tahimik na ihagis ang abiso palayo.
 
-## macOS
+## marcOS
 
 Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
