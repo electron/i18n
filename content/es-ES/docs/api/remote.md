@@ -20,13 +20,13 @@ win.loadURL('https://github.com')
 
 Cada objeto (incluidas las funciones) devuelto por el módulo `remote` representa un objeto en el proceso principal (lo llamaremos objeto remoto o función remota). Cuando se invocan métodos de un objeto remoto, cuando se llama a una función remota o cuando se crea un nuevo objeto con el constructor remoto (función), realmente se están enviando mensajes sincrónicos entre procesos.
 
-En el ejemplo anterior, tanto `BrowserWindow` y `win` fueron objetos remotos y `new BrowserWindow` no creó un objeto `BrowserWindow` en el proceso de renderizado. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+En el ejemplo anterior, tanto `BrowserWindow` y `win` fueron objetos remotos y `new BrowserWindow` no creó un objeto `BrowserWindow` en el proceso de renderizado. En cambio, creó un objeto `BrowserWindow` en el proceso principal y devolvió el objeto remoto correspondiente en el proceso de renderizado, concretamente el objeto `win`.
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**Nota:** Solamente las [enumarable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) que están presentes cuando primero se hace referencia al objeto remoto son accesibles vía el remota.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+**Note:** Los arreglos y búferes son copiados sobre el IPC cuando son accedidas a través del módulo `remote`. Cuando se modifican en el proceso de renderizado no se modifican en el proceso principal y viceversa.
 
-## Lifetime of Remote Objects
+## Duración de objetos remotos
 
 Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
