@@ -175,7 +175,7 @@ Anula el registro del protocolo predeterminado de `esquema`.
 * `llamada de vuelta` Función 
   * `error` Error
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+La `retrollamada` será cancelada con un booleano que indique si ya es un controlador para `esquema`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
@@ -191,7 +191,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nuevo protocolo lo cual enviará un archivo como respuesta.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -207,7 +207,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador de protocolo, lo cual envía una `Cadena` como respuesta.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
