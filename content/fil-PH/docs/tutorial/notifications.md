@@ -2,7 +2,7 @@
 
 Ang tatlong operating system ay nagbibigay ng paraan para sa mga aplikasyon na magpadala ng abiso sa mga gumagamit. Maginhawang nagbibigay-daan ang Elektron sa mga developer upang magpadala ng mga abiso kasama ang [HTML5 Abiso API](https://notifications.spec.whatwg.org/), gamit ang tumatakbong operating system sa native notification APIs upang ipakita ito.
 
-**Tandaan:** Dahil ito ay isang HTML5 API magagamit lamang ito sa proseso ng tagasalin. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Tandaan:** Dahil ito ay isang HTML5 API magagamit lamang ito sa proseso ng tagasalin. Kung gusto mong makita ang mga abiso sa pangunahing proseso mangyaring tignan ang [Notification](../api/notification.md) modyul.
 
 ```javascript
 let myNotification = new Notification('Title', {
