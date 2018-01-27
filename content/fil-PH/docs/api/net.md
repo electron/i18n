@@ -48,6 +48,6 @@ Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
 * `options` (Object | String) - Ang mga opsyon ng tagapagbuo ng `ClientRequest`.
 
-Returns [`ClientRequest`](./client-request.md)
+Ang nagbabalik na [`ClientRequest`](./client-request.md)
 
 Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
