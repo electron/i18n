@@ -87,6 +87,6 @@ Ngayon, kung iyong bubuksan ang "developer tools" ng Elektron at tinatawag na `s
 
 ### Para sa Pagpapatuloy ng Pagbabasa
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+"LLDB" ay ang pinakamalakas na gamit magandang dokumentasyon. Para sa karagdagang kaalaman tungkol dito, isaalang-alang ang dokumentasyon sa "debugging" ng Apple, halimbawa ang [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) o ang panimula ng [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+Maaari mo ring tingnan ang kamangha-manghang [manual and tutorial](http://lldb.llvm.org/tutorial.html) ng "LLDB", na mas magpapaliwanag ng iba't-ibang maaaring mangyari sa "complex debugging".
