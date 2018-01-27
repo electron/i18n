@@ -1,10 +1,10 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Registra un protocolo personalizado e intercepta solicitudes de protocolos existente.
 
 Proceso: [Principal](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que el protocolo `file://`:
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -20,17 +20,17 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Nota:** Todos los métodos salvo los especificados pueden ser usados solo después de que el evento `listo` del módulo de la `aplicación` sea emitido.
 
 ## Métodos
 
-The `protocol` module has the following methods:
+El módulo `protocolo` tiene los siguientes métodos:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* `esquemas` Cadenas[] - Esquema personalizado a ser registrado como un esquema estándar.
 * `options` Objecto (opcional) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * `seguro` Booleano (opcional) - `verdad` al registrar un esquema como seguro. Por defecto es `falso`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
