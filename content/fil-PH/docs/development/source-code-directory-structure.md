@@ -23,14 +23,13 @@ Electron
 |   ├── renderer/ - Ang "code" na pinapatakbo ng proseso ng "renderer".
 |   |   └── api/ - Ang pagpapatupad ng proseso ng "renderer" ng "APIs".
 |   └── common/ - Ang "code" na ginamit ng parehong "main" at mga proseso ng "renderer", |       kasama ang ilang "utility functions" at "code" para maisama sa mensahe ng "node" |       umiikot sa loob ng "Chromium's message loop".
-|       └── api/ - The implementation of common APIs, and foundations of
-|           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
-├── default_app/ - The default page to show when Electron is started without
-|   providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
-|   ├── browser/ - Javascript main process initialization code.
+|       └── api/ - Ang pagpapatupad ng parehong APIs, ang mga pundasyon ng |           mga modyul na "built-in" sa Elektron.
+├── chromium_src/ - Ang "source code" na kinokopya galing sa Chromium. Tingnan sa ibaba.
+├── default_app/ - Ang pahina na "default" ay nagpapakita kapag ang Elektron ay nag-umpisa nang walang
+|   binibigay na "app".
+├── docs/ - Mga Dokumentasyon.
+├── lib/ - Ang "source code" ng "JavaScript".
+|   ├── browser/ - Ang pangunahing proseso ng inisyalisasyon ng "Javascript code".
 |   |   └── api/ - Javascript API implementation.
 |   ├── common/ - JavaScript used by both the main and renderer processes
 |   |   └── api/ - Javascript API implementation.
