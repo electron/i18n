@@ -52,7 +52,7 @@ const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Use un módulo del archivo:
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
