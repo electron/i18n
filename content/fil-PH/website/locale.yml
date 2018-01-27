@@ -89,33 +89,33 @@ apps:
   edit_this_app: Baguhin ang app na ito.
 clipboard:
   copy: Kopyahin
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
-or: or
+  copy_to_clipboard: Kopyahin sa Clipboard
+  copied: Nakopya
+or: o
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Bumuo ng cross platform descktop na mga app na may JavaScript, HTML, at CSS.
+    description: 'Bumuo ng platform desktop na mga app na may JavaScript, HTML, at CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Electron na mga App
+    description: Mga App na nabuo sa Electron
   '/docs':
     title: Documentation
-    description: Guides and API reference documentation for the latest Electron release
+    description: Mga gabay at API reference documentation para sa pinakabagong Electron release
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Lahat ng Electron na mga Docs!
+    description: Lahat ng mga Electron na mga gabay at API documentation sa isahang, masasaliksik na pahina.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: API reference documentation para s pinakabagong Electron na release
   '/docs/development':
-    title: Development
-    description: Developing with Electron
+    title: Pag-unlad
+    description: Pag-unlad kasama ang Electron
   '/docs/tutorial':
     title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    description: Gabay at mga tutorial para sa pinakabagong Electron na release
   '/blog':
-    title: Electron Blog
+    title: Electron na Blog
     description: All the latest news from the Electron team and community.
   '/community':
     title: Komonidad
