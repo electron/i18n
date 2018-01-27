@@ -78,20 +78,20 @@ Magbabalik ng:
 * `event` Event
 * `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon
 
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
+Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na may `hasReeply: true`.
 
-#### Event: 'action' *macOS*
+#### Event: 'aksyon' sa *macOS*
 
 Magbabalik ng:
 
 * `event` Event
-* `index` Number - The index of the action that was activated
+* Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na
 
 ### Mga pamamaraan ng pagkakataon
 
-Objects created with `new Notification` have the following instance methods:
+Ang mga bagay na ginawa na may `new Notification` ay may mga sumusunod na pamamaraan ng instansya:
 
-#### `notification.show()`
+#### `ang notification.show()`
 
 Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
 
