@@ -55,21 +55,21 @@ El objeto`menu` tiene los siguientes métodos de instancia:
 * `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
 * `options` Objeto (opcional) 
   * `x` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Por defecto es `false`.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `y` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
+  * `async` Boolean (opcional) - Se establece a `true` para devolver este método llamado inmediatamente. `false` para devolver luego de que el menú ha sido seleccionado o cerrado. Por defecto es `false`.
+  * `positioningItem` Número (opcional) *macOS* - El índice del elemento de menú está colocado por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Este menú aparece como un menú de contexto en la `browserWindow`.
 
 #### `menu.closePopup([browserWindow])`
 
 * `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
 
-Closes the context menu in the `browserWindow`.
+Cierra el menú de contexto en la `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `Elemento del menú` Elemento del menú
+* `menuItem` Elemento del menú
 
 Appends the `menuItem` to the menu.
 
