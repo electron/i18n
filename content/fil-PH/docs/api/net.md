@@ -4,9 +4,9 @@
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-Ang modyul ng `net` ay isang client-side API para sa pag-i-isyu ng mga kahilingan ng HTTP(S). It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+Ang modyul ng `net` ay isang client-side API para sa pag-i-isyu ng mga kahilingan ng HTTP(S). Ito ay katulad sa [HTTP](https://nodejs.org/api/http.html) at [HTTPS](https://nodejs.org/api/https.html) na mga modyul ng Node.js ngunit gumagamit ng sinaunang networking library ng Chromium sa halip na ang implementasyon ng Node.js, na nagbibigay ng magandang suporta para sa mga proksi ng web.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+Ang mga sumusunod ay isang hindi kompletong listahan ng kung bakit mo isinaalang-alang na gamitin ang modyul ng `net` sa halip na ang mga sinaunang modyul ng Node.js:
 
 * Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
 * Automatic tunneling of HTTPS requests.
