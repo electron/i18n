@@ -515,7 +515,7 @@ Mag-focus sa window.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Alisin ang naka-focus mula sa window.
 
 #### `win.isFocused()`
 
