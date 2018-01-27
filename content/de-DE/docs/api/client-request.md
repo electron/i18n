@@ -118,18 +118,18 @@ Ausgelöst, wenn es eine Weiterleitung gibt und der Modus `manual` ist. Der Aufr
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+Ein `Boolean` gibt an, ob die HTTP Anfrage eine segmentierte Übertragungscodierung nutzt oder nicht. Der Standardwert ist false. Die Eigenschaft ist lesbar und beschreibbar, jedoch kann dies nur eingestellt werden, bevor der ersten Schreib-Operation, da die HTTP headers noch nicht abgeschickt worden sind. Der Versuch die `chunkedEncoding` Eigenschaft nach der ersten Übertragung zu ändern, wird einen Fehler verursachen.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen großen request body senden möchtest, da die Daten in kleinen Stücken gestreamt wird, anstatt das diese intern im Electron Prozess Speicher gebufferd werden.
 
-### Instance Methods
+### Beispiel Methoden
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - Ein extra HTTP header Name.
+* `value` Object - Ein extra HTTP header Wert.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Fügt einen extra HTTP header hinzu. Der Header-Name wird ausgestellt, da es ohne Standardspeicherort ist. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
 
 #### `request.getHeader(name)`
 
