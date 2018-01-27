@@ -20,11 +20,11 @@ Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux
 
 Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efecto alguno en macOS.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Devuelve `Menu` - El menú de la aplicación si se configura, o `null`, si no se configura.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
