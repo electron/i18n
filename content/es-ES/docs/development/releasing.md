@@ -207,7 +207,7 @@ git checkout vTHE.RELEASE.VERSION
 ./script/upload.py --overwrite
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+Después de volver a cargar todas las distribuciones, vuelva a publicar para cargar la suma de comprobación de archivo:
 
 ```sh
 npm run release
