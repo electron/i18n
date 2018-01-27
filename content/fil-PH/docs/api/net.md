@@ -38,15 +38,15 @@ app.on('ready', () => {
 
 Siyanga pala, ito ay halos magkakatulad kung papaanong normal mong gagamitin ang mga modyul ng [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) ng Node.js
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+Ang API ng `net` ay maaari lamang gamitin pagkatapos na angaplikasyon ay ilalabas ang event ng `ready`. Kapag sinusubukang gamitin ang modyul bago ang event ng `ready` ay magdudulot ng pagkakamali.
 
 ## Pamamaraan
 
-The `net` module has the following methods:
+Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
-### `net.request(options)`
+### `ang net.request(mga opsyon)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - Ang mga opsyon ng tagapagbuo ng `ClientRequest`.
 
 Returns [`ClientRequest`](./client-request.md)
 
