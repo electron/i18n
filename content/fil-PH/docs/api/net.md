@@ -15,7 +15,7 @@ Ang mga sumusunod ay isang hindi kompletong listahan ng kung bakit mo isinaalang
 
 Ang modyul ng API ng `net` ay partikular na dinisenyo para gayahin, ng mas malapit hangga,t maaari, sa API ng pamilyar na Node.js. Ang mga bahagi ng API kabilang ang mga uri, mga pamamaraan, mga katangian at mga pangalan ng event ay kapareho sa mga laging ginagamit sa Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Halimbawa, ang mga sumusunod nahalimbawa ay mabilis na nagpapakita kung papaano na ang API ng `net` ay maaaring gamitin:
 
 ```javascript
 const {app} = require('electron')
