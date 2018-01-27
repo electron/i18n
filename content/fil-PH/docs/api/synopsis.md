@@ -34,11 +34,11 @@ Ang prosesong renderer ay hindi iba sa isang normal na pahina, maliban na lang s
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Upang mapagana ang iyong app, basahin ang [Paganahin ang iyong app](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## Ang Destructuring Assignment
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+Sa 0.37, magagamit mo ang [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) upang mapadali ang paggamit ng built-in na mga modyul.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
