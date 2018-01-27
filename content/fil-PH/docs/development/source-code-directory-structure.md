@@ -22,7 +22,7 @@ Electron
 |   |   └── resources/ - Icons, platform-dependent files, at iba pa.
 |   ├── renderer/ - Ang "code" na pinapatakbo ng proseso ng "renderer".
 |   |   └── api/ - Ang pagpapatupad ng proseso ng "renderer" ng "APIs".
-|   └── common/ - Ang "code" na ginamit ng parehong "main" at mga proseso ng "renderer", |       kasama ang ilang "utility functions" at "code" para maisama sa mensahe ng "node" |       umiikot sa loob ng "Chromium's message loop".
+|   └── common/ - Ang parehong pangunahin at mga proseso ng "renderer" ay gumamit ng "code", |       kasama ang ilang "utility functions" at "code" para maisama sa mensahe ng "node" |       umiikot sa loob ng "Chromium's message loop".
 |       └── api/ - Ang pagpapatupad ng parehong APIs, ang mga pundasyon ng |           mga modyul na "built-in" sa Elektron.
 ├── chromium_src/ - Ang "source code" na kinokopya galing sa Chromium. Tingnan sa ibaba.
 ├── default_app/ - Ang pahina na "default" ay nagpapakita kapag ang Elektron ay nag-umpisa nang walang
@@ -31,12 +31,12 @@ Electron
 ├── lib/ - Ang "source code" ng "JavaScript".
 |   ├── browser/ - Ang pangunahing proseso ng inisyalisasyon ng "Javascript code".
 |   |   └── api/ - Ang pagpapatupad ng Javascript API.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
+|   ├── common/ -Ang parehong pangunahin at "renderer processes" ay gumamit ng "JavaScript"
+|   |   └── api/ - Ang pagpapatupad ng "Javascript API".
+|   └── renderer/ - Ang "Javascript renderer" pinoproseso ang inisyalisasyon ng "code".
+|       └── api/ - Ang pagpapatupad ng "Javascript API".
+├── spec/ - Kusang pagsubok.
+├── electron.gyp - Ang pagbuo ng mga panuntunan ng Elektron.
 └── common.gypi - Compiler specific settings and building rules for other
     components like `node` and `breakpad`.
 ```
