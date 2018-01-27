@@ -1,6 +1,6 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> Ipaalam sa asynchronously na mula pangunahing proseso papunta sa proseso ng renderer.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
