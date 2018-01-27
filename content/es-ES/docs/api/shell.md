@@ -2,11 +2,11 @@
 
 > Administra los archivos y los URLs utilizando las aplicaciones por defecto.
 
-Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
+Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+El módulo `shell` proporciona las funciones relacionadas con la integración de escritorio.
 
-An example of opening a URL in the user's default browser:
+Ejemplo de cómo abrir un URL en el navegador por defecto del usuario:
 
 ```javascript
 const {shell} = require('electron')
@@ -16,28 +16,28 @@ shell.openExternal('https://github.com')
 
 ## Métodos
 
-The `shell` module has the following methods:
+El módulo `shell` tiene los siguientes métodos:
 
 ### `shell.showItemInFolder(fullPath)`
 
-* `fullPath` String
+* `fullPath` Cadena
 
-Returns `Boolean` - Whether the item was successfully shown
+Devuelve `Boolean` - Si el elemento se mostró o no con éxito
 
-Show the given file in a file manager. If possible, select the file.
+Muestra el archivo determinado en un administrador de archivo. Si es posible, selecciona el archivo.
 
 ### `shell.openItem(fullPath)`
 
-* `fullPath` String
+* `fullPath` Cadena
 
-Returns `Boolean` - Whether the item was successfully opened.
+Devuelve `Boolean` - Si el elemento se abrió o no con éxito.
 
-Open the given file in the desktop's default manner.
+Abre el archivo determinado en el escritorio por defecto.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String
-* `options` Objecto (opcional) *macOS* 
+* `url` Cadena
+* `options` Objeto (opcional) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `llamada de vuelta` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
@@ -48,7 +48,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 ### `shell.moveItemToTrash(fullPath)`
 
-* `fullPath` String
+* `fullPath` Cadena
 
 Returns `Boolean` - Whether the item was successfully moved to the trash
 
