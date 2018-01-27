@@ -93,15 +93,15 @@ Los objetos creados con `new Notification` tienen los siguientes métodos de ins
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Muestra inmediatamente la notificación al usuario, por favor tenga en cuenta que esto significa que a diferencia de la implementación HTML5 Notification, solamente creando una instancia `new Notification` no lo muestra inmediatamente al usuario. Es necesario llamar a este método antes de que el sistema operativo lo muestre en pantalla.
 
-### Playing Sounds
+### Reproducción de Sonidos
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Cualquier sonido por defecto, además de los archivos de sonido personalizados, (en Preferencias del sistema > Sonido) puede ser utilizados. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Ver la documentación [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) para más información.
