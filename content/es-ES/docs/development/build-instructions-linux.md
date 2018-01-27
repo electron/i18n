@@ -64,20 +64,20 @@ $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+Del mismo modo para `arm64`, instale los siguientes:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+Y para compilar cruzadamente para objetivos `arm` o `ia32`, debe pasar el parámetro `--target_arch` al comando `bootstrap.py`:
 
 ```sh
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Building
+## Construcción
 
 Si desea compilar metas `Release` y `Debug`:
 
@@ -85,15 +85,15 @@ Si desea compilar metas `Release` y `Debug`:
 $ ./script/build.py
 ```
 
-Este script hará que un Electron muy grande ejecutable en el directorio `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+Este script hará que un Electron muy grande ejecutable en el directorio `out/R`. El tamaño del archivo es 1.3 gigabytes en exceso. Esto pasa debido a que el objetivo de lanzamiento binario contiene símbolos de depuración. Para reducir el tamaño del archivo, ejecute el comando `create-dist.py`:
 
 ```sh
 $ ./script/create-dist.py
 ```
 
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
+Esto pondrá una distribución de trabajo con archivos muchos más pequeños en el directorio `dist`. Después de ejecutar el comando `create-dist.py`, puede que desee remover el binario de 1.3+ gigabytes que todavía está en `out/R`.
 
-You can also build the `Debug` target only:
+También puede construir solo el objetivo de `Depucación`:
 
 ```sh
 $ ./script/build.py -c D
