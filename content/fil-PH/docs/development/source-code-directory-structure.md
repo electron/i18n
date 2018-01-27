@@ -13,13 +13,13 @@ Electron
 |   ├── browser/ - Ang "frontend" kasama ang pangunahing window, UI, at ang lahat ng
 |   |   mga bagay na pangunahing pinoproseso. Ito ang kumakausap sa "renderer" para pamahalaan ang mga pahina ng "web".
 |   |   ├── ui/ - Pagpapatupad ng "UI stuff" para sa iba't-ibang "platform".
-|   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
+|   |   |   ├── cocoa/ - "Cocoa" espisipikong "source code".
+|   |   |   ├── win/ - Windows GUI espisipikong: source code".
+|   |   |   └── x/ - X11 espisipikong "source code".
+|   |   ├── api/ - Ang pagpapatupad ng pangunahing proseso ng "APIs".
+|   |   ├── net/ - Network na may kaugnayan sa "code".
+|   |   ├── mac/ - Mac espesipikong "Objective-C source code".
+|   |   └── resources/ - Icons, platform-dependent files, at iba pa.
 |   ├── renderer/ - Code that runs in renderer process.
 |   |   └── api/ - The implementation of renderer process APIs.
 |   └── common/ - Code that used by both the main and renderer processes,
