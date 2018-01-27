@@ -970,7 +970,7 @@ Opens the developer tools for the service worker context.
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Arguments will be serialized in JSON internally and hence no functions or prototype chain will be included.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 
