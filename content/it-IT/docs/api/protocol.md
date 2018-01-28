@@ -66,13 +66,13 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `filePath` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -88,13 +88,13 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -118,13 +118,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -136,13 +136,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `redirectRequest` Object 
       * `url` Stringa
       * `method` String
@@ -172,7 +172,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Function 
+* `callback` Funzione 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -180,13 +180,13 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `filePath` String
 * `completion` Function (optional) 
   * `error` Error
@@ -196,13 +196,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -212,13 +212,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `buffer` Buffer (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -228,13 +228,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Funzione 
   * `request` Object 
     * `url` Stringa
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funzione 
     * `redirectRequest` Object 
       * `url` Stringa
       * `method` String
