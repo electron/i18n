@@ -4,10 +4,10 @@
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Ang isang halimbawa ng pagpapatupad ng isang protokol na may kaparehas na epekto katulad ng protokol ng `file://`:
 
 ```javascript
-const {app, protocol} = require('electron')
+const {app, protocol} = kailangan('electron')
 const path = require('path')
 
 app.on('ready', () => {
