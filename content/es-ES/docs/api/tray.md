@@ -200,9 +200,9 @@ Establece el título mostrado a un lado del icono de la bandeja en la barra de e
   * `always` - Siempre resalta el icono de la bandeja.
   * `never` - Nunca resalta el icono de la bandeja.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Establece cuando se resalta (en azul) el fondo del icono de la bandeja.
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Nota:** Puede utilizarse `highlightMode` con una [`BrowserWindow`](browser-window.md) al alternar entre los modos `'never'` y `'always'` cuando la visibilidad de la ventana cambia.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -228,29 +228,29 @@ win.on('hide', () => {
   * `title` String - (optional)
   * `content` String - (optional)
 
-Displays a tray balloon.
+Muestra un globo de la bandeja.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+La `position` solo está disponible en Windows, y por defecto es (0, 0).
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu
 
-Sets the context menu for this icon.
+Configura el menú de contexto para este icono.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+Devuelve [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Los `bounds` de este icono de la bandeja como `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Devuelve `Boolean` - Si el icono de la bandeja es destruido o no.
