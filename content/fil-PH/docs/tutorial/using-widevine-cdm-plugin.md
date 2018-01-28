@@ -18,9 +18,9 @@ Sa Windows ang mga kinakailangang binary ay `widevinecdm.dll` at `widevinecdmada
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+Sa Linux ang binaries ng plugin ay ipinadala nang magkasama sa browser ng Chrome, maaari mong hanapin ang mga ito sa ilalim ng `/opt/google /chrome`, ang mga filename ay `libwidevinecdm.so` at `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## Gamit ang Plugin
 
 After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
 
