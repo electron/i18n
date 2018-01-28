@@ -40,23 +40,23 @@ npm install --save-dev electron@latest
 
 2.0 संस्करण से, इलेक्ट्रॉन semver का पालन करेगा।
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+नीचे एक टेबल दिया गया है जो परिवर्तनों के प्रकारों को उनके अनुरूप semver की श्रेणी (जैसे कि मुख्य, लघु, पैच आदि) से मैप करता है |
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **मुख्य संस्करण वृद्धि** 
+    * क्रोमियम संस्करण अपडेटस
+    * नोड.जेएस मुख्य संस्करण अपडेटस
+    * इलेक्ट्रॉन ब्रेकिंग ऐपीआई परिवर्तन
+* **लघु संस्करण वृद्धि** 
+    * नोड.जेएस लघु संस्करण अपडेटस
+    * इलेक्ट्रॉन नॉन-ब्रेकिंग ऐपीआई परिवर्तन
+* **पैच संस्करण वृद्धि** 
+    * नोड.जेएस पैच संस्करण अपडेटस
+    * त्रुटी-सुधार क्रोमियम पैच
+    * इलेक्ट्रॉन बग-फिक्सेस
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+ध्यान दें कि ज्यादातर क्रोमियम अपडेटस ब्रेकिंग माने जायेंगे | सुधार जिन्हें बैकपोर्ट किया जा सके, उन्हीं में से कुछ के पैच के तौर पर चुने जाने की संभावना है |
 
-# Stabilization Branches
+# स्थिरीकरण शाखायें
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
