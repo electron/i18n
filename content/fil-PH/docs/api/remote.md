@@ -1,6 +1,6 @@
 # hiwalay
 
-> Use main process modules from the renderer process.
+> Gamitin ang mga modyul ng pangunahing proseso mula sa proseso ng tagabigay.
 
 Mga proseso: [Renderer](../glossary.md#renderer-process)
 
