@@ -112,11 +112,11 @@ Pagbabalik ng `String` - Ang uri ng payl na nanggagaya.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Pagbabalik ng `Boolean` - Kapag ang "download" ay may kilos ng gumagamit.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Pagbabalik ng `String` - Ang pangalan ng payl ng "download item".
 
 **Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
