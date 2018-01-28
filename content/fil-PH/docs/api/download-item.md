@@ -74,7 +74,7 @@ Ang `downloadItem` ay may mga sumusunod na paraan:
 
 * `path` String - Itakda ang daanan ng pinanatiling payl ng "download item".
 
-Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. Kung ang gumagamit ay hindi nagtakda ng "save path" sa pamamagitan ng API, ang Elektron ay gagamit ng karaniwang gawain nito upang matukoy ang "save path" (Kadalasang ginagawa sa "save dialog").
 
 #### `downloadItem.getSavePath()`
 
