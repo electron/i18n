@@ -35,9 +35,9 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Events
+### Halimbawa ng mga Pangyayari
 
-#### Event: 'updated'
+#### Pangyayari: 'updated'
 
 Magbabalik ng:
 
