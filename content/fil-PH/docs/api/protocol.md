@@ -66,7 +66,7 @@ app.on('ready', () => {
 ### `ang protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
 
 * `scheme` Ang string
-* `ang tagahawak` Punsyon 
+* `ang tagahawak` Ang Punsyon 
   * `kahilingan` Bagay 
     * `url` String
     * ang `referer` String
@@ -143,13 +143,13 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
-    * `redirectRequest` Bagay 
+    * `ang redirectRequest` Bagay 
       * `url` String
       * `method` String
-      * `session` Object (optional)
-      * `uploadData` Mga bagay (opsyonal) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+      * `session` Bagay (opsyonal)
+      * `ang uploadData` Mga bagay (opsyonal) 
+        * `contentType` String - Ang uri ng MIME ng mga nilalaman.
+        * `data` String - Mga nilalaman na ipapadala.
 * `ang pagkumpleto` Function (optional) 
   * `error` Error
 
@@ -235,13 +235,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
-    * `redirectRequest` Bagay 
+    * `ang redirectRequest` Bagay 
       * `url` String
       * `method` String
-      * `session` Object (optional)
-      * `uploadData` Mga bagay (opsyonal) 
-        * `contentType` String - MIME type of the content.
-        * `data` String - Content to be sent.
+      * `session` Bagay (opsyonal)
+      * `ang uploadData` Mga bagay (opsyonal) 
+        * `contentType` String - Ang uri ng MIME ng mga nilalaman.
+        * `data` String - Mga nilalaman na ipapadala.
 * `ang pagkumpleto` Function (optional) 
   * `error` Error
 
