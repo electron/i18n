@@ -1,6 +1,6 @@
-# Electron Versioning
+# इलेक्ट्रॉन वर्ज़निंग
 
-> A detailed look at our versioning policy and implementation.
+> हमारी वर्ज़निंग नीति और उसके कार्यान्वयन पर एक विस्तृत लेख |
 
 As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
 
