@@ -72,7 +72,7 @@ app.on('ready', () => {
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `tumawag muli` Punsyon 
+  * `ganting-tawag` Punsyon 
     * ang `filePath` String (opsyonal)
 * `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
