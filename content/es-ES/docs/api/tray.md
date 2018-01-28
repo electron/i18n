@@ -28,8 +28,8 @@ app.on('ready', () => {
 * En Linux se utilizará el indicador de aplicación si es compatible, de lo contrario `GtkStatusIcon` se utilizará en su lugar.
 * En distribuciones de Linux que sólo tienen soporte de indicador de aplicación, tienes que instalar `libappindicator1` para que funcione el icono.
 * El indicador de aplicación sólo se muestra cuando tiene un menú contextual.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Cuando se utiliza el indicador de aplicación en Linux, el evento `click` es ignorado.
+* En Linux, para que los cambios hechos al `MenuItem` tengan efecto, hay que llamar de nuevo `setContextMenu`. Por ejemplo:
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
