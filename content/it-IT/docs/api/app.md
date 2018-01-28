@@ -392,43 +392,43 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Restituisce `Stringa`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
     
-    Spesso il campo `nome` del `package.json` è un breve nome in minuscolo, in bae alla specifica dei moduli npm-. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+    Spesso il campo `nome` del `package.json` è un breve nome in minuscolo, in bae alla specifica dei moduli npm-. Di solito si dovrebbe anche specificare un campo `NomeProdotto`, che è il nome in maiuscolo della tua applicazione, e che sarà preferito al `nome` da Electron.
     
-    ### `app.setName(name)`
+    ### `app.impostaNome(nome)`
     
     * `nome` Stringa
     
-    Overrides the current application's name.
+    Sostituisce l'attuale nome dell'app.
     
-    ### `app.getLocale()`
+    ### `app.ottieniLocale()`
     
-    Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+    Restituisce `Stringa` - L'attuale locale dell'app. Possibili valori restituiti sono documentati [qui](locales.md).
     
-    **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+    **Note:** Quando distribuisci il tuo pacchetto app, devi anche navigare nelle cartelle `locali`.
     
-    **Note:** On Windows you have to call it after the `ready` events gets emitted.
+    **Note:** Su Windows devi chiamarlo dopo che l'evento `pronto` è emesso.
     
-    ### `app.addRecentDocument(path)` *macOS* *Windows*
+    ### `app.aggoimgoRecenteDocumento(percorso)` *macOS* *Windows*
     
     * `percorso` Stringa
     
-    Adds `path` to the recent documents list.
+    Aggiungi `percorso` alla lista documenti recenti.
     
-    This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+    Questa lista è gestita dall'OS. Su Windows puoi visitare la lista dalla taskbar e su macOS la puoi visitare dal menu dock.
     
-    ### `app.clearRecentDocuments()` *macOS* *Windows*
+    ### `app,pulisciRecentiDocumenti` *macOS* *Windows*
     
-    Clears the recent documents list.
+    Pulisce la lista documenti recenti.
     
-    ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    ### `app.impostacomeProtocolloClientDefault(protocol[, percorso,args])` *macOS* *Windows*
     
-    * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-    * `path` String (optional) *Windows* - Defaults to `process.execPath`
-    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
+    * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+    * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
     
-    Returns `Boolean` - Whether the call succeeded.
+    Restituisce `Booleano` - Se la chiamata ha avuto successo.
     
-    This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+    Questo metodo imposta l'attuale eseguibile come gestionale di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
     
     On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
     
@@ -438,19 +438,19 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
     
-    * `protocol` String - The name of your protocol, without `://`.
-    * `path` String (optional) *Windows* - Defaults to `process.execPath`
-    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
+    * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+    * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
     
-    Returns `Boolean` - Whether the call succeeded.
+    Restituisce `Booleano` - Se la chiamata ha avuto successo.
     
     This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
     
     ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
     
-    * `protocol` String - The name of your protocol, without `://`.
-    * `path` String (optional) *Windows* - Defaults to `process.execPath`
-    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
+    * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
+    * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
     
     Returns `Boolean`
     
@@ -468,7 +468,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     `tasks` is an array of [`Task`](structures/task.md) objects.
     
-    Returns `Boolean` - Whether the call succeeded.
+    Restituisce `Booleano` - Se la chiamata ha avuto successo.
     
     **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
     
@@ -657,7 +657,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Restituisce `Booleano` - Se la chiamata ha avuto successo.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
