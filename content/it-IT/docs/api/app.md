@@ -137,7 +137,7 @@ Restituiti:
 
 Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 
-### Event: 'browser-window-created'
+### Evento: 'broser-finestra-creata'
 
 Restituiti:
 
@@ -279,17 +279,17 @@ Questo metodo garantisce che tutti i `precaricati` e `caricati` eventi gestional
 
 Esci immediatamente con `Codiceuscita`. Il `Codiceuscita` predefinito è 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli eventi `prima-esci` e `uscirà` non saranno emessi.
 
-### `app.relaunch([options])`
+### `app.rilancio([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `opzioni` Oggetto (opzionale) 
+  * `arg` Stringa[] - (opzionale)
+  * `eseguiPercorso` Stringa (opzionale)
 
-Relaunches the app when current instance exits.
+Rilancia l'app quando esiste la corrente istanza.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Di default la nuova istanza userà la stessa directory di lavoro e argomenti della linea di comando con la corrente istanza. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
@@ -352,7 +352,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `percorso` Stringa
-* `options` Object (optional) 
+* `opzioni` Oggetto (opzionale) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -619,7 +619,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `opzioni` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Funzione 
@@ -673,7 +673,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `opzioni` Oggetto (opzionale) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -724,7 +724,7 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `opzioni` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
