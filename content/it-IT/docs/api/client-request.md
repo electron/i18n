@@ -42,26 +42,26 @@ Restituiti:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
-#### Event: 'login'
+#### Evento: 'accedi'
 
 Restituiti:
 
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+* `infoautore` Object 
+  * `èProxy` Booleano
+  * `schema` Stringa
+  * `ospite` Stringa
+  * `porta` Numero Intero
+  * `regno` Stringa
 * `callback` Funzione 
-  * `username` String
-  * `password` String
+  * `nomeutente` Stringa
+  * `password` Stringa
 
 Emitted when an authenticating proxy is asking for user credentials.
 
 The `callback` function is expected to be called back with user credentials:
 
-* `username` String
-* `password` String
+* `nomeutente` Stringa
+* `password` Stringa
 
 ```JavaScript
 request.on('login', (authInfo, callback) => {
@@ -108,7 +108,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 Restituiti:
 
 * `statusCode` Integer
-* `method` String
+* `metodo` Stringa
 * `redirectUrl` String
 * `responseHeaders` Object
 
