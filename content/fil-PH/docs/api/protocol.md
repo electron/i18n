@@ -61,7 +61,7 @@ app.on('ready', () => {
 
 ### `ang protocol.registerServiceWorkerSchemes(mga panukala)`
 
-* `schemes` String[] - Custom schemes to be registered to handle service workers.
+* `schemes` String[] - Ang pasadyang mga panukala na magiging rehistrado para hawakan ang mga manggagawa ng serbisyo.
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
