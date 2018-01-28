@@ -37,10 +37,10 @@ Halimbawa, ang isang API ay tumatawag ng A na mga kahilingan para sa `prevent-ap
 
 * `id` Integer - Ang id ng tagaharang ng power save ay magbabalik sa pamamagitan ng `powerSaveBlocker.start`.
 
-Stops the specified power save blocker.
+Itinitigil ang tinukoy na tagaharang ng power save.
 
-### `powerSaveBlocker.isStarted(id)`
+### `ang powerSaveBlocker.isStarted(id)`
 
 * `id` Integer - Ang id ng tagaharang ng power save ay magbabalik sa pamamagitan ng `powerSaveBlocker.start`.
 
-Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
+Nagbabalik ang `Boolean` - Kung ang nararapat na `powerSaveBlocker` ay nagsimula na.
