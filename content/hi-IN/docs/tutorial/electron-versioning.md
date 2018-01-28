@@ -29,16 +29,16 @@ npm install --save-dev electron@latest
 हमारी 1.x रणनीति से कई सारे परिवर्तन हुए हैं, जो नीचे दिए गये हैं | हर परिवर्तन का उद्देश्य डेवलपर्स/मैन्तैनेर्स और एप्प डेवलपर्स की ज़रूरतों और प्राथमिकताओं को संतुष्ट करना है |
 
 1. semver का कड़ाई से इस्तेमाल
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+2. semver-अनुरूप `-beta` टैग से परिचय
+3. [पारंपरिक कमिट संदेशों](https://conventionalcommits.org/) से परिचय
+4. स्पष्ट रूप से परिभाषित स्थिरीकरण शाखायें
+5. `master` शाखा बिना संस्करण के है; केवल स्थिरता शाखाओं के पास संस्करण जानकारी उपलब्ध है
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+गिट शाखा, एनपीएम टैगिंग, डेवलपर्स को कैसी अपेक्षा रखनी चाहिये, और कैसे कोई बैकपोर्ट परिवर्तन करें, इन सब चीजों पर हम विस्तार से बात करेंगे |
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+2.0 संस्करण से, इलेक्ट्रॉन semver का पालन करेगा।
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
