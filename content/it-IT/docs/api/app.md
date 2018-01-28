@@ -71,33 +71,33 @@ Emesso quando l'app è in uscita.
 Restituiti:
 
 * `evento` Evento
-* `path` String
+* `percorso` Stringa
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Emesso quando l'utente vuole aprire un file con l'app. L'evento `apri-file` è in genere emesso quando l'app è già aperta e l'OS vuole riutilizzare l'app per aprire il file. `apri-file` è anche emesso quando un file è rilasciato nel dock e l'app non è ancora in esecuzione. Assicurati di ascoltare l'evento `apri-file` molto presto all'avvio della tua app per gestire questo cado (anche prima dell'emissione dell'evento `pronto`).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Dovresti chiamare `evento.previeniDefault` se vuoi gestire questo evento.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+Su Windows, devi analizzare `process.argv` (nel processo principale) per ottenere il percorso del file.
 
-### Event: 'open-url' *macOS*
-
-Restituiti:
-
-* `evento` Evento
-* `url` String
-
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
-
-You should call `event.preventDefault()` if you want to handle this event.
-
-### Event: 'activate' *macOS*
+### Evento: 'apri-url' *macOS*
 
 Restituiti:
 
 * `evento` Evento
-* `hasVisibleWindows` Boolean
+* `url` Stringa
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Emesso quando l'utente vuole aprire un URL con l'l'applicazione. Il file `Info.plist` della tua applicazione definisce lo schema url compreso della chiave `CFBundleURLTipo` ed imposta la `NSClassePrincipale` ad `AtomApplicazione`.
+
+Dovresti chiamare `evento.previeniDefault` se vuoi gestire questo evento.
+
+### Evento: 'attiva' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `haFinestreVisibili` Booleano
+
+Emesso quando l'app è attivata. Varie azioni possono generare questo evento, come il lancio dell'app per la prima volta, provare a rilanciare l'app quando già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
 
 ### Event: 'continue-activity' *macOS*
 
@@ -161,7 +161,7 @@ Restituiti:
 
 * `evento` Evento
 * `webContents` [WebContents](web-contents.md)
-* `url` String
+* `url` Stringa
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
@@ -348,7 +348,7 @@ You can request the following paths by the name:
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` String
+* `percorso` Stringa
 * `options` Object (optional) 
   * `size` String 
     * `small` - 16x16
@@ -370,7 +370,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 ### `app.setPath(name, path)`
 
 * `name` String
-* `path` String
+* `percorso` Stringa
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
@@ -404,7 +404,7 @@ Returns `String` - The current application locale. Possible return values are do
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` String
+* `percorso` Stringa
 
 Adds `path` to the recent documents list.
 
