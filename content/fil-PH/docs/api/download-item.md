@@ -39,7 +39,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-Magbabalik ng:
+Pagbabalik:
 
 * `event` Event
 * `state` String
@@ -58,13 +58,13 @@ Pagbabalik:
 * `event` Event
 * `state` String
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Ang mga ito ay lumalabas kapag ang "download" ay nasa estado ng terminal. Kasama dito ang matagumpay na "download", inihintong "download" (via `downloadItem.cancel()`), at itinigil ngunit hindi ma maaaring ituloy na "download".
 
 Ang `state` ay maaaring isa sa mga sumusunod:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed`- Kapag ang "download" ay matagumpay na naiproseso.
+* `cancelled` - Kapag ang "download" ay inihinto.
+* `interrupted` - Kapag ang "download" ay itinigil at hindi na maaari pang ipagpatuloy.
 
 ### Mga pamamaraan ng pagkakataon
 
