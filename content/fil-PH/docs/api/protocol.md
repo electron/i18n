@@ -36,7 +36,7 @@ Ang isang standard na panukala ay sumusunod sa kung tawagin ng RFC 3986 ay [gene
 
 Ang pagpaparehistro ng panukala bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan ay malulutas ng tama kapag isinilbi. Kung hindi man ang panukala ay kikilos ng kagaya ng protokol ng `file`, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Halimbawa kapag iniload mo ang mga sumusunod na pahina na may pasadyang protokol na hindi inirerehistro ito bilang standard na panukala, ang imahe ay hindi mailoload sapagkat ang hindi standard na mga panukala ay hindi makakakilala ng may kaugnayang mga URL:
 
 ```html
 <body>
@@ -44,7 +44,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Ang pagrerehistro sa isang panukala bilang standard ay pinapayagan ang pagpunta sa mga file sa pamamagitan ng [FileSystemAPI](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme:
 
