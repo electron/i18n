@@ -27,7 +27,7 @@ menu.append(new MenuItem({
 
 ## वैश्विक शोर्टकट्स
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+आप [globalShortcut](../api/global-shortcut.md) मोड्यूल का इस्तेमाल कर कीबोर्ड इवेंट्स का पता लगा सकते हैं, तब भी जब एप्लीकेशन के पास कीबोर्ड का ध्यान केन्द्रित न हो |
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -39,15 +39,15 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## एक BrowserWindow के भीतर शॉर्टकट्स
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+अगर आप एक [ब्राउज़रविंडो](../api/browser-window.md) के लिए कीबोर्ड शोर्टकट्स को संभालना चाहते हैं, तो आप रेंदेरेर प्रक्रिया में विंडो ऑब्जेक्ट के ऊपर `keyup` और `keydown` इवेंट लिसेनर्स का इस्तेमाल कर सकते हैं |
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+तीसरे पैरामीटर `true` पर ध्यान दें, जिसका मतलब है कि लिस्नर को हमेशा दुसरे लिस्नर्स से पहले कुंजी दबाब प्राप्त होंगे, ताकि उनके ऊपर `stopPropagation()` न बुलाया जा सके |
 
 The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
