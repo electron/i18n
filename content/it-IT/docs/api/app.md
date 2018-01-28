@@ -464,17 +464,17 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     * `task` [Task[]](structures/task.md) - Insieme di oggetti `Task`
     
-    Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+    Aggiungi `task` alla categoria [Task](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) della JumpList su Windows.
     
-    `tasks` is an array of [`Task`](structures/task.md) objects.
+    `task` è un insieme di oggetti [`Task`](structures/task.md).
     
     Restituisce `Booleano` - Se la chiamata ha avuto successo.
     
-    **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+    **Nota:** Se ti piacerebbe modificare la Jump List ecco altri usi, invece, `app.impostaJumpList(categorie)`.
     
-    ### `app.getJumpListSettings()` *Windows*
+    ### `app.ottieniImpostazioniJumpList` *Windows*
     
-    Returns `Object`:
+    Restituisci `Oggetto`:
     
     * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
     * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
@@ -681,7 +681,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Restituisci `Oggetto`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
