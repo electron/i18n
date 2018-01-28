@@ -116,24 +116,24 @@ Emitido cuando cualquier elemento arrastrado es dejado en el icono de bandeja.
 #### Evento: 'drop-files' *macOS*
 
 * `evento` Evento
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - Las rutas de los archivos dejados en la bandeja.
 
-Emitted when dragged files are dropped in the tray icon.
+Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 
-#### Event: 'drop-text' *macOS*
+#### Evento: 'drop-text' *macOS*
 
 * `evento` Evento
-* `text` String - the dropped text string
+* `text` Cadena - la cadena del texto dejado
 
-Emitted when dragged text is dropped in the tray icon.
+Emitido cuando el texto arrastrado es arrojado en el icono de bandeja.
 
-#### Event: 'drag-enter' *macOS*
+#### Evento: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Emitido cuando una operación de arrastre entra al icono de bandeja.
 
-#### Event: 'drag-leave' *macOS*
+#### Evento: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Emitido cuando una operación de arrastre sale del icono de bandeja.
 
 #### Event: 'drag-end' *macOS*
 
