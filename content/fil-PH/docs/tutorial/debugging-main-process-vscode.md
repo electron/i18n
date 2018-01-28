@@ -1,6 +1,6 @@
-# Debugging the Main Process in VSCode
+# "Debugging Ang pangunahing Proseso sa "VSCode"
 
-### 1. Open an Electron project in VSCode.
+### 1. Buksan ang proyekto ng Elektron sa VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
