@@ -236,7 +236,7 @@ Emitted when the renderer process crashes or is killed.
 Restituiti:
 
 * `evento` Evento
-* `name` String
+* `nome` Stringa
 * `version` String
 
 Emitted when a plugin process has crashed.
