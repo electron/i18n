@@ -72,25 +72,25 @@ Ang `downloadItem` ay may mga sumusunod na paraan:
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Itakda ang daanan ng pinanatiling payl ng "download item".
+* `path` String - Itakda ang lokasyon o direktoryo o tinatawag ding "path", ng pinanatiling payl ng "download item".
 
 Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maaaring muling gamitin. Kung ang gumagamit ay hindi nagtakda ng "save path" sa pamamagitan ng API, ang Elektron ay gagamit ng karaniwang gawain nito upang matukoy ang "save path" (Kadalasang ginagawa sa "save dialog").
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Pagbabalik ng `String` - Ang "save path" ng "download item". Ito ay maaaring itinakdang lokasyon ng payl o "path", sa pamamagitan ng `downloadItem.setSavePath(path)` o ang piniling lokasyon o direktoryo ng payl galing sa ipinakitang "save dialog".
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Pansamantalang paghinto ng "download".
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Pagbabalik sa `Boolean` - Kahit pa ang "download" ay pansamantalang nakahinto.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
