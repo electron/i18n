@@ -234,49 +234,50 @@ Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `evento.previeniDefault` e chiamare `callback(nomeutente, password)` con le credenziali.
 
 ```javascript
-const {app} = require('electron')
+const {app} = richiedi('electron')
 
-app.on('login', (event, webContents, request, authInfo, callback) => {
-  event.preventDefault()
-  callback('username', 'secret')
+
+app.on('login', evento, Contenutiweb, richiesta, Infoaut, callback) => {
+ evento.previeniDefault()
+ callback('nomeutente', 'segreto')
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'processi-gpu-crashati'
 
 Restituiti:
 
 * `evento` Evento
-* `killed` Boolean
+* `ucciso` Booleano
 
-Emitted when the gpu process crashes or is killed.
+Emesso quando i processi gpu crashano o soni uccisi.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Evento: 'accessibilità-supporto-cambiata' *macOS* *Windows*
 
 Restituiti:
 
 * `evento` Evento
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `SupportoAccessibilitàAbilitato` Booleano - `true` quando il supporto all'accessibilità a Chrome è abilitato, `false` altrimenti.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-## Methods
+## Metodi
 
-The `app` object has the following methods:
+L'oggetto `app` ha i seguenti metodi:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
-### `app.quit()`
+### `app.esci()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Prova a chiudere tutte le finestre. L'evento `esci-prima` sarà emesso prima. Se tutte le finestre sono chiuse con successo, l'evento `uscirà` sarà emesso e di default l'app sarà terminata.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Questo metodo garantisce che tutti i `precaricati` e `caricati` eventi gestionali siano correttamente eseguiti. È possibile che una finestra annulli l'uscita tornando `false` nell'evento gestionale `precaricato`.
 
-### `app.exit([exitCode])`
+### `app.esci([exitCode])`
 
-* `exitCode` Integer (optional)
+* `Codiceuscita` Numero Intero (opzionale)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Esci immediatamente con `Codiceuscita`. Il `Codiceuscita` predefinito è 0.
 
 All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
 
