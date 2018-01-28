@@ -34,7 +34,7 @@ Ang modyul ng `protocol` ay mayroon ng mga sumusunod na mga pamamaraan:
 
 Ang isang standard na panukala ay sumusunod sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga standard na panukala, samantalang ang `file` ay hindi.
 
-Ang pagpaparehistro ng panukala bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan ay malulutas ng tama kapag isinilbi. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Ang pagpaparehistro ng panukala bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan ay malulutas ng tama kapag isinilbi. Kung hindi man ang panukala ay kikilos ng kagaya ng protokol ng `file`, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
 
 For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
