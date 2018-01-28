@@ -215,7 +215,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `hostname` String
     * `certificato` [Certificato](structures/certificate.md)
     * `error` String - Verification result from chromium.
