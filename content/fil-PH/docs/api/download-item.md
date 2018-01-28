@@ -108,7 +108,7 @@ Pagbabalik ng `String` - Ang orihinal na "url" kung saan galing ang "downloaded 
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Pagbabalik ng `String` - Ang uri ng payl na nanggagaya.
 
 #### `downloadItem.hasUserGesture()`
 
