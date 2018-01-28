@@ -4,9 +4,9 @@ Ang mga simbolo ng debug ay nagpapahintulot sa iyo na magkaroon ng mas mabuti na
 
 Tandaan na dahil inilabas ang elektron at gumawa ng mabigat na mag-optimista, ang debugging ay hindi laging madali. Ang debugger ay hindi maipapakita sa iyo ang nilalaman ng lahat Ang mga variable at landas ng pagpapatupad ay maaaring mukhang kakaiba dahil sa inlining, buntot tawag, at iba pang mga pag-optimize ng compiler. Ang tanging workaround ay upang bumuo ng isang hindi mag-optimista na lokal na pagtatayo.
 
-Ang opisyal na simbolo ng server URL para sa Elektron ay https://elektron-simbolo.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+Ang opisyal na simbolo ng server URL para sa Elektron ay https://elektron-simbolo.githubapp.com. Hindi mo direktang binisita ang URL na ito, dapat mong idagdag ito sa landas ng simbolo na iyong debugging tool. Sa mga halimbawa sa ibaba, ginagamit ang isang lokal na direktoryo ng cache upang maiwasan paulit-ulit na pagkuha ng PDB mula sa server. Palitan ang ` c:\code \ simbolo ` sa isang angkop na direktoryo ng cache sa iyong makina.
 
-## Using the Symbol Server in Windbg
+## Gamit ang Simbolo ng Server sa Windbg
 
 The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
 
