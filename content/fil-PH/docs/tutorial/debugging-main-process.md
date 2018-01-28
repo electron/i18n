@@ -1,8 +1,8 @@
 # "Debugging" ang Pangunahing Proseso
 
-Ang "DevTools" sa "browser window" ng Elektron ay maaari lamang gamitan ng "debug" ang "JavaScript" na pinapalabas sa "window" (hal. mga pahina ng "web"). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+Ang "DevTools" sa "browser window" ng Elektron ay maaari lamang gamitan ng "debug" ang "JavaScript" na pinapalabas sa "window" (hal. mga pahina ng "web"). Para makita o mahanap ang mga posibleng problema o tinatawag din nating "debugging", sa "JavaScript" na pinapakita sa pangunahing proseso nito, kinakailangan na gamitin ang "external debugger" at paganahin ang Elektron gamit ang "switch" na `--inspect` o `--inspect-brk`.
 
-## Command Line Switches
+## "Command Line Switches"
 
 Use one of the following command line switches to enable debugging of the main process:
 
