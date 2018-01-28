@@ -1,6 +1,6 @@
 # pulong
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, etc.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
