@@ -22,7 +22,7 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita
 
 Show the given file in a file manager. If possible, select the file.
 
@@ -30,15 +30,15 @@ Show the given file in a file manager. If possible, select the file.
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
-Open the given file in the desktop's default manner.
+Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
 * `mga pagpipilian` Mga bagay (opsyonal) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
+  * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
 * `tumawag muli` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
 
