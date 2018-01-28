@@ -22,9 +22,9 @@ Sa Linux ang binaries ng plugin ay ipinadala nang magkasama sa browser ng Chrome
 
 ## Gamit ang Plugin
 
-Pagkatapos makuha ang mga file ng plugin, dapat mong ipasa ang `widevinecdmadapter<code>'s path sa may Electron``<0>--widevine-cdm-path`utos na pag palitin ang linya, at ang bersyon ng plugin na may <0>--widevine-cdm-bersyon</code> palit.
+Pagkatapos makuha ang mga file ng plugin, dapat mong ipasa sa `widevinecdmadapter`'s path sa may Elektron`--widevine-cdm-path`utos na pag palitin ang linya, at ang bersyon ng plugin na may `--widevine-cdm-bersyon` palit.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+<**Tandaan:**Kahit na ang ` widevinecdmadapter ` binary ay ipinasa sa Electron, ang ` widevinecdm ` binary ay dapat na isantabi ito.
 
 The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
 
