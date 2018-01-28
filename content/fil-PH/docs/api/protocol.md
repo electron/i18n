@@ -85,7 +85,7 @@ Kapag ang `callback` ay tinawag ng walang kasama na, isang numero, o isang bagay
 
 Batay sa default ang `scheme` ay tinatrato katulad ng `http`, kung saan ay sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong panukala ay itrato bilang isang standard na panukala.
 
-### `protocol.registerBufferProtocol(scheme, handler[, completion])`
+### `ang protocol.registerBufferProtocol(panukala, tagahawak[, pagkumpleto])`
 
 * `scheme` Ang string
 * `ang tagahawak` Punsyon 
@@ -95,8 +95,8 @@ Batay sa default ang `scheme` ay tinatrato katulad ng `http`, kung saan ay sinus
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
-* `ang pagkumpleto` Function (optional) 
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
+* `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
