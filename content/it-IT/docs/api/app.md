@@ -430,13 +430,13 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Questo metodo imposta l'attuale eseguibile come gestionale di default per un protocollo (a. k. a. schema URI). Ti permette di integrare la tua app in profondità nel sistema operativo. Una volta registrati, tutti i link con `your-protocol://` saranno aperti con l'attuale eseguibile. L'intero link, incluso il protocollo, sarà passato all'app come parametro.
     
-    On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+    Su Windows puoi fornire parametri di percorso opzionali, il percorso al tuo eseguibile e gli argomenti, un insieme di argomenti da passare al tuo eseguibile quando si lancia.
     
-    **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+    **Nota:** Su macOS, puoi solo registrare protocolli aggiunti alla tua app `info.plist`, che non può essere modificato in esecuzione. Puoi comunque cambiare il file con un semplice editore di testo o script durante il momento di costruzione. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) per i dettagli.
     
-    The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+    L'API usa il Registro Windows e LSImpostaGestionaleDefaultPerSchemaURL internamente.
     
-    ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    ### `app.rimuoviComeProtocolloClientDefault(protocollo[, percorso, arg])` *macOS* *Windows*
     
     * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
     * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
@@ -444,25 +444,25 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Restituisce `Booleano` - Se la chiamata ha avuto successo.
     
-    This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+    Questo metodo controlla se l'eseguibile attuale è come un gestionale di default per un protocollo (o schema URI). Se sì, rimuoverà l'app come gestionale predefinito.
     
-    ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    ### `app.isDefaultClientProtocollo(protocollo[, percorso, arg])` *macOS* *Windows*
     
     * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
     * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
     * `arg` Stringa[] (opzionale) *Windows* - Di default ad un insieme vuoto
     
-    Returns `Boolean`
+    Restituisci `Booleano`
     
-    This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+    Questo metodo controlla se l'eseguibile attuale è come un gestionale per un protocollo (o schema URI). Se sì, restituirà true. Altrimenti, restituirà false.
     
-    **Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+    **Nota:** Su macOS puoi usare questo metodo per controllare se l'app è stata registrata come gestionale di protocolli di default per un protocollo. Puoi anche verificarlo controllando `~/Libreria/Preferenze/com.apple.LanciaServizi.plist` su computer macOS. Si prega di riferirsi alla [documentazione Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) per i dettagli.
     
-    The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+    L'API usa il Registro Windows e LSCopiaGestionaleDefaultPerSchemaURL internamente.
     
-    ### `app.setUserTasks(tasks)` *Windows*
+    ### `app.impostaTaskUtente(task)` *Windows*
     
-    * `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+    * `task` [Task[]](structures/task.md) - Insieme di oggetti `Task`
     
     Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
     
