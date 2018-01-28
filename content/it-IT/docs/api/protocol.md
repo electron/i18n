@@ -75,7 +75,7 @@ app.on('ready', () => {
   * `callback` Funzione 
     * `filePath` String (optional)
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
@@ -97,7 +97,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
   * `callback` Funzione 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
@@ -127,7 +127,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `callback` Funzione 
     * `data` String (optional)
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send a `String` as a response.
 
@@ -151,7 +151,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
 
@@ -165,7 +165,7 @@ For POST requests the `uploadData` object must be provided.
 
 * `schema` Stringa
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Unregisters the custom protocol of `scheme`.
 
@@ -173,7 +173,7 @@ Unregisters the custom protocol of `scheme`.
 
 * `schema` Stringa
 * `callback` Funzione 
-  * `error` Error
+  * `errore` Errore
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
@@ -189,7 +189,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
   * `callback` Funzione 
     * `filePath` String
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
@@ -205,7 +205,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `callback` Funzione 
     * `data` String (optional)
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
@@ -221,7 +221,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `callback` Funzione 
     * `buffer` Buffer (optional)
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
 
@@ -243,7 +243,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
@@ -251,6 +251,6 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `completion` Function (optional) 
-  * `error` Error
+  * `errore` Errore
 
 Remove the interceptor installed for `scheme` and restore its original handler.
