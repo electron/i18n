@@ -10,7 +10,7 @@ Processo: [Principale](../glossary.md#main-process)
 
 #### Event: 'data'
 
-Returns:
+Restituiti:
 
 * `chunk` Buffer - A chunk of response body's data.
 
@@ -26,7 +26,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 #### Event: 'error'
 
-Returns:
+Restituiti:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
