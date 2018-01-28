@@ -37,15 +37,15 @@ const {app, BrowserWindow} = nangangailangan ('elektron')
 // * `widevinecdmadapter.plugin` sa macOS,
 // * `libwidevinecdmadapter.so` sa Linux,
 // * `widevinecdmadapter.dll` sa Windows.
-app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
-app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
+app.commandLine.appendSwitch ('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
+// Maaaring makuha ang bersyon ng plugin mula sa pahina ng `chrome: // plugin 'sa Chrome.
+app.commandLine.appendSwitch ('widevine-cdm-version', '1.4.8.866')
 
-let win = null
-app.on('ready', () => {
-  win = new BrowserWindow({
+hayaan ang panalo = null
+app.on ('handa', () = > {
+  manalo = bagong BrowserWindow ({
     webPreferences: {
-      // The `plugins` have to be enabled.
+      // Ang mga `plugins` ay dapat na gumagana.
       plugins: true
     }
   })
@@ -53,7 +53,7 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying the plugin
+## Pag-verify ng plugin
 
 To verify whether the plugin works, you can use following ways:
 
