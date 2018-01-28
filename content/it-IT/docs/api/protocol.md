@@ -65,12 +65,12 @@ app.on('ready', () => {
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `filePath` String (optional)
@@ -87,12 +87,12 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
@@ -117,12 +117,12 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `data` String (optional)
@@ -135,17 +135,17 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `redirectRequest` Object 
       * `url` Stringa
-      * `method` String
+      * `metodo` Stringa
       * `session` Object (optional)
       * `uploadData` Object (optional) 
         * `contentType` String - MIME type of the content.
@@ -163,7 +163,7 @@ For POST requests the `uploadData` object must be provided.
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `completion` Function (optional) 
   * `error` Error
 
@@ -171,7 +171,7 @@ Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
-* `scheme` String
+* `schema` Stringa
 * `callback` Funzione 
   * `error` Error
 
@@ -179,12 +179,12 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `filePath` String
@@ -195,12 +195,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `data` String (optional)
@@ -211,12 +211,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `buffer` Buffer (optional)
@@ -227,17 +227,17 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `handler` Funzione 
-  * `request` Object 
+  * `richiesta` Object 
     * `url` Stringa
     * `referrer` String
-    * `method` String
+    * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
     * `redirectRequest` Object 
       * `url` Stringa
-      * `method` String
+      * `metodo` Stringa
       * `session` Object (optional)
       * `uploadData` Object (optional) 
         * `contentType` String - MIME type of the content.
@@ -249,7 +249,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `scheme` String
+* `schema` Stringa
 * `completion` Function (optional) 
   * `error` Error
 
