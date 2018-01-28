@@ -118,13 +118,13 @@ Pagbabalik ng `Boolean` - Kapag ang "download" ay may kilos ng gumagamit.
 
 Pagbabalik ng `String` - Ang pangalan ng payl ng "download item".
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Paalala:** Ang pangalan ng payl ay hindi parating pareho sa isang aktwal na pinanatili sa lokal na "disc". Kung ang gumagamit ay nagsagawa ng pagbabago sa pangalan ng payl sa pinoproseso na "download" na nananatili sa "dialog", ang aktwal na pangalan sa payl ay magbabago din.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Pagbabalik ng `Integer` - Ang kabuuang sukat ng "bytes" ng "download item".
 
-If the size is unknown, it returns 0.
+Kung hindi alam ang sukat, ito ay magbabalik sa 0.
 
 #### `downloadItem.getReceivedBytes()`
 
