@@ -37,30 +37,30 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Halimbawa ng mga Pangyayari
 
-#### Pangyayari: 'updated'
+#### Event: 'updated'
 
 Magbabalik ng:
 
 * `event` Event
 * `state` String
 
-Emitted when the download has been updated and is not done.
+Ito ay lumalabas kapag ang "download" ay kinakailangan baguhin at itatakda ang mga bagong impormasyon na nakapaloob dito, at kung ito ay hindi tapos.
 
-The `state` can be one of following:
+Ang `state` ay maaaring isa sa mga sumusunod:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - Ang proseso ng "download" ay umuusad.
+* `interrupted` - Ang "download" ay napapahinto at maaaring ituloy ang pagproseso nito.
 
 #### Event: 'done'
 
-Magbabalik ng:
+Pagbabalik:
 
 * `event` Event
 * `state` String
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
-The `state` can be one of following:
+Ang `state` ay maaaring isa sa mga sumusunod:
 
 * `completed` - The download completed successfully.
 * `cancelled` - The download has been cancelled.
