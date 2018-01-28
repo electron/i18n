@@ -22,5 +22,5 @@ Tulad ng `--inspect` ngunit hinihinto nito ang pagpapalabas sa unang linya ng "J
 
 Kailangan mong gumamit ng "debugger" na humahalili sa "V8 inspector protocol".
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
-- [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
+- Iugnay ang "Chrome" gamit ang pagpunta sa `chrome://inspect` at piliin para suriin ang paggana ng "Electron app" na ginagamit dito.
+- ["Debugging", Pangunahing Proseso sa "VSCode"](debugging-main-process-vscode.md)
