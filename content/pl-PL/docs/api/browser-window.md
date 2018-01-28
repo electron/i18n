@@ -73,7 +73,7 @@ top.show()
 
 Okno `child` zawsze będzie widnieć nad oknem `top`.
 
-### Modal windows
+### Okna modalne
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 
