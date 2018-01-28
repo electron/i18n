@@ -29,7 +29,7 @@ Nagbabalik sa `Integer` - Ang ID ng tagaharang na itinalaga para sa tagaharang n
 
 Sinisimulang pigilan ang sistema mula sa pagpasok sa moda ng mababang power. Nagbabalik ang isang integer na kinikilala ang tagaharang sa power save.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
+**Note:** Ang `prevent-display-sleep` ay may mas mataas na kahalagahan kaysa `prevent-app-suspension`. Ang mga uri ng mas nakakahigit ang kahalagahan lamang ang mayroong epekto. Sa ibang salita, ang `prevent-display-sleep` ay laging higit ang kahalagahan kaysa sa `prevent-app-suspension`.
 
 For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
 
