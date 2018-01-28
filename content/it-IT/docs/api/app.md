@@ -144,26 +144,26 @@ Restituiti:
 * `evento` Evento
 * `finestra` FinestraBrowser
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 
-### Event: 'web-contents-created'
-
-Restituiti:
-
-* `evento` Evento
-* `webContents` WebContents
-
-Emitted when a new [webContents](web-contents.md) is created.
-
-### Event: 'certificate-error'
+### Evento: 'web-contenuto-creato'
 
 Restituiti:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `Contenutiweb` ContenutiWeb
+
+Emesso quando un nuovo [ContenutoWeb](web-contents.md) è creato.
+
+### Evento: 'certificato-errore'
+
+Restituiti:
+
+* `evento` Evento
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` Stringa
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
+* `errore` Stringa - Il codice d'errore
+* `certificato` [Certificato](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
@@ -188,7 +188,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 Restituiti:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
@@ -212,7 +212,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 Restituiti:
 
 * `evento` Evento
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `request` Object 
   * `method` String
   * `url` URL
