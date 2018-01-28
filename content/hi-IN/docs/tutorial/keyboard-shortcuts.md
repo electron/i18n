@@ -1,10 +1,10 @@
 # कीबोर्ड शोर्टकट्स
 
-> Configure local and global keyboard shortcuts
+> स्थानीय और वैश्विक कीबोर्ड शॉर्टकट्स कॉन्फ़िगर करें
 
-## Local Shortcuts
+## स्थानीय शॉर्टकट्स
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+आप [मेन्यु](../api/menu.md) मोड्यूल का इस्तेमाल कर कीबोर्ड शोर्टकट्स को कॉन्फ़िगर कर सकते हैं जो तभी शुरू होंगी जब एप्प केन्द्रित होगी | ऐसा करने के लिए, एक [`accelerator`] प्रॉपर्टी निर्दिष्ट करें जब आप एक [MenuItem](../api/menu-item.md) का निर्माण कर रहे हों |
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+उपयोगकर्ता के ऑपरेटिंग सिस्टम के आधार पर विभिन्न कुंजी संयोजनों को कॉन्फ़िगर करना बेहद आसान है |
 
 ```js
 {
@@ -25,7 +25,7 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## वैश्विक शोर्टकट्स
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
