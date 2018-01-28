@@ -1,6 +1,6 @@
 # "Debugging" ang Pangunahing Proseso
 
-Ang "DevTools" sa "browser window" ng Elektron ay maaari lamang gamitan ng "debug" ang "JavaScript" na pinapalabas sa "window" (hal. mga pahina ng "web"). Para makita o mahanap ang mga posibleng problema o tinatawag din nating "debugging", sa "JavaScript" na pinapakita sa pangunahing proseso nito, kinakailangan na gamitin ang "external debugger" at paganahin ang Elektron gamit ang "switch" na `--inspect` o `--inspect-brk`.
+Ang "DevTools" sa "browser window" ng Elektron ay maaari lamang gamitan ng "debug" ang "JavaScript" na pinapalabas sa "window" (hal. mga pahina ng "web"). Para makita o mahanap ang mga posibleng problema o tinatawag din nating "debugging", ang "JavaScript" na pinapakita sa pangunahing proseso nito, kinakailangan na gamitin ang "external debugger" at paganahin ang Elektron gamit ang "switch" na `--inspect` o `--inspect-brk`.
 
 ## "Command Line Switches"
 
@@ -8,7 +8,7 @@ Gamitin ang isa sa mga sumusunod na "command line switches" upang paganahin ang 
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Ang Elektron ay makikinig at susunod sa mensahe ng "V8 inspector protocol" na tinutukoy na `port`, isang panlabas na s'yang humahanap at nag-aayos ng problema o "external debugger" at kinakailangan na maiugnay ito sa tinatawag na "port". Ang "default" `port` ay `5858`.
 
 ```shell
 electron --inspect=5858 your/app
@@ -16,11 +16,11 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Tulad ng `--inspect` ngunit hinihinto nito ang pagpapalabas sa unang linya ng "JavaScript".
 
-## External Debuggers
+## Panlabas na Tumutukoy at Nag-aayos ng Problema o "External Debuggers"
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Kailangan mong gumamit ng "debugger" na humahalili sa "V8 inspector protocol".
 
 - Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
 - [Debugging the Main Process in VSCode](debugging-main-process-vscode.md)
