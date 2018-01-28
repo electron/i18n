@@ -425,7 +425,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `nome` Stringa
 
 Remove a Chrome extension by name.
 
@@ -451,7 +451,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `nome` Stringa
 
 Remove a DevTools extension by name.
 
