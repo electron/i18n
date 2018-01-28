@@ -31,7 +31,7 @@ Sinisimulang pigilan ang sistema mula sa pagpasok sa moda ng mababang power. Nag
 
 **Note:** Ang `prevent-display-sleep` ay may mas mataas na kahalagahan kaysa `prevent-app-suspension`. Ang mga uri ng mas nakakahigit ang kahalagahan lamang ang mayroong epekto. Sa ibang salita, ang `prevent-display-sleep` ay laging higit ang kahalagahan kaysa sa `prevent-app-suspension`.
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` will be used until B stops its request. After that, `prevent-app-suspension` is used.
+Halimbawa, ang isang API ay tumatawag ng A na mga kahilingan para sa `prevent-app-suspension`, at ang isa pa ay tumatawag ng B na mga kahilingan para sa `prevent-display-sleep`. Ang `prevent-display-sleep` ang gagamitin hanggang ang B ay huminto sa kanyang kahilingan. After that, `prevent-app-suspension` is used.
 
 ### `powerSaveBlocker.stop(id)`
 
