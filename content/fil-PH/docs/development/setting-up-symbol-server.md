@@ -8,7 +8,7 @@ Ang opisyal na simbolo ng server URL para sa Elektron ay https://elektron-simbol
 
 ## Gamit ang Simbolo ng Server sa Windbg
 
-The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+Ang simbolo ng Windbg ay landas na isinaayos na may string na halaga upang nililimitahan ng asterisk ang mga character. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
