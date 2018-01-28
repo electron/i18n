@@ -99,15 +99,15 @@ Restituiti:
 
 Emesso quando l'app è attivata. Varie azioni possono generare questo evento, come il lancio dell'app per la prima volta, provare a rilanciare l'app quando già aperta o cliccare sul dock dell'applicazione o sull'icona della taskbar.
 
-### Event: 'continue-activity' *macOS*
+### Evento: 'continua-attività' *macOS*
 
 Restituiti:
 
 * `evento` Evento
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `utenteInfo` Oggetto - Contiene stati app specifici immagazzinati per attività su un altro dispositivo.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. You should call `event.preventDefault()` if you want to handle this event.
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
