@@ -82,7 +82,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` String
+* `schema` Stringa
 
 Registers the `scheme` as secure scheme.
 
@@ -90,13 +90,13 @@ Secure schemes do not trigger mixed content warnings. For example, `https` and `
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
-* `scheme` String
+* `schema` Stringa
 
 Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
-* `scheme` String
+* `schema` Stringa
 * `options` Object (optional) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
