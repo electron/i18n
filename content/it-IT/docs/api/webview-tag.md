@@ -778,7 +778,7 @@ Fired when the gpu process is crashed.
 
 Restituiti:
 
-* `name` String
+* `nome` Stringa
 * `version` String
 
 Fired when a plugin process is crashed.
