@@ -576,7 +576,7 @@ Magbabalik ng:
 * `originalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
+* ang `referer` String
 * `headers` Object
 * `resourceType` String
 
