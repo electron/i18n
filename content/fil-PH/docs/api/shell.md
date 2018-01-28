@@ -1,12 +1,12 @@
 # shell
 
-> Manage files and URLs using their default applications.
+> Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
 Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
-The `shell` module provides functions related to desktop integration.
+Ang modyul ng `shell` ng mga gamit nito na kaugnay sa pinagsama-samang "desktop".
 
-An example of opening a URL in the user's default browser:
+Isang halimbawa ay ang pagbukas ng URL sa dating nitong "browser" ng gumagamit:
 
 ```javascript
 const {shell} = require('electron')
@@ -16,7 +16,7 @@ shell.openExternal('https://github.com')
 
 ## Pamamaraan
 
-The `shell` module has the following methods:
+Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 ### `shell.showItemInFolder(fullPath)`
 
