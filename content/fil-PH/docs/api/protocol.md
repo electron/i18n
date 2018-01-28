@@ -59,7 +59,7 @@ app.on('ready', () => {
 
 **Note:** Ang pamamaraan na ito ay maaari lamang gamitin bago ang event ng `ready` sa modyul ng `app` ay lalabas.
 
-### `protocol.registerServiceWorkerSchemes(schemes)`
+### `ang protocol.registerServiceWorkerSchemes(mga panukala)`
 
 * `schemes` String[] - Custom schemes to be registered to handle service workers.
 
