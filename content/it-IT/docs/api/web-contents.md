@@ -227,7 +227,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 Restituiti:
 
 * `evento` Evento
-* `killed` Boolean
+* `ucciso` Booleano
 
 Emitted when the renderer process crashes or is killed.
 
