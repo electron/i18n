@@ -107,42 +107,42 @@ Restituiti:
 * `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `utenteInfo` Oggetto - Contiene stati app specifici immagazzinati per attività su un altro dispositivo.
 
-Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. You should call `event.preventDefault()` if you want to handle this event.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando un'attività da un altro dispositivo vuole essere ripristinata. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+Un'attività dell'utente può essere continuata solo in un app con lo stesso Team ID dello sviluppatore come fonte app dell'attività e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'app sotto la chiave `NSTipoAttivitàUtente`.
 
-### Event: 'new-window-for-tab' *macOS*
-
-Restituiti:
-
-* `evento` Evento
-
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
-
-### Event: 'browser-window-blur'
+### Evento: 'nuova-finestra-per-scheda' *macOS*
 
 Restituiti:
 
 * `evento` Evento
-* `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante nuova scheda è visibile solo se l'attuale `FinestraBrowser` ha un `Identificatoreschede`
 
-### Event: 'browser-window-focus'
+### Evento: 'browser-finestra-sfocatura'
 
 Restituiti:
 
 * `evento` Evento
-* `window` BrowserWindow
+* `finestra` FinestraBrowser
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
+
+### Evento: 'browser-finestra-focalizza'
+
+Restituiti:
+
+* `evento` Evento
+* `finestra` FinestraBrowser
+
+Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 
 ### Event: 'browser-window-created'
 
 Restituiti:
 
 * `evento` Evento
-* `window` BrowserWindow
+* `finestra` FinestraBrowser
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
