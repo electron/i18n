@@ -1,8 +1,8 @@
 ## Klase: "Debugger"
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Ang alternatibong paglipat para sa "Chrome's remote" na sistematikong panuntunan ng "debugging".
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso: [Pangunahin](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
