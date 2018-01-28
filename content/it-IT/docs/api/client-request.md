@@ -52,7 +52,7 @@ Restituiti:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Funzione 
   * `username` String
   * `password` String
 
