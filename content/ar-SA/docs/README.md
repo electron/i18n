@@ -27,7 +27,7 @@ There are questions that are asked quite often. Check this out before creating a
 * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
 * [Updating Applications](tutorial/updates.md)
 
-## Tutorials
+## دروس
 
 * [Quick Start](tutorial/quick-start.md)
 * [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
@@ -35,14 +35,14 @@ There are questions that are asked quite often. Check this out before creating a
 * [REPL](tutorial/repl.md)
 * [Native Notifications](tutorial/notifications.md)
 
-## API References
+## مراجع API
 
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
 
-### Custom DOM Elements:
+### عناصر DOM مخصصة:
 
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
