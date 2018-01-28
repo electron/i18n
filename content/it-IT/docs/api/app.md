@@ -329,175 +329,176 @@ Restituisce `Stringa` - La directory dell'app corrente.
 
 * `nome` Stringa
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Restituisce `Stringa` - Un percorso ad una directory speciale o ai file associati con `nome`. In caso di fallimento avviene un `Errore`.
 
-You can request the following paths by the name:
+Puoi richiedere i seguenti percorsi dal nome:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `home` Directory della home utente.
+* `appData` Dati della directory dell'app utente, con punti predefiniti a: 
+  * `%APPDATA%` su Windows
+  * `$XDG_CONFIG_HOME` o `~/.config` su Linux
+  * `~/Libraria/Supporto Applicazione` su macOS
+* `Datiutente` La directory per ammagazzinare i file di configurazione della tua app, che per valore predefinito è la directory `Datiapp` seguita dal nome della tua app.
+* `temp` Directory temporanea.
+* `exe` L'attuale file eseguibile.
+* `modulo` La libreria `libchromiumcontent`.
+* `desktop` L'attuale directory del desktop utente.
+* `documenti` La directory per l'utente "I miei Documenti".
+* `Scaricati` La directory per i file scaricati dall'utente.
+* `musica` La directory per la musica dell'utente.
+* `immagini` La directory per le immagini dell'utente.
+* `video` La directory per i video dell'utente.
+* `pepperFlashSystemPlugin` Percorso intero alla versione di sistema del plugin Pepper Flash.
 
-### `app.getFileIcon(path[, options], callback)`
+### `app.ottieniIconaFile(percorso[, opxioni], callback)`
 
 * `percorso` Stringa
 * `opzioni` Oggetto (opzionale) 
-  * `size` String 
-    * `small` - 16x16
-    * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Funzione 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
-
-Fetches a path's associated icon.
-
-On *Windows*, there a 2 kinds of icons:
-
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
-
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
-
-### `app.setPath(name, path)`
-
-* `nome` Stringa
-* `percorso` Stringa
-
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
-
-You can only override paths of a `name` defined in `app.getPath`.
-
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
-
-### `app.getVersion()`
-
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
-
-### `app.getName()`
-
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
-
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
-
-### `app.setName(name)`
-
-* `nome` Stringa
-
-Overrides the current application's name.
-
-### `app.getLocale()`
-
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
-
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
-
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
-
-### `app.addRecentDocument(path)` *macOS* *Windows*
-
-* `percorso` Stringa
-
-Adds `path` to the recent documents list.
-
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
-
-### `app.clearRecentDocuments()` *macOS* *Windows*
-
-Clears the recent documents list.
-
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Returns `Boolean` - Whether the call succeeded.
-
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
-
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
-
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
-
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
-
-### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Returns `Boolean` - Whether the call succeeded.
-
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
-
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
-
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
-
-Returns `Boolean`
-
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
-
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
-
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
-
-### `app.setUserTasks(tasks)` *Windows*
-
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
-
-Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
-
-`tasks` is an array of [`Task`](structures/task.md) objects.
-
-Returns `Boolean` - Whether the call succeeded.
-
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
-
-### `app.getJumpListSettings()` *Windows*
-
-Returns `Object`:
-
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
-
-### `app.setJumpList(categories)` *Windows*
-
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
-
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
-
-* `ok` - Nothing went wrong.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
-
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
-
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
-
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
-
-Here's a very simple example of creating a custom Jump List:
-
-```javascript
+  * `dimensioni` Stringa 
+    * `piccola` - 16x16
+    * `normale` - 32x32
+    * `grande - 48x48 su <em>Linux</em>, 32x32 su <em>Windows</em>, non supportato su <em>macOS</em>.</li>
+</ul></li>
+</ul></li>
+<li><code>callback` Funzione 
+      * `errore` Errore
+      * `icona` [ImmagineNativa](native-image.md)
+    
+    Recupera un'icona associata al percorso.
+    
+    On *Windows*, there a 2 kinds of icons:
+    
+    * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+    * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+    
+    On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+    
+    ### `app.setPath(name, path)`
+    
+    * `nome` Stringa
+    * `percorso` Stringa
+    
+    Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+    
+    You can only override paths of a `name` defined in `app.getPath`.
+    
+    By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+    
+    ### `app.getVersion()`
+    
+    Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+    
+    ### `app.getName()`
+    
+    Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+    
+    Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+    
+    ### `app.setName(name)`
+    
+    * `nome` Stringa
+    
+    Overrides the current application's name.
+    
+    ### `app.getLocale()`
+    
+    Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+    
+    **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+    
+    **Note:** On Windows you have to call it after the `ready` events gets emitted.
+    
+    ### `app.addRecentDocument(path)` *macOS* *Windows*
+    
+    * `percorso` Stringa
+    
+    Adds `path` to the recent documents list.
+    
+    This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+    
+    ### `app.clearRecentDocuments()` *macOS* *Windows*
+    
+    Clears the recent documents list.
+    
+    ### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    
+    * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
+    * `path` String (optional) *Windows* - Defaults to `process.execPath`
+    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    
+    Returns `Boolean` - Whether the call succeeded.
+    
+    This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+    
+    On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+    
+    **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+    
+    The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+    
+    ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    
+    * `protocol` String - The name of your protocol, without `://`.
+    * `path` String (optional) *Windows* - Defaults to `process.execPath`
+    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    
+    Returns `Boolean` - Whether the call succeeded.
+    
+    This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+    
+    ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+    
+    * `protocol` String - The name of your protocol, without `://`.
+    * `path` String (optional) *Windows* - Defaults to `process.execPath`
+    * `args` String[] (optional) *Windows* - Defaults to an empty array
+    
+    Returns `Boolean`
+    
+    This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+    
+    **Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+    
+    The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+    
+    ### `app.setUserTasks(tasks)` *Windows*
+    
+    * `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+    
+    Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+    
+    `tasks` is an array of [`Task`](structures/task.md) objects.
+    
+    Returns `Boolean` - Whether the call succeeded.
+    
+    **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+    
+    ### `app.getJumpListSettings()` *Windows*
+    
+    Returns `Object`:
+    
+    * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+    * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+    ### `app.setJumpList(categories)` *Windows*
+    
+    * `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+    
+    Sets or removes a custom Jump List for the application, and returns one of the following strings:
+    
+    * `ok` - Nothing went wrong.
+    * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
+    * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
+    * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
+    * `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+    
+    If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+    
+    **Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+    
+    **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+    
+    Here's a very simple example of creating a custom Jump List:
+    
+    ```javascript
 const {app} = require('electron')
 
 app.setJumpList([
