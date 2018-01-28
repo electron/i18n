@@ -1,4 +1,4 @@
-## Class: DownloadItem
+## Klase: "DownloadItem"
 
 > Control file downloads from remote sources.
 
