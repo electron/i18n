@@ -22,7 +22,7 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 * `fullPath` String
 
-Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita
+Pagbabalik ng `Boolean` - Kung ang aytem ay matagumpay na naipakita
 
 Show the given file in a file manager. If possible, select the file.
 
@@ -30,7 +30,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `fullPath` String
 
-Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
+Pagbabalik ng `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
 Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
@@ -42,7 +42,7 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 * `tumawag muli` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+Pagbabalik ng `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
