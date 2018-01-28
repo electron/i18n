@@ -19,29 +19,29 @@ L'oggetto `app` emette i seguenti eventi:
 
 ### Evento: 'finirà-lancio'
 
-Emetti quando l'app ha finito la startup di base. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+Emetti quando l'app ha finito la startup di base. Su Windows e Linux, l'evento `finirà-lancio` equivale all'evento `pronto`; su macOS questo evento rappresenta la notifica `applicazionefiniràlancio` di `NSApplication`. Spesso dovrai impostare ascoltatori per gli eventi `apri-file` e `apri-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
 
-In most cases, you should just do everything in the `ready` event handler.
+In gran parte dei casi, dovresti solo fare tutto nel gestore eventi `pronto`.
 
-### Event: 'ready'
+### Evento: 'pronto'
 
-Returns:
+Restituiti:
 
-* `launchInfo` Object *macOS*
+* `Infolanciò` Oggetto *macOS*
 
-Emitted when Electron has finished initializing. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Emesso quando Electron ha concluso l'inizializzazione. Su macOS `Infolancio` deteiene le `Infouser` della `NSNotificazioneUtente` usata per aprire l'applicazione, se lanciata dal Centro Notifiche. Puoi chiamare `app.isPronta()` per controllare se gli eventi sono già stati generati.
 
-### Event: 'window-all-closed'
+### Evento: 'finestra-tutto-chiuso'
 
-Emitted when all windows have been closed.
+Emesso quando tutte le finestre sono state chiuse.
 
-If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
+Se non sottoscrivi a questo evento e tutte le finestre sono chiuse il comportamento predefinito è di uscire dall'app; comunque sr sottoscrivi controlli se l'app deve uscire o no. Se l'utente ha premuto `Cmd+Q` o lo sviluppatore chiamato `app.esci()`, Electron proverà prima a chiudere tutte le finestre ed emettere l'evento `will-quit` e in questo caso l'evento `finestra-tutto-chiuso` non sarà emesso.
 
-### Event: 'before-quit'
+### Evento: 'prima-uscire'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 
 Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -49,9 +49,9 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
 
@@ -59,18 +59,18 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `exitCode` Integer
 
 Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `path` String
 
 Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
@@ -81,9 +81,9 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `url` String
 
 Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
@@ -92,18 +92,18 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `hasVisibleWindows` Boolean
 
 Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contains app-specific state stored by the activity on another device.
 
@@ -113,53 +113,53 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `window` BrowserWindow
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `window` BrowserWindow
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `webContents` WebContents
 
 Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - The error code
@@ -185,9 +185,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -209,9 +209,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
@@ -242,18 +242,18 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
