@@ -28,9 +28,9 @@ Ang modyul ng `protocol` ay mayroon ng mga sumusunod na mga pamamaraan:
 
 ### `ang protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* `schemes` String[] - Ang pasadyang panukala na magiging rehistrado bilang mga standard na panukala.
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * `secure` Boolean (opsyonal) - `true` para irehistro ang panukala bilang ligtas. Ang default ay `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
