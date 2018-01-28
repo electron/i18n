@@ -2,9 +2,9 @@
 
 Ang mga simbolo ng debug ay nagpapahintulot sa iyo na magkaroon ng mas mabuti na mga sesyon ng pag-debug. Mayroon silang impormasyon tungkol sa mga function na nakapaloob sa mga executable at dynamic na aklatan at nagbibigay sa iyo ng impormasyon upang makakuha ng malinis na tawag sa stack. Binibigyang-daan ng Server ng Simbolo ang debugger upang i-load ang tamang mga simbolo, mga binary at mapagkukunan nang awtomatiko nang hindi pinipilit ang mga gumagamit na mag-download ng mga malalaking debugging file. Tulad ng mga pag-andar ng server [Microsoft simbolo ng server](https://support.microsoft.com/kb/311503) kaya ang Dokumentasyon doon ay maaaring maging kapaki-pakinabang.
 
-Tandaan na dahil inilabas ang elektron at gumawa ng mabigat na mag-optimista, ang debugging ay hindi laging madali. Ang debugger ay hindi maipapakita sa iyo ang nilalaman ng lahat Ang mga variable at landas ng pagpapatupad ay maaaring mukhang kakaiba dahil sa inlining, buntot tawag, at iba pang mga pag-optimize ng compiler. The only workaround is to build an unoptimized local build.
+Tandaan na dahil inilabas ang elektron at gumawa ng mabigat na mag-optimista, ang debugging ay hindi laging madali. Ang debugger ay hindi maipapakita sa iyo ang nilalaman ng lahat Ang mga variable at landas ng pagpapatupad ay maaaring mukhang kakaiba dahil sa inlining, buntot tawag, at iba pang mga pag-optimize ng compiler. Ang tanging workaround ay upang bumuo ng isang hindi mag-optimista na lokal na pagtatayo.
 
-The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+Ang opisyal na simbolo ng server URL para sa Elektron ay https://elektron-simbolo.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
 
 ## Using the Symbol Server in Windbg
 
