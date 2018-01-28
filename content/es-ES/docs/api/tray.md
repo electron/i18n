@@ -42,78 +42,78 @@ app.on('ready', () => {
     {label: 'Item2', type: 'radio'}
   ])
 
-  // Make a change to the context menu
+  // Hace un cambio al menú de contexto
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // Llama esto otra vez en Linux debido a que modificamos el menú de contexto
   appIcon.setContextMenu(contextMenu)
 })
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* En Windows se recomienda utilizar los iconos `ICO` para obtener mejores efectos visuales.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Si se quiere mantener los mismos comportamientos en todas las plataformas, no se debe confiar en el evento `click` y siempre hay que adjuntar el menú de contexto al icono de bandeja.
 
 ### `new Tray(image)`
 
 * `image` ([NativeImage](native-image.md) | Cadena)
 
-Creates a new tray icon associated with the `image`.
+Crea un nuevo icono de bandeja asociado con la `image`.
 
 ### Eventos de Instancia
 
-The `Tray` module emits the following events:
+El módulo `Tray` emite los siguientes eventos:
 
 #### Evento: "click"
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `event` Evento 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Booleano
+* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
 
-Emitted when the tray icon is clicked.
+Emitido cuando se hace clic en el icono de bandeja.
 
-#### Event: 'right-click' *macOS* *Windows*
+#### Evento: "right-click"*macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `event` Evento 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Booleano
+* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
 
-Emitted when the tray icon is right clicked.
+Emitido cuando se hace clic derecho en el icono de bandeja.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Evento: "double-click"*macOS* *Windows*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `event` Evento 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Booleano
+* `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
 
-Emitted when the tray icon is double clicked.
+Emitido cuando se hace doble clic en el icono de bandeja.
 
-#### Event: 'balloon-show' *Windows*
+#### Evento: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Emitido cuando se muestra el globo de bandeja.
 
-#### Event: 'balloon-click' *Windows*
+#### Evento: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Emitido cuando se hace clic en el globo de bandeja.
 
-#### Event: 'balloon-closed' *Windows*
+#### Evento: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Emitido cuando se cierra el globo de bandeja debido al tiempo de expiración o cuando el usuario lo cierra manualmente.
 
-#### Event: 'drop' *macOS*
+#### Evento: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Emitido cuando cualquier elemento arrastrado es dejado en el icono de bandeja.
 
-#### Event: 'drop-files' *macOS*
+#### Evento: 'drop-files' *macOS*
 
 * `evento` Evento
 * `files` String[] - The paths of the dropped files.
@@ -141,22 +141,22 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 #### Event: 'mouse-enter' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` Evento 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Booleano
 * `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the mouse enters the tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
-* `event` Event 
-  * `altKey` Boolean
-  * `shiftKey` Boolean
-  * `ctrlKey` Boolean
-  * `metaKey` Boolean
+* `event` Evento 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Booleano
 * `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the mouse exits the tray icon.
