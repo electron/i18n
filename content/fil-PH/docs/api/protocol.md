@@ -115,7 +115,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 })
 ```
 
-### `protocol.registerStringProtocol(scheme, handler[, completion])`
+### `ang protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
 * `scheme` Ang string
 * `ang tagahawak` Punsyon 
@@ -125,15 +125,15 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
-    * `data` String (optional)
-* `ang pagkumpleto` Function (optional) 
+    * `data` String (opsyonal)
+* `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `String` as a response.
+Ay irerehistro ang isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
+Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `String` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
 
-### `protocol.registerHttpProtocol(scheme, handler[, completion])`
+### `ang protocol.registerHttpProtocol(panukala, tagahawak[, pagkumpleto])`
 
 * `scheme` Ang string
 * `ang tagahawak` Punsyon 
@@ -203,7 +203,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
-    * `data` String (optional)
+    * `data` String (opsyonal)
 * `ang pagkumpleto` Function (optional) 
   * `error` Error
 
