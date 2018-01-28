@@ -2,21 +2,21 @@
 
 > हमारी वर्ज़निंग नीति और उसके कार्यान्वयन पर एक विस्तृत लेख |
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+संस्करण 2.0.0 से, इलेक्ट्रॉन [semver](#semver) का प्रयोग करता है | निम्नलिखित कमांड इलेक्ट्रॉन की सबसे नवीनतम स्थिर बनावट इनस्टॉल करती है:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+एक मौज़ूदा प्रोजेक्ट को नवीनतम स्थिर संस्करण तक अपडेट करने के लिए:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## संस्करण 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+इलेक्ट्रॉन संस्करण *< 2.0*, [semver](http://semver.org) स्पेक के अनुरूप नहीं थें | मुख्य संस्करण एंड-यूजर ऐपीआई परिवर्तनों के अनुकूल हैं | लघु संस्करण क्रोमियम की मुख्य रिलीज़ के अनुरूप हैं | पैच संस्करण नयी सुविधाओं और बग फिक्सेस के अनुकूल हैं | हालाँकि यह उन डेवलपर्स के लिए आरामदायक हैं जो सुविधायें जोड़ते हैं, पर क्लाइंट-फेसिंग एप्लीकेशनस के डेवलपर्स के लिए यह मुश्किलें कड़ी करते हैं | The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
