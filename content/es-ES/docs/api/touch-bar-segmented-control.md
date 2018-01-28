@@ -28,16 +28,16 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Las siguientes propiedades están disponibles en instancias de `TouchBarSegmentedControl`:
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Una `String` que representa el estilo actual de segmento de los controles. Actualizar este valor actualiza inmediatamente el control en la barra táctil.
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Actualiza este valor inmediatamente actualiza el control de la barra táctil. Mientras se actualicen propiedades profundas en este arreglo **no actualice la barra táctil**.
+Un arreglo `SegmentedControlSegment[]` que representa los segmentos en este control. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+Un `entero` que representa el segmento seleccionado actual. Cambiar este valor actualiza inmediatamente el control en la barra táctil. La interacción del usuario con la barra táctil actualizará este valor automáticamente.
