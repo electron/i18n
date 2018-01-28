@@ -43,7 +43,7 @@ The `autoUpdater` object emits the following events:
 
 ### Event: 'error'
 
-Returns:
+Restituiti:
 
 * `error` Error
 
@@ -63,9 +63,9 @@ Emitted when there is no available update.
 
 ### Event: 'update-downloaded'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
