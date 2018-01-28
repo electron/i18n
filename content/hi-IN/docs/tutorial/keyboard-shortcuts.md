@@ -49,31 +49,31 @@ window.addEventListener('keyup', doSomething, true)
 
 तीसरे पैरामीटर `true` पर ध्यान दें, जिसका मतलब है कि लिस्नर को हमेशा दुसरे लिस्नर्स से पहले कुंजी दबाब प्राप्त होंगे, ताकि उनके ऊपर `stopPropagation()` न बुलाया जा सके |
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+[`before-input-event`](../api/web-contents.md#event-before-input-event) इवेंट पेज में `keydown` और `keyup` इवेंट्स को पहुँचाने से पहले छोड़ा जाता है | इसे उन कस्टम शोर्टकट्स को पकड़ने और संभालने के लिए इस्तेमाल किया जाता हैं, जो मेन्यु में अदृश्य होती हैं |
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+अगर आप मैन्युअल शोर्टकट पार्सिंग नहीं करना चाहते, तो उन्नत कुंजी खोज के लिए लाइब्रेरीज मौज़ूद हैं, जैसे कि [माउसट्रैप](https://github.com/ccampbell/mousetrap) |
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// संयोजन
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// विभिन्न सयांजनों को एक ही कालबैक पर माप करें
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // डिफ़ॉल्ट व्यवाहर से बचने और इवेंट को बब्ब्लिंग से बचाने के लिए फाल्स भेजें
   return false
 })
 
-// gmail style sequences
+// जीमेल स्टाइल की सीक्वेंस
 Mousetrap.bind('g i', () => { console.log('go to inbox') })
 Mousetrap.bind('* a', () => { console.log('select all') })
 
-// konami code!
+// कोनामी कोड !
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })
