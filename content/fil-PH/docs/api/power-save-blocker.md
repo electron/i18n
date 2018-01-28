@@ -31,16 +31,16 @@ Sinisimulang pigilan ang sistema mula sa pagpasok sa moda ng mababang power. Nag
 
 **Note:** Ang `prevent-display-sleep` ay may mas mataas na kahalagahan kaysa `prevent-app-suspension`. Ang mga uri ng mas nakakahigit ang kahalagahan lamang ang mayroong epekto. Sa ibang salita, ang `prevent-display-sleep` ay laging higit ang kahalagahan kaysa sa `prevent-app-suspension`.
 
-Halimbawa, ang isang API ay tumatawag ng A na mga kahilingan para sa `prevent-app-suspension`, at ang isa pa ay tumatawag ng B na mga kahilingan para sa `prevent-display-sleep`. Ang `prevent-display-sleep` ang gagamitin hanggang ang B ay huminto sa kanyang kahilingan. After that, `prevent-app-suspension` is used.
+Halimbawa, ang isang API ay tumatawag ng A na mga kahilingan para sa `prevent-app-suspension`, at ang isa pa ay tumatawag ng B na mga kahilingan para sa `prevent-display-sleep`. Ang `prevent-display-sleep` ang gagamitin hanggang ang B ay huminto sa kanyang kahilingan. Pagkatapos noon, ang `prevent-app-suspension` ay gagamitin.
 
-### `powerSaveBlocker.stop(id)`
+### `ang powerSaveBlocker.stop(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Ang id ng tagaharang ng power save ay magbabalik sa pamamagitan ng `powerSaveBlocker.start`.
 
 Stops the specified power save blocker.
 
 ### `powerSaveBlocker.isStarted(id)`
 
-* `id` Integer - The power save blocker id returned by `powerSaveBlocker.start`.
+* `id` Integer - Ang id ng tagaharang ng power save ay magbabalik sa pamamagitan ng `powerSaveBlocker.start`.
 
 Returns `Boolean` - Whether the corresponding `powerSaveBlocker` has started.
