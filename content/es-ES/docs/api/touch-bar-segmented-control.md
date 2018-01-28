@@ -1,17 +1,17 @@
-## Class: TouchBarSegmentedControl
+## Clase: TouchBarSegmentedControl
 
-> Create a segmented control (a button group) where one button has a selected state
+> Crea un control segmentado (un conjunto de botones) donde un botón tiene un estado seleccionado
 
 Proceso: [principal](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
 * `options` Object 
-  * `segmentStyle` String - (optional) Style of the segments: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
+  * `segmentStyle` Cadena - (opcional) Estilo de los segmentos: 
+    * `automatic` - Por defecto. La apariencia del control segmentados se determina basado en el tipo de ventana en la cual el control se muestra y en la posición dentro de la ventana.
+    * `rounded` - El control se muestra utilizando el estilo redondeado.
+    * `textured-rounded` - El control se muestra utilizando el estilo de textura redondeado.
+    * `round-rect` - Los controles se muestran utilizando el estilo rectángulo redondeado.
     * `textured-square` - The control is displayed using the textured square style.
     * `capsule` - The control is displayed using the capsule style
     * `small-square` - The control is displayed using the small square style.
