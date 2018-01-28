@@ -2,11 +2,11 @@
 
 Nuestro objetivo es mantener la cobertura de código de electrón alto. Pedimos que todas la solicitudes de extracción requeridas no solo pasen todas las pruebas existentes, lo ideal seria añadir nuevas pruebas para cubrir los cambios en el código y nuevos escenarios. Asegurando que capturamos muchas rutas de código y casos de uso de Electrón es posible asegurar que todas las aplicaciones tengan menos errores.
 
-Este repositorio viene con reglas de borrado tanto para JavaScript como para C++ – así como pruebas de unidad e integración. To learn more about Electron's coding style, please see the [coding-style(coding-style.md) document.
+Este repositorio viene con reglas de borrado tanto para JavaScript como para C++ – así como pruebas de unidad e integración. Para obtener más información sobre el estilo de codificación del Electrón, consulte el documento [coding-style(coding-style.md).
 
-## Linting
+## Borrado
 
-To ensure that your JavaScript is in compliance with the Electron coding style, run `npm run lint-js`, which will run `standard` against both Electron itself as well as the unit tests. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
+Asegúrese de que su JavaScript cumpla con la codificación de electrones estilo, run `npm run lint-js`, which will run `standard` contra ambos tanto el propio electrón, así como las pruebas unitarias. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
 
 To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
 
