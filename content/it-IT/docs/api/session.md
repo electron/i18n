@@ -64,7 +64,7 @@ The following events are available on instances of `Session`:
 
 * `evento` Evento
 * `item` [DownloadItem](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
 Emitted when Electron is about to download `item` in `webContents`.
 
@@ -217,7 +217,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 * `proc` Function 
   * `request` Object 
     * `hostname` String
-    * `certificate` [Certificate](structures/certificate.md)
+    * `certificato` [Certificato](structures/certificate.md)
     * `error` String - Verification result from chromium.
   * `callback` Function 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
