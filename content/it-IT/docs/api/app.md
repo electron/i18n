@@ -43,30 +43,30 @@ Restituiti:
 
 * `evento` Evento
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emesso prima che l'app inizi a chiudere le sue finestre. Chiamare `evento.previeniDefault()` impedirà il comportamento predefinito che sta terminando l'applicazione.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Note:** Se l'uscita dall'app è avviata da `autoAggiornamento.esciEInstalla()` allora `prima-uscire` è emesso *dopo* aver emesso l'evento `chiuso` su tutte le finestre e chiudendole.
 
-### Event: 'will-quit'
-
-Restituiti:
-
-* `evento` Evento
-
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
-
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
-
-### Event: 'quit'
+### Evento: 'uscirà'
 
 Restituiti:
 
 * `evento` Evento
-* `exitCode` Integer
 
-Emitted when the application is quitting.
+Emesso quando tutte le finestre sono state chiuse e l'app uscirà. Chiamando `evento.previeniDefault` impedirà il comportamento predefinito che sta terminando l'app.
 
-### Event: 'open-file' *macOS*
+Vedi la descrizione dell'evento `finestra-tutto-chiuso` per le differenze tra gli eventi `uscirà` e `finestra-tutto-chiuso`.
+
+### Evento: 'esci'
+
+Restituiti:
+
+* `evento` Evento
+* `Codiceuscita` Numero Intero
+
+Emesso quando l'app è in uscita.
+
+### Evento: 'apri-file' *macOS*
 
 Restituiti:
 
