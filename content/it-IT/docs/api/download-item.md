@@ -39,9 +39,9 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `state` String
 
 Emitted when the download has been updated and is not done.
@@ -53,9 +53,9 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `state` String
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
