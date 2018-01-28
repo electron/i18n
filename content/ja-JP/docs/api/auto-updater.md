@@ -15,13 +15,13 @@
 
 ## プラットフォームごとの通知
 
-`自動アップデーター` は、異なるプラットフォームの統一 API を提供しています、上はまだいくつかの微妙な違い各プラットフォームです。
+Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
 
 ### macOS
 
-MacOS の `自動アップデーター` のモジュールで成り立っている [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac)、任意の特別なセットアップ作業にする必要はありません。 サーバー側の要件、[サーバーのサポート](https://github.com/Squirrel/Squirrel.Mac#server-support) を読むことができます。 [アプリケーション トランスポート セキュリティ](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) は、更新プロセスの一部としてすべての要求に適用されることに注意してください。 ATS を無効にする必要があるアプリは、そのアプリの plist に `NSAllowsArbitraryLoads` キーを追加できます。
+On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). [アプリケーション トランスポート セキュリティ](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) は、更新プロセスの一部としてすべての要求に適用されることに注意してください。 ATS を無効にする必要があるアプリは、そのアプリの plist に `NSAllowsArbitraryLoads` キーを追加できます。
 
-**注:**アプリケーションは、macOS で自動更新を署名する必要があります。これ `Squirrel.Mac` の要件です。
+**Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
 ### Windows
 
@@ -84,11 +84,11 @@ Windowsでは `releaseName` のみ利用可能です。
 * `url` String
 * `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。
 
-初期化自動アップデーターの `url` を設定します。
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-現在の `文字列` を返しますフィードの URL に更新。
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
@@ -96,6 +96,6 @@ Windowsでは `releaseName` のみ利用可能です。
 
 ### `autoUpdater.quitAndInstall()`
 
-アプリを再起動し、それがダウンロードされた後に、更新プログラムをインストールします。それは、放出されてきた `更新プログラム ダウンロード` 後にのみ呼び出す必要があります。
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 **Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
