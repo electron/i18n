@@ -197,40 +197,41 @@ Restituiti:
 
 Emesso quando un certificato client è richiesto.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+L'`url` corrisponde alla voce di navigazione richiedente il certificato client e `callback` può essere chiamato con una voce filtrata dalla lista. Usando `evento.previeniDefault()` si previene che l'app usi il primo certificato dal magazzino.
 
 ```javascript
-const {app} = require('electron')
+const {app} = richiedi('electron')
 
-app.on('select-client-certificate', (event, webContents, url, list, callback) => {
-  event.preventDefault()
-  callback(list[0])
+
+app.on ('seleziona-certificato-client', evento, Contenutiweb, url, lista, callback) => {
+ evento.previeniDefault()
+ callback(lista[0])
 })
 ```
 
-### Event: 'login'
+### Evento: 'accedi'
 
 Restituiti:
 
 * `evento` Evento
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
-* `request` Object 
-  * `method` String
+* `richiesta` Oggetto 
+  * `metodo` Stringa
   * `url` URL
-  * `referrer` URL
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `prescrivente` URL
+* `infoautore` Oggetto 
+  * `èProxy` Booleano
+  * `schema` Stringa
+  * `ospite` Stringa
+  * `porta` Numero Intero
+  * `regno` Stringa
 * `callback` Funzione 
-  * `username` String
-  * `password` String
+  * `nomeutente` Stringa
+  * `password` Stringa
 
-Emitted when `webContents` wants to do basic auth.
+Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `evento.previeniDefault` e chiamare `callback(nomeutente, password)` con le credenziali.
 
 ```javascript
 const {app} = require('electron')
