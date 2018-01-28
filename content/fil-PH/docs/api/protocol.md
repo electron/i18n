@@ -99,14 +99,14 @@ Batay sa default ang `scheme` ay tinatrato katulad ng `http`, kung saan ay sinus
 * `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Buffer` as a response.
+Ay irerehistro ang isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
 
-The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
+Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `Buffer` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
 
-Example:
+Halimbawa:
 
 ```javascript
-const {protocol} = require('electron')
+const {protocol} = kailangan('electron')
 
 protocol.registerBufferProtocol('atom', (request, callback) => {
   callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
