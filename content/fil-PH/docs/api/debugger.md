@@ -59,17 +59,17 @@ Ipadala ang binigay na "command" sa "debugging target".
 
 ### Mga Halimbawa ng Pangyayari
 
-#### Event: 'detach'
+#### Pangyayari: 'pagtanggal'
 
 * `event` Event
 * `reason` String - Dahilan para sa pagtanggal ng "debugger".
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Lumalabas kapag ang sesyon ng "debugging" ay tuluyan nang inihinto o winakasan. Ito ay nangyayari kapag ang `webContents` ay nakasara o ang "devtools" ay ginamit para sa pagdikit sa `webContents`.
 
-#### Event: 'message'
+#### Pangyayari: 'mensahe'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - Pangalan ng sistematikong paraan.
+* `params` Object - Ang "Event parameters" ay tinutukoy gamit ang katangian ng 'parameters' sa "remote" ng sistematikong panuntunan ng "debugging".
 
-Emitted whenever debugging target issues instrumentation event.
+Lumalabas sa tuwing ang mga isyu na pinupuntirya ng "debugging" ay ginagamit sa pangyayari.
