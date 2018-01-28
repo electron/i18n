@@ -288,14 +288,14 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Evento: 'certificato-errore'
 
 Restituiti:
 
 * `evento` Evento
 * `url` Stringa
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
+* `errore` Stringa - Il codice d'errore
+* `certificato` [Certificato](structures/certificate.md)
 * `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
