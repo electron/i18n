@@ -92,19 +92,19 @@ Pagbabalik sa `Boolean` - Kahit pa ang "download" ay pansamantalang nakahinto.
 
 Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
 
-**Paalala:** Para mapagana ang mga "download" na muling prinoseso, ang "server" kung saan pinoproseso ang "download" ay dapat suportahan ng mga saklaw na kahilingan at magbigay pareho ang mga halaga ng "header" na `Last-Modified` at `ETag`. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Paalala:** Para mapagana ang mga "download" na muling prinoseso, ang "server" kung saan pinoproseso ang "download" ay dapat suportahan ng mga saklaw na kahilingan at magbigay pareho ang mga halaga ng "header" na `Last-Modified` at `ETag`. Kung hindi man, ang `resume()` ay ihihinto ang pagtanggap ng nakaraang "bytes" at muling uumpisahan ang "download".
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Muling paggana ng `Boolean` - Ang "download" ay maaaring paganahin muli.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Paghinto ng operasyon ng "download".
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Pagbabalik ng `String` - Ang orihinal na "url" kung saan galing ang "downloaded item".
 
 #### `downloadItem.getMimeType()`
 
