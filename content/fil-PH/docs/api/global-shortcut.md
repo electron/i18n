@@ -1,10 +1,10 @@
 # globalShortcut
 
-> Tuklasin ang pangyayari sa keyboard kung ang aplikasyon ay walang tumutuon na keyboard.
+> Tinutuklas ang mga pangyayari sa keyboard kung ang aplikasyon ay walang tumutuon na keyboard.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Pangunahin](../glossary.md#main-process)
 
-Ang `globalShortcut` modyul ay pwedeng irehistrp/hindi-irehistro ang global keyboard shortcut na may operating systm para maka customize ang operasyon sa iba-ibang shortcut.
+Ang `globalShortcut` modyul ay pwedeng irehistro/hindi-irehistro ang global keyboard shortcut na may operating system para maka customize ang operasyon sa iba-ibang shortcut.
 
 **Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang keyboard focus. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
