@@ -46,17 +46,17 @@ app.on ('handa', () = > {
   manalo = bagong BrowserWindow ({
     webPreferences: {
       // Ang mga `plugins` ay dapat na gumagana.
-      plugins: true
+      plugins: totoo
     }
   })
-  win.show()
+  win.show ()
 })
 ```
 
 ## Pag-verify ng plugin
 
-To verify whether the plugin works, you can use following ways:
+Upang ma-verify kung gumagana ang plugin, maaari mong gamitin ang mga sumusunod na paraan:
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
+* Buksan ang devtools at tingnan kung ang `navigator.plugins` ay kinabibilangan ng Widevine CDM plugin.
+* Buksan ang https://shaka-player-demo.appspot.com/ at i-load ang manifest na gumagamit ng `Widevine`.
 * Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
