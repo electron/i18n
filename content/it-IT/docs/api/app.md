@@ -164,37 +164,38 @@ Restituiti:
 * `url` Stringa
 * `errore` Stringa - Il codice d'errore
 * `certificato` [Certificato](structures/certificate.md)
-* `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+* `callback` Funzione 
+  * `èVerificato` Booleano - Se considerare il certificato come verificato
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Emesso quando fallisce la verifica del`certificato` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.previeniDefault()` e chiamare `callback(vero)`.
 
 ```javascript
-const {app} = require('electron')
+const {app} = richiedi('electron')
 
-app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
-  if (url === 'https://github.com') {
-    // Verification logic.
-    event.preventDefault()
+
+app.on ('certificato-errore', (eventi, Contenutiweb, url, errori, certificato, callback) => {
+  se (url === 'https://github.com') {
+      // Logica di verifica.
+    evento.previeniDefault()
     callback(true)
-  } else {
+  } altro {
     callback(false)
   }
 })
 ```
 
-### Event: 'select-client-certificate'
+### Evento: 'selezione-certificato-client'
 
 Restituiti:
 
 * `evento` Evento
 * `ContenutiWeb` [ContenutiWeb](web-contents.md)
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+* `Listacertificati` [Certificati[]](structures/certificate.md)
+* `callback` Funzione 
+  * `certificato` [Certificato](structures/certificate.md) (opzionale)
 
-Emitted when a client certificate is requested.
+Emesso quando un certificato client è richiesto.
 
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
@@ -223,7 +224,7 @@ Restituiti:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Funzione 
   * `username` String
   * `password` String
 
@@ -354,7 +355,7 @@ You can request the following paths by the name:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Function 
+* `callback` Funzione 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -553,7 +554,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Funzione 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -619,7 +620,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `options` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Function 
+* `callback` Funzione 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
