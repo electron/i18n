@@ -4,7 +4,7 @@ Ang "DevTools" sa "browser window" ng Elektron ay maaari lamang gamitan ng "debu
 
 ## "Command Line Switches"
 
-Use one of the following command line switches to enable debugging of the main process:
+Gamitin ang isa sa mga sumusunod na "command line switches" upang paganahin ang "debugging" ng pangunahing proseso:
 
 ### `--inspect=[port]`
 
