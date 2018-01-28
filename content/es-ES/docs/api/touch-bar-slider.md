@@ -1,22 +1,22 @@
-## Class: TouchBarSlider
+## Clase: TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> Crea un control deslizante en la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [principal](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 
-* `options` Object 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `cambiar` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+* `options` Objeto 
+  * `label` Cadena (opcional) - Texto de etiqueta.
+  * `value` Entero (opcional) - Valor seleccionado.
+  * `minValue` Entero (opcional) - Valor mínimo.
+  * `maxValue` Entero (opcional) - Valor máximo.
+  * `change` Función (opcional) - Función para llamar cuando se cambie el control deslizante. 
+    * `newValue` Número - El valor que el usuario seleccionó en el control deslizante
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `TouchBarSlider`:
+Las siguientes propiedades está disponibles en instancias de `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
