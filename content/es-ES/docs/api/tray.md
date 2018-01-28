@@ -135,70 +135,70 @@ Emitido cuando una operación de arrastre entra al icono de bandeja.
 
 Emitido cuando una operación de arrastre sale del icono de bandeja.
 
-#### Event: 'drag-end' *macOS*
+#### Evento: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Emitido cuando termina una operación de arrastre en la bandeja o termina en otra ubicación.
 
-#### Event: 'mouse-enter' *macOS*
-
-* `event` Evento 
-  * `altKey` Booleano
-  * `shiftKey` Booleano
-  * `ctrlKey` Booleano
-  * `metaKey` Booleano
-* `position` [Point](structures/point.md) - The position of the event
-
-Emitted when the mouse enters the tray icon.
-
-#### Event: 'mouse-leave' *macOS*
+#### Evento: 'mouse-enter' *macOS*
 
 * `event` Evento 
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Booleano
-* `position` [Point](structures/point.md) - The position of the event
+* `position` [Point](structures/point.md) - La posición del evento
 
-Emitted when the mouse exits the tray icon.
+Emitido cuando el ratón entra en el icono de la bandeja.
+
+#### Evento: 'mouse-leave' *macOS*
+
+* `event` Evento 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Booleano
+* `position` [Point](structures/point.md) - La posición del evento
+
+Emitido cuando el ratón sale del icono de la bandeja.
 
 ### Métodos de Instancia
 
-The `Tray` class has the following methods:
+La clase `Tray` tiene los siguientes métodos:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Destruye inmediatamente el icono de la bandeja.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | Cadena)
+* `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Configura la `image` asociada con este icono de bandeja.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+En macOS, configura la `image` asociada con este icono de bandeja cuando se presiona.
 
 #### `tray.setToolTip(toolTip)`
 
-* `toolTip` String
+* `toolTip` Cadena
 
-Sets the hover text for this tray icon.
+Configura la activación de texto para este icono de bandeja.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` Cadena
 
-Sets the title displayed aside of the tray icon in the status bar.
+Establece el título mostrado a un lado del icono de la bandeja en la barra de estado.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` Cadena - Modo de resaltado con uno de los siguientes valores: 
+  * `selection` - Resalta el icono de la bandeja cuando se hace clic sobre él y también cuando se abre su menú de contexto. Esta es la opción por defecto.
+  * `always` - Siempre resalta el icono de la bandeja.
+  * `never` - Nunca resalta el icono de la bandeja.
 
 Sets when the tray's icon background becomes highlighted (in blue).
 
