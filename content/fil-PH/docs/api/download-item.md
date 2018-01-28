@@ -66,9 +66,9 @@ Ang `state` ay maaaring isa sa mga sumusunod:
 * `cancelled` - Kapag ang "download" ay inihinto.
 * `interrupted` - Kapag ang "download" ay itinigil at hindi na maaari pang ipagpatuloy.
 
-### Mga pamamaraan ng pagkakataon
+### Mga Halimbawa ng Sistematikong Paraan
 
-The `downloadItem` object has the following methods:
+Ang `downloadItem` ay may mga sumusunod na paraan:
 
 #### `downloadItem.setSavePath(path)`
 
