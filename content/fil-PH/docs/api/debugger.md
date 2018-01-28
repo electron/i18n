@@ -53,16 +53,16 @@ Pagtanggal ng "debugger" galing sa `webContents`.
 * `commandParams` Object (opsyunal) - "JSON object" na may hiling na parameters.
 * `muling pagtawag` Gamit (opsyunal) - Pagtugon 
   * `error` Object - Ang maling mensahe ay nagpapahiwatig ng pagkabigo ng "command".
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+  * `result` Kahit ano - Ang pagtugon ay tinutukoy gamit ang 'returns' na may katangian na paglalarawan ng "command" sa "remote" ng sistematikong panuntunan ng "debugging".
 
-Send given command to the debugging target.
+Ipadala ang binigay na "command" sa "debugging target".
 
-### Instance Events
+### Mga Halimbawa ng Pangyayari
 
 #### Event: 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - Dahilan para sa pagtanggal ng "debugger".
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
