@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Irerehistro ang isang protokol ng `scheme` na ipapadala ang file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({path: filePath})`.
+Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, hal. ang `callback(filePath)` o ang `callback({path: filePath})`.
 
 When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
