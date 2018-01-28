@@ -289,44 +289,45 @@ Tutte le finestre saranno immediatamente chiuse senza richiesta all'utente e gli
 
 Rilancia l'app quando esiste la corrente istanza.
 
-Di default la nuova istanza userà la stessa directory di lavoro e argomenti della linea di comando con la corrente istanza. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Di default la nuova istanza userà la stessa directory di lavoro e argomenti della linea di comando con la corrente istanza. Quando l'`arg` è specificato, l'`arg` sarà invece passato come argomento di linea di comando. Quando `eseguiPercorso` è specificato, `eseguiPercorso` sarà eseguito per rilanciare, invece, l'app corrente.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Nota che questo metodo non termina l'app quando eseguito, devi chiamare `app.esci` o `app.uscita` dopo aver chiamato `app.rilancia` per riavviare l'app.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Quando `app.rilancia` è chiamato ripetutamente, le istanze multiple sarannò avviate dopo l'istanza corrente sia uscita.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Un esempio di riavvio dell'istanza corrente immediato e aggiungendo un nuovo argomento della linea di comando alla nuova istanza:
 
 ```javascript
-const {app} = require('electron')
+const {app} = richiedi('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
-app.exit(0)
+
+app.rilancia({args: processo.argv..slice(1).concat(['--rilancia'])})
+app.esci(0)
 ```
 
-### `app.isReady()`
+### `app.isPronta()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso` viceversa.
 
-### `app.focus()`
+### `app.focalizza()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Su Linux, focalizza sulla prima finestra visibile. Su macOS rende l'applicazione attiva. Su Windows, focalizza sulla prima finestra dell'applicazione.
 
-### `app.hide()` *macOS*
+### `app.nascondi()` *macOS*
 
-Hides all application windows without minimizing them.
+Nasconde tutte le finestre dell'applicazione senza minimizzarle.
 
-### `app.show()` *macOS*
+### `app.mostra()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Mostra le finestre dell'applicazione dopo che sono state nascoste. Non le focalizza automaticamente.
 
-### `app.getAppPath()`
+### `app.ottieniAppPercorso()`
 
-Returns `String` - The current application directory.
+Restituisce `Stringa` - La directory dell'app corrente.
 
-### `app.getPath(name)`
+### `app.ottieniPercorso(nome)`
 
-* `name` String
+* `nome` Stringa
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
@@ -372,7 +373,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `nome` Stringa
 * `percorso` Stringa
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
@@ -393,7 +394,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 ### `app.setName(name)`
 
-* `name` String
+* `nome` Stringa
 
 Overrides the current application's name.
 
