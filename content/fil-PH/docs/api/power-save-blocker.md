@@ -27,7 +27,7 @@ Ang modyul ng `powerSaveBlock` ay mayroon ng mga sumusunod na mga pamamaraan:
 
 Nagbabalik sa `Integer` - Ang ID ng tagaharang na itinalaga para sa tagaharang ng lakas na ito
 
-Starts preventing the system from entering lower-power mode. Returns an integer identifying the power save blocker.
+Sinisimulang pigilan ang sistema mula sa pagpasok sa moda ng mababang power. Nagbabalik ang isang integer na kinikilala ang tagaharang sa power save.
 
 **Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Only the highest precedence type takes effect. In other words, `prevent-display-sleep` always takes precedence over `prevent-app-suspension`.
 
