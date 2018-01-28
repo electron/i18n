@@ -1,10 +1,10 @@
 ## Klase: "DownloadItem"
 
-> Control file downloads from remote sources.
+> Kontrolin ang "downloads" ng payl galing sa "remote sources".
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` ay isang `EventEmitter` na kumakatawan sa "download item" sa Elektron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
 
 ```javascript
 // Sa mga pangunahing proseso.
