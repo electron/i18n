@@ -16,19 +16,19 @@ npm install --save-dev electron@latest
 
 ## संस्करण 1.x
 
-इलेक्ट्रॉन संस्करण *< 2.0*, [semver](http://semver.org) स्पेक के अनुरूप नहीं थें | मुख्य संस्करण एंड-यूजर ऐपीआई परिवर्तनों के अनुकूल हैं | लघु संस्करण क्रोमियम की मुख्य रिलीज़ के अनुरूप हैं | पैच संस्करण नयी सुविधाओं और बग फिक्सेस के अनुकूल हैं | हालाँकि यह उन डेवलपर्स के लिए आरामदायक हैं जो सुविधायें जोड़ते हैं, पर क्लाइंट-फेसिंग एप्लीकेशनस के डेवलपर्स के लिए यह मुश्किलें कड़ी करते हैं | The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+इलेक्ट्रॉन संस्करण *< 2.0*, [semver](http://semver.org) स्पेक के अनुरूप नहीं थें | मुख्य संस्करण एंड-यूजर ऐपीआई परिवर्तनों के अनुकूल हैं | लघु संस्करण क्रोमियम की मुख्य रिलीज़ के अनुरूप हैं | पैच संस्करण नयी सुविधाओं और बग फिक्सेस के अनुकूल हैं | हालाँकि यह उन डेवलपर्स के लिए आरामदायक हैं जो सुविधायें जोड़ते हैं, पर क्लाइंट-फेसिंग एप्लीकेशनस के डेवलपर्स के लिए यह मुश्किलें कड़ी करते हैं | स्लैक, टीम्स, स्काइप, वीएस कोड, एटम, और डेस्कटॉप जैसी मुख्य एप्प्स के क्युऐ परिक्षण चरण काफी लम्बे हो सकते हैं और स्थिरता बेहद आवश्यक निश्कर्ष है | त्रुटियों को सही करने के दौरान नयी सुविधायें को अपनाने में बहुत बड़ा खतरा है |
 
-Here is an example of the 1.x strategy:
+1.x रणनीति का एक उदाहरण:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+`1.8.1` से निर्मित एप्प बिना `1.8.2` की सुविधा अपनायें `1.8.3` का बग फिक्स इस्तेमाल नहीं कर सकती, या फिर वह फिक्स को बैकपोर्ट करें और फिर एक नयी रिलीज़ पंक्ति को बनाये रखें |
 
-## Version 2.0 and Beyond
+## संस्करण 2.0 और उससे आगे
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+हमारी 1.x रणनीति से कई सारे परिवर्तन हुए हैं, जो नीचे दिए गये हैं | हर परिवर्तन का उद्देश्य डेवलपर्स/मैन्तैनेर्स और एप्प डेवलपर्स की ज़रूरतों और प्राथमिकताओं को संतुष्ट करना है |
 
-1. Strict use of semver
+1. semver का कड़ाई से इस्तेमाल
 2. Introduction of semver-compliant `-beta` tags
 3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
 4. Clearly defined stabilization branches
