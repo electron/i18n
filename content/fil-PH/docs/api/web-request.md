@@ -43,7 +43,7 @@ The following methods are available on instances of `WebRequest`:
     * `method` String
     * `resourceType` String
     * `timestamp` Double
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
     * `response` Bagay 
       * `cancel` Boolean (optional)
