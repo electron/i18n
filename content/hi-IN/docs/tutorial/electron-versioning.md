@@ -64,7 +64,7 @@ npm install --save-dev electron@latest
 
 स्थिरीकरण शाखायें हमेशा **मुख्य** या **लघु** संस्करण पंक्ति होती हैं, और इनका नाम निन्मलिखित टेम्पलेट `$MAJOR-$MINOR-x` e.g. `2-0-x` के अनुरूप होता है |
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+हम विभिन्न स्थिरीकरण शाखाओं को एक साथ मौज़ूद होने की सुविधा प्रदान करते हैं, और हमारा उद्देश्य है कि हर समय कम से कम 2 शाखाओं को एक साथ समर्थित करें, और आवश्यकता अनुसार सुरक्षा सुधार बैकपोर्ट करते रहें | ![](../images/versioning-sketch-2.png)
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
