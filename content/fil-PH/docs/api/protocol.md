@@ -1,6 +1,6 @@
-# protocol
+# ang protokol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Irehistro ang isang ipinasadyang protokol at harangin ang umiiral na kahilingan para sa protokol.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
