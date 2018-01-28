@@ -2,11 +2,11 @@
 
 > Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, etc.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Ang Proseso: [Pangunahin](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Ang `sesyon` modyul ay maaaring gamitin para gumawa ng bagong `Sesyon` ng mga layunin.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Maaari mo rin ma-akses ang `sesyon` ng umiiral na mga pahina sa pamamagitan ng paggamit ng `sesyon` uri ng [`NilalamanngmgaWeb`](web-contents.md), o galing sa `sesyon` na modyul.
 
 ```javascript
 const {BrowserWindow} = require('electron')
