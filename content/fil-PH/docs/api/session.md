@@ -11,16 +11,16 @@ Maaari mo rin ma-akses ang `sesyon` ng umiiral na mga pahina sa pamamagitan ng p
 ```javascript
 const {BrowserWindow} = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = bagong BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Pamamaraan
+## Mga pamamaraan
 
-The `session` module has the following methods:
+Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
 
 ### `session.fromPartition(partition[, options])`
 
