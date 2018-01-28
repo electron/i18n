@@ -128,17 +128,17 @@ Kung hindi alam ang sukat, ito ay magbabalik sa 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Pagbabalik ng `Integer` - Ang "bytes" na natanggap sa download item.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Pagbabalik ng `String` - Ang Content-Disposition galing sa tugon ng "header".
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Pagbabalik sa `String` - Ang kasalukuyang estado. Maaaring maging `progressing`, `completed`, `cancelled` o `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Note:** Ang mga sumusunod na paraan ay kapaki-pakinabang lalo na para paganahing muli ang aytem na `cancelled` kapag ang sesyon ay muling inumpisahan.
 
 #### `downloadItem.getURLChain()`
 
