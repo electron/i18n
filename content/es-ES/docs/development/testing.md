@@ -6,7 +6,7 @@ Este repositorio viene con reglas de borrado tanto para JavaScript como para C++
 
 ## Borrado
 
-Asegúrese de que su JavaScript cumpla con la codificación de electrones estilo, run `npm run lint-js`, which will run `standard` contra ambos tanto el propio electrón, así como las pruebas unitarias. If you are using an editor with a plugin/addon system, you might want to use one of the many [StandardJS addons](https://standardjs.com/#are-there-text-editor-plugins) to be informed of coding style violations before you ever commit them.
+Asegúrese de que su JavaScript cumpla con la codificación de electrones estilo, run `npm run lint-js`, which will run `standard` contra ambos tanto el propio electrón, así como las pruebas unitarias. Si estás usando un editor con un sistema de plugin/addon, es posible que desee utilizar uno de los muchos [ Complementos de StandardJS ](https://standardjs.com/#are-there-text-editor-plugins) para estar informado de violaciones de estilo de codificación antes de comprometerlas.
 
 To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
 
