@@ -20,13 +20,13 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Note:** Ang lahat ng mga pamamaraan maliban kung tinukoy ay maaari lamang gamitin pagkatapos ng event ng `ready` sa modyul ng `app` ay lumabas.
 
 ## Pamamaraan
 
-The `protocol` module has the following methods:
+Ang modyul ng `protocol` ay mayroon ng mga sumusunod na mga pamamaraan:
 
-### `protocol.registerStandardSchemes(schemes[, options])`
+### `ang protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
 * `mga pagpipilian` Mga bagay (opsyonal) 
