@@ -58,11 +58,11 @@ npm install --save-dev electron@latest
 
 # स्थिरीकरण शाखायें
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+स्थिरीकरण शाखायें वे शाखायें हैं जो मास्टर के साथ-साथ चलती हैं, और केवल उन ख़ास कमिटस को चुनती हैं जो सुरक्षा या स्थिरता से सम्बंधित हैं | ये शाखायें कभी भी मास्टर में विलय नहीं की जाती |
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+स्थिरीकरण शाखायें हमेशा **मुख्य** या **लघु** संस्करण पंक्ति होती हैं, और इनका नाम निन्मलिखित टेम्पलेट `$MAJOR-$MINOR-x` e.g. `2-0-x` के अनुरूप होता है |
 
 We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
 
