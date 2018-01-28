@@ -26,17 +26,17 @@ Pagkatapos makuha ang mga file ng plugin, dapat mong ipasa sa `widevinecdmadapte
 
 <**Tandaan:**Kahit na ang ` widevinecdmadapter ` binary ay ipinasa sa Electron, ang ` widevinecdm ` binary ay dapat na isantabi ito.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+Ang utos ay pagpalitin ang mga linya na kailangang maipasa bago ang `handa`kaganapan ng`app` nakakakuha ang modyul, at ang pahina na gumagamit ng plugin na ito ay dapat na magkaroon ng plugin na gumagana.
 
-Example code:
+Halimbawa ng kodigo:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = nangangailangan ('elektron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
+// Dapat mong ipasa ang filename ng `widevinecdmadapter` dito, ito ay
+// * `widevinecdmadapter.plugin` sa macOS,
+// * `libwidevinecdmadapter.so` sa Linux,
+// * `widevinecdmadapter.dll` sa Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
 // The version of plugin can be got from `chrome://plugins` page in Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
