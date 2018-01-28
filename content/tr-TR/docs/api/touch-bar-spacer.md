@@ -4,7 +4,7 @@
 
 Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSpacer(options)` *Experimental*
+### `new TouchBarSpacer(seçenekler)` *Deneysel*
 
 * `ayarlar` Nesne 
   * `boyut` aralayıcı genişliği, mümkün olan değerler: 
