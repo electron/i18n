@@ -11,10 +11,10 @@ Ang opisyal na simbolo ng server URL para sa Elektron ay https://elektron-simbol
 Ang simbolo ng Windbg ay landas na isinaayos na may string na halaga upang nililimitahan ng asterisk ang mga character. Upang magamit lamang ang server na simbolo ng Electron, idagdag ang sumusunod na entry sa iyong daan na simbolo (**Tandaan:**maaari mong palitan` c:\code\mga simbolo` sa anumang writable direktoryo sa iyong computer, kung gusto mo ng ibang lokasyon para ma-download Ang mga simbolo):
 
 ```powershell
-SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\ code\mga simbolo\*https://electron-mga simbolo.githubapp.com
 ```
 
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg menu, o sa pamamagitan ng pag-type`sympath` utos. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
 
 ```powershell
 SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
