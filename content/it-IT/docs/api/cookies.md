@@ -61,7 +61,7 @@ The following methods are available on instances of `Cookies`:
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `callback` Funzione 
-  * `error` Error
+  * `errore` Errore
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
 Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
@@ -78,7 +78,7 @@ Sends a request to get all cookies matching `details`, `callback` will be called
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Funzione 
-  * `error` Error
+  * `errore` Errore
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
