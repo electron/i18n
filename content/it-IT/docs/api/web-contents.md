@@ -317,26 +317,26 @@ Emesso quando un certificato client è richiesto.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Evento: 'accedi'
 
 Restituiti:
 
 * `evento` Evento
-* `request` Object 
-  * `method` String
+* `richiesta` Object 
+  * `metodo` Stringa
   * `url` URL
-  * `referrer` URL
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
+  * `prescrivente` URL
+* `infoautore` Object 
+  * `èProxy` Booleano
+  * `schema` Stringa
+  * `ospite` Stringa
+  * `porta` Numero Intero
+  * `regno` Stringa
 * `callback` Funzione 
-  * `username` String
-  * `password` String
+  * `nomeutente` Stringa
+  * `password` Stringa
 
-Emitted when `webContents` wants to do basic auth.
+Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
