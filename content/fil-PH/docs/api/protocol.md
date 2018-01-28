@@ -83,7 +83,7 @@ Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa la
 
 Kapag ang `callback` ay tinawag ng walang kasama na, isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`, so you probably want to call `protocol.registerStandardSchemes` to have your scheme treated as a standard scheme.
+Batay sa default ang `scheme` ay tinatrato katulad ng `http`, kung saan ay sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong panukala ay itrato bilang isang standard na panukala.
 
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
