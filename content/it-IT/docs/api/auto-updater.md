@@ -45,7 +45,7 @@ The `autoUpdater` object emits the following events:
 
 Restituiti:
 
-* `error` Error
+* `errore` Errore
 
 Emitted when there is an error while updating.
 
