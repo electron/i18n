@@ -41,17 +41,17 @@ Idikit ang "debugger" sa `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Pagbabalik sa `Boolean` - Kung ang "debugger" ay nakadikit sa `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Pagtanggal ng "debugger" galing sa `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `tumawag muli` Function (optional) - Response 
+* `method` String - Ang pangalan ng sistematikong paraan ay dapat na isa sa mga paraan na tinutukoy gamit ang "remote debugging protocol".
+* `commandParams` Object (opsyunal) - "JSON object" na may hiling na parameters.
+* `muling pagtawag` Function (optional) - Response 
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
