@@ -34,4 +34,4 @@ $ code electron-quick-start
 
 Itakda ang ilang "breakpoints" sa `main.js`, at simulang ang "debugging" sa [Debug View](https://code.visualstudio.com/docs/editor/debugging). Kinakailangan mong matamaan ang "breakpoints".
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Ito ang proyekto na ginamitan na ng kumpigurasyon na maaaring kunin o "download" at direktang gagamitan ng "debug" sa VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
