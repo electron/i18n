@@ -71,7 +71,7 @@ Linux では、自動アップデーターの組み込みサポートがない�
 * `releaseDate` Date
 * `updateURL` String
 
-更新プログラムがダウンロードされているときに出力されます。
+Emitted when an update has been downloaded.
 
 Windowsでは `releaseName` のみ利用可能です。
 
