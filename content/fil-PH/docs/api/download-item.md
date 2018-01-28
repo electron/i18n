@@ -142,16 +142,16 @@ Pagbabalik sa `String` - Ang kasalukuyang estado. Maaaring maging `progressing`,
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Pagbabalik ng `String[]` - Ang kumpletong "url" ng aytem kasama ang kahit anong mga muling dinirekta.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Pagbabalik ng `String` - Ang halaga ng Last-Modified header.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Pagbabalik ng `String` - Ang halaga ng "ETag header".
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Pagbabalik ng `Double` - Bilang ng mga segundo simula ang "UNIX epoch" kapag ang "download" ay nag-umpisa.
