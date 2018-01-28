@@ -366,33 +366,33 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Recupera un'icona associata al percorso.
     
-    On *Windows*, there a 2 kinds of icons:
+    Su *Windows* esistono 2 tipi di icone:
     
-    * Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-    * Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+    * Icone associate con certe estensioni di file come `.mp3`, `.png`, etc.
+    * Icone interne allo stesso file come `.exe`, `.dll`, `.ico`.
     
-    On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+    Su *Linux* e *macOS* le icone dipendono dall'app associata con il tipo di file mimo.
     
-    ### `app.setPath(name, path)`
+    ### `app.impostaPercorso(nome, percorso)`
     
     * `nome` Stringa
     * `percorso` Stringa
     
-    Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+    Sostituisce il `percorso` ad una directory speciale o ad un file associato con `nome`. Se il percorso specifica una directory che non esiste, la directory sarà creata da questo metodo. In caso di fallimento viene generato un `Errore`.
     
-    You can only override paths of a `name` defined in `app.getPath`.
+    Si possono sostituire solo i percorsi di un `nome` definiti in `app.ottieniPercorso`.
     
-    By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+    Di default, i cookie e la cache delle pagine web saranno immagazzinate sotto la directory `Datiutente`. Se vuoi cambiare questa posizione devi sostituire al percorso `Datiutente` prima che l'evento `pronto` del modulo `app` venga emesso.
     
-    ### `app.getVersion()`
+    ### `app.ottieniVersione()`
     
-    Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+    Restituisce `Stringa` - La versione dell'app caricata. Se non viene trovata nessuna versione nel file dell'app `pacchetto-json`, la versione dell'attuale pacchetto o eseguibile è restituita.
     
-    ### `app.getName()`
+    ### `app.ottieniNome()`
     
-    Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+    Restituisce `Stringa`. Il nome attuale dell'app, che è il nome nel file dell'app `package.json`.
     
-    Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+    Spesso il campo `nome` del `package.json` è un breve nome in minuscolo, in bae alla specifica dei moduli npm-. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
     
     ### `app.setName(name)`
     
