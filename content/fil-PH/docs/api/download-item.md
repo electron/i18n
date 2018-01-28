@@ -92,7 +92,7 @@ Pagbabalik sa `Boolean` - Kahit pa ang "download" ay pansamantalang nakahinto.
 
 Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Paalala:** Para mapagana ang mga "download" na muling prinoseso, ang "server" kung saan pinoproseso ang "download" ay dapat suportahan ng mga saklaw na kahilingan at magbigay pareho ang mga halaga ng "header" na `Last-Modified` at `ETag`. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
