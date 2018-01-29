@@ -17,7 +17,7 @@ If your app is packaged with [electron-builder](https://github.com/electron-user
 
 ## Implementación de actualizaciones en su aplicación
 
-Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Una vez que haya implementado su servidor de actualización, continúe con la importación de los módulos requeridos en su código. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
 **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
 
@@ -46,7 +46,7 @@ Once your application is [packaged](../tutorial/application-distribution.md), it
 
 ## Aplicando actualizaciones
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Ahora que ha configurado el mecanismo de actualización básico para su aplicación, debe asegurarse de que el usuario reciba una notificación cuando haya una actualización. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
