@@ -6,11 +6,11 @@
     - Necesitamos verificar la rama correspondiente.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - Verifique la rama con la suma de verificación de revisión: 
         - `git checkout <revision checksum>`
     - Add electron's crashpad fork as a remote
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - Echa un vistazo a una nueva rama para la actualización
     - `git checkout -b electron-crashpad-vA.B.C.D`
     - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
 
@@ -18,7 +18,7 @@
     
     - Or view https://github.com/electron/crashpad/commits/previous-branch-name
 
-3. For each patch:
+3. Para cada parche:
     
     - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
     - `git cherry-pick <checksum>`
