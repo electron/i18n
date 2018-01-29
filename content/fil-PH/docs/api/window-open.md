@@ -47,31 +47,31 @@ Maaari ring itakda ang opsyong ito sa `<webview>` mga tag na mabuti:
 Ang paglikha ng `BrowserWindow` ay napapasadya sa pamamagitan ng `WebContents` `bagong window` kaganapan.
 
 ```javascript
-// main process
-const mainWindow = new BrowserWindow({
-  width: 800,
-  height: 600,
+// pangunahing proseso
+const mainWindow = bagong BrowserWindow ({
+  lapad: 800,
+  taas: 600,
   webPreferences: {
-    nativeWindowOpen: true
+    nativeWindowOpen: totoo
   }
 })
-mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
-  if (frameName === 'modal') {
-    // open window as modal
-    event.preventDefault()
-    Object.assign(options, {
-      modal: true,
-      parent: mainWindow,
-      width: 100,
-      height: 100
+mainWindow.webContents.on ('bagong-bintana', (kaganapan, url, frameName, disposition, mga pagpipilian, additionalFeatures) = & gt; {
+  kung (frameName === 'modal') {
+    // buksan ang window bilang modal
+    Kaganapan.preventDefault ()
+    Bagay.assign (pagpipilian, {
+      modal: totoo,
+      magulang: mainWindow,
+      lapad: 100,
+      taas: 100
     })
-    event.newGuest = new BrowserWindow(options)
+    event.newGuest = bagong BrowserWindow (mga pagpipilian)
   }
 })
 ```
 
 ```javascript
-// renderer process (mainWindow)
-let modal = window.open('', 'modal')
-modal.document.write('<h1>Hello</h1>')
+// proseso ng renderer (mainWindow)
+hayaan modal = window.buksan ('', 'modal')
+modal.document.isulat ('<h1>Hello</h1>')
 ```
