@@ -6,13 +6,13 @@ Kapag ang `window.binuksan` ay tinatawag para sa bagong window na likha sa isang
 
 Ang proxy ay may limitadong pamantayan na pag-andar na ipinatupad para katugma sa tradisyonal ng mga web page. Para sa ganap na kontrol sa bagong window dapat kang lumikha ng `BrowserWindow ` direkta.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Ang bagong nilikhang `BrowserWindow` ay magmamana ng mga opsyon sa bintana ng magulang sa pamamagitan ng default. Upang i-override ang mga pagpipilian na minana maaari mong itakda ang mga ito sa `mga tampok` string.
 
-### `window.open(url[, frameName][, features])`
+### `window.buksan(url [, frameName] [,mga tampok])`
 
-* `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `url` Tali
+* `frameName` Tali (opsyonal)
+* `Mga tampok` Tali (opsyonal)
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
