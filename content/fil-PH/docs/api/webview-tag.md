@@ -580,7 +580,7 @@ Magbabalik ng:
 * `headers` Objek
 * `resourceType` String
 
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+Itigil kapag ang mga detalye tungol sa hinihinging resource ay nahanap na. Ang `status` ay tumutukoy sa socket connection sa pagdownload ng resource.
 
 ### Event: 'did-get-redirect-request'
 
@@ -590,11 +590,11 @@ Magbabalik ng:
 * `newURL` String
 * `isMainFrame` Boolean
 
-Fired when a redirect was received while requesting a resource.
+Itigil kapag nakatanggap ng redirect habang himihingi ng resource.
 
 ### Event: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+Itigil kapag ang dokumento ng sinasabing frame ay na-load.
 
 ### Event: 'page-title-updated'
 
