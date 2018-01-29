@@ -40,4 +40,4 @@ Puede estar conectado a varios programas cuando se está depurando, pero solamen
 
 Mientras que Visual Studio es fantástico para inspeccionar rutas de código específicas, la fortaleza de ProcMon está realmente en observar todo lo que su aplicación está haciendo con el sistema operativo: captura los detalles de archivo, registro, red, proceso y perfil detallado de los procesos. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+Para obtener una introducción a las funciones de depuración básicas y avanzadas de ProcMon, consulte el video proveído por Microsoft [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor).
