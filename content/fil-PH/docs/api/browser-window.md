@@ -1,6 +1,6 @@
 # Ang Browser ng Window
 
-> Ang pag-gawa at pag-kontrol ng window na browser.
+> Paglikha at pag-kontrol ng browser windows.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
@@ -108,7 +108,7 @@ Ang Inirerekomenda na i-hinto mo ang mga mahahalagang operasyon kapag ang may ka
 
 ## Ang Klase: ng BrowserWindow
 
-> Ang pag-gawa at pag-kontrol ng window na browser.
+> Paglikha at pag-kontrol ng browser windows.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
