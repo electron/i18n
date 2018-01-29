@@ -132,26 +132,26 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `resizable` Boolean (opcional) - si la ventana es redimensionable. Por defecto es `true`.
   * `movable` Boolean (opcional) - si la ventana es movible. Esto no esta implementado en Linux. Por defecto es `true`.
   * `minimizable` Boolean (opcional) - si la ventana se minimiza. Esto no está implementado en Linux. Por defecto es `true`.
-  * `maximizable` Booleano (opcional) - si la ventana se máximiza. Esto no está implementado en Linux. Por defecto es `true`.
-  * `closable` Booleano (opcional) - si la ventana se cierra. Esto no esta implementado en Linux. Por defecto es `true`.
-  * `focusable` Booleano (opcional) - si la ventana se puede enfocar. Por defecto es `true`. En Windows, la configuración `focusable: false` también quiere decir que `skipTaskbar: true`. En Linux, la configuración `focusable: false` hace que la ventana deje de interactuar con wm, así la ventana siempre se mantendrá en la parte superior en todas las áreas de trabajo.
-  * `alwaysOnTop` Booleano (opcional) - si la ventana debería estar siempre por encima de otras ventanas. Por defecto es `false`.
-  * `fullscreen` Booleano (opcional) - si la ventana debería mostrarse en pantalla completa. Cuando se establece explícitamente `false` el botón de la pantalla completa estará oculta o deshabilitada en macOS. Por defecto es `false`.
-  * `fullscreenable` Booleano (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
-  * `skipTaskbar` Booleano (opcional) - si se va a mostrar la ventana en la barra de tareas. Por defecto es `false`.
-  * `kiosk` Booleano (opcional) - El modo kiosco. Por defecto es `false`.
-  * `title` Cadena (opcional) - Título de la ventana por defecto. Por defecto es `"Electron"`.
+  * `maximizable` Boolean (opcional) - si la ventana se máximiza. Esto no está implementado en Linux. Por defecto es `true`.
+  * `closable` Boolean (opcional) - si la ventana se cierra. Esto no esta implementado en Linux. Por defecto es `true`.
+  * `focusable` Boolean (opcional) - si la ventana se puede enfocar. Por defecto es `true`. En Windows, la configuración `focusable: false` también quiere decir que `skipTaskbar: true`. En Linux, la configuración `focusable: false` hace que la ventana deje de interactuar con wm, así la ventana siempre se mantendrá en la parte superior en todas las áreas de trabajo.
+  * `alwaysOnTop` Boolean (opcional) - si la ventana debería estar siempre por encima de otras ventanas. Por defecto es `false`.
+  * `fullscreen` Boolean(opcional) - si la ventana debería mostrarse en pantalla completa. Cuando se establece explícitamente `false` el botón de la pantalla completa estará oculta o deshabilitada en macOS. Por defecto es `false`.
+  * `fullscreenable` Boolean (opcional) - si la ventana puede ponerse el modo pantalla completa. En macOS, también si el botón maximizar o acercarse debería alternar el modo pantalla completa o maximizar la ventana. Por defecto es `true`.
+  * `skipTaskbar` Boolean (opcional) - si se va a mostrar la ventana en la barra de tareas. Por defecto es `false`.
+  * `kiosk` Boolean (opcional) - El modo kiosco. Por defecto es `false`.
+  * `title` String (opcional) - Título de la ventana por defecto. Por defecto es `"Electron"`.
   * `icon` ([NativeImage](native-image.md) | String) (opcional) - El icono de la ventana. En Windows, se recomienda usar iconos `ICO` para obtener mejores efectos visuales. También se se puede dejar sin definir, de esta manera se utilizará el icono del ejecutable.
-  * `show` Booleano (opcional) - si la ventana debería ser mostrada cuando es creada. Por defecto es `true`.
-  * `frame` Booleano (opcional) - Especifica `false` para crear una [Frameless Window](frameless-window.md). Por defecto es `true`.
+  * `show` Boolean (opcional) - si la ventana debería ser mostrada cuando es creada. Por defecto es `true`.
+  * `frame` Boolean (opcional) - Especifica `false` para crear una [Frameless Window](frameless-window.md). Por defecto es `true`.
   * `parent` BrowserWindow (opcional) - Especifica la ventana principal. Por defecto es `null`.
-  * `modal` Booleano (opcional) - si esta es una ventana modal. Esto solo funciona si la ventana es una ventana secundaria. Por defecto es `false`.
-  * `acceptFirstMouse` Booleano (opcional) - Si la vista web acepta un único evento mouse-down que activa simultáneamente la ventana. Por defecto es `false`.
-  * `disableAutoHideCursor` Booleano (opcional) - si se oculta el cursor al escribir. Por defecto es `false`.
-  * `autoHideMenuBar` Booleano (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
-  * `enableLargerThanScreen` Booleano (opcional) - Permite que el tamaño de la ventana sea más grande que la pantalla. Por defecto es `false`.
-  * `backgroundColor` Cadena (opcional) - El color de fondo de la ventana como valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alpha es soportado). Por defecto es `#FFF` (blanco).
-  * `hasShadow` Booleano (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
+  * `modal` Boolean (opcional) - si esta es una ventana modal. Esto solo funciona si la ventana es una ventana secundaria. Por defecto es `false`.
+  * `acceptFirstMouse` Boolean (opcional) - Si la vista web acepta un único evento mouse-down que activa simultáneamente la ventana. Por defecto es `false`.
+  * `disableAutoHideCursor` Boolean (opcional) - si se oculta el cursor al escribir. Por defecto es `false`.
+  * `autoHideMenuBar` Boolean (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
+  * `enableLargerThanScreen` Boolean (opcional) - Permite que el tamaño de la ventana sea más grande que la pantalla. Por defecto es `false`.
+  * `backgroundColor` String (opcional) - El color de fondo de la ventana como valor hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (alpha es soportado). Por defecto es `#FFF` (blanco).
+  * `hasShadow` Boolean (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
   * `darkTheme` Booleano (opcional) - Obliga a utilizar un tema oscuro en la ventana, solamente funciona en algunos GTK+3 desktop environments. Por defecto es `false`.
   * `transparent` Booleano (opcional) - Hace que la ventana sea [transparente](frameless-window.md). Por defecto es `false`.
   * `type` Cadena (opcional) - El tipo de ventana, por defecto es ventana normal. See more about this below. Ver más sobre esto más abajo.
