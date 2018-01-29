@@ -1,10 +1,10 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> Magdagdag ng mga icons at mga context menu sa notification area ng sistema.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
