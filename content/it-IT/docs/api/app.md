@@ -756,55 +756,55 @@ Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quota
 
 ### `app.abilitascatolaSabbiaMischiata()` *Sperimentale* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Abilita la modalità scatola dei giochi mischiata nell'app.
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `tipo` Stringa (opzionale) - Può essere `critico` o `informativo`. Di default è `informativo`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Quando `critico` è passato, l'icona del dock rimbalza finché l'app diventa attiva o la richiesta viene annullata.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Quando `informativo` è passato, l'icona del dock rimbalzerà per un secondo. Comunque la richiesta resterà attiva finché l'l'applicazione non diviene attiva o la richiesta viene annullata.
 
-Returns `Integer` an ID representing the request.
+Restituisce `Intero` un ID rappresentante la richiesta.
 
-### `app.dock.cancelBounce(id)` *macOS*
+### `app.dock.annullaRimbalzo(id)` *macOS*
 
-* `id` Integer
+* `id` Numero Intero
 
-Cancel the bounce of `id`.
+Annulla il rimbalzo dell'`id`.
 
-### `app.dock.downloadFinished(filePath)` *macOS*
+### `app.dock.scaricamentoFinito(Percorsofile)` *macOS*
 
-* `filePath` String
+* `Percorsofile` Stringa
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Rimbalza il download impilato se il Percorsofile è nella cartella dei file scaricati.
 
-### `app.dock.setBadge(text)` *macOS*
+### `app.dock.impostaBadge(testo)` *macOS*
 
-* `text` String
+* `testo` Stringa
 
-Sets the string to be displayed in the dock’s badging area.
+Imposta la stringa da mostrare nell'area del dock di badging.
 
-### `app.dock.getBadge()` *macOS*
+### `app.dock.ottieniBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Restituisce `Stringa` - La stringa del badge del dock.
 
-### `app.dock.hide()` *macOS*
+### `app.dock.nascondi()` *macOS*
 
-Hides the dock icon.
+Nasconde l'icona del dock.
 
-### `app.dock.show()` *macOS*
+### `app.dock.mostra()` *macOS*
 
-Shows the dock icon.
+Mostra l'icona del dock.
 
-### `app.dock.isVisible()` *macOS*
+### `app.dock.èvisibile()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Restituisce `Booleano` - Se l'icona del dock è visibile. L'`app.dock.mostra()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
 
-### `app.dock.setMenu(menu)` *macOS*
+### `app.dock.impostaMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
