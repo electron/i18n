@@ -603,31 +603,31 @@ app.su('pronto', () => {
 
 Rilascia tutti i blocchi creati da `faIstanzaSingola`. Permetterà alle istanze multiple dell'app di essere eseguite di nuovo al contempo.
 
-### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
+### `app.impostaUtenteAttività(tipo, userInfo[, Urlpaginaweb])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - App-specific state to store for use by another device.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
+* `Urlpaginaweb` Stringa (opzionale) - La pagina web da caricare nel browser se non sono installate app adatte nel dispositivo ripristinante. Lo schema deve essere `http` o `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Crea un'`NSAttivitàUtente` e la imposta come attività corrente. L'attività è eleggibile per [Passarlo](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ad un altro dispositivo poi.
 
-### `app.getCurrentActivityType()` *macOS*
+### `app.ottieniTipoAttivitàCorrente()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
-### `app.setAppUserModelId(id)` *Windows*
+### `app.impostaModelloIdAppUtente(id)` *Windows*
 
-* `id` String
+* `id` Stringa
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) ad `id`.
 
-### `app.importCertificate(options, callback)` *LINUX*
+### `app.importaCertificato(opzioni, callback)` *LINUX*
 
-* `opzioni` Object 
-  * `certificate` String - Path for the pkcs12 file.
-  * `password` String - Passphrase for the certificate.
+* `opzioni` Oggetto 
+  * `certificato` Stringa - Percorso per il file pkcs12.
+  * `password` Stringa - Frase d'accesso per il certificato.
 * `callback` Funzione 
-  * `result` Integer - Result of import.
+  * `risultato` Numero intero - Risultato dell'importo.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
