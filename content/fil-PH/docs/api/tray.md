@@ -7,26 +7,26 @@ Ang proseso: [Main](../glossary.md#main-process)
 Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const {app, Menu, Tray} = nangangailanganng('electron')
 
-let tray = null
+hayaan ang tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'},
     {label: 'Item3', type: 'radio', checked: true},
     {label: 'Item4', type: 'radio'}
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Ito ay aking aplikasyon.')
   tray.setContextMenu(contextMenu)
 })
 ```
 
-**Platform limitations:**
+**Mga Limitasyon ng Plataporma:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
+* Sa Linux na app indicator ay gagamitin kung ito ay sinusuportahan, kung hindi man `GtkStatusIcon`ay maaring gamitin sa halip.
+* Sa Linux distributions na mayroon lamang app indicator support, pwede kang mag-install ng `libappindicator1` para gumawa ng tray icon work.
 * App indicator will only be shown when it has a context menu.
 * When app indicator is used on Linux, the `click` event is ignored.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
