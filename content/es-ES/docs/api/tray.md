@@ -70,7 +70,7 @@ El módulo `Tray` emite los siguientes eventos:
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
-  * `metaKey` Booleano
+  * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
 
 Emitido cuando se hace clic en el icono de bandeja.
@@ -81,7 +81,7 @@ Emitido cuando se hace clic en el icono de bandeja.
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
-  * `metaKey` Booleano
+  * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
 
 Emitido cuando se hace clic derecho en el icono de bandeja.
@@ -92,7 +92,7 @@ Emitido cuando se hace clic derecho en el icono de bandeja.
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
-  * `metaKey` Booleano
+  * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
 
 Emitido cuando se hace doble clic en el icono de bandeja.
@@ -145,7 +145,7 @@ Emitido cuando termina una operación de arrastre en la bandeja o termina en otr
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
-  * `metaKey` Booleano
+  * `metaKey` Boolean
 * `position` [Point](structures/point.md) - La posición del evento
 
 Emitido cuando el ratón entra en el icono de la bandeja.
@@ -156,7 +156,7 @@ Emitido cuando el ratón entra en el icono de la bandeja.
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
-  * `metaKey` Booleano
+  * `metaKey` Boolean
 * `position` [Point](structures/point.md) - La posición del evento
 
 Emitido cuando el ratón sale del icono de la bandeja.
