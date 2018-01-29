@@ -863,21 +863,21 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 
 * `options` Object 
   * `marginsType` Integer - (opcional) Especifica el tipo de márgenes que se va a usar. Utiliza 0 para el margen por defecto, 1 para ningún margen y 2 para el margen mínimo.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `llamada de vuelta` Función 
+  * `pageSize` String - (opcional) Especifica el tamaño de la página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
+  * `printBackground` Boolean - (opcional) Si se imprime o no los fondos CCS.
+  * `printSelectionOnly` Boolean - (opcional) Si solo se imprime la selección.
+  * `landscape` Boolean - (opcional) `true` para paisajes, `false` para retratos.
+* `callback` Función 
   * `error` Error
   * `data` Buffer
 
 Imprime la página web de la ventana como PDF con la configuración personalizada de impresión previa de Chromium.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+El `callback` será llamado con `callback(error, data)` cuando finalice. La `data` es un `Buffer` que contiene la información de PDF generado.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+El `landscape` se ignorará si `@page` CSS at-rule es utilizado en la página web.
 
-By default, an empty `options` will be regarded as:
+Por defecto, una `options` en blanco se considerará como:
 
 ```javascript
 {
@@ -890,7 +890,7 @@ By default, an empty `options` will be regarded as:
 
 Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
-An example of `webContents.printToPDF`:
+Un ejemplo de `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
