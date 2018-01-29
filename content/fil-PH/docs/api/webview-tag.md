@@ -603,23 +603,23 @@ Magbabalik ng:
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+Itigil kapag ang titulo ng page ay naitakdang habang naka-nabigasyon. Ang `explicitSet` ay di totoo kapag ang titulo ay nabuo mula sa file url.
 
 ### Event: 'page-favicon-updated'
 
 Magbabalik ng:
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - Hanay ng mga URL.
 
-Fired when page receives favicon urls.
+Itigil kapag nakatanggap ang page ng mga url na favicon.
 
 ### Event: 'enter-html-full-screen'
 
-Fired when page enters fullscreen triggered by HTML API.
+Itigil kapag ang page ay naka-fullscreen na dulot ng HTML API.
 
 ### Event: 'leave-html-full-screen'
 
-Fired when page leaves fullscreen triggered by HTML API.
+Itigil kapag ang page ay hindi na naka-fullscreen na dulot ng HTML API.
 
 ### Event: 'console-message'
 
@@ -630,7 +630,7 @@ Magbabalik ng:
 * `line` Integer
 * `sourceId` String
 
-Fired when the guest window logs a console message.
+Itigil kapag ang guest window ay nagtalaga ng mensahe na konsol.
 
 The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
