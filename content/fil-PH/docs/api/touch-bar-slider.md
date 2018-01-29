@@ -20,16 +20,16 @@ Ang mga sumusunod na propyedad ai pwedeng gamitin sa pagkakataon ng `TouchBarSli
 
 #### `touchBarSlider.label`
 
-A `String` representing the slider's current text. Changing this value immediately updates the slider in the touch bar.
+Ang <->String</code> na nagrepresenta sa kasalukuyang teksto ng slider. Ang pagpalit ng halagang ito ay kaagad na bumabago ng slider sa pindutang bar.
 
 #### `touchBarSlider.value`
 
-A `Number` representing the slider's current value. Changing this value immediately updates the slider in the touch bar.
+Ang `Numero` na narepresenta ng kasalukuyang teksto ng slider. Ang pagapalit ng halagang ito ay kaagad na bumabago ng slider sa pindutang bar.
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+Ang `Numero` na nagrepresenta ng kasalukuyang pinakamaliit na halaga ng slider. Ang papalit ng halaga ay kaagad na bumabago sa slider ng pindutang bar.
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+Ang `Numero` na nagrepresenta ng kasalukuyang pinakamalaking halaga ng slider. Ang papalit ng halaga ay kaagad na bumabago sa slider ng pindutang bar.
