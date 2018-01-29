@@ -62,9 +62,9 @@ Laruin ang tunog na "beep".
 
 * `shortcutPath` String
 * `operation` String (opsyunal) - Pagtatakda nito sa dati o karaniwan nitong ayos o "default" ay `paglikha`, na maaaring isa sa mga sumusunod: 
-  * `create` - Ang paglikha ng bagong mas madaling daan o "shortcut", pagpapalit ng lumang impormasyon o datos sa bago o tinatawag na "overwriting", kung kinakailangan.
-  * `update` - Ang pagsasaayos ng mga katangian ayon sa pinakabagong aspeto nito ay mangyayari lamang sa umiiral na mas madaling daan.
-  * `replace` - Ang pagpatong sa pagpapaikli ay maaaring mabigo kung ito ay hindi umiiral.
+  * `create` - Ang paglikha ng bagong "shortcut", pagpapalit ng lumang impormasyon o datos sa bago o tinatawag na "overwriting", kung kinakailangan.
+  * `update` - Ang pagsasaayos ng mga katangian ayon sa pinakabagong aspeto nito ay mangyayari lamang sa umiiral na "shortcut".
+  * `replace` - Ang pagpatong sa "shortcut" ay maaaring mabigo kung ito ay hindi umiiral.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
 Pagbabalik sa `Boolean` - kung ang pagpapaikli ay matagumpay na nalikha
@@ -79,4 +79,4 @@ Pagbalik sa [`ShortcutDetails`](structures/shortcut-details.md)
 
 Paglulutas ng "shortcut link" sa `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Ang eksepsiyon ay mababaliwala kapag may maling nangyari.
