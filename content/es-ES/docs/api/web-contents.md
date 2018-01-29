@@ -1014,24 +1014,24 @@ app.on('ready', () => {
   * `deviceScaleFactor` Integer - Configura el factor escala del dispositivo (si es cero regresa por defecto al factor de escala original del dispositivo) (por defecto: ``)
   * `viewSize` [Size](structures/size.md) - Configura el tamaño de la vista emulada (en blanco significa que no hay anulación)
   * `fitToView` Boolean - Si la vista emulada debe reducirse si es necesario para que quepa dentro del espacio disponible (por defecto: `false`)
-  * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+  * `offset` [Point](structures/point.md) - El offset de la vista emulada dentro del espacio disponible (no dentro del modo vista) (por defecto: `{x: 0, y: 0}`)
+  * `scale` Float - Escala de la vista emulada dentro del espacio disponible (no dentro del modo vista) (por defecto: `1`)
 
-Enable device emulation with the given parameters.
+Habilita la emulación del dispositivo con los parámetros predeterminados.
 
 #### `contents.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+Deshabilita la emulación del dispositivo habilitado por `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
 * `event` Object 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
-  * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+  * `type` String (**required**) - El tipo de evento, puede ser `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
+  * `modifiers` String[] - Un arreglo con los modificadores del evento, puede incluir `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+Envia una entrada `event` a la página. **Nota:** El `BrowserWindow` que contiene los contenidos necesitan ser enfocados para que `sendInputEvent()` funcione.
 
-For keyboard events, the `event` object also have following properties:
+Para eventos del teclado, el objeto `evento` también tiene las siguientes propiedades:
 
 * `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
 
