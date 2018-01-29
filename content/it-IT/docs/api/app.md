@@ -494,7 +494,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     **Nota:** Se un oggetto `CategoriaJumpList` non ha nè la proprietà `tipo` nè quella `nome` le proprietà si impostano che il `tipo` sia sicuramente `task`. Se la proprietà `nome` è impostata ma la proprietà `tipo` è omessa il `tipo` sarà considerato `personalizzato`.
     
-    **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+    **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
     
     Here's a very simple example of creating a custom Jump List:
     
