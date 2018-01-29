@@ -50,18 +50,18 @@ Buksan ang binigay na panlabas na sistematikong panuntunan ng "desktop" sa karan
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+Pagbalik sa `Boolean` - Kung ang aytem matagumpay na nabura
 
-Move the given file to trash and returns a boolean status for the operation.
+Burahin ang binigay na payl at bumalik sa posisyon nito bilang "boolean" para sa pagpapagana.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Laruin ang tunog na "beep".
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
+* `operation` String (opsyunal) - Pagtatakda nito sa dati o karaniwan nitong ayos o "default" `paglikha`, ay maaaring isa sa mga sumusunod: 
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
