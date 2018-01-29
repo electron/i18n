@@ -31,7 +31,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### Halimbawa ng Pangyayari
 
-The following events are available on instances of `Cookies`:
+Ang ang sumusunod na pangyayari ay maaaring makita sa ilang pagkakataon ng `Cookies`:
 
 #### Event: 'changed'
 
