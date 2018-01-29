@@ -48,5 +48,5 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "electronLatestStableTag": "v1.7.11",
-  "electronMasterBranchCommit": "b0a1575bb716862071a8d51d9e0834a882aeee5b"
+  "electronMasterBranchCommit": "12d4f984f368f263fd47a49a2ab473efbcab8246"
 }
