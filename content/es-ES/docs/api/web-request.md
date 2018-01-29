@@ -1,6 +1,6 @@
 ## Class: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> Interceptar y modificar el contenido de una solicitud en varias etapas de su ciclo de vida.
 
 Proceso: [Principal](../glossary.md#main-process)
 
@@ -110,7 +110,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `Estatus de código` entero
   * `headers de respuesta` objeto
 * `llamada de vuelta` Función 
-  * `response` Object 
+  * `respuesta` Object 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
