@@ -16,7 +16,7 @@ Ang parehong `ia32` (`x86`) at `x64` (`amd64`) binary ay ibinigay para sa Window
 
 Ang prebuilt `ia32` (`i686`) at `x64` (`amd64`) binary ng Elektron ay binuo sa Ubuntu 12.04, ang `braso` binuo ang binary laban sa ARM v7 na may hard-float ABI at NEON para sa Debian Wheezy.
 
-Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
+Kung ang prebuilt binary ay maaaring tumakbo sa isang pamamahagi ito ay depende sa kung ang pamamahagi ay kasama ang mga aklatan na naka-link sa Elektron at sa gusali ng plataporma, kaya tanging ang Ubuntu 12.04 ang garantisadong gumagana, ngunit ang mga sumusunod na mga plataporma ay napatunayan na upang patakbuhin ang prebuilt binary ng Elektron:
 
 * Ubuntu 12.04 and later
 * Fedora 21
