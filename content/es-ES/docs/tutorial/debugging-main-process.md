@@ -8,7 +8,7 @@ Use uno de los siguientes interruptores de línea de comando para habilitar la d
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron escuchará los mensajes de protocolo del inspector V8 en el `port` especificado, un depurador externo deberá conectarse en este puerto. El `port` por defecto será el `5858`.
 
 ```shell
 electron --inspect=5858 your/app
