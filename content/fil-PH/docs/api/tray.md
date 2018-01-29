@@ -47,9 +47,9 @@ app.on('ready', () => {
 
 * Sa windows ito ay inirekomenda para gamitin ang mga `ICO`icons para makuha ang pinakamahusay na visual effects.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapat hindi ka umasa sa 0>click</code> event at palaging i-attach ang context menu sa tray icon.
 
-### `new Tray(image)`
+### `bagong Tray(imahe)`
 
 * `image` [NativeImage](native-image.md) (String)
 
