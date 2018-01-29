@@ -38,7 +38,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
 Returns `BrowserView` - The view with the given `id`.
 
