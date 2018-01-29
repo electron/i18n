@@ -132,13 +132,13 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 # 시맨틱 커밋
 
-저희는 업데이트와 출시 과정의 모든 단계에서 명확성이 향상되길 원합니다. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+저희는 업데이트와 출시 과정의 모든 단계에서 명확성이 향상되길 원합니다. `2.0.0` 버전을 기점으로, 모든 pull request는 [관례적인 커밋](https://conventionalcommits.org/) 스펙에 따라 작성되어야 하며, 커밋 스펙을 요약하면 다음과 같습니다:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* semver **메이저** 버전 증가로 이어지는 커밋은 `BREAKING CHANGE:`로 시작해야 합니다.
+* semver **마이너** 버전 증가로 이어지는 커밋은 `feat:` 로 시작해야 합니다.
+* semver **패치** 버전 증가로 이어지는 커밋은 `fix:`로 시작해야 합니다.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* 커밋 스쿼싱(sqaushing)은 허용되며, 스쿼시된 메시지는 앞에서 언급한 메시지 포맷을 따라야 합니다.
 
 * It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
 
