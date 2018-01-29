@@ -677,97 +677,97 @@ Silencia el audio la página web actual.
 
 #### `contents.isAudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+Devuelve `Boolean` - Si esta página ha sido silenciada.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Factor Zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Cambia el factor zoom al factor especificado. El factor zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
 #### `contents.getZoomFactor(callback)`
 
 * `llamada de vuelta` Función 
   * `zoomFactor` Number
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+Envía una solicitud para obtener el factor zoom actual. El `callback` será llamado con `callback(zoomFactor)`.
 
 #### `contents.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Number - Nivel de zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
 #### `contents.getZoomLevel(callback)`
 
 * `llamada de vuelta` Función 
   * `zoomLevel` Number
 
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Envía una solicitud para obtener el factor zoom actual. El `callback` será llamado con `callback(zoomLevel)`.
 
 #### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Obsoleto:** Llamar al `setVisualZoomLevelLimits` en su lugar para establecer los límites del nivel de zoom visual. Este método se eliminará en Electron 2.0.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Establece el nivel de máximo y mínimo de acercar y alejar.
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
 
 #### `contents.undo()`
 
-Executes the editing command `undo` in web page.
+Ejecuta el comando de edición `undo` en la página web.
 
 #### `contents.redo()`
 
-Executes the editing command `redo` in web page.
+Ejecuta el comando de edición `redo` en la página web.
 
 #### `contents.cut()`
 
-Executes the editing command `cut` in web page.
+Ejecuta el comando de edición `cut` en la página web.
 
 #### `contents.copy()`
 
-Executes the editing command `copy` in web page.
+Ejecuta el comando de edición `copy` en la página web.
 
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Copy the image at the given position to the clipboard.
+Copia la imagen en la posición determinada al portapapeles.
 
 #### `contents.paste()`
 
-Executes the editing command `paste` in web page.
+Ejecuta el comando de edición `paste` en la página web.
 
 #### `contents.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+Ejecuta el comando de edición `pasteAndMatchStyle` en la página web.
 
 #### `contents.delete()`
 
-Executes the editing command `delete` in web page.
+Ejecuta el comando de edición `delete` en la página web.
 
 #### `contents.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+Ejecuta el comando de edición `selectAll` en la página web.
 
 #### `contents.unselect()`
 
-Executes the editing command `unselect` in web page.
+Ejecuta el comando de edición `unselect` en la página web.
 
 #### `contents.replace(text)`
 
