@@ -68,7 +68,7 @@ Ang sumusunod na pangyayari ay magagamit para sa mga pagkakataon ng `Session`:
 
 Napalabs kung ang Electron ay tungkol para sa pag-download ng `item` in `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Pagtatawag `event.preventDefault()` ang pag kanselahin ang ida-download at `item` ay hindi na magagamit oara sa sunod na tik ng proseso.
 
 ```javascript
 const {session} = require('electron')
@@ -80,20 +80,20 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Mga pamamaraan ng pagkakataon
+### Mga halimbawa ng pamamaraan
 
-The following methods are available on instances of `Session`:
+Nag sumusunod na pamamaraan ay magagamit para sa halimbawa ng `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `tumawag muli` Punsyon 
-  * `size` Integer - Cache size used in bytes.
+* `tumawag muli` Function 
+  * `size` Integer - Nagamit na laki cache sa bytes.
 
-Callback is invoked with the session's current cache size.
+Pagwatag-muli ay nananawagan sa mga sesyons sa kasalukuyang laki ng cache.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `callback` Function - Tinatawag kung ang operason ay tapos na
 
 Clears the session’s HTTP cache.
 
