@@ -789,11 +789,11 @@ Itigil kapag ang nasira ang mga WebContent.
 
 ### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+Ilabas kapag ang medya ay nagsimula.
 
 ### Event: 'media-paused'
 
-Emitted when media is paused or done playing.
+Ilabas kapag ang medya ay nahinto o natapos na.
 
 ### Event: 'did-change-theme-color'
 
@@ -801,7 +801,7 @@ Magbabalik ng:
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-icounter ang tanda na meta:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -813,16 +813,16 @@ Magbabalik ng:
 
 * `url` String
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
 
 ### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+Ilabas kapag ang mga DevTool ay nabuksan.
 
 ### Event: 'devtools-closed'
 
-Emitted when DevTools is closed.
+Ilabas kapag ang mga DevTool ay nasarado.
 
 ### Event: 'devtools-focused'
 
-Emitted when DevTools is focused / opened.
+Ilabas kapag ang mga DevTool ay napukos / nabuksan.
