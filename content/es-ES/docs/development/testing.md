@@ -4,7 +4,7 @@ Nuestro objetivo es mantener la cobertura de código de electrón alto. Pedimos 
 
 Este repositorio viene con reglas de borrado tanto para JavaScript como para C++ – así como pruebas de unidad e integración. Para obtener más información sobre el estilo de codificación de Electrón, consulte el documento [coding-style(coding-style.md).
 
-## Borrado
+## Borrador
 
 Asegúrese de que su JavaScript cumpla con la codificación de Electron estilo, run `npm run lint-js`, que se ejecutara `standard` contra ambos tanto el propio electrón, así como las pruebas unitarias. Si estás usando un editor con un sistema de plugin/addon, es posible que desees utilizar uno de los muchos [ Complementos de StandardJS ](https://standardjs.com/#are-there-text-editor-plugins), para estar informado de violaciones de estilo de codificación antes de comprometerlas.
 
@@ -18,4 +18,4 @@ No hay mucho de Python en este repositorio, pero también se rige por las reglas
 
 Para ejecutar todas las pruebas de unidad, ejecute `npm run test`. Las pruebas de unidad son una aplicación de Electrón(¡sorpresa!) que puede encontrarse en la carpeta de `spec`. Tenga en cuenta que tiene su propio `package.json` y que sus dependencias por lo tanto no se definen en el nivel superior `package.json`.
 
-To run only a selected number of tests, run `npm run test -match=NAME`, replacing the `NAME` with the file name of the test suite you would like to run. As an example: If you want to run only IPC suites, you would run `npm run test -match=ipc`.
+Para ejecutar solo un número seleccionado de pruebas, ejecute `npm run test -match=NAME`, reemplazando el `NAME` con el nombre de archivo del conjunto de pruebas que desea ejecutar. Como ejemplo: Si desea ejecutar sólo suites IPC, ejecutarias `npm run test -match=ipc`.
