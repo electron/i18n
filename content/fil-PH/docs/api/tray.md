@@ -53,20 +53,20 @@ Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapa
 
 * `image` [NativeImage](native-image.md) (String)
 
-Creates a new tray icon associated with the `image`.
+Lumilikha ng isang panibagong tray icon na may kaugnayan sa mga`imahe`.
 
-### Instance Events
+### Halimbawa ng mga Event
 
-The `Tray` module emits the following events:
+Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
-#### Event: 'klik'
+#### Event: 'click'
 
 * `event` Event 
   * `altKey` Boolean
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
 Emitted when the tray icon is clicked.
 
@@ -77,7 +77,7 @@ Emitted when the tray icon is clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
 Emitted when the tray icon is right clicked.
 
@@ -88,7 +88,7 @@ Emitted when the tray icon is right clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
 Emitted when the tray icon is double clicked.
 
