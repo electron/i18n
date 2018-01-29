@@ -126,7 +126,7 @@ More may be added as needed to expose more electron APIs in the sandbox, but any
 
 ## 状态
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+请小心使用`sandbox`选项，它仍是一个实验性特性。 We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - A preload script can accidentaly leak privileged APIs to untrusted code.
 - Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
