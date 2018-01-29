@@ -117,7 +117,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 * master 브랜치 기반의 nightly 빌드 버전; 새로운 기능에 대한 빠른 테스트 및 피드백 수집 가능
 * 알파 출시 버전은 베타 버전에 비해 안정성 요건을 약하게 적용한 것; 예를 들면, 안정성 채널은 *알파*에 유지하면서 새로운 기능을 허락할 수 있음.
 
-# Feature Flags
+# 기능 플래그(Feature Flags)
 
 Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
