@@ -18,7 +18,7 @@ The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but 
 
 ## APIs disponibles
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. Sin embargo, ninguno de los módulos incorporados de Electron puede utilizarse en un entorno multiproceso.
+Todos los módulos incorporados de Node.js son compatibles con Web Workers, y los archivos `asar` aún se pueden leer con la API de Node.js. Sin embargo, ninguno de los módulos incorporados de Electron puede utilizarse en un entorno multiproceso.
 
 ## Módulos nativos de Node.js
 
