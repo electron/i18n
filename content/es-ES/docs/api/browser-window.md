@@ -202,8 +202,8 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. Esto también afecta la \[Page Visibility API\]\[#page-visibility\]. Por defecto es `true`.
     * `offscreen` Boolean(optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
     * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. El contexto que ejecuta el script `preload` tendrá acceso completo a los globales `document` y a `window` pero utilizará su propia configuración integrada de JavaScript (`Array`, `Object`, `JSON`, etc.) y estará apartada de cualquier cambio que se le haga al contexto global por la página cargada. El API Electron solo estará disponible en el script `preload` y no en la página cargada. Esta opción debe utilizarse cuando se carga contenido remoto potencialmente dañino para asegurar que el contenido cargado no pueda modificar el script `preload` o cualquier API de Electron en uso. Esta opción utiliza la misma técnica utilizada por [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Se puede acceder a este contexto en las herramientas de desarrollo al seleccionar la entrada 'Electron Isolated Context' en el cuadro combo en la parte superior de la pestaña de la Consola. **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
-    * `nativeWindowOpen` Booleano (opcional) - Si se utiliza la `window.open()` nativa. Por defecto es `false`. **Nota:** actualmente esta opción es experimental.
-    * `webviewTag` Booleano (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto tiene el valor de la opción `nodeIntegration`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
+    * `nativeWindowOpen` Boolean (opcional) - Si se utiliza la `window.open()` nativa. Por defecto es `false`. **Nota:** actualmente esta opción es experimental.
+    * `webviewTag` Boolean (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto tiene el valor de la opción `nodeIntegration`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
 
 Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
@@ -225,8 +225,8 @@ Los objetos creados con `new BrowserWindow` emiten los siguientes eventos:
 
 Devuelve:
 
-* `event` Evento
-* `title` Cadena
+* `event` Event
+* `title` String
 
 Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie.
 
@@ -372,8 +372,8 @@ Aparece cuando la fase del evento de la rueda desplazamiento ha alcanzado el bor
 
 Devuelve:
 
-* `event` Evento
-* `direction` Cadena
+* `event` Event
+* `direction` String
 
 Aparece al pasar 3 dedos. Las direcciones posibles son `up`, `right`, `down`, `left`.
 
@@ -409,13 +409,13 @@ Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Entero
+* `id` Integer
 
 Devuelve `BrowserWindow` - La ventana que posee el `id`dado.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` Cadena
+* `path` String
 
 Añade una extensión de Chrome ubicada en `path`, y devuelve el nombre de la extensión.
 
@@ -425,7 +425,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` Cadena
+* `name` String
 
 Elimina una extensión de Chrome por su nombre.
 
@@ -439,7 +439,7 @@ Devuelve `Object` - Las llaves son los nombres de la extensión y cada valor es 
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `path` Cadena
+* `path` String
 
 Añade una extensión de DevTools ubicada en `path`, y devuelve el nombre de la extensión.
 
@@ -451,7 +451,7 @@ El método no devolverá nada si el manifiesto de la extensión falta o está in
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` Cadena
+* `name` String
 
 Elimina una extensión de Devtools mediante su nombre.
 
@@ -569,7 +569,7 @@ Devuelve `Boolean` - Si la ventana está minimizada o no.
 
 #### `win.setFullScreen(flag)`
 
-* `flag` Booleano
+* `flag` Boolean
 
 Establece si la ventana debe estar o no en modo pantalla completa.
 
@@ -600,7 +600,7 @@ Cierra el panel actual de [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Booleano (opcional) *macOS*
+* `animate` Boolean (opcional) *macOS*
 
 Redimensiona y mueve la ventana a los límites proporcionados
 
@@ -611,7 +611,7 @@ Devuelve [`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Booleano (opcional) *macOS*
+* `animate` Boolean (opcional) *macOS*
 
 Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página web) hasta los límites proporcionados.
 
@@ -623,7 +623,7 @@ Devuelve [`Rectangle`](structures/rectangle.md)
 
 * `ancho` Entero
 * `alto` Entero
-* `animate` Booleano (opcional) *macOS*
+* `animate` Boolean (opcional) *macOS*
 
 Cambia el tamaño de la ventana a `width` y `height`.
 
@@ -645,8 +645,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura del área del cliente de la 
 
 #### `win.setMinimumSize(width, height)`
 
-* `width` Entero
-* `height` Entero
+* `width` Integer
+* `height` Integer
 
 Establece el tamaño mínimo de la ventana a `width`y `height`.
 
@@ -656,8 +656,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 
 #### `win.setMaximumSize(width, height)`
 
-* `ancho` Entero
-* `alto` Entero
+* `ancho` Integer
+* `alto` Integer
 
 Establece el tamaño máximo de la ventana a `width`y `height`.
 
@@ -677,19 +677,19 @@ Devuelve `Boolean` - Si la ventana puede ser redimensionada manualmente por el u
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
-* `movable` Booleano
+* `movable` Boolean
 
 Establece si la ventana puede ser movida por el usuario. En Linux no hace nada.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Devuelve `Booleano` - Si la ventana puede ser movida por el usuario.
+Devuelve `Boolean` - Si la ventana puede ser movida por el usuario.
 
-En Linux siempre devuelve `verdadero`.
+En Linux siempre devuelve `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
-* `minimizable` Booleano
+* `minimizable` Boolean
 
 Establece si la ventana puede ser minimizada manualmente por el usuario. En Linux no hace nada.
 
@@ -701,7 +701,7 @@ En Linux siempre devuelve `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
-* `maximizable` Booleano
+* `maximizable` Boolean
 
 Establece si la ventana puede ser maximizada manualmente por el usuario. En Linux no hace nada.
 
@@ -713,7 +713,7 @@ En Linux siempre devuelve `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
-* `fullscreenable` Booleano
+* `fullscreenable` Boolean
 
 Establece si el botón de la ventana de maximizar/acercar activa el modo pantalla completa o maximiza la ventana.
 
@@ -723,7 +723,7 @@ Devuelve `Boolean` - Si el botón de la ventana de maximizar/acercar activa o no
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
-* `closable` Booleano
+* `closable` Boolean
 
 Establece si la ventana puede ser cerrada manualmente por el usuario. En Linux no hace nada.
 
@@ -735,15 +735,15 @@ En Linux siempre devuelve `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
-* `flag` Booleano
-* `level` Cadena (opcional) *macOS* - Los valores incluyen `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Obsoleto). Por defecto es `floating`. Para más detalles, ver [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels).
-* `relativeLevel` Entero (opcional) *macOS* - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es ``. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
+* `flag` Boolean
+* `level` String (opcional) *macOS* - Los valores incluyen `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Obsoleto). Por defecto es `floating`. Para más detalles, ver [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels).
+* `relativeLevel` Integer (opcional) *macOS* - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es ``. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
 
 Establece si la ventana debe mostrarse siempre encima de otras ventanas. Después de establecer esta opción, la ventana sigue siendo una ventana normal, no una ventana de herramientas sobre la cual no puede ser enfocada.
 
 #### `win.isAlwaysOnTop()`
 
-Devuelve `Booleano` - Si la ventana está siempre sobre las otras ventanas.
+Devuelve `Boolean` - Si la ventana está siempre sobre las otras ventanas.
 
 #### `win.center()`
 
@@ -751,9 +751,9 @@ Mueve la ventana al centro de la pantalla.
 
 #### `win.setPosition(x, y[, animate])`
 
-* `x` Entero
-* `y` Entero
-* `animate` Booleano (opcional) *macOS*
+* `x` Integer
+* `y` Integer
+* `animate` Boolean (opcional) *macOS*
 
 Mueve la ventana a `x` y `y`.
 
@@ -763,7 +763,7 @@ Devuelve `Integer[]` - Contiene la posición actual de la ventana.
 
 #### `win.setTitle(title)`
 
-* `title` Cadena
+* `title` String
 
 Cambia el título de la ventana nativa a `title`.
 
@@ -790,7 +790,7 @@ win.setSheetOffset(toolbarRect.height)
 
 #### `win.flashFrame(flag)`
 
-* `flag` Booleano
+* `flag` Boolean
 
 Empieza y deja de hacer parpadear la ventana para atraer la atención del usuario.
 
@@ -818,20 +818,20 @@ El tipo nativo del controlador en Windows es `HWND`, en macOS `NSView*` y en Lin
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
-* `message` Entero
+* `message` Integer
 * `callback` Función
 
 Ancla un mensaje en la ventana. El `callback` es llamado cuando el mensaje se recibe en el WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
-* `message` Entero
+* `message` Integer
 
 Devuelve `Boolean` - `true` o `false` dependiendo de si el mensaje esta anclado o no.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
-* `message` Entero
+* `message` Integer
 
 Desancla el mensaje de la ventana.
 
