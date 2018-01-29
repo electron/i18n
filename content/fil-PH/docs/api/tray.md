@@ -27,8 +27,8 @@ app.on('ready', () => {
 
 * Sa Linux na app indicator ay gagamitin kung ito ay sinusuportahan, kung hindi man `GtkStatusIcon`ay maaring gamitin sa halip.
 * Sa Linux distributions na mayroon lamang app indicator support, pwede kang mag-install ng `libappindicator1` para gumawa ng tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
+* Ang App indicator ay maaring maipapakita lamang kapag mayroon itong context menu.
+* Kapag ang app indicator ay ginagamit sa Linux, ang `click` event ay hindi pinansin.
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
