@@ -34,11 +34,11 @@ Nagpapadala ng mensahe sa window ng magulang na may tinukoy na pinanggalingan o 
 
 ### Paggamit ng Chrome's `window.buksan()` ng pagpapatupad
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Kung nais mong gamitin ang Chrome's na built-in`window.buksan()` na pagpapatupad, itakda `nativeWindowOpen` sa `tama` ang nasa` webPreferences`mga opsyon na bagay.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+Ang native`window.buksan()` ay nagbibigay-daan sa pag-access ng kasabay sa mga binuksan na windows upang ito ay maginhawa na pagpipilian kung kailangan mo upang buksan ang isang dialog o isang kagustuhan window.
 
-This option can also be set on `<webview>` tags as well:
+Maaari ring itakda ang opsyong ito sa `<webview>` mga tag na mabuti:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
