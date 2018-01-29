@@ -1,4 +1,4 @@
-# `window.open` Function
+# `window.Buksan` Fuction
 
 > Open a new window and load a URL.
 
