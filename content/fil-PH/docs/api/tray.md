@@ -29,28 +29,23 @@ app.on('ready', () => {
 * Sa Linux distributions na mayroon lamang app indicator support, pwede kang mag-install ng `libappindicator1` para gumawa ng tray icon work.
 * Ang App indicator ay maaring maipapakita lamang kapag mayroon itong context menu.
 * Kapag ang app indicator ay ginagamit sa Linux, ang `click` event ay hindi pinansin.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Sa Linux para sa mga pagbabago na ginawa sa indibidwal`MenuItem`upang magkabisa, dapat mong tawagan ang`setContextMenu`muli. Halimbawa:
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const {app, Menu, Tray} = nangangaianganng('electron')
 
-let appIcon = null
+hayaan ang appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'}
   ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+  //Gumawa ng mga pagbabago sa context menu
+  contextMenu.items[1].tiningnan = mali
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Sa windows ito ay inirekomenda para gamitin ang mga `ICO`icons para makuha ang pinakamahusay na visual effects.
 
 If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
 
