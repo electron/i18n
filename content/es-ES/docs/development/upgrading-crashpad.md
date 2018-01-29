@@ -14,7 +14,7 @@
     - `git checkout -b electron-crashpad-vA.B.C.D`
     - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. Haga una lista de verificación de los parches de Electrón que necesitan ser aplicados con `git log --oneline`
     
     - Or view https://github.com/electron/crashpad/commits/previous-branch-name
 
@@ -35,7 +35,7 @@
     - From Electron root's root, run `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
+    - Ambos deberían compilar sin errores
 6. Push changes to submodule reference 
     - (From electron root) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
