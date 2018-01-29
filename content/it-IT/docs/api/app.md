@@ -494,9 +494,9 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     **Nota:** Se un oggetto `CategoriaJumpList` non ha nè la proprietà `tipo` nè quella `nome` le proprietà si impostano che il `tipo` sia sicuramente `task`. Se la proprietà `nome` è impostata ma la proprietà `tipo` è omessa il `tipo` sarà considerato `personalizzato`.
     
-    **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+    **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
     
-    Here's a very simple example of creating a custom Jump List:
+    Questo è un esempio molto semplice di come creare una Jump List personalizzata:
     
     ```javascript
 const {app} = require('electron')
