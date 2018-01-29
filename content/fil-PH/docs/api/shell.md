@@ -1,4 +1,4 @@
-# shell
+# "Shell"
 
 > Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
@@ -14,7 +14,7 @@ const {shell} = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Pamamaraan
+## Mga Paraan
 
 Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
@@ -22,7 +22,7 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 * `fullPath` String
 
-Pagbabalik ng `Boolean` - Kung ang aytem ay matagumpay na naipakita
+Pagbalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita
 
 Show the given file in a file manager. If possible, select the file.
 
@@ -30,7 +30,7 @@ Show the given file in a file manager. If possible, select the file.
 
 * `fullPath` String
 
-Pagbabalik ng `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
+Pagbalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
 Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
