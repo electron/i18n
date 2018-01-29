@@ -122,17 +122,17 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 기능 플래그는 Chromium에서 자주 쓰이며, 웹 개발 환경에서 일반적으로 사용되고 있습니다. Electron에서는 기능 플래그 또는 **소프트 브랜치**는 다음과 특성을 가져야 합니다:
 
 * 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음
-* 새로운 코드 경로와 예전 코드 경로는 완전히 분리됨; 새로운 기능을 지원하기 위해 예전 코드를 리팩토링하는 것은 기능 플래그 계약을 *위반하는 것임*
+* 새로운 코드 경로와 예전 코드 경로는 완전히 분리됨; 새로운 기능을 지원하기 위해 예전 코드를 리팩토링하는 것은 기능 플래그 규칙을 *위반하는 것임*
 * 소프트 브랜치가 병합되고 나면 기능 플래그는 삭제됨
 
-We reconcile flagged code with our versioning strategy as follows:
+저희는 버전 관리 전략과 플래그가 있는 코드를 다음과 같이 조화시켰습니다.
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. 안정화 브랜치에서는 기능 플래그 코드가 반복되는 것을 원하지 않습니다; 신중하게 사용한 기능 플래그 코드일지라도 위험이 없는 것은 아닙니다.
+2. 기능 플래그가 있는 코드에서는 메이저 버전으로 증가시키지 않고도 API 규칙을 어길 수 있습니다. 플래그가 있는 코드는 semver 규칙을 따르지 않아도 됩니다.
 
-# Semantic Commits
+# 시맨틱 커밋
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+저희는 업데이트와 출시 과정의 모든 단계에서 명확성이 향상되길 원합니다. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
 * Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
 * Commits that would result in a semver **minor** bump must start with `feat:`.
