@@ -722,13 +722,13 @@ Magbabalik ng:
 
 Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
 
-Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
 
 ### Event: 'close'
 
-Fired when the guest page attempts to close itself.
+Simulan kung ang guest page ay sinubukang isara ang sarili.
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+Ang mga sumusunod na halimbawa na mga code ay ninanavigate ang `webview` sa `about:blank` kapag ang bisita ay sinubukang isara ang sarili.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -744,7 +744,7 @@ Magbabalik ng:
 * `channel` String
 * `args` Array
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+Simulan kapag ang guest page ay nagpadala ng mensahe na asynchronous sa embedder page.
 
 With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
