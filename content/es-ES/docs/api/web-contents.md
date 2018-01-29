@@ -516,7 +516,7 @@ Este evento puede utilizarse para configurar `webPreferences` para la `webConten
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
-Carga el `url` en la ventana. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
+Carga el `url` en la ventana. El `url` debe contener el prefijo de protocolo. Por ejemplo `http://` o `file://`. Si la carga debe omitir el caché http entonces hay que utilizar el encabezado `pragma` para lograrlo.
 
 ```javascript
 const {webContents} = require('electron')
@@ -528,7 +528,7 @@ webContents.loadURL('https://github.com', options)
 
 * `url` String
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+Inicia una descarga del recurso en el `url` sin navegar. Se activará el evento `will-download` de la `session`.
 
 #### `contents.getURL()`
 
