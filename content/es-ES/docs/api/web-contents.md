@@ -795,7 +795,7 @@ Inserta `text` al elemento enfocado.
   * `findNext` Boolean - (optional) Si la operación se solicita de primero o después. Por defecto es `false`.
   * `matchCase` Boolean - (optional) Si la búsqueda es en mayúsculas o minúsculas. Por defecto es `false`.
   * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
-  * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Accepts several other intra-word matches, defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
 Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
