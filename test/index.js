@@ -28,13 +28,15 @@ describe('i18n.docs', () => {
   })
 
   it('does not contain <html>, <head>, or <body> tag in compiled html', () => {
-    const docs = i18n.docs['en-US']
-    docs['/docs/api/accelerator'].html.should.not.contain('<html>')
-    docs['/docs/api/accelerator'].html.should.not.contain('</html>')
-    docs['/docs/api/accelerator'].html.should.not.contain('<head>')
-    docs['/docs/api/accelerator'].html.should.not.contain('</head>')
-    docs['/docs/api/accelerator'].html.should.not.contain('<body>')
-    docs['/docs/api/accelerator'].html.should.not.contain('</body>')
+    const {html} = i18n.docs['en-US']['/docs/api/accelerator']
+    html.should.be.a('string')
+    html.should.contain('<p>')
+    html.should.not.contain('<html>')
+    html.should.not.contain('</html>')
+    html.should.not.contain('<head>')
+    html.should.not.contain('</head>')
+    html.should.not.contain('<body>')
+    html.should.not.contain('</body>')
   })
 
   // disabled until we come up with a nice strategy for
