@@ -58,15 +58,15 @@ console.log(ses.getUserAgent())
 
 ### Halimbawa ng mga Kaganapan
 
-The following events are available on instances of `Session`:
+Ang sumusunod na pangyayari ay magagamit para sa mga pagkakataon ng `Session`:
 
-#### Event: 'will-download'
+#### Pangyayri: 'Mag-dadownload'
 
-* `event` Event
-* `item` [DownloadItem](download-item.md)
+* `pangyayari` Pangyayari
+* `item` [Pag-download ng Item](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Napalabs kung ang Electron ay tungkol para sa pag-download ng `item` in `webContents`.
 
 Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
