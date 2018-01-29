@@ -1,10 +1,10 @@
 # Estructura del directorio de código fuente
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+El código fuente de Electron está separado en unas pocas partes, la mayoría siguiendo a Chromium en las convenciones de separación.
 
 You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
 
-## Structure of Source Code
+## Estructura del código fuente
 
 ```sh
 Electron
@@ -27,7 +27,7 @@ Electron
 |       loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Source code copied from Chromium. Vea abajo.
 Default_app ├── / - página de predeterminada para mostrar cuando el Electron se inicia sin |   proporciona una aplicación.
 ├── docs/ - Documentations.
 ├── lib/ - JavaScript source code.
@@ -57,7 +57,7 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 * **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
 
-## Keeping Git Submodules Up to Date
+## Mantener los submódulos de Git actualizados
 
 El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Occasionally you might see a message like this when running `git status`:
 
