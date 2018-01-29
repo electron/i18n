@@ -6,7 +6,7 @@ Proceso: [Principal](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
-The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. El objeto `details` describe la solicitud. Passing `null` as `listener` will unsubscribe from the event.
 
 The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
@@ -61,7 +61,7 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Función
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
 
 * `details` Object 
   * `id` Íntegro
@@ -133,7 +133,7 @@ The `callback` has to be called with an `response` object.
     * `Estatus de código` entero
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+The `listener` will be called with `listener(details)` when first byte of the response body is received. Para las solicitudes HTTP, esto significa que la línea de estado y los encabezados de respuesta están disponibles.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
