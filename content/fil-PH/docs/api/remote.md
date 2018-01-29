@@ -14,9 +14,9 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** Sa kabaligtaran (i-akses ang prosesong tagabigay mula sa pangunahing proseso) maaari mong gamitin ang [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
-## Hiwalay na mga Bagay
+## Mga bagay ng Remote
 
 Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
