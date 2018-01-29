@@ -45,14 +45,14 @@ Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 
 ### `globalShortcut.rehistro(aselerador, baliktawag)`
 
-* `accelerator` [Accelerator](accelerator.md) 
+* `aselerador` [Aselerador](accelerator.md) 
 * `baliktawag` ginagawa
 
-Nag-rehistro ng global shortcut ng `aselerador` Ang `baliktawag` ay tatawagan kung ang narehistrong shortcut ay pinindot ng tagagamit.
+Nag-rehistro ng global shortcut ng `aselerador`. Ang `baliktawag` ay tatawagan kung ang narehistrong shortcut ay pinindot ng tagagamit.
 
-Kung ang aselerador ay nakuha na ng ibang apikasyon, ang tawag na ito ay tahimik na babagsak. Ang gawi na ito nilalayan sa pamamagitan ng sistemang operasyon, dahil hindi nila gusto na ang mga aplikasyon ay maglaban para sa global shortcuts.
+Kung ang aselerador ay nakuha na ng ibang apikasyon, ang tawag na ito ay tahimik na babagsak. Ang gawi na ito nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gusto na ang mga aplikasyon ay maglaban para sa global shortcuts.
 
-### `globalShortcut.Rehistrado(aselerado)`
+### `globalShortcut.Rehistrado(aselerador)`
 
 * `aselerador` [Aselerador](accelerator.md) 
 
