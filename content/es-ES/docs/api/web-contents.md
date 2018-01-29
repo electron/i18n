@@ -633,26 +633,26 @@ Anula el agente usuario para esta página web.
 
 #### `contents.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+Devuelve `String` - El agente usuario para esta página web.
 
 #### `contents.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the current web page.
+Inserta CSS en la página web actual.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `codigo` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `llamada de vuelta` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (opcional) - Por de `false`.
+* `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Devuelve `Promise` - Un compromiso que soluciona con el resultado del código ejecutado o es rechazado si el resultado del código es un compromiso rechazado.
 
-Evaluates `code` in page.
+Evalúa el `code` en la página.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
