@@ -26,9 +26,9 @@ SRV*c:\code\ mga simbolo\*https://msdl.microsoft.com/download/mga simbolo;SRV* c
 
 ## Pag-troubleshoot: Ang mga simbolo ay hindi mai-load
 
-Type the following commands in Windbg to print why symbols are not loading:
+I-type ang sumusunod na mga utos sa Windbg upang i-print kung bakit hindi naglo-load ang mga simbolo:
 
 ```powershell
-> !sym noisy
-> .reload /f electron.exe
+> ! sym maingay
+> .reload / f elektron.exe
 ```
