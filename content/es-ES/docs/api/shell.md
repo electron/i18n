@@ -61,7 +61,7 @@ Reproduce el sonido bip.
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` Cadena (optional) - Por defecto es `create`, puede ser uno de los siguientes: 
+* `operación` Cadena (optional) - Por defecto es `create`, puede ser uno de los siguientes: 
   * `create` - Crea un nuevo acceso directo, sobrescribiendo si es necesario.
   * `update` - Actualiza las propiedades especificadas solo en un acceso directo existente.
   * `replace` - Sobrescribe un acceso directo existente. Y falla si el acceso directo no existe.
