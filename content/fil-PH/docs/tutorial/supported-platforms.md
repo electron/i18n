@@ -18,6 +18,6 @@ Ang prebuilt `ia32` (`i686`) at `x64` (`amd64`) binary ng Elektron ay binuo sa U
 
 Kung ang prebuilt binary ay maaaring tumakbo sa isang pamamahagi ito ay depende sa kung ang pamamahagi ay kasama ang mga aklatan na naka-link sa Elektron at sa gusali ng plataporma, kaya tanging ang Ubuntu 12.04 ang garantisadong gumagana, ngunit ang mga sumusunod na mga plataporma ay napatunayan na upang patakbuhin ang prebuilt binary ng Elektron:
 
-* Ubuntu 12.04 and later
+* Ubuntu 12.04 at mamaya
 * Fedora 21
 * Debian 8
