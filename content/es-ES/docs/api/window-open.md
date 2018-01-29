@@ -22,7 +22,7 @@ The `features` string follows the format of standard browser, but each feature h
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* JavaScript siempre estará deshabilitado en la `window` abierta si está deshabilitado en la ventana principal.
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
 
 ### `window.opener.postMessage(message, targetOrigin)`
