@@ -493,7 +493,7 @@ Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([re
 
 Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang magsasagawa ng proseso ay kayang i-handle ang mensahe sa pamamagitan ng pakikinig sa `channel` event kasama ang modulo ng `ipcRenderer`.
 
-Tignan ang [webContents.send](web-contents.md#webcontentssendchannel-args) halimbawa.
+Tignan ang [webContents.send](web-contents.md#webcontentssendchannel-args) bilang mga halimbawa.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -513,19 +513,19 @@ Binabago ang paktor ng zoom sa tiyak na paktor. Ang paktor ng zoom ay porsyento 
 
 * `level` Numero - Lebel ng zoom
 
-Binabago ang lebel ng zoom sa tiyak na lebel. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Binabago ang lebel ng zoom sa tiyak na lebel. Ang orihinal na sukat ay 0 at ang bawat increment na lampas o kulang ay nagrerepresenta ng 20% na laki o liit sa naka-default na limit na 300% at 50% sa orihinal na sukat, pagkakasunod-sunod.
 
-### `<webview>.showDefinitionForSelection()` *macOS*
+### `.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa page.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+Bumalik sa [`WebContents`](web-contents.md) - Ang laman ng web ay naka-ugnay sa `webview`.
 
-## DOM events
+## Mga event ng DOM
 
-The following DOM events are available to the `webview` tag:
+Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
 
 ### Event: 'load-commit'
 
