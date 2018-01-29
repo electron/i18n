@@ -1122,46 +1122,46 @@ Configura el tamaño de la página. Esto sólo es compatible con el `<webview>` 
 
 #### `contents.isOffscreen()`
 
-Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+Devuelve `Boolean` - Indica si *offscreen rendering* está habilitado o no.
 
 #### `contents.startPainting()`
 
-If *offscreen rendering* is enabled and not painting, start painting.
+Si *offscreen rendering* está habilitado y no pinta, comienza a pintar.
 
 #### `contents.stopPainting()`
 
-If *offscreen rendering* is enabled and painting, stop painting.
+Si *offscreen rendering* está habilitado y pinta, deja de pintar.
 
 #### `contents.isPainting()`
 
-Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+Devuelve `Boolean` - Si *offscreen rendering* está habilitado devuelve lo que esté pintando en ese momento.
 
 #### `contents.setFrameRate(fps)`
 
 * `fps` Integer
 
-If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+Si *offscreen rendering* está habilitado, configura la velocidad de fotograma al número especificado. Solo se aceptan los valores entre 1 y 60.
 
 #### `contents.getFrameRate()`
 
-Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+Devuelve `Integer` - Si *offscreen rendering* esta habilitado devuelve el indice de fotogramas en ese momento.
 
 #### `contents.invalidate()`
 
 Programa un repintado completo de la ventana en la que se encuentra este contenido web.
 
-If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+Si *offscreen rendering* está habilitado invalida el fotograma y genera uno nuevo a través del evento `'paint'`.
 
 #### `contents.getWebRTCIPHandlingPolicy()`
 
-Returns `String` - Returns the WebRTC IP Handling Policy.
+Devuelve `String` - Devuelve el WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `política` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. Este es el comportamiento por defecto. Cuando se usa esta política, WebRTC tiene el derecho de enumerar todas las interfaces y vincularlas para descubrir interfaces públicas.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto no expone ninguna dirección local.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
+* `política` String - Especifica el WebRTC IP Handling Policy. 
+  * `default` - Revela los IPs locales y publicos del usuario. Este es el comportamiento por defecto. Cuando se usa esta política, WebRTC tiene el derecho de enumerar todas las interfaces y vincularlas para descubrir interfaces públicas.
+  * `default_public_interface_only` - Revela el IP público del usuario pero no revela el IP local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto no expone ninguna dirección local.
+  * `default_public_and_private_interfaces` - Revela los IPs público y local del usuario. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
 Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
