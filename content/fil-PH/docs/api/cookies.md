@@ -4,32 +4,32 @@
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+May ilang pagkakataon na ang `Cookies` class ay mapupuntahan gamit ang `cookies` na katangian ng `Session`.
 
 Halimbawa:
 
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// "Query" ang lahat ng "cookies".
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Query all cookies associated with a specific url.
+// "Query" ang lahat ng "cookies" na may kaugnayan sa isang tiyak na "url".
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Magtakda ng "cookie" gamit ang binigay na datos nito;
+// maaaring palitan ang katumbas na "cookies" nito sa bagong datos kung ito"y umiiral.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
 ```
 
-### Instance Events
+### Halimbawa ng Pangyayari
 
 The following events are available on instances of `Cookies`:
 
