@@ -1,6 +1,6 @@
-## Class: BrowserView
+## Classe: VistaBrowser
 
-> Create and control views.
+> Crea e controlla visite.
 
 **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
 
