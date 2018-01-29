@@ -629,41 +629,41 @@ Cambia il [Modello Id Applicazione Utente](https://msdn.microsoft.com/en-us/libr
 * `callback` Funzione 
   * `risultato` Numero intero - Risultato dell'importo.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `risultato` dell'operazione di importazione, un valore di `` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_errore_lista](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-### `app.disableHardwareAcceleration()`
+### `app.disabilitaAccelerazioneHardware()`
 
-Disables hardware acceleration for current app.
+Disabilita l'accelerazione hardware per l'app attuale.
 
-This method can only be called before app is ready.
+Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
-### `app.disableDomainBlockingFor3DAPIs()`
+### `app.disabilitaBloccaggioDominioPerAPI3D()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Di default, Chromium disabilita le API 3D (come WebGL) fino al riavvio su una base per dominio se i processi GPU crashano troppo spesso. Questa funzione disabilita questo comportamento.
 
-This method can only be called before app is ready.
+Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.ottieniInfoMemoriaApp()` *Deprecato*
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
+Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di oggetti `ProcessoMetrico` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app. **Nota:** Questo metodo è deprecato, usa invece `app.ottieniMetricheApp()`.
 
-### `app.getAppMetrics()`
+### `app.ottieniMetricheApp()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di oggetti `ProcessoMetrico` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app.
 
-### `app.getGpuFeatureStatus()`
+### `app.ottieniStatoFunzioniGpu()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
-### `app.setBadgeCount(count)` *Linux* *macOS*
+### `app.impostaContaBadge(conta)` *Linux* *macOS*
 
-* `count` Integer
+* `conta` Numero Intero
 
 Restituisce `Booleano` - Se la chiamata ha avuto successo.
 
-Sets the counter badge for current app. Setting the count to `` will hide the badge.
+Imposta il contatore badge per l'app attuale. Impostare il conto a `` nasconderà il badge.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launcher Unity,
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
@@ -758,7 +758,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
 ### `app.dock.bounce([type])` *macOS*
 
