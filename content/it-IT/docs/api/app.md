@@ -687,17 +687,17 @@ Restituisci `Oggetto`:
 
 * `apriAdAccesso` Booleano - `true` se l'app è impostata a aperta all'accesso.
 * `apriComeNascosto` Booleano - `true` se l'app è impostata ad aprirsi come nascosta all'accesso. Impostazione supportata solo su macOS.
-* `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
-* `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
-* `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
+* `eraApertoAdAccesso` Booleano - `true` se l'app era aperta automaticamente all'all'accesso. Questa impostazione è supportata solo su macOS.
+* `eraApertoComeNascosto` Booleano - `true` se l'app era aperta come un elemento di accesso nascosto. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa impostazione è supportata solo su macOS.
+* `ripristinaStato` Booleano - `true` se l'app era aperta come elemento d'accesso che potrebbe ripristinare lo stato dalla sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa impostazione è supportata solo su macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+### `app.impostaImpostazioniElementoAccesso(impostazioni)` *macOS* *Windows*
 
-* `settings` Object 
-  * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
-  * `openAsHidden` Boolean (optional) - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
+* `impostazioni` Oggetto 
+  * `apriAdAccesso` Booleano (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
+  * `apriComeNascosto` Booleano (opzionale) - `true` per aprire l'app come nascosta. Di default `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
@@ -720,7 +720,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
