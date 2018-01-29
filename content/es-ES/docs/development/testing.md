@@ -10,7 +10,7 @@ Asegúrese de que su JavaScript cumpla con la codificación de electrones estilo
 
 To run `standard` with parameters, run `npm run lint-js --` followed by arguments you want passed to `standard`.
 
-To ensure that your C++ is in compliance with the Electron coding style, run `npm run lint-cpp`, which runs a `cpplint` script. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
+Para garantizar que tu C ++ cumpla con el estilo de codificación de electrones, ejecuta `npm run lint-cpp`, que ejecuta un script `cpplint`. We recommend that you use `clang-format` and prepared [a short tutorial](clang-format.md).
 
 There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
