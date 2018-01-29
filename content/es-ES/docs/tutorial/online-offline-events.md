@@ -37,7 +37,7 @@ app.on('ready', () => {
 </html>
 ```
 
-Puede haber casos en los que desee responder a estos eventos en el proceso principal también. The main process however does not have a `navigator` object and thus cannot detect these events directly. Usando utilidades de comunicación entre procesos del Electron, los acontecimientos pueden remitió al proceso principal y manejados según sea necesario, como se muestra en el ejemplo siguiente.
+Puede haber casos en los que desee responder a estos eventos en el proceso principal también. Sin embargo, el proceso principal no tiene un objeto `navigator`, y por lo tanto no puede detectar estos eventos directamente. Usando utilidades de comunicación entre procesos del Electron, los acontecimientos pueden remitió al proceso principal y manejados según sea necesario, como se muestra en el ejemplo siguiente.
 
 *main.js*
 
