@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+一个例子是实现一个协议它和`file://`协议功能相同。
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -30,7 +30,7 @@ app.on('ready', () => {
 
 * `schemes` String[] - 注册 schemes 为标准schemes。
 * `options` Object (可选) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * `secure` Boolean (可选) - `true` 注册scheme为安全scheme。 默认 `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
@@ -44,9 +44,9 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+注册一个scheme作为标准scheme将允许其访问文件通过[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)。 Otherwise the renderer will throw a security error for the scheme.
 
-By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme:
+默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 所以一般来说如果你想注册一个 自定义协议来替换`http`协议，您必须将其注册为标准scheme：
 
 ```javascript
 const {app, protocol} = require('electron')
