@@ -2,9 +2,9 @@
 
 Los símbolos de depuración le permiten tener mejores sesiones de depuración. Ellos tienen información acerca de las funciones contenidas en ejecutables y bibliotecas dinámicas y le proporciona información para obtener pilas de llamadas limpias. Un servidor de símbolos permite al depurador cargar los símbolos, binarios y fuentes correctas automáticamente sin obligar a los usuarios a descargar grandes archivos de depuración. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
 
-Tenga en cuenta que debido a que las compilaciones de Electron liberadas están muy optimizadas, la depuración no siempre es fácil. El depurador no podrá mostrarle el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a la alineación, las llamadas de cola y otras optimizaciones del compilador. The only workaround is to build an unoptimized local build.
+Tenga en cuenta que debido a que las compilaciones de Electron liberadas están muy optimizadas, la depuración no siempre es fácil. El depurador no podrá mostrarle el contenido de todas las variables y la ruta de ejecución puede parecer extraña debido a la alineación, las llamadas de cola y otras optimizaciones del compilador. La única solución es compilar una versión local no optimizada.
 
-The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+The official symbol server URL for Electron is https://electron-symbols.githubapp.com. No puede visitar esta URL directamente, debe agregarla a la ruta del símbolo de su herramienta de depuración. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
 
 ## Using the Symbol Server in Windbg
 
