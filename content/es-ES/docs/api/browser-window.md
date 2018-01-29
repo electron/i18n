@@ -851,7 +851,7 @@ Devuelve `String` - El nombre de la ruta del archivo que la ventana representa.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
-* `edited` Booleano
+* `edited` Boolean
 
 Especifica si se ha editado el documento de la ventana y el icono en la barra de título se volverá gris cuando se establece en `true`.
 
@@ -873,13 +873,13 @@ Es igual a `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` Cadena
-* `options` Objeto (opcional) 
-  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
-  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` Cadena (opcional) - Cabeceras extras separadas por "\n"
+* `url` String
+* `options` Object (opcional) 
+  * `httpReferrer` String (opcional) - Un url de HTTP referencial.
+  * `userAgent` String (opcional) - Un agente de usuario originando el pedido.
+  * `extraHeaders` String (opcional) - Cabeceras extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
-  * `baseURLForDataURL` Cadena (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
+  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Es igual a `webContents.loadURL(url[, options])`.
 
@@ -921,8 +921,8 @@ Establece el `menú` como la barra del menú de la ventana, estableciéndolo a `
 
 #### `win.setProgressBar(progress[, options])`
 
-* `progress` Doble
-* `options` Objeto (opcional) 
+* `progress` Double
+* `options` Object (opcional) 
   * `mode` String *Windows* - Modo para la barra de progreso. Puede ser `none`, `normal`, `indeterminate`, `error`, o `paused`.
 
 Establece el valor del progreso en la barra de progreso. El rango válido es [0, 1.0].
@@ -942,7 +942,7 @@ Establece una superposición de 16 x 16 píxeles sobre el icono actual de la bar
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
-* `hasShadow` Booleano
+* `hasShadow` Boolean
 
 Establece si la ventana debe tener o no una sombra. En Windows y Linux no hace nada.
 
@@ -964,10 +964,10 @@ El número de botones en la barra de herramientas de la vista previa no debe ser
 
 Los `buttons` es un arreglo de objetos `Button`:
 
-* `Button` Objeto 
+* `Button` Object 
   * `icon` [NativeImage](native-image.md) - El icono que muestra la barra de herramientas de la vista previa.
   * `click` Función
-  * `tooltip` Cadena (opcional)- el texto de la descripción emergente del botón.
+  * `tooltip` String (opcional)- el texto de la descripción emergente del botón.
   * `flags` String[] (opcional) - Controla los estados específicos y comportamientos del botón. Por defecto es `['enabled']`.
 
 Las `flags` es un arreglo que puede incluir los siguientes `String`s:
@@ -987,18 +987,18 @@ Establece la región de la ventana para mostrar como la vista previa de la image
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
-* `toolTip` Cadena
+* `toolTip` String
 
 Configura la descripción emergente que se muestra cuando se pasa sobre la vista previa de la ventana en la barra de tareas.
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Objeto 
-  * `appId` Cadena (opcional) - El [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx) de Windows. Tiene que estar configurado, de lo contrario las otras opciones no tendrán efecto.
-  * `appIconPath` Cadena (opcional) - El [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx) de Windows.
-  * `appIconIndex` Entero (opcional) - Indice del icono en `appIconPath`. Se ignora cuando no se configura `appIconPath`. Por defecto es ``.
-  * `relaunchCommand` Cadena (opcional) - El [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx) de Windows.
-  * `relaunchDisplayName` Cadena (opcional) - El [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx) de Windows.
+* `options` Objecto 
+  * `appId` String (opcional) - El [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx) de Windows. Tiene que estar configurado, de lo contrario las otras opciones no tendrán efecto.
+  * `appIconPath` String (opcional) - El [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx) de Windows.
+  * `appIconIndex` String (opcional) - Indice del icono en `appIconPath`. Se ignora cuando no se configura `appIconPath`. Por defecto es ``.
+  * `relaunchCommand` String (opcional) - El [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx) de Windows.
+  * `relaunchDisplayName` String (opcional) - El [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx) de Windows.
 
 Establece las propiedades para el botón de la barra de herramientas de la ventana.
 
