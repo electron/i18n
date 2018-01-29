@@ -18,7 +18,7 @@ win.loadURL('https://github.com')
 
 ## Mga bagay ng Remote
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` ay kumakatawan sa isang bagay sa pangunahing proseso (tinatawag natin itong malayong bagay o malayong punsyon). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
 In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
