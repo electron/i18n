@@ -1,10 +1,10 @@
-## Class: IncomingMessage
+## 类：IncomingMessage
 
 > 处理 HTTP/HTTPS 请求的响应。
 
 线程：[主线程](../glossary.md#main-process)
 
-` IncomingMessage ` 实现了 [ Readable Stream ](https://nodejs.org/api/stream.html#stream_readable_streams) 接口, 因此是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)。
+`ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_readable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
 
 ### 事件
 
@@ -28,17 +28,17 @@ The `data` event is the usual method of transferring response data into applicat
 
 返回:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` 通常保存一个错误字符串，识别失败的根本原因。
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+当流响应数据事件遇到错误时发出。 例如, 如果服务器在响应仍在流时关闭基础, 则会在响应对象上发出一个 ` error ` 事件, 随后将在请求对象上执行 ` close ` 事件。
 
 ### 实例属性
 
-An `IncomingMessage` instance has the following readable properties:
+` IncomingMessage ` 实例具有以下可读属性:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+一个指示 HTTP 响应状态代码的 ` Integer `。
 
 #### `response.statusMessage`
 
