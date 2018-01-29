@@ -14,7 +14,7 @@ Ang bagong nilikhang `BrowserWindow` ay magmamana ng mga opsyon sa bintana ng ma
 * `frameName` Tali (opsyonal)
 * `Mga tampok` Tali (opsyonal)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Babalik ang [`BrowserWindowProxy`](browser-window-proxy.md) - Upang lumilikha ng isang bagong window at babalik ang isang halimbawa ng klase ng `BrowserWindowProxy`.
 
 The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
 
