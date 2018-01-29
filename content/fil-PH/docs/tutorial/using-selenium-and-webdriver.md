@@ -6,7 +6,7 @@ Nagmula sa [ChromeDriver - WebDriver para sa Chrome](https://sites.google.com/a/
 
 ## Inaayos ang Spectron
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) ay ang opisyal na sinusuportahan ng ChromeDriver sa pagsusuri ng balangkas para sa Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
