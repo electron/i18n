@@ -409,7 +409,7 @@ Returns `BrowserWindow` - The window that owns the given `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
 Returns `BrowserWindow` - The window with the given `id`.
 
