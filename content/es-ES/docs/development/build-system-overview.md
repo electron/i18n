@@ -1,10 +1,10 @@
 # Compilación de sistemas
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gyp` and `.gypi` files.
+Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Las configuraciones del proyecto pueden ser encontradas en los archivos `.gyp` y `.gypi`.
 
 ## Archivos Gyp
 
-Following `gyp` files contain the main rules for building Electron:
+Los siguientes archivos `gyp` contienen las reglas principales para compilar Electron:
 
 * `electron.gyp` defines how Electron itself is built.
 * `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
