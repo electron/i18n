@@ -1,22 +1,22 @@
-## Class: TouchBarSlider
+## Klase : TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> Maglikha ng slider sa touch bar para sa likas na aplikasyong macOs
 
 Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSlider(options)` *Experimental*
+### `bagong TouchBarSlider(opsyon)` *Eksperimento*
 
 * `mga pagpipilian` Bagay 
-  * `label` String (optional) - Label text.
-  * `value` Integer (optional) - Selected value.
-  * `minValue` Integer (optional) - Minimum value.
-  * `maxValue` Integer (optional) - Maximum value.
-  * `change` Function (optional) - Function to call when the slider is changed. 
-    * `newValue` Number - The value that the user selected on the Slider
+  * `pangalan` String (opsyonal) - label na teksto.
+  * `halaga` Integer (opsyonal) - napiling halaga.
+  * `minValue` Integer (opsyonal) - Pinakamaliit na halaga.
+  * `maxValue` Integer (opsyonal) - Pinakamalaking halaga.
+  * `pagbabago` Tungkuli (opsyonal) - tungkuling tawagan kung ang slider ay napalitan. 
+    * `newValue` Numero - Ang halaga na pinili ng gumugamit sa Slider
 
-### Humahalimbawa sa bahagi nito
+### Instance Properties
 
-The following properties are available on instances of `TouchBarSlider`:
+Ang mga sumusunod na propyedad ai pwedeng gamitin sa pagkakataon ng `TouchBarSlider`:
 
 #### `touchBarSlider.label`
 
