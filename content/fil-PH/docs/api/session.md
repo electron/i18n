@@ -26,7 +26,7 @@ Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
 
 * `partisyon` String
 * `mga opsyon` Layunin 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Boolean - Maaaring paganahin ang cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
 
