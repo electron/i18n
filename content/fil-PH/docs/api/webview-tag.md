@@ -448,17 +448,17 @@ Simulan ng kahilingan para makahanap ng lahat ng magkapareha para sa `text` sa p
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Tinitiyak ang aksyon na mangyayari sa katapusan [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `aksyon` String - Tinitiyak ang aksyon na mangyayari sa katapusan [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) hiling. 
   * `clearSelection` - Tanggalin ang mga napili.
   * `keepSelection` - I-translate ang mga napili para maging normal.
-  * `activateSelection` - Focus and click the selection node.
+  * `activateSelection` - Ipukos at iclick ang node ng napili.
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang `aksyon`.
 
 ### `<webview>.print([options])`
 
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+  * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
