@@ -654,7 +654,7 @@ Evalúa el `code` en la página.
 
 En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+Si el resultado del código ejecutado es un compromiso, el callback resultante será el valor resuelto del compromiso. Se recomienda utilizar el compromiso devuelto para manejar el código que resulte en un Compromiso.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
@@ -667,13 +667,13 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 * `ignore` Boolean
 
-Ignore application menu shortcuts while this web contents is focused.
+Ignora los accesos directos del menú de la aplicación mientras se enfoca los contenidos de la web.
 
 #### `contents.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Silencia el audio la página web actual.
 
 #### `contents.isAudioMuted()`
 
