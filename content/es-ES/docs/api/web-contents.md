@@ -959,7 +959,7 @@ Alterna las herramientas de desarrollador.
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+Empieza a inspeccionar elementos en la posición (`x`, `y`).
 
 #### `contents.inspectServiceWorker()`
 
@@ -970,9 +970,9 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
+Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
-The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+El proceso de renderizado puede manejar el mensaje escuchando al evento `channel` con el módulo `ipcRenderer`.
 
 Un ejemplo de envío de mensajes desde el proceso principal al proceso de renderizado:
 
@@ -1006,14 +1006,14 @@ app.on('ready', () => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parámetros` Object 
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
-    * `desktop` - Desktop screen type
-    * `mobile` - Mobile screen type
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
+  * `screenPosition` String - Especifica el tipo de pantalla que se va a emular (Por defecto: `desktop`) 
+    * `desktop` - El tipo de la pantalla de escritorio
+    * `mobile` - El tipo de la pantalla móvil
+  * `screenSize` [Size](structures/size.md) - Configura el tamaño de la pantalla emulada (screenPosition == mobile)
+  * `viewPosition` [Point](structures/point.md) - Posiciona la vista sobre la pantalla (screenPosition == mobile) (por defecto: `{x: 0, y: 0}`)
+  * `deviceScaleFactor` Integer - Configura el factor escala del dispositivo (si es cero regresa por defecto al factor de escala original del dispositivo) (por defecto: ``)
+  * `viewSize` [Size](structures/size.md) - Configura el tamaño de la vista emulada (en blanco significa que no hay anulación)
+  * `fitToView` Boolean - Si la vista emulada debe reducirse si es necesario para que quepa dentro del espacio disponible (por defecto: `false`)
   * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
 
