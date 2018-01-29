@@ -773,28 +773,28 @@ Ejecuta el comando de edición `unselect` en la página web.
 
 * `texto` String
 
-Executes the editing command `replace` in web page.
+Ejecuta el comando de edición `replace` en la página web.
 
 #### `contents.replaceMisspelling(text)`
 
 * `texto` String
 
-Executes the editing command `replaceMisspelling` in web page.
+Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 #### `contents.insertText(text)`
 
 * `texto` String
 
-Inserts `text` to the focused element.
+Inserta `text` al elemento enfocado.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - El contenido para ser buscado, no debe quedar en blanco.
 * `options` Objecto (opcional) 
-  * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
-  * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
-  * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
+  * `forward` Boolean - (opcional) Si buscar hacia adelante o hacia atrás. Por defecto es `true`.
+  * `findNext` Boolean - (optional) Si la operación se solicita de primero o después. Por defecto es `false`.
+  * `matchCase` Boolean - (optional) Si la búsqueda es en mayúsculas o minúsculas. Por defecto es `false`.
+  * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
