@@ -652,7 +652,7 @@ Magbabalik ng:
   * `selectionArea` Objek - Mga coordinate ng unang tugmang parte.
   * `finalUpdate` Boolean
 
-Simulan kung meron ng resulta sa hinihingi ng [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
+Itigil kung meron ng resulta sa hinihingi ng [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -673,7 +673,7 @@ Magbabalik ng:
 * `disposition` String- Pwedeng `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Objek - Ang mga opsyon na kailangang gamitin para makagawa ng bagong `BrowserWindow`.
 
-Simulan kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
+Itigil kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
 
 Ang mga sumusunod na halimbawa na code ay nagbubukas ng bagong url sa nakadefault na browser sa sistema.
 
@@ -726,7 +726,7 @@ Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero 
 
 ### Event: 'close'
 
-Simulan kung ang guest page ay sinubukang isara ang sarili.
+Itigil kung ang guest page ay sinubukang isara ang sarili.
 
 Ang mga sumusunod na halimbawa na mga code ay ninanavigate ang `webview` sa `about:blank` kapag ang bisita ay sinubukang isara ang sarili.
 
@@ -744,9 +744,9 @@ Magbabalik ng:
 * `channel` String
 * `args` Array
 
-Simulan kapag ang guest page ay nagpadala ng mensahe na asynchronous sa embedder page.
+Itigil kapag ang guest page ay nagpadala ng mensahe na asynchronous sa embedder page.
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+Kasama ang paraang `sendToHost` at event na `ipc-message` magiging madali nalang ang iyong pakikipag-ugnayan sa pagitan ng guest page at embedder page:
 
 ```javascript
 // In embedder page.
@@ -768,11 +768,11 @@ ipcRenderer.on('ping', () => {
 
 ### Event: 'crashed'
 
-Fired when the renderer process is crashed.
+Itigil kapag ang nag-crash ang proseso na nagsumite.
 
 ### Event: 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Itigil kapag ang ang proseso ng gpu ay nag-crash.
 
 ### Event: 'plugin-crashed'
 
@@ -781,7 +781,7 @@ Magbabalik ng:
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+Itigil kapag ang proseso na plug-in ay nagcrash.
 
 ### Event: 'destroyed'
 
