@@ -1,6 +1,6 @@
 # `window.Buksan` Fuction
 
-> Open a new window and load a URL.
+> Magbukas ng bagong window at mag-load ng isang URL.
 
 When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
