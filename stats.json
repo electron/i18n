@@ -146,14 +146,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "8287",
-    "translated": "1396",
+    "translated": "1569",
     "approved": "3",
     "words": "74058",
-    "words_translated": "8137",
+    "words_translated": "9617",
     "words_approved": "43",
-    "translated_progress": 10,
+    "translated_progress": 12,
     "approved_progress": 0,
-    "qa_issues": "383"
+    "qa_issues": "463"
   },
   {
     "name": "Japanese",
@@ -237,14 +237,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "8287",
-    "translated": "7344",
+    "translated": "7529",
     "approved": "104",
     "words": "74058",
-    "words_translated": "65362",
+    "words_translated": "67492",
     "words_approved": "1209",
-    "translated_progress": 88,
+    "translated_progress": 91,
     "approved_progress": 1,
-    "qa_issues": "2780"
+    "qa_issues": "2877"
   },
   {
     "name": "Thai",
