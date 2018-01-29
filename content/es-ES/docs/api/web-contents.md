@@ -871,7 +871,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `error` Error
   * `data` Buffer
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Imprime la página web de la ventana como PDF con la configuración personalizada de impresión previa de Chromium.
 
 The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
 
@@ -929,18 +929,18 @@ win.webContents.on('devtools-opened', () => {
 
 * `path` String
 
-Removes the specified path from DevTools workspace.
+Elimina la ruta especificada del espacio de trabajo de DevTools.
 
 #### `contents.openDevTools([options])`
 
 * `options` Objecto (opcional) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Abre las devtools.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Cierra las devtools.
 
 #### `contents.isDevToolsOpened()`
 
@@ -952,7 +952,7 @@ Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Alterna las herramientas de desarrollador.
 
 #### `contents.inspectElement(x, y)`
 
@@ -963,7 +963,7 @@ Starts inspecting element at position (`x`, `y`).
 
 #### `contents.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+Abre las herramientas de desarrollador para el contexto del trabajador de servicio.
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
