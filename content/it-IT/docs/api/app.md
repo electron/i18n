@@ -499,72 +499,72 @@ Puoi richiedere i seguenti percorsi dal nome:
     Questo è un esempio molto semplice di come creare una Jump List personalizzata:
     
     ```javascript
-const {app} = require('electron')
+const {app} = richiedi('electron')
 
-app.setJumpList([
+app.impostaJumpList([
   {
-    type: 'custom',
-    name: 'Recent Projects',
-    items: [
-      { type: 'file', path: 'C:\\Projects\\project1.proj' },
-      { type: 'file', path: 'C:\\Projects\\project2.proj' }
+    tipo: 'personalizzata',
+    nome: 'Progetti Recenti',
+    elementi: [
+      { tipo: 'file', percorso: 'C:\\Progetti\\progetto1.proj' },
+      { tipe: 'file', percorso: 'C:\\Progetti\\progetto2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
-    items: [
+  { // ha un nome quindi 'tipo' è considerato essere "personalizzato"
+    nome: 'Strumenti',
+    elementi: [
       {
-        type: 'task',
-        title: 'Tool A',
-        program: process.execPath,
-        args: '--run-tool-a',
-        icon: process.execPath,
-        iconIndex: 0,
-        description: 'Runs Tool A'
+        tipo: 'task',
+        titolo: 'Strumento A',
+        programma: processo.eseguiPercorso,
+        arg: '--esegui-strumento-a',
+        icona: processo.eseguiPercorso,
+        indiceIcona: 0,
+        descrizione: 'Esegui Strumento A'
       },
       {
-        type: 'task',
-        title: 'Tool B',
-        program: process.execPath,
-        args: '--run-tool-b',
-        icon: process.execPath,
-        iconIndex: 0,
-        description: 'Runs Tool B'
+        tipo: 'task',
+        titolo: 'Strumento B',
+        programma: processo.eseguiPercorso,
+        arg: '--esegiui-strumento-b',
+        icona: processo.eseguiPercorso'
+        Indiceicona: 0,
+        descrizione: 'Esegui Strumento B'
       }
     ]
   },
-  { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
-    items: [
+  { tipo: 'frequente' },
+  { // non ha nè nome nè tipo quindi il 'tipo' è considerato essere "task"
+    strumenti: [
       {
-        type: 'task',
-        title: 'New Project',
-        program: process.execPath,
-        args: '--new-project',
-        description: 'Create a new project.'
+        tipo: 'task',
+        titolo: 'Nuoco Progetto',
+        programma: processo.eseguiPercorso,
+        arg: '--nuovo-progetto',
+        descrizione: 'Crea un nuovo progetto.'
       },
-      { type: 'separator' },
+      { tipo: 'separatore' },
       {
-        type: 'task',
-        title: 'Recover Project',
-        program: process.execPath,
-        args: '--recover-project',
-        description: 'Recover Project'
+        tipo: 'task',
+        titolo: 'Recupera Progetto',
+        programma: processo.eseguiPercorso,
+        arg: '--recupera-progetto',
+        descrizione: 'Recupera Progetto'
       }
     ]
   }
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.compiSingolaIstanza(callback)`
 
 * `callback` Funzione 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` Stringa[] - Un insieme della linea di comando d'argomento della seconda istanza
+  * `Directoryfunzionante` Stringa - La directory funzionante della seconda istanza
 
-Returns `Boolean`.
+Restituisce `Booleano`.
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Questo metodo rende la tua app una app a Singola Istanza - invece di permettere multiple istanze della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
 
 `callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
