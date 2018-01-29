@@ -23,12 +23,12 @@ Ang`Mga tampok`ng string ay sumusunod sa format ng karaniwang browser, ngunit an
 * Ang pagsasama ng node ay laging hindi pagaganahin sa binuksang `window` kung ito ay hindi napagana sa bintana ng magulang.
 * Ang paghihiwalay ng konteksto ay palaging bukas at gagana sa `bintana` kung ito ay napagana sa bintana ng magulang.
 * Ang javaScript ay laging hindi gagana kung bubuksan sa `bintana` kung ito ay hindi gumagana sa bintana ng magulang.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* Hindi karaniwang mga tampok (na hindi hinahawakan ng Kromo o Elektron) na ibinigay sa `mga tampok` ay ipapasa sa anumang nakarehistro sa `webContent`'s ` bagong-window ` kaganapang handler sa ` karagdagang mga tampok ` na argumento.
 
-### `window.opener.postMessage(message, targetOrigin)`
+### `window.tagabukas.postMessage (mensahe, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `mensahe` Tali
+* `targetOrigin` Tali
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
