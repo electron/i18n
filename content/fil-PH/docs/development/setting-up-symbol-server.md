@@ -17,14 +17,14 @@ SRV*c:\ code\mga simbolo\*https://electron-mga simbolo.githubapp.com
 Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg menu, o sa pamamagitan ng pag-type`sympath` utos. Kung nais mong makakuha ng mga simbolo mula sa Microsoft's simbolo ng server pati na rin, dapat mong ilista ang unang:
 
 ```powershell
-SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\code\ mga simbolo\*https://msdl.microsoft.com/download/mga simbolo;SRV* c:\code\mga simbolo\*https://elektron-symbols.githubapp.com
 ```
 
-## Using the symbol server in Visual Studio
+## Gamit ang simbolo ng server sa Visual Studio
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
-## Troubleshooting: Symbols will not load
+## Pag-troubleshoo: Ang mga simbolo ay hindi mai-load
 
 Type the following commands in Windbg to print why symbols are not loading:
 
