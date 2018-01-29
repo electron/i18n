@@ -665,27 +665,27 @@ Imposta il contatore badge per l'app attuale. Impostare il conto a `` nasconder�
 
 Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launcher Unity,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
-### `app.getBadgeCount()` *Linux* *macOS*
+### `app.ottieniContaBadge()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Restituisce `Intero` - Il valore attuale è mostrato nel contatore di badge.
 
-### `app.isUnityRunning()` *Linux*
+### `app.èUnityEsecuzione()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Restituisce `Booleano` - Se l'attuale ambiente desktop è il launcher Unity.
 
-### `app.getLoginItemSettings([options])` *macOS* *Windows*
+### `app.ottieniImpostazioniElementiAccesso([options])` *macOS* *Windows*
 
 * `opzioni` Oggetto (opzionale) 
-  * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  * `percorso` Stringa (opzionale) *Windows* - Il percorso eseguibile a comparazione. Di default è `processo.eseguiPercorso`.
+  * `arg` Stringa[] (opzionale) *Windows* - La linea di comando degli argomenti comparata. Di default è un insieme vuoto.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Se hai fornito le opzioni di `percorso` e di `arg` a `app.impostaImpostazioniElementiAccedi` dovrai passare gli stessi argomenti qui per `apriAdAccesso` per impostarlo correttamente.
 
 Restituisci `Oggetto`:
 
-* `openAtLogin` Boolean - `true` if the app is set to open at login.
+* `apriAdAccesso` Booleano - `true` se l'app è impostata a aperta all'accesso.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
 * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
