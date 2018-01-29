@@ -797,16 +797,16 @@ Inserta `text` al elemento enfocado.
   * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
   * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Empieza una solicitud para encontrar todas las coincidencias para el `text` en la página web y devuelve un `Integer` que representa el id de solicitud utilizado. El resultado de la solicitud puede obtenerse al suscribirse al evento [`found-in-page`](web-contents.md#event-found-in-page).
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
-  * `activateSelection` - Focus and click the selection node.
+* `action` String - Especifica la acción que se llevará a cabo cuando finalice [`webContents.findInPage`] la solicitud. 
+  * `clearSelection` - Borrar la selección.
+  * `keepSelection` - Traduce la selección en una selección normal.
+  * `activateSelection` - Enfoca y hace clic en el nodo de selección.
 
-Stops any `findInPage` request for the `webContents` with the provided `action`.
+Detiene cualquier solicitud `findInPage` para el `webContents` con la `action` proporcionada.
 
 ```javascript
 const {webContents} = require('electron')
@@ -820,18 +820,18 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada
 * `llamada de vuelta` Función 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. La `imagen` es una instancia de [NativeImage](native-image.md) que almacena los datos de la foto instantánea. Si se omitir `rect`, se capturará toda la página visible.
 
 #### `contents.hasServiceWorker(callback)`
 
 * `llamada de vuelta` Función 
   * `hasWorker` Boolean
 
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
+Comprueba si cualquier ServiceWorker está registrado y devuelve un valor booleano como respuesta a `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
@@ -974,7 +974,7 @@ Send an asynchronous message to renderer process via `channel`, you can also sen
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 
-An example of sending messages from the main process to the renderer process:
+Un ejemplo de envío de mensajes desde el proceso principal al proceso de renderizado:
 
 ```javascript
 // En el proceso principal.
@@ -1005,7 +1005,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parámetros` Object 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
@@ -1066,13 +1066,13 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+The `frameBuffer` is a `Buffer` that contains raw pixel data. En la mayoría de las máquinas, los datos de píxeles se almacenan efectivamente en formato BGRA de 32 bits, pero la representación real depende del endianness del procesador (la mayoría de los procesadores modernos son little-endian, en máquinas con procesadores big-endian los datos están en formato ARGB de 32 bits).
 
 The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
-End subscribing for frame presentation events.
+Finalizar suscripción para eventos de presentación de marcos.
 
 #### `contents.startDrag(item)`
 
@@ -1148,7 +1148,7 @@ Returns `Integer` - If *offscreen rendering* is enabled returns the current fram
 
 #### `contents.invalidate()`
 
-Schedules a full repaint of the window this web contents is in.
+Programa un repintado completo de la ventana en la que se encuentra este contenido web.
 
 If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
 
@@ -1158,10 +1158,10 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
-  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+* `política` String - Specify the WebRTC IP Handling Policy. 
+  * `default` - Exposes user's public and local IPs. Este es el comportamiento por defecto. Cuando se usa esta política, WebRTC tiene el derecho de enumerar todas las interfaces y vincularlas para descubrir interfaces públicas.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto no expone ninguna dirección local.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
 Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
