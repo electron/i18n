@@ -468,19 +468,19 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
 
 * `mga pagpipilian` Bagay 
   * `marginsType` Integer - (opsyonal) Itinatakda ang uri ng mga margin na gagamitin. Gumagamit ng 0 para sa naka-default na margin, 1 para sa walang margin, at 2 para sa pinakamaliit na maaaring gawing margin.
-  * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
-  * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
-  * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
-  * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
+  * `pageSize` String - (opsyonal) Itinatakda ang sukat ng page ng nalilikhang PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
+  * `printBackground` Boolean - (opsyonal) Pwedeng i-imprinta ang mga background ng CSS.
+  * `printSelectionOnly` Boolean - (opsyonal) Pwedeng i-imprinta ang mga napili lamang.
+  * `landscape` Boolean - (opsyonal) `true` para sa landscape, `false` para sa portrait.
 * `tumawag muli` Punsyon 
   * `error` Error
   * `data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin
 * `tumawag muli` Punsyon 
   * `image` [NativeImage](native-image.md)
 
