@@ -104,7 +104,7 @@ async function parseFile (file) {
     $(el).attr('src', URL.format(parsed))
   })
 
-  file.html = $.html()
+  file.html = $('body').html()
 
   // remove leftover file props from walk-sync
   delete file.mode
