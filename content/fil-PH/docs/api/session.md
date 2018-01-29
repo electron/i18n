@@ -44,9 +44,9 @@ Isang `sesyon` ng layunin, ang depult ng sesyon na layunin ng app.
 
 ## Klase: ng Sesyon
 
-> Get and set properties of a session.
+> Kumuwa at magtakda ng mga katangian ng isang sesyon.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Ang proseso ng: [Main](../glossary.md#main-process)
 
 You can create a `Session` object in the `session` module:
 
