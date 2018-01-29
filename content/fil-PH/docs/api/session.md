@@ -1,4 +1,4 @@
-# pulong
+# sesyon
 
 > Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, etc.
 
@@ -32,7 +32,7 @@ Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Ka
 
 Kung ang `partisyon` ay nagsisimula kasama ang `pananatili:`, ang pahina ay gumagamit ng isang sesyon sa pananatili Maaari magamit ito sa lahat ng mga pahina sa mga app na may kaparehong `partisyon`. kung walang ditong `paninindigan:` prefix, ang pahina ay magagamit bilang sesyon ng memorya. Kung ang `partisyon` ay walang laman kung gayoon ang sesyon ng default ng app ay ibabalik.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Para gumawa ng isang `sesyon` kasama ng `mga option`, siguraduhin mo rin ang `Sesyon` kasama ang `partisyon` na hindi pa ginamit nuon. There is no way to change the `options` of an existing `Session` object.
 
 ## Mga Katangian
 
