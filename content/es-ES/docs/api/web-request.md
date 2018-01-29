@@ -47,13 +47,13 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
   * `llamada de vuelta` Función 
     * `respuesta` Object 
       * `cancelar` Booleano (opcional)
-      * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
+      * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
 
-The `listener` will be called with `listener(details, callback)` when a request is about to occur.
+El `oyente` será llamado con `listener(details, callback)` cuando una solicitud está a punto de ocurrir.
 
-The `uploadData` is an array of `UploadData` objects.
+`uploadData` es un arreglo de objetos `uploadData`.
 
-The `callback` has to be called with an `response` object.
+La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
@@ -61,7 +61,7 @@ The `callback` has to be called with an `response` object.
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `listener` Función
 
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
+El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
 
 * `details` Object 
   * `id` Íntegro
@@ -69,13 +69,13 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `method` Cuerda
   * `resourceType` String
   * `fecha y hora` Doble
-  * `requestHeaders` Object
+  * `Encabezado de solicitud` Objecto
 * `llamada de vuelta` Función 
   * `respuesta` Object 
     * `cancelar` Booleano (opcional)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
+    * `Encabezados de solicitud` Objecto (opcional) - Cuando se provean, las solicitudes serán hechas con este encabezado.
 
-The `callback` has to be called with an `response` object.
+La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -88,9 +88,9 @@ The `callback` has to be called with an `response` object.
     * `method` Cuerda
     * `resourceType` String
     * `fecha y hora` Doble
-    * `requestHeaders` Object
+    * `Encabezado de solicitud` Objecto
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+El`oyente` Será llamado con `listener(details)` justo antes que una solicitud vaya a ser enviada al servidor, modificaciones de previas respuestas `onBeforeSendHeaders` son visibles en el momento que este oyente esté en funcionamiento.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
@@ -115,7 +115,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
-The `callback` has to be called with an `response` object.
+La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
