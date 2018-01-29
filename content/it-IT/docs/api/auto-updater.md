@@ -1,25 +1,25 @@
-# autoUpdater
+# autoAggiornatore
 
-> Enable apps to automatically update themselves.
+> Abilita le app ad aggiornarsi automaticamente.
 
 Processo: [Principale](../glossary.md#main-process)
 
-The `autoUpdater` module provides an interface for the [Squirrel](https://github.com/Squirrel) framework.
+Il modulo `autoAggiornatore` fornisce un'un'interfaccia per il framework [Squirrel](https://github.com/Squirrel).
 
-You can quickly launch a multi-platform release server for distributing your application by using one of these projects:
+Puoi brevemente lanciare un rilascio su più piattaforme del server per distribuire la tua app usando uno dei seguenti progetti:
 
-* [nuts](https://github.com/GitbookIO/nuts): *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+* [nut](https://github.com/GitbookIO/nuts): *Un software release intelligente per le tue app, usando GitHub come sfondo. Auto-aggiornamenti con Squirrel (Mac & Windows)*
+* [electron-rilascio-server](https://github.com/ArekSredzki/electron-release-server): *Un totalmente accessoriato auto-ospitato rilascio server per le app electron, compatibile con l'auto-aggiornatore*
+* [squirrel-aggiornamenti-server](https://github.com/Aluxian/squirrel-updates-server): *Un semplice server node.js per Squirrel.Mac e Squirrel.Windows che usa i rilasci GitHub*
+* [squirrel-rilascio-server](https://github.com/Arcath/squirrel-release-server): *Una semplice applicazione PHP per Squirrel.Windows che legge gli aggiornamenti da una cartella. Supporta aggiornamenti delta.*
 
-## Platform notices
+## Avvisi di piattaforma
 
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+`autoAggiornatore` fornisce una API uniforme per varie piattaforme, ci sono alcune differenze sottili su ogni piattaforma.
 
 ### macOS
 
-On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
+Su macOS, il modulo `autoAggiornatore` costruito su [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), non è necessario nessun avvio speciale per farlo lavorare. Per requisiti lato-server puoi leggere il [Supporto Server](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
 
 **Note:** Your application must be signed for automatic updates on macOS. This is a requirement of `Squirrel.Mac`.
 
