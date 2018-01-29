@@ -64,7 +64,7 @@ Alternativamente, puede anular la memoria caché local. `electron-download` will
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+En entornos que han estado usando versiones anteriores de Electron, también podrás encontrar la caché en `~/.electron`.
 
 You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
 
