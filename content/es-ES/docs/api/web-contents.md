@@ -41,7 +41,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 ## Clase: ContenidoWeb
 
-> Render and control the contents of a BrowserWindow instance.
+> Renderice y controle el contenido de una instancia de BrowserWindow.
 
 Proceso: [Principal](../glossary.md#main-process)
 
@@ -74,7 +74,7 @@ Emite cuando un frame ha terminado la navegación.
 
 #### Evento: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Corresponde a los puntos en el tiempo cuando el girador de la pestaña comenzó a girar.
 
 #### Evento: 'did-stop-loading'
 
@@ -109,7 +109,7 @@ Devuelve:
 * `referencia` String
 * `headers` Objeto
 
-Emitted when a redirect is received while requesting a resource.
+Se emite cuando se recibe una redirección mientras se solicita un recurso.
 
 #### Event: 'dom-ready'
 
@@ -250,7 +250,7 @@ Emitido cuando `webContents` es destruido.
 Devuelve:
 
 * `evento` Evento
-* `input` Object - Propiedades de la entrada 
+* `entrada` Object - Propiedades de la entrada 
   * `type` String - Sea `keyUp` o `keyDown`
   * `key` String - Es igual a [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `code` String - Es igual a [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -345,7 +345,7 @@ El uso es lo mismo que con el evento [the `login` de la `app`](app.md#event-logi
 Devuelve:
 
 * `evento` Evento
-* `result` Object 
+* `resultado` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Integer - Número de coincidencias.
