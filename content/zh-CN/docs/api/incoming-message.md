@@ -8,23 +8,23 @@
 
 ### 事件
 
-#### Event: 'data'
+#### data事件
 
 返回:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` 缓冲区: 响应体数据块。
 
-The `data` event is the usual method of transferring response data into applicative code.
+`data`事件是将响应数据转换为应用程序代码的常用方法。
 
-#### Event: 'end'
+#### end事件
 
 指示响应正文已结束。
 
-#### Event: 'aborted'
+#### aborted事件
 
 正在进行的 HTTP 事务被取消后触发。
 
-#### Event: 'error'
+#### error事件：
 
 返回:
 
@@ -62,4 +62,4 @@ The `data` event is the usual method of transferring response data into applicat
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+表示http协议次要版本号的`整数`。
