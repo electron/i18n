@@ -28,7 +28,7 @@ Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
 * `mga opsyon` Layunin 
   * `cache` Boolean - Maaaring paganahin ang cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay maaaring bumalik: sa kabilang banda ay maging bago `Sesyon` ang instansya ay maaaring gumawa kasama ang `mga opsyon`.
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
