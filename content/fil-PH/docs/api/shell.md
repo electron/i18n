@@ -62,9 +62,9 @@ Laruin ang tunog na "beep".
 
 * `shortcutPath` String
 * `operation` String (opsyunal) - Pagtatakda nito sa dati o karaniwan nitong ayos o "default" ay `paglikha`, na maaaring isa sa mga sumusunod: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+  * `create` - Ang paglikha ng bagong pagpapa-ikli, pagpapalit ng lumang impormasyon o datos sa bago o tinatawag na "overwriting", kung kinakailangan.
+  * `update` - Ang pagsasaayos ng mga katangian ayon sa pinakabagong aspeto nito na mangyayari lamang sa umiiral na pagpapaikli.
+  * `replace` - Ang pagpatong sa pagpapaikli ay maaaring mabigo kung ito ay hindi umiiral.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
 Returns `Boolean` - Whether the shortcut was created successfully
