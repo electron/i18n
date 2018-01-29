@@ -44,7 +44,7 @@ Maaari ring itakda ang opsyong ito sa `<webview>` mga tag na mabuti:
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+Ang paglikha ng `BrowserWindow` ay napapasadya sa pamamagitan ng `WebContents` `bagong window` kaganapan.
 
 ```javascript
 // main process
