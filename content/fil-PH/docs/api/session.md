@@ -58,7 +58,7 @@ console.log(ses.getUserAgent())
 
 ### Halimbawa ng mga Kaganapan
 
-Ang sumusunod na pangyayari ay magagamit para sa mga pagkakataon ng `Session`:
+Ang mga sumusunod na mga kaganapan ay magagamit sa mga pagkakataon ng `Sesyon`:
 
 #### Pangyayri: 'Mag-dadownload'
 
