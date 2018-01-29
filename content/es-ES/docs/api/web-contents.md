@@ -388,9 +388,9 @@ Devuelve:
 * `image` NativeImage (optional)
 * `scale` Float (opcional) - Factor de escala para el cursor personalizado
 * `size` [Size](structures/size.md) (opcional) - El tamaño de la `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `hotspot` [Point](structures/point.md) (opcional) - Coordenadas de la zona activa del cursor personalizado
 
-Emitted when the cursor's type changes. El `type` parámetro puede ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, ``ne-resize</code>, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom</0>.</p>
+Emitido cuando el tipo del cursor cambia. El `type` parámetro puede ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, ``ne-resize</code>, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom</0>.</p>
 
 <p>Si el parámetro <code>type` es `custom`, el parámetro de la `image` mantendrá la imagen del cursor personalizado en un `NativeImage`, y `scale`, `size` y`hotpost` mantendrá información adicional sobre el cursor personalizado.
 
@@ -472,9 +472,9 @@ Devuelve:
 
 * `evento` Evento
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* `image` [NativeImage](native-image.md) - La información de la imagen de todo el fotograma.
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+Emitido cuando un se genera un nuevo fotograma. Solo la zona oscura se pasa al búfer.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -510,13 +510,13 @@ Este evento puede utilizarse para configurar `webPreferences` para la `webConten
 
 * `url` String
 * `options` Objecto (opcional) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
+  * `httpReferrer` String (opcional) - Un url de HTTP referencial.
+  * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
+  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
-Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
+Carga el `url` en la ventana. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
 ```javascript
 const {webContents} = require('electron')
