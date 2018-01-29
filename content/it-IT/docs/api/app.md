@@ -808,10 +808,10 @@ Restituisce `Booleano` - Se l'icona del dock è visibile. L'`app.dock.mostra()` 
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Imposta il [menu dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
 
-### `app.dock.setIcon(image)` *macOS*
+### `app.dock.impostaImmagine(immagine)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | String)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
-Sets the `image` associated with this dock icon.
+Imposta l'`immagine` associata a questa icona del dock.
