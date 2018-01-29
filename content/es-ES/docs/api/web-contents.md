@@ -623,13 +623,13 @@ Navega hacia el offset especificado desde "la entrada actual".
 
 #### `contents.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Devuelve `Boolean` - Si el proceso de renderizado ha fallado.
 
 #### `contents.setUserAgent(userAgent)`
 
 * `userAgent` cadena
 
-Overrides the user agent for this web page.
+Anula el agente usuario para esta página web.
 
 #### `contents.getUserAgent()`
 
