@@ -1,12 +1,12 @@
 # Uso del Plugin de Pepper Flash
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Electron es compatible con el complemento de Pepper Flash. Para usar el complemento de Pepper Flash en Electron, debe especificar manualmente la ubicación del complemento de Pepper Flash y luego habilitarlo en su aplicación.
 
-## Prepare a Copy of Flash Plugin
+## Prepare una copia del complemento Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Its location and version are useful for Electron's Pepper Flash support. También puedes copiarlo a otro ubicación.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Su ubicación y versión son útiles para el soporte de Pepper Flash de Electron. También puedes copiarlo a otro ubicación.
 
-## Add Electron Switch
+## Agregar interruptor de Electron
 
 You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Electron command line or by using the `app.commandLine.appendSwitch` method before the app ready event. Also, turn on `plugins` option of `BrowserWindow`.
 
