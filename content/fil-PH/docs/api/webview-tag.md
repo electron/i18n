@@ -534,7 +534,7 @@ Magbabalik ng:
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+Sinisimulan agad sa pagtanggap ng load. Sinasama nito ang nabigasyon na nasa kasalukuyang dokumento pati na ang mga load ng subframe na nasa lebel ng dokumento, pero di kasama ang mga load ng asynchronous resource.
 
 ### Event: 'did-finish-load'
 
@@ -647,12 +647,12 @@ Magbabalik ng:
 
 * `result` Bagay 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Posisyon ng aktibong katugma.
+  * `matches` Integer - Bilang ng mga Tugma.
+  * `selectionArea` Objek - Mga coordinate ng unang tugmang parte.
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) request.
+Simulan kung meron ng resulta sa hinihingi ng [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -670,12 +670,12 @@ Magbabalik ng:
 
 * `url` String
 * `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
-* `options` Object - The options which should be used for creating the new `BrowserWindow`.
+* `disposition` String- Pwedeng `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `options` Objek - Ang mga opsyon na kailangang gamitin para makagawa ng bagong `BrowserWindow`.
 
-Fired when the guest page attempts to open a new browser window.
+Simulan kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
 
-The following example code opens the new url in system's default browser.
+Ang mga sumusunod na halimbawa na code ay nagbubukas ng bagong url sa nakadefault na browser sa sistema.
 
 ```javascript
 const {shell} = require('electron')
