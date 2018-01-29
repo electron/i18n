@@ -1,10 +1,10 @@
-# Mga suportadong plataporma
+# Mga Suportadong Plataporma
 
-Following platforms are supported by Electron:
+Ang mga sumusunod na plataporma ay suportado ng Elektron:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.9.
+64bit binary lamang ang binigay para sa macOS, at ang minimum na bersyon ng macOS ay sinusuportahan ng macOS 10.9.
 
 ### Windows
 
