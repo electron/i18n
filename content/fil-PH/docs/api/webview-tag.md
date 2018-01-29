@@ -557,15 +557,15 @@ Magbabalik ng:
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+Itigil kapag natapos na ang nabigasyon ng frame.
 
 ### Event: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+Tumutugon sa mga puntos ng oras kung kailan nagsimulang umikot ang taga-ikot ng tab.
 
 ### Event: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+Tumutugon sa mga puntos ng oras kung kailan huminto sa pag-ikot ang taga-ikot ng tab.
 
 ### Event: 'did-get-response-details'
 
@@ -577,7 +577,7 @@ Magbabalik ng:
 * `httpResponseCode` Integer
 * `requestMethod` String
 * ang `referer` String
-* `headers` Object
+* `headers` Objek
 * `resourceType` String
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
