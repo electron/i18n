@@ -6,13 +6,13 @@ Ang proseso: [Pangunahin](../glossary.md#main-process)
 
 Ang `globalShortcut` modyul ay pwedeng irehistro/hindi-irehistro ang global keyboard shortcut na may operating system para maka customize ang operasyon sa iba-ibang shortcut.
 
-**Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang keyboard focus. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
+**Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang pagtuon ng keyboard. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
 onst {app, globalShortcut} = kailangan('electron')
 
 app.on('ready', () => {
-  // Magrehistro ng a 'CommandOrControl+X' shortcut tagapakinig.
+  // Magrehistro ng a 'CommandOrControl+X' shortcut na tagapakinig.
 
 
   const ret = globalShortcut.irehistro('CommandOrControl+X', () => {
@@ -28,22 +28,25 @@ app.on('ready', () => {
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
-  globalShortcut.unregister('CommandOrControl+X')
+  // Hindi irehistro ang shortcut.
 
-  // Unregister all shortcuts.
-  globalShortcut.unregisterAll()
+  globalShortcut.hindirehistrado('CommandoControl+X')
+
+//Wag irehistro lahat ng shortcuts.
+
+  globalShortcut.wagirehistroLahat()
 })
+ 
 ```
 
 ## Pamamaraan
 
-The `globalShortcut` module has the following methods:
+Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 
-### `globalShortcut.register(accelerator, callback)`
+### `globalShortcut.rehistro(aselerador, baliktawag)`
 
-* `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `accelerator` [Accelerator](accelerator.md) 
+* `baliktawag` ginagawa
 
 Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
 
@@ -51,7 +54,7 @@ When the accelerator is already taken by other applications, this call will sile
 
 ### `globalShortcut.isRegistered(accelerator)`
 
-* `accelerator` [Accelerator](accelerator.md)
+* `accelerator` [Accelerator](accelerator.md) 
 
 Returns `Boolean` - Whether this application has registered `accelerator`.
 
@@ -59,7 +62,7 @@ When the accelerator is already taken by other applications, this call will stil
 
 ### `globalShortcut.unregister(accelerator)`
 
-* `accelerator` [Accelerator](accelerator.md)
+* `accelerator` [Accelerator](accelerator.md) 
 
 Unregisters the global shortcut of `accelerator`.
 
