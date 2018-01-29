@@ -915,7 +915,7 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Añade la ruta especificada al espacio de trabajo DevTools. Debe ser utilizado luego de la creación de DevTools:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -934,9 +934,9 @@ Elimina la ruta especificada del espacio de trabajo de DevTools.
 #### `contents.openDevTools([options])`
 
 * `options` Objecto (opcional) 
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+  * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
 
-Abre las devtools.
+Abre las herramientas del desarrolador.
 
 #### `contents.closeDevTools()`
 
@@ -944,11 +944,11 @@ Cierra las devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Devuelve `Boolean` - Si se abren las herramientas del desarrollador.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Devuelve `Boolean` - Si se enfoca la vista de las herramientas del desarrollador .
 
 #### `contents.toggleDevTools()`
 
