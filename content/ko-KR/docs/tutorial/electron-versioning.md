@@ -108,7 +108,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# 누락된 기능: 알파와 Nightly
 
 Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
