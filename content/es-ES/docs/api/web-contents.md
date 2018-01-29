@@ -838,31 +838,31 @@ Comprueba si cualquier ServiceWorker está registrado y devuelve un valor boolea
 * `llamada de vuelta` Función 
   * `success` Boolean
 
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
+Anula el registro de cualquier ServiceWorker si presenta y devuelve un valor booleano como respuesta a `callback` cuando el compromiso de JS es cumplido o falso cuando el compromiso de JS es rechazado.
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Obtiene la lista de impresora del sistema.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+Devuelve [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
 * `options` Objecto (opcional) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
-  * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
-  * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+  * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
+  * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
+  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+Imprime la página web de la ventana. Cuando se configura `silent` a `true`, Electron seleccionará la impresora por defecto del sistema si `deviceName` esta en blanco y la configuración por defecto para imprimir.
 
-Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+Llamar `window.print()` en la página web es igual a llamar `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
 #### `contents.printToPDF(options, callback)`
 
 * `options` Object 
-  * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+  * `marginsType` Integer - (opcional) Especifica el tipo de márgenes que se va a usar. Utiliza 0 para el margen por defecto, 1 para ningún margen y 2 para el margen mínimo.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
@@ -888,7 +888,7 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
 An example of `webContents.printToPDF`:
 
@@ -1161,7 +1161,7 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 * `política` String - Specify the WebRTC IP Handling Policy. 
   * `default` - Exposes user's public and local IPs. Este es el comportamiento por defecto. Cuando se usa esta política, WebRTC tiene el derecho de enumerar todas las interfaces y vincularlas para descubrir interfaces públicas.
   * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto no expone ninguna dirección local.
-  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. Cuando se usa esta política, WebRTC solo debe usar la ruta predeterminada utilizada por http. Esto también expone la dirección privada predeterminada asociada. La ruta predeterminada es la ruta elegida por el SO en un punto final multitarjeta.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
 Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
