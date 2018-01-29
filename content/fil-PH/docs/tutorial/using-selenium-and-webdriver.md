@@ -2,7 +2,7 @@
 
 Nagmula sa [ChromeDriver - WebDriver para sa Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver ay isang open source na tool para sa automated na pagsusuri ng web apps sa kabuuan ng maraming mga browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver ay isang bukas na kagamitan na mapagkukunan para sa automatikong pagsusuri ng web apps sa kabuuan ng maraming mga browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
 
 ## Setting up Spectron
 
