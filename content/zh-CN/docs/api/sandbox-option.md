@@ -6,13 +6,13 @@ Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代
 
 也就是说，在sandbox模式下，渲染器只能通过IPC委派任务给主进程来对操作系统进行更改。 [下述](https://www.chromium.org/developers/design-documents/sandbox)是有关sandbox更多的信息。
 
-Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+自从在渲染进程中运行node.js成为electron的一个重要特性（可以更容易地使用Web技术创建桌面应用），沙箱在默认情况下被禁用。 这是因为大多数node.js API需要访问操作系统。 比如 ，要使用`require()`不可能没有文件系统权限，而该权限在沙箱环境下不是有效的。
 
-Usually this is not a problem for desktop applications since the code is always trusted, but it makes electron less secure than chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+通常, 对于桌面应用程序来说, 这不是问题, 因为代码始终是受信任的, 但它使electron在显示Web内容时安全性不如chromium。 如果应用程序需要更多的安全性，`sandbox` 标记将使electron产生一个与沙箱兼容的经典chromium渲染器。
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
+一个沙箱环境下的渲染器没有node.js运行环境，并且没有对客户端代码暴露node.js JavaScript APIs。 唯一的例外是预加载脚本, 它可以访问electron渲染器 API 的一个子集。
 
-Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+另一个区别是沙箱渲染器不修改任何默认的 JavaScript api。 因此, 某些 api （比如 `window.open`）将像在chromium中一样工作 (即它们不返回 ` BrowserWindowProxy `)。
 
 ## 例子
 
@@ -54,9 +54,9 @@ It is not possible to have the OS sandbox active only for some renderers, if `--
 
 If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
-## Preload
+## 预加载
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+一个App可以使用预加载脚本自定义沙箱渲染器。 这里有一个例子：
 
 ```js
 let win
@@ -124,9 +124,9 @@ Currently the `require` function provided in the preload scope exposes the follo
 
 More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
 
-## Status
+## 状态
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+请小心使用`sandbox`选项，它仍是一个实验性特性。 We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - A preload script can accidentaly leak privileged APIs to untrusted code.
 - Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.

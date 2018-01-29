@@ -47,7 +47,7 @@ Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada katego
     * update versi utama node.js
     * Elektron melanggar API berubah
 * **Versi minor** 
-    * node.js minor version updates
+    * versi pembaruan node.js minor
     * Perubahan API non-breaking elektron
 * **Versi Patch** 
     * update patch versi node.js
@@ -72,8 +72,8 @@ Baris yang lebih tua tidak akan didukung oleh GitHub, namun kelompok lain dapat 
 
 Pengembang ingin mengetahui rilis mana yang *aman* untuk digunakan. Bahkan fitur yang tampaknya tidak berdosa bisa mengenalkan regresi dalam aplikasi yang kompleks. Pada saat bersamaan, penguncian ke versi tetap berbahaya karena anda mengabaikan tambalan keamanan dan perbaikan bug yang mungkin keluar sejak versi anda. Tujuan kami adalah membiarkan rangkaian standar berikut masuk `package.json` :
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Gunakan `^ 2.0.0` untuk mengakui fitur pekerjaan yang tidak melanggar * cukup stabil * serta perbaikan keamanan dan bug.
+* Gunakan ` ~ 2.0.0 </ 0> untuk mengakui hanya perbaikan stabilitas atau keamanan terkait rilis Anda <code> 2.0.0 </ 0>.</li>
+<li>Gunakan <code>^ 2.0.0` untuk mengakui fitur pekerjaan yang tidak melanggar * cukup stabil * serta perbaikan keamanan dan bug.
 
 Yang penting dari poin kedua adalah aplikasi yang menggunakan ` ^` tetap dapat mengharapkan tingkat stabilitas yang masuk akal. Untuk mencapai hal ini, semver memungkinkan * pengenal pra-rilis * untuk menunjukkan versi tertentu belum *aman* atau * stabil*.
 
@@ -99,8 +99,9 @@ Untuk setiap benturan besar dan kecil, Anda harus berharap juga melihat sesuatu 
 
 Contoh siklus hidup dalam gambar:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Perbaikan bug masuk ke master yang bisa di-pack ke cabang rilis. Patch ini diterapkan, dan beta baru diterbitkan sebagai `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* Cabang rilis baru dibuat yang mencakup rangkaian fitur terbaru. Ini diterbitkan menjadi` 2.0.0-beta.1 </ 0>.
+<img src="../images/versioning-sketch-3.png" alt="" /></li>
+<li>Perbaikan bug masuk ke master yang bisa di-pack ke cabang rilis. Patch ini diterapkan, dan beta baru diterbitkan sebagai <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * Beta dianggap *umumnya stabil* dan diterbitkan lagi sebagai non-beta di bawah `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Kemudian, eksploitasi zero-day terungkap dan sebuah perbaikan diterapkan pada master. Kami memasang port-port ke garis `2-0-x` dan melepaskan `2.0.1`. ![](../images/versioning-sketch-6.png)
 

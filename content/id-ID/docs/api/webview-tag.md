@@ -144,7 +144,7 @@ String mengikuti format yang sama sebagai string fitur dalam `window.open`. Nama
 
 Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
-### `disableblinkfeatures`
+### `nonaktifkanfiturblink`
 
 ```html
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
@@ -152,7 +152,7 @@ Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan ole
 
 Daftar string yang menentukan preferensi web diatur pada webview, dipisahkan oleh `,`. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
-### `guestinstance`
+### `contohtamu`
 
 ```html
 <webview src="https://www.github.com/" guestinstance="3"></webview>
@@ -162,7 +162,7 @@ Sebuah nilai yang menghubungkan webview ke webContents tertentu. Ketika webview 
 
 Webview yang tersedia akan melihat `menghancurkan` dan kemudian akan menciptakan webContents baru ketika url yang baru termuat.
 
-### `disableguestresize`
+### `nonaktifkanukurkembalitamu`
 
 ```html
 <webview src="https://www.github.com/" disableguestresize></webview>
@@ -204,7 +204,7 @@ webview.addEventListener ('dom-ready', () => {
 })
 ```
 
-### `<webview>.loadURL(url[, options])`
+### `<webview>.muatURL(url[, pilihan])`
 
 * `url` URL
 * `pilihan` Objek (pilihan) 
@@ -216,11 +216,11 @@ webview.addEventListener ('dom-ready', () => {
 
 Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
-### `<webview>.getURL()`
+### `<webview>.dapatkanURL()`
 
 Mengembalikan ` String ` - URL halaman tamu.
 
-### `<webview>.getTitle()`
+### `<webview>.dapatkanTitle()`
 
 Mengembalikan `String` - Judul halaman tamu.
 

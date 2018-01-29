@@ -1,17 +1,17 @@
 # Variables de entorno
 
-> Control application configuration and behavior without changing code.
+> Configuración y comportamiento de la aplicación de control sin cambiar el código.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Ciertos comportamientos de Electron están controlados por variables de entorno debido a que son inicializadas antes que las flags de la línea de comandos y que el código de la applicación.
 
-POSIX shell example:
+Ejemplo de shell POSIX:
 
 ```bash
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Ejemplo de consola de Windows:
+Ejemplo de la consola de Windows:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
@@ -20,56 +20,56 @@ Ejemplo de consola de Windows:
 
 ## Variables de producción
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+Las siguientes variables de entorno están diseñadas principalmente para usarse en los módulos de ejecución en las aplicaciones preconfiguradas de Electron.
 
 ### `GOOGLE_API_KEY`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+Electron incluye una clave API codificada para hacer solicitudes al webservice de geocoding de Google. Debido a que esta clave API está incluida en cada versión de Electron, frecuente mente excede su cuota de uso. Para solucionar esto, se puede suministrar una clave propia API de Google en el entorno. Coloque el siguiente código en el archivo de tu proceso principal antes de abrir cualquier ventana del navegador que harán solicitudes de geocoding:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
+Para obtener instrucciones sobre cómo adquirir una clave de API de Google, visita [esta página](https://www.chromium.org/developers/how-tos/api-keys).
 
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+Por defecto, una clave API de Google recién generada podría no funcionar al hacer solicitudes geocoding. Para habilitar las solicitudes de geocodificación., visite [esta página](https://console.developers.google.com/apis/api/geolocation/overview).
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Deshabilita el soporte ASAR. Esta variable solo es compatible en procesos secundarios bifurcados y procesos secundarios creados que establecen `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+Inicia el proceso como un proceso normal de Node.js.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+No se adjunta a la sesión de la consola actual.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+No utilizar la barra de menú global en Linux.
 
-## Development Variables
+## Variables de desarrollo
 
-The following environment variables are intended primarily for development and debugging purposes.
+Las siguientes variables de entorno están principalmente diseñadas para propósitos de desarrollo y depuración.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Imprime el registro interno de Chrome a la consola.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Cuando Electron lee desde un archivo ASAR, registra la lectura offset y la ruta del archivo al sistema `tmpdir`. El archivo resultante puede ser proporcionado al módulo ASAr para optimizar la organización de los archivos.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Prints the stack trace to the console when Electron crashes.
+Imprime el rastro de la pila a la consola cuando Electron falla.
 
-This environment variable will not work if the `crashReporter` is started.
+Esta variable de entorno no funcionará si se inicia el `crashReporter`.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Muestra el cuadro de dialogo del fallo de Windows cuando falla Electron.
 
-This environment variable will not work if the `crashReporter` is started.
+Esta variable de entorno no funcionará si se inicia el `crashReporter`.

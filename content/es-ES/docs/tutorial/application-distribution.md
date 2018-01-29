@@ -105,13 +105,13 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 <p>Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.</p>
 
-<h4>Creating a Custom Release with surf-build</h4>
+<h4>Crear una versión personalizada con surf-build</h4>
 
 <ol>
 <li><p>Install <a href="https://github.com/surf-build/surf">Surf</a>, via npm:
 <code>npm install -g surf-build@latest`</li> 
 
-* Create a new S3 bucket and create the following empty directory structure:
+* Cree un nuevo depósito S3 y cree la siguiente estructura de directorio vacía:
     
     ```sh
 - atom-shell/
@@ -119,7 +119,7 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
   - dist/
 ```
 
-* Set the following Environment Variables:</ol> 
+* Establezca las siguientes variables de entorno:</ol> 
 
 * `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
@@ -133,4 +133,4 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Espere un tiempo muy, muy largo para que se complete la compilación.

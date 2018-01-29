@@ -1,28 +1,28 @@
-## Class: ClientRequest
+## Klasse: ClientRequest
 
-> Make HTTP/HTTPS requests.
+> Tätigen von HTTP/HTTPS anfragen.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`ClientRequest` implements the [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit eine [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### `new ClientRequest(options)`
+### `new ClientRequest(optionen)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowRedirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+* `optionen` (Object | String) - Wenn `optionen` ein String ist, wird dieser als die request URL interpretiert. Wenn es ein Objekt ist, wird erwartet das dieses ein HTTP anfrage komplett spezifiziert, mittels den folgenden Eigenschaften: 
+  * `method` String (optional) - The HTTP anfrage Methode. Der Standardwert ist die GET Methode.
+  * `url` String (optional) - Die Angefragte URL. Muss in der absoluten Form angegeben werden, welche den Protokoll Schema von HTTP oder HTTPS entspricht.
+  * `session` Object (optional) - Der [`Session`](session.md) Fall, welcher mit der Anfrage zusammenhängt.
+  * `partition` String (optional) - Der name der [`partition`](session.md) mit welcher der Anfrage in Verbindung steht. Standard ist ein leerer String. Die `session` option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
+  * `protocol` String (optional) - Das Protokoll Schema im 'scheme' Formular:. Die momentan unterstützten Werte sind 'http:' oder 'https:' Der Standardwert ist 'http:'.
+  * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung von dem Hostnamen und der Port Nummer 'hostname:port'
+  * `hostname` String (optional) - Der Server Host Name.
+  * `port` Integer (optional) - Die Port Nummer des Servers.
+  * `path` String (optional) - Der Pfad teil der URL Anfrage.
+  * `redirect` String (optional) - Der Umleitung-Modus für die Anfrage. Sollte eins der folgenden sein: `follow`, `error` or `manual`. Der Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. Wenn der Modus `manual` ist, werden alle Weiterleitungen aufgeschoben bis [`request.followRedirect`](#requestfollowRedirect) aufgerufen wird. Höre nach dem [`redirect`](#event-redirect) Event in diesem Modus um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+`options` Eigenschaften wie zum Beispiel `protocol`, `host`, `hostname`, `port` und `path`, folgen strikt dem Node.js Modell, wie im [URL](https://nodejs.org/api/url.html) Modul beschrieben.
 
-For instance, we could have created the same request to 'github.com' as follows:
+Zum Beispiel hätten wir die gleiche Anfrage an "github.com" wie folgt erstellen können:
 
 ```JavaScript
 const request = net.request({
@@ -34,13 +34,13 @@ const request = net.request({
 })
 ```
 
-### Instance Events
+### Beispiel Events
 
 #### Event: 'response'
 
 Rückgabewert:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` Eingehende Nachricht - Ein Objekt, welches die HTTP Antwort Nachricht repräsentiert.
 
 #### Event: 'login'
 
@@ -56,9 +56,9 @@ Rückgabewert:
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Ausgegeben, wenn ein Authentifizierung Proxy die Benutzeranmeldeinformationen anfragt.
 
-The `callback` function is expected to be called back with user credentials:
+The `callback` Funktion erwartet zurückgerufen zu werden mit den Benutzerdaten:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Das nicht angeben von Anmeldeinformationen wird die Anfrage abbrechen und einen Authentifizierungsfehler auf das Response-Objekt melden:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -85,23 +85,23 @@ request.on('login', (authInfo, callback) => {
 
 #### Event: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Ausgesendet, direkt nachdem der letzte Block der `request` Daten in das `request` Objekt geschrieben worden sind.
 
 #### Event: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Ausgesendet, wenn `request` abgebrochen wird. Das `abort` Event wird nicht ausgelöst, wenn `request` bereits geschlossen ist.
 
-#### Ereignis : "Fehler
+#### Event: 'error'
 
 Rückgabewert:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Fehler - Ein Fehler Objekt, welches Informationen über den Fehler enthält.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Ausgegeben, wenn das `net` Modul es nicht schaft eine Netzwerkanfrage zu senden. In der Regel wenn das `request` Objekt ein `error` Event auslöst, folgt ein `close` Event und es wird kein response Objekt zur Verfügung gestellt.
 
 #### Event: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Ausgelöst als letztes Event in der HTTP request-response Interaktion. Das `close` Event gibt an, dass keine weiteren Events mehr auf die `request` oder `response` Objekte ausgelöst werden.
 
 #### Event: 'redirect'
 
@@ -112,59 +112,59 @@ Rückgabewert:
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowRedirect) will continue with the redirection.
+Ausgelöst, wenn es eine Weiterleitung gibt und der Modus `manual` ist. Der Aufruf von [`request.followRedirect`](#requestfollowRedirect) wird die Weiterleitung fortsetzen.
 
-### Instance Properties
+### Fall Eigenschaften
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+Ein `Boolean` gibt an, ob die HTTP Anfrage eine segmentierte Übertragungscodierung nutzt oder nicht. Der Standardwert ist false. Die Eigenschaft ist lesbar und beschreibbar, jedoch kann dies nur eingestellt werden, bevor der ersten Schreib-Operation, da die HTTP headers noch nicht abgeschickt worden sind. Der Versuch die `chunkedEncoding` Eigenschaft nach der ersten Übertragung zu ändern, wird einen Fehler verursachen.
 
-Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
+Das Benutzen von segmentierter Codierung wird dringend empfohlen, wenn du einen großen request body senden möchtest, da die Daten in kleinen Stücken gestreamt wird, anstatt das diese intern im Electron Prozess Speicher gebufferd werden.
 
-### Instance Methods
+### Beispiel Methoden
 
 #### `request.setHeader(name, value)`
 
-* `name` String - An extra HTTP header name.
-* `value` Object - An extra HTTP header value.
+* `name` String - Ein extra HTTP header Name.
+* `value` Object - Ein extra HTTP header Wert.
 
-Adds an extra HTTP header. The header name will issued as it is without lowercasing. It can be called only before first write. Calling this method after the first write will throw an error. If the passed value is not a `String`, its `toString()` method will be called to obtain the final value.
+Fügt einen extra HTTP header hinzu. Der Header-Name wird ausgestellt, da es ohne Standardspeicherort ist. Es kann nur vor dem ersten Schreiben aufgerufen werden. Das Aufrufen der Methode nachdem das erste Schreiben erfolgte, wird einen Fehler erzeugen. Falls der übergebene wert kein `String` ist, wird die `toString()` Methode aufgerufen, um den Finalen wert zu erhalten.
 
 #### `request.getHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - Spezifiziert einen extra Header Namen.
 
-Returns `Object` - The value of a previously set extra header name.
+Gibt ein `Object` wieder - Den wert des davor gesetzten extra Header Namen.
 
 #### `request.removeHeader(name)`
 
-* `name` String - Specify an extra header name.
+* `name` String - Spezifiziert einen extra Header Namen.
 
-Removes a previously set extra header name. This method can be called only before first write. Trying to call it after the first write will throw an error.
+Entfernt den zuvor gesetzten extra Header Namen. Diese Methode kann nur vor dem ersten Schreiben aufgerufen werden. Der Versuch diese Methode danach Aufzurufen, wird einen Fehler erzeugen.
 
 #### `request.write(chunk[, encoding][, callback])`
 
-* `chunk` (String | Buffer) - A chunk of the request body's data. If it is a string, it is converted into a Buffer using the specified encoding.
-* `encoding` String (optional) - Used to convert string chunks into Buffer objects. Defaults to 'utf-8'.
-* `callback` Function (optional) - Called after the write operation ends.
+* `chunk` (String | Buffer) - Ein Teil der Requests body Daten. Falls der wert ein String ist, wird dieser in einen Buffer konvertiert, mittels einer spezifischen Codierung.
+* `encoding` String (optional) - Wird benutzt um einen String chunk in ein Buffer Objekt zu konvertieren. Der Standardwert ist 'utf-8'.
+* `callback` Function (optional) - Wird aufgerufen, nachdem der Schreibvorgang beendet ist.
 
-`callback` is essentially a dummy function introduced in the purpose of keeping similarity with the Node.js API. It is called asynchronously in the next tick after `chunk` content have been delivered to the Chromium networking layer. Contrary to the Node.js implementation, it is not guaranteed that `chunk` content have been flushed on the wire before `callback` is called.
+`callback` ist im Wesentlichen eine dummy-Funktion die dem Zweck dient, Ähnlichkeiten mit der Node.js API beizubehalten. Es wird in den nächsten Tick asynchron aufgerufen, nachdem der `chunk` Inhalt auf der Chromium Netzwerkebene geliefert worden ist. Im Gegensatz zu der Node.js Implementierung, ist es nicht Garantiert das der `chunk` Inhalt hochgeladen worden ist, vor dem Aufrufen von `callback`.
 
-Adds a chunk of data to the request body. The first write operation may cause the request headers to be issued on the wire. After the first write operation, it is not allowed to add or remove a custom header.
+Fügt einen Teil der Daten zum request body. Der erste Schreiboperation könnte das hochladen des request headers einleiten. Nach der ersten Schreiboperation, ist es nicht mehr erlaubt, Benutzerdefinierte Header hinzuzufügen oder zu entfernen.
 
 #### `request.end([chunk][, encoding][, callback])`
 
 * `chunk` (String | Buffer) (optional)
 * `encoding` String (optional)
-* `callback` Function (optional)
+* `callback` Funktion (optional)
 
-Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
+Sendet den letzten Teil der request Daten. Nachfolgende Schreib- oder End Vorgänge sind nicht mehr erlaubt. Das `finish` Event wird nach dem End Vorgang aufgerufen.
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Bricht die laufende HTTP-Interaktion ab. Falls die Anfrage bereits das `close` Event ausgegeben hat, hat der Abbruch-Aktion keinen Effekt. Ansonsten wird ein laufendes Event `abort` und `close` Events ausgeben. Zusätzlich, falls es ein laufendes response-Objekt gibt, wir dieses ein `aborted` Event ausgeben.
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Setzt alle aufgeschobenen Weiterleitungsanfragen fort, falls der Weiterleitung Modus `manual` ist.

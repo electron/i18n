@@ -61,25 +61,25 @@ crashReporter.start({
  })
 ```
 
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**注意：**在macOS上，Electron使用一个`crashpad`客户端来收集并报告崩溃信息。 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
 ### `crashReporter.getLastCrashReport()`
 
 Returns [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+返回上次崩溃报告的日期和ID。如果没有崩溃报告 发送或crash reporter尚未开始，则返回`null`。
 
 ### `crashReporter.getUploadedReports()`
 
 Returns [`CrashReport[]`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+返回所有上传的崩溃报告。每个报告都包含日期和上传ID。
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**注意：** 这个API仅可从主进程调用。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
@@ -87,7 +87,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This API can only be called from the main process.
+**注意：** 这个API仅可从主进程调用。
 
 ### `crashReporter.setExtraParameter(key, value)` *macOS*
 

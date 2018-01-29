@@ -69,7 +69,7 @@ Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasvi
   - `$ ./script/build.py -c R`
   - Sürüm oluşturmak sıkça düzeltmeniz gereken birbirine bağlantılı farklı hatalar meydana getirir.
   - Bazı tamamlamalar ve zincirleme hatalar libcc `dist`deki kayıp kaynak/nesne dosyası eksikliğinden kaynaklanır
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+9. libcc reposunun içindeki `./script/create-dist`'i güncelleyin, `dist`'i yeniden yaratın ve Electron bootstrap komutunu yeniden çalıştırın.
 
 ### Derleme hatalarını düzeltmek için ipuçları
 

@@ -64,7 +64,7 @@ Retorna:
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Emitido quando a aplicação esta sendo encerrada(quitting).
 
 ### Evento: 'open-file' *macOS*
 

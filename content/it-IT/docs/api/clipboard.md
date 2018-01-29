@@ -79,17 +79,17 @@ Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Restituisci `Oggetto`:
 
 * `title` String
-* `url` String
+* `url` Stringa
 
 Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
-* `url` String
+* `url` Stringa
 * `type` String (optional)
 
 Writes the `title` and `url` into the clipboard as a bookmark.

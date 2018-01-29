@@ -1,8 +1,8 @@
 # Packaging ng aplikasyon
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Para maiwasan ang [issues](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang pangalan sa landas ng Windows, bahagyang mapapabilis ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang mamili para I- package ang iyong app isang [asar](https://github.com/electron/asar) na aktibo sa maliit na pag babago sa iyong source code.
 
-## Generating `asar` Archive
+## Pagbuo ng `asar` na aktibo
 
 An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
 

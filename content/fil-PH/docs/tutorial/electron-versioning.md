@@ -75,18 +75,18 @@ Gustong malaman ng mga developers kung aling release ang mga *ligtas* gamitin. K
 * Gumamit ng `~2.0.0` para aminin lamang ang katatagan o seguridad katulad ng pagsasaayos sa `2.0.0` na release.
 * Gumamit ng `^2.0.0` para aminin ang di paglabag sa *matatag na katwiran* sa tampok na trabaho pati na rin ang seguridad at pagsasaayos ng mga bug.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+Ang importante sa ikalawang punto ay ang mga aplikasyon ay gumagamit ng `^` na dapat paring asahan ang makatuwirang antas ng stabilidad. Para maisakatuparan ito, pinapahintulot ng semver ang *indikasyon sa bagong release* upang ipahiwatig ang isang partikular na bersyon na hindi *ligtas* o *matatag*.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+Anuman ang piliin mo, pana-panahon mo pa ring i-bump ang bersyon ng iyong `package.json` para sa mga bagong pagsira ay isang katotohanan sa buhay ng Chromium.
 
-The process is as follows:
+Ang mga sumusunod ay ang proseso:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+1. Lahat ng mga bagong release na maliit man o malaki ay nagsisimula sa isang `-beta.N` na tag para sa `N >= 1`. Sa puntong iyon, ang itinakdang tampok ay **naka-kandado**. Inaamin ng linyang tampok na iyon na walang higit pang mga tampok, at naka-focus lamang sa seguridad at estabilidad. hal. `2.0.0-beta.1`.
+2. Ang mga pagaayos ng bug, regression at seguridad ng patches ay maaring makapasok. Sa paggawa nito, ang isang bagong beta ay inilabas pataas `N`. hal. `2.0.0-beta.2`
+3. Kung ang partikyular na beta release ay *itinuturing pangkalahatan* na matatag, ito ay muling ilalabas bilang isang matatag na katayuan, papalitan lang ang impormasyon ng bersyon.
+4. Kung may mga pagsasaayos ng bug o para sa seguridad ng patches na kailangan pang gawin pero ang bagong labas ay matatag na, ang mga ito'y ilalapat at ang *patch* na bersyon ay pinapataas nang naaayon hal. `2.0.1`.
 
-For each major and minor bump, you should expect too see something like the following:
+Para sa bawat bump na malaki at maliit, dapat aasahan mong makikita ang mga sumusunod:
 
 ```text
 2.0.0-beta.1
@@ -97,53 +97,53 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+Isang halimbawa ng lifecycle na makikita sa larawan ay:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Isang bagong labas na branch ang nilikha na may pinakabagong tampok. Ito ay inilathala bilang `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+* Ang pag-ayos ng bug ay darating sa master na pwedeng ipack-port sa release branch. Ang patch ay inilapat, at may bagong beta na inilathala bilang `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* Itinuturi ang beta na *pangkalahatang matatag* at ito ay inilathala muli bilang di-beta sa ilalim ng `2.0.0`. ![](../images/versioning-sketch-5.png)
+* Kalaunan, isang araw na walang pagsamantalahan ang inihayag at ang pagsasaayos ay inilapat sa master. Pinapack-port namin ang pag-ayos sa linya ng `2-0-x` at inilabas ang `2.0.1`. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha sa mga bagong labas:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# Mga nawawalang tampok: Alphas, at Nightly
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang aming angkop. Higit sa lahat ang mga bagong tampok sa master ay maaring tumagal bago umabot sa matatag na release line. Kung gusto mong subukan kaagad ang bagong tampok, dapat mong i-build ang Electron ng iyong sarili.
 
-As a future consideration, we may introduce one or both of the following:
+Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho ang mga sumusunod:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* nightly builds off ng master; ito'y nagpapahintulot sa mga folks para subukan kaagad ang mga bagong tampok at magbigay ng feedback
+* inilabas ng alpha ang maluwag na katatagan na balakid sa mga beta; halimbawa ito'y pinapahintulutan para umamin ang bagong tampok habang ang stabilidad channel ay nasa *alpha*
 
-# Feature Flags
+# Mga tampok na Bandila
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. Sa konteksto ng Electron, ang tampok na bandila o **malambot na branch** ay dapat magkaroon ng sumusunod na katangian:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* ay pinagana/di pinagana alinman sa runtime, o sa build-time; hindi namin sinusuportahan ang konsepto ng request-scoped na tampok sa bandila
+* ito'y kumukumpleto sa bahagi ng bago at lumang landas ng kodigo para masuportahan ang bagong tampok na *lumalabag* sa kontrata ng tampok na bandila
+* natatanggal agad ang mga tampok na bandila pagkatapos isanib ang ang malambot na branch
 
-We reconcile flagged code with our versioning strategy as follows:
+Pinagkasundo namin ang flagged code sa aming bersyoning na istratehiya gaya ng sumusunod:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. hindi namin isinasaalang-alang ang pag-uulit sa feature-flagged code sa stabilidad ng branch; kahit matalino ang paggamit sa mga tampok na bandila ay walang hindi mapanganib
+2. maari mong itigil ang API na kontrata sa feature-flagged code na walang pagbu-bump sa malaking bersyon. Dahil hindi umaayon ang flagged-code sa semver
 
-# Semantic Commits
+# Mga Commit ng Semantiko
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at release. Simula sa `2.0.0` kinakailangan natin hilahin ang mga request para umayon sa [Conventional Commits](https://conventionalcommits.org/) spec, na pwedeng ibuod sa sumusunod:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* Ang mga commits na magreresulta sa semver ang **major** bump ay dapat nagsisimula sa `BREAKING CHANGE:`.
+* Ang mga commits na magreresulta sa semver ang **minor** bump ay dapat nagsisimula sa `feat:`.
+* Ang mga commits na magreresulta sa semver ang **patch** bump ay dapat nagsisimula sa `fix:`.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* Pumapayag kami sa squashing ng commits, ngunit dapat ang squashed na mensahe ay sumusunod sa format na nasa itaas.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* Ito ay katanggap-tanggap para sa ilang commits sa isang pull request upang hindi isama ang semantikong panlapi, hangga't ang commit ay nasa parehong pull request na may makahulugang nakapalibot na semantik na mensahe.
 
-# Versionless `master`
+# Walang pagbabago sa bersyon ng `master`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* Ang `master` branch ay palaging naglalaman ng `0.0.0-dev` sa loob ng `package.json`
+* Ang mga release na branch ay hindi maaring isama ulit sa master
+* Ang mga release branches *ba*ay may laman nang tamang bersyon sa kanilang `package.json`

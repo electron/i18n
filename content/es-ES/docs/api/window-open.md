@@ -4,9 +4,9 @@
 
 When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+El proxy tiene implementada una limitada funcionalidad estándar para ser compatible con páginas web tradicionales. Para un control total de la nueva ventana deberías crear un `BrowserWindow` directamente.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+La recien creada `BrowserWindow` heredará las opciones de la ventana principal por defecto. Para anular las opciones heredadas, puede configurarlas en la cadena `features`. cuerda.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -22,7 +22,7 @@ The `features` string follows the format of standard browser, but each feature h
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
+* JavaScript siempre estará deshabilitado en la `window` abierta si está deshabilitado en la ventana principal.
 * Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
 
 ### `window.opener.postMessage(message, targetOrigin)`

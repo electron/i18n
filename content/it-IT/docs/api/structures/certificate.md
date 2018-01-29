@@ -8,5 +8,5 @@
 * `Nomesogetto` Striga - nome comune dell'emittente
 * `numerodiserie` Striga - Hex valore rappresentato striga
 * `iniziovalido` Numero - data di inizio del certificato valido in secondi
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `Scadenzavalida` Numero - Data finale del certificata validata in pochi secondi
+* `improntadigitale` Stringa - Impronta digitale del certificato

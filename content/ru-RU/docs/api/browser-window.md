@@ -1052,7 +1052,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Включает для окна игнорирование событий от мыши.
 
@@ -1080,11 +1080,11 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Возвращает `BrowserWindow` - родительское окно.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Возвращает `BrowserWindow[]` - все дочерние окна.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 

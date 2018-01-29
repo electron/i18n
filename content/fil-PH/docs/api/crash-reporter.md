@@ -1,46 +1,45 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> Ipasa ang crash reports para ma kontrol ang server
 
 Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
-The following is an example of automatically submitting a crash report to a remote server:
+Ang mga ito ay halimbawa ng awtomatikong pag pasa ng mga crash report patungo sa remote server:
 
 ```javascript
-const {crashReporter} = require('electron')
+const{crashReporter} = require('electron')
 
 crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
-})
+Pangalan ng produkto : 'Pangalan mo''
+Pangalan ng Kompanya: 'Pangalan ng Kompanya mo'
+ipasa sa URL: 'https;//your-domain.com/url-to-submit',uploadToServer: true
+}}
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Para pag set up sa server para tanggapin at iproseso ang mga bagsak na ulat, puwedeng gamitin ang mga halimbawa na proyekto:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Ang mga ulat na bumagsak ay naka save sa isang lokal na application-specifc temp direktoryo folder. Para sa `PangalanngProdukto`sa`PangalanMo`, bagsak na ulat ay nakaimbak sa isang folder pangalan `PangalanMo Bagsak` loob ng temp directory. Puwede mong i-customize ang temp directory lokasyon para sa iyong app sa pagtawag ng `app.setPath('temp','/my/custom/temp')` API bago mag start ang mga bagsak na ulat.
 
 ## Pamamaraan
 
-The `crashReporter` module has the following methods:
+Ang `crashReporter`module ay merong sumusunod na paraan:
 
 ### `crashReporter.start(options)`
 
 * `mga pagpipilian` Bagay 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
-  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
+  * `PangalanngKompanya`String(optional)
+  * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
+  * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.
+  * `uploadToServer`Boolean(optional) - kung ang mga bagsak na ulat ay dapat ma i-sent sa server. Ang default ay `true`.
+  * `ignoreSystemCrashHandler`Boolean (optional) - ang default ay `false`.
+  * `extra`Object (optional) - Ang bagay na kaya mong bigyan ng kahulogan ay maisama sa pag submit ng mga report. Ang katangian lang ng string ang maipasa ng wasto. Ang mga bagay na Nested ay hindi suportado at ang pangalan ng ari-arian at ang halaga ay hindi bababa sa 64 na mga character.
 
-You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
+Ikaw ay kailangan na tumawag sa mga pamaraan bago mag gamit ng ibang `crashReporter` APIs at bawas proseso (main/renderer) kung saan ka mangolekta ng mga bagsak na ulat. Puwede kang mag pasa ng iba't-ibang opsyon sa `crashReporter.start`kung tumawag sa iba't-ibang proseso.
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
+**Tala**Magkakaron ng mga proseso sa mga bata gamit ang `child_process`modyul ay hindi maka access sa elektron modyul. Samakatuwid, para makakolekta ng mga bagsak na ulat mula sa kanila, gamitin ang `process.crashReporter.start`sa halip. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
 
 **Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
 

@@ -4,7 +4,7 @@ The following list includes the APIs that will be removed in Electron 2.0.
 
 There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
 
-## `app`
+## `تطبيق`
 
 ```js
 // Deprecated
@@ -13,7 +13,7 @@ app.getAppMemoryInfo()
 app.getAppMetrics()
 ```
 
-## `BrowserWindow`
+## `نوافذ المتصفح`
 
 ```js
 // Deprecated
@@ -33,7 +33,7 @@ let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `clipboard`
+## `الحافظة`
 
 ```js
 // Deprecated

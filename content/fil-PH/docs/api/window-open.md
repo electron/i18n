@@ -1,77 +1,77 @@
-# `window.open` Function
+# `window.Buksan` Fuction
 
-> Open a new window and load a URL.
+> Magbukas ng bagong window at mag-load ng isang URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Kapag ang `window.binuksan` ay tinatawag para sa bagong window na likha sa isang web page, isang bagong pagkakataon ng ` BrowserWindow ` ay malilikha para sa `url` at ibabalik ang isang proxy sa ` window.buksan` upang hayaan ang pahina na magkaroon ng limitadong kontrol sa mga ito.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Ang proxy ay may limitadong pamantayan na pag-andar na ipinatupad para katugma sa tradisyonal ng mga web page. Para sa ganap na kontrol sa bagong window dapat kang lumikha ng `BrowserWindow ` direkta.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+Ang bagong nilikhang `BrowserWindow` ay magmamana ng mga opsyon sa bintana ng magulang sa pamamagitan ng default. Upang i-override ang mga pagpipilian na minana maaari mong itakda ang mga ito sa `mga tampok` string.
 
-### `window.open(url[, frameName][, features])`
+### `window.buksan(url [, frameName] [,mga tampok])`
 
-* `url` String
-* `frameName` String (optional)
-* `features` String (optional)
+* `url` Tali
+* `frameName` Tali (opsyonal)
+* `Mga tampok` Tali (opsyonal)
 
-Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
+Babalik ang [`BrowserWindowProxy`](browser-window-proxy.md) - Upang lumilikha ng isang bagong window at babalik ang isang halimbawa ng klase ng `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+Ang`Mga tampok`ng string ay sumusunod sa format ng karaniwang browser, ngunit ang bawat tampok ay kailangang maging isang larangan ng `BrowserWindow` mga opsyon.
 
-**Notes:**
+**Mga Tala:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* Ang pagsasama ng node ay laging hindi pagaganahin sa binuksang `window` kung ito ay hindi napagana sa bintana ng magulang.
+* Ang paghihiwalay ng konteksto ay palaging bukas at gagana sa `bintana` kung ito ay napagana sa bintana ng magulang.
+* Ang javaScript ay laging hindi gagana kung bubuksan sa `bintana` kung ito ay hindi gumagana sa bintana ng magulang.
+* Hindi karaniwang mga tampok (na hindi hinahawakan ng Kromo o Elektron) na ibinigay sa `mga tampok` ay ipapasa sa anumang nakarehistro sa `webContent`'s ` bagong-window ` kaganapang handler sa ` karagdagang mga tampok ` na argumento.
 
-### `window.opener.postMessage(message, targetOrigin)`
+### `window.tagabukas.postMessage (mensahe, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `mensahe` Tali
+* `targetOrigin` Tali
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Nagpapadala ng mensahe sa window ng magulang na may tinukoy na pinanggalingan o `*` para sa hindi Pinagmulang pinanggalingan.
 
-### Using Chrome's `window.open()` implementation
+### Paggamit ng Chrome's `window.buksan()` ng pagpapatupad
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Kung nais mong gamitin ang Chrome's na built-in`window.buksan()` na pagpapatupad, itakda `nativeWindowOpen` sa `tama` ang nasa` webPreferences`mga opsyon na bagay.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+Ang native`window.buksan()` ay nagbibigay-daan sa pag-access ng kasabay sa mga binuksan na windows upang ito ay maginhawa na pagpipilian kung kailangan mo upang buksan ang isang dialog o isang kagustuhan window.
 
-This option can also be set on `<webview>` tags as well:
+Maaari ring itakda ang opsyong ito sa `<webview>` mga tag na mabuti:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+Ang paglikha ng `BrowserWindow` ay napapasadya sa pamamagitan ng `WebContents` `bagong window` kaganapan.
 
 ```javascript
-// main process
-const mainWindow = new BrowserWindow({
-  width: 800,
-  height: 600,
+// pangunahing proseso
+const mainWindow = bagong BrowserWindow ({
+  lapad: 800,
+  taas: 600,
   webPreferences: {
-    nativeWindowOpen: true
+    nativeWindowOpen: totoo
   }
 })
-mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
-  if (frameName === 'modal') {
-    // open window as modal
-    event.preventDefault()
-    Object.assign(options, {
-      modal: true,
-      parent: mainWindow,
-      width: 100,
-      height: 100
+mainWindow.webContents.on ('bagong-bintana', (kaganapan, url, frameName, disposition, mga pagpipilian, additionalFeatures) = & gt; {
+  kung (frameName === 'modal') {
+    // buksan ang window bilang modal
+    Kaganapan.preventDefault ()
+    Bagay.assign (pagpipilian, {
+      modal: totoo,
+      magulang: mainWindow,
+      lapad: 100,
+      taas: 100
     })
-    event.newGuest = new BrowserWindow(options)
+    event.newGuest = bagong BrowserWindow (mga pagpipilian)
   }
 })
 ```
 
 ```javascript
-// renderer process (mainWindow)
-let modal = window.open('', 'modal')
-modal.document.write('<h1>Hello</h1>')
+// proseso ng renderer (mainWindow)
+hayaan modal = window.buksan ('', 'modal')
+modal.document.isulat ('<h1>Hello</h1>')
 ```

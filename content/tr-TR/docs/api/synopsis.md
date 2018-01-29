@@ -38,7 +38,7 @@ Uygulamanızı çalıştırmak için,[Run your app](../tutorial/quick-start.md#r
 
 ## Destructuring assignment
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+0.37 itibariyle, [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)'ı dahili modülleri kullanmayı kolaylaştırmak için kullanabilirsiniz.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')

@@ -38,7 +38,7 @@ Devtron 中有新的「協助工具」頁籤，讓你能稽查應用程式中的
 
 ### 在應用程式中
 
-By using [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows), you can expose accessibility switch to users in the application preferences. 使用者系統上的輔助工具優先權更高，會蓋過這項設定值。
+透過 [`app.setAccessibilitySupportEnabled(enabled)`](../api/app.md#appsetaccessibilitysupportenabledenabled-macos-windows)，你可以把協助工具的開關放在應用程式喜好設定中，讓使用者自行決定。 使用者系統上的輔助工具優先權更高，會蓋過這項設定值。
 
 ### 輔具
 

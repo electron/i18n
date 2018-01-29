@@ -1,65 +1,65 @@
 ## Clase: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> Maneja las respuestas a las solicitudes HTTP/HTTPS.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` implementa la interfaz [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) y es por lo tanto un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ### Eventos de Instancia
 
-#### Event: 'data'
+#### Evento: "data"
 
 Devuelve:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Un fragmento de la colección de datos de respuesta.
 
-The `data` event is the usual method of transferring response data into applicative code.
+El evento `data` es el método habitual de transferir datos de respuesta en código aplicativo.
 
-#### Event: 'end'
+#### Evento: "end"
 
-Indicates that response body has ended.
+Indica que la respuesta del cuerpo ha finalizado.
 
-#### Event: 'aborted'
+#### Evento: "aborted"
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Aparece cuando una solicitud ha sido cancelada durante una transacción HTTP en curso.
 
-#### Evento: 'error'
+#### Evento: "error"
 
 Devuelve:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Error - Por lo general tiene tiene una cadena de error por la falla de la identificación de la causa raíz.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Aparece cuando se detecta un error mientras se transmiten los eventos de datos de respuesta. Por ejemplo, si el servidor cierra el subyacente mientras que la respuesta todavía se está transfiriendo, un evento `data` aparecerá como objeto de respuesta y un evento `close` seguirá posteriormente al objeto de la solicitud.
 
 ### Propiedades de Instancia
 
-An `IncomingMessage` instance has the following readable properties:
+Una instancia `IncomingMessage` tiene las siguientes propiedades legibles:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+Un `Integer` indicando el código de estatus de respuesta HTTP.
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+Una `String` representando el mensaje de estado HTTP.
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+Un `Object` que representa los encabezados HTTP de respuesta. El objeto `headers` es formateado de la siguiente manera:
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Todos los nombres de los encabezados son puestos en minúsculas.
+* Cada nombre de encabezado produce una propiedad de valores del arreglo en el objeto de las cabeceras.
+* Cada valor de encabezado es puesto dentro del arreglo asociado al nombre de encabezado.
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Una `String` que indica el número de versión de protocolo HTTP. Los valores típicos son "1.0" o "1.1". Adicionalmente `httpVersionMajor` y `httpVersionMinor` son dos propiedades legibles de valores enteros que devuelven los números de la versión principal y secundaria de HTTP respectivamente.
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+Un `Integer` que indica el número de la versión principal del protocolo HTTP.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+Un `Integer` que indica el número de la versión secundaria del protocolo HTTP.

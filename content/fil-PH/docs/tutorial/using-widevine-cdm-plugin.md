@@ -1,62 +1,62 @@
-# Using Widevine CDM Plugin
+# Gamit ang Widevine CMD Plugin
 
-In Electron you can use the Widevine CDM plugin shipped with Chrome browser.
+Sa Elektron maaari mong gamitin ang Widevine CDM plugin na naipadala sa Chrome browser.
 
-## Getting the plugin
+## Pagkuha ng plugin
 
-Electron doesn't ship with the Widevine CDM plugin for license reasons, to get it, you need to install the official Chrome browser first, which should match the architecture and Chrome version of the Electron build you use.
+Ang elektron ay hindi nagpapadala sa Widevine CDM plugin para sa mga dahilan ng lisensya, upang makuha ito, kailangan mong i-install muna ang opisyal na browser ng Chrome, na kailangang tumugma ang arkitektura at Chrome na bersyon ng Elektron na iyong ginagamit.
 
-**Note:** The major version of Chrome browser has to be the same with the Chrome version used by Electron, otherwise the plugin will not work even though `navigator.plugins` would show it has been loaded.
+**Tandaan:** Ang pangunahing bersyon ng Chrome browser ay dapat na pareho sa Chrome sa bersyon na ginamit ng Elektron, kung hindi ang plugin ay hindi gagana kahit na `navigator.plugins ` ay ipapakita na ito ay na-load.
 
 ### Windows & macOS
 
-Open `chrome://components/` in Chrome browser, find `WidevineCdm` and make sure it is up to date, then you can find all the plugin binaries from the `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` directory.
+Buksan ang `chrome: //components/` sa browser ng Chrome, hanapin ang `WidevineCdm` at gawing sigurado na napapanahon, pagkatapos ay maaari mong mahanap ang lahat ng mga binaries ng plugin mula sa `APP_DATA/Google/Chrome/WidevineCDM/VERSION/_platform_specific/PLATFORM_ARCH/` direktoryo.
 
-`APP_DATA` is system's location for storing app data, on Windows it is `%LOCALAPPDATA%`, on macOS it is `~/Library/Application Support`. `VERSION` is Widevine CDM plugin's version string, like `1.4.8.866`. `PLATFORM` is `mac` or `win`. `ARCH` is `x86` or `x64`.
+`APP_DATA` ay ang lokasyon ng system para sa pagtatago ng data ng app, sa Windows ito ay `%LOCALAPPDATA%`, sa macOS ito ay `~/Library/Application Support`. `BERSYON` ay Bersyon string ng Widevine CDM plugin, tulad ng `1.4.8.866`. `PLATFORM` ay `mac` o `manalo`. `ARKO` ay `x86` o `x64`.
 
-On Windows the required binaries are `widevinecdm.dll` and `widevinecdmadapter.dll`, on macOS they are `libwidevinecdm.dylib` and `widevinecdmadapter.plugin`. You can copy them to anywhere you like, but they have to be put together.
+Sa Windows ang mga kinakailangang binary ay `widevinecdm.dll` at `widevinecdmadapter.dll`, sa macOS ang mga ito ay `libwidevinecdm.dylib ` at `widevinecdmadapter.plugin`. Maaari mong kopyahin ang mga ito sa kahit saan na gusto mo, ngunit sila ay kailangang magkasama.
 
 ### Linux
 
-On Linux the plugin binaries are shipped together with Chrome browser, you can find them under `/opt/google/chrome`, the filenames are `libwidevinecdm.so` and `libwidevinecdmadapter.so`.
+Sa Linux ang binaries ng plugin ay ipinadala nang magkasama sa browser ng Chrome, maaari mong hanapin ang mga ito sa ilalim ng `/opt/google /chrome`, ang mga filename ay `libwidevinecdm.so` at `libwidevinecdmadapter.so`.
 
-## Using the plugin
+## Gamit ang Plugin
 
-After getting the plugin files, you should pass the `widevinecdmadapter`'s path to Electron with `--widevine-cdm-path` command line switch, and the plugin's version with `--widevine-cdm-version` switch.
+Pagkatapos makuha ang mga file ng plugin, dapat mong ipasa sa `widevinecdmadapter`'s path sa may Elektron`--widevine-cdm-path`utos na pag palitin ang linya, at ang bersyon ng plugin na may `--widevine-cdm-bersyon` palit.
 
-**Note:** Though only the `widevinecdmadapter` binary is passed to Electron, the `widevinecdm` binary has to be put aside it.
+<**Tandaan:**Kahit na ang ` widevinecdmadapter ` binary ay ipinasa sa Electron, ang ` widevinecdm ` binary ay dapat na isantabi ito.
 
-The command line switches have to be passed before the `ready` event of `app` module gets emitted, and the page that uses this plugin must have plugin enabled.
+Ang utos ay pagpalitin ang mga linya na kailangang maipasa bago ang `handa`kaganapan ng`app` nakakakuha ang modyul, at ang pahina na gumagamit ng plugin na ito ay dapat na magkaroon ng plugin na gumagana.
 
-Example code:
+Halimbawa ng kodigo:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = nangangailangan ('elektron')
 
-// You have to pass the filename of `widevinecdmadapter` here, it is
-// * `widevinecdmadapter.plugin` on macOS,
-// * `libwidevinecdmadapter.so` on Linux,
-// * `widevinecdmadapter.dll` on Windows.
-app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
-app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
+// Dapat mong ipasa ang filename ng `widevinecdmadapter` dito, ito ay
+// * `widevinecdmadapter.plugin` sa macOS,
+// * `libwidevinecdmadapter.so` sa Linux,
+// * `widevinecdmadapter.dll` sa Windows.
+app.commandLine.appendSwitch ('widevine-cdm-path', '/path/to/widevinecdmadapter.plugin')
+// Maaaring makuha ang bersyon ng plugin mula sa pahina ng `chrome: // plugin 'sa Chrome.
+app.commandLine.appendSwitch ('widevine-cdm-version', '1.4.8.866')
 
-let win = null
-app.on('ready', () => {
-  win = new BrowserWindow({
+hayaan ang panalo = null
+app.on ('handa', () = > {
+  manalo = bagong BrowserWindow ({
     webPreferences: {
-      // The `plugins` have to be enabled.
-      plugins: true
+      // Ang mga `plugins` ay dapat na gumagana.
+      plugins: totoo
     }
   })
-  win.show()
+  win.show ()
 })
 ```
 
-## Verifying the plugin
+## Pag-verify ng plugin
 
-To verify whether the plugin works, you can use following ways:
+Upang ma-verify kung gumagana ang plugin, maaari mong gamitin ang mga sumusunod na paraan:
 
-* Open devtools and check whether `navigator.plugins` includes the Widevine CDM plugin.
-* Open https://shaka-player-demo.appspot.com/ and load a manifest that uses `Widevine`.
-* Open http://www.dash-player.com/demo/drm-test-area/, check whether the page says `bitdash uses Widevine in your browser`, then play the video.
+* Buksan ang devtools at tingnan kung ang `navigator.plugins` ay kinabibilangan ng Widevine CDM plugin.
+* Buksan ang https://shaka-player-demo.appspot.com/ at i-load ang manifest na gumagamit ng `Widevine`.
+* Buksan ang http://www.dash-player.com/demo/drm-test-area/, tingnan kung ang pahina ay nagsasabing `ginagamit ng bitdash ang Widevine sa iyong browser`, pagkatapos ay i-play ang video.

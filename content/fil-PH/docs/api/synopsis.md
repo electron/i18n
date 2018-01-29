@@ -1,14 +1,14 @@
-# Synopsis
+# Sinopsis
 
-> How to use Node.js and Electron APIs.
+> Paano gamitin ang Node.js at Electron na mga API.
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+Lahat ng [built-in na mga modyul ng Node.js](https://nodejs.org/api/) ay makikita sa Electron at ang mga pangatlong partido na mga modyul ay buong sinusuportahan rin (kasali na ang [mga modyul na native](../tutorial/using-native-node-modules.md)).
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Ang Electron ay nagbibigay din ng ilang sobrang built-in na mga modyul para sa pagbubuo ng native na mga aplikasyong pang-desktop. Ang ibang mga modyul ay magagamit lamang sa pangunahing mga proseso, ang iba ay nasa prosesong renderer lamang (web na pahina), ang iba ay pwedeng gamitin sa dalawang proseso.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/quick-start.md#main-process) scripts to be able to use those modules.
+Ang mahalagang patakaran ay: kung ang isang modyul ay [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o nauugnay sa mababang antas na sistema, dapat ay makikita lamang ito sa pangunahing proseso. Kailangan mong maging kabisado ang konsepto ng [pangunahing proseso kontra prosesong renderer](../tutorial/quick-start.md#main-process) na mga script upang maaaring gamitin ang mga modyul na iyon.
 
-The main process script is just like a normal Node.js script:
+Ang script ng pangunahing proseso ay katulad lang ng normal na Node.js na script:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+Ang prosesong renderer ay hindi iba sa isang normal na pahina, maliban na lang sa ekstrang abilidad na magamit ang node na mga modyul:
 
 ```html
 <!DOCTYPE html>
@@ -34,11 +34,11 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Upang mapagana ang iyong app, basahin ang [Paganahin ang iyong app](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## Ang Destructuring Assignment
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+Sa 0.37, magagamit mo ang [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) upang mapadali ang paggamit ng built-in na mga modyul.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Kung kailangan mo ang kabuuang modyul ng `electron`, pwede mong i-require ito at gamitin ang destructuring upang i-access ang bawat mga modyul mula sa `electron`.
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Katumbas ito sa sumusunod na code:
 
 ```javascript
 const electron = require('electron')

@@ -67,7 +67,7 @@ Gördüğünüz gibi, işleyici geri aramanın eş zamanlı dönüş değeri bek
 
 İkinci olarak, ana işleme atanmış geri çağrılar, ana süreç çöp toplayana kadar devam edecektir.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Örneğin aşağıdaki kod ilk başta masum gibi görünüyor. Uzaktan bir nesne üzerinden `close` olayı için bir geri çağırma yükler:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -138,7 +138,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 * `name` Dizi
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+`any` diner - Ana işlemin içindeki `name`'in evrensel değişkeni (örneğin `global[name]`).
 
 ## Özellikler
 

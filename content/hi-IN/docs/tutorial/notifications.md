@@ -1,8 +1,8 @@
 # नोटीफीकेशंस (विंडोज, लिनक्स, मैकओएस)
 
-ये तीनों ऑपरेटिंग सिस्टम्स उपयोगकर्ताओं तक नोटीफीकेशंस भेजने के लिए एप्लीकेशनस को मार्ग उपलब्ध कराते हैं | Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+ये तीनों ऑपरेटिंग सिस्टम्स उपयोगकर्ताओं तक नोटीफीकेशंस भेजने के लिए एप्लीकेशनस को मार्ग उपलब्ध कराते हैं | इलेक्ट्रॉन डेवलपर्स [एचटीएमएल5 नोटीफिकेशन ऐपीआई](https://notifications.spec.whatwg.org/) के साथ बड़ी आसानी से नोटीफिकेशंस भेज सकते हैं, और मौजूदा ऑपरेटिंग सिस्टम की मूल नोटीफिकेशन ऐपीआई का इस्तेमाल कर उन्हें प्रदर्शित कर सकते हैं |
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**नोट:** चूँकि यह एक एचटीएमएल ऐपीआई है इसलिए यह केवल रेंदेरेर प्रक्रिया में उपलब्ध है | अगर आप मुख्य प्रक्रिया में नोटीफीकेशंस को दिखाना चाहते हैं तो कृप्या [नोटीफीकेशन](../api/notification.md) मोड्यूल पढ़ें |
 
 ```javascript
 let myNotification = new Notification('Title', {
@@ -14,44 +14,44 @@ myNotification.onclick = () => {
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+हालाँकि सभी ऑपरेटिंग सिस्टम्स में कोड और उपयोगकर्ता अनुभव समान हैं, पर फिर भी कुछ सूक्ष्म अंतर है |
 
-## Windows
+## विंडोज
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* विंडोज 10 पर, नोटीफीकेशंस "बस काम" करती है ।
+* विंडोज 8.1 और विंडोज 8 पर, एक [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) के साथ आपके एप्प की एक शॉर्टकट, स्टार्ट स्क्रीन पर इनस्टॉल होनी चाहिये | हालाँकि, उसका स्टार्ट स्क्रीन पर पिनड होना ज़रूरी नहीं है |
+* विंडोज 7 पर, नोटीफीकेशंस एक कस्टम इम्प्लीमेंटेशन के द्वारा काम करती हैं जो कि नये सिस्टम्स पर मूल वाले की तरह दिखाई देता है |
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+इसके अलावा, विंडोज 8 में नोटीफीकेशन की अधिकतम लम्बाई सीमा 250 अक्षरों की है, और विंडोज टीम की सलाह है कि इसे 200 अक्षरों तक ही सीमित रखा जाये | विंडोज 10 में यह सीमा हटा दी गयी है, पर विंडोज टीम ने डेवलपर्स को वाज़िब सीमा रखने की सलाह दी है | ऐपीआई को बहुत सारा टेक्स्ट (हजारों अक्षर) भेजने की कोशिश करने से अस्थिरता उत्पन्न हो सकती है |
 
-### Advanced Notifications
+### उन्नत नोटीफीकेशंस
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+विंडोज के नवीनतम संस्करणों में उन्नत नोटीफीकेशंस भेजने की सुविधा मौज़ूद है, जिसमे कि कस्टम टेम्पलेटस, चित्र, और दुसरे लचीले तत्व शामिल हैं | उन नोटीफीकेशंस को भेजेने के लिए (मुख्य प्रक्रिया से या फिर रेंदेरेर प्रक्रिया से), यूजरलैंड मोड्यूल [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications) का इस्तेमाल करें, जो कि `ToastNotification` और `TileNotification` ऑब्जेक्ट्स को भेजने के लिए मूल नोड ऐडओंन्स का इस्तेमाल करते हैं |
 
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+हालाँकि बटन्स को शामिल करने वाली नोटीफीकेशंस केवल `electron-windows-notifications` के साथ भी सही काम करती है, पर उत्तरों को सँभालने के लिए [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications) के इस्तेमाल की ज़रुरत पड़ती है, जो कि आवश्यक COM तत्वों को रजिस्टर करने और आपकी इलेक्ट्रॉन एप्प को उपयोगकर्ता द्वारा एंटर किये गये डाटा के साथ कॉल करने में मदद करता है |
 
-### Quiet Hours / Presentation Mode
+### शांत घंटे/ प्रेजेंटेशन मोड
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+आपको एक नोटीफीकेशन भेजने की इजाज़त है या नहीं, यह जाँचने के लिए, यूजरलैंड मोड्यूल [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) का इस्तेमाल करें |
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+इससे आपको समय से पहले ही यह पता चल जायेगा कहीं विंडोज आपकी नोटीफीकेशन को चुपके से फेंक तो नहीं देगी |
 
-## macOS
+## मैकओएस
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+मैकओएस पर नोटीफीकेशंस भेजना काफी सरल है, पर आपको [नोटीफीकेशंस सम्बंधित एप्पल की ह्यूमन इंटरफ़ेस गाइडलाइन्स](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html) के बारे में ज्ञात होना चाहिये |
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+याद रखें कि नोटीफीकेशंस का आकार 256 बाय्टेस तक ही सीमीत है और अगर आप इस सीमा के बाहर जाते हैं, तो बाकी की नोटीफीकेशन काट दी जायेगी |
 
-### Advanced Notifications
+### उन्नत नोटीफीकेशंस
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+मैकओएस के नवीनतम संस्करणों में नोटीफीकेशंस में एक इनपुट फील्ड भी शामिल है, जिससे कि उपयोगकर्ता एक नोटीफीकेशन को तुरंत रिप्लाई कर सकता है | नोटीफीकेशंस को इनपुट फील्ड के साथ भेजने के लिए, यूजरलैंड मोड्यूल [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier) का इस्तेमाल करें |
 
-### Do not disturb / Session State
+### परेशान न करें/ सेशन स्टेट
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+आपको एक नोटीफीकेशन भेजने की इजाज़त है या नहीं, यह जाँचने के लिए, यूजरलैंड मोड्यूल [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state) का इस्तेमाल करें |
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+इससे आपको समय से पहले यह पता चल जायेगा कि नोटीफीकेशन को दिखाया जायेगा या नहीं |
 
-## Linux
+## लिनक्स
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+नोटीफीकेशंस को भेजने के लिए `libnotify` का इस्तेमाल किया जाता है, जो कि [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/) का अनुसरण करने वाले सभी डेस्कटॉप वातावरणों में नोटीफीकेशंस को दिखा सकता है, जिनमे शामिल हैं सिन्नामन, एनलाइटमेंट, यूनिटी, ग्नोम, केडीई आदि |

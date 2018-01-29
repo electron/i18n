@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -110,7 +110,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -118,7 +118,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
+* `opzioni` Oggetto (opzionale) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -223,18 +223,18 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `title` String
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
 #### Event: 'close'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
@@ -336,9 +336,9 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `command` String
 
 Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
@@ -370,9 +370,9 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
@@ -385,7 +385,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Event: 'new-window-for-tab' *macOS*
+#### Evento: 'nuova-finestra-per-scheda' *macOS*
 
 Emitted when the native new tab button is clicked.
 
@@ -403,7 +403,7 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
 Returns `BrowserWindow` - The window that owns the given `webContents`.
 
@@ -415,7 +415,7 @@ Returns `BrowserWindow` - The window with the given `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
-* `path` String
+* `percorso` Stringa
 
 Adds Chrome extension located at `path`, and returns extension's name.
 
@@ -425,7 +425,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `nome` Stringa
 
 Remove a Chrome extension by name.
 
@@ -439,7 +439,7 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
-* `path` String
+* `percorso` Stringa
 
 Adds DevTools extension located at `path`, and returns extension's name.
 
@@ -451,7 +451,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `nome` Stringa
 
 Remove a DevTools extension by name.
 
@@ -497,7 +497,7 @@ A `Integer` representing the unique ID of the window.
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
 #### `win.destroy()`
 
@@ -866,15 +866,15 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `callback` Funzione 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
-* `url` String
-* `options` Object (optional) 
+* `url` Stringa
+* `opzioni` Oggetto (opzionale) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -922,7 +922,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional) 
+* `opzioni` Oggetto (opzionale) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error`, or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -966,18 +966,18 @@ The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `click` Funzione
+  * `aiuto` Stringa (opzionale) - Il testo del pulsante di aiuto.
+  * `bandiere` Stringa[] (opzionale) - Controlla specifici comportamenti e stati del pulsante. Di default é `['abilitato']`.
 
-The `flags` is an array that can include following `String`s:
+La `bandiera` é un insieme che include le seguenti `Stringhe`:
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `abilitato` - Il pulsante è attivato e disponibile all'utente.
+* `disabilitato` - Il pulsante é disabilitato. È presente ma lo stato visuale che lo indica non risponderà all'azione dell'utente.
+* `dismessoalclick` - Quando il pulsante è cliccato, la finestra miniaturizzata si chiude immediatamente.
+* `nobackground` - Non disegnare un limite del pulsante, usa solo l'immagine.
+* `nascosto` - Il pulsante non è mostrato all'utente.
+* `noninterattivo` - Il pulsante è abilitato ma non interattivo; il pulsante non premuto è disegnato. Questo valore è inteso per istanze in cui il pulsante è usato in una notifica.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
@@ -993,7 +993,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Object 
+* `opzioni` Object 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
@@ -1010,7 +1010,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
-* `icon` [NativeImage](native-image.md)
+* `icona` [ImmagineNativa](native-image.md)
 
 Changes window icon.
 

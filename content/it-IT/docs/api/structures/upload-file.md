@@ -1,7 +1,7 @@
-# UploadFile Object
+# Oggetto CaricaFile
 
-* `type` String - `file`.
-* `filePath` String - Path of file to be uploaded.
-* `offset` Integer - Defaults to ``.
-* `length` Integer - Number of bytes to read from `offset`. Defaults to ``.
-* `modificationTime` Double - Last Modification time in number of seconds sine the UNIX epoch.
+* `tipo` Stringa - `file`.
+* `Percorsofile` Stringa - Percorso dei file da caricare.
+* `compensare` Numero intero - Di default ``.
+* `lunghezza` Numero Intero - Numeto di bytr da leggere per `compensare`. Di default a ``.
+* `Tempomodifica` Doppio - Ultima modifica in numero di secondi dall'epoca UNIX.

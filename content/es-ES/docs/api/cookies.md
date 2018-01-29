@@ -53,7 +53,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Objeto 
+* `filtrar` Objeto 
   * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`

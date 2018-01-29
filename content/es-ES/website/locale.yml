@@ -9,7 +9,7 @@ nav:
   contact: Contacto
   languages: Idiomas
   code_of_conduct: Código de conducta
-  search: Search
+  search: Buscar
 docs:
   title: Documentación de Electron
   description: Ver todos los <a href="/docs/all"> documentos en una sola página</a> o consulte la <a href="/docs/faq"> FAQ</a>.
@@ -17,10 +17,10 @@ docs:
   api_reference: Referencia de la API
   advanced: Avanzado
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: Mejora este documento
+    version_history: Historial de versiones
+    translate: Traducir este documento
+    view_all_docs: Todos los documentos en una página
 languages:
   choose_language: Elija el idioma del sitio
   translation_progress: Progreso de la traducción
@@ -89,8 +89,8 @@ apps:
   edit_this_app: Editar esta aplicación.
 clipboard:
   copy: Copiar
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy_to_clipboard: Copiar al portapapeles
+  copied: Copiado
 or: o
 pages:
   '/':
@@ -140,7 +140,7 @@ _404:
   please_file_an_issue: por favor notifica un problema.
 search:
   description:
-    start: Find Electron resources from
+    start: Encontrar recursos de Electron de
     docs: <a href="/search/docs">documentation</a>
     npm: <a href="/search/npmPackages">npm packages</a>
     and: y

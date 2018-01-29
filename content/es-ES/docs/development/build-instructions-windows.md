@@ -23,7 +23,7 @@ Electron se construye casi completamente con script de comandos de linea y no pu
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## Inicialización
 
 El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Note que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 

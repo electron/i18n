@@ -1,92 +1,92 @@
 # Electron 버전 관리
 
-> A detailed look at our versioning policy and implementation.
+> Electron 버전 관리 정책과 구현에 대해 자세히 설명하고 있습니다.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+Electron 2.0.0 버전부터는 [semver](#semver) 규칙에 따라 버전을 관리하고 있습니다. 아래의 명령어는 Electron 최신 안정(stable) 버전을 설치할 것입니다:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+최신 안정 버전을 사용하기 위해 기존 프로젝트를 업데이트하려면 아래 명령어를 사용하세요:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## 버전 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않았습니다. 메이저 버전은 사용자(end-user) API 변화와 관련 있습니다. 마이너 버전은 Chromium 메이저 버전 출시에 연관되어 있습니다. 패치 버전은 새로운 기능, 버그 수정에 해당합니다. 기능 추가(merge)는 일부 개발자들은 편리하게 느끼겠지만, 클라이언트 애플리케이션을 작성하는 개발자에게는 이 상황이 문제가 될 수 있습니다. Slack, Stride, Teams, Skype, VS Code, Atom, Desktop 과 같은 유명 앱들의 QA 테스트 사이클은 오래 걸리고, 높은 수준의 안정성이 요구됩니다. 버그 수정을 하면서 새로운 기능을 추가하는 것은 상당한 위험 부담이 있습니다.
 
-Here is an example of the 1.x strategy:
+1.x 버전 전략 예제입니다.
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+`1.8.1` 버전 앱은 `1.8.2` 기능을 추가하거나 버그를 백포트(backport) 방식으로 수정하고 새로운 출시 라인(release line)을 생성해서 유지하기 전까지는 `1.8.3` 버전 버그 수정을 적용할 수 없습니다.
 
-## Version 2.0 and Beyond
+## 2.0 버전 이상
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+1.x 전략과 비교하면 아래와 같은 몇 가지 주요한 변화가 있습니다. 각 변경사항은 개발자/관리자, 앱 개발자들의 우선 순위와 요구를 만족시키는데 그 목적이 있습니다.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. 엄격한 semver 규칙 사용
+2. semver 규칙을 준수하는 `-beta` 태그 도입
+3. [관례적인 커밋 메시지](https://conventionalcommits.org/) 도입
+4. 명확하게 정의된 안정화(stabilization) 브랜치
+5. `master` 브랜치는 버전 정보가 없음; 안정화 브랜치만 버전 정보를 포함하고 있음
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶어하는 것, 백포트 방식으로 변경하는 방법에 대해서는 아래에서 자세히 다룰 예정입니다.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+2.0 버전 이후부터 Electron은 semver 규칙을 따르고 있습니다.
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+변경사항 종류와 semver 카테고리(예. 메이저, 마이너, 패치)를 서로 연결시키면 아래와 같습니다.
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **메이저 버전 증가** 
+    * Chromium 버전 업데이트
+    * node.js 메이저 버전 업데이트
+    * Electron API의 큰 변화
+* **마이너 버전 증가** 
+    * node.js 마이너 버전 업데이트
+    * Electron API의 미세한 변경
+* **패치 버전 증가** 
+    * node.js 패치 버전 업데이트
+    * 수정 관련 chromium 패치
+    * electron 버그 수정
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+대부분의 chromium 업데이트는 큰 변화로 인식된다는 점을 기억하세요. 백포트 가능한 수정사항은 패치로 체리-피크(cherry-pick)할 수 있습니다.
 
-# Stabilization Branches
+# 안정화 브랜치
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+안정화 브랜치들은 master 브랜치와 병행해서 운영하는 브랜치이며, 보안과 안정성과 관련된 체리-피크 커밋만 받아들입니다. 이들 브랜치들은 master에 병합(merge)하지 않습니다.
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+안정화 브랜치들은 항상 **메이저** 또는 **마이너** 버전이며, `$MAJOR-$MINOR-x`와 같은 형태의 이름을 사용하며 `2-0-x`와 같은 이름으로 구성됩니다.
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+필요에 따라 백포팅을 통한 보안 관련 사항 수정이 필요하기 때문에 최소한 두 개의 안정화 브랜치를 병행해서 지원하며 이로 인해 여러 개의 안정화 브랜치들이 동시에 존재할 수 있습니다. ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+오래된 라인은 GitHub가 지원하지 않을 것입니다. 하지만 다른 그룹들이 이들에 대해 소유권을 가질 수 있으며 그들만의 안정화, 보안 관련 수정 사항 등을 백포트 할 수 있습니다. 저희는 이를 장려하지는 않지만, 이것이 많은 앱 개발자들의 삶을 훨씬 쉽게 만들어 준다는 사실만은 기억해두시길 바랍니다.
 
-# Beta Releases and Bug Fixes
+# 베타 출시와 버그 수정
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+개발자들은 어떤 출시 버전을 *안전하게* 사용할 수 있는지 알고 싶어합니다. 문제가 없는 것처럼 보이는 기능도 복잡한 애플리케이션에서는 회귀(regression) 버그를 일으킬 수 있습니다. 또한, 특정 버전만 고집하는 것은 해당 버전 이후에 발생할 수 있는 보안 패치와 버그 수정을 무시하는 것이기 때문에 매우 위험합니다. 우리의 목표는 아래의 표준 semver 범위에 따라 `package.json`을 작성하도록 만드는 것입니다:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* `~2.0.0`을 사용하면 `2.0.0` 출시 버전에는 안정화, 보안과 관련된 수정사항만 허락됩니다.
+* `^2.0.0`을 사용하면 보안, 버그 수정 뿐만 아니라 큰 변화를 초래하지는 않으면서도 *상당히 안정적인* 기능도 추가할 수 있습니다.
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+두 번째 항목에서 중요한 점은 `^`을 사용하는 앱에서도 상당한 수준의 안정성이 보장되어야 한다는 것입니다. 이를 위해, semver는 아직 *안전하거나* *안정적이지 않은* 특정 버전을 나타내기 위해 *pre-release 식별자(identifier)*를 제공합니다.
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+어떤 것을 선택하든지, Chromium은 큰 변화가 자주 발생하기 때문에 `package.json` 안의 버전을 주기적으로 증가시켜야 합니다.
 
-The process is as follows:
+프로세스는 다음과 같습니다:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+1. 모든 신규 메이저, 마이너 버전 출시 라인은 `-beta.N` 태그로 시작하고, `N >= 1` 이어야 합니다. 이 시점에서는, 기능과 관련된 부분은 **잠깁니다(locked)**. 이 출시 라인은 기능 추가는 허용되지 않으며, 보안과 안정성에만 초점을 맞추고 있습니다. 예. `2.0.0-beta.1`.
+2. 버그 수정, 회귀(regression) 수정, 보안 패치가 허용됩니다. 이를 위해 새로운 베타 버전은 `N` 을 증가시켜 출시합니다. 예. `2.0.0-beta.2`
+3. 특정 베타 출시 버전이 *일반적으로* 안정적이라고 여겨지면, 안정적인 빌드 버전으로 버전 정보만 수정해서 재출시될 것입니다. 예. `2.0.0`.
+4. 안정 버전이 출시된 이후에 버그 수정이나 보안 패치 등이 필요한 경우 *패치* 버전을 증가시킵니다 예. `2.0.1`.
 
-For each major and minor bump, you should expect too see something like the following:
+메이저, 마이너 버전 증가와 관련해서 여러분은 아래와 같은 것을 보길 원할 것입니다.
 
 ```text
 2.0.0-beta.1
@@ -97,53 +97,53 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+주기(lifecycle) 예제를 그림으로 표현하면 다음과 같습니다:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* 최신 기능이 포함된 신규 출시(release) 브랜치가 생성되었습니다. 이 브랜치는 `2.0.0-beta.1`라는 이름으로 공개(publish)됩니다. ![](../images/versioning-sketch-3.png)
+* master 브랜치에서 버그 수정이 발생했고, 이것은 출시(release) 브랜치로 백포트 가능합니다. 패치가 적용된 새로운 베타 버전은 `2.0.0-beta.2`라는 이름으로 공개됩니다. ![](../images/versioning-sketch-4.png)
+* 베타 버전이*일반적으로 안정적*이라고 평가받아서 베타 버전이 아닌 `2.0.0`라는 이름으로 다시 공개되었습니다. ![](../images/versioning-sketch-5.png)
+* 이후에, zero-day 익스플로잇이 발견되어 master 브랜치가 수정되었습니다. `2-0-x` 라인에서 백포트로 수정 사항을 반영한 다음 `2.0.1` 버전을 출시합니다. ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+아래는 다양한 semver 범위에 따라 새로운 출시 버전이 결정되는 것을 보여주는 예제들입니다:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# 누락된 기능: 알파와 Nightly
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+우리의 전략은 몇 가지 단점(tradeoff)이 있지만, 현재 시점에서는 이 전략이 적절하다고 생각합니다. 가장 큰 단점은 master 브랜치의 새로운 기능이 안정 버전 출시 라인에 반영되기 전까지 상당한 시간이 걸릴 수도 있다는 점입니다. 새로운 기능을 즉시 사용하고 싶다면 Electron을 직접 빌드해야 할 것입니다.
 
-As a future consideration, we may introduce one or both of the following:
+향후에는 아래의 사항들을 도입할 수도 있습니다:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* master 브랜치 기반의 nightly 빌드 버전; 새로운 기능에 대한 빠른 테스트 및 피드백 수집 가능
+* 알파 출시 버전은 베타 버전에 비해 안정성 요건을 약하게 적용한 것; 예를 들면, 안정성 채널은 *알파*에 유지하면서 새로운 기능을 허락할 수 있음.
 
-# Feature Flags
+# 기능 플래그(Feature Flags)
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+기능 플래그는 Chromium에서 자주 쓰이며, 웹 개발 환경에서 일반적으로 사용되고 있습니다. Electron에서 기능 플래그 또는 **소프트 브랜치**는 다음과 특성을 가져야 합니다:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음
+* 새로운 코드 경로와 예전 코드 경로는 완전히 분리됨; 새로운 기능을 지원하기 위해 예전 코드를 리팩토링하는 것은 기능 플래그 규칙을 *위반하는 것임*
+* 소프트 브랜치가 병합되고 나면 기능 플래그는 삭제됨
 
-We reconcile flagged code with our versioning strategy as follows:
+저희는 버전 관리 전략과 플래그가 있는 코드를 다음과 같이 조화시켰습니다.
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. 안정화 브랜치에서는 기능 플래그 코드가 반복되는 것을 원하지 않습니다; 신중하게 사용한 기능 플래그 코드일지라도 위험이 없는 것은 아닙니다.
+2. 기능 플래그가 있는 코드에서는 메이저 버전으로 증가시키지 않고도 API 규칙을 어길 수 있습니다. 플래그가 있는 코드는 semver 규칙을 따르지 않아도 됩니다.
 
-# Semantic Commits
+# 시맨틱 커밋
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+저희는 업데이트와 출시 과정의 모든 단계에서 명확성이 향상되길 원합니다. `2.0.0` 버전을 기점으로, 모든 pull request는 [관례적인 커밋](https://conventionalcommits.org/) 스펙에 따라 작성되어야 하며, 커밋 스펙을 요약하면 다음과 같습니다:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* semver **메이저** 버전 증가로 이어지는 커밋은 `BREAKING CHANGE:`로 시작해야 합니다.
+* semver **마이너** 버전 증가로 이어지는 커밋은 `feat:` 로 시작해야 합니다.
+* semver **패치** 버전 증가로 이어지는 커밋은 `fix:`로 시작해야 합니다.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* 커밋 스쿼싱(sqaushing)은 허용되며, 스쿼시된 메시지는 앞에서 언급한 메시지 포맷을 따라야 합니다.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* 같은 pull request 에서 나중에 위치한 커밋에 시맨틱 메시지가 포함되어 있는 커밋이 있다면, 시맨틱 prefix(feat:, fix: 등)가 포함되지 않은 pull request 커밋도 허용됩니다.
 
-# Versionless `master`
+# 버전 정보가 없는 `master` 브랜치
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* `master` 브랜치는 `package.json` 안에 항상 `0.0.0-dev`를 포함할 것입니다.
+* 출시 브랜치는 master 브랜치로 병합되지 않습니다.
+* 출시 브랜치는 `package.json` 안에 정확한 버전을 포함*할 수* 있습니다.

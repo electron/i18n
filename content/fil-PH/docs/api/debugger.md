@@ -1,10 +1,10 @@
-## Class: Debugger
+## Klase: "Debugger"
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Ang alternatibong paglipat para sa "Chrome's remote" na sistematikong panuntunan ng "debugging".
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso: [Pangunahin](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Ang "Chrome Developer Tools" ay may [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) na matatagpuan sa "JavaScript" na hinahayaang makipag-ugnayan sa mga pahina at paggamit sa kanila.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -31,45 +31,45 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Mga pamamaraan ng pagkakataon
+### Mga Halimbawa ng Sistematikong Paraan
 
 #### `debugger.attach([protocolVersion])`
 
-* `protocolVersion` String (optional) - Requested debugging protocol version.
+* `protocolVersion` String (opsyunal) - Ang hiling na bersyon ng sistematikong panuntunan para sa "debugging".
 
-Attaches the debugger to the `webContents`.
+Idikit ang "debugger" sa `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Pagbabalik sa `Boolean` - Kung ang "debugger" ay nakadikit sa `webContents`.
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+Pagtanggal ng "debugger" galing sa `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
-* `commandParams` Object (optional) - JSON object with request parameters.
-* `tumawag muli` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+* `method` String - Ang pangalan ng sistematikong paraan ay dapat na isa sa mga paraan na tinutukoy gamit ang "remote debugging protocol".
+* `commandParams` Object (opsyunal) - "JSON object" na may hiling na parameters.
+* `muling pagtawag` Gamit (opsyunal) - Pagtugon 
+  * `error` Object - Ang maling mensahe ay nagpapahiwatig ng pagkabigo ng "command".
+  * `result` Kahit ano - Ang pagtugon ay tinutukoy gamit ang 'returns' na may katangian na paglalarawan ng "command" sa "remote" ng sistematikong panuntunan ng "debugging".
 
-Send given command to the debugging target.
+Ipadala ang binigay na "command" sa "debugging target".
 
-### Instance Events
+### Mga Halimbawa ng Pangyayari
 
-#### Event: 'detach'
-
-* `event` Event
-* `reason` String - Reason for detaching debugger.
-
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
-
-#### Event: 'message'
+#### Pangyayari: 'pagtanggal'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `reason` String - Dahilan para sa pagtanggal ng "debugger".
 
-Emitted whenever debugging target issues instrumentation event.
+Lumalabas kapag ang sesyon ng "debugging" ay tuluyan nang inihinto o winakasan. Ito ay nangyayari kapag ang `webContents` ay nakasara o ang "devtools" ay ginamit para sa pagdikit sa `webContents`.
+
+#### Pangyayari: 'mensahe'
+
+* `event` Event
+* `method` String - Pangalan ng sistematikong paraan.
+* `params` Object - Ang "Event parameters" ay tinutukoy gamit ang katangian ng 'parameters' sa "remote" ng sistematikong panuntunan ng "debugging".
+
+Lumalabas sa tuwing ang mga isyu na pinupuntirya ng "debugging" ay ginagamit sa pangyayari.

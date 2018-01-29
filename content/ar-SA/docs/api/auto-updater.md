@@ -1,4 +1,4 @@
-# autoUpdater
+# تحديث تلقائي
 
 > Enable apps to automatically update themselves.
 

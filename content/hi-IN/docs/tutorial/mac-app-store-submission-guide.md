@@ -1,26 +1,26 @@
 # मैक एप्प स्टोर सबमिशन गाइड
 
-Since v0.34.0, Electron allows submitting packaged apps to the Mac App Store (MAS). This guide provides information on: how to submit your app and the limitations of the MAS build.
+v0.34.0 संस्करण से, इलेक्ट्रॉन पैकेज्ड एप्प्स को मैक एप्प स्टोर (एमऐएस) में सबमिट करने की सुविधा प्रदान करता है | यह गाइड जानकारी उपलब्ध कराती है कि: कैसे अपनी एप्प को सबमिट करें और एमऐएस बनावट की सीमायें |
 
-**Note:** Submitting an app to Mac App Store requires enrolling [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**नोट:** मैक एप्प स्टोर में एक एप्प को सबमिट करने के लिए [एप्पल डेवलपर प्रोग्राम](https://developer.apple.com/support/compare-memberships/) में शामिल होना ज़रूरी है, जिसके लिए पैसे खर्चने पड़ते हैं |
 
-## How to Submit Your App
+## अपनी एप्प कैसे सबमिट करें
 
-The following steps introduce a simple way to submit your app to Mac App Store. However, these steps do not ensure your app will be approved by Apple; you still need to read Apple's [Submitting Your App](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) guide on how to meet the Mac App Store requirements.
+निम्नलिखित चरण आपको अपनी एप्प को मैक एप्पल स्टोर में सबमिट करने के लिए एक सरल मार्ग सुझायेंगे | हालाँकि, यह चरण यह सुनिश्चित नहीं करते कि आपकी एप्प एप्पल से अप्परुव होगी ही; आपको अभी भी मैक एप्पल स्टोर की आवश्यकताओं को कैसे पूरा करने पर लिखी गाइड [अपनी एप्प सबमिट करना](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/SubmittingYourApp/SubmittingYourApp.html) पढ़नी होगी |
 
-### Get Certificate
+### प्रमाणपत्र प्राप्त करें
 
-To submit your app to the Mac App Store, you first must get a certificate from Apple. You can follow these [existing guides](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) on web.
+अपनी एप्प को मैक एप्पल स्टोर में सबमिट करने के लिए, आपको पहले एप्पल से एक प्रमाण पत्र प्राप्त करना होगा | आप वेब पर उपलब्ध इन [मौजूदा गाइड्स](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-%28MAS%29-Submission-Guideline#first-steps) को पढ़ सकते हैं |
 
-### Get Team ID
+### टीम आईडी प्राप्त करें
 
-Before signing your app, you need to know the Team ID of your account. To locate your Team ID, Sign in to [Apple Developer Center](https://developer.apple.com/account/), and click Membership in the sidebar. Your Team ID appears in the Membership Information section under the team name.
+अपनी एप्प पर हस्ताक्षर करने से पहले, आपको अपने अकाउंट की टीम आईडी पता होनी चाहिये | अपनी टीम आईडी खोजने के लिए, [एप्पल डेवलपर सेंटर](https://developer.apple.com/account/) में साय्न इन करें, और साइडबार में मेम्बरशिप क्लिक करें | आपकी टीम आईडी, मेम्बरशिप इनफार्मेशन सेक्शन में टीम नाम के नीचे दिखाई देगी |
 
-### Sign Your App
+### अपनी एप्प पर हस्ताक्षर करें
 
-After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
+सभी तैयारियां पूरी करने के बाद, आप अपनी एप्प को [एप्लीकेशन डिस्ट्रीब्यूशन](application-distribution.md) को पढ़ कर पैकेज कर सकते हैं, और फिर अपनी एप्प पर हस्ताक्षर कर सकते हैं |
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+सबसे पहले, आपको अपनी एप्प की `Info.plist` में एक `ElectronTeamID` चाबी जोड़नी होगी, जिसमे आपकी टीम आईडी की वैल्यू होगी:
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+फिर आपको 3 एनटाइटलमेंट फाइल्स का निर्माण करना होगा |
 
 `child.plist`:
 
@@ -77,23 +77,23 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-You have to replace `TEAM_ID` with your Team ID, and replace `your.bundle.id` with the Bundle ID of your app.
+आपको `TEAM_ID` को अपनी टीम आई डी से बदलना होगा, और `your.bundle.id` को अपनी एप्प की बंडल आईडी से |
 
-And then sign your app with the following script:
+और फिर अपनी एप्प पर निम्नलिखित स्क्रिप्ट से हस्ताक्षर करना होगा:
 
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# आपकी एप्प का नाम |
 APP="YourApp"
-# The path of your app to sign.
+# आपकी एप्प का पथ जिस पर हस्ताक्षर करना है |
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# हस्ताक्षरित पैकेज को भेजने की जगह का पथ
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# उन प्रमाणपत्रों के नाम जिनका आपने अनुरोध किया हैं |
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# आपकी पीलिस्ट फाइल्स तक का पथ |
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
@@ -118,64 +118,64 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-If you are new to app sandboxing under macOS, you should also read through Apple's [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) to have a basic idea, then add keys for the permissions needed by your app to the entitlements files.
+अगर आप मैकओएस के अंतर्गत एप्प सैंडबॉक्सिंग में नये हैं, तो आपको एक शुरूआती विचार के लिए एप्पल की [एप्प सैंडबॉक्स इनेबल करना](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) गाइड भी पढ़नी चहिये, और फिर एनटाइटलमेंट फाइल्स में उन अनुमतियों के लिए कुंजियाँ जोड़ें जिनकी आपकी एप्प को आवश्यकता हैं |
 
-Apart from manually signing your app, you can also choose to use the [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) module to do the job.
+अपनी एप्प पर मैन्युअली हस्ताक्षर करने के अलावा, आप चाहे तो इस काम के लिए [electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) मोड्यूल का भी इस्तेमाल कर सकते हैं |
 
-#### Sign Native Modules
+#### मूल मोडयुल्स पर हस्ताक्षर करना
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+आपकी एप्प में इस्तेमाल हुए मूल मोडयुल्स पर भी हस्ताक्षर करना ज़रूरी है | अगर electron-osx-sign का इस्तेमाल कर रहे हैं, तो आर्गुमेंट लिस्ट में निर्मित बाइनरिज़ के पथ को शामिल करना न भूलें:
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+साथ ही यह भी याद रखें कि मूल मोडयुल्स की कुछ मध्यवर्ती फाइल्स भी हो सकती है जिन्हें शामिल नहीं करना (नहीं तो उन पर भी हस्ताक्षर करना पड़ेगा) | अगर आपने 8.1.0 संस्करण से पहले [electron-packager](https://github.com/electron-userland/electron-packager) का इस्तेमाल किया है, तो आप बिल्ड स्टेप में `--ignore=.+\.o$` जोड़ दें ताकि इन फाइल्स को शामिल न किया जायें | 8.1.0 और उसके बाद के संस्करण उन फाइल्स को स्वतः ही शामिल नहीं करते हैं |
 
-### Upload Your App
+### अपनी एप्प अपलोड करें
 
-After signing your app, you can use Application Loader to upload it to iTunes Connect for processing, making sure you have [created a record](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) before uploading.
+अपनी एप्प पर हस्ताक्षर करने के बाद, आप उसे प्रोसेसिंग के लिए एप्लीकेशन लोडर का इस्तेमाल कर आईट्यून्स कनेक्ट पर अपलोड कर सकते हैं, इस बात का ध्यान रखते हुए कि अपलोड करने से पहले आपने [एक रिकॉर्ड निर्मित कर लिया है](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html) |
 
-### Submit Your App for Review
+### अपनी एप्प को समीक्षा के लिए सबमिट करें
 
-After these steps, you can [submit your app for review](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html).
+इन चरणों के बाद, आप [ अपनी एप्प को समीक्षा के लिए सबमिट कर सकते है](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/SubmittingTheApp.html) |
 
-## Limitations of MAS Build
+## एमऐएस बनावट की सीमायें
 
-In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
+एप्प सैंडबॉक्सिंग की सभी आवश्यकताओं को पूरा करने के लिए, निम्लिखित मोडयुल्स एमऐएस बनावट में डिसएबल कर दिए गये हैं:
 
 * `क्रेश रिपोर्टर`
 * `स्वतः अपडेटर`
 
-and the following behaviors have been changed:
+और निम्नलिखित व्यवहार बदल दिए गये हैं:
 
-* Video capture may not work for some machines.
-* Certain accessibility features may not work.
-* Apps will not be aware of DNS changes.
+* कुछ मशीनों में विडियो कैप्चर शायद काम न करें |
+* कुछ एक्सेसबिलिटी सुविधायें शायद काम न करें |
+* एप्प्स को डीएनएस बदलावों के बारे में पता नहीं चलेगा |
 
-Also, due to the usage of app sandboxing, the resources which can be accessed by the app are strictly limited; you can read [App Sandboxing](https://developer.apple.com/app-sandboxing/) for more information.
+साथ ही, एप्प सैंडबॉक्सिंग के इस्तेमाल के कारण, एप्प के लिए संसाधनों तक पहुँच बेहद सीमित है; ज्यादा जानकारी के लिए आप [एप्प सैंडबॉक्सिंग](https://developer.apple.com/app-sandboxing/) पढ़ सकते हैं |
 
-### Additional Entitlements
+### अतिरिक्त एनटाइटलमेंट्स
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+आपकी एप्प के द्वारा उपयोग किए जाने वाले इलेक्ट्रॉन ऐपीआई के आधार पर, आपको `parent.plist` फाइल में अतिरिक्त एनटाइटलमेंट्स जोड़नी पड़ सकती हैं, ताकि आप इन ऐपीआई का इस्तेमाल अपनी एप्प के मैक एप्पल स्टोर बनवात से कर सकें|
 
-#### Network Access
+#### नेटवर्क पहुँच
 
-Enable outgoing network connections to allow your app to connect to a server:
+अपनी एप्प को एक सर्वर से कनेक्ट होने की अनुमति देने के लिए आउटगोइंग नेटवर्क कनेक्शनस इनेबल करें:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+अपनी एप्प को एक नेटवर्क लिसनिंग पोर्ट खोलने की अनुमति देने के लिए इनकमिंग नेटवर्क कनेक्शनस इनेबल करें:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+ज्यादा जानकारी के लिए [नेटवर्क पहुँच इनेबल कैसे करें](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) पढ़ें |
 
 #### dialog.showOpenDialog
 
@@ -184,7 +184,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+ज्यादा जानकारी के लिए [उपयोगकर्ता-चयनित फाइल पहुँच कैसे इनेबल करें](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) पढ़ें |
 
 #### dialog.showSaveDialog
 
@@ -193,23 +193,23 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+ज्यादा जानकारी के लिए [उपयोगकर्ता-चयनित फाइल पहुँच कैसे इनेबल करें](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) पढ़ें |
 
-## Known issues
+## ज्ञात समस्यायें
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+मैक एप्पल स्टोर में जब वितरण के लिए एप्प पर हस्ताक्षर किया जायेगा तो यह विफल हो जायेगा | अपडेटस के लिए [#9005](https://github.com/electron/electron/issues/9005) को सब्सक्राइब करें |
 
-#### Workaround
+#### वैकल्पिक हल
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+जब तक एक्सटेंशन एक इन्सटाल्ड एप्प के साथ जुड़ी रहे, तब तक `shell.openExternal('file://' + filePath)` फाइल को एक डिफ़ॉल्ट एप्लीकेशन में खोलेगा |
 
-## Cryptographic Algorithms Used by Electron
+## इलेक्ट्रॉन द्वारा इस्तेमाल क्रिप्टोग्राफ़िक अल्गोरिथ्म्स
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+आप जहाँ रह रहे हैं उस देश और क्षेत्र पर निर्भर करते हुए, मैक एप्प स्टोर आपकी एप्प में इस्तेमाल हुए क्रिप्टोग्राफ़िक अल्गोरिथम का दस्तावेज़ीकरण मांग सकता है, और वह आपको U.S. Encryption Registration (ERN) approval की एक कॉपी जमा कराने के लिए भी कह सकता है |
 
-Electron uses following cryptographic algorithms:
+इलेक्ट्रॉन निम्नलिखित क्रिप्टोग्राफ़िक अल्गोरिथम इस्तेमाल करता है:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
@@ -235,4 +235,4 @@ Electron uses following cryptographic algorithms:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+ERN अप्रूवल कैसे पायें, इस बारे में ज्यादा जानकारी इस लेख से प्राप्त की जा सकती है: [एप्पल के एप्प स्टोर में कैसे कानूनी तौर पर एप्प सबमिट करें जब वह एन्क्रिप्शन का इस्तेमाल करती हो (या ERN कैसे प्राप्त करें)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/)

@@ -2,7 +2,7 @@
 
 > Render and control web pages.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 ### Instance Events
 
@@ -53,9 +53,9 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
@@ -65,9 +65,9 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 #### Event: 'did-frame-finish-load'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
@@ -82,9 +82,9 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'did-get-response-details'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -98,9 +98,9 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 #### Event: 'did-get-redirect-request'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -113,27 +113,27 @@ Emitted when a redirect is received while requesting a resource.
 
 #### Event: 'dom-ready'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when the document in the given frame is loaded.
 
 #### Event: 'page-favicon-updated'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `url` String
+* `evento` Evento
+* `url` Stringa
 * `frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
@@ -157,10 +157,10 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 #### Event: 'will-navigate'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `url` String
+* `evento` Evento
+* `url` Stringa
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -172,10 +172,10 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-navigate'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `url` String
+* `evento` Evento
+* `url` Stringa
 
 Emitted when a navigation is done.
 
@@ -183,10 +183,10 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `url` String
+* `evento` Evento
+* `url` Stringa
 * `isMainFrame` Boolean
 
 Emitted when an in-page navigation happened.
@@ -195,9 +195,9 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -224,19 +224,19 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `killed` Boolean
+* `evento` Evento
+* `ucciso` Booleano
 
 Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `name` String
+* `evento` Evento
+* `nome` Stringa
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -247,9 +247,9 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -288,63 +288,63 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Evento: 'certificato-errore'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `evento` Evento
+* `url` Stringa
+* `errore` Stringa - Il codice d'errore
+* `certificato` [Certificato](structures/certificate.md)
+* `callback` Funzione 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Evento: 'selezione-certificato-client'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `Listacertificati` [Certificati[]](structures/certificate.md)
+* `callback` Funzione 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
-Emitted when a client certificate is requested.
+Emesso quando un certificato client è richiesto.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Evento: 'accedi'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `request` Object 
-  * `method` String
+* `evento` Evento
+* `richiesta` Object 
+  * `metodo` Stringa
   * `url` URL
-  * `referrer` URL
-* `authInfo` Object 
-  * `isProxy` Boolean
-  * `scheme` String
-  * `host` String
-  * `port` Integer
-  * `realm` String
-* `callback` Function 
-  * `username` String
-  * `password` String
+  * `prescrivente` URL
+* `infoautore` Object 
+  * `èProxy` Booleano
+  * `schema` Stringa
+  * `ospite` Stringa
+  * `porta` Numero Intero
+  * `regno` Stringa
+* `callback` Funzione 
+  * `nomeutente` Stringa
+  * `password` Stringa
 
-Emitted when `webContents` wants to do basic auth.
+Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
@@ -372,18 +372,18 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+Restituiti:
 
-* `event` Event
-* `url` String
+* `evento` Evento
+* `url` Stringa
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
@@ -396,9 +396,9 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
@@ -438,11 +438,11 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Funzione 
   * `deviceId` Stringa
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -468,9 +468,9 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -492,9 +492,9 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
@@ -508,8 +508,8 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
-* `options` Object (optional) 
+* `url` Stringa
+* `opzioni` Oggetto (opzionale) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -526,7 +526,7 @@ webContents.loadURL('https://github.com', options)
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* `url` Stringa
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
@@ -687,7 +687,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Funzione 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -700,7 +700,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Funzione 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -790,7 +790,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `opzioni` Oggetto (opzionale) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -821,21 +821,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` Funzione 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Funzione 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Funzione 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -848,7 +848,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options])`
 
-* `options` Object (optional) 
+* `opzioni` Oggetto (opzionale) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -861,14 +861,14 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `opzioni` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
-  * `error` Error
+* `callback` Funzione 
+  * `errore` Errore
   * `data` Buffer
 
 Prints window's web page as PDF with Chromium's preview printing custom settings.
@@ -913,7 +913,7 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.addWorkSpace(path)`
 
-* `path` String
+* `percorso` Stringa
 
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
@@ -927,13 +927,13 @@ win.webContents.on('devtools-opened', () => {
 
 #### `contents.removeWorkSpace(path)`
 
-* `path` String
+* `percorso` Stringa
 
 Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `opzioni` Oggetto (opzionale) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1060,7 +1060,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
-* `callback` Function 
+* `callback` Funzione 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1090,7 +1090,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
 * `callback` Function - `(error) => {}`. 
-  * `error` Error
+  * `errore` Errore
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
 
@@ -1115,7 +1115,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `opzioni` Object 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer

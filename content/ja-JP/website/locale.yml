@@ -9,7 +9,7 @@ nav:
   contact: お問い合わせ
   languages: 言語
   code_of_conduct: 行動規範
-  search: Search
+  search: 検索
 docs:
   title: Electon のドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
@@ -65,7 +65,7 @@ download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
   title: "<a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> アプリで実際に動く Electron を見てみましょう"
-  description: 親切なコメント文とともに、最低限の機能のみを実装した Electron アプリをお試しください
+  description: 親切なコメント文とともに、最低限の機能だけが実装された Electron アプリをお試しください
   clone: Quick Start リポジトリを clone する
   go_into_repo: リポジトリに移動
   install_deps: 依存ライブラリをインストールし、実行
@@ -82,7 +82,7 @@ footer:
   see_the_faq: よくある質問（FAQ）
 apps:
   title: Electronで開発されたアプリ
-  description: Electron を使えば、業務やアイデアを達成するためにデスクトップアプリを開発することは容易になります。当初、 Electron は GitHub の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されました。現在は Microsoft や Facebook, Slack, Docker といった企業のアプリ開発にも使用されています。
+  description: Electron を使えば、作業の効率化やアイデアを実現するためのデスクトップアプリを容易に開発できます。Electron は元々、GitHub 社の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されたフレームワークですが、現在は Microsoft や Facebook, Slack, Docker といった有名企業によるアプリ開発でも採用されています。
   view_more: もっとアプリを見る
   submit_your_own: あなたのアプリを送信する
   something_missing: 何か見つかりませんか？
@@ -141,7 +141,7 @@ _404:
 search:
   description:
     start: Find Electron resources from
-    docs: <a href="/search/docs">documentation</a>
-    npm: <a href="/search/npmPackages">npm packages</a>
+    docs: <a href="/search/docs">ドキュメント</a>
+    npm: <a href="/search/npmPackages">npm パッケージ</a>
     and: and
-    repos: <a href="/search/repos">GitHub repos</a>
+    repos: <a href="/search/repos"> GitHub リポジトリ</a>

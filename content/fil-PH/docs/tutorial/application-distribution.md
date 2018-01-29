@@ -1,17 +1,16 @@
 # Pamamahagi ng aplikasyon
 
-To distribute your app with Electron, you need to download Electron's [prebuilt binaries](https://github.com/electron/electron/releases). Next, the folder containing your app should be named `app` and placed in Electron's resources directory as shown in the following examples. Note that the location of Electron's prebuilt binaries is indicated with `electron/` in the examples below.
+Upang maipamahagi ang iyong app sa elektron, kailangan mong i-download ang elektron mga binary ng prebuilt<0/>. Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Elektron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Elektron prebuilt ay ipinapahiwatig ng `elektron/<0> sa mga halimbawa sa ibaba.</p>
 
-On macOS:
+<p>Sa macOs:</p>
 
-```text
-electron/Electron.app/Contents/Resources/app/
+<pre><code class="text">electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
 └── index.html
-```
+`</pre> 
 
-On Windows and Linux:
+Sa windows at linux:
 
 ```text
 electron/resources/app
@@ -20,115 +19,117 @@ electron/resources/app
 └── index.html
 ```
 
-Then execute `Electron.app` (or `electron` on Linux, `electron.exe` on Windows), and Electron will start as your app. The `electron` directory will then be your distribution to deliver to final users.
+Pagkatapos magsagawa ng `Electron.app` (o `elektron` sa Linux,`electron.exe` sa windows), at ang elektron ay magsisimula bilang iyong app. Ang `elektron`direktoryo ay magiging iyong ma-i-pamamahagi upang ihatid sa mga huling gumagamit.
 
-## Packaging Your App into a File
+## Pagkaging ng iyong App sa isang File
 
-Apart from shipping your app by copying all of its source files, you can also package your app into an [asar](https://github.com/electron/asar) archive to avoid exposing your app's source code to users.
+Bukod sa pagpapadala sa iyong app sa pamamagitan ng pag-kopya sa lahat ng mga pinagkukunan ng file, maari mong i-package ang iyong app sa [asar](https://github.com/electron/asar) archive upang maiwasan ang paglalantad sa iyong app source sa mga gumagamit.
 
-To use an `asar` archive to replace the `app` folder, you need to rename the archive to `app.asar`, and put it under Electron's resources directory like below, and Electron will then try to read the archive and start from it.
+Para gamitin ang `asar` i-archive para palitan ang `app` na folder, kailangan mo ring palitan ang pangalan ang archive sa `app.asar`, at ilagay ito sa ilalim ng mga mapagkukunan sa Electron na direktoryo kagaya ng nasa ilalim at ang Electron ay susubukin ulit basahin ang archive at simulan ulit ito.
 
-On macOS:
+Sa macOs:
 
 ```text
 electron/Electron.app/Contents/Resources/
 └── app.asar
 ```
 
-On Windows and Linux:
+Sa windows at linux:
 
 ```text
 electron/resources/
 └── app.asar
 ```
 
-More details can be found in [Application packaging](application-packaging.md).
+Sa mga karagdagang detalye ay matatagpuan sa [Aplikasyon ng packaging](application-packaging.md).
 
-## Rebranding with Downloaded Binaries
+## Rebranding sa na-download ng mga binary
 
-After bundling your app into Electron, you will want to rebrand Electron before distributing it to users.
+Pagkatapos mong pag-bundle ng iyong app sa Elektron, gusto mong i-rebrand ang elektron bago ipamamahagi ito sa mga gumagamit.
 
 ### Windows
 
-You can rename `electron.exe` to any name you like, and edit its icon and other information with tools like [rcedit](https://github.com/atom/rcedit).
+Maari mong palitan ang `electron.exe` sa anumang pangalan na gusto mo, at i-edit ang icon nito at iba pang impormasyong sa mga kagamitang [credit](https://github.com/atom/rcedit).
 
 ### macOS
 
-You can rename `Electron.app` to any name you want, and you also have to rename the `CFBundleDisplayName`, `CFBundleIdentifier` and `CFBundleName` fields in the following files:
+Maari mong palitan ng pangalan ang `Electron.app` sa anumang gusto mo, at maari mo ring palitan ng pangalan anh `CFBundleDisplayName`,</code>CFBundleIdentifier</code> at `CFBundleName</0> sa mga larangan sa mga sumusunod na file:</p>
 
-* `Electron.app/Contents/Info.plist`
-* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`
+<ul>
+<li><code>Electron.app/Contents/Info.plist`</li> 
 
-You can also rename the helper app to avoid showing `Electron Helper` in the Activity Monitor, but make sure you have renamed the helper app's executable file's name.
+* `Electron.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist`</ul> 
 
-The structure of a renamed app would be like:
+Maari mo ring palitan ng pangalan ang tumutulong na app upang maiwasan ang pagpapakita `Electron Helper` sa aktibidad ng monitor, ngunit siguraduhin na palitan mo nang pangalan ang helper app's para mapalitan ng pangalan ang mga file.
+
+Ang istraktura na pinalitang pangalan ng app ay magiging tulad ng:
 
 ```text
-MyApp.app/Contents
+AngAkingApp.app/Mga Nilalaman
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
     ├── MyApp Helper EH.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper EH
+    |       └── MyApp Helper EH
     ├── MyApp Helper NP.app
     |   ├── Info.plist
     |   └── MacOS/
-    |       └── MyApp Helper NP
+    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
 
-You can rename the `electron` executable to any name you like.
+Maari mong palitan ng pangalan ang `elektron` maaring palitan sa anumang gusto mo.
 
-## Packaging Tools
+## Mga kagamitan sa packaging
 
-Apart from packaging your app manually, you can also choose to use third party packaging tools to do the work for you:
+Bukod sa pagmano mano ng packaging sa iyong app, pwede ka ring pumili para gumamit ng ikatlong partido na kagamitan ng packaging para gawin ang trabaho para sayo:
 
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
+* [pagpipilit ng elektron](https://github.com/electron-userland/electron-forge)
+* [pagbubuo ng elektron](https://github.com/electron-userland/electron-builder)
+* [pagpapackage ng elektron](https://github.com/electron-userland/electron-packager)
 
-## Rebranding by Rebuilding Electron from Source
+## Rebranding sa pamamagitan ng pagbubuo muli ng Elekron mula sa pinagmulan
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+Posible rin ito na i-rebrand ang elektron sa pamamagitan ng pagbabago ng pangalan sa produkto at binuong ito mula sa pinagmulan. Upang magawa ito kailangan mong baguhin ang `atom.gyp` ng file at malinis itong binubuo ulit.
 
-### Creating a Custom Electron Fork
+### Lumikha ng Pasadyang Elektron Fork
 
-Creating a custom fork of Electron is almost certainly not something you will need to do in order to build your app, even for "Production Level" applications. Using a tool such as `electron-packager` or `electron-forge` will allow you to "Rebrand" Electron without having to do these steps.
+Lumikha ng pasadyang fork sa elektron ay halos tiyak na walang iba kinakailngan mong gumawa sa pagkasunod-sunod upang mabuo ang iyong app, pantay para sa "Level ng produksyon" ng mga aplikasyon. Gamit ng kagamitan tulad ng `packager ng elekron` o `elektron-forge` ay nagbibigay daan sayo upang "i-Rebrand" ang elektron kahit walang pakakaroon nitong ng mga hakbang.
 
-You need to fork Electron when you have custom C++ code that you have patched directly into Electron, that either cannot be upstreamed, or has been rejected from the official version. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
+Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iyong ipinatched direkta sa Electron, na alinmang hindi pwedeng i-upstream, o na tinanggihan mula sa opisyal na bersyon. Bilang mga maintainer ng Elektron, napakagusto naming gawin ang sitwasyon ng iyong trabaho, kaya mangyaring subukan ng maigi hanggang makukuha mo ang mga pagbabago sa opisyal na bersyon ng Elektron, mas madali para sayo, at pinahahalagahan namin ang iyong tulong.
 
-#### Creating a Custom Release with surf-build
+#### Paglikha ng isa pasadyang release sa pagbuo ng surf
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. I-install ang [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Gumawa ng bagong S3 bucket at gumawa ng sumusunod na walang laman na direktoryong istraktura:
     
     ```sh
 - atom-shell/
-  - symbols/
+  - simbolo/
   - dist/
 ```
 
-3. Set the following Environment Variables:
+3. Itakda ang mga sumusunod na baryabol ng kapaligiran:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64`
+* `ELEKTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub.
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - ang lugar kung saan maari kang mag-upload ng mga header sa node.js pati na rin ang mga simbolo
+* `ELECTRON_RELEASE` - Itakda sa `tama` at ang parte ng pag-upload ay gagana, iwanan ang i-unset At `surf-bumuo` gagawin namin ang mga pagsusuri ng CI-type, nararapat patakbuhin sa bawat pull ng kahilingan.
+* `CI<code> - Itakda sa <0>tama` o kung hindi ito ay mabibigo
+* `GITHUB_TOKEN` - itakda ito sa kaparehong `ELECTRON_GITHUB_TOKEN`
+* `SURF_TEMP` - itakda sa `C:\Temp` sa windows upang maiwasan ang mga landas na isyu sa mahabang isyu
+* `TARGET_ARCH` - itakda sa `ia32` o `x64`
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. Sa `script/upload.py`, maari *kang* magtakda nf `ELECTRON_REPO` sa iyong fork (`MYORG/electron`), lalo na kung ikaw ay isang kontribyutor sa Elektron proper.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Maghintay ng napaka, napakataas na panahon para makompleto ang build.

@@ -2,7 +2,7 @@
 
 > Create and control views.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Note:**BrowserView API は現在実験的な機能です。将来的に変更されたり削除されたりする可能性があります。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -11,7 +11,7 @@ A `BrowserView` can be used to embed additional web content into a `BrowserWindo
 ## Example
 
 ```javascript
-// In the main process.
+// メインプロセス
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})

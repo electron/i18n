@@ -1,24 +1,24 @@
 # hiwalay
 
-> Use main process modules from the renderer process.
+> Gamitin ang mga modyul ng pangunahing proseso mula sa proseso ng tagabigay.
 
 Mga proseso: [Renderer](../glossary.md#renderer-process)
 
-The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
+Ang modyul ng `remote` ay nagbibigay ng isang simpleng paraan na gumawa ng maki-prosesong komyunikasyon (IPC) sa pagitan ng proaesong tagabigay (pahina ng web) at ng pangunahing proseso.
 
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+Sa Electron, ang mga modyul na may kaugnayan sa GUI (tulad ng `dialog`, `menu` atbp.) ay makukuha lamang sa pangunahing proseso, hindi sa prosesong tagabigay. Sa ayos ng paggamit sa kanila mula sa prosesong tagabigay, ang modyul ng `ipc` ay kinakailangan na magpadala ng mga maki-prosesong mensahe sa pangunahing proseso. Kasama ang modyul ng `remote`, maaari mong hingiin ang mga pamamaraan ng mga bagay sa pangunahing proseso nang walang nakakapansin na nakapagpadala ng maki-prosesong mensahe, katulad ng [RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation) ng Java. Ang isang halimbawa ng paglikha ng isang browser window mula sa isang prosesong tagabigay:
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
+const {BrowserWindow} = kailangan('electron').remote
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** Sa kabaligtaran (i-akses ang prosesong tagabigay mula sa pangunahing proseso) maaari mong gamitin ang [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
-## Hiwalay na mga Bagay
+## Mga bagay ng Remote
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` ay kumakatawan sa isang bagay sa pangunahing proseso (tinatawag natin itong malayong bagay o malayong punsyon). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
 In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
