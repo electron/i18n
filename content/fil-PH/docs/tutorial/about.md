@@ -1,58 +1,58 @@
-# About Electron
+# Tungkol sa Elektron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Elektron](https://electronjs.org) ay isang bukas na aklatan na binuo ni GitHub para sa pagtatayo ng mga aplikasyon ng desktop ng krus-platform na may HTML, CSS, at JavaScript. Ginagawa ito ng elektron sa pamamagitan ng pagsasama ng [Chromium](https://www.chromium.org/Home) at [Node.js](https://nodejs.org) sa isang runtime at mga apps na maaaring ma-pakete para sa Mac, Windows, at Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Nagsimula ang Elektron noong 2013 bilang balangkas kung saan ang [Atom](https://atom.io), ang editor ng text na hack ng GitHub, ay itatayo. Ang dalawa ay bukas na pinagmulan galing sa tagsibol noong 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Mula noon ito ay naging isang sikat na kasangkapan na ginagamit ng mga nagdedevelop, nagpoproseso, at ng mga Establisadong kumpanya.[Tingnan kung sino ang nagtatayo sa Elektron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Magbasa pa upang matuto nang higit pa tungkol sa mga tagapag-ambag at paglabas ng Elektron o makapagsimula sa pagbuo gamit ang Elektron sa [Gabay sa Mabilis na Pagsisimula](quick-start.md).
 
-## Core Team and Contributors
+## Buod na pangkat at mga nag ambag
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Ang elektron ay pinananatili ng isang koponan sa GitHub pati na rin ang isang grupo ng [aktibong mga kontribyutor](https://github.com/electron/electron/graphs/contributors) mula sa komunidad. Ang ilan sa mga nag-aambag ay mga indibidwal at ilang mga trabaho sa mas malalaking kumpanya na bumubuo sa Elektron. Kami ay nalulugod na magdagdag ng mga madalas na tagapag-ambag sa proyekto bilang mga tagapanatili. Magbasa pa tungkol sa [nag-aambag sa Elektron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
-## Releases
+## Paglalabas
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Ang paglalabas ng elektron](https://github.com/electron/electron/releases) ng madalas. Inilalabas namin kapag may mga makabuluhang pag-aayos ng bug, mga bagong API o pag-update ng mga bersyon ng Chromium o Node.js.
 
-### Updating Dependencies
+### Ina-update ang Dependencies
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Ang bersyon ng kromo ng elektron ay kadalasang na-update sa loob ng isa o dalawang linggo matapos ang isang bagong matatag na bersyon ng kromo na inilabas, depende sa pagsisikap ng kasangkot sa pag-upgrade.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Kapag ang isang bagong bersyon ng Node.js ay inilabas, ang Elektron ay karaniwang inaabot ng isang buwan bago mag-upgrade upang magdala ng isang mas matatag na bersyon.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+Sa Elektron, Node.js at Kromo binabahagi ang isang solong halimbawa V8-ito ang karaniwang bersyon na ginagamit ng Kromo. Karamihan sa mga oras na ito ay *gumagana lamang* ngunit kung minsan ay nangangahulugan ito ng patching Node.js.
 
-### Versioning
+### Bersyon
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Bilang ng bersyon 2.0 Elektron [ay sumusunod sa `semver`](https://semver.org). Para sa karamihan ng mga aplikasyon, at gamit ang anumang makabagong bersyon ng npm, na napapatakbo ng`$ npm install elektron` ay gagawin ang tama.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Ang proseso ng pag-update ng bersyon ay malinaw na detalyado sa aming [Bersyon Doc ](electron-versioning.md).
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Ang pangmatagalang suporta ng mas lumang mga bersyon ng Elektron ay kasalukuyang hindi umiiral. Kung gumagana sa iyo ang kasalukuyang bersyon ng Elektron, maaari kang manatili dito hangga't gusto mo. Kung gusto mong magamit ang mga bagong tampok kapag ito ay nakapasok na kailangan mong i-upgrade ang maka-bagong bersiyon.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Isang malaking update ang dumating na may bersyon `v1.0.0`. Kung hindi mo pa ginagamit ang bersyon na ito, dapat mong [basahin nang higit pa ang tungkol sa `v1.0.0`mga pagbabago](https://electronjs.org/blog/electron-1-0).
 
-## Core Philosophy
+## Pangunahing Pilosopiya
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Upang mapanatili ang Elektron na maliit (laki ng file) at pangmatagalan (ang pagkalat ng dependencies at API) nililimitahan ng proyekto ang saklaw ng pangunahing proyekto.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Halimbawa, ang Elektron ay ginagamit lamang upang makapagsalin mula sa mga kromo sa halip lahat ng kromo. Pinapadali nito ang pag-upgrade ng Kromo ngunit lahat ng mga tampok na makikita sa Google Chrome ay hindi makikita sa Elektron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Ang mga bagong tampok na idinagdag sa Elektron ay dapat na maging pangunahing mga API. Kung ang tampok ay maaaring maging sarili nitong Node.js modyul, marahil ito ay dapat. Tingnan ang [mga kasangkapan ng elektron na binuo ng komunidad](https://electronjs.org/community).
 
-## History
+## Kasaysayan
 
-Below are milestones in Electron's history.
+Nasa ibaba ang mga mahahalagang pangyayari sa kasaysayan ng Elektron.
 
-| :calendar:      | :tada:                                                                                                         |
-| --------------- | -------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **May 2014**    | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
-| **May 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
+| :Kalendaryo:    | :tada:                                                                                                            |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Abril 2013**  | [Sinimulan ang Atom Shell](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Mayo 2014**   | [Atom Shell ay bukas na pingmulan](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                 |
+| **Abril 2015**  | [Ang Atom Shell ay muling pinangalanang Elektron](https://github.com/electron/electron/pull/1389).                |
+| **Mayo 2016**   | [Inilabas ang elektron`v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
+| **Mayo 2016**   | [Ang mga app ng elektron ay tugma sa Mac App Store](mac-app-store-submission-guide.md).                           |
+| **Agosto 2017** | [sinusuportahan ng Windows Store ang Elektron apps](windows-store-guide.md).                                      |

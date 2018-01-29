@@ -23,7 +23,7 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Okno bez ramki
 
 To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
@@ -58,9 +58,9 @@ win.loadURL('https://github.com')
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
-## Parent and child windows
+## Okna nadrzędne i podrzędne
 
-By using `parent` option, you can create child windows:
+Dzięki opcji `parent`, możesz tworzyć okna podrzędne:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -71,9 +71,9 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+Okno `child` zawsze będzie widnieć nad oknem `top`.
 
-### Modal windows
+### Okna modalne
 
 A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
 

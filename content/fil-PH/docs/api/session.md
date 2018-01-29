@@ -1,74 +1,74 @@
-# pulong
+# sesyon
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, etc.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Ang Proseso: [Pangunahin](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Ang `sesyon` modyul ay maaaring gamitin para gumawa ng bagong `Sesyon` ng mga layunin.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Maaari mo rin ma-akses ang `sesyon` ng umiiral na mga pahina sa pamamagitan ng paggamit ng `sesyon` uri ng [`NilalamanngmgaWeb`](web-contents.md), o galing sa `sesyon` na modyul.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = bagong BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Pamamaraan
+## Mga pamamaraan
 
-The `session` module has the following methods:
+Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
 
-### `session.fromPartition(partition[, options])`
+### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
-* `partition` String
-* `mga pagpipilian` Bagay 
-  * `cache` Boolean - Whether to enable cache.
+* `partisyon` String
+* `mga opsyon` Layunin 
+  * `cache` Boolean - Maaaring paganahin ang cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay maaaring bumalik: sa kabilang banda ay maging bago `Sesyon` ang instansya ay maaaring gumawa kasama ang `mga opsyon`.
 
-If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
+Kung ang `partisyon` ay nagsisimula kasama ang `pananatili:`, ang pahina ay gumagamit ng isang sesyon sa pananatili Maaari magamit ito sa lahat ng mga pahina sa mga app na may kaparehong `partisyon`. kung walang ditong `paninindigan:` prefix, ang pahina ay magagamit bilang sesyon ng memorya. Kung ang `partisyon` ay walang laman kung gayoon ang sesyon ng default ng app ay ibabalik.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+Para gumawa ng isang `sesyon` kasama ng `mga option`, siguraduhin mo rin ang `Sesyon` kasama ang `partisyon` na hindi pa ginamit nuon. Walang ibang paraan para baguhin ang `mga opsyon` bilang isang umiiiral na `Sesyon` ng layunin.
 
-## Mga Katangian
+## Mga katangian
 
-The `session` module has the following properties:
+Ang `sesyon` ng module ay may sinusunod na katangian:
 
-### `session.defaultSession`
+### `sesyon.defaultngsesyon`
 
-A `Session` object, the default session object of the app.
+Isang `sesyon` ng layunin, ang depult ng sesyon na layunin ng app.
 
-## Uri: Pulong
+## Klase: ng Sesyon
 
-> Get and set properties of a session.
+> Kumuwa at magtakda ng mga katangian ng isang sesyon.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Ang proseso ng: [Main](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Maaari kang gumawa ng isang `Sesyon` ng layunin sa `sesyon` ng module:
 
 ```javascript
-const {session} = require('electron')
-const ses = session.fromPartition('persist:name')
+const {session} = kinakailangang('electron')
+const ses = sesyon.galingpartisyon('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Halimbawa ng mga Kaganapan
 
-The following events are available on instances of `Session`:
+Ang mga sumusunod na mga kaganapan ay magagamit sa mga pagkakataon ng `Sesyon`:
 
-#### Event: 'will-download'
+#### Kaganapan: 'Ay-madadownload'
 
-* `event` Event
-* `item` [DownloadItem](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `aytem` [I-downloadangaytem](download-item.md)
+* `mga nilalaman ng web` [Mga nilalaman ng Web](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Kung saan ang electron ay napalabas tungkol sa download `aytem` sa `Mga nilalaman ng web`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Pagtatawag `event.preventDefault()` ang pag kanselahin ang ida-download at `item` ay hindi na magagamit oara sa sunod na tik ng proseso.
 
 ```javascript
 const {session} = require('electron')
@@ -80,20 +80,20 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Mga pamamaraan ng pagkakataon
+### Mga halimbawa ng pamamaraan
 
-The following methods are available on instances of `Session`:
+Nag sumusunod na pamamaraan ay magagamit para sa halimbawa ng `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `tumawag muli` Punsyon 
-  * `size` Integer - Cache size used in bytes.
+* `tumawag muli` Function 
+  * `size` Integer - Nagamit na laki cache sa bytes.
 
-Callback is invoked with the session's current cache size.
+Pagwatag-muli ay nananawagan sa mga sesyons sa kasalukuyang laki ng cache.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `callback` Function - Tinatawag kung ang operason ay tapos na
 
 Clears the session’s HTTP cache.
 
@@ -245,7 +245,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `handler` Punsyon 
+* `ang tagahawak` Punsyon 
   * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `tumawag muli` Punsyon 

@@ -1,11 +1,11 @@
-# JumpListCategory Object
+# Oggetto CategoriaSaltaLista
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
-* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+* `tipo` Stringa (opzionale) - Uno dei seguenti: 
+  * `compiti` - Gli oggetti di questa categoria saranno posti nella categoria `Compiti` stamdard. Può esserci solo una categoria, che sarà sempre mostrata sul fondo della Lista di Salto.
+  * `frequente` - Mostra una lista di file aperti frequentemente dall'app, il nome della categoria ed i suoi elementi sono impostati da Windows.
+  * `recenti` - Mostra una lista di file recentemente aperti dall'app, il nome della categoria ed i suoi elementi sono impostati da Windows. Gli elementi potrebbero essere indirettamente aggiunti a questa categoria usando `app.aggiungiDocumentiRecenti(percorso)`.
+  * `custom` - Mostra compiti o link di file, il `nome` deve essere impostato dall'app.
+* `nome` Stringa (opzionale) - Deve essere impostato se il `tipo` è `modificato`, altrimenti va omesso.
+* `elementi` ElementoSaltaLista[] (opzionale) - Schieramento di oggetti [`ElementiSaltaLista`](jump-list-item.md) se il `tipo` è `compiti` o `modificato`, altrimenti va omesso.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Note:** Se un oggetto `SalaCategoriaLista` non ha nè `tipo` nè `nome` impostati il suo tipo diviene `predefinito`. Se la proprietà `nome` é impostata ma la proprietà `tipo` é omessa, il `tipo` sarà considerato`modificato`.

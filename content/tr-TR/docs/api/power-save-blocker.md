@@ -29,9 +29,9 @@ powerSaveBlocker.stop(id)
 
 Sistemin daha düşük güç moduna girmesini önler. Güç tasarrufu bloklarını tanımlayan bir tam sayı döndürür.
 
-**Note:** `prevent-display-sleep` has higher precedence over `prevent-app-suspension`. Yalnızca en baskın öncelik türü etkili olabilir. Başka bir deyişle, `prevent-display-sleep` her zaman `prevent-app-suspension`' dan önceliklidir.
+**Not:** `prevent-display-sleep`, `prevent-app-suspension`'dan daha önceliklidir. Yalnızca en baskın öncelik türü etkili olabilir. Başka bir deyişle, `prevent-display-sleep` her zaman `prevent-app-suspension`' dan önceliklidir.
 
-For example, an API calling A requests for `prevent-app-suspension`, and another calling B requests for `prevent-display-sleep`. `prevent-display-sleep` B isteği durdurulana kadar kullanılır. Bundan sonra `prevent-app-suspension` kullanılır.
+Örnek olarak, `prevent-app-suspension` için A isteklerini çağıran bir API ve `prevent-display-sleep` için B isteklerini çağıran bir başka API. `prevent-display-sleep` B isteği durdurulana kadar kullanılır. Bundan sonra `prevent-app-suspension` kullanılır.
 
 ### `powerSaveBlocker.stop(id)`
 

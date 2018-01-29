@@ -28,8 +28,8 @@ Kaydırıcının geçerli değerini temsil eden bir `Number`. Bu değeri değiş
 
 #### `touchBarSlider.minValue`
 
-A `Number` representing the slider's current minimum value. Changing this value immediately updates the slider in the touch bar.
+Kaydırıcının şu anki minimum değerini gösteren bir `Number`. Bu değeri değiştirmek doğrudan dokunmatik bardaki kaydırıcıyı günceller.
 
 #### `touchBarSlider.maxValue`
 
-A `Number` representing the slider's current maximum value. Changing this value immediately updates the slider in the touch bar.
+Kaydırıcının şu anki maksimum değerini gösteren bir `Number`. Bu değeri değiştirmek doğrudan dokunmatik bardaki kaydırıcıyı günceller.

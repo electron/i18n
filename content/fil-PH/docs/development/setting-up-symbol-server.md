@@ -1,34 +1,34 @@
-# Setting Up Symbol Server in Debugger
+# Pagse-set Up Simbolo ng Server sa Debugger
 
-Debug symbols allow you to have better debugging sessions. They have information about the functions contained in executables and dynamic libraries and provide you with information to get clean call stacks. A Symbol Server allows the debugger to load the correct symbols, binaries and sources automatically without forcing users to download large debugging files. The server functions like [Microsoft's symbol server](https://support.microsoft.com/kb/311503) so the documentation there can be useful.
+Ang mga simbolo ng debug ay nagpapahintulot sa iyo na magkaroon ng mas mabuti na mga sesyon ng pag-debug. Mayroon silang impormasyon tungkol sa mga function na nakapaloob sa mga executable at dynamic na aklatan at nagbibigay sa iyo ng impormasyon upang makakuha ng malinis na tawag sa stack. Binibigyang-daan ng Server ng Simbolo ang debugger upang i-load ang tamang mga simbolo, mga binary at mapagkukunan nang awtomatiko nang hindi pinipilit ang mga gumagamit na mag-download ng mga malalaking debugging file. Tulad ng mga pag-andar ng server [Microsoft simbolo ng server](https://support.microsoft.com/kb/311503) kaya ang Dokumentasyon doon ay maaaring maging kapaki-pakinabang.
 
-Note that because released Electron builds are heavily optimized, debugging is not always easy. The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations. The only workaround is to build an unoptimized local build.
+Tandaan na dahil inilabas ang elektron at gumawa ng mabigat na mag-optimista, ang debugging ay hindi laging madali. Ang debugger ay hindi maipapakita sa iyo ang nilalaman ng lahat Ang mga variable at landas ng pagpapatupad ay maaaring mukhang kakaiba dahil sa inlining, buntot tawag, at iba pang mga pag-optimize ng compiler. Ang tanging workaround ay upang bumuo ng isang hindi mag-optimista na lokal na pagtatayo.
 
-The official symbol server URL for Electron is https://electron-symbols.githubapp.com. You cannot visit this URL directly, you must add it to the symbol path of your debugging tool. In the examples below, a local cache directory is used to avoid repeatedly fetching the PDB from the server. Replace `c:\code\symbols` with an appropriate cache directory on your machine.
+Ang opisyal na simbolo ng server URL para sa Elektron ay https://elektron-simbolo.githubapp.com. Hindi mo direktang binisita ang URL na ito, dapat mong idagdag ito sa landas ng simbolo na iyong debugging tool. Sa mga halimbawa sa ibaba, ginagamit ang isang lokal na direktoryo ng cache upang maiwasan paulit-ulit na pagkuha ng PDB mula sa server. Palitan ang ` c:\code \ simbolo ` sa isang angkop na direktoryo ng cache sa iyong makina.
 
-## Using the Symbol Server in Windbg
+## Gamit ang Simbolo ng Server sa Windbg
 
-The Windbg symbol path is configured with a string value delimited with asterisk characters. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
-
-```powershell
-SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
-```
-
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Ang simbolo ng Windbg ay landas na isinaayos na may string na halaga upang nililimitahan ng asterisk ang mga character. Upang magamit lamang ang server na simbolo ng Electron, idagdag ang sumusunod na entry sa iyong daan na simbolo (**Tandaan:**maaari mong palitan` c:\code\mga simbolo` sa anumang writable direktoryo sa iyong computer, kung gusto mo ng ibang lokasyon para ma-download Ang mga simbolo):
 
 ```powershell
-SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
+SRV*c:\ code\mga simbolo\*https://electron-mga simbolo.githubapp.com
 ```
 
-## Using the symbol server in Visual Studio
+Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg menu, o sa pamamagitan ng pag-type`sympath` utos. Kung nais mong makakuha ng mga simbolo mula sa Microsoft's simbolo ng server pati na rin, dapat mong ilista ang unang:
+
+```powershell
+SRV*c:\code\ mga simbolo\*https://msdl.microsoft.com/download/mga simbolo;SRV* c:\code\mga simbolo\*https://elektron-symbols.githubapp.com
+```
+
+## Gamit ang simbolo ng server sa Visual Studio
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
-## Troubleshooting: Symbols will not load
+## Pag-troubleshoot: Ang mga simbolo ay hindi mai-load
 
-Type the following commands in Windbg to print why symbols are not loading:
+I-type ang sumusunod na mga utos sa Windbg upang i-print kung bakit hindi naglo-load ang mga simbolo:
 
 ```powershell
-> !sym noisy
-> .reload /f electron.exe
+> ! sym maingay
+> .reload / f elektron.exe
 ```

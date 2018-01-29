@@ -1,4 +1,4 @@
-# Obiekt Certyfikat
+# Certyfikat Obiektu
 
 * `dane` String - zakodowane dane PEM
 * `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal

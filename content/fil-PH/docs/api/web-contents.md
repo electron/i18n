@@ -90,7 +90,7 @@ Magbabalik ng:
 * `originalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
+* ang `referer` String
 * `headers` Object
 * `resourceType` String
 
@@ -106,7 +106,7 @@ Magbabalik ng:
 * `isMainFrame` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referrer` String
+* ang `referer` String
 * `headers` Object
 
 Emitted when a redirect is received while requesting a resource.

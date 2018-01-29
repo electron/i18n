@@ -1,4 +1,4 @@
-# ScrubberItem Object
+# Oggetto ElementoStrofinaccio
 
-* `label` String - (optional) The text to appear in this item
-* `icon` NativeImage - (optional) The image to appear in this item
+* `etichetta` Stringa (opzionale) Il testo che appare nell'elemento
+* `icona` ImmagineNativa - (opzionale) L'immagine che appare nell'elemento

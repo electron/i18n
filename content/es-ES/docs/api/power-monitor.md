@@ -1,10 +1,10 @@
 # powerMonitor
 
-> Monitor power state changes.
+> Monitorea los cambios de estado de energía.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
 
 Por ejemplo:
 
@@ -21,20 +21,20 @@ app.on('ready', () => {
 
 ## Eventos
 
-The `powerMonitor` module emits the following events:
+El módulo `powerMonitor` emite los siguientes eventos:
 
-### Event: 'suspend'
+### Evento: "suspend"
 
-Emitted when the system is suspending.
+Se emite cuando se suspende el sistema.
 
-### Event: 'resume'
+### Evento: "resume"
 
-Emitted when system is resuming.
+Se emite cuando se reanuda el sistema.
 
-### Event: 'on-ac' *Windows*
+### Eventp: "on-ac" *Windows*
 
-Emitted when the system changes to AC power.
+Se emite cuando el sistema se cambia a la corriente alterna.
 
-### Event: 'on-battery' *Windows*
+### Evento: "on-battery" *Windows*
 
-Emitted when system changes to battery power.
+Se emite cuando el sistema se cambia a la energía de batería.

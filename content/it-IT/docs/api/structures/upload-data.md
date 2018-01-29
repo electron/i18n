@@ -1,5 +1,5 @@
-# UploadData Object
+# Oggetto CaricaDati
 
-* `bytes` Buffer - Content being sent.
-* `file` String - Path of file being uploaded.
-* `blobUUID` String - UUID of blob data. Use [ses.getBlobData](../session.md#sesgetblobdataidentifier-callback) method to retrieve the data.
+* `bytes` Buffer - Il contenuto è in invio.
+* `file` Stringa - Percorso dei file in caricamento.
+* `macchiaUUID` String - UUID di macchia dati. Usa il metodo [ses.getDatiMacchia](../session.md#sesgetblobdataidentifier-callback) per recuperare i dati.

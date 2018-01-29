@@ -1,68 +1,63 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> Magdagdag ng mga icons at mga context menu sa notification area ng sistema.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const {app, Menu, Tray} = nangangailanganng('electron')
 
-let tray = null
+hayaan ang tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'},
     {label: 'Item3', type: 'radio', checked: true},
     {label: 'Item4', type: 'radio'}
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Ito ay aking aplikasyon.')
   tray.setContextMenu(contextMenu)
 })
 ```
 
-**Platform limitations:**
+**Mga Limitasyon ng Plataporma:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Sa Linux na app indicator ay gagamitin kung ito ay sinusuportahan, kung hindi man `GtkStatusIcon`ay maaring gamitin sa halip.
+* Sa Linux distributions na mayroon lamang app indicator support, pwede kang mag-install ng `libappindicator1` para gumawa ng tray icon work.
+* Ang App indicator ay maaring maipapakita lamang kapag mayroon itong context menu.
+* Kapag ang app indicator ay ginagamit sa Linux, ang `click` event ay hindi pinansin.
+* Sa Linux para sa mga pagbabago na ginawa sa indibidwal`MenuItem`upang magkabisa, dapat mong tawagan ang`setContextMenu`muli. Halimbawa:
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const {app, Menu, Tray} = nangangaianganng('electron')
 
-let appIcon = null
+hayaan ang appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'}
   ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+  //Gumawa ng mga pagbabago sa context menu
+  contextMenu.items[1].tiningnan = mali
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Sa windows ito ay inirekomenda para gamitin ang mga `ICO`icons para makuha ang pinakamahusay na visual effects.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapat hindi ka umasa sa 0>click</code> event at palaging i-attach ang context menu sa tray icon.
 
-### `new Tray(image)`
+### `bagong Tray(imahe)`
 
 * `image` [NativeImage](native-image.md) (String)
 
-Creates a new tray icon associated with the `image`.
+Lumilikha ng isang panibagong tray icon na may kaugnayan sa mga`imahe`.
 
-### Instance Events
+### Halimbawa ng mga Event
 
-The `Tray` module emits the following events:
+Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
 #### Event: 'click'
 
@@ -71,9 +66,9 @@ The `Tray` module emits the following events:
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is clicked.
+Emitted kapag nag click ang tray icon.
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -82,9 +77,9 @@ Emitted when the tray icon is clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is right clicked.
+Emitted kapag nai-right click ang tray icon.
 
 #### Event: 'double-click' *macOS* *Windows*
 
@@ -93,17 +88,17 @@ Emitted when the tray icon is right clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is double clicked.
+Emitted kapag ang tray icon ay na double-click.
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Emitted kapag ang tray balloon ay naipapakita.
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Emitted kapag ang tray balloon ay naiclick.
 
 #### Event: 'balloon-closed' *Windows*
 

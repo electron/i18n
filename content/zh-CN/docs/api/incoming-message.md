@@ -1,65 +1,65 @@
-## Class: IncomingMessage
+## 类：IncomingMessage
 
 > 处理 HTTP/HTTPS 请求的响应。
 
 线程：[主线程](../glossary.md#main-process)
 
-` IncomingMessage ` 实现了 [ Readable Stream ](https://nodejs.org/api/stream.html#stream_readable_streams) 接口, 因此是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)。
+`ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_readable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
 
 ### 事件
 
-#### Event: 'data'
+#### data事件
 
 返回:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` 缓冲区: 响应体数据块。
 
-The `data` event is the usual method of transferring response data into applicative code.
+`data`事件是将响应数据转换为应用程序代码的常用方法。
 
-#### Event: 'end'
+#### end事件
 
 指示响应正文已结束。
 
-#### Event: 'aborted'
+#### aborted事件
 
 正在进行的 HTTP 事务被取消后触发。
 
-#### Event: 'error'
+#### error事件：
 
 返回:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` 通常保存一个错误字符串，识别失败的根本原因。
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+当流响应数据事件遇到错误时发出。 例如, 如果服务器在响应仍在流时关闭基础, 则会在响应对象上发出一个 ` error ` 事件, 随后将在请求对象上执行 ` close ` 事件。
 
 ### 实例属性
 
-An `IncomingMessage` instance has the following readable properties:
+` IncomingMessage ` 实例具有以下可读属性:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+一个指示 HTTP 响应状态代码的 ` Integer `。
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+表示HTTP状态消息的`string`。
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+表示响应HTTP头的 `Object`。 `headers` 对象的格式如下所示：
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* 所有的头文件名是小写的。
+* 每个头名称在头对象上生成一个数组值属性。
+* 每个头值被推入与它的头名称相关联的数组中。
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+表示HTTP协议版本号的 `String` 。 一般是“1”或“1.1”。 此外 `httpVersionMajor` 和`httpVersionMinor` 两整数值可读属性，分别返回HTTP的主要和次要版本号
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+表示HTTP协议主要版本号的 `整数`。
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+表示http协议次要版本号的`整数`。

@@ -18,15 +18,15 @@ The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but 
 
 ## APIs disponibles
 
-All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. Sin embargo, ninguno de los módulos incorporados de Electron puede utilizarse en un entorno multiproceso.
+Todos los módulos incorporados de Node.js son compatibles con Web Workers, y los archivos `asar` aún se pueden leer con la API de Node.js. Sin embargo, ninguno de los módulos incorporados de Electron puede utilizarse en un entorno multiproceso.
 
 ## Módulos nativos de Node.js
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+Cualquier módulo nativo Node.js se puede cargar directamente en Web Workers, pero se recomienda encarecidamente no hacerlo. La mayoría de los módulos nativos existentes se han escrito suponiendo un entorno de subproceso único, su uso en Web Workers dará lugar a bloqueos y daños en la memoria.
 
 Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+La única forma de cargar un módulo nativo de forma segura por ahora es asegurarse de que la aplicación no carga módulos nativos después de que Web Workers se inicie.
 
 ```javascript
 process.dlopen = () => {

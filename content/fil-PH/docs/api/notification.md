@@ -1,107 +1,107 @@
-# Mga Abiso
+# Ang paunawa
 
-> Lumikha ng abiso sa OS ng desktop
-
-Ang proseso: [Main](../glossary.md#main-process)
-
-## Paggamit ng mga proseso ng tagasalin
-
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
-
-## Class: Notification
-
-> Lumikha ng abiso sa OS ng desktop
+> Lumikha ng mga paunawa sa OS ng desktop
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+## Ginagamit sa mga proseso ng tagasalin
 
-It creates a new `Notification` with native properties as set by the `options`.
+Kung gusto mong ipakita ang mga Paunawa mula sa proseso ng tagasalin kailangan mong gamitin ang [HTML5 Notification API](../tutorial/notifications.md)
 
-### Static Methods
+## Klase: Paunawa
 
-The `Notification` class has the following static methods:
+> Lumikha ng mga paunawa sa OS ng desktop
+
+Ang proseso: [Main](../glossary.md#main-process)
+
+Ang `Notification` ay isang [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+
+Ito ay lumilikha ng isang bagong `Notification` na may sinaunang mga katangian na itinakda sa pamamagitan ng `options`.
+
+### Mga istatikong pamamaraan
+
+Ang klase ng `Notification` ay may mga sumusunod na mga istatikong pamamaraan:
 
 #### `Notification.isSupported()`
 
-Returns `Boolean` - Whether or not desktop notifications are supported on the current system
+Nagbabalik sa `Boolean` - Kung hindi man ang mga paunawa ng desktop ay sinusuportahan sa kasalukuyang sistema
 
-### `new Notification([options])` *Experimental*
+### Ang `new Notification([options])` ay *Experimental*
 
 * `mga pagpipilian` Bagay 
-  * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
-  * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
-  * `body` String - The body text of the notification, which will be displayed below the title or subtitle
-  * `silent` Boolean - (optional) Whether or not to emit an OS notification noise when showing the notification
-  * `icon` [NativeImage](native-image.md) - (optional) An icon to use in the notification
-  * `hasReply` Boolean - (optional) Whether or not to add an inline reply option to the notification. *macOS*
-  * `replyPlaceholder` String - (optional) The placeholder to write in the inline reply input field. *macOS*
-  * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
-  * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
+  * Ang `title` String - Ang isang pamagat sa mga paunawa, kung saan ay ipinakita sa ibabaw ng window ng paunawa kung saan ito ipinakita
+  * Ang `subtitle` String - (opsyonal) Ang pangalawang pamagat para sa paunawa, kung saan ay makikita sa ilalim ng pamagat. *macOS*
+  * Ang `body` String - Ang kabuuang teksto ng mga paunawa, kung saan ay makikita sa ilalim ng pamagat o pangalawang pamagat
+  * Ang `silent` Boolean - (opsyonal) Kung hindi man ay maglalabas ng isang paunawang ingay kapag ipinapakita ang paunawa
+  * Ang `icon` [NativeImage](native-image.md) - (opsyonal) Ang isang icon na ginagamit sa mga paunawa
+  * Ang `hasReply` Boolean - (opsyonal) Kung hindi man ay magdagdag ng isang opsyon ng nasa linyang pagtugon sa mga paunawa. *macOS*
+  * Ang `replyPlaceholder` String - (opsyonal) Ang placeholder para sumulat sa input field ng nasa linyang pagtugon. *macOS*
+  * Ang `sound` String - (opsyonal) Ang pangalan ng file ng tunog ay tutunog kapag ang paunawa ay ipinakita. *macOS*
+  * Ang `actions` [NotificationAction[]](structures/notification-action.md) - (opsyonal) Ang mga aksyon na idadagdag sa mga paunawa. Pakiusap basahin ang magagamit na mga aksyon at mga limitasyon sa mga dokumentasyon ng `NotificationAction` sa *macOS*
 
-### Instance Events
+### Halimbawa ng mga event
 
-Objects created with `new Notification` emit the following events:
+Ang mga bagay na nilikha na may `new Notification` ay naglalabas ng mga sumusunod na mga event:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Note:** Ang ilang mga event ay magagamit lamang sapartikular na mga operating system at ay tinatakan tulad nito.
 
-#### Event: 'show'
-
-Magbabalik ng:
-
-* `event` Event
-
-Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
-
-#### Event: 'click'
+#### Event: 'ipakita'
 
 Magbabalik ng:
 
 * `event` Event
 
-Emitted when the notification is clicked by the user.
+Ay lalabas kapag ang paunawa ay ipinakita sa mga gumagamit, tandaan na ito ay ititira ng maraming beses bilang isang paunawa na maaaring ipakita ng maraming beses sa pamamagitan ng pamamaraan ng `show()`.
 
-#### Event: 'close'
+#### Event: 'klik'
+
+Magbabalik ng:
+
+* `event` Event
+
+Ay lalabas kapag ang paunawa ay na-klik na ng gumagamit.
+
+#### Event: 'isara'
 
 Magbabalik ng:
 
 * `event` Event
 
-Emitted when the notification is closed by manual intervention from the user.
+Ay lalabas kapag ang paunawa ay isinara sa pamamagitan ng manu-manong pakikialam mula sa mga gumagamit.
 
-This event is not guarunteed to be emitted in all cases where the notification is closed.
+Ang event na ito ay hindi garantisado na lalabas sa lahat ng mga pagkakataon kung saan ang paunawa ay sarado na.
 
-#### Event: 'reply' *macOS*
-
-Magbabalik ng:
-
-* `event` Event
-* `reply` String - The string the user entered into the inline reply field
-
-Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
-
-#### Event: 'action' *macOS*
+#### Event: 'sumagot' sa *macOS*
 
 Magbabalik ng:
 
 * `event` Event
-* `index` Number - The index of the action that was activated
+* `reply` String - Ang string na ipinasok ng gumagamit sa field ng nasa linyang pagtugon
+
+Ay lalabas kapag ang gumagamit ay na-klik ang pindutan ng "Reply" sa paunawa na may `hasReeply: true`.
+
+#### Event: 'aksyon' sa *macOS*
+
+Magbabalik ng:
+
+* `event` Event
+* Ang `index` Number - Ang indise ng mga aksyon na na-aktibeyt na
 
 ### Mga pamamaraan ng pagkakataon
 
-Objects created with `new Notification` have the following instance methods:
+Ang mga bagay na ginawa na may `new Notification` ay may mga sumusunod na pamamaraan ng instansya:
 
-#### `notification.show()`
+#### `ang notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Ay agad na nagpapakita ng paunawa sa mga gumagamit, mangyaring tandaan na ito ay nangangahulugan na hindi katulad ng implementasyon ng HTML5 Notification, nagbibigay halimbawa lamang sa isang `new Notification` ay hindi agad ito ipinakita sa mga gumagamit, dapat mo munang tawagin ang pamamaraan na ito bago ang OS ay ipakita ito.
 
-### Playing Sounds
+### Patugtugin ang mga tunog
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Sa macOS, maaari mong tukuyin ang pangalan ng mga tunog na gusto mong patunugin kapag ang paunawa ay ipinakita. Kahit ano sa mga default na tunog (sa ilalim ng System Preferences > Sound) ay maaaring gamitin, sa karagdagan sa mga file ng costum sound. Maging sigurado na ang file ng tunog ay nakoya na sa ilalim ng bundle ng app (hal, `YourApp.app/Contents/Resources`), o isa sa mga sumusunod na lokasyon:
 
-* `~/Library/Sounds`
+* `-/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Tingnan ang docs ng [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) para sa karagdagang impormasyon.

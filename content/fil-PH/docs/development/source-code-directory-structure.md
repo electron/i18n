@@ -1,66 +1,62 @@
-# Source Code Directory Structure
+# Ang Direktoryo ng Istraktura ng "Source Code"
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Ang "source code" ng Elektron ay nakahiwalay sa ilang mga bahagi, kadalasan ay sinusundan nito ang magkahiwalay na mga kombensyon ng Chromium.
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Kinakailangan mong maging pamilyar sa [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) upang mas maunawaan ang "source code".
 
-## Structure of Source Code
+## Ang Istraktura ng "Source Code"
 
 ```sh
 Electron
 ├── atom/ - C++ source code.
 |   ├── app/ - System entry code.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   main process things. This talks to the renderer to manage web pages.
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       including some utility functions and code to integrate node's message
-|       loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
-├── default_app/ - The default page to show when Electron is started without
-|   providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
-└── common.gypi - Compiler specific settings and building rules for other
-    components like `node` and `breakpad`.
+|   ├── browser/ - Ang "frontend" kasama ang pangunahing window, UI, at ang lahat ng
+|   |   mga bagay na pangunahing pinoproseso. Ito ang kumakausap sa "renderer" para pamahalaan ang mga pahina ng "web".
+|   |   ├── ui/ - Pagpapatupad ng "UI stuff" para sa iba't-ibang "platform".
+|   |   |   ├── cocoa/ - "Cocoa" espisipikong "source code".
+|   |   |   ├── win/ - Windows GUI espisipikong: source code".
+|   |   |   └── x/ - X11 espisipikong "source code".
+|   |   ├── api/ - Ang pagpapatupad ng pangunahing proseso ng "APIs".
+|   |   ├── net/ - Network na may kaugnayan sa "code".
+|   |   ├── mac/ - Mac espesipikong "Objective-C source code".
+|   |   └── resources/ - Icons, platform-dependent files, at iba pa.
+|   ├── renderer/ - Ang "code" na pinapatakbo ng proseso ng "renderer".
+|   |   └── api/ - Ang pagpapatupad ng proseso ng "renderer" ng "APIs".
+|   └── common/ - Ang parehong pangunahin at mga proseso ng "renderer" ay gumamit ng "code", |       kasama ang ilang "utility functions" at "code" para maisama sa mensahe ng "node" |       umiikot sa loob ng "Chromium's message loop".
+|       └── api/ - Ang pagpapatupad ng parehong APIs, ang mga pundasyon ng |           mga modyul na "built-in" sa Elektron.
+├── chromium_src/ - Ang "source code" na kinokopya galing sa Chromium. Tingnan sa ibaba.
+├── default_app/ - Ang pahina na "default" ay nagpapakita kapag ang Elektron ay nag-umpisa nang walang
+|   binibigay na "app".
+├── docs/ - Mga Dokumentasyon.
+├── lib/ - Ang "source code" ng "JavaScript".
+|   ├── browser/ - Ang pangunahing proseso ng inisyalisasyon ng "Javascript code".
+|   |   └── api/ - Ang pagpapatupad ng Javascript API.
+|   ├── common/ -Ang parehong pangunahin at "renderer processes" ay gumamit ng "JavaScript"
+|   |   └── api/ - Ang pagpapatupad ng "Javascript API".
+|   └── renderer/ - Ang "Javascript renderer" pinoproseso ang inisyalisasyon ng "code".
+|       └── api/ - Ang pagpapatupad ng "Javascript API".
+├── spec/ - Kusang pagsubok.
+├── electron.gyp - Ang pagbuo ng mga panuntunan ng Elektron.
+└── common.gypi - Ang tiyak na pagsasaayos ng kompayler at pagbuo ng mga panuntunan para sa ibang mga bahagi tulad `node` at `breakpad`.
 ```
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hindi kabilang sa "layer" nito. Halimbawa, upang maipatupad ang "Pepper API", tayo ay nangangailangan ng ilang "wiring" na pareho sa kung ano ang ginagawa sa opisyal na "Chrome". Maaari tayong magtayo ng mga mahahalagang "source" na may kinalaman bilang parte ng [libcc](../glossary.md#libchromiumcontent), ngunit kadalasan, hindi naman natin kailangan ang lahat ng mga tinatampok (maaaring ang iba ay sa nagmamay-ari nito, tulad ng mga bagay na analitiko) kaya kinukuha lang natin ang ilang bahagi ng "code". Ang mga ito ay madaling matatakpan sa "libcc", ngunit kapag dumating ang oras na ito'y nakasulat, ang layunin ng "libcc" ay mapanatili ang minimal na mga "patch" at ang mga pagbabago sa chromium_src ay marahil na lumaki. Tandaan din na ang mga "patch" ay 'di na maaari pang "upstream" 'di tulad ng ibang mga "libcc patch" na ating pinapanatili ngayon.
 
-## Structure of Other Directories
+## Ang Istraktura ng Iba pang mga Direktoryo
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **iskrip** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
+* **tools** - Katuwang ng mga iskrip na gamit ng "gyp files", di tulad ng `iskrip`, ang mga iskrip na inilagay dito ay di na dapat direktang gamitin pa ng mga gumagamit.
+* **vendor** - Ang "source code" ng pangatlong partido ng mga dependency, tayo ay 'di gumagamit nito `third_party` bilang pangalan dahil ito'y nakakalito para sa kaparehong direktoryo sa "source code tree" ng "Chromium".
+* **node_modules**, Ang pangatlong partido ng mga modyul ng "node" para sa pagbuo.
+* **out** - Ang pansamantalang "output" ng direktoryo ng `ninja`.
+* **dist** - Ang pansamantalang direktoryo na likha ng `script/create-dist.py` iskrip kapag gumagawa ng distribusyon.
+* **external_binaries** - Ang "downloaded binaries" ng pangatlong partido ng mga balangkas ay di sinusuportahan ang pagbuo gamit ang `gyp`,.
 
-## Keeping Git Submodules Up to Date
+## Pagpapanatili ng "Git Submodules" sa Tamang Oras
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+Ang Electron repository ay mayroon ilang "vendored dependencies", at matatagpuan sa direktoryo na [/vendor](https://github.com/electron/electron/tree/master/vendor). Paminsan-minsan, maaari mong makita ang mensahe tulad nito kapag tumatakbo ang `git status`:
 
 ```sh
 $ git status
@@ -69,13 +65,13 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Upang hindi mahuli ang mga "vendored dependency", patakbuhin ang mga sumusunod na "command":
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Kung ang "command" na ito ay iyong parating pinapatakbo, maaari kang lumikha ng "alias" para dito sa iyong payl na `~/.gitconfig`:
 
 ```sh
 [alias]

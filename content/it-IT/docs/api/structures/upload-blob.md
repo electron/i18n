@@ -1,4 +1,4 @@
-# UploadBlob Object
+# Oggetto AggiungiMacchia
 
-* `type` String - `blob`.
-* `blobUUID` String - UUID of blob data to upload.
+* `tipo` Stringa - `macchia`.
+* `macchiaUUID` Stringa - UUID di dati della macchia da aggiornare.

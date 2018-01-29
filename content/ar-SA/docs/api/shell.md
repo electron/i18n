@@ -1,4 +1,4 @@
-# shell
+# صدفة
 
 > Manage files and URLs using their default applications.
 

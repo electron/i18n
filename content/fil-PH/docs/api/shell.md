@@ -1,12 +1,12 @@
-# shell
+# "Shell"
 
-> Manage files and URLs using their default applications.
+> Ayusin ang mga payl at "URLs" gamit ang kanilang "default" o ang pagpapanatili nito sa dating "applications".
 
 Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
-The `shell` module provides functions related to desktop integration.
+Ang modyul ng `shell` ng mga gamit nito na kaugnay sa pinagsama-samang "desktop".
 
-An example of opening a URL in the user's default browser:
+Isang halimbawa ay ang pagbukas ng URL sa dating nitong "browser" ng gumagamit:
 
 ```javascript
 const {shell} = require('electron')
@@ -14,69 +14,69 @@ const {shell} = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Pamamaraan
+## Mga Paraan
 
-The `shell` module has the following methods:
+Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 ### `shell.showItemInFolder(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully shown
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita
 
-Show the given file in a file manager. If possible, select the file.
+Ipakita ang binigay na payl sa "file manager". Kung maaari, piliin ang payl.
 
 ### `shell.openItem(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully opened.
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
-Open the given file in the desktop's default manner.
+Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String
 * `mga pagpipilian` Mga bagay (opsyonal) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `tumawag muli` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
+* `tumawag muli` "Function" (opsyunal) - Kung ang tiyak na "function" ay gagana nang hindi sabay-sabay. *macOS* 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+Pagbabalik sa `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Buksan ang binigay na panlabas na sistematikong panuntunan ng "desktop" sa karaniwan o dati na nitong ayos. (Halimbawa, mailto: "URLs" sa gumagamit ng ahente na nagpapadala ng mensahe ayon sa dati na nitong ayos o tinatawag na "default").
 
 ### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash
+Pagbabalik sa `Boolean` - Kung ang aytem matagumpay na nabura
 
-Move the given file to trash and returns a boolean status for the operation.
+Burahin ang binigay na payl at bumalik sa posisyon nito bilang "boolean" para sa pagpapagana.
 
 ### `shell.beep()`
 
-Play the beep sound.
+Laruin ang tunog na "beep".
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `operation` String (opsyunal) - Pagtatakda nito sa dati o karaniwan nitong ayos o "default" ay `paglikha`, na maaaring isa sa mga sumusunod: 
+  * `create` - Ang paglikha ng bagong "shortcut", pagpapalit ng lumang impormasyon o datos sa bago o tinatawag na "overwriting", kung kinakailangan.
+  * `update` - Ang pagsasaayos ng mga katangian ayon sa pinakabagong aspeto nito ay mangyayari lamang sa umiiral na "shortcut".
+  * `replace` - Ang pagpatong sa "shortcut" ay maaaring mabigo kung ito ay hindi umiiral.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+Pagbabalik sa `Boolean` - kung ang pagpapaikli ay matagumpay na nalikha
 
-Creates or updates a shortcut link at `shortcutPath`.
+Lumikha o pagsasaayos ng pagpapaikili ng "link" ayon sa pinakabagong aspeto nito sa `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Pagbalik sa [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Paglulutas ng "shortcut link" sa `shortcutPath`.
 
-An exception will be thrown when any error happens.
+Ang eksepsiyon ay mababaliwala kapag may maling nangyari.

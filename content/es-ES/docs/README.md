@@ -89,7 +89,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [Estilo de código](development/coding-style.md)
 * [Clang-formato en código C++](development/clang-format.md)
-* [Testing](development/testing.md)
+* [Pruebas](development/testing.md)
 * [Estructura del directorio de código fuente](development/source-code-directory-structure.md)
 * [Diferencias técnicas con NW.js (antes node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Resumen de compilación de sistemas](development/build-system-overview.md)

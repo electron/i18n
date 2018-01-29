@@ -4,12 +4,12 @@ nav:
   blog: المدونة
   community: المجتمع
   apps: التطبيقات
-  userland: Userland
+  userland: مساحة المستخدم
   releases: اﻹصدارات
   contact: تواصل معنا
   languages: اللغات
   code_of_conduct: قواعد السلوك
-  search: Search
+  search: بحث
 docs:
   title: توثيقات الكترون
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
@@ -17,7 +17,7 @@ docs:
   api_reference: مرجع API
   advanced: خيارات متقدمة
   footer:
-    propose_change: حسن هذه الوثيقة
+    propose_change: تحسين هذه الوثيقة
     version_history: تاريخ الإصدارات
     translate: ترجم هذه الوثيقة
     view_all_docs: جميع الوثائق في صفحة واحدة

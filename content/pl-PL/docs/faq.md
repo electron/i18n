@@ -12,7 +12,7 @@ Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/
 
 Wersja Chrome w bibliotece Electron jest zazwyczaj aktualizowana 1 lub 2 tygodnie po wydaniu nowej, stabilnej wersji Chrome. Nie możemy jednak zagwarantować, iż zostanie to wykonane w powyższym czasie i zależy to głównie od nakładu pracy, jaki będziemy musieli włożyć przy aktualizacji.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Tylko stabilny kanał Chrome jest używany. Jeśli ważna naprawa jest w fazie beta lub kanale dev, zostanie backportowana.
 
 Aby uzyskać więcej informacji zobacz [wprowadzenie do zabezpieczeń](tutorial/security.md).
 
@@ -24,37 +24,37 @@ Nowe funkcje Node.js są zazwyczaj wdrażane przez aktualizacje V8, dlatego, że
 
 ## Jak udostępniać dane między stronami internetowymi?
 
-Aby udostępniać dane między stronami internetowymi (procesy renderowania) najlepiej jest użyć HTML5 API, które są dostępne w przeglądarkach. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Aby udostępniać dane między stronami internetowymi (procesy renderowania) najlepiej jest użyć HTML5 API, które są dostępne w przeglądarkach. Dobrymi kandydatami są [pamięć API](https://developer.mozilla.org/en-US/docs/Web/API/Storage),[`lokalnaPamięć`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`Pamięć sesji`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), i [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Lub możesz użyć systemu IPC, wyszczególnionego dla Electronu, aby przechowywać obiekty w głównym procesie jako zmienna globalna, a potem by uzyskać do nich dostęp z renderowania za pomocą modułu `zdalna`właściwość`electron`:
 
 ```javascript
-// In the main process.
+// W procesie głównym.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// Na stronie 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// Na stronie 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Okno/pole mojej aplikacji zniknęło po kilku minutach.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Ma to miejsce w przypadku, gdy zmienna używana do przechowywania okna/pola jest poddawana automatycznej dealokacji.
 
-If you encounter this problem, the following articles may prove helpful:
+Jeśli wystąpi ten problem, poniższe artykuły mogą okazać się pomocne:
 
 * [Zarządzanie pamięcią](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Zakres Zmiennej](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Jeśli chcesz szybkiej naprawy, możesz zglobalizować zmienne poprzez zmianę kodu z tego:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -77,12 +77,12 @@ app.on('ready', () => {
 
 ## Nie mogę użyć jQuery/RequireJS/Meteor/AngularJS w Electron-ie.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. To tworzy problemy dla niektórych bibliotek ponieważ chcą one wstawić symbole z tymi samymi nazwami.
+Ze względu na integrację Node.js Electronu, występują pewne dodatkowe symbole wstawione do modelu DOM, takie jak `module`, `exports`, `require`. To tworzy problemy dla niektórych bibliotek ponieważ chcą one wstawić symbole z tymi samymi nazwami.
 
 Aby to rozwiązać, możesz wyłączyć integrację node w Electron:
 
 ```javascript
-// In the main process.
+// W głównym procesie.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Lecz jeśli chcesz zachować możliwości używania Node.js i Electron API, musisz zmienić nazwę symboli na stronie zanim zawrzesz inne biblioteki:
 
 ```html
 <head>
@@ -106,7 +106,7 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` jest niezdefiniowane.
 
 Gdy używasz wbudowanego modułu Electron możesz spotkać się z takim błędem:
 
@@ -115,25 +115,25 @@ Gdy używasz wbudowanego modułu Electron możesz spotkać się z takim błędem
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Jest tak ponieważ zainstalowany jest [npm `electron` module](https://www.npmjs.com/package/electron) albo lokalnie, albo globalnie, co przejmuje pierwszeństwo nad wbudowanymi modułami Electronu.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Aby zweryfikować to, czy używasz właściwego modułu wbudowanego, możesz wydrukować ścieżkę modułu `electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+a następnie sprawdź, czy występuje w następującej postaci:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Jeśli jest to coś takiego jak `node_modules/electron/index.js`, to musisz albo usunąć moduł npm `electron`, albo zmienić jego nazwę.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Jednak jeśli pomimo użycia wbudowanego modułu wciąż występuje ten błąd, bardzo prawdopodobnym jest to, że używasz modułu w niewłaściwym procesie. Na przykład `electron.app` może być używany tylko w głównym procesie, podczas gdy `electron.webFrame` dostępny jest tylko w procesach renderowania.

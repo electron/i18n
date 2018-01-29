@@ -28,11 +28,11 @@ console.log(ses.getUserAgent())
 * `options` Object 
   * `cache` Boolean - Whether to enable cache.
 
-Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
+Returns `Session` - 根据`partition`字符串产生的session实例。 当这里已存在一个`Session`具有相同的`partition`, 它将被返回; 否则一个新的`Session`实例将根据`options`被创建。
 
 If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. If the `partition` is empty then default session of the app will be returned.
 
-To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
+要根据`options`创建`Session`，你需要确保`Session`的`partition`在之前从未被使用。 没有办法修改一个已存在的`Session`对象的`options`。
 
 ## 属性
 
@@ -40,15 +40,15 @@ The `session` module has the following properties:
 
 ### `session.defaultSession`
 
-A `Session` object, the default session object of the app.
+一个`Session`对象，该应用程序的默认session对象。
 
 ## Class: Session
 
-> Get and set properties of a session.
+> 获取和设置Session的属性。
 
 线程：[主线程](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+你可以创建一个 `Session`对象在`session`模块中。
 
 ```javascript
 const {session} = require('electron')
@@ -58,7 +58,7 @@ console.log(ses.getUserAgent())
 
 ### 事件
 
-The following events are available on instances of `Session`:
+以下事件会在` Session `实例触发。
 
 #### Event: 'will-download'
 
@@ -105,7 +105,7 @@ Clears the session’s HTTP cache.
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
 
-Clears the data of web storages.
+清除Web storage的数据。
 
 #### `ses.flushStorageData()`
 

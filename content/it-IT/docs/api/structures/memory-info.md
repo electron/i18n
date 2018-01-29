@@ -1,9 +1,9 @@
-# MemoryInfo Object
+# Oggetto InfoMemoria
 
-* `pid` Integer - Process id of the process.
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM. On macOS its value will always be 0.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself
+* `pid` Numero Intero - Processi id del processo.
+* `ImpostaDimensionilavoro` Numero Intero - La quantità di memoria attualmente occupata nella RAM fisica attuale.
+* `ImpostapiccoDimensionilavoro` Numero Intero - La massima quantità di memoria che sia mai stata occupata nella RAM fisica attuale. Su macOS questo valore sarà sempre pari a 0.
+* `Byteprivati` Numero intero - La quantità di memoria non condivisa da altri processi, come i mucchi JS o i contenuti HTML.
+* `Bytecondivisi` Numero intero - La quantità di memoria condivisa tra i processi, tipicamente la memoria consumata dallo stesso codice Electron
 
-Note that all statistics are reported in Kilobytes.
+Nota che tutte le statistiche sono riportate in Kilobytes.

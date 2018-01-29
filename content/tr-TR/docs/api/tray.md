@@ -26,10 +26,10 @@ app.on('ready', () => {
 **Platform sınırlamaları:**
 
 * Linux'ta uygulama göstergesi destekleniyorsa kullanılacaktır, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
+* Linux dağıtımlarında sadece uygulama göstergesi destegi vardir, tepsi ikonu için `libappindicator1` yüklenmelidir.
 * Uygulama göstergesi yalnızca bağlam menüsü olduğunda gösterilir.
 * Linux'ta uygulama göstergesi kullanıldığındathe `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Linux'ta bağımsız `MenuItem`'a yapılan değişikliklerin etkili olabilmesi için `setContextMenu`'yü tekrar çağırmalısınız. Örneğin:
 
 ```javascript
 const {app, Menu, Tray} = require('electron')
@@ -62,9 +62,9 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
 ### Örnek Events
 
-The `Tray` module emits the following events:
+`Tray` modülü aşağıdaki olayları yayar:
 
-#### Event: 'click'
+#### Olay: 'click'
 
 * `event` Event 
   * `altKey` Boolean
@@ -95,7 +95,7 @@ Tray simgesi sağ tıkladığında ortaya çıkar.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
 
-Emitted when the tray icon is double clicked.
+Tray simgesi sağ tıkladığında tetiklenir.
 
 #### Event: 'balloon-show' *Windows*
 

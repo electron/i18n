@@ -1,70 +1,70 @@
-# Electron Versioning
+# इलेक्ट्रॉन वर्ज़निंग
 
-> A detailed look at our versioning policy and implementation.
+> हमारी वर्ज़निंग नीति और उसके कार्यान्वयन पर एक विस्तृत लेख |
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+संस्करण 2.0.0 से, इलेक्ट्रॉन [semver](#semver) का प्रयोग करता है | निम्नलिखित कमांड इलेक्ट्रॉन की सबसे नवीनतम स्थिर बनावट इनस्टॉल करती है:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+एक मौज़ूदा प्रोजेक्ट को नवीनतम स्थिर संस्करण तक अपडेट करने के लिए:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## संस्करण 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec. Major versions corresponded to end-user API changes. Minor versions corresponded to Chromium major releases. Patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+इलेक्ट्रॉन संस्करण *< 2.0*, [semver](http://semver.org) स्पेक के अनुरूप नहीं थें | मुख्य संस्करण एंड-यूजर ऐपीआई परिवर्तनों के अनुकूल हैं | लघु संस्करण क्रोमियम की मुख्य रिलीज़ के अनुरूप हैं | पैच संस्करण नयी सुविधाओं और बग फिक्सेस के अनुकूल हैं | हालाँकि यह उन डेवलपर्स के लिए आरामदायक हैं जो सुविधायें जोड़ते हैं, पर क्लाइंट-फेसिंग एप्लीकेशनस के डेवलपर्स के लिए यह मुश्किलें कड़ी करते हैं | स्लैक, टीम्स, स्काइप, वीएस कोड, एटम, और डेस्कटॉप जैसी मुख्य एप्प्स के क्युऐ परिक्षण चरण काफी लम्बे हो सकते हैं और स्थिरता बेहद आवश्यक निश्कर्ष है | त्रुटियों को सही करने के दौरान नयी सुविधायें को अपनाने में बहुत बड़ा खतरा है |
 
-Here is an example of the 1.x strategy:
+1.x रणनीति का एक उदाहरण:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+`1.8.1` से निर्मित एप्प बिना `1.8.2` की सुविधा अपनायें `1.8.3` का बग फिक्स इस्तेमाल नहीं कर सकती, या फिर वह फिक्स को बैकपोर्ट करें और फिर एक नयी रिलीज़ पंक्ति को बनाये रखें |
 
-## Version 2.0 and Beyond
+## संस्करण 2.0 और उससे आगे
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+हमारी 1.x रणनीति से कई सारे परिवर्तन हुए हैं, जो नीचे दिए गये हैं | हर परिवर्तन का उद्देश्य डेवलपर्स/मैन्तैनेर्स और एप्प डेवलपर्स की ज़रूरतों और प्राथमिकताओं को संतुष्ट करना है |
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Clearly defined stabilization branches
-5. The `master` branch is versionless; only stability branches contain version information
+1. semver का कड़ाई से इस्तेमाल
+2. semver-अनुरूप `-beta` टैग से परिचय
+3. [पारंपरिक कमिट संदेशों](https://conventionalcommits.org/) से परिचय
+4. स्पष्ट रूप से परिभाषित स्थिरीकरण शाखायें
+5. `master` शाखा बिना संस्करण के है; केवल स्थिरता शाखाओं के पास संस्करण जानकारी उपलब्ध है
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+गिट शाखा, एनपीएम टैगिंग, डेवलपर्स को कैसी अपेक्षा रखनी चाहिये, और कैसे कोई बैकपोर्ट परिवर्तन करें, इन सब चीजों पर हम विस्तार से बात करेंगे |
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+2.0 संस्करण से, इलेक्ट्रॉन semver का पालन करेगा।
 
-Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
+नीचे एक टेबल दिया गया है जो परिवर्तनों के प्रकारों को उनके अनुरूप semver की श्रेणी (जैसे कि मुख्य, लघु, पैच आदि) से मैप करता है |
 
-* **Major Version Increments** 
-    * Chromium version updates
-    * node.js major version updates
-    * Electron breaking API changes
-* **Minor Version Increments** 
-    * node.js minor version updates
-    * Electron non-breaking API changes
-* **Patch Version Increments** 
-    * node.js patch version updates
-    * fix-related chromium patches
-    * electron bug fixes
+* **मुख्य संस्करण वृद्धि** 
+    * क्रोमियम संस्करण अपडेटस
+    * नोड.जेएस मुख्य संस्करण अपडेटस
+    * इलेक्ट्रॉन ब्रेकिंग ऐपीआई परिवर्तन
+* **लघु संस्करण वृद्धि** 
+    * नोड.जेएस लघु संस्करण अपडेटस
+    * इलेक्ट्रॉन नॉन-ब्रेकिंग ऐपीआई परिवर्तन
+* **पैच संस्करण वृद्धि** 
+    * नोड.जेएस पैच संस्करण अपडेटस
+    * त्रुटी-सुधार क्रोमियम पैच
+    * इलेक्ट्रॉन बग-फिक्सेस
 
-Note that most chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+ध्यान दें कि ज्यादातर क्रोमियम अपडेटस ब्रेकिंग माने जायेंगे | सुधार जिन्हें बैकपोर्ट किया जा सके, उन्हीं में से कुछ के पैच के तौर पर चुने जाने की संभावना है |
 
-# Stabilization Branches
+# स्थिरीकरण शाखायें
 
-Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
+स्थिरीकरण शाखायें वे शाखायें हैं जो मास्टर के साथ-साथ चलती हैं, और केवल उन ख़ास कमिटस को चुनती हैं जो सुरक्षा या स्थिरता से सम्बंधित हैं | ये शाखायें कभी भी मास्टर में विलय नहीं की जाती |
 
 ![](../images/versioning-sketch-1.png)
 
-Stabilization branches are always either **major** or **minor** version lines, and named against the following template `$MAJOR-$MINOR-x` e.g. `2-0-x`.
+स्थिरीकरण शाखायें हमेशा **मुख्य** या **लघु** संस्करण पंक्ति होती हैं, और इनका नाम निन्मलिखित टेम्पलेट `$MAJOR-$MINOR-x` e.g. `2-0-x` के अनुरूप होता है |
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+हम विभिन्न स्थिरीकरण शाखाओं को एक साथ मौज़ूद होने की सुविधा प्रदान करते हैं, और हमारा उद्देश्य है कि हर समय कम से कम 2 शाखाओं को एक साथ समर्थित करें, और आवश्यकता अनुसार सुरक्षा सुधार बैकपोर्ट करते रहें | ![](../images/versioning-sketch-2.png)
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
