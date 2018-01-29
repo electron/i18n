@@ -24,7 +24,7 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 Pagbalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita
 
-Show the given file in a file manager. If possible, select the file.
+Ipakita ang binigay na payl sa "file manager". Kung maaari, piliin ang payl.
 
 ### `shell.openItem(fullPath)`
 
@@ -39,10 +39,10 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 * `url` String
 * `mga pagpipilian` Mga bagay (opsyonal) *macOS* 
   * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
-* `tumawag muli` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+* `tumawag muli` "Function" (opsyunal) - Kung ang tiyak na "function" ay gagana nang hindi sabay-sabay. *macOS* 
   * `error` Error
 
-Pagbabalik ng `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
+Pagbalik sa `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
 
 Buksan ang binigay na panlabas na sistematikong panuntunan ng "desktop" sa karaniwan o dati na nitong ayos. (Halimbawa, mailto: "URLs" sa gumagamit ng ahente na nagpapadala ng mensahe ayon sa dati na nitong ayos o tinatawag na "default").
 
