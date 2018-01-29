@@ -1,7 +1,7 @@
 # GPUFeatureStatus Object
 
-* `2d_canvas` String - Canvas
-* `flash_3d` String - Flash
+* `2d_canvas` Zeichenkette - Leinwand
+* `flash_3d` Zeichenkette - Flash
 * `flash_stage3d` String - Flash Stage3D
 * `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
 * `gpu_compositing` String - Compositing
