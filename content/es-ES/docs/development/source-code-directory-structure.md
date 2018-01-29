@@ -59,7 +59,7 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 
 ## Mantener los submódulos de Git actualizados
 
-El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Occasionally you might see a message like this when running `git status`:
+El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Ocasionalmente podrás ver un mensaje como este cuando esté ejecutándose `git status`:
 
 ```sh
 $ git status
@@ -74,7 +74,7 @@ Para actualizar estas dependencias independientes, ejecute el siguiente comando:
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Si te descubre ejecutando este comando frecuentemente, puedes crea un alias para él en tu archivo `~/.gitconfig`:
 
 ```sh
 [alias]
