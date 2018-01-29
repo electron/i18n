@@ -6,9 +6,9 @@ Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代
 
 也就是说，在sandbox模式下，渲染器只能通过IPC委派任务给主进程来对操作系统进行更改。 [下述](https://www.chromium.org/developers/design-documents/sandbox)是有关sandbox更多的信息。
 
-Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `require()` for example, is not possible without file system permissions, which are not available in a sandboxed environment.
+自从在渲染进程中运行node.js成为electron的一个重要特性（可以更容易地使用Web技术创建桌面应用），沙箱在默认情况下被禁用。 这是因为大多数node.js API需要访问操作系统。 比如 ，要使用`require()`不可能没有文件系统权限，而该权限在沙箱环境下不是有效的。
 
-Usually this is not a problem for desktop applications since the code is always trusted, but it makes electron less secure than chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
+通常, 对于桌面应用程序来说, 这不是问题, 因为代码始终是受信任的, 但它使electron在显示Web内容时安全性不如chromium。 For applications that require more security, the `sandbox` flag will force electron to spawn a classic chromium renderer that is compatible with the sandbox.
 
 A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
 
