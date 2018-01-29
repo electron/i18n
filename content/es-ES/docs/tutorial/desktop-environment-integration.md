@@ -121,7 +121,7 @@ Para MSDN, está ilustrado:
 
 **Barra de herramientas del reproductor de media de Windows:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![intérprete](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 Usted puede usar [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) para configurar la barra de herramientas en miniatura en su aplicación:
 
@@ -163,7 +163,7 @@ En unity, usted puede añadir entradas personalizadas a su Launcher modificando 
 
 **Accesos directos del Launcher de Audacious:**
 
-![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
+![audaz](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
 ## Barra de progreso en la barra de tareas (Windows, macOS, Unity)
 
@@ -222,7 +222,7 @@ No olvide llamar el método `flashFrame` con `false` a apagar la iluminación. E
 
 ## Archivo Representado de Window (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+En macOS, una ventana puede establecer su archivo representado, de modo que el icono del archivo se muestre en la barra de título y cuando los usuarios hagan clic con el botón Comando o haga clic con el botón Control en el título, se muestre una ventana emergente de ruta.
 
 También puede establecer el estado editado de una ventana para que el ícono del archivo pueda indicar si el documento en esta ventana ha sido modificado.
 
