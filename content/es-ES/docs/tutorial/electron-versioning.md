@@ -138,12 +138,12 @@ Buscamos aumentar la claridad en todos los niveles del proceso de actualización
 * Commits that would result in a semver **minor** bump must start with `feat:`.
 * Commits that would result in a semver **patch** bump must start with `fix:`.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
 
 * Es aceptable que algunas confirmaciones en una solicitud de extracción no incluyan un prefijo semántico, siempre que una confirmación posterior en la misma solicitud de extracción contenga un mensaje semántico significativo que lo abarque.
 
 # Versionless `master`
 
 * The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
+* Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
 * Release branches *do* contain the correct version in their `package.json`
