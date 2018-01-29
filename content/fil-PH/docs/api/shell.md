@@ -61,7 +61,7 @@ Laruin ang tunog na "beep".
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (opsyunal) - Pagtatakda nito sa dati o karaniwan nitong ayos o "default" `paglikha`, ay maaaring isa sa mga sumusunod: 
+* `operation` String (opsyunal) - Pagtatakda nito sa dati o karaniwan nitong ayos o "default" ay `paglikha`, na maaaring isa sa mga sumusunod: 
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
