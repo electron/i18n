@@ -114,8 +114,8 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 향후에는 아래의 사항들을 도입할 수도 있습니다:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* master 브랜치 기반의 nightly 빌드 버전; 새로운 기능에 대한 빠른 테스트 및 피드백 수집 가능
+* 알파 출시 버전은 베타 버전에 비해 안정성 요건을 약하게 적용한 것; 예를 들면, 안정성 채널은 *알파*에 유지하면서 새로운 기능을 허락할 수 있음.
 
 # Feature Flags
 
