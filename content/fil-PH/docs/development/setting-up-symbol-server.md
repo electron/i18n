@@ -24,7 +24,7 @@ SRV*c:\code\ mga simbolo\*https://msdl.microsoft.com/download/mga simbolo;SRV* c
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
-## Pag-troubleshoo: Ang mga simbolo ay hindi mai-load
+## Pag-troubleshoot: Ang mga simbolo ay hindi mai-load
 
 Type the following commands in Windbg to print why symbols are not loading:
 
