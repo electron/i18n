@@ -699,7 +699,7 @@ Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. It
 
 Itong event na ito ay hindi ilalabas kapag ang nabigasyon ay na-istart na ang gamit ay programa na may mga API tulad ng `<webview>.loadURL` and `<webview>.back`.
 
-Ito ay hindi rin ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamiting ang event na `did-navigate-in-page` para sa layuning ito.
+Ito ay hindi rin ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
 
 Tinatawag ang `event.preventDefault()` na may **NOT** mga epekto.
 
@@ -709,9 +709,9 @@ Magbabalik ng:
 
 * `url` String
 
-Emitted when a navigation is done.
+Nilalabas kapag natapos na ang nabigasyon.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
 
 ### Event: 'did-navigate-in-page'
 
@@ -720,9 +720,9 @@ Magbabalik ng:
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
 ### Event: 'close'
 
