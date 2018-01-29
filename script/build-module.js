@@ -117,6 +117,31 @@ async function parseFile (file) {
   return cleanDeep(file)
 }
 
+function splitMd(md) {
+  const sections = []
+  let section = { name: null, body: [] }
+  const isHeading = (line) => line.trim().startsWith('#')
+
+  md.split('\n').forEach((curr, i, lines) => {
+    if (isHeading(curr)) {
+      section.name = curr
+        // make name nicer
+        .replace(/[`~!@#$%^&*()|_+=?;:'",.<>\{\}\[\]\\\/\s]/g, '-')
+        .replace(/\-\-+/g, '-')
+    }
+    section.body.push(curr)
+
+    let next = lines[i + 1]
+    if (next === undefined || isHeading(next)) {
+      section.body = section.body.join('\n')
+      sections.push(section)
+      section = { name: null, body: [] }
+    }
+  })
+
+  return splitMd
+}
+
 parseDocs().then(docs => {
   const docsByLocale = Object.keys(locales)
     .reduce((acc, locale) => {
