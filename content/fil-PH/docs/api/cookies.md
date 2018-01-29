@@ -1,6 +1,6 @@
 ## Class: Cookies
 
-> Query and modify a session's cookies.
+> "Query" at pagbabago ng ilang parte ng sesyon ng "cookies".
 
 Ang proseso: [Main](../glossary.md#main-process)
 
