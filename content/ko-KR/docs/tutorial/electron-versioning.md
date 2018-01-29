@@ -119,11 +119,11 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 # 기능 플래그(Feature Flags)
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+기능 플래그는 Chromium에서 자주 쓰이며, 웹 개발 환경에서 일반적으로 사용되고 있습니다. Electron에서는 기능 플래그 또는 **소프트 브랜치**는 다음과 특성을 가져야 합니다:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음
+* 새로운 코드 경로와 예전 코드 경로는 완전히 분리됨; 새로운 기능을 지원하기 위해 예전 코드를 리팩토링하는 것은 기능 플래그 계약을 *위반하는 것임*
+* 소프트 브랜치가 병합되고 나면 기능 플래그는 삭제됨
 
 We reconcile flagged code with our versioning strategy as follows:
 
