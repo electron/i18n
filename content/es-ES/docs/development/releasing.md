@@ -162,11 +162,11 @@ Esta versión es publicada para [npm] https://www.npmjs.com/package/electron) ba
 5. Espero por todas las estructuras por pasar por los procedimientos.
 6. Puede correr el `npm run release --validateRelease` para verificar que todos los archivos requeridos pueden ser creados para la publicación.
 
-## Merge temporary branch
+## Unir rama temporal
 
 Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
 
-### Merging back into master
+### Fusionando nuevamente en el maestro
 
 ```sh
 npm run merge-release -- master
