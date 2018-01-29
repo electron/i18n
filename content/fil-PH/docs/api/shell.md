@@ -67,15 +67,15 @@ Laruin ang tunog na "beep".
   * `replace` - Ang pagpatong sa pagpapaikli ay maaaring mabigo kung ito ay hindi umiiral.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully
+Pagbalik sa `Boolean` - kung ang pagpapaikli ay matagumpay na nalikha
 
-Creates or updates a shortcut link at `shortcutPath`.
+Lumikha o pagsasaayos ng pagpapaikili ng "link" ayon sa pinakabagong aspeto nito sa `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+Pagbalik sa [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
