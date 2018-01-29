@@ -102,4 +102,4 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Documentation Styleguide](styleguide.md)
 * [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
 * [Pagpapaunlad ng Chromium](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [V8 Pag-unlad](development/v8-development.md)
