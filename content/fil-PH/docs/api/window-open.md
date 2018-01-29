@@ -4,7 +4,7 @@
 
 Kapag ang `window.binuksan` ay tinatawag para sa bagong window na likha sa isang web page, isang bagong pagkakataon ng ` BrowserWindow ` ay malilikha para sa `url` at ibabalik ang isang proxy sa ` window.buksan` upang hayaan ang pahina na magkaroon ng limitadong kontrol sa mga ito.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+Ang proxy ay may limitadong pamantayan na pag-andar na ipinatupad para katugma sa tradisyonal ng mga web page. Para sa ganap na kontrol sa bagong window dapat kang lumikha ng `BrowserWindow ` direkta.
 
 The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
 
