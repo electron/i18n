@@ -14,7 +14,7 @@ Ang simbolo ng Windbg ay landas na isinaayos na may string na halaga upang nilil
 SRV*c:\ code\mga simbolo\*https://electron-mga simbolo.githubapp.com
 ```
 
-Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg menu, o sa pamamagitan ng pag-type`sympath` utos. If you would like to get symbols from Microsoft's symbol server as well, you should list that first:
+Itakda ang string na ito bilang `_NT_SYMBOL_PATH ` sa kapaligiran, gamit ang mga Windbg menu, o sa pamamagitan ng pag-type`sympath` utos. Kung nais mong makakuha ng mga simbolo mula sa Microsoft's simbolo ng server pati na rin, dapat mong ilista ang unang:
 
 ```powershell
 SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
