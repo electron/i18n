@@ -8,9 +8,9 @@ Ang mga sumusunod na plataporma ay suportado ng Elektron:
 
 ### Windows
 
-Windows 7 and later are supported, older operating systems are not supported (and do not work).
+Sinusuportahan ang Windows 7 at mas bago, ang mga mas lumang operating system ay hindi suportado (at hindi gumagana).
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Please note, the `ARM` version of Windows is not supported for now.
+Ang parehong `ia32` (`x86`) at `x64` (`amd64`) binary ay ibinigay para sa Windows. Mangyaring tandaan, ang `ARM` at ang bersyon ng Bintana ay hindi suportado para sa ngayon.
 
 ### Linux
 
