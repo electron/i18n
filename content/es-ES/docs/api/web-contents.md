@@ -1033,9 +1033,9 @@ Envia una entrada `event` a la página. **Nota:** El `BrowserWindow` que contien
 
 Para eventos del teclado, el objeto `evento` también tiene las siguientes propiedades:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` String (**necesario**) - El carácter que se enviará como evento del teclado. Solo debe utilizarse los teclas válidas en el [Accelerator](accelerator.md).
 
-For mouse events, the `event` object also have following properties:
+Para eventos del ratón, el objeto `evento` también tiene las siguientes propiedades:
 
 * `x` Integer (**required**)
 * `y` Integer (**required**)
@@ -1046,7 +1046,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-For the `mouseWheel` event, the `event` object also have following properties:
+Para el evento `mouseWheel`, el objeto `evento` también tiene las siguientes propiedades:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1059,16 +1059,16 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (opcional) - Por defecto es `false`
 * `llamada de vuelta` Función 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Empieza por suscribir eventos y fotogramas capturados para la presentación. El `callback` será llamado con `callback(frameBuffer, dirtyRect)` cuando haya un evento de presentación.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. En la mayoría de las máquinas, los datos de píxeles se almacenan efectivamente en formato BGRA de 32 bits, pero la representación real depende del endianness del procesador (la mayoría de los procesadores modernos son little-endian, en máquinas con procesadores big-endian los datos están en formato ARGB de 32 bits).
+El `frameBuffer` es un `Buffer` que contiene la información de pixeles sin procesar. En la mayoría de las máquinas, los datos de píxeles se almacenan efectivamente en formato BGRA de 32 bits, pero la representación real depende del endianness del procesador (la mayoría de los procesadores modernos son little-endian, en máquinas con procesadores big-endian los datos están en formato ARGB de 32 bits).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+El `dirtyRect` es un objeto con propiedades `x, y, width, height` que describe cual parte de la página fue pintada de nuevo. Si se configura `onlyDirty` a `true`, `frameBuffer` solo va a contener el área repintada. `onlyDirty` por defecto es `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1077,8 +1077,8 @@ Finalizar suscripción para eventos de presentación de marcos.
 #### `contents.startDrag(item)`
 
 * `item` Object 
-  * `file` String or `files` Array - The path(s) to the file(s) being dragged.
-  * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+  * `file` String or `files` Array - Las rutas del archivo arrastrado.
+  * `icon` [NativeImage](native-image.md) - La imagen no debe estar en blanco en macOS.
 
 Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
 
