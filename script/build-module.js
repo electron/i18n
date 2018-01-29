@@ -65,46 +65,94 @@ async function parseFile (file) {
 
   // parse markdown to HTML
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
-  const parsed = await hubdown(file.markdown)
+
+  file.html = await Promise.all(
+    splitMd(file.markdown).map(async (section) => {
+      const parsed = await hubdown(section.body)
+      const $ = cheerio.load(parsed.content || '')
+      file.title = file.title ||
+                  $('h1').first().text().trim() ||
+                  $('h2').first().text().replace('Class: ', '')
+      file.description = file.description ||
+                        $('blockquote').first().text().trim()
+
+      // fix HREF for relative links
+      $('a').each((i, el) => {
+        const href = $(el).attr('href')
+        const type = hrefType(href)
+        if (type !== 'relative' && type !== 'rooted') return
+        const dirname = path.dirname(file.href)
+        const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
+        $(el).attr('href', newHref)
+      })
+
+      // fix SRC for relative images
+      $('img').each((i, el) => {
+        const baseUrl = 'https://cdn.rawgit.com/electron/electron'
+        const dirname = path.dirname(file.href)
+        let src = $(el).attr('src')
+        const type = hrefType(src)
+        if (type !== 'relative' && type !== 'rooted') return
+
+        // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
+        src = path.resolve(dirname, src)
+
+        const newSrc = file.isApiDoc
+          ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
+          : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
+
+        const parsed = URL.parse(newSrc)
+        parsed.path = path.normalize(parsed.path)
+
+        $(el).attr('src', URL.format(parsed))
+      })
+
+      return $('body').html()
+    // section.html = $('body').html()
+
+    // return section
+    })).then((sectionsHtml) => sectionsHtml.join(''))
+
+  // const parsed = await hubdown(file.markdown)
 
   // derive props from the HTML
-  const $ = cheerio.load(parsed.content || '')
-  file.title = $('h1').first().text().trim() ||
-    $('h2').first().text().replace('Class: ', '')
-  file.description = $('blockquote').first().text().trim()
+  // const $ = cheerio.load(parsed.content || '')
+  // file.title = $('h1').first().text().trim() ||
+  //   $('h2').first().text().replace('Class: ', '')
+  // file.description = $('blockquote').first().text().trim()
 
-  // fix HREF for relative links
-  $('a').each((i, el) => {
-    const href = $(el).attr('href')
-    const type = hrefType(href)
-    if (type !== 'relative' && type !== 'rooted') return
-    const dirname = path.dirname(file.href)
-    const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
-    $(el).attr('href', newHref)
-  })
+  // // fix HREF for relative links
+  // $('a').each((i, el) => {
+  //   const href = $(el).attr('href')
+  //   const type = hrefType(href)
+  //   if (type !== 'relative' && type !== 'rooted') return
+  //   const dirname = path.dirname(file.href)
+  //   const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
+  //   $(el).attr('href', newHref)
+  // })
 
-  // fix SRC for relative images
-  $('img').each((i, el) => {
-    const baseUrl = 'https://cdn.rawgit.com/electron/electron'
-    const dirname = path.dirname(file.href)
-    let src = $(el).attr('src')
-    const type = hrefType(src)
-    if (type !== 'relative' && type !== 'rooted') return
+  // // fix SRC for relative images
+  // $('img').each((i, el) => {
+  //   const baseUrl = 'https://cdn.rawgit.com/electron/electron'
+  //   const dirname = path.dirname(file.href)
+  //   let src = $(el).attr('src')
+  //   const type = hrefType(src)
+  //   if (type !== 'relative' && type !== 'rooted') return
 
-    // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
-    src = path.resolve(dirname, src)
+  //   // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
+  //   src = path.resolve(dirname, src)
 
-    const newSrc = file.isApiDoc
-      ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
-      : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
+  //   const newSrc = file.isApiDoc
+  //     ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
+  //     : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
 
-    const parsed = URL.parse(newSrc)
-    parsed.path = path.normalize(parsed.path)
+  //   const parsed = URL.parse(newSrc)
+  //   parsed.path = path.normalize(parsed.path)
 
-    $(el).attr('src', URL.format(parsed))
-  })
+  //   $(el).attr('src', URL.format(parsed))
+  // })
 
-  file.html = $('body').html()
+  // file.html = $('body').html()
 
   // remove leftover file props from walk-sync
   delete file.mode
@@ -117,7 +165,7 @@ async function parseFile (file) {
   return cleanDeep(file)
 }
 
-function splitMd(md) {
+function splitMd (md) {
   const sections = []
   let section = { name: null, body: [] }
   const isHeading = (line) => line.trim().startsWith('#')
@@ -126,8 +174,8 @@ function splitMd(md) {
     if (isHeading(curr)) {
       section.name = curr
         // make name nicer
-        .replace(/[`~!@#$%^&*()|_+=?;:'",.<>\{\}\[\]\\\/\s]/g, '-')
-        .replace(/\-\-+/g, '-')
+        .replace(/[`~!@#$%^&*()|_+=?;:'",.<>{}[]\\\/\s]/g, '-')
+        .replace(/--+/g, '-')
     }
     section.body.push(curr)
 
@@ -139,7 +187,7 @@ function splitMd(md) {
     }
   })
 
-  return splitMd
+  return sections
 }
 
 parseDocs().then(docs => {
