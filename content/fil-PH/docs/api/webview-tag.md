@@ -632,7 +632,7 @@ Magbabalik ng:
 
 Itigil kapag ang guest window ay nagtalaga ng mensahe na konsol.
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+Ang mga sumunod na halimbawa na mga code ay pinapasa ang lahat ng mga mensaheng nakatalaga sa konsol ng embedder na hindi nakapaloob sa nakatalagang lebel o iba pang mga katangian.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 Magbabalik ng:
 
-* `result` Bagay 
+* `resulta` Bagay 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Posisyon ng aktibong katugma.
   * `matches` Integer - Bilang ng mga Tugma.
@@ -785,7 +785,7 @@ Itigil kapag ang proseso na plug-in ay nagcrash.
 
 ### Event: 'destroyed'
 
-Fired when the WebContents is destroyed.
+Itigil kapag ang nasira ang mga WebContent.
 
 ### Event: 'media-started-playing'
 
