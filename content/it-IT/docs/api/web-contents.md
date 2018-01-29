@@ -35,7 +35,7 @@ Returns `WebContents` - The web contents that is focused in this application, ot
 
 ### `webContents.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
 Returns `WebContents` - A WebContents instance with the given ID.
 
@@ -771,19 +771,19 @@ Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
-* `text` String
+* `testo` Stringa
 
 Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` String
+* `testo` Stringa
 
 Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
-* `text` String
+* `testo` Stringa
 
 Inserts `text` to the focused element.
 
