@@ -484,36 +484,36 @@ Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printTo
 * `tumawag muli` Punsyon 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang magsasagawa ng proseso ay kayang i-handle ang mensahe sa pamamagitan ng pakikinig sa `channel` event kasama ang modulo ng `ipcRenderer`.
 
-See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+Tignan ang [webContents.send](web-contents.md#webcontentssendchannel-args) halimbawa.
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` Object
+* `event` Objek
 
-Sends an input `event` to the page.
+Nagpapadala ng input na `event` sa page.
 
-See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) for detailed description of `event` object.
+Tignan ang [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent) para sa mga detalyadong paglalarawan ng objek na `event`.
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Numero - paktor ng zoom.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Binabago ang paktor ng zoom sa tiyak na paktor. Ang paktor ng zoom ay porsyento ng zoom na hinati sa 100, kaya 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `level` Numero - Lebel ng zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Binabago ang lebel ng zoom sa tiyak na lebel. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
