@@ -60,13 +60,13 @@ console.log(ses.getUserAgent())
 
 Ang mga sumusunod na mga kaganapan ay magagamit sa mga pagkakataon ng `Sesyon`:
 
-#### Pangyayri: 'Mag-dadownload'
+#### Kaganapan: 'Ay-madadownload'
 
-* `pangyayari` Pangyayari
-* `item` [Pag-download ng Item](download-item.md)
-* `webContents` [WebContents](web-contents.md)
+* `kaganapan` Kaganapan
+* `aytem` [I-downloadangaytem](download-item.md)
+* `mga nilalaman ng web` [Mga nilalaman ng Web](web-contents.md)
 
-Napalabs kung ang Electron ay tungkol para sa pag-download ng `item` in `webContents`.
+Kung saan ang electron ay napalabas tungkol sa download `aytem` sa `Mga nilalaman ng web`.
 
 Pagtatawag `event.preventDefault()` ang pag kanselahin ang ida-download at `item` ay hindi na magagamit oara sa sunod na tik ng proseso.
 
