@@ -686,7 +686,7 @@ Se hai fornito le opzioni di `percorso` e di `arg` a `app.impostaImpostazioniEle
 Restituisci `Oggetto`:
 
 * `apriAdAccesso` Booleano - `true` se l'app è impostata a aperta all'accesso.
-* `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
+* `apriComeNascosto` Booleano - `true` se l'app è impostata ad aprirsi come nascosta all'accesso. Impostazione supportata solo su macOS.
 * `wasOpenedAtLogin` Boolean - `true` if the app was opened at login automatically. This setting is only supported on macOS.
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
