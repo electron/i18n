@@ -30,7 +30,7 @@ Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
 
 Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay maaaring bumalik: sa kabilang banda ay maging bago `Sesyon` ang instansya ay maaaring gumawa kasama ang `mga opsyon`.
 
-Kung ang `partisyon` ay nagsisimula kasama ang `pananatili:`, ang pahina ay gumagamit ng isang sesyon sa pananatili Maaari magamit ito sa lahat ng mga pahina sa mga app na may kaparehong `partisyon`. kung walang ditong `paninindigan:` prefix, ang pahina ay magagamit bilang sesyon ng memorya. If the `partition` is empty then default session of the app will be returned.
+Kung ang `partisyon` ay nagsisimula kasama ang `pananatili:`, ang pahina ay gumagamit ng isang sesyon sa pananatili Maaari magamit ito sa lahat ng mga pahina sa mga app na may kaparehong `partisyon`. kung walang ditong `paninindigan:` prefix, ang pahina ay magagamit bilang sesyon ng memorya. Kung ang `partisyon` ay walang laman kung gayoon ang sesyon ng default ng app ay ibabalik.
 
 To create a `Session` with `options`, you have to ensure the `Session` with the `partition` has never been used before. There is no way to change the `options` of an existing `Session` object.
 
