@@ -532,7 +532,7 @@ Inicia una descarga del recurso en el `url` sin navegar. Se activará el evento 
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Devuelve `String` - El URL de la página web actual.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -545,69 +545,69 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Devuelve `String` - El título de la página web actual.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Devuelve `Boolean` - Si la página web fue destruida o no.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Enfoca la página web.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Devuelve `Boolean` - Si se enfocó o no la página web.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Devuelve `Boolean` - Si todavía la página web está cargando recursos.
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Devuelve `Boolean` - Si el marco principal (y no sólo iframes o frames dentro de él) todavía está cargando.
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Devuelve `Boolean` - Si la página web espera una primera respuesta desde el recurso principal de la página.
 
 #### `contents.stop()`
 
-Stops any pending navigation.
+Detiene cualquier navegación pendiente.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Recarga la página web actual.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Recarga la página actual e ignora el caché.
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+Devuelve `Boolean` - Si el navegador puede volver a la página web anterior.
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+Devuelve `Boolean` - Si el navegador puede avanzar a la siguiente página web.
 
 #### `contents.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the web page can go to `offset`.
+Devuelve `Boolean` - Si la página web puede ir a `offset`.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+Borra el historial de navegación.
 
 #### `contents.goBack()`
 
-Makes the browser go back a web page.
+Hace que el navegador regrese a una página web.
 
 #### `contents.goForward()`
 
-Makes the browser go forward a web page.
+Hace que el navegador avance a una página web.
 
 #### `contents.goToIndex(index)`
 
@@ -619,7 +619,7 @@ Navigates browser to the specified absolute web page index.
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Navega hacia el offset especificado desde "la entrada actual".
 
 #### `contents.isCrashed()`
 
