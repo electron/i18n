@@ -68,7 +68,7 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is clicked.
+Emitted kapag nag click ang tray icon.
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -79,7 +79,7 @@ Emitted when the tray icon is clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is right clicked.
+Emitted kapag nai-right click ang tray icon.
 
 #### Event: 'double-click' *macOS* *Windows*
 
@@ -90,15 +90,15 @@ Emitted when the tray icon is right clicked.
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is double clicked.
+Emitted kapag ang tray icon ay na double-click.
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Emitted kapag ang tray balloon ay naipapakita.
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Emitted kapag ang tray balloon ay naiclick.
 
 #### Event: 'balloon-closed' *Windows*
 
