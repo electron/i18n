@@ -448,9 +448,9 @@ Simulan ng kahilingan para makahanap ng lahat ng magkapareha para sa `text` sa p
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
-  * `clearSelection` - Clear the selection.
-  * `keepSelection` - Translate the selection into a normal selection.
+* `action` String - Tinitiyak ang aksyon na mangyayari sa katapusan [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+  * `clearSelection` - Tanggalin ang mga napili.
+  * `keepSelection` - I-translate ang mga napili para maging normal.
   * `activateSelection` - Focus and click the selection node.
 
 Stops any `findInPage` request for the `webview` with the provided `action`.
