@@ -30,9 +30,9 @@ Ang`Mga tampok`ng string ay sumusunod sa format ng karaniwang browser, ngunit an
 * `mensahe` Tali
 * `targetOrigin` Tali
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Nagpapadala ng mensahe sa window ng magulang na may tinukoy na pinanggalingan o `*` para sa hindi Pinagmulang pinanggalingan.
 
-### Using Chrome's `window.open()` implementation
+### Paggamit ng Chrome's `window.buksan()` ng pagpapatupad
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
