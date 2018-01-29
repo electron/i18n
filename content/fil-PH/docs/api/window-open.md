@@ -2,7 +2,7 @@
 
 > Magbukas ng bagong window at mag-load ng isang URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Kapag ang `window.binuksan` ay tinatawag para sa bagong window na likha sa isang web page, isang bagong pagkakataon ng ` BrowserWindow ` ay malilikha para sa `url` at ibabalik ang isang proxy sa ` window.buksan` upang hayaan ang pahina na magkaroon ng limitadong kontrol sa mga ito.
 
 The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
 
