@@ -572,34 +572,36 @@ Il `callback` è garantito essere eseguito dopo che l'evento `pronto` dell'app �
 
 Questo metodo restituisce `false` se il tuo processo è l'istanza primaria dell'applicazione e la tua app potrebbe continuare a caricare. E restituisce `true` se il tuo processo ha inviato i suoi parametri ad un'altra istanza e dovresti immediatamente uscire.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'utente prova ad aprirne un'altra della vostra app su Finder e per questo sono emessi gli eventi `apri-file` ed `apri-url`. Comunque quando un utente avvia la tua app nella linea di comando il meccanismo della singola istanza del sistema sarà bypassato e devi usare questo metodo per assicurare la singola istanza.
 
-An example of activating the window of primary instance when a second instance starts:
+Un esempio dell'attivazione drll'istanza primaria quando se ne avvia una seconda:
 
 ```javascript
-const {app} = require('electron')
-let myWindow = null
+const {app} = richiedi('electron')
+fai miaFinestra = nullo
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
+
+const èSecondaIstanza =
+app.faSingolaIstanza((Lineacomando, Directoryfunzionante) => {
+ // Qualcuno ha provato ad eseguire una seconda istanza, dovremmo focalizzare la nostra finestra.
+  se (miaFinestra) {
+    se (miaFinestra.èMinimizzata()) miaFinestra.ristabilisci()
+    miaFinestra.focalizza()
   }
 })
 
-if (isSecondInstance) {
-  app.quit()
+se (èSecondaIstanza) {
+  app.esci()
 }
 
-// Create myWindow, load the rest of the app, etc...
-app.on('ready', () => {
+// Crea miaFinestra, carica il resto dell'app, etc...
+app.su('pronto', () => {
 })
 ```
 
-### `app.releaseSingleInstance()`
+### `app.rilasciaIstanzaSingola()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Rilascia tutti i blocchi creati da `faIstanzaSingola`. Permetterà alle istanze multiple dell'app di essere eseguite di nuovo al contempo.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
