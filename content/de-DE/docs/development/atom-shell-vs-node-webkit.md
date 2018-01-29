@@ -6,9 +6,9 @@ Wie NW.js, Electron stellt eine Platform zum Schreiben von Desktop Apps mit Java
 
 Aber es gibt fundamentale Unterschiede zwischen Electron und NW.js:
 
-**1. Entry of Application**
+**1. Einstieg der Anwendung**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+In NW.js ist der Haupteinstiegspunkt einer Anwendung eine Webseite oder ein JS-Skript. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
 
 In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
 
