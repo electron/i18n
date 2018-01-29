@@ -22,7 +22,7 @@ Ang modyul ng `shell` ay ang mga sumusunod na paraan:
 
 * `fullPath` String
 
-Pagbalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na naipakita
 
 Ipakita ang binigay na payl sa "file manager". Kung maaari, piliin ang payl.
 
@@ -30,7 +30,7 @@ Ipakita ang binigay na payl sa "file manager". Kung maaari, piliin ang payl.
 
 * `fullPath` String
 
-Pagbalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
+Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
 Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
@@ -42,7 +42,7 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 * `tumawag muli` "Function" (opsyunal) - Kung ang tiyak na "function" ay gagana nang hindi sabay-sabay. *macOS* 
   * `error` Error
 
-Pagbalik sa `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
+Pagbabalik sa `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
 
 Buksan ang binigay na panlabas na sistematikong panuntunan ng "desktop" sa karaniwan o dati na nitong ayos. (Halimbawa, mailto: "URLs" sa gumagamit ng ahente na nagpapadala ng mensahe ayon sa dati na nitong ayos o tinatawag na "default").
 
@@ -50,7 +50,7 @@ Buksan ang binigay na panlabas na sistematikong panuntunan ng "desktop" sa karan
 
 * `fullPath` String
 
-Pagbalik sa `Boolean` - Kung ang aytem matagumpay na nabura
+Pagbabalik sa `Boolean` - Kung ang aytem matagumpay na nabura
 
 Burahin ang binigay na payl at bumalik sa posisyon nito bilang "boolean" para sa pagpapagana.
 
@@ -62,12 +62,12 @@ Laruin ang tunog na "beep".
 
 * `shortcutPath` String
 * `operation` String (opsyunal) - Pagtatakda nito sa dati o karaniwan nitong ayos o "default" ay `paglikha`, na maaaring isa sa mga sumusunod: 
-  * `create` - Ang paglikha ng bagong pagpapa-ikli, pagpapalit ng lumang impormasyon o datos sa bago o tinatawag na "overwriting", kung kinakailangan.
-  * `update` - Ang pagsasaayos ng mga katangian ayon sa pinakabagong aspeto nito na mangyayari lamang sa umiiral na pagpapaikli.
+  * `create` - Ang paglikha ng bagong mas madaling daan o "shortcut", pagpapalit ng lumang impormasyon o datos sa bago o tinatawag na "overwriting", kung kinakailangan.
+  * `update` - Ang pagsasaayos ng mga katangian ayon sa pinakabagong aspeto nito ay mangyayari lamang sa umiiral na mas madaling daan.
   * `replace` - Ang pagpatong sa pagpapaikli ay maaaring mabigo kung ito ay hindi umiiral.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Pagbalik sa `Boolean` - kung ang pagpapaikli ay matagumpay na nalikha
+Pagbabalik sa `Boolean` - kung ang pagpapaikli ay matagumpay na nalikha
 
 Lumikha o pagsasaayos ng pagpapaikili ng "link" ayon sa pinakabagong aspeto nito sa `shortcutPath`.
 
@@ -77,6 +77,6 @@ Lumikha o pagsasaayos ng pagpapaikili ng "link" ayon sa pinakabagong aspeto nito
 
 Pagbalik sa [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Paglulutas ng "shortcut link" sa `shortcutPath`.
 
 An exception will be thrown when any error happens.
