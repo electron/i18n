@@ -48,15 +48,15 @@ Isang `sesyon` ng layunin, ang depult ng sesyon na layunin ng app.
 
 Ang proseso ng: [Main](../glossary.md#main-process)
 
-You can create a `Session` object in the `session` module:
+Maaari kang gumawa ng isang `Sesyon` ng layunin sa `sesyon` ng module:
 
 ```javascript
-const {session} = require('electron')
-const ses = session.fromPartition('persist:name')
+const {session} = kinakailangang('electron')
+const ses = sesyon.galingpartisyon('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Halimbawa ng mga Kaganapan
 
 The following events are available on instances of `Session`:
 
