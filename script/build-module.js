@@ -113,47 +113,6 @@ async function parseFile (file) {
       return section
     }))
 
-  // const parsed = await hubdown(file.markdown)
-
-  // derive props from the HTML
-  // const $ = cheerio.load(parsed.content || '')
-  // file.title = $('h1').first().text().trim() ||
-  //   $('h2').first().text().replace('Class: ', '')
-  // file.description = $('blockquote').first().text().trim()
-
-  // // fix HREF for relative links
-  // $('a').each((i, el) => {
-  //   const href = $(el).attr('href')
-  //   const type = hrefType(href)
-  //   if (type !== 'relative' && type !== 'rooted') return
-  //   const dirname = path.dirname(file.href)
-  //   const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
-  //   $(el).attr('href', newHref)
-  // })
-
-  // // fix SRC for relative images
-  // $('img').each((i, el) => {
-  //   const baseUrl = 'https://cdn.rawgit.com/electron/electron'
-  //   const dirname = path.dirname(file.href)
-  //   let src = $(el).attr('src')
-  //   const type = hrefType(src)
-  //   if (type !== 'relative' && type !== 'rooted') return
-
-  //   // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
-  //   src = path.resolve(dirname, src)
-
-  //   const newSrc = file.isApiDoc
-  //     ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
-  //     : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
-
-  //   const parsed = URL.parse(newSrc)
-  //   parsed.path = path.normalize(parsed.path)
-
-  //   $(el).attr('src', URL.format(parsed))
-  // })
-
-  // file.html = $('body').html()
-
   // remove leftover file props from walk-sync
   delete file.mode
   delete file.size
