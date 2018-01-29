@@ -1080,19 +1080,19 @@ Finalizar suscripción para eventos de presentación de marcos.
   * `file` String or `files` Array - Las rutas del archivo arrastrado.
   * `icon` [NativeImage](native-image.md) - La imagen no debe estar en blanco en macOS.
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+Configura el `item` como un elemento arrastrable para la operación drag-drop actual. El `file` es la ruta absoluta del archivo que se va a arrastrar, y `icon` es la imagen que se muestra debajo del cursor cuando se arrastra.
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
-* `saveType` String - Specify the save type. 
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
+* `fullPath` String - La ruta completa del archivo.
+* `saveType` String - Especifica el tipo de guardado. 
+  * `HTMLOnly` - Guarda solamente el HTML de la página.
+  * `HTMLComplete` - Guarda una página html completa.
+  * `MHTML` - Guarda una página html completa como MHTML.
 * `llamada de vuelta` Función - `(error) => {}`. 
   * `error` Error
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Devuelve `Boolean` - true si se ha iniciado con éxito el proceso de guardar la página.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -1109,14 +1109,14 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.showDefinitionForSelection()` *macOS*
 
-Shows pop-up dictionary that searches the selected word on the page.
+Muestra un diccionario que busca la palabra seleccionada en la página.
 
 #### `contents.setSize(options)`
 
-Set the size of the page. This is only supported for `<webview>` guest contents.
+Configura el tamaño de la página. Esto sólo es compatible con el `<webview>` contenido de invitado.
 
 * `options` Object 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normal` Object (opcional) - Tamaño normal de la página. Esto también se puede utilizar en combinación con el [`disableguestresize`](web-view-tag.md#disableguestresize) atributo para redimensionar manualmente el contenido de invitado en la vista web. 
     * `ancho` Entero
     * `alto` Entero
 
