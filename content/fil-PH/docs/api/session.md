@@ -32,17 +32,17 @@ Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Ka
 
 Kung ang `partisyon` ay nagsisimula kasama ang `pananatili:`, ang pahina ay gumagamit ng isang sesyon sa pananatili Maaari magamit ito sa lahat ng mga pahina sa mga app na may kaparehong `partisyon`. kung walang ditong `paninindigan:` prefix, ang pahina ay magagamit bilang sesyon ng memorya. Kung ang `partisyon` ay walang laman kung gayoon ang sesyon ng default ng app ay ibabalik.
 
-Para gumawa ng isang `sesyon` kasama ng `mga option`, siguraduhin mo rin ang `Sesyon` kasama ang `partisyon` na hindi pa ginamit nuon. There is no way to change the `options` of an existing `Session` object.
+Para gumawa ng isang `sesyon` kasama ng `mga option`, siguraduhin mo rin ang `Sesyon` kasama ang `partisyon` na hindi pa ginamit nuon. Walang ibang paraan para baguhin ang `mga opsyon` bilang isang umiiiral na `Sesyon` ng layunin.
 
-## Mga Katangian
+## Mga katangian
 
-The `session` module has the following properties:
+Ang `sesyon` ng module ay may sinusunod na katangian:
 
-### `session.defaultSession`
+### `sesyon.defaultngsesyon`
 
-A `Session` object, the default session object of the app.
+Isang `sesyon` ng layunin, ang depult ng sesyon na layunin ng app.
 
-## Uri: Pulong
+## Klase: ng Sesyon
 
 > Get and set properties of a session.
 
