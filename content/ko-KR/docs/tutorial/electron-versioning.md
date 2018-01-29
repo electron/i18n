@@ -2,7 +2,7 @@
 
 > Electron 버전 관리 정책과 구현에 대해 자세히 설명하고 있습니다.
 
-Electron 2.0.0 버전부터 [semver](#semver)규칙에 따라 버전을 관리하고 있습니다. 아래의 명령어는 Electron 최신 안정(stable) 버전을 설치할 것 입니다:
+Electron 2.0.0 버전부터는 [semver](#semver) 규칙에 따라 버전을 관리하고 있습니다. 아래의 명령어는 Electron 최신 안정(stable) 버전을 설치할 것입니다:
 
 ```sh
 npm install --save-dev electron
@@ -32,7 +32,7 @@ Electron *< 2.0* 버전은 [semver](http://semver.org) 스펙을 따르지 않�
 2. semver 규칙을 준수하는 `-beta` 태그 도입
 3. [관례적인 커밋 메시지](https://conventionalcommits.org/) 도입
 4. 명확하게 정의된 안정화(stabilization) 브랜치
-5. `master` 브랜치는 버전 정보가 없음; stability 브랜치만 버전 정보를 포함하고 있음
+5. `master` 브랜치는 버전 정보가 없음; 안정화 브랜치만 버전 정보를 포함하고 있음
 
 git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶어하는 것, 백포트 방식으로 변경하는 방법에 대해서는 아래에서 자세히 다룰 예정입니다.
 
@@ -140,10 +140,10 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 * 커밋 스쿼싱(sqaushing)은 허용되며, 스쿼시된 메시지는 앞에서 언급한 메시지 포맷을 따라야 합니다.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* 같은 pull request 에서 나중에 위치한 커밋에 시맨틱 메시지가 포함되어 있는 커밋이 있다면, 시맨틱 prefix(feat:, fix: 등)가 포함되지 않은 pull request 커밋도 허용됩니다.
 
-# Versionless `master`
+# 버전 정보가 없는 `master` 브랜치
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* `master` 브랜치는 `package.json` 안에 항상 `0.0.0-dev`를 포함할 것입니다.
+* 출시 브랜치는 master 브랜치로 병합되지 않습니다.
+* 출시 브랜치는 `package.json` 안에 정확한 버전을 포함*할 수* 있습니다.
