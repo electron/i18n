@@ -1,6 +1,6 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> 注册自定义协议并拦截基于现有协议的请求。
 
 线程：[主线程](../glossary.md#main-process)
 
@@ -24,11 +24,11 @@ app.on('ready', () => {
 
 ## 方法
 
-The `protocol` module has the following methods:
+`protocol` 模块具有以下方法：
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* `schemes` String[] - 注册 schemes 为标准schemes。
 * `options` Object (可选) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
