@@ -48,9 +48,9 @@ Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 * `accelerator` [Accelerator](accelerator.md) 
 * `baliktawag` ginagawa
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Nag-rehistro ng global shortcut ng `aselerador` Ang `baliktawag` ay tatawagan kung ang narehistrong shortcut ay pinindot ng tagagamit.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Kung ang aselerador ay nakuha na ng ibang apikasyon, ang tawag na ito ay tahimik na babagsak. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
