@@ -107,11 +107,11 @@ async function parseFile (file) {
         $(el).attr('src', URL.format(parsed))
       })
 
-      return $('body').html()
-    // section.html = $('body').html()
+      // return $('body').html()
+      section.html = $('body').html()
 
-    // return section
-    })).then((sectionsHtml) => sectionsHtml.join(''))
+      return section
+    }))
 
   // const parsed = await hubdown(file.markdown)
 
@@ -168,13 +168,16 @@ async function parseFile (file) {
 function splitMd (md) {
   const sections = []
   let section = { name: null, body: [] }
-  const isHeading = (line) => line.trim().startsWith('#')
+  let inCodeBlock = false
+  const isHeading = (line) => (!inCodeBlock && line.trim().startsWith('#'))
 
   md.split('\n').forEach((curr, i, lines) => {
+    if (curr.startsWith('```')) {
+      inCodeBlock = !inCodeBlock
+    }
     if (isHeading(curr)) {
       section.name = curr
-        // make name nicer
-        .replace(/[`~!@#$%^&*()|_+=?;:'",.<>{}[]\\\/\s]/g, '-')
+        .replace(/[`~!@#$%^&*()|_+=?;:'",.<>{}[\]\\/\s]/g, '-')
         .replace(/--+/g, '-')
     }
     section.body.push(curr)
