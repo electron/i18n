@@ -722,39 +722,39 @@ app.impostaImpostazioniElementoAccesso({
 
 **Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
+### `app.èAbilitatoSupportoAccessibilità()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
 
-* `opzioni` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+* `opzioni` Oggetto 
+  * `Nomeapplicazione` Stringa (opzionale) - Il nome dell'app.
+  * `Versioneapplicazione` Stringa (opzionale) - La versione dell'app.
+  * `copyright` Stringa (opzionale) - Informazioni di copyright.
+  * `crediti` Stringa (opzionale) - Informazioni dei crediti.
+  * `versione` Stringa (opzionale) - Il numero della versione build dell'app.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Vedi il pannello delle opzioni. Questo oltrepasserà i valori definiti nel file `.plist` del file. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli.
 
-### `app.commandLine.appendSwitch(switch[, value])`
+### `app.Lineacomando.aggiungereInterruttore(interrutore[, valore])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `interruttore` Stringa - Un interruttore della linea di comando
+* `valore` Stringa (opziomale) - Un valore per l'interruttore dato
 
-Append a switch (with optional `value`) to Chromium's command line.
+Aggiungi un interruttore (con `valore` opzionale) alla linea di comando di Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Nota:** Non colpirà `processo.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
 
-### `app.commandLine.appendArgument(value)`
+### `app.Lineacomando.aggiungiArgomento(valore)`
 
-* `value` String - The argument to append to the command line
+* `valore` Stringa - L'argomento da aggiungere alla linea di comando
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quotato correttamente.
 
-**Note:** This will not affect `process.argv`.
+**Nota:** Non colpirà `processo.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.abilitascatolaSabbiaMischiata()` *Sperimentale* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
