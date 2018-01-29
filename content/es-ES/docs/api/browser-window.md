@@ -1052,7 +1052,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
-* `ignore` Booleano
+* `ignore` Boolean
 
 Hace que la ventana ignore todos los eventos del ratón.
 
@@ -1060,7 +1060,7 @@ Todos los eventos del ratón ocurridos en esta ventana se pasarán a la ventana 
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
-* `enable` Booleano
+* `enable` Boolean
 
 Evita que los contenidos de la ventana sean capturados por otras aplicaciones.
 
@@ -1068,7 +1068,7 @@ En macOS se configura el NSWindow's sharingType a NSWindowSharingNone. En Window
 
 #### `win.setFocusable(focusable)` *Windows*
 
-* `focusable` Booleano
+* `focusable` Boolean
 
 Cambia si se puede enfocar o no la ventana.
 
@@ -1088,13 +1088,13 @@ Devuelve `BrowserWindow[]` - Todas las ventanas secundarias.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
-* `autoHide` Booleano
+* `autoHide` Boolean
 
 Controla si se debe ocultar el cursor al escribir.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` Cadena - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`. Para más detalles, ver [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc).
+* `type` String - Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`. Para más detalles, ver [macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc).
 
 Añade un efecto de vibración a la ventana del navegador. Al pasar `null` o una cadena vacía hará que se elimine el efecto de vibración en la ventana.
 
