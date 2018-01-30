@@ -98,7 +98,7 @@ Ang modyul ng `remote` ay mayroon ng mga sumusunod na pamamaraan:
 
 * `modyul` Lubid
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Nagbabalik ang `any` - Ang bagay ay nagbalik sa pamamagitan ng `require(module)` sa mga pangunahing proseso. Ang mga modyul na tinukoy nang kanilang kaugnay na landas ay malulutas ng may kaugnayan sa mga pasukan ng mga pangunahing proseso.
 
 halimbawa.
 
@@ -113,12 +113,12 @@ halimbawa.
 
 ```js
 // main process: main/index.js
-const {app} = require('electron')
+const {app} = kailangan('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
+// ilang kaugnay na modyul: main/foo.js
 module.exports = 'bar'
 ```
 
