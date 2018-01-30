@@ -184,15 +184,15 @@ Malulutas ang impormasyon para sa `url`. Ang `callback` ay tatawagin na may `cal
 
 * `path` String - Ang lokasyon ng pag-download
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Nagtatakda ng download saving na diktoryo. Bilang default, ang download na diktoryo ay magiging `Downloads` sa ilalim ng kaukulang app na folder.
 
-#### `ses.enableNetworkEmulation(options)`
+#### `ses.enableNetworkEmulation(opsyons)`
 
-* `mga pagpipilian` Bagay 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+* `mga pagpipilian` Mga Bagay 
+  * `offline` Boolean (opsyonal) - Kung saan i-emulate ang network outage. Defaults sa huwad.
+  * `latency` Double (opsyonal) - RTT in ms. Defaults sa 0 kung saan ito ay hindi pinagana ng latency throttling.
+  * `downloadThroughput` Double (opsyonal) - Pag-download ng rate sa Bps. Defaults sa 0 kung saan hindi pinagana ang download throttling.
+  * `uploadThroughput` Double (opsyonal) - Mag-upload ng rate sa Bps. Dafaults sa 0 kung saan hidni pinagana ang upload throttling.
 
 Emulates network with the given configuration for the `session`.
 
