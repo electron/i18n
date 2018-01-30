@@ -2,7 +2,7 @@
 
 El código fuente de Electron está separado en unas pocas partes, la mayoría siguiendo a Chromium en las convenciones de separación.
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https://dev.chromium.org/developers/design-documents/multi-process-architecture) para entender el código fuente mejor.
 
 ## Estructura del código fuente
 
@@ -45,16 +45,16 @@ Default_app ├── / - página de predeterminada para mostrar cuando el Elect
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. Por ejemplo, para implementar Pepper API, necesitamos un poco de cableado similar a lo que hace Chrome oficial. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. Estos podrían haber fácilmente sido parches en libcc, pero en el momento en que estos se escribieron el objetivo de libcc fue mantener parches muy mínimos y los cambios de chromium_src tienden a ser grandes. Además, tenga en cuenta que estos parches nunca se pueden subir de nivel a diferencia de otros parches libcc que mantenemos ahora.
+Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son parte de la capa de contenido. Por ejemplo, para implementar Pepper API, necesitamos un poco de cableado similar a lo que hace Chrome oficial. Podríamos tener que compilar las fuentes relevantes como una parte de [libcc](../glossary.md#libchromiumcontent) pero más a menudo no requerimos todas las características (algunas tienden a ser cosas del propietario o de análisis) así que solo tomamos parte del código. Estos podrían haber fácilmente sido parches en libcc, pero en el momento en que estos se escribieron el objetivo de libcc fue mantener parches muy mínimos y los cambios de chromium_src tienden a ser grandes. Además, tenga en cuenta que estos parches nunca se pueden subir de nivel a diferencia de otros parches libcc que mantenemos ahora.
 
 ## Estructura de otros directorios
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
+* **Código** - Los códigos usados con propósitos de desarrollo como compilar, empacar, probar, etc.
+* **Herramientas** - Códigos de ayuda usados por archivos gto, a diferencia de `comandos`, los comandos puestos aquí nunca deben ser invocados por los usuarios directamente.
+* **proveedor** - Código de fuente de las dependencias de terceros, nosotros no usamos `third_party` como un nombre debido a que se confundiría con el mismo directorio en el arbol de código de Chromium.
+* **Nodos de módulo** - Nodos de módulo de terceros usados para compilar.
+* **afuera** - temporalmente afuera del directorio de `ninja`.
+* **dist** - Directorio temporal creado por el comando `script/create-dist.py` cuando se crea una distribución.
 * **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
 
 ## Mantener los submódulos de Git actualizados
