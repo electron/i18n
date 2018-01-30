@@ -321,26 +321,26 @@ Nagbabalik `Blob` - The blob na datos ay na-uugnay na may `identifier`.
   * `eTag` String - ETag header balyo.
   * `startTime` Double (opsyonal) - Ang oras kung saan ang download ay nagsimula na sa numero ng segundo since UNIX epoch.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Nagpapahintulot ng pagpapatuloy sa `cancelled` o `interrupted` downloads galing sa nakaraan na `Session`. Ang API ay mag-gegenerate ng [DownloadItem](download-item.md) na maaring ma-access na may [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` kaugnay nito at ang inisyal na estado ay magiging `interrupted`. Ang download ay magsisimula kung ang `resume` API ay tinawag sa [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `callback` Function (opsyonal) - Tinawag kung ang operason ay tapos na
 
-Clears the session’s HTTP authentication cache.
+Nililimas ang sesyon ng HTTP authentication cache.
 
-### Humahalimbawa sa bahagi nito
+### Humahalimbawa sa bahagi nito ay
 
-The following properties are available on instances of `Session`:
+Ang mga sumusunod na ari-arian ay magagamit sa mga pagkakataon ng `Session`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Ang [Cookies](cookies.md) mga objeyk para sa sesyon na ito.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Ang [WebRequest](web-request.md) mga objeyk para sa sesyon na ito.
 
 #### `ses.protocol`
 
