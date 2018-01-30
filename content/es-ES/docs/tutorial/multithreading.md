@@ -24,7 +24,7 @@ Todos los módulos incorporados de Node.js son compatibles con Web Workers, y lo
 
 Cualquier módulo nativo Node.js se puede cargar directamente en Web Workers, pero se recomienda encarecidamente no hacerlo. La mayoría de los módulos nativos existentes se han escrito suponiendo un entorno de subproceso único, su uso en Web Workers dará lugar a bloqueos y daños en la memoria.
 
-Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
+Tenga en cuenta que incluso si un módulo nativo de Node.js es un subproceso seguro, aún asi todavia no es seguro cargarlo en una Web Worker porque la función `process.dlopen` no es un subproceso seguro.
 
 La única forma de cargar un módulo nativo de forma segura por ahora es asegurarse de que la aplicación no carga módulos nativos después de que Web Workers se inicie.
 
