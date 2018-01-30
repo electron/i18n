@@ -110,7 +110,7 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
 
 Ibinabalik ang `Integer`, ang index ng napindot na pipindutin, kung ang isang callback ay naibigay, undefined ang ibinabalik nito.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Nagpapakita ng isang mensaheng kahon, inaantala nito ang proseso hanggang nasara na ang mensaheng kahon. Ibinabalik nito ang index ng napindot na pipindutin.
 
 Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
 
