@@ -201,8 +201,8 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - Frame ng window.
   * `window-text` - Teksto sa mga window.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Ibinabalik ang `String` - Ang setting ng pangsistemang kulay ay nasa anyong hexadecimal ng RGB (`#ABCDEF`). Tingan ang [mga doc ng Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) para sa karagdagang mga detalye.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Ibinabalik ang `Boolean` - `true` kapag ang binaliktad na pamamaraan sa pagkulay, katulad ng mataas na temang pangkontrast, ay aktibo, `false` kapag hindi.
