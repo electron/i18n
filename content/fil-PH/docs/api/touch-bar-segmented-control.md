@@ -36,8 +36,8 @@ Ang `String`nagrepresenta sa kontrol ng kasalukuyang segment style. Ina-update a
 
 #### `touchBarSegmentedControl.segments`
 
-Isang `SegmentedControlSegment[]`array ang kumakatawan sa mga segment sa mga kontrol na ito. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Isang `SegmentedControlSegment[]`array ang kumakatawan sa mga segment sa mga kontrol na ito. Ang agad na pagaupdate ng value na ito ay nagupdate sa control na nasa touch bar. Ang pag update sa deep properties na nasa loob ng array na ito**ay hindi na i-update ang touch bar**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+Isang`Integer`ang kumakatawan sa kasalukuyang selected segment. Ang agad na pagbabago ng value ay ina-update ang control sa touch bar. Ang pakikipag-ugnayan ng user sa touch bar ay awtomatikong i-update ang value nito.
