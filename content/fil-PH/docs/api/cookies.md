@@ -1,43 +1,43 @@
 ## Klase: Cookies
 
-> "Query" at pagbabago ng ilang parte ng sesyon ng "cookies".
+> Query at ang pagbabago ng sesyon ng cookies "Query" at pagbabago ng ilang parte ng sesyon ng "cookies".
 
-Ang proseso: [Main](../glossary.md#main-process)
+Prosseso: [Main](../glossary.md#main-process)
 
 May ilang pagkakataon na ang `Cookies` class ay mapupuntahan gamit ang `cookies` na katangian ng `Session`.
 
-Halimbawa:
+Halimbawa ng:
 
 ```javascript
-const {session} = require('electron')
+const {session} = kinakailangan ng ('electron')
 
-// "Query" ang lahat ng "cookies".
+// e "Query" ang lahat na mga "cookies".
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// "Query" ang lahat ng "cookies" na may kaugnayan sa isang tiyak na "url".
+// e "Query" ang lahat ng "cookies" na may kaugnayan sa isang partikular na "url".
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Magtakda ng "cookie" gamit ang binigay na datos nito;
-// maaaring palitan ang katumbas na "cookies" nito sa bagong datos kung ito"y umiiral.
+// Itakda ang "cookie" sapamamagitan na ibinigay na datos nito;
+// maaari ding palitan ang katumbas na "cookies" nito kapag ito'y naiiral na.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
 ```
 
-### Halimbawa ng Pangyayari
+### Mga halimbawa ng mga kaganapan
 
-Ang ang sumusunod na pangyayari ay maaaring makita sa ilang pagkakataon ng `Cookies`:
+Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
-#### Event: 'changed'
+#### Kaganapan: 'nagbago'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago
-* `cause` String - The cause of the change with one of the following values: 
+* `sanhi` String - Ang mga sanhi ng mga pagbabago sa isa't isa sa mga sumusunod na mga halaga: 
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
   * `expired` - The cookie was automatically removed as it expired.
