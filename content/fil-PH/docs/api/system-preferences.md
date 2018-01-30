@@ -121,7 +121,7 @@ Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `ke
 
 Itakda ang halaga ng `key` sa mga kagustuhan ng sistema.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+Tandaan na dapat tugma ang `type` sa akwal na uri ng `value`. Ang isang nabubukod ay ibinabato kapag hindi ito tugma.
 
 Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `key` at mga `type` ay:
 
@@ -129,35 +129,35 @@ Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `ke
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Ibinabalik ang `Boolean` - `true` kapag ang [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) ay pinagana, at ang `false` kapag hindi.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Ang isang halimbawa ng paggamit nito sa pag-alam kung dapat bang maglikha ka ng isang transparent na window o hindi (ang mga transparent na window ay hindi gumagana nang maayos kapag ang DWM na komposisyon ay hindi pinagana):
 
 ```javascript
 const {BrowserWindow, systemPreferences} = require('electron')
 let browserOptions = {width: 1000, height: 800}
 
-// Make the window transparent only if the platform supports it.
+// Gawing transparent ang window kapang sinusuportahan lamang ito ng plataporma.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = true
   browserOptions.frame = false
 }
 
-// Create the window.
+// Nililikha ang window.
 let win = new BrowserWindow(browserOptions)
 
-// Navigate.
+// Mag-navigate.
 if (browserOptions.transparent) {
   win.loadURL(`file://${__dirname}/index.html`)
 } else {
-  // No transparency, so we load a fallback that uses basic styles.
+  // Walang transparency kaya, i-load natin ang isang fallback na gumagamit ng mga karaniwang istilo.
   win.loadURL(`file://${__dirname}/fallback.html`)
 }
 ```
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+Ibinabalik ang `String` - Ang kasulukuyang kagustuhang accent na kulay ng mga tagagamit sa buong sistema na anyong RGBA hexadecimal.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -169,7 +169,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
+* `color` Ang String - Isa sa sumusunod na mga halaga: 
   * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
   * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
   * `3d-highlight` - Highlight color for three-dimensional display elements.
