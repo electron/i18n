@@ -1,11 +1,11 @@
-# Documentación de Guía de Estilo de Electron
+# Guía de estilo de la documentación de Electron
 
-Estos son los lineamientos para escribir documentación de Electron.
+Estos son las directrices para escribir documentación de Electron.
 
 ## Títulos
 
-* Cada página debe tener un solo `#`-nivel de título en la parte superior.
-* Los capítulos en la misma página deben tener `#`-títulos de nivel.
+* Cada página debe tener un solo título de nivel `#` al principio.
+* Los capítulos en la misma página deben tener títulos de nivel `##`.
 * Los subcapítulos necesitan aumentar el número de `#` en el título acorde a su profundidad de anidamiento.
 * Todas las palabras en el título de la página deben escribirse con mayúscula, excepto las conjunciones como "de" y "y".
 * Sólo debe escribirse con mayúscula la primera palabra del título de capítulo.
