@@ -116,8 +116,8 @@ Pagsulat nag anumang di-nakusulat na DOMStorage na datos para sa disk.
 * `kumpuni` Bagay 
   * `pacScript` String - Ang URL na kasama na may PAC file.
   * `proxyRules` String - Mga panuntunan na nagsasad kung no lang mga proxies na gagamitan.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `callback` Function - Called when operation is done.
+  * `proxyBypassRules` String - Mga panuntunan na nagpapahiwatig kung saan ang URLs ay dapat i-bypass ang mga setting ng proxy.
+* `callback` Function - Tinatawag kung ang operasyon ay tapos na.
 
 Sets the proxy settings.
 
