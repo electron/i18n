@@ -148,41 +148,41 @@ Ang `proxyBypassRules` ay comma na hiwalay na listahan ng panuntunan na iniliraw
   
   Itugma ang lahat ng hostnames na nakatugma sa pattern ng HOSTNAME_PATTERN.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Mga halimbawa: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Itugma ang partikular na domain suffix.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Mga halimbawa: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Itugma ang URLs kung saan ang IP address na literals.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Mga halimbawa: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Itugma ang anumang URL na para sa IP literal na bumaba sa pagitan ng binigay na saklaw. IP range ay tinukoy gamit ang CIDR notation.
   
   Examples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Itugma ang mga lokal na mga address. Ang ibig sabihin ng `<local>` ay kung ang host ay matutugma sa isang: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
 * `url` Ang URL
-* `tumawag muli` Punsyon 
+* `tumawag muli` Function 
   * `proxy` String
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+Malulutas ang impormasyon para sa `url`. Ang `callback` ay tatawagin na may `callback(proxy)` kung saan ang hiling ay gagawin.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `path` String - Ang lokasyon ng pag-download
 
 Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
 
