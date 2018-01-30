@@ -344,10 +344,10 @@ Ang [WebRequest](web-request.md) mga objeyk para sa sesyon na ito.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Ang [Protocol](protocol.md) mga objeyk para sa sesyon na ito.
 
 ```javascript
-const {app, session} = require('electron')
+onst {app, session} = require('electron')
 const path = require('path')
 
 app.on('ready', function () {
