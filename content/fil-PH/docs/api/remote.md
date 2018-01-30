@@ -22,9 +22,9 @@ Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` 
 
 Sa mga halimbawa sa itaas, kapuwa ang `BrowserWindow` at ang `win` ay mga remote na bagay at ang `new BrowserWindow` ay hindi gumawa ng isang bagay sa `BrowserWindow` sa prosesong tagabigay. Sa halip, ito ay gumawa ng isang bagay ng `BrowserWindow` sa pangunahing proseso at ibinalik ang nararapat na remote na bagay sa prosesong tagabigay, kagaya ng bagay sa `win`.
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**Note:** Ang [enurable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) lamang na kung saan ay naroroon nang ang remote na bagay ay unang isinangguni na mapupuntahan sa pamamagitan ng remote.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+**Note:** Ang mga hanay at mga Buffer ay kinopya sa ibabaw ng IPC kapag na-access sa pamamagitan ng modyul ng `remote`. Modifying them in the renderer process does not modify them in the main process and vice versa.
 
 ## Lifetime of Remote Objects
 
