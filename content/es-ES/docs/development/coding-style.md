@@ -6,7 +6,7 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
 
 ## C++ y Python
 
-For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
+Para C++ y Python, seguimos el [estilo de código](https://www.chromium.org/developers/coding-style) de Chromium. Puede usar el formato [clang-format](clang-format.md) para el código C++ automáticamente. There is also a script `script/cpplint.py` to check whether all files conform.
 
 La versión de Python que estamos utilizando actualmente es Python 2.7.
 
