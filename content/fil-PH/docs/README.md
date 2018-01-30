@@ -81,13 +81,13 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 * [iipit sa tabla](api/clipboard.md)
 * [kalabog ng tagapagbalita](api/crash-reporter.md)
-* [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
-* [shell](api/shell.md)
+* [gupitin ng maikli ang mga litrato](api/native-image.md)
+* [magtabi](api/screen.md)
+* [kabibi](api/shell.md)
 
-## Development
+## Pag-unlad
 
-* [Coding Style](development/coding-style.md)
+* [Paraan sa pagkukudigo](development/coding-style.md)
 * [Using clang-format on C++ Code](development/clang-format.md)
 * [Pagsusuri](development/testing.md)
 * [Ang Direktoryo ng Istraktura ng "Source Code"](development/source-code-directory-structure.md)
