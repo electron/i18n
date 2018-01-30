@@ -88,22 +88,22 @@ Tinatanggal ang nagsa-subscribe kasama ang `id`.
   * `event` na String
   * `userInfo` na Object
 
-Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
+Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Integer
+* `id` na Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula sa `NSNotificationCenter`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
+* `key` na String
+* `type` na String - pwedeng `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Returns `any` - The value of `key` in system preferences.
+Ibinabalik ang `any` - Ang halaga ng `key` sa mga kagustuhan ng sistema.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `key` at mga `type` ay:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -115,15 +115,15 @@ This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
-* `value` String
+* `key` na String
+* `type` na String - Tinitingnan ang [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
+* `value` na String
 
-Set the value of `key` in system preferences.
+Itakda ang halaga ng `key` sa mga kagustuhan ng sistema.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-This API uses `NSUserDefaults` on macOS. Some popular `key` and `type`s are:
+Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `key` at mga `type` ay:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
