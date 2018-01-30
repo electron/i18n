@@ -1,6 +1,6 @@
-# 키보드 단축기
+# 손가락 하나 내 뜻대로 움직이지도 못 할 만큼
 
-> Configure local and global keyboard shortcuts
+> 취해버린 채로 눈을 감을 때
 
 ## Local Shortcuts
 
