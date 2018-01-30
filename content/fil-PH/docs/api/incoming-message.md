@@ -30,7 +30,7 @@ Pagbabalik:
 
 `error` Error - Karaniwang hinahawakan ang maling "string" at tutukuyin ang sanhi kung bakit ito hindi nagtagumpay.
 
-Lumalabas kapag nakatagpo ng mali habang patuloy ang pagtugon sa datos ng "events". For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Lumalabas kapag nakatagpo ng mali habang patuloy ang pagtugon sa datos ng "events". Halimbawa, kung ang "server" ay malapit sa pinagbabatayan nito habang ang proseso ng pagtugon ay nagpapatuloy, ang "`error` event" ay lalabas sa "response object" at ang "`close` event" ay susunod pagkatapos nito.
 
 ### Mga Halimbawa ng Katangian
 
