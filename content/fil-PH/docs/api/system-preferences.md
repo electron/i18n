@@ -170,12 +170,12 @@ const alpha = color.substr(6, 2) // "dd"
 ### `systemPreferences.getColor(color)` *Windows*
 
 * `color` Ang String - Isa sa sumusunod na mga halaga: 
-  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-  * `3d-highlight` - Highlight color for three-dimensional display elements.
-  * `3d-light` - Light color for three-dimensional display elements.
-  * `3d-shadow` - Shadow color for three-dimensional display elements.
-  * `active-border` - Active window border.
+  * `3d-dark-shadow` - ang madilim na anino para sa mga tatlong dimensyonal na mga elementong pang-display.
+  * `3d-face` - kulay ng mukha para sa mga tatlong dimensyonal na elementong pang-display at para sa mga background ng dialog na kahon.
+  * `3d-highlight` - kulay ng highlight para sa tatlong dimensyonal na mga elementong pang-display.
+  * `3d-light` - Kulay ng ilaw para sa tatlong dimensyonal na mga elementong pang-display.
+  * `3d-shadow` - kulay ng anino para sa tatlong dimensyonal na mga elementong pang-display.
+  * `active-border` - Aktibong border ng window.
   * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
   * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
   * `app-workspace` - Background color of multiple document interface (MDI) applications.
