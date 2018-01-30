@@ -92,8 +92,8 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
 
 * `browserWindow` Ang BrowserWindow (opsyonal)
 * `mga pagpipilian` Bagay 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
+  * `type` String (opsyonal) - Pwedeng `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. Sa Windows, ang `"question"` ay nagpapakita ng icon na pareho sa `"info"`, maliban kung nag-set ka ng icon gamit ang opsyong `"icon"`. Sa macOS, ang `"warning"` at `"error"` ay nagpapakita ng kaparehong babalang icon.
+  * `buttons` String[] (opsyonal) - isang hanay ng mga teksto para sa mga pipindutin. Sa Windows, ang isang blankong hanay ay magreresulta sa isang pipindutin na may lebel na "OK".
   * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
   * `title` String (optional) - Title of the message box, some platforms will not show it.
   * `message` String - Content of the message box.
