@@ -9,25 +9,25 @@ Processo: [Principale](../glossary.md#main-process)
 const {BrowserWindow} = richiedi('electron')
 
 // O usa 'remoto' dai processi di render.
-// const {BrowserWindow} = require('electron').remote
+// const {FinestraBrowser} = richiedi('electron').remoto
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
+vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
+vinci.su('chiuso', () => {
+  vinci = nullo
 })
 
-// Load a remote URL
-win.loadURL('https://github.com')
+// Carica un URL remoto
+vinci.caricaURL('https://github.com')
 
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+// O carica un file HTML
+vinci.caricaURL(`file://${__dirname}/app/indi e.html`)
 ```
 
-## Frameless window
+## Finestra menoFrame
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Finestra menoFrame](frameless-window.md).
 
-## Showing window gracefully
+## Mostrare finestra
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
