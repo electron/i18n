@@ -127,15 +127,15 @@ module.exports = 'bar'
 const foo = kailangan('electron').remote.require('./foo') // bar
 ```
 
-### `ang remote.getCurrentWindow()`
+### `remote.getCurrentWindow()`
 
 Nagbabalik ang [`BrowserWindow`](browser-window.md) - Ang window na kung saan nabibilang ang pahina ng web na ito.
 
-### `ang remote.getCurrentWebContents()`
+### `remote.getCurrentWebContents()`
 
 Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina ng web na ito.
 
-### `ang remote.getGlobal(pangalan)`
+### `remote.getGlobal(pangalan)`
 
 * `name` String
 
