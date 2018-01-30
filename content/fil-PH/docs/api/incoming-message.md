@@ -1,4 +1,4 @@
-## Class: IncomingMessage
+## Class: Paparating na Mensahe
 
 > Pamamahala ng pagtugon sa hiling ng "HTTP/HTTPS".
 
