@@ -1,14 +1,14 @@
 ## Klase: "TouchBarScrubber"
 
-> Create a scrubber (a scrollable selector)
+> Lumikha ng "scrubber" (isang scrollable selector)
 
 Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
 * `mga pagpipilian` Bagay 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - Isang "array" o istruktura ng datos na naglalaman ng koleksyon ng mga elemento tulad ng halaga o "variables", ng aytem para mailagay sa loob nito
+  * `piliin` Function - Called when the user taps an item that was not the last tapped item 
     * `selectedIndex` Integer - The index of the item the user selected
   * `highlight` Function - Called when the user taps any item 
     * `highlightedIndex` Integer - The index of the item the user touched
