@@ -42,18 +42,17 @@ win.una('pronto-a-mostrare', () => {
 })
 `</pre> 
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Questo evento è di solito emesso dopo l'evento `caricamento-finito`, ma per pagine con molte risorse potrebbe essere emesso prima di `caricamento. finito`.
 
-### Setting `backgroundColor`
+### Impostare `Colorebackground`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Per un'app complessa, l'evento `pronto-a-mostrare potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un <code>Colorebackground simile a quello della tua app:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
-```
+`</pre> 
 
 Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
 
