@@ -29,7 +29,7 @@ Das `clipboard` Modul besitzt die folgenden Methoden:
 
 * `type` String (optional)
 
-Gibt einen `String` in Klartext zurück.
+Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Klartext vor.
 
 ### `clipboard.writeText(text[, type])`
 
@@ -42,7 +42,7 @@ Schreibt den `text` als Klartext in die Zwischenablage.
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as markup.
+Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Auszeichnungssprache (markup language) vor.
 
 ### `clipboard.writeHTML(markup[, type])`
 
@@ -55,7 +55,7 @@ Schreibt `markup` in die Zwischenablage.
 
 * `type` String (optional)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Gibt ein [`NativeImage`](native-image.md) zurück - Der Inhalt des Bildes liegt in der Zwischenablage vor.
 
 ### `clipboard.writeImage(image[, type])`
 
@@ -68,7 +68,7 @@ Schreibt `image` in die Zwischenablage.
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as RTF.
+Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt im Rich Text Format (RTF) vor.
 
 ### `clipboard.writeRTF(text[, type])`
 
