@@ -50,17 +50,17 @@ Matapos mabuo ang mga ito, maaaring makita ang `electron.exe` sa ilalim ng `out\
 
 ## Pagbuo ng 32bit
 
-Para mabuo ang pinupuntirya na 32bit, dapat lagpasan ang `--target_arch=ia32` kapag pinapatakbo ang iskrip na "bootstrap":
+Para mabuo ang pinupuntirya na 32bit, dapat daanan ang `--target_arch=ia32` kapag pinapatakbo ang iskrip na "bootstrap":
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Ang mga hakbang para sa iba pang pagbuo ay pareho lamang.
 
-## Visual Studio project
+## Proyekto na "Visual Studio"
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Para makabuo ng proyekto ng "Visual Studio", maaaring idaan sa "parameter" na `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -88,13 +88,13 @@ Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo 
 
 <h2>"Troubleshooting"</h2>
 
-<h3>Command xxxx not found</h3>
+<h3>"Command xxxx" ay 'di mahanap</h3>
 
-<p>If you encountered an error like <code>Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+<p>Kung ikaw ay makatagpo ng mali tulad ng <code>Command xxxx not found`, maaaring gamitin ang "console" na `VS2015 Command Prompt` para mapalabas ang mga binubuong iskrip.
 
-### Fatal internal compiler error: C1001
+### "Fatal internal compiler error": C1001
 
-Make sure you have the latest Visual Studio update installed.
+Siguraduhin na mayroon kang "installed" na pinakabagong "Visual Studio update".
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
