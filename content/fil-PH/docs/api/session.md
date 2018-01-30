@@ -194,31 +194,31 @@ Nagtatakda ng download saving na diktoryo. Bilang default, ang download na dikto
   * `downloadThroughput` Double (opsyonal) - Pag-download ng rate sa Bps. Defaults sa 0 kung saan hindi pinagana ang download throttling.
   * `uploadThroughput` Double (opsyonal) - Mag-upload ng rate sa Bps. Dafaults sa 0 kung saan hidni pinagana ang upload throttling.
 
-Emulates network with the given configuration for the `session`.
+Pag-emulate ng network na may nakabigay na konfigurasyon para sa `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// Para i-emulate ang GPRS na koneksyon na may 50kbps na throughput at 500 ms na latency.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
   uploadThroughput: 6400
 })
 
-// To emulate a network outage.
+// Para i-emulate ang network na outage.
 window.webContents.session.enableNetworkEmulation({offline: true})
 ```
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Hindi pinapagana ang anumang network emulation ay na aktibo para sa `session`. Ni-rereset para sa orihinal na network na konfigurasyon.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Punsyon 
-  * `kahilingan` Bagay 
+* `proc` Function 
+  * `kahilingan` Mga Bagay 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `error` String - Verification result from chromium.
+    * `error` String - Pagpapatunay na result galing sa chromium.
   * `tumawag muli` Punsyon 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transperancy verification.
