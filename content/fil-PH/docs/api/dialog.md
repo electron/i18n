@@ -28,16 +28,16 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 * `options` Object 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
-  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
-  * `mga katangian` String[] (opsyonal) - Ay naglalaman ng kung aling katangian ng dayalogo ang gagamitin. Ang mga sumusunod na halaga ay suportado: 
-    * `openFile` - Pinapayagan ang mga file para mapili.
-    * `openDirectory` - Pinapayagan ang mga direktoryo para mapili.
-    * `multiSelections` - Pinapayagan ang maramihang mga landas para mapili.
-    * `showHiddenFiles` - Ipakita ang mga nakatagong file sa dayalogo.
-    * `createDirectory` - Pinapayagang gumawa ng bagong mga direktoryo mula sa dayalogo. *macOS*
-    * `promptToCreate` - Magmadali para sa paglikha kung ang landas ng file na pumasok sa dayalogo ay hindi lumitaw. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
+  * `properties` String[] (opsyonal) - Naglalaman ng kung aling mga katangian ng dialog ang dapat na gagamitin. Ang mga sumusunod na halaga ay suportado: 
+    * `openFile` - Nagpapahintulot na mapili ang mga file.
+    * `openDirectory` - Nagpapahintulot na mapili ang mga direktoryo.
+    * `multiSelections` - Nagpapahintulot na mapili ang mga ang maraming mga path.
+    * `showHiddenFiles` - Ipakita ang mga nakatagong file sa dialog.
+    * `createDirectory` - Pinapahintulutan ang paggawa ng bagong mga direktoryo mula sa dialog. *macOS*
+    * `promptToCreate` - Nagsesenyas sa paglikha kung walang path ng file na pumasok sa dialog. Hindi nito aktwal na nilikha ang file sa path pero pinapayagan ang mga hindi nakikitang mga path na maibalik na dapat nilikha ng aplikasyon. *Windows*
+    * `noResolveAliases` - pinapahinto ang awtomatikong alyas (symlink) na resolusyon ng path. Ang piniling mga alyas ay babalik sa alyas na path sa halip na sa target na path. *macOS*
     * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
   * `message` String (optional) *macOS* - Message to display above input boxes.
 * `tumawag muli` Function (optional) 
@@ -72,7 +72,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `mga pagpipilian` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
