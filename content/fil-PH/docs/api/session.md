@@ -109,11 +109,11 @@ Nililimas and datos ng web na imbikan.
 
 #### `ses.flushStorageData()`
 
-Writes any unwritten DOMStorage data to disk.
+Pagsulat nag anumang di-nakusulat na DOMStorage na datos para sa disk.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Bagay 
+* `kumpuni` Bagay 
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
