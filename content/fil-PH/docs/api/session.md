@@ -142,11 +142,11 @@ Halimbawa:
 * `http=foopy,direct://` - Gumamit ng HTTP na proxy `foopy` para sa http URLs, at gamitin ang no-proxy kung `foopy` ay hindi magagamit.
 * `http=foopy;socks=foopy2` - Gumamit ng HTTP na proxy `foopy` para sa http URLs, at gamitin ang `socks4://foopy2` para sa lahat ng ibnag URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+Ang `proxyBypassRules` ay comma na hiwalay na listahan ng panuntunan na inilirawan sa baba:
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  Itugma ang lahat ng hostnames na nakatugma sa pattern ng HOSTNAME_PATTERN.
   
   Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
