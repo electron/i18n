@@ -22,11 +22,11 @@ Nagpapahiwatig na ang "response body" ay tapos na.
 
 #### Event: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Lumalabas kapag ang kahilingan ay biglang itinigil habang nagaganap ang transaksyon ng HTTP.
 
-#### Pangyayari: 'error'
+#### Event: 'error'
 
-Magbabalik ng:
+Pagbabalik:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
