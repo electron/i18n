@@ -95,7 +95,7 @@ Pagwatag-muli ay nananawagan sa mga sesyons sa kasalukuyang laki ng cache.
 
 * `callback` Function - Tinatawag kung ang operason ay tapos na
 
-Clears the session’s HTTP cache.
+Nililimas ang sesyon ng HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
