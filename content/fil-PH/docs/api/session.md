@@ -225,7 +225,7 @@ Hindi pinapagana ang anumang network emulation ay na aktibo para sa `session`. N
       * `-2` - Nagpapahiwatig sa kabigu-an.
       * `-3` - Gumagamit ng pagpapatunay galing sa chromium.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
+Nagtatakda ng sertifikong verify proc para sa `session`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang server certificate ay hinihiling. Calling `callback(0)` tinatanggap ang sertifiko, calling `callback(-2)` tinatangihan ito.
 
 Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
