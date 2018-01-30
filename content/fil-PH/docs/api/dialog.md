@@ -114,26 +114,26 @@ Nagpapakita ng isang mensaheng kahon, inaantala nito ang proseso hanggang nasara
 
 Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+Kung ang isang `callback` ay naipasa, hindi pipigilan ng dialog ang proseso. Ang API na tawag ay magiging asynchronous at ang resulta ay ipapasa gamit ang `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box
-* `content` String - The text content to display in the error box
+* `title` String - ang titulo na ipapakita sa kahon ng mali
+* `content` String - Ang tekstong nilalaman na ipapakita sa kahon ng mali
 
-Displays a modal dialog that shows an error message.
+Ipinapakita ang isang modal na dialog na nagpapakita ng isang mensahe ng kamalian.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+Ang API na ito ay maaaring ligtas kung tawagin bago ang `ready` na event na inilalabas ng `app` na modyul, ito ay kadalasang ginagamit sa pag-uulat ng mga kamalian sa unang antas ng pagsisimula. Kapag tinawag bago ang app `ready` na event sa Linux, ang mensahe ay ilalabas sa stderr, at walang GUI na dialog ang magpapakita.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` Ang BrowserWindow (opsyonal)
-* `mga pagpipilian` Bagay 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+* `options` Object 
+  * `certificate` [Certificate](structures/certificate.md) - Ang sertipiko ng pagtiwala/pag-import.
+  * `message` String - Ang mensaheng ipapakita sa tagagamit.
 * `callback` Function
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+Sa macOS, ipinapakita nito ang isang modal na dialog na nagpapakita ng isang mensahe at impormasyon sa sertipiko, at nagbibigay sa gumagamit ng pagpipiliang magtiwala at mag-import ng certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
 
 On Windows the options are more limited, due to the Win32 APIs used:
 
