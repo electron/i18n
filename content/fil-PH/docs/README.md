@@ -99,7 +99,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Mga Tagubilin ng Debug (macOS)](development/debugging-instructions-macos.md)
 * [Mga Tagubilin ng Debug (Windows)](development/debug-instructions-windows.md)
 * [Pag-se-set up ng Simbolo ng Debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
+* [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
 * [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
 * [Pagpapaunlad ng Chromium](development/chromium-development.md)
 * [V8 Pag-unlad](development/v8-development.md)
