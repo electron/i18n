@@ -79,20 +79,20 @@ Ngunit tandaan ang gantingtawag ay isinangguni nang pangunahing proseso hanggang
 
 Ang mas masahol pa, matapos na ang konteksto ng dati ng in-install na mga gantingtawag ay nailabas na, ang mga eksepsyon ay itinaas na sa pangunahing proseso kapag ang event ng `close` ay lumabas na.
 
-Upang maiwasan ang problema, siguraduhin burahin anumang kaugnayan sa mga binalikang tawag na ipinasa sa pangunahing proseso. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+Upang maiwasan ang problema, siguraduhin burahin anumang kaugnayan sa mga binalikang tawag na ipinasa sa pangunahing proseso. Ito ay nagsasangkot sa paglilinis ng mga tagahawak ng event o tinitiyak na ang pangunahing proseso ay tahasang sinabi na sang-ayunan ang mga gantingtawag na nagmula sa isang prosesong tagasalin na lumalabas.
 
-## Accessing built-in modules in the main process
+## Pag-access ng mga built-in na modyul sa mga pangunahing proseso
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Ang mga built-in na modyul sa mga pangunahing proseso ay idinadagdag bilang mga tagakuha sa modyul ng `remote`, kaya maaari mo silang gamitin ng direkta katulad ng modyul ng `electron`.
 
 ```javascript
-const app = require('electron').remote.app
+const app = kailangan('electron').remote.app
 console.log(app)
 ```
 
 ## Pamamaraan
 
-The `remote` module has the following methods:
+Ang modyul ng `remote` ay mayroon ng mga sumusunod na pamamaraan:
 
 ### `remote.require(modyul)`
 
