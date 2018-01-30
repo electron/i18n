@@ -2,13 +2,13 @@
 
 > Создание окон браузера и управление ими.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ```javascript
 // В основном процессе.
 const {BrowserWindow} = require('electron')
 
-// Или используйте 'remote' из renderer процесса.
+// Или используйте 'remote' в renderer процессе.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
