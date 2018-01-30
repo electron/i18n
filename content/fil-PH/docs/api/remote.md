@@ -70,7 +70,7 @@ Pangalawa, ang mga gantingtawag na ipinasa sa pangunahing proseso ay mananatili 
 Halimbawa, ang mga sumusunod na kodigo ay mukhang inosente sa unang tingin. Nag-install ito ng isang gantingtawag para sa event ng `close` sa isang remote na bahay:
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
+kailangan('electron').remote.getCurrentWindow().on('close', () => {
   // window was closed...
 })
 ```
