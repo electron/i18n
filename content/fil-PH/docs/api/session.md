@@ -139,8 +139,8 @@ Halimbawa:
 * `foopy:80,bar,direct://` - Gumamit ng HTTP proxy `foopy:80` sa lahat ng URLs, failing sa lahat para 0>bar</code> if `foopy:80` ay hindi magagamit, at matapos gamitin ang walang proxy.
 * `socks4://foopy` - Gumamit ng SOCKS v4 proxy `foopy:1080` sa lahat ng URLs.
 * `http=foopy,socks5://bar.com` - Gumamit ng HTTP na proxy `foopy` para sa hhtp URLs, at nabigo higit para sa SOCKS5 proxy `bar.com` if `foopy` ay hindi magagamit.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy,direct://` - Gumamit ng HTTP na proxy `foopy` para sa http URLs, at gamitin ang no-proxy kung `foopy` ay hindi magagamit.
+* `http=foopy;socks=foopy2` - Gumamit ng HTTP na proxy `foopy` para sa http URLs, at gamitin ang `socks4://foopy2` para sa lahat ng ibnag URLs.
 
 The `proxyBypassRules` is a comma separated list of rules described below:
 
