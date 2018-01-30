@@ -67,7 +67,7 @@ Kagaya ng iyong nakikita, ang magkakasabay na nagbalik na halaga ng gantingtawag
 
 Pangalawa, ang mga gantingtawag na ipinasa sa pangunahing proseso ay mananatili hanggang sila ay ibasura ng pangunahing proseso.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Halimbawa, ang mga sumusunod na kodigo ay mukhang inosente sa unang tingin. Nag-install ito ng isang gantingtawag para sa event ng `close` sa isang remote na bahay:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
