@@ -136,9 +136,9 @@ Halimbawa:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
 * `foopy:80` - Gamitin ang HTTP proxy `foopy:80` sa lahat ng URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
-* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
+* `foopy:80,bar,direct://` - Gumamit ng HTTP proxy `foopy:80` sa lahat ng URLs, failing sa lahat para 0>bar</code> if `foopy:80` ay hindi magagamit, at matapos gamitin ang walang proxy.
+* `socks4://foopy` - Gumamit ng SOCKS v4 proxy `foopy:1080` sa lahat ng URLs.
+* `http=foopy,socks5://bar.com` - Gumamit ng HTTP na proxy `foopy` para sa hhtp URLs, at nabigo higit para sa SOCKS5 proxy `bar.com` if `foopy` ay hindi magagamit.
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
