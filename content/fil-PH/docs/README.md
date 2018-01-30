@@ -94,7 +94,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Pagbuo ng Buod ng Sistema](development/build-system-overview.md)
 * [Pagbuo ng mga tagubilin (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
+* ["Build Instructions" (Windows)](development/build-instructions-windows.md)
 * ["Build Instructions (Linux)"](development/build-instructions-linux.md)
 * [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
 * [Debug Instructions (Windows)](development/debug-instructions-windows.md)
