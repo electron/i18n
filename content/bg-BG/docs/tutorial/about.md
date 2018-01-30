@@ -6,9 +6,9 @@
 
 От тогава на сетне инструмента се превръща в популярно решение, за създаване на приложения, ползвано от разработчици на продукти с отворен код, добре извести софтуерни компании и стартиращи такива. [Вижте списък на разработчиците ползващи Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Научете кой, допринася за съществуването на Electron или започнете разработка чрез [ Ръководството за бърз старт ](quick-start.md).
 
-## Core Team and Contributors
+## Основен екип и допринасящи разработчици
 
 Проекта се разработва и поддържа от екип в GitHub, с помощта на [активни сътрудници](https://github.com/electron/electron/graphs/contributors) част от мрежата на потребителите на продукта. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
