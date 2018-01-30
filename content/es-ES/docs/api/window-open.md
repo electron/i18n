@@ -30,21 +30,21 @@ La cadena `features` sigue el formato del navegador estándar, pero cada caracte
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Envía un mensaje a la ventana principal con el origen especificado o `*` sin origen de preferencia.
 
-### Using Chrome's `window.open()` implementation
+### Utilizar la implementación `window.open()` de Chrome
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Si se quiere utilizar la implementación `window.open()` incorporada de Chrome, configura `nativeWindowOpen` a `true` en el objeto de opciones `webPreferences`.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+El `window.open()` nativo permite el acceso sincrónico a las ventanas abiertas, por lo tanto es una opción conveniente si se necesita abrir el cuadro de diálogo o una ventana de preferencias.
 
-This option can also be set on `<webview>` tags as well:
+Esta opcion también puede ser configuradas en `<webview>`etiquetas:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+La creación de la `BrowserWindow`es personalizable a través del evento `new-window` de `WebContents`.
 
 ```javascript
 // proceso principal
