@@ -77,7 +77,7 @@ kailangan('electron').remote.getCurrentWindow().on('close', () => {
 
 Ngunit tandaan ang gantingtawag ay isinangguni nang pangunahing proseso hanggang tahasan mong ito ay i-uninstall. Kung hindi mo, sa bawat pag-reload mo ng iyong window ang gantingtawag ay iiinstall ulit, lalabas ang isang gantingtawag sa bawat restart.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+Ang mas masahol pa, matapos na ang konteksto ng dati ng in-install na mga gantingtawag ay nailabas na, ang mga eksepsyon ay itinaas na sa pangunahing proseso kapag ang event ng `close` ay lumabas na.
 
 Upang maiwasan ang problema, siguraduhin burahin anumang kaugnayan sa mga binalikang tawag na ipinasa sa pangunahing proseso. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
 
