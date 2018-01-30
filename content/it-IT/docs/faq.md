@@ -18,7 +18,7 @@ For more information, please see the [security introduction](tutorial/security.m
 
 ## When will Electron upgrade to latest Node.js?
 
-Quando viene rilasciata una nuova versione di Node.js, di solito aspettiamo circa un mese prima di aggiornare Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Quando viene rilasciata una nuova versione di Node.js, di solito aspettiamo circa un mese prima di aggiornare Electron. Quindi possiamo evitare di essere influenzati dai bug introdotti nelle nuove versioni di Node.js, cosa che accade molto spesso.
 
 New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
 
