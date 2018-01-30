@@ -21,14 +21,14 @@ Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
     * `multiple` -Multiple items ay maaring mapili nang paisa-isa.
     * `buttons` -Gumawa ng mga segment act bilang mga button, bawat segment ay pinindot at inilabas pero hindi kailanman minarkahan bilang aktibo.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md)Isang array ng mga segment na dapat ilagay sa control nito.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment 
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+  * `selectedIndex` Integer (opsyonal) - Ang index ng kasalukuyang selected segment, ay awtomatikong iaupdate sa pakikipag ugnayan ng user. Kapag ang mode ay maramihan ito ay magiging huling napiling item.
+  * `pagbabago` Function-ito ay tinatawag kapag ang user ay pumili ng isang bagong segment 
+    * `selectedIndex` Integer - Ang index ng segment sa user na napili.
+    * `isSelected` Boolean -Anuman ang bunga ng resulta ng user selection ng segment ay pinili o hindi.
 
-### Humahalimbawa sa bahagi nito
+### Mga halimbawa ng properties
 
-The following properties are available on instances of `TouchBarSegmentedControl`:
+Ang mga sumusunod na properties ay maaring gamitin sa mga pagkakataon ng`TouchBarSegmentedControl`:
 
 #### `touchBarSegmentedControl.segmentStyle`
 
