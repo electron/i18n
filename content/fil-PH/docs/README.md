@@ -72,10 +72,10 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 ### Modulo para sa renderer ng proseso (bahay-alalawa sa pahina):
 
-* [desktopCapturer](api/desktop-capturer.md)
-* [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
-* [webFrame](api/web-frame.md)
+* [pagkakahuli sa tuktok ng desk](api/desktop-capturer.md)
+* [ipcrenderer](api/ipc-renderer.md)
+* [kamuntik](api/remote.md)
+* [lumikha ng bahay-alalawa](api/web-frame.md)
 
 ### Modules for Both Processes:
 
