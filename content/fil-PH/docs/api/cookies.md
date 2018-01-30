@@ -74,9 +74,9 @@ Magpadala ng hiling para nakuha ang lahat ng cookies na nagtugma sa `detalye`, `
   * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
   * `domanin` String (opsyunal) - Ang domain ng isang cookie. Walang laman ito pagdefault kung itinanggal.
   * `path<0> String (opsyunal) - Ang daan ng isang cookie. Walang laman ito pagdefault kung itinanggal.</li>
-<li><code>secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+<li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
+  * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
+  * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
 * `tumawag muli` Punsyon 
   * `error` Error
 
