@@ -62,7 +62,7 @@ Gibt ein [`NativeImage`](native-image.md) zurück - Der Inhalt des Bildes liegt 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional)
 
-Schreibt `image` in die Zwischenablage.
+Schreibt das `image` in die Zwischenablage.
 
 ### `clipboard.readRTF([type])`
 
@@ -75,16 +75,16 @@ Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt im Rich Text F
 * `text` String
 * `type` String (optional)
 
-Writes the `text` into the clipboard in RTF.
+Schreibt den `text` im Rich Text Format (RTF) in die Zwischenablage.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Gibt das `Object` zurück:
 
 * `title` String
 * `url` String
 
-Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
