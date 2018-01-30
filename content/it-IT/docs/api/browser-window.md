@@ -91,38 +91,38 @@ La [Visibilità Pagina API](https://developer.mozilla.org/en-US/docs/Web/API/Pag
 * Su tutte le piattaforme, lo stato di visibilità traccia se la finestra è nascosta/minimizzata o no.
 * In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà `nascosta`. Su altre piattaforme, lo stato di visibilità sarà `nascosta` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.nascondi()`.
 * Se una `FinestraBrowser` è creata con `mostra: false`, lo stato di visibilità iniziale sarà `visibile` nonostante la finestra risulti essere nascosta.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* Se lo `Strozzamentosfondo` è disabilitato, lo stato di visibilità rimarrà `visibile` anche se la finestra è minimizzata, occlusa o nascosta.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+Si raccomanda di mettere in pausa le operazioni dispendiose quando lo stato di visibilità è `hidden` per minimizzare il consumo energetico.
 
 ### Avvisi di piattaforma
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* Su macOS le finestre modali saranno mostrate come tabelle allegate alla finestra genitore.
+* Su macOS le finestre figlie manterranno le proprie posizioni relative alla finestra genitore quando questa si muove, mentre su Windows e Linux queste non si muoveranno.
+* Su Windows non è supportato il cambiamento dinamico delle finestre genitori.
+* Su Linux il tipo di finestre modali sarà cambiato a `dialogo`.
+* Su Linux molti ambienti desktop non supportano il nascondere una finestra modale.
 
-## Class: BrowserWindow
+## Classe: FinestraBrowser
 
 > Crea e controlla finestre browser.
 
 Processo: [Principale](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`FinestraBrowser` è un [EmettitoreEventi](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle `opzioni`.
 
-### `new BrowserWindow([options])`
+### `nuova FinestraBrowser([options])`
 
 * `opzioni` Oggetto (opzionale) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
-  * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
+  * `larghezza` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
+  * `altezza` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
+  * `x` Intero (opzionale) (**richiesto** se è usato y) - Offset sinistro della finestra dallo schermo. Di default è al centro della finestra.
+  * `y` Intero (opzionale) (**richiesto** se è usato x) - L'offset superiore della finestra dallo schermo. Di default è al centro della finestra.
+  * `usaDimensioniContenuto` Booleano (opzionale) - La `larghezza` e l'`altezza` saranno usate come dimensioni della pagina web, il che vuol dire che la dimensione attuale della finestra includerà le dimensioni della cornice della finestra ed è lievemente più grande. Di default è `false`.
+  * `centro` Booleano (opzionale) - Mostra la finestra al centro dello schermo.
+  * `Larghezzaminima` Intero (opzionale) - Larghezza minima della finestra. Di default è ``.
   * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
   * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
@@ -133,7 +133,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
   * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
+  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Di default è `false`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
@@ -161,12 +161,12 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Default is `false`.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Di default è `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Di default è `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
