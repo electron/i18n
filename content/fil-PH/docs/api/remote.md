@@ -30,7 +30,7 @@ Sa mga halimbawa sa itaas, kapuwa ang `BrowserWindow` at ang `win` ay mga remote
 
 Sinisigurado ng Electron na habang ang remote na bagay ay nandoon pa sa prosesong tagabigay (sa ibang salita, ay hindi pa ibinabasura), ang nararapat na bagay sa pangunahing proseso ay hindi mailalabas. Kapag ang remote na bagay ay naibasura na, ang nararapat na bagay sa pangunahing proseso ay hindi isasangguni.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Kung ang remote na bagay ay nakalabas sa prosesong tagabigay (hal. itinago sa isang balangkas ngunit hindi nailabas), ang nararapat na bagay sa pangunahing proseso ay makakalabas din, kaya kailangan mo ng matinding pag-iingat na hindi makalabas ang mga remote na bagay.
 
 Primary value types like strings and numbers, however, are sent by copy.
 
