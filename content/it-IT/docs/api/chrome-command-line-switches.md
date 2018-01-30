@@ -1,8 +1,8 @@
 # Opzioni di Chrome supportate da riga di comando
 
-> Command line switches supported by Electron.
+> La linea di comando cambia a supportata da Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+Puoi usare [app.Lineacomando.aggiungiCambia](app.md#appcommandlineappendswitchswitch-value) per aggiungerle nello script principale della tua app prima che siano emessi gli eventi [pronto](app.md#event-ready) del modulo [app](app.md):
 
 ```javascript
 const {app} = require('electron')
@@ -14,7 +14,7 @@ app.on('ready', () => {
 })
 ```
 
-## --ignore-connections-limit=`domains`
+## --ignora-limite-connessione=`dominio`
 
 Ignore the connections limit for `domains` list separated by `,`.
 
