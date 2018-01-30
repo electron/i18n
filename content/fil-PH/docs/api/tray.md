@@ -195,7 +195,7 @@ Nagseset sa title na naka-display sa tabi ng tray icon ng status bar.
   * `palagi` - Palaging ihighlight ang tray icon.
   * `hindikailanman` - Hindi kailanman ihighlight ang tray icon.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Nagseset kapang ang tray's icon background ay nagiging highlighted(sa asul).
 
 **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
