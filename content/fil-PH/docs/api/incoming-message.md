@@ -46,10 +46,10 @@ Ang `String` na kumakatawan sa lagay ng posisyon ng mensahe ng "HTTP".
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+Ang `Object` na syang kumakatawan sa tugon ng "HTTP headers". Ang "`headers` object" ay nakaayos ayon sa mga sumusunod:
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
+* Ang lahat ng pangalan na nasa itaas ay dapat gumamit ng maliliit na titik.
+* Ang bawat panganlan na nasa itaas ay gagawa ng katangian ng "array-valued" sa "header's object".
 * Each header value is pushed into the array associated with its header name.
 
 #### `response.httpVersion`
