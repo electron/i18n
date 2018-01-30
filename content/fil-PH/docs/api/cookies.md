@@ -43,17 +43,17 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
   * `expired` - Ang cookie ay awtomatikong natanggal dahil na-expired.
   * `evicted` - Ang cookie ay awtomatikong na-evicted sa panahon ng koleksyon ng basura.
   * `expired-overwrite` - Ang cookie na ito ay na-overwrite na may na-pasong pag-expire ng petsa.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `removed` Boolean - `true` kapag ang cookie ay inalis, `false` kung hindi man.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Napalabas kapag ang cookie ay nagbago dahil ito'y idinagdag, inedit, natanggal, o napaso.
 
 ### Mga pamamaraan ng pagkakataon
 
-The following methods are available on instances of `Cookies`:
+Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
-#### `cookies.get(filter, callback)`
+#### `cookies.get(filter,callback)`
 
-* `filter` Bagay 
+* `salain` Bagay 
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
