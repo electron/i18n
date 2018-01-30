@@ -48,13 +48,11 @@ Questo evento è di solito emesso dopo l'evento `caricamento-finito`, ma per pag
 
 Per un'app complessa, l'evento `pronto-a-mostrare potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un <code>Colorebackground simile a quello della tua app:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
-
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
-win.loadURL('https://github.com')
+<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron') 
+vince = nuova FinestraBrowser({Colorebackground: '#2e2c29'}) win.carica.Url('https://github.com')
 `</pre> 
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Nota come anche per le app è usato l'evento `pronto-a-mostrare`, è raccomandato impostare il `Colorebackground` per far sentire le app più native.
 
 ## Parent and child windows
 
