@@ -74,10 +74,10 @@ Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at
   * `defaultPath` String (opsyonal) - isang ganap na path ng direktoryo, ganap na path ng file, o ang pangalan ng file na gagamitin pag naka-default.
   * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `tumawag muli` Function (opsyonal) 
+  * `message` String (opsyonal) *macOS* - mensaheng ipinapakita sa ibabaw ng mga tekstong field.
+  * `nameFieldLabel` String (opsyonal) *macOS* - karaniwang lebel para sa mga tekstong ipinapakita sa harapan ng filename na tekstong field.
+  * `showsTagField` Boolean (opsyonal) *macOS* - Nagpapakita sa mga tag na input box, nagde-default sa `true`.
+* `callback` Function (opsyonal) 
   * `filename` String
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
