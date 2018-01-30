@@ -34,7 +34,7 @@ Lumalabas kapag nakatagpo ng mali habang patuloy ang pagtugon sa datos ng "event
 
 ### Mga Halimbawa ng Katangian
 
-Ang `IncomingMessage` ay may mga sumusunod na katangian na maaaring basahin:
+Isang `IncomingMessage` na may mga sumusunod na katangian na maaaring basahin:
 
 #### `response.statusCode`
 
@@ -42,11 +42,11 @@ Ang `Integer` ay tinutukoy ang partikular na katayuan ng "code" ng pagtugon ng "
 
 #### `response.statusMessage`
 
-Ang `String` na kumakatawan sa lagay ng posisyon ng mensahe ng "HTTP".
+Isang `String` na kumakatawan sa lagay ng posisyon ng mensahe ng "HTTP".
 
 #### `response.headers`
 
-Ang `Object` na syang kumakatawan sa tugon ng "HTTP headers". Ang "`headers` object" ay nakaayos ayon sa mga sumusunod:
+Isang `Object` na syang kumakatawan sa pagtugon ng "HTTP headers". Ang "`headers` object" ay nakaayos ayon sa mga sumusunod:
 
 * Ang lahat ng pangalan ng "header" ay dapat gumamit ng maliliit na titik.
 * Ang bawat pangalan ng "header" ay gagawa ng katangian ng "array-valued" sa "header's object".
@@ -54,7 +54,7 @@ Ang `Object` na syang kumakatawan sa tugon ng "HTTP headers". Ang "`headers` obj
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+A `String` indicating the HTTP protocol version number. Mga karinawang halaga ay '1.0' o '1.1'. Bukod dito, ang `httpVersionMajor` at `httpVersionMinor` ay parehong "integer-valued" kung saan ang kanila mga katangian ay maaaring makita, at babalik sa "HTTP major" at "minor version numbers".
 
 #### `response.httpVersionMajor`
 
