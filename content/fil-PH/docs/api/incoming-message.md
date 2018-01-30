@@ -54,12 +54,12 @@ Isang `Object` na syang kumakatawan sa pagtugon ng "HTTP headers". Ang "`headers
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Mga karinawang halaga ay '1.0' o '1.1'. Bukod dito, ang `httpVersionMajor` at `httpVersionMinor` ay parehong "integer-valued" kung saan ang kanila mga katangian ay maaaring makita, at babalik sa "HTTP major" at "minor version numbers".
+Isang `String` na tumutukoy sa "HTTP protocol version number". Mga karinawang halaga ay '1.0' o '1.1'. Bukod dito, ang `httpVersionMajor` at `httpVersionMinor` ay parehong "integer-valued" kung saan ang kanila mga katangian ay maaaring makita, at babalik sa "HTTP major" at "minor version numbers".
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+Isang `Integer` na tumutukoy sa protokol ng "HTTP" na pangunahing bersyon ng numero.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+Isang `Integer` na tumutukoy sa protokol ng "HTTP" na menor na bersyon ng numero.
