@@ -28,7 +28,7 @@ Sa mga halimbawa sa itaas, kapuwa ang `BrowserWindow` at ang `win` ay mga remote
 
 ## Ang tagal ng buhay ng mga Remote na Bagay
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Sinisigurado ng Electron na habang ang remote na bagay ay nandoon pa sa prosesong tagabigay (sa ibang salita, ay hindi pa ibinabasura), ang nararapat na bagay sa pangunahing proseso ay hindi mailalabas. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
 
 If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
 
