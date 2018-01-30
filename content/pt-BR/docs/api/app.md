@@ -1,6 +1,6 @@
 # app
 
-> Controle os eventos do ciclo de vida do seu aplicativo.
+> Controle os eventos do ciclo de vida da sua aplicação.
 
 Processo: [Main](../glossary.md#main-process)
 
