@@ -98,7 +98,7 @@ Siguraduhin na mayroon kang "installed" na pinakabagong "Visual Studio update".
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Kung ang pagbuo ay sa ilalim ng Cygwin, maaaring makita ang nabigong `bootstrap.py` kasama ang mga sumusunod na mali:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Ito ay sanhi ng "bug" kapag parehong gumagamit ng: Cygwin Python" at "Win32 Node". Ang solusyon ay ang paggamit ng "Win32 Python" para mapalabas ang iskrip na "bootstrap" (ipagpalagay na mayroon kang "installed Python" sa ilalim ng `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -123,11 +123,11 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Subukang ang "reinstalling" ng "32bit Node.js".
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Gumawa ng direktoryo na [dapat umayos ng problema](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
