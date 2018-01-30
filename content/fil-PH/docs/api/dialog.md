@@ -94,10 +94,10 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
 * `mga pagpipilian` Bagay 
   * `type` String (opsyonal) - Pwedeng `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. Sa Windows, ang `"question"` ay nagpapakita ng icon na pareho sa `"info"`, maliban kung nag-set ka ng icon gamit ang opsyong `"icon"`. Sa macOS, ang `"warning"` at `"error"` ay nagpapakita ng kaparehong babalang icon.
   * `buttons` String[] (opsyonal) - isang hanay ng mga teksto para sa mga pipindutin. Sa Windows, ang isang blankong hanay ay magreresulta sa isang pipindutin na may lebel na "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
-  * `detail` String (optional) - Extra information of the message.
+  * `defaultId` Integer (opsyonal) - index ng pipindutin sa hanay ng mga pipindutin na mapipili nang naka-default kapag ang mensaheng kahon ay bumubukas.
+  * `title` String (opsyonal) - titulo ng kahon ng mensahe, ang ilang mga plataporma ay hindi ipinapakita ito.
+  * `message` String - nilalaman ng kahon ng mensahe.
+  * `detail` String (opsyonal) - Karagdagang impormasyon ukol sa mensahe.
   * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
   * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
   * `icon` [NativeImage](native-image.md) (optional)
