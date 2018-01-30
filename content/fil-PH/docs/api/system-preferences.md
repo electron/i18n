@@ -1,19 +1,19 @@
 # systemPreferences
 
-> Get system preferences.
+> Kuhanin ang mga kagustuhan ng sistema.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso: [Main](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Pangyayari
+## Mga Pangyayari
 
-The `systemPreferences` object emits the following events:
+Ang `systemPreferences` na object ay naglalabas ng sumusunod na mga pangyayari:
 
-### Event: 'accent-color-changed' *Windows*
+### Pangyayari: 'accent-color-changed' *Windows*
 
 Magbabalik ng:
 
