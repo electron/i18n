@@ -9,14 +9,14 @@ Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
 * `mga opsyon` Object 
   * `segmentStyle` String-(opsyonal) Ang istilo ng mga segment: 
     * `awtomatiko` -Default. Ang anyo ng segmented control ay awtomatikong natutokoy batay sa uri ng window kung saan ang control ay nakadisplay at nakaposisyon sa loob ng window.
-    * `bilugan` -Ang control ay naipapakita gamit ang mabilog na istilo.
-    * `textured-rounded` - The control is displayed using the textured rounded style.
-    * `round-rect` - The control is displayed using the round rect style.
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style
-    * `small-square` - The control is displayed using the small square style.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
-  * `mode` String - (optional) The selection mode of the control: 
+    * `rounded` -Ang control ay naipapakita gamit ang mabilog na istilo.
+    * `textured-rounded` -Ang control ay naipapakita gamit ang textured rounded style.
+    * `round-rect`Ang control ay naipapakita gamit ang round rect style.
+    * `textured-square` - Ang control ay naipapakita gamit ang textured square style.
+    * `capsule` - Ang control ay naipapakita gamit ang capsule style
+    * `small-square` -Ang contol ay naipapakita gamit ang small square style.
+    * `separated` - Ang mga segment sa control ay naka-display malapit sa isat'isa ngunit hindi hawakan.
+  * `mode` String - (opsyonal) Ang pagpili ng mode ng control: 
     * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
     * `multiple` - Multiple items can be selected at a time.
     * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
