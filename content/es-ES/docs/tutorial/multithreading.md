@@ -4,7 +4,7 @@ Con los [Web Workers](https://developer.mozilla.org/en/docs/Web/API/Web_Workers_
 
 ## *Multi-threaded* Node.js
 
-It is possible to use Node.js features in Electron's Web Workers, to do so the `nodeIntegrationInWorker` option should be set to `true` in `webPreferences`.
+Es posible utilizar las características de Node.js en Electron's Web Workers. Para hacerlo, la opción `nodeIntegrationInWorker` debe configurarse a `true` en `webPreferences`.
 
 ```javascript
 let win = new BrowserWindow({
