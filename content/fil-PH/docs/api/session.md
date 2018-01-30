@@ -68,7 +68,7 @@ Ang mga sumusunod na mga kaganapan ay magagamit sa mga pagkakataon ng `Sesyon`:
 
 Kung saan ang electron ay napalabas tungkol sa download `aytem` sa `Mga nilalaman ng web`.
 
-Pagtatawag `event.preventDefault()` ang pag kanselahin ang ida-download at `item` ay hindi na magagamit oara sa sunod na tik ng proseso.
+Pagtawag sa `event.preventDefault()` ay makakansela ang dinadownload at ang `aytem` ay hindi maaaring magamit hanggang sa susunod na tik ng proseso.
 
 ```javascript
 const {session} = require('electron')
