@@ -1,50 +1,50 @@
-## Class: BrowserWindowProxy
+## Classe: ProxyFinestraBrowser
 
-> Manipulate the child browser window
+> Manipola la finestra browser figlia
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizzatore](../glossary.md#renderer-process)
 
-The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
+L'oggetto `ProxyFinestraBrowser` è tornato da `apri.finestra` e fornisce una limitata funzionalità con la finestra figlia.
 
-### Instance Methods
+### Metodi Istanza
 
-The `BrowserWindowProxy` object has the following instance methods:
+L'oggetto `ProxyFinestraBrowser` prevede i seguenti metodi d'istanza:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Rimuove la focalizzazione dalla finestra figlia.
 
-#### `win.close()`
+#### `win.chiudi()`
 
-Forcefully closes the child window without calling its unload event.
+Chiude forzatamente la finestra figlia senza chiamare il suo evento scaricato.
 
-#### `win.eval(code)`
+#### `win.eval(codice)`
 
-* `code` String
+* `codice` Stringa
 
-Evaluates the code in the child window.
+Valuta il codice nella finestra figlia.
 
-#### `win.focus()`
+#### `win.focalizza()`
 
-Focuses the child window (brings the window to front).
+Focalizza la finestra figlia (porta la finestra in primo piano).
 
-#### `win.print()`
+#### `win.stampa()`
 
-Invokes the print dialog on the child window.
+Invoca il dialogo di stampa sulla finestra figlia.
 
-#### `win.postMessage(message, targetOrigin)`
+#### `win.postaMessaggio(messaggio, bersaglioOrigine)`
 
-* `message` String
-* `targetOrigin` String
+* `messaggio` Stringa
+* `Originebersaglio` Stringa
 
-Sends a message to the child window with the specified origin or `*` for no origin preference.
+Invia un messaggio alla finestra figlia con l'origine specificata o `*` per nessuna preferenza d'origine.
 
-In addition to these methods, the child window implements `window.opener` object with no properties and a single method.
+In aggiunta a questi metodi, la finestra figlia implementa l'oggetto `apri.finestra` senza proprietà ed un metodo singolo.
 
-### Instance Properties
+### Proprietà Istanza
 
-The `BrowserWindowProxy` object has the following instance properties:
+L'oggetto `ProxyFinestraBrowser` ha le seguenti proprietà d'istanza:
 
-#### `win.closed`
+#### `win.chiuso`
 
-A `Boolean` that is set to true after the child window gets closed.
+Un `Booleano` impostato a true dopo che la finestra figlia viene chiusa.
