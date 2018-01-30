@@ -133,14 +133,14 @@ Ang API na ito ay maaaring ligtas kung tawagin bago ang `ready` na event na inil
   * `message` String - Ang mensaheng ipapakita sa tagagamit.
 * `callback` Function
 
-Sa macOS, ipinapakita nito ang isang modal na dialog na nagpapakita ng isang mensahe at impormasyon sa sertipiko, at nagbibigay sa gumagamit ng pagpipiliang magtiwala at mag-import ng certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+Sa macOS, ipinapakita nito ang isang modal na dialog na nagpapakita ng isang mensahe at impormasyon sa sertipiko, at nagbibigay sa gumagamit ng pagpipiliang magtiwala at mag-import ng certificate. Kapag magbibigay ka ng `browserWindow` na argumento, ang dialog ay malalakip sa parent na window, na ginagawa itong modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Sa Windows, mas limitado ang mga pagpipilian, dahil sa mga Win32 na API na ginamit:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Ang `message` na argumento ay hindi ginagamit, dahil ang OS nito ay nagbibigay ng sarili nitong kompirmasyong dialog.
+* Ang `browserWindow` na argumento ay pinabayaan dahil hindi posible ang paglikha ng kompirmasyong dialog modal na ito.
 
-## Sheets
+## Mga Sheet
 
 On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
 
