@@ -24,7 +24,7 @@ Ang sumusunod na mga katangian ay makikita sa mga instance ng `TouchBarScrubber`
 
 #### `touchBarScrubber.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Ang isang hanay ng `ScrubberItem[]` na kumakatawan sa mga aytem sa scrubber na ito. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
 
 #### `touchBarScrubber.selectedStyle`
 
