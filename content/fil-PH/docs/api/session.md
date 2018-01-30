@@ -251,7 +251,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` Boolean - Pagpayag o pag-tanggi sa pahintulot
 
-Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
 
 ```javascript
 const {session} = require('electron')
