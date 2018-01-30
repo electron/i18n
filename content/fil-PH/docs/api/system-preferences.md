@@ -15,33 +15,33 @@ Ang `systemPreferences` na object ay naglalabas ng sumusunod na mga pangyayari:
 
 ### Pangyayari: 'accent-color-changed' *Windows*
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `event` Event
-* `newColor` String - The new RGBA color the user assigned to be their system accent color.
+* `event` na Pangyayari
+* `newColor` na String - Ang bagong kulay ng RGBA na itinatakda ng tagagamit bilang kanilang pansistemang accent na kulay.
 
-### Event: 'color-changed' *Windows*
+### Pangyayari: 'color-changed' *Windows*
 
-Magbabalik ng:
+Ibinabalik ang:
 
-* `event` Event
+* `event` na Pangyayari
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Pangyayari: 'inverted-color-scheme-changed' *Windows*
 
-Magbabalik ng:
+Ibinabalik ang:
 
-* `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
+* `event` na Pangyayari
+* `invertedColorScheme` na Boolean - `true` kapag ang isang binaliktad na pamamaraan ng pagkulay, tulad isang mataas na antas ng temang pangkontrast, ay ginagagami, `false` kapag hindi.
 
-## Pamamaraan
+## Mga Pamamaraan
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Ibinabalik ang `Boolean` - Kapag ang sistema ay naka-Dark Mode.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina ay naka-on.
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
