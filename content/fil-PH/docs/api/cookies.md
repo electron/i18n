@@ -1,4 +1,4 @@
-## Class: Cookies
+## Klase: Cookies
 
 > "Query" at pagbabago ng ilang parte ng sesyon ng "cookies".
 
