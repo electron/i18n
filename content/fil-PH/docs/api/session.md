@@ -103,9 +103,9 @@ Nililimas ang sesyon ng HTTP cache.
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
-Clears the data of web storages.
+Nililimas and datos ng web na imbikan.
 
 #### `ses.flushStorageData()`
 
@@ -266,7 +266,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
 Clears the host resolver cache.
 
