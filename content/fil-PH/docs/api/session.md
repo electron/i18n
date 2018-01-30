@@ -119,11 +119,11 @@ Pagsulat nag anumang di-nakusulat na DOMStorage na datos para sa disk.
   * `proxyBypassRules` String - Mga panuntunan na nagpapahiwatig kung saan ang URLs ay dapat i-bypass ang mga setting ng proxy.
 * `callback` Function - Tinatawag kung ang operasyon ay tapos na.
 
-Sets the proxy settings.
+Nagtatakda ng mga settings na proxy.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na opsyon ay hindi pinansin at `pacScript` ang pagsasaayos ay inilipat.
 
-The `proxyRules` has to follow the rules below:
+Ang `proxyRules` ay dapat sumunod sa panuntunan:
 
     proxyRules = schemeProxies[";"<schemeProxies>]
     schemeProxies = [<urlScheme>"="]<proxyURIList>
@@ -135,7 +135,7 @@ The `proxyRules` has to follow the rules below:
 Halimbawa:
 
 * `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
+* `foopy:80` - Gamitin ang HTTP proxy `foopy:80` sa lahat ng URLs.
 * `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
 * `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
 * `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
