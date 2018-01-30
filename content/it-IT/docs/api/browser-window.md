@@ -54,42 +54,43 @@ vince = nuova FinestraBrowser({Colorebackground: '#2e2c29'}) win.carica.Url('htt
 
 Nota come anche per le app è usato l'evento `pronto-a-mostrare`, è raccomandato impostare il `Colorebackground` per far sentire le app più native.
 
-## Parent and child windows
+## Finestre genitrici e figlie
 
-By using `parent` option, you can create child windows:
+Usando l'opzione `genitore`, puoi creare finestre figlie:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {FinestraBrowser} = richiedi('electron')
 
-let top = new BrowserWindow()
-let child = new BrowserWindow({parent: top})
-child.show()
-top.show()
+
+sale = nuova FinestraBrowser()
+figlia = nuova FinestraBrowser({parent: top})
+mostra.figlia()
+mostra.top()
 ```
 
-The `child` window will always show on top of the `top` window.
+La finestra `figlia` sarà sempre in alto nella finestra `top`.
 
-### Modal windows
+### Finestre modali
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+Una finestra modale è una finestra figlia che disabilita le finestre genitrici, per crearne una devi impostare entrambe le opzioni `genitore` e `modale`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {FinestraBrowser} = richiedi('electron')
 
-let child = new BrowserWindow({parent: top, modal: true, show: false})
-child.loadURL('https://github.com')
-child.once('ready-to-show', () => {
-  child.show()
+figlia = nuova FinestraBrowser({parent: top, modal: true, show: false})
+caricaURL.figlia('https://github.com')
+figlia.uno('pronto-a-mostrare', () => {
+  mostra.figlia()
 })
 ```
 
-### Page visibility
+### Visibilità pagina
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+La [Visibilità Pagina API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) lavora come segue:
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
+* Su tutte le piattaforme, lo stato di visibilità traccia se la finestra è nascosta/minimizzata o no.
+* In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà `nascosta`. Su altre piattaforme, lo stato di visibilità sarà `nascosta` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.nascondi()`.
+* Se una `FinestraBrowser` è creata con `mostra: false`, lo stato di visibilità iniziale sarà `visibile` nonostante la finestra risulti essere nascosta.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
