@@ -152,7 +152,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `Desde cache` Booleano
     * `headers de respuesta` objeto
 
-The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
+El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
@@ -168,7 +168,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `headers de respuesta` objeto
     * `Desde cache` Booleano
     * `Estatus de código` entero
-    * `statusLine` String
+    * `linea de estatus` Cadena
 
 The `listener` will be called with `listener(details)` when a request is completed.
 
@@ -184,6 +184,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` String
     * `fecha y hora` Doble
     * `Desde cache` Booleano
-    * `error` String - The error description.
+    * `error` Cadena - la descripción del error.
 
-The `listener` will be called with `listener(details)` when an error occurs.
+El `oyente` será cancelado con `listener(details)` cuando ocurra un error.
