@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code, userGesture, callback)`
 
-* `code` String
+* `codice` Stringa
 * `userGesture` Boolean - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -626,7 +626,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 Restituiti:
 
 * `level` Integer
-* `message` String
+* `messaggio` Stringa
 * `line` Integer
 * `sourceId` String
 
