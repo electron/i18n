@@ -44,15 +44,15 @@ Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga ayte
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+Ang isang `Boolean` na kumakatawan sa kung alin sa kaliwa/kanang mga arrow na pangpili ang ipapakita sa scrubber na ito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar.
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+Isang `String` na kumakatawan sa mode ng scrubber na ito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar:
 
-* `fixed` - Maps to `NSScrubberModeFixed`
-* `free` - Maps to `NSScrubberModeFree`
+* `fixed` - Nagma-map sa `NSScrubberModeFixed`
+* `free` - Nagma-map sa `NSScrubberModeFree`
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+Ang isang `Boolean` na kumakatawan sa kung ang scrubber ba ay tuloy-tuloy o hindi. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar.
