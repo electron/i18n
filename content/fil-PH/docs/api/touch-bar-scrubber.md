@@ -8,19 +8,19 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 * `options` Bagay 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - Isang hanay ng mga aytem na ilalagay sa scrubber na ito
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
-    * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
-    * `highlightedIndex` Integer - The index of the item the user touched
-  * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
-  * `showArrowButtons` Boolean - Defaults to `false`.
-  * `mode` String - Defaults to `free`.
-  * `continuous` Boolean - Defaults to `true`.
+  * `select` Function - Itinatawag kapag ang tagagamit ay pumindot sa isang aytem na hinding panghuling napindot 
+    * `selectedIndex` na Integer - Ang index ng aytem na pinili ng tagagamit
+  * `highlight` Function - Itinatawag kapag ang tagagamit ay pumipindot sa kahit anong aytem 
+    * `highlightedIndex` na Integer - Ang index ng aytem na ginalaw ng user
+  * `selectedStyle` na String - Napiling istilo ng aytem. Naka-default sa `null`.
+  * `overlayStyle` na String - Piling istilo ng overlay na aytem. Naka-default sa `null`.
+  * `showArrowButtons` na Boolean - Nakadefault sa `false`.
+  * `mode` na String - Naka-default sa `free`.
+  * `continuous` na Boolean - Nakadefault sa `true`.
 
-### Humahalimbawa sa bahagi nito
+### Mga Katangian ng Instance
 
-The following properties are available on instances of `TouchBarScrubber`:
+Ang sumusunod na mga katangian ay makikita sa mga instance ng `TouchBarScrubber`:
 
 #### `touchBarScrubber.items`
 
