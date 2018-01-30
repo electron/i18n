@@ -75,7 +75,7 @@ kailangan('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Ngunit tandaan ang gantingtawag ay isinangguni nang pangunahing proseso hanggang tahasan mong ito ay i-uninstall. Kung hindi mo, sa bawat pag-reload mo ng iyong window ang gantingtawag ay iiinstall ulit, lalabas ang isang gantingtawag sa bawat restart.
 
 To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
 
