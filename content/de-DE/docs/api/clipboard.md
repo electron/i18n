@@ -2,7 +2,7 @@
 
 > Ausführung von Kopier- und Einfüge-Operationen von der Zwischenablage des Betriebssystems.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Das folgende Beispiel zeigt, wie Zeichenfolgen in die Zwischenablage geschrieben werden:
 
@@ -11,7 +11,7 @@ const {clipboard} = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+Auf X Window Systemen existiert eine selektierende Zwischenablage. Um diese zu manipulieren, füge `selection` in jeder Methode ein:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -29,14 +29,14 @@ Das `clipboard` Modul besitzt die folgenden Methoden:
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as plain text.
+Gibt einen `String` in Klartext zurück.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (optional)
 
-Writes the `text` into the clipboard as plain text.
+Schreibt den `text` als Klartext in die Zwischenablage.
 
 ### `clipboard.readHTML([type])`
 
@@ -49,7 +49,7 @@ Returns `String` - The content in the clipboard as markup.
 * `markup` String
 * `type` String (optional)
 
-Writes `markup` to the clipboard.
+Schreibt `markup` in die Zwischenablage.
 
 ### `clipboard.readImage([type])`
 
@@ -62,7 +62,7 @@ Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 * `image` [NativeImage](native-image.md)
 * `type` String (optional)
 
-Writes `image` to the clipboard.
+Schreibt `image` in die Zwischenablage.
 
 ### `clipboard.readRTF([type])`
 
