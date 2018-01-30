@@ -8,7 +8,7 @@
 
 ### `new MenuItem(options)`
 
-* `选项` 对象 
+* `options` Object 
   * `click` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
