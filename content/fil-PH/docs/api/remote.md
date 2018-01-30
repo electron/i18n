@@ -139,10 +139,10 @@ Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Nagbabalik ang `any` - Ang global na pagbabago-bago ng `name` (hal. `global[name]`) sa mga pangunahing proseso.
 
 ## Mga Katangian
 
-### `remote.process`
+### `ang remote.process`
 
 The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
