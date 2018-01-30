@@ -187,7 +187,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
-    * `filePath` String
+    * `Percorsofile` Stringa
 * `completion` Function (optional) 
   * `errore` Errore
 

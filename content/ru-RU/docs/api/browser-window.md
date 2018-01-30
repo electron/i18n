@@ -2,13 +2,13 @@
 
 > Создание окон браузера и управление ими.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ```javascript
 // В основном процессе.
 const {BrowserWindow} = require('electron')
 
-// Или используйте 'remote' из renderer процесса.
+// Или используйте 'remote' в renderer процессе.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -27,7 +27,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Для создания окна без хрома или прозрачного окна произвольной формы, можно использовать API [Бескаркасного окна](frameless-window.md).
 
-## Изящный показ окон
+## Showing window gracefully
 
 Когда страница загружается в окно напрямую, пользователи могут видеть ступенчатую загрузку страницы, что является дурным тоном для нативного приложения. Для создания окна без ступенчатой загрузки существует два решения, которые можно использовать в различных ситуациях.
 

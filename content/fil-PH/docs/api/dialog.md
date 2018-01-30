@@ -1,147 +1,147 @@
-# I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.
+# ang dialog
 
-> Ipakita ang mga dayalogo ng sinaunang sistema para sa pagbukas at pag-seyb ng mga file, pag-alerto, atbp.
+> Ipinapakita ang mga dialog ng sarilihang sistema para sa pagbubukas at pagse-seyb ng mga file, pag-aalerto, atbp.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso: [Main](../glossary.md#main-process)
 
-Ang isang halimbawa ng pagpapakita ng isang dayalogo para pumili ng maramihang mga file at mga direktoryo:
+Isang halimbawa ng pagpapakita ng isang dialog sa pagpili ng maraming mga file at mga direktoryo:
 
 ```javascript
-const {dialog} = kailangan('electron')
+const {dialog} = require('electron')
 console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
 ```
 
-Ang dayalogo ay bukas mula sa pangunahing thread ng Electron. Kung gusto mong gamitin ang mga bagay sa dayalogo mula sa isang prosesong tagabigay, tandaan na ma-access ito gamit ang remote:
+Ang Dialog ay binuksan mula sa pangunahing thread ng Electron. Kung gusto mong gamitin ang dialog mula sa renderer na proseso, tandaang i-access ito gamit ang remote:
 
 ```javascript
 const {dialog} = kailangan('electron').remote
 console.log(dialog)
 ```
 
-## Pamamaraan
+## Mga Pamamaraan
 
-Ang module ng `dialog` ay mayroong mga sumusunod na pamamaraan:
+Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 
 ### `dialog.showOpenDialog([browserWindow, ]mga opsyon[, callback])`
 
-* `browserWindow` Ang Browser Window (opsyonal)
-* `mga pagpipilian` Bagay 
+* `browserWindow` Ang BrowserWindow (opsyonal)
+* `options` Object 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
-  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
-  * `mga katangian` String[] (opsyonal) - Ay naglalaman ng kung aling katangian ng dayalogo ang gagamitin. Ang mga sumusunod na halaga ay suportado: 
-    * `openFile` - Pinapayagan ang mga file para mapili.
-    * `openDirectory` - Pinapayagan ang mga direktoryo para mapili.
-    * `multiSelections` - Pinapayagan ang maramihang mga landas para mapili.
-    * `showHiddenFiles` - Ipakita ang mga nakatagong file sa dayalogo.
-    * `createDirectory` - Pinapayagang gumawa ng bagong mga direktoryo mula sa dayalogo. *macOS*
-    * `promptToCreate` - Magmadali para sa paglikha kung ang landas ng file na pumasok sa dayalogo ay hindi lumitaw. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application. *Windows*
-    * `noResolveAliases` - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path. *macOS*
-    * `treatPackageAsDirectory` - Treat packages, such as `.app` folders, as a directory instead of a file. *macOS*
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-* `tumawag muli` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+  * `properties` String[] (opsyonal) - Naglalaman ng kung aling mga katangian ng dialog ang dapat na gagamitin. Ang mga sumusunod na halaga ay suportado: 
+    * `openFile` - Nagpapahintulot na mapili ang mga file.
+    * `openDirectory` - Nagpapahintulot na mapili ang mga direktoryo.
+    * `multiSelections` - Nagpapahintulot na mapili ang mga ang maraming mga path.
+    * `showHiddenFiles` - Ipakita ang mga nakatagong file sa dialog.
+    * `createDirectory` - Pinapahintulutan ang paggawa ng bagong mga direktoryo mula sa dialog. *macOS*
+    * `promptToCreate` - Nagsesenyas sa paglikha kung walang path ng file na pumasok sa dialog. Hindi nito aktwal na nilikha ang file sa path pero pinapayagan ang mga hindi nakikitang mga path na maibalik na dapat nilikha ng aplikasyon. *Windows*
+    * `noResolveAliases` - pinapahinto ang awtomatikong alyas (symlink) na resolusyon ng path. Ang piniling mga alyas ay babalik sa alyas na path sa halip na sa target na path. *macOS*
+    * `treatPackageAsDirectory` - tinatrato ang mga pakete, katulad ng `.app` na mga folder bilang isang direktoryo kaysa isang file. *macOS*
+  * `message` String (opsyonal) *macOS* - mensaheng nagpapakita ng mga kahong pang-input sa itaas.
+* `callback` Function (opsyonal) 
+  * `filePaths` String[] - Isang hanay ng mga path ng file na pinili ng gumagamit
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Ibinabalik ang `String[]`, isang hanay ng mga path ng file na napili ng gumagamit, kung ang callback ay ibinigay, ibinabalik nito ang `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Ang mga `filter` ay nagtitiyak ng mga hanay ng mga uri ng file na maipapakita o mapipili kung nais mong limitahan ang gumagamit sa isang tiyak na uri. Halimbawa:
 
 ```javascript
 {
   filters: [
-    {name: 'Images', extensions: ['jpg', 'png', 'gif']},
-    {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', extensions: ['as']},
-    {name: 'All Files', extensions: ['*']}
+    {name: 'Mga Imahe', extensions: ['jpg', 'png', 'gif']},
+    {name: 'Mga Pelikula', extensions: ['mkv', 'avi', 'mp4']},
+    {name: 'Karaniwang Uri ng File', extensions: ['as']},
+    {name: 'Lahat ng mga file', extensions: ['*']}
   ]
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+Ang mga `ekstensyon` na hanay ay dapat na naglalaman ng mga ekstensyon na walang mga wildcard o mga tuldok (halimbawa, maganda ang `'png'` pero ang `'.png'` at `'*.png'` ay hindi maganda). Upang ipakita ang lahat ng mga file, gamitin ang `'*'` na wildcard (wala nang ibang wildcard ang sinusuportahan).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`
+Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filenames)`
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Tandaan:** Sa Windows at Linux, ang isang bukas na dialog ay hindi pwedeng sabay na tagapili ng file at tagapili ng direktoryo, upang kapag i-set mo ang `properties` sa `['openFile', 'openDirectory']` sa mga platapormang ito, ang isang tagapili ng direktoryo ay maipapakita.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` Ang Browser Window (opsyonal)
-* `mga pagpipilian` Bagay 
+* `browserWindow` Ang BrowserWindow (opsyonal)
+* `options` Object 
   * `title` String (opsyonal)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (opsyonal) - Ang pasadyang label para sa pindutan ng kumpirmasyon, ang gagamitin ay default label kapag iniwan na walang laman.
+  * `defaultPath` String (opsyonal) - isang ganap na path ng direktoryo, ganap na path ng file, o ang pangalan ng file na gagamitin pag naka-default.
+  * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
   * `filters` [FileFilter[]](structures/file-filter.md) (opsyonal)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-* `tumawag muli` Function (optional) 
+  * `message` String (opsyonal) *macOS* - mensaheng ipinapakita sa ibabaw ng mga tekstong field.
+  * `nameFieldLabel` String (opsyonal) *macOS* - karaniwang lebel para sa mga tekstong ipinapakita sa harapan ng filename na tekstong field.
+  * `showsTagField` Boolean (opsyonal) *macOS* - Nagpapakita sa mga tag na input box, nagde-default sa `true`.
+* `callback` Function (opsyonal) 
   * `filename` String
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Ibinabalik ang `String`, ang path ng file na pinili ng gumagamit, kung ang isang callback ay ibinigay, ibinabalik nito ang `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+Ang `filters` ay nagtitiyak sa hanay ng mga uri ng file na maaaring maipakita, tingnan ang `dialog.showOpenDialog` bilang isang halimbawa.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filename)`
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` Ang Browser Window (opsyonal)
+* `browserWindow` Ang BrowserWindow (opsyonal)
 * `mga pagpipilian` Bagay 
-  * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
-  * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
-  * `defaultId` Integer (optional) - Index of the button in the buttons array which will be selected by default when the message box opens.
-  * `title` String (optional) - Title of the message box, some platforms will not show it.
-  * `message` String - Content of the message box.
-  * `detail` String (optional) - Extra information of the message.
-  * `checkboxLabel` String (optional) - If provided, the message box will include a checkbox with the given label. The checkbox state can be inspected only when using `callback`.
-  * `checkboxChecked` Boolean (optional) - Initial checked state of the checkbox. `false` by default.
-  * `icon` [NativeImage](native-image.md) (optional)
-  * `cancelId` Integer (optional) - The index of the button to be used to cancel the dialog, via the `Esc` key. By default this is assigned to the first button with "cancel" or "no" as the label. If no such labeled buttons exist and this option is not set, `` will be used as the return value or callback response. This option is ignored on Windows.
-  * `noLink` Boolean (optional) - On Windows Electron will try to figure out which one of the `buttons` are common buttons (like "Cancel" or "Yes"), and show the others as command links in the dialog. This can make the dialog appear in the style of modern Windows apps. If you don't like this behavior, you can set `noLink` to `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. Default is `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
-* `tumawag muli` Function (optional) 
-  * `response` Number - The index of the button that was clicked
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `type` String (opsyonal) - Pwedeng `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. Sa Windows, ang `"question"` ay nagpapakita ng icon na pareho sa `"info"`, maliban kung nag-set ka ng icon gamit ang opsyong `"icon"`. Sa macOS, ang `"warning"` at `"error"` ay nagpapakita ng kaparehong babalang icon.
+  * `buttons` String[] (opsyonal) - isang hanay ng mga teksto para sa mga pipindutin. Sa Windows, ang isang blankong hanay ay magreresulta sa isang pipindutin na may lebel na "OK".
+  * `defaultId` Integer (opsyonal) - index ng pipindutin sa hanay ng mga pipindutin na mapipili nang naka-default kapag ang mensaheng kahon ay bumubukas.
+  * `title` String (opsyonal) - titulo ng kahon ng mensahe, ang ilang mga plataporma ay hindi ipinapakita ito.
+  * `message` String - nilalaman ng kahon ng mensahe.
+  * `detail` String (opsyonal) - Karagdagang impormasyon ukol sa mensahe.
+  * `checkboxLabel` String (opsyonal) - Kapag ibinigay, ang mensaheng kahon ay maglalakip ng isang checkbox na may lebel. Ang estado ng checkbox ay pwede tingnan lamang kapag gumagamit ng `callback`.
+  * `checkboxChecked` Boolean (optional) - paunang naka-check na estado ng checkbox. `false` ito sa default.
+  * `icon` [NativeImage](native-image.md) (opsyonal)
+  * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `` ay gagamitin bilang pabalik na halaga o sagot sa callback. Ang opsyon na ito ay napapabayaan sa Windows.
+  * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
+  * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
+* `callback` Function (opsyonal) 
+  * `response` Numero - ang index ng pipindutin na napindot
+  * `checkboxChecked` Boolean - ang binagong estado ng checkbox kapang ang `checkboxLabel` at na-set. Kung hindi, ito ay `false`.
 
-Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+Ibinabalik ang `Integer`, ang index ng napindot na pipindutin, kung ang isang callback ay naibigay, undefined ang ibinabalik nito.
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+Nagpapakita ng isang mensaheng kahon, inaantala nito ang proseso hanggang nasara na ang mensaheng kahon. Ibinabalik nito ang index ng napindot na pipindutin.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+Kung ang isang `callback` ay naipasa, hindi pipigilan ng dialog ang proseso. Ang API na tawag ay magiging asynchronous at ang resulta ay ipapasa gamit ang `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 
-* `title` String - The title to display in the error box
-* `content` String - The text content to display in the error box
+* `title` String - ang titulo na ipapakita sa kahon ng mali
+* `content` String - Ang tekstong nilalaman na ipapakita sa kahon ng mali
 
-Displays a modal dialog that shows an error message.
+Ipinapakita ang isang modal na dialog na nagpapakita ng isang mensahe ng kamalian.
 
-This API can be called safely before the `ready` event the `app` module emits, it is usually used to report errors in early stage of startup. If called before the app `ready`event on Linux, the message will be emitted to stderr, and no GUI dialog will appear.
+Ang API na ito ay maaaring ligtas kung tawagin bago ang `ready` na event na inilalabas ng `app` na modyul, ito ay kadalasang ginagamit sa pag-uulat ng mga kamalian sa unang antas ng pagsisimula. Kapag tinawag bago ang app `ready` na event sa Linux, ang mensahe ay ilalabas sa stderr, at walang GUI na dialog ang magpapakita.
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` Ang Browser Window (opsyonal)
-* `mga pagpipilian` Bagay 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
-  * `message` String - The message to display to the user.
+* `browserWindow` Ang BrowserWindow (opsyonal)
+* `options` Object 
+  * `certificate` [Certificate](structures/certificate.md) - Ang sertipiko ng pagtiwala/pag-import.
+  * `message` String - Ang mensaheng ipapakita sa tagagamit.
 * `callback` Function
 
-On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
+Sa macOS, ipinapakita nito ang isang modal na dialog na nagpapakita ng isang mensahe at impormasyon sa sertipiko, at nagbibigay sa gumagamit ng pagpipiliang magtiwala at mag-import ng certificate. Kapag magbibigay ka ng `browserWindow` na argumento, ang dialog ay malalakip sa parent na window, na ginagawa itong modal.
 
-On Windows the options are more limited, due to the Win32 APIs used:
+Sa Windows, mas limitado ang mga pagpipilian, dahil sa mga Win32 na API na ginamit:
 
-* The `message` argument is not used, as the OS provides its own confirmation dialog.
-* The `browserWindow` argument is ignored since it is not possible to make this confirmation dialog modal.
+* Ang `message` na argumento ay hindi ginagamit, dahil ang OS nito ay nagbibigay ng sarili nitong kompirmasyong dialog.
+* Ang `browserWindow` na argumento ay pinabayaan dahil hindi posible ang paglikha ng kompirmasyong dialog modal na ito.
 
-## Sheets
+## Mga Sheet
 
-On macOS, dialogs are presented as sheets attached to a window if you provide a `BrowserWindow` reference in the `browserWindow` parameter, or modals if no window is provided.
+Sa macOs, ang mga dialog ay inilahad bilang mga sheet na inilakip sa isang window kapag nagbibigay ka ng isang `BrowserWindow` na batayan sa `browserWindow` na parametro, o modal kung walang window na inilaan.
 
-You can call `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` to change the offset from the window frame where sheets are attached.
+Maaari mong tawagin ang `BrowserWindow.getCurrentWindow().setSheetOffset(offset)` upang baguhin ang offset mula sa window frame kung saan nakalakip ang mga sheet.

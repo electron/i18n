@@ -1,4 +1,4 @@
-# screen
+# magtabi
 
 > Retrieve information about screen size, displays, cursor position, etc.
 

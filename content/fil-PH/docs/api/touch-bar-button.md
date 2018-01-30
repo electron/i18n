@@ -15,7 +15,7 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### Halimbawa ng Ari-arian
 
-The following properties are available on instances of `TouchBarButton`:
+Ang sumusunod na mga katangian ay makikita sa mga sitwasyon ng `TouchBarButton`:
 
 #### `touchBarButton.label`
 

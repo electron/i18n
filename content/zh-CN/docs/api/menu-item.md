@@ -13,9 +13,9 @@
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * ` role ` String (可选)-定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
+  * ` role ` String (可选)-内置事件, 定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
-  * ` label `String (可选)
+  * ` label `String (可选)-菜单名称，当设置role时默认为role
   * `sublabel` String - (可选)
   * `accelerator` [Accelerator](accelerator.md) (可选)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
@@ -44,16 +44,16 @@
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
+* `minimize` - 最小化当前窗口。
+* `close` - 关闭当前窗口
+* `quit`- 退出应用。
+* `reload` - 重新加载当前窗口。
+* `forcereload` - 重新加载当前窗口忽略缓存。
+* `toggledevtools` - 在当前窗口中隐藏/显示开发者工具。
+* `togglefullscreen`- 切换全屏模式。
+* `resetzoom` - 重置页面原始大小的缩放级别
+* `zoomin` - 主页面放大 10%
+* `zoomout` -主页面缩小 10%
 * `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
 

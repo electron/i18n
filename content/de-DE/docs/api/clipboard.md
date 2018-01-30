@@ -1,10 +1,10 @@
-# clipboard
+# Zwischenablage (clipboard)
 
-> Perform copy and paste operations on the system clipboard.
+> Ausführung von Kopier- und Einfüge-Operationen von der Zwischenablage des Betriebssystems.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to write a string to the clipboard:
+Das folgende Beispiel zeigt, wie Zeichenfolgen in die Zwischenablage geschrieben werden:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -21,9 +21,9 @@ console.log(clipboard.readText('selection'))
 
 ## Methoden
 
-The `clipboard` module has the following methods:
+Das `clipboard` Modul besitzt die folgenden Methoden:
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+**Notiz:** Experimentelle Schnittstellen sind mit "Experimental" markiert und könnten in der Zukunft wegfallen.
 
 ### `clipboard.readText([type])`
 

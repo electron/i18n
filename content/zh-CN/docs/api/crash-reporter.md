@@ -61,7 +61,7 @@ crashReporter.start({
  })
 ```
 
-**注意：**在macOS上，Electron使用一个`crashpad`客户端来收集并报告崩溃信息。 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**注意：**在macOS上，Electron使用一个`crashpad`客户端来收集并报告崩溃信息。 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 你仍然需要从渲染器进程或子进程中调用`crashReporter.start` ，否则崩溃报告将不包含`companyName`, `productName`和任何`extra`信息。
 
 ### `crashReporter.getLastCrashReport()`
 
@@ -91,12 +91,12 @@ This would normally be controlled by user preferences. This has no effect if cal
 
 ### `crashReporter.setExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+* `key` String - 参数键，长度必须小于64个字符
+* ` value `字符串参数值, 长度必须少于64个字符。指定 ` null ` 或 ` undefined ` 将从参数中删除该键。
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+设置一个在发送崩溃报告时将额外包含的参数。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
-## Crash Report Payload
+## 崩溃报告内容
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 

@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizzatore](../glossary.md#renderer-process)
 
 An example of zooming current page to 200%.
 
@@ -63,7 +63,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `autoCorrectWord` Boolean
 * `provider` Object 
   * `spellCheck` Function - Returns `Boolean` 
-    * `text` String
+    * `testo` Stringa
 
 Sets a provider for spell checking in input fields and text areas.
 
@@ -115,13 +115,13 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(text)`
 
-* `text` String
+* `testo` Stringa
 
 Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `codice` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any

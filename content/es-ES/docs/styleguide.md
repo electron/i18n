@@ -1,14 +1,14 @@
-# Documentación de Guía de Estilo de Electron
+# Guía de estilo de la documentación de Electron
 
-Estos son los lineamientos para escribir documentación de Electron.
+Estos son las directrices para escribir documentación de Electron.
 
 ## Títulos
 
-* Cada página debe tener un solo `#`-nivel de título en la parte superior.
-* Los capítulos en la misma página deben tener `#`-títulos de nivel.
+* Cada página debe tener un solo título de nivel `#` al principio.
+* Los capítulos en la misma página deben tener títulos de nivel `##`.
 * Los subcapítulos necesitan aumentar el número de `#` en el título acorde a su profundidad de anidamiento.
-* Todas las palabras en el título de la página deben escribirse con mayúscula, excepto las conjunciones como "de" y "y".
-* Sólo debe escribirse con mayúscula la primera palabra del título de capítulo.
+* Todas las palabras en el título de la página deben comenzar con mayúscula, excepto las conjunciones como "de" e "y".
+* Sólo la primera palabra del título de capítulo se escribir con mayúscula.
 
 Usando `Quick Start` como ejemplo:
 
@@ -33,19 +33,19 @@ Usando `Quick Start` como ejemplo:
 
 ...
 
-### Binario Electron descargado manualmente
+### Programa binario de Electron descargado manualmente
 
 ...
 ```
 
-Para referencias API, hay excepciones a esta regla.
+Para referencias API, hay excepciones para esta regla.
 
 ## Reglas de Markdown
 
 * Usa `sh` en vez de `cmd` en code blocks (debido al resaltador de sintaxis).
-* Las líneas deben estar listas en 80 columnas.
+* Las líneas deben estar ajustadas a 80 columnas.
 * No anidar listas de más de 2 niveles (debido al renderizador markdown).
-* Todos los bloques de código `js` y `javascript` están linted con [markdown estándar](http://npm.im/standard-markdown).
+* Todos los bloques de código `js` y `javascript` están analizados con [standard-markdown](http://npm.im/standard-markdown).
 
 ## Escoger palabras
 

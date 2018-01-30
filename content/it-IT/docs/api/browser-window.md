@@ -1,62 +1,58 @@
-# BrowserWindow
+# FinestraBrowser
 
-> Create and control browser windows.
+> Crea e controlla finestre browser.
 
 Processo: [Principale](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
-const {BrowserWindow} = require('electron')
+// Nel processo principale.
+const {BrowserWindow} = richiedi('electron')
 
-// Or use `remote` from the renderer process.
-// const {BrowserWindow} = require('electron').remote
+// O usa 'remoto' dai processi di render.
+// const {FinestraBrowser} = richiedi('electron').remoto
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
+vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
+vinci.su('chiuso', () => {
+  vinci = nullo
 })
 
-// Load a remote URL
-win.loadURL('https://github.com')
+// Carica un URL remoto
+vinci.caricaURL('https://github.com')
 
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
+// O carica un file HTML
+vinci.caricaURL(`file://${__dirname}/app/indi e.html`)
 ```
 
-## Frameless window
+## Finestra menoFrame
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Finestra menoFrame](frameless-window.md).
 
-## Showing window gracefully
+## Mostrare finestra
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Per far mostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
 
-### Using `ready-to-show` event
+### Usando l'evento `pronto-a-mostrare`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Mentre la pagina sta caricando l'l'evento `pronto-a-mostrare sarà emesso quando i processi hanno renderizzato la pagina per la prima volta se la finestra non è ancora stata mostrata. Mostrare la finestra dopo questo evento non avrà flash visuali:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
-win.once('ready-to-show', () => {
-  win.show()
+<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron')
+vince = nuova FinestraBrowser({mostra: false})
+win.una('pronto-a-mostrare', () => {
+  win.mostra()
 })
-```
+`</pre> 
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+Questo evento è di solito emesso dopo l'evento `caricamento-finito`, ma per pagine con molte risorse potrebbe essere emesso prima di `caricamento. finito`.
 
-### Setting `backgroundColor`
+### Impostare `Colorebackground`
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+Per un'app complessa, l'evento `pronto-a-mostrare potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un <code>Colorebackground simile a quello della tua app:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
+<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron') 
+vince = nuova FinestraBrowser({Colorebackground: '#2e2c29'}) win.carica.Url('https://github.com')
+`</pre> 
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
-win.loadURL('https://github.com')
-```
-
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+Nota come anche per le app è usato l'evento `pronto-a-mostrare`, è raccomandato impostare il `Colorebackground` per far sentire le app più native.
 
 ## Parent and child windows
 
@@ -98,7 +94,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### Platform notices
+### Avvisi di piattaforma
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -108,7 +104,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Crea e controlla finestre browser.
 
 Processo: [Principale](../glossary.md#main-process)
 
@@ -409,7 +405,7 @@ Returns `BrowserWindow` - The window that owns the given `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
 Returns `BrowserWindow` - The window with the given `id`.
 
@@ -472,7 +468,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Proprietà Istanza
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +489,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Metodi Istanza
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -503,11 +499,11 @@ Objects created with `new BrowserWindow` have the following instance methods:
 
 Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
 
-#### `win.close()`
+#### `win.chiudi()`
 
 Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
-#### `win.focus()`
+#### `win.focalizza()`
 
 Focuses on the window.
 
@@ -599,7 +595,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `limiti` [Rettangolo](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds
@@ -610,7 +606,7 @@ Returns [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `limiti` [Rettangolo](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
@@ -1110,4 +1106,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.
