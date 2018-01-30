@@ -111,28 +111,28 @@ Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
-Emitted when dragged files are dropped in the tray icon.
+Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string
+* `text` String -ang mga binitiwang text string
 
-Emitted when dragged text is dropped in the tray icon.
+Emitted kapag ang dragged text ay ibinagsak sa tray icon.
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Emitted kapag ang drag operation ay pumapasok sa tray icon.
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Emitted kapag ang drag operation ay lumabas sa tray icon.
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lugar.
 
 #### Event: 'mouse-enter' *macOS*
 
@@ -141,9 +141,9 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
 
-Emitted when the mouse enters the tray icon.
+Emitted kapag ang mouse ay pumapasok sa tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
@@ -152,9 +152,9 @@ Emitted when the mouse enters the tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
 
-Emitted when the mouse exits the tray icon.
+Emitted kapag ang mouse ay lumalabas sa tray icon.
 
 ### Mga pamamaraan ng pagkakataon
 
