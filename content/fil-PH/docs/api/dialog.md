@@ -84,9 +84,9 @@ Ibinabalik ang `String`, ang path ng file na pinili ng gumagamit, kung ang isang
 
 Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
 
-The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
+Ang `filters` ay nagtitiyak sa hanay ng mga uri ng file na maaaring maipakita, tingnan ang `dialog.showOpenDialog` bilang isang halimbawa.
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous at ang resulta ay mapapasa sa `callback(filename)`
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
