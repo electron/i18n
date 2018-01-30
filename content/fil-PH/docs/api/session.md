@@ -299,27 +299,27 @@ Ito ay hindi makakapekto sa umiiral `WebContents`, at bawat-isa `WebContents` ay
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Nagbabalik `String` - Ang gugamit na ahente para sa sesyon na ito.
 
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `tumawag muli` Punsyon 
+* `tumawag muli` Function 
   * `result` Buffer - Blob data.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+Nagbabalik `Blob` - The blob na datos ay na-uugnay na may `identifier`.
 
-#### `ses.createInterruptedDownload(options)`
+#### `ses.createInterruptedDownload(opsyons)`
 
-* `mga pagpipilian` Bagay 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
+* `mga pagpipilian` Mga Bagay 
+  * `path` String - Ganap na path para sa download.
+  * `urlChain` String[] - Completong URL chain para sa download.
+  * `mimeType` String (opsyonal)
+  * `offset` Integer - Pagsimula sa range para sa download.
+  * `length` Integer - Kabuuhan ng haba para sa download.
   * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `eTag` String - ETag header balyo.
+  * `startTime` Double (opsyonal) - Ang oras kung saan ang download ay nagsimula na sa numero ng segundo since UNIX epoch.
 
 Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
