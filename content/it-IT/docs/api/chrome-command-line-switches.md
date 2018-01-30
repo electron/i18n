@@ -5,34 +5,30 @@
 Puoi usare [app.Lineacomando.aggiungiCambia](app.md#appcommandlineappendswitchswitch-value) per aggiungerle nello script principale della tua app prima che siano emessi gli eventi [pronto](app.md#event-ready) del modulo [app](app.md):
 
 ```javascript
-const {app} = require('electron')
-app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
-
-app.on('ready', () => {
-  // Your code here
-})
+const {app} = richiede('electron')
+app.Lineacomando.aggiungiCambia('remoto-debugging-porta', '8315') app.Lineacomando.aggiungiCambia('regole-ospite', 'MAP * 127.0.0.1') app.su('pronto', () => {
+  // Il tuo codice va qui})
 ```
 
 ## --ignora-limite-connessione=`dominio`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ignora il limite di connessioni per la lista dei `domini` separati da `,`.
 
-## --disable-http-cache
+## --disabilita-cache-http
 
-Disables the disk cache for HTTP requests.
+Disabilita la cache del disco per le richieste HTTP.
 
-## --disable-http2
+## --disabilita-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Disabilita protocolli HTTP/2 e SPDY/3.1.
 
-## --inspect=`port` and --inspect-brk=`port`
+## --ispeziona=`porta` e --ispeziona-brk=`porta`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Segnalazioni relative al debug, vedi la guida [Processi Principali di Debugging](../tutorial/debugging-main-process.md) per dettagli.
 
-## --remote-debugging-port=`port`
+## --porta-debugging-remoto=`porta`
 
-Enables remote debugging over HTTP on the specified `port`.
+Abilita debugging remoto oltre HTTP sulla `porta` specificata.
 
 ## --disk-cache-size=`size`
 
