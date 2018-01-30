@@ -36,7 +36,7 @@ Ang ang sumusunod na pangyayari ay maaaring makita sa ilang pagkakataon ng `Cook
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
+* `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
