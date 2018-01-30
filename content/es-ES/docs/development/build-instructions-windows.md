@@ -60,7 +60,7 @@ Los otros pasos de construcción son exactamente los mismos.
 
 ## Visual Studio project
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Para generar un proyecto Visual Studio, se puede pasar el parámetro `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -98,7 +98,7 @@ Asegúrese que tiene la última versión de Visual Estudio instalada.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Si mientras se crea con Cygwin, se puede observar el fallo de `bootstrap.py` con el siguiente error:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
