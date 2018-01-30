@@ -4,20 +4,20 @@ Hay muchas manera de actualizar la aplicación Electron. La manera más fácil y
 
 ## Implementar un servidor de actualización
 
-To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
+Para empezar, primero se necesita implementar un servidor [autoUpdater](../api/auto-updater.md) de desde donde el módulo descargará nuevas actualizaciones.
 
 Dependiendo de sus necesidades, puede escoger una de esta:
 
 - [Hazel](https://github.com/zeit/hazel) – Servidor de actualización para aplicaciones de código abierto privadas. Puede utilizarse gratis en [Now](https://zeit.co/now) (usando un solo comando), va desde [GitHub Releases](https://help.github.com/articles/creating-releases/) y aprovecha el poder del CDN de GitHub
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
+- [Nuts](https://github.com/GitbookIO/nuts) – También utiliza [GitHub Releases](https://help.github.com/articles/creating-releases/), pero almacena las actualizaciones de la aplicación en el disco y es compatible con repositorios privados.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Proporciona un tablero para manejar versiones
 - [Nucleus](https://github.com/atlassian/nucleus) – Un servidor de actualizaciones completo para aplicaciones de Electron mantenido por Atlassian. Apoya varias aplicaciones y canales; utiliza un almacén de archivos estático para disminuir costos de servidor.
 
-If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
+Si la aplicación esta empaquetada con [electron-builder](https://github.com/electron-userland/electron-builder) puede utilizarse el módulo [electron-updater](https://www.electron.build/auto-update), la cual no requiere un servidor y permite actualizaciones desde S3, GitHub o cualquier otro host de archivos estáticos.
 
 ## Implementación de actualizaciones en su aplicación
 
-Una vez que haya implementado su servidor de actualización, continúe con la importación de los módulos requeridos en su código. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Una vez que haya implementado su servidor de actualización, continúe con la importación de los módulos requeridos en su código. El siguiente código podría variar en diferentes servidores de software, pero funciona como está descrito cuando se utiliza [Hazel](https://github.com/zeit/hazel).
 
 **Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
 
