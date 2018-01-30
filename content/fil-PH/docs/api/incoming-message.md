@@ -1,6 +1,6 @@
 ## Class: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> Pamamahala ng pagtugon sa hiling ng "HTTP/HTTPS".
 
 Ang proseso: [Main](../glossary.md#main-process)
 
