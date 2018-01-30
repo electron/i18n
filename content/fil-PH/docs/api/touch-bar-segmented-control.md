@@ -4,12 +4,12 @@
 
 Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSegmentedControl(options)` *Experimental*
+### `bagong TouchBarSegmentedControl(options)` *Experimental*
 
-* `mga pagpipilian` Bagay 
-  * `segmentStyle` String - (optional) Style of the segments: 
-    * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
-    * `rounded` - The control is displayed using the rounded style.
+* `mga opsyon` Object 
+  * `segmentStyle` String-(opsyonal) Ang istilo ng mga segment: 
+    * `awtomatiko` -Default. Ang anyo ng segmented control ay awtomatikong natutokoy batay sa uri ng window kung saan ang control ay nakadisplay at nakaposisyon sa loob ng window.
+    * `bilugan` -Ang control ay naipapakita gamit ang mabilog na istilo.
     * `textured-rounded` - The control is displayed using the textured rounded style.
     * `round-rect` - The control is displayed using the round rect style.
     * `textured-square` - The control is displayed using the textured square style.
