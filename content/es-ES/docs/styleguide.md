@@ -7,8 +7,8 @@ Estos son las directrices para escribir documentación de Electron.
 * Cada página debe tener un solo título de nivel `#` al principio.
 * Los capítulos en la misma página deben tener títulos de nivel `##`.
 * Los subcapítulos necesitan aumentar el número de `#` en el título acorde a su profundidad de anidamiento.
-* Todas las palabras en el título de la página deben escribirse con mayúscula, excepto las conjunciones como "de" y "y".
-* Sólo debe escribirse con mayúscula la primera palabra del título de capítulo.
+* Todas las palabras en el título de la página deben comenzar con mayúscula, excepto las conjunciones como "de" e "y".
+* Sólo la primera palabra del título de capítulo se escribir con mayúscula.
 
 Usando `Quick Start` como ejemplo:
 
@@ -33,12 +33,12 @@ Usando `Quick Start` como ejemplo:
 
 ...
 
-### Binario Electron descargado manualmente
+### Programa binario de Electron descargado manualmente
 
 ...
 ```
 
-Para referencias API, hay excepciones a esta regla.
+Para referencias API, hay excepciones para esta regla.
 
 ## Reglas de Markdown
 
