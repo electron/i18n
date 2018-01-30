@@ -44,8 +44,8 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 ### Pagtangkilik sa kalakaran ng DOM:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
+* [`Kikil ` Bagay](api/file-object.md)
+* [`<webview>` Pananda](api/webview-tag.md)
 * [`window.open` Function](api/window-open.md)
 
 ### Modules for the Main Process:
