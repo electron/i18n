@@ -30,19 +30,19 @@ Pagbabalik:
 
 `error` Error - Karaniwang hinahawakan ang maling "string" at tutukuyin ang sanhi kung bakit ito hindi nagtagumpay.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Lumalabas kapag nakatagpo ng mali habang patuloy ang "response data events". For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
-### Humahalimbawa sa bahagi nito
+### Mga Halimbawa ng Katangian
 
-An `IncomingMessage` instance has the following readable properties:
+Ang `IncomingMessage` ay may mga sumusunod na katangian na maaaring basahin:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+Ang `Integer` ay nagpapahiwatig ng partikular na katayuan ng "code" ng pagtugon ng "HTTP".
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+Ang `String` na kumakatawan sa lagay ng posisyon ng mensahe ng "HTTP".
 
 #### `response.headers`
 
