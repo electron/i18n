@@ -114,8 +114,8 @@ Pagsulat nag anumang di-nakusulat na DOMStorage na datos para sa disk.
 #### `ses.setProxy(config, callback)`
 
 * `kumpuni` Bagay 
-  * `pacScript` String - The URL associated with the PAC file.
-  * `proxyRules` String - Rules indicating which proxies to use.
+  * `pacScript` String - Ang URL na kasama na may PAC file.
+  * `proxyRules` String - Mga panuntunan na nagsasad kung no lang mga proxies na gagamitan.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
 * `callback` Function - Called when operation is done.
 
