@@ -1,4 +1,4 @@
-# clipboard (Zwischenablage)
+# Zwischenablage (clipboard)
 
 > Perform copy and paste operations on the system clipboard.
 
@@ -23,7 +23,7 @@ console.log(clipboard.readText('selection'))
 
 Das `clipboard` Modul besitzt die folgenden Methoden:
 
-**Notiz:** Experimentelle Schnittstellen sind markiert und könnten in der Zukunft wegfallen.
+**Notiz:** Experimentelle Schnittstellen sind mit "Experimental" markiert und könnten in der Zukunft wegfallen.
 
 ### `clipboard.readText([type])`
 
