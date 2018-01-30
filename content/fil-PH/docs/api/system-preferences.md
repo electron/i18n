@@ -45,24 +45,24 @@ Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina a
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
-* `event` String
-* `userInfo` Object
+* `event` na String
+* `userInfo` na Object
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
-* `event` String
-* `userInfo` Object
+* `event` na String
+* `userInfo` na Object
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
-* `event` String
+* `event` na String
 * `tumawag muli` Punsyon 
-  * `event` String
-  * `userInfo` Object
+  * `event` na String
+  * `userInfo` na Object
 
 Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -83,10 +83,10 @@ Removes the subscriber with `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
-* `event` String
+* `event` na String
 * `tumawag muli` Punsyon 
-  * `event` String
-  * `userInfo` Object
+  * `event` na String
+  * `userInfo` na Object
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`
 
