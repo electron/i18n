@@ -1,4 +1,4 @@
-# hiwalay
+# ang remote
 
 > Gamitin ang mga modyul ng pangunahing proseso mula sa proseso ng tagabigay.
 
@@ -145,4 +145,4 @@ Nagbabalik ang `any` - Ang global na pagbabago-bago ng `name` (hal. `global[name
 
 ### `ang remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Ang bagay ng `process` sa mga pangunahing proseso. Ito ay katulad ng `remote.getGlobal('process')` ngunit ito ay naka-cache.
