@@ -66,11 +66,11 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [ang powerSaveBlocker](api/power-save-blocker.md)
 * [ang protokol](api/protocol.md)
 * [sesyon](api/session.md)
-* [systemPreferences](api/system-preferences.md)
+* [mga kagustuhan sa sistema](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Modulo para sa renderer ng proseso (bahay-alalawa sa pahina):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
