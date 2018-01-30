@@ -1,6 +1,6 @@
-# Build Instructions (Windows)
+# "Build Instructions" (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Sundin ang mga sumusunod na patnubuay para sa pagbuo ng Elektron sa "Windows".
 
 ## Mga Pangunahing Kailangan
 
