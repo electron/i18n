@@ -4,15 +4,15 @@
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+Ang `IncomingMessage` ay ginagamit ang "interface" na [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams), at samakatuwid ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Instance Events
+### Mga Halimbawa ng "Events"
 
 #### Event: 'data'
 
-Magbabalik ng:
+Pagbabalik sa:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Ang "chunk" ng pagtugon sa katawan ng datos.
 
 The `data` event is the usual method of transferring response data into applicative code.
 
