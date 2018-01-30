@@ -29,19 +29,18 @@ Per creare una finestra senza chrome, o una finestra trasparente in forma arbitr
 
 ## Mostrare finestra
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Per far mostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
 
-### Using `ready-to-show` event
+### Usando l'evento `pronto-a-mostrare`
 
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
+Mentre la pagina sta caricando l'l'evento `pronto-a-mostrare sarà emesso quando i processi hanno renderizzato la pagina per la prima volta se la finestra non è ancora stata mostrata. Mostrare la finestra dopo questo evento non avrà flash visuali:</p>
 
-```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
-win.once('ready-to-show', () => {
-  win.show()
+<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron')
+vince = nuova FinestraBrowser({mostra: false})
+win.una('pronto-a-mostrare', () => {
+  win.mostra()
 })
-```
+`</pre> 
 
 This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
 
