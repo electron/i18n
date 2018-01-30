@@ -36,7 +36,7 @@ Ang mga uri ng pangunahing halaga tulad ng mga string at mga numero, gayunpaman,
 
 ## Ipinapasa ang gantingtawag patungo sa pangunahing proseso
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Ang kodigo sa pangunahing proaeso ay maaaring tanggapin ang mga gantingtawag mula sa tagabigay - sa isang pagkakataon ang modyul ng `remote` - ngunit kailangan mo ng matinding pag-iingat kapag ginagamit ang katangian na ito.
 
 First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
 
