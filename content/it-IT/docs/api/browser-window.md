@@ -599,7 +599,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `limiti` [Rettangolo](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds
@@ -610,7 +610,7 @@ Returns [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `limiti` [Rettangolo](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
