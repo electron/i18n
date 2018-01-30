@@ -123,19 +123,19 @@ module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
-const foo = require('electron').remote.require('./foo') // bar
+// prosesong tagasalin: renderer/index.js
+const foo = kailangan('electron').remote.require('./foo') // bar
 ```
 
-### `remote.getCurrentWindow()`
+### `ang remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+Nagbabalik ang [`BrowserWindow`](browser-window.md) - Ang window na kung saan nabibilang ang pahina ng web na ito.
 
-### `remote.getCurrentWebContents()`
+### `ang remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina ng web na ito.
 
-### `remote.getGlobal(name)`
+### `ang remote.getGlobal(pangalan)`
 
 * `name` String
 
