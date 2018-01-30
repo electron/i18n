@@ -4,12 +4,12 @@ Sundin ang mga sumusunod na patnubuay para sa pagbuo ng Elektron sa "Windows".
 
 ## Mga Pangunahing Kailangan
 
-* Windows 7 / Server 2008 R2 or higher
+* Windows 7 / Server 2008 R2 o mas mataas pa
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Debugging Tools para sa Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) ang `symstore.exe` ay ginagamit para sa paggawa ng "symbol store" o kung saan nakalagak ang "symbol files", na galing sa payl na `.pdb` na kinakailangan kung nais mong gumawa o lumikha ng kumpletong ditribusyon.
 
 If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
 
