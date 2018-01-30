@@ -472,7 +472,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Proprietà Istanza
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +493,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Metodi Istanza
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -503,11 +503,11 @@ Objects created with `new BrowserWindow` have the following instance methods:
 
 Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
 
-#### `win.close()`
+#### `win.chiudi()`
 
 Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
-#### `win.focus()`
+#### `win.focalizza()`
 
 Focuses on the window.
 
