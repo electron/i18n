@@ -34,13 +34,13 @@ $ python script\bootstrap.py -v
 
 ## Ang Pagbubuo
 
-Build both Release and Debug targets:
+Ang pagbuo ng "Release" at "Debug" ay pinupuntirya ang:
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Maaari rin na naman na buuin lamang ang "Debug" na pinupuntirya ang:
 
 ```powershell
 $ python script\build.py -c D
