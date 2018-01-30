@@ -20,7 +20,7 @@ win.loadURL('https://github.com')
 
 Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` ay kumakatawan sa isang bagay sa pangunahing proseso (tinatawag natin itong malayong bagay o malayong punsyon). Kapag iyong hiningi ang mga pamamaraan ng isang remote na bagay, tawagin ang isang remote na punsyon, o gumawa ng isang bagong bagay kasama ang remote na tagagawa (punsyon), ikaw ay talagang nagpapadala ng sabay-sabay na mga maki-prosesong mensahe.
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+Sa mga halimbawa sa itaas, kapuwa ang `BrowserWindow` at ang `win` ay mga remote na bagay at ang `new BrowserWindow` ay hindi gumawa ng isang bagay sa `BrowserWindow` sa prosesong tagabigay. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
 **Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
 
