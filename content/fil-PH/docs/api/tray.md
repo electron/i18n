@@ -197,13 +197,13 @@ Nagseset sa title na naka-display sa tabi ng tray icon ng status bar.
 
 Nagseset kapang ang tray's icon background ay nagiging highlighted(sa asul).
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:**Maari mong gamitin ang`highlightMode`sa isang [`BrowserWindow`](browser-window.md)sa pamamagitan ng toggling sa pagitan `'never'` and `'always'` modes kapag ang window visibility ay nagbago.
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const {BrowserWindow, Tray} = nangangailanganng('electron')
 
-const win = new BrowserWindow({width: 800, height: 600})
-const tray = new Tray('/path/to/my/icon')
+const win = bagong BrowserWindow({width: 800, height: 600})
+const tray = bagong Tray('/path/to/my/icon')
 
 tray.on('click', () => {
   win.isVisible() ? win.hide() : win.show()
@@ -218,12 +218,12 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `mga pagpipilian` Bagay 
+* `mga opsyon` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)
 
-Displays a tray balloon.
+Nagdidisplay ng isang tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
