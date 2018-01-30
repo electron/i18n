@@ -88,12 +88,12 @@ Y luego firme u aplicación con el siguiente script:
 APP="YourApp"
 # The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# La ruta a la localización donde quiere poner el paquete firmado.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# El nombre de los certificados que ha solicitado.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# La ruta a los archivos plist.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
