@@ -1,8 +1,8 @@
 ## Class: TouchBarSegmentedControl
 
-> Create a segmented control (a button group) where one button has a selected state
+> Gumawa ng segmented control(isang button group) na kung saan ang isang button ay mayroong napiling kalagyan
 
-Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
