@@ -144,6 +144,6 @@ Buscamos aumentar la claridad en todos los niveles del proceso de actualización
 
 # Versionless `master`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
+* La rama `master` siempre contendrá `0.0.0-dev` en su `package.json`
 * Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
-* Release branches *do* contain the correct version in their `package.json`
+* Las ramas de versión *do*contienen la versión correcta en su `package.json`
