@@ -133,6 +133,6 @@ Gumawa ng direktoryo na [dapat umayos ng problema](https://stackoverflow.com/a/2
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp ay 'di kinikilala bilang panloob o panlabas na "command"
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Maaaring makuha ang maling ito kapag ikaw ay gumagamit ng "Git Bash" para sa pagbuo, sa halip, dapat gamitin ang PowerShell o VS2015 Command Prompt.
