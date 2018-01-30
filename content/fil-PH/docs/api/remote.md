@@ -54,8 +54,8 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
-const mapNumbers = require('electron').remote.require('./mapNumbers')
+// proseso ng tagabigay
+const mapNumbers = kailangan('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
 
