@@ -282,20 +282,20 @@ const {session} = require('electron')
 // para sa pagsasama ng pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// isa-alangalang ang lahat ng urls para sa pagsasama ng pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (opsyonal)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+I-override ang `userAgent` at `acceptLanguages` para sa sesyong ito.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Ang `acceptLanguages` ay dapat may kuwit na hiwalay na ordered list sa language codes, para sa halimbawa `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Ito ay hindi makakapekto sa umiiral `WebContents`, at bawat-isa `WebContents` ay magagamit `webContents.setUserAgent` para i-override ang sesyon-wide ng ahente na gumagamit.
 
 #### `ses.getUserAgent()`
 
