@@ -26,16 +26,16 @@
     - Make sure it builds then add, commit, and push work to electron's crashpad fork
     - `git push electron electron-crashpad-vA.B.C.D`
 
-4. Update Electron to build the new crashpad:
+4. Actualice Electron para crear un nuevo panel de fallos:
     
     - `cd vendor/crashpad`
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
-    - From Electron root's root, run `script/update.py`
+5. Regenere los archivos Ninja contra ambos objetivos 
+    - Desde la raiz de la raiz de Electron, ejecute `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
     - Ambos deberían compilar sin errores
-6. Push changes to submodule reference 
-    - (From electron root) `git add vendor/crashpad`
+6. Inserte los cambios a la referencia de submódulo 
+    - (Desde la raiz de Electron) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
