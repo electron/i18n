@@ -21,7 +21,7 @@ En Electron tomamos un enfoque muy similar: para las compilaciones `Depurar`, el
 
 Todos los precompilados binarios de Chromium (`libchromiumcontent`) son descargados cuando está corriendo el comando de arranque. De forma predeterminada, tanto las bibliotecas estáticas como las bibliotecas compartidas se descargarán y el tamaño final debería estar entre 800 Mb y 2 Gb, dependiendo de la plataforma.
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+Por defecto, `libchromiumcontent` es descargado desde los servicios web de Amazon. Si la variable de ambiente de `LIBCHROMIUMCONTENT_MIRROR` es configurada, el comando de arranque será descargado desde él. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) es un espejo de `libchromiumcontent`. Si tiene problemas accesando AWS, puede cambiar la dirección de enlace a `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
 Si solo desea construir Electron rápidamente para pruebas o desarrollo, puede descargar solo las versiones de biblioteca compartida pasando el parámetro `--dev`:
 
@@ -32,13 +32,13 @@ $ ./script/build.py -c D
 
 ## Generación de proyectos en dos fases
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+Electron enlaza con diferentes conjuntos de bibliotecas en `Depuración` y `lanzamiento`. `gyp`, de una u otra manera, no soporta configurar diferentes enlaces para diferentes configuraciones.
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+Para trabajar alrededor de esto Electron usa una variable `gyp` `libchromiumcontent_component` para controlar cual enlace de configuración usar y solo genera un objetivo cuando esté corriendo `gyp`.
 
 ## Nombres de objetivo
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+A diferencia de la mayoría de los proyectos que utilizan `Lanzamiento` y `Depuración` como nombres destinos, Electron usa `R` y `D` en su lugar. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
 Esto solo afecta a los desarrolladores, si solo estás compilando Electron para cambiar la marca usted no estás afectado.
 
