@@ -57,18 +57,18 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
   * `url` String (opsyunal) - Nakuhang cookies na may kaugnayan sa `url`. Ang walang laman ay nagpapahiwatig na pagkuha ng mga cookies ng buong url.
   * `name` String (opsyunal) - Efilter ang mga cookies sa kanilang pangalan.
   * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `path` String (opsyunal) - Ang nakuhang cookies na nagtugma ang patungohan `path`.
+  * `secure` Boolesn (opsyunal) - Nafilter na cookies ng kanilang Secure na ari-arian.
+  * `session` Booelan (opsyunal) - Efilter ang sesyon o ang nagpapatuloy na cookies.
 * `tumawag muli` Punsyon 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie](structures/cookie.md) - ang isang array ng mga bagay ng cookie.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Magpadala ng hiling para nakuha ang lahat ng cookies na nagtugma sa `detalye`, `baliktawag` itatawag sa `baliktawag(mali, cookies)` na kumpleto.
 
-#### `cookies.set(details, callback)`
+#### `cookies.set(detalye, baliktawag)`
 
-* `details` Bagay 
+* `ang mga detalye` Bagay 
   * `url` String - The url to associate the cookie with.
   * `name` String (optional) - The name of the cookie. Empty by default if omitted.
   * `value` String (optional) - The value of the cookie. Empty by default if omitted.
