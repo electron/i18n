@@ -54,9 +54,9 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 #### `cookies.get(filter,callback)`
 
 * `salain` Bagay 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
+  * `url` String (opsyunal) - Nakuhang cookies na may kaugnayan sa `url`. Ang walang laman ay nagpapahiwatig na pagkuha ng mga cookies ng buong url.
+  * `name` String (opsyunal) - Efilter ang mga cookies sa kanilang pangalan.
+  * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
