@@ -156,44 +156,44 @@ Emitted kapag ang mouse ay pumapasok sa tray icon.
 
 Emitted kapag ang mouse ay lumalabas sa tray icon.
 
-### Mga pamamaraan ng pagkakataon
+### Halimbawa ng mga pamamaraan
 
-The `Tray` class has the following methods:
+Ang 0>Tray</code>class ay may mga sumusunod na mga pamamaraan:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Agad na sumisira sa tray icon.
 
 #### `tray.setImage(image)`
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this tray icon.
+Nagseset sa `image` na may kaugnayan sa tray icon na ito.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Nagseset sa `image`na may kaugnayan sa tray icon kapag pinindot ang macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Nagseset sa hover text para sa tray icon na ito.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar.
+Nagseset sa title na naka-display sa tabi ng tray icon ng status bar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String-Highlight mode sa isa mga mga sumusunod na mga value: 
+  * `seleksyon` -Highlight ang tray icon kapag it ay nag-click at kapag ang context menu ay nakabukas. Ito ay ang default.
+  * `palagi` - Palaging ihighlight ang tray icon.
+  * `hindikailanman` - Hindi kailanman ihighlight ang tray icon.
 
 Sets when the tray's icon background becomes highlighted (in blue).
 
