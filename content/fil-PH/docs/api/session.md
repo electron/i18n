@@ -219,11 +219,11 @@ Hindi pinapagana ang anumang network emulation ay na aktibo para sa `session`. N
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
     * `error` String - Pagpapatunay na result galing sa chromium.
-  * `tumawag muli` Punsyon 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transperancy verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+  * `callback` Function 
+    * `verificationResult` Integer - Balyo ay maaring isang sertipiko na error codes galing sa [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa sertifikong error codes, ang mga sumusunod na espesyal na codes ay magagamit. 
+      * `` - Ay nagpapahiwatig sa tagumpay at pag-disable sa Certificate Transperancy verification.
+      * `-2` - Nagpapahiwatig sa kabigu-an.
+      * `-3` - Gumagamit ng pagpapatunay galing sa chromium.
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
