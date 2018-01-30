@@ -77,10 +77,10 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [kamuntik](api/remote.md)
 * [lumikha ng bahay-alalawa](api/web-frame.md)
 
-### Modules for Both Processes:
+### Modulo para sa parehong proseso:
 
-* [clipboard](api/clipboard.md)
-* [crashReporter](api/crash-reporter.md)
+* [iipit sa tabla](api/clipboard.md)
+* [kalabog ng tagapagbalita](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [screen](api/screen.md)
 * [shell](api/shell.md)
