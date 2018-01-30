@@ -7,9 +7,9 @@ Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](htt
 Los siguientes archivos `gyp` contienen las reglas principales para compilar Electron:
 
 * `electron.gyp` define cómo se construye Electron en sí mismo.
-* `common.gypi` adjusts the build configurations of Node to make it build together with Chromium.
-* `brightray/brightray.gyp` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `brightray/brightray.gypi` includes general build configurations about building.
+* `common.gypi` ajusta las configuraciones de compilación del nodo para hacer que se compile junto con Chromium.
+* `brightray/brightray.gyp` define como `brightray` es compilado e incluye la configuración por defecto que está enlazada con Chromium.
+* `brightray/brightray.gypi` incluye configuraciones generales de compilación.
 
 ## Compilación de componentes
 
@@ -17,9 +17,9 @@ Dado que Chromium es un proyecto bastante grande, la etapa final de enlace puede
 
 En Electron tomamos un enfoque muy similar: para las compilaciones `Depurar`, el binario se vinculará a una versión de biblioteca compartida de los componentes de Chromium para lograr tiempo de enlace rápido; para las versiones <0 Lanzamiento</code>, el binario se vinculará a la versión estática de la biblioteca, para que podamos tener el mejor tamaño binario posible y el mejor rendimiento.
 
-## Minimal Bootstrapping
+## Arranque minimalista
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. De forma predeterminada, tanto las bibliotecas estáticas como las bibliotecas compartidas se descargarán y el tamaño final debería estar entre 800 Mb y 2 Gb, dependiendo de la plataforma.
+Todos los precompilados binarios de Chromium (`libchromiumcontent`) son descargados cuando está corriendo el comando de arranque. De forma predeterminada, tanto las bibliotecas estáticas como las bibliotecas compartidas se descargarán y el tamaño final debería estar entre 800 Mb y 2 Gb, dependiendo de la plataforma.
 
 By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
 
