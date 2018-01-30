@@ -63,9 +63,9 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Kagaya ng iyong nakikita, ang magkakasabay na nagbalik na halaga ng gantingtawag ng tagabigay ay hindi inaasahan, at hindi tumutugma ang nagbalik na halaga ng isang kilalang gantingtawag na naroroon sa pangunahing proseso.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+Pangalawa, ang mga gantingtawag na ipinasa sa pangunahing proseso ay mananatili hanggang sila ay ibasura ng pangunahing proseso.
 
 For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
