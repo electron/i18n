@@ -55,7 +55,7 @@ Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son part
 * **Nodos de módulo** - Nodos de módulo de terceros usados para compilar.
 * **afuera** - temporalmente afuera del directorio de `ninja`.
 * **dist** - Directorio temporal creado por el comando `script/create-dist.py` cuando se crea una distribución.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **binarios externos** - Binarios descargados de entornos de trabajos de terceros los cuales no soportan la compilación con `gyp`.
 
 ## Mantener los submódulos de Git actualizados
 
