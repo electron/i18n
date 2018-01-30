@@ -176,16 +176,16 @@ const alpha = color.substr(6, 2) // "dd"
   * `3d-light` - Kulay ng ilaw para sa tatlong dimensyonal na mga elementong pang-display.
   * `3d-shadow` - kulay ng anino para sa tatlong dimensyonal na mga elementong pang-display.
   * `active-border` - Aktibong border ng window.
-  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-  * `app-workspace` - Background color of multiple document interface (MDI) applications.
-  * `button-text` - Text on push buttons.
-  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-  * `desktop` - Desktop background color.
-  * `disabled-text` - Grayed (disabled) text.
-  * `highlight` - Item(s) selected in a control.
-  * `highlight-text` - Text of item(s) selected in a control.
-  * `hotlight` - Color for a hyperlink or hot-tracked item.
+  * `active-caption` - Aktibong title bar ng window. Nagtatakda ng kaliwang bandang kulay sa kulay na gradient ng title bar ng isang aktibong window kapag ang gradient na epekto ay pinapagana.
+  * `active-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng tile bar ng isang aktibong window.
+  * `app-workspace` - Kulay ng background ng multiple document interface (MDI) na mga aplikasyon.
+  * `button-text` - Teksto sa mga push button.
+  * `caption-text` - Teksto sa kapsyon, kahong pangsukat, at scroll bar na kahong pang-arrow.
+  * `desktop` - Kulay ng background ng desktop.
+  * `disabled-text` - Nakakulay gray (hindi pinapagana) na teksto.
+  * `highlight` - Ang (mga) aytem na pinili sa isang kontrol.
+  * `highlight-text` - Teksto ng (mga) aytem na pinili sa isang kontrol.
+  * `hotlight` - Kulay para sa isang hyperlink o hot-tracked na aytem.
   * `inactive-border` - Inactive window border.
   * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
   * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
