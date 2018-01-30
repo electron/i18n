@@ -2,7 +2,7 @@
 
 > Abre una nueva ventana y carga una dirección URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Cuando `window.open` es llamado para crear una nueva ventana en una página web, una nueva instancia de `BrowserWindow` se creará para el `url` y se devolverá un proxy a `window.open` para dejar que la página tenga un control limitado sobre el.
 
 El proxy tiene implementada una limitada funcionalidad estándar para ser compatible con páginas web tradicionales. Para un control total de la nueva ventana deberías crear un `BrowserWindow` directamente.
 
@@ -16,14 +16,14 @@ La recien creada `BrowserWindow` heredará las opciones de la ventana principal 
 
 Devuelve [`BrowserWindowProxy`](browser-window-proxy.md) - Crea una nueva ventana y devuelve una instancia de la clase`BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+La cadena `features` sigue el formato del navegador estándar, pero cada característica tiene que ser un campo de las opciones de `BrowserWindow`.
 
 **Notas:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
+* La integración de nodo siempre estará deshabilitada en la `window` abierta si está deshabilitada en la ventana principal.
+* El aislamiento de contexto siempre estará habilitado en la `window` abierta si está habilitado en la ventana principal.
 * JavaScript siempre estará deshabilitado en la `window` abierta si está deshabilitado en la ventana principal.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* Las características no estándares predeterminadas (que no son manejadas por Chromium o Electron) en `features` serán pasadas a cualquier manejador de evento registrado `new-window` de `webContent` en el argumento `additionalFeatures`.
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
