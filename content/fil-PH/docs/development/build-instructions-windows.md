@@ -34,23 +34,23 @@ $ python script\bootstrap.py -v
 
 ## Ang Pagbubuo
 
-Ang pagbuo ng "Release" at "Debug" ay pinupuntirya ang:
+Ang pagbuo ng parehong pinupuntirya na "Release" at "Debug":
 
 ```powershell
 $ python script\build.py
 ```
 
-Maaari rin na naman na buuin lamang ang "Debug" na pinupuntirya ang:
+Maaari rin naman na buuin lamang ang pinupuntirya na "Debug":
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Matapos mabuo ang mga ito, maaaring makita ang `electron.exe` sa ilalim ng `out\D` (debug target) o sa ilalim ng `out\R` (release target).
 
-## 32bit Build
+## Pagbuo ng 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Para mabuo ang pinupuntirya na 32bit, dapat lagpasan ang `--target_arch=ia32` kapag pinapatakbo ang iskrip na "bootstrap":
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
