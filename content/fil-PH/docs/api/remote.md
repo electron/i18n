@@ -32,9 +32,9 @@ Sinisigurado ng Electron na habang ang remote na bagay ay nandoon pa sa proseson
 
 Kung ang remote na bagay ay nakalabas sa prosesong tagabigay (hal. itinago sa isang balangkas ngunit hindi nailabas), ang nararapat na bagay sa pangunahing proseso ay makakalabas din, kaya kailangan mo ng matinding pag-iingat na hindi makalabas ang mga remote na bagay.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Ang mga uri ng pangunahing halaga tulad ng mga string at mga numero, gayunpaman, ay ipinapadala sa pamamagitan ng pagkopya.
 
-## Passing callbacks to the main process
+## Ipinapasa ang gantingtawag patungo sa pangunahing proseso
 
 Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
 
