@@ -1,8 +1,8 @@
-# I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.
+# dialog
 
-> Ipakita ang mga dayalogo ng sinaunang sistema para sa pagbukas at pag-seyb ng mga file, pag-alerto, atbp.
+> Ipakita ang mga dayalogo ng katutubong sistema para sa pagbubukas at pagse-seyb ng mga file, pag-aalerto, atbp.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso: [Main](../glossary.md#main-process)
 
 Ang isang halimbawa ng pagpapakita ng isang dayalogo para pumili ng maramihang mga file at mga direktoryo:
 
