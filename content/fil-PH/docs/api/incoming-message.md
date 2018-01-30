@@ -38,7 +38,7 @@ Ang `IncomingMessage` ay may mga sumusunod na katangian na maaaring basahin:
 
 #### `response.statusCode`
 
-Ang `Integer` ay nagpapahiwatig ng partikular na katayuan ng "code" ng pagtugon ng "HTTP".
+Ang `Integer` ay tinutukoy ang partikular na katayuan ng "code" ng pagtugon ng "HTTP".
 
 #### `response.statusMessage`
 
