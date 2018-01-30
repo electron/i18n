@@ -68,8 +68,8 @@ Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
 
 * `limiti` [Rettangolo](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `colore` Stringa - Colore in forma `#aarrggbb` o `#argb`. Il canale alpha opzionale.
