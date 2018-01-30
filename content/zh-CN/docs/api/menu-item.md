@@ -8,14 +8,14 @@
 
 ### `new MenuItem(options)`
 
-* `options` Object 
+* `选项` 对象 
   * `click` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
-  * ` role ` String (可选)-定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
+  * ` role ` String (可选)-内置事件, 定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
-  * ` label `String (可选)
+  * ` label `String (可选，菜单名称)
   * `sublabel` String - (可选)
   * `accelerator` [Accelerator](accelerator.md) (可选)
   * `icon` ([NativeImage](native-image.md) | String) (可选)
