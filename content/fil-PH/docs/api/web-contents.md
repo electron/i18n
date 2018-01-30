@@ -1,8 +1,8 @@
 # webContents
 
-> Render and control web pages.
+> Ibigay at kontrolin ang mga web page.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 `webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
