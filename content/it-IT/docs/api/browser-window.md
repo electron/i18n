@@ -1,14 +1,14 @@
-# BrowserWindow
+# FinestraBrowser
 
-> Create and control browser windows.
+> Crea e controlla finestre browser.
 
 Processo: [Principale](../glossary.md#main-process)
 
 ```javascript
 // Nel processo principale.
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = richiedi('electron')
 
-// Or use `remote` from the renderer process.
+// O usa 'remoto' dai processi di render.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Crea e controlla finestre browser.
 
 Processo: [Principale](../glossary.md#main-process)
 
