@@ -80,7 +80,7 @@ Kapag naipasa ang isang `callback`, ang API na tawag ay magiging asynchronous at
 * `callback` Function (opsyonal) 
   * `filename` String
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Ibinabalik ang `String`, ang path ng file na pinili ng gumagamit, kung ang isang callback ay ibinigay, ibinabalik nito ang `undefined`.
 
 Ang `browserWindow` na argumento ay nagbibigay-daan sa dialog na ilakip ang kanyang sarili sa isang parent na window na ginagawa itong modal.
 
