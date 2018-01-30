@@ -48,27 +48,27 @@ Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina a
 * `event` na String
 * `userInfo` na Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
 
 ### `systemPreferences.postLocalNotification(event, userInfo)` *macOS*
 
 * `event` na String
 * `userInfo` na Object
 
-Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` na String
-* `tumawag muli` Punsyon 
+* `callback` na Function 
   * `event` na String
   * `userInfo` na Object
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Nagsa-subscribe sa pansariling mga paalala ng macOS, ang `callback` ay tatawagin gamit ang `callback(event, userInfo)` kapag ang katumbas na `event` ay nangyayari. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+Ang `id` ng nagsa-subscribe ay ibinabalik, pwede itong gamitin sa pag-unsubscribe sa `event`.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificationCenter`, ang mga halimbawang halaga ng `event` ay:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -77,9 +77,9 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
-* `id` Integer
+* `id` na Integer
 
-Removes the subscriber with `id`.
+Tinatanggal ang nagsa-subscribe kasama ang `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
