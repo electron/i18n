@@ -199,11 +199,11 @@ Vea la [documentación sobre la habilitación del acceso del usuario a archivos 
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Esto fallará cuando la aplicación sea firmada para distribución en la Mac App Store. Subscrita a [#9005](https://github.com/electron/electron/issues/9005) para actualizaciones.
 
-#### Workaround
+#### Soluciones
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+`shell.openExternal('file://' + filePath)` Abrirá el archivo en la aplicación por defecto siempre y cuando la extensión esté asociada con la aplicación instalada.
 
 ## Algoritmos criptográficos utilizados por Electron
 
