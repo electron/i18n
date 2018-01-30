@@ -80,18 +80,18 @@ Magpadala ng hiling para nakuha ang lahat ng cookies na nagtugma sa `detalye`, `
 * `tumawag muli` Punsyon 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(error)` na kumpleto.
 
-#### `cookies.remove(url, name, callback)`
+#### `cookies.remove(url, pangalan, baliktawag)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - Ang isang URL na maiugnay sa may cookie.
+* `name` String - Ang pangalan ng isang cookie na natanggal.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Tanggalin ang mga cookies na nagtugma sa `url` at `name`, `callback` ay tinatawag na may `callback()` kung kumpleto.
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.
