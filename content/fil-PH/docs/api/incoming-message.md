@@ -14,7 +14,7 @@ Pagbabalik sa:
 
 * `chunk` Buffer - Ang "chunk" ng pagtugon sa katawan ng datos.
 
-Ang "`data` event" ay ang karaniwang paraan sa pagsasalin ng "response data" bilang "applicative code".
+Ang "`data` event" ay karaniwang paraan sa pagsasalin ng pagtugon sa datos bilang "applicative code".
 
 #### Event: 'end'
 
