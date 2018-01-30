@@ -14,11 +14,11 @@ Pagbabalik sa:
 
 * `chunk` Buffer - Ang "chunk" ng pagtugon sa katawan ng datos.
 
-The `data` event is the usual method of transferring response data into applicative code.
+Ang "`data` event" ay ang karaniwang paraan sa pagsasalin ng "response data" bilang "applicative code".
 
 #### Event: 'end'
 
-Indicates that response body has ended.
+Nagpapahiwatig na ang "response body" ay tapos na.
 
 #### Event: 'aborted'
 
