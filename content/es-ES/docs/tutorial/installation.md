@@ -8,7 +8,7 @@ Para instalar binarios de Electron incorporados, usar [`npm`](https://docs.npmjs
 npm install electron -save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Consulte [Electron versioning doc](electron-versioning.md) para información sobre cómo manejar las versiones Electron en las aplicaciones.
 
 ## Instalación Global
 
@@ -26,7 +26,7 @@ Si quieres cambiar la arquitectura que será descargada (e.g, `ia32` en una máq
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Además de cambiar la arquitectura, también se puede especificar la plataforma (e.g., `win32`, `linux`, etc.) utilizando el flag `--platform`:
 
 ```shell
 npm install --platform=win32 electron
@@ -38,13 +38,13 @@ Si necesitas usar un porxy HTTP puedes [configurar estas variables de entorno](h
 
 ## Espejos y cachés personalizados
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Durante la instalación, el módulo `electron` será llamado a [`electron-download`](https://github.com/electron-userland/electron-download) para descargar los archivos binarios precreados de Electron para la plataforma. Lo hará poniéndose en contacto con la página de descarga de versiones de GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, donde `$VERSION` es la versión exacta de Electron).
 
 Si no puede acceder a GitHub o necesita proporcionar una compilación personalizada, puede hacerlo proporcionando un espejo o un directorio de caché existente.
 
 #### Espejo
 
-Puede usar variables de entorno para anular la URL base, la ruta en la cual buscar binarios de Electron y el nombre del archivo binario. The url used by `electron-download` is composed as follows:
+Puede usar variables de entorno para anular la URL base, la ruta en la cual buscar binarios de Electron y el nombre del archivo binario. El url utilizado por `electron-download` se compone de la siguiente manera:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
@@ -58,7 +58,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Caché
 
-Alternativamente, puede anular la memoria caché local. `electron-download` will cache downloaded binaries in a local directory to not stress your network. Puede usar esa carpeta de caché para proporcionar compilaciones personalizadas de Electron o para evitar hacer contacto con la red en absoluto.
+Alternativamente, puede anular la memoria caché local. `electron-download` almacenará en caché los archivos binarios descargados en un directorio local para no sobrecargar la red. Puede usar esa carpeta de caché para proporcionar compilaciones personalizadas de Electron o para evitar hacer contacto con la red en absoluto.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -66,7 +66,7 @@ Alternativamente, puede anular la memoria caché local. `electron-download` will
 
 En entornos que han estado usando versiones anteriores de Electron, también podrás encontrar la caché en `~/.electron`.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+También se puede anular la ubicación de almacenamiento en caché local al proporcionar una variable de entorno `ELECTRON_CACHE`.
 
 El caché contiene el archivo zip oficial de la versión, así como una suma de comprobación almacenada como un archivo de texto. Un caché típico podría verse así:
 
@@ -91,7 +91,7 @@ En casi todos los casos, estos errores son resultados de problemas en la red y n
 
 También puede intentar descargar Electron directamente de [electron/electron/releases](https://github.com/electron/electron/releases) si la ruta de instalación `npm` está fallando.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Si la instalación falla con un error `EACCESS` puede que se necesite los [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 Si el error de arriba persiste, puede ser que el flag [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) necesite ser igualado a true:
 
