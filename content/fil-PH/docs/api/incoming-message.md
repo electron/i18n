@@ -30,7 +30,7 @@ Pagbabalik:
 
 `error` Error - Karaniwang hinahawakan ang maling "string" at tutukuyin ang sanhi kung bakit ito hindi nagtagumpay.
 
-Lumalabas kapag nakatagpo ng mali habang patuloy ang "response data events". For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Lumalabas kapag nakatagpo ng mali habang patuloy ang pagtugon sa datos ng "events". For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
 ### Mga Halimbawa ng Katangian
 
@@ -48,9 +48,9 @@ Ang `String` na kumakatawan sa lagay ng posisyon ng mensahe ng "HTTP".
 
 Ang `Object` na syang kumakatawan sa tugon ng "HTTP headers". Ang "`headers` object" ay nakaayos ayon sa mga sumusunod:
 
-* Ang lahat ng pangalan na nasa itaas ay dapat gumamit ng maliliit na titik.
-* Ang bawat panganlan na nasa itaas ay gagawa ng katangian ng "array-valued" sa "header's object".
-* Each header value is pushed into the array associated with its header name.
+* Ang lahat ng pangalan ng "header" ay dapat gumamit ng maliliit na titik.
+* Ang bawat pangalan ng "header" ay gagawa ng katangian ng "array-valued" sa "header's object".
+* Ang bawat halaga ng "header" na bahagi ay sapilitan na ipupunta sa "array" na kaugnay sa pangalan nito.
 
 #### `response.httpVersion`
 
