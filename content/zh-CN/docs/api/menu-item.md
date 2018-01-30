@@ -44,13 +44,13 @@
 * `pasteandmatchstyle`
 * `selectall`
 * `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
+* `minimize` - 最小化当前窗口。
+* `close` - 关闭当前窗口
+* `quit`- 退出应用。
+* `reload` - 重新加载当前窗口。
+* `forcereload` - 重新加载当前窗口忽略缓存。
+* `toggledevtools` - 在当前窗口中隐藏/显示开发者工具。
+* `togglefullscreen`- 切换全屏模式。
 * `resetzoom` - Reset the focused page's zoom level to the original size
 * `zoomin` - Zoom in the focused page by 10%
 * `zoomout` - Zoom out the focused page by 10%
