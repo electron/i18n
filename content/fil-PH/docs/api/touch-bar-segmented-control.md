@@ -17,9 +17,9 @@ Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
     * `small-square` -Ang contol ay naipapakita gamit ang small square style.
     * `separated` - Ang mga segment sa control ay naka-display malapit sa isat'isa ngunit hindi hawakan.
   * `mode` String - (opsyonal) Ang pagpili ng mode ng control: 
-    * `single` - Default. One item selected at a time, selecting one deselects the previously selected item.
-    * `multiple` - Multiple items can be selected at a time.
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
+    * `single` - Default. Isang item ang napili sa isang pagkakataon, ang pagpili ng isang deselects sa dating napiling item.
+    * `multiple` -Multiple items ay maaring mapili nang paisa-isa.
+    * `buttons` -Gumawa ng mga segment act bilang mga button, bawat segment ay pinindot at inilabas pero hindi kailanman minarkahan bilang aktibo.
   * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
   * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
   * `change` Function - Called when the user selects a new segment 
