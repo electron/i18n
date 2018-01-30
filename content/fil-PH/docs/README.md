@@ -46,15 +46,15 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 * [`Kikil ` Bagay](api/file-object.md)
 * [`<webview>` Pananda](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [` bintana. buksan ` Tungkulin](api/window-open.md)
 
-### Modules for the Main Process:
+### Mga modyul para sa pangunahing proseso:
 
 * [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
+* [awtoUpdeyter](api/auto-updater.md)
+* [Kulayan ang kapaligiran](api/browser-view.md)
+* [Kulayan ang bintana](api/browser-window.md)
+* [pagsubaybay ng nilalaman](api/content-tracing.md)
 * [I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
