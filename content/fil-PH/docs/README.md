@@ -40,9 +40,9 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Sinopsis](api/synopsis.md)
 * [Mga pangprocessong bagay](api/process.md)
 * [Suportadong mga Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Nagbabago sa kapaligiran](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Pagtangkilik sa kalakaran ng DOM:
 
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
