@@ -1,6 +1,6 @@
 # Compilación de sistemas
 
-Electron uses [gyp](https://gyp.gsrc.io/) for project generation and [ninja](https://ninja-build.org/) for building. Las configuraciones del proyecto pueden ser encontradas en los archivos `.gyp` y `.gypi`.
+Electron usa [gyp](https://gyp.gsrc.io/) para la generación de proyectos y [ninja](https://ninja-build.org/) para su compilación. Las configuraciones del proyecto pueden ser encontradas en los archivos `.gyp` y `.gypi`.
 
 ## Archivos Gyp
 
@@ -38,7 +38,7 @@ Para trabajar alrededor de esto Electron usa una variable `gyp` `libchromiumcont
 
 ## Nombres de objetivo
 
-A diferencia de la mayoría de los proyectos que utilizan `Lanzamiento` y `Depuración` como nombres destinos, Electron usa `R` y `D` en su lugar. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+A diferencia de la mayoría de los proyectos que utilizan `Lanzamiento` y `Depuración` como nombres destinos, Electron usa `R` y `D` en su lugar. Esto se debe a que `gyp` colapsa de manera aleatoria si hay solo una configuración de compilado definida en `lanzamiento` o `depuración`, y Electron solo tiene que generar un destino al mismo tiempo como se dijo arriba.
 
 Esto solo afecta a los desarrolladores, si solo estás compilando Electron para cambiar la marca usted no estás afectado.
 
@@ -62,21 +62,21 @@ Cada vez que realice cambios en el código fuente de Electron, deberá volver a 
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+Puede hacer que la prueba en suite corra más rápido al aislar la prueba específica o bloquear su trabajo actual en la característica [prueba exclusiva](https://mochajs.org/#exclusive-tests) de Mocha. Solo anexar `.only` a cualquier llamada de las funciones `descripción` o `eso`:
 
 ```js
 describe.only('some feature', function () {
-  // ... only tests in this block will be run
+  // ... solo pruebas en este bloque será ejecutadas
 })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+Alternativamente, puede usar la opción de mocha `grep` de solo correr prueba que coincidan con un patrón regular de expresión:
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+Pruebas que incluyan módulos nativos (como por ejemplo `runas`) no pueden ser ejecutadas con el compilador de depuración (vea [#2558](https://github.com/electron/electron/issues/2558) para más detalles), pero estos trabajarán con el compilado lanzado.
 
 Para ejecutar las pruebas con el lanzamiento compila el uso:
 
