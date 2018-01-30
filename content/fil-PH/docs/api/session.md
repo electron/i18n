@@ -227,7 +227,7 @@ Hindi pinapagana ang anumang network emulation ay na aktibo para sa `session`. N
 
 Nagtatakda ng sertifikong verify proc para sa `session`, ang `proc` ay tinatawag na may `proc(request, callback)` sa tuwing ang server certificate ay hinihiling. Calling `callback(0)` tinatanggap ang sertifiko, calling `callback(-2)` tinatangihan ito.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+Ang pagtawag `setCertificateVerifyProc(null)` ay i-rerevert pabalik sa default ang sertifiko verify proc.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -245,11 +245,11 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `ang tagahawak` Punsyon 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
+* `ang tagahawak` Function 
+  * `webContents` [WebContents](web-contents.md) - WebContents pag-request ng pahintulot.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `tumawag muli` Punsyon 
-    * `permissionGranted` Boolean - Allow or deny the permission
+  * `callback` Function 
+    * `permissionGranted` Boolean - Pagpayag o pag-tanggi sa pahintulot
 
 Sets the handler which can be used to respond to permission requests for the `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
 
