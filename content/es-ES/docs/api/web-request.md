@@ -98,7 +98,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `listener` Función
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
 
 * `details` Object 
   * `id` Cadena
@@ -111,9 +111,9 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `headers de respuesta` objeto
 * `llamada de vuelta` Función 
   * `respuesta` Object 
-    * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+    * `cancelar` Booleano
+    * `Encabezados de respuesta` Objecto (opcional) - Cuando se provean, el servidor se asume que será respondido con estos encabezados.
+    * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
 
 La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
@@ -129,11 +129,11 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `resourceType` String
     * `fecha y hora` Doble
     * `headers de respuesta` objeto
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
     * `Estatus de código` entero
-    * `statusLine` String
+    * `linea de estatus` Cadena
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. Para las solicitudes HTTP, esto significa que la línea de estado y los encabezados de respuesta están disponibles.
+El `oyente` será cancelado con `listener(details)` cuando se reciba el primer byte del cuerpo de la respuesta. Para las solicitudes HTTP, esto significa que la línea de estado y los encabezados de respuesta están disponibles.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
@@ -148,8 +148,8 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `fecha y hora` Doble
     * `redirectURL` String
     * `Estatus de código` entero
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
-    * `fromCache` Boolean
+    * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
+    * `Desde cache` Booleano
     * `headers de respuesta` objeto
 
 The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
@@ -166,7 +166,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `resourceType` String
     * `fecha y hora` Doble
     * `headers de respuesta` objeto
-    * `fromCache` Boolean
+    * `Desde cache` Booleano
     * `Estatus de código` entero
     * `statusLine` String
 
@@ -183,7 +183,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `method` Cuerda
     * `resourceType` String
     * `fecha y hora` Doble
-    * `fromCache` Boolean
+    * `Desde cache` Booleano
     * `error` String - The error description.
 
 The `listener` will be called with `listener(details)` when an error occurs.
