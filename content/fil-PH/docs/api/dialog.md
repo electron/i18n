@@ -103,12 +103,12 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
   * `icon` [NativeImage](native-image.md) (opsyonal)
   * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `` ay gagamitin bilang pabalik na halaga o sagot sa callback. Ang opsyon na ito ay napapabayaan sa Windows.
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
-  * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
-* `tumawag muli` Function (opsyonal) 
-  * `response` Number - The index of the button that was clicked
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
+* `callback` Function (opsyonal) 
+  * `response` Numero - ang index ng pipindutin na napindot
+  * `checkboxChecked` Boolean - ang binagong estado ng checkbox kapang ang `checkboxLabel` at na-set. Kung hindi, ito ay `false`.
 
-Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+Ibinabalik ang `Integer`, ang index ng napindot na pipindutin, kung ang isang callback ay naibigay, undefined ang ibinabalik nito.
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
