@@ -20,7 +20,7 @@ Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
     * `single` - Default. Isang item ang napili sa isang pagkakataon, ang pagpili ng isang deselects sa dating napiling item.
     * `multiple` -Multiple items ay maaring mapili nang paisa-isa.
     * `buttons` -Gumawa ng mga segment act bilang mga button, bawat segment ay pinindot at inilabas pero hindi kailanman minarkahan bilang aktibo.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
+  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md)Isang array ng mga segment na dapat ilagay sa control nito.
   * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
   * `change` Function - Called when the user selects a new segment 
     * `selectedIndex` Integer - The index of the segment the user selected.
