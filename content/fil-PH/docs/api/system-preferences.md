@@ -186,20 +186,20 @@ const alpha = color.substr(6, 2) // "dd"
   * `highlight` - Ang (mga) aytem na pinili sa isang kontrol.
   * `highlight-text` - Teksto ng (mga) aytem na pinili sa isang kontrol.
   * `hotlight` - Kulay para sa isang hyperlink o hot-tracked na aytem.
-  * `inactive-border` - Inactive window border.
-  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-  * `inactive-caption-text` - Color of text in an inactive caption.
-  * `info-background` - Background color for tooltip controls.
-  * `info-text` - Text color for tooltip controls.
-  * `menu` - Menu background.
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+  * `inactive-border` - Hindi aktibong border ng window.
+  * `inactive-caption` - Hindi aktibong kapsyon. Itinatakda ang kaliwang bandang kulay sa isang kulay na gradient ng title bar ng isang hindi aktibong window kapag pinapagana ang epektong gradient.
+  * `inactive-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng title bar ng isang hindi aktibong window.
+  * `inactive-caption-text` - Kulay ng teksto sa isang hindi aktibong kapsyon.
+  * `info-background` - Kulay ng background para sa mga kontrol ng tooltip.
+  * `info-text` - Kulay ng teksto para sa mga kontrol ng tooltip.
+  * `menu` - Background ng menu.
+  * `menu-highlight` - Ang kulay na ginamit upang i-highlight ang mga aytem ng menu kung saan ang menu ay lumalabas bilang flat na menu.
+  * `menubar` - Ang kulay ng background para sa menu bar kapag ang mga menu ay lumalabas bilang mga flat na menu.
+  * `menu-text` - Teksto sa mga menu.
+  * `scrollbar` - Kulay gray na lugar sa scroll bar.
+  * `window` - Background ng Window.
+  * `window-frame` - Frame ng window.
+  * `window-text` - Teksto sa mga window.
 
 Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
