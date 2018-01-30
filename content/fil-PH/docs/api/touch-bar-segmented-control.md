@@ -32,11 +32,11 @@ Ang mga sumusunod na properties ay maaring gamitin sa mga pagkakataon ng`TouchBa
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Ang `String`nagrepresenta sa kontrol ng kasalukuyang segment style. Ina-update agad nito ang value na nagupdate sa control na nasa touch bar.
 
 #### `touchBarSegmentedControl.segments`
 
-A `SegmentedControlSegment[]` array representing the segments in this control. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Isang `SegmentedControlSegment[]`array ang kumakatawan sa mga segment sa mga kontrol na ito. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
 
 #### `touchBarSegmentedControl.selectedIndex`
 
