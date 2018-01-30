@@ -251,7 +251,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `callback` Function 
     * `permissionGranted` Boolean - Pagpayag o pag-tanggi sa pahintulot
 
-Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` will allow the permission and `callback(false)` will reject it.
+Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` ay maaring bigyan pahintulot ang `callback(false)` ay tatangihan ito.
 
 ```javascript
 const {session} = require('electron')
@@ -268,18 +268,18 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
-Clears the host resolver cache.
+Nililimas ang host resolver cache.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` String - Ang comma-separated na listahan ng servers para sa integrated authentication ay pinagana.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Dynamically ay nagtatakda kung para sa laging magpadala sa credentials para sa HTTP NTLM o Negotiate authentication.
 
 ```javascript
 const {session} = require('electron')
 // consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// para sa pagsasama ng pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
 // consider all urls for integrated authentication.
