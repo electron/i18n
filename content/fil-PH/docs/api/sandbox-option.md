@@ -1,6 +1,6 @@
-# `sandbox` Opsyon
+# `sandbox` Ang opsyon
 
-> Lumikha ng isang browser window kasama ang tagabigay na pwedeng gamitin sa Chromium OS sandbox. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
+> Lumikha ng isang browser window kasama ang tagabigay na maaaring gumana sa loob ng sandbox ng Chromium OS. With this option enabled, the renderer must communicate via IPC to the main process in order to access node APIs. However, in order to enable the Chromium OS sandbox, electron must be run with the `--enable-sandbox` command line argument.
 
 Isa sa mga ang susi sa pangseguridad tampok ang Chromium na ang lahat ng blink rendering/JavaScript code ay isasagawa sa loob ng sandbox. Itong sandbox ay gumagamit ng OS ang partikular na tampok nito ay siguraduhin magamit ng tagabigay ang proseso na hindi makakaepekto sa sistema.
 
