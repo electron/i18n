@@ -43,12 +43,12 @@ w.loadURL('http://google.com')
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
+Tandaan na ito ay hindi sapat upang tawagin ang `app.commandLine.appendSwitch('--enable-sandbox')`, bilang elektron o node startup code na tumatakbo pagkatapos ito ay posibleng gumawa ng mga pagbabago sa mga settings ng chromium sandbox. Ang switch ay dapat dumaan sa elektron sa mga command-line:
 
-    electron --enable-sandbox app.js
+    elektron --enable-sandbox app.js
     
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
+Ito ay hindi posible na magkaroon ng OS sandbox na aktibo lamang para sa ilang mga renderers, kung `--enable-sandbox` ay gumagana, ang normal na elektron windows ay hindi malilikha.
 
 If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
