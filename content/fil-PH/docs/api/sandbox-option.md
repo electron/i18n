@@ -34,14 +34,12 @@ Sa itaas na code ang `BrowserWindow` na nalikha na may node.js ay hindi pinagana
 
 Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagana ng OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
+Upang paganahin ang OS-enforced sandbox sa `BrowserWindow` o `webview` na proseso na may `sandbox:tama` na walang sanhi ng buong app sa sandbox, `--enable-mixed-sandbox` utos-sa-linya ay dapat maipasa sa elektron. Ang opsyun na ito ay kasalukuyang suportado sa macOS at Windows lamang.
 
 ```js
-let win
-app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
-  win = new BrowserWindow()
-  w.loadURL('http://google.com')
+hayaan manalo ang app.on('ready',() => { // hindi kailangan na maipasa 'sandbox: tama 'sapagkat ' --enable-sandbox' ay gumagana.
+win = newBrowerWindow()
+w.loadURL('http://google.com')
 })
 ```
 
