@@ -86,4 +86,4 @@ Ibabalik sa [`Display`](structures/display.md) - Ang pinakamalapit na display sa
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Ibabalik sa [`Display`](structures/display.md) - Ang display na pinakamalapit na bumabalandra sa ibinibigay na hangganan.
