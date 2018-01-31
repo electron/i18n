@@ -16,7 +16,7 @@ Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang al
 
 ## Halimbawa
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+Para lumikha ng isang window na naka-sandbox, ipasa lamang ang `sandbox: true` sa `webPreferences`:
 
 ```js
 let win
