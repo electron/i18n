@@ -95,9 +95,9 @@ window.open = customWindowOpen
 
 Mahahalagang bagay na mapapansin sa preload script:
 
-- Even though the sandboxed renderer doesn't have node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
-- The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
-- The preload script must be contained in a single script, but it is possible to have complex preload code composed with multiple modules by using a tool like browserify, as explained below. In fact, browserify is already used by electron to provide a node-like environment to the preload script.
+- Kahit na ang sandboxed na tagsalin na walang node.js na tumatakbo, ito parin ay ma-aakses sa isang limitadong node-like na kapaligiran: `Buffer`, `proseso`, `setlmmediate` at `nangangailangan` ay magagamit.
+- Ang preload script ay maaaring ma-akses na hindi direkta ang lahat na APIs na mula sa pangunahing proseso sa pamamagitan ng `remote` at `ipcRenderer` na mga modyul. Ito ay kung paano ang `fs` (na ginagamit sa itaas) at ang ibang modyul ay ipinatupad: Ang mga proxy na katapat sa pangunahing proseso.
+- Ang preload script ay dapat nakapaloob sa isang iskrip, pero ito din ay posible na magkaroon ng mga kumplikado na preload na kodigo na binubuo ng maramihang mga modyul sa parang kasangkapan na browserify, na naipaliwanag sa ibaba. Sa katunayan, ang browserify na ginagamit ng mga elektron upang magbigay ng isang katulad ng node na kapaligiran sa preload iskrip.
 
 Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
 
