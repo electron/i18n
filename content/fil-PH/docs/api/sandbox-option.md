@@ -2,7 +2,7 @@
 
 > Lumikha ng isang browser window kasama ang tagabigay na maaaring gumana sa loob ng sandbox ng Chromium OS. Kasama ang pinaganang opsyon, ang tagabigay ay dapat makipag-ugnayan sa pamamagitan ng IPC sa mga pangunahing proseso nang sa gayon ay ma-access ang mga node ng API. Gayunpaman, para mapagana ang sandbox ng Chromium OS, ang electron ay dapat na umandar kasama ang `--enable-sandbox` ng argumento sa linya ng komand.
 
-Isa sa mga katangian ng susing pangseguridad ng Chromium ay ang lahat ng kodigo ng blink rendering/JavaScript ay isinagawa sa loob ng isang sandbox. Itong sandbox ay gumagamit ng OS ang partikular na tampok nito ay siguraduhin magamit ng tagabigay ang proseso na hindi makakaepekto sa sistema.
+Isa sa mga katangian ng susing pangseguridad ng Chromium ay ang lahat ng kodigo ng blink rendering/JavaScript ay isinagawa sa loob ng isang sandbox. Ang sandbox na ito ay gumagamit ng partikular na mga katangian ng OS para matiyak na ang pagsasamantala sa mga prosesong tagasalin ay hindi makakasira sa sistema.
 
 In other words, when the sandbox is enabled, the renderers can only make changes to the system by delegating tasks to the main process via IPC. [Nandito](https://www.chromium.org/developers/design-documents/sandbox)na ang mas maraming impormasyon tungkol sa sandbox.
 
