@@ -100,7 +100,7 @@ app.on('ready', () => {
 
 一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
-### `contentTracing.stopMonitoring(callback)`
+### `contentTracing.startMonitoring(options, callback)`
 
 * `callback` Function
 
@@ -108,7 +108,7 @@ app.on('ready', () => {
 
 一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `contentTracing.startMonitoring(options, callback)`
 
 * `resultFilePath` String
 * `callback` Function 
@@ -120,7 +120,7 @@ app.on('ready', () => {
 
 一旦所有子进程都确认了 ` captureMonitoringSnapshot ` 请求, 就会使用包含跟踪数据的文件来调用 ` callback `。
 
-### `contentTracing.getTraceBufferUsage(callback)`
+### `contentTracing.startMonitoring(options, callback)`
 
 * `callback` Function 
   * `value` Number
