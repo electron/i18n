@@ -47,6 +47,6 @@
     "pretest": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "electronLatestStableTag": "v1.7.11",
+  "electronLatestStableTag": "v1.7.12",
   "electronMasterBranchCommit": "278c58055ed36f6f22cea05a9cd85a5ab4fb3010"
 }
