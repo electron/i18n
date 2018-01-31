@@ -364,30 +364,30 @@ Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 #### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil sa nakakaharap ng isang meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
 ```
 
-#### Event: 'update-target-url'
+#### Kaganapan: 'update-target-url'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `url` String
+* `kaganapan` Kaganapan
+* `url` Pisi
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `type` String
-* `image` NativeImage (optional)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
+* `kaganapan` Kaganapan
+* `uri` Pisi
+* `imahe` NativeImage (opsyonal)
+* `scale` Lumutang (opsyonal) - scaling factor para sa mga pasadyang cursor
+* `sukat` [Sukat](structures/size.md) (opsyonal) - ang sukat ng `imahe`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
 Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
