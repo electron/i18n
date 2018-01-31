@@ -109,13 +109,13 @@ Ibinabalik:
 * `referer` String
 * `header` Bagay
 
-Emitted when a redirect is received while requesting a resource.
+Pinapalabas kapag natanggap ang pag-redirect habang humihiling ng mapagkukuhanan.
 
-#### Event: 'dom-ready'
+#### Kaganapan: 'dom-ready'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
+* `kaganapan` Kaganapan
 
 Emitted when the document in the given frame is loaded.
 
