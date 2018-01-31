@@ -23,7 +23,7 @@ console.log(clipboard.readText('selection'))
 
 Das `clipboard` Modul besitzt die folgenden Methoden:
 
-**Notiz:** Experimentelle Schnittstellen sind mit "Experimental" markiert und könnten in der Zukunft wegfallen.
+**Notiz:** Experimentelle Schnittstellen sind mit "Experimentell" markiert und könnten in der Zukunft wegfallen.
 
 ### `clipboard.readText([type])`
 
@@ -84,7 +84,7 @@ Gibt das `Object` zurück:
 * `title` String
 * `url` String
 
-Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. The `title` and `url` values will be empty strings when the bookmark is unavailable.
+Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -92,7 +92,7 @@ Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys re
 * `url` String
 * `type` String (optional)
 
-Writes the `title` and `url` into the clipboard as a bookmark.
+Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
 
 **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
@@ -125,7 +125,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *Experimentell*
 
 * `format` String
 * `type` String (optional)
@@ -137,22 +137,22 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` *Experimentell*
 
 * `format` String
 
 Returns `String` - Reads `format` type from the clipboard.
 
-### `clipboard.readBuffer(format)` *Experimental*
+### `clipboard.readBuffer(format)` *Experimentell*
 
 * `format` String
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` *Experimentell*
 
 * `format` String
-* `buffer` Buffer
+* `buffer` Puffer
 * `type` String (optional)
 
 Writes the `buffer` into the clipboard as `format`.
@@ -164,7 +164,7 @@ Writes the `buffer` into the clipboard as `format`.
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
-  * `bookmark` String (optional) - The title of the url at `text`.
+  * `bookmark` String (optional) - Der Titel von der URL bei `text`.
 * `type` String (optional)
 
 ```javascript
@@ -172,4 +172,4 @@ const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})
 ```
 
-Writes `data` to the clipboard.
+Schreibt `data` in die Zwischenablage.
