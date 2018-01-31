@@ -1,13 +1,13 @@
 # Electron Documentation Styleguide
 
-These are the guidelines for writing Electron documentation.
+Queste sono le linee guida per scrivere la documentazione di Electron.
 
 ## Titles
 
 * Each page must have a single `#`-level title at the top.
 * Chapters in the same page must have `##`-level titles.
 * Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
+* Tutte le parole nel titolo della pagina devono essere in maiuscolo, ad eccezione di congiunzioni come "di" e "e".
 * Only the first word of a chapter title must be capitalized.
 
 Using `Quick Start` as example:
