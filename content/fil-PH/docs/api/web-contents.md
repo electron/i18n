@@ -49,7 +49,7 @@ Proseso: [pangunahin](../glossary.md#main-process)
 
 #### Kaganapan: 'ginawa-tapusin-dala'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Binubuwag kapag ang nabigasyon ay tapos na, i.e. ang spinner ng tab ay tumigil Umiikot, at ang `onload` kaganapan ay ipinadala.
 
 #### Event: 'did-fail-load'
 
