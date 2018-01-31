@@ -201,7 +201,7 @@ Ibinabalik:
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+Ang pagtawag sa `kaganapan.preventDefault()` ay hindi papansinin ang `beforeunload` tagahawak ng kaganapan at pahihintulutan ang pahina na ito ay i-unload.
 
 ```javascript
 const {BrowserWindow, dialog} = require('electron')
