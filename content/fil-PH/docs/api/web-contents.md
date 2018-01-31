@@ -61,18 +61,18 @@ Ibinabalik:
 * `napatunayan sa Url`tali
 * `ay pangunahing kuwadro` Boolean
 
-This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Ang kaganapang ito ay tulad ng `did-finish-load` ngunit inilalabas kapag nabigo ang pag load o kinansela, hal. `window.stop() ` ay ginagamit. Ang buong listahan ng mga error code at ang kanilang mga kahulugan ay magagamit [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Event: 'did-frame-finish-load'
+#### Kaganapan: 'ginawa-frame-finish-load'
 
-Magbabalik ng:
+Pagbabalik ng:
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `ay pangunahing kuwadro` Boolean
 
-Emitted when a frame has done navigation.
+Napalabas kapag ang frame ay nagawa na ang nabigasyon.
 
-#### Event: 'did-start-loading'
+#### Kaganapan: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab started spinning.
 
