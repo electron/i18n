@@ -301,15 +301,15 @@ Ibinabalik:
 
 Naipalalabas kapag nabigo upang i-verify ang `sertipiko` para sa `url`.
 
-The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
+Ang paggamit ay pareho sa [ang kaganapan `certificate-error` ng `app` ](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Kaganapan: 'select-client-certificate'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `url` Ang URL
-* `certificateList` [Certificate[]](structures/certificate.md)
+* `kaganapan` Kaganapan
+* `url` URL
+* `certificateList` [Sertipiko[]](structures/certificate.md)
 * `tumawag muli` Punsyon 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
