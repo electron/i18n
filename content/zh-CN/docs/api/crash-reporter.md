@@ -65,25 +65,25 @@ crashReporter.start({
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+返回 [`CrashReport`](structures/crash-report.md):
 
 返回上次崩溃报告的日期和ID。如果没有崩溃报告 发送或crash reporter尚未开始，则返回`null`。
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+返回 [`CrashReport[]`](structures/crash-report.md):
 
 返回所有上传的崩溃报告。每个报告都包含日期和上传ID。
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+返回 `Boolean` - 是否已将报告提交到服务器。通过`start` 方法或 `setUploadToServer`设置.
 
 **注意：** 这个API仅可从主进程调用。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - 是否将报告提交到服务器
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
