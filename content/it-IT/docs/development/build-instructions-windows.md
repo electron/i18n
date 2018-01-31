@@ -13,7 +13,7 @@ Follow the guidelines below for building Electron on Windows.
 
 If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+La costruzione di Electron viene eseguita interamente con script da riga di comando e non può essere eseguita con Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
