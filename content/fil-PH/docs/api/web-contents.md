@@ -199,7 +199,7 @@ Ibinabalik:
 
 * `kaganapan` Kaganapan
 
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
+Naipalalabas kapag ang `beforeunload` ay sinusubukan ng tagahawak ng kaganapan na kanselahin ang pag-unload ng pahina.
 
 Ang pagtawag sa `kaganapan.preventDefault()` ay hindi papansinin ang `beforeunload` tagahawak ng kaganapan at pahihintulutan ang pahina na ito ay i-unload.
 
