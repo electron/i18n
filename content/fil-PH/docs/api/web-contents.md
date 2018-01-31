@@ -27,7 +27,7 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Ibinabalik `WebContents[]` - Ang array ng lahat `WebContents`ng mga pagkakataon.  . This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 
 ### `webContents.getFocusedWebContents()`
 
