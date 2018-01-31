@@ -52,35 +52,35 @@ Magbabalik ng:
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
 ## Pamamaraan
 
-The `screen` module has the following methods:
+Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Pagbabalik [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+Ang kasalukuyang ganap na posisyon ng mouse pointer.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+Ibabalik sa `Integer` - Ang taas ng menu bar sa pixels.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Ibabalik [`Display`](structures/display.md) - Ang pangunahing display.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Ibabalik sa [`Display[]`](structures/display.md) - Ang array sa display na kasalukuyang magagamit.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Ibabalik sa [`Display`](structures/display.md) - Ang pinakamalapit na display sa isang tiyak na punto.
 
 ### `screen.getDisplayMatching(rect)`
 
