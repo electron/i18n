@@ -94,19 +94,19 @@ Ibinabalik ang:
 * `header` Bagay
 * `resourceType` Tali
 
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+Pinapalabas kapag may mga detalye tungkol sa hiniling na mapagkukunan at magagamit sa `katayuan` ay nagpapahiwatig sa socket connection upang i-download ang mapagkukunan.
 
-#### Event: 'did-get-redirect-request'
+#### Kaganapan: 'did-get-redirect-request'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `oldURL` String
+* `kaganapan` Kaganapan
+* `oldURL` Pisi
 * `newURL` String
 * `ay pangunahing kuwadro` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
-* ang `referer` String
+* `referer` String
 * `header` Bagay
 
 Emitted when a redirect is received while requesting a resource.
