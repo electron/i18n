@@ -13,7 +13,7 @@ Follow the guidelines below for building Electron on Windows.
 
 If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
 
-La costruzione di Electron viene eseguita interamente con script da riga di comando e non può essere eseguita con Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+La costruzione di Electron viene eseguita interamente con script da riga di comando e non può essere eseguita con Visual Studio. Puoi sviluppare Electron con qualsiasi editor, ma il supporto per la creazione con Visual Studio arriverà in futuro.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
@@ -40,7 +40,7 @@ Build both Release and Debug targets:
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Puoi anche creare solo il target di debug:
 
 ```powershell
 $ python script\build.py -c D
@@ -56,7 +56,7 @@ To build for the 32bit target, you need to pass `--target_arch=ia32` when runnin
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Le altre fasi di costruzione sono esattamente le stesse.
 
 ## Visual Studio project
 
@@ -94,7 +94,7 @@ If you encountered an error like `Command xxxx not found`, you may try to use th
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Assicurati di aver installato l'ultimo aggiornamento di Visual Studio.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Questo è causato da un bug quando si usano insieme Cygwin Python e il Node Win32. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
