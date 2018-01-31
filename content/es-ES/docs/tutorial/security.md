@@ -28,20 +28,20 @@ Esto no es aprueba de balas, pero debería intentar lo siguiente al menos:
 
 * [Solo carga contenido seguro](#only-load-secure-content)
 * [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#disable-node.js-integration-for-remote-content)
-* [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
+* [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#enable-context-isolation-for-remote-content)
 * [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#handle-session-permission-requests-from-remote-content)
-* [Do not disable `webSecurity`](#do-not-disable-websecurity)
-* [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-* [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
-* [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
-* [Do not enable experimental features](#do-not-enable-experimental-features)
-* [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
+* [No desactives `webSecurity`](#do-not-disable-websecurity)
+* [Define un `Content-Security-Policy`](#define-a-content-security-policy) y usa reglas extrictas (i.e. `script-src 'self'`)
+* [Sobrescribe y desactiva `eval`](#override-and-disable-eval), lo que permite que las cadenas sean ejecutadas como código.
+* [No establezca `allowRunningInsecureContent` a `true`](#do-not-set-allowRunningInsecureContent-to-true)
+* [No active ajustes experimentales](#do-not-enable-experimental-features)
+* [No use `blinkFeatures`](#do-not-use-blinkfeatures)
 * [Visor web: no use `allowpopups`](#do-not-use-allowpopups)
-* [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+* [WebViews: Verifique las opciones y parámetros de todos los `<webview>` tags](#verify-webview-options-before-creation)
 
-## Only Load Secure Content
+## Solo Carga Contenido Seguro
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Cualquier recurso no incluido con tu aplicación debería ser cargado usando un protocolo de seguridad como `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### ¿Por què?
 
