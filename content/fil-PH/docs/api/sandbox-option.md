@@ -127,6 +127,6 @@ Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin 
 - Ang isang preload na iskrip ay maaring naaksidenteng tumagas na pribilehiyong APIs sa di-pinagkakatiwalaan na kodigo.
 - Ang ilang bug sa V8 engine ay maaring payagan ang malisyusong kodigo para ma-akses ang renderer preload APIs, na epiktibong bigyan ng buong akses sa sistema sa pamamagitan ng `remote` na modyul.
 
-Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
+Dahil sa pagrender ng hindi makapagtiwalaang nilalaman sa elektron ay wala pa sa mapa ng teritoryo, ang APIs ay nakalantad sa sandbox preload na iskrip na dapt na maisaalang-alang na maraming hindi matatag kaysa sa ilang elektron ng APIs, ay maaring mayroong pagsira sa mga pagbabago para ayusin ang isyu sa seguridad.
 
 One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
