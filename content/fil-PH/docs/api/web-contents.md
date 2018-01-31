@@ -179,7 +179,7 @@ Ibinabalik:
 
 Nilalabas kapag ang nabigasyon ay natapos na.
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa mga link ng anchor o pag-update ng `bintana.lokasyon.hash`. Gamit ang `ginawa-navigate-sa-pahina` kaganapan para sa layuning ito.
 
 #### Kaganapan: 'ginawa-navigate-in-page'
 
@@ -189,9 +189,9 @@ Ibinabalik:
 * `url` Pisi
 * `ay pangunahing kuwadro` Boolean
 
-Emitted when an in-page navigation happened.
+Inilalabas kapag nangyari ang pag-navigate sa pahina.
 
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
 #### Kaganapan: 'will-prevent-unload'
 
@@ -241,11 +241,11 @@ Magbabalik ng:
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### Kaganapan: 'nawasak'
 
-Emitted when `webContents` is destroyed.
+Nagpapalabas kapag ang `webContents` ay nawasak.
 
-#### Event: 'before-input-event'
+#### Kaganapan: 'bago-input-kaganapan'
 
 Magbabalik ng:
 
@@ -438,9 +438,9 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `tumawag muli` Punsyon 
   * `deviceId` String
