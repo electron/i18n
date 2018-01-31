@@ -58,8 +58,8 @@ Ibinabalik:
 * `kaganapan`Kaganapan
 * `pagkakamalingCode`kabuuan
 * `Paglalarawan ng pagkakamali`tali
-* `validatedURL` String
-* `isMainFrame` Boolean
+* `napatunayan sa Url`tali
+* `ay pangunahing kuwadro` Boolean
 
 This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -68,7 +68,7 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 Magbabalik ng:
 
 * `event` Event
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 
 Emitted when a frame has done navigation.
 
@@ -103,7 +103,7 @@ Magbabalik ng:
 * `event` Event
 * `oldURL` String
 * `newURL` String
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
 * ang `referer` String
@@ -187,7 +187,7 @@ Magbabalik ng:
 
 * `event` Event
 * `url` String
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 
 Emitted when an in-page navigation happened.
 
