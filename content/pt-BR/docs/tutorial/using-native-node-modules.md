@@ -2,11 +2,11 @@
 
 The native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron's headers when building native modules.
 
-## How to install native modules
+## Como instalar módulos nativos
 
-Three ways to install native modules:
+Existem três maneiras para instalar módulos nativos:
 
-### Using `npm`
+### Usando `npm`
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
