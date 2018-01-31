@@ -143,7 +143,7 @@ Lumalabas kapag ang pahina ay humiling na magbukas ng bagong bintana para sa isa
 
 Sa pamamagitan ng default ng isang bagong `BrowserWindow` ay nilikha para sa `url`.
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Halimbawa:
+Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang Elektron mula sa awtomatikong paglikha ng isang bagong `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Halimbawa:
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
