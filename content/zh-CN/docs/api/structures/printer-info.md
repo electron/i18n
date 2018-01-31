@@ -1,6 +1,6 @@
 # PrinterInfo 对象
 
-* `硬件名称` 字符串
+* `name` String
 * `description` 字符串
 * `status` 数字
 * `isDefault` 布尔类型
