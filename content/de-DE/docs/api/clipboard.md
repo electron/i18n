@@ -94,7 +94,7 @@ Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys re
 
 Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
 
-**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+**Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
 
 ```js
 clipboard.write({
@@ -155,7 +155,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 * `buffer` Puffer
 * `type` String (optional)
 
-Writes the `buffer` into the clipboard as `format`.
+Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
 
 ### `clipboard.write(data[, type])`
 
