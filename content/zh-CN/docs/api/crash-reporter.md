@@ -85,7 +85,7 @@ crashReporter.start({
 
 * `uploadToServer` Boolean *macOS* - 是否将报告提交到服务器
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+通常, 是否提交是由用户对系统进行偏好设置而决定的。不能在 `start` 之前调用该方法，否则无效.
 
 **注意：** 这个API仅可从主进程调用。
 
@@ -94,19 +94,19 @@ This would normally be controlled by user preferences. This has no effect if cal
 * `key` String - 参数键，长度必须小于64个字符
 * ` value `字符串参数值, 长度必须少于64个字符。指定 ` null ` 或 ` undefined ` 将从参数中删除该键。
 
-设置一个在发送崩溃报告时将额外包含的参数。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 此 API 仅在 macOS 上可用, start 首次调用后, 如果您希望在在 Linux 和 Windows 上添加或更新额外参数, 您可以更新 `extra` 选项并再次调用 `start` 。
 
 ## 崩溃报告内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* `ver` String - Electron 的版本.
+* `platform` String - 例如 'win32'.
+* `process_type` String - 例如 'renderer'.
+* `guid` String - 例如 '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` String - `package.json` 里的版本号.
+* `_productName` String - `crashReporter` `options` 对象中的产品名字
+* `prod` String - 基础产品名字. 在这种情况下为 Electron.
+* `_companyName` String - `crashReporter` `options` 对象中的公司名称
+* `upload_file_minidump` File - `minidump` 格式的崩溃报告
 * All level one properties of the `extra` object in the `crashReporter` `options` object.
