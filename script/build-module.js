@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+require('make-promises-safe')
 require('require-yaml')
 
 const walk = require('walk-sync')
@@ -7,6 +8,7 @@ const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
 const hubdown = require('hubdown')
+const slugg = require('slugg')
 const locales = require('../lib/locales')
 const hrefType = require('href-type')
 const URL = require('url')
@@ -135,9 +137,7 @@ function splitMd (md) {
       inCodeBlock = !inCodeBlock
     }
     if (isHeading(curr)) {
-      section.name = curr
-        .replace(/[`~!@#$%^&*()|_+=?;:'",.<>{}[\]\\/\s]/g, '-')
-        .replace(/--+/g, '-')
+      section.name = slugg(curr)
     }
     section.body.push(curr)
 
