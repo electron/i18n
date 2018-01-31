@@ -58,7 +58,7 @@ $ python script\bootstrap.py -v --target_arch=ia32
 
 Los otros pasos de construcción son exactamente los mismos.
 
-## Visual Studio project
+## Proyecto de Visual Studio
 
 Para generar un proyecto Visual Studio, se puede pasar el parámetro `--msvs`:
 
