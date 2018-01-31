@@ -326,17 +326,17 @@ Ibinabalik:
   * `paraan` Pisi
   * `url` URL
   * `referrer` URL
-* `ang authInfo` Bagay 
-  * `isProxy` Ang Boolean
-  * `scheme` Ang string
-  * `host` String
+* `authInfo` Layunin 
+  * `isProxy` Boolean
+  * `scheme` Pisi
+  * `host` Pisi
   * `port` Integer
-  * `realm` String
-* `tumawag muli` Punsyon 
-  * `username` String
-  * `password` String
+  * `realm` Pisi
+* `muling tumawag` Function 
+  * `username` Pisi
+  * `password` Pisi
 
-Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
+Naipalalabas kapag ang `webContents` ay nais gawin ang pangunahing auth.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
