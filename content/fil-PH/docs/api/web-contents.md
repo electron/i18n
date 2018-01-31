@@ -168,36 +168,36 @@ Ang kaganapang ito ay hindi naglalabas kapag ang navigation ay nagsimula sa prog
 
 Hindi rin ito nagpapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa mga link ng anchor o pag-update ng `bintana.lokasyon.hash` Gamit ang `ginawa-navigate-sa-pahina`at mga kaganapan para sa layuning ito.
 
-Calling `event.preventDefault()` will prevent the navigation.
+Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
-#### Event: 'did-navigate'
+#### Kaganapan: 'ginawa-navigate'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `url` String
+* `kaganapan` Kaganapan
+* `url` Pisi
 
-Emitted when a navigation is done.
+Nilalabas kapag ang nabigasyon ay natapos na.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-#### Event: 'did-navigate-in-page'
+#### Kaganapan: 'ginawa-navigate-in-page'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `url` String
+* `kaganapan` Kaganapan
+* `url` Pisi
 * `ay pangunahing kuwadro` Boolean
 
 Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-#### Event: 'will-prevent-unload'
+#### Kaganapan: 'will-prevent-unload'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
+* `kaganapan` Kaganapan
 
 Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
 
@@ -222,12 +222,12 @@ win.webContents.on('will-prevent-unload', (event) => {
 })
 ```
 
-#### Event: 'crashed'
+#### Kaganapan: 'nag-crash'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `killed` Ang Boolean
+* `kaganapan` Kaganapan
+* `pinatay` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
