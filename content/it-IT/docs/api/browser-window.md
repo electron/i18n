@@ -127,13 +127,13 @@ Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle
   * `Larghezzamassima` Intero (opzionale) - Larghezza massima della finestra. Di default non ha limiti.
   * `Altezzamassima` Intero (opzionale) - Altezza massima della finestra. Di default è senza limiti.
   * `ridimensionabile` Booleano (opzione) - Se la finestra è ridimensionabile. Di default è `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Di default è `false`.
+  * `mobile` Booleano (opzionale) - Se la finestra è mobile. Non è implementato su Linux. Di default è `true`.
+  * `minimizzabile` Booleano (opzionale) - Se la finestra è minimizzabile. Non implementato su Linux. Di default è `true`.
+  * `massimizzabile` Booleano (opzionale) - Se la finestra è massimizzabile. Non implementato su Linux. Di default è `true`.
+  * `chiudibile` Booleano (opzionale) - Se la finestra è chiudibile. Non implementato su Linux. Di default è `true`.
+  * `focalizzabile` Booleano (opzionale) - Se la finestra è focalizzabile. Di default è `true`. Su Windows impostare `focalizzabile: false` implica impostare `saltaTaskbar: true`. Su Linux, impostare `focalizzabile: false` ferma l'interazione della finestra con wm, così la finestra resterà sempre in alto rispetto alle aree di lavoro.
+  * `seprealTop` Booleano (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
+  * `schermointero` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
   * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
