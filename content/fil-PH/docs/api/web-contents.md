@@ -90,9 +90,9 @@ Ibinabalik ang:
 * `orihinalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* ang `referer` String
-* `headers` Object
-* `resourceType` String
+* `referer` String
+* `header` Bagay
+* `resourceType` Tali
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
@@ -107,7 +107,7 @@ Magbabalik ng:
 * `httpResponseCode` Integer
 * `requestMethod` String
 * ang `referer` String
-* `headers` Object
+* `header` Bagay
 
 Emitted when a redirect is received while requesting a resource.
 
