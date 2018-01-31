@@ -98,7 +98,7 @@ Using `autoUpdater` as an example:
 * Tutti i metodi che hanno un valore di ritorno devono iniziare la loro descrizione con "Ritorna `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
+* Le proprietà dell'istanza devono essere elencate sotto a `### Instance Properties` chapter. 
   * Instance properties must start with "A [Property Type] ..."
 
 Using the `Session` and `Cookies` classes as an example:
@@ -137,7 +137,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### Methods
 
-The methods chapter must be in the following form:
+Il capitolo dei metodi deve essere nella seguente forma:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -160,7 +160,7 @@ The optional arguments are notated by square brackets `[]` surrounding the optio
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Sotto il metodo sono informazioni più dettagliate su ciascuno degli argomenti. Il tipo di argomento è indicato dai tipi comuni:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -169,7 +169,7 @@ Below the method is more detailed information on each of the arguments. The type
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Se un argomento o un metodo è univoco per certe piattaforme, tali piattaforme sono denotate utilizzando un elenco in corsivo delimitato dallo spazio che segue il tipo di dati. Values can be `macOS`, `Windows`, or `Linux`.
 
 ```markdown
 * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
