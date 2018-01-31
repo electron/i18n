@@ -74,20 +74,20 @@ Napalabas kapag ang frame ay nagawa na ang nabigasyon.
 
 #### Kaganapan: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab started spinning.
+Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay nagsimulang umikot.
 
-#### Event: 'did-stop-loading'
+#### Kaganapan: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stopped spinning.
+Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay tumigil sa pagikot.
 
-#### Event: 'did-get-response-details'
+#### Kaganapan: 'ginawa-kumuha-tugon-detalye'
 
-Magbabalik ng:
+Ibinabalik ang:
 
-* `event` Event
-* `status` Boolean
+* `kaganapan` kaganapan
+* `katayuan` Boolean
 * `newURL` String
-* `originalURL` String
+* `orihinalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
 * ang `referer` String
