@@ -12,7 +12,7 @@ Karaniwang ito ay hindi problema para sa mga aplikasyon ng desktop dahil ang mga
 
 Ang tagasalin ng isang sandbox ay hindi magkakaroon ng gumaganang kapaligiran ng isang node.js at hindi ilalantad ang mga JavaScript API ng node.js sa kodigo ng kliyente. Ang tanging eksepsyon ay ang preload script, kung saan ay may access sa isang tagasalin ng API ng electron.
 
-Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
+Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Samakatuwid, ang ilang mga API tulad ng `window.open` ay gagana tulad ng ginagawa nila sa chromium (hal. hindi nila ibinabalik ang isang `BrowserWindowProxy`).
 
 ## Halimbawa
 
