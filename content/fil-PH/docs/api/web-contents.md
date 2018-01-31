@@ -315,17 +315,17 @@ Ibinabalik:
 
 Naipalalabas kapag hiniling ang sertipiko ng kliyente.
 
-The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
+Ang paggamit ay pareho sa [ang kaganapan `piliin-client-sertipiko`ng `app`](app.md#event-select-client-certificate).
 
-#### Event: 'login'
+#### Kaganapan: 'pag-login'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `kahilingan` Bagay 
-  * `method` String
-  * `url` Ang URL
-  * `referrer`Ang URL
+* `kaganapan` Kaganapan
+* `hiling` Bagay 
+  * `paraan` Pisi
+  * `url` URL
+  * `referrer` URL
 * `ang authInfo` Bagay 
   * `isProxy` Ang Boolean
   * `scheme` Ang string
