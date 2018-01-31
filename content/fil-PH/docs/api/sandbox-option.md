@@ -129,4 +129,4 @@ Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin 
 
 Dahil sa pagrender ng hindi makapagtiwalaang nilalaman sa elektron ay wala pa sa mapa ng teritoryo, ang APIs ay nakalantad sa sandbox preload na iskrip na dapt na maisaalang-alang na maraming hindi matatag kaysa sa ilang elektron ng APIs, ay maaring mayroong pagsira sa mga pagbabago para ayusin ang isyu sa seguridad.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Isang planadong paghuhusay na dapat may malaking dagdag sa seguridad ay para maharangan ang mensahe ng IPC galing sa sandboxed renderers sa pamamagitan ng default, nagpapahintulot na ang pangunahing proseso sa tahasang pagtutukoy sa isang itinakdang mensahe sa renderer ay mapayagan na maipadala.
