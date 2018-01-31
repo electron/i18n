@@ -8,7 +8,7 @@ You can run `npm run lint` to show any style issues detected by `cpplint` and `e
 
 For C++ and Python, we follow Chromium's [Coding Style](https://www.chromium.org/developers/coding-style). You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
-The Python version we are using now is Python 2.7.
+La versione Python che stiamo usando ora è Python 2.7.
 
 The C++ code uses a lot of Chromium's abstractions and types, so it's recommended to get acquainted with them. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
 
