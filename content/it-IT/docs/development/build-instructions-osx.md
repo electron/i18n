@@ -8,7 +8,7 @@ Follow the guidelines below for building Electron on macOS.
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (external)
 
-If you are using the Python downloaded by Homebrew, you also need to install the following Python modules:
+Se stai usando il Python scaricato da Homebrew, devi anche installare i seguenti moduli Python:
 
 - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
