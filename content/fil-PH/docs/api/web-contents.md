@@ -311,9 +311,9 @@ Ibinabalik:
 * `url` URL
 * `certificateList` [Sertipiko[]](structures/certificate.md)
 * `tumawag muli` Function 
-  * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
+  * `sertipiko` [Sertipiko](structures/certificate.md) - Dapat ay isang sertipiko mula sa ibinigay na listahan
 
-Lalabas kapag ang sertipiko ng kliyente ay hiniling.
+Naipalalabas kapag hiniling ang sertipiko ng kliyente.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
