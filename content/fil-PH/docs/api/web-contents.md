@@ -204,20 +204,20 @@ Emitted when a `beforeunload` event handler is attempting to cancel a page unloa
 Ang pagtawag sa `kaganapan.preventDefault()` ay hindi papansinin ang `beforeunload` tagahawak ng kaganapan at pahihintulutan ang pahina na ito ay i-unload.
 
 ```javascript
-const {BrowserWindow, dialog} = require('electron')
-const win = new BrowserWindow({width: 800, height: 600})
-win.webContents.on('will-prevent-unload', (event) => {
-  const choice = dialog.showMessageBox(win, {
-    type: 'question',
-    buttons: ['Leave', 'Stay'],
-    title: 'Do you want to leave this site?',
-    message: 'Changes you made may not be saved.',
+const {BrowserWindow, dialog} = nangangailangan('elektron')
+const manalo = bagong BrowserWindow ({width: 800, height: 600})
+manalo.webContents.on('will-prevent-unload', (kaganapan) => {
+  const pagpili = dialog.showMessageBox(manalo, {
+    uri: 'tanong',
+    mga buton: ['Umalis', 'Manatili'],
+    pamagat: 'Gusto mo bang umalis sa site na ito?',
+    mensahe: 'Ang mga pagbabagong ginawa mo ay maaaring hindi mai-save.',
     defaultId: 0,
     cancelId: 1
   })
-  const leave = (choice === 0)
-  if (leave) {
-    event.preventDefault()
+  const umalis = (pagpili === 0)
+  kung (umalis) {
+    kaganapan.preventDefault()
   }
 })
 ```
