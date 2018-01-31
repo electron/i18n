@@ -441,8 +441,8 @@ Emitted when there is a new context menu that needs to be handled.
 Ibinabalik:
 
 * `kaganapan` Kaganapan
-* `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `tumawag muli` Punsyon 
+* `Mga aparato` [BluetoothDevice[]](structures/bluetooth-device.md)
+* `tumawag muli` Function 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
