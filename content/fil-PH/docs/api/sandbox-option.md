@@ -59,22 +59,20 @@ Ang app na ito ay maaaring makapagcustomize sa sandboxed renderers gamit ang pre
 ```js
 let win
 app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      sandbox: true,
-      preload: 'preload.js'
-    }
-  })
-  w.loadURL('http://google.com')
+win = new BrowserWindow({
+   webPreferences: { 
+     sandbox: true, 
+     preload: 'preload.js'
+ }
+})
+w.loadURL('http://google.com')
 })
 ```
 
 at preload.js:
 
 ```js
-// This file is loaded whenever a javascript context is created. It runs in a
-// private scope that can access a subset of electron renderer APIs. We must be
-// careful to not leak any objects into the global scope!
+// Ang file na ito ay isinasakay tuwing ang isang javascript na konteksto ay nilikha. Ito ay tumatakbo sa isang // pribadong saklaw na maaaring ma-akses ang isang subset ng elektron na tagasalin ng APIs. Dapat tayong maging // maingat para hindi tumagas ang anumang bagay sa mga pandaigdigang saklaw!
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
