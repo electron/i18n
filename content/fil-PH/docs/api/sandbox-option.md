@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-In the above code the `BrowserWindow` that was created has node.js disabled and can communicate only via IPC. The use of this option stops electron from creating a node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+Sa itaas na code ang `BrowserWindow` na nalikha na may node.js ay hindi pinagana at maari ding makipag-ugnayan lamang sa pamamagitan ng IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
 
 It is important to note that this option alone won't enable the OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
 
