@@ -338,18 +338,18 @@ Ibinabalik:
 
 Naipalalabas kapag ang `webContents` ay nais gawin ang pangunahing auth.
 
-The usage is the same with [the `login` event of `app`](app.md#event-login).
+Ang paggamit ay pareho sa [ang kaganapan `login` ng `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Kaganapan: 'natagpuan-sa-pahina'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `result` Bagay 
+* `kaganapan` Kaganapan
+* `resulta` Bagay 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Position of the active match.
-  * `matches` Integer - Number of Matches.
-  * `selectionArea` Object - Coordinates of first match region.
+  * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
+  * `tugma` Integer - Bilang ng Mga Tugma.
+  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
 
 Emitted when a result is available for [`webContents.findInPage`] request.
