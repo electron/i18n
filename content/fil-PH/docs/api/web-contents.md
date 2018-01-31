@@ -352,9 +352,9 @@ Ibinabalik:
   * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
 
-Emitted when a result is available for [`webContents.findInPage`] request.
+Naipalalabas kapag ang resulta ay magagamit para sa [`webContents.findInPage`] humiling.
 
-#### Event: 'media-started-playing'
+#### Kaganapan: 'media-started-playing'
 
 Emitted when media starts playing.
 
