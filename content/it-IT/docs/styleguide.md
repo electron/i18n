@@ -181,7 +181,7 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### Events
 
-The events chapter must be in following form:
+Il capitolo degli eventi deve essere nel seguente formato:
 
 ```markdown
 ### Event: 'wake-up'
@@ -199,7 +199,7 @@ The arguments of an event follow the same rules as methods.
 
 ### Properties
 
-The properties chapter must be in following form:
+Il capitolo proprietà dovrebbe essere nel seguente formato:
 
 ```markdown
 ### session.defaultSession
