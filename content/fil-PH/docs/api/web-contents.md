@@ -310,7 +310,7 @@ Ibinabalik:
 * `kaganapan` Kaganapan
 * `url` URL
 * `certificateList` [Sertipiko[]](structures/certificate.md)
-* `tumawag muli` Punsyon 
+* `tumawag muli` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
 
 Lalabas kapag ang sertipiko ng kliyente ay hiniling.
