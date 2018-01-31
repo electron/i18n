@@ -297,9 +297,9 @@ Ibinabalik:
 * `mali` Pisi - The error code
 * `sertipiko` [Sertipiko](structures/certificate.md)
 * `tumawag muli` Function 
-  * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
+  * `isTrusted` Boolean - ay nagpapahiwatig kung ang sertipiko ay maaaring ituring na pinagkakatiwalaan
 
-Emitted when failed to verify the `certificate` for `url`.
+Naipalalabas kapag nabigo upang i-verify ang `sertipiko` para sa `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
