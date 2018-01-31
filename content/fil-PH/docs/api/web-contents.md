@@ -37,17 +37,17 @@ Ibinabalik `WebContents` - Ang mga nilalaman ng web na nakatuon sa application n
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Ibinabalik ang `WebContents` - Halimbawa ng WebContents na may ibinigay na ID.
 
-## Class: WebContents
+## Klase: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Ibigay at kontrolin ang mga nilalaman na halimbawa ng BrowserWindow.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso: [pangunahin](../glossary.md#main-process)
 
-### Instance Events
+### Halimbawa ng Mga Kaganapan
 
-#### Event: 'did-finish-load'
+#### Kaganapan: 'ginawa-tapusin-dala'
 
 Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
 
