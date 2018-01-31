@@ -49,7 +49,7 @@ app.on('ready', () => {
   * `traceOptions` String
 * `callback` Function
 
-开始记录所有进程。
+在所有进程上开始记录
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
 
