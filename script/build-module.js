@@ -68,7 +68,7 @@ async function parseFile (file) {
   // parse markdown to HTML
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
 
-  file.html = await Promise.all(
+  file.sections = await Promise.all(
     splitMd(file.markdown).map(async (section) => {
       const parsed = await hubdown(section.body)
       const $ = cheerio.load(parsed.content || '')
