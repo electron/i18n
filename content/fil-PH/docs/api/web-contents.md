@@ -119,23 +119,23 @@ Ibinabalik:
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-favicon-updated'
+#### Kaganapan: 'pahina-favicon-updated'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `favicons` String[] - Array of URLs
+* `kaganapan` Kaganapan
+* `favicons` String [] - Mga array ng mga URL
 
-Emitted when page receives favicon urls.
+Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
-#### Event: 'new-window'
+#### Kaganapan: 'bagong-bintana'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `url` String
-* `frameName` String
-* `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `kaganapan` Kaganapan
+* `url` Pisi
+* `frameName` Pisi
+* `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
