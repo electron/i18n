@@ -142,7 +142,7 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
     * `referrer` Cadena
     * `method` Cuerda
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+  * `callback` Función 
     * `redirectRequest` Object 
       * `url` String
       * `method` Cuerda
