@@ -117,20 +117,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 * `type` String (optional)
 
-Clears the clipboard content.
+Löscht den Inhalt aus der Zwischenablage.
 
 ### `clipboard.availableFormats([type])`
 
 * `type` String (optional)
 
-Returns `String[]` - An array of supported formats for the clipboard `type`.
+Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
 
 ### `clipboard.has(format[, type])` *Experimentell*
 
 * `format` String
 * `type` String (optional)
 
-Returns `Boolean` - Whether the clipboard supports the specified `format`.
+Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
 
 ```javascript
 const {clipboard} = require('electron')
@@ -141,13 +141,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - Reads `format` type from the clipboard.
+Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
 
 ### `clipboard.readBuffer(format)` *Experimentell*
 
 * `format` String
 
-Returns `Buffer` - Reads `format` type from the clipboard.
+Gibt den `Buffer` zurück - Liest den `format` Typ von der Zwischenablage.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimentell*
 
