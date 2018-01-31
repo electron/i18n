@@ -236,7 +236,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Вызывается при закрытии окна. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
 Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Например:
 
