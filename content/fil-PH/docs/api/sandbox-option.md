@@ -10,7 +10,7 @@ Dahilan sa ang isang pangunahing katangian ng electron ay ang kakayahang patakbu
 
 Karaniwang ito ay hindi problema para sa mga aplikasyon ng desktop dahil ang mga kodigo ay palaging mapagkakatiwalaan, ngunit maaaring ang electron ay hindi gaanong ligtas kaysa chromium para sa pagpapakita ng hindi mapagkakatiwalaang laman ng web. Para sa mga aplikasyon na nangangailangan ng mas higit na siguridad, ang flag ng `sandbox` ay pipilitin ang electron na maglabas ng isang klasikong tagasalin ng chromium na nababagay sa sandbox.
 
-A sandboxed renderer doesn't have a node.js environment running and doesn't expose node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the electron renderer API.
+Ang tagasalin ng isang sandbox ay hindi magkakaroon ng gumaganang kapaligiran ng isang node.js at hindi ilalantad ang mga JavaScript API ng node.js sa kodigo ng kliyente. The only exception is the preload script, which has access to a subset of the electron renderer API.
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a `BrowserWindowProxy`).
 
