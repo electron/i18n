@@ -69,7 +69,7 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 #### Event: 'message'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - 方法名.
+* `params` Object - 由远程调试协议中的 parameters 属性定义的事件参数。
 
-Emitted whenever debugging target issues instrumentation event.
+当调试目标问题时发送
