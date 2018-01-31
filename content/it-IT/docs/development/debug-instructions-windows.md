@@ -26,9 +26,9 @@ Relevant code files can be found in `./atom/` as well as in Brightray, found in 
 
 ### Attaching
 
-È possibile collegare il debugger di Visual Studio a un processo in esecuzione su un computer locale o remoto. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+È possibile collegare il debugger di Visual Studio a un processo in esecuzione su un computer locale o remoto. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. È possibile utilizzare questa funzionalità per eseguire il debug di app in esecuzione su un computer locale o remoto, eseguire il debug di più processi contemporaneamente.
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+If Electron is running under a different user account, select the `Show processes from all users` check box. Si noti che, a seconda del numero di BrowserWindows aperti dall'app, verranno visualizzati più processi. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Dal momento che la lista fornisce solo i nomi, al momento non esiste un modo affidabile per capire quale sia.
 
 ### Which Process Should I Attach to?
 
