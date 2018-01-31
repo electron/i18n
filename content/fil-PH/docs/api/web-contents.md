@@ -394,12 +394,12 @@ Naipalalabas kapag ang uri ng cursor ay nagbago. Ang `uri` maaring maging parame
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Kaganapan: 'context-menu'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `params` Bagay 
+* `kaganapan` Kaganapan
+* `params` Layunin 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
