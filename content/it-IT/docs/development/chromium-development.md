@@ -29,13 +29,13 @@ When built like this, you can make changes to files in `vendor/libchromiumconten
 $ ./script/build.py -c D --libcc
 ```
 
-Quando si sviluppa su linux con gdb, si raccomanda di aggiungere un indice gdb per accelerare i simboli di caricamento. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+Quando si sviluppa su linux con gdb, si raccomanda di aggiungere un indice gdb per accelerare i simboli di caricamento. Questo non deve essere eseguito su ogni compilazione, ma si consiglia di farlo almeno una volta per indicizzare la maggior parte delle librerie condivise:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+Costruire libchromiumcontent richiede una macchina potente e richiede molto tempo (sebbene la ricostruzione incrementale del componente della libreria condivisa sia veloce). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. Non è consigliabile compilare con meno di 16 GB di RAM.
 
 ## Chromium git cache
 
