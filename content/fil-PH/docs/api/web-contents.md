@@ -18,10 +18,10 @@ console.log (mga nilalaman)
 
 ## Pamamaraan
 
-These methods can be accessed from the `webContents` module:
+Ang mga pamamaraan na ito ay Maaaring ma-access mula sa module na ` webContents`:
 
 ```javascript
-const {webContents} = require('electron')
+const {webContents} = nangangailangan ('elektron')
 console.log(webContents)
 ```
 
