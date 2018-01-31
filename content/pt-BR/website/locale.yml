@@ -140,7 +140,7 @@ _404:
   please_file_an_issue: por favor, registre o problema.
 search:
   description:
-    start: Find Electron resources from
+    start: Procure recursos do Electron em
     docs: <a href="/search/docs">Documentação</a>
     npm: <a href="/search/npmPackages">Pacotes npm</a>
     and: e
