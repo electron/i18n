@@ -8,24 +8,15 @@ Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready`
 
 `screen` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Note:** Sa tagapagtanghal / DevTools, `window.screen` ay isang ari-arian ng DOM na nakareserba, kaya nga ang pagsulat ng `let {screen} = require('elektron')` ay hindi gagana.
 
-An example of creating a window that fills the whole screen:
+Isang halimbawa ng paglikha ng isang window na pupuno sa buong screen:
 
 ```javascript
-const electron = require('electron')
-const {app, BrowserWindow} = electron
-
-let win
-
-app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
-  win.loadURL('https://github.com')
-})
+const elektron = require('elektron') const {app, BrowserWindow} = elektron let win app.on('ready', () => { const {width, height} = elektron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({width, height}) win.loadURL('https:..github.com') })
 ```
 
-Another example of creating a window in the external display:
+Isa pang halimbawa ng paglikha ng isang window sa panlabas na display:
 
 ```javascript
 const electron = require('electron')
