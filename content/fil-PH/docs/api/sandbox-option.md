@@ -122,10 +122,10 @@ Maaring marami ang maidagdag sa kinakailngan na mailantad na maraming elektron A
 
 ## Katayuan
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin sa isang experimentong tampok nito. Kami ay wala pa ring kamalayan sa seguridad ng paglalantad sa ilang elektron na tagatanghal APIs sa preload na iskrip, pero narito ang mga ilang bagay na isinasaalang-alang bago e-render ang di-pinagkakatiwalaan na nilalaman:
 
-- A preload script can accidentaly leak privileged APIs to untrusted code.
-- Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
+- Ang isang preload na iskrip ay maaring naaksidenteng tumagas na pribilehiyong APIs sa di-pinagkakatiwalaan na kodigo.
+- Ang ilang bug sa V8 engine ay maaring payagan ang malisyusong kodigo para ma-akses ang renderer preload APIs, na epiktibong bigyan ng buong akses sa sistema sa pamamagitan ng `remote` na modyul.
 
 Since rendering untrusted content in electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of electron APIs, and may have breaking changes to fix security issues.
 
