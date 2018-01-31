@@ -27,11 +27,11 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Ibinabalik `WebContents[]` - Ang array ng lahat `WebContents`ng mga pagkakataon.  . This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Ibinabalik `WebContents[]` - Ang array ng lahat `WebContents`ng mga pagkakataon.  . Ito ay naglalaman ng mga nilalaman ng web para sa lahat ng mga windows, webviews, binuksan devtools, at devtools karugtong ng background na mga pahina.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Ibinabalik `WebContents` - Ang mga nilalaman ng web na nakatuon sa application na ito, kung hindi man babalik `null`.
 
 ### `webContents.fromId(id)`
 
