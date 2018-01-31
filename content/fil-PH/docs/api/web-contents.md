@@ -117,7 +117,7 @@ Ibinabalik:
 
 * `kaganapan` Kaganapan
 
-Emitted when the document in the given frame is loaded.
+Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
 #### Kaganapan: 'pahina-favicon-updated'
 
@@ -139,9 +139,9 @@ Ibinabalik:
 * `mga pagpipilian` Object - Ang mga pagpipilian na gagamitin para sa paglikha ng bagong `BrowserWindow`.
 * `Mga karagdagang tampok` String [] - Ang di-karaniwang mga tampok (mga tampok na hindi hinahawakan sa pamamagitan ng Kromo o Elektron) na ibinigay sa `window.open()`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+Lumalabas kapag ang pahina ay humiling na magbukas ng bagong bintana para sa isang `url`. Maaaring ito ay hiniling ng `window.open` o isang panlabas na link tulad ng `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+Sa pamamagitan ng default ng isang bagong `BrowserWindow` ay nilikha para sa `url`.
 
 Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Halimbawa:
 
