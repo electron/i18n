@@ -123,10 +123,10 @@ Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle
   * `usaDimensioniContenuto` Booleano (opzionale) - La `larghezza` e l'`altezza` saranno usate come dimensioni della pagina web, il che vuol dire che la dimensione attuale della finestra includerà le dimensioni della cornice della finestra ed è lievemente più grande. Di default è `false`.
   * `centro` Booleano (opzionale) - Mostra la finestra al centro dello schermo.
   * `Larghezzaminima` Intero (opzionale) - Larghezza minima della finestra. Di default è ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
+  * `Altezzaminima` Intero (opzionale) - Altezza minima della finestra. Di default è ``.
+  * `Larghezzamassima` Intero (opzionale) - Larghezza massima della finestra. Di default non ha limiti.
+  * `Altezzamassima` Intero (opzionale) - Altezza massima della finestra. Di default è senza limiti.
+  * `ridimensionabile` Booleano (opzione) - Se la finestra è ridimensionabile. Di default è `true`.
   * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
   * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
   * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
