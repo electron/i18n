@@ -19,50 +19,32 @@ const elektron = require('elektron') const {app, BrowserWindow} = elektron let w
 Isa pang halimbawa ng paglikha ng isang window sa panlabas na display:
 
 ```javascript
-const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
-
-let win
-
-app.on('ready', () => {
-  let displays = electron.screen.getAllDisplays()
-  let externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
-
-  if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
-    })
-    win.loadURL('https://github.com')
-  }
-})
+const elektron = rewuire('elektron') const {app, BrowserWindow} = require('elektron') let win app.on('ready',() => { let displays = elektron.screen.getAllDisplays() let externalDisplay = displays.find((display) = > { return display.bounds.x !== 0 || display.bounds.y!== 0 }) of (externalDisplay) { win = new BrowserWindow({ x: externalDisplay.bounds.x + 50, y: externalDisplay.bounds.y + 50 }) win.loadURL('https://github.com') } })
 ```
 
 ## Pangyayari
 
-The `screen` module emits the following events:
+Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
-### Event: 'display-added'
+### Pangyayari: 'display-added'
 
 Magbabalik ng:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Naglalabas kapag `newDisplay` ay idinagdag na.
 
-### Event: 'display-removed'
+### Pangyayari: 'display-removed'
 
 Magbabalik ng:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Naglalabas kapag `oldDisplay` ay idinagdag na.
 
-### Event: 'display-metrics-changed'
+### Pangyayari: 'display-metrics-changed'
 
 Magbabalik ng:
 
@@ -70,7 +52,7 @@ Magbabalik ng:
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Pamamaraan
 
