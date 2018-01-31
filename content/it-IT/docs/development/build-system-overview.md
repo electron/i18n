@@ -13,7 +13,7 @@ Following `gyp` files contain the main rules for building Electron:
 
 ## Component Build
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Poiché Chromium è un progetto abbastanza ampio, la fase finale del collegamento può richiedere alcuni minuti, il che rende difficile lo sviluppo. Per risolvere questo problema, Chromium ha introdotto la "componente build", che crea ogni componente come una libreria condivisa separata, rendendo il collegamento molto veloce ma sacrificando la dimensione e le prestazioni del file.
 
 In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
