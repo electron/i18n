@@ -41,7 +41,7 @@ The following methods are available on instances of `WebRequest`:
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
@@ -67,7 +67,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `id` Integer
   * `url` String
   * `method` String
-  * `resourceType` String
+  * `resourceType` Tali
   * `timestamp` Double
   * `requestHeaders` Object
 * `tumawag muli` Punsyon 
@@ -86,7 +86,7 @@ The `callback` has to be called with an `response` object.
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -104,7 +104,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `id` String
   * `url` String
   * `method` String
-  * `resourceType` String
+  * `resourceType` Tali
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
@@ -126,7 +126,7 @@ The `callback` has to be called with an `response` object.
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -144,7 +144,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `id` String
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -163,7 +163,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
@@ -181,7 +181,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.
