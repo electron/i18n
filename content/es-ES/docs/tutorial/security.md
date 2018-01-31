@@ -2,7 +2,7 @@
 
 Como desarrolladores web, usualmente disfrutamos la seguridad fuerte de la red del buscador - los riesgos asociados con el código que escribimos son relativamente bajos. A nuestras páginas web se les concede poderes limitados en un sandbox, y confiamos en que nuestros usuarios disfrutan un buscador construido por un equipo largo de ingenieros que es capaz de responder rápidamente a recientes amenazas de seguridad descubiertas.
 
-Cuando se trabaje con Electron, es importante entender que Electron no es un navegador web. Te permite construir aplicaciones de escritorio llenas de utilidades con tecnologías web familiares, pero tu código tiene mucho más poder. JavaScript puede acceder a los archivos del sistema, actividades del usuario y más. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+Cuando se trabaje con Electron, es importante entender que Electron no es un navegador web. Te permite construir aplicaciones de escritorio llenas de utilidades con tecnologías web familiares, pero tu código tiene mucho más poder. JavaScript puede acceder a los archivos del sistema, actividades del usuario y más. Esto permite que construyas aplicaciones nativas de alta calidad, pero los riesgos inherentes de seguridad escalan con el poder adicional concedido a tu código.
 
 Con eso en mente, ten en cuenta que mostrar contenido arbitrario proveniente de fuentes poco confiables viene con un riesgo severo que Electron no está diseñado para manejar. De hecho, las aplicaciones de electron más populares (Atom, Slack, Visual Studio Code, etc) muestran contenido local primero (o confiable, asegurado contenido remoto sin integración nodal) - si tu aplicación ejecuta código de una fuente online es tu responsabilidad asegurar que el código no es malicioso.
 
@@ -14,20 +14,20 @@ Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse 
 
 Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más pronto posible, los desarrolladores deben estar consientes que actualizar es una tarea muy serio - involucrando ediciones a mano a docenas o hasta cientos de archivos. Dados los recurso y contribuciones disponibles hoy, Electron no va a estar usando la última versión de Chomium, rezagandose por días o semanas.
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. Estamos definitivamente interesados en escuchar más sobre casos específicos de gente que construye cosas encima de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
+Sentimos que el sistema actual de actualización de el componente Chromium alcanza un balance apropiado entre los recursos que tenemos disponibles y las necesidades de la mayoría de las aplicaciones construidas por encima de el framework. Estamos definitivamente interesados en escuchar más sobre casos específicos de gente que construye cosas encima de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
 
 ## Ignorando Consejos
 
-Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. As an example, consider a remote website being displayed inside a [`BrowserWindow`](browser-window). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. Como un ejemplo, considera una página web remota siendo mostrada dentro de un [`BrowserWindow`](browser-window). Si un atacante, de alguna manera, logra cambiar dicho contenido (atacando la fuente directamente o estableciéndose entre tu aplicación y el destino actual), ellos serán capaces de ejecutar el código nativo en la máquina de usuario.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](web-view) tag and make sure to disable the `nodeIntegration`.
+> :warning: Debajo de ninguna circunstancia deberías cargar y ejecutar el código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetado juntos con tu aplicación) para ejecutar el código Node.js. Para mostrar contenido remoto, usa el tag [`webview`](web-view) y asegúrate de desactivar el `nodeIntegration`.
 
-#### Checklist: Security Recommendations
+#### Lista: Recomendaciones de Seguridad
 
 Esto no es aprueba de balas, pero debería intentar lo siguiente al menos:
 
-* [Only load secure content](#only-load-secure-content)
-* [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
+* [Solo carga contenido seguro](#only-load-secure-content)
+* [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#disable-node.js-integration-for-remote-content)
 * [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
 * [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#handle-session-permission-requests-from-remote-content)
 * [Do not disable `webSecurity`](#do-not-disable-websecurity)
