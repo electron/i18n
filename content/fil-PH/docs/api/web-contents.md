@@ -229,17 +229,17 @@ Ibinabalik:
 * `kaganapan` Kaganapan
 * `pinatay` Boolean
 
-Emitted when the renderer process crashes or is killed.
+Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
 
-#### Event: 'plugin-crashed'
+#### Kaganapan: 'plugin-nag-crash'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `name` String
-* `version` String
+* `kaganapan` Kaganapan
+* `pangalan` String
+* `Bersyon` Pisi
 
-Emitted when a plugin process has crashed.
+Lumalabas kapag ang proseso ng plugin ay nag-crash.
 
 #### Kaganapan: 'nawasak'
 
@@ -247,10 +247,10 @@ Nagpapalabas kapag ang `webContents` ay nawasak.
 
 #### Kaganapan: 'bago-input-kaganapan'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `input` Object - Input properties 
+* `kaganapan` Kaganapan
+* `input` Bagay - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
