@@ -30,9 +30,9 @@ app.on('ready', () => {
 })
 ```
 
-Sa itaas na code ang `BrowserWindow` na nalikha na may node.js ay hindi pinagana at maari ding makipag-ugnayan lamang sa pamamagitan ng IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Also, within this new window `window.open` follows the native behaviour (by default electron creates a `BrowserWindow` and returns a proxy to this via `window.open`).
+Sa itaas na code ang `BrowserWindow` na nalikha na may node.js ay hindi pinagana at maari ding makipag-ugnayan lamang sa pamamagitan ng IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Pwede din, sa loob nitong bagong window `window.open` kasunod ang katutubong ugali (bilang default ng elektron ay lumilikha ng isang `BrowserWindow` at nagbabalik ng isang proxy sa patungo nitong `window.open`).
 
-It is important to note that this option alone won't enable the OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
+Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagana ng OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
 
 To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
 
