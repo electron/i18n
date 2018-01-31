@@ -1,6 +1,6 @@
 # Sviluppo di Chrome
 
-> A collection of resources for learning about Chromium and tracking its development
+> Una raccolta di risorse per l'apprendimento di Chromium e il monitoraggio del suo sviluppo
 
 - [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
@@ -29,7 +29,7 @@ When built like this, you can make changes to files in `vendor/libchromiumconten
 $ ./script/build.py -c D --libcc
 ```
 
-When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+Quando si sviluppa su linux con gdb, si raccomanda di aggiungere un indice gdb per accelerare i simboli di caricamento. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
