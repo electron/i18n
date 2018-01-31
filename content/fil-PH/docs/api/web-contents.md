@@ -272,31 +272,31 @@ hayaan ang panalo = bagong BrowserWindow ({lapad: 800, taas: 600})
 manalo.webContents.on('bago-input-kaganapan', (kaganapan, input) => {
   // Halimbawa, paganahin lang ang mga shortcut sa keyboard ng menu ng aplikasyon kapag
   / / Ctrl/Cmd ay pababa.
-  win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
+  manalo.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Kaganapan: 'devtools-binuksan'
 
-Emitted when DevTools is opened.
+Nilalabas kapag ang DevTools ay nabuksan.
 
-#### Event: 'devtools-closed'
+#### Kaganapan: 'devtools-sarado'
 
-Emitted when DevTools is closed.
+Nilalabas kapag ang DevTools ay sarado.
 
-#### Event: 'devtools-focused'
+#### Kaganapan: 'devtools-nakatuon'
 
-Emitted when DevTools is focused / opened.
+Nilalabas kapag ang DevTools ay nakatuon/binuksan.
 
-#### Mga event: 'certificate-error'
+#### Kaganapan: 'certificate-error'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `url` String
-* `error` String - Ang code ng error
-* `certificate` [Certificate](structures/certificate.md)
-* `tumawag muli` Punsyon 
+* `kaganapan` Kaganapan
+* `url` Pisi
+* `mali` Pisi - The error code
+* `sertipiko` [Sertipiko](structures/certificate.md)
+* `tumawag muli` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
 
 Emitted when failed to verify the `certificate` for `url`.
