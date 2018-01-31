@@ -26,11 +26,11 @@ Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and t
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+Dovrai anche abilitare Xcode per costruire contro l'SDK 10.10:
 
 - Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
 - Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- Salva il file
 
 ## Getting the Code
 
@@ -65,7 +65,7 @@ After building is done, you can find `Electron.app` under `out/D`.
 
 ## 32bit Support
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron può essere costruito solo per un target a 64 bit su macOS e non ci sono piani per supportare macOS a 32 bit in futuro.
 
 ## Cleaning
 
