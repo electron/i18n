@@ -143,24 +143,24 @@ Lumalabas kapag ang pahina ay humiling na magbukas ng bagong bintana para sa isa
 
 Sa pamamagitan ng default ng isang bagong `BrowserWindow` ay nilikha para sa `url`.
 
-Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang Elektron mula sa awtomatikong paglikha ng isang bagong `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. Halimbawa:
+Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang Elektron mula sa awtomatikong paglikha ng isang bagong `BrowserWindow`. Kung tumawag ka `event.preventDefault ()` at manu-manong pag likha ng bagong `BrowserWindow` at pagkatapos ay dapat mong itakda ang `kaganapan.newGuest` upang isangguni sa bagong `BrowserWindow` Halimbawa, ang hindi pagtupad nito ay maaaring magresulta sa hindi inaasahang asal. Halimbawa:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url) => {
-  event.preventDefault()
-  const win = new BrowserWindow({show: false})
-  win.once('ready-to-show', () => win.show())
-  win.loadURL(url)
-  event.newGuest = win
+myBrowserWindow.webContents.on('bagong-window', (event, url) => {
+  kaganapan.preventDefault()
+  const manalo = bagong BrowserWindow ({show: false})
+  manalo.once ('ready-to-show', () = > win.show())
+  manalo.loadURL (url)
+  kaganapan.newGuest = manalo
 })
 ```
 
-#### Event: 'will-navigate'
+#### Kaganapan: 'mag-navigate'
 
-Magbabalik ng:
+Ibabalik:
 
-* `event` Event
-* `url` String
+* `kaganapan` Kaganapan
+* `url` Pisi
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
