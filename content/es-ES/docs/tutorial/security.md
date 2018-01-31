@@ -210,7 +210,7 @@ CSP permite que el servidor dando contenido pueda restringir y controlar los rec
 
 Electron respecta [el `Content-Security-Policy` encabezado de HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) y el respectivo `<meta>`tag.
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
+El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.mydomain.com`.
 
 ```txt
 // Bad
@@ -222,11 +222,11 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ## Override and Disable `eval`
 
-`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
+`eval()` es un método principal de JavaScript que permite la ejecución de JavaScript desde una cadena. Desactivar esto desactivará la habilidad de tu aplicación de evaluar el JavaScript que no es conocido en avance.
 
 ### ¿Por què?
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+El método `eval()` tiene precisamente una misión: evaluar una serie de personajes como JavaScript y ejecutarlo. Es un método requerido cuando necesites evaluar códigos que no es conocido acerca del tiempo. Mientras que casos de uso legítimo existen, justo como cualquier otro generador de códigos, `eval()` es difícil de endurecer.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
