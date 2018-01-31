@@ -107,18 +107,18 @@ Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload n
       --insert-global-vars=__filename,__dirname -o preload.js
     
 
-Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspos sa preload na saklaw, at nagsasabi sa browserify na gamitin ang enclosing na `require` na function nito. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspos sa preload na saklaw, at nagsasabi sa browserify na gamitin ang enclosing na `require` na function nito. `--paningit-global-vars` ay tinitiyak na `proseso`, `Buffer` at `setlmmediate` ay nakukuha rin mula sa nka-enclose na saklaw(normally browserify injects code para sa mga).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `elektron` (crashReporter, remote at ipcRenderer)
 - `fs`
 - `os`
-- `timers`
+- `mga timers`
 - `url`
 
-More may be added as needed to expose more electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+Maaring marami ang maidagdag sa kinakailngan na mailantad na maraming elektron APIs sa sandbox, pero anumang modyul sa pangunahing proseso na ginamit sa pamamagitan ng `elektron.remote.require`.
 
 ## Katayuan
 
