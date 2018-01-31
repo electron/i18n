@@ -51,13 +51,13 @@ Proseso: [pangunahin](../glossary.md#main-process)
 
 Binubuwag kapag ang nabigasyon ay tapos na, i.e. ang spinner ng tab ay tumigil Umiikot, at ang `onload` kaganapan ay ipinadala.
 
-#### Event: 'did-fail-load'
+#### Kaganapan: 'ginawa-mabibigo-dala'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
-* `errorCode` Integer
-* `errorDescription` String
+* `kaganapan`Kaganapan
+* `pagkakamalingCode`kabuuan
+* `Paglalarawan ng pagkakamali`tali
 * `validatedURL` String
 * `isMainFrame` Boolean
 
