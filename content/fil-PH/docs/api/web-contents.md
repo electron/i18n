@@ -356,13 +356,13 @@ Naipalalabas kapag ang resulta ay magagamit para sa [`webContents.findInPage`] h
 
 #### Kaganapan: 'media-started-playing'
 
-Emitted when media starts playing.
+Naipalalabas kapag nagsimula ng maglaro ang media.
 
-#### Event: 'media-paused'
+#### Kaganapan: 'media-paused'
 
-Emitted when media is paused or done playing.
+Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
-#### Event: 'did-change-theme-color'
+#### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
