@@ -6,7 +6,7 @@ Isa sa mga katangian ng susing pangseguridad ng Chromium ay ang lahat ng kodigo 
 
 Sa madaling salita, kapag ang sandbox ay pinagana, ang mga tagasalin ay maaari lamang gumawa ng mga pagbabago sa sistema sa pamamagitan ng pagtatalaga ng mga gawain sa pangunahing proseso sa pamamagitan ng IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) ang mas maraming impormasyon tungkol sa sandbox.
 
-Since a major feature in electron is the ability to run node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most node.js APIs require system access. `kaylangan()` halimbawa, hindi posible walang pahintulot sa file system, kung saan hindi magagamit sa sandboxed.
+Dahilan sa ang isang pangunahing katangian ng electron ay ang kakayahang patakbuhin ang node.js sa prosesong tagasalin (ginagawa nitong mas madali ang pagbuo ng mga aplikasyon ng desktop gamit ang mga teknolohiya ng web), ang sandbox ay pinapahinto ng electron. Ito ay dahil sa ang karamihan ng mga API ng node.js ay nangangailangan ng access sa sistema. `kaylangan()` halimbawa, hindi posible walang pahintulot sa file system, kung saan hindi magagamit sa sandboxed.
 
 Karaniwan hindi ito suliranin sa desktop application mula noon ang code ay palaging mapagkakatiwalaan, pero maaring ang electron ay hindi ligtas kaysa sa chromium para sa ipinapakitang hindi mapagkakatiwalaang web content. Para sa mga applikasyon nangangailangan ng mas higit na seguridad, ang `sandbox` maglagay ng palatandaan ay pipilitin ng electron lumitaw sa chromium na tagabigay tugma sa sandbox.
 
