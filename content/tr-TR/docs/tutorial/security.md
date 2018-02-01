@@ -240,26 +240,26 @@ window.eval = global.eval = function () {
 }
 ```
 
-## Do Not Set `allowRunningInsecureContent` to `true`
+## `allowRunningInsecureContent` i `true` a Ayarlamayın
 
-*Recommendation is Electron's default*
+*Tavsiye edilen ayar Electron'da varsayılandır*
 
-By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+Electron varsayılan olarak, `HTTPS` üzerinden yüklenen websitelerine güvenliksiz kaynaklardan (`HTTP`) gelen betikler, CSS veya eklentileri yüklemeye izin verir. `allowRunningInsecureContent` i `true` a ayarlamak bu korumayı engeller.
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
 ### Neden?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+Basitçe açıklayacak olursak, `HTTPS` üzerinden içerik yüklemek veri trafiğini şifreleyerek, yüklenen kaynakların güvenilirliğini ve bütünlüğünü sağlar. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#only-display-secure-content) bölümüne bakabilirsiniz.
 
 ### Nasıl?
 
 ```js
-// Bad
+// Yanlış
 const mainWindow = new BrowserWindow({
-  webPreferences: {
-    allowRunningInsecureContent: true
-  }
+ webPreferences: {
+  allowRunningInsecureContent: true
+ }
 })
 ```
 
@@ -270,7 +270,7 @@ const mainWindow = new BrowserWindow({})
 
 ## Do Not Enable Experimental Features
 
-*Recommendation is Electron's default*
+*Tavsiye edilen ayar Electron'da varsayılandır*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
@@ -298,7 +298,7 @@ const mainWindow = new BrowserWindow({})
 
 ## Do Not Use `blinkFeatures`
 
-*Recommendation is Electron's default*
+*Tavsiye edilen ayar Electron'da varsayılandır*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -324,7 +324,7 @@ const mainWindow = new BrowserWindow()
 
 ## Do Not Disable WebSecurity
 
-*Recommendation is Electron's default*
+*Tavsiye edilen ayar Electron'da varsayılandır*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
 
@@ -360,7 +360,7 @@ const mainWindow = new BrowserWindow()
 
 ## Do Not Use `allowpopups`
 
-*Recommendation is Electron's default*
+*Tavsiye edilen ayar Electron'da varsayılandır*
 
 If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
