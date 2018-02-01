@@ -69,11 +69,11 @@ browserWindow.loadURL('https://my-website.com')
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## Disable Node.js Integration for Remote Content
+## Uzaktan İçeriği Görüntülemek İçin Node.js Entegrasyonunu Bütün İşleyicilerde Etkisiz Hale Getirin
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+Uzaktan içeriği yükleyen her işleyicide ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), ya da [`WebView`](web-view)) Node.js entegrasyonunu kapamak çok önemlidir. Burada amaç uzak içeriğe verilen yetkileri sınırlayarak, bir saldırganın sitenizde JavaScript çalıştırabilmesini olabildiğince zor hale getirmektir.
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+Bundan sonra, belirli sunuculara ek izinler verebilirsiniz. Örneğin, `https://my-website.com/" a yönelen bir BrowserWindow açıyorsanız, web sitesine sadece ihtiyacı olan yetkileri verebilirsiniz.
 
 ### Neden?
 
