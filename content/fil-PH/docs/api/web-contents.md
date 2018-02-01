@@ -402,7 +402,7 @@ Ibinabalik:
 * `params` Layunin 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
+  * `linkURL` Pisi - ang link ng URL na nakapaloob sa node sa menu ng konteksto ay tinawag sa.
   * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
   * `pageURL` String - URL of the top level page that the context menu was invoked on.
   * `frameURL` String - URL of the subframe that the context menu was invoked on.
