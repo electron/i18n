@@ -108,13 +108,13 @@ npm install --save-dev electron@latest
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# नामौज़ूद सुविधायें अल्फा, और नाईटली
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+हमारी रणनीति की भी कुछ खामियाँ है, पर हम समझते हैं कि फिलहाल उनसे कोई फर्क नहीं पड़ता | ख़ासकर यह कि मास्टर में नयी सुविधायें शामिल करने में कुछ समय लग सकता है, इससे पहले कि वह एक स्थिर रिलीज़ पंक्ति तक पहुंचे | अगर आप नयी सुविधाओं को तुरंत ही इस्तेमाल करना चाहते हैं, तो आप को खुद ही इलेक्ट्रॉन का निर्माण करना होगा |
 
-As a future consideration, we may introduce one or both of the following:
+भविष्य को ध्यान में रखते हुए, हम निम्नलिखित में से एक या दोनों को ला सकते हैं:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
+* मास्टर की नाईटली बिल्डस ऑफ; आपको नयी सुविधाओं का तुरंत परिक्षण करने और फीडबैक देने की अनुमति प्रदान करेगी
 * alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
 
 # Feature Flags
