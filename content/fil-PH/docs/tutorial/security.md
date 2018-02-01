@@ -52,24 +52,24 @@ Ang `HTTPS` ay mayroong tatlong pangunahing benepisyo:
 ### Paano?
 
 ```js
-// Masama
+// Hindi Kaaya-aya
 browserWindow.loadURL('http://my-website.com')
 
-// Mabuti
+// Kaaya-aya
 browserWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Hindi Kaaya-aya -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- Kaaya-aya -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## Disable Node.js Integration for Remote Content
+## Huwag Paganahin ang Node.js integrasyon para sa Bahagyang Nilalaman
 
 It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
 
