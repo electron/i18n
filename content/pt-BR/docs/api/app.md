@@ -53,7 +53,7 @@ Retorna:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Chamar `event.preventDefault()` irá previnir o comportamento padrão, que é encerrar a aplicação.
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
