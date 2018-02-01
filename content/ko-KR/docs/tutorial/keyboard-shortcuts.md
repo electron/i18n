@@ -4,7 +4,7 @@
 
 ## 로컬 단축키
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+앱이 포커스 되어 있을 때만 사용될 키보드 단축키를 설정하려면 당신은 [Menu](../api/menu.md) 모듈을 사용해야 합니다. 그리고 [MenuItem](../api/menu-item.md)이 만들어질 때 [`accelerator`] 프로퍼티를 반드시 써야 합니다.
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+유저의 운영체제를 기반으로 하는 다른 키 조합을 설정하는 것은 쉽습니다.
 
 ```js
 {
@@ -25,7 +25,7 @@ It's easy to configure different key combinations based on the user's operating 
 }
 ```
 
-## Global Shortcuts
+## 전역 단축키
 
 You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
 
