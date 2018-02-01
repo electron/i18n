@@ -32,8 +32,8 @@ Hindi ito bulletproof: gayunpaman, kailangan kang tumangka sa mga sumusunod:
 * [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#handle-session-permission-requests-from-remote-content)
 * [Huwang i-disable ang `webSecurity`](#do-not-disable-websecurity)
 * [Tukuyin ang`Nilalaman-Seguridad-Patakaran`](#define-a-content-security-policy)at gamitin ang mahigpit na panuntunan (halimbawa `script-src 'self'`)
-* [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
-* [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
+* [I-override at huwag paganahin ang `eval`](#override-and-disable-eval), na nagpapahintulot ng mga string na mag-execute bilang code.
+* [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#do-not-set-allowRunningInsecureContent-to-true)
 * [Do not enable experimental features](#do-not-enable-experimental-features)
 * [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
 * [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups)
