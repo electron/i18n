@@ -52,10 +52,10 @@ Ang `HTTPS` ay mayroong tatlong pangunahing benepisyo:
 ### Paano?
 
 ```js
-// Bad
+// Masama
 browserWindow.loadURL('http://my-website.com')
 
-// Good
+// Mabuti
 browserWindow.loadURL('https://my-website.com')
 ```
 
