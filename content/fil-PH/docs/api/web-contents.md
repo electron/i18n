@@ -411,9 +411,9 @@ Ibinabalik:
   * `hasImageContents` Boolean - Kung ang menu ng konteksto ay ginagamit sa isang imahe na may mga walang laman na nilalaman.
   * `isEditable` Boolean - Kung ang konteksto ay maaring i-edit.
   * `selectionText` Pisi - Teksto ng pagpili na ang menu ng konteksto ay nananawagan.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
+  * `titleText` Pisi - Pamagat o alt teksto ng pagpili na ang konteksto ay tinawag sa.
+  * `misspelledWord` Pisi - Ang maling salita sa ilalim ng cursor, kung mayroon man.
+  * `frameCharset` Pisi - Ang encoding ng karakter ng frame kung saan hiniling ang menu.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
   * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
