@@ -417,10 +417,10 @@ Ibinabalik:
   * `inputFieldType` Pisi - Kung ang konteksto ng menu ay sinasabing sa isang patlang na input, ang uri ng patlang na iyon. Ang posibleng mga halaga ay `wala`, `plainText`, `password`, `iba pang`.
   * ` menuSourceType` Pisi - Ipasok ang pinagmulan na nagsasagawa ng konteksto ng menu. Maaaring `wala`, `mouse`, `keyboard`, `touch`, `touchMenu`.
   * `mediaFlags` Bagay - Ang mga bandila para sa elemento ng media ang menu ng konteksto ay nananawagan. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
+    * `inError` Boolean - Kung ang elemento ng media ay bumagsak.
+    * `isPaused` Boolean - Kung ang elemento ng media ay nakahinto.
+    * `ayMuted` Boolean - Kung naka-mute ang elemento ng media.
+    * `hasAudio` Boolean - Kung ang elemento ng media ay may audio.
     * `isLooping` Boolean - Whether the media element is looping.
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
