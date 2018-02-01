@@ -20,17 +20,17 @@ Parang ang aming kasalukuyang sistema ng pag-update ng bahagi sa Chromium ay mak
 
 Ang isang isyu ay nangyayari tuwing makakatanggap ka ng code galing sa malayo na patutunguhan at ma-execute ito ng lokal. Bilang halimbawa, isaalang-alang ang bahagyang website na ipnapakita sa loob ng [`BrowserWindow`](browser-window). Kung ang isang attacker ay makakabago ng nasabing nilalaman (alinmang aatakehin nito ang direktang nilalaman o sa pamamagitan ng pag-upo sa pagitan ng iyong app at ang aktwal na patutunguhan), kaya nilang mag-execute na natibong code sa machine ng taga gamit.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](web-view) tag and make sure to disable the `nodeIntegration`.
+> :babala: Sa anumang pangyayari ay hindi ka maaaring mag-load at mag-execute ng remote code kasama ng Node.js integrasyong napagana. Sa halip, gamitin lamang ang lokal na mga file (nakabalot kasama ang iyong aplikasyon) para ma-execute ang Node.js na code. Para maipakita ang bahagyang nilalaman, gamiting ang [`webview`](web-view) na tag para makasiguradong hindi gumana ang `nodeIntegration`.
 
 #### Checklist: Security Recommendations
 
-This is not bulletproof, but at the least, you should attempt the following:
+Hindi ito bulletproof: gayunpaman, kailangan kang tumangka sa mga sumusunod:
 
-* [Only load secure content](#only-load-secure-content)
-* [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
-* [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
-* [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content)
-* [Do not disable `webSecurity`](#do-not-disable-websecurity)
+* [Mag load lamang ng siguradong nilalaman](#only-load-secure-content)
+* [Huwang paganahin ang Node.js na integrasyon sa lahat ng mga renderer na maipakita ang bahagyang nilalaman.](#disable-node.js-integration-for-remote-content)
+* [Paganahin ang kontekstong pagkakabukod na ipinakita ang bahagyang nilalaman.](#enable-context-isolation-for-remote-content)
+* [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#handle-session-permission-requests-from-remote-content)
+* [Huwang i-disable ang `webSecurity`](#do-not-disable-websecurity)
 * [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 * [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
 * [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
