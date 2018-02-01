@@ -47,9 +47,9 @@ app.on('ready', () => {
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+세번째 파라미터 `true`에 유의하세요. 이는 다른 리스너가 키 입력을 수신하기 전에 해당 리스너가 항상 수신하겠다는 의미입니다. 그러므로 다른 리스너는 `stopPropagation()`을 호출할 수 없습니다.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+[`before-input-event`](../api/web-contents.md#event-before-input-event) 이벤트는 페이지 안에서 `keydown`과 `keyup` 이벤트를 전달하기 전에 실행됩니다. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
 If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
 
