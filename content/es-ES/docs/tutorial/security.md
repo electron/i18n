@@ -366,7 +366,7 @@ Si usted está usando [`WebViews`](web-view), tal vez necesite las páginas y gu
 
 ### ¿Por què?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+Si usted no necesita ventanas emergentes, le conviene no permitir la creación de nuevos [`BrowserWindows`](browser-window) por defecto. Esto sigue el principio de acceso de mínimamente requerido: No permita que un sitio web cree nuevas ventanas excepto usted sepa que se necesita esa función.
 
 ### ¿Còmo?
 
@@ -378,17 +378,17 @@ If you do not need popups, you are better off not allowing the creation of new [
 <webview src="page.html"></webview>
 ```
 
-## Verify WebView Options Before Creation
+## Verificar Opciones de WebView antes de la Creación
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
-It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
+Es una buena idea controlar la creación de un nuevo [`WebViews`](web-view) desde el proceso principal y verificar que sus webPreferences no deshabiliten funciones de seguridad.
 
 ### ¿Por què?
 
-Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+Como los WebViews viven en el DOM, ellos pueden ser creados por un guión ejecutado en su sitio web incluso si la integración de Node.js está deshabilitada.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
+Electron habilita a desarrolladores a inhabilitar varias funciones de seguridad que controlan un proceso de renderizado. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
 
 ### ¿Còmo?
 
