@@ -55,7 +55,7 @@ Returns:
 
 모든 윈도우가 닫히고 어플리케이션이 종료될 때 발생된다. `event.preventDefault()`를 호출하면 기본 동작인 어플리케이션 종료를 하지 않습니다.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+`will-quit` 와 `window-all-closed` 이벤트들의 차이점에 대해서는 `window-all-closed`이벤트 설명을 참조하세요.
 
 ### 이벤트: 'quit'
 
