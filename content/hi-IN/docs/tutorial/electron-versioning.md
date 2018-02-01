@@ -81,12 +81,12 @@ npm install --save-dev electron@latest
 
 इसकी प्रक्रिया निम्नलिखित है:
 
-1. सभी मुख्य और लघु रिलीज़िस पंक्तियाँ `-beta.N` से शुरू होंगी जहाँ `N >= 1` होगा | इस समय पर, सुविधा सेट **लॉक्ड** होगा | वह रिलीज़ पंक्ति और ज्यादा सुविधाओं को शामिल करने की अनुमति नहीं देती, और केवल सुरक्षा और स्थिरता पर केन्द्रित होती है | e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+1. सभी मुख्य और लघु रिलीज़िस पंक्तियाँ `-beta.N` से शुरू होंगी जहाँ `N >= 1` होगा | इस समय पर, सुविधा सेट **लॉक्ड** होगा | वह रिलीज़ पंक्ति और ज्यादा सुविधाओं को शामिल करने की अनुमति नहीं देती, और केवल सुरक्षा और स्थिरता पर केन्द्रित होती है | उदाहरण: `2.0.0-beta.1` |
+2. बग फिक्सेस, रिग्रेशन फिक्सेस और सुरक्षा पैच को अनुमति मिल सकती है | ऐसा करने पर, `N` को बढ़ा कर एक नया बीटा रिलीज़ किया जाता है | उदाहरण: `2.0.0-beta.2`
+3. अगर एक दी गयी बीटा रिलीज़ *सामान्यतः* स्थिर मानी जाती है, तो उसे एक स्थिर बिल्ड के रूप में दोबारा से रिलीज़ किया जायेगा, और केवल संस्करण जानकारी को बदला जायेगा | उदाहरण: `2.0.0` |
+4. अगर भविष्य में एक स्थिर रिलीज़ में बग फिक्सेस या सुरक्षा पैच शामिल करने हो, तो उन्हें शामिल करना होगा और उसकी अनुसार *पैच* संस्करण को बढ़ाना होगा उदाहरण: `2.0.1` |
 
-For each major and minor bump, you should expect too see something like the following:
+हर मुख्य और लघु बढ़त पर, आप को कुछ ऐसा दिखेगा:
 
 ```text
 2.0.0-beta.1
@@ -97,7 +97,7 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+तस्वीरों में एक जीवनकाल का उदाहरण:
 
 * A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
