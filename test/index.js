@@ -135,7 +135,6 @@ describe('API Docs', () => {
     const sources = $('img')
       .map((i, el) => $(el).attr('src'))
       .get()
-    console.log(sources)
 
     sources.length.should.be.above(3)
     sources.every(src => src.startsWith('https://cdn.rawgit.com/electron/electron/')).should.eq(true)
@@ -149,6 +148,10 @@ describe('API Structures', () => {
     doc.category.should.equal('api/structures')
     doc.categoryFancy.should.equal('API Structures')
     doc.isApiStructureDoc.should.equal(true)
+  })
+  it('Crowdin translate URL', () => {
+    const doc = i18n.docs['fr-FR']['/docs/api/structures/gpu-feature-status']
+    doc.translateUrl.should.equal('https://crowdin.com/translate/electron/128/en-fr')
   })
 })
 
