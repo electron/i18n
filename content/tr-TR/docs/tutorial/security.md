@@ -77,7 +77,7 @@ Bundan sonra, belirli sunuculara ek izinler verebilirsiniz. Örneğin, `https://
 
 ### Neden?
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+Eğer saldırgan işleyici işleminden kurtulup kullanıcının bilgisayarındaki kodu çalıştırırsa cross-site-scripting (XSS) saldırısı daha tehlikeli olur. Cross-site-scripting saldırısı oldukça yaygındır - bir sorun olmasına karşın, yetkileri çalıştırıldıkları web sitesine müdahale etmekle sınırlıdır. Node.js entegrasyonunu kapatmak bir XSS'in Remote Code Execution (RCE) adlı saldırıya dönüşmesini engellemeye yardımcı olur.
 
 ### Nasıl?
 
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## Handle Session Permission Requests From Remote Content
+## Uzaktan İçeriklerde Oturum İzni İsteklerini Düzenleyin
 
 You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
 
