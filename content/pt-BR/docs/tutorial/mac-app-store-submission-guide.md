@@ -90,7 +90,7 @@ APP="YourApp"
 APP_PATH="/path/to/YourApp.app"
 # The path to the location you want to put the signed package.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# O nome dos certificados que você solicitou.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
 # The path of your plist files.

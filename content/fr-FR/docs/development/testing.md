@@ -14,7 +14,7 @@ To ensure that your C++ is in compliance with the Electron coding style, run `np
 
 There is not a lot of Python in this repository, but it too is governed by coding style rules. `npm run lint-py` will check all Python, using `pylint` to do so.
 
-## Unit Tests
+## Tests unitaires
 
 To run all unit tests, run `npm run test`. The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
 

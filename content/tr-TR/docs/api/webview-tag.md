@@ -2,7 +2,7 @@
 
 > Harici web içeriğini yalıtılmış bir çerçeve ve işlemde görüntüleme.
 
-Süreç: [Renderer](../tutorial/quick-start.md#renderer-process)
+Süreç: [Render etme](../tutorial/quick-start.md#renderer-process)
 
 'Misafir' içeriğini (web sayfaları gibi) Electron uygulamanıza gömmek için `webview` etiketini kullanın. Misafir içeriği, `webview` kapsayıcısı tarafından kapsanır. Uygulamanızdaki gömülmüş bir sayfa, konuk içeriğinin nasıl düzenlendiğini ve oluşturulduğunu denetler.
 

@@ -1,9 +1,9 @@
 # PrinterInfo 对象
 
-* `硬件名称` 字符串
-* `description` 字符串
-* `status` 数字
-* `isDefault` 布尔类型
+* `name` String
+* `description` String
+* `status` Number
+* `isDefault` Boolean
 
 ## 例子
 

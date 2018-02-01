@@ -1,16 +1,16 @@
-# Glossary
+# Glossario
 
-This page defines some terminology that is commonly used in Electron development.
+Questa pagina definisce una terminologia comunemente utilizzata nello sviluppo di Electron.
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR è l'acronimo di Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron può leggere file arbitrari da esso senza decomprimere l'intero file.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+Il formato ASAR è stato creato principalmente per migliorare le prestazioni su Windows... TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Ora è deprecato ed è stato fuso nel codebase di Electron.
 
 ### CRT
 
@@ -18,11 +18,11 @@ The C Run-time Library (CRT) is the part of the C++ Standard Library that incorp
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+An Apple Disk Image is a packaging format used by macOS. I file DMG sono comunemente usati per distribuire gli "installer" dell'applicazione. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Un programma che consente agli utenti di immettere caratteri e simboli non trovati sulla tastiera. Ad esempio, questo consente agli utenti di tastiere latine di inserire caratteri cinesi, giapponesi, coreani e indiani.
 
 ### IPC
 
@@ -34,9 +34,9 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### processo principale
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. Il processo principale è responsabile della creazione di ogni nuovo processo di rendering nell'app. L'intera API Node è integrata.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
@@ -68,13 +68,13 @@ OSR (Off-screen rendering) can be used for loading heavy page in background and 
 
 Un processo è un'istanza di un programma che è in fase di esecuzione. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+In Node.js and Electron, each running process has a `process` object. Questo oggetto è un globale che fornisce informazioni e controlla il processo corrente. As a global, it is always available to applications without using require().
 
 See also: [main process](#main-process), [renderer process](#renderer-process)
 
-### renderer process
+### processo di rendering
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Il processo di rendering è una finestra del browser nella tua app. A differenza del processo principale, possono esserci più di questi e ognuno viene eseguito in un processo separato. Possono anche essere nascosti.
 
 Nei browser normali, le pagine web vengono eseguite in un ambiente circoscritto nel quale non è consentito l'accesso alle risorse native. Gli utenti di Electron, tuttavia, hanno il potere di usare le API di Node.js nelle pagine web consentendo interazioni di sistema operativo di livello inferiore.
 
@@ -88,7 +88,7 @@ Squirrel is an open-source framework that enables Electron apps to update automa
 
 This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Come Node, Electron si concentra sull'avere un piccolo set di API che fornisce tutte le primitive necessarie per lo sviluppo di applicazioni desktop multipiattaforma. Questa filosofia progettuale consente a Electron di rimanere uno strumento flessibile senza essere eccessivamente prescrittivo su come dovrebbe essere usato. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
 ### V8
 

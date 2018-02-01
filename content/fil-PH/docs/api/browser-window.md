@@ -141,33 +141,33 @@ sa macOS. Default is <code>false`.
   * `fullscreenable` Boolean (optional) -Ang Window ay pwedeng ilagay sa fullscreen mode. Sa macOS, pwede din kung ang maximize/Pag papalaki o pag papaliit na buton ay kailangang maging toggle full screen mode o mas malaking window. Ang Default ay `true`.
   * `skipTaskbar` Boolean (opsyonal) - o kung gustong ipakita ang window sa taskbar. Ang default ay `false`. <0>false</0>.
   * `kiosk` Boolean (optional) - Ang kiosk mode. Ang Default ay `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. Sa windos mismo ay nirerekomenda na gamitin ang `ICO` para makakuha ng magandang mga effects ay pwede mong gawin lagyan ito ng guhit sa ilalim nang sa ganun ito ay maeexecute at ang icon ay pwede ng magamit.
+  * `title` String (opsyonal) - Pamagat ng default na window, Ang default ay `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (opsyonal) - Ang icon ng window. Sa windos mismo ay nirerekomenda na gamitin ang `ICO` para makakuha ng magandang mga effects ay pwede mong gawin lagyan ito ng guhit sa ilalim nang sa ganun ito ay maeexecute at ang icon ay pwede ng magamit.
   * `show` Boolean (opsyonal) - kapag kinakailangang ipakita ang window kapag ginawa. Ang default ay `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `frame` Boolean (opsyonal) - Tukuyin ang `false` para lumikha ng isang [Frameless Window](frameless-window.md). Ang default ay `true`.
+  * `parent` BrowserWindow (opsyonal) - Tukuyin ang pinagmulang window. Ang default ay `null`.
   * `modal` Boolean (opsyonal) -kapag ito ay isang modal ng window. tumatakbo lamang ito kapag ang mga window ay isang window ng child. Ang default ay `mali`.
   * `acceptFirstMouse` Boolean (opsyonal) - kapag natanggap ng web view ang nag-iisa. Mouse-down na mangyayari sa sabay na maging-aktibo ang window. Ang default ay `mali`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
-  * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
-  * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
-  * `transparent` Boolean (optional) - Makes the window [transparent](frameless-window.md). Default is `false`.
-  * `type` String (optional) - The type of window, default is normal window. See more about this below.
-  * `titleBarStyle` String (optional) - The style of window title bar. Default is `default`. Possible values are: 
-    * `default` - Results in the standard gray opaque Mac title bar.
-    * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
-    * `hidden-inset` - Deprecated, use `hiddenInset` instead.
-    * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Gumuhit ng pasadyang sarado, paliitin, at mga buong screen button sa macOS frameless windows. Ang mga pindutan na ito ay hindi ipapakita maliban kung ang hovered sa itaas sa kaliwang itaas ng window. Ang pasadyang ito Ang mga pindutan ay maiiwasan ang mga problema sa mga pang-yayari ng mouse na nangyayari sa pamantayan Mga kasangkapanng bar sa pindutan ng window. **Note:** This option is currently experimental.
-  * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Ang tagpo nito sa `false`ay tanggalin ang window shadow at animation window. Ng default ay `tama`.
-  * `vibrancy` String (opsyonal) - Ang pag-dagdag ng isang tipo ng epekto ng vibrancy sa window, lamang sa Mac Os. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
+  * `disableAutoHideCursor` Boolean (opsyonal) - Kung itinago ang cursor kapag nagta-type. Ang default ay `false`.
+  * `autoHideMenuBar` Boolean (opsyonal) - Awtomatikong itago ang bar ng menu maliban kung ang teklado ng `Alt` ay pinindot. Ang default ay `false`.
+  * `enableLargerThanScreen` Boolean (opsyonal) - Paganahin ang window na palakihin ng mas malaki kaysa sa iskrin. Ang default ay `false`.
+  * `backgroundColor` String (opsyonal) - Ang kulay ng background ng window na may Hexadecimal na halaga, katulad ng `#66CD00` o `#FFF` o `#80FFFFFF` (ang alpha ay suportado). Ang default ay `#FFF` (puti).
+  * `hasShadow` Boolean (opsyonal) - Kung ang window ay mayroong anino. Ito ay ipinapatupad lamang sa macOS. Ang default ay `true`.
+  * `darkTheme` Boolean (opsyonal) - Puwersahang gumagamit ng madilim na theme para sa window, gumagana lamang sa ilang mga kapaligiran ng GTK+3 desktop. Ang default ay `false`.
+  * `transparent` Boolean (opsyonal) - Ginagawa ang window na [transparent](frameless-window.md). Ang default ay `false`.
+  * `type` String (opsyonal) - Ang uri ng window, ang default aynormal na window. Tingnan ang mas maraming tungkol dito sa ibaba.
+  * `ang titleBarStyle` String (opsyonal) - Ang istilo ng title bar ng window. Ang default ay `default`Ang posibleng mga halaga ay: 
+    * `default` - Ang mga resulta sa standard na gray opaque na title bar ng Mac.
+    * `hidden` - Ang mga resulta sa isang nakatagong title bar at isang buong sukat na laman ng window, gayon pa man ang title bar ay mayroon ding mga karaniwang mga kontrol ng window (mga ilaw ng trapiko) sa kaliwang itaas.
+    * `hidden-inset` - Hindi na ginagamit, sa halip gamitin ang `hiddenInset`.
+    * `hiddenInset` - Ang mga resulta sa isang nakatagong title bar na may isang alternatibong hitsura kung saan ang mga pindutan ng ilaw ng trapiko ay bahagyang nakasingit sa gilid ng window.
+    * `customButtonsOnHover` Boolean (optional) - Gumuhit ng pasadyang sarado, paliitin, at mga buong screen button sa macOS frameless windows. Ang mga pindutan na ito ay hindi ipapakita maliban kung ang hovered sa itaas sa kaliwang itaas ng window. Ang pasadyang ito Ang mga pindutan ay maiiwasan ang mga problema sa mga pang-yayari ng mouse na nangyayari sa pamantayan Mga kasangkapanng bar sa pindutan ng window. **Note:** Ang opsyon na ito ay kasalukuyang eksperimental.
+  * `fullscreenWindowTitle` Boolean (opsyonal) - Ipinapakita ang pamagat sa mga tile bar sa buong iskrin na moda sa macOS para sa lahat ng mga opsyon ng `titleBarStyle`. Ang default ay `false`.
+  * `thickFrame` Boolean (opsyonal) - Gamitin ang istilo ng `WS_THICKFRAME` para sa walang kaayusang windows sa Windows, kung saan nagdadagdag ng karaniwang ayos ng window. Ang tagpo nito sa `false`ay tanggalin ang window shadow at animation window. Ng default ay `tama`.
+  * `vibrancy` String (opsyonal) - Ang pag-dagdag ng isang tipo ng epekto ng vibrancy sa window, lamang sa Mac Os. Ay maaaring maging `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`.
   * `zoomToPageWidth` Boolean (opsyonal) Ito ay may kakayahang mag control ng behavior ng macOS kapag opsyonal na pag pindot ng berdeng hintong ilaw na buton na makikita sa toolbar o pag pinindot ang Window >Zoom menu item. If `true`, ang window ay lumalaki sa sagad na lapad sa nakabukas na pahina kapag ito ay naka zoomed `false` ay magagamit kapag nais mong palakihin at palaparin ang screen. Ito rin ay makakaapekto sa behavior kung ang tawag `maximize(),/0>diretsyo. Default is <code>false`.
-  * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
-  * `webPreferences` Object (optional) - Settings of web page's features. 
+  * `tabbingIdentifier` String (opsyonal) - Pangalan ng grupo ng tab, pinapayagang buksan ang window bilang isang natural na tab sa macOS 10.12+. Ang Windows na may magkatulad na tagakilala ng tabbing ay maaaring pagsama-samahin sa isang grupo. Magdadagdag din ito ng isang natural na bagong pindutan ng tab sa tab bar ng iyong window at pinapayagan ang iyong `app` at window para tanggapin ang kaganapan ng `new-window-for-tab`.
+  * `ang webPreferences` Object (optional) - Settings of web page's features. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Ang Default ay `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
@@ -255,47 +255,47 @@ window.onbeforeunload = (e) => {
 
 #### Event: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Ay lalabas kapag ang window ay isinara. Pagkatapos mong matanggap ang kaganapan na ito ay maaari mong tanggalin ang sanggunian sa mga window at iwasan itong gamitin ulit.
 
-#### Event: 'session-end' *Windows*
+#### Kaganapan: 'katapusan ng sesyon' ng *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Ay lalabas kapag ang sesyon ng window ay hihinto na dahil sa puwersahang pagpatay o pag-restart ng makina o pag-log off ng sesyon.
 
-#### Event: 'unresponsive'
+#### Kaganapan: 'hindi tumutugon'
 
-Emitted when the web page becomes unresponsive.
+Ay lalabas kapag ang pahina ng web ay hindi tumutugon.
 
-#### Event: 'responsive'
+#### Kaganapan: 'tumutugon'
 
-Emitted when the unresponsive web page becomes responsive again.
+Ay lalabas kapag ang hindi tumutugon na pahina ng web ay tumutugon ulit.
 
-#### Event: 'blur'
+#### Kaganapan: 'lumabo'
 
-Emitted when the window loses focus.
+Ay lalabas kapag ang window ay nawawala sa pokus.
 
-#### Event: 'focus'
+#### Kaganapan: 'pokus'
 
-Emitted when the window gains focus.
+Ay lalabas kapag ang window ay nakakuha ng pokus.
 
-#### Event: 'show'
+#### Kaganapan: 'ipakita'
 
-Emitted when the window is shown.
+Ay lalabas kapag ang window ay ipinakita.
 
-#### Event: 'hide'
+#### Kaganapan: 'itago'
 
-Emitted when the window is hidden.
+Ay lalabas kapag ang window ay itinago.
 
-#### Event: 'ready-to-show'
+#### Kaganapan: 'handa- ng- ipakita'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Ay lalabas kapag ang pahina ng web ay naisalin na (habang hindi pa ipinapakita) at ang window ay maaaring i-displey nang walang isang bisuwal na flash.
 
-#### Event: 'maximize'
+#### Kaganapan: 'palakihin'
 
-Emitted when window is maximized.
+Ay lalabas kapag ang window ay pinalaki.
 
-#### Event: 'unmaximize'
+#### Kaganapan: 'hindi pinalaki'
 
-Emitted when the window exits from a maximized state.
+Ay lalabas kapag ang window ay lumabas mula sa pinalaking estado.
 
 #### Event: 'minimize'
 

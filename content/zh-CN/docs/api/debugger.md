@@ -45,15 +45,15 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.detach()`
 
-Detaches the debugger from the `webContents`.
+从 `webContents` 里分离调试器.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
 * ` method `String - 方法名称, 应该是由远程调试协议定义的方法之一。
-* ` commandParams ` Object (optional) - 具有请求参数的 JSON 对象。
-* `callback` Function (optional) - Response 
-  * `error` Object - Error message indicating the failure of the command.
-  * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+* ` commandParams ` Object (可选) - 具有请求参数的 JSON 对象。
+* `callback` Function (可选) - 响应方法 
+  * `error` Object - 显示命令失败的错误消息。
+  * `result` Any - 由远程调试协议中的命令描述的“returns”属性定义的响应。
 
 向调试目标发送给定的命令。
 
@@ -62,14 +62,14 @@ Detaches the debugger from the `webContents`.
 #### Event: 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - 分离调试器的原因
 
 在调试会话终止时发出。当关闭 ` webContents ` 或 ` the attached  webContents ` 调用 devtools 时, 都会发生这种情况。
 
 #### Event: 'message'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - 方法名.
+* `params` Object - 由远程调试协议中的 parameters 属性定义的事件参数。
 
-Emitted whenever debugging target issues instrumentation event.
+当调试目标问题时发送

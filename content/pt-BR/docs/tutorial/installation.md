@@ -60,9 +60,9 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` ou `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` ou `~/AppData/Local/electron/Cache/`
 
 On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
 

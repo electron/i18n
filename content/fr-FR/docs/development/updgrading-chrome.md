@@ -1,1 +1,1 @@
-Moved to <upgrading-chromium.md>
+Déplacé vers <upgrading-chromium.md>

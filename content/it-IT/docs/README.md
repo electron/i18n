@@ -25,7 +25,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Test su sistemi Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Rendering Offscreen](tutorial/offscreen-rendering.md)
 * [Scorciatoie da tastiera](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Aggiornamento delle applicazioni](tutorial/updates.md)
 
 ## Tutorial
 
@@ -64,8 +64,8 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [net](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
-* [session](api/session.md)
+* [protocollo](api/protocol.md)
+* [sessione](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
@@ -74,7 +74,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
+* [remoto](api/remote.md)
 * [webFrame](api/web-frame.md)
 
 ### Moduli di entrambi i processi:
@@ -82,7 +82,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
+* [schermo](api/screen.md)
 * [shell](api/shell.md)
 
 ## Sviluppo

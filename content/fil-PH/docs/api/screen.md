@@ -1,77 +1,50 @@
 # magtabi
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Kunin ang impormasyon tungkol sa laki ng screen, display, cursor posisyon, at iba pa.
 
 Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Note:** Sa tagapagtanghal / DevTools, `window.screen` ay isang ari-arian ng DOM na nakareserba, kaya nga ang pagsulat ng `let {screen} = require('elektron')` ay hindi gagana.
 
-An example of creating a window that fills the whole screen:
+Isang halimbawa ng paglikha ng isang window na pupuno sa buong screen:
 
 ```javascript
-const electron = require('electron')
-const {app, BrowserWindow} = electron
-
-let win
-
-app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
-  win.loadURL('https://github.com')
-})
+const elektron = require('elektron') const {app, BrowserWindow} = elektron let win app.on('ready', () => { const {width, height} = elektron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({width, height}) win.loadURL('https:..github.com') })
 ```
 
-Another example of creating a window in the external display:
+Isa pang halimbawa ng paglikha ng isang window sa panlabas na display:
 
 ```javascript
-const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
-
-let win
-
-app.on('ready', () => {
-  let displays = electron.screen.getAllDisplays()
-  let externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
-
-  if (externalDisplay) {
-    win = new BrowserWindow({
-      x: externalDisplay.bounds.x + 50,
-      y: externalDisplay.bounds.y + 50
-    })
-    win.loadURL('https://github.com')
-  }
-})
+const elektron = rewuire('elektron') const {app, BrowserWindow} = require('elektron') let win app.on('ready',() => { let displays = elektron.screen.getAllDisplays() let externalDisplay = displays.find((display) = > { return display.bounds.x !== 0 || display.bounds.y!== 0 }) of (externalDisplay) { win = new BrowserWindow({ x: externalDisplay.bounds.x + 50, y: externalDisplay.bounds.y + 50 }) win.loadURL('https://github.com') } })
 ```
 
 ## Pangyayari
 
-The `screen` module emits the following events:
+Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
-### Event: 'display-added'
+### Pangyayari: 'display-added'
 
 Magbabalik ng:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Naglalabas kapag `newDisplay` ay idinagdag na.
 
-### Event: 'display-removed'
+### Pangyayari: 'display-removed'
 
 Magbabalik ng:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Naglalabas kapag `oldDisplay` ay idinagdag na.
 
-### Event: 'display-metrics-changed'
+### Pangyayari: 'display-metrics-changed'
 
 Magbabalik ng:
 
@@ -79,38 +52,38 @@ Magbabalik ng:
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
 ## Pamamaraan
 
-The `screen` module has the following methods:
+Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Pagbabalik [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+Ang kasalukuyang ganap na posisyon ng mouse pointer.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+Ibabalik sa `Integer` - Ang taas ng menu bar sa pixels.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Ibabalik [`Display`](structures/display.md) - Ang pangunahing display.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Ibabalik sa [`Display[]`](structures/display.md) - Ang array sa display na kasalukuyang magagamit.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Ibabalik sa [`Display`](structures/display.md) - Ang pinakamalapit na display sa isang tiyak na punto.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Ibabalik sa [`Display`](structures/display.md) - Ang display na pinakamalapit na bumabalandra sa ibinibigay na hangganan.

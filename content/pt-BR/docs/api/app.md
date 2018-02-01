@@ -1,6 +1,6 @@
 # app
 
-> Controle os eventos do ciclo de vida do seu aplicativo.
+> Controle os eventos do ciclo de vida da sua aplicação.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -45,7 +45,7 @@ Retorna:
 
 Emitido antes de a aplicação começar a fechar suas janelas. Chamar `event.preventDefault()` irá impedir o comportamento padrão, que é encerrar a aplicação.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Nota:** Se o encerramento da aplicação foi iniciado por `autoUpdater.quitAndInstall()` então `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fecha-las.
 
 ### Evento: 'will-quit'
 
@@ -53,9 +53,9 @@ Retorna:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Chamar `event.preventDefault()` irá previnir o comportamento padrão, que é encerrar a aplicação.
 
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
+Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
 ### Evento: 'quit'
 
@@ -311,7 +311,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Oculta todas as janelas do aplicativo sem minimizar-las. 
+Oculta todas as janelas do aplicativo sem minimizar-las.
 
 ### `app.show()` *macOS*
 
@@ -332,7 +332,7 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
   * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
+  * `$XDG_CONFIG_HOME` ou `~/.config` no Linux
   * `~/Library/Application Support` on macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
 * `temp` Temporary directory.

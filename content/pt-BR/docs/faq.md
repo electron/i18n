@@ -52,7 +52,7 @@ Isto acontece quando a variável que é usada para armazenar a janela/bandeja é
 Se você encontrar esse problema, esses artigos podem ser úteis:
 
 * [Gerenciamento de Memória](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Escopo de variável](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Escopo de Variável](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 Se você quer uma solução rápida, você pode fazer as variáveis globais, alterando seu código:
 
@@ -129,11 +129,11 @@ e, em seguida, verifique se é do seguinte formulário:
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-Se é algo parecido com `node_modules/electron/index.js`, então você tem que remover o módulo de `Electron` npm ou renomeá-lo.
+Se é algo parecido com `node_modules/electron/index.js`, então você tem que remover o módulo de `electron` npm ou renomeá-lo.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. Poe exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
+No entanto, se você estiver usando o módulo built-in mas ainda recebendo este erro, é muito provável você esteja usando o módulo no processo errado. Por exemplo, `electron.app` pode apenas ser usado pelo processo principal, enquanto `electron.webFrame` está apenas disponível no processo de renderização.
