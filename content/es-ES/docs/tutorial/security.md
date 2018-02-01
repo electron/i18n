@@ -304,7 +304,7 @@ Blink es el nombre del motor de renderizado detrás de Chromium. Como con `exper
 
 ### ¿Por què?
 
-En general, probablemente hay buenas razones si una función no fue habilitada por defecto. Casos de uso legítimo para habilitar funciones especificas existen. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+En general, probablemente hay buenas razones si una función no fue habilitada por defecto. Casos de uso legítimo para habilitar funciones especificas existen. Como un desarrollador, usted debería saber exactamente por qué usted necesita habilitar una función, cuales son las ramificaciones, y como impacta las seguridad de su aplicación. Usted no debería habilitar funciones de forma especulativa bajo ninguna circunstancia.
 
 ### ¿Còmo?
 
@@ -322,13 +322,13 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## Do Not Disable WebSecurity
+## No Deshabilite WebSecurity
 
 *La recomendación es el defecto del electrón*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
+Usted debe haber adivinado para este momento que al deshabilitar la propiedad `webSecurity` en un procesador de renderizado ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) deshabilita funciones de seguridad elementales.
 
-Do not disable `webSecurity` in production applications.
+No deshabilite `webSecurity` en aplicaciones de producción.
 
 ### ¿Por què?
 
@@ -358,11 +358,11 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## Do Not Use `allowpopups`
+## No haga Uso de `allowpopups`
 
 *La recomendación es el defecto del electrón*
 
-If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+Si usted está usando [`WebViews`](web-view), tal vez necesite las páginas y guiones cargados en su etiqueta `<webview>` para abrir nuevas ventanas. El atributo `allowpopups` los habilita para crear un nuevo [`BrowserWindows`](browser-window) usando el método `window.open()`. De distinta forma, `WebViews` no están permitidos para crear nuevas ventanas.
 
 ### ¿Por què?
 
