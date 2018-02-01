@@ -2,13 +2,13 @@
 
 > Создание окон браузера и управление ими.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ```javascript
 // В основном процессе.
 const {BrowserWindow} = require('electron')
 
-// Или используйте 'remote' из renderer процесса.
+// Или используйте 'remote' в renderer процессе.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -27,7 +27,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Для создания окна без хрома или прозрачного окна произвольной формы, можно использовать API [Бескаркасного окна](frameless-window.md).
 
-## Изящный показ окон
+## Showing window gracefully
 
 Когда страница загружается в окно напрямую, пользователи могут видеть ступенчатую загрузку страницы, что является дурным тоном для нативного приложения. Для создания окна без ступенчатой загрузки существует два решения, которые можно использовать в различных ситуациях.
 
@@ -236,7 +236,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Вызывается при закрытии окна. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
 Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Например:
 
@@ -1052,7 +1052,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 #### `win.setIgnoreMouseEvents(ignore)`
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 
 Включает для окна игнорирование событий от мыши.
 
@@ -1080,11 +1080,11 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Возвращает `BrowserWindow` - родительское окно.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Возвращает `BrowserWindow[]` - все дочерние окна.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 

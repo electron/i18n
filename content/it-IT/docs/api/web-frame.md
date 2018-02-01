@@ -2,7 +2,7 @@
 
 > Customize the rendering of the current web page.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizzatore](../glossary.md#renderer-process)
 
 An example of zooming current page to 200%.
 
@@ -63,7 +63,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 * `autoCorrectWord` Boolean
 * `provider` Object 
   * `spellCheck` Function - Returns `Boolean` 
-    * `text` String
+    * `testo` Stringa
 
 Sets a provider for spell checking in input fields and text areas.
 
@@ -82,7 +82,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` String
+* `schema` Stringa
 
 Registers the `scheme` as secure scheme.
 
@@ -90,14 +90,14 @@ Secure schemes do not trigger mixed content warnings. For example, `https` and `
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
-* `scheme` String
+* `schema` Stringa
 
 Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
-* `scheme` String
-* `options` Object (optional) 
+* `schema` Stringa
+* `opzioni` Oggetto (opzionale) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
@@ -115,13 +115,13 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(text)`
 
-* `text` String
+* `testo` Stringa
 
 Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `codice` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -134,7 +134,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Restituisci `Oggetto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)

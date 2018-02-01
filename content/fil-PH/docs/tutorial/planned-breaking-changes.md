@@ -1,8 +1,8 @@
-# Planned Breaking API Changes
+# Naplano na Paglabag ng API na mga Pagbabago
 
-The following list includes the APIs that will be removed in Electron 2.0.
+Ang mga sumusunod na lista ay kabilang sa mga API na aalisin sa Electron 2.0.
 
-There is no timetable for when this release will occur but deprecation warnings will be added at least 90 days beforehand.
+Walang takdang panahon kung kailan pakakawalan ang release na ito ngunit ang pamumura ng mga babala na ito ay makakadagdag sa hindi bababa sa 90 na araw una pa man.
 
 ## `app`
 
@@ -36,7 +36,7 @@ let windowB = new BrowserWindow(optionsB)
 ## `clipboard`
 
 ```js
-// Deprecated
+/ Deprecated
 clipboard.readRtf()
 // Replace with
 clipboard.readRTF()
@@ -104,7 +104,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `proseso`
 
 ```js
 // Deprecated
@@ -113,9 +113,9 @@ process.versions['atom-shell']
 process.versions.electron
 ```
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` and `process.version.chrome` ay gagawin para read-only na mga property para palagian ng ibang `proseso.mga bersyon` mga proseso na-i-set ng Node.
 
-## `session`
+## `sesyon`
 
 ```js
 // Deprecated
@@ -186,22 +186,22 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Node Headers URL
+## Mga URL ng Node Header 
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Ito ang URL na tinukoy bilang `disturl` sa isang `.npmrc` na file o bilang `--dist-url` na utos ng line flag kung bubuo ng mga modyul na Native.
 
 Deprecated: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Palitan ng: https://atom.io/download/electron
 
-## Duplicate ARM Assets
+## Gayahin ang mga ARM Asset
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Bawat Electron na pakawalan ay kasama sa dalawang kaparehang ARM na mga build na bahagyang naiiba na mga filename, gaya ng `electron-v1.7.3-linux-arm.zip` at `electron-v1.7.3-linux-armv7l.zip`. Ang asset na mayroong `v7l` na prefix ay dinadagdag para linawin sa mga gumagamit kung saang ARM na bersyon ang sinusuportahan, at upang ma-disambiguate ito sa hinaharap galing sa armv6l at arm64 na mga asset na maaaring mabuo.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Ang file na *walang prefix* ay nalathala pa rin para maiwasan ang paglabag ng anomang setup na maaaring naubos. Simula sa 2.0, ang hindi pre-fixed na file ay hindi na maaaring malathala.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Para sa mg detalye, tingnan ang [6986](https://github.com/electron/electron/pull/6986) at [7189](https://github.com/electron/electron/pull/7189).
 
-## `FIXME` comments
+## `FIXME` na mga comment
 
-The `FIXME` string is used in code comments to denote things that should be fixed for the 2.0 release. See https://github.com/electron/electron/search?q=fixme
+Ang `FIXME` na string ay ginagamit sa code na mga comment ya nagpapatunay na sa mga bagay na karapatdapat ayusin para sa 2.0 na release. Tingnan ang https://github.com/electron/electron/search?q=fixme

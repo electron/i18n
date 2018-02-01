@@ -13,7 +13,7 @@ Following `gyp` files contain the main rules for building Electron:
 
 ## Component Build
 
-Since Chromium is quite a large project, the final linking stage can take quite a few minutes, which makes it hard for development. In order to solve this, Chromium introduced the "component build", which builds each component as a separate shared library, making linking very quick but sacrificing file size and performance.
+Poiché Chromium è un progetto abbastanza ampio, la fase finale del collegamento può richiedere alcuni minuti, il che rende difficile lo sviluppo. Per risolvere questo problema, Chromium ha introdotto la "componente build", che crea ogni componente come una libreria condivisa separata, rendendo il collegamento molto veloce ma sacrificando la dimensione e le prestazioni del file.
 
 In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
@@ -40,11 +40,11 @@ To work around this Electron uses a `gyp` variable `libchromiumcontent_component
 
 Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
-This only affects developers, if you are just building Electron for rebranding you are not affected.
+Questo riguarda solo gli sviluppatori, se stai solo costruendo Electron per il rebranding non ne risentirai.
 
 ## Tests
 
-Test your changes conform to the project coding style using:
+Prova le tue modifiche conformi allo stile di codifica del progetto utilizzando:
 
 ```sh
 $ npm run lint
@@ -56,7 +56,7 @@ Test functionality using:
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Ogni volta che si apportano modifiche al codice sorgente di Electron, è necessario rieseguire la compilazione prima dei test:
 
 ```sh
 $ npm run build && npm test
@@ -78,7 +78,7 @@ $ npm test -- --grep child_process
 
 Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
 
-To run the tests with the release build use:
+Per eseguire i test con la versione di rilascio, utilizzare:
 
 ```sh
 $ npm test -- -R

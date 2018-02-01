@@ -8,9 +8,9 @@ You can install `clang-format` and `git-clang-format` via `npm install -g clang-
 
 To automatically format a file according to Electron C++ code style, simply run `clang-format -i path/to/electron/file.cc`. It should work on macOS/Linux/Windows.
 
-The workflow to format your changed code:
+Il flusso di lavoro per formattare il codice modificato:
 
-1. Make codes changes in Electron repository.
+1. Apporta modifiche ai codici nel repository Electron.
 2. Run `git add your_changed_file.cc`.
 3. Run `git-clang-format`, and you will probably see modifications in `your_changed_file.cc`, these modifications are generated from `clang-format`.
 4. Run `git add your_changed_file.cc`, and commit your change.

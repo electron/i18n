@@ -1,6 +1,6 @@
 ## Classe : MenuItem
 
-> Add items to native application menus and context menus.
+> Ajoute des éléments aux menus et menus contextuels de l’application native.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -9,7 +9,7 @@ Voir [`Menu`](menu.md) pour des exemples.
 ### `new MenuItem(options)`
 
 * `options` Objet 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` lorsque l'élément du menu est cliqué. 
+  * `click` Fonction (optionnel) - Sera appelé avec `click(menuItem, browserWindow, event)` lorsque l'élément du menu est cliqué. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
     * `event` Event
@@ -28,7 +28,7 @@ Voir [`Menu`](menu.md) pour des exemples.
 
 ### Rôles
 
-Roles allow menu items to have predefined behaviors.
+Les rôles permettent à des éléments du menu d'avoir des comportements prédéfinis.
 
 It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
 

@@ -49,7 +49,7 @@ app.on('ready', () => {
   * `traceOptions` String
 * `callback` Function
 
-开始记录所有进程。
+在所有进程上开始记录
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
 
@@ -100,7 +100,7 @@ app.on('ready', () => {
 
 一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
-### `contentTracing.stopMonitoring(callback)`
+### `contentTracing.startMonitoring(options, callback)`
 
 * `callback` Function
 
@@ -108,7 +108,7 @@ app.on('ready', () => {
 
 一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
 
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `contentTracing.startMonitoring(options, callback)`
 
 * `resultFilePath` String
 * `callback` Function 
@@ -120,7 +120,7 @@ app.on('ready', () => {
 
 一旦所有子进程都确认了 ` captureMonitoringSnapshot ` 请求, 就会使用包含跟踪数据的文件来调用 ` callback `。
 
-### `contentTracing.getTraceBufferUsage(callback)`
+### `contentTracing.startMonitoring(options, callback)`
 
 * `callback` Function 
   * `value` Number

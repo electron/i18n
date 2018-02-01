@@ -2,7 +2,7 @@
 
 > A home for Electron's translated documentation.
 
-🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹
+🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹 🇵🇱
 
 ## Contributing
 
@@ -17,28 +17,28 @@ The following languages are currently being translated, but we can
 
 <!-- start language-table -->
 - [Indonesian](https://crowdin.com/project/electron/id)
-- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
+- [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
+- [Filipino](https://crowdin.com/project/electron/fil)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
 - [Français (French)](https://crowdin.com/project/electron/fr)
-- [Filipino](https://crowdin.com/project/electron/fil)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
 - [中文 (Chinese Traditional)](https://crowdin.com/project/electron/zh-TW)
 - [한국어 (Korean)](https://crowdin.com/project/electron/ko)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
-- [українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [हिन्दी (Hindi)](https://crowdin.com/project/electron/hi)
+- [Italiano (Italian)](https://crowdin.com/project/electron/it)
+- [українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
-- [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [język polski (Polish)](https://crowdin.com/project/electron/pl)
+- [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
-- [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
+- [ไทย (Thai)](https://crowdin.com/project/electron/th)
 <!-- end language-table -->
 
 ## Installation

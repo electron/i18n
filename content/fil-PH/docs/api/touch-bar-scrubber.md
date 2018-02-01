@@ -1,58 +1,58 @@
-## Class: TouchBarScrubber
+## Klase: TouchBarScrubber
 
-> Create a scrubber (a scrollable selector)
+> Lumilikha ng isang "scrubber" (isang scrollable na tagapili)
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
-* `mga pagpipilian` Bagay 
-  * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber
-  * `select` Function - Called when the user taps an item that was not the last tapped item 
-    * `selectedIndex` Integer - The index of the item the user selected
-  * `highlight` Function - Called when the user taps any item 
-    * `highlightedIndex` Integer - The index of the item the user touched
-  * `selectedStyle` String - Selected item style. Defaults to `null`.
-  * `overlayStyle` String - Selected overlay item style. Defaults to `null`.
-  * `showArrowButtons` Boolean - Defaults to `false`.
-  * `mode` String - Defaults to `free`.
-  * `continuous` Boolean - Defaults to `true`.
+* `options` Bagay 
+  * `items` [ScrubberItem[]](structures/scrubber-item.md) - Isang hanay ng mga aytem na ilalagay sa scrubber na ito
+  * `select` Function - Itinatawag kapag ang tagagamit ay pumindot sa isang aytem na hinding panghuling napindot 
+    * `selectedIndex` na Integer - Ang index ng aytem na pinili ng tagagamit
+  * `highlight` Function - Itinatawag kapag ang tagagamit ay pumipindot sa kahit anong aytem 
+    * `highlightedIndex` na Integer - Ang index ng aytem na ginalaw ng user
+  * `selectedStyle` na String - Napiling istilo ng aytem. Naka-default sa `null`.
+  * `overlayStyle` na String - Piling istilo ng overlay na aytem. Naka-default sa `null`.
+  * `showArrowButtons` na Boolean - Nakadefault sa `false`.
+  * `mode` na String - Naka-default sa `free`.
+  * `continuous` na Boolean - Nakadefault sa `true`.
 
-### Humahalimbawa sa bahagi nito
+### Mga Katangian ng Instance
 
-The following properties are available on instances of `TouchBarScrubber`:
+Ang sumusunod na mga katangian ay makikita sa mga instance ng `TouchBarScrubber`:
 
 #### `touchBarScrubber.items`
 
-A `ScrubberItem[]` array representing the items in this scrubber. Updating this value immediately updates the control in the touch bar. Updating deep properties inside this array **does not update the touch bar**.
+Ang isang hanay ng `ScrubberItem[]` na kumakatawan sa mga aytem sa scrubber na ito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Ang pag-update sa mga malalalim na katangian sa loob ng hanay na ito ay **hindi nag-a-update sa touch bar**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga aytem sa scrubber. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng mga halaga:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles
+* `background` -nagma-map sa `[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `outline` - Nagma-map sa `[NSScrubberSelectionStyle outlineOverlayStyle]`
+* `null` - Sa aktwal, ang null, at hindi ang isang string, ang nagtatanggal sa lahat ng mga istilo
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. Possible values:
+Ang isang `String` na kumakatawan sa istilo na dapat meron ang napiling mga aytem sa scrubber. Ang istilong ito ay naka-overlay sa itaas ng aytem ng scrubber sa halip na ilagay ito sa likod nito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar. Posibleng mga halaga:
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles
+* `background` -nagma-map sa `[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `outline` - Nagma-map sa `[NSScrubberSelectionStyle outlineOverlayStyle]`
+* `null` - Sa aktwal, ang null, at hindi ang isang string, ang nagtatanggal sa lahat ng mga istilo
 
 #### `touchBarScrubber.showArrowButtons`
 
-A `Boolean` representing whether to show the left / right selection arrows in this scrubber. Updating this value immediately updates the control in the touch bar.
+Ang isang `Boolean` na kumakatawan sa kung alin sa kaliwa/kanang mga arrow na pangpili ang ipapakita sa scrubber na ito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar.
 
 #### `touchBarScrubber.mode`
 
-A `String` representing the mode of this scrubber. Updating this value immediately updates the control in the touch bar. Possible values:
+Isang `String` na kumakatawan sa mode ng scrubber na ito. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar:
 
-* `fixed` - Maps to `NSScrubberModeFixed`
-* `free` - Maps to `NSScrubberModeFree`
+* `fixed` - Nagma-map sa `NSScrubberModeFixed`
+* `free` - Nagma-map sa `NSScrubberModeFree`
 
 #### `touchBarScrubber.continuous`
 
-A `Boolean` representing whether this scrubber is continuous or not. Updating this value immediately updates the control in the touch bar.
+Ang isang `Boolean` na kumakatawan sa kung ang scrubber ba ay tuloy-tuloy o hindi. Ang pag-update sa halagang ito ay madaliang ina-update ang kontrol sa touch bar.

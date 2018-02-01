@@ -12,21 +12,21 @@ Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
 `ipcRenderer` modülü olayları dinlemek ve mesaj göndermek için aşağıdaki yöntemi içerir:
 
-### `ipcRenderer.on(channel, listener)`
+### `ipcRenderer.on(kanal, dinleyici)`
 
 * `channel` Dizesi
 * `listener` fonksiyon
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
-### `ipcRenderer.once(channel, listener)`
+### `ipcRenderer.once(kanal, dinleyici)`
 
 * `channel` Dizesi
 * `listener` Fonksiyon
 
 Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
-### `ipcRenderer.removeListener(channel, listener)`
+### `ipcRenderer.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
 * `listener` Fonksiyon
@@ -39,7 +39,7 @@ Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
 
 Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
-### `ipcRenderer.send(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.send(kanal[, arguman1][, arguman2][, ...])`
 
 * `channel` Dizesi
 * `...args` herhangi[]
@@ -48,7 +48,7 @@ Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
 Ana işlem `channel` ile `ipcMain` modülünü dinleyerek işleme koyar.
 
-### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
+### `ipcRenderer.sendSync(channel[, arguman1][, arguman2][, ...])`
 
 * `channel` Dizesi
 * `...args` herhangi[]

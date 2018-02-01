@@ -6,13 +6,13 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarPopover(options)` *Experimental*
 
-* `options` Object 
+* `opzioni` Object 
   * `label` String (optional) - Popover button text.
   * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
   * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
   * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
 
-### Instance Properties
+### Proprietà Istanza
 
 The following properties are available on instances of `TouchBarPopover`:
 

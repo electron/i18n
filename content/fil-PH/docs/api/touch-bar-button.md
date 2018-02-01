@@ -1,21 +1,21 @@
 ## Class: TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> Maglikha ng isang pipindutin sa touch para sa native na macOS na mga aplikasyon
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `mga opsyon` Bagay 
-  * `label` Lubid (opsyonal) - Buton na texsto.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+* `options` Object 
+  * `label` String (opsyonal) - Pipinduting teksto.
+  * `backgroundColor` String (opsyonal) - Ang kulay ng background ng pipindutin ay naka hex format, i.e `#ABCDEF`.
+  * `icon` [NativeImage](native-image.md) (opsyonal) - Button icon.
+  * `iconPosition` String (opsyonal) - Pwedeng `kaliwa`, `kanan` o `naka-overlay`.
+  * `click` Function (opsyonal) - Ang function na tatawagin kung ang napindot ang pipindutin.
 
 ### Halimbawa ng Ari-arian
 
-The following properties are available on instances of `TouchBarButton`:
+Ang sumusunod na mga katangian ay makikita sa mga sitwasyon ng `TouchBarButton`:
 
 #### `touchBarButton.label`
 

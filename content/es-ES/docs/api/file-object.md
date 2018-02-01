@@ -1,10 +1,10 @@
-# `Archivo` Objeto
+# `File` Object
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+> Utiliza la API HTML5 `File` para trabajar de forma nativa con los archivos en filesystem.
 
-The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
+La interfaz del archivo de DOM proporciona abstracción alrededor de los archivos nativos para permitir a los usuarios trabajar sobre los archivos nativos directamente con la API del archivo HTML5. Electron tiene un atributo `path` adicional a la interfaz `File` el cual revela la ruta real del archivo en filesystem.
 
-Example of getting a real path from a dragged-onto-the-app file:
+Ejemplo para obtener una ruta real desde un archivo dragged-onto-the-app:
 
 ```html
 <div id="holder">

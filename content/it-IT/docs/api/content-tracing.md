@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
 
@@ -35,7 +35,7 @@ The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `callback` Funzione 
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
@@ -44,7 +44,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
+* `opzioni` Object 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -55,7 +55,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 `categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-Examples:
+Esempi:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
@@ -76,7 +76,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Funzione 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -89,7 +89,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Object 
+* `opzioni` Object 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -111,7 +111,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Funzione 
   * `resultFilePath` String
 
 Get the current monitoring traced data.
@@ -122,7 +122,7 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `callback` Funzione 
   * `value` Number
   * `percentage` Number
 

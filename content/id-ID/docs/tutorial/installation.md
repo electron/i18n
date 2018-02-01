@@ -7,7 +7,7 @@ Untuk memasang binari elektron prebuilt , gunakan ` npm </ 0> . Metode yang disu
 <pre><code class="sh">npm menginstal elektron - menyimpan-dev
 `</pre> 
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Lihat  Dokumen versi elektron </ 0> untuk info tentang cara mengelola versi Elektron di aplikasi Anda.</p> 
 
 ## Instalasi global
 
@@ -25,11 +25,10 @@ Jika Anda ingin mengubah arsitektur yang diunduh (misalnya ` ia32 ` pada mesin `
 memasang npm --lengkungan = dia32 elektron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Selain mengubah arsitektur, Anda juga bisa menentukan platformnya (misalnya, ` win32 </ 0>, <code> linux </ 0>, dll.) dengan menggunakan <code>--platform </ 0> flag:</p>
 
-```shell
-memasang npm --peron = win32 elektron
-```
+<pre><code class="shell">memasang npm --peron = win32 elektron
+`</pre> 
 
 ## Proxy
 
@@ -37,50 +36,53 @@ Jika Anda perlu menggunakan proxy HTTP, Anda dapat [ menetapkan variabel lingkun
 
 ## Custom Mirrors and Caches
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Selama instalasi, modul ` elektron </ 0> akan memanggil <a href="https://github.com/electron-userland/electron-download"><code> elektron-download </ 1> untuk mendownload prebuilt
+binari Elektron untuk platform Anda. Ini juga dapat dilakukan dengan menghubungi GitHub's
+halaman download yang dirilis (<code>https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Jika Anda tidak dapat mengakses GitHub atau Anda memerlukan penyediaan kustom build, Anda dapat melakukannya dengan menyediakan mirror atau direktori cache yang ada.
 
 #### Mirror
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+Anda dapat menggunakan variabel lingkungan untuk mengganti URL dasar, jalan di mana untuk memeriksa biner elektron, dan nama berkas biner. Url yang digunakan oleh ` elektron-download </ 0>
+disusun sebagai berikut:</p>
+
+<pre><code class="txt">url = ELEKTRON_MIRROR + ELECTRON_KUSTOM_DIR + '/' + ELEKTRON_KUSTOM_NAMABERKAS
+`</pre> 
+
+Misalnya, untuk menggunakan mirror China:
 
 ```txt
-url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
-```
-
-For instance, to use the China mirror:
-
-```txt
-ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
+ELEKTRON_MIRROR="https://npm.taobao.org/mirrors/elektron/"
 ```
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Sebagai alternatif, Anda dapat mengganti cache lokal. `elektron-download` akan cache download binari di direktori lokal agar tidak memberatkan jaringan Anda. Anda dapat memakai folder cache itu untuk menyediakan custom build Electron atau untuk menghindari sentuhan sama sekali dengan jaringan.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
-* MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Linux: `$XDG_CACHE_HOME` or `~/.cache/elektron/`
+* MacOS: `~/Library/Caches/elektron/`
+* Windows: `$LOCALAPPDATA/elektron/Cache` or `~/AppData/Local/elektron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+Pada lingkungan yang telah menggunakan Elektron versi lama, Anda mungkin juga menemukan cache di ` ~ /.elektron </ 0>.</p>
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+<p>Anda juga dapat mengganti lokasi cache lokal dengan menyediakan <code> ELEKTRON_CACHE </ 0>
+variabel lingkungan.</p>
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+<p>Cache berisi file zip yang baik seperti versi checksum, yang disimpan sebagai
+sebuah file teks. Sebuah tipikal Cache mungkin terlihat seperti ini:</p>
 
-```sh
-├── electron-v1.7.9-darwin-x64.zip
-├── electron-v1.8.1-darwin-x64.zip
-├── electron-v1.8.2-beta.1-darwin-x64.zip
-├── electron-v1.8.2-beta.2-darwin-x64.zip
-├── electron-v1.8.2-beta.3-darwin-x64.zip
+<pre><code class="sh">├── elektron-v1.7.9-darwin-x64.zip
+├── elektron-v1.8.1-darwin-x64.zip
+├── elektron-v1.8.2-beta.1-darwin-x64.zip
+├── elektron-v1.8.2-beta.2-darwin-x64.zip
+├── elektron-v1.8.2-beta.3-darwin-x64.zip
 ├── SHASUMS256.txt-1.7.9
 ├── SHASUMS256.txt-1.8.1
 ├── SHASUMS256.txt-1.8.2-beta.1
 ├── SHASUMS256.txt-1.8.2-beta.2
 ├── SHASUMS256.txt-1.8.2-beta.3
-```
+`</pre> 
 
 ## Penyelesaian masalah
 
@@ -90,13 +92,12 @@ Di hampir semua kasus, kesalahan ini adalah hasil dari masalah jaringan dan tida
 
 Anda juga dapat mencoba mendownload Electron langsung dari [Electron/Electron/pelepasan](https://github.com/electron/electron/releases) Jika memasang melalui `npm`gagal.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Jika penginstalan gagal dengan kesalahan ` EACCESS </ 0> Anda mungkin memerlukan <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions"> perbaiki izin npm anda </ 1>.</p>
 
-Jika kesalahan di atas terus berlanjut, flag [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) mungkin perlu disetel ke true:
+<p>Jika kesalahan di atas terus berlanjut, flag <a href="https://docs.npmjs.com/misc/config#unsafe-perm">unsafe-perm</a> mungkin perlu disetel ke true:</p>
 
-```sh
-sudo npm menginstal elektron--tidak aman-perm = true
-```
+<pre><code class="sh">sudo npm menginstal elektron--tidak aman-perm = true
+`</pre> 
 
 Pada jaringan yang lebih lambat, disarankan untuk menggunakan flag `--verbose` untuk menunjukkan kemajuan download:
 

@@ -1,19 +1,19 @@
-# NotificationAction Object
+# Oggetto AzioneNotifica
 
-* `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* `tipo` Stringa - Il tipo di azione, può essere `pulsante`.
+* `testo` Stringa - (opzionale) L'etichetta per l'azione data.
 
-## Platform / Action Support
+## Supporto Piattaforma / Azione
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                         |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Tipo di Azione | Supporto Piattaforma | Uso del `testo`                      | `testo` predefinito | Limitazioni                                                                                                                                                           |
+| -------------- | -------------------- | ------------------------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pulsante`     | macOS                | Usato come etichetta per il pulsante | "Mostra"            | Massimo di un pulsante, se ne sono forniti molti è usato solo l'ultimo. Questa azione è anche incompatibile con `haRisposto` e sarà ignorata se `haRisposto` è`true`. |
 
-### Button support on macOS
+### Pulsante supportato su macOS
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+Per far funzionare i pulsanti di extra notificazione su macOS la tua app deve incontrare i seguenti criteri.
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* L'App è firmata
+* La App ha il suo `NSStileSuoneriaNotificaUtente` impostata su `allerta` nell'`info.plist`.
 
-If either of these requirements are not met the button simply won't appear.
+Se uno dei questi criteri non sono presenti il pulsante semplicemente non apparirà.

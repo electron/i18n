@@ -1,1 +1,1 @@
-Moved to <upgrading-chromium.md>
+Dipindahkan ke <upgrading-chromium.md>

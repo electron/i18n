@@ -30,75 +30,75 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 
 Ang mga tungkulin ay nagpapahintulot sa mga aytem ng menu na may paunang tinukoy na mga katangian.
 
-It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
+Ito ang mabisang paraan para matukoy ang `role` para sa kahit anong aytem ng menu na pumaparehas sa standard na tungkulin, sa halip na manu-manong sinusubukang i-implementa ang katangian sa isang punsyon ng `click`. Ang dati ng gawang katangian ng `role` ay magbibigay ng pinakanatural na karanasan.
 
-The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
+Ang mga halaga ng `label` at `accelerator` ay opsyonal kapag ginagamit ang`role` at magiging default sa naaangkop na halaga para sa bawat plataporma.
 
-The `role` property can have following values:
+Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 
-* `undo`
-* `redo`
-* `cut`
-* `copy`
-* `paste`
-* `pasteandmatchstyle`
-* `selectall`
-* `delete`
-* `minimize` - Minimize current window
-* `close` - Close current window
-* `quit`- Quit the application
-* `reload` - Reload the current window
-* `forcereload` - Reload the current window ignoring the cache.
-* `toggledevtools` - Toggle developer tools in the current window
-* `togglefullscreen`- Toggle full screen mode on the current window
-* `resetzoom` - Reset the focused page's zoom level to the original size
-* `zoomin` - Zoom in the focused page by 10%
-* `zoomout` - Zoom out the focused page by 10%
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.)
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.)
+* `ang ibalik sa dating ginawa`
+* `gawin-ulit`
+* `putulin`
+* `kopyahin`
+* `idikit`
+* `istilongidikitatipares`
+* `piliinlahat`
+* `idilit`
+* `minimize` - Paliitin ang kasalukuyang window
+* `close` - Isara ang kasalukuyang window
+* `quit` - Alisin ang aplikasyon
+* `reload` - Ikarga ulit ang kasalukuyang window
+* `forceload` - Ikarga ulit ang kasalukuyang window nang hindi pinapansin ang cache.
+* `toggledevtools` - Mga gamit ng taga-buo ng toggle sa kasalukuyang window
+* `togglefullscreen` - I-togel ang buong iskrin na moda ng kasalukuyang window
+* `resetzoom` - I-set na muli ang lebel na pampalaki sa orihinal na sukat ng nakapokus na pahina
+* `zoomin` - Palakihin ang nakapokus na pahina ng 10 porsyento
+* `zoomout` - Paliitin ang nakapokus na pahina ng 10 porsyento
+* `editMenu` - Ang kabuoang default na menu ng "Edit" (Undo, Kopya, atbp.)
+* `windowMenu` - Ang kabuoang default na menu ng "Window" (Paliitin, Isara, atbp.)
 
-The following additional roles are available on macOS:
+Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action
-* `hide` - Map to the `hide` action
-* `hideothers` - Map to the `hideOtherApplications` action
-* `unhide` - Map to the `unhideAllApplications` action
-* `startspeaking` - Map to the `startSpeaking` action
-* `stopspeaking` - Map to the `stopSpeaking` action
-* `front` - Map to the `arrangeInFront` action
-* `zoom` - Map to the `performZoom` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `about` - Ibalangkas sa mga aksyon ng `orderFrontStandardAboutPanel`
+* `hide` - Ibalangkas sa mga aksyon ng `hide`
+* `hideothers` - Ibalangkas sa mga aksyon ng `hideOtherApplicatios`
+* `unhide` - Ibalangkas sa mga aksyon ng `unhideAllApplications`
+* `startspeaking` - Ibalangkas sa mga aksyon ng `startspeaking`
+* `stopspeaking` - Ibalangkas sa mga aksyon ng `stopspeaking`
+* `front` - Ibalangkas sa mga aksyon ng `arrangeInFront`
+* `zoom` - Ibalangkas sa mga aksyon ng `performZoom`
+* `window` - Ang submenu ay isang menu ng "Window"
+* `help` - Ang submenu ay isang menu ng "Help"
+* `services` - Ang submenu ay isang menu ng "Services"
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
+Kapag tinutukoy ang isang `role` sa macOS, ang `label` at ang `accelerator` ay ang tanging opsyon na makaka-apekto sa aytem ng menu. Lahat ng ibang opsyon ay hindi papansinin.
 
-### Humahalimbawa sa bahagi nito
+### Mga Katangian ng Instansya
 
-The following properties are available on instances of `MenuItem`:
+Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
-#### `menuItem.enabled`
+#### `ang menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay pinagana na, ang katangian na ito ay maaaring mabago ng matindi.
 
-#### `menuItem.visible`
+#### `ang menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay nakikita, ang katangian na ito ay maaaring mabago ng matindi.
 
-#### `menuItem.checked`
+#### `ang menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay nasuri na, ang katangian na ito ay maaaring mabago ng matindi.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Ang isang `checkbox` na aytem ng menu ay ito-toggle ang katangian ng `checked` ng pagbukas at pagpatay kapag napili.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Ang isang `radio` na aytem ng menu ay bubuksan ang kanyang `checked` na katangian kapag na-klik, at papatayin ang nasabing katangian para sa lahat ng mga katabing aytem sa loob ng parehong menu.
 
-You can add a `click` function for additional behavior.
+Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
 
-#### `menuItem.label`
+#### `ang menuItem.label`
 
-A `String` representing the menu items visible label
+Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak
 
-#### `menuItem.click`
+#### `ang menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event
+Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik

@@ -29,15 +29,13 @@ Para magbahagi ng mga datos sa pagitan ng pahina ng web ( ang nagbabahagi ay nag
 O maaari mo ring gamitin ang IPC system, na partikular na sa Electron, upang itabi ang mga bagay sa pangunahing proseso bilang isang pandaigdigang variable, at pagkatapos para ma access ang mga ito mula sa mga renderers sa pamamagitan ng `remote`property `electron`module:
 
 ```javascript
-// In the main process.
-global.sharedObject = {
+Sa mga pangunahing proseso. global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
+Sa pahina 1.require('electron').remote.getGlobal ('sharedObject').someProperty = 'bagong halaga'
 ```
 
 ```javascript

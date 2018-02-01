@@ -1,26 +1,26 @@
-# net
+# ang net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> Mag-isyu ng mga kahilingan ng HTTP/HTTPS gamit ang natural na networking library ng Chromium
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-The `net` module is a client-side API for issuing HTTP(S) requests. It is similar to the [HTTP](https://nodejs.org/api/http.html) and [HTTPS](https://nodejs.org/api/https.html) modules of Node.js but uses Chromium's native networking library instead of the Node.js implementation, offering better support for web proxies.
+Ang modyul ng `net` ay isang client-side API para sa pag-i-isyu ng mga kahilingan ng HTTP(S). Ito ay katulad sa [HTTP](https://nodejs.org/api/http.html) at [HTTPS](https://nodejs.org/api/https.html) na mga modyul ng Node.js ngunit gumagamit ng sinaunang networking library ng Chromium sa halip na ang implementasyon ng Node.js, na nagbibigay ng magandang suporta para sa mga proksi ng web.
 
-The following is a non-exhaustive list of why you may consider using the `net` module instead of the native Node.js modules:
+Ang mga sumusunod ay isang hindi kompletong listahan ng kung bakit mo isinaalang-alang na gamitin ang modyul ng `net` sa halip na ang mga sinaunang modyul ng Node.js:
 
-* Automatic management of system proxy configuration, support of the wpad protocol and proxy pac configuration files.
-* Automatic tunneling of HTTPS requests.
-* Support for authenticating proxies using basic, digest, NTLM, Kerberos or negotiate authentication schemes.
-* Support for traffic monitoring proxies: Fiddler-like proxies used for access control and monitoring.
+* Awtomatikong pamamahala ng pagsasaayos ng mga proksi ng sistema, suporta ng protocol ng wpad at pagsasaayos ng mga file ng proxy pac.
+* Awtomatikong pag ta-tunnel ng mga kahilingan ng HTTPS.
+* Suporta para sa pagpapatunay sa mga proksi gamit ang basic, digest, NTLM, Kerberos o makipag-ayos sa mga pamamaraan ng pagpapatunay.
+* Suporta para sa mga proksi na nagmo-monitor ng trapik: Ang mga proksi na katulad ng fiddler ang ginamit para ma-access ang pagkontrol at pagmo-monitor.
 
-The `net` module API has been specifically designed to mimic, as closely as possible, the familiar Node.js API. The API components including classes, methods, properties and event names are similar to those commonly used in Node.js.
+Ang modyul ng API ng `net` ay partikular na dinisenyo para gayahin, ng mas malapit hangga,t maaari, sa API ng pamilyar na Node.js. Ang mga bahagi ng API kabilang ang mga uri, mga pamamaraan, mga katangian at mga pangalan ng event ay kapareho sa mga laging ginagamit sa Node.js.
 
-For instance, the following example quickly shows how the `net` API might be used:
+Halimbawa, ang mga sumusunod nahalimbawa ay mabilis na nagpapakita kung papaano na ang API ng `net` ay maaaring gamitin:
 
 ```javascript
-const {app} = require('electron')
+const {app} = kailangan('electron')
 app.on('ready', () => {
-  const {net} = require('electron')
+  const {net} = kailangan('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
@@ -36,18 +36,18 @@ app.on('ready', () => {
 })
 ```
 
-By the way, it is almost identical to how you would normally use the [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) modules of Node.js
+Siyanga pala, ito ay halos magkakatulad kung papaanong normal mong gagamitin ang mga modyul ng [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/api/https.html) ng Node.js
 
-The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
+Ang API ng `net` ay maaari lamang gamitin pagkatapos na angaplikasyon ay ilalabas ang event ng `ready`. Kapag sinusubukang gamitin ang modyul bago ang event ng `ready` ay magdudulot ng pagkakamali.
 
-## Pamamaraan
+## Mga Pamamaraan
 
-The `net` module has the following methods:
+Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
-### `net.request(options)`
+### `ang net.request(mga opsyon)`
 
-* `options` (Object | String) - The `ClientRequest` constructor options.
+* `options` (Object | String) - Ang mga opsyon ng tagapagbuo ng `ClientRequest`.
 
-Returns [`ClientRequest`](./client-request.md)
+Ang nagbabalik na [`ClientRequest`](./client-request.md)
 
-Creates a [`ClientRequest`](./client-request.md) instance using the provided `options` which are directly forwarded to the `ClientRequest` constructor. The `net.request` method would be used to issue both secure and insecure HTTP requests according to the specified protocol scheme in the `options` object.
+Lumilikha ng isang instansya sa [`ClientRequest`](./client-request.md) na ginagamit ang ibinigay na `options` kung saan ay direktang ipapasa sa tagapagbuo ng `ClientRequest`. Ang pamamaraan ng `net.request` ay maaaring gamitin para mag-isyu ng kapwa ligtas at hindi ligtas na mga kahilingan ng HTTP ayon sa tinukoy na pamamaraan ng protocol sa mga bagay ng `options`.

@@ -19,87 +19,87 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Gamit ang sariling mga modyul ng node](tutorial/using-native-node-modules.md)
 * [Pagde-debug ng pangunahing proseso](tutorial/debugging-main-process.md)
 * [Paggamit ng Selenium at WebDriver](tutorial/using-selenium-and-webdriver.md)
-* [DevTools Extension](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
-* [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Ekstensyon ng DevTools](tutorial/devtools-extension.md)
+* [Paggamit ng ekstensyong Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Paggamit ng ekstensyong Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
+* [Pagssuri ng sistemang Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
+* [Mga shortcut ng keyboard](tutorial/keyboard-shortcuts.md)
 * [Pag-update sa mga Aplikasyon](tutorial/updates.md)
 
-## Tutorials
+## Pagtuturo
 
-* [Quick Start](tutorial/quick-start.md)
-* [Desktop Environment Integration](tutorial/desktop-environment-integration.md)
-* [Online/Offline Event Detection](tutorial/online-offline-events.md)
+* [Mabilisang Pagsisimula](tutorial/quick-start.md)
+* [Pagsama sa Desktop Environment](tutorial/desktop-environment-integration.md)
+* [Pagtukoy sa mga ganap Online/Offline](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
-* [Native Notifications](tutorial/notifications.md)
+* [Mga abisong natibo](tutorial/notifications.md)
 
-## API References
+## Sangguniang API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Sinopsis](api/synopsis.md)
+* [Mga pangprocessong bagay](api/process.md)
+* [Suportadong mga Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Nagbabago sa kapaligiran](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Pagtangkilik sa kalakaran ng DOM:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`Kikil ` Bagay](api/file-object.md)
+* [`<webview>` Pananda](api/webview-tag.md)
+* [` bintana. buksan ` Tungkulin](api/window-open.md)
 
-### Modules for the Main Process:
+### Mga modyul para sa pangunahing proseso:
 
 * [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
-* [contentTracing](api/content-tracing.md)
+* [awtoUpdeyter](api/auto-updater.md)
+* [Kulayan ang kapaligiran](api/browser-view.md)
+* [Kulayan ang bintana](api/browser-window.md)
+* [pagsubaybay ng nilalaman](api/content-tracing.md)
 * [I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.](api/dialog.md)
-* [globalShortcut](api/global-shortcut.md)
-* [inAppPurchase](api/in-app-purchase.md)
+* [putulin ng maikli ang global](api/global-shortcut.md)
+* [mamili sa App](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
-* [MenuItem](api/menu-item.md)
-* [net](api/net.md)
-* [powerMonitor](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
-* [protocol](api/protocol.md)
-* [session](api/session.md)
-* [systemPreferences](api/system-preferences.md)
+* [Talaulaman](api/menu.md)
+* [Menultem](api/menu-item.md)
+* [ang net](api/net.md)
+* [ang powerMonitor](api/power-monitor.md)
+* [ang powerSaveBlocker](api/power-save-blocker.md)
+* [ang protokol](api/protocol.md)
+* [sesyon](api/session.md)
+* [mga kagustuhan sa sistema](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Modulo para sa renderer ng proseso (bahay-alalawa sa pahina):
 
-* [desktopCapturer](api/desktop-capturer.md)
-* [ipcRenderer](api/ipc-renderer.md)
-* [remote](api/remote.md)
-* [webFrame](api/web-frame.md)
+* [pagkakahuli sa tuktok ng desk](api/desktop-capturer.md)
+* [ipcrenderer](api/ipc-renderer.md)
+* [kamuntik](api/remote.md)
+* [lumikha ng bahay-alalawa](api/web-frame.md)
 
-### Modules for Both Processes:
+### Modulo para sa parehong proseso:
 
-* [clipboard](api/clipboard.md)
-* [crashReporter](api/crash-reporter.md)
-* [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
-* [shell](api/shell.md)
+* [iipit sa tabla](api/clipboard.md)
+* [kalabog ng tagapagbalita](api/crash-reporter.md)
+* [gupitin ng maikli ang mga litrato](api/native-image.md)
+* [magtabi](api/screen.md)
+* [kabibi](api/shell.md)
 
-## Development
+## Pag-unlad
 
-* [Coding Style](development/coding-style.md)
-* [Using clang-format on C++ Code](development/clang-format.md)
+* [Paraan sa pagkukudigo](development/coding-style.md)
+* [Paggamit ng kumakalat na-format C++ Code](development/clang-format.md)
 * [Pagsusuri](development/testing.md)
-* [Source Code Directory Structure](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Ang Direktoryo ng Istraktura ng "Source Code"](development/source-code-directory-structure.md)
+* [Alituntunin ng mga diperensya ng NW.js (dating ukol sa-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Pagbuo ng Buod ng Sistema](development/build-system-overview.md)
 * [Pagbuo ng mga tagubilin (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
+* ["Build Instructions" (Windows)](development/build-instructions-windows.md)
+* ["Build Instructions (Linux)"](development/build-instructions-linux.md)
+* [Mga Tagubilin ng Debug (macOS)](development/debugging-instructions-macos.md)
+* [Mga Tagubilin ng Debug (Windows)](development/debug-instructions-windows.md)
+* [Pag-se-set up ng Simbolo ng Debugger](development/setting-up-symbol-server.md)
+* [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
 * [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
 * [Pagpapaunlad ng Chromium](development/chromium-development.md)
-* [V8 Development](development/v8-development.md)
+* [V8 Pag-unlad](development/v8-development.md)

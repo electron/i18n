@@ -121,7 +121,7 @@ Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
 
 Proxy ayarlarını yap.
 
-When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
+`pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
 
 `proxyRules` aşağıdaki kurallara uymak zorundadır:
 
@@ -225,7 +225,7 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
-Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Arama `geri çağırma(0)` sertfikayı kabul eder, arama `geri çağırma(-2)` reddeder.
+`session` için sertifika doğrulama proc'unu ayarlar, `proc` ne zaman sunucu sertifika doğrulaması istenirse`proc(request, callback)` ile çağırılacak. Arama `geri çağırma(0)` sertfikayı kabul eder, arama `geri çağırma(-2)` reddeder.
 
 Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
 
@@ -293,7 +293,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 `userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`acceptLanguages` virgülle ayrılmış dil kodlarının sıralı bir listesi olmalıdır, örneğin `"en-US,fr,de,ko,zh-CN,ja"`.
 
 Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `webContents.setUserAgent` yapısını oturum genelinde kullanıcı aracısını geçersiz kılmak için kullanabilir.
 
@@ -307,7 +307,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 * `geri arama` Fonksiyon 
   * `result` Buffer - Blob data.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+`Blob` döner - `identifier` ile ilişkili blob verisi.
 
 #### `ses.createInterruptedDownload(options)`
 
@@ -321,7 +321,7 @@ Returns `Blob` - The blob data associated with the `identifier`.
   * `eTag` String - ETag başlık değeri.
   * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
 #### `ses.clearAuthCache(options[, callback])`
 

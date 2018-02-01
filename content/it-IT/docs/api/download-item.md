@@ -2,12 +2,12 @@
 
 > Control file downloads from remote sources.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// In the main process.
+// Nel processo principale.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -39,9 +39,9 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `state` String
 
 Emitted when the download has been updated and is not done.
@@ -53,9 +53,9 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Returns:
+Restituiti:
 
-* `event` Event
+* `evento` Evento
 * `state` String
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### Instance Methods
+### Metodi Istanza
 
 The `downloadItem` object has the following methods:
 

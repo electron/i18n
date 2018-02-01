@@ -1,66 +1,71 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Tinutuklas ang mga pangyayari sa keyboard kung ang aplikasyon ay walang tumutuon na keyboard.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Ang proseso: [Pangunahin](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+Ang `globalShortcut` modyul ay pwedeng irehistro/hindi-irehistro ang global keyboard shortcut na may operating system para maka customize ang operasyon sa iba-ibang shortcut.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang pagtuon ng keyboard. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+onst {app, globalShortcut} = kailangan('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('CommandOrControl+X', () => {
+  // Magrehistro ng a 'CommandOrControl+X' shortcut na tagapakinig.
+
+
+  const ret = globalShortcut.irehistro('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('bigong pagparehistro')
   }
 
-  // Check whether a shortcut is registered.
+  //I-tsek kung ang shortcut ay rehistrado.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
-  globalShortcut.unregister('CommandOrControl+X')
+  // Hindi irehistro ang shortcut.
 
-  // Unregister all shortcuts.
-  globalShortcut.unregisterAll()
+  globalShortcut.hindirehistrado('CommandoControl+X')
+
+//Wag irehistro lahat ng shortcuts.
+
+  globalShortcut.wagirehistroLahat()
 })
+ 
 ```
 
 ## Pamamaraan
 
-The `globalShortcut` module has the following methods:
+Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 
-### `globalShortcut.register(accelerator, callback)`
+### `globalShortcut.rehistro(aselerador, baliktawag)`
 
-* `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `aselerador` [Aselerador](accelerator.md) 
+* `baliktawag` ginagawa
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Nag-rehistro ng global shortcut ng `aselerador`. Ang `baliktawag` ay tatawagan kung ang narehistrong shortcut ay pinindot ng tagagamit.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Kung ang aselerador ay nakuha na ng ibang apikasyon, ang tawag na ito ay tahimik na babagsak. Ang gawi na ito nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gusto na ang mga aplikasyon ay maglaban para sa global shortcuts.
 
-### `globalShortcut.isRegistered(accelerator)`
+### `globalShortcut.Rehistrado(aselerador)`
 
-* `accelerator` [Accelerator](accelerator.md)
+* `aselerador` [Aselerador](accelerator.md) 
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Nagbabalik `Boolean` - Kung ang aplikasyon na ito ay may nakarehistrong `aselerador`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Kung ang aselerador ay nakuha na ng ibang aplikasyon, ang tawag na ito ay babalik parin bilang `huwad`. Ang gawi na ito ay nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gustong maglaban ang mga aplikasyon para sa global shortcuts.
 
-### `globalShortcut.unregister(accelerator)`
+### `globalShortcut.hindirehistrado(aselerador)`
 
-* `accelerator` [Accelerator](accelerator.md)
+* `aselerador` [Aselerador](accelerator.md) 
 
-Unregisters the global shortcut of `accelerator`.
+Hindi inirehistro ang global shortcut ng `aselerador`.
 
-### `globalShortcut.unregisterAll()`
+### `globalShortcut.hindirehistradoLahat()`
 
-Unregisters all of the global shortcuts.
+Hindi irehistro lahat ng global shortcuts.

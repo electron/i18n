@@ -1,10 +1,10 @@
 ## Clase: DownloadItem
 
-> Control file downloads from remote sources.
+> El archivo de control descarga desde fuentes remotas.
 
-Proceso: [Principal](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
-`DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` es un `EventEmitter` que representa un elemento descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
 ```javascript
 // En el proceso principal.
@@ -37,48 +37,48 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Eventos de Instancia
 
-#### Event: 'updated'
+#### Evento: "updated"
 
 Devuelve:
 
-* `evento` Evento
-* `state` String
+* `event` Evento
+* `state` Cadena
 
-Emitted when the download has been updated and is not done.
+Aparece cuando la descara ha sido actualizada y no está terminada.
 
-The `state` can be one of following:
+El `state` puede ser uno de los siguientes:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - La descarga está en proceso.
+* `interrupted` - La descarga ha sido interrumpida y puede ser reanudada.
 
-#### Event: 'done'
+#### Evento: "done"
 
 Devuelve:
 
-* `evento` Evento
-* `state` String
+* `event` Evento
+* `state` Cadena
 
-Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
+Aparece cuando la descarga está en un estado terminal. Esto incluye una descarga completa, una descarga cancelada (a través de `downloadItem.cancel()`), y una descarga interrumpida que no puede ser reanudada.
 
-The `state` can be one of following:
+El `state` puede ser uno de los siguientes:
 
-* `completed` - The download completed successfully.
-* `cancelled` - The download has been cancelled.
-* `interrupted` - The download has interrupted and can not resume.
+* `completed` - La descarga se ha completado con éxito.
+* `cancelled` - La descarga ha sido cancelada.
+* `interrupted` - La descarga ha sido interrumpida y no puede ser reanudada.
 
 ### Métodos de Instancia
 
-The `downloadItem` object has the following methods:
+El objeto `downloadItem` tiene los siguientes métodos:
 
 #### `downloadItem.setSavePath(path)`
 
-* `path` String - Set the save file path of the download item.
+* `path` Cadena - Configura la ruta del archivo de guardado del elemento descargado.
 
-The API is only available in session's `will-download` callback function. If user doesn't set the save path via the API, Electron will use the original routine to determine the save path(Usually prompts a save dialog).
+La API solo está disponible en la función callback `will-download` de la sesión. Si el usuario no configura la ruta de guardado a través de la API, Electron usará la rutina de origen para determinar la ruta de guardado (generalmente indicará un diálogo de guardado).
 
 #### `downloadItem.getSavePath()`
 
-Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+Devuelve `String` - La ruta de guardado del elemento descargado. Este puede ser tanto la ruta configurada a través de `downloadItem.setSavePath(path)` o la ruta seleccionada desde el cuadro de dialogo de guardado mostrado.
 
 #### `downloadItem.pause()`
 
@@ -86,72 +86,72 @@ Pausa la descarga.
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Devuelve `Boolean` - Si la ventana esta pausada o no.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Reanuda la descarga que ha sido pausada.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Nota:** Para habilitar las descargas reanudables, el servidor desde donde se descarga debe soportar las solicitudes de rango y proporcionar los valores de cabecera `Last-Modified` y `ETag`. De lo contrario, `resume()` descartará los bytes recibidos anteriormente y reiniciará la descarga desde el principio.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Reanuda `Boolean` - Si la descarga puede reanudarse o no.
 
 #### `downloadItem.cancel()`
 
-Cancela la operación de descarga.
+Cancela la operación de la descarga.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Devuelve `String` - El url de origen desde donde se descargó el elemento.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Devuelve `String` - El tipo de archivo.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Devuelve `Boolean` - Si la descarga tiene o no gestos de usuario.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Devuelve `String` - El nombre de archivo del elemento descargado.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Nota:** El nombre del archivo no siempre es el mismo que el que está guardado en el disco local. Si el usuario cambia el nombre del archivo en el cuadro de diálogo de guardado de la descarga, el nombre actual del archivo guardado será diferente.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Devuelve `Integer` - El tamaño total en bytes del elemento descargado.
 
 Si se desconoce el tamaño, devuelve 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Devuelve `Integer` - Los bytes recibidos del elemento descargado.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Devuelve `String` - El campo Content-Disposition desde la cabecera de respuesta.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Devuelve `String` - El estado actual. Puede ser `progressing`, `completed`, `cancelled` o `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Nota:** Los siguientes métodos son útiles específicamente para reanudar un elemento `cancelled` cuando se reinicia la sesión.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Devuelve `String[]` - La cadena del url completa del elemento, incluyendo cualquier redirección.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Devuelve `String` - El valor de cabecera Last-Modified.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Devuelve `String` - El valor de cabecera Etag.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Devuelve `Double` - Número de segundos desde el UNIX epoch cuando se inició la descarga.

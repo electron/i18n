@@ -42,7 +42,7 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 * `geri arama` Function (optional) - If specified will perform the open asynchronously. *macOS* 
   * `error` Hata 
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+`Boolean` döner - uygulamanın URL açmaya uygun olup olmaması. Eğer geri çağırma belirtildiyse her zaman true döner.
 
 Verilen harici protokol URL'sini masaüstünde varsayılan şekilde açın. (Örneğin, mailto: kullanıcının varsayılan posta aracısındaki URL'leri).
 

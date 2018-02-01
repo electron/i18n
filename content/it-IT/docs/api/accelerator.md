@@ -1,63 +1,63 @@
-# Accelerator
+# Acceleratore
 
-> Define keyboard shortcuts.
+> Definisci scorciatoie tastiera.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Gli acceleratori sono stringhe che possono contenere modificatori multipli e codici chiave combinati dal carattere `+` ed usate per definire le scorciatoie della tastiera attraverso la tua applicazione.
 
-Examples:
+Esempi:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `ComandoOControllo+A`
+* `ComandoOControllo+Shift+A`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Le scorciatoie sono registrate con il modulo [`Scorciatoiaglobale`](global-shortcut.md) usando il metodo [`registra`](global-shortcut.md#globalshortcutregisteraccelerator-callback).
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const {app, globalShortcut} = richiedi('electron')
 
-app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
-  globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+App.on('pronto', () => {
+ // Registra una scorciatoia d'ascolto 'ComandoOControllo+Y'.
+  registro.Scorciatoiaglobale('ComandoOControllo+Y', () => {
+   // Fai azioni con Y ed entrambi i Comando/Contollo premuti.
   })
 })
 ```
 
-## Platform notice
+## Avviso piattaforma
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+Su Linux e Windows, la chiave `Comando` non ha effetto quindi usa `ComandoOControllo` che rappresenta `Comando` su macOS e `Controllo` su Linux e Windows per definire alcuni acceleratori.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Usa `Alt` al posto di `Opzione`. La chiave `opzione` esiste solo su macOS mentre la chiave `Alt` è disponibile su tutte le piattaforme.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` su macOS.
 
-## Available modifiers
+## Modificatori disponibili
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Comando` (o `Cmd` in breve)
+* `Controllo` (o`Ctrl` in breve)
+* `ComandoOControllo` (o `CmdOCtrl` in breve)
 * `Alt`
-* `Option`
+* `Opzione`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Codici chiave disponibili
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
-* `Space`
+* Da `` a `9`
+* Da `A` a `Z`
+* Da `F1` a `F24`
+* Punteggiature come `~`, `!`, `@`, `#`, `$`, etc.
+* `Più`
+* `Spazio`
 * `Tab`
 * `Backspace`
-* `Delete`
-* `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
-* `PrintScreen`
+* `Cancella`
+* `Inserisci`
+* `Indietro` (o `Entra` come alternativa)
+* `Su`, `Giù`, `Sinistra` e `Destra`
+* `Home` e `Fine`
+* `PaginaSu` e `PaginaGiù`
+* `Escape` (abbreviato `Esc`)
+* `VolumeSu`, `VolumeGiù` e `VolumeMuto`
+* `MediaProssimaTraccia`, `MediaPrecedenteTraccia`, `MediaStop` e `MediaPlayPausa`
+* `StampaSchermo`

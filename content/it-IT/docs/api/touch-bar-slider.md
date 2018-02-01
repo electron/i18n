@@ -6,7 +6,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 
-* `options` Object 
+* `opzioni` Object 
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
@@ -14,7 +14,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
   * `change` Function (optional) - Function to call when the slider is changed. 
     * `newValue` Number - The value that the user selected on the Slider
 
-### Instance Properties
+### Proprietà Istanza
 
 The following properties are available on instances of `TouchBarSlider`:
 

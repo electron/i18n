@@ -1,6 +1,6 @@
 # Detección de eventos online y Offline
 
-La detección de [eventos en linea y fuera de ella](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) puede ser implementada en el proceso de renderización usando el atributo [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), parte de la HTML5 API estándar. El atributo `navigator.onLine` devuelve `falso` si cualquier solicitud de red están garantizadas a fallar i.e. definitivamente fuera de linea (desconectado de la red). Devuelve `verdad` en cualquier otro caso. Since all other conditions return `true`, one has to be mindful of getting false positives, as we cannot assume `true` value necessarily means that Electron can access the internet. Such as in cases where the computer is running a virtualization software that has virtual ethernet adapters that are always “connected.” Therefore, if you really want to determine the internet access status of Electron, you should develop additional means for checking.
+La detección de [eventos en linea y fuera de ella](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) puede ser implementada en el proceso de renderización usando el atributo [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), parte de la HTML5 API estándar. El atributo `navigator.onLine` devuelve `falso` si cualquier solicitud de red están garantizadas a fallar i.e. definitivamente fuera de linea (desconectado de la red). Devuelve `verdad` en cualquier otro caso. Debido a que todas las otras condiciones devuelven `true`, uno tiene que estar al tanto de obtener falsos positivos, debido a que no podemos asumir que el valor `true` necesariamente significa que Electron puede acceder a Internet. Tal como en los casos en que la computadora ejecuta un software de virtualización que tiene adaptadores de Ethernet virtuales que siempre están "conectados". Por lo tanto, si realmente desea determinar el estado de acceso a Internet de Electron, debe desarrollar medios adicionales para verificar.
 
 Ejemplo:
 
@@ -37,7 +37,7 @@ app.on('ready', () => {
 </html>
 ```
 
-There may be instances where you want to respond to these events in the main process as well. The main process however does not have a `navigator` object and thus cannot detect these events directly. Usando utilidades de comunicación entre procesos del Electron, los acontecimientos pueden remitió al proceso principal y manejados según sea necesario, como se muestra en el ejemplo siguiente.
+Puede haber casos en los que desee responder a estos eventos en el proceso principal también. Sin embargo, el proceso principal no tiene un objeto `navigator`, y por lo tanto no puede detectar estos eventos directamente. Usando utilidades de comunicación entre procesos del Electron, los acontecimientos pueden remitió al proceso principal y manejados según sea necesario, como se muestra en el ejemplo siguiente.
 
 *main.js*
 

@@ -1,16 +1,16 @@
 # Istruzioni per la compilazione (Linux)
 
-Follow the guidelines below for building Electron on Linux.
+Segui le linee guida seguenti per costruire Electron su Linux.
 
 ## Prerequisites
 
-* At least 25GB disk space and 8GB RAM.
+* Almeno 25 GB di spazio su disco e 8 GB di RAM.
 * Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Esistono vari modi per installare Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Ciò consente di installare Node nella propria home directory come utente standard. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 * [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
 * Development headers of GTK+ and libnotify.
 
-On Ubuntu, install the following libraries:
+Su Ubuntu, installa le seguenti librerie:
 
 ```sh
 $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
@@ -29,7 +29,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-On Fedora, install the following libraries:
+Su Fedora, installa le seguenti librerie:
 
 ```sh
 $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
@@ -38,7 +38,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
                    GConf2-devel nss-devel
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+Altre distribuzioni possono offrire pacchetti simili per l'installazione tramite gestori di pacchetti come pacman. O si può compilare dal codice sorgente.
 
 ## Getting the Code
 
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Bootstrapping
 
-The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
+The bootstrap script will download all necessary build dependencies and create the build project files. You must have Python 2.7.x for the script to succeed. Il download di determinati file può richiedere molto tempo. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
 
 ```sh
 $ cd electron
@@ -85,7 +85,7 @@ If you would like to build both `Release` and `Debug` targets:
 $ ./script/build.py
 ```
 
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
+This script will cause a very large Electron executable to be placed in the directory `out/R`. La dimensione del file è superiore a 1,3 gigabyte. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
 
 ```sh
 $ ./script/create-dist.py
@@ -133,7 +133,7 @@ See [Build System Overview: Tests](build-system-overview.md#tests)
 
 ## Advanced topics
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+La configurazione di costruzione predefinita è destinata alle principali distribuzioni Linux desktop. Per creare una distribuzione o un dispositivo specifico, le seguenti informazioni potrebbero essere di aiuto.
 
 ### Building `libchromiumcontent` locally
 

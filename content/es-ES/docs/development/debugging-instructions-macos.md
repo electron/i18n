@@ -63,6 +63,8 @@ Para mostrar los argumentos y las variables locales para la estructura actual, c
 (const string &) name = "Electron": {
     [...]
 }
+ 
+Context | Edit Context
 ```
 
 Para hacer un solo paso en el nivel de la fuente en el hilo seleccionado, ejecute `paso` (o `s`). Esto lo llevará dentro de `name_override_.empty()`. Para proceder y dar otro paso, corra `siguiente` (o `n`).

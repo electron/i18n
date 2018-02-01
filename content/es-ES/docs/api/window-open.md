@@ -2,11 +2,11 @@
 
 > Abre una nueva ventana y carga una dirección URL.
 
-When `window.open` is called to create a new window in a web page, a new instance of `BrowserWindow` will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+Cuando `window.open` es llamado para crear una nueva ventana en una página web, una nueva instancia de `BrowserWindow` se creará para el `url` y se devolverá un proxy a `window.open` para dejar que la página tenga un control limitado sobre el.
 
-The proxy has limited standard functionality implemented to be compatible with traditional web pages. For full control of the new window you should create a `BrowserWindow` directly.
+El proxy tiene implementada una limitada funcionalidad estándar para ser compatible con páginas web tradicionales. Para un control total de la nueva ventana deberías crear un `BrowserWindow` directamente.
 
-The newly created `BrowserWindow` will inherit the parent window's options by default. To override inherited options you can set them in the `features` string.
+La recien creada `BrowserWindow` heredará las opciones de la ventana principal por defecto. Para anular las opciones heredadas, puede configurarlas en la cadena `features`. cuerda.
 
 ### `window.open(url[, frameName][, features])`
 
@@ -16,35 +16,35 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 Devuelve [`BrowserWindowProxy`](browser-window-proxy.md) - Crea una nueva ventana y devuelve una instancia de la clase`BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+La cadena `features` sigue el formato del navegador estándar, pero cada característica tiene que ser un campo de las opciones de `BrowserWindow`.
 
 **Notas:**
 
-* Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
-* Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
-* JavaScript will always be disabled in the opened `window` if it is disabled on the parent window.
-* Non-standard features (that are not handled by Chromium or Electron) given in `features` will be passed to any registered `webContent`'s `new-window` event handler in the `additionalFeatures` argument.
+* La integración de nodo siempre estará deshabilitada en la `window` abierta si está deshabilitada en la ventana principal.
+* El aislamiento de contexto siempre estará habilitado en la `window` abierta si está habilitado en la ventana principal.
+* JavaScript siempre estará deshabilitado en la `window` abierta si está deshabilitado en la ventana principal.
+* Las características no estándares predeterminadas (que no son manejadas por Chromium o Electron) en `features` serán pasadas a cualquier manejador de evento registrado `new-window` de `webContent` en el argumento `additionalFeatures`.
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Envía un mensaje a la ventana principal con el origen especificado o `*` sin origen de preferencia.
 
-### Using Chrome's `window.open()` implementation
+### Utilizar la implementación `window.open()` de Chrome
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Si se quiere utilizar la implementación `window.open()` incorporada de Chrome, configura `nativeWindowOpen` a `true` en el objeto de opciones `webPreferences`.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+El `window.open()` nativo permite el acceso sincrónico a las ventanas abiertas, por lo tanto es una opción conveniente si se necesita abrir el cuadro de diálogo o una ventana de preferencias.
 
-This option can also be set on `<webview>` tags as well:
+Esta opcion también puede ser configuradas en `<webview>`etiquetas:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+La creación de la `BrowserWindow`es personalizable a través del evento `new-window` de `WebContents`.
 
 ```javascript
 // proceso principal

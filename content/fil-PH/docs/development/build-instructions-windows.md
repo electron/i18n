@@ -1,31 +1,31 @@
-# Build Instructions (Windows)
+# "Build Instructions" (Windows)
 
-Follow the guidelines below for building Electron on Windows.
+Sundin ang mga sumusunod na patnubuay para sa pagbuo ng Elektron sa "Windows".
 
 ## Mga Pangunahing Kailangan
 
-* Windows 7 / Server 2008 R2 or higher
+* Windows 7 / Server 2008 R2 o mas mataas pa
 * Visual Studio 2015 Update 3 - [download VS 2015 Community Edition for free](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Debugging Tools para sa Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) ang `symstore.exe` ay ginagamit para sa paggawa ng "symbol store" o kung saan nakalagak ang "symbol files", na galing sa payl na `.pdb` na kinakailangan kung nais mong gumawa o lumikha ng kumpletong ditribusyon.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Kung wala kang "Windows installation", ang [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) ay mayroong mga bersyon ng "timebombed" ng "Windows" na maaaring gamitin upang bumuo ng Elektron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Ang pagbuo ng Elektron ay nangyayari lamang sa "command-line scripts" at hindi magagawa sa "Visual Studio". Maaaring paunlarin ang Elektron nang kahit anong programa ng kompyuter na maaaring lumikha o bumago ng datos na dapat din ay hahalili sa "Visual Studio" sa hinaharap.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Tandaan:** Kahit pa ang "Visual Studio" ay 'di ginagamit sa pagbuo ng Elektron, ito ay **kailangan** pa rin upang magamit ang kinakailangan na "toolchains" galing dito.
 
-## Ang Pagkuha ng Code
+## Ang Pagkuha ng "Code"
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
 ```
 
-## Bootstrapping
+## "Bootstrapping"
 
-Ang bootstrap script ay kinukuha o dina-download ang lahat ng kailangang build dependencies at nililikha ang build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin ang ginagamit na `ninja` para sa pagbuo ng "Electron", ay humahadlang upang walang proyekto ng "Visual Studio" ang mabuo dito.
 
 ```powershell
 $ cd electron
@@ -34,33 +34,33 @@ $ python script\bootstrap.py -v
 
 ## Ang Pagbubuo
 
-Build both Release and Debug targets:
+Ang pagbuo ng parehong pinupuntirya na "Release" at "Debug":
 
 ```powershell
 $ python script\build.py
 ```
 
-You can also only build the Debug target:
+Maaari rin naman na buuin lamang ang pinupuntirya na "Debug":
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Matapos mabuo ang mga ito, maaaring makita ang `electron.exe` sa ilalim ng `out\D` (debug target) o sa ilalim ng `out\R` (release target).
 
-## 32bit Build
+## Pagbuo ng 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Para mabuo ang pinupuntirya na 32bit, dapat daanan ang `--target_arch=ia32` kapag pinapatakbo ang iskrip na "bootstrap":
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Ang mga hakbang para sa iba pang pagbuo ay pareho lamang.
 
-## Visual Studio project
+## Proyekto na "Visual Studio"
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Para makabuo ng proyekto ng "Visual Studio", maaaring idaan sa "parameter" na `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -82,23 +82,23 @@ $ npm run clean-build
 
 Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
 
-<h2>Tests</h2>
+<h2>Mga Pag-susuri</h2>
 
 <p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
 
-<h2>Troubleshooting</h2>
+<h2>"Troubleshooting"</h2>
 
-<h3>Command xxxx not found</h3>
+<h3>"Command xxxx" ay 'di mahanap</h3>
 
-<p>If you encountered an error like <code>Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+<p>Kung ikaw ay makatagpo ng mali tulad ng <code>Command xxxx not found`, maaaring gamitin ang "console" na `VS2015 Command Prompt` para mapalabas ang mga binubuong iskrip.
 
-### Fatal internal compiler error: C1001
+### "Fatal internal compiler error": C1001
 
-Make sure you have the latest Visual Studio update installed.
+Siguraduhin na mayroon kang "installed" na pinakabagong "Visual Studio update".
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Kung ang pagbuo ay sa ilalim ng Cygwin, maaaring makita ang nabigong `bootstrap.py` kasama ang mga sumusunod na mali:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Ito ay sanhi ng "bug" kapag parehong gumagamit ng: Cygwin Python" at "Win32 Node". Ang solusyon ay ang paggamit ng "Win32 Python" para mapalabas ang iskrip na "bootstrap" (ipagpalagay na mayroon kang "installed Python" sa ilalim ng `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -123,16 +123,16 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Subukang ang "reinstalling" ng "32bit Node.js".
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simply making that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Gumawa ng direktoryo na [dapat umayos ng problema](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp is not recognized as an internal or external command
+### node-gyp ay 'di kinikilala bilang panloob o panlabas na "command"
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Maaaring makuha ang maling ito kapag ikaw ay gumagamit ng "Git Bash" para sa pagbuo, sa halip, dapat gamitin ang PowerShell o VS2015 Command Prompt.

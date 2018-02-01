@@ -33,7 +33,7 @@ Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, type])`
 
-* `text` String
+* `testo` Stringa
 * `type` String (optional)
 
 Writes the `text` into the clipboard as plain text.
@@ -72,24 +72,24 @@ Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `text` String
+* `testo` Stringa
 * `type` String (optional)
 
 Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Restituisci `Oggetto`:
 
 * `title` String
-* `url` String
+* `url` Stringa
 
 Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
 * `title` String
-* `url` String
+* `url` Stringa
 * `type` String (optional)
 
 Writes the `title` and `url` into the clipboard as a bookmark.
@@ -109,7 +109,7 @@ Returns `String` - The text on the find pasteboard. This method uses synchronous
 
 ### `clipboard.writeFindText(text)` *macOS*
 
-* `text` String
+* `testo` Stringa
 
 Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 

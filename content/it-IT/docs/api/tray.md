@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -56,7 +56,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
 Creates a new tray icon associated with the `image`.
 
@@ -115,14 +115,14 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Event
+* `evento` Evento
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Event
+* `evento` Evento
 * `text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
@@ -161,7 +161,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Metodi Istanza
 
 The `Tray` class has the following methods:
 
@@ -171,7 +171,7 @@ Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
 Sets the `image` associated with this tray icon.
 
@@ -223,7 +223,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `opzioni` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)

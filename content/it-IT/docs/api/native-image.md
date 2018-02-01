@@ -105,7 +105,7 @@ Creates an empty `NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` String
+* `percorso` Stringa
 
 Returns `NativeImage`
 
@@ -141,7 +141,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Instance Methods
+### Metodi Istanza
 
 The following methods are available on instances of the `NativeImage` class:
 

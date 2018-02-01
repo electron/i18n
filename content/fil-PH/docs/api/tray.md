@@ -1,68 +1,63 @@
 ## Class: Tray
 
-> Add icons and context menus to the system's notification area.
+> Magdagdag ng mga icons at mga context menu sa notification area ng sistema.
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const {app, Menu, Tray} = nangangailanganng('electron')
 
-let tray = null
+hayaan ang tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'},
     {label: 'Item3', type: 'radio', checked: true},
     {label: 'Item4', type: 'radio'}
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Ito ay aking aplikasyon.')
   tray.setContextMenu(contextMenu)
 })
 ```
 
-**Platform limitations:**
+**Mga Limitasyon ng Plataporma:**
 
-* On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
-* On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
-* App indicator will only be shown when it has a context menu.
-* When app indicator is used on Linux, the `click` event is ignored.
-* On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
+* Sa Linux na app indicator ay gagamitin kung ito ay sinusuportahan, kung hindi man `GtkStatusIcon`ay maaring gamitin sa halip.
+* Sa Linux distributions na mayroon lamang app indicator support, pwede kang mag-install ng `libappindicator1` para gumawa ng tray icon work.
+* Ang App indicator ay maaring maipapakita lamang kapag mayroon itong context menu.
+* Kapag ang app indicator ay ginagamit sa Linux, ang `click` event ay hindi pinansin.
+* Sa Linux para sa mga pagbabago na ginawa sa indibidwal`MenuItem`upang magkabisa, dapat mong tawagan ang`setContextMenu`muli. Halimbawa:
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const {app, Menu, Tray} = nangangaianganng('electron')
 
-let appIcon = null
+hayaan ang appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'}
   ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+  //Gumawa ng mga pagbabago sa context menu
+  contextMenu.items[1].tiningnan = mali
 ```
 
-* On Windows it is recommended to use `ICO` icons to get best visual effects.
+* Sa windows ito ay inirekomenda para gamitin ang mga `ICO`icons para makuha ang pinakamahusay na visual effects.
 
-If you want to keep exact same behaviors on all platforms, you should not rely on the `click` event and always attach a context menu to the tray icon.
+Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapat hindi ka umasa sa 0>click</code> event at palaging i-attach ang context menu sa tray icon.
 
-### `new Tray(image)`
+### `bagong Tray(imahe)`
 
 * `image` [NativeImage](native-image.md) (String)
 
-Creates a new tray icon associated with the `image`.
+Lumilikha ng isang panibagong tray icon na may kaugnayan sa mga`imahe`.
 
-### Instance Events
+### Halimbawa ng mga Event
 
-The `Tray` module emits the following events:
+Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
 #### Event: 'click'
 
@@ -71,9 +66,9 @@ The `Tray` module emits the following events:
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is clicked.
+Emitted kapag nag click ang tray icon.
 
 #### Event: 'right-click' *macOS* *Windows*
 
@@ -82,9 +77,9 @@ Emitted when the tray icon is clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is right clicked.
+Emitted kapag nai-right click ang tray icon.
 
 #### Event: 'double-click' *macOS* *Windows*
 
@@ -93,51 +88,51 @@ Emitted when the tray icon is right clicked.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
 
-Emitted when the tray icon is double clicked.
+Emitted kapag ang tray icon ay na double-click.
 
 #### Event: 'balloon-show' *Windows*
 
-Emitted when the tray balloon shows.
+Emitted kapag ang tray balloon ay naipapakita.
 
 #### Event: 'balloon-click' *Windows*
 
-Emitted when the tray balloon is clicked.
+Emitted kapag ang tray balloon ay naiclick.
 
 #### Event: 'balloon-closed' *Windows*
 
-Emitted when the tray balloon is closed because of timeout or user manually closes it.
+Emitted kapag ang tray ballon ay nakasirado dahil ang timeout o ang gumagamit ng mano-mano ang nagsasara nito.
 
 #### Event: 'drop' *macOS*
 
-Emitted when any dragged items are dropped on the tray icon.
+Emitted kapag ang anumang dragged na mga items ay ibinagsak sa tray icon.
 
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] -Ang mga landas ng mga binitiwang mga file.
 
-Emitted when dragged files are dropped in the tray icon.
+Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string
+* `text` String -ang mga binitiwang text string
 
-Emitted when dragged text is dropped in the tray icon.
+Emitted kapag ang dragged text ay ibinagsak sa tray icon.
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+Emitted kapag ang drag operation ay pumapasok sa tray icon.
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+Emitted kapag ang drag operation ay lumabas sa tray icon.
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+Emitted kapag ang drag operation ay nagtatapos sa tray o nagtatapos sa ibang lugar.
 
 #### Event: 'mouse-enter' *macOS*
 
@@ -146,9 +141,9 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
 
-Emitted when the mouse enters the tray icon.
+Emitted kapag ang mouse ay pumapasok sa tray icon.
 
 #### Event: 'mouse-leave' *macOS*
 
@@ -157,58 +152,58 @@ Emitted when the mouse enters the tray icon.
   * `shiftKey` Boolean
   * `ctrlKey` Boolean
   * `metaKey` Boolean
-* `position` [Point](structures/point.md) - The position of the event
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
 
-Emitted when the mouse exits the tray icon.
+Emitted kapag ang mouse ay lumalabas sa tray icon.
 
-### Mga pamamaraan ng pagkakataon
+### Halimbawa ng mga pamamaraan
 
-The `Tray` class has the following methods:
+Ang 0>Tray</code>class ay may mga sumusunod na mga pamamaraan:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Agad na sumisira sa tray icon.
 
 #### `tray.setImage(image)`
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this tray icon.
+Nagseset sa `image` na may kaugnayan sa tray icon na ito.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+Nagseset sa `image`na may kaugnayan sa tray icon kapag pinindot ang macOS.
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Nagseset sa hover text para sa tray icon na ito.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar.
+Nagseset sa title na naka-display sa tabi ng tray icon ng status bar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String-Highlight mode sa isa mga mga sumusunod na mga value: 
+  * `seleksyon` -Highlight ang tray icon kapag it ay nag-click at kapag ang context menu ay nakabukas. Ito ay ang default.
+  * `palagi` - Palaging ihighlight ang tray icon.
+  * `hindikailanman` - Hindi kailanman ihighlight ang tray icon.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Nagseset kapang ang tray's icon background ay nagiging highlighted(sa asul).
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:**Maari mong gamitin ang`highlightMode`sa isang [`BrowserWindow`](browser-window.md)sa pamamagitan ng toggling sa pagitan `'never'` and `'always'` modes kapag ang window visibility ay nagbago.
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const {BrowserWindow, Tray} = nangangailanganng('electron')
 
-const win = new BrowserWindow({width: 800, height: 600})
-const tray = new Tray('/path/to/my/icon')
+const win = bagong BrowserWindow({width: 800, height: 600})
+const tray = bagong Tray('/path/to/my/icon')
 
 tray.on('click', () => {
   win.isVisible() ? win.hide() : win.show()
@@ -223,34 +218,34 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `mga pagpipilian` Bagay 
+* `mga opsyon` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String - (optional)
   * `content` String - (optional)
 
-Displays a tray balloon.
+Nagdidisplay ng isang tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
 * `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `position` [Point](structures/point.md) (optional) - Ang posisyon ng pop up.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+May lilitaw na context menu sa tray icon. Kapag ang `menu`ay nakapasa, ang`menu`ay maipapakita sa halip na tray icon's context menu.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan ng default,.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu
 
-Sets the context menu for this icon.
+Nagseset ng context menu para sa icon na ito.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+Nagbabalik[`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Ang `bounds`ng tray icon na ito bilang isang`Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Nagbabalik`Boolean` -Kahit pa ang tray icon ay nawasak.

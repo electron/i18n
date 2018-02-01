@@ -72,7 +72,7 @@ Líneas antiguas no serán soportadas por GitHub, pero otros grupos pueden tomar
 
 Los desarrolladores quieren saber cuáles publicaciones son *seguras*. Hasta características que parecen inocentes pueden introducir grandes regresiones en aplicaciones complejas. Al mismo tiempo, quedarse con una versión arreglada es peligroso porque está ignorando parches de seguridad y arreglos de errores que pudieron salir desde su versión. Nuestra meta es permitir que el siguiente rango semver estandar en `package.json` :
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
+* Usar `~2.0.0` para admitir solo arreglo relacionados con la estabilidad o seguridad de su publicación `2.0.0`.
 * Use `^2.0.0` para admitir características no frágiles y *razonablemente estables* que trabajen tanto en seguridad como en arreglo de errores.
 
 Lo que es importante del segundo punto es que las aplicaciones que usan `^` aún deben ser capaces de esperar cierto nivel de estabilidad. Para lograr esto, semver le permite a *identificador pre-lanzamiento* indicar que una versión particular no es *segura* o *estable* todavía.
@@ -99,7 +99,7 @@ Para cada cambio mayor o menor, debe esperar ver algo como lo siguiente:
 
 Un ejemplo del ciclo de vida en imágenes:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+* Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
 * Una corrección de un error viene al maestro que puede ser introducido por la puerta de atrás en la rama de interes. El parche es aplicado y una nueva versión beta es publicada como `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
 * Luego, se revela una vulnerabilidad y es reparada y aplicada a la maestra. Nosotros entramos por la puerta de atrás para arreglar para la línea `2-0-x` y el lanzamiento `2.0.1`. ![](../images/versioning-sketch-6.png)
@@ -132,18 +132,18 @@ Nosotros reconciliamos el código con bandera con nuestras estrategias de versio
 
 # Semantic Commits
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+Buscamos aumentar la claridad en todos los niveles del proceso de actualización y publicación. Comenzando con `2.0.0` necesitaremos retirar solicitudes adheridas a la especificación [Conventional Commits](https://conventionalcommits.org/), la cual se puede resumir como:
 
 * Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
 * Commits that would result in a semver **minor** bump must start with `feat:`.
 * Commits that would result in a semver **patch** bump must start with `fix:`.
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* Es aceptable que algunas confirmaciones en una solicitud de extracción no incluyan un prefijo semántico, siempre que una confirmación posterior en la misma solicitud de extracción contenga un mensaje semántico significativo que lo abarque.
 
 # Versionless `master`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* La rama `master` siempre contendrá `0.0.0-dev` en su `package.json`
+* Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
+* Las ramas de versión *do*contienen la versión correcta en su `package.json`

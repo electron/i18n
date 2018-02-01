@@ -105,13 +105,13 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 
 <p>Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.</p>
 
-<h4>Creating a Custom Release with surf-build</h4>
+<h4>Crear una versión personalizada con surf-build</h4>
 
 <ol>
 <li><p>Install <a href="https://github.com/surf-build/surf">Surf</a>, via npm:
 <code>npm install -g surf-build@latest`</li> 
 
-* Create a new S3 bucket and create the following empty directory structure:
+* Cree un nuevo depósito S3 y cree la siguiente estructura de directorio vacía:
     
     ```sh
 - atom-shell/
@@ -119,18 +119,18 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
   - dist/
 ```
 
-* Set the following Environment Variables:</ol> 
+* Establezca las siguientes variables de entorno:</ol> 
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will just do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
+* `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde se cargan tanto encabezados node.js como símbolos
+* `ELECTRON_RELEASE` - Configurar a `true` y la parte cargada se ejecutará. Dejar sin configurar y `surf-build` solamente hará comprobaciones CI-type. Esto es adecuado para ejecutarse para cada solicitud de retiro.
+* `CI` - Configurar a `true` o algo distinto hará que falle
+* `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`
+* `SURF_TEMP` - configurar `C:\Temp` en Windows para evitar problemas con rutas muy largas
 * `TARGET_ARCH` - set to `ia32` or `x64`
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. En `script/upload.py`, se *debe* configurar `ELECTRON_REPO` a la bifurcación (`MYORG/electron`), especialmente si eres un contribuidor formal de Electron.
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Espere un tiempo muy, muy largo para que se complete la compilación.

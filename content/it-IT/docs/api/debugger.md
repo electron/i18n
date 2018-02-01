@@ -2,7 +2,7 @@
 
 > An alternate transport for Chrome's remote debugging protocol.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
 Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Instance Methods
+### Metodi Istanza
 
 #### `debugger.attach([protocolVersion])`
 
@@ -61,14 +61,14 @@ Send given command to the debugging target.
 
 #### Event: 'detach'
 
-* `event` Event
+* `evento` Evento
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Event: 'message'
 
-* `event` Event
+* `evento` Evento
 * `method` String - Method name.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 

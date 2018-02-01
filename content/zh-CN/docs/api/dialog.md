@@ -86,7 +86,7 @@ console.log(dialog)
 
 `filters` 可以指定可显示文件的数组类型，详见 `dialog.showOpenDialog` 事例
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filename)`
+如果传递了 `callback `, 则 API 调用将是异步的, 结果将通过 ` callback (filename)`传递
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 

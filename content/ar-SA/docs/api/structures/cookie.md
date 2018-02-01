@@ -1,4 +1,4 @@
-# Cookie Object
+# عنصر ملف تعريف ارتباط
 
 * `name` String - The name of the cookie.
 * `value` String - The value of the cookie.

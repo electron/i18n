@@ -19,12 +19,12 @@ Las siguientes propiedades están disponibles en las instancias de `TouchBarButt
 
 #### `touchBarButton.label`
 
-A `String` representing the button's current text. Changing this value immediately updates the button in the touch bar.
+Una `String` que representa el texto actual del botón. Cambiar este valor actualiza el botón en la barra táctil.
 
 #### `touchBarButton.backgroundColor`
 
-A `String` hex code representing the button's current background color. Changing this value immediately updates the button in the touch bar.
+Un código hex `String` que representa el color de fondo actual del botón. Cambiar este valor actualiza inmediatamente el botón en la barra táctil.
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+Un `NativeImage` que representa el icono actual del botón. Cambiar este valor actualiza inmediatamente el botón en la barra táctil.

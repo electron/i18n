@@ -1,75 +1,75 @@
-## Class: BrowserView
+## Classe: VistaBrowser
 
-> Create and control views.
+> Crea e controlla visite.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.
 
-Process: [Main](../glossary.md#main-process)
+Processo: [Principale](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+Una `VistaBrowser` può essere usato per incorporare contenuti web aggiuntivi nella `FinestraBrowsee`. È come una finestra piccola, eccetto per il fatto che è posta in parentela alla finestra propria. È considerato essere un alternativa al tag `vistaweb`.
 
-## Example
+## Esempio
 
 ```javascript
-// In the main process.
-const {BrowserView, BrowserWindow} = require('electron')
+// Nel processo principale.
+const {VistaBrowser, FinestraBrowser} = richiedi('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
+vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
+vinci.su('chiuso', () => {
+  vinci = nullo
 })
 
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
+visualizza = nuova VistaBrowswr({
+  Preferenzeweb: {
+    Integrazionenodo: false
   }
 })
-win.setBrowserView(view)
-view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+vinci.impostaVistaBrowser(vista)
+vista.impostaRimbalzi({ x: 0, y: 0, larghezza: 300, altezza: 300 })
+vista.Contenutiweb.caricaURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([options])` *Experimental*
+### `nuova VistaBrowser([options])` *Sperimentale*
 
-* `options` Object (optional) 
-  * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
+* `opzioni` Oggetto (opzionale) 
+  * `Preferenzeweb` Oggetto (opzionale) - Vedi [FinestraBrowser](browser-window.md).
 
-### Static Methods
+### Metodi Statici
 
-#### `BrowserView.fromId(id)`
+#### `VistaBrowser.daId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
-Returns `BrowserView` - The view with the given `id`.
+Restituisce `VistaBrowser` - La vista con l'`id` dato.
 
-### Instance Properties
+### Proprietà Istanze
 
-Objects created with `new BrowserView` have the following properties:
+Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
 
-#### `view.webContents` *Experimental*
+#### `vista.Contenutiweb` *Sperimentale*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
 
-#### `view.id` *Experimental*
+#### `vista.id` *Sperimentale*
 
-A `Integer` representing the unique ID of the view.
+Un numero `Intero` rappresentante l'unico ID di visualizzazione.
 
-### Instance Methods
+### Metodi Istanza
 
-Objects created with `new BrowserView` have the following instance methods:
+Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `vedi.impostaRidimensionaAutomaticamente(opzioni` *Sperimentale*
 
-* `options` Object 
-  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
-  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
+* `opzioni` Oggetto 
+  * `larghezza` Booleano - Se `true` la larghezza della vista crescerà e si contrarrà insieme alla finestra. `false` di default.
+  * `altezza` Booleano - Se `true`, la vista dell'altezza crescerà e si contrarrà con la finestra. `false` di default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `vista.impostaLimiti(limiti)` *Sperimentale*
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `limiti` [Rettangolo](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Ridimensiona e muovi la vista ai limiti forniti relativamente alla finestra.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `vista.impostaColoreSfondo(colore)` *Sperimentale*
 
-* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
+* `colore` Stringa - Colore in forma `#aarrggbb` o `#argb`. Il canale alpha opzionale.

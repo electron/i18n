@@ -1,12 +1,12 @@
-# Paggamit ng Selenium at WebDriver
+# Ang Paggamit ng Selenium at WebDriver
 
-Mula sa [ChromeDriver - WebDriver para sa Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+Nagmula sa [ChromeDriver - WebDriver para sa Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver ay isang open source na tool para sa automated na pagsusuri ng web apps sa kabuuan ng maraming mga browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriver ay isang bukas na kagamitan na mapagkukunan para sa automatikong pagsusuri ng web apps sa kabuuan ng maraming mga browsers. Ito ay nagbibigay nang capabilidad para sa pag-navigate sa mga pahina nang web, input ng gumagamit, pagpapatupad ng JavaScript at marami pang iba. ChromeDriver ay isang standalone server kung saan nagpapatupad ng wire protokol ang WebDriver para sa Chromium. Ito ay kasalukuyang pinapaunlad ng mga myembro ng mga grupo ng Chromium at WebDriver.
 
-## Setting up Spectron
+## Inaayos ang Spectron
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) ay ang opisyal na sinusuportahan ng ChromeDriver sa pagsusuri ng balangkas para sa Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron

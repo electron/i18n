@@ -1,17 +1,17 @@
 # Estructura del directorio de código fuente
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+El código fuente de Electron está separado en unas pocas partes, la mayoría siguiendo a Chromium en las convenciones de separación.
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https://dev.chromium.org/developers/design-documents/multi-process-architecture) para entender el código fuente mejor.
 
-## Structure of Source Code
+## Estructura del código fuente
 
 ```sh
 Electron
 ├── atom/ - C++ source code.
 |   ├── app/ - System entry code.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   main process things. This talks to the renderer to manage web pages.
+|   |   main process things. Esto habla con el procesador para administrar páginas web.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
 |   |   |   ├── cocoa/ - Cocoa specific source code.
 |   |   |   ├── win/ - Windows GUI specific source code.
@@ -27,7 +27,7 @@ Electron
 |       loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Source code copied from Chromium. Vea abajo.
 Default_app ├── / - página de predeterminada para mostrar cuando el Electron se inicia sin |   proporciona una aplicación.
 ├── docs/ - Documentations.
 ├── lib/ - JavaScript source code.
@@ -45,21 +45,21 @@ Default_app ├── / - página de predeterminada para mostrar cuando el Elect
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son parte de la capa de contenido. Por ejemplo, para implementar Pepper API, necesitamos un poco de cableado similar a lo que hace Chrome oficial. Podríamos tener que compilar las fuentes relevantes como una parte de [libcc](../glossary.md#libchromiumcontent) pero más a menudo no requerimos todas las características (algunas tienden a ser cosas del propietario o de análisis) así que solo tomamos parte del código. Estos podrían haber fácilmente sido parches en libcc, pero en el momento en que estos se escribieron el objetivo de libcc fue mantener parches muy mínimos y los cambios de chromium_src tienden a ser grandes. Además, tenga en cuenta que estos parches nunca se pueden subir de nivel a diferencia de otros parches libcc que mantenemos ahora.
 
-## Structure of Other Directories
+## Estructura de otros directorios
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by gyp files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gyp`.
+* **Código** - Los códigos usados con propósitos de desarrollo como compilar, empacar, probar, etc.
+* **Herramientas** - Códigos de ayuda usados por archivos gto, a diferencia de `comandos`, los comandos puestos aquí nunca deben ser invocados por los usuarios directamente.
+* **proveedor** - Código de fuente de las dependencias de terceros, nosotros no usamos `third_party` como un nombre debido a que se confundiría con el mismo directorio en el arbol de código de Chromium.
+* **Nodos de módulo** - Nodos de módulo de terceros usados para compilar.
+* **afuera** - temporalmente afuera del directorio de `ninja`.
+* **dist** - Directorio temporal creado por el comando `script/create-dist.py` cuando se crea una distribución.
+* **binarios externos** - Binarios descargados de entornos de trabajos de terceros los cuales no soportan la compilación con `gyp`.
 
-## Keeping Git Submodules Up to Date
+## Mantener los submódulos de Git actualizados
 
-El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Occasionally you might see a message like this when running `git status`:
+El repositorio Electronico tiene unas dependencias vendored, encontradas en el directorio[/vendor](https://github.com/electron/electron/tree/master/vendor). Ocasionalmente podrás ver un mensaje como este cuando esté ejecutándose `git status`:
 
 ```sh
 $ git status
@@ -68,13 +68,13 @@ $ git status
     modified:   vendor/node (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+Para actualizar estas dependencias independientes, ejecute el siguiente comando:
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+Si te descubre ejecutando este comando frecuentemente, puedes crea un alias para él en tu archivo `~/.gitconfig`:
 
 ```sh
 [alias]

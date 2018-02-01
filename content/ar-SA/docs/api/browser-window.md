@@ -1,4 +1,4 @@
-# BrowserWindow
+# نوافذ المتصفح
 
 > Create and control browser windows.
 

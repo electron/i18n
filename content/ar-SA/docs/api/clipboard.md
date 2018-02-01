@@ -1,4 +1,4 @@
-# clipboard
+# الحافظة
 
 > Perform copy and paste operations on the system clipboard.
 

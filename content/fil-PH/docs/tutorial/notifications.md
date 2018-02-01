@@ -1,57 +1,57 @@
-# Notifications (Windows, Linux, macOS)
+# Mga Abiso (Windows, Linux, macOS)
 
-All three operating systems provide means for applications to send notifications to the user. Electron conveniently allows developers to send notifications with the [HTML5 Notification API](https://notifications.spec.whatwg.org/), using the currently running operating system's native notification APIs to display it.
+Ang tatlong operating system ay nagbibigay ng paraan para sa mga aplikasyon na magpadala ng abiso sa mga gumagamit. Maginhawang nagbibigay-daan ang Elektron sa mga developer upang magpadala ng mga abiso kasama ang [HTML5 Abiso API](https://notifications.spec.whatwg.org/), gamit ang tumatakbong operating system sa native notification APIs upang ipakita ito.
 
-**Note:** Since this is an HTML5 API it is only available in the renderer process. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Tandaan:** Dahil ito ay isang HTML5 API magagamit lamang ito sa proseso ng tagasalin. Kung gusto mong makita ang mga abiso sa pangunahing proseso mangyaring tignan ang [Notification](../api/notification.md) modyul.
 
 ```javascript
-let myNotification = new Notification('Title', {
-  body: 'Lorem Ipsum Dolor Sit Amet'
+hayaan myNotification = bagong Abiso ('Pamagat', {
+ katawan: 'Lorem Ipsum Dolor Sit Amet'
 })
 
-myNotification.onclick = () => {
-  console.log('Notification clicked')
+myNotification.onclick = () = & gt; {
+  console.log ('Na-click ang abiso')
 }
 ```
 
-While code and user experience across operating systems are similar, there are subtle differences.
+Bagama 't magkatulad ang code at gumagamit ng mga karanasan sa iba 't ibang mga operating system, doon ay may mga bahagyang pagkakaiba.
 
 ## Windows
 
-* On Windows 10, notifications "just work".
-* On Windows 8.1 and Windows 8, a shortcut to your app, with an [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), must be installed to the Start screen. Note, however, that it does not need to be pinned to the Start screen.
-* On Windows 7, notifications work via a custom implementation which visually resembles the native one on newer systems.
+* Sa Windows 10, ang mga abiso ay "gumagana lamang".
+* Sa Windows 8.1 at Windows 8, Ang sikretong daan papunta sa iyong app, ay [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx), dapat installed sa start screen. Paalala, Bagamat, ito ay hindi kailangan naka pin para magsimula ang screen.
+* Sa Windows 7, ang notipikasyon trabaho sa via pasadya at implementadong biswal ay kahawig noong luma sa panibagong sistema.
 
-Furthermore, in Windows 8, the maximum length for the notification body is 250 characters, with the Windows team recommending that notifications should be kept to 200 characters. That said, that limitation has been removed in Windows 10, with the Windows team asking developers to be reasonable. Attempting to send gigantic amounts of text to the API (thousands of characters) might result in instability.
+At saka, Windows 8, ang maximum na haba para sa notipikasyon ng katawan ay 250 characters, sa koponan ng Windows na nagrerekomenda na ang mga notipikasyon ay dapat manatilisa 200 mga characters. Na sinabi, na ang limitasyon ay inalis sa Windows 10, dahil ang koponan ng Windows na nagtatanong sa mga developer na maging makatwiran. Pagsubok na magpadala ng napakalaking halaga ng teksto sa API (libu-libong mga characters) ay maaaring magresulta sa kawalang-tatag.
 
-### Advanced Notifications
+### Mga Advanced na abiso
 
-Later versions of Windows allow for advanced notifications, with custom templates, images, and other flexible elements. To send those notifications (from either the main process or the renderer process), use the userland module [electron-windows-notifications](https://github.com/felixrieseberg/electron-windows-notifications), which uses native Node addons to send `ToastNotification` and `TileNotification` objects.
+Ang susunod na mga bersyon ng Windows ay nagbibigay-daan para sa mga advanced na abiso, na may custom na mga template, mga imahe, at iba pang mga nabagong elemento. Para ipadala ang mga abiso (mula sa alinman sa pangunahing proseso o proseso ng renderer), gamitin ang module ng userland [ mga electron-windows-notification ](https://github.com/felixrieseberg/electron-windows-notifications), na gumagamit ng mga katutubong Node na addons upang magpadala ng mga bagay na `Toast na abiso` at ` Tile na abiso `.
 
-While notifications including buttons work with just `electron-windows-notifications`, handling replies requires the use of [`electron-windows-interactive-notifications`](https://github.com/felixrieseberg/electron-windows-interactive-notifications), which helps with registering the required COM components and calling your Electron app with the entered user data.
+Habang gumagana ng mga abisong kasama ang mga pindutan na may lamang ` mga abiso na elektron-bintana `, Ang paghawak ng mga sagot ay nangangailangan ng paggamit ng [` elektron-bintana-interactive-abiso `](https://github.com/felixrieseberg/electron-windows-interactive-notifications), na tumutulong sa pagrerehistro ng mga kinakailangang sangkap ng COM at pagtawag sa iyong app para sa Electron ang ipinasok na ditalye ng user.
 
-### Quiet Hours / Presentation Mode
+### Mga Oras ng Tahimikan / Pagtatanghal
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Upang matukoy kung pinapayagan kang magpadala ng isang abiso, gamitin ang module ng userland [ elektron-abiso-estado](https://github.com/felixrieseberg/electron-notification-state).
 
-This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
+Ito ay nagbibigay-daan sa iyo upang matukoy sa tamang oras at panahon o hindi Windows ay tahimik na ihagis ang abiso palayo.
 
 ## macOS
 
-Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
+Ang mga abiso ay tuwid-patuloy sa macOS, ngunit dapat mong malaman [Mga alituntunin ng Apple's Human Interface tungkol sa mga notipikasyon](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/NotificationCenter.html).
 
-Note that notifications are limited to 256 bytes in size and will be truncated if you exceed that limit.
+Tandaan na ang mga notipikasyon ay limitado sa 256 bytes na laki at itoy mapuputol kung lalampas ka na sa limitasyon.
 
-### Advanced Notifications
+### Mga Advanced na abiso
 
-Later versions of macOS allow for notifications with an input field, allowing the user to quickly reply to a notification. In order to send notifications with an input field, use the userland module [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
+Ang mga sumusunod na bersyon ng macOS ay nagbibigay-daan para sa mga abiso sa isang input field, na nagpapahintulot sa gumagamit upang mabilis na tumugon sa isang abiso. Upang magpadala ng mga abiso sa isang input field, gamitin ang userland modyul [node-mac-notifier](https://github.com/CharlieHess/node-mac-notifier).
 
-### Do not disturb / Session State
+### Huwag abalahin / Estado ng Sesyon
 
-To detect whether or not you're allowed to send a notification, use the userland module [electron-notification-state](https://github.com/felixrieseberg/electron-notification-state).
+Upang matukoy kung pinapayagan kang magpadala ng isang abiso, gamitin ang module ng userland [ elektron-abiso-estado](https://github.com/felixrieseberg/electron-notification-state).
 
-This will allow you to detect ahead of time whether or not the notification will be displayed.
+Ito ang magbibigay-daan sa iyo upang tuklasin nang maaga kung ipapakita o hindi ipapakita ang notipikasyon.
 
 ## Linux
 
-Notifications are sent using `libnotify` which can show notifications on any desktop environment that follows [Desktop Notifications Specification](https://developer.gnome.org/notification-spec/), including Cinnamon, Enlightenment, Unity, GNOME, KDE.
+Ipinapadala ang mga notipikasyon gamit ang `libnotify` na maaaring magpakita ng mga abiso sa anumang kapaligiran sa desktop na sumusunod sa [Pagtutukoy sa mga Notipikasyon ng Desktop](https://developer.gnome.org/notification-spec/), kabilang ang Cinnamon, Paliwanag, Pagkakaisa, GNOME, KDE.

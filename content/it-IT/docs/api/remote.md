@@ -1,8 +1,8 @@
-# remote
+# remoto
 
 > Use main process modules from the renderer process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizzatore](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
@@ -137,7 +137,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `nome` Stringa
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 

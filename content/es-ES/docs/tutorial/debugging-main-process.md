@@ -1,14 +1,14 @@
-# Debugging the Main Process
+# Depuración del proceso principal
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+DevTools en una ventana del navegador Electron solo puede depurar JavaScript ejecutado en esa ventana (es decir, las páginas web). Para depurar JavaScript que es ejecutado en el proceso principal, se necesita utilizar un depurador externo y ejecutar Electron con el switch `--inspect` o `--inspect-brk`.
 
-## Command Line Switches
+## Conmutadores de línea de comando
 
-Use one of the following command line switches to enable debugging of the main process:
+Use uno de los siguientes interruptores de línea de comando para habilitar la depuración del proceso principal:
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron escuchará los mensajes de protocolo del inspector V8 en el `port` especificado, un depurador externo deberá conectarse en este puerto. El `port` por defecto será el `5858`.
 
 ```shell
 electron --inspect=5858 your/app
@@ -16,11 +16,11 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Como `--inspect` pero pausa la ejecución en la primera línea de JavaScript.
 
-## External Debuggers
+## Depuradores externos
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Tendrá que usar un depurador que admita el protocolo de inspector V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
+- Conecta a Chrome visitando `chrome://inspect` y selecciona inspeccionar en la aplicación de Electron ejecutada allí presente.
 - [Depurando el Proceso Principal en VSCode](debugging-main-process-vscode.md)

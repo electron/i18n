@@ -10,7 +10,7 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` String
+* `url` Stringa
 * `frameName` String (optional)
 * `features` String (optional)
 
@@ -27,8 +27,8 @@ The `features` string follows the format of standard browser, but each feature h
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `messaggio` Stringa
+* `Originebersaglio` Stringa
 
 Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
