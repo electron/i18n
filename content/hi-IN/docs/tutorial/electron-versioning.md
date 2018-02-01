@@ -99,12 +99,12 @@ npm install --save-dev electron@latest
 
 तस्वीरों में एक जीवनकाल का उदाहरण:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* एक नयी रिलीज़ ब्रांच निर्मित की जाती है जिसमे नवीनतम सुविधाओं का सेट शामिल होता है | इसे `2.0.0-beta.1` के रूप में प्रकाशित किया जाता है | ![](../images/versioning-sketch-3.png)
+* मास्टर में एक बग फिक्स शामिल होता है, जिसे रिलीज़ शाखा में पैक-पोर्ट किया जा सकता है | पैच लगाया जाता है, और नयी बीटा `2.0.0-beta.2` के रूप में प्रकाशित होती है | ![](../images/versioning-sketch-4.png)
+* बीटा को *सामान्यतः स्थिर* मान जाता है और उसे दोबारा नॉन-बीटा के रूप में `2.0.0` के नीचे प्रकाशित किया जाता है | ![](../images/versioning-sketch-5.png)
+* बाद में, एक शून्य-दिवस एक्सप्लॉइट पायी जाती है और मास्टर में एक फिक्स शामिल किया जाता है | हम फिक्स को `2-0-x` पंक्ति में पैक-पोर्ट करते हैं और `2.0.1` को प्रकाशित करते हैं | ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+कुछ उदाहरण कि कैसे semver सीमायें नयी रिलीज़िस चुनती हैं:
 
 ![](../images/versioning-sketch-7.png)
 
