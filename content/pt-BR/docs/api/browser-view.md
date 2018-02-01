@@ -29,7 +29,7 @@ view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electron.atom.io')
 ```
 
-### `new BrowserView([opções])` *Experimental*
+### `new BrowserView([options])` *Experimental*
 
 * `opções` Objeto (opcional) 
   * `webPreferences` Objeto (opcional) - Veja [BrowserWindow](browser-window.md).
