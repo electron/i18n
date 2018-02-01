@@ -300,11 +300,11 @@ const mainWindow = new BrowserWindow({})
 
 *La recomendación es el defecto del electrón*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink es el nombre del motor de renderizado detrás de Chromium. Como con `experimentalFeatures`, la propiedad `blinkFeatures` le permite a los desarrolladores habilitar funciones que han sido deshabilitadas por defecto.
 
 ### ¿Por què?
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+En general, probablemente hay buenas razones si una función no fue habilitada por defecto. Casos de uso legítimo para habilitar funciones especificas existen. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
 
 ### ¿Còmo?
 
