@@ -414,7 +414,7 @@ Ibinabalik:
   * `titleText` Pisi - Pamagat o alt teksto ng pagpili na ang konteksto ay tinawag sa.
   * `misspelledWord` Pisi - Ang maling salita sa ilalim ng cursor, kung mayroon man.
   * `frameCharset` Pisi - Ang encoding ng karakter ng frame kung saan hiniling ang menu.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
+  * `inputFieldType` Pisi - Kung ang konteksto ng menu ay sinasabing sa isang patlang na input, ang uri ng patlang na iyon. Ang posibleng mga halaga ay `wala`, `plainText`, `password`, `iba pang`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
   * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
     * `inError` Boolean - Whether the media element has crashed.
