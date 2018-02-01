@@ -31,7 +31,7 @@ Hindi ito bulletproof: gayunpaman, kailangan kang tumangka sa mga sumusunod:
 * [Paganahin ang kontekstong pagkakabukod na ipinakita ang bahagyang nilalaman.](#enable-context-isolation-for-remote-content)
 * [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#handle-session-permission-requests-from-remote-content)
 * [Huwang i-disable ang `webSecurity`](#do-not-disable-websecurity)
-* [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+* [Tukuyin ang`Nilalaman-Seguridad-Patakaran`](#define-a-content-security-policy)at gamitin ang mahigpit na panuntunan (halimbawa `script-src 'self'`)
 * [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
 * [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
 * [Do not enable experimental features](#do-not-enable-experimental-features)
