@@ -264,43 +264,43 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({})
+// Doğru
+const mainWindow = new BrowserWindow ({})
 ```
 
-## Do Not Enable Experimental Features
+## Deneysel Özellikleri Aktifleştirmeyin
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Deneyimli kullanıcılar deneysel Chromium özelliklerini `experimentalFeatures` be `experimentalCanvasFeatures` kullanarak aktifleştirebilir.
 
 ### Neden?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Futhermore, their impact on Electron as a whole has likely not been tested.
+Deneysel özellikler adı üzerinde deneyseldirler ve bütün Chromium kullanıcılarında açık değildirler. Dahası, bunların Electon üzerindeki etkileri bütün olarak test edilmemiştir.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Geçerli kullanım senaryoları mevcut olmakla birlikte ne yaptığınızdan emin değilseniz bu özelliği açmanız önerilmez.
 
 ### Nasıl?
 
 ```js
-// Bad
+// Yanlış
 const mainWindow = new BrowserWindow({
-  webPreferences: {
-    experimentalFeatures: true
-  }
+ webPreferences: {
+  experimentalFeatures: true
+ }
 })
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({})
+// Doğru
+const mainWindow = new BrowserWindow ({})
 ```
 
-## Do Not Use `blinkFeatures`
+## `blinkFeatures` Kullanmayın
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink Chromium'un işleyici motorunun isminden gelir. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### Neden?
 
@@ -378,7 +378,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 <webview src="page.html"></webview>
 ```
 
-## Verify WebView Options Before Creation
+## Bitirmeden Önce WebView Ayarlarını Doğrulayın
 
 A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
