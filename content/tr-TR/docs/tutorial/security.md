@@ -213,10 +213,10 @@ Electron respects [the `Content-Security-Policy` HTTP header](https://developer.
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
 ```txt
-// Bad
+// Yanlış
 Content-Security-Policy: '*'
 
-// Good
+// Doğru
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
@@ -300,11 +300,11 @@ const mainWindow = new BrowserWindow ({})
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-Blink Chromium'un işleyici motorunun isminden gelir. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink Chromium'un işleyici motorunun isminden gelir. `experimentalFeatures` da olduğu gibi `blinkFeatures` özelliği de geliştiricilere varsayılan olarak kapalı olan bazı özellikleri açar.
 
 ### Neden?
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+Genel olarak, bir özellik varsayılan olarak açık değilse ardıında bazı sebepler vardır. Belirli özelliklerin geçerli kullanım senaryoları mecvuttur. Bir geliştirici olarak, bir özelliği neden açmanız gerektiğini, sonuçlarını ve bunların uygulamanızın güvenliğini nasıl etkilediğinizi tam olarak bilmeniz gerekmektedir. Bu özellikleri keyfi bir şekilde kesinlikle açmamalısınız.
 
 ### Nasıl?
 
@@ -318,7 +318,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Doğru 
 const mainWindow = new BrowserWindow()
 ```
 
@@ -328,7 +328,7 @@ const mainWindow = new BrowserWindow()
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
 
-Do not disable `webSecurity` in production applications.
+Üretim uygulamalarında `webSecurity` 'yi etkisiz hale getirmeyin.
 
 ### Neden?
 
@@ -346,7 +346,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Doğru 
 const mainWindow = new BrowserWindow()
 ```
 
