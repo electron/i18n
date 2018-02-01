@@ -263,27 +263,27 @@ Ay lalabas kapag ang sesyon ng window ay hihinto na dahil sa puwersahang pagpata
 
 #### Kaganapan: 'hindi tumutugon'
 
-Emitted when the web page becomes unresponsive.
+Ay lalabas kapag ang pahina ng web ay hindi tumutugon.
 
-#### Event: 'responsive'
+#### Kaganapan: 'tumutugon'
 
-Emitted when the unresponsive web page becomes responsive again.
+Ay lalabas kapag ang hindi tumutugon na pahina ng web ay tumutugon ulit.
 
-#### Event: 'blur'
+#### Kaganapan: 'lumabo'
 
-Emitted when the window loses focus.
+Ay lalabas kapag ang window ay nawawala sa pokus.
 
-#### Event: 'focus'
+#### Kaganapan: 'pokus'
 
-Emitted when the window gains focus.
+Ay lalabas kapag ang window ay nakakuha ng pokus.
 
-#### Event: 'show'
+#### Kaganapan: 'ipakita'
 
-Emitted when the window is shown.
+Ay lalabas kapag ang window ay ipinakita.
 
-#### Event: 'hide'
+#### Kaganapan: 'itago'
 
-Emitted when the window is hidden.
+Ay lalabas kapag ang window ay itinago.
 
 #### Event: 'ready-to-show'
 
