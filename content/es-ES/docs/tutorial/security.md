@@ -228,7 +228,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 El método `eval()` tiene precisamente una misión: evaluar una serie de personajes como JavaScript y ejecutarlo. Es un método requerido cuando necesites evaluar códigos que no es conocido acerca del tiempo. Mientras que casos de uso legítimo existen, justo como cualquier otro generador de códigos, `eval()` es difícil de endurecer.
 
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+En general, Es más sencillo desactivar por completo `eval()` que hacerlo a prueba de balas. Por los tanto, si usted no lo necesita, es buena idea desactivarlo.
 
 ### ¿Còmo?
 
@@ -240,9 +240,9 @@ window.eval = global.eval = function () {
 }
 ```
 
-## Do Not Set `allowRunningInsecureContent` to `true`
+## No establecer `allowRunningInsecureContent` a `true`
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
 By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -298,7 +298,7 @@ const mainWindow = new BrowserWindow({})
 
 ## Do Not Use `blinkFeatures`
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -324,7 +324,7 @@ const mainWindow = new BrowserWindow()
 
 ## Do Not Disable WebSecurity
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
 
@@ -360,7 +360,7 @@ const mainWindow = new BrowserWindow()
 
 ## Do Not Use `allowpopups`
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
 If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
