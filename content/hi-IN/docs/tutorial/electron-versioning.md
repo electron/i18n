@@ -70,10 +70,10 @@ npm install --save-dev electron@latest
 
 # बीटा रिलीज़ और बग फिक्सेस
 
-डेवलपर्स जानना चाहते हैं कि कौन सी रिलीजिज़ इस्तेमाल करने के लिए*सुरक्षित* हैं | हानिरहित दिखने वाली सुविधायें भी जटिल एप्लीकेशनस में त्रुटियाँ ला सकती हैं | पर साथ ही, एक स्थायी संस्करण पर टिके रहना काफी ख़तरनाक हो सकता है क्योंकि आप सुरक्षा पैच और बग फिक्सेस को नज़रअंदाज़ कर रहे हैं जो आप के इस्तेमाल में आने वाले संस्करण के बाद जारी किये गये हों | Our goal is to allow the following standard semver ranges in `package.json` :
+डेवलपर्स जानना चाहते हैं कि कौन सी रिलीजिज़ इस्तेमाल करने के लिए*सुरक्षित* हैं | हानिरहित दिखने वाली सुविधायें भी जटिल एप्लीकेशनस में त्रुटियाँ ला सकती हैं | पर साथ ही, एक स्थायी संस्करण पर टिके रहना काफी ख़तरनाक हो सकता है क्योंकि आप सुरक्षा पैच और बग फिक्सेस को नज़रअंदाज़ कर रहे हैं जो आप के इस्तेमाल में आने वाले संस्करण के बाद जारी किये गये हों | हमारा लक्ष्य, `package.json` में निम्नलिखित मानक semver सीमाओं को अनुमति देने का है:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* `2.0.0` में स्थिरता या सुरक्षा सम्बंधित फिक्सेस लाने के लिए ही `~2.0.0` का इस्तेमाल करें |
+* `^2.0.0` का इस्तेमाल नॉन-ब्रेकिंग *काफी हद तक स्थिर* सुविधाओं और साथ ही सुरक्षा और बग फिक्सेस को अनुमति देने के लिए करें |
 
 What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
 
