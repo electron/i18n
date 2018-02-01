@@ -41,30 +41,30 @@ Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 
 ## Sadece Güvenli İçeriği Yükleyin
 
-Uygulamanıza dahil edilmemiş her kaynak `HTTPS` gibi bir güvenlik protokolü kullanılarak yüklenmelidir. Başka bir deyişle, `HTTP` gibi güvensiz protokoller kullanmayın. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Uygulamanıza dahil edilmemiş her kaynak `HTTPS` gibi bir güvenlik protokolü kullanılarak yüklenmelidir. Başka bir deyişle, `HTTP` gibi güvensiz protokoller kullanmayın. Benzer şekilde `WS` yerine `WSS`, `FTP` yerine `FTPS` vb. kullanın.
 
 ### Neden?
 
-`HTTPS` has three main benefits:
+`HTTPS` nin üç temel yararı vardır:
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) Uzak sunucuyu onaylar, uygulamanızın taklitçiler yerine doğru sunucuya bağlanmasını garantiler. 2) Veri bütünlüğünü sağlar, verinin uygulama ve sunucu arasında geçiş yaparken değişip değişmediğini gösterir. 3) Kullanıcınız ve hedef sunucu arasındaki trafiği kriptolar, uygulamanız ve sunucu arasında gönderilen bilgilere üçüncü kişilerin erişimini zorlaştırır.
 
-### How?
+### Nasıl?
 
 ```js
-// Bad
+// Yanlış
 browserWindow.loadURL('http://my-website.com')
 
-// Good
+// Doğru
 browserWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Yanlış -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- Doğru -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
@@ -79,7 +79,7 @@ After this, you can grant additional permissions for specific hosts. For example
 
 A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
 
-### How?
+### Nasıl?
 
 ```js
 // Bad
@@ -134,7 +134,7 @@ While still an experimental Electron feature, context isolation adds an addition
 
 At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
-### How?
+### Nasıl?
 
 ```js
 // Main process
@@ -176,7 +176,7 @@ The API is based on the [Chromium permissions API](https://developer.chrome.com/
 
 By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
 
-### How?
+### Nasıl?
 
 ```js
 const { session } = require('electron')
@@ -206,7 +206,7 @@ A Content Security Policy (CSP) is an additional layer of protection against cro
 
 CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
 
-### How?
+### Nasıl?
 
 Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
 
@@ -230,7 +230,7 @@ The `eval()` method has precisely one mission: To evaluate a series of character
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
-### How?
+### Nasıl?
 
 ```js
 // ESLint will warn about any use of eval(), even this one
@@ -252,7 +252,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
 
-### How?
+### Nasıl?
 
 ```js
 // Bad
@@ -280,7 +280,7 @@ Experimental features are, as the name suggests, experimental and have not been 
 
 Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
 
-### How?
+### Nasıl?
 
 ```js
 // Bad
@@ -306,7 +306,7 @@ Blink is the name of the rendering engine behind Chromium. As with `experimental
 
 Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
 
-### How?
+### Nasıl?
 
 ```js
 // Bad
@@ -334,7 +334,7 @@ Do not disable `webSecurity` in production applications.
 
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
-### How?
+### Nasıl?
 
 ```js
 // Bad
@@ -368,7 +368,7 @@ If you are using [`WebViews`](web-view), you might need the pages and scripts lo
 
 If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
 
-### How?
+### Nasıl?
 
 ```html
 <!-- Bad -->
@@ -390,7 +390,7 @@ Since WebViews live in the DOM, they can be created by a script running on your 
 
 Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
 
-### How?
+### Nasıl?
 
 Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
 
