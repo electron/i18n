@@ -8,7 +8,7 @@ Para instalar os binários do Electro, use o [`npm`](https://docs.npmjs.com/). O
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Veja a [documentação de versionamento do Electron](electron-versioning.md) para informação de como gerenciar as versões em seus aplicativos.
 
 ## Instalação Global
 
@@ -91,7 +91,7 @@ Em quase todos os casos, esses problemas são resultado de problemas de rede e n
 
 Se a instalação via `npm` falhar, você também pode tentar baixar o Electron diretamente do código fonte em [electron/electron/releases](https://github.com/electron/electron/releases).
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 Se o erro acima persistir, você deve definir a opção [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) como "true":
 
