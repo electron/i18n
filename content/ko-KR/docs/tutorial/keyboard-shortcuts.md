@@ -4,7 +4,7 @@
 
 ## 로컬 단축키
 
-앱이 포커스 되어 있을 때만 사용될 키보드 단축키를 설정하려면 당신은 [Menu](../api/menu.md) 모듈을 사용해야 합니다. 그리고 [MenuItem](../api/menu-item.md)이 만들어질 때 [`accelerator`] 프로퍼티를 반드시 써야 합니다.
+애플리케이션이 포커스 되어 있을 때만 사용되는 키보드 단축키를 설정하려면 [Menu](../api/menu.md) 모듈을 사용해야 합니다. 사용하기 위해선 [MenuItem](../api/menu-item.md)이 만들어질 때 [`accelerator`] 프로퍼티를 명기합니다.
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -27,7 +27,7 @@ menu.append(new MenuItem({
 
 ## 전역 단축키
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+애플리케이션이 키보드 포커스를 갖지 않을 때에도 키보드 이벤트를 감지하는 [globalShortcut](../api/global-shortcut.md) 모듈을 사용할 수 있습니다.
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -39,9 +39,9 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## BrowserWindow 간의 단축키
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+만약 [BrowserWindow](../api/browser-window.md)에 사용될 키보드 단축키를 다루길 원한다면, 렌더러 프로세스 안에 있는 윈도우 오브젝트 상에 `keyup`과 `keydown` 이벤트 리스너를 사용해야 합니다.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
