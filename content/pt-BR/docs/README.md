@@ -38,13 +38,13 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 ## Referências da API
 
 * [Sinopse](api/synopsis.md)
-* [Process Object](api/process.md)
+* [Processamento de Objeto](api/process.md)
 * [Suporte ao Terminal de Comando do Chrome](api/chrome-command-line-switches.md)
 * [Variáveis de Ambiente](api/environment-variables.md)
 
 ### Elementos de DOM Personalizado:
 
-* [Objeto `File`](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
 * [`window.open` Função](api/window-open.md)
 
@@ -94,7 +94,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Diferentes Técnicas para o NW.js (formalmente node-webkit)](development/atom-shell-vs-node-webkit.md)
 * [Construir Resumo do Sistema](development/build-system-overview.md)
 * [Instruções de Compilação (macOS)](development/build-instructions-osx.md)
-* [Instruções para Configuração (Windows)](development/build-instructions-windows.md)
+* [Instruções para Compilação (Windows)](development/build-instructions-windows.md)
 * [Instruções para Configurar (Linux)](development/build-instructions-linux.md)
 * [Introdução de Depuração (macOS)](development/debugging-instructions-macos.md)
 * [Introdução de Depuração (Windows)](development/debug-instructions-windows.md)
