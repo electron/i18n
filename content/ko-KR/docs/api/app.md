@@ -45,7 +45,7 @@ Returns:
 
 어플리케이션이 윈도우를 닫기 시작하기 전에 발생 합니다. `Event.preventDefault()`를 호출하면 기본 동작인 어플리케이션 종료를 하지 않습니다.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**참고:** 만약 어플리케이션이 `autoUpdater.quitAndInstall()`에 의해 종료되는 경우 모든 윈도우에서 `close`이벤트를 발생한 *후* `before-quit` 가 발생되고 윈도우를 닫습니다.
 
 ### 이벤트: 'will-quit'
 
@@ -53,20 +53,20 @@ Returns:
 
 * `event` Event
 
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+모든 윈도우가 닫히고 어플리케이션이 종료될 때 발생된다. `event.preventDefault()`를 호출하면 기본 동작인 어플리케이션 종료를 하지 않습니다.
 
 See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
 
-### Event: 'quit'
+### 이벤트: 'quit'
 
 Returns:
 
 * `event` Event
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+어플리케이션을 종료할 때 발생된다.
 
-### Event: 'open-file' *macOS*
+### 이벤트: 'open-file' *macOS*
 
 Returns:
 
