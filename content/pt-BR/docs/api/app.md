@@ -332,7 +332,7 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
   * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
+  * `$XDG_CONFIG_HOME` ou `~/.config` no Linux
   * `~/Library/Application Support` on macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
 * `temp` Temporary directory.
