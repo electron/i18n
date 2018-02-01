@@ -244,15 +244,15 @@ window.eval = global.eval = function () {
 
 *La recomendación es el defecto del electrón*
 
-By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+Por defecto, Electron ahora le permitirá a sitios web descargados por medio de `HTTPS` descargar y ejecutar guiones, CSS o complementos de fuentes inseguras (<0<HTTP</code>). Establecer la propiedad `allowRunningInsecureContent` a `true` deshabilita esa protección.
 
-Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
+Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar recursos subsecuentes mediante `HTTP` es también conocido como "contenido mixto".
 
 ### ¿Por què?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+En pocas palabras, descargar contenido mediante `HTTPS` asegura la autenticidad e integridad de los recursos cargados mientras se cifrar el tráfico como tal. Ver la sección en [only displaying secure content](#only-display-secure-content) para más detalles.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Bad
@@ -268,17 +268,17 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## Do Not Enable Experimental Features
+## No habilite funciones experimentales
 
 *La recomendación por defecto es Electrón*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Usuarios avanzados de Electron pueden habilitar funciones experimentales Chromium usando las propiedades `experimentalFeatures` y `experimentalCanvasFeatures`.
 
 ### ¿Por què?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Futhermore, their impact on Electron as a whole has likely not been tested.
+Funciones experimentales son, como el nombre lo dice, experimentales y no han sido habilitadas por todos los usuarios Chromium. Además, su impacto general en Electron seguramente no ha sido puesto a prueba.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciendo, usted no debería habilitar esta propiedad.
 
 ### ¿Còmo?
 
