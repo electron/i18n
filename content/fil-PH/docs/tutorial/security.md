@@ -34,14 +34,14 @@ Hindi ito bulletproof: gayunpaman, kailangan kang tumangka sa mga sumusunod:
 * [Tukuyin ang`Nilalaman-Seguridad-Patakaran`](#define-a-content-security-policy)at gamitin ang mahigpit na panuntunan (halimbawa `script-src 'self'`)
 * [I-override at huwag paganahin ang `eval`](#override-and-disable-eval), na nagpapahintulot ng mga string na mag-execute bilang code.
 * [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#do-not-set-allowRunningInsecureContent-to-true)
-* [Do not enable experimental features](#do-not-enable-experimental-features)
-* [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
-* [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups)
-* [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+* [Huwag paganahin ang mga experimental na katangian](#do-not-enable-experimental-features)
+* [Huwag gamitin ang `blinkFeatures`](#do-not-use-blinkfeatures)
+* [WebViews: Huwag gamitin ang `allowpopups`](#do-not-use-allowpopups)
+* [WebViews: I-verify ang mga opsyun at mga param sa lahat ng `<webview>`mga tag](#verify-webview-options-before-creation)
 
-## Only Load Secure Content
+## Mag-load Lamang ng Ligtas na Nilalaman
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Alinmang mga mapagkukunan na hindi kasama sa iyong aplikasyon ay dapat ma-load gamit ang ligtas na protocol gaya ng `HTTPS`. Sa ibang salita, huwag gumamit ng hindi ligtas na mga protocol gaya ng `HTTP`. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### Why?
 
