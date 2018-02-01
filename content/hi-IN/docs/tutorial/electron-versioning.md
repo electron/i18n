@@ -115,11 +115,11 @@ npm install --save-dev electron@latest
 भविष्य को ध्यान में रखते हुए, हम निम्नलिखित में से एक या दोनों को ला सकते हैं:
 
 * मास्टर की नाईटली बिल्डस ऑफ; आपको नयी सुविधाओं का तुरंत परिक्षण करने और फीडबैक देने की अनुमति प्रदान करेगी
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* अल्फा रिलीज़िस जिनके पास बीटा से ज्यादा लचीले स्थिरता तत्व हैं; जैसे कि इस बात की अनुमति होगी कि जब एक स्थिरता चैनल *अल्फा* में मौज़ूद हो, तब भी नयी सुविधाओं को शामिल किया जा सके |
 
-# Feature Flags
+# फीचर ध्वज
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
 * is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 * it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
