@@ -43,7 +43,7 @@ Forces the maximum disk space to be used by the disk cache, in bytes.
 Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
 
 ```bash
-$ electron --js-flags="--harmony_proxies --harmony_collections" your-app
+$ electron --js-flags="--harmony_proxies --harmony_collections" seu-app
 ```
 
 See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
