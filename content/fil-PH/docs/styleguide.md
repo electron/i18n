@@ -1,14 +1,14 @@
-# Styleguide ng mga dokumento ng elektron
+# Styleguide ng mga dokumento ng electron
 
-Ito ang mga alintuntunin sa pagsulat ng dokumento ng elektron.
+Ito ang mga alintuntunin sa pagsulat ng dokumento ng electron.
 
 ## Mga Pamagat
 
-* Sa bawat pahina ay dapat magkaroon ng isang solong `#`-antas na pamagat sa itaas.
-* Sa bawat kabanata ng parehong pahina ay dapat may `#`-antas na may titulo.
-* Sub kabanata ay kailangan upang madagdagan ang bilang ng mga `#` sa pamagat ayon sa lalim ng nesting nito.
-* Lahat ng mga salita sa bawat pahina na may titulo ay dapat nasa malalaking titik, maliban sa pangatnig gaya ng "ng" at "at".
-* Tanging ang unang salita ng kabanata na may pamagat ay dapat naka-capital.
+* Sa bawat pahina ay dapat magkaroon ng isang solong antas ng `#`-ng pamagat sa itaas.
+* Ang mga kabanata ng parehong pahina ay dapat may `#`-antas ng mga titulo.
+* Ang pangalawang kabanata ay kailangan upang madagdagan ang bilang ng mga `#` sa pamagat ayon sa lalim ng nilalaman nito.
+* Lahat ng mga salita sa titulo ng pahina ay dapat nasa malalaking titik, maliban sa pangatnig gaya ng "ng" at "at".
+* Tanging ang unang salita ng pamagat ng isang kabanata ang dapat na nasa malaking titik.
 
 Paggamit ng mga `Quick Start` bilang halimbawa:
 
@@ -21,50 +21,50 @@ Paggamit ng mga `Quick Start` bilang halimbawa:
 
 ...
 
-## Proseso ng tagapagbalita
+## Proseso ng tagasalin
 
 ...
 
-## Patakbuhin ang iyong app
+## Paganahin ang iyong app
 
 ...
 
-### Patakbuhin bilang pamamahagi...
+### Paganahin bilang isang distribusyon...
 ```
 
 Para sa mga reperensya ng API, may mga eksepsiyon sa panuntunang ito.
 
 ## Mga patakaran ng markdown
 
-* Gamitin ang `sh` sa halip ng `cmd` sa mga bloke ng code (dahil sa syntax highlighter).
-* Ang mga linya dapat naka balot sa 80 ng mga hanay.
-* Walang nesting na nangangahulugang mahigit 2 antas (dahil sa mga tagatanghal ng markdown).
-* Lahat ng bloke ng code sa `js` at `javascript` ay linted sa [pamantayan-markdown](http://npm.im/standard-markdown).
+* Gamitin ang `sh` sa halip na `cmd` sa mga bloke ng kodigo (dahil sa syntax highlighter).
+* Ang mga linya ay dapat nakapaloob sa 80 ng mga hanay.
+* Walang nesting list na hihigit sa 2 antas (dahil sa mga tagasalin ng markdown).
+* Lahat ng mga bloke ng kodigo sa `js` at `javascript` ay linted sa [standard-markdown](http://npm.im/standard-markdown).
 
 ## Pagpili ng mga salita
 
 * Gamitin ang "ay" sa halip ng "nais" kapag naglalarawan sa mga kinalalabasan.
 * Piliin ang "sa ____ proseso" sa halip ng "sa".
 
-## Mga reperensya sa mga API
+## Mga sanggunian ng API
 
-Ang mga sumusunod na patakaran ay angkop lamang sa dokumentasyon ng APIs.
+Ang mga sumusunod na mga patakaran ay angkop lamang sa mga dokumentasyon ng API.
 
-### Mga pamagat ng pahina
+### Ang pamagat ng pahina
 
-Sa bawat pahina ay dapat gamitin ang aktuwal na pangalan sa mga bagay na ibinalik na `kailangan meron('electron')`bilang pamagat, tulad ng `BrowserWindow`, `autoUpdater`, at mga `sesyon`.
+Sa bawat pahina ay dapat gamitin ang aktuwal na pangalan ng mga bagay na ibinalik ng `require('electron')`bilang pamagat, tulad ng `BrowserWindow`, `autoUpdater`, at mga `sesyon`.
 
 Sa ilalim ng pahina ng pamagat ay dapat na may paglalarawan ng isang-linya na nagsisimula sa `>`.
 
-Paggamit ng mga `sesyon` bilang halimbawa:
+Paggamit ng mga `session` bilang halimbawa:
 
 ```markdown
-ang mga sesyon sa # > pamahalaan ang browser session, cookies, cache, mga setting ng proxy, atbp.
+ang mga sesyon sa # > ay pinamamahalaan ang browser session, cookies, cache, mga setting ng proxy, atbp.
 ```
 
 ### Mga pamamaraan ng modyul at mga kaganapan
 
-Para sa mga modyuls na hindi nakaklase, ang kanilang pamamaraan at mga pangyayaring dapat ay nakalista sa ilalim ng `# # pamamaraan` at `# # pangyayari` kabanata.
+Para sa mga modyul na hindi naka-klase, ang kanilang pamamaraan at mga pangyayaring dapat ay nakalista sa ilalim ng mga kabanata ng `# # Methods` at `# # Events`.
 
 Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 
@@ -74,42 +74,42 @@ Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 
 ### Mga Klase
 
-* Ang klase o mga klase ng API na bahagi ng Modyul ay dapat nakalista sa ilalim ng isang `# # klase: TheClassName` kabanata.
-* Isang pahina ay maaaring magkaroon ng maramihang mga klase.
-* Ang mga tagatayo ay dapat na nakalista sa ` ### `-antas na pamagat.
-* [Static na pamamaraan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) ay dapat nakalista sa ilalim ng isang `### Static na pamamaraan`kabanata.
-* [Halimbawa ng mga pamamaraan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) ay dapat nakalista sa ilalim ng isang `### pamamaraan ng pagkakataon` kabanata.
-* Lahat ng mga pamamaraan na magkaroon ng isang pagbalik na halaga ay dapat nagsimula ng kanilang deskripsyon sa "Returns `[TYPE]` -Bumalik sa deskrpsyon" 
-  * Kung ang paraan na ito ay nagbabalik ng isang `bagay`. ng istraktura nito ay tinukoy gamit ang isang colon kasunod ng newline at ang unordered na listahan ng mga katangian sa parehong estilo bilang function ng mga parameters.
-* Ang mga Kaganapan ng Instance ay dapat na nakalista sa ilalim ng kabanata ng `### Instance Events `.
-* Instance Properties ay dapat nakalista sa ilalim ng isang `### Instance Properties` kabanata. 
-  * Instance properties ay dapat nagsimula ng "A [Property Type] ..."
+* Ang mga klase ng API o mga klse na kabahagi ng mga modyul ay dapat nakalista sa ilalim ng isang kabanata ng `# # klase: TheClassName`.
+* Ang isang pahina ay maaaring magkaroon ng maramihang mga klase.
+* Ang mga tagatayo ay dapat na nakalista sa ` ### `-antas ng mga pamagat.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) ay dapat nakalista sa ilalim ng isang kabanata ng `### Static Methods'.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) ay dapat nakalista sa ilalim ng isang kabanata ng `### Instance Methods`.
+* Ang lahat ng mga pamamaraan na mayroon ng isang nagbalik na halaga ay dapat nagsimula ng kanilang deskripsyon sa "Returns `[TYPE]` -Bumalik sa deskripsyon" 
+  * Kung ang pamamaraan ay ibinabalik ang isang `bagay`. ang istraktura nito ay maaaring tukuyin gamit ang isang kolon kasunod ng bagong linya pagkatapos ay ang wala sa lugar na listahan ng mga katangian sa parehong estilo bilang punsyon ng mga parametro.
+* Ang mga Kaganapan ng Instansya ay dapat na nakalista sa ilalim ng isang kabanata ng `### Instance Events `.
+* Ang mga Katangian ng Instansya ay dapat na nakalista sa ilalim ng isang kabanata ng `### Instance Properties`. 
+  * Ang mga katangian ng Instansya ay dapat magsimula sa "A [Property Type] ..."
 
-Gamit ang `Session`at`Cookies`classes bilang halimbawa:
+Ginagamit ang mga klase ng `Session`at`Cookies` bilang halimbawa:
 
 ```markdown
-# session # # Pamamaraan ### session.fromPartition(partisyon) # # Properties ### session.defaultSession ## Klase: Session ### Mga Pangyayari na may Halimbawa #### Kaganapan: 'will-download'
+# sesyon # # Pamamaraan ### session.fromPartition(partisyon) # # Katangian ### session.defaultSession ## Klase: Sesyon ### Mga Pangyayari na may Halimbawa #### Kaganapan: 'will-download'
 ### Mga Halimbawa ng Pamamaraan #### `ses.getCacheSize (callback)` ### Instance Properties #### `ses.cookies` ## Klase: Mga Cookies ### Mga Halimbawa ng Pamamaraan #### `cookies.get (filter, callback)`
 ```
 
 ### Pamamaraan
 
-Ang pamamaraan ng kabanata ay dapat nasa sumusunod na form:
+Ang pamamaraan ng kabanata ay dapat nasa sumusunod na porma:
 
 ```markdown
-### ' objectName.methodName (kinakailangan [at opsyonal]))' * 'kailangan' pisi - isang paglalarawan ng parameter. * ' optional' Integer (opsyonal) - isa pang parameter na deskripsyon. ...
+### ' objectName.methodName (kinakailangan [ opsyonal]))' * 'kailangan' String - isang paglalarawan ng parametro. * ' optional' Integer (opsyonal) - isa pang paglalarawan ng parametro. ...
 ```
 
 Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
 
-Para sa mga modyul na ito, ang `objectName` ay pangalan ng mga modyul. Para sa klase, ito ay dapat na ang mga pangalan ng mga pagkakataon sa klase, at hindi ay dapat kapareho ng pangalan ng mga modyul.
+Para sa mga modyul, ang `objectName` ay pangalan ng mga modyul. Para sa mga klase, ito ay dapat na ang mga pangalan ng mga pagkakataon sa klase, at hindi dapat kapareho ng pangalan ng mga modyul.
 
-Halimbawa, ang mga pamamaraan ng `sesyon ng` klase sa ilalim ng `sesyon` seksyon ay dapat gumamit ng `ses` bilang ang `objectName`.
+Halimbawa, ang mga pamamaraan ng klsae ng `session` sa ilalim ng modyul ng `session` ay dapat gumamit ng `ses` bilang ang `objectName`.
 
-Ang mga opsyonal na argumento ay ipinapahayag sa pamamagitan ng mga square bracket `[]` na nakapalibot sa opsyonal na argumento pati na rin ang kuwit na kinakailangan kung ang opsyonal na argumento ay sumusunod sa isa pa argumento:
+Ang mga opsyonal na argumento ay ipinapahayag sa pamamagitan ng mga square bracket `[]` na nakapalibot sa opsyonal na argumento pati na rin ang kuwit na kinakailangan kung ang opsyonal na argumento ay sumusunod sa isa pang argumento:
 
 ```sh
-kinakailangan [at opsyonal]
+kinakailangan [opsyonal]
 ```
 
 Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento. Ang uri ng argumento ay binibigkas ng alinman sa karaniwang mga uri:
@@ -119,40 +119,40 @@ Sa ibaba ng paraan ay mas detalyadong impormasyon sa bawat isa sa mga argumento.
 * [`Bagay`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* O isang pasadyang uri tulad ng elektron [`WebContent`](api/web-contents.md)
+* O isang pasadyang uri tulad ng electron [`WebContent`](api/web-contents.md)
 
-Kung sa argumento o isang paraan na ito ay natatangi sa ilang mga plataporma, mga plataporma ay ipinahiwatig gamit ang isang delimited ng espasyo na naka-italic ang listahan kasunod ng mga datatype. Pagpapahalaga ay maaaring maging `macOS`, `Windows`, o `Linux`.
+Kung ang isang argumento o isang paraan ay natatangi sa ilang mga plataporma, ang mga plataporma ay ipinahiwatig gamit ang isang delimited na espasyo na naka-italic ang listahan kasunod ng mga datatype. Ang pagpapahalaga ay maaaring maging `macOS`, `Windows`, o `Linux`.
 
 ```markdown
 * `E-animate` Boolean (opsyonal) _macOS_ _Windows_ - Pagalawin ang bagay.
 ```
 
-`Array` uri argumento kailangan tukuyin kung anong elemento ang array maaaring isama sa paglalarawan sa ibaba.
+Ang `Array` ay uri ng mga argumento na kailangang tukuyin kung anong mga elemento ng array amg maaaring isama sa paglalarawan sa ibaba.
 
-Ang detalye ng mga argumento sa uri ng `Function` ay dapat gawin itong malinaw kung paano ito maaaring tumawag at ilista ang mga uri ng mga parameter sa mga ito.
+Ang detalye ng uri ng mga argumento ng `Function` ay dapat gawin itong malinaw kung paano ito tatawagin at ililista ang mga uri ng mga parametro na ipapasa dito.
 
-### Pangyayari
+### Mga pangyayari
 
-Ang pangyayari ng kabanata ay dapat nasa sumusunod na form:
+Ang mga pangyayari ng kabanata ay dapat nasa sumusunod na porma:
 
 ```markdown
 ### Pangyayari: 'Panggising' Returns: * 'oras' String...
 ```
 
-Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
+Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang event ng isang paksa o ng isang klase.
 
-Ang mga argumento ng isang pangyayaring sundin ang parehong patakaran bilang pamamaraan.
+Ang mga argumento ng isang pangyayari ay sinusunod ang parehong patakaran bilang pamamaraan.
 
 ### Mga Katangian
 
-Ang mga katangian ng kabanata ay dapat nasa sumusunod na form:
+Ang mga katangian ng kabanata ay dapat nasa sumusunod na porma:
 
 ```markdown
 ### session.defaultSession...
 ```
 
-Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang pamamaraan ng isang paksa o ng isang klase.
+Ang pamagat ay maaaring maging `#` o `#`-antas depende kung ito ay isang katangian ng isang paksa o ng isang klase.
 
 ## Ang mga pagsasalin ng dokumentasyon
 
-Tingnan ang mga [elektron/elektron-i18n](https://github.com/electron/electron-i18n#readme)
+Tingnan ang [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
