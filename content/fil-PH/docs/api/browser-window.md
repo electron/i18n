@@ -255,13 +255,13 @@ window.onbeforeunload = (e) => {
 
 #### Event: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Ay lalabas kapag ang window ay isinara. Pagkatapos mong matanggap ang kaganapan na ito ay maaari mong tanggalin ang sanggunian sa mga window at iwasan itong gamitin ulit.
 
-#### Event: 'session-end' *Windows*
+#### Kaganapan: 'katapusan ng sesyon' ng *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Ay lalabas kapag ang sesyon ng window ay hihinto na dahil sa puwersahang pagpatay o pag-restart ng makina o pag-log off ng sesyon.
 
-#### Event: 'unresponsive'
+#### Kaganapan: 'hindi tumutugon'
 
 Emitted when the web page becomes unresponsive.
 
