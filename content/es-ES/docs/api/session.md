@@ -328,7 +328,7 @@ Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API gen
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (optional) - Called when operation is done
 
-Clears the session’s HTTP authentication cache.
+Limpia caché de autenticación HTTP de la sesión.
 
 ### Propiedades de Instancia
 
