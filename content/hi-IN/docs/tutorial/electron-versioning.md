@@ -75,13 +75,13 @@ npm install --save-dev electron@latest
 * `2.0.0` में स्थिरता या सुरक्षा सम्बंधित फिक्सेस लाने के लिए ही `~2.0.0` का इस्तेमाल करें |
 * `^2.0.0` का इस्तेमाल नॉन-ब्रेकिंग *काफी हद तक स्थिर* सुविधाओं और साथ ही सुरक्षा और बग फिक्सेस को अनुमति देने के लिए करें |
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+दूसरी बिंदु में जो आवश्यक बात है वह यह कि `^` को इस्तेमाल करने वाली एप्प्स भी कुछ हद तक स्थिरता की अपेक्षा रख सकें | इसे पूरा करने के लिए, semver एक *pre-release identifier* को अनुमति प्रदान करता है ताकि वह यह पता लगा सके कि दिया गया संस्करण इस्तेमाल करने के लिए *सुरक्षित* या *स्थिर* है या नहीं |
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+आप कुछ भी चुनें, पर आपको समय-समय पर `package.json` का संस्करण बढ़ाना ही होगा क्योंकि ब्रेकिंग चेंजेस क्रोमियम जीवन का एक सत्य है |
 
-The process is as follows:
+इसकी प्रक्रिया निम्नलिखित है:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
+1. सभी मुख्य और लघु रिलीज़िस पंक्तियाँ `-beta.N` से शुरू होंगी जहाँ `N >= 1` होगा | इस समय पर, सुविधा सेट **लॉक्ड** होगा | वह रिलीज़ पंक्ति और ज्यादा सुविधाओं को शामिल करने की अनुमति नहीं देती, और केवल सुरक्षा और स्थिरता पर केन्द्रित होती है | e.g. `2.0.0-beta.1`.
 2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
