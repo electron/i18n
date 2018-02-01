@@ -295,7 +295,7 @@ Ay lalabas kapag ang window ay pinalaki.
 
 #### Kaganapan: 'hindi pinalaki'
 
-Emitted when the window exits from a maximized state.
+Ay lalabas kapag ang window ay lumabas mula sa pinalaking estado.
 
 #### Event: 'minimize'
 
