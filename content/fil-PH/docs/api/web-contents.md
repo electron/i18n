@@ -408,9 +408,9 @@ Ibinabalik:
   * `frameURL` Pisi - Ang URL ng subframe na ang menu ng konteksto ay nananawagan sa.
   * `srcURL` Pisi - pinagmulang URL para sa elemento na ang menu ng konteksto ay tinawag sa. Ang mga elemento na may mga source URL ay mga imahe, audio at video.
   * `mediaType` Pisi - Uri ng node sa menu ng konteksto ay tinawag sa. Maaaring `walang`, `imahe`, `audio`, `video`, `canvas`, `file` o `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
+  * `hasImageContents` Boolean - Kung ang menu ng konteksto ay ginagamit sa isang imahe na may mga walang laman na nilalaman.
+  * `isEditable` Boolean - Kung ang konteksto ay maaring i-edit.
+  * `selectionText` Pisi - Teksto ng pagpili na ang menu ng konteksto ay nananawagan.
   * `titleText` String - Title or alt text of the selection that the context was invoked on.
   * `misspelledWord` String - The misspelled word under the cursor, if any.
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
