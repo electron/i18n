@@ -31,7 +31,7 @@ Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 * [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
 * [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#handle-session-permission-requests-from-remote-content)
 * [`webSecurity` i kapatmayın](#do-not-disable-websecurity)
-* [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+* [Bir `Content-Security-Policy`](#define-a-content-security-policy) belirleyin ve sınırlayıcı kurallar koyun (örneğin `script-src 'self'`)
 * [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
 * [`allowRunningInsecureContent` i `true` a ayarlamayın](#do-not-set-allowRunningInsecureContent-to-true)
 * [Deneysel özellikleri aktifleştirmeyin](#do-not-enable-experimental-features)
@@ -166,15 +166,15 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## Uzaktan İçeriklerde Oturum İzni İsteklerini Düzenleyin
+## Uzaktan İçeriklerde Oturum İzni İstemlerini Düzenleyin
 
-You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
+Chrome kullanırken izin istemlerini görmüş olabilirsiniz: Bir web sitesi bir özelliği kullanmak istediğinde kullanıcının onaylaması için ortaya çıkarlar (bildirimlere benzer).
 
 The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
 
 ### Neden?
 
-By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
+Bir geliştirici manuel bir düzenleme yapmadığı takdirde Electron varsayılan olarak bütün izin istemlerini otomatik olarak onaylayacaktır. Varsayılan bu iken, güvenliğe önem veren geliştiriciler bunun tam tersini isteyebilir.
 
 ### Nasıl?
 
@@ -198,9 +198,9 @@ session
   })
 ```
 
-## Define a Content Security Policy
+## Bir İçerik Güvenliği İlkesi Belirleyin
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+İçerik Güvenliği İlkesi (Content Security Policy, CSP) cross-site-scripting ve veri aşılama saldırılarına karşı koruyucu bir katmandır. Electron'a yüklediğiniz her sitede bulunmasını tavsiye ederiz.
 
 ### Neden?
 
