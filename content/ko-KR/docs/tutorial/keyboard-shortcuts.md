@@ -1,8 +1,8 @@
-# 손가락 하나 내 뜻대로 움직이지도 못 할 만큼
+# 키보드 단축키
 
-> 취해버린 채로 눈을 감을 때
+> 로컬 및 전역 키보드 단축키 설정
 
-## Local Shortcuts
+## 로컬 단축키
 
 You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
 
