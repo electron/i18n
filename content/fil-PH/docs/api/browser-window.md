@@ -285,15 +285,15 @@ Ay lalabas kapag ang window ay ipinakita.
 
 Ay lalabas kapag ang window ay itinago.
 
-#### Event: 'ready-to-show'
+#### Kaganapan: 'handa- ng- ipakita'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Ay lalabas kapag ang pahina ng web ay naisalin na (habang hindi pa ipinapakita) at ang window ay maaaring i-displey nang walang isang bisuwal na flash.
 
-#### Event: 'maximize'
+#### Kaganapan: 'palakihin'
 
-Emitted when window is maximized.
+Ay lalabas kapag ang window ay pinalaki.
 
-#### Event: 'unmaximize'
+#### Kaganapan: 'hindi pinalaki'
 
 Emitted when the window exits from a maximized state.
 
