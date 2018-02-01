@@ -12,9 +12,9 @@ Para sa inpormasyong kung paano ang tamang pagsisiwalat ng kahinaan ng Electron,
 
 ## Mga Isyung Panseguridad at Upgrades ng Chromium
 
-Habang sinisikap ng Electron na suportahan ang bagong bersyon ng Chromium kaagad, dapat ring may kamalayan ang mga developer na ang pag upgrade isang seryosong gawain - pagkabilang nga doenang edit-kamay o kahit daan-daang files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by either days or weeks.
+Habang sinisikap ng Electron na suportahan ang bagong bersyon ng Chromium kaagad, dapat ring may kamalayan ang mga developer na ang pag upgrade isang seryosong gawain - pagkabilang nga doenang edit-kamay o kahit daan-daang files. Napagbigyan ng mapagkukunan at kontribusyon na nandito ngayon, ang Electron ay maaaring wala minsan sa pinakabagong bersyon ng Chromium, nahuli sa pag-lagging ng anuman sa ilang araw o ilang linggo. 
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. We definitely are interested in hearing more about specific use cases from the people that build things on top of Electron. Pull requests and contributions supporting this effort are always very welcome.
+Parang ang aming kasalukuyang sistema ng pag-update ng bahagi sa Chromium ay makakatama ng wastong balanse sa pagitan ng mga mapagkukunan na mayroon at ang kailangan n karamihan sa mga application upang masagawa ang tutok ng framework. Tayo ay tiyak na interesado sa pakikiknig ng higit pa tungkol sa partikular na paggamit ng mga case galing sa mga taong gumagawa ng mga bagay sa tutok ng Electron. Pull requests and contributions supporting this effort are always very welcome.
 
 ## Ignoring Above Advice
 
