@@ -66,11 +66,11 @@ npm install --save-dev electron@latest
 
 हम विभिन्न स्थिरीकरण शाखाओं को एक साथ मौज़ूद होने की सुविधा प्रदान करते हैं, और हमारा उद्देश्य है कि हर समय कम से कम 2 शाखाओं को एक साथ समर्थित करें, और आवश्यकता अनुसार सुरक्षा सुधार बैकपोर्ट करते रहें | ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+पुरानी पंक्तियाँ गिटहब द्वारा समर्थित नहीं होगी, पर दुसरे समहू स्वामित्व प्राप्त कर सकते हैं और खुद ही स्थिरता और सुरक्षा सुधार बैकपोर्ट कर सकते हैं | हम ऐसा न करने की सलाह देते हैं, पर यह भी समझते हैं की इससे एप्प डेवलपर्स का काम काफी आसान हो जाता है |
 
-# Beta Releases and Bug Fixes
+# बीटा रिलीज़ और बग फिक्सेस
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+डेवलपर्स जानना चाहते हैं कि कौन सी रिलीजिज़ इस्तेमाल करने के लिए*सुरक्षित* हैं | हानिरहित दिखने वाली सुविधायें भी जटिल एप्लीकेशनस में त्रुटियाँ ला सकती हैं | पर साथ ही, एक स्थायी संस्करण पर टिके रहना काफी ख़तरनाक हो सकता है क्योंकि आप सुरक्षा पैच और बग फिक्सेस को नज़रअंदाज़ कर रहे हैं जो आप के इस्तेमाल में आने वाले संस्करण के बाद जारी किये गये हों | Our goal is to allow the following standard semver ranges in `package.json` :
 
 * Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
 * Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
