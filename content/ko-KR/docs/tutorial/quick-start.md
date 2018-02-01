@@ -183,15 +183,15 @@ $ .\electron\electron.exe your-app\
 
 여기에 있는 `Electron.app` 은 일렉트론의 릴리즈 패키지의 부분으로서, [여기](https://github.com/electron/electron/releases)에서 다운로드할 수 있습니다.
 
-### Run as a distribution
+### 배포판으로 실행하기
 
-After you're done writing your app, you can create a distribution by following the [Application Distribution](./application-distribution.md) guide and then executing the packaged app.
+당신의 앱을 완성한 후에, 다음 [애플리케이션 배포판](./application-distribution.md) 가이드를 따라서 배포판을 만들 수 있습니다. 그리고 나서 패키징한 애플케이션을 실행하세요.
 
-### Try this Example
+### 이 예제를 따라해보세요
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 저장소를 이용해서 이 튜토리얼 안에 있는 코드를 복사하여 실행하세요.
 
-**Note**: Running this requires [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which includes [npm](https://npmjs.org)) on your system.
+**주의**: 이것을 실행하려면 당신의 시스템에 [Git](https://git-scm.com)과 [Node.js](https://nodejs.org/en/download/)([npm](https://npmjs.org)을 포함)가 필요합니다.
 
 ```sh
 # Clone the repository
