@@ -877,9 +877,9 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 * `url` String
 * `mga pagpipilian` Mga bagay (opsyonal) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
+  * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
+  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
+  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
