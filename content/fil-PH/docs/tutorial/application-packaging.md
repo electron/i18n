@@ -122,13 +122,13 @@ Ang APIs na nangangailangan ng karagdagang "unpacking" ay mga:
 * `child_process.execFileSync`
 * `fs.open`
 * `fs.openSync`
-* `process.dlopen` - Used by `require` on native modules
+* `process.dlopen` - Ginamit ng `require` sa mga pinagmulang modyul
 
 ### Fake Stat Information of `fs.stat`
 
 Ang `Stats` ay bagay na bumalik batay sa `ft.stat` At sa magkalapit na mga pile ng `asar` Archives ay nabuo sa pamamagitan ng paghula, dahil ang ibang mga pileay hindi umiiral sa mga sistema ng pile. Kaya hindi dapat pagkatiwalaan ang `Stats` na bagay maliban para sa pagkuha ng pile Sukat at apula na uri ng pile.
 
-### Magsagawa ng mga dobleng nilalaman `asar` Archive
+### Pagpapalabas ng "Binaries" sa Loob ng "Archive" ng `asar`
 
 There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
 
