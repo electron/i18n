@@ -180,8 +180,8 @@ sa macOS. Default is <code>false`.
     * Ang `webSecurity` Boolean (opsyonal) - Kapag `false`, ihihinto nito ang patakaran ng parehong pinagmulan (kadalasan ay ang ginagamit ang mga sinubok na website ng mga tao), at itinakda ang `allowRunningInsecureContent` sa `true` kung ang opsyon na ito ay hindi itinakda ng gumagamit. Ang Default ay `true`.
     * Ang `allowRunningInsecureContent` Boolean (opsyonal) - Pinapayagan ang isang pahina ng https na paganahin ang JavaScript, CSS o mga plugin mula sa mga URL ng http. Ang default ay `false`.
     * Ang `images` Boolean (opsyonal) - Pinapagana ang suporta sa imahe. Ang default ay `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
+    * Ang `textAreasAreResizable` Boolean (opsyonal) - Palakihin ang sukat ng mga elemento ng TextArea. Ang default ay `true`.
+    * Ang `webgl` Boolean (opsyonal) - Pinapagana ang suporta sa WebGL. Ang default ay `true`.
     * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
     * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
     * `EkspirementongMgaTampok` Boolean (optional) - Pinapatakbo ang mga na-eksperimentong tampok ng Chromium. Ang default ay `mali`.
