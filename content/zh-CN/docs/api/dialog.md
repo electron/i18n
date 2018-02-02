@@ -103,14 +103,14 @@ console.log(dialog)
   * `icon` [NativeImage](native-image.md) (可选)
   * `cancelId` Integer (可选) - 用于取消对话框的按钮的索引，例如 `Esc` 键. By default this is assigned to the first button with "cancel" or "no" as the label. 默认情况下，它被分配给第一个按钮，文字为 “cancel” 或 “no”。 如果不存在这样的标记按钮，并且该选项没有设置，那么 `` 将用作返回值或回调响应。 该选项在 Windows 上会被忽略.
   * `noLink` Boolean (可选) - 在Windows上，应用将尝试找出哪个 `buttons` 是常用按钮(例如 "Cancel" 或 "Yes")，然后在对话框中以链接命令的方式展现其它的按钮。 这可以使对话框以现代Windows应用程序的风格显示。 如果你不喜欢这个行为, 你可以设置 `noLink` 为 `true`.
-  * `normalizeAccessKeys` Boolean (optional) - Normalize the keyboard access keys across platforms. 默认值为 `false`. Enabling this assumes `&` is used in the button labels for the placement of the keyboard shortcut access key and labels will be converted so they work correctly on each platform, `&` characters are removed on macOS, converted to `_` on Linux, and left untouched on Windows. For example, a button label of `Vie&w` will be converted to `Vie_w` on Linux and `View` on macOS and can be selected via `Alt-W` on Windows and Linux.
+  * `normalizeAccessKeys` Boolean (可选) -规范跨平台的键盘访问键。 默认值为 `false`. 用 `&` 连接和转换键盘访问键, 以便它们在每个平台上正常工作.`&` 字符会在macOS上被删除，在 Linux 上会被转换为 `_`，在 Windows 上保持不变。 例如 `Vie&w` 的按钮标签在 Linux 上会被转换为 `Vie_w`，在 macOS 转换为 `View` 并且可以被选择。而Windows和Linux上表示 `Alt-W` 。
 * `callback` Function (可选) 
-  * `response` Number - The index of the button that was clicked
-  * `checkboxChecked` Boolean - The checked state of the checkbox if `checkboxLabel` was set. Otherwise `false`.
+  * `response` Number - 被点击按钮的索引
+  * `checkboxChecked` Boolean - 如果设置了 `checkboxLabel`，返回复选框是否被选中的状态。否则为`false`.
 
-Returns `Integer`, the index of the clicked button, if a callback is provided it returns undefined.
+返回 `Integer`, 即被点击按钮的索引, 如果提供回调方法, 它返回 undefined
 
-Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
+显示消息框时，它将阻止进程直到消息框被关闭。返回点击按钮的索引。
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
