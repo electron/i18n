@@ -187,10 +187,10 @@ sa macOS. Default is <code>false`.
     * `EkspirementongMgaTampok` Boolean (optional) - Pinapatakbo ang mga na-eksperimentong tampok ng Chromium. Ang default ay `mali`.
     * Ang `experimentalCanvasFeatures` Boolean (opsyonal) - Pinapagana ang in-eksperimentong kanbas na mga katangian ng Chromium. Ang default ay `false`.
     * Ang `scrollBounce` Boolean (opsyonal) - Pinapagana ang pag-scroll bouce (pagra-rubber band) na epekto sa macOS. Ang default ay `false`.
-    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+    * Ang `blinkFeatures` String (opsyonal) - Ang isang listahan ng mga katangian ng string na pinaghiwa-hiwalay ng `,`, katulad ng `CSSVariablesKeyboardEventKey` para paganahin. Ang buong listahan ng sinuportahang mga katangian ng string na maaaring matagpuan sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
     * `disableBlinkFeatures` String (opsyonal) - Ang talaan ng mga tampok ng strings ay pinag-hiwalay ng `,`, katulad ng `CSSVariables,KeyboardEventKey` upang hindi mapagana. Ang kabuoang listahan ng mga sinusuportahang tampok ng strings ay mahahanap sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) sa file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
+    * `ang defaultFontFamily` Bagay (opsyonal) - Itinatakda ang default na font para sa pamilya ng font. 
+      * Ang `standard` String (opsyonal) - Ang mga default sa `Times New Roman`.
       * `serif` String (optional) - Defaults to `Times New Roman`.
       * `sansSerif` String (optional) - Defaults to `Arial`.
       * `monospace` String (optional) - Defaults to `Courier New`.
