@@ -1,6 +1,6 @@
 # Keamanan, Kemampuan asli, dan Tanggung Jawab Anda
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+Sebagai pengembang web, biasanya kita menikmati keamanan yang kuat bersih dari browser - risiko yang terkait dengan kode yang kita tulis adalah relatif kecil. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
 
 Ketika bekerja dengan Electron , penting untuk memahami bahwa elektron tidak web browser. Hal ini memungkinkan Anda untuk membangun aplikasi desktop kaya fitur dengan teknologi web akrab, tapi kode Anda memiliki kekuasaan jauh lebih besar. JavaScript dapat mengakses file , keamanan pengguna, dan banyak lagi. This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
 
