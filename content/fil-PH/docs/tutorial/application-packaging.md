@@ -132,7 +132,7 @@ Ang `Stats` ay bagay na bumalik batay sa `ft.stat` At sa magkalapit na mga pile 
 
 May mga "Node APIs" na nagpapalabas ng mga "binary" tulad ng `child_process.exec`, `child_process.spawn` at `child_process.execFile`, ngunit ang `execFile` lamang ang nag-iisang sumusuporta sa pagpapalabas ng mga "binary"sa loob ng "archive" `asar`.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+Ito ay dahil sa `exec` at `spawn` na tumatanggap ng `command` sa halip na `file` bilang input, at `command`s ay pinapalabas sa ilalim ng "shell". Walang ibang paraan upang matukoy kung ang "command" ay gumagamit ng payl sa "archive" ng "asar", at kahit gawin natin, hindi tayo makakasiguro kung maaari nating palitan ang "path" sa "command" nang walang ibang masamang epekto.
 
 ## Karagdagang Unpacked ng mga pile sa `asar` Archive
 
