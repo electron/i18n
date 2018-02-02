@@ -1,4 +1,4 @@
-# Packaging ng aplikasyon
+# "Packaging" ng Aplikasyon
 
 Para maiwasan ang [issues](https://github.com/joyent/node/issues/6960) sa paligid ng mahabang pangalan sa landas ng Windows, bahagyang mapapabilis ang `require` para itago ang iyong source code mula sa pinasimpleng inspeksyon, pwede kang mamili para I- package ang iyong app isang [asar](https://github.com/electron/asar) na aktibo sa maliit na pag babago sa iyong source code.
 
@@ -114,9 +114,9 @@ Bagaman, ang mga "archive" ng `asar` ay itinuturing bilang mga direktoryo, walan
 
 ### Dagdag na "Unpacking" sa Ilang APIs
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Karamihan sa `fs` APIs ay nakakabasa ng payl o kumukuha ng impormasyon ng payl galing sa mga "archive" ng `asar` nang hindi kasama ang "unpacking", ngunit para sa ilang APIs na nakadepende sa pagdaan sa totoong "path" ng payl na pinagbabatayan ng pagtawag ng sistema, ang Elektron ay ililipat ang mga kailangang payl sa pansamantalang payl at dadaan sa "path" ng pansamantalang patungo sa "APIs" para sila ay gumana. Ito ay nagdadagdag ng kaunting "overhead" para sa mga APIs.
 
-APIs that requires extra unpacking are:
+Ang APIs na nangangailangan ng karagdagang "unpacking" ay mga:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
@@ -136,7 +136,7 @@ This is because `exec` and `spawn` accept `command` instead of `file` as input, 
 
 ## Karagdagang Unpacked ng mga pile sa `asar` Archive
 
-As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
+Katulad ng nakasaad sa itaas, ilan sa mga Node API ay nasa unpack ng pile para sa sistema ng pile kapag nagtatawag, bukod sa paggawa ng mga isyu, ito ay maaari din magbigay daan para sa mga maling alerto ng mga birus scanner.
 
 To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
 
