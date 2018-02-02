@@ -18,9 +18,9 @@ Kami merasa bahwa sistem kami saat ini memperbarui komponen Chromium yang menyer
 
 ## Mengabaikan atas Saran
 
-Masalah keamanan ada setiap kali Anda menerima kode dari tujuan remote dan mengeksekusi secara lokal. Sebagai contoh, pertimbangkan sebuah remote web yang sedang ditampilkan di dalam [`BrowserWindow`](browser-window). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Masalah keamanan ada setiap kali Anda menerima kode dari tujuan remote dan mengeksekusi secara lokal. Sebagai contoh, pertimbangkan sebuah remote web yang sedang ditampilkan di dalam [`BrowserWindow`](browser-window). Jika penyerang berhasil mengubah kata konten (baik dengan menyerang sumber secara langsung, atau dengan duduk di antara aplikasi anda dan tujuan yang sebenarnya), mereka akan mampu menjalankan kode asli pada mesin pengguna.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](web-view) tag and make sure to disable the `nodeIntegration`.
+> :warning: Dalam situasi yang harus anda memuat dan menjalankan kode jauh dengan Node.js integrasi diaktifkan. Sebaliknya, hanya menggunakan file lokal (dikemas bersama-sama dengan aplikasi anda) untuk menjalankan Node.js kode. To display remote content, use the [`webview`](web-view) tag and make sure to disable the `nodeIntegration`.
 
 #### Checklist: Security Recommendations
 
