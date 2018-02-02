@@ -472,7 +472,7 @@ Ibinabalik:
 
 * `kaganapan` Kaganapan
 * `dirtyRect` [Parihaba](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* `imahe` [katutubong larawan](native-image.md) - Ang datos ng imahe ng buong kuwadro.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
