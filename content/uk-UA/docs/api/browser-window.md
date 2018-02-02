@@ -27,7 +27,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 Щоб створити вікно без chrome, чи прозоре вікно потрібної фігури, ви можете використати API [Вікна без рамки](frameless-window.md).
 
-## Showing window gracefully
+## Показати вікно витончено
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
