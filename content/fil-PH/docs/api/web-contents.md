@@ -644,12 +644,12 @@ Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 
 * `code` Pisi
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
-* `muling tumawag` Function (optional) - Called after script has been executed. 
-  * `result` Any
+* `muling tumawag` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
+  * `resulta` Anuman
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.
 
-Evaluates `code` in page.
+Sinusuri ang mga `code` sa pahina.
 
 In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
 
