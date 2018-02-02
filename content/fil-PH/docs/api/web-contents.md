@@ -515,17 +515,17 @@ Maaaring gamitin ang kaganapang ito upang i-configure ang `webPreferences` para 
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsyonal)
   * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
-Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
+Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. Kung ang load ay dapat mag-bypass http cache pagkatapos gamitin ang `pragma` header upang makamit ito.
 
 ```javascript
-const {webContents} = require('electron')
-const options = {extraHeaders: 'pragma: no-cache\n'}
-webContents.loadURL('https://github.com', options)
+const {webContents} = nangangailangan('elektron')
+const mga pagpiilian = {extraHeaders: 'pragma: no-cache\n'}
+webContents.loadURL('https://github.com', mga pagpipilian)
 ```
 
-#### `contents.downloadURL(url)`
+#### `mga nilalaman.downloadURL(url)`
 
-* `url` String
+* `url` Pisi
 
 Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
 
