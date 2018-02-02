@@ -85,14 +85,14 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 
 ### Itinuturing ang "Archive" ng `asar` bilang Normal na Payl
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+Para sa ibang mga kaso tulad ng pagkumpirma sa "archive's checksum" ng `asar`, kinakailangan nating basahin ang nilalaman ng "archive" ng `asar` bilang payl. Para sa layuning ito, maaaring gumamit ng "built-in" na modyul ng `original-fs` na nagbibigay ng orihinal na `fs` APIs nang hindi kasama ang suporta ng `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+Maaari ring itakda ang `process.noAsar` sa `true` para hindi magamit an suporta para sa `asar` sa modyul ng `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -100,7 +100,7 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Mga Limitasyon ng Node API
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
