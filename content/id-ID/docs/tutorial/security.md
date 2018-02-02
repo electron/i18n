@@ -228,7 +228,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 `Metode()` eval memiliki satu misi tepat: Untuk mengevaluasi serangkaian karakter seperti JavaScript dan menjalankannya. Ini adalah metode yang diperlukan setiap kali anda perlu mengevaluasi kode yang tidak dikenal sebelumnya. Sementara penggunaan yang sah, sama seperti kasus generator kode yang lain `eval()` adalah sulit untuk mengeras.
 
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+Secara umum, lebih mudah untuk benar-benar menonaktifkan `eval()` daripada membuat anti peluru itu. Dengan demikian, jika anda tidak membutuhkannya, itu adalah ide yang baik untuk menonaktifkannya.
 
 ### How?
 
@@ -276,9 +276,9 @@ Advanced users of Electron can enable experimental Chromium features using the `
 
 ### Why?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Futhermore, their impact on Electron as a whole has likely not been tested.
+Fitur eksperimental adalah, seperti nama yang disarankan, eksperimental dan belum diaktifkan untuk semua pengguna Chromium. Selanjutnya, mereka berdampak pada Electron secara keseluruhan kemungkinan belum diuji.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Ada kasus penggunaan yang sah, tapi kecuali anda tahu apa yang anda lakukan, sebaiknya anda tidak mengaktifkan properti ini.
 
 ### How?
 
