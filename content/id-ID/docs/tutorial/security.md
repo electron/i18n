@@ -366,7 +366,7 @@ If you are using [`WebViews`](web-view), you might need the pages and scripts lo
 
 ### Why?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. Ini mengikuti prinsip dari jumlah minimal akses yang diperlukan: Jangan biarkan situs web membuat popup baru kecuali anda tahu kebutuhan fitur ini.
 
 ### How?
 
@@ -380,7 +380,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 ## Verify WebView Options Before Creation
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
 It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
 
