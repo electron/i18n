@@ -101,10 +101,10 @@ child.once('ready-to-show', () => {
 ### Зауваження
 
 * На macOS модальні вікна будуть відображені як сторінки прикріплені до батьківського вікна.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
+* На macOS дочірні вікна будуть зберігати відносну позицію до батьківського вікна. якщо воно рухається, тоді як на Windows та Linux дочірнє вікно не рухається.
+* На Windows не підтримується динамічна зміна батьківського вікна.
+* На Linux тип модального вікна буде змінено на `dialog`.
+* На Linux багато середовищ робочого столу не підтримують приховування модального вікна.
 
 ## Клас: BrowserWindow
 
@@ -112,15 +112,15 @@ child.once('ready-to-show', () => {
 
 Процес: [Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow` це [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+Він створює нове `BrowserWindow` з нативними властивостями, визначеними в `options`.
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (опціонально) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `width` Integer (опціонально) - Ширина вікна в пікселях. За замовчуванням `800`.
+  * `height` Integer (опціонально) - Висота вікна в пікселях. За замовчуванням `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
