@@ -4,7 +4,7 @@ Para maiwasan ang [issues](https://github.com/joyent/node/issues/6960) sa paligi
 
 ## Pagbuo ng `asar` na aktibo
 
-An [asar](https://github.com/electron/asar) archive is a simple tar-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+Ang "[asar](https://github.com/electron/asar) archive" ay isang simpleng ayos tulad ng "tar" na dinudugtong sa mga payl upang maging isang payl. Electron can read arbitrary files from it without unpacking the whole file.
 
 Steps to package your app into an `asar` archive:
 
