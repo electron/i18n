@@ -102,11 +102,11 @@ fs.readFileSync('/path/to/example.asar')
 
 ## Mga Limitasyon ng Node API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Kahit pa ating subukan na gumawa ng "archive" ng `asar`, hangga't maaari sa loob ng "Node API" tulad ng mga direktoryo, mayroon pa ring mga limitasyon dahil sa natural mababang lebel ng ng "Node API".
 
-### Archives Are Read-only
+### Ang mga "Archives" ay "Read-only"
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Ang mga "archive" ay hindi maaaring mabago kaya ang lahat ng "Node APIs" na maaaring mabago ang mga payl ay hindi gagana sa "archive" ng `asar`.
 
 ### Working Directory Can Not Be Set to Directories in Archive
 
