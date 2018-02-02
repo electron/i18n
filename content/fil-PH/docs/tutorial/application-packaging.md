@@ -134,7 +134,7 @@ There are Node APIs that can execute binaries like `child_process.exec`, `child_
 
 This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
 
-## Adding Unpacked Files in `asar` Archive
+## Karagdagang Unpacked ng mga pile sa `asar` Archive
 
 As stated above, some Node APIs will unpack the file to filesystem when calling, apart from the performance issues, it could also lead to false alerts of virus scanners.
 
