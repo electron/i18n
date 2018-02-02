@@ -471,7 +471,7 @@ app.on ('handa', () => {
 Ibinabalik:
 
 * `kaganapan` Kaganapan
-* `dirtyRect` [Rectangle](structures/rectangle.md)
+* `dirtyRect` [Parihaba](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
@@ -1062,7 +1062,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 * `onlyDirty` Boolean (optional) - Defaults to `false`
 * `tumawag muli` Punsyon 
   * `frameBuffer` Buffer
-  * `dirtyRect` [Rectangle](structures/rectangle.md)
+  * `dirtyRect` [Parihaba](structures/rectangle.md)
 
 Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
 
