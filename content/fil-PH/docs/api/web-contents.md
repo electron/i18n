@@ -445,32 +445,32 @@ Ibinabalik:
 * `tumawag muli` Function 
   * `deviceId` Pisi
 
-Ipinalalabas kapag kailangang pumili ng bluetooth device sa tawag sa `navigator.bluetooth.requestDevice`. Upang gamitin ang `navigator.bluetooth` api `webBluetooth` ay dapat na paganahin. Kung ang `kaganapan.preventDefault` ay hindi tinatawag, Ang unang magagamit na aparato ang mapipili. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Ipinalalabas kapag kailangang pumili ng bluetooth device sa tawag sa `navigator.bluetooth.requestDevice`. Upang gamitin ang `navigator.bluetooth` api `webBluetooth` ay dapat na paganahin. Kung ang `kaganapan.preventDefault` ay hindi tinatawag, Ang unang magagamit na aparato ang mapipili. `callback` ay dapat na tawagin `deviceId` na mapipili, magpasa ng walang laman na pisi sa `callback` ay kanselahin ang kahilingan.
 
 ```javascript
-const {app, webContents} = require('electron')
-app.commandLine.appendSwitch('enable-web-bluetooth')
+const {app, webContents} = nangangailangan('elektron')
+app.commandLine.appendSwitch ('enable-web-bluetooth')
 
-app.on('ready', () => {
-  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
-    event.preventDefault()
-    let result = deviceList.find((device) => {
-      return device.deviceName === 'test'
+app.on ('handa', () => {
+  webContents.on('select-bluetooth-device', (kaganapan, deviceList, callback) => {
+   kaganapan.preventDefault()
+    hayaan ang resulta = deviceList.find((device) => {
+      bumalik device.deviceName === 'test'
     })
-    if (!result) {
+    kung(!resulta) {
       callback('')
     } else {
-      callback(result.deviceId)
+      callback(resulta.deviceId)
     }
   })
 })
 ```
 
-#### Event: 'paint'
+#### Kaganapan: 'pintura'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
