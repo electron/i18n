@@ -653,18 +653,19 @@ Sinusuri ang mga `code` sa pahina.
 
 Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaari lamang nananawagan ng kilos mula sa gumagamit. Ang pagtatakda ng `userGesture` sa `totoo` ay alisin ang limitasyon na ito.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+Kung ang resulta ng code na isinagawa ay isang pangako ang resulta ng muling pagtawag ay nalutas na halaga ng pangako. Inirerekomenda naming gamitin mo ang ibinalik na Pangako upang mahawakan ang code na nagreresulta sa isang Pangako.
 
 ```js
-contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
-  .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+contents.executeJavaScript ('fetch("https://jsonplaceholder.typicode.com/users/1").
+pagkatapos(resp => resp.json())', totoo)
+  . pagkatapos((resulta) => {
+    console.log(resulta) // Ang magiging JSON na bagay mula sa pagkuha ng tawag
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(huwag pansinin)` *Eksperimento*
 
-* `ignore` Boolean
+* `huwag pansinin` Boolean
 
 Ignore application menu shortcuts while this web contents is focused.
 
