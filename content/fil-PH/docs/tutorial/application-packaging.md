@@ -47,20 +47,20 @@ const fs = require('fs')
 fs.readFileSync('/path/to/example.asar/file.txt')
 ```
 
-List all files under the root of the archive:
+Ang listahan ng lahat ng payl sa ilalim ng "root" ng "archive":
 
 ```javascript
 const fs = require('fs')
 fs.readdirSync('/path/to/example.asar')
 ```
 
-Use a module from the archive:
+Gumamit ng modyul galing sa "archive":
 
 ```javascript
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Maaari ring i-display ang pahina ng "web" sa "archive" na `asar` kasama ang `BrowserWindow`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -68,11 +68,11 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('file:///path/to/example.asar/static/index.html')
 ```
 
-### Web API
+### "Web API"
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+Sa pahina ng "web", ang mga payl na nasa "archive" ay maaaring hilingin sa protokol ng `file:`. Tulad ng "Node API", ang mga "archive" ng `asar` ay tinuturing bilang mga direktoryo.
 
-For example, to get a file with `$.get`:
+Halimbawa, para makuha ang payl gamit ang `$.get`:
 
 ```html
 <script>
@@ -83,7 +83,7 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Itinuturing ang "Archive" ng `asar` bilang Normal na Payl
 
 For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
 
