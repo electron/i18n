@@ -600,11 +600,11 @@ Ibinabalik `Boolean` - Kung ang pahina ng web ay maaring pumunta sa `offset`.
 
 Nililimas ang kasaysayan ng pag-navigate.
 
-#### `contents.goBack()`
+#### `mga nilalaman.goBack()`
 
-Makes the browser go back a web page.
+Ginagawang bumalik ang browser sa isang pahina ng web.
 
-#### `contents.goForward()`
+#### `mga nilalaman.goForward()`
 
 Makes the browser go forward a web page.
 
