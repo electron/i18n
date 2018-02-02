@@ -474,19 +474,18 @@ Ibinabalik:
 * `dirtyRect` [Parihaba](structures/rectangle.md)
 * `imahe` [katutubong larawan](native-image.md) - Ang datos ng imahe ng buong kuwadro.
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+Binubuwag kapag ang bagong kuwadro ay nabuo. Tanging ang maruming lugar ay ipinasa sa buffer.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = nangangailangan('elektron')
 
-let win = new BrowserWindow({webPreferences: {offscreen: true}})
-win.webContents.on('paint', (event, dirty, image) => {
-  // updateBitmap(dirty, image.getBitmap())
-})
-win.loadURL('http://github.com')
+hayaan manalo ang = bagong BrowserWindow ({webPreferences: {offscreen: tama}})
+manalo.webContents.on ('pintura', (kaganapan, marumi, larawan) = & gt; {
+   // updateBitmap (marumi, image.kumuha ng Bitmap ())})
+manalo.loadURL ('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Kaganapan: 'devtools-kargahan muli-ang pahina'
 
 Emitted when the devtools window instructs the webContents to reload
 
