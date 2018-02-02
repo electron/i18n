@@ -606,25 +606,25 @@ Ginagawang bumalik ang browser sa isang pahina ng web.
 
 #### `mga nilalaman.goForward()`
 
-Makes the browser go forward a web page.
+Ginagawa ang browser na pumunta sa isang pahina ng web.
 
-#### `contents.goToIndex(index)`
+#### `mga nilalaman.goToIndex(index)`
 
 * `index` Integer
 
-Navigates browser to the specified absolute web page index.
+Naka-navigate ang browser sa tinukoy na ganap sa pahina ng web na index.
 
-#### `contents.goToOffset(offset)`
+#### `mga nilalaman.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+Naka-navigate sa tinukoy na offset mula sa "kasalukuyang entry".
 
-#### `contents.isCrashed()`
+#### `mga nilalaman.isCrashed()`
 
-Returns `Boolean` - Whether the renderer process has crashed.
+Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
-#### `contents.setUserAgent(userAgent)`
+#### `mga nilalaman.setUserAgent(userAgent)`
 
 * `userAgent` String
 
@@ -636,7 +636,7 @@ Returns `String` - The user agent for this web page.
 
 #### `contents.insertCSS(css)`
 
-* `css` String
+* `css` Pisi
 
 Injects CSS into the current web page.
 
