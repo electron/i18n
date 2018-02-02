@@ -77,33 +77,30 @@ Pagkatapos nito, iginagawad ng karagdagang pahintulot para sa tiyak na mga host.
 
 ### Bakit?
 
-Ang isang cross-site-scripting (XSS) na atake ay mapanganib kung ang ataker ay maaaring tumalon palabas sa proseso ng renderer at mag-execute ng code sa computer ng gumagamit. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+Ang isang cross-site-scripting (XSS) na atake ay mapanganib kung ang ataker ay maaaring tumalon palabas sa proseso ng renderer at mag-execute ng code sa computer ng gumagamit. Ang cross-site-scripting na mga atake ay mainam na karaniwan - at habang ang isyu, ang power ay karaniwang limitado sa messaging ng website na ini-execute. Ang pag-sumalanta ng Node.js na integrasyon ay makakatulong upang pigilan ang XXX na ma-escalate ito sa tinatawag nilang "Remote Code Execution" (RCE) na atake.
 
 ### Paano?
 
 ```js
-// Bad
+// Hindi kaaya-aya
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// Kaaya-aya
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     preload: './preload.js'
   }
 })
-
-mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
-<webview nodeIntegration src="page.html"></webview>
+<!-- Hindi Kaaya-aya --><webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
 
