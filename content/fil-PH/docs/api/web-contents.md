@@ -651,7 +651,7 @@ Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naip
 
 Sinusuri ang mga `code` sa pahina.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaari lamang nananawagan ng kilos mula sa gumagamit. Ang pagtatakda ng `userGesture` sa `totoo` ay alisin ang limitasyon na ito.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
