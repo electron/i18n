@@ -43,7 +43,7 @@ function handleError (e) {
 
 Upang makakuha ng bidyo galing sa na ibinigay ng `desktopCapturer`na pumipigil sa pagdaan sa [`navigator.mediaDevices.getUserMedia`] na dapat kasama sa `chromeMediaSource: 'desktop'`, at `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Para makuha ang parehong "audio" at bidyo galing sa kabuuang "desktop" na pumipigil dumaan sa [`navigator.mediaDevices.getUserMedia`] dapat kasama sa `chromeMediaSource: 'desktop'`, para sa parehong `audio` at `video`, ngunit hindi dapat kasama ang pagpigil sa `chromeMediaSourceId`.
 
 ```javascript
 const constraints = {
@@ -60,9 +60,9 @@ const constraints = {
 }
 ```
 
-## Pamamaraan
+## Mga Pamamaraan
 
-The `desktopCapturer` module has the following methods:
+Ang modyul sa `desktopCapturer` ay mayroong mga sumusunod na paraan:
 
 ### `desktopCapturer.getSources(options, callback)`
 
