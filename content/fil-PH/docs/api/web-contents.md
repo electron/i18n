@@ -556,33 +556,33 @@ Nakatutok sa web page.
 
 #### `mga nilalaman.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Ibinabalik `Boolean` - Kung nakatutok ang web page.
 
-#### `contents.isLoading()`
+#### `mga nilalaman.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Ibinabalik `Boolean` - Kung ang pahina ng web ay naglo-load ng mga mapagkukunan.
 
-#### `contents.isLoadingMainFrame()`
+#### `mga nilalaman.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Ibinabalik `Boolean` - Kung ang pangunahing frame (at hindi lamang mga iframe o mga frame sa loob nito) ay naglo-load pa rin.
 
-#### `contents.isWaitingForResponse()`
+#### `mga nilalaman.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Ibinabalik `Boolean` - Kung naghihintay ang pahina ng web para sa unang tugon mula sa pangunahing mapagkukunan ng pahina.
 
-#### `contents.stop()`
+#### `mga nilalaman.ihinto()`
 
-Stops any pending navigation.
+Hinihinto ang anumang nakabinbing nabigasyon.
 
-#### `contents.reload()`
+#### `mga nilalaman.reload()`
 
-Reloads the current web page.
+I-reload ang kasalukuyang web page.
 
-#### `contents.reloadIgnoringCache()`
+#### `mga nilalaman.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Mga Reloads ng kasalukuyang pahina at binabalewala ang cache.
 
-#### `contents.canGoBack()`
+#### `mga nilalaman.canGoBack()`
 
 Returns `Boolean` - Whether the browser can go back to previous web page.
 
