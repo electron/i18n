@@ -33,7 +33,7 @@ Ini bukan peluru, tapi setidaknya, Anda harus mencoba yang berikut ini:
 <li><a href="#do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`](#handle-session-permission-requests-from-remote-content)
 * [Menentukan sebuah `Kebijakan-konten-keamanan`](#define-a-content-security-policy) dan menggunakan aturan ketat (yaitu `script-src 'diri'`)
 * [Menimpa dan menonaktifkan `eval`](#override-and-disable-eval), yang memungkinkan string yang akan dieksekusi sebagai kode.
-* [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
+* [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#do-not-set-allowRunningInsecureContent-to-true)
 * [Do not enable experimental features](#do-not-enable-experimental-features)
 * [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
 * [Tampilan Web: Jangan gunakan `allowpopups`](#do-not-use-allowpopups)
