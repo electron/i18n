@@ -191,12 +191,12 @@ sa macOS. Default is <code>false`.
     * `disableBlinkFeatures` String (opsyonal) - Ang talaan ng mga tampok ng strings ay pinag-hiwalay ng `,`, katulad ng `CSSVariables,KeyboardEventKey` upang hindi mapagana. Ang kabuoang listahan ng mga sinusuportahang tampok ng strings ay mahahanap sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) sa file.
     * `ang defaultFontFamily` Bagay (opsyonal) - Itinatakda ang default na font para sa pamilya ng font. 
       * Ang `standard` String (opsyonal) - Ang mga default sa `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
+      * Ang `serif` String (opsyonal) - Ang mga default sa `Times New Roman`.
+      * Ang `sansSerif` String (opsyonal) - Ang mga default sa `Arial`.
+      * Ang `monospace` String (opsyonal) - Ang mga default sa `Courier New`.
+      * Ang `cursive` String (opsyonal) - Ang mga default sa `Script`.
+      * Ang `fantasy` String (opsyonal) - Angmga default sa `Impact`.
+    * Ang `defaultFontSize` Integer (opsyonal) - Ang mga default sa `16`.
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
     * `minimumFontSize` Integer (optional) - Defaults to ``.
     * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
