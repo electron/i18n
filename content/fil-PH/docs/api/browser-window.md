@@ -182,8 +182,8 @@ sa macOS. Default is <code>false`.
     * Ang `images` Boolean (opsyonal) - Pinapagana ang suporta sa imahe. Ang default ay `true`.
     * Ang `textAreasAreResizable` Boolean (opsyonal) - Palakihin ang sukat ng mga elemento ng TextArea. Ang default ay `true`.
     * Ang `webgl` Boolean (opsyonal) - Pinapagana ang suporta sa WebGL. Ang default ay `true`.
-    * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
-    * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
+    * Ang `webaudio` Boolean (opsyonal) - Pinapagana ang suporta sa WebAudio. Ang default ay `true`.
+    * Ang `plugins` Boolean (opsyonal) - Kung ang mga plugin ay dapat na pinagana. Ang default ay `false`.
     * `EkspirementongMgaTampok` Boolean (optional) - Pinapatakbo ang mga na-eksperimentong tampok ng Chromium. Ang default ay `mali`.
     * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
     * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
