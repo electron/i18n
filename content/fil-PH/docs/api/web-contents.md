@@ -628,23 +628,23 @@ Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 * `userAgent` String
 
-Overrides the user agent for this web page.
+Naka-override ang ahenteng gumagamit para sa pahina ng web na ito.
 
-#### `contents.getUserAgent()`
+#### `mga nilalaman.getUserAgent()`
 
-Returns `String` - The user agent for this web page.
+Ibinabalik`Pisi` - Ang ahenteng gumagamit para sa pahina ng web na ito.
 
-#### `contents.insertCSS(css)`
+#### `mga nilalaman.insertCSS(css)`
 
 * `css` Pisi
 
-Injects CSS into the current web page.
+Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 
-#### `contents.executeJavaScript(code[, userGesture, callback])`
+#### `mga nilalaman.executeJavaScript(code[, userGesture, mulingtumawag])`
 
-* `code` String
-* `userGesture` Boolean (optional) - Default is `false`.
-* `tumawag muli` Function (optional) - Called after script has been executed. 
+* `code` Pisi
+* `userGesture` Boolean (opsyonal) - Default ay `huwad`.
+* `muling tumawag` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
