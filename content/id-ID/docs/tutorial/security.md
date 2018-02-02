@@ -382,7 +382,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
-It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
+Itu adalah ide yang baik untuk mengendalikan pembuatan baru [`TampilanWeb`](web-view) dari proses utama dan untuk memverifikasi bahwa web Preferensi mereka tidak menonaktifkan fitur keamanan.
 
 ### Why?
 
