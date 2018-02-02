@@ -130,9 +130,9 @@ Electron uses the same technology as Chromium's [Content Scripts](https://develo
 
 Konteks isolasi memungkinkan setiap script yang berjalan di penyaji untuk membuat perubahan lingkungan JavaScript tanpa khawatir tentang yang bertentangan dengan script API Electron atau script preload.
 
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts.
+Sementara masih eksperimental fitur Elektron, konteks isolasi menambahkan lapisan kemanan tambahan. Ini menciptakan dunia JavaScript baru untuk API Electron dan script preload.
 
-At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
+Pada waktu yang sama, script preload masih memiliki akses ke `dokumen` dan `jendela` objek. Dengan kata lain, anda mendapatkan pengembalian yang layak atas kemungkinan investasi yang sangat kecil.
 
 ### How?
 
