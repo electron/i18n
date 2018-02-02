@@ -130,7 +130,7 @@ Ang `Stats` ay bagay na bumalik batay sa `ft.stat` At sa magkalapit na mga pile 
 
 ### Pagpapalabas ng "Binaries" sa Loob ng "Archive" ng `asar`
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+May mga "Node APIs" na nagpapalabas ng mga "binary" tulad ng `child_process.exec`, `child_process.spawn` at `child_process.execFile`, ngunit ang `execFile` lamang ang nag-iisang sumusuporta sa pagpapalabas ng mga "binary"sa loob ng "archive" `asar`.
 
 This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
 
@@ -138,7 +138,7 @@ This is because `exec` and `spawn` accept `command` instead of `file` as input, 
 
 Katulad ng nakasaad sa itaas, ilan sa mga Node API ay nasa unpack ng pile para sa sistema ng pile kapag nagtatawag, bukod sa paggawa ng mga isyu, ito ay maaari din magbigay daan para sa mga maling alerto ng mga birus scanner.
 
-To work around this, you can unpack some files creating archives by using the `--unpack` option, an example of excluding shared libraries of native modules is:
+Para sa gumawa sa paligid nito, maaari itong unpack ang ilan sa mga pile na lumikha ng mga archive bilang paggamit ng `--unpack` pagpipilian, ang halimbawa ng pagbubukod ng panagsaluhang mga aralin ng mga natural na modulo ay:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
