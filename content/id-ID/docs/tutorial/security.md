@@ -31,7 +31,7 @@ Ini bukan peluru, tapi setidaknya, Anda harus mencoba yang berikut ini:
 * [Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil](#enable-context-isolation-for-remote-content)
 * [Gunakan `ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
 <li><a href="#do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`](#handle-session-permission-requests-from-remote-content)
-* [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+* [Menentukan sebuah `Kebijakan-konten-keamanan`](#define-a-content-security-policy) dan menggunakan aturan ketat (yaitu `script-src 'diri'`)
 * [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
 * [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
 * [Do not enable experimental features](#do-not-enable-experimental-features)
