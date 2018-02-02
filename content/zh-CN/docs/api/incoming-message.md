@@ -2,7 +2,7 @@
 
 > 处理 HTTP/HTTPS 请求的响应。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 `ClientRequest`实现了[Writable Stream](https://nodejs.org/api/stream.html#stream_readable_streams)接口, 因此是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类型.
 
