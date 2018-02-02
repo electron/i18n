@@ -1,4 +1,4 @@
-# Chromium yükseltme
+# Chromium yükseltiliyor
 
 Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasviridir.
 
