@@ -54,12 +54,12 @@ benefits:
   native_menus_and_notifications: Нативні меню та сповіщення
   crash_reporting: Звіти про збої
   debugging_and_profiling: Налагоджування та профілювання
-  windows_installers: Установник для Windows
+  windows_installers: Установники для Windows
 get_started:
-  title: Початок роботи
-  description: Щоб почати роботу Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати інсталятори.
+  title: Почати зараз
+  description: Щоб почати роботу з Electron, перегляньте ресурси нижче. Навчіться обгортати свій додаток з Electron, користуватися API та генерувати інсталятори.
 explore:
-  title: Дізнайтеся про Electron API
+  title: Дослідіть API Electron
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Подивіться можливості Electron з прикладами коду та корисними підказками для створення вашого додатку."
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
@@ -81,24 +81,24 @@ help_translate: "Допоможіть з перекладами"
 footer:
   see_the_faq: Перегляньте FAQ
 apps:
-  title: Програми, побудовані на Electron
-  description: З Electron просто створити програму для вашої компанії чи ідеї. Розроблений спеціально для <a href='https://atom.io' target='_blank'>редактора Atom</a> GitHub'а, Electron з тих пір використовувався для створення програм такими компаніями як Microsoft, Facebook, Slack та Docker.
-  view_more: Переглянути більше программ
+  title: Застосунки, побудовані на Electron
+  description: З Electron просто створити застосунок для вашої компанії чи ідеї. Розроблений спеціально для <a href='https://atom.io' target='_blank'>редактора Atom</a> GitHub'а, Electron з тих пір використовувався для створення застосунків такими компаніями як Microsoft, Facebook, Slack та Docker.
+  view_more: Переглянути більше застосунків
   submit_your_own: надішліть власний
   something_missing: Чогось не вистачає?
-  edit_this_app: Відредагувати цю программу.
+  edit_this_app: Редагувати цей застосунок.
 clipboard:
   copy: Копіювати
   copy_to_clipboard: Копіювати до буферу обміну
   copied: Скопійовано
-or: or
+or: чи
 pages:
   '/':
-    title: Electron | Створюйте прикладні програми з JavaScript, HTML та CSS для будь-якої платформи.
-    description: 'Будуйте прикладні програми за допомогою JavaScript, HTML та CSS незалежно від платформи.'
+    title: Electron | Створюйте прикладні застосунки з JavaScript, HTML та CSS для будь-якої платформи.
+    description: 'Створюйте прикладні застосунки з JavaScript, HTML та CSS для будь-якої платформи.'
   '/apps':
-    title: Програми Electron
-    description: Програми, побудовані на Electron
+    title: Застосунки Electron
+    description: Застосунки, побудовані на Electron
   '/docs':
     title: Документація
     description: Посібники та довідник API для останнього релізу Electron
@@ -130,7 +130,7 @@ pages:
     title: Користувацький простір
   '/devtron':
     title: Devtron
-    description: Devtron це інструмент з відкритим кодом який допоможе вам перевіряти, моніторити та налагоджувати ваші програми на Electron. Розроблений на базі дивовижного Chrome Developer Tools.
+    description: Devtron це інструмент з відкритим кодом, який допоможе вам перевіряти, моніторити та налагоджувати ваші програми на Electron. Розроблений на базі дивовижного Chrome Developer Tools.
   '/spectron':
     title: Spectron
     description: Spectron - це фреймворк з відкритим кодом для полегшеного написання інтеграційних тестів для вашої програми Electron. Цей фреймворк раздробленный на базі ChromeDriver та WebDriverIO.
