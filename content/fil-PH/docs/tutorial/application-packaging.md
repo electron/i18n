@@ -144,4 +144,4 @@ Para sa gumawa sa paligid nito, maaari itong unpack ang ilan sa mga pile na lumi
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, apart from the `app.asar`, there is also an `app.asar.unpacked` folder generated which contains the unpacked files, you should copy it together with `app.asar` when shipping it to users.
+Pagkatapos patakbuhin ng command, bukod sa `app.asar`, mayroon din isang `app.asar.unpacked` na nakabuo ng folder kung saan mga naglalaman ng mga unpacked pile, dapat kopyahin mo ito ng magkakasama `app.asar` kapag nagpapadala ang mga ito sa mga gumagamit.
