@@ -487,13 +487,13 @@ manalo.loadURL ('http://github.com')
 
 #### Kaganapan: 'devtools-kargahan muli-ang pahina'
 
-Emitted when the devtools window instructs the webContents to reload
+Binubuwag kapag ang window ng devtools ay nagtuturo sa webContents na kargahan muli
 
-#### Event: 'will-attach-webview'
+#### Kaganapan: 'naisin-isama-webview'
 
-Magbabalik ng:
+Ibinabalik:
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
