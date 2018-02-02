@@ -430,11 +430,11 @@ Ibinabalik:
     * `canRedo` Boolean - Kung naniniwala ang renderer na maaari itong gawing muli.
     * `canCut` Boolean - Kung naniniwala ang renderer na maaari itong i-cut.
     * `canCopy` Boolean - Kung naniniwala ang renderer na maaari itong kopyahin
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+    * `canPaste` Boolean - Kung naniniwala ang renderer na maaari itong i-paste.
+    * `canDelete` Boolean - Kung naniniwala ang renderer na maaari itong tanggalin.
+    * `canSelectAll` Boolean - Kung naniniwala ang taga-render na maaari nilang piliin ang lahat.
 
-Emitted when there is a new context menu that needs to be handled.
+Lumabas kapag mayroong isang bagong menu ng konteksto na kailangang hawakan.
 
 #### Kaganapan: 'select-bluetooth-device'
 
@@ -445,7 +445,7 @@ Ibinabalik:
 * `tumawag muli` Function 
   * `deviceId` Pisi
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Ipinalalabas kapag kailangang pumili ng bluetooth device sa tawag sa `navigator.bluetooth.requestDevice`. Upang gamitin ang `navigator.bluetooth` api `webBluetooth` ay dapat na paganahin. Kung ang `kaganapan.preventDefault` ay hindi tinatawag, Ang unang magagamit na aparato ang mapipili. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
 const {app, webContents} = require('electron')
