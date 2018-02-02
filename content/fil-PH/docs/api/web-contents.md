@@ -421,9 +421,9 @@ Ibinabalik:
     * `isPaused` Boolean - Kung ang elemento ng media ay nakahinto.
     * `ayMuted` Boolean - Kung naka-mute ang elemento ng media.
     * `hasAudio` Boolean - Kung ang elemento ng media ay may audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
+    * `isLooping` Boolean - Kung ang elemento ng media ay looping.
+    * `isControlsVisible` Boolean - Kung ang mga kontrol ng elemento ng media ay nakikita.
+    * `canToggleControls` Boolean - Kung ang mga kontrol ng elemento ng media ay toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
   * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
     * `canUndo` Boolean - Whether the renderer believes it can undo.
