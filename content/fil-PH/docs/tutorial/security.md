@@ -73,7 +73,7 @@ browserWindow.loadURL('https://my-website.com')
 
 Ito ang paramount na hindi mo pinagana ang Node.js integrasyon sa anumang renderer ng ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) na mag-load ng bahagyang nilalaman. Ang layunin ay ma-limit ang mga lakas na iginawad sa bahagyang nilalaman, kaya ginawang kapansin-pansin na mas mahirap para sa isang ataker na mapinsala ang gumagamit at magkaroon sila ng kakayahan maka-execute ng JavaScript sa iyong website.
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+Pagkatapos nito, iginagawad ng karagdagang pahintulot para sa tiyak na mga host. Halimbawa, kung nagbukas ka ng BrowserWindow na tinuturo sa `https://my-website.com/", mabibigyan mo ang website na iyan ng eksaktong kakayahan na kailangan, pero wala na.
 
 ### Bakit?
 
