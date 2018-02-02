@@ -4,31 +4,31 @@ Para maiwasan ang [issues](https://github.com/joyent/node/issues/6960) sa paligi
 
 ## Pagbuo ng `asar` na aktibo
 
-Ang "[asar](https://github.com/electron/asar) archive" ay isang simpleng ayos tulad ng "tar" na dinudugtong sa mga payl upang maging isang payl. Electron can read arbitrary files from it without unpacking the whole file.
+Ang "[asar](https://github.com/electron/asar) archive" ay isang simpleng ayos tulad ng "tar" na dinudugtong sa mga payl upang maging isang payl. Ang Elektron ay maaaring basahin ang mga payl na arbitraryo galing dito nang hindi kinukuha sa buong payl.
 
-Steps to package your app into an `asar` archive:
+Mga hakbang para mailagak ang iyong "app" sa "archive" ng `asar`:
 
-### 1. Install the asar Utility
+### 1. Iinstol ang "asar Utility"
 
 ```sh
 $ npm install -g asar
 ```
 
-### 2. Package with `asar pack`
+### 2. Ang ilang "software" kasama ang `asar pack`
 
 ```sh
 $ asar pack your-app app.asar
 ```
 
-## Using `asar` Archives
+## Gamit ang "Archives" ng `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+Sa Elektron, mayroong dalawang nakatakdang "APIs": "Node APIs" na galing sa Node.js at ang "Web APIs na galing sa " Chrilomium". Ang parehong "APIs" ay sumusuporta sa pagbasa ng mga payl galing sa mga "archive" ng `asar`.
 
-### Node API
+### "Node API"
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+Kasama ang espesyal na "patches" sa Elektron, "Node APIs" tulad ng `fs.readFile` at `require` ay itinuturing ang "archive" ng `asar` bilang mga direktoryo ng birtwal, at ang mga payl dito at bilang mga normal na payl sa sistema nito.
 
-For example, suppose we have an `example.asar` archive under `/path/to`:
+Halimbawa, ating ipagpalagay na ang "archive" na `example.asar` sa ilalim ng `/path/to`:
 
 ```sh
 $ asar list /path/to/example.asar
@@ -40,7 +40,7 @@ $ asar list /path/to/example.asar
 /static/jquery.min.js
 ```
 
-Read a file in the `asar` archive:
+Basahin ang oayl sa "archive" ng `asar`:
 
 ```javascript
 const fs = require('fs')
