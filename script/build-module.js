@@ -68,7 +68,7 @@ async function parseFile (file) {
 
   if (file.locale !== 'en-US') {
     // goto exactly translate URL
-    file.translateUrl = `https://crowdin.com/translate/electron/${ids[`master/content/en-US${file.href}.md`]}/en-${locales[file.locale].stats.code}`
+    file.translateUrl = `https://crowdin.com/translate/electron/${ids[`master/content/en-US${file.href}.md`]}/en-${locales[file.locale].stats.code.replace('-', '')}`
   }
 
   // convenience booleans for use in templates

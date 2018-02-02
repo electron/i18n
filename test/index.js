@@ -150,8 +150,10 @@ describe('API Structures', () => {
     doc.isApiStructureDoc.should.equal(true)
   })
   it('Crowdin translate URL', () => {
-    const doc = i18n.docs['fr-FR']['/docs/api/structures/gpu-feature-status']
+    let doc = i18n.docs['fr-FR']['/docs/api/structures/gpu-feature-status']
     doc.translateUrl.should.equal('https://crowdin.com/translate/electron/128/en-fr')
+    doc = i18n.docs['zh-TW']['/docs/api/structures/gpu-feature-status']
+    doc.translateUrl.should.equal('https://crowdin.com/translate/electron/128/en-zhTW')
   })
 })
 
