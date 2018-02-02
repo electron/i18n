@@ -107,9 +107,9 @@ mainWindow.loadURL('https://my-website.com')
 <webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+Ketika menonaktifkan integrasi Node.js,anda masih dapat mengekspos Api untuk situs web anda yang mengkonsumsi modul atau fitur Node.js. Script pramuat terus memiliki akses untuk `meminta` dan fitur Node.js lainnya, yang memungkinkan pengembang untuk mengekspos custom API untuk memuat konten yang terpencil.
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+Dalam contoh berikut script preload, kemudian memuat situs web akan memiliki akses untuk `jendela.readConfig()` metode, tetapi tidak ada fitur Node.js.
 
 ```js
 const { readFileSync } = require('fs')
