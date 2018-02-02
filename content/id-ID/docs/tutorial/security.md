@@ -20,17 +20,17 @@ Kami merasa bahwa sistem kami saat ini memperbarui komponen Chromium yang menyer
 
 Masalah keamanan ada setiap kali Anda menerima kode dari tujuan remote dan mengeksekusi secara lokal. Sebagai contoh, pertimbangkan sebuah remote web yang sedang ditampilkan di dalam [`BrowserWindow`](browser-window). Jika penyerang berhasil mengubah kata konten (baik dengan menyerang sumber secara langsung, atau dengan duduk di antara aplikasi anda dan tujuan yang sebenarnya), mereka akan mampu menjalankan kode asli pada mesin pengguna.
 
-> :warning: Dalam situasi yang harus anda memuat dan menjalankan kode jauh dengan Node.js integrasi diaktifkan. Sebaliknya, hanya menggunakan file lokal (dikemas bersama-sama dengan aplikasi anda) untuk menjalankan Node.js kode. To display remote content, use the [`webview`](web-view) tag and make sure to disable the `nodeIntegration`.
+> :warning: Dalam situasi yang harus anda memuat dan menjalankan kode jauh dengan Node.js integrasi diaktifkan. Sebaliknya, hanya menggunakan file lokal (dikemas bersama-sama dengan aplikasi anda) untuk menjalankan Node.js kode. Untuk menampilkan konten secara jauh, menggunakan [`webview`](web-view) tag dan pastikan untuk menonaktifkan `nodeIntegration`.
 
-#### Checklist: Security Recommendations
+#### Daftar periksa: Rekomendasi Keamanan
 
 Ini bukan peluru, tapi setidaknya, Anda harus mencoba yang berikut ini:
 
-* [Only load secure content](#only-load-secure-content)
-* [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content)
-* [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
+* [Hanya memuat konten yang aman](#only-load-secure-content)
+* [Menonaktifkan integrasi Node.js di semua penyaji yang menampilkan konten secara terpencil](#disable-node.js-integration-for-remote-content)
+* [Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil](#enable-context-isolation-for-remote-content)
 * [Gunakan `ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
-<li><a href="#do-not-disable-websecurity">Do not disable <code>webSecurity`](#handle-session-permission-requests-from-remote-content)
+<li><a href="#do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`](#handle-session-permission-requests-from-remote-content)
 * [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
 * [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
 * [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true)
