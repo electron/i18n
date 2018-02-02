@@ -124,7 +124,7 @@ Ang APIs na nangangailangan ng karagdagang "unpacking" ay mga:
 * `fs.openSync`
 * `process.dlopen` - Ginamit ng `require` sa mga pinagmulang modyul
 
-### Fake Stat Information of `fs.stat`
+### Mga Impormasyon ng "Fake Stat" sa `fs.stat`
 
 Ang `Stats` ay bagay na bumalik batay sa `ft.stat` At sa magkalapit na mga pile ng `asar` Archives ay nabuo sa pamamagitan ng paghula, dahil ang ibang mga pileay hindi umiiral sa mga sistema ng pile. Kaya hindi dapat pagkatiwalaan ang `Stats` na bagay maliban para sa pagkuha ng pile Sukat at apula na uri ng pile.
 
