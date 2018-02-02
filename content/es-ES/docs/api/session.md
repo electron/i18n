@@ -1,4 +1,4 @@
-# session
+# sesión
 
 > Administra las sesiones del navegador, cookies, cache, configuración del proxy, etc.
 
