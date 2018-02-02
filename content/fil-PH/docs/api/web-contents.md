@@ -424,12 +424,12 @@ Ibinabalik:
     * `isLooping` Boolean - Kung ang elemento ng media ay looping.
     * `isControlsVisible` Boolean - Kung ang mga kontrol ng elemento ng media ay nakikita.
     * `canToggleControls` Boolean - Kung ang mga kontrol ng elemento ng media ay toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
+    * `canRotate` Boolean - Kung ang elemento ng media ay maaaring i-rotate.
+  * `editFlags` Bagay - Ipinapahiwatig ng mga bandilang ito kung ang nanonood ay naniniwala at ito ay magagawa upang isagawa ang nararapat na pagkilos. 
+    * `canUndo` Boolean - Kung naniniwala ang renderer na maaari itong ipawalang bisa.
+    * `canRedo` Boolean - Kung naniniwala ang renderer na maaari itong gawing muli.
+    * `canCut` Boolean - Kung naniniwala ang renderer na maaari itong i-cut.
+    * `canCopy` Boolean - Kung naniniwala ang renderer na maaari itong kopyahin
     * `canPaste` Boolean - Whether the renderer believes it can paste.
     * `canDelete` Boolean - Whether the renderer believes it can delete.
     * `canSelectAll` Boolean - Whether the renderer believes it can select all.
