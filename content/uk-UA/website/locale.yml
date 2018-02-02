@@ -3,7 +3,7 @@ nav:
   docs: Документація
   blog: Блог
   community: Спільнота
-  apps: Програми
+  apps: Застосунки
   userland: Користувацький простір
   releases: Релізи
   contact: Контакти
@@ -22,7 +22,7 @@ docs:
     translate: Перекласти цю документацію
     view_all_docs: Вся документація на одній сторінці
 languages:
-  choose_language: Оберіть мову
+  choose_language: Виберіть мову для сайту
   translation_progress: Прогрес перекладу
   current: поточний вибір
 community:
