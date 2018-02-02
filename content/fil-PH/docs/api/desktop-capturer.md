@@ -67,7 +67,7 @@ Ang modyul sa `desktopCapturer` ay mayroong mga sumusunod na paraan:
 ### `desktopCapturer.getSources(options, callback)`
 
 * `mga opsyon` Bagay 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
+  * `types` String[] - Ang array ng "Strings" na naglilista ng iba't-ibang uri ng mga "source" ng "desktop" na kukunin, ang mga maaaring gamitin na uri ay `screen` at `window`.
   * `thumbnailSize` [Ang laki](structures/size.md) (opsyonal) - ang laki ng media sourceay thumbnail dapat sukatan. Default ay `150` x `150`.
 * `tumawag muli` Punsyon 
   * `error` Error
@@ -75,4 +75,4 @@ Ang modyul sa `desktopCapturer` ay mayroong mga sumusunod na paraan:
 
 Simulan pangalap ng impormasyon tungkol sa lahat ng magagamit na desktop media sources, at tawag `callback(error, sources)` kapag tapos na.
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+Ang `sources` ay isang "array" ng [`DesktopCapturerSource`](structures/desktop-capturer-source.md) "object", ang bawat `DesktopCapturerSource` ay kumakatawan sa "screen" o sa indibidwal na "window" na maaaring makuha.
