@@ -114,7 +114,7 @@ console.log(dialog)
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+如果传递了 `callback`，窗口将不会阻断进程。该API 将异步调用，并将结果通过 `callback(response)` 传递
 
 ### `dialog.showErrorBox(title, content)`
 
