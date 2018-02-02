@@ -1,8 +1,8 @@
 # Chromium yükseltiliyor
 
-Bu, Elektron'da Chromium'u yükseltmek için gerekli adımların genel bir tasviridir.
+Bu adımlar Electron'un Chromium 'u yükseltmek için gerekli genel taslağıdır.
 
-- libcc ürünü yeni bir Chromium sürümüne yükseltin
+- libcc ürününü yeni bir Chromium sürümüne yükseltin
 - Electron kodunu yeni libcc ile uyumlu hale getirin
 - Gerekirse Electron bağımlılıklarını (crashpad, NodeJS, etc.) Güncelleyin
 - Libcc ve electronun iç yapılarını oluşturun
