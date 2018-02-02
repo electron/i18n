@@ -527,34 +527,34 @@ webContents.loadURL('https://github.com', mga pagpipilian)
 
 * `url` Pisi
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
+Nagsimula ang pag-download ng mapagkukunan sa `url` nang walang pag-navigate. Ang `will-download` kaganapan ng `session` ay ma-trigger.
 
-#### `contents.getURL()`
+#### `mga nilalaman.getURL()`
 
-Returns `String` - The URL of the current web page.
+Ibinabalik `Pisi` - Ang URL ng kasalukuyang web page.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('http://github.com')
+const {BrowserWindow} = nangangailangan('elektron')
+hayaan ang panalo = bagong BrowserWindow ({lapad: 800, taas: 600})
+manalo.loadURL ('http://github.com')
 
-let currentURL = win.webContents.getURL()
+hayaan ang kasalukuyangURL = manalo.webContents.getURL()
 console.log(currentURL)
 ```
 
-#### `contents.getTitle()`
+#### `mga nilalaman.getTitle()`
 
-Returns `String` - The title of the current web page.
+Ibinabalik `Pisi` - Ang pamagat ng kasalukuyang web page.
 
-#### `contents.isDestroyed()`
+#### `mga nilalaman.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Ibinabalik `Boolean` - Kung ang web page ay nawasak.
 
-#### `contents.focus()`
+#### `mga nilalaman.focus()`
 
-Focuses the web page.
+Nakatutok sa web page.
 
-#### `contents.isFocused()`
+#### `mga nilalaman.isFocused()`
 
 Returns `Boolean` - Whether the web page is focused.
 
