@@ -177,9 +177,9 @@ sa macOS. Default is <code>false`.
     * `partition` String (opsyonal) - Itinatakda ang sesyon na ginagamit ng mga pahina ng ayon sa mga string na partisyon ng mga sesyon. Kung ang `partition` ay nagsisimula na may `persist`, ang pahina ay gagamit ng isang paulit-ulit na sesyon na magagamit sa lahat ng mga pahina sa mga app na may kaparehas na `partition`. Kung wala ang unlaping `persist`, ang pahina ay gagamit ng isang nasa memoryang sesyon. Sa pag-aatas ng kaparehong `partition`, maramihang mga pahina ang maaaring magsalo-salo sa magkaparehong sesyon. Ang default ay ang default na sesyon.
     * Ang `zoomFactor` Numero (opsyonal) - Ang default na sanhi ng zoom ng mga pahina, `3.0` ay kumakatawan sa `300%`. Ang default ay `1.0`.
     * Ang `javascript` Boolean (opsyonal) - Pinapagana ang suporta ng JavaScript. Ang default ay `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Ang Default ay `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
+    * Ang `webSecurity` Boolean (opsyonal) - Kapag `false`, ihihinto nito ang patakaran ng parehong pinagmulan (kadalasan ay ang ginagamit ang mga sinubok na website ng mga tao), at itinakda ang `allowRunningInsecureContent` sa `true` kung ang opsyon na ito ay hindi itinakda ng gumagamit. Ang Default ay `true`.
+    * Ang `allowRunningInsecureContent` Boolean (opsyonal) - Pinapayagan ang isang pahina ng https na paganahin ang JavaScript, CSS o mga plugin mula sa mga URL ng http. Ang default ay `false`.
+    * Ang `images` Boolean (opsyonal) - Pinapagana ang suporta sa imahe. Ang default ay `true`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
     * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
     * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
