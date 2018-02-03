@@ -141,7 +141,7 @@ _404:
 search:
   description:
     start: menemukan sumber elektron dari
-    docs: <a href="/search/docs">documentation</a>
-    npm: <a href="/search/npmPackages">npm packages</a>
+    docs: <a href="/cari/dokumen">dokumentasi</a>
+    npm: "cari npm\n\n<a href=\"/cari/npmPaket\">npm paket</a>"
     and: dan
-    repos: <a href="/search/repos">GitHub repos</a>
+    repos: "\n\n<a href=\"/cari/repo\">GitHub repo</a>"
