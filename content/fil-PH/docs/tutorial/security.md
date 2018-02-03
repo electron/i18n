@@ -205,21 +205,21 @@ an CSP ay nagpapahintulot sa server serving na nilalaman upang paghigpitan at ko
 
 ### Paano?
 
-Nirerespeto ng Electron ang the`Nilalaman-Seguridad-Patakaran</a> at ang kaukulang <code><meta>` tag.</p> 
+Nirerespeto ng Electron ang [the`Nilalaman-Seguridad-Patakaran` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) at ang kaukulang `<meta></1> tag.</p>
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
+<p>Ang sumusunod na CSP ay nagpapahintulot sa Electron na mag-execute ng mga manuskrito galing sa kasalukuyang website at galing sa 0>apis.mydomain.com`.
 
 ```txt
-// Bad
-Content-Security-Policy: '*'
+// Hindi kaaya-aya
+Nilalaman-Seguridad-Patakaran: '*'
 
-// Good
-Content-Security-Policy: script-src 'self' https://apis.mydomain.com
+// Kaaya-aya
+Nilalaman-Seguridad-Patakaran: script-src 'self' https://apis.mydomain.com
 ```
 
-## Override and Disable `eval`
+## I-override at I-disable `eval`
 
-`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
+Ang `eval()` ay isang core JavaScript na pamamaraan na naggpapahintulot ng exekusyon sa JavaScript galing sa isang string. Ang pag-disable nito ay makaka-disable ng kakayahan ng iyong app para suriin ang JavaScript na hindi unang kilala.
 
 ### Bakit?
 
