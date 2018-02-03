@@ -4,138 +4,138 @@
 
 Electron uses Chromium's `l10n_util` library to fetch the locale. Possible values are listed below:
 
-| 言語コード  | 言語名                     |
-| ------ | ----------------------- |
-| af     | アフリカーンス語                |
-| am     | アムハラ語                   |
-| ar     | アラビア語                   |
-| az     | アゼルバイジャン語               |
-| be     | ベラルーシ語                  |
-| bg     | ブルガリア語                  |
-| bh     | ビハール語                   |
-| bn     | ベンガル語                   |
-| br     | ブルトン語                   |
-| bs     | ボスニア語                   |
-| ca     | カタルーニャ語                 |
-| co     | コルシカ語                   |
-| cs     | チェコ語                    |
-| cy     | ウェールズ語                  |
-| da     | デンマーク語                  |
-| de     | ドイツ語                    |
-| de-AT  | ドイツ語（オーストリア）            |
-| de-CH  | ドイツ語（スイス）               |
-| de-DE  | German (Germany)        |
-| el     | Greek                   |
-| en     | English                 |
-| en-AU  | English (Australia)     |
-| en-CA  | English (Canada)        |
-| en-GB  | English (UK)            |
-| en-NZ  | English (New Zealand)   |
-| en-US  | English (US)            |
-| en-ZA  | English (South Africa)  |
-| eo     | Esperanto               |
-| es     | Spanish                 |
-| es-419 | Spanish (Latin America) |
-| et     | Estonian                |
-| eu     | Basque                  |
-| fa     | Persian                 |
-| fi     | Finnish                 |
-| fil    | Filipino                |
-| fo     | Faroese                 |
-| fr     | French                  |
-| fr-CA  | French (Canada)         |
-| fr-CH  | French (Switzerland)    |
-| fr-FR  | French (France)         |
-| fy     | Frisian                 |
-| ga     | Irish                   |
-| gd     | Scots Gaelic            |
-| gl     | Galician                |
-| gn     | Guarani                 |
-| gu     | Gujarati                |
-| ha     | Hausa                   |
-| haw    | Hawaiian                |
-| he     | Hebrew                  |
-| hi     | Hindi                   |
-| hr     | Croatian                |
-| hu     | Hungarian               |
-| hy     | Armenian                |
-| ia     | Interlingua             |
-| id     | Indonesian              |
-| is     | Icelandic               |
-| it     | Italian                 |
-| it-CH  | Italian (Switzerland)   |
-| it-IT  | Italian (Italy)         |
-| ja     | Japanese                |
-| jw     | Javanese                |
-| ka     | Georgian                |
-| kk     | Kazakh                  |
-| km     | Cambodian               |
-| kn     | Kannada                 |
-| ko     | Korean                  |
-| ku     | Kurdish                 |
-| ky     | Kyrgyz                  |
-| la     | Latin                   |
-| ln     | Lingala                 |
-| lo     | Laothian                |
-| lt     | Lithuanian              |
-| lv     | Latvian                 |
-| mk     | Macedonian              |
-| ml     | Malayalam               |
-| mn     | Mongolian               |
-| mo     | Moldavian               |
-| mr     | Marathi                 |
-| ms     | Malay                   |
-| mt     | Maltese                 |
-| nb     | Norwegian (Bokmal)      |
-| ne     | Nepali                  |
-| nl     | Dutch                   |
-| nn     | Norwegian (Nynorsk)     |
-| no     | Norwegian               |
-| oc     | Occitan                 |
-| om     | Oromo                   |
-| or     | Oriya                   |
-| pa     | Punjabi                 |
-| pl     | Polish                  |
-| ps     | Pashto                  |
-| pt     | Portuguese              |
-| pt-BR  | Portuguese (Brazil)     |
-| pt-PT  | Portuguese (Portugal)   |
-| qu     | Quechua                 |
-| rm     | Romansh                 |
-| ro     | Romanian                |
-| ru     | Russian                 |
-| sd     | Sindhi                  |
-| sh     | Serbo-Croatian          |
-| si     | Sinhalese               |
-| sk     | Slovak                  |
-| sl     | Slovenian               |
-| sn     | Shona                   |
-| so     | Somali                  |
-| sq     | Albanian                |
-| sr     | Serbian                 |
-| st     | Sesotho                 |
-| su     | Sundanese               |
-| sv     | Swedish                 |
-| sw     | Swahili                 |
-| ta     | Tamil                   |
-| te     | Telugu                  |
-| tg     | Tajik                   |
-| th     | Thai                    |
-| ti     | Tigrinya                |
-| tk     | Turkmen                 |
-| to     | Tonga                   |
-| tr     | Turkish                 |
-| tt     | Tatar                   |
-| tw     | Twi                     |
-| ug     | Uighur                  |
-| uk     | Ukrainian               |
-| ur     | Urdu                    |
-| uz     | Uzbek                   |
-| vi     | Vietnamese              |
-| xh     | Xhosa                   |
-| yi     | Yiddish                 |
-| yo     | Yoruba                  |
-| zh     | Chinese                 |
-| zh-CN  | Chinese (Simplified)    |
-| zh-TW  | Chinese (Traditional)   |
-| zu     | Zulu                    |
+| 言語コード  | 言語名                   |
+| ------ | --------------------- |
+| af     | アフリカーンス語              |
+| am     | アムハラ語                 |
+| ar     | アラビア語                 |
+| az     | アゼルバイジャン語             |
+| be     | ベラルーシ語                |
+| bg     | ブルガリア語                |
+| bh     | ビハール語                 |
+| bn     | ベンガル語                 |
+| br     | ブルトン語                 |
+| bs     | ボスニア語                 |
+| ca     | カタルーニャ語               |
+| co     | コルシカ語                 |
+| cs     | チェコ語                  |
+| cy     | ウェールズ語                |
+| da     | デンマーク語                |
+| de     | ドイツ語                  |
+| de-AT  | ドイツ語（オーストリア）          |
+| de-CH  | ドイツ語（スイス）             |
+| de-DE  | ドイツ語（ドイツ）             |
+| el     | ギリシャ語                 |
+| en     | 英語                    |
+| en-AU  | 英語（オーストラリア）           |
+| en-CA  | 英語（カナダ）               |
+| en-GB  | 英語（イギリス）              |
+| en-NZ  | 英語（ニュージーランド）          |
+| en-US  | 英語（アメリカ）              |
+| en-ZA  | 英語（南アフリカ）             |
+| eo     | エスペラント                |
+| es     | スペイン語                 |
+| es-419 | スペイン語（ラテンアメリカ）        |
+| et     | エストニア語                |
+| eu     | バスク語                  |
+| fa     | ペルシア語                 |
+| fi     | フィンランド語               |
+| fil    | フィリピン語                |
+| fo     | フェロー語                 |
+| fr     | フランス語                 |
+| fr-CA  | フランス語（カナダ）            |
+| fr-CH  | フランス語（スイス）            |
+| fr-FR  | フランス語（フランス）           |
+| fy     | フリジア語                 |
+| ga     | Irish                 |
+| gd     | Scots Gaelic          |
+| gl     | Galician              |
+| gn     | Guarani               |
+| gu     | Gujarati              |
+| ha     | Hausa                 |
+| haw    | Hawaiian              |
+| he     | Hebrew                |
+| hi     | Hindi                 |
+| hr     | Croatian              |
+| hu     | Hungarian             |
+| hy     | Armenian              |
+| ia     | Interlingua           |
+| id     | Indonesian            |
+| is     | Icelandic             |
+| it     | Italian               |
+| it-CH  | Italian (Switzerland) |
+| it-IT  | イタリア語（イタリア）           |
+| ja     | 日本語                   |
+| jw     | Javanese              |
+| ka     | Georgian              |
+| kk     | Kazakh                |
+| km     | Cambodian             |
+| kn     | Kannada               |
+| ko     | Korean                |
+| ku     | Kurdish               |
+| ky     | Kyrgyz                |
+| la     | Latin                 |
+| ln     | Lingala               |
+| lo     | Laothian              |
+| lt     | Lithuanian            |
+| lv     | Latvian               |
+| mk     | Macedonian            |
+| ml     | Malayalam             |
+| mn     | Mongolian             |
+| mo     | Moldavian             |
+| mr     | Marathi               |
+| ms     | Malay                 |
+| mt     | Maltese               |
+| nb     | Norwegian (Bokmal)    |
+| ne     | Nepali                |
+| nl     | Dutch                 |
+| nn     | Norwegian (Nynorsk)   |
+| no     | Norwegian             |
+| oc     | Occitan               |
+| om     | Oromo                 |
+| or     | Oriya                 |
+| pa     | Punjabi               |
+| pl     | Polish                |
+| ps     | Pashto                |
+| pt     | Portuguese            |
+| pt-BR  | Portuguese (Brazil)   |
+| pt-PT  | Portuguese (Portugal) |
+| qu     | Quechua               |
+| rm     | Romansh               |
+| ro     | Romanian              |
+| ru     | Russian               |
+| sd     | Sindhi                |
+| sh     | Serbo-Croatian        |
+| si     | Sinhalese             |
+| sk     | Slovak                |
+| sl     | Slovenian             |
+| sn     | Shona                 |
+| so     | Somali                |
+| sq     | Albanian              |
+| sr     | Serbian               |
+| st     | Sesotho               |
+| su     | Sundanese             |
+| sv     | Swedish               |
+| sw     | Swahili               |
+| ta     | Tamil                 |
+| te     | Telugu                |
+| tg     | Tajik                 |
+| th     | Thai                  |
+| ti     | Tigrinya              |
+| tk     | Turkmen               |
+| to     | Tonga                 |
+| tr     | Turkish               |
+| tt     | Tatar                 |
+| tw     | Twi                   |
+| ug     | Uighur                |
+| uk     | Ukrainian             |
+| ur     | Urdu                  |
+| uz     | Uzbek                 |
+| vi     | Vietnamese            |
+| xh     | Xhosa                 |
+| yi     | Yiddish               |
+| yo     | Yoruba                |
+| zh     | Chinese               |
+| zh-CN  | 中国語（簡体字）              |
+| zh-TW  | 中国語（繁体字）              |
+| zu     | ズールー語                 |
