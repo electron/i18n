@@ -171,7 +171,7 @@ Ang API ay base sa [Chromium na mga permiso sa API](https://developer.chrome.com
 
 ### Bakit?
 
-Sa pamamagitan ng default, ang Electron ay awtomatikong nagpahintulot sa lahat ng mga kahilingan ng permiso maliban kung ang developer ay mano-manong nag-configure ng nakaugaliang handler. While a solid default, security-conscious developers might want to assume the very opposite.
+Sa pamamagitan ng default, ang Electron ay awtomatikong nagpahintulot sa lahat ng mga kahilingan ng permiso maliban kung ang developer ay mano-manong nag-configure ng nakaugaliang handler. Habang ang matibay na default, ang partikular sa seguridad na mga developer ay maaaring mag-akala ng kabuuang kabaliktaran.
 
 ### Paano?
 
