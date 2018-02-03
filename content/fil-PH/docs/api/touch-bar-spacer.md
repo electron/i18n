@@ -1,13 +1,13 @@
-## Class: TouchBarSpacer
+## Klase: diinang BarSpacer
 
-> Create a spacer between two items in the touch bar for native macOS applications
+> Lumikha ng pagitan sa gitna ng dalawang aytem sa pindutang bar para aplikasyon ng katutubong macOs
 
 Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarSpacer(options)` *Experimental*
+### `bagong diinangPagitangBar(pamimilian)`*Eksperimento*
 
 * `mga pagpipilian` Bagay 
   * `sukat` String (optional) - Size of spacer, possible values are: 
-    * `small` - Small space between items.
-    * `large` - Large space between items.
-    * `flexible` - Take up all available space.
+    * `maliit` - Maliit na pagitan sa gitna ng mga aytem.
+    * `malaki` - Malaking pagitan sa gitna ng mga aytem.
+    * `flexible` - kunin ang lahat ng espasyo na magagamit.
