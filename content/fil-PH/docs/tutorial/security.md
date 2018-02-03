@@ -129,7 +129,7 @@ Ang kontekstong pagbubukod ay nagpapahintulot ang bawat isa sa mga manuskrito sa
 
 Habang experimantal pa rin ang tampok ng Electron, dinadagdagan ng kontekstong pagbubukod ang adisyunal layer ng seguridad. Lumulikha ng panibagong mundo ng JavaScript ang Electron na mga API at preload na mga manuskrito.
 
-At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
+Sa parehong oras, ang preload na mga manuskrito ay mayroon pa ring akses sa `dokumento` at`window` na mga bagay. Sa ibang salita, nakakakuha ka ng desenteng tubo sa malamang maliit na pamumuhunan.
 
 ### Paano?
 
