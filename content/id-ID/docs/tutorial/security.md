@@ -366,24 +366,23 @@ Elektron memungkinkan pengembang untuk menonaktifkan berbagai fitur keamanan kon
 
 ### Bagaimana?
 
-Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
+Sebelum [`<WebView>`](web-view)tag terpasang, elektron akan api acara `akan-melampirkan-webview` pada hosting `webContents`. Menggunakan acara untuk mencegah pembentukan WebViews dengan pilihan mungkin tidak aman.
 
 ```js
-app.on('web-contents-created', (event, contents) => {
-  contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
-    delete webPreferences.preload
-    delete webPreferences.preloadURL
+app.on ( 'web-isi-dibuat', ( acara , isi) = & gt; {
+   contents.on ( 'akan melampirkan tampilan web', ( acara , webPreferences, params) = & gt; {
+     // Strip pergi script preload jika tidak digunakan atau memverifikasi lokasi mereka adalah sah
+     webPreferences.preload delete
+     hapus webPreferences.preloadURL
 
-    // Disable Node.js integration
-    webPreferences.nodeIntegration = false
+     // Disable simpul integrasi
+     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
-      event.preventDefault()
-    }
-  })
-})
+     // Verifikasi URL yang dimuat
+     if (! params.src.startsWith ( 'https://yourapp.com/ ')) {
+ event .preventDefault ()
+ }
+ })})            
 ```
 
 Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan.
