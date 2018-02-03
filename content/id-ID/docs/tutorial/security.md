@@ -314,26 +314,22 @@ const mainWindow = new BrowserWindow()
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
 
-Do not disable `webSecurity` in production applications.
+Tidak menonaktifkan `webSecurity` dalam aplikasi produksi.
 
 ### Mengapa?
 
-Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
+Menonaktifkan `webSecurity` akan menonaktifkan kebijakan asal yang sama dan mengatur properti `allowRunningInsecureContent` ke `true`. Dengan kata lain, hal ini memungkinkan eksekusi kode yang tidak aman dari domain yang berbeda.
 
 ### Bagaimana?
 
 ```js
-// Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
+Buruk const mainWindow = BrowserWindow baru ({webPreferences: {
     webSecurity: false
-  }
-})
+  }})
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+Baik const mainWindow = BrowserWindow() baru
 ```
 
 ```html
