@@ -10,11 +10,11 @@ ASAR 形式は、Windows でのパフォーマンスを向上させるために�
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray は [libchromiumcontent](#libchromiumcontent) をアプリ内で簡単に使用するための静的ライブラリ[でした](https://github.com/electron-archive/brightray)。 現在は廃止されており、Electronのコードベースにマージされています。
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準ライブラリが組み込まれている C++ 標準ライブラリの一部です。 The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -30,7 +30,7 @@ IPCはプロセス間通信 (Inter-Process Communication) の略語です。Elec
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). libcc とも呼ばれます。
+[Chromium Content module](https://www.chromium.org/developers/content-module) および 全ての依存関係（Blink や [V8](#v8)）を含む共有ライブラリです。 libcc とも呼ばれます。
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
