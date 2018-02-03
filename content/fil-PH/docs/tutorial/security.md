@@ -134,7 +134,7 @@ Sa parehong oras, ang preload na mga manuskrito ay mayroon pa ring akses sa `dok
 ### Paano?
 
 ```js
-// Main process
+// Pangunahing proseso
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
@@ -144,21 +144,21 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Preload script
+// Preload ng manuskrito
 
-// Set a variable in the page before it loads
+// I-set ang variable sa pahina bago mag-load
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// Ang na-load na pahina ay hindi maaaring maka-akses nito. Ito ay magagamit lamang 
+// sa kontekstong
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
   // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // konteksto
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // Ini-logout ang 'bar' dahil ang window.bar ay maaari sa kontekstong ito
   console.log(window.bar)
 })
 ```
