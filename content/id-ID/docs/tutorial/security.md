@@ -1,26 +1,26 @@
-# Keamanan, Kemampuan asli, dan Tanggung Jawab Anda
+# Keamanan, kemampuan asli, dan tanggung jawab Anda
 
-Sebagai pengembang web, biasanya kita menikmati keamanan yang kuat bersih dari browser - risiko yang terkait dengan kode yang kita tulis adalah relatif kecil. Situs web kami diberikan kekuasaan terbatas dalam sandbox, dan kami percaya bahwa pengguna kami menikmati browser yang dibangun oleh sebuah tim besar yang terdiri dari insinyur yang mampu menanggapi dengan cepat ancaman keamanan yang baru ditemukan.
+Sebagai web developer, kita biasanya menikmati keamanan yang kuat bersih browser - risiko yang terkait dengan kode kita menulis relatif kecil. website kami diberikan kekuasaan terbatas di bak pasir, dan kami percaya bahwa pengguna kami menikmati browser dibangun oleh tim besar insinyur yang mampu cepat merespon ancaman keamanan yang baru ditemukan.
 
-Ketika bekerja dengan Electron , penting untuk memahami bahwa elektron tidak web browser. Hal ini memungkinkan Anda untuk membangun aplikasi desktop kaya fitur dengan teknologi web akrab, tapi kode Anda memiliki kekuasaan jauh lebih besar. JavaScript dapat mengakses file , keamanan pengguna, dan banyak lagi. Hal ini memungkinkan anda untuk membangun aplikasi asli yang berkualitas tinggi, tapi skala risiko keamanan yang melekat dengan kekuatan tambahan yang diberikan untuk kode anda.
+Ketika bekerja dengan elektron, penting untuk memahami bahwa elektron tidak web browser. Hal ini memungkinkan Anda untuk membangun aplikasi desktop kaya fitur dengan teknologi web yang akrab, tapi kode wields banyak kekuatan yang lebih besar. JavaScript dapat mengakses filesystem, user shell, dan banyak lagi. Hal ini memungkinkan Anda untuk membangun aplikasi asli berkualitas tinggi, tetapi risiko keamanan yang melekat skala dengan kekuatan tambahan yang diberikan kepada kode Anda.
 
-Dengan itu dalam pikiran, menyadari bahwa menampilkan konten sewenang-wenang dari sumber terpercaya memiliki resiko keamanan parah yang Elektron tidak dimaksudkan untuk menangani. Bahkan, yang paling populer Elektron aplikasi ( Atom , Slack, Visual Studio Code, dll) display terutama lokal konten (atau terpercaya, konten jauh aman tanpa Node integrasi) - jika aplikasi Anda mengeksekusi kode dari sumber online, itu adalah tanggung jawab Anda untuk memastikan bahwa kode ini tidak berbahaya.
+Dengan itu dalam pikiran, menyadari bahwa menampilkan konten yang sewenang-wenang dari sumber untrusted pose risiko keamanan parah elektron yang tidak dimaksudkan untuk menangani. Pada kenyataannya, aplikasi elektron yang paling populer (Atom, kendur, Visual Studio kode, dll) menampilkan terutama konten lokal (atau konten terpencil yang terpercaya, aman tanpa integrasi Node) – jika aplikasi Anda mengeksekusi kode dari sumber online, itu adalah tanggung jawab Anda untuk Pastikan bahwa kode ini tidak berbahaya.
 
-## Pelaporan Masalah Keamanan
+## Melaporkan Issue Baru
 
-Untuk informasi tentang cara untuk benar mengungkapkan sebuah Elektron kerentanan, lihat  SECURITY.md </ 0></p> 
+Untuk informasi tentang cara untuk benar mengungkapkan kerentanan elektron, lihat [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Chromium Masalah Keamanan dan Upgrade
+## Masalah keamanan Kromium dan upgrade
 
-Sementara Elektron berusaha untuk mendukung versi baru dari Chromium sesegera mungkin, pengembang harus menyadari bahwa upgrade adalah usaha yang serius - yang melibatkan puluhan tangan-mengedit atau bahkan ratusan file. Mengingat sumber daya dan kontribusi tersedia saat ini, elektron mungkin tidak berada di versi yang sangat terbaru dari Chromium , lebih awal satu hari atau minggu.
+Sementara elektron berusaha untuk mendukung versi baru dari kromium sesegera mungkin, pengembang harus menyadari bahwa upgrade adalah usaha yang serius - melibatkan pengeditan lusinan atau bahkan ratusan file. Mengingat sumber daya dan kontribusi yang tersedia saat ini, elektron akan sering tidak pada versi yang sangat terbaru dari kromium, tertinggal oleh hari atau minggu.
 
-Kami merasa bahwa sistem kami saat ini memperbarui komponen Chromium yang menyerang keseimbangan dengan tepat antara sumber daya yang kita miliki dan kebutuhan sebagian besar aplikasi yang dibangun di atas kerangka kerja. Kami pasti tertarik untuk mendengar lebih banyak tentang kasus penggunaan khusus dari orang-orang yang membangun hal-hal di atas Elektron . permintaan tarik dan kontribusi yang mendukung usaha ini selalu sangat mendukung.
+Kami merasa bahwa sistem kami saat memperbarui Chromium komponen menyerang keseimbangan yang tepat antara sumber daya yang kita miliki dan kebutuhan mayoritas aplikasi yang dibangun di atas kerangka. Kami benar-benar tertarik untuk mendengar lebih lanjut tentang kasus-kasus penggunaan tertentu dari orang-orang yang membangun hal-hal di atas elektron. Permintaan tarik dan kontribusi yang mendukung upaya ini yang selalu sangat welcome.
 
-## Mengabaikan atas Saran
+## Mengabaikan di atas saran
 
-Masalah keamanan ada setiap kali Anda menerima kode dari tujuan remote dan mengeksekusi secara lokal. Sebagai contoh, pertimbangkan sebuah remote web yang sedang ditampilkan di dalam [`BrowserWindow`](browser-window). Jika penyerang berhasil mengubah kata konten (baik dengan menyerang sumber secara langsung, atau dengan duduk di antara aplikasi anda dan tujuan yang sebenarnya), mereka akan mampu menjalankan kode asli pada mesin pengguna.
+Masalah keamanan ada setiap kali Anda menerima kode dari remote tujuan dan menjalankannya secara lokal. Sebagai contoh, mempertimbangkan sebuah situs terpencil yang ditampilkan di dalam [`BrowserWindow`](browser-window). Jika penyerang entah bagaimana berhasil mengubah konten kata (baik dengan menyerang sumber langsung, atau dengan duduk di antara aplikasi dan tujuan yang sebenarnya), mereka akan dapat mengeksekusi kode asli pada mesin pengguna.
 
-> :warning: Dalam situasi yang harus anda memuat dan menjalankan kode jauh dengan Node.js integrasi diaktifkan. Sebaliknya, hanya menggunakan file lokal (dikemas bersama-sama dengan aplikasi anda) untuk menjalankan Node.js kode. Untuk menampilkan konten secara jauh, menggunakan [`webview`](web-view) tag dan pastikan untuk menonaktifkan `nodeIntegration`.
+> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten secara jauh, menggunakan [`webview`](web-view) tag dan pastikan untuk menonaktifkan `nodeIntegration`.
 
 #### Daftar periksa: Rekomendasi Keamanan
 
