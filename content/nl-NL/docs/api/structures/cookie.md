@@ -4,7 +4,7 @@
 * `value` String - de waarde van de cookie.
 * `domain` String (optional) - The domain of the cookie.
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
+* `path` String (optioneel) - Het pad van de cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
 * `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
 * `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
