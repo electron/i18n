@@ -62,7 +62,7 @@ Nullsoft Script Install Systemは、Microsoft Windows向けの、スクリプト
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen rendering) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます（かなりの高速化が期待されます）。画面に表示することなくページをレンダリングすることができます。
 
 ### プロセス
 
@@ -96,7 +96,7 @@ V8 は Google 製のオープンソース JavaScript エンジンです。C++で
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8のバージョンは必ず Google Chrome のバージョンに対応しています。例えば Chrome 59 には V8 5.9 が、Chrome 58 には V8 5.8 が含まれています。
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
