@@ -176,26 +176,26 @@ Sa pamamagitan ng default, ang Electron ay awtomatikong nagpahintulot sa lahat n
 ### Paano?
 
 ```js
-const { session } = require('electron')
+const { sesyon } = kailangan('electron')
 
-session
+sesyon
   .fromPartition('some-partition')
-  .setPermissionRequestHandler((webContents, permission, callback) => {
+  .setPermissionRequestHandler((webContents, permiso, callback) => {
     const url = webContents.getURL()
 
-    if (permission === 'notifications') {
-      // Approves the permissions request
-      callback(true)
+    kung ang (permiso === 'notifications') {
+      // Apbruhan ang kahilingan ng permiso
+      mag-callback(true)
     }
 
-    if (!url.startsWith('https://my-website.com')) {
-      // Denies the permissions request
-      return callback(false)
+    kung ang (!url.startsWith('https://my-website.com')) {
+      // Tanggihan ang kahilingan ng permiso
+      bumalik sa pag-callback(mali)
     }
   })
 ```
 
-## Define a Content Security Policy
+## Tukuyin ang Nilalaman ng Patakarang Pangseguridad
 
 A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
 
