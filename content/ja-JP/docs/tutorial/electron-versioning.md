@@ -24,7 +24,7 @@ Here is an example of the 1.x strategy:
 
 An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
 
-## Version 2.0 and Beyond
+## Version 2.0 以降
 
 There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
 
@@ -36,7 +36,7 @@ There are several major changes from our 1.x strategy outlined below. Each chang
 
 We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
 
-# semver
+# semver（セマンティック バージョニング）
 
 From 2.0 onward, Electron will follow semver.
 
