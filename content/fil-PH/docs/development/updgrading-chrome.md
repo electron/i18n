@@ -1,1 +1,1 @@
-Moved to <upgrading-chromium.md>
+Ilipat sa <upgrading-chromium.md>
