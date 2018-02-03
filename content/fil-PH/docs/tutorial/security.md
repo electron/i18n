@@ -171,7 +171,7 @@ Ang API ay base sa [Chromium na mga permiso sa API](https://developer.chrome.com
 
 ### Bakit?
 
-By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
+Sa pamamagitan ng default, ang Electron ay awtomatikong nagpahintulot sa lahat ng mga kahilingan ng permiso maliban kung ang developer ay mano-manong nag-configure ng nakaugaliang handler. While a solid default, security-conscious developers might want to assume the very opposite.
 
 ### Paano?
 
