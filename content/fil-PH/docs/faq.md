@@ -43,16 +43,16 @@ Sa pahina 1.require('electron').remote.getGlobal ('sharedObject').someProperty =
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Ang aking window app's/tray na nawawala pagkatapos ng ilang minuto.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Nangyayari ito kapag ang variable na ginagamit upang i-imbak ang window/tray ay nakakakuha nakolekta ang basura.
 
-If you encounter this problem, the following articles may prove helpful:
+Kung nakatagpo ka ng problemang ito, maaaring makatulong ang mga sumusunod na artikulo:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Pamamahala ng kaisipan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Baryanteng Saklaw](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Kung gusto mo ng isang mabilis na ayusin, maaari mong gawin ang mga variable global sa pamamagitan ng pagpapalit ng iyong code mula dito:
 
 ```javascript
 const {app, Tray} = require('electron')
