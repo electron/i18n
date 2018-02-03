@@ -1,14 +1,14 @@
 # Electron ドキュメントガイド
 
-これらは、Electronドキュメントを書くためのガイドラインです。
+Electronのドキュメント（英語）を書くためのガイドラインです。
 
 ## タイトル
 
 * 各ページは最上部に1つの`#`レベルのタイトルが必要です。
 * 同じページの章には、`##`レベルのタイトルが必要です。
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* サブチャプターのタイトルは、ネストする深さに応じて `#` の数を増やす必要があります。
+* ページのタイトルは全ての単語の頭文字を大文字にする（capitalizeする）必要があります。ただし、 of や and といった接続詞は例外です。
+* 章のタイトルにおいては、最初の単語の頭文字だけを大文字にします。
 
 `Quick Start（クイックスタート）` を例にすると、以下のようになります。
 
@@ -70,11 +70,11 @@ Using `session` as example:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### モジュールメソッドとイベント
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+`autoUpdater` を例にすると、以下のようになります。
 
 ```markdown
 # autoUpdater
