@@ -45,7 +45,7 @@ Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat denga
 
 ### Mengapa?
 
-`HTTPS` has three main benefits:
+`HTTPS` memiliki tiga manfaat utama:
 
 1) Mengotentikasi server terpencil, membuat aplikasi anda terhubung dengan benar Ke host bukan peniru. 2) Memastikan integritas data, menyatakan bahwa data tidak diubah saat di transit antara aplikasi anda dan host. 3) Mengenkripsi lalu lintas antara pengguna dan tujuan host, sehingga lebih sulit untuk menyadap informasi yang dikirim antara ponsel anda dengan aplikasi dan host.
 
@@ -56,18 +56,12 @@ Buruk browserWindow.loadURL ('http://my-website.com') / / baik browserWindow.loa
 ```
 
 ```html
-<!-- Bad -->
-<script crossorigin src="http://cdn.com/react.js"></script>
-<link rel="stylesheet" href="http://cdn.com/style.css">
-
-<!-- Good -->
-<script crossorigin src="https://cdn.com/react.js"></script>
-<link rel="stylesheet" href="https://cdn.com/style.css">
+<!--buruk--> <script crossorigin src="http://cdn.com/react.js"></script> <link rel="stylesheet" href="http://cdn.com/style.css"><!--baik--> <script crossorigin src="https://cdn.com/react.js"></script> <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## Disable Node.js Integration for Remote Content
+## Menonaktifkan integrasi Node.js untuk Remote konten
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) that loads remote content. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
+Sangat penting bahwa Anda menonaktifkan Node.js integrasi dalam setiap renderer ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), atau [`WebView`](web-view)) yang memuat konten yang terpencil. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
 
 Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://my-website.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.
 
@@ -318,7 +312,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## Do Not Disable WebSecurity
+## Jangan menonaktifkan Keamanan Web
 
 *Recommendation is Electron's default*
 
@@ -354,7 +348,7 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## Do Not Use `allowpopups`
+## Tampilan Web: Jangan gunakan `allowpopups`
 
 *Recommendation is Electron's default*
 
@@ -408,4 +402,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan .
+Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan.
