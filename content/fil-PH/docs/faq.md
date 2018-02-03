@@ -55,14 +55,14 @@ Kung nakatagpo ka ng problemang ito, maaaring makatulong ang mga sumusunod na ar
 Kung gusto mo ng isang mabilis na ayusin, maaari mong gawin ang mga variable global sa pamamagitan ng pagpapalit ng iyong code mula dito:
 
 ```javascript
-const {app, Tray} = require('electron')
+const {app, Tray} =kailangan ('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-to this:
+sa ganito:
 
 ```javascript
 const {app, Tray} = require('electron')
