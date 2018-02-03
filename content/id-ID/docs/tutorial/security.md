@@ -98,15 +98,15 @@ Ketika menonaktifkan integrasi Node.js,anda masih dapat mengekspos Api untuk sit
 Dalam contoh berikut script preload, kemudian memuat situs web akan memiliki akses untuk `jendela.readConfig()` metode, tetapi tidak ada fitur Node.js.
 
 ```js
-const { readFileSync } = require('fs')
+const { bacaFileSync } = wajib('fs')
 
-window.readConfig = function () {
-  const data = readFileSync('./config.json')
-  return data
+window.bacaConfig = fungsi () {
+  const data = bacaFileSync('./config.json')
+  kembali data
 }
 ```
 
-## Enable Context Isolation for Remote Content
+## Aktifkan Konteks Isolasi Untuk Remote Konten
 
 Konteks isolasi adalah fitur Electron yang memungkinkan pengembang untuk menjalankan kode di script preload dan API Electron dalam konteks JavaScript yang berdedikasi. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
