@@ -1,6 +1,6 @@
 # Instalação
 
-> Dicas para instalar o elétron
+> Dicas para instalar o Electron
 
 Para instalar os binários do Electro, use o [`npm`](https://docs.npmjs.com/). O método preferido é instalar o Electron com uma dependência em seu projeto:
 
