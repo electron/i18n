@@ -119,7 +119,7 @@ window.readConfig = function () {
 
 ## Paganahin ang Kontekstong Pagkakabukod para sa Bahagyang Nilalaman
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+Ang kontekstong pagbubukod ay isang Electron na tampok na nagpapahintulot sa mga developer na magpatakbo ng code sa preload na mga manuskrito at mga API ng Electron sa dedikadong JavaScript na conteksto. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
