@@ -16,14 +16,14 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | bn     | ベンガル語                   |
 | br     | ブルトン語                   |
 | bs     | ボスニア語                   |
-| ca     | Catalan                 |
-| co     | Corsican                |
-| cs     | Czech                   |
-| cy     | Welsh                   |
-| da     | Danish                  |
+| ca     | カタルーニャ語                 |
+| co     | コルシカ語                   |
+| cs     | チェコ語                    |
+| cy     | ウェールズ語                  |
+| da     | デンマーク語                  |
 | de     | ドイツ語                    |
-| de-AT  | German (Austria)        |
-| de-CH  | German (Switzerland)    |
+| de-AT  | ドイツ語（オーストリア）            |
+| de-CH  | ドイツ語（スイス）               |
 | de-DE  | German (Germany)        |
 | el     | Greek                   |
 | en     | English                 |
