@@ -65,17 +65,17 @@ app.on('ready', () => {
 sa ganito:
 
 ```javascript
-const {app, Tray} = require('electron')
-let tray = null
+const {app, Tray} = kailangan('electron')
+hayaan ang tray = wala
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Hindi ko magamit ang jQuery/RequireJS/Meteor/AngularJS sa Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Dahil sa pagsasama ng Node.js ng Electron, mayroong ilang dagdag na simbolo ipinasok sa DOM tulad ng `module`,`exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
 
 To solve this, you can turn off node integration in Electron:
 
