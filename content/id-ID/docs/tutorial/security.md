@@ -35,7 +35,7 @@ Hal ini tidak antipeluru, tetapi paling tidak, Anda harus mencoba berikut:
 * [Menimpa dan menonaktifkan `eval`](#override-and-disable-eval), yang memungkinkan string yang akan dieksekusi sebagai kode.
 * [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#do-not-set-allowRunningInsecureContent-to-true)
 * [Tidak mengaktifkan fitur eksperimental](#do-not-enable-experimental-features)
-* [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
+* [Jangan gunakan <kode>berkedipFitur</kode>](#do-not-use-blinkfeatures)
 * [Tampilan Web: Jangan gunakan ` disablewebsecurity </ 0></a></li>
 <li><a href="#verify-webview-options-before-creation">WebViews: Memverifikasi pilihan dan params semua tag <code><webview>`](#do-not-use-allowpopups)
 
@@ -72,14 +72,14 @@ Cross-site scripting (XSS) serangan yang lebih berbahaya jika seorang penyerang 
 ### Bagaimana?
 
 ```js
-// Bad
-const mainWindow = new BrowserWindow()
+// Buruk
+const mainWindow = baru BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow({
+// Bagus
+const mainWindow = baru BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     preload: './preload.js'
