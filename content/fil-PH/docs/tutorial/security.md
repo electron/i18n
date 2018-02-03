@@ -197,15 +197,15 @@ sesyon
 
 ## Tukuyin ang Nilalaman ng Patakarang Pangseguridad
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+Ang NIlalaman ng Patakarang Pangsegurado (CSP) ay isang karagdagang layer ng proteksyon laban sa cross-site na manuskritong atake at data iniksyong atake. Inirekomenda namin na ang mga ito ay paganahin sa anumang website na iyong ma-load sa loob ng Electron.
 
 ### Bakit?
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
+an CSP ay nagpapahintulot sa server serving na nilalaman upang paghigpitan at kontrolin ang mga mapagkukunan na maaaring ma-load sa Electron sa binigay na web page. Ang `https://your-page.com` ay dapat pahintulutan na mag-load ng mga manuskrito galing sa ga pinagmulan na inyong itinukoy habang ang mga manuskritong galing sa `https://evil.attacker.com` ay hindi dapat pahintulutang patakbuhin. Ang pagtukoy ng isang CSP ay madaling paraan para mapabuti ang seguridad ng iyong mga aplikasyon.
 
 ### Paano?
 
-Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
+Nirerespeto ng Electron ang the`Nilalaman-Seguridad-Patakaran</a> at ang kaukulang <code><meta>` tag.</p> 
 
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
