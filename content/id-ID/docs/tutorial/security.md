@@ -286,7 +286,7 @@ const mainWindow = new BrowserWindow({})
 
 *Recommendation is Electron's default*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink is the name of the rendering engine behind Chromium. Sebagai properti `blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.
 
 ### Mengapa?
 
