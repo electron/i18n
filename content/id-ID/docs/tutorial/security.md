@@ -110,7 +110,7 @@ window.bacaConfig = fungsi () {
 
 Konteks isolasi adalah fitur Electron yang memungkinkan pengembang untuk menjalankan kode di script preload dan API Electron dalam konteks JavaScript yang berdedikasi. Di praktek itu berarti itu global benda seperti `Array.prototype.push` atau`JSON.parse` tidak dapat dimodifikasi oleh skrip berjalan dalam renderer proses.
 
-Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
+Elektron menggunakan sama teknologi seperti Chromium [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) untuk mengaktifkan perilaku ini.
 
 ### Mengapa?
 
@@ -123,11 +123,11 @@ Pada waktu yang sama, script preload masih memiliki akses ke `dokumen` dan `jend
 ### Bagaimana?
 
 ```js
-// Main process
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    contextIsolation: true,
-    preload: 'preload.js'
+// Main proses
+const mainWindow = baru BrowserWindow({
+  webPreferensi: {
+    kontextIsolation: benar,
+    pramuat: 'pramuat.js'
   }
 })
 ```
