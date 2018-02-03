@@ -20,43 +20,39 @@ Kami merasa bahwa sistem kami saat memperbarui Chromium komponen menyerang kesei
 
 Masalah keamanan ada setiap kali Anda menerima kode dari remote tujuan dan menjalankannya secara lokal. Sebagai contoh, mempertimbangkan sebuah situs terpencil yang ditampilkan di dalam [`BrowserWindow`](browser-window). Jika penyerang entah bagaimana berhasil mengubah konten kata (baik dengan menyerang sumber langsung, atau dengan duduk di antara aplikasi dan tujuan yang sebenarnya), mereka akan dapat mengeksekusi kode asli pada mesin pengguna.
 
-> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten secara jauh, menggunakan [`webview`](web-view) tag dan pastikan untuk menonaktifkan `nodeIntegration`.
+> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten jauh, gunakan [tampilan web` tag dan pastikan untuk menonaktifkan `nodeIntegrasi](web-view).
 
-#### Daftar periksa: Rekomendasi Keamanan
+#### Daftar Periksa: Rekomendasi keamanan
 
-Ini bukan peluru, tapi setidaknya, Anda harus mencoba yang berikut ini:
+Hal ini tidak antipeluru, tetapi paling tidak, Anda harus mencoba berikut:
 
-* [Hanya memuat konten yang aman](#only-load-secure-content)
-* [Menonaktifkan integrasi Node.js di semua penyaji yang menampilkan konten secara terpencil](#disable-node.js-integration-for-remote-content)
+* [Hanya memuat konten aman](#only-load-secure-content)
+* [Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil](#disable-node.js-integration-for-remote-content)
 * [Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil](#enable-context-isolation-for-remote-content)
 * [Gunakan `ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
 <li><a href="#do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`](#handle-session-permission-requests-from-remote-content)
 * [Menentukan sebuah `Kebijakan-konten-keamanan`](#define-a-content-security-policy) dan menggunakan aturan ketat (yaitu `script-src 'diri'`)
 * [Menimpa dan menonaktifkan `eval`](#override-and-disable-eval), yang memungkinkan string yang akan dieksekusi sebagai kode.
 * [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#do-not-set-allowRunningInsecureContent-to-true)
-* [Do not enable experimental features](#do-not-enable-experimental-features)
+* [Tidak mengaktifkan fitur eksperimental](#do-not-enable-experimental-features)
 * [Do not use `blinkFeatures`](#do-not-use-blinkfeatures)
-* [Tampilan Web: Jangan gunakan `allowpopups`](#do-not-use-allowpopups)
-* [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+* [Tampilan Web: Jangan gunakan ` disablewebsecurity </ 0></a></li>
+<li><a href="#verify-webview-options-before-creation">WebViews: Memverifikasi pilihan dan params semua tag <code><webview>`](#do-not-use-allowpopups)
 
-## Only Load Secure Content
+## Hanya memuat konten aman
 
-Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti `HTTPS`. Dengan kata lain, jangan gunakan tidak aman protokol seperti `HTTP`. Demikian pula, kami menyarankan untuk menggunakan `WSS` atas `WS`, `FTPS` melalui `FTP`, dan sebagainya.
 
-### Why?
+### Mengapa?
 
 `HTTPS` has three main benefits:
 
 1) Mengotentikasi server terpencil, membuat aplikasi anda terhubung dengan benar Ke host bukan peniru. 2) Memastikan integritas data, menyatakan bahwa data tidak diubah saat di transit antara aplikasi anda dan host. 3) Mengenkripsi lalu lintas antara pengguna dan tujuan host, sehingga lebih sulit untuk menyadap informasi yang dikirim antara ponsel anda dengan aplikasi dan host.
 
-### How?
+### Bagaimana?
 
 ```js
-// Bad
-browserWindow.loadURL('http://my-website.com')
-
-// Good
-browserWindow.loadURL('https://my-website.com')
+Buruk browserWindow.loadURL ('http://my-website.com') / / baik browserWindow.loadURL ('https://my-website.com')
 ```
 
 ```html
@@ -75,11 +71,11 @@ It is paramount that you disable Node.js integration in any renderer ([`BrowserW
 
 Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://my-website.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.
 
-### Why?
+### Mengapa?
 
 Cross-site scripting (XSS) serangan yang lebih berbahaya jika seorang penyerang dapat melompat keluar dari proses penyaji dan mengeksekusi kode pada komputer pengguna. Cross-site scripting serangan yang cukup umum - dan masalah sementara, kekuatan mereka biasanya terbatas untuk bermain-main dengan situs web yang mereka jalankan. Menonaktifkan integrasi Node.js membantu mencegah XSS dari yang meningkat menjadi serangan "Eksekusi Kode Jarak Jauh "(RCE).
 
-### How?
+### Bagaimana?
 
 ```js
 // Bad
@@ -126,7 +122,7 @@ Konteks isolasi adalah fitur Electron yang memungkinkan pengembang untuk menjala
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
-### Why?
+### Mengapa?
 
 Konteks isolasi memungkinkan setiap script yang berjalan di penyaji untuk membuat perubahan lingkungan JavaScript tanpa khawatir tentang yang bertentangan dengan script API Electron atau script preload.
 
@@ -134,7 +130,7 @@ Sementara masih eksperimental fitur Elektron, konteks isolasi menambahkan lapisa
 
 Pada waktu yang sama, script preload masih memiliki akses ke `dokumen` dan `jendela` objek. Dengan kata lain, anda mendapatkan pengembalian yang layak atas kemungkinan investasi yang sangat kecil.
 
-### How?
+### Bagaimana?
 
 ```js
 // Main process
@@ -172,11 +168,11 @@ Anda mungkin telah melihat permintaan izin saat menggunakan Chrome: Mereka muncu
 
 API didasarkan pada [perizinan API Chromium](https://developer.chrome.com/extensions/permissions) dan menerapkan jenis yang sama dari perizinan.
 
-### Why?
+### Mengapa?
 
 Secara default, Electron akan secara otomatis menyetujui semua permintaan izin kecuali pengembang telah secara manual mengkonfigurasi penangan kustom. Sementara padat default, pengembang yang sadar akan keamanan mungkin ingin menganggap sangat berlawanan.
 
-### How?
+### Bagaimana?
 
 ```js
 const { session } = require('electron')
@@ -202,11 +198,11 @@ session
 
 Kebijakan kemanan konten (CSP) adalah lapisan perlindungan tambahan terhadap serangan cross-site scripting dan serangan injeksi data. Kami merekomendasikan bahwa mereka dapat diaktifkan oleh setiap situs web yang anda muat dalam Electron.
 
-### Why?
+### Mengapa?
 
 CSP memungkinkan server yang menyajikan konten untuk membatasi dan mengontrol sumber daya Electron dapat dimuat untuk halaman web yang diberikan. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
 
-### How?
+### Bagaimana?
 
 Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
 
@@ -224,13 +220,13 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 `eval()` adalah metode JavaScript inti yang memungkinkan eksekusi JavaScript dari sebuah string. Menonaktifkan kemampuan aplikasi anda untuk mengevaluasi JavaScript yang tidak diketahui sebelumnya.
 
-### Why?
+### Mengapa?
 
 `Metode()` eval memiliki satu misi tepat: Untuk mengevaluasi serangkaian karakter seperti JavaScript dan menjalankannya. Ini adalah metode yang diperlukan setiap kali anda perlu mengevaluasi kode yang tidak dikenal sebelumnya. Sementara penggunaan yang sah, sama seperti kasus generator kode yang lain `eval()` adalah sulit untuk mengeras.
 
 Secara umum, lebih mudah untuk benar-benar menonaktifkan `eval()` daripada membuat anti peluru itu. Dengan demikian, jika anda tidak membutuhkannya, itu adalah ide yang baik untuk menonaktifkannya.
 
-### How?
+### Bagaimana?
 
 ```js
 // ESLint will warn about any use of eval(), even this one
@@ -248,11 +244,11 @@ By default, Electron will now allow websites loaded over `HTTPS` to load and exe
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
-### Why?
+### Mengapa?
 
 Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
 
-### How?
+### Bagaimana?
 
 ```js
 // Bad
@@ -268,19 +264,19 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## Do Not Enable Experimental Features
+## Tidak mengaktifkan fitur eksperimental
 
 *Recommendation is Electron's default*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
-### Why?
+### Mengapa?
 
 Fitur eksperimental adalah, seperti nama yang disarankan, eksperimental dan belum diaktifkan untuk semua pengguna Chromium. Selanjutnya, mereka berdampak pada Electron secara keseluruhan kemungkinan belum diuji.
 
 Ada kasus penggunaan yang sah, tapi kecuali anda tahu apa yang anda lakukan, sebaiknya anda tidak mengaktifkan properti ini.
 
-### How?
+### Bagaimana?
 
 ```js
 // Bad
@@ -302,11 +298,11 @@ const mainWindow = new BrowserWindow({})
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
-### Why?
+### Mengapa?
 
 Secara umum, ada kemungkinan alasan yang baik jika fitur ini tidak diaktifkan secara default. Legitimate use cases for enabling specific features exist. Sebagai pengembang, anda harus tahu persis mengapa anda perlu mengaktifkan fitur ini, apa percabangannya, dan bagaimana pengaruhnya terhadap keamanan dari aplikasi anda. Under no circumstances should you enable features speculatively.
 
-### How?
+### Bagaimana?
 
 ```js
 // Bad
@@ -330,11 +326,11 @@ You may have already guessed that disabling the `webSecurity` property on a rend
 
 Do not disable `webSecurity` in production applications.
 
-### Why?
+### Mengapa?
 
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
-### How?
+### Bagaimana?
 
 ```js
 // Bad
@@ -364,11 +360,11 @@ const mainWindow = new BrowserWindow()
 
 If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
-### Why?
+### Mengapa?
 
 If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. Ini mengikuti prinsip dari jumlah minimal akses yang diperlukan: Jangan biarkan situs web membuat popup baru kecuali anda tahu kebutuhan fitur ini.
 
-### How?
+### Bagaimana?
 
 ```html
 <!-- Bad -->
@@ -384,13 +380,13 @@ Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integra
 
 Itu adalah ide yang baik untuk mengendalikan pembuatan baru [`TampilanWeb`](web-view) dari proses utama dan untuk memverifikasi bahwa web Preferensi mereka tidak menonaktifkan fitur keamanan.
 
-### Why?
+### Mengapa?
 
 Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
 Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
 
-### How?
+### Bagaimana?
 
 Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
 
