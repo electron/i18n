@@ -226,7 +226,7 @@ window.eval = global.eval = function () {
 }
 ```
 
-## Do Not Set `allowRunningInsecureContent` to `true`
+## Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`
 
 *Recommendation is Electron's default*
 
@@ -282,7 +282,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## Do Not Use `blinkFeatures`
+## Tampilan Web: Jangan gunakan `allowpopups`
 
 *Recommendation is Electron's default*
 
