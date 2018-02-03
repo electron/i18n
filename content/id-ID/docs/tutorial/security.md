@@ -354,15 +354,15 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 
 ## Memverifikasi WebView pilihan sebelum penciptaan
 
-Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. Namun, WebView akan selalu membuat proses renderer independen dengan sendiri `webPreferences`.
 
 Itu adalah ide yang baik untuk mengendalikan pembuatan baru [`TampilanWeb`](web-view) dari proses utama dan untuk memverifikasi bahwa web Preferensi mereka tidak menonaktifkan fitur keamanan.
 
 ### Mengapa?
 
-Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+Karena WebViews tinggal di DOM, mereka dapat dibuat oleh sebuah script yang menjalankan website Anda bahkan jika Node.js integrasi sebaliknya dinonaktifkan.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
+Elektron memungkinkan pengembang untuk menonaktifkan berbagai fitur keamanan kontrol proses renderer. Dalam kebanyakan kasus, pengembang tidak perlu menonaktifkan salah satu fitur tersebut - dan Anda harus karena itu tidak memungkinkan konfigurasi yang berbeda untuk [`<WebView>`](web-view)tag yang baru dibuat.
 
 ### Bagaimana?
 
