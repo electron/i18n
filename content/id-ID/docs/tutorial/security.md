@@ -184,7 +184,7 @@ session
   })
 ```
 
-## Define a Content Security Policy
+## Tentukan Konten Keamanan Kebijakan
 
 Kebijakan kemanan konten (CSP) adalah lapisan perlindungan tambahan terhadap serangan cross-site scripting dan serangan injeksi data. Kami merekomendasikan bahwa mereka dapat diaktifkan oleh setiap situs web yang anda muat dalam Electron.
 
