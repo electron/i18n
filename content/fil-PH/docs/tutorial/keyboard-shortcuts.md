@@ -16,7 +16,7 @@ menu.append(nee menultem({
   click: () => { console.log('time to print stuff') }}))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Madaling i-configure ang iba't ibang mga kumbinasyon ng key batay sa operating system ng user.
 
 ```js
 {
