@@ -127,7 +127,7 @@ Gumagamit ang Electron ng parehong teknolohiya sa Chromium na [Mga Manuskritong 
 
 Ang kontekstong pagbubukod ay nagpapahintulot ang bawat isa sa mga manuskrito sa renderer na gumawa ng mga pagbabago sa JavaScript environment nang hindi nababahala tungkol sa hindi tugmang manuskrito ng Electron API o preload na manuskrito.
 
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts.
+Habang experimantal pa rin ang tampok ng Electron, dinadagdagan ng kontekstong pagbubukod ang adisyunal layer ng seguridad. Lumulikha ng panibagong mundo ng JavaScript ang Electron na mga API at preload na mga manuskrito.
 
 At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
