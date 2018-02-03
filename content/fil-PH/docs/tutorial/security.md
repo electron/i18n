@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## Handle Session Permission Requests From Remote Content
+## Mamahala ng Sesyon Pahintulot sa mga Kahilingan galing sa Bahagyang Nilalaman
 
 You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
 
