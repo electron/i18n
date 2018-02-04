@@ -325,16 +325,16 @@ const mainWindow = new BrowserWindow()
 
 Maaaring nahulaan mo na ang pag-disable sa `webSecurity` na ari-arian sa a proseso ng renderer ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) ay hindi pinapagana ang mahalaga katangian ng seguridad.
 
-Do not disable `webSecurity` in production applications.
+Huwag paganahin ang `webSecurity` sa mga application ng produksyon.
 
 ### Bakit?
 
-Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
+Ang disable `webSecurity` ay hindi paganahin ang patakaran ng parehong pinanggalingan at itatakda `allowRunningInsecureContent` ang ari-arian sa `true`. Sa madaling salita, pinapayagan nito ang pagpapatupad ng hindi secure na code mula sa iba't ibang mga domain.
 
 ### Paano?
 
 ```js
-// Bad
+// Masama
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -355,15 +355,15 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## Do Not Use `allowpopups`
+## Wag Gamitin `allowpopups`
 
-*Recommendation is Electron's default*
+*Ang rekomendasyon ay default ng Electron*
 
-If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+Kung gumagamit ka ng [`WebViews`](web-view), maaaring kailanganin mo ang mga pahina at script load sa iyong `<webview>` tag upang magbukas ng mga bagong window. Ang `allowpopups` na katangian ay nagbibigay-daan sa kanila upang lumikha ng bagong [`BrowserWindows`](browser-window) gamit ang `window.open()` na paraan. `WebViews` ay hindi pinapayagan na lumikha ng bago bintana.
 
 ### Bakit?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan ang paglikha ng bagong [`BrowserWindows`](browser-window) bilang default. Kasunod nito ang prinsipyo ng minimally required access: Huwag hayaan ang isang website na lumikha ng mga bagong popup maliban kung alam mo na kailangan nito ang tampok na iyon.
 
 ### Paano?
 
@@ -375,9 +375,9 @@ If you do not need popups, you are better off not allowing the creation of new [
 <webview src="page.html"></webview>
 ```
 
-## Verify WebView Options Before Creation
+## I-verify ang Mga Pagpipilian sa WebView Bago Lumikha
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Ang isang WebView na nilikha sa isang proseso ng renderer na walang pagsasama ng Node.js pinagana hindi makapag-enable ang pagsasama mismo. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
 It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
 
