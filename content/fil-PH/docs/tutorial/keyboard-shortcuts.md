@@ -57,15 +57,15 @@ Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// mga kombinasyon
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// mapa ng maramihang mga kombinasyon sa parehong callback
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
-  return false
+  // bumalik mali upang maiwasan ang default na pag-uugali at itigil ang kaganapan mula sa bulubok 
+ bumalik mali
 })
 
 // gmail style sequences
