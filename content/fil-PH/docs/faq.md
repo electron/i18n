@@ -103,9 +103,9 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` ay hindi natukoy.
 
-When using Electron's built-in module you might encounter an error like this:
+Kapag gumagamit ng built-in na module ng Electron maaari kang makatagpo ng error tulad nito:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
