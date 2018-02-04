@@ -377,19 +377,19 @@ Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan 
 
 ## I-verify ang Mga Pagpipilian sa WebView Bago Lumikha
 
-Ang isang WebView na nilikha sa isang proseso ng renderer na walang pagsasama ng Node.js pinagana hindi makapag-enable ang pagsasama mismo. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Ang isang WebView na nilikha sa isang proseso ng renderer na walang pagsasama ng Node.js pinagana hindi makapag-enable ang pagsasama mismo. Gayunpaman, ang isang WebView ay laging lumikha ng isang malayang proseso ng pag-render na may sariling `webPreferences`.
 
-It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
+Magandang ideya na kontrolin ang paglikha ng bagong [`WebViews`](web-view) mula ang pangunahing proseso at upang mapatunayan na hindi pinagana ang kanilang mga webPreferences katangian ng seguridad.
 
 ### Bakit?
 
-Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+Dahil nabubuhay ang WebView sa DOM, maaari silang lumikha ng isang script na tumatakbo sa iyong website kahit na hindi naka-disable ang pagsasama ng Node.js.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
+Ang electron ay nagbibigay-daan sa mga developer na huwag paganahin ang iba't ibang mga tampok ng seguridad na kontrol isang proseso ng tagapag-render. Sa karamihan ng mga kaso, hindi kailangan ng mga developer na huwag paganahin ang alinman sa mga tampok na iyon - at dapat mong hindi pinapayagan ang iba't ibang mga pagsasaayos para sa mga bagong nilikha [`<WebView>`](web-view) na mga tag.
 
 ### Paano?
 
-Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
+Bago ang isang [`<WebView>`](web-view) tag ay naka-attach, Electron ay sunugin ang `will-attach-webview` kaganapan sa hosting `webContents`. Gamitin ang event sa pigilan ang paglikha ng mga WebView na may posibleng mga opsyon na hindi secure.
 
 ```js
 app.on('web-contents-created', (event, contents) => {
