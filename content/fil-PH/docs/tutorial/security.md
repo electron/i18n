@@ -267,20 +267,20 @@ const mainWindow = new BrowserWindow({})
 
 ## Do Not Enable Experimental Features
 
-*Recommendation is Electron's default*
+*Ang rekomendasyon ay default ng Electron*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Maaaring paganahin ng mga advanced na user ng Electron ang mga pang-eksperimentong tampok ng Chromium gamit ang `experimentalFeatures` at `experimentalCanvasFeatures` at ari-arian.
 
 ### Bakit?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Futhermore, their impact on Electron as a whole has likely not been tested.
+Ang mga pang-eksperimentong tampok ay, gaya ng ipinahihiwatig ng pangalan, eksperimentong at hindi pa pinagana para sa lahat ng mga gumagamit ng Chromium. Higit pa rito, ang kanilang epekto sa Electron sa kabuuan ay malamang na hindi nasubukan.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Ang mga lehitimong kaso ng paggamit ay umiiral, ngunit maliban kung alam mo kung ano ang iyong ginagawa, dapat mo hindi paganahin ang ari-arian na ito.
 
 ### Paano?
 
 ```js
-// Bad
+// Masama
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
