@@ -30,9 +30,9 @@ Modul ` protocol ` memiliki beberapa metode berikut:
     Misalnya saat Anda memuat halaman berikut dengan protokol kustom tanpa mendaftarkannya sebagai skema standar, gambar tidak akan dimuat karena skema non-standar tidak dapat mengenali URL relatif:
     
     ```html
-<body>
+<tubuh menandai="crwd-mark">
   <img src='test.png'>
-</body>
+</tubuh>
 ```
 
 Mendaftarkan skema sebagai standar akan memungkinkan akses ke file melalui [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Jika tidak, renderer akan membuang kesalahan keamanan untuk skema ini.
