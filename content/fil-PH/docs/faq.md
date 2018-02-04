@@ -115,13 +115,13 @@ Uncaught TypeError: Hindi mabasa ang 'setZoomLevel' property ng hindi natukoy
 
 Ito ay dahil mayroon ka ng [npm`electron ` module](https://www.npmjs.com/package/electron) naka-install alinman sa lokal o sa buong mundo, na pinapalitan ang built-in na module ng Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Upang i-verify kung ginagamit mo ang tamang built-in na module, maaari mong i-print ang path ng module ng `electron`:
 
 ```javascript
-console.log(require.resolve('electron'))
+aliwin.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+at pagkatapos ay suriin kung ito ay nasa sumusunod na form:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
