@@ -45,7 +45,7 @@ Buka file yang diberikan dengan cara default desktop.
 <p>Mengembalikan <code>Boolean` - Apakah sebuah aplikasi tersedia untuk membuka URL. Jika callback ditentukan, selalu mengembalikan true.</p> 
     Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalnya, mailto: URL di agen email default pengguna).
     
-    ### `shell.moveItemToTrash(fullPath)`
+    ### `shell.moveItemUntukSampah(JalurPenuh)`
     
     * `fullPath` String
     
