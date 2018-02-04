@@ -519,35 +519,35 @@ Alisin ang naka-focus mula sa window.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Bumalik `Boolean` - Kung nakatutok ang window.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Ibinabalik `Boolean` - Kung ang window ay nawasak.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Nagpapakita at nagbibigay ng focus sa window.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Nagpapakita ng window ngunit hindi tumutuon dito.
 
 #### `win.hide()`
 
-Hides the window.
+Itinatago ang bintana.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Nagbabalik `Boolean` - Kung ang window ay nakikita sa user.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Bumalik `Boolean` - Kung ang kasalukuyang window ay isang modal window.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Pinapalaki ang window. Ipapakita rin nito (buti not focus) sa window kung ito ay hindi na ipinapakita.
 
 #### `win.unmaximize()`
 
