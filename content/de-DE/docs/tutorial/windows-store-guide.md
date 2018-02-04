@@ -8,13 +8,13 @@ Microsoft [entwickelte ein Werkzeug, dass Electron-Apps in `.appx`-Pakete](https
 
 Windows 10 "Anniversary Update" kann win32-`.exe`-Dateien ausführen, indem man sie zusammen mit einem virtualisiertem Dateisystem und einer Registry startet. Beides wird während der Kompilierung erstellt durch das Ausführen der App und des Installer in einem Windows-Container. Dies erlaubt Windows genau zu identifizieren, welche Änderungen am Betriebssystem gemacht werden während der Installation. Das Zusammenbringen der Programmdatei mit einem virtuellem Dateisystem und einer virtuellen Registry erlaubt Windows, dass Ein-Klick Installationen und Deinstallationen möglich sind.
 
-Zusätzlich wird die exe innerhalb eines appx-Modells ausgeführt. Somit können viele der APIs genutzt werden, welche in der Universellen Windows-Plattform verfügbar sind. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Zusätzlich wird die exe innerhalb eines appx-Modells ausgeführt. Somit können viele der APIs genutzt werden, welche in der Universellen Windows-Plattform verfügbar sind. Um noch mehr Möglichkeiten zu bekommen, kann sich eine Electron-App im Hintergrund mit einem unsichtbaren UWP-Hintergrund-Task verbinden, welcher zusammen mit der `exe` startet. Sie wird als eine Art "Handlanger" gestartet, um Tasks im Hintergrund zu starten, damit Push Notifications empfangen werden können oder um mit anderen UWP-Anwendungen kommunizieren zu können.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+Um eine existierende Ectron-App zu kompilieren, stellen Sie sicher, dass die folgenden Bedingungen erfüllt sind:
 
 * Windows 10 mit Anniversary Update (veröffentlicht am 2. August 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Das Windows 10 SDK, [Download-Link](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Mindestens Node 4 (zum prüfen, `node -v` ausführen)
 
 Als nächstes: Installieren der `electron-windows-store` CLI:
 
