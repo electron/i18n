@@ -71,19 +71,19 @@ Once the expanded AppX files are created, the tool uses the Windows App Packager
 
 ## Step 3: Using the AppX Package
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+Upang patakbuhin ang iyong pakete, kakailanganin ng iyong mga user ang Windows 10 na may tinatawag na "Anniversary Update" - mga detalye sa kung paano i-update ang Windows ay matatagpuan [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Sa pagsalungat sa mga tradisyunal na apps ng UWP, ang mga naka-package na apps ay kasalukuyang kailangang sumailalim sa isang manual verification process, kung saan maaari mong ilapat ang [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Samantala, ang lahat ng mga gumagamit ay magagawang i-install lamang ang iyong pakete sa pamamagitan ng pag-double-click ito, kaya ang pagsumite sa tindahan ay maaaring hindi kinakailangan kung naghahanap ka lamang ng isang mas madaling paraan ng pag-install. Sa mga pinamamahalaang kapaligiran (usually enterprises), ang `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Ang isa pang mahalagang limitasyon ay ang pinagsama-samang pakete ng AppX ay naglalaman pa rin ng isang win32 executable - at samakatuwid ay hindi tatakbo sa Xbox, HoloLens, o Phones.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Optional: Magdagdag ng Mga Tampok ng UWP gamit ang BackgroundTask
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Maaari mong ipares ang iyong Electron app sa isang hindi nakikitang UWP na gawain sa background na ay nakakakuha upang lubos na gamitin ang mga tampok ng Windows 10 - tulad ng mga push notification, Pagsasama ng Cortana, o mga live na tile.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Upang tingnan kung paano ang isang app ng Electron na gumagamit ng isang gawain sa background upang magpadala ng tustadong tinapay mga abiso at mga live na tile, [check Out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## Optional: I-convert gamit ang Virtualization ng Lalagyan
 
 To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
 
