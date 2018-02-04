@@ -85,11 +85,11 @@ Upang tingnan kung paano ang isang app ng Electron na gumagamit ng isang gawain 
 
 ## Optional: I-convert gamit ang Virtualization ng Lalagyan
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+Upang makabuo ng pakete ng AppX, ginagamit ng `electron-windows-store`CLI ang isang template na dapat gumana para sa karamihan ng mga apps sa Electron. Gayunpaman, kung gumagamit ka ng custom installer, o dapat kang makaranas ng anumang problema sa nabuong pakete, ikaw maaaring magtangkang lumikha ng isang pakete gamit ang compilation sa isang Windows Container - in na mode, ang CLI ay mag-i-install at magpatakbo ng iyong aplikasyon sa blangko ng Windows Container upang matukoy kung anong pagbabago ang eksaktong ginagawa ng iyong aplikasyon sa pagpapatakbo sistema.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Bago patakbuhin ang CLI sa unang pagkakataon, kakailanganin mong i-setup ang "Windows Desktop App Converter ". Kakailanganin ito ng ilang minuto, ngunit huwag mag-alala - kailangan mo lang gawin ito nang isang beses. I-download at Desktop App Converter mula sa [here](https://www.microsoft.com/en-us/download/details.aspx?id=51691). Makakatanggap ka ng dalawang mga file: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
+1. Hindi na zip `DesktopAppConverter.zip`. Mula sa isang nakataas PowerShell (binuksan gamit ang "run as administrator", tiyaking pinapayagan kami ng patakaran sa pagpapatupad ng iyong system patakbuhin ang lahat ng bagay na nais naming patakbuhin sa pamamagitan ng pagtawag `Set-ExecutionPolicy bypass`.
 2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
 3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
 
