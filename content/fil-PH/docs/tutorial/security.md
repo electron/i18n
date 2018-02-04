@@ -394,19 +394,19 @@ Bago ang isang [`<WebView>`](web-view) tag ay naka-attach, Electron ay sunugin a
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
+    // I-strip ang mga preload script kung hindi ginagamit o i-verify ang kanilang lokasyon ay lehitimong
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
     // Disable Node.js integration
-    webPreferences.nodeIntegration = false
+    webPreferences.nodeIntegration = huwad
 
-    // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
+    // I-verify ang URL na na-load
+    kung (!params.src.startsWith('https://yourapp.com/')) {
       event.preventDefault()
     }
   })
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+Muli, ang listahang ito ay nagpapaliit lang sa panganib, hindi ito inaalis. Kung ang iyong layunin ay upang ipakita ang isang website, isang browser ay magiging isang mas ligtas na option.
