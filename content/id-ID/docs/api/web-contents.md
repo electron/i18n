@@ -882,7 +882,7 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     
     Mulai memeriksa elemen pada posisi (`x`, `y`).
     
-    #### `contents.inspectServiceWorker()`
+    #### `konten.inspectServiceWorker()`
     
     Membuka alat pengembang untuk konteks pekerja layanan.
     
