@@ -26,7 +26,7 @@ In Electron teilen sich Node.js und Chromium eine einzelne V8-Instanz - überlic
 
 ### Versionierung
 
-Seit Version 2.0 folgt Electron den Regeln des [`semver`](https://semver.org) (Semantic Versioning). Für die meisten Anwendungen und die aktuelle Version von npm sollte `$ npm install electron` genügen.
+Seit Version 2.0 folgt Electron den Regeln des [`SemVer`](https://semver.org) (Semantic Versioning). Für die meisten Anwendungen und die aktuelle Version von npm sollte `$ npm install electron` genügen.
 
 Der Updateprozess ist in unser [Versionierungs-Dokumentation](electron-versioning.md) detailliert beschrieben.
 
