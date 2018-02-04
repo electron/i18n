@@ -39,8 +39,7 @@ Sa pahina 1.require('electron').remote.getGlobal ('sharedObject').someProperty =
 ```
 
 ```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+// Sa pahina2. console.log(require('electron').remote.getGlobal ('sharedObject').someProperty)
 ```
 
 ## Ang aking window app's/tray na nawawala pagkatapos ng ilang minuto.
