@@ -160,21 +160,21 @@ Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kail
 
 #### Daanan ng Network
 
-Enable outgoing network connections to allow your app to connect to a server:
+Paganahing papalabas ang mga koneksyon ng network para payagan ang iyong app na kumonek sa isang server:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Paganahin ang mga papasok na koneksyon sa network upang payagan ang iyong app na magbukas ng network pakikinig socket:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+Tingnan ang [Enabling Network Access decumentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) para sa higit pa mga detalye.
 
 #### dialog.showOpenDialog
 
@@ -183,7 +183,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
 #### dialog.showSaveDialog
 
@@ -192,9 +192,9 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
-## Known issues
+## Hindi kilalang mga isyu
 
 ### `shell.openItem(filePath)`
 
