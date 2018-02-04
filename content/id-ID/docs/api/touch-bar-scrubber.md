@@ -55,10 +55,10 @@ A ` Boolean </ 0> mewakili apakah akan menampilkan panah pilihan kiri / kanan di
 A ` String </ 0> mewakili mode scrubber ini. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh. Nilai yang mungkin:</p>
 
 <ul>
-<li><code>fixed` - Maps to `NSScrubberModeFixed`</li> 
+<li><code>tetap` - peta ke `NSScrubberModeFixed`</li> 
 
-* `free` - Maps to `NSScrubberModeFree`</ul> 
+* `gratis` - peta ke `NSScrubberModeFree`</ul> 
 
-#### `touchBarScrubber.continuous`
+#### `sentuhBarScrubber.kontinu`
 
 A  Boolean </ 0> mewakili apakah scrubber ini kontinyu atau tidak. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh.</p>
