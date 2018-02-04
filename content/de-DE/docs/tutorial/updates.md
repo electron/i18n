@@ -9,13 +9,13 @@ Als erstes müssen Sie einen Server aufsetzen, von dem das [autoUpdater](../api/
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 
 - [Hazel](https://github.com/zeit/hazel) – Update-Server für private Apps oder Open-Source-Apps. Kann kostenlos aufgesetzt werden mittels [Now](https://zeit.co/now) (mit einem einzigen Kommando), lädt das Update von [GitHub Veröffentlichungen](https://help.github.com/articles/creating-releases/) herunter und nutzt dabei die Vorteile von GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Nuts](https://github.com/GitbookIO/nuts) - Nutzt ebenfalls [GitHub Veröffentlichungen](https://help.github.com/articles/creating-releases/), aber es werden Updates auf der Festplatte zwischengespeichert und es werden private repositories unterstützt.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) - unterstützt ein Dashboard zum verwalten von Veröffentlichungen
+- [Nucleus](https://github.com/atlassian/nucleus) – Ein kompletter Update-Server für Electron-Apps verwaltet von Atlassian. Unterstützt mehrere Anwendungen und Kanäle; nutzt ein statischen Dateispeicher um Serverkosten zu minimieren.
 
-If your app is packaged with [electron-builder](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host.
+Wenn Ihre App mit dem [Electron-Builder](https://github.com/electron-userland/electron-builder) gepackt ist, können Sie das [Electron-Updater](https://www.electron.build/auto-update) - Modul nutzten. Das Modul setzt keinen Server voraus und erlaubt Ihnen Updates von S3, GitHub oder jeden anderen statischen Dateispeicher.
 
-## Implementing updates in your app
+## Einbinden von Updates in Ihre App
 
 Once you've deployed your update server, continue with importing the required modules in your code. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
 
