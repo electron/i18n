@@ -156,9 +156,9 @@ Tsaka, dahil sa paggagamit ng app sandboxing, ang mga sagguniang maaaring ma-acc
 
 ### Karagdagang mga Karapatan
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kailangan mong magdagdag ng karagdagang karapatan sa iyong `parent.plist` file upang magamit ang mga API na ito mula sa iyong bumuo ng Mac App Store ng app.
 
-#### Network Access
+#### Daanan ng Network
 
 Enable outgoing network connections to allow your app to connect to a server:
 
