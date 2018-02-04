@@ -108,11 +108,12 @@ delete window.module;
 Kapag gumagamit ng built-in na module ng Electron maaari kang makatagpo ng error tulad nito:
 
 ```sh
-> require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+>
+nangangailangan('electron').webFrame.setZoomFactor (1.0)
+Uncaught TypeError: Hindi mabasa ang 'setZoomLevel' property ng hindi natukoy
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Ito ay dahil mayroon ka ng [npm`electron ` module](https://www.npmjs.com/package/electron) naka-install alinman sa lokal o sa buong mundo, na pinapalitan ang built-in na module ng Electron.
 
 To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
 
