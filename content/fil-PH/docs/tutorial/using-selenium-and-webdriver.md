@@ -6,14 +6,14 @@ Nagmula sa [ChromeDriver - WebDriver para sa Chrome](https://sites.google.com/a/
 
 ## Inaayos ang Spectron
 
-[Spectron](https://electronjs.org/spectron) ay ang opisyal na sinusuportahan ng ChromeDriver sa pagsusuri ng balangkas para sa Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron) ay ang opisyal na sinusuportahan ng ChromeDriver sa pagsusuri ng balangkas para sa Electron. Ito ay itinayo sa itaas ng [WebdriverIO](http://webdriver.io/) at may mga katulong upang ma-access ang Electron API sa iyong mga pagsubok at mga bundle na ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// Ang isang simpleng pagsubok upang i-verify ang isang nakikitang window ay binuksan gamit ang isang pamagat
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -42,11 +42,11 @@ app.start().then(function () {
 })
 ```
 
-## Setting up with WebDriverJs
+## Pagse-set up sa WebDriverJs
 
-[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
+[WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) ay nagbibigay isang pakete ng Node para sa pagsubok sa web driver, gagamitin namin ito bilang isang halimbawa.
 
-### 1. Start ChromeDriver
+### 1. Simulan ang ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
@@ -100,7 +100,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. Simulan ang ChromeDriver
 
 First you need to download the `chromedriver` binary, and run it:
 
