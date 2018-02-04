@@ -48,9 +48,9 @@ window.addEventListener('keyup', doSomething, true)
 
 Tandaan ang pangatlong parameter na `true` na nangangahulugang ang tagapakinig ay laging makatatanggap ng mga pagpindot sa key sa ibang mga tagapakinig upang hindi sila maaaring tumawag sa `stopPropagation()`.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+Ang kaganapan ng [`before-input-event`](../api/web-contents.md#event-before-input-event) ay ipinapadala bago ipadala ang mga kaganapan ng `keydown` at `keyup` sa pahina. Maaari ito gagamitin upang mahuli at pangasiwaan ang mga pasadyang mga shortcut na hindi nakikita sa menu.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Kung ayaw mong gawin ang pag-parse ng manu-manong pag-parse may mga aklatan na ang mga advanced na key detection tulad ng [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
