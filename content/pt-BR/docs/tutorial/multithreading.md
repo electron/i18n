@@ -22,7 +22,7 @@ Todos os módulos internos do Node.js são suportados em Web Workers e `asar`, a
 
 ## Módulos nativos do Node.js
 
-Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
+Qualquer módulo nativo do Node.js pode ser carregado diretamente em Web Workers, mas é altamente recomendável não fazer isso. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
 
 Note that even if a native Node.js module is thread-safe it's still not safe to load it in a Web Worker because the `process.dlopen` function is not thread safe.
 
