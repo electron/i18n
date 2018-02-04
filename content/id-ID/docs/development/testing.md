@@ -6,10 +6,7 @@ Repositori ini dilengkapi dengan aturan linting untuk JavaScript dan C ++ - sert
 
 ## Linting
 
-Untuk memastikan bahwa JavaScript Anda sesuai dengan gaya pengkodean Elektron, jalankan  npm jalankan lint-js </ 0>, yang akan menjalankan <code> standar </ 0> terhadap kedua Elektron itu sendiri sekaligus sebagai bagian tes. If you are using an editor
-with a plugin/addon system, you might want to use one of the many
-<a href="https://standardjs.com/#are-there-text-editor-plugins">StandardJS addons</a> to be informed of coding style
-violations before you ever commit them.</p>
+Untuk memastikan bahwa JavaScript Anda sesuai dengan gaya pengkodean Elektron, jalankan  npm jalankan lint-js </ 0>, yang akan menjalankan <code> standar </ 0> terhadap kedua Elektron itu sendiri sekaligus sebagai bagian tes. Jika Anda menggunakan editor dengan plugin/addon sistem, Anda mungkin ingin menggunakan salah satu dari banyak <a href="https://standardjs.com/#are-there-text-editor-plugins"> StandardJS addons</a> untuk mengetahui pengkodean pelanggaran gaya sebelum Anda pernah melakukan mereka.</p>
 
 <p>Untuk menjalankan <code> standar </ 0> dengan parameter-parameternya, jalankan <code> npm run lint-js - </ 0> lalu diikuti oleh
 argumen yang Anda inginkan untuk melewati ke <code> standar </ 0>.</p>
