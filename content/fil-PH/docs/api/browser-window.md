@@ -239,7 +239,7 @@ Magbabalik ng:
 
 Napalabas kapag ang window ay sarado. Ito ay pinalabas bago ang `beforeunload` at `mag-alis ng buo` kaganapan ng DOM. Pagtawag `event.preventDefault()` kanselahin ang malapit.
 
-Kadalasan ay nais mong gamitin ang `beforeunload` handler upang magpasiya kung ang dapat sarado ang window, na kung saan ay tinatawag ding kapag ang window ay Na-reload. In Electron, returning any value other than `undefined` would cancel the close. Halimbawa:
+Kadalasan ay nais mong gamitin ang `beforeunload` handler upang magpasiya kung ang dapat sarado ang window, na kung saan ay tinatawag ding kapag ang window ay Na-reload. Sa Electron, ibabalik ang anumang halaga maliban sa `undefined` malapit na. Halimbawa:
 
 ```javascript
 window.onbeforeunload = (e) => {
@@ -400,27 +400,27 @@ Returns `BrowserWindow[]` - An array of all opened browser windows.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+Ibinabalik `BrowserWindow` - Ang window na nakatuon sa application na ito, kung hindi ay babalik `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Ibinabalik `BrowserWindow` - Ang window na nagmamay-ari ng ibinigay na `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Ibinabalik `BrowserWindow` - Ang window na may ibinigay na `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+Nagdadagdag ng extension ng Chrome na matatagpuan sa `path`, at nagbalik ng pangalan ng extension.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Ang paraan ay hindi rin babalik kung ang manifest ng extension ay nawawala o hindi kumpleto.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
