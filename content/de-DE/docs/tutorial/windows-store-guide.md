@@ -2,7 +2,7 @@
 
 Mit Windows 10, die bewährten win32-Programmdateien bekamen einen neuen Verwandten: die Universelle Windows-Plattform. Das neue `.appx`-Format ermöglicht nicht nur neue APIs wie 'Cortana' oder 'Push Notifications', sondern, durch den Windows Store, wird das Aktualisieren und die Installation vereinfacht.
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft [entwickelte ein Werkzeug, dass Electron-Apps in `.appx`-Pakete](https://github.com/catalystcode/electron-windows-store) kompiliert. Somit wird Entwicklern ermöglicht, einige der Annehmlichkeiten, welche sich im neuen Enticklungs-Modul finden, zu nutzen. Diese Anleitung erklärt Ihnen, wie man es benutzt - und was die Möglichkeiten und Begrenzungen von Electron-AppX-Paketen sind.
 
 ## Hintergrund und Voraussetzungen
 
