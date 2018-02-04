@@ -10,11 +10,11 @@ Lesen Sie weiter, um mehr über die Mitwirkenden und Veröffentlichungen von Ele
 
 ## Kernteam und Mitwirkende
 
-Electron wird von einem Team auf GitHub sowie von einer Gruppen von [aktiven Mitwirkenden](https://github.com/electron/electron/graphs/contributors) aus der Community betreut. Einige der Mitwirkenden sind Privatpersonen und andere arbeiten bei größeren Unternehmen, welche mit Electron entwickeln. Wir freuen uns, dass wir regelmäßig Mitwirkende als Betreuer zu diesem Projekt hinzufügen können. Lesen Sie mehr darüber, wie man [bei Electron mitwirken](https://github.com/electron/electron/blob/master/CONTRIBUTING.md) kann.
+Electron wird von einem Team auf GitHub sowie von einer Gruppen von [aktiven Mitwirkenden](https://github.com/electron/electron/graphs/contributors) aus der Community betreut. Einige Mitwirkende sind Privatpersonen und andere arbeiten bei größeren Unternehmen, welche mit Electron entwickeln. Wir freuen uns, dass wir regelmäßig Mitwirkende als Betreuer zu diesem Projekt hinzufügen können. Lesen Sie mehr darüber, wie man [bei Electron mitwirken](https://github.com/electron/electron/blob/master/CONTRIBUTING.md) kann.
 
 ## Versionen
 
-[Electron veröffentlicht regelmäßig neue Versionen](https://github.com/electron/electron/releases). Wir veröffentlichen neuen Versionen, wenn es grundlegende Bugfixes, neue API's oder aktuellere Versionen von Chromium bzw. Node.js gibt.
+[Electron veröffentlicht regelmäßig neue Versionen](https://github.com/electron/electron/releases). Wir veröffentlichen neue Versionen, wenn es grundlegende Bugfixes, neue API's oder aktuellere Versionen von Chromium bzw. Node.js gibt.
 
 ### Aktualisierung der Abhängigkeiten
 
