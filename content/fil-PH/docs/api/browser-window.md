@@ -422,47 +422,47 @@ Nagdadagdag ng extension ng Chrome na matatagpuan sa `path`, at nagbalik ng pang
 
 Ang paraan ay hindi rin babalik kung ang manifest ng extension ay nawawala o hindi kumpleto.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `BrowserWindow.removeExtension(name)`
 
 * `name` String
 
-Remove a Chrome extension by name.
+Alisin ang pangalan ng extension ng Chrome.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Babalik `Object` - Ang mga key ay ang mga pangalan ng extension at bawat halaga isang Bagay na naglalaman ng mga katangian ng `name` at `version`ari-arian.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Nagdaragdag ng extension ng DevTools na matatagpuan sa `path`, at nagbalik ng pangalan ng extension.
 
 Ang ekstensyon ay maaalala kaya kinakailangan mo lamang tumawag ng isang beses sa API na ito, ito Ang API ay hindi magagamit sa programming. Kung susubukin mong magdagdag ng ekstensyon na pweding mayroon na Na-ikarga, ang paraan na ito ay hindi mai-babalik at sa halip mag-log ng babala sa console.
 
 Ang pamamaraan ay hindi maaring babalik kung ang manifest ng ekstensyon ay nawawala o hindi kumpleto.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
 * `name` String
 
-Remove a DevTools extension by name.
+Alisin ang isang extension ng DevTools ayon sa pangalan.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Babalik `Object` - Ang mga key ay ang mga pangalan ng extension at bawat halaga isang Bagay na naglalaman ng mga katangian ng `name` at `version`ari-arian.
 
-To check if a DevTools extension is installed you can run the following:
+Upang masuri kung naka-install ang extension ng DevTools maaari mong patakbuhin ang sumusunod:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -471,11 +471,11 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**noted:** Ang API na ito ay hindi maaaring tawagin bago ang `ready` event ng module na `app` ay ibinubuga.
 
 ### Humahalimbawa sa bahagi nito
 
-Objects created with `new BrowserWindow` have the following properties:
+Ang mga bagay na nilikha gamit ang `new BrowserWindow` ay may mga sumusunod na katangian:
 
 ```javascript
 const {BrowserWindow} = require('electron')
