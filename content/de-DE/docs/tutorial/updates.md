@@ -42,11 +42,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Wenn Ihre App [veröffentlicht](../tutorial/application-distribution.md) ist, wird es für jede neue [GitHub-Veröffentlichung](https://help.github.com/articles/creating-releases/), die Sie herausgeben, ein Update empfangen.
 
-## Applying updates
+## Anwenden von Updates
 
-Now that you've configured the basic update mechanism for your application, you need to ensure that the user will get notified when there's an update. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Nun, da Sie den grundlegenden Update-Mechanismus konfiguriert haben, müssen Sie sicherstellen, dass die Nutzer benachrichtigt werden, wenn es ein Update gibt. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
