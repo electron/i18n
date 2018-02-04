@@ -56,11 +56,11 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
    title: 'Application Update',
    message: process.platform === 'win32' ? releaseNotes : releaseName,
    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
-  }
+ }
 
-  dialog.showMessageBox(dialogOpts, (response) => {
-    if (response === 0) autoUpdater.quitAndInstall()
-  })
+ dialog.showMessageBox(dialogOpts, (response) => {
+   if (response === 0) autoUpdater.quitAndInstall()
+ })
 })
 ```
 
@@ -68,7 +68,7 @@ Stellen Sie außerdem sicher, dass mit Fehlern [umgegangen wird](../api/auto-upd
 
 ```js
 autoUpdater.on('error', message => {
-  console.error('There was a problem updating the application')
-  console.error(message)
+ console.error('There was a problem updating the application')
+ console.error(message)
 })
 ```
