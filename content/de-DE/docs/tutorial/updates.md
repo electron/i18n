@@ -4,7 +4,7 @@ Electron-Apps können auf verschiedenste Weise aktualisiert werden. Die einfachs
 
 ## Einen Update-Server aufsetzen
 
-To get started, you first need to deploy a server that the [autoUpdater](../api/auto-updater.md) module will download new updates from.
+Als erstes müssen Sie einen Server aufsetzen, von dem das [autoUpdater](../api/auto-updater.md)-Modul die Updates beziehen kann.
 
 Abhängig von Ihren Ansprüchen können Sie einen der folgenden Server nutzen:
 
