@@ -17,15 +17,15 @@ Wenn Ihre App mit dem [Electron-Builder](https://github.com/electron-userland/el
 
 ## Einbinden von Updates in Ihre App
 
-Wenn Sie Ihren Update-Server aufgesetzt haben, fahren Sie mit dem Importieren der erforderlichen Module in Ihrem Code fort. The following code might vary for different server software, but it works like described when using [Hazel](https://github.com/zeit/hazel).
+Wenn Sie Ihren Update-Server aufgesetzt haben, fahren Sie mit dem Importieren der erforderlichen Module in Ihrem Code fort. Der folgende Code kann etwas abweichen für die verschiedenen Server, aber er funktioniert wie beschrieben bei der Verwendung von [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Wichtig:** Bitte stellen Sie sicher, das der Code nur in Ihrer gepackten App ausgeführt wird und nicht in der Entwicklungsumgebung. Sie können [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) nutzen, um Ihre Entwicklungsumgebung zu überprüfen.
 
 ```js
 const {app, autoUpdater, dialog} = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+Als nächstes, stellen Sie die URL des Update-Servers bereit und stellen Sie diese dem [autoUpdater](../api/auto-updater.md) zur Verfügung:
 
 ```js
 const server = 'https://your-deployment-url.com'
@@ -34,7 +34,7 @@ const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 autoUpdater.setFeedURL(feed)
 ```
 
-As the final step, check for updates. The example below will check every minute:
+Als letzten Schritt, prüfen Sie, ob es Updates gibt. Das folgende Beispiel überprüft alle 60 Sekunden, ob es Updates gibt:
 
 ```js
 setInterval(() => {
