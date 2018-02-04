@@ -750,7 +750,7 @@ Nagbabalik `Boolean` - Kung ang window ay nakikita sa user.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Inililipat ang window sa gitna ng screen.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -758,7 +758,7 @@ Moves window to the center of the screen.
 * `y` Integer
 * `animate` Boolean (optional) *macOS*
 
-Moves window to `x` and `y`.
+Ilipat ang window sa `x` and `y`.
 
 #### `win.getPosition()`
 
@@ -768,17 +768,17 @@ Returns `Integer[]` - Contains the window's current position.
 
 * `title` String
 
-Changes the title of native window to `title`.
+Binabago ang pamagat ng katutubong window sa `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Bumabalik `String` - Ang pamagat ng katutubong window.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Note:** Ang pamagat ng web page ay maaaring iba mula sa pamagat ng katutubo window.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
-* `offsetY` Float
+* `offsetY` Lumutang
 * `offsetX` Float (optional)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
