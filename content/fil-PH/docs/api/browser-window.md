@@ -212,15 +212,15 @@ Ang mga posibleng halaga at pag-uugali ng pagpipiliang `type` ay nakasalalay sa 
 
 * Sa Linux, posibleng mga uri `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * Sa macOS, posibleng mga uri `desktop`, `textured`. 
-  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+  * Ang `textured` uri ay nagdaragdag ng gradient na anyo ng metal (`NSTexturedBackgroundWindowMask`).
+  * Ang `desktop` uri ay naglalagay ng window sa antas ng desktop background ng desktop (`kCGDesktopWindowLevel - 1`). Tandaan na hindi tatanggap ang desktop window focus, keyboard o mouse event, ngunit maaari mong gamitin ang `globalShortcut` upang makatanggap mas mahaba ang input.
+* Sa Windows, ang posibleng uri ay `toolbar`.
 
-### Instance Events
+### Halimbawa ng Mga Kaganapan
 
-Objects created with `new BrowserWindow` emit the following events:
+Nilikha ang mga bagay with `new BrowserWindow` naglalabas ng mga sumusunod na pangyayari:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
 
 #### Event: 'page-title-updated'
 
@@ -229,7 +229,7 @@ Magbabalik ng:
 * `event` Event
 * `title` String
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Napalabas kapag binago ng dokumento ang pamagat nito, na nagtawag sa `event.preventDefault()` ay maiiwasan ang pamagat ng katutubong window sa pagbabago.
 
 #### Event: 'close'
 
