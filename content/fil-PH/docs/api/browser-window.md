@@ -779,9 +779,9 @@ Bumabalik `String` - Ang pamagat ng katutubong window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Lumutang
-* `offsetX` Float (optional)
+* `offsetX` Lumutang (optiona)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Binabago ang punto ng attachment para sa mga sheet sa macOS. Bilang default, ang mga sheet ay naka-attach sa ibaba lamang ng window frame, ngunit maaaring gusto mong ipakita ang mga ito sa ilalim isang tool na nai-render na HTML. Halimbawa:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -795,29 +795,29 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+Magsisimula o tumitigil na kumikislap sa bintana upang maakit ang pansin ng gumagamit.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+Ginagawa ang window na hindi ipinapakita sa taskbar.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Nagpapasok o nag-iiwan ng kiosk mode.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Bumalik `Boolean` - Kung ang window ay nasa kiosk mode.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Ibinabalik `Buffer` - Ang hawak ng tukoy na platform sa window.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Window` (`unsigned long`) sa Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
