@@ -615,7 +615,7 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Lumalawak at gumagalaw ang lugar ng kliyente ng window (e.g. the web page) ang itinustos na mga hangganan.
 
 #### `win.getContentBounds()`
 
@@ -627,11 +627,12 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 * `height` Integer
 * `animate` Boolean (optional) *macOS*
 
-Resizes the window to `width` and `height`.
+Lumalabas ang window sa `width` at `
+height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -639,7 +640,7 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (optional) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `height`.
 
 #### `win.getContentSize()`
 
@@ -650,11 +651,11 @@ Returns `Integer[]` - Contains the window's client area's width and height.
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Itinatakda ang minimum na laki ng window `width` and `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
 #### `win.setMaximumSize(width, height)`
 
