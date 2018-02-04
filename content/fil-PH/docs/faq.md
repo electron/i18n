@@ -127,7 +127,7 @@ at pagkatapos ay suriin kung ito ay nasa sumusunod na form:
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Kung ito ay tulad ng `node_modules/electron/index.js`, kailangan mo na alinman alisin ang npm`electron` module, o palitan ang pangalan nito.
 
 ```sh
 npm i-tanggalin ang electron npm tanggalin ang -g electron
