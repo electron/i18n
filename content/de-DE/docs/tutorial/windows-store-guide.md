@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## Schritt 1: Die Electron Anwendung packen
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Packen Sie die Anwendung mittels des [Electron-Packagers](https://github.com/electron-userland/electron-packager) (oder einer vergleichbaren Anwendung). Stellen Sie sicher, `node_modules` zu entfernen, welche Sie nicht benötigen in der finalen Anwendungen. Jedes Modul, welches Sie nicht benötigen, erhöht die Größe der Anwendung.
 
 Die Ausgabe sollte etwa wie folgt aussehen:
 
@@ -52,7 +52,7 @@ Die Ausgabe sollte etwa wie folgt aussehen:
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## Schritt 2: Ausführen des Electron-Windows-Store
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
