@@ -742,11 +742,11 @@ On Linux always returns `true`.
 * `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). Ang pag-default ay `floating`. Tignan ang [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) para sa maraming mga detalye.
 * `relativeLevel` Integer (optional) *macOS* - Ang dami ng suson ay mataas sa set itong window ay may kaugnayan sa ibinibigay `level`. Ang kawalan ay ``. Tanda ng ansanas hinihikayat ang antas ng setting na mas mataas sa 1 na itataas `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Nagtatakda kung dapat magpakita palagi ang window sa itaas ng iba pang mga bintana. Pagkatapos setting na ito, ang window ay pa rin ng normal na window, hindi isang window ng toolbox na ay hindi maaaring nakatuon sa.
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Nagbabalik `Boolean` - Kung ang window ay nakikita sa user.
 
 #### `win.center()`
 
