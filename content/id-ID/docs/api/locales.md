@@ -194,7 +194,7 @@
   <td>Guarani</td>
 </tr>
 <tr>
-  <td>gu</td>
+  <td>ગુ</td>
   <td>Gujarati</td>
 </tr>
 <tr>
