@@ -198,17 +198,17 @@ Tingnan ang [Enabling User-Selected File Access decumentation](https://developer
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Mabibigo ito kapag nilagdaan ang app para sa pamamahagi sa Mac App Store. Mag-subscribe sa [#9005](https://github.com/electron/electron/issues/9005) para sa mga update.
 
-#### Workaround
+#### Gumana sa Paligid
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+`shell.openExternal('file: //' + filePath)` ay bubuksan ang file sa default na application hangga't ang extension ay nauugnay sa isang naka-install na app.
 
-## Cryptographic Algorithms Used by Electron
+## Cryptographic Algorithm Ginamit ng Electron
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Depende sa bansa at rehiyon na iyong matatagpuan, maaaring kailanganin ng Mac App Store pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at kahit na hilingin sa iyo magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).
 
-Electron uses following cryptographic algorithms:
+Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
