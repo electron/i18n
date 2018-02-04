@@ -38,7 +38,7 @@ Als letzten Schritt, prüfen Sie, ob es Updates gibt. Das folgende Beispiel übe
 
 ```js
 setInterval(() => {
-  autoUpdater.checkForUpdates()
+ autoUpdater.checkForUpdates()
 }, 60000)
 ```
 
@@ -46,16 +46,16 @@ Wenn Ihre App [veröffentlicht](../tutorial/application-distribution.md) ist, wi
 
 ## Anwenden von Updates
 
-Nun, da Sie den grundlegenden Update-Mechanismus konfiguriert haben, müssen Sie sicherstellen, dass die Nutzer benachrichtigt werden, wenn es ein Update gibt. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Nun, da Sie den grundlegenden Update-Mechanismus konfiguriert haben, müssen Sie sicherstellen, dass die Nutzer benachrichtigt werden, wenn es ein Update gibt. Das kann erreicht werden, indem man die API [events](../api/auto-updater.md#events) des autoUpdater nutzt:
 
 ```js
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Restart', 'Later'],
-    title: 'Application Update',
-    message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+ const dialogOpts = {
+   type: 'info',
+   buttons: ['Restart', 'Later'],
+   title: 'Application Update',
+   message: process.platform === 'win32' ? releaseNotes : releaseName,
+   detail: 'A new version has been downloaded. Restart the application to apply the updates.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {
@@ -64,7 +64,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+Stellen Sie außerdem sicher, dass mit Fehlern [umgegangen wird](../api/auto-updater.md#event-error). Hier ist ein Beispiel, zur Protokollierung nach `stderr`:
 
 ```js
 autoUpdater.on('error', message => {
