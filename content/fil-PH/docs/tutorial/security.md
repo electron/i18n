@@ -289,24 +289,24 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Mabuti
 const mainWindow = new BrowserWindow({})
 ```
 
-## Do Not Use `blinkFeatures`
+## Wag Gamitin `blinkFeatures`
 
-*Recommendation is Electron's default*
+*Ang rekomendasyon ay default ng Electron*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Ang blink ay ang pangalan ng rendering engine sa likod ng Chromium. Tulad ng `experimentalFeatures`, ang `blinkFeatures` ay nagbibigay-daan sa mga developer ng paganahin ang mga tampok na hindi pinagana sa pamamagitan ng default.
 
 ### Bakit?
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+Sa pangkalahatan, malamang na may mga dahilan kung ang isang tampok ay hindi pinagana bilang default. Ang mga lehitimong kaso ng paggamit para sa pagpapagana ng mga partikular na tampok ay umiiral. Bilang isang developer, dapat mong malaman eksakto kung bakit kailangan mong paganahin ang isang tampok, kung ano ang Ang mga resulta ay, at kung paano ito nakakaapekto sa seguridad ng iyong aplikasyon. Sa ilalim walang mga pangyayari na dapat mong paganahin ang mga tampok na speculatively.
 
 ### Paano?
 
 ```js
-// Bad
+// Masama
 const mainWindow = new BrowserWindow({
   webPreferences: {
     blinkFeatures: ['ExecCommandInJavaScript']
@@ -315,15 +315,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Mabuti
 const mainWindow = new BrowserWindow()
 ```
 
-## Do Not Disable WebSecurity
+## Huwag Paganahin ang WebSecurity
 
-*Recommendation is Electron's default*
+*Ang rekomendasyon ay default ng Electron*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
+Maaaring nahulaan mo na ang pag-disable sa `webSecurity` na ari-arian sa a proseso ng renderer ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) ay hindi pinapagana ang mahalaga katangian ng seguridad.
 
 Do not disable `webSecurity` in production applications.
 
@@ -343,7 +343,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Mabuti
 const mainWindow = new BrowserWindow()
 ```
 
