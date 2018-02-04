@@ -26,11 +26,11 @@ Qualquer módulo nativo do Node.js pode ser carregado diretamente em Web Workers
 
 Observe que mesmo se um módulo nativo do Node.js é thread-safe (tarefa seguro) ele ainda assim não é seguro para carregá-lo em um Web Worker, porque a função `process.dlopen` não é thread-safe.
 
-The only way to load a native module safely for now, is to make sure the app loads no native modules after the Web Workers get started.
+A única maneira de carregar um módulo nativo, com segurança, por enquanto, é certificar-se de que o aplicativo carrega os módulos nativos após começar o Web Workers.
 
 ```javascript
 process.dlopen = () => {
-  throw new Error('Load native module is not safe')
+  throw new Error('Módulo nativo não é seguro')
 }
 let worker = new Worker('script.js')
 ```
