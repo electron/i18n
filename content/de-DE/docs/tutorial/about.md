@@ -42,7 +42,7 @@ Um Electron klein (Dateigröße) und nachhaltig (die Verbreitung von Abhängigke
 
 Beispielsweise verwendet Electron nur eine Render-Bibliothek, anstatt das gesamte Chromium. Dies macht es einfacher, Chromium zu aktualisieren, was aber auch heißt, dass manche Funktionen aus Google Chrome in Electron nicht funktionieren.
 
-Neu zu Electron hinzugefügte Funktionen sollten in erste Linie systemeigene API's sein. Wenn eine Funktion ein eigenes Node.js Model ist, dann soll dies wahrscheinlich auch so sein. Schauen Sie zu den [Electron-Tools, die von der Community entwickelt wurden](https://electronjs.org/community).
+Neu zu Electron hinzugefügte Funktionen sollten in erste Linie systemeigene API's sein. Wenn eine Funktion ein eigenes Node.js-Model ist, dann soll dies wahrscheinlich auch so sein. Schauen Sie sich die [Electron-Tools an, die von der Community entwickelt wurden](https://electronjs.org/community).
 
 ## Verlauf
 
@@ -50,9 +50,9 @@ Im folgenden finden Sie die Meilensteine in der Entwicklungsgeschichte Electrons
 
 | :calendar:      | :tada:                                                                                                                                    |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Das Grundgerüst für Atom wird gestartet](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).          |
+| **April 2013**  | ['Atom Shell' wird gestartet](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).                      |
 | **Mai 2014**    | [Das Grundgerüst Atoms wird unter einer Open-Source-Lizenz veröffentlicht](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html). |
-| **April 2015**  | [Das Grundgerüst Atoms wird in Electron umbenannt](https://github.com/electron/electron/pull/1389).                                       |
+| **April 2015**  | ['Atom Shell' wird in Electron umbenannt](https://github.com/electron/electron/pull/1389).                                                |
 | **Mai 2016**    | [Electron veröffentlicht `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                                             |
 | **Mai 2016**    | [Electron-Apps werden mit dem Mac App Store kompatibel](mac-app-store-submission-guide.md).                                               |
 | **August 2016** | [Windows Store unterstützt Electron-Apps](windows-store-guide.md).                                                                        |
