@@ -20,7 +20,7 @@ Electron wird von einem Team auf GitHub sowie von einer Gruppen von [aktiven Mit
 
 Die Electronversion von Chromium wird in der Regel nach zwei oder drei Wochen, wenn eine neue stabile Version von Chromium verfügbar ist, abhängig vom Aufwand der Aktualisierung, erneuert.
 
-Wenn eine neue stabile Version von Node.js veröffentlicht wird, wartet Electron in der Regel ungefähr einen Monat, bevor Electron auf die neue Version zu aktualisiert, um eine stabilere Version zu garantieren.
+Wenn eine neue stabile Version von Node.js veröffentlicht wird, wartet Electron in der Regel ungefähr einen Monat, bevor Electron auf die neue Version aktualisiert, um eine stabilere Version zu garantieren.
 
 In Electron teilen sich Node.js und Chromium eine eine einzelne V8-Instanz - überlicherweise die Version, die Chromium aktuell verwendet. Die meiste Zeit *funktioniert* das, manchmal jedoch muss Node.js gepatched werden.
 
