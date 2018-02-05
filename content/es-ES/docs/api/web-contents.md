@@ -354,7 +354,7 @@ Devuelve:
 
 Emitido cuando un resultado está disponible para la petición de [`webContents.findInPage`].
 
-#### Event: 'media-started-playing'
+#### Evento: 'media-started-playing'
 
 Emitido cuando la media empieza a reproducirse.
 

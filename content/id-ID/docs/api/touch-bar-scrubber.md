@@ -8,7 +8,7 @@ Proses: [ Utama](../tutorial/quick-start.md#main-process)
 
 * `pilihan` Obyek 
   * `item` [ScrubberItem[] ](structures/scrubber-item.md) - Kumpulan item yang akan ditempatkan di scrubber ini
-  * `select` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap 
+  * `memilih` Fungsi - Disebut saat pengguna mengetuk item yang bukan item terakhir yang disadap 
     * `selectedIndex` Bulat - indeks dari item yang dipilih pengguna
   * `sorot` Fungsi - disebut ketika pengguna keran item 
     * `highlightedIndex` Bulat - indeks dari item pengguna menyentuh
@@ -50,15 +50,15 @@ A ` String </ 0> mewakili gaya yang dipilih item dalam scrubber seharusnya. Gaya
 
 A ` Boolean </ 0> mewakili apakah akan menampilkan panah pilihan kiri / kanan di scrubber ini. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh.</p>
 
-<h4><code>touchBarScrubber.mode`</h4> 
+<h4><code>sentuhBarScrubber.mode`</h4> 
 
 A ` String </ 0> mewakili mode scrubber ini. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh. Nilai yang mungkin:</p>
 
 <ul>
-<li><code>fixed` - Maps to `NSScrubberModeFixed`</li> 
+<li><code>tetap` - peta ke `NSScrubberModeFixed`</li> 
 
-* `free` - Maps to `NSScrubberModeFree`</ul> 
+* `gratis` - peta ke `NSScrubberModeFree`</ul> 
 
-#### `touchBarScrubber.continuous`
+#### `sentuhBarScrubber.kontinu`
 
 A  Boolean </ 0> mewakili apakah scrubber ini kontinyu atau tidak. Memperbarui nilai ini segera memperbarui kontrol di panel sentuh.</p>

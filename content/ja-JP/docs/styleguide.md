@@ -1,16 +1,16 @@
 # Electron ドキュメントガイド
 
-これらは、Electronドキュメントを書くためのガイドラインです。
+Electronのドキュメント（英語）を書くためのガイドラインです。
 
 ## タイトル
 
 * 各ページは最上部に1つの`#`レベルのタイトルが必要です。
 * 同じページの章には、`##`レベルのタイトルが必要です。
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* サブチャプターのタイトルは、ネストする深さに応じて `#` の数を増やす必要があります。
+* ページのタイトルは全ての単語の頭文字を大文字にする（capitalizeする）必要があります。ただし、 of や and といった接続詞は例外です。
+* 章のタイトルにおいては、最初の単語の頭文字だけを大文字にします。
 
-Using `Quick Start` as example:
+`Quick Start（クイックスタート）` を例にすると、以下のようになります。
 
 ```markdown
 # Quick Start
@@ -38,25 +38,25 @@ Using `Quick Start` as example:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+ただし、 API リファレンスに関してはこのルールの例外があります。
 
-## マークダウンルール
+## Markdown のルール
 
 * コードブロックで`cmd`の代わりに`sh`を使用します（構文ハイライトのため）。
 * 行は80列で囲む必要があります。
 * 2レベル以上のネストリストはありません（マークダウンレンダラーのため）。
 * すべての`js`と`javascript`コードブロックは、[standard-markdown](http://npm.im/standard-markdown)。
 
-## ピッキング・ワード
+## 使用する言葉
 
 * Use "will" over "would" when describing outcomes.
 * Prefer "in the ___ process" over "on".
 
-## API references
+## API リファレンス
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### ページのタイトル
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
@@ -70,11 +70,11 @@ Using `session` as example:
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### モジュールメソッドとイベント
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+`autoUpdater` を例にすると、以下のようになります。
 
 ```markdown
 # autoUpdater
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### クラス
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
@@ -135,7 +135,7 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### メソッド
 
 The methods chapter must be in the following form:
 
@@ -197,7 +197,7 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### プロパティ
 
 The properties chapter must be in following form:
 
@@ -209,6 +209,6 @@ The properties chapter must be in following form:
 
 The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
 
-## Documentation Translations
+## ドキュメントの翻訳
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+[electron/electron-i18n](https://github.com/electron/electron-i18n#readme) を参照してください

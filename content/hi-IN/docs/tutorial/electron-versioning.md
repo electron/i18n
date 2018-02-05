@@ -121,29 +121,29 @@ npm install --save-dev electron@latest
 
 फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* वह रनटाइम, या बिल्डटाइम के दौरान इनेबल्ड/डिसेबल्ड होना चाहिये; हम रिक्वेस्ट-स्कोपड फीचर ध्वज के सिद्धांत का समर्थन नहीं करते हैं |
+* उसे नये और पुराने कोड पथों को बिल्कुल अलग रखना चाहिये; पुराने कोड को नये फीचर समर्थित के लिए बदलने से फीचर-ध्वज अनुबंध का *उल्लंघन * होता है
+* सॉफ्ट-शाखा के संयोजित होने के बाद फीचर ध्वज अंततः निकाल दिए जाते हैं
 
-We reconcile flagged code with our versioning strategy as follows:
+हम फ्लैगड कोड को हमारी निम्नलिखित संस्करण रणनीति अनुसार संयोजित करते हैं:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. हम स्थिर शाखा में फीचर-ध्वज कोड को बढ़ाने का विचार नहीं करते; फीचर ध्वजों का न्यूनतम इस्तेमाल भी खतरे से खाली नहीं है
+2. फीचर-ध्वज कोड में आपसे ऐपीआई अनुबंध टूट सकते हैं, अगर आप मुख्य संस्करण को नहीं बढ़ाते| फ्लैगड कोड सेमवर का पालन नहीं करता|
 
-# Semantic Commits
+# सिमेंटिक कम्मिट्स
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+हमारा लक्ष्य अपडेट और रिलीज़ प्रक्रिया के हर स्तर पर पारदर्शिता बढ़ाना है | `2.0.0` से शुरुआत करते हुए, हमे सभी पुल रिक्वेस्ट [कन्वेंशनल कम्मिट्स](https://conventionalcommits.org/) स्पेक का पालन करने वाली चाहिये होंगी, जिनका सारांश निम्नलिखित है:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* कम्मिट्स जिनका परिणाम सेमवर **मुख्य** बढ़त होगा, वे `BREAKING CHANGE:` से शुरू होने चाहियें |
+* कम्मिट्स जिनका परिणाम सेमवर **लघु** बढ़त होगा, वे `feat:` से शुरू होने चाहियें |
+* कम्मिट्स जिनका परिणाम सेमवर **पैच** बढ़त होगा, वे `fix:` से शुरू होने चाहियें |
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* हम कम्मिट्स के स्क्वाशिंग की अनुमति देते हैं, बस स्क्वाशड सन्देश ऊपर दिए गये सन्देश फॉर्मेट का पालन करता हो |
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* एक पुल अनुरोध में मौज़ूद कुछ कम्मिट्स अगर एक सिमेंटिक प्रीफिक्स को शामिल नहीं करती तो इसकी भी तब तक अनुमति है, जब तक कि उसी पुल अनुरोध में बाद वाली कमिट एक अर्थपूर्ण सिमेंटिक सन्देश शामिल करती हो |
 
-# Versionless `master`
+# संस्करण बिना `मास्टर`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* `मास्टर` शाखा अपने `package.json` में `0.0.0-dev` को हमेशा शामिल करेगी
+* रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
+* रिलीज़ शाखायें सही संस्करण को शामिल *करती* हैं अपने `package.json` में

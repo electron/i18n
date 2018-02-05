@@ -91,7 +91,7 @@ clipboard:
   copy: コピー
   copy_to_clipboard: クリップボードにコピー
   copied: コピーしました
-or: または
+or: or
 pages:
   '/':
     title: Electron | JavaScript, HTML, CSSによるクロスプラットフォームなデスクトップアプリ開発

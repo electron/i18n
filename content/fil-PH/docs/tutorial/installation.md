@@ -5,7 +5,7 @@
 To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
 
 ```sh
-npm install electron --save-dev
+npm instol elektron -- isave-dev
 ```
 
 See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.

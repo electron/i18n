@@ -20,7 +20,7 @@ docs:
     propose_change: Melhorar este documento
     version_history: Histórico de versões
     translate: Traduzir este documento
-    view_all_docs: Todos os documentos em uma página
+    view_all_docs: Todos Documentos em Uma Página
 languages:
   choose_language: Escolha o seu idioma
   translation_progress: Progresso da Tradução
@@ -60,7 +60,7 @@ get_started:
   description: Para começar com o Electron, confira os recursos abaixo. Saiba como envolver o seu aplicativo web com Electron, acesse todas as APIs e gerado de instaladores.
 explore:
   title: Explore as APIs do Electron
-  description: "O <a href='https://github.com/electron/electron-api-demos'> elétron API Demos app</a> demonstra de forma interativa as características mais importantes da elétron API. Veja o que é possível com elétron em exemplos de código e dicas úteis para a construção de seu aplicativo."
+  description: "O <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> demonstra de forma interativa as características mais importantes da API do Electron. Veja o que é possível com Electron em exemplos de código e dicas úteis para a construção de seu aplicativo."
 download_from_github: Download no GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a> no GitHub
 quick_start:

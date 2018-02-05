@@ -44,7 +44,7 @@ app.on('ready', () => {
 Se você quiser lidar com os atalhos de teclado para um [BrowserWindow](../api/browser-window.md), você pode "observar" eventos `keyup` e `keydown` no objeto da janela dentro do processo de renderização.
 
 ```js
-window.addEventListener('keyup', doSomething, true)
+window.addEventListener('keyup', fazerAlgumaCoisa, true)
 ```
 
 Observe o terceiro paramêtro `true`, significa que o "listener" irá receber o evento de pressionar teclas antes de outros "listeners", para que eles não tenham `stopPropagation()` chamado para eles.
@@ -55,25 +55,21 @@ Se você não quer fazer análises manuais de atalhos, há bibliotecas que fazem
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('show shortcuts!') })
+Mousetrap.bind('?', () => { console.log('Mostrar atalhos!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// compinações
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// mapa para várias combinações para o mesmo retorno de chamada
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
+  // retorna false para impedir o comportamento padrão e evento de parada de propagação 
   return false
 })
 
-// gmail style sequences
-Mousetrap.bind('g i', () => { console.log('go to inbox') })
-Mousetrap.bind('* a', () => { console.log('select all') })
-
-// konami code!
+// estilo de sequências do gmail!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })

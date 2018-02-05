@@ -112,7 +112,7 @@ ketika <code> mulai </ 0> dipanggil. Ini API hanya tersedia pada MacOS , jika An
 <li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
 <li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'</li>
 <li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
-<li><code>_productName` String - The product name in the `crashReporter` `options` object.</li> 
+<li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok</li> 
     
     * `prod` String - Nama produk yang mendasarinya. Dalam hal ini Elektron.
     * `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.

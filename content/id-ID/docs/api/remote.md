@@ -54,13 +54,13 @@ export.withLocalCallback = () = > {
 ```
 
 ```javascript
-// renderer process
+// renderer proses
 const mapNumbers = require('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
 
 console.log(withRendererCb, withLocalCb)
-// [undefined, undefined, undefined], [2, 3, 4]
+// [terdefinidi, terdefinisi, terdefinisi], [2, 3, 4]
 ```
 
 Seperti yang Anda lihat, nilai pengembalian sinkron caller caller tidak seperti diharapkan, dan tidak sesuai dengan nilai kembalian dari callback identik yang hidup dalam proses utamanya.

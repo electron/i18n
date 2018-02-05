@@ -882,7 +882,7 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     
     Mulai memeriksa elemen pada posisi (`x`, `y`).
     
-    #### `contents.inspectServiceWorker()`
+    #### `konten.inspectServiceWorker()`
     
     Membuka alat pengembang untuk konteks pekerja layanan.
     
@@ -977,7 +977,7 @@ Untuk event `mouseWheel`, objek `event` juga memiliki properti berikut:
 * `accelerationRatioY` Integer
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
-#### `contents.beginFrameSubscription([onlyDirty ,]callback)`
+#### `<code>dirtyRect` [Rectangle](structures/rectangle.md)</code>
 
 * `onlyDirty` Boolean (opsional) - Default ke `false`
 * `callback` Fungsi 

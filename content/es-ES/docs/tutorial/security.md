@@ -228,7 +228,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 El método `eval()` tiene precisamente una misión: evaluar una serie de personajes como JavaScript y ejecutarlo. Es un método requerido cuando necesites evaluar códigos que no es conocido acerca del tiempo. Mientras que casos de uso legítimo existen, justo como cualquier otro generador de códigos, `eval()` es difícil de endurecer.
 
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+En general, Es más sencillo desactivar por completo `eval()` que hacerlo a prueba de balas. Por los tanto, si usted no lo necesita, es buena idea desactivarlo.
 
 ### ¿Còmo?
 
@@ -240,19 +240,19 @@ window.eval = global.eval = function () {
 }
 ```
 
-## Do Not Set `allowRunningInsecureContent` to `true`
+## No establecer `allowRunningInsecureContent` a `true`
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
-By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
+Por defecto, Electron ahora le permitirá a sitios web descargados por medio de `HTTPS` descargar y ejecutar guiones, CSS o complementos de fuentes inseguras (<0<HTTP</code>). Establecer la propiedad `allowRunningInsecureContent` a `true` deshabilita esa protección.
 
-Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
+Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar recursos subsecuentes mediante `HTTP` es también conocido como "contenido mixto".
 
 ### ¿Por què?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+En pocas palabras, descargar contenido mediante `HTTPS` asegura la autenticidad e integridad de los recursos cargados mientras se cifrar el tráfico como tal. Ver la sección en [only displaying secure content](#only-display-secure-content) para más detalles.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Bad
@@ -268,17 +268,17 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## Do Not Enable Experimental Features
+## No habilite funciones experimentales
 
 *La recomendación por defecto es Electrón*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Usuarios avanzados de Electron pueden habilitar funciones experimentales Chromium usando las propiedades `experimentalFeatures` y `experimentalCanvasFeatures`.
 
 ### ¿Por què?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Futhermore, their impact on Electron as a whole has likely not been tested.
+Funciones experimentales son, como el nombre lo dice, experimentales y no han sido habilitadas por todos los usuarios Chromium. Además, su impacto general en Electron seguramente no ha sido puesto a prueba.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciendo, usted no debería habilitar esta propiedad.
 
 ### ¿Còmo?
 
@@ -298,13 +298,13 @@ const mainWindow = new BrowserWindow({})
 
 ## Do Not Use `blinkFeatures`
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink es el nombre del motor de renderizado detrás de Chromium. Como con `experimentalFeatures`, la propiedad `blinkFeatures` le permite a los desarrolladores habilitar funciones que han sido deshabilitadas por defecto.
 
 ### ¿Por què?
 
-Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
+En general, probablemente hay buenas razones si una función no fue habilitada por defecto. Casos de uso legítimo para habilitar funciones especificas existen. Como un desarrollador, usted debería saber exactamente por qué usted necesita habilitar una función, cuales son las ramificaciones, y como impacta las seguridad de su aplicación. Usted no debería habilitar funciones de forma especulativa bajo ninguna circunstancia.
 
 ### ¿Còmo?
 
@@ -322,19 +322,19 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## Do Not Disable WebSecurity
+## No Deshabilite WebSecurity
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
+Usted debe haber adivinado para este momento que al deshabilitar la propiedad `webSecurity` en un procesador de renderizado ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) deshabilita funciones de seguridad elementales.
 
-Do not disable `webSecurity` in production applications.
+No deshabilite `webSecurity` en aplicaciones de producción.
 
 ### ¿Por què?
 
-Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
+Desactivar `webSecurity` deshabilitará la política de mismo-origen y establecer la propiedad `allowRunningInsecureContent` a `true`. En otras palabras, permite la ejecución de código inseguro desde diferentes dominios.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Bad
@@ -358,15 +358,15 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## Do Not Use `allowpopups`
+## No haga Uso de `allowpopups`
 
-*Recommendation is Electron's default*
+*La recomendación es el defecto del electrón*
 
-If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+Si usted está usando [`WebViews`](web-view), tal vez necesite las páginas y guiones cargados en su etiqueta `<webview>` para abrir nuevas ventanas. El atributo `allowpopups` los habilita para crear un nuevo [`BrowserWindows`](browser-window) usando el método `window.open()`. De distinta forma, `WebViews` no están permitidos para crear nuevas ventanas.
 
 ### ¿Por què?
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+Si usted no necesita ventanas emergentes, le conviene no permitir la creación de nuevos [`BrowserWindows`](browser-window) por defecto. Esto sigue el principio de acceso de mínimamente requerido: No permita que un sitio web cree nuevas ventanas excepto usted sepa que se necesita esa función.
 
 ### ¿Còmo?
 
@@ -378,21 +378,21 @@ If you do not need popups, you are better off not allowing the creation of new [
 <webview src="page.html"></webview>
 ```
 
-## Verify WebView Options Before Creation
+## Verificar Opciones de WebView antes de la Creación
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
-It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
+Es una buena idea controlar la creación de un nuevo [`WebViews`](web-view) desde el proceso principal y verificar que sus webPreferences no deshabiliten funciones de seguridad.
 
 ### ¿Por què?
 
-Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+Como los WebViews viven en el DOM, ellos pueden ser creados por un guión ejecutado en su sitio web incluso si la integración de Node.js está deshabilitada.
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
+Electron habilita a desarrolladores a inhabilitar varias funciones de seguridad que controlan un proceso de renderizado. En la mayoría de los casos, desarrolladores no necesitas deshabilitar ninguno de esas funciones - y usted debería por lo tanto no permitir configuraciones diferentes para etiquetas [`<WebView>`](web-view) creadas recientemente.
 
-### ¿Còmo?
+### ¿Cómo?
 
-Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
+Antes de que una etiqueta [`<WebView>`](web-view) sea anexada, Electron disparará el evento `will-attach-webview` en el organizador `webContents`. Utilice el evento para prevenir la creación de WebViews con opciones posiblemente inseguras.
 
 ```js
 app.on('web-contents-created', (event, contents) => {

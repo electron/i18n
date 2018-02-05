@@ -73,62 +73,62 @@ Retorna:
 * `event` Event
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Emitido quando o usuário deseja abrir um arquivo com a aplicação. O evento `open-file` geralmente é emitido quando a aplicação já está aberta e o SO deseja reutilizar a aplicação para abrir o arquivo. `open-file` também é emitido quando um arquivo é solto sobre o dock e a aplicação ainda não está em execução. Certifique-se que o evento `open-file` seja detectado desde o início da aplicação para manipulá-lo (inclusive antes do evento `ready` ser emitido).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Se você deseja manipular esse evento, você deve chamar `event.preventDefault()`.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+No Windows, você tem que analisar `process.argv` (no processo principal) para obter o filepath.
 
-### Event: 'open-url' *macOS*
+### Evento: 'open-url' no *macOS*
 
 Retorna:
 
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Emitido quando o usuário deseja abrir um URL com a aplicação. O arquivo `Info.plist` da sua aplicação deve definir o esquema do URL dentro da chave `CFBundleURLTypes`, e definir `NSPrincipalClass` para `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Se você deseja manipular esse evento, você deve chamar `event.preventDefault()`.
 
-### Event: 'activate' *macOS*
+### Evento: 'activate' no *macOS*
 
 Retorna:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+Emitido quando a aplicação é ativada. Várias ações podem disparar esse evento, tais como iniciando o aplicativo pela primeira vez, a tentativa de re-iniciar o aplicativo quando ele já está sendo executado, ou clicando no ícone de barra de tarefas ou doca do aplicativo.
 
-### Event: 'continue-activity' *macOS*
-
-Retorna:
-
-* `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
-
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
-
-### Event: 'new-window-for-tab' *macOS*
+### Evento: 'continue-activity' no *macOS*
 
 Retorna:
 
 * `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contém estados específicos da aplicação guardados pela atividade em outro dispositivo.
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) quando a atividade em outro dispositivo deseja ser continuada. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
 
-### Event: 'browser-window-blur'
+Uma atividade do usuário pode ser continuada apenas em uma aplicação que tem o mesmo Team ID do desenvolvedor como o aplicativo fonte da atividade e que suporta o tipo da atividade. Tipos de atividade suportadas são especificadas no `Info.plist` do aplicativo sob a chave `NSUserActivityTypes`.
+
+### Evento: 'new-window-for-tab' no *macOS*
+
+Retorna:
+
+* `event` Event
+
+Emitido quando o usuáro clica no botão de nova guia nativo do macOS. O botão de nova guia somente é visível se a `BrowserWindow` atual tem um `tabbingIdentifier`
+
+### Evento: 'browser-window-blur'
 
 Retorna:
 
 * `event` Event
 * `window` BrowserWindow
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Emitido quando uma [browserWindow](browser-window.md) é desfocada.
 
-### Event: 'browser-window-focus'
+### Evento: 'browser-window-focus'
 
 Retorna:
 
@@ -165,16 +165,16 @@ Retorna:
 * `error` String - O código do erro
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Função 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Define considerar o certificado como confiável
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Emitido quando a verificação do `certificate` para o `url` falha, para confiar no certificado você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // Verificação de lógica.
     event.preventDefault()
     callback(true)
   } else {
@@ -196,7 +196,7 @@ Retorna:
 
 Emitido quando um certificado de cliente é solicitado.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+O `url` corresponde à entrada de navegação solicitando o certificado do cliente e `callback` pode ser chamado com uma entrada filtrada da lista. Usar `event.preventDefault()` previne a aplicação de utilizar o primeiro certificado da store.
 
 ```javascript
 const {app} = require('electron')
@@ -229,7 +229,7 @@ Retorna:
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+O comportamento padrão é cancelar todas as autenticações, para superar isso você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(username, password)` com as credenciais.
 
 ```javascript
 const {app} = require('electron')
@@ -240,21 +240,21 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Retorna:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Emitido quando o processo da GPU para de funcionar ou é interrompido.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Event: 'accessibility-support-changed' no *macOS* e no *Windows*
 
 Retorna:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` quando o suporte a acessibilidade do Chrome estiver ativo, `false` caso contrário.
 
 Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é acionado quando a tecnologias assistivas, tais como leitores de tela, estão habilitadas ou desabilitadas. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
@@ -276,23 +276,23 @@ Este método garante que todos os manipuladores de vento `beforeunload` e `unloa
 
 Sai imediatamente com `exitCode`. `exitCode` padrão é 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os eventos `before-quit` e `will-quit` não serão emitidos.
 
 ### `app.relaunch([options])`
 
 * `opções` Objeto (opcional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+  * `args` String[] - (opcional)
+  * `execPath` String (opcional)
 
-Relaunches the app when current instance exits.
+Reinicia a aplicação quando a instância atual sair.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Por padrão a nova instância utilizará o mesmo diretório em uso e argumentos da linha de comando da instância atual. Quando `args` são especificado, os `args` vão ser passados como argumentos de linha de comando em seu lugar. Quando `execPath` é especificado, o `execPath` será executado no reinício no lugar da aplicação atual.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Note que nesse método a aplicação não fecha quando executado. Você deve chamar `app.quit` ou `app.exit` depois de chamar `app.relaunch` para fazer a aplicação reiniciar.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Quando `app.relaunch` é chamado por várias vezes, várias instâncias serão iniciadas depois da instância atual sair.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Um exemplo de reinício da instância atual imediatamente e adicionar um novo argumento de linha de comando à nova instância:
 
 ```javascript
 const {app} = require('electron')
@@ -303,84 +303,84 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Retorna `Boolean` - `true` se o Electron tiver inicializado, `false` caso contrário.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+No Linux, foca na primeira janela visível. No macOS, torna o aplicativo a aplicação ativa. No Windows, foca na primeira janela da aplicação.
 
-### `app.hide()` *macOS*
+### `app.hide()` no *macOS*
 
-Oculta todas as janelas do aplicativo sem minimizar-las.
+Oculta todas as janelas do aplicativo sem minimizá-las.
 
-### `app.show()` *macOS*
+### `app.show()` no *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Mostra as janelas da aplicação após elas terem sido escondidas. Não foca nelas automaticamente.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Retorna `String` - O diretório da aplicação atual.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Retorna `String` - O caminho para um diretório especial ou arquivo ligado à `name`. Em falha, um `Error` é gerado.
 
 Você pode solicitar os seguintes caminhos pelo o nome:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
+* `home` Diretório central do usuário.
+* `appData` Diretório de dados de usuário específico, que por padrão retorna: 
+  * `%APPDATA%` no Windows
   * `$XDG_CONFIG_HOME` ou `~/.config` no Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `~/Library/Application Support` no macOS
+* `userData` O diretório que guarda as configurações da sua aplicação, que por padrão é o diretório `appData` anexado com o nome da sua aplicação.
+* `temp` Diretório temporário.
+* `exe` O arquivo executável atual.
+* `module` A biblioteca `libchromiumcontent`.
+* `desktop` O diretório da Área de Trabalho do usuário atual.
+* `documents` Diretório dos "Meus Documentos" de um usuário.
+* `downloads` Diretório dos Downloads de um usuário.
+* `music` Diretório para a música de um usuário.
+* `pictures` Diretório para as imagens de um usuário.
+* `videos` Diretório para os vídeos de um usuário.
+* `pepperFlashSystemPlugin` Caminho completo até a versão do sistema do plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opções` Objeto (opcional) 
+* `options` Object (opcional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Função 
+    * `large` - 48x48 no *Linux*, 32x32 no *Windows*, não suportado no *macOS*.
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Obtém o ícone associado a um caminho.
 
-On *Windows*, there a 2 kinds of icons:
+No *Windows*, há 2 tipos de ícones:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Ícones associados a certas extensões de arquivo, como `.mp3`, `.png`, etc.
+* Ícones contidos no próprio arquivo, como `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+No *Linux* e *macOS*, os ícones dependem da aplicação associada ao tipo mime de arquivo.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Muda o `path` à um diretório especial ou arquivo relacionado ao `name`. Se o caminho aponta um diretório inexistente, o diretório será criado por esse método. Caso falhe, um `Error` é gerado.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Você pode modificar apenas caminhos de um `name` definidos no `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Por padrão, cachês e cookies de páginas web serão guardados dentro do diretório `userData`. Se você quer mudar esse local, você deve modificar o caminho `userData` antes que o evento `ready` do `app` seja emitido.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Retorna `String` - A versão da aplicação carregada. Se nenhuma versão é encontrada no `package.json` da aplicação, a versão do conjunto atual ou executável será retornada.
 
 ### `app.getName()`
 
@@ -598,7 +598,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
