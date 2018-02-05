@@ -353,34 +353,34 @@ Você pode solicitar os seguintes caminhos pelo o nome:
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Função 
+    * `large` - 48x48 no *Linux*, 32x32 no *Windows*, não suportado no *macOS*.
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Obtém o ícone associado a um caminho.
 
-On *Windows*, there a 2 kinds of icons:
+No *Windows*, há 2 tipos de ícones:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Ícones associados a certas extensões de arquivo, como `.mp3`, `.png`, etc.
+* Ícones contidos no próprio arquivo, como `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+No *Linux* e *macOS*, os ícones dependem da aplicação associada ao tipo mime de arquivo.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Muda o `path` à um diretório especial ou arquivo relacionado ao `name`. Se o caminho aponta um diretório inexistente, o diretório será criado por esse método. Caso falhe, um `Error` é gerado.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Você pode modificar apenas caminhos de um `name` definidos no `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+Por padrão, cachês e cookies de páginas web serão guardados dentro do diretório `userData`. Se você quer mudar esse local, você deve modificar o caminho `userData` antes que o evento `ready` do `app` seja emitido.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Retorna `String` - A versão da aplicação carregada. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
 
 ### `app.getName()`
 
