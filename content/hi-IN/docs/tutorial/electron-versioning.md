@@ -128,14 +128,14 @@ npm install --save-dev electron@latest
 हम फ्लैगड कोड को हमारी निम्नलिखित संस्करण रणनीति अनुसार संयोजित करते हैं:
 
 1. हम स्थिर शाखा में फीचर-ध्वज कोड को बढ़ाने का विचार नहीं करते; फीचर ध्वजों का न्यूनतम इस्तेमाल भी खतरे से खाली नहीं है
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+2. फीचर-ध्वज कोड में आपसे ऐपीआई अनुबंध टूट सकते हैं, अगर आप मुख्य संस्करण को नहीं बढ़ाते| फ्लैगड कोड सेमवर का पालन नहीं करता|
 
-# Semantic Commits
+# सिमेंटिक कम्मिट्स
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+हमारा लक्ष्य अपडेट और रिलीज़ प्रक्रिया के हर स्तर पर पारदर्शिता बढ़ाना है | `2.0.0` से शुरुआत करते हुए, हमे सभी पुल रिक्वेस्ट [कन्वेंशनल कम्मिट्स](https://conventionalcommits.org/) स्पेक का पालन करने वाली चाहिये होंगी, जिनका सारांश निम्नलिखित है:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
+* कम्मिट्स जिनका परिणाम सेमवर **मुख्य** बढ़त होगा, वे `BREAKING CHANGE:` से शुरू होने चाहियें |
+* कम्मिट्स जिनका परिणाम सेमवर **लघु** बढ़त होगा, वे `feat:` से शुरू होने चाहियें |
 * Commits that would result in a semver **patch** bump must start with `fix:`.
 
 * We allow squashing of commits, provided that the squashed message adheres the the above message format.
