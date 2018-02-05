@@ -380,7 +380,7 @@ Por padrão, cachês e cookies de páginas web serão guardados dentro do diret�
 
 ### `app.getVersion()`
 
-Retorna `String` - A versão da aplicação carregada. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Retorna `String` - A versão da aplicação carregada. Se nenhuma versão é encontrada no `package.json` da aplicação, a versão do conjunto atual ou executável será retornada.
 
 ### `app.getName()`
 
