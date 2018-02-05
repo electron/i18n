@@ -121,7 +121,7 @@ npm install --save-dev electron@latest
 
 फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
+* वह रनटाइम, या बिल्डटाइम के दौरान इनेबल्ड/डिसेबल्ड होना चाहिये; हम रिक्वेस्ट-स्कोपड फीचर ध्वज के सिद्धांत का समर्थन नहीं करते हैं |
 * it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
 * feature flags are eventually removed after the soft-branch is merged
 
