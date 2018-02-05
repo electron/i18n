@@ -136,14 +136,14 @@ npm install --save-dev electron@latest
 
 * कम्मिट्स जिनका परिणाम सेमवर **मुख्य** बढ़त होगा, वे `BREAKING CHANGE:` से शुरू होने चाहियें |
 * कम्मिट्स जिनका परिणाम सेमवर **लघु** बढ़त होगा, वे `feat:` से शुरू होने चाहियें |
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* कम्मिट्स जिनका परिणाम सेमवर **पैच** बढ़त होगा, वे `fix:` से शुरू होने चाहियें |
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* हम कम्मिट्स के स्क्वाशिंग की अनुमति देते हैं, बस स्क्वाशड सन्देश ऊपर दिए गये सन्देश फॉर्मेट का पालन करता हो |
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* एक पुल अनुरोध में मौज़ूद कुछ कम्मिट्स अगर एक सिमेंटिक प्रीफिक्स को शामिल नहीं करती तो इसकी भी तब तक अनुमति है, जब तक कि उसी पुल अनुरोध में बाद वाली कमिट एक अर्थपूर्ण सिमेंटिक सन्देश शामिल करती हो |
 
-# Versionless `master`
+# संस्करण बिना `मास्टर`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
+* `मास्टर` शाखा अपने `package.json` में `0.0.0-dev` को हमेशा शामिल करेगी
+* रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
 * Release branches *do* contain the correct version in their `package.json`
