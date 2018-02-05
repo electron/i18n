@@ -325,31 +325,31 @@ Retorna `String` - O diretório da aplicação atual.
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Retorna `String` - O caminho para um diretório especial ou arquivo ligado à `name`. Em falha, um `Error` é gerado.
 
 Você pode solicitar os seguintes caminhos pelo o nome:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
+* `home` Diretório central do usuário.
+* `appData` Diretório de dados de usuário específico, que por padrão retorna: 
+  * `%APPDATA%` no Windows
   * `$XDG_CONFIG_HOME` ou `~/.config` no Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+  * `~/Library/Application Support` no macOS
+* `userData` O diretório que guarda as configurações da sua aplicação, que por padrão é o diretório `appData` anexado com o nome da sua aplicação.
+* `temp` Diretório temporário.
+* `exe` O arquivo executável atual.
+* `module` A biblioteca `libchromiumcontent`.
+* `desktop` O diretório da Área de Trabalho do usuário atual.
+* `documents` Diretório dos "Meus Documentos" de um usuário.
+* `downloads` Diretório dos Downloads de um usuário.
+* `music` Diretório para a música de um usuário.
+* `pictures` Diretório para as imagens de um usuário.
+* `videos` Diretório para os vídeos de um usuário.
+* `pepperFlashSystemPlugin` Caminho completo até a versão do sistema do plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opções` Objeto (opcional) 
+* `options` Object (opcional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
