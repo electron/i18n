@@ -73,11 +73,11 @@ Once the expanded AppX files are created, the tool uses the Windows App Packager
 
 Um Ihr Paket ausführen zu können, wird Windows 10 mit dem sogenannten "Anniversary Update" benötigt. Details, wie man Windows aktualisieren kann, können [hier](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update) gefunden werden.
 
-Im Gegensatz zu traditionellen UWP-Apps, müssen sich gepackte Apps einem manuellen Prüfprozess unterziehen. Dieser kann [hier](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) beantragt werden. In der Zwischenzeit kann jeder Benutzer Ihr Paket mittels eines Doppel-Klicks installieren. Somit wird eine Einreichung im Windows Store nicht nötig, wenn Sie nur nach einer einfacheren Installationsmethode Ausschau halten. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Im Gegensatz zu traditionellen UWP-Apps, müssen sich gepackte Apps einem manuellen Prüfprozess unterziehen. Dieser kann [hier](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) beantragt werden. In der Zwischenzeit kann jeder Benutzer Ihr Paket mittels eines Doppel-Klicks installieren. Somit wird eine Einreichung im Windows Store nicht nötig, wenn Sie nur nach einer einfacheren Installationsmethode Ausschau halten. In einer verwalteten Umgebung (normalerweise Unternehmen), das `Add-AppxPackage` [Powershell Cmdlet](https://technet.microsoft.com/en-us/library/hh856048.aspx) kann benutzt werden, um es auf automatischem Wege zu installieren.
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Eine weitere wichtige Beschränkung ist, dass das kompilierte AppX-Paket noch eine win32 Programmdatei beinhaltet. Somit wird es nicht auf der Xbox, HoloLens oder Mobiltelefonen ausführbar sein.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Optional: Hinzufügen von UWP-Funktionen mittels eines Hintergrundprozesses
 
 You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
 
