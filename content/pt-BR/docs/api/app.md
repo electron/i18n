@@ -79,7 +79,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
 
-### Event: 'open-url' *macOS*
+### Evento: 'open-url' no *macOS*
 
 Retorna:
 
@@ -90,7 +90,7 @@ Emitted when the user wants to open a URL with the application. Your application
 
 You should call `event.preventDefault()` if you want to handle this event.
 
-### Event: 'activate' *macOS*
+### Evento: 'activate' no *macOS*
 
 Retorna:
 
