@@ -8,11 +8,11 @@ const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
 const hubdown = require('hubdown')
-const slugg = require('slugg')
 const locales = require('../lib/locales')
 const hrefType = require('href-type')
 const URL = require('url')
 const packageJSON = require('../package.json')
+const GithubSlugger = require('github-slugger')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -127,6 +127,7 @@ async function parseFile (file) {
 }
 
 function splitMd (md) {
+  const slugger = new GithubSlugger()
   const sections = []
   let section = { name: null, body: [] }
   let inCodeBlock = false
@@ -137,7 +138,7 @@ function splitMd (md) {
       inCodeBlock = !inCodeBlock
     }
     if (isHeading(curr)) {
-      section.name = slugg(curr)
+      section.name = slugger.slug(curr)
     }
     section.body.push(curr)
 
