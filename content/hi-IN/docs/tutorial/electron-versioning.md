@@ -122,12 +122,12 @@ npm install --save-dev electron@latest
 फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
 * वह रनटाइम, या बिल्डटाइम के दौरान इनेबल्ड/डिसेबल्ड होना चाहिये; हम रिक्वेस्ट-स्कोपड फीचर ध्वज के सिद्धांत का समर्थन नहीं करते हैं |
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* उसे नये और पुराने कोड पथों को बिल्कुल अलग रखना चाहिये; पुराने कोड को नये फीचर समर्थित के लिए बदलने से फीचर-ध्वज अनुबंध का *उल्लंघन * होता है
+* सॉफ्ट-शाखा के संयोजित होने के बाद फीचर ध्वज अंततः निकाल दिए जाते हैं
 
-We reconcile flagged code with our versioning strategy as follows:
+हम फ्लैगड कोड को हमारी निम्नलिखित संस्करण रणनीति अनुसार संयोजित करते हैं:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
+1. हम स्थिर शाखा में फीचर-ध्वज कोड को बढ़ाने का विचार नहीं करते; फीचर ध्वजों का न्यूनतम इस्तेमाल भी खतरे से खाली नहीं है
 2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
 
 # Semantic Commits
