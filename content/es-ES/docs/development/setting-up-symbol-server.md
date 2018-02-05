@@ -8,13 +8,13 @@ El URL oficial del servidor de símbolos para Electron es https://electron-symbo
 
 ## Usando el servidor de símbolos en Windbg
 
-La ruta del símbolo de Windbg se configura con un valor de cadena delimitado con caracteres de asterisco. To use only the Electron symbol server, add the following entry to your symbol path (**Note:** you can replace `c:\code\symbols` with any writable directory on your computer, if you'd prefer a different location for downloaded symbols):
+La ruta del símbolo de Windbg se configura con un valor de cadena delimitado con caracteres de asterisco. Para utilizar solo el servidor de símbolos de Electron, añada la siguiente entrada a la ruta de símbolo (**Nota:** puede reemplazar `c:\code\symbols` con cualquier directorio de escritura en el computador, si se prefiere una ubicación distinta para los símbolos descargados):
 
 ```powershell
 SRV*c:\code\symbols\*https://electron-symbols.githubapp.com
 ```
 
-Set this string as `_NT_SYMBOL_PATH` in the environment, using the Windbg menus, or by typing the `.sympath` command. Si también desea obtener símbolos de el servidor de símbolos de Microsoft, debería enumerarlos primero:
+Configure esta cadena como `_NT_SYMBOL_PATH` en el entorno, utilizando los menús Windbg o escribiendo el comando `.sympath`. Si también desea obtener símbolos de el servidor de símbolos de Microsoft, debería enumerarlos primero:
 
 ```powershell
 SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\symbols\*https://electron-symbols.githubapp.com

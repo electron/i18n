@@ -1,29 +1,29 @@
-# GPUFeatureStatus Object
+# GPUFeatureStatus Objekt
 
-* `2d_canvas` Zeichenkette - Leinwand
-* `flash_3d` Zeichenkette - Flash
-* `flash_stage3d` Zeichenkette - Flash Bühne3D
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
+* `2d_canvas` String - Stage
+* `flash_3d` String - Flash
+* `flash_stage3d` String - Flash Stage3D
+* `flash_stage3d_baseline` String - Flash Stage3D Baseline-Profile
 * `gpu_compositing` String - Compositing
-* `multiple_raster_threads` String - Multiple Raster Threads
+* `multiple_raster_threads` String - Mehrere Raster-Threads
 * `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
-* `rasterization` String - Rasterization
-* `video_decode` String - Video Decode
-* `video_encode` String - Video Encode
-* `vpx_decode` String - VPx Video Decode
+* `rasterization` String - Rasterisierung
+* `video_decode` String - Video decodierung
+* `video_encode` String - Video kodieren
+* `vpx_decode` String - VPx Video decodierung
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+Mögliche werte:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
-* `disabled_off_ok` - Disabled (yellow)
-* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
-* `unavailable_off` - Unavailable (red)
-* `unavailable_off_ok` - Unavailable (yellow)
-* `enabled_readback` - Hardware accelerated but at reduced performance (yellow)
-* `enabled_force` - Hardware accelerated on all pages (green)
-* `enabled` - Hardware accelerated (green)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on` - Force enabled (green)
+* `disabled_software` - Nur Software. Hardwarebeschleunigung deaktiviert (gelb)
+* `disabled_off` - Deaktiviert (rot)
+* `disabled_off_ok` - Deaktiviert (gelb)
+* `unavailable_software` - Nur Software, Hardwarebeschleunigung nicht verfügbar (gelb)
+* `unavailable_off` - Nicht verfügbar (rot)
+* `unavailable_off_ok` - Nicht verfübar (gelb)
+* `enabled_readback` - Hardware beschleunigt, aber mit reduzierter Leistung (geld)
+* `enabled_force` - Hardware beschleunigt auf jeder Seite (grün)
+* `enabled` - Hardware beschleunigt (grün)
+* `enabled_on` - Aktiviert (grün)
+* `enabled_force_on` - Zwangs Aktiviert (grün)

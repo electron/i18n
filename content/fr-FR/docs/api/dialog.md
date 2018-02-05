@@ -30,7 +30,7 @@ Le module `dialog` dispose des méthodes suivantes :
   * `defaultPath` String (facultatif)
   * `buttonLabel` String (facultatif) - Étiquette personnalisé pour le bouton de confirmation. Si laissé vide, l'étiquette par défaut sera utilisé.
   * `filters` [FileFilter[]](structures/file-filter.md) (facultatif)
-  * `propriétés` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue devrait utiliser. Les valeurs suivantes sont prises en charge : 
+  * `properties` String[] (facultatif) - Contient les fonctionnalités que la boîte de dialogue devrait utiliser. Les valeurs suivantes sont prises en charge : 
     * `openFile` - Permet la sélection de fichiers.
     * `openDirectory` - Permet la sélection de dossiers.
     * `multiSelections` - Permet la sélection de multiples chemins.

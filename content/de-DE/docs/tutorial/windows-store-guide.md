@@ -1,20 +1,20 @@
 # Anleitung: Windows Store
 
-With Windows 10, the good old win32 executable got a new sibling: The Universal Windows Platform. The new `.appx` format does not only enable a number of new powerful APIs like Cortana or Push Notifications, but through the Windows Store, also simplifies installation and updating.
+Mit Windows 10, die bewährten win32-Programmdateien bekamen einen neuen Verwandten: die Universelle Windows-Plattform. Das neue `.appx`-Format ermöglicht nicht nur neue APIs wie 'Cortana' oder 'Push Notifications', sondern, durch den Windows Store, wird das Aktualisieren und die Installation vereinfacht.
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft [entwickelte ein Werkzeug, dass Electron-Apps in `.appx`-Pakete](https://github.com/catalystcode/electron-windows-store) kompiliert. Somit wird Entwicklern ermöglicht, einige der Annehmlichkeiten, welche sich im neuen Enticklungs-Modul finden, zu nutzen. Diese Anleitung erklärt Ihnen, wie man es benutzt - und was die Möglichkeiten und Begrenzungen von Electron-AppX-Paketen sind.
 
-## Background and Requirements
+## Hintergrund und Voraussetzungen
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+Windows 10 "Anniversary Update" kann win32-`.exe`-Dateien ausführen, indem man sie zusammen mit einem virtualisiertem Dateisystem und einer Registry startet. Beides wird während der Kompilierung erstellt durch das Ausführen der App und des Installer in einem Windows-Container. Dies erlaubt Windows genau zu identifizieren, welche Änderungen am Betriebssystem gemacht werden während der Installation. Das Zusammenbringen der Programmdatei mit einem virtuellem Dateisystem und einer virtuellen Registry erlaubt Windows, dass Ein-Klick Installationen und Deinstallationen möglich sind.
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Zusätzlich wird die exe innerhalb eines appx-Modells ausgeführt. Somit können viele der APIs genutzt werden, welche in der Universellen Windows-Plattform verfügbar sind. Um noch mehr Möglichkeiten zu bekommen, kann sich eine Electron-App im Hintergrund mit einem unsichtbaren UWP-Hintergrund-Task verbinden, welcher zusammen mit der `exe` startet. Sie wird als eine Art "Handlanger" gestartet, um Tasks im Hintergrund zu starten, damit Push Notifications empfangen werden können oder um mit anderen UWP-Anwendungen kommunizieren zu können.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+Um eine existierende Ectron-App zu kompilieren, stellen Sie sicher, dass die folgenden Bedingungen erfüllt sind:
 
 * Windows 10 mit Anniversary Update (veröffentlicht am 2. August 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Das Windows 10 SDK, [Download-Link](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Mindestens Node 4 (zum prüfen, `node -v` ausführen)
 
 Als nächstes: Installieren der `electron-windows-store` CLI:
 
@@ -22,9 +22,9 @@ Als nächstes: Installieren der `electron-windows-store` CLI:
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## Schritt 1: Die Electron Anwendung packen
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Packen Sie die Anwendung mittels des [Electron-Packagers](https://github.com/electron-userland/electron-packager) (oder einer vergleichbaren Anwendung). Stellen Sie sicher, `node_modules` zu entfernen, welche Sie nicht benötigen in der finalen Anwendungen. Jedes Modul, welches Sie nicht benötigen, erhöht die Größe der Anwendung.
 
 Die Ausgabe sollte etwa wie folgt aussehen:
 
@@ -52,7 +52,7 @@ Die Ausgabe sollte etwa wie folgt aussehen:
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## Schritt 2: Ausführen des Electron-Windows-Store
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 

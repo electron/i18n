@@ -1,4 +1,4 @@
-# Upgrading Node
+# Mettre à jour Node
 
 ## Discussion
 
@@ -14,15 +14,15 @@ Once all of Electron's dependencies are building and using the same copy of V8, 
 
 [FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
 
-So in short, the primary steps are:
+En résumé, les principales étapes sont :
 
-1. Update Electron's Node fork to the desired version
-2. Backport Node's V8 patches to our copy of V8
-3. Update Electron to use new version of Node 
-  - Update submodules
-  - Update Node.js build configuration
+1. Mettre à jour le fork Node d'Electron vers la version souhaitée
+2. Backporter les patches de Node V8 à notre copie de V8
+3. Mettre à jour Electron pour utiliser la nouvelle version de Node 
+  - Mettre à jour les submodules
+  - Mettre à jour la configuration de compilation de Node.js
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Mise à jour du [fork](https://github.com/electron/node) Node d'Electron
 
 1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
 2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
@@ -43,13 +43,13 @@ We need to generate a patch file from each patch applied to V8.
 
 1. Get a copy of Electron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
+2. Executez `script/update` to get the latest libcc 
   - This will be time-consuming
 3. Remove our copies of the old Node v8 patches 
   - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
   - Remove those files from `patches/v8/`: 
-    - `git rm` the patchfiles
-    - edit `patches/v8/README.md`
+    - `git rm` les fichiers de patch
+    - modifiez `patches/v8/README.md`
     - commit these removals
 4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
   - `git log --oneline deps/V8`
@@ -71,7 +71,7 @@ We need to generate a patch file from each patch applied to V8.
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
     - This is needed because the first patch has Node commit checksums that we don't want
   - Confirm that checksums are the only difference between the two patches: 
-    - `diff -u test.patch patches/v8/xxx-patch_name.patch`
+    - `diff -u test.patch patches/v8/xxx-nom_patch.patch`
   - Replace the old patch with the new: 
     - `mv test.patch patches/v8/xxx-patch_name.patch`
   - Add the patched code to the index *without* committing: 
@@ -97,7 +97,7 @@ We need to generate a patch file from each patch applied to V8.
       electron$ script/bootstrap.py -d
       electron$ script/build.py -c -D
 
-## Notes
+## Remarques
 
 - libcc and V8 are treated as a single unit
 - Node maintains its own fork of V8 

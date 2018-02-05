@@ -1,12 +1,12 @@
 # autoUpdater
 
-> Kendiliğinden güncelleme yapmak için uygulamaları etkinleştirin.
+> Uygulamaları kendiliğinden güncelleme yapmak için etkinleştirin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
 `autoUpdater` modülü [Squirrel](https://github.com/Squirrel) frameworkü için bir arayüz sağlar.
 
-Bu projelerden birini kullanarak uygulamanızı dağıtmak için bir çoklu platform yayın sunucusunu hızlı bir şekilde başlatabilirsiniz:
+Uygulamaları dağıtmak için bir çoklu platform yayın sunucusunu bu projelerden birini kullanarak hızlıca başlatabilirsiniz:
 
 * [nuts](https://github.com/GitbookIO/nuts): *Uygulamalarınız için bir akıllı serbest bırakma sunucusudur ve Github'ı backend olarak kullanır. Squirrel ile otomatik güncelleştirmeler (Mac & Windows)*
 * [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Tam özellikli, elektron uygulamaları için kendinden barındırmalı serbest bırakma sunucusu, otomatik güncelleme ile uyumludur.*

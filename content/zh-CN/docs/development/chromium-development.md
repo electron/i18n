@@ -21,7 +21,7 @@
 $ ./script/bootstrap.py -d --build_debug_libcc
 ```
 
-This will download and build libchromiumcontent locally, similarly to the `--build_release_libcc`, but it will create a shared library build of libchromiumcontent and won't strip any symbols, making it ideal for debugging.
+这将在本地下载和生成 libchromiumcontent, 类似于 `-build_release_libcc `, 但它将创建 libchromiumcontent 的共享库版本, 并且不会剥离任何符号, 从而使其成为调试的理想选择。
 
 When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
 

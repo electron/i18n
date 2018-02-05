@@ -16,17 +16,17 @@ menu.append(nee menultem({
   click: () => { console.log('time to print stuff') }}))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+Madaling i-configure ang iba't ibang mga kumbinasyon ng key batay sa operating system ng user.
 
 ```js
 {
-  accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Ctrl+Shift+I'
+  accelerator: process.platform === 'darwin'? 'Alt + Cmd + I': 'Ctrl + Shift + I'
 }
 ```
 
-## Global Shortcuts
+## Mga Shortcut ng Global
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Maaari mong gamitin ang module na [globalShortcut](../api/global-shortcut.md) upang makita ang mga kaganapan sa keyboard kahit kailan ang application ay walang focus sa keyboard.
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -38,34 +38,34 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Mga shortcut sa loob ng isang BrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Kung nais mong mahawakan ang mga shortcut sa keyboard para sa isang [BrowserWindow](../api/browser-window.md), maaari mong gamitin ang `keyup` at `keydown` tagapakinig ng kaganapan sa object window sa loob ng proseso ng renderer.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Tandaan ang pangatlong parameter na `true` na nangangahulugang ang tagapakinig ay laging makatatanggap ng mga pagpindot sa key sa ibang mga tagapakinig upang hindi sila maaaring tumawag sa `stopPropagation()`.
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+Ang kaganapan ng [`before-input-event`](../api/web-contents.md#event-before-input-event) ay ipinapadala bago ipadala ang mga kaganapan ng `keydown` at `keyup` sa pahina. Maaari ito gagamitin upang mahuli at pangasiwaan ang mga pasadyang mga shortcut na hindi nakikita sa menu.
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+Kung ayaw mong gawin ang pag-parse ng manu-manong pag-parse may mga aklatan na ang mga advanced na key detection tulad ng [mousetrap](https://github.com/ccampbell/mousetrap).
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
 Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// combinations
+// mga kombinasyon
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// map multiple combinations to the same callback
+// mapa ng maramihang mga kombinasyon sa parehong callback
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // return false to prevent default behavior and stop event from bubbling
-  return false
+  // bumalik mali upang maiwasan ang default na pag-uugali at itigil ang kaganapan mula sa bulubok 
+ bumalik mali
 })
 
 // gmail style sequences

@@ -56,7 +56,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
 Creates a new tray icon associated with the `image`.
 
@@ -161,7 +161,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+### Metodi Istanza
 
 The `Tray` class has the following methods:
 
@@ -171,7 +171,7 @@ Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
 Sets the `image` associated with this tray icon.
 

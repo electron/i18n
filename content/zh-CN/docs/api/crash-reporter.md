@@ -61,52 +61,52 @@ crashReporter.start({
  })
 ```
 
-**注意：**在macOS上，Electron使用一个`crashpad`客户端来收集并报告崩溃信息。 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**注意：**在macOS上，Electron使用一个`crashpad`客户端来收集并报告崩溃信息。 如果要启用崩溃报告，则需要在主进程使用`crashReporter.start`初始化`crashpad`， 不管你想收集哪个进程的报告。 使用这种方式初始化后，crashpad将处理从所有进程收集的崩溃报告。 你仍然需要从渲染器进程或子进程中调用`crashReporter.start` ，否则崩溃报告将不包含`companyName`, `productName`和任何`extra`信息。
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+返回 [`CrashReport`](structures/crash-report.md):
 
 返回上次崩溃报告的日期和ID。如果没有崩溃报告 发送或crash reporter尚未开始，则返回`null`。
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+返回 [`CrashReport[]`](structures/crash-report.md):
 
 返回所有上传的崩溃报告。每个报告都包含日期和上传ID。
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+返回 `Boolean` - 是否已将报告提交到服务器。通过`start` 方法或 `setUploadToServer`设置.
 
 **注意：** 这个API仅可从主进程调用。
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server
+* `uploadToServer` Boolean *macOS* - 是否将报告提交到服务器
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+通常, 是否提交是由用户对系统进行偏好设置而决定的。不能在 `start` 之前调用该方法，否则无效.
 
 **注意：** 这个API仅可从主进程调用。
 
 ### `crashReporter.setExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long. Specifying `null` or `undefined` will remove the key from the extra parameters.
+* `key` String - 参数键，长度必须小于64个字符
+* ` value `字符串参数值, 长度必须少于64个字符。指定 ` null ` 或 ` undefined ` 将从参数中删除该键。
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 此 API 仅在 macOS 上可用, start 首次调用后, 如果您希望在在 Linux 和 Windows 上添加或更新额外参数, 您可以更新 `extra` 选项并再次调用 `start` 。
 
-## Crash Report Payload
+## 崩溃报告内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* `ver` String - Electron 的版本.
+* `platform` String - 例如 'win32'.
+* `process_type` String - 例如 'renderer'.
+* `guid` String - 例如 '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` String - `package.json` 里的版本号.
+* `_productName` String - `crashReporter` `options` 对象中的产品名字
+* `prod` String - 基础产品名字. 在这种情况下为 Electron.
+* `_companyName` String - `crashReporter` `options` 对象中的公司名称
+* `upload_file_minidump` File - `minidump` 格式的崩溃报告
 * All level one properties of the `extra` object in the `crashReporter` `options` object.

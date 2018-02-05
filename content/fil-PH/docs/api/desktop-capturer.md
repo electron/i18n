@@ -1,13 +1,13 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Ang "access" ay impormasyon tungkol sa mga pinagmulan ng "media" na maaaring magamit upang makunan ng "audio" at "video" galing sa "desktop" gamit ang [`navigator.mediaDevices.getUserMedia`]API.
 
 Proseso:[Tagabigay](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+Ang sumunod na halimbawa ay nagpapakita kung paano kumuha sa bidyo galing sa "desktop window" na ang pamagat ay `Electron`:
 
 ```javascript
-// In the renderer process.
+// sa pagpoproseso ng "render".
 const {desktopCapturer} = require('electron')
 
 desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
@@ -41,9 +41,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+Upang makakuha ng bidyo galing sa na ibinigay ng `desktopCapturer`na pumipigil sa pagdaan sa [`navigator.mediaDevices.getUserMedia`] na dapat kasama sa `chromeMediaSource: 'desktop'`, at `audio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Para makuha ang parehong "audio" at bidyo galing sa kabuuang "desktop" na pumipigil dumaan sa [`navigator.mediaDevices.getUserMedia`] dapat kasama sa `chromeMediaSource: 'desktop'`, para sa parehong `audio` at `video`, ngunit hindi dapat kasama ang pagpigil sa `chromeMediaSourceId`.
 
 ```javascript
 const constraints = {
@@ -60,14 +60,14 @@ const constraints = {
 }
 ```
 
-## Pamamaraan
+## Mga Pamamaraan
 
-The `desktopCapturer` module has the following methods:
+Ang modyul sa `desktopCapturer` ay mayroong mga sumusunod na paraan:
 
 ### `desktopCapturer.getSources(options, callback)`
 
 * `mga opsyon` Bagay 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
+  * `types` String[] - Ang array ng "Strings" na naglilista ng iba't-ibang uri ng mga "source" ng "desktop" na kukunin, ang mga maaaring gamitin na uri ay `screen` at `window`.
   * `thumbnailSize` [Ang laki](structures/size.md) (opsyonal) - ang laki ng media sourceay thumbnail dapat sukatan. Default ay `150` x `150`.
 * `tumawag muli` Punsyon 
   * `error` Error
@@ -75,4 +75,4 @@ The `desktopCapturer` module has the following methods:
 
 Simulan pangalap ng impormasyon tungkol sa lahat ng magagamit na desktop media sources, at tawag `callback(error, sources)` kapag tapos na.
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+Ang `sources` ay isang "array" ng [`DesktopCapturerSource`](structures/desktop-capturer-source.md) "object", ang bawat `DesktopCapturerSource` ay kumakatawan sa "screen" o sa indibidwal na "window" na maaaring makuha.

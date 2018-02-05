@@ -150,7 +150,7 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
       * `ang uploadData` Mga bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
-* `ang pagkumpleto` Function (optional) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -164,7 +164,7 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` Ang string
-* `ang pagkumpleto` Function (optional) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
@@ -188,7 +188,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
     * `filePath` String
-* `ang pagkumpleto` Function (optional) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
@@ -204,7 +204,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
     * `data` String (opsyonal)
-* `ang pagkumpleto` Function (optional) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
@@ -220,7 +220,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `tumawag muli` Punsyon 
     * `buffer` Buffer (optional)
-* `ang pagkumpleto` Function (optional) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `Buffer` as a response.
@@ -242,7 +242,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `ang uploadData` Mga bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
-* `ang pagkumpleto` Function (optional) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -250,7 +250,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` Ang string
-* `ang pagkumpleto` Function (optional) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.

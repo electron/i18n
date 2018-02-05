@@ -156,25 +156,25 @@ Tsaka, dahil sa paggagamit ng app sandboxing, ang mga sagguniang maaaring ma-acc
 
 ### Karagdagang mga Karapatan
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+Depende sa kung aling mga Electron API ang ginagamit ng iyong app, maaaring kailangan mong magdagdag ng karagdagang karapatan sa iyong `parent.plist` file upang magamit ang mga API na ito mula sa iyong bumuo ng Mac App Store ng app.
 
-#### Network Access
+#### Daanan ng Network
 
-Enable outgoing network connections to allow your app to connect to a server:
+Paganahing papalabas ang mga koneksyon ng network para payagan ang iyong app na kumonek sa isang server:
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+Paganahin ang mga papasok na koneksyon sa network upang payagan ang iyong app na magbukas ng network pakikinig socket:
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+Tingnan ang [Enabling Network Access decumentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) para sa higit pa mga detalye.
 
 #### dialog.showOpenDialog
 
@@ -183,7 +183,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
 #### dialog.showSaveDialog
 
@@ -192,23 +192,23 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+Tingnan ang [Enabling User-Selected File Access decumentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
-## Known issues
+## Hindi kilalang mga isyu
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Mabibigo ito kapag nilagdaan ang app para sa pamamahagi sa Mac App Store. Mag-subscribe sa [#9005](https://github.com/electron/electron/issues/9005) para sa mga update.
 
-#### Workaround
+#### Gumana sa Paligid
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+`shell.openExternal('file: //' + filePath)` ay bubuksan ang file sa default na application hangga't ang extension ay nauugnay sa isang naka-install na app.
 
-## Cryptographic Algorithms Used by Electron
+## Cryptographic Algorithm Ginamit ng Electron
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Depende sa bansa at rehiyon na iyong matatagpuan, maaaring kailanganin ng Mac App Store pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at kahit na hilingin sa iyo magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).
 
-Electron uses following cryptographic algorithms:
+Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)

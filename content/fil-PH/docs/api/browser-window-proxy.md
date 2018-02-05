@@ -27,11 +27,11 @@ ipakita ang code sa maliit na window
 #### `win.focus()
  `
 
-Focuses the child window (brings the window to front).
+Tumutok sa window ng bata (brings the window to front).
 
 #### `win.print()`
 
-Invokes the print dialog on the child window.
+Nakapasok ang dialog na naka-print sa window ng bata.
 
 #### `win.postMessage(message, targetOrigin)`
 

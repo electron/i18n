@@ -1,4 +1,4 @@
-# hiwalay
+# ang remote
 
 > Gamitin ang mga modyul ng pangunahing proseso mula sa proseso ng tagabigay.
 
@@ -18,29 +18,29 @@ win.loadURL('https://github.com')
 
 ## Mga bagay ng Remote
 
-Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` ay kumakatawan sa isang bagay sa pangunahing proseso (tinatawag natin itong malayong bagay o malayong punsyon). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Bawat bagay (kasama ang mga punsyon) ay nagbabalik dahil ang modyul ng `remote` ay kumakatawan sa isang bagay sa pangunahing proseso (tinatawag natin itong malayong bagay o malayong punsyon). Kapag iyong hiningi ang mga pamamaraan ng isang remote na bagay, tawagin ang isang remote na punsyon, o gumawa ng isang bagong bagay kasama ang remote na tagagawa (punsyon), ikaw ay talagang nagpapadala ng sabay-sabay na mga maki-prosesong mensahe.
 
-In the example above, both `BrowserWindow` and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+Sa mga halimbawa sa itaas, kapuwa ang `BrowserWindow` at ang `win` ay mga remote na bagay at ang `new BrowserWindow` ay hindi gumawa ng isang bagay sa `BrowserWindow` sa prosesong tagabigay. Sa halip, ito ay gumawa ng isang bagay ng `BrowserWindow` sa pangunahing proseso at ibinalik ang nararapat na remote na bagay sa prosesong tagabigay, kagaya ng bagay sa `win`.
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+**Note:** Ang [enurable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) lamang na kung saan ay naroroon nang ang remote na bagay ay unang isinangguni na mapupuntahan sa pamamagitan ng remote.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+**Note:** Ang mga hanay at mga Buffer ay kinopya sa ibabaw ng IPC kapag na-access sa pamamagitan ng modyul ng `remote`. Ang pagbabago sa kanila sa prosesong tagabigay ay hindi magpapabago sa kanila sa pangunahing proseso at kahit sa kabaligtaran.
 
-## Lifetime of Remote Objects
+## Ang tagal ng buhay ng mga Remote na Bagay
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Sinisigurado ng Electron na habang ang remote na bagay ay nandoon pa sa prosesong tagabigay (sa ibang salita, ay hindi pa ibinabasura), ang nararapat na bagay sa pangunahing proseso ay hindi mailalabas. Kapag ang remote na bagay ay naibasura na, ang nararapat na bagay sa pangunahing proseso ay hindi isasangguni.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Kung ang remote na bagay ay nakalabas sa prosesong tagabigay (hal. itinago sa isang balangkas ngunit hindi nailabas), ang nararapat na bagay sa pangunahing proseso ay makakalabas din, kaya kailangan mo ng matinding pag-iingat na hindi makalabas ang mga remote na bagay.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Ang mga uri ng pangunahing halaga tulad ng mga string at mga numero, gayunpaman, ay ipinapadala sa pamamagitan ng pagkopya.
 
-## Passing callbacks to the main process
+## Ipinapasa ang gantingtawag patungo sa pangunahing proseso
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Ang kodigo sa pangunahing proaeso ay maaaring tanggapin ang mga gantingtawag mula sa tagabigay - sa isang pagkakataon ang modyul ng `remote` - ngunit kailangan mo ng matinding pag-iingat kapag ginagamit ang katangian na ito.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Una, upang maiwasan ang mga dedlak, ang mga gantingtawag na naipadala sa pangunahing proseso ay tatawagin ng magkakahiwalay. Hindi mo dapat asahan ang pangunahing proseso na kuhanin ang naibalik na halaga ng naipasang mga gantingtawag.
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Sa isang pagkakataon hindi mo magagamit ang isang punsyon mula sa prosesong tagabigay sa isang `Array.map` na tinawag sa pangunahing proseso:
 
 ```javascript
 // main process mapNumbers.js
@@ -54,8 +54,8 @@ exports.withLocalCallback = () => {
 ```
 
 ```javascript
-// renderer process
-const mapNumbers = require('electron').remote.require('./mapNumbers')
+// proseso ng tagabigay
+const mapNumbers = kailangan('electron').remote.require('./mapNumbers')
 const withRendererCb = mapNumbers.withRendererCallback(x => x + 1)
 const withLocalCb = mapNumbers.withLocalCallback()
 
@@ -63,42 +63,42 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Kagaya ng iyong nakikita, ang magkakasabay na nagbalik na halaga ng gantingtawag ng tagabigay ay hindi inaasahan, at hindi tumutugma ang nagbalik na halaga ng isang kilalang gantingtawag na naroroon sa pangunahing proseso.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+Pangalawa, ang mga gantingtawag na ipinasa sa pangunahing proseso ay mananatili hanggang sila ay ibasura ng pangunahing proseso.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+Halimbawa, ang mga sumusunod na kodigo ay mukhang inosente sa unang tingin. Nag-install ito ng isang gantingtawag para sa event ng `close` sa isang remote na bahay:
 
 ```javascript
-require('electron').remote.getCurrentWindow().on('close', () => {
+kailangan('electron').remote.getCurrentWindow().on('close', () => {
   // window was closed...
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Ngunit tandaan ang gantingtawag ay isinangguni nang pangunahing proseso hanggang tahasan mong ito ay i-uninstall. Kung hindi mo, sa bawat pag-reload mo ng iyong window ang gantingtawag ay iiinstall ulit, lalabas ang isang gantingtawag sa bawat restart.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+Ang mas masahol pa, matapos na ang konteksto ng dati ng in-install na mga gantingtawag ay nailabas na, ang mga eksepsyon ay itinaas na sa pangunahing proseso kapag ang event ng `close` ay lumabas na.
 
-Upang maiwasan ang problema, siguraduhin burahin anumang kaugnayan sa mga binalikang tawag na ipinasa sa pangunahing proseso. This involves cleaning up event handlers, or ensuring the main process is explicitly told to deference callbacks that came from a renderer process that is exiting.
+Upang maiwasan ang problema, siguraduhin burahin anumang kaugnayan sa mga binalikang tawag na ipinasa sa pangunahing proseso. Ito ay nagsasangkot sa paglilinis ng mga tagahawak ng event o tinitiyak na ang pangunahing proseso ay tahasang sinabi na sang-ayunan ang mga gantingtawag na nagmula sa isang prosesong tagasalin na lumalabas.
 
-## Accessing built-in modules in the main process
+## Pag-access ng mga built-in na modyul sa mga pangunahing proseso
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Ang mga built-in na modyul sa mga pangunahing proseso ay idinadagdag bilang mga tagakuha sa modyul ng `remote`, kaya maaari mo silang gamitin ng direkta katulad ng modyul ng `electron`.
 
 ```javascript
-const app = require('electron').remote.app
+const app = kailangan('electron').remote.app
 console.log(app)
 ```
 
 ## Pamamaraan
 
-The `remote` module has the following methods:
+Ang modyul ng `remote` ay mayroon ng mga sumusunod na pamamaraan:
 
 ### `remote.require(modyul)`
 
 * `modyul` Lubid
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Nagbabalik ang `any` - Ang bagay ay nagbalik sa pamamagitan ng `require(module)` sa mga pangunahing proseso. Ang mga modyul na tinukoy nang kanilang kaugnay na landas ay malulutas ng may kaugnayan sa mga pasukan ng mga pangunahing proseso.
 
 halimbawa.
 
@@ -113,36 +113,36 @@ halimbawa.
 
 ```js
 // main process: main/index.js
-const {app} = require('electron')
+const {app} = kailangan('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
+// ilang kaugnay na modyul: main/foo.js
 module.exports = 'bar'
 ```
 
 ```js
-// renderer process: renderer/index.js
-const foo = require('electron').remote.require('./foo') // bar
+// prosesong tagasalin: renderer/index.js
+const foo = kailangan('electron').remote.require('./foo') // bar
 ```
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+Nagbabalik ang [`BrowserWindow`](browser-window.md) - Ang window na kung saan nabibilang ang pahina ng web na ito.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina ng web na ito.
 
-### `remote.getGlobal(name)`
+### `remote.getGlobal(pangalan)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Nagbabalik ang `any` - Ang global na pagbabago-bago ng `name` (hal. `global[name]`) sa mga pangunahing proseso.
 
 ## Mga Katangian
 
-### `remote.process`
+### `ang remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Ang bagay ng `process` sa mga pangunahing proseso. Ito ay katulad ng `remote.getGlobal('process')` ngunit ito ay naka-cache.

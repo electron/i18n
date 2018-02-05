@@ -10,11 +10,11 @@ ASAR 形式は、Windows でのパフォーマンスを向上させるために�
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray は [libchromiumcontent](#libchromiumcontent) をアプリ内で簡単に使用するための静的ライブラリ[でした](https://github.com/electron-archive/brightray)。 現在は廃止されており、Electronのコードベースにマージされています。
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準ライブラリが組み込まれている C++ 標準ライブラリの一部です。 The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
@@ -30,17 +30,17 @@ IPCはプロセス間通信 (Inter-Process Communication) の略語です。Elec
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+[Chromium Content module](https://www.chromium.org/developers/content-module) および 全ての依存関係（Blink や [V8](#v8)）を含む共有ライブラリです。 libcc とも呼ばれます。
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### メインプロセス (main process)
 
-メインプロセスは通常は`main.js`というファイル名で配置され、Electronアプリの開始ポイントになります。アプリケーションが開始されてから終了されるまでを制御します。 また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 メインプロセスは、アプリ中のレンダラプロセスの作成も担当しています。完全なNode APIを使用できます。
+メインプロセスは通常、 `main.js` というファイル名で配置され、Electron アプリのエントリポイントになります。アプリケーションが開始されてから終了されるまでを制御します。 また、メニュー、メニューバー、ドック、タスクトレイなどのネイティブ要素の管理も担当します。 メインプロセスは、アプリ中におけるレンダラプロセスの生成も担当しています。完全なNode APIを使用できます。
 
 アプリのメインプロセスファイルは、`package.json` の `main`プロパティで指定されます。これをもとに`Electron`は起動時に実行するファイルを知ることが出来ます。
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+なお、Chromium においては、メインプロセスは「ブラウザプロセス」(browser process) と称されます。Electron では、レンダラプロセスとの混同を防ぐために名称が変更されています。
 
 [プロセス](#process)、[レンダラープロセス](#renderer-process)についても参照してください。
 
@@ -62,7 +62,7 @@ Nullsoft Script Install Systemは、Microsoft Windows向けの、スクリプト
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen rendering) を使用すると、重いページをバックグラウンドで読み込みんだ後で表示することができます（かなりの高速化が期待されます）。画面に表示することなくページをレンダリングすることができます。
 
 ### プロセス
 
@@ -86,7 +86,7 @@ Squirrelは、Electronアプリケーションの新しいバージョンに対�
 
 ### ユーザーランド (userland)
 
-Unixコミュニティーに由来する言葉ですが、"ユーザーランド"や"ユーザースペース"は、Osカーネルの外側で動作するプログラムを意味します。 より最近では、この用語はNodeやnpmコミュニティでは、"Node core"で使用できる機能を、大きな"ユーザー"コミュニティ npmに登録して公開されたパッケージを区別されるために使用されます。
+「ユーザーランド」や「ユーザースペース」は Unixコミュニティーに由来する言葉で、OSカーネルの外側で動作するプログラムを意味します。 昨今、この用語はNodeやnpmコミュニティでは、"Node core"で使用できる機能を、大きな"ユーザー"コミュニティ npmに登録して公開されたパッケージを区別されるために使用されます。
 
 Nodeのように、Electronはマルチプラットフォームデスクトップアプリケーションを開発するのに必要なすべての原始的機能を提供するスモールセットAPIを提供することに焦点を当てています。 この設計思想により、Electronは過度にルールに則りすぎたものではなく、柔軟なツールでいられるようにしています。 ユーザーランドは、"core"で使用できる物の上に追加機能を提供するツールを作成したり共有したりすることを可能にします。
 
@@ -96,7 +96,7 @@ V8 は Google 製のオープンソース JavaScript エンジンです。C++で
 
 Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8のバージョンは必ず Google Chrome のバージョンに対応しています。例えば Chrome 59 には V8 5.9 が、Chrome 58 には V8 5.8 が含まれています。
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)

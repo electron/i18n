@@ -87,7 +87,7 @@ Restituiti:
 * `evento` Evento
 * `index` Number - The index of the action that was activated
 
-### Instance Methods
+### Metodi Istanza
 
 Objects created with `new Notification` have the following instance methods:
 

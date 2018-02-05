@@ -1,6 +1,6 @@
 # Instalação
 
-> Dicas para instalar o elétron
+> Dicas para instalar o Electron
 
 Para instalar os binários do Electro, use o [`npm`](https://docs.npmjs.com/). O método preferido é instalar o Electron com uma dependência em seu projeto:
 
@@ -8,7 +8,7 @@ Para instalar os binários do Electro, use o [`npm`](https://docs.npmjs.com/). O
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Veja a [documentação de versionamento do Electron](electron-versioning.md) para informação de como gerenciar as versões em seus aplicativos.
 
 ## Instalação Global
 
@@ -60,9 +60,9 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
-* Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
+* Linux: `$XDG_CACHE_HOME` ou `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` ou `~/AppData/Local/electron/Cache/`
 
 On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
 
@@ -91,7 +91,7 @@ Em quase todos os casos, esses problemas são resultado de problemas de rede e n
 
 Se a instalação via `npm` falhar, você também pode tentar baixar o Electron diretamente do código fonte em [electron/electron/releases](https://github.com/electron/electron/releases).
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 Se o erro acima persistir, você deve definir a opção [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) como "true":
 

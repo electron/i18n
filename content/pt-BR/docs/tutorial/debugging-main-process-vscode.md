@@ -1,13 +1,13 @@
-# Debugging the Main Process in VSCode
+# Depuração do Processo Principal em VSCode
 
-### 1. Open an Electron project in VSCode.
+### 1. Abra um Electron projeto em VSCode.
 
 ```sh
 $ git clone git@github.com:electron/electron-quick-start.git
 $ code electron-quick-start
 ```
 
-### 2. Add a file `.vscode/launch.json` with the following configuration:
+### 2. Adicione um arquivo `.vscode/launch.json` com a seguinte configuração:
 
 ```json
 {
@@ -28,10 +28,10 @@ $ code electron-quick-start
 }
 ```
 
-**Note:** For Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` for `runtimeExecutable`.
+**Nota:** Para o Windows, use `"${workspaceRoot}/node_modules/.bin/electron.cmd"` para `runtimeExecutable`.
 
-### 3. Debugging
+### 3. Depuração
 
-Set some breakpoints in `main.js`, and start debugging in the [Debug View](https://code.visualstudio.com/docs/editor/debugging). You should be able to hit the breakpoints.
+Defina alguns pontos de interrupção em `main.js`, e inicie a depuração no [Debug View](https://code.visualstudio.com/docs/editor/debugging). Você deve ser capaz de acertar os pontos de interrupção.
 
-Here is a pre-configured project that you can download and directly debug in VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Aqui está um projeto pré-configurado que você pode baixar e depurar diretamente no VSCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

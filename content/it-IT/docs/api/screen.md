@@ -1,4 +1,4 @@
-# screen
+# schermo
 
 > Retrieve information about screen size, displays, cursor position, etc.
 

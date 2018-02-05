@@ -697,121 +697,121 @@ Restituisci `Oggetto`:
 
 * `impostazioni` Oggetto 
   * `apriAdAccesso` Booleano (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
-  * `apriComeNascosto` Booleano (opzionale) - `true` per aprire l'app come nascosta. Di default `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is only supported on macOS.
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
+  * `apriComeNascosto` Booleano (opzionale) - `true` per aprire l'app come nascosta. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.ottieniStatoAccessoElementi().eraApertoComeNascosto` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. Questa impostazione è supportata solo su macOS.
+  * `percorso` Stringa (opzionale) *Windows*. L'eseguibile al lancio all'accesso. Di default a `processo.eseguiPercorso`.
+  * `arg` Stringa[] (opzionale) *Windows* - La linea di comando dell'argomento per passare all'eseguibile. Di default ad un insieme vuoto. Stai attento ad avvolgere i percorsi in quote.
 
-Set the app's login item settings.
+Imposta le impostazioni dell'elemento d'accesso all'app.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Ad esempio:
+Per lavorare con l'`autoCaricatore` di Electron su Windows, che usa [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vorrai impostare il percorso di lancio ad Update.exe e passare gli argomenti per specificare il nome della tua applicazione. Ad esempio:
 
 ```javascript
-const appFolder = path.dirname(process.execPath)
-const updateExe = path.resolve(appFolder, '..', 'Update.exe')
-const exeName = path.basename(process.execPath)
+const Cartellaapp = percorso.dirnome(processo.eseguiPercorso)
+const aggiornaExe = percorso.risolvi(Cartellaapp, '..', 'Aggiorna.exe')
+const exeNome = percorso.basenome(processo.eseguiPercorso)
 
-app.setLoginItemSettings({
-  openAtLogin: true,
-  path: updateExe,
-  args: [
-    '--processStart', `"${exeName}"`,
-    '--process-start-args', `"--hidden"`
+app.impostaImpostazioniElementoAccesso({
+  apriAdAccssso: true,
+  percorso: AggiornaExe,
+  arg: [
+    '--processoAvvio', `"${exeNome}"`,
+    '--processo-avvio-arg', `"--nascosto"`
   ]
 })
 ```
 
 **Nota:** Questa API non ha effetto sulle [Costruzioni MAS](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
+### `app.èAbilitatoSupportoAccessibilità()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
 
-* `opzioni` Object 
-  * `applicationName` String (optional) - The app's name.
-  * `applicationVersion` String (optional) - The app's version.
-  * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+* `opzioni` Oggetto 
+  * `Nomeapplicazione` Stringa (opzionale) - Il nome dell'app.
+  * `Versioneapplicazione` Stringa (opzionale) - La versione dell'app.
+  * `copyright` Stringa (opzionale) - Informazioni di copyright.
+  * `crediti` Stringa (opzionale) - Informazioni dei crediti.
+  * `versione` Stringa (opzionale) - Il numero della versione build dell'app.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Vedi il pannello delle opzioni. Questo oltrepasserà i valori definiti nel file `.plist` del file. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli.
 
-### `app.commandLine.appendSwitch(switch[, value])`
+### `app.Lineacomando.aggiungereInterruttore(interrutore[, valore])`
 
-* `switch` String - A command-line switch
-* `value` String (optional) - A value for the given switch
+* `interruttore` Stringa - Un interruttore della linea di comando
+* `valore` Stringa (opziomale) - Un valore per l'interruttore dato
 
-Append a switch (with optional `value`) to Chromium's command line.
+Aggiungi un interruttore (con `valore` opzionale) alla linea di comando di Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Nota:** Non colpirà `processo.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
 
-### `app.commandLine.appendArgument(value)`
+### `app.Lineacomando.aggiungiArgomento(valore)`
 
-* `value` String - The argument to append to the command line
+* `valore` Stringa - L'argomento da aggiungere alla linea di comando
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quotato correttamente.
 
-**Note:** This will not affect `process.argv`.
+**Nota:** Non colpirà `processo.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.abilitascatolaSabbiaMischiata()` *Sperimentale* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Abilita la modalità scatola dei giochi mischiata nell'app.
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `tipo` Stringa (opzionale) - Può essere `critico` o `informativo`. Di default è `informativo`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Quando `critico` è passato, l'icona del dock rimbalza finché l'app diventa attiva o la richiesta viene annullata.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Quando `informativo` è passato, l'icona del dock rimbalzerà per un secondo. Comunque la richiesta resterà attiva finché l'l'applicazione non diviene attiva o la richiesta viene annullata.
 
-Returns `Integer` an ID representing the request.
+Restituisce `Intero` un ID rappresentante la richiesta.
 
-### `app.dock.cancelBounce(id)` *macOS*
+### `app.dock.annullaRimbalzo(id)` *macOS*
 
-* `id` Integer
+* `id` Numero Intero
 
-Cancel the bounce of `id`.
+Annulla il rimbalzo dell'`id`.
 
-### `app.dock.downloadFinished(filePath)` *macOS*
+### `app.dock.scaricamentoFinito(Percorsofile)` *macOS*
 
-* `filePath` String
+* `Percorsofile` Stringa
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Rimbalza il download impilato se il Percorsofile è nella cartella dei file scaricati.
 
-### `app.dock.setBadge(text)` *macOS*
+### `app.dock.impostaBadge(testo)` *macOS*
 
-* `text` String
+* `testo` Stringa
 
-Sets the string to be displayed in the dock’s badging area.
+Imposta la stringa da mostrare nell'area del dock di badging.
 
-### `app.dock.getBadge()` *macOS*
+### `app.dock.ottieniBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Restituisce `Stringa` - La stringa del badge del dock.
 
-### `app.dock.hide()` *macOS*
+### `app.dock.nascondi()` *macOS*
 
-Hides the dock icon.
+Nasconde l'icona del dock.
 
-### `app.dock.show()` *macOS*
+### `app.dock.mostra()` *macOS*
 
-Shows the dock icon.
+Mostra l'icona del dock.
 
-### `app.dock.isVisible()` *macOS*
+### `app.dock.èvisibile()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Restituisce `Booleano` - Se l'icona del dock è visibile. L'`app.dock.mostra()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
 
-### `app.dock.setMenu(menu)` *macOS*
+### `app.dock.impostaMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Imposta il [menu dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
 
-### `app.dock.setIcon(image)` *macOS*
+### `app.dock.impostaImmagine(immagine)` *macOS*
 
-* `image` ([NativeImage](native-image.md) | String)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
-Sets the `image` associated with this dock icon.
+Imposta l'`immagine` associata a questa icona del dock.

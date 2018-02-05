@@ -26,7 +26,7 @@ In Electron, we have several ways to communicate between the main process and re
 
 ## Napisz swoją Pierwszą Aplikację Używając Electron
 
-Generally, an Electron app is structured like this:
+Tak wygląda struktura aplikacji Electron:
 
 ```text
 your-app/

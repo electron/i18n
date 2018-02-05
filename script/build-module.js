@@ -13,6 +13,7 @@ const hrefType = require('href-type')
 const URL = require('url')
 const packageJSON = require('../package.json')
 const GithubSlugger = require('github-slugger')
+const getIds = require('get-crowdin-file-ids')
 
 const contentDir = path.join(__dirname, '../content')
 const cheerio = require('cheerio')
@@ -23,7 +24,15 @@ const categoryNames = {
   tutorial: 'Guides'
 }
 
+function convertToUrlSlash (filePath) {
+  return filePath.replace(/C:\\/g, '/').replace(/\\/g, '/')
+}
+
+let ids = {}
+
 async function parseDocs () {
+  ids = await getIds('electron')
+
   const IGNORE_PATTERN = '<!-- i18n-ignore -->'
 
   console.time('parsed docs in')
@@ -47,17 +56,22 @@ async function parseFile (file) {
   // derive category from file path
   // {locale}/docs/api/{filename} -> api
   file.category = file.relativePath
-    .split(path.sep)
+    .split('/') // path.sep => /, separator in file.relativePath is just / in any OS
     .slice(2, -1)
-    .join(path.sep)
+    .join('/')
 
   // nice categories for use in nav
   file.categoryFancy = categoryNames[file.category]
 
-  file.href = path.join('/docs', file.category, file.slug)
+  file.href = `/docs/${file.category}/${file.slug}`.replace('//', '/')
 
   // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
+
+  if (file.locale !== 'en-US') {
+    // goto exactly translate URL
+    file.translateUrl = `https://crowdin.com/translate/electron/${ids[`master/content/en-US${file.href}.md`]}/en-${locales[file.locale].stats.code}`
+  }
 
   // convenience booleans for use in templates
   file.isTutorial = file.category === 'tutorial'
@@ -84,7 +98,9 @@ async function parseFile (file) {
         const type = hrefType(href)
         if (type !== 'relative' && type !== 'rooted') return
         const dirname = path.dirname(file.href)
-        const newHref = path.resolve(dirname, href.replace(/\.md/, ''))
+        const newHref = convertToUrlSlash(
+          path.resolve(dirname, href.replace(/\.md/, ''))
+        )
         $(el).attr('href', newHref)
       })
 
@@ -97,7 +113,7 @@ async function parseFile (file) {
         if (type !== 'relative' && type !== 'rooted') return
 
         // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
-        src = path.resolve(dirname, src)
+        src = convertToUrlSlash(path.resolve(dirname, src))
 
         const newSrc = file.isApiDoc
           ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')

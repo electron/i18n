@@ -29,60 +29,57 @@ Para magbahagi ng mga datos sa pagitan ng pahina ng web ( ang nagbabahagi ay nag
 O maaari mo ring gamitin ang IPC system, na partikular na sa Electron, upang itabi ang mga bagay sa pangunahing proseso bilang isang pandaigdigang variable, at pagkatapos para ma access ang mga ito mula sa mga renderers sa pamamagitan ng `remote`property `electron`module:
 
 ```javascript
-// In the main process.
-global.sharedObject = {
+Sa mga pangunahing proseso. global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
+Sa pahina 1.require('electron').remote.getGlobal ('sharedObject').someProperty = 'bagong halaga'
 ```
 
 ```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+// Sa pahina2. console.log(require('electron').remote.getGlobal ('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Ang aking window app's/tray na nawawala pagkatapos ng ilang minuto.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Nangyayari ito kapag ang variable na ginagamit upang i-imbak ang window/tray ay nakakakuha nakolekta ang basura.
 
-If you encounter this problem, the following articles may prove helpful:
+Kung nakatagpo ka ng problemang ito, maaaring makatulong ang mga sumusunod na artikulo:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Pamamahala ng kaisipan](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Baryanteng Saklaw](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Kung gusto mo ng isang mabilis na ayusin, maaari mong gawin ang mga variable global sa pamamagitan ng pagpapalit ng iyong code mula dito:
 
 ```javascript
-const {app, Tray} = require('electron')
+const {app, Tray} =kailangan ('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-to this:
+sa ganito:
 
 ```javascript
-const {app, Tray} = require('electron')
-let tray = null
+const {app, Tray} = kailangan('electron')
+hayaan ang tray = wala
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Hindi ko magamit ang jQuery/RequireJS/Meteor/AngularJS sa Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+Dahil sa pagsasama ng Node.js ng Electron, mayroong ilang dagdag na simbolo ipinasok sa DOM tulad ng `module`,`exports`, `require`. Ito ay nagiging sanhi ng mga problema para sa ilang mga aklatan dahil gusto nilang ipasok ang mga simbolo na may parehong mga pangalan.
 
-To solve this, you can turn off node integration in Electron:
+Upang malutas ito, maaari mong i-off ang pagsasama ng node sa Electron:
 
 ```javascript
-// In the main process.
+// Sa pangunahing proseso. 
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -92,7 +89,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Ngunit kung nais mong panatilihin ang mga kakayahan ng paggamit ng Node.js at Electron API, ikaw kailangang palitan ang pangalan ng mga simbolo sa pahina bago isama ang iba pang mga library:
 
 ```html
 <head>
@@ -106,30 +103,31 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('electron').xxx` ay hindi natukoy.
 
-When using Electron's built-in module you might encounter an error like this:
+Kapag gumagamit ng built-in na module ng Electron maaari kang makatagpo ng error tulad nito:
 
 ```sh
-> require('electron').webFrame.setZoomFactor(1.0)
-Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
+>
+nangangailangan('electron').webFrame.setZoomFactor (1.0)
+Uncaught TypeError: Hindi mabasa ang 'setZoomLevel' property ng hindi natukoy
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Ito ay dahil mayroon ka ng [npm`electron ` module](https://www.npmjs.com/package/electron) naka-install alinman sa lokal o sa buong mundo, na pinapalitan ang built-in na module ng Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Upang i-verify kung ginagamit mo ang tamang built-in na module, maaari mong i-print ang path ng module ng `electron`:
 
 ```javascript
-console.log(require.resolve('electron'))
+aliwin.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+at pagkatapos ay suriin kung ito ay nasa sumusunod na form:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Kung ito ay tulad ng `node_modules/electron/index.js`, kailangan mo na alinman alisin ang npm`electron` module, o palitan ang pangalan nito.
 
 ```sh
 npm i-tanggalin ang electron npm tanggalin ang -g electron

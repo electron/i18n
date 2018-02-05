@@ -98,7 +98,7 @@ Returns `Object`:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Inteiro - a quantidade de memória não compartilhada por outros processos, como JS heap ou conteúdo HTML.
-* `sharedBytes` Inteiro - a quantidade de memória compartilhada entre processos, normalmente a memória consumida pelo próprio código do elétron
+* `sharedBytes` Integer - A quantidade de memória compartilhada entre processos, normalmente é consumida pelo próprio código do Electron
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 

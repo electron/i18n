@@ -91,7 +91,7 @@ Dans la plupart des cas, ces erreurs sont le résultat d'un problème de réseau
 
 Vous pouvez également essayer de télécharger Electron directement depuis [electron/electron/releases](https://github.com/electron/electron/releases) si l'installation via `npm` ne marche pas.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Si l'installation échoue avec une erreur `EACCESS`, vous devez peut-être [réparer les droits npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 Si l'erreur ci-dessus persiste, le paramètre [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) devrait être définit à true :
 

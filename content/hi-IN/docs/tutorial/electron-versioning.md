@@ -66,27 +66,27 @@ npm install --save-dev electron@latest
 
 हम विभिन्न स्थिरीकरण शाखाओं को एक साथ मौज़ूद होने की सुविधा प्रदान करते हैं, और हमारा उद्देश्य है कि हर समय कम से कम 2 शाखाओं को एक साथ समर्थित करें, और आवश्यकता अनुसार सुरक्षा सुधार बैकपोर्ट करते रहें | ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+पुरानी पंक्तियाँ गिटहब द्वारा समर्थित नहीं होगी, पर दुसरे समहू स्वामित्व प्राप्त कर सकते हैं और खुद ही स्थिरता और सुरक्षा सुधार बैकपोर्ट कर सकते हैं | हम ऐसा न करने की सलाह देते हैं, पर यह भी समझते हैं की इससे एप्प डेवलपर्स का काम काफी आसान हो जाता है |
 
-# Beta Releases and Bug Fixes
+# बीटा रिलीज़ और बग फिक्सेस
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+डेवलपर्स जानना चाहते हैं कि कौन सी रिलीजिज़ इस्तेमाल करने के लिए*सुरक्षित* हैं | हानिरहित दिखने वाली सुविधायें भी जटिल एप्लीकेशनस में त्रुटियाँ ला सकती हैं | पर साथ ही, एक स्थायी संस्करण पर टिके रहना काफी ख़तरनाक हो सकता है क्योंकि आप सुरक्षा पैच और बग फिक्सेस को नज़रअंदाज़ कर रहे हैं जो आप के इस्तेमाल में आने वाले संस्करण के बाद जारी किये गये हों | हमारा लक्ष्य, `package.json` में निम्नलिखित मानक semver सीमाओं को अनुमति देने का है:
 
-* Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-* Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+* `2.0.0` में स्थिरता या सुरक्षा सम्बंधित फिक्सेस लाने के लिए ही `~2.0.0` का इस्तेमाल करें |
+* `^2.0.0` का इस्तेमाल नॉन-ब्रेकिंग *काफी हद तक स्थिर* सुविधाओं और साथ ही सुरक्षा और बग फिक्सेस को अनुमति देने के लिए करें |
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+दूसरी बिंदु में जो आवश्यक बात है वह यह कि `^` को इस्तेमाल करने वाली एप्प्स भी कुछ हद तक स्थिरता की अपेक्षा रख सकें | इसे पूरा करने के लिए, semver एक *pre-release identifier* को अनुमति प्रदान करता है ताकि वह यह पता लगा सके कि दिया गया संस्करण इस्तेमाल करने के लिए *सुरक्षित* या *स्थिर* है या नहीं |
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+आप कुछ भी चुनें, पर आपको समय-समय पर `package.json` का संस्करण बढ़ाना ही होगा क्योंकि ब्रेकिंग चेंजेस क्रोमियम जीवन का एक सत्य है |
 
-The process is as follows:
+इसकी प्रक्रिया निम्नलिखित है:
 
-1. All new major and minor releases lines begin with a `-beta.N` tag for `N >= 1`. At that point, the feature set is **locked**. That release line admits no further features, and focuses only on security and stability. e.g. `2.0.0-beta.1`.
-2. Bug fixes, regression fixes, and security patches can be admitted. Upon doing so, a new beta is released incrementing `N`. e.g. `2.0.0-beta.2`
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented accordingly e.g. `2.0.1`.
+1. सभी मुख्य और लघु रिलीज़िस पंक्तियाँ `-beta.N` से शुरू होंगी जहाँ `N >= 1` होगा | इस समय पर, सुविधा सेट **लॉक्ड** होगा | वह रिलीज़ पंक्ति और ज्यादा सुविधाओं को शामिल करने की अनुमति नहीं देती, और केवल सुरक्षा और स्थिरता पर केन्द्रित होती है | उदाहरण: `2.0.0-beta.1` |
+2. बग फिक्सेस, रिग्रेशन फिक्सेस और सुरक्षा पैच को अनुमति मिल सकती है | ऐसा करने पर, `N` को बढ़ा कर एक नया बीटा रिलीज़ किया जाता है | उदाहरण: `2.0.0-beta.2`
+3. अगर एक दी गयी बीटा रिलीज़ *सामान्यतः* स्थिर मानी जाती है, तो उसे एक स्थिर बिल्ड के रूप में दोबारा से रिलीज़ किया जायेगा, और केवल संस्करण जानकारी को बदला जायेगा | उदाहरण: `2.0.0` |
+4. अगर भविष्य में एक स्थिर रिलीज़ में बग फिक्सेस या सुरक्षा पैच शामिल करने हो, तो उन्हें शामिल करना होगा और उसकी अनुसार *पैच* संस्करण को बढ़ाना होगा उदाहरण: `2.0.1` |
 
-For each major and minor bump, you should expect too see something like the following:
+हर मुख्य और लघु बढ़त पर, आप को कुछ ऐसा दिखेगा:
 
 ```text
 2.0.0-beta.1
@@ -97,53 +97,53 @@ For each major and minor bump, you should expect too see something like the foll
 2.0.2
 ```
 
-An example lifecycle in pictures:
+तस्वीरों में एक जीवनकाल का उदाहरण:
 
-* A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* A bug fix comes into master that can be pack-ported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-* The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Later, a zero-day exploit is revealed and a fix is applied to master. We pack-port the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+* एक नयी रिलीज़ ब्रांच निर्मित की जाती है जिसमे नवीनतम सुविधाओं का सेट शामिल होता है | इसे `2.0.0-beta.1` के रूप में प्रकाशित किया जाता है | ![](../images/versioning-sketch-3.png)
+* मास्टर में एक बग फिक्स शामिल होता है, जिसे रिलीज़ शाखा में पैक-पोर्ट किया जा सकता है | पैच लगाया जाता है, और नयी बीटा `2.0.0-beta.2` के रूप में प्रकाशित होती है | ![](../images/versioning-sketch-4.png)
+* बीटा को *सामान्यतः स्थिर* मान जाता है और उसे दोबारा नॉन-बीटा के रूप में `2.0.0` के नीचे प्रकाशित किया जाता है | ![](../images/versioning-sketch-5.png)
+* बाद में, एक शून्य-दिवस एक्सप्लॉइट पायी जाती है और मास्टर में एक फिक्स शामिल किया जाता है | हम फिक्स को `2-0-x` पंक्ति में पैक-पोर्ट करते हैं और `2.0.1` को प्रकाशित करते हैं | ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+कुछ उदाहरण कि कैसे semver सीमायें नयी रिलीज़िस चुनती हैं:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# नामौज़ूद सुविधायें अल्फा, और नाईटली
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+हमारी रणनीति की भी कुछ खामियाँ है, पर हम समझते हैं कि फिलहाल उनसे कोई फर्क नहीं पड़ता | ख़ासकर यह कि मास्टर में नयी सुविधायें शामिल करने में कुछ समय लग सकता है, इससे पहले कि वह एक स्थिर रिलीज़ पंक्ति तक पहुंचे | अगर आप नयी सुविधाओं को तुरंत ही इस्तेमाल करना चाहते हैं, तो आप को खुद ही इलेक्ट्रॉन का निर्माण करना होगा |
 
-As a future consideration, we may introduce one or both of the following:
+भविष्य को ध्यान में रखते हुए, हम निम्नलिखित में से एक या दोनों को ला सकते हैं:
 
-* nightly builds off of master; these would allow folks to test new features quickly and give feedback
-* alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+* मास्टर की नाईटली बिल्डस ऑफ; आपको नयी सुविधाओं का तुरंत परिक्षण करने और फीडबैक देने की अनुमति प्रदान करेगी
+* अल्फा रिलीज़िस जिनके पास बीटा से ज्यादा लचीले स्थिरता तत्व हैं; जैसे कि इस बात की अनुमति होगी कि जब एक स्थिरता चैनल *अल्फा* में मौज़ूद हो, तब भी नयी सुविधाओं को शामिल किया जा सके |
 
-# Feature Flags
+# फीचर ध्वज
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
-* is is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-* it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-* feature flags are eventually removed after the soft-branch is merged
+* वह रनटाइम, या बिल्डटाइम के दौरान इनेबल्ड/डिसेबल्ड होना चाहिये; हम रिक्वेस्ट-स्कोपड फीचर ध्वज के सिद्धांत का समर्थन नहीं करते हैं |
+* उसे नये और पुराने कोड पथों को बिल्कुल अलग रखना चाहिये; पुराने कोड को नये फीचर समर्थित के लिए बदलने से फीचर-ध्वज अनुबंध का *उल्लंघन * होता है
+* सॉफ्ट-शाखा के संयोजित होने के बाद फीचर ध्वज अंततः निकाल दिए जाते हैं
 
-We reconcile flagged code with our versioning strategy as follows:
+हम फ्लैगड कोड को हमारी निम्नलिखित संस्करण रणनीति अनुसार संयोजित करते हैं:
 
-1. we do not consider iterating on feature-flagged code in a stability branch; even judicious use of feature flags is not without risk
-2. you may break API contracts in feature-flagged code without bumping the major version. Flagged code does not adhere to semver
+1. हम स्थिर शाखा में फीचर-ध्वज कोड को बढ़ाने का विचार नहीं करते; फीचर ध्वजों का न्यूनतम इस्तेमाल भी खतरे से खाली नहीं है
+2. फीचर-ध्वज कोड में आपसे ऐपीआई अनुबंध टूट सकते हैं, अगर आप मुख्य संस्करण को नहीं बढ़ाते| फ्लैगड कोड सेमवर का पालन नहीं करता|
 
-# Semantic Commits
+# सिमेंटिक कम्मिट्स
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+हमारा लक्ष्य अपडेट और रिलीज़ प्रक्रिया के हर स्तर पर पारदर्शिता बढ़ाना है | `2.0.0` से शुरुआत करते हुए, हमे सभी पुल रिक्वेस्ट [कन्वेंशनल कम्मिट्स](https://conventionalcommits.org/) स्पेक का पालन करने वाली चाहिये होंगी, जिनका सारांश निम्नलिखित है:
 
-* Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
-* Commits that would result in a semver **minor** bump must start with `feat:`.
-* Commits that would result in a semver **patch** bump must start with `fix:`.
+* कम्मिट्स जिनका परिणाम सेमवर **मुख्य** बढ़त होगा, वे `BREAKING CHANGE:` से शुरू होने चाहियें |
+* कम्मिट्स जिनका परिणाम सेमवर **लघु** बढ़त होगा, वे `feat:` से शुरू होने चाहियें |
+* कम्मिट्स जिनका परिणाम सेमवर **पैच** बढ़त होगा, वे `fix:` से शुरू होने चाहियें |
 
-* We allow squashing of commits, provided that the squashed message adheres the the above message format.
+* हम कम्मिट्स के स्क्वाशिंग की अनुमति देते हैं, बस स्क्वाशड सन्देश ऊपर दिए गये सन्देश फॉर्मेट का पालन करता हो |
 
-* It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+* एक पुल अनुरोध में मौज़ूद कुछ कम्मिट्स अगर एक सिमेंटिक प्रीफिक्स को शामिल नहीं करती तो इसकी भी तब तक अनुमति है, जब तक कि उसी पुल अनुरोध में बाद वाली कमिट एक अर्थपूर्ण सिमेंटिक सन्देश शामिल करती हो |
 
-# Versionless `master`
+# संस्करण बिना `मास्टर`
 
-* The `master` branch will always contain `0.0.0-dev` in its `package.json`
-* Release branches are never merged back to master
-* Release branches *do* contain the correct version in their `package.json`
+* `मास्टर` शाखा अपने `package.json` में `0.0.0-dev` को हमेशा शामिल करेगी
+* रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
+* रिलीज़ शाखायें सही संस्करण को शामिल *करती* हैं अपने `package.json` में

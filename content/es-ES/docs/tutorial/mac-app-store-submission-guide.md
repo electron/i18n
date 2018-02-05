@@ -88,12 +88,12 @@ Y luego firme u aplicación con el siguiente script:
 APP="YourApp"
 # The path of your app to sign.
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# La ruta a la localización donde quiere poner el paquete firmado.
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# El nombre de los certificados que ha solicitado.
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# La ruta a los archivos plist.
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
@@ -199,11 +199,11 @@ Vea la [documentación sobre la habilitación del acceso del usuario a archivos 
 
 ### `shell.openItem(filePath)`
 
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
+Esto fallará cuando la aplicación sea firmada para distribución en la Mac App Store. Subscrita a [#9005](https://github.com/electron/electron/issues/9005) para actualizaciones.
 
-#### Workaround
+#### Soluciones
 
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
+`shell.openExternal('file://' + filePath)` Abrirá el archivo en la aplicación por defecto siempre y cuando la extensión esté asociada con la aplicación instalada.
 
 ## Algoritmos criptográficos utilizados por Electron
 
@@ -235,4 +235,4 @@ Electron usa los siguientes algoritmos criptográficos:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+Sobre como obtener la aprobación ERN, puede referenciar el artículo: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

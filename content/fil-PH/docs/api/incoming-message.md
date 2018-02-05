@@ -1,65 +1,65 @@
-## Class: IncomingMessage
+## Class: Paparating na Mensahe
 
-> Handle responses to HTTP/HTTPS requests.
+> Pamamahala ng pagtugon sa hiling ng "HTTP/HTTPS".
 
 Ang proseso: [Main](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+Ang `IncomingMessage` ay ginagamit ang "interface" na [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams), at samakatuwid ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Instance Events
+### Mga Halimbawa ng "Events"
 
 #### Event: 'data'
 
-Magbabalik ng:
+Pagbabalik sa:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Ang "chunk" ng pagtugon sa katawan ng datos.
 
-The `data` event is the usual method of transferring response data into applicative code.
+Ang "`data` event" ay karaniwang paraan sa pagsasalin ng pagtugon sa datos bilang "applicative code".
 
 #### Event: 'end'
 
-Indicates that response body has ended.
+Nagpapahiwatig na ang "response body" ay tapos na.
 
 #### Event: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Lumalabas kapag ang kahilingan ay biglang itinigil habang nagaganap ang transaksyon ng HTTP.
 
-#### Pangyayari: 'error'
+#### Event: 'error'
 
-Magbabalik ng:
+Pagbabalik:
 
-`error` Error - Typically holds an error string identifying failure root cause.
+`error` Error - Karaniwang hinahawakan ang maling "string" at tutukuyin ang sanhi kung bakit ito hindi nagtagumpay.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Lumalabas kapag nakatagpo ng mali habang patuloy ang pagtugon sa datos ng "events". Halimbawa, kung ang "server" ay malapit sa pinagbabatayan nito habang ang proseso ng pagtugon ay nagpapatuloy, ang "`error` event" ay lalabas sa "response object" at ang "`close` event" ay susunod pagkatapos nito.
 
-### Humahalimbawa sa bahagi nito
+### Mga Halimbawa ng Katangian
 
-An `IncomingMessage` instance has the following readable properties:
+Isang `IncomingMessage` na may mga sumusunod na katangian na maaaring basahin:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+Ang `Integer` ay tinutukoy ang partikular na katayuan ng "code" ng pagtugon ng "HTTP".
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+Isang `String` na kumakatawan sa lagay ng posisyon ng mensahe ng "HTTP".
 
 #### `response.headers`
 
-An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
+Isang `Object` na syang kumakatawan sa pagtugon ng "HTTP headers". Ang "`headers` object" ay nakaayos ayon sa mga sumusunod:
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Ang lahat ng pangalan ng "header" ay dapat gumamit ng maliliit na titik.
+* Ang bawat pangalan ng "header" ay gagawa ng katangian ng "array-valued" sa "header's object".
+* Ang bawat halaga ng "header" na bahagi ay sapilitan na ipupunta sa "array" na kaugnay sa pangalan nito.
 
 #### `response.httpVersion`
 
-A `String` indicating the HTTP protocol version number. Typical values are '1.0' or '1.1'. Additionally `httpVersionMajor` and `httpVersionMinor` are two Integer-valued readable properties that return respectively the HTTP major and minor version numbers.
+Isang `String` na tumutukoy sa "HTTP protocol version number". Mga karinawang halaga ay '1.0' o '1.1'. Bukod dito, ang `httpVersionMajor` at `httpVersionMinor` ay parehong "integer-valued" kung saan ang kanila mga katangian ay maaaring makita, at babalik sa "HTTP major" at "minor version numbers".
 
 #### `response.httpVersionMajor`
 
-An `Integer` indicating the HTTP protocol major version number.
+Isang `Integer` na tumutukoy sa protokol ng "HTTP" na pangunahing bersyon ng numero.
 
 #### `response.httpVersionMinor`
 
-An `Integer` indicating the HTTP protocol minor version number.
+Isang `Integer` na tumutukoy sa protokol ng "HTTP" na menor na bersyon ng numero.

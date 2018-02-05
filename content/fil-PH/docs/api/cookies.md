@@ -1,97 +1,97 @@
-## Class: Cookies
+## Klase: Cookies
 
-> "Query" at pagbabago ng ilang parte ng sesyon ng "cookies".
+> Query at ang pagbabago ng sesyon ng cookies "Query" at pagbabago ng ilang parte ng sesyon ng "cookies".
 
-Ang proseso: [Main](../glossary.md#main-process)
+Prosseso: [Main](../glossary.md#main-process)
 
 May ilang pagkakataon na ang `Cookies` class ay mapupuntahan gamit ang `cookies` na katangian ng `Session`.
 
-Halimbawa:
+Halimbawa ng:
 
 ```javascript
-const {session} = require('electron')
+const {session} = kinakailangan ng ('electron')
 
-// "Query" ang lahat ng "cookies".
+// e "Query" ang lahat na mga "cookies".
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// "Query" ang lahat ng "cookies" na may kaugnayan sa isang tiyak na "url".
+// e "Query" ang lahat ng "cookies" na may kaugnayan sa isang partikular na "url".
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Magtakda ng "cookie" gamit ang binigay na datos nito;
-// maaaring palitan ang katumbas na "cookies" nito sa bagong datos kung ito"y umiiral.
+// Itakda ang "cookie" sapamamagitan na ibinigay na datos nito;
+// maaari ding palitan ang katumbas na "cookies" nito kapag ito'y naiiral na.
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
 ```
 
-### Halimbawa ng Pangyayari
+### Mga halimbawa ng mga kaganapan
 
-Ang ang sumusunod na pangyayari ay maaaring makita sa ilang pagkakataon ng `Cookies`:
+Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
-#### Event: 'changed'
+#### Kaganapan: 'nagbago'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago
+* `sanhi` String - Ang mga sanhi ng mga pagbabago sa isa't isa sa mga sumusunod na mga halaga: 
+  * `explicit` - Ang cookie ay direktang nagbago sa pamamagitan ng pagkilos ng isang mamimili.
+  * `overwrite` - Ang cookie ay awtomatikong natanggal dahil sa ipinasok na operasyon na i-overwrite.
+  * `expired` - Ang cookie ay awtomatikong natanggal dahil na-expired.
+  * `evicted` - Ang cookie ay awtomatikong na-evicted sa panahon ng koleksyon ng basura.
+  * `expired-overwrite` - Ang cookie na ito ay na-overwrite na may na-pasong pag-expire ng petsa.
+* `removed` Boolean - `true` kapag ang cookie ay inalis, `false` kung hindi man.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Napalabas kapag ang cookie ay nagbago dahil ito'y idinagdag, inedit, natanggal, o napaso.
 
 ### Mga pamamaraan ng pagkakataon
 
-The following methods are available on instances of `Cookies`:
+Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
 
-#### `cookies.get(filter, callback)`
+#### `cookies.get(filter,callback)`
 
-* `filter` Bagay 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+* `salain` Bagay 
+  * `url` String (opsyunal) - Nakuhang cookies na may kaugnayan sa `url`. Ang walang laman ay nagpapahiwatig na pagkuha ng mga cookies ng buong url.
+  * `name` String (opsyunal) - Efilter ang mga cookies sa kanilang pangalan.
+  * `domain` String (opsyunal) - Ang mga kinuhang cookies na ang domain ay nagtugma o ang mga subdomain ng `domain`
+  * `path` String (opsyunal) - Ang nakuhang cookies na nagtugma ang patungohan `path`.
+  * `secure` Boolesn (opsyunal) - Nafilter na cookies ng kanilang Secure na ari-arian.
+  * `session` Booelan (opsyunal) - Efilter ang sesyon o ang nagpapatuloy na cookies.
 * `tumawag muli` Punsyon 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie](structures/cookie.md) - ang isang array ng mga bagay ng cookie.
 
-Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
+Magpadala ng hiling para nakuha ang lahat ng cookies na nagtugma sa `detalye`, `baliktawag` itatawag sa `baliktawag(mali, cookies)` na kumpleto.
 
-#### `cookies.set(details, callback)`
+#### `cookies.set(detalye, baliktawag)`
 
-* `details` Bagay 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+* `ang mga detalye` Bagay 
+  * `url` String - Ang url ay maiuugnay sa cookie.
+  * `name` String (opsyunal) - Ang pangalan ng cookie. Walang laman ito pagdefault kung itinanggal.
+  * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
+  * `domanin` String (opsyunal) - Ang domain ng isang cookie. Walang laman ito pagdefault kung itinanggal.
+  * `path<0> String (opsyunal) - Ang daan ng isang cookie. Walang laman ito pagdefault kung itinanggal.</li>
+<li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
+  * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
+  * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
 * `tumawag muli` Punsyon 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(error)` na kumpleto.
 
-#### `cookies.remove(url, name, callback)`
+#### `cookies.remove(url, pangalan, baliktawag)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - Ang isang URL na maiugnay sa may cookie.
+* `name` String - Ang pangalan ng isang cookie na natanggal.
 * `callback` Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Tanggalin ang mga cookies na nagtugma sa `url` at `name`, `callback` ay tinatawag na may `callback()` kung kumpleto.
 
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.

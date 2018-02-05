@@ -1,4 +1,4 @@
-# screen
+# ekran
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
@@ -105,12 +105,12 @@ Fare işaretçisinin geçerli mutlak konumu.
 
 ### `screen.getDisplayNearestPoint(point)`
 
-* `point` [Point](structures/point.md)
+* `nokta` [Nokta](structures/point.md)
 
 [`Görüntü`](structures/display.md) Dödürür - Belirtilen noktaya en yakın ekran.
 
 ### `screen.getDisplayMatching(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md)
+* `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
 
 [`Görüntü`](structures/display.md) - En yakından izlenen ekran verilen sınırları kesişir.

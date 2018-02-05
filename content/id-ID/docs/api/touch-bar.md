@@ -1,4 +1,4 @@
-## Class: TouchBar
+## Kelas: SentuhBar
 
 > Buatlah TouchBar layout untuk aplikasi asli macOS
 
@@ -29,22 +29,22 @@ Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 Berikut adalah contoh sederhana bar sentuhan pada mesin slot permainan dengan tombol dan beberapa label.
 
 ```javascript
-const {app, BrowserWindow, TouchBar} = require('electron')
+const {aplikasi, BrowserWindow, sentuhBar} = wajib('electron')
 
-const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
+const {SentuhBarLabel, SentuhBarTombol, SentuhBarSpacer} = SentuhBar
 
-let spinning = false
+biarkan berputar = salah
 
 // Reel labels
-const reel1 = new TouchBarLabel()
-const reel2 = new TouchBarLabel()
-const reel3 = new TouchBarLabel()
+const reel1 = baru SentuhBarLabel()
+const reel2 = baru SentuhBarLabel()
+const reel3 = baru SentuhBarLabel()
 
-// Spin result label
-const result = new TouchBarLabel()
+// putar hasil label
+const hasil = baru SentuhBarLabel()
 
-// Spin button
-const spin = new TouchBarButton({
+// Putar tombol
+const putar = baru SentuhBarTombol({
   label: '
 ```
 

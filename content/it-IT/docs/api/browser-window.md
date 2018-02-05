@@ -1,147 +1,144 @@
-# BrowserWindow
+# FinestraBrowser
 
-> Create and control browser windows.
-
-Processo: [Principale](../glossary.md#main-process)
-
-```javascript
-// In the main process.
-const {BrowserWindow} = require('electron')
-
-// Or use `remote` from the renderer process.
-// const {BrowserWindow} = require('electron').remote
-
-let win = new BrowserWindow({width: 800, height: 600})
-win.on('closed', () => {
-  win = null
-})
-
-// Load a remote URL
-win.loadURL('https://github.com')
-
-// Or load a local HTML file
-win.loadURL(`file://${__dirname}/app/index.html`)
-```
-
-## Frameless window
-
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
-
-## Showing window gracefully
-
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
-
-### Using `ready-to-show` event
-
-While loading the page, the `ready-to-show` event will be emitted when the renderer process has rendered the page for the first time if the window has not been shown yet. Showing the window after this event will have no visual flash:
-
-```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
-win.once('ready-to-show', () => {
-  win.show()
-})
-```
-
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
-
-### Setting `backgroundColor`
-
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
-
-```javascript
-const {BrowserWindow} = require('electron')
-
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
-win.loadURL('https://github.com')
-```
-
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
-
-## Parent and child windows
-
-By using `parent` option, you can create child windows:
-
-```javascript
-const {BrowserWindow} = require('electron')
-
-let top = new BrowserWindow()
-let child = new BrowserWindow({parent: top})
-child.show()
-top.show()
-```
-
-The `child` window will always show on top of the `top` window.
-
-### Modal windows
-
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
-
-```javascript
-const {BrowserWindow} = require('electron')
-
-let child = new BrowserWindow({parent: top, modal: true, show: false})
-child.loadURL('https://github.com')
-child.once('ready-to-show', () => {
-  child.show()
-})
-```
-
-### Page visibility
-
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
-
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
-
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
-
-### Platform notices
-
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
-* On Linux many desktop environments do not support hiding a modal window.
-
-## Class: BrowserWindow
-
-> Create and control browser windows.
+> Crea e controlla finestre browser.
 
 Processo: [Principale](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+```javascript
+// Nel processo principale.
+const {BrowserWindow} = richiedi('electron')
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+// O usa 'remoto' dai processi di render.
+// const {FinestraBrowser} = richiedi('electron').remoto
 
-### `new BrowserWindow([options])`
+vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
+vinci.su('chiuso', () => {
+  vinci = nullo
+})
+
+// Carica un URL remoto
+vinci.caricaURL('https://github.com')
+
+// O carica un file HTML
+vinci.caricaURL(`file://${__dirname}/app/indi e.html`)
+```
+
+## Finestra menoFrame
+
+Per creare una finestra senza chrome, o una finestra trasparente in forma arbitraria, puoi usare l'API [Finestra menoFrame](frameless-window.md).
+
+## Mostrare finestra
+
+Quando si carica una pagina direttamente nella finestra, l'utente potrebbe vedere la pagina caricare in modo incrementale, che non è una esperienza buona per una app nativa. Per far mostrare la finestra senza flash visuale esistono due soluzioni per due differenti situazioni.
+
+### Usando l'evento `pronto-a-mostrare`
+
+Mentre la pagina sta caricando l'l'evento `pronto-a-mostrare sarà emesso quando i processi hanno renderizzato la pagina per la prima volta se la finestra non è ancora stata mostrata. Mostrare la finestra dopo questo evento non avrà flash visuali:</p>
+
+<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron')
+vince = nuova FinestraBrowser({mostra: false})
+win.una('pronto-a-mostrare', () => {
+  win.mostra()
+})
+`</pre> 
+
+Questo evento è di solito emesso dopo l'evento `caricamento-finito`, ma per pagine con molte risorse potrebbe essere emesso prima di `caricamento. finito`.
+
+### Impostare `Colorebackground`
+
+Per un'app complessa, l'evento `pronto-a-mostrare potrebbe essere emessa troppo tardi rendendo l'app lenta. In questo caso, è raccomandato mostrare la finestra immediatamente ed usare un <code>Colorebackground simile a quello della tua app:</p>
+
+<pre><code class="javascript">const {FinestraBrowser} = richiedi('electron') 
+vince = nuova FinestraBrowser({Colorebackground: '#2e2c29'}) win.carica.Url('https://github.com')
+`</pre> 
+
+Nota come anche per le app è usato l'evento `pronto-a-mostrare`, è raccomandato impostare il `Colorebackground` per far sentire le app più native.
+
+## Finestre genitrici e figlie
+
+Usando l'opzione `genitore`, puoi creare finestre figlie:
+
+```javascript
+const {FinestraBrowser} = richiedi('electron')
+
+
+sale = nuova FinestraBrowser()
+figlia = nuova FinestraBrowser({parent: top})
+mostra.figlia()
+mostra.top()
+```
+
+La finestra `figlia` sarà sempre in alto nella finestra `top`.
+
+### Finestre modali
+
+Una finestra modale è una finestra figlia che disabilita le finestre genitrici, per crearne una devi impostare entrambe le opzioni `genitore` e `modale`:
+
+```javascript
+const {FinestraBrowser} = richiedi('electron')
+
+figlia = nuova FinestraBrowser({parent: top, modal: true, show: false})
+caricaURL.figlia('https://github.com')
+figlia.uno('pronto-a-mostrare', () => {
+  mostra.figlia()
+})
+```
+
+### Visibilità pagina
+
+La [Visibilità Pagina API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) lavora come segue:
+
+* Su tutte le piattaforme, lo stato di visibilità traccia se la finestra è nascosta/minimizzata o no.
+* In aggiunta, su macOS, lo stato di visibilità traccia anche lo stato di occlusione della finestra. Se la finestra è occlusa (totalmente coperta) da un'altra, lo stato di visibilità sarà `nascosta`. Su altre piattaforme, lo stato di visibilità sarà `nascosta` solo quando la finestra è minimizzata o nascosta esplicitamente con `win.nascondi()`.
+* Se una `FinestraBrowser` è creata con `mostra: false`, lo stato di visibilità iniziale sarà `visibile` nonostante la finestra risulti essere nascosta.
+* Se lo `Strozzamentosfondo` è disabilitato, lo stato di visibilità rimarrà `visibile` anche se la finestra è minimizzata, occlusa o nascosta.
+
+Si raccomanda di mettere in pausa le operazioni dispendiose quando lo stato di visibilità è `hidden` per minimizzare il consumo energetico.
+
+### Avvisi di piattaforma
+
+* Su macOS le finestre modali saranno mostrate come tabelle allegate alla finestra genitore.
+* Su macOS le finestre figlie manterranno le proprie posizioni relative alla finestra genitore quando questa si muove, mentre su Windows e Linux queste non si muoveranno.
+* Su Windows non è supportato il cambiamento dinamico delle finestre genitori.
+* Su Linux il tipo di finestre modali sarà cambiato a `dialogo`.
+* Su Linux molti ambienti desktop non supportano il nascondere una finestra modale.
+
+## Classe: FinestraBrowser
+
+> Crea e controlla finestre browser.
+
+Processo: [Principale](../glossary.md#main-process)
+
+`FinestraBrowser` è un [EmettitoreEventi](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+
+Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle `opzioni`.
+
+### `nuova FinestraBrowser([options])`
 
 * `opzioni` Oggetto (opzionale) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
-  * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is ``.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is ``.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
-  * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
+  * `larghezza` Intero (opzionale) - La larghezza in pixel della finestra. Di default è di `800`.
+  * `altezza` Intero (opzionale) - L'altezza in pixel della finestra. Di default è di `600`.
+  * `x` Intero (opzionale) (**richiesto** se è usato y) - Offset sinistro della finestra dallo schermo. Di default è al centro della finestra.
+  * `y` Intero (opzionale) (**richiesto** se è usato x) - L'offset superiore della finestra dallo schermo. Di default è al centro della finestra.
+  * `usaDimensioniContenuto` Booleano (opzionale) - La `larghezza` e l'`altezza` saranno usate come dimensioni della pagina web, il che vuol dire che la dimensione attuale della finestra includerà le dimensioni della cornice della finestra ed è lievemente più grande. Di default è `false`.
+  * `centro` Booleano (opzionale) - Mostra la finestra al centro dello schermo.
+  * `Larghezzaminima` Intero (opzionale) - Larghezza minima della finestra. Di default è ``.
+  * `Altezzaminima` Intero (opzionale) - Altezza minima della finestra. Di default è ``.
+  * `Larghezzamassima` Intero (opzionale) - Larghezza massima della finestra. Di default non ha limiti.
+  * `Altezzamassima` Intero (opzionale) - Altezza massima della finestra. Di default è senza limiti.
+  * `ridimensionabile` Booleano (opzione) - Se la finestra è ridimensionabile. Di default è `true`.
+  * `mobile` Booleano (opzionale) - Se la finestra è mobile. Non è implementato su Linux. Di default è `true`.
+  * `minimizzabile` Booleano (opzionale) - Se la finestra è minimizzabile. Non implementato su Linux. Di default è `true`.
+  * `massimizzabile` Booleano (opzionale) - Se la finestra è massimizzabile. Non implementato su Linux. Di default è `true`.
+  * `chiudibile` Booleano (opzionale) - Se la finestra è chiudibile. Non implementato su Linux. Di default è `true`.
+  * `focalizzabile` Booleano (opzionale) - Se la finestra è focalizzabile. Di default è `true`. Su Windows impostare `focalizzabile: false` implica impostare `saltaTaskbar: true`. Su Linux, impostare `focalizzabile: false` ferma l'interazione della finestra con wm, così la finestra resterà sempre in alto rispetto alle aree di lavoro.
+  * `seprealTop` Booleano (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
+  * `schermointero` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
+  * `schermointero` Booleano (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
+  * `saltaTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
+  * `kiosk` Booleano (opzionale) - Modalità kiosk. Di default è `false`.
+  * `titolo` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
+  * `icona` ([ImmagineNativa](native-image.md) | Stringa) (opzionale) - L'icona della finestra. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
   * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
@@ -162,21 +159,21 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
     * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the tile bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
-  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
+  * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Di default `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Default is `false`.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Di default è `false`.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Settings of web page's features. 
-    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
+    * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Di default `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Di default è `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Default is `true`.
+    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Di default `true`.
     * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
     * `images` Boolean (optional) - Enables image support. Default is `true`.
     * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
@@ -409,7 +406,7 @@ Returns `BrowserWindow` - The window that owns the given `webContents`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* `id` Numero Intero
 
 Returns `BrowserWindow` - The window with the given `id`.
 
@@ -472,7 +469,7 @@ console.log(installed)
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
-### Instance Properties
+### Proprietà Istanza
 
 Objects created with `new BrowserWindow` have the following properties:
 
@@ -493,7 +490,7 @@ See the [`webContents` documentation](web-contents.md) for its methods and event
 
 A `Integer` representing the unique ID of the window.
 
-### Instance Methods
+### Metodi Istanza
 
 Objects created with `new BrowserWindow` have the following instance methods:
 
@@ -503,11 +500,11 @@ Objects created with `new BrowserWindow` have the following instance methods:
 
 Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
 
-#### `win.close()`
+#### `win.chiudi()`
 
 Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
 
-#### `win.focus()`
+#### `win.focalizza()`
 
 Focuses on the window.
 
@@ -599,7 +596,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 
 #### `win.setBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `limiti` [Rettangolo](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window to the supplied bounds
@@ -610,7 +607,7 @@ Returns [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `limiti` [Rettangolo](structures/rectangle.md)
 * `animate` Boolean (optional) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
@@ -1110,4 +1107,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.

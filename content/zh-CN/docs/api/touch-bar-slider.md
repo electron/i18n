@@ -1,6 +1,6 @@
-## Class: TouchBarSlider
+## 分类: TouchBarSlider
 
-> Create a slider in the touch bar for native macOS applications
+> 为本机 macOS 应用程序在触摸栏中创建滑块
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 

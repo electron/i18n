@@ -18,14 +18,14 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | bs     | Bosnian                 |
 | ca     | Catalan                 |
 | co     | Corsican                |
-| cs     | Czech                   |
-| cy     | Welsh                   |
+| cs     | 捷克语                     |
+| cy     | 威尔士语                    |
 | da     | Danish                  |
 | de     | German                  |
 | de-AT  | German (Austria)        |
 | de-CH  | German (Switzerland)    |
 | de-DE  | German (Germany)        |
-| el     | Greek                   |
+| el     | 希腊语                     |
 | en     | English                 |
 | en-AU  | English (Australia)     |
 | en-CA  | English (Canada)        |
@@ -65,8 +65,8 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | it     | Italian                 |
 | it-CH  | Italian (Switzerland)   |
 | it-IT  | Italian (Italy)         |
-| ja     | Japanese                |
-| jw     | Javanese                |
+| ja     | 日语                      |
+| jw     | 爪哇语                     |
 | ka     | Georgian                |
 | kk     | Kazakh                  |
 | km     | Cambodian               |
@@ -74,7 +74,7 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | ko     | Korean                  |
 | ku     | Kurdish                 |
 | ky     | Kyrgyz                  |
-| la     | Latin                   |
+| la     | 拉丁语                     |
 | ln     | Lingala                 |
 | lo     | Laothian                |
 | lt     | Lithuanian              |
@@ -93,7 +93,7 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | no     | Norwegian               |
 | oc     | Occitan                 |
 | om     | Oromo                   |
-| 或者     | Oriya                   |
+| or     | Oriya                   |
 | pa     | Punjabi                 |
 | pl     | Polish                  |
 | ps     | Pashto                  |
@@ -137,5 +137,5 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | yo     | Yoruba                  |
 | zh     | Chinese                 |
 | zh-CN  | Chinese (Simplified)    |
-| zh-TW  | Chinese (Traditional)   |
+| zh-TW  | 中文（繁体）                  |
 | zu     | Zulu                    |

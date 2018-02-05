@@ -10,7 +10,7 @@ O formato ASAR foi criado principalmente para melhorar o desempenho no Windows..
 
 ### Brightray
 
-Brightway [foi](https://github.com/electron-archive/brightray) uma biblioteca estática tornava o uso de [libchromiumcontent](#libchromiumcontent) mais fácil. É agora obsoleta e foi incorporada na base de código do Electron.
+Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática tornava o uso de [libchromiumcontent](#libchromiumcontent) mais fácil. É agora obsoleta e foi incorporada na base de código do Electron.
 
 ### CRT
 

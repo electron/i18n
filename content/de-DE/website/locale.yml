@@ -9,7 +9,7 @@ nav:
   contact: Kontakt
   languages: Sprachen
   code_of_conduct: Verhaltenskodex
-  search: Search
+  search: Suchen
 docs:
   title: Electron-Dokumentation
   description: Die gesamte <a href="/docs/all">Dokumentation auf einer Seite</a> anzeigen oder die <a href="/docs/faq">FAQ</a> ansehen.
