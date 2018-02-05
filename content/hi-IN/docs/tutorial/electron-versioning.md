@@ -146,4 +146,4 @@ npm install --save-dev electron@latest
 
 * `मास्टर` शाखा अपने `package.json` में `0.0.0-dev` को हमेशा शामिल करेगी
 * रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
-* Release branches *do* contain the correct version in their `package.json`
+* रिलीज़ शाखायें सही संस्करण को शामिल *करती* हैं अपने `package.json` में
