@@ -59,6 +59,27 @@ describe('i18n.docs', () => {
       sections.length.should.be.above(0)
       sections.every(section => section.name && section.html).should.eq(true)
     })
+
+    it('does not contain empty sections', () => {
+      const locales = Object.keys(i18n.docs)
+      locales.length.should.be.above(0)
+      locales.forEach(locale => {
+        const docHrefs = Object.keys(i18n.docs[locale])
+        docHrefs.length.should.be.above(0)
+        docHrefs.forEach(href => {
+          const doc = i18n.docs[locale][href]
+          doc.sections.length.should.be.above(0)
+          doc.sections.forEach(section => {
+            // expect(section.name, )
+            expect(section.name, `${locale} ${href} has a section without a name`).to.be.a('string')
+            section.name.length.should.be.above(0)
+
+            expect(section.html, `${locale} ${href} has a section without html`).to.be.a('string')
+            section.html.length.should.be.above(0)
+          })
+        })
+      })
+    })
   })
 })
 
