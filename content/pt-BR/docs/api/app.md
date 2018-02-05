@@ -165,16 +165,16 @@ Retorna:
 * `error` String - O código do erro
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Função 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Define considerar o certificado como confiável
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Emitido quando a verificação do `certificate` para o `url` falha, para confiar no certificado você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
-    // Verification logic.
+    // Verificação de lógica.
     event.preventDefault()
     callback(true)
   } else {
@@ -196,7 +196,7 @@ Retorna:
 
 Emitido quando um certificado de cliente é solicitado.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+O `url` corresponde à entrada de navegação solicitando o certificado do cliente e `callback` pode ser chamado com uma entrada filtrada da lista. Usar `event.preventDefault()` previne a aplicação de utilizar o primeiro certificado da store.
 
 ```javascript
 const {app} = require('electron')
@@ -229,7 +229,7 @@ Retorna:
 
 Emitido quando `webContents` quer fazer uma autenticação básica.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+O comportamento padrão é cancelar todas as autenticações, para superar isso você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(username, password)` com as credenciais.
 
 ```javascript
 const {app} = require('electron')
