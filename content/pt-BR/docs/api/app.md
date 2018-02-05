@@ -286,13 +286,13 @@ Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os ev
 
 Reinicia a aplicação quando a instância atual sair.
 
-Por padrão a nova instância utilizará o mesmo diretório em uso e argumentos da linha de comando da instância atual. Quando `args` são especificado, os `args` vão ser passados como argumentos de linha de comando em seu lugar. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Por padrão a nova instância utilizará o mesmo diretório em uso e argumentos da linha de comando da instância atual. Quando `args` são especificado, os `args` vão ser passados como argumentos de linha de comando em seu lugar. Quando `execPath` é especificado, o `execPath` será executado no reinício no lugar da aplicação atual.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Note que nesse método a aplicação não fecha quando executado. Você deve chamar `app.quit` ou `app.exit` depois de chamar `app.relaunch` para fazer a aplicação reiniciar.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Quando `app.relaunch` é chamado por várias vezes, várias instâncias serão iniciadas depois da instância atual sair.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Um exemplo de reinício da instância atual imediatamente e adicionar um novo argumento de linha de comando à nova instância:
 
 ```javascript
 const {app} = require('electron')
@@ -303,23 +303,23 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Retorna `Boolean` - `true` se o Electron tiver inicializado, `false` caso contrário.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+No Linux, foca na primeira janela visível. No macOS, torna o aplicativo a aplicação ativa. No Windows, foca na primeira janela da aplicação.
 
-### `app.hide()` *macOS*
+### `app.hide()` no *macOS*
 
-Oculta todas as janelas do aplicativo sem minimizar-las.
+Oculta todas as janelas do aplicativo sem minimizá-las.
 
-### `app.show()` *macOS*
+### `app.show()` no *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Mostra as janelas da aplicação após elas terem sido escondidas. Não foca nelas automaticamente.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Retorna `String` - O diretório da aplicação atual.
 
 ### `app.getPath(name)`
 
