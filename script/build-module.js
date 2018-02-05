@@ -131,6 +131,8 @@ async function parseFile (file) {
       return section
     }))
 
+  file.html = file.sections.map(section => section.html).join('\n')
+
   // remove leftover file props from walk-sync
   delete file.mode
   delete file.size
