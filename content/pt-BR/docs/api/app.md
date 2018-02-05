@@ -240,21 +240,21 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Retorna:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Emitido quando o processo da GPU para de funcionar ou é interrompido.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Event: 'accessibility-support-changed' no *macOS* e no *Windows*
 
 Retorna:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - `true` quando o suporte a acessibilidade do Chrome estiver ativo, `false` caso contrário.
 
 Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é acionado quando a tecnologias assistivas, tais como leitores de tela, estão habilitadas ou desabilitadas. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
@@ -276,17 +276,17 @@ Este método garante que todos os manipuladores de vento `beforeunload` e `unloa
 
 Sai imediatamente com `exitCode`. `exitCode` padrão é 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os eventos `before-quit` e `will-quit` não serão emitidos.
 
 ### `app.relaunch([options])`
 
 * `opções` Objeto (opcional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+  * `args` String[] - (opcional)
+  * `execPath` String (opcional)
 
-Relaunches the app when current instance exits.
+Reinicia a aplicação quando a instância atual sair.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+Por padrão a nova instância utilizará o mesmo diretório em uso e argumentos da linha de comando da instância atual. Quando `args` são especificado, os `args` vão ser passados como argumentos de linha de comando em seu lugar. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
