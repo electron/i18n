@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# كائن سيرتيفيكاتيبرينسيبال
 
-* `commonName` String - Common Name
-* `organizations` String[] - Organization names
-* `organizationUnits` String[] - Organization Unit names
-* `locality` String - Locality
-* `state` String - State or province
-* `country` String - Country or region
+* ` كومونام </ 0> سلسلة - نومبر كومان</li>
+<li><code> المؤسسات </ 0> سلسلة [] - أورغانيزاسيون adları</li>
+<li><code> أورغانيزاتيونيونيتس </ 0> سلسلة [] - 组织 单位 名称</li>
+<li><code> محلية </ 0> سلسلة - 地区</li>
+<li><code> الولاية </ 0> سلسلة - 州 或 省</li>
+<li><code>country` String - Country or region
