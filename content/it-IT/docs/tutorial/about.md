@@ -1,58 +1,58 @@
-# About Electron
+# Informazioni su Electron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electronjs.org) è una libreria open source sviluppata da GitHub per la creazione di applicazioni desktop multipiattaforma con HTML, CSS e JavaScript. Electron realizza ciò combinando [Chromium](https://www.chromium.org/Home) e [Node.js](https://nodejs.org) in un singolo runtime e le app possono essere impacchettate per Mac, Windows e Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron è iniziato nel 2013 come framework su cui sarebbe stato costruito [Atom](https://atom.io), l'editor di testo hackerabile di GitHub. I due erano open source nella primavera del 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Da allora è diventato uno strumento popolare utilizzato da sviluppatori open source, startup e aziende consolidate. [Vedi chi sta costruendo su Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Continua a leggere per saperne di più sui contributori e le versioni di Electron o inizia a costruire con Electron nella [Guida rapida](quick-start.md).
 
-## Core Team and Contributors
+## Core Team e contributori
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron è gestito da un team di GitHub e da un gruppo di [collaboratori attivi](https://github.com/electron/electron/graphs/contributors) della community. Alcuni dei contributori sono individuali e alcuni lavorano in aziende più grandi che si stanno sviluppando su Electron. Siamo lieti di aggiungere collaboratori frequenti al progetto come manutentori. Maggiori informazioni su come [contribuire a Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Versioni
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Electron rilascia nuove versioni](https://github.com/electron/electron/releases) frequentemente. Rilasciamo quando ci sono correzioni di bug significativi, nuove API o aggiornamenti di versioni di Chromium o Node.js.
 
-### Updating Dependencies
+### Aggiornamento delle Dipendenze
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+La versione di Chromium di Electron viene di solito aggiornata entro una o due settimane dopo la pubblicazione di una nuova versione stabile di Chromium, a seconda dello sforzo impiegato nell'aggiornamento.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Quando viene rilasciata una nuova versione di Node.js, Electron di solito attende circa un mese prima dell'aggiornamento per ottenere una versione più stabile.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+In Electron, Node.js e Chromium condividono un'unica istanza V8, in genere la versione utilizzata da Chromium. La maggior parte delle volte questo *funziona* ma a volte significa applicare patch a Node.js.
 
 ### Versioning
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+A partire dalla versione 2.0 Electron [segue `semver`](https://semver.org). Per la maggior parte delle applicazioni, e usando una versione recente di npm, l'esecuzione di `$ npm install electron` farà la cosa giusta.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Il processo di aggiornamento della versione è dettagliato in modo esplicito nel nostro [Versioning Doc](electron-versioning.md).
 
-### LTS
+### LTS 
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+Il supporto a lungo termine delle versioni precedenti di Electron attualmente non esiste. Se la tua versione corrente di Electron funziona per te, puoi rimanerci per tutto il tempo che desideri. Se si desidera utilizzare le nuove funzionalità appena disponibili, è necessario eseguire l'aggiornamento a una versione più recente.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Un importante aggiornamento è arrivato con la versione `v1.0.0`. Se non stai ancora utilizzando questa versione, dovresti [leggere di più sulle modifiche di `v1.0.0`](https://electronjs.org/blog/electron-1-0).
 
-## Core Philosophy
+## Filosofia di Base
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+Al fine di mantenere Electron piccolo (dimensione del file) e sostenibile (la diffusione delle dipendenze e delle API) il progetto limita l'ambito del progetto principale.
 
-For instance, Electron uses just the rendering library from Chromium rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+Ad esempio, Electron utilizza solo la libreria di rendering di Chromium anziché tutto di Chromium. Ciò semplifica l'aggiornamento di Chromium, ma significa anche che alcune funzioni del browser disponibili in Google Chrome non sono presenti in Electron.
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+Le nuove funzionalità aggiunte a Electron dovrebbero essere principalmente API native. Se una funzione può essere il suo modulo Node.js, probabilmente dovrebbe esserlo. Vedi i [Tools di Electron costruiti dalla community](https://electronjs.org/community).
 
-## History
+## Cronologia
 
-Below are milestones in Electron's history.
+Di seguito sono riportate le pietre miliari nella cronologia di Electron.
 
 | :calendar:      | :tada:                                                                                                         |
 | --------------- | -------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **May 2014**    | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
-| **May 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
+| **Aprile 2013** | [Atom Shell è avviato](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45).  |
+| **Maggio 2014** | [Atom Shell è open source](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                      |
+| **Aprile 2015** | [Atom Shell è rinominato Electron](https://github.com/electron/electron/pull/1389).                            |
+| **Maggio 2016** | [Electron rilascia la `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                     |
+| **Maggio 2016** | [Apps di Electron compatibili con il Mac App Store](mac-app-store-submission-guide.md).                        |
+| **Agosto 2016** | [Supporto di Windows Store per le app Electron](windows-store-guide.md).                                       |
