@@ -23,19 +23,19 @@ $ ./script/bootstrap.py -d --build_debug_libcc
 
 这将在本地下载和生成 libchromiumcontent, 类似于 `-build_release_libcc `, 但它将创建 libchromiumcontent 的共享库版本, 并且不会剥离任何符号, 从而使其成为调试的理想选择。
 
-When built like this, you can make changes to files in `vendor/libchromiumcontent/src` and rebuild quickly with:
+这样生成时, 您可以对 ` vendor/libchromiumcontent/src ` 中的文件进行更改, 并使用以下内容快速重新生成:
 
 ```sh
 $ ./script/build.py -c D --libcc
 ```
 
-When developing on linux with gdb, it is recommended to add a gdb index to speed up loading symbols. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+当在linux上使用 gdb 开发时, 建议添加一个 gdb 索引来加速加载符号。 这不需要在每次生成时执行, 但建议至少执行一次以索引大多数共享库:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+构建 libchromiumcontent 需要强大的机器, 需要很长的时间 (虽然增量重建共享库组件是快速的)。 使用一个8核/16线程的 Ryzen 1700 CPU 时钟在 3ghz, 快速 SSD 和32GB 的内存, 它应该需要大约40分钟。 不建议使用少于16GB 的内存进行生成。
 
 ## Chromium git 缓存
 
