@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 访问 `webContents` 对象的例子:
+` webContents ` 是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)的实例， 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 访问 `webContents` 对象的例子:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -141,7 +141,7 @@ Emitted when page receives favicon urls.
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
-By default a new `BrowserWindow` will be created for the `url`.
+默认情况下, 将为 ` url ` 创建新的 ` BrowserWindow `。
 
 Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 例如：
 
