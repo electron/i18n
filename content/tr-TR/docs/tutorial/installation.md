@@ -15,7 +15,7 @@ Uygulamalarınızdaki Electron sürümlerini nasıl yöneteceğinizle ilgili bil
 `electron` komutunu genel `$PATH` 'nıza da yükleyebilirsiniz:
 
 ```sh
-npm yükle electron -g
+npm install electron -g
 ```
 
 ## Özelleştirme
@@ -23,13 +23,13 @@ npm yükle electron -g
 Eğer bu makinedeki yüklenen mimariyi değiştirmek istiyorsanız (örneğin. `ia32` bir `x64` makinede), `--arch` kullanabilirsin npm yükle ile birlikte ayarla `npm_ayar_arch` çevre değeri ile:
 
 ```shell
-npm yükle --arch=ia32 electron
+npm install --arch=ia32 electron
 ```
 
 Mimariyi değiştirmeye ek olarak, `--platform` işaretini kullanarak platformu da belirleyebilirsiniz (örneğin `win32`, `linux`, vb.):
 
 ```shell
-npm yükle --platform=win32 electron
+npm install --platform=win32 electron
 ```
 
 ## Vekil sunucular

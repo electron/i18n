@@ -69,15 +69,15 @@ Once executed, the tool goes to work: It accepts your Electron app as an input, 
 
 Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
 
-## Step 3: Using the AppX Package
+## Schritt 3: Nutzen des AppX Pakets
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+Um Ihr Paket ausführen zu können, wird Windows 10 mit dem sogenannten "Anniversary Update" benötigt. Details, wie man Windows aktualisieren kann, können [hier](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update) gefunden werden.
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to just install your package by double-clicking it, so a submission to the store might not be necessary if you're simply looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+Im Gegensatz zu traditionellen UWP-Apps, müssen sich gepackte Apps einem manuellen Prüfprozess unterziehen. Dieser kann [hier](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge) beantragt werden. In der Zwischenzeit kann jeder Benutzer Ihr Paket mittels eines Doppel-Klicks installieren. Somit wird eine Einreichung im Windows Store nicht nötig, wenn Sie nur nach einer einfacheren Installationsmethode Ausschau halten. In einer verwalteten Umgebung (normalerweise Unternehmen), das `Add-AppxPackage` [Powershell Cmdlet](https://technet.microsoft.com/en-us/library/hh856048.aspx) kann benutzt werden, um es auf automatischem Wege zu installieren.
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Eine weitere wichtige Beschränkung ist, dass das kompilierte AppX-Paket noch eine win32 Programmdatei beinhaltet. Somit wird es nicht auf der Xbox, HoloLens oder Mobiltelefonen ausführbar sein.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Optional: Hinzufügen von UWP-Funktionen mittels eines Hintergrundprozesses
 
 You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
 

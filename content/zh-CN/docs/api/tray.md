@@ -1,4 +1,4 @@
-## 任务栏
+## 系统托盘
 
 > 添加图标和上下文菜单到系统通知区
 
@@ -62,7 +62,7 @@ app.on('ready', () => {
 
 ### 事件
 
-The `Tray` module emits the following events:
+`Tray` 对象会发出以下事件:
 
 #### Event: 'click'
 
@@ -173,7 +173,7 @@ The `Tray` class has the following methods:
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+设置`image`作为托盘中显示的图标
 
 #### `tray.setPressedImage(image)` *macOS*
 
@@ -253,4 +253,4 @@ The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+返回 `Boolean` -判断托盘图标是否被销毁

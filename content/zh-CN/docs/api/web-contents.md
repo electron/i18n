@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 访问 `webContents` 对象的例子:
+` webContents ` 是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)的实例， 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 访问 `webContents` 对象的例子:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -139,11 +139,11 @@ Emitted when page receives favicon urls.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
 
-Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
+当页面请求打开地址为 ` url ` 的新窗口时触发。可以通过 ` window.open ` 或外部链接 (如 `<a target='_blank'>`) 触发。
 
-By default a new `BrowserWindow` will be created for the `url`.
+默认情况下, 将为 ` url ` 创建新的 ` BrowserWindow `。
 
-Calling `event.preventDefault()` will prevent Electron from automatically creating a new `BrowserWindow`. If you call `event.preventDefault()` and manually create a new `BrowserWindow` then you must set `event.newGuest` to reference the new `BrowserWindow` instance, failing to do so may result in unexpected behavior. 例如：
+调用`event.preventDefault()` 将会阻止Electron自动创建一个新的 `BrowserWindow`. 如果调用了 ` event. preventDefault () ` 并手动创建新的 ` BrowserWindow `, 则必须设置 ` event. newGuest ` 到手动刚创建的 ` BrowserWindow ` 实例, 否则可能会导致意外行为。 例如：
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -229,7 +229,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `event` Event
 * `killed` Boolean
 
-Emitted when the renderer process crashes or is killed.
+当渲染进程崩溃或被结束时触发
 
 #### Event: 'plugin-crashed'
 
@@ -239,7 +239,7 @@ Emitted when the renderer process crashes or is killed.
 * `name` String
 * `version` String
 
-Emitted when a plugin process has crashed.
+当有插件进程崩溃时触发
 
 #### Event: 'destroyed'
 
@@ -360,7 +360,7 @@ Emitted when media starts playing.
 
 #### Event: 'media-paused'
 
-Emitted when media is paused or done playing.
+当媒体文件暂停或播放完成的时候触发
 
 #### Event: 'did-change-theme-color'
 
@@ -390,9 +390,9 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+当鼠标指针改变的时候触发。 `type` 属性可能是 `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`中的一种.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+如果 `type` 属性的值是 `custom` ， `image` 参数将会把自定义的鼠标指针图像以 `NativeImage`的实例传入, 同时`scale`, `size` 和`hotspot` 属性会传入关于自定义指针的其他信息。
 
 #### Event: 'context-menu'
 

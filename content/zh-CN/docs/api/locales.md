@@ -26,7 +26,7 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | de-CH  | German (Switzerland)    |
 | de-DE  | German (Germany)        |
 | el     | 希腊语                     |
-| en     | English                 |
+| en     | 英语                      |
 | en-AU  | English (Australia)     |
 | en-CA  | English (Canada)        |
 | en-GB  | English (UK)            |
