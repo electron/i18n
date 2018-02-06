@@ -29,7 +29,7 @@ community:
   title: Electron 社区
   description: '工具, boilerplates, 视频, 以及更多的Electron的 <a href="https://github.com/sindresorhus/awesome-electron">awesome </a> 开源贡献者。查找或添加离您近的 <a href="/community#meetups"> 聚会 </a>。'
   tools: 工具
-  boilerplates: 规范
+  boilerplates: Boilerplates模板
   components: 组件
   videos: 视频
   meetups: 线下交流会
@@ -51,7 +51,7 @@ cross_platform:
 benefits:
   hard_parts_made_easy: 困难的部分变得更便捷
   automatic_updates: 自动更新
-  native_menus_and_notifications: 原生的菜单 & 通知
+  native_menus_and_notifications: 原生的菜单和通知
   crash_reporting: 崩溃报告
   debugging_and_profiling: 调试 & 性能分析
   windows_installers: Windows 安装程序
