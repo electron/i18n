@@ -1,22 +1,22 @@
-# 升级 Node
+# 升级 Chrome
 
-## Discussion
+## 讨论
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. This is important because upstream Node and [libchromiumcontent](upgrading-chromium.md) both use their own versions of V8.
+一个升级的问题是建设所有的电子与单一副本的 V8, 以确保兼容性。 这一点很重要, 因为上游节点和 [ libchromiumcontent ](upgrading-chromium.md) 都使用自己的 V8 版本。
 
-Upgrading Node is much easier than upgrading libchromiumcontent, so fewer conflicts arise if one upgrades libchromiumcontent first, then chooses the upstream Node release whose V8 is closest to it.
+升级节点比升级 libchromiumcontent 容易得多, 因此, 如果首先升级 libchromiumcontent, 然后选择最接近它的 V8 的上游节点版本, 就会发生较少的冲突。
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+电子有它自己的 [ 节点叉 ](https://github.com/electron/node), 并对上面提到的 V8 生成细节进行修改, 并用于公开电子所需的 API。 一旦选择了上游节点释放, 它就被放置在一个分支的电子的节点叉和任何电子节点补丁在那里应用。
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+另一个因素是节点项目修补其版本的 V8。如上所述, 电子用一个单一的 V8 来构建一切, 所以节点的 V8 补丁必须移植到该副本。
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+一旦所有电子的依赖建立和使用相同的副本 V8, 下一步是修复任何电子代码问题引起的节点升级。
 
-[FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
+[FIXME]关于在 Atom 中的节点调试器, 我们 (例如,) 使用和需要确认的东西不与节点升级中断？
 
-So in short, the primary steps are:
+简而言之, 主要步骤如下:
 
-1. Update Electron's Node fork to the desired version
+1. 更新电子的节点叉到所需的版本
 2. Backport Node's V8 patches to our copy of V8
 3. Update Electron to use new version of Node 
   - Update submodules
