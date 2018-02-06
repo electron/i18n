@@ -18,7 +18,7 @@
 
 1. 更新电子的节点叉到所需的版本
 2. Backport Node's V8 patches to our copy of V8
-3. Update Electron to use new version of Node 
+3. 更新 Electron 的最新版本，用node 
   - Update submodules
   - Update Node.js build configuration
 
