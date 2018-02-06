@@ -143,9 +143,9 @@ Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle
   * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra Framemeno](frameless-window.md). Di default è `true`.
   * `genitorr` FinestraBrowser (opzionale) - Specifica finestre genitoriali. Di default è `nullo`.
   * `modale` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
+  * `accettaPrimoMouse` Booleano (opzionale) - Se la visuale web accetta un singolo evento mouse giù che simultaneamente attiva la finestra. Di default è `false`.
+  * `disabilitaAutoNascondiCursore` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
+  * `autoNascondiMenuBarra` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che la chiave `Alt` sia premuta. Di default è `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
   * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
