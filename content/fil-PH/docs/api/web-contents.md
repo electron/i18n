@@ -667,9 +667,9 @@ pagkatapos(resp => resp.json())', totoo)
 
 * `huwag pansinin` Boolean
 
-Ignore application menu shortcuts while this web contents is focused.
+Huwag pansinin ang mga shorcut menu ng aplikasyon habang ang mga nilalaman ng web na ito ay nakatuon.
 
-#### `contents.setAudioMuted(muted)`
+#### `contents.setAudioMuted(naka-mute)`
 
 * `muted` Boolean
 
