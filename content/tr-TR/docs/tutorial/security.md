@@ -107,22 +107,21 @@ mainWindow.loadURL('https://my-website.com')
 <webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+Node.js entegrasyonunu devre dışı bırakırken, API'ları web sitenize hala gösterebilirsiniz. Node.js modüllerini veya özelliklerini tüketirler. Önceden yüklenmiş komut dosyalarına erişmeye devam etmek için `require` ve diğer Node.js özellikleri, geliştiricilerin bir özel Uzaktan içerik yüklemeleri için API.
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+Aşağıdaki örnek önyükleme komutunda, daha sonra yüklenen web sitesi, ` window.readConfig () </ 0> yöntemine erişebilir, ancak Node.js özelliği yoktur.</p>
 
-```js
-const { readFileSync } = require('fs')
+<pre><code class="js">const { readFileSync } = require('fs')
 
 window.readConfig = function () {
   const data = readFileSync('./config.json')
   return data
 }
-```
+`</pre> 
 
-## Enable Context Isolation for Remote Content
+## Uzak İçerik için Bağlam İzolasyonunu Etkinleştirmek
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+Bağlam izolasyonu, geliştiricilerin önceden yüklenmiş komut dosyalarında ve Electron API'lerinde özel bir JavaScript bağlamında kod çalıştırmasına olanak sağlayan bir Elektron özelliğidir. Pratikte, `Array.prototype.push` veya `JSON.parse` gibi genel nesnelerin, oluşturucu işleminde çalışan komutlarla değiştirilemediği anlamına gelir.
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
