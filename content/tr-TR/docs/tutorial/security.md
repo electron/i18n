@@ -32,7 +32,7 @@ Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
 * [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#handle-session-permission-requests-from-remote-content)
 * [`webSecurity` i kapatmayın](#do-not-disable-websecurity)
 * [Bir `Content-Security-Policy`](#define-a-content-security-policy) belirleyin ve sınırlayıcı kurallar koyun (örneğin `script-src 'self'`)
-* [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code.
+* [Geçersiz kıl ve devredışı bırak `eval`](#override-and-disable-eval) , dizelerin kod olarak yürütülmesine izin verir.
 * [`allowRunningInsecureContent` i `true` a ayarlamayın](#do-not-set-allowRunningInsecureContent-to-true)
 * [Deneysel özellikleri aktifleştirmeyin](#do-not-enable-experimental-features)
 * [`blinkFeatures` kullanmayın](#do-not-use-blinkfeatures)
