@@ -361,21 +361,28 @@ const mainWindow = new BrowserWindow()
 
 <p><em>Tavsiye edilen ayar Electron'da varsayılandır</em></p>
 
-<p>If you are using <a href="web-view"><code>WebViews`</a>, you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.</p> 
+<p>
+<a href="web-view"><code> WebViews </ 0> kullanıyorsanız, sayfalara ve komut dizelerine
+yeni pencereleri açmak için <code><webview>` gereklidir. ` allowpopups </ 0> özniteliği
+kullanarak yeni <a href="browser-window"><code> BrowserWindows </ 1> oluşturmalarına olanak tanır
+<code> window.open () </ 0>  <code> WebViews </ 0> 'e, aksi takdirde yeni
+pencereler.</p>
 
-### Neden?
+<h3>Neden?</h3>
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+<p>op-up'a ihtiyacınız yoksa, dosyanın oluşturulmasına izin vermeyin.
+varsayılan olarak yeni <a href="browser-window"><code> BrowserWindows </ 0>. This follows the principle
+of minimally required access: Don't let a website create new popups unless
+you know it needs that feature.</p>
 
-### Nasıl?
+<h3>Nasıl?</h3>
 
-```html
-<!-- Bad -->
+<pre><code class="html"><!-- Bad -->
 <webview allowpopups src="page.html"></webview>
 
 <!-- Good -->
 <webview src="page.html"></webview>
-```
+`</pre> 
 
 ## Bitirmeden Önce WebView Ayarlarını Doğrulayın
 
