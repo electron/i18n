@@ -12,7 +12,7 @@ nav:
   search: Cerca
 docs:
   title: Documentazione di Electron
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  description: Vedi tutti i <a href="/docs/all">documenti in un'unica pagina</a> o controlla le <a href="/docs/faq">FAQ</a>.
   guides: Guide
   api_reference: API Reference
   advanced: Advanced
