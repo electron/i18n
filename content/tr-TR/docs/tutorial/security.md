@@ -131,19 +131,19 @@ Bağlam izolasyonu, işleyicide çalışan komut dosyalarının her birinin Elec
 
 Bağlamsal izolasyon hala deneysel bir Elektron iken, ek güvenlik katmanı Elektron için yeni bir JavaScript dünyası yaratıyor API'ler ve önyükleme komut dosyaları.
 
-At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
+Aynı zamanda, önyükleme komut dosyaları hala ` belgesine </ 0> erişebilir ve
+<code> pencere </ 0> nesneleri. Başka bir deyişle, büyük olasılıkla çok küçük bir yatırımla iyi bir getiri elde edersiniz.</p>
 
-### Nasıl?
+<h3>Nasıl?</h3>
 
-```js
-// Main process
+<pre><code class="js">// Main process
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
     preload: 'preload.js'
   }
 })
-```
+`</pre> 
 
 ```js
 // Preload script
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 Chrome kullanırken izin istemlerini görmüş olabilirsiniz: Bir web sitesi bir özelliği kullanmak istediğinde kullanıcının onaylaması için ortaya çıkarlar (bildirimlere benzer).
 
-The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
+API,  Chromium izinleri API'sı </ 0> 'na dayanmaktadır ve aynı izin türlerini uygular.</p> 
 
 ### Neden?
 
@@ -203,41 +203,40 @@ session
 
 ### Neden?
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
+CSP, sunum yapan sunucuya kaynakların kısıtlanmasına ve kontrol edilmesine izin verir. Verilen web sayfası için elektron yüklenebilir. `https://your-page.com` kaynak kodlu senaryoları tanımladığın kaynaklardan yüklemesine izin ver `https://evil.attacker.com` çalıştırılmasına izin verilmemelidir. CSP tanımlamak, uygulamalarınızın güvenliğini artırmanın kolay bir yolu.
 
 ### Nasıl?
 
-Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
+` Content-Security-Policy </ 1> HTTP başlığına <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy"> elektronik saygı duyar </ 0>
+ve ilgili <code><meta>` etiketini içerir.
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
+Aşağıdaki CSP, Electron'un şu andaki komut dosyalarını web sitesinden ve ` apis.mydomain.com </ 0> adresinden.</p>
 
-```txt
-// Yanlış
+<pre><code class="txt">// Yanlış
 Content-Security-Policy: '*'
 
 // Doğru
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
-```
+`</pre> 
 
-## Override and Disable `eval`
+## Geçersiz kıl ve Devre Dışı Bırak `eval`
 
 `eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
 
 ### Neden?
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. Bu ne zaman zorunlu bir yöntemdir önceden bilinmeyen kodu değerlendirmeliyiz. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
 
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+Genel olarak, `` eval () </ 0> işlevini tamamen devre dışı bırakmaktan daha kolaydır. Böylece, buna ihtiyacınız yoksa, devre dışı bırakmak iyi bir fikirdir.</p>
 
-### Nasıl?
+<h3>Nasıl?</h3>
 
-```js
-// ESLint will warn about any use of eval(), even this one
+<pre><code class="js">// ESLint will warn about any use of eval(), even this one
 // eslint-disable-next-line
 window.eval = global.eval = function () {
   throw new Error(`Sorry, this app does not support window.eval().`)
 }
-```
+``</pre> 
 
 ## `allowRunningInsecureContent` i `true` a Ayarlamayın
 
@@ -381,13 +380,19 @@ If you do not need popups, you are better off not allowing the creation of new [
 
 A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
-It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
+Yeni [` WebViews </ 0> 'in oluşturulmasını kontrol etmek iyi bir fikirdir.
+Ana İşlem ve webPreferences'ın devre dışı bırakılmadığını doğrulama
+güvenlik özellikleri.</p>
 
-### Neden?
+<h3>Neden?</h3>
 
-Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+<p>Since WebViews live in the DOM, they can be created by a script running on your
+website even if Node.js integration is otherwise disabled.</p>
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
+<p>Electron enables developers to disable various security features that control
+a renderer process. In most cases, developers do not need to disable any of
+those features - and you should therefore not allow different configurations
+for newly created <a href="web-view"><code><WebView>`](web-view) tags.
 
 ### Nasıl?
 
