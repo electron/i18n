@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `optionen` Object 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
   * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle
@@ -39,7 +39,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `sound` String - (optional) The name of the sound file to play when the notification is shown. *macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (optional) Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation *macOS*
 
-### Instance Events
+### Beispiel Events
 
 Objects created with `new Notification` emit the following events:
 
@@ -93,7 +93,7 @@ is closed.</p>
   
   * ` Ereignis </ 0>  Ereignis</li>
 <li><code>index` Number - The index of the action that was activated
-  ### Instance Methods
+  ### Beispiel Methoden
   
   Objects created with `new Notification` have the following instance methods:
   
