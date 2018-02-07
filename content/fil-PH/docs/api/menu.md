@@ -2,13 +2,13 @@
 
 > Lumikha ng natural na mga menu ng aplikasyon at mga menu ng konteksto.
 
-Ang Proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 ### `bagong Menu()`
 
 Lumilikha ng isang bagong menu.
 
-### Mga istatikong pamamaraan
+### Mga statik na pamamaraan
 
 Ang klase ng `menu` na mayroon ng mga sumusunod na mga istatikong pamamaraan:
 
@@ -46,17 +46,17 @@ Sa pangkalahatan, ang `template` ay lamang ng isang hanay ng mga `pagpipilian` p
 
 Makakabitan mo din ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga constructed menu item.
 
-### Mga pamamaraan ng pagkakataon
+### Halimbawa ng mga pamamaraan
 
 Ang `Menu`Na object ay ang mga sumusunod na pamamaraan ng pagkakataon:
 
-#### `menu.popup([browserWindow, options])`
+#### `ang menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (opsyonal) - default ang nakatuong window.
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga opsyon` Mga bagay (opsyonal) 
   * `x` Number (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung ang `y` ay naipahayag na.
   * `y` (opsyonal) - bilang Default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ipahayag kung `x` ay ipinahayag.
-  * `async` Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito ay tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Ang mga default para sa `false`.
+  * `async` Boolean (opsyonal) - Itinakda sa `true` upang maibalik agad ang pamamaraang ito ay tinawag, `false` upang maibalik pagkatapos na ang menu ay mapili o maisara. Ang default na `mali`.
   * `positioningItem` Number (opsyonal) *macOS* - Ang indise ng mga aytem ng menu upang maging nakaposisyon sa ilalim ng cursor ng mouse sa tinukoy na pagkakatugma. Ang default ay -1.
 
 Pasulputin ang menu na ito bilang isang menu ng konteksto sa `browserWindow`.
@@ -69,7 +69,7 @@ Isinasara ang konteksto ng menu sa `browserWindow`.
 
 #### `menu.append(menuItem)`
 
-* `menuItem` Ang MenuItem
+* `menuItem`MenuItem
 
 Idinagdag ang `menuItem` sa menu.
 
@@ -82,27 +82,27 @@ Returns `MenuItem` the item with the specified `id`
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
-* `menuItem` ang MenuItem
+* `menuItem` Ang MenuItem
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Ipasok sa`menuItem`papunta sa posisyon ng`pos`ng menu.
 
-### Katangian ng mga pag-aari
+### Mga Katangian ng Instansya
 
-`menu` objects also have the following properties:
+Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
 
-## Mga halimbawa
+## Halimbawa
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
 
 ### Pangunahing proseso
 
-An example of creating the application menu in the main process with the simple template API:
+Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -198,7 +198,7 @@ Menu.setApplicationMenu(menu)
 
 ### Prosesong tagabigay
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul ng [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
 
 ```html
 <!-- index.html -->
@@ -220,43 +220,43 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Ang mga tala sa Menu ng Aplikasyon sa macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula saWindows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
 
 ### Mga pamantayan ng Menu
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+Sa macOS ay maraming tukoy na sistema ng standard na menu, tulad ng `Services` at mga menu ng `Window`. Para gawin ang iyong menu na standard na menu, dapat mong i-set ang iyong menu sa `role` sa isa sa mga sumusunod at ang Electron ay makikilala sila at gagawin silang mga standard na menu:
 
-* `window`
-* `help`
-* `services`
+* `ang window`
+* `tulong`
+* `mga serbisyo`
 
 ### Mga Aksyon ng Standard Menu
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang standard na aksyon, dapat mong itakda ang katangian ng `role` ng item ng menu.
 
 ### Pangalan ng Pangunahing Menu
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
 
 ## Itinatakda ang Menu para sa Specific Browser Window ng (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
 
 ## Posisyon ng Item ng Menu
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang mga item kapag bumubuo ng isang menu sa pamamagitan ng `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+Ang katangian ng `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `before` - Isisingit ang item na ito bago ang id ng isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
+* `after` - Isisingit ang item na ito pagkatapos ng id ng isinangguning item, Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
+* `endof` - Isisingit ang item na ito sa hulihan ng lohikal na grupo na naglalaman ng id ng isinangguning item (ang mga grupo ay ginawa nang taga-hiwalay ng mga item). Kung ang isinangguning aytem ay hindi umiiral, isang bagong grupo ng taga-hiwalay ay lilikhain kasama ang ibinigay na id at ang aytem na ito ay ilalagay pagkatapos nang taga-hiwalay.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Kapag ang aytem ay naka-posisyon na, lahat ng hindi naka-posisyon na mga aytem ay ilalagay pagkatapos nito hanggang ang isang bagong aytem ay nai-posisyon na. Kaya kung gusto mong i-posisyon ang isang grupo ng mga aytem ng menu sa kaparehas na lokasyon kailangan mo lang tukuyin ang posisyon para sa unang aytem.
 
 ### Mga halimbawa
 
-Template:
+Ang Template:
 
 ```javascript
 [
@@ -268,7 +268,7 @@ Template:
 ]
 ```
 
-Menu:
+Ang Menu:
 
 ```sh
 <br />- 1
@@ -280,7 +280,7 @@ Menu:
 Context | Request Context
 ```
 
-Template:
+Ang Template:
 
 ```javascript
 [
@@ -293,7 +293,7 @@ Template:
 ]
 ```
 
-Menu:
+Ang Menu:
 
 ```sh
 <br />- ---
