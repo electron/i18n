@@ -679,7 +679,7 @@ I-mute ang audio sa kasalukuyang web na page.
 
 Bumalik `Boolean` - Kung naka-mute ang pahinang ito.
 
-#### `contents.setZoomFactor(factor)`
+#### `mga nilalaman.setZoomFactor(kadahilanan)`
 
 * `factor` Number - Zoom factor.
 
