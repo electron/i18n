@@ -370,6 +370,11 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
+返回:
+
+* `event` Event
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+
 #### Event: 'update-target-url'
 
 返回:
@@ -390,9 +395,9 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
 
-当鼠标指针改变的时候触发。 `type` 属性可能是 `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`中的一种.
+Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
-如果 `type` 属性的值是 `custom` ， `image` 参数将会把自定义的鼠标指针图像以 `NativeImage`的实例传入, 同时`scale`, `size` 和`hotspot` 属性会传入关于自定义指针的其他信息。
+If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
 #### Event: 'context-menu'
 
@@ -443,7 +448,7 @@ Emitted when there is a new context menu that needs to be handled.
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
-  * `设备Id` 字符串
+  * `deviceId` String 设备Id
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
@@ -503,6 +508,26 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+
+#### Event: 'did-attach-webview'
+
+返回:
+
+* `event` Event
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Event: 'console-message'
+
+返回:
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
 ### 实例方法
 
@@ -652,7 +677,7 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 
 Evaluates `code` in page.
 
-In the browser window some HTML APIs like `requestFullScreen` can only be invoked by a gesture from the user. Setting `userGesture` to `true` will remove this limitation.
+在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -681,9 +706,9 @@ Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - 缩放比例
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+更改缩放比例。缩放比例是缩放百分比除以 100，如 300% = 3.0。
 
 #### `contents.getZoomFactor(callback)`
 
@@ -696,7 +721,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 * `level` Number - Zoom level
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 #### `contents.getZoomLevel(callback)`
 
@@ -710,14 +735,14 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+** 已弃用: **请调用 ` setVisualZoomLevelLimits ` 来设置可视化缩放级别限制。此方法将在Electron 2.0 中删除。
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+设置最大和最小缩放级别。
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -785,7 +810,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Inserts `text` to the focused element.
+插入`text` 到焦点元素
 
 #### `contents.findInPage(text[, options])`
 
@@ -797,7 +822,9 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -846,12 +873,14 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
 * `options` Object (可选) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+* `callback` Function (可选) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -970,7 +999,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
+通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 在内部，参数会被序列化为 JSON，因此参数对象上的函数和原型链不会被发送。
 
 The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
 
