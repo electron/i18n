@@ -15,6 +15,7 @@ Có những câu hỏi thường xuyên hay gặp. Bạn nên xem qua phía dư�
 * [Phân phối ứng dụng](tutorial/application-distribution.md)
 * [Bộ hướng dẫn cho Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Bộ hướng dẫn cho Windows Store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Đóng góp ứng dụng](tutorial/application-packaging.md)
 * [Sử dụng các Module Native của Node](tutorial/using-native-node-modules.md)
 * [Debug cho Main Process](tutorial/debugging-main-process.md)
