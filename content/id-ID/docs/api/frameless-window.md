@@ -9,9 +9,7 @@ Jendela buram tanpa bingkai adalah jendela yang tidak memiliki  krom </ 0> , bag
 <p>Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
  <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
 
-<pre><code class="javascript">const {BrowserWindow} = membutuhkan ('elektron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
-win.show()
+<pre><code class="javascript">const {BrowserWindow} = require ('electron') misalkan win = new BrowserWindow ( {width: 800, height: 600, frame: false} ) win.show ()
 `</pre> 
 
 ### Alternatif macos
@@ -24,7 +22,9 @@ Anda dapat melakukannya dengan menetapkan <code> titleBarStyle </ 0>  option :</
 Hasil di bar judul tersembunyi dan jendela konten ukuran penuh, namun bilah judul masih memiliki kontrol jendela standar ("lampu lalu lintas") di kiri atas.
 
 ```javascript
-const {jendela Browser} = memerlukan ('electron') biarkan menang = jendela Browser baru( {gaya catatan : 'tersembunyi'} ) menang.menunjukkan ()
+const {BrowserWindow} = membutuhkan ('elektron')
+let win = new BrowserWindow({titleBarStyle: 'hidden'})
+win.show()
 ```
 
 #### `tersembunyi sisipan`
@@ -32,7 +32,9 @@ const {jendela Browser} = memerlukan ('electron') biarkan menang = jendela Brows
 Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu lalu lintas sedikit lebih tertutup dari tepi jendela.
 
 ```javascript
-const {jendela Browser} = memerlukan ('electron') biar menang = baru Browser jendela( {gaya catatan: 'tersembunyi sisipan'} ) menang.menunjukan ()
+const {BrowserWindow} = membutuhkan ('elektron')
+let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+win.show()
 ```
 
 #### `adat tombol di atas hover`
@@ -40,16 +42,16 @@ const {jendela Browser} = memerlukan ('electron') biar menang = baru Browser jen
 Menggunakan tombol ditarik, miniatur, dan layar penuh yang dipamerkan saat melayang di kiri atas jendela. Tombol khusus ini mencegah masalah dengan peristiwa mouse yang terjadi dengan tombol toolbar jendela standar. Ini pilihan ini hanya berlaku untuk jendela tanpa bingkai.
 
 ```javascript
-const {BrowserWindow} = membutuhkan ('elektron')
-let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
-win.show()
+const {BrowserWindow} = require ('electron') misalkan win = new BrowserWindow ( {titleBarStyle: 'customButtonsOnHover', frame: false} ) win.show ()
 ```
 
 ## Jendela transparan
 
 Dengan menetapkan ` transparan </ 0>  option untuk <code> benar </ 0> , Anda juga dapat membuat jendela tanpa bingkai transparan:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') misalkan win = new BrowserWindow ( {transparent: true, frame: false} ) win.show ()
+<pre><code class="javascript">const {BrowserWindow} = membutuhkan ('elektron')
+let win = new BrowserWindow({transparent: true, frame: false})
+win.show()
 `</pre> 
 
 ### Keterbatasan
@@ -68,7 +70,9 @@ Dengan menetapkan ` transparan </ 0>  option untuk <code> benar </ 0> , Anda jug
 <p>Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peristiwa mouse, Anda dapat memanggil API <a href="browser-window.md#winsetignoremouseeventsignore"> win.setIgnoreMouseEvents (ignore) </ 0>
  :</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') biarkan menang = new BrowserWindow () win.setIgnoreMouseEvents (true)
+<pre><code class="javascript">const {BrowserWindow} = require('electron')
+let win = new BrowserWindow()
+win.setIgnoreMouseEvents(true)
 `</pre> 
         ### Forwarding
         
@@ -89,33 +93,32 @@ el.addEventListener('mouseleave', () => {
     
     ## Daerah serangga
     
-    By default, the frameless window is non-draggable. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+    Secara default, jendela tanpa bingkai tidak dapat ditarik. Aplikasi harus menentukan ` - webkit - app-wilayah: menyeret </ 0> dalam CSS untuk pemesanan elektron yang daerah draggable (seperti OS standar titlebar), dan aplikasi juga dapat menggunakan <code> - webkit - app-wilayah: no- drag </ 0> untuk mengecualikan daerah bebas-draggable dari daerah draggable. Perhatikan bahwa hanya bentuk persegi panjang yang saat ini didukung.</p>
+
+<p>Catatan: <code> -webkit-app-region: drag </ 0> diketahui bermasalah saat alat pengembang terbuka. Lihat ini <a href="https://github.com/electron/electron/issues/3647"> Masalah GitHub </ 0> untuk informasi lebih lanjut termasuk solusi.</p>
+
+<p>Untuk membuat seluruh jendela menjadi seret, Anda dapat menambahkan gaya <code> -webkit-app-region: drag </ 0> sebagai
+ <code> body </ 0> :</p>
+
+<pre><code class="html">&lt;body style="-webkit-app-region: drag"&gt; 
+</ 0>
+`</pre> 
     
-    Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
+    Dan perhatikan bahwa jika Anda telah membuat keseluruhan jendela draggable, Anda juga harus menandai tombol sebagai non-draggable, jika tidak, tidak mungkin bagi pengguna untuk mengekliknya:
     
-    To make the whole window draggable, you can add `-webkit-app-region: drag` as `body`'s style:
-    
-    ```html
-<body style="-webkit-app-region: drag">
-</body>
+    ```css
+tombol {
+   -webkit-app-region: no-drag; }
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
-
-```css
-button {
-  -webkit-app-region: no-drag;
-}
-```
-
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Jika Anda menetapkan hanya titlebar kustom sebagai draggable, Anda juga perlu membuat semua tombol di titlebar yang tidak dapat digeser.
 
 ## Pilihan teks
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+Di jendela tanpa bingkai, perilaku menyeret mungkin bertentangan dengan pemilihan teks. Misalnya, saat Anda menyeret titlebar Anda mungkin secara tidak sengaja memilih teks pada titlebar. Untuk mencegah hal ini, Anda perlu menonaktifkan pemilihan teks dalam area yang dapat digeser seperti ini:
 
 ```css
-.titlebar {
+.bar judul {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
@@ -123,4 +126,4 @@ In a frameless window the dragging behaviour may conflict with selecting text. F
 
 ## Menu konteks
 
-On some platforms, the draggable area will be treated as a non-client frame, so when you right click on it a system menu will pop up. To make the context menu behave correctly on all platforms you should never use a custom context menu on draggable areas.
+Pada beberapa platform, area draggable akan diperlakukan sebagai bingkai non-klien, jadi Bila Anda klik kanan pada menu sistem akan muncul. Untuk membuat menu berperilaku benar pada semua platform Anda tidak boleh menggunakan menu konteks kustom pada daerah yang seret.
