@@ -1,4 +1,4 @@
-# session
+# sessione
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 
@@ -18,7 +18,7 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Methods
+## Metodi
 
 The `session` module has the following methods:
 
@@ -113,7 +113,7 @@ Writes any unwritten DOMStorage data to disk.
 
 #### `ses.setProxy(config, callback)`
 
-* `config` Object 
+* `config` Oggetto 
   * `pacScript` String - The URL associated with the PAC file.
   * `proxyRules` String - Rules indicating which proxies to use.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
@@ -189,7 +189,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -216,7 +216,7 @@ Disables any network emulation already active for the `session`. Resets to the o
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `hostname` String
     * `certificato` [Certificato](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
@@ -313,7 +313,7 @@ Returns `Blob` - The blob data associated with the `identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
