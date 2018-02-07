@@ -4,18 +4,13 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`autoUpdater` モジュールは [Squirrel](https://github.com/Squirrel) フレームワークのためのインターフェイスを提供します
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-これらのプロジェクトの 1 つを使用して、アプリケーションを配布するため、マルチプラット フォーム リリース サーバーを迅速に起動できます。
+## Platform Notices
 
-* [ナッツ](https://github.com/GitbookIO/nuts): 1 A スマート リリース サーバー、アプリケーションのバックエンドとして GitHub を使ってします。リス (Mac ・ Windows) と自動更新</em>
-* [電子リリース サーバー](https://github.com/ArekSredzki/electron-release-server): *A 完全におすすめの電子アプリケーションの自動アップデートと互換性のあるリリース サーバーを自己ホスト型*
-* [リスの更新サーバー](https://github.com/Aluxian/squirrel-updates-server): *Squirrel.Mac と Squirrel.Windows GitHub のリリースを使用しての簡単な node.js サーバー*
-* [リス リリース サーバー](https://github.com/Arcath/squirrel-release-server): 1 A フォルダーから更新プログラムを読み取り、Squirrel.Windows の単純な PHP アプリケーション。 デルタ更新プログラムをサポートしています</em>。
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## プラットフォームごとの通知
-
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,13 +28,9 @@ Windows では、`自動アップデーター` を生成する [電子 winstalle
 
 Squirrel.Mac とは異なり、Windows は S3 またはその他の静的ファイルのホストに更新プログラムをホストできます。 Squirrel.Windows のしくみについての詳細を取得する [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントを読むことができます。
 
-### Linux
-
-Linux では、自動アップデーターの組み込みサポートがないので、ディストリビューションのパッケージ マネージャーを使用してアプリを更新することをお勧め。
-
 ## イベント
 
-`autoUpdater` オブジェクトは以下のイベントを発生させます。
+The `autoUpdater` object emits the following events:
 
 ### イベント: 'error'
 
@@ -47,21 +38,21 @@ Linux では、自動アップデーターの組み込みサポートがない�
 
 * `error` Error
 
-更新中にエラーがあるときに出力されます。
+Emitted when there is an error while updating.
 
-### イベント: 'checking-for-update'
+### Event: 'checking-for-update'
 
-更新が始まったかどうかをチェックするときに放出されます。
+Emitted when checking if an update has started.
 
-### イベント: 'update-available'
+### Event: 'update-available'
 
-利用可能な更新がある場合に生成されます。更新プログラムが自動的にダウンロードされます。
+Emitted when there is an available update. The update is downloaded automatically.
 
-### イベント: 'update-not-available'
+### Event: 'update-not-available'
 
-利用可能な更新がない場合に出力されます。
+Emitted when there is no available update.
 
-### イベント: 'update-downloaded'
+### Event: 'update-downloaded'
 
 戻り値：
 
@@ -73,16 +64,16 @@ Linux では、自動アップデーターの組み込みサポートがない�
 
 Emitted when an update has been downloaded.
 
-Windowsでは `releaseName` のみ利用可能です。
+On Windows only `releaseName` is available.
 
 ## メソッド
 
-`autoUpdater` オブジェクトには以下のメソッドがあります
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。
+* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
 Sets the `url` and initialize the auto updater.
 
@@ -92,7 +83,7 @@ Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-更新プログラムがあるかどうかをサーバーに要求します。この API を使用する前に `setFeedURL` を呼び出す必要があります。
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
