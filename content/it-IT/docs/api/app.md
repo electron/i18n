@@ -111,6 +111,45 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Un'attività dell'utente può essere continuata solo in un app con lo stesso Team ID dello sviluppatore come fonte app dell'attività e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'app sotto la chiave `NSTipoAttivitàUtente`.
 
+### Event: 'will-continue-activity' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
+
+### Event: 'continue-activity-error' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - A string with the error's localized description.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+
+### Event: 'activity-was-continued' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+
+### Event: 'update-activity-state' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
 ### Evento: 'nuova-finestra-per-scheda' *macOS*
 
 Restituiti:
@@ -124,7 +163,7 @@ Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante
 Restituiti:
 
 * `evento` Evento
-* `finestra` FinestraBrowser
+* `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 
@@ -133,7 +172,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 Restituiti:
 
 * `evento` Evento
-* `finestra` FinestraBrowser
+* `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 
@@ -142,7 +181,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 Restituiti:
 
 * `evento` Evento
-* `finestra` FinestraBrowser
+* `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 
@@ -151,7 +190,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 Restituiti:
 
 * `evento` Evento
-* `Contenutiweb` ContenutiWeb
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
 Emesso quando un nuovo [ContenutoWeb](web-contents.md) è creato.
 
@@ -348,6 +387,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 * `musica` La directory per la musica dell'utente.
 * `immagini` La directory per le immagini dell'utente.
 * `video` La directory per i video dell'utente.
+* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Percorso intero alla versione di sistema del plugin Pepper Flash.
 
 ### `app.ottieniIconaFile(percorso[, opxioni], callback)`
@@ -420,7 +460,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Pulisce la lista documenti recenti.
     
-    ### `app.impostacomeProtocolloClientDefault(protocol[, percorso,args])` *macOS* *Windows*
+    ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
     
     * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
     * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
@@ -492,7 +532,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Se le `categorie` sono `nulle` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
     
-    **Nota:** Se un oggetto `CategoriaJumpList` non ha nè la proprietà `tipo` nè quella `nome` le proprietà si impostano che il `tipo` sia sicuramente `task`. Se la proprietà `nome` è impostata ma la proprietà `tipo` è omessa il `tipo` sarà considerato `personalizzato`.
+    **Note:** Se un oggetto `SalaCategoriaLista` non ha nè `tipo` nè `nome` impostati il suo tipo diviene `predefinito`. Se la proprietà `nome` é impostata ma la proprietà `tipo` é omessa, il `tipo` sarà considerato`modificato`.
     
     **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
     
@@ -615,6 +655,19 @@ Crea un'`NSAttivitàUtente` e la imposta come attività corrente. L'attività è
 
 Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
+### `app.invalidateCurrentActivity()` *macOS*
+
+* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+
 ### `app.impostaModelloIdAppUtente(id)` *Windows*
 
 * `id` Stringa
@@ -651,7 +704,7 @@ Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di ogge
 
 Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di oggetti `ProcessoMetrico` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app.
 
-### `app.ottieniStatoFunzioniGpu()`
+### `app.getGPUFeatureStatus()`
 
 Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
@@ -726,92 +779,112 @@ app.impostaImpostazioniElementoAccesso({
 
 Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `opzioni` Oggetto 
-  * `Nomeapplicazione` Stringa (opzionale) - Il nome dell'app.
-  * `Versioneapplicazione` Stringa (opzionale) - La versione dell'app.
-  * `copyright` Stringa (opzionale) - Informazioni di copyright.
-  * `crediti` Stringa (opzionale) - Informazioni dei crediti.
-  * `versione` Stringa (opzionale) - Il numero della versione build dell'app.
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
 
-Vedi il pannello delle opzioni. Questo oltrepasserà i valori definiti nel file `.plist` del file. Vedi i [documenti Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) per altri dettagli.
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
 
-### `app.Lineacomando.aggiungereInterruttore(interrutore[, valore])`
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-* `interruttore` Stringa - Un interruttore della linea di comando
-* `valore` Stringa (opziomale) - Un valore per l'interruttore dato
+### `app.setAboutPanelOptions(options)` *macOS*
 
-Aggiungi un interruttore (con `valore` opzionale) alla linea di comando di Chromium.
+* `opzioni` Object 
+  * `applicationName` String (optional) - The app's name.
+  * `applicationVersion` String (optional) - The app's version.
+  * `copyright` String (optional) - Copyright information.
+  * `credits` String (optional) - Credit information.
+  * `version` String (optional) - The app's build version number.
 
-**Nota:** Non colpirà `processo.argv` ed è principalmente usato dagli sviluppatori per controllare alcuni comportamenti di basso livello di Chromium.
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
-### `app.Lineacomando.aggiungiArgomento(valore)`
+### `app.commandLine.appendSwitch(switch[, value])`
 
-* `valore` Stringa - L'argomento da aggiungere alla linea di comando
+* `switch` String - A command-line switch
+* `value` String (optional) - A value for the given switch
 
-Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quotato correttamente.
+Append a switch (with optional `value`) to Chromium's command line.
 
-**Nota:** Non colpirà `processo.argv`.
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
-### `app.abilitascatolaSabbiaMischiata()` *Sperimentale* *macOS* *Windows*
+### `app.commandLine.appendArgument(value)`
 
-Abilita la modalità scatola dei giochi mischiata nell'app.
+* `value` String - The argument to append to the command line
+
+Append an argument to Chromium's command line. The argument will be quoted correctly.
+
+**Note:** This will not affect `process.argv`.
+
+### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+
+Enables mixed sandbox mode on the app.
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
+### `app.isInApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+
 ### `app.dock.bounce([type])` *macOS*
 
-* `tipo` Stringa (opzionale) - Può essere `critico` o `informativo`. Di default è `informativo`
+* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
 
-Quando `critico` è passato, l'icona del dock rimbalza finché l'app diventa attiva o la richiesta viene annullata.
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-Quando `informativo` è passato, l'icona del dock rimbalzerà per un secondo. Comunque la richiesta resterà attiva finché l'l'applicazione non diviene attiva o la richiesta viene annullata.
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Restituisce `Intero` un ID rappresentante la richiesta.
+Returns `Integer` an ID representing the request.
 
-### `app.dock.annullaRimbalzo(id)` *macOS*
+### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Numero Intero
 
-Annulla il rimbalzo dell'`id`.
+Cancel the bounce of `id`.
 
-### `app.dock.scaricamentoFinito(Percorsofile)` *macOS*
+### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `Percorsofile` Stringa
 
-Rimbalza il download impilato se il Percorsofile è nella cartella dei file scaricati.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
-### `app.dock.impostaBadge(testo)` *macOS*
+### `app.dock.setBadge(text)` *macOS*
 
 * `testo` Stringa
 
-Imposta la stringa da mostrare nell'area del dock di badging.
+Sets the string to be displayed in the dock’s badging area.
 
-### `app.dock.ottieniBadge()` *macOS*
+### `app.dock.getBadge()` *macOS*
 
-Restituisce `Stringa` - La stringa del badge del dock.
+Returns `String` - The badge string of the dock.
 
-### `app.dock.nascondi()` *macOS*
+### `app.dock.hide()` *macOS*
 
-Nasconde l'icona del dock.
+Hides the dock icon.
 
-### `app.dock.mostra()` *macOS*
+### `app.dock.show()` *macOS*
 
-Mostra l'icona del dock.
+Shows the dock icon.
 
-### `app.dock.èvisibile()` *macOS*
+### `app.dock.isVisible()` *macOS*
 
-Restituisce `Booleano` - Se l'icona del dock è visibile. L'`app.dock.mostra()` chiamato è asincrono quindi questo metodo potrebbe non restituire true immediatamente dopo questa chiamata.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
-### `app.dock.impostaMenu(menu)` *macOS*
+### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Imposta il [menu dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
+Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
-### `app.dock.impostaImmagine(immagine)` *macOS*
+### `app.dock.setIcon(image)` *macOS*
 
 * `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
-Imposta l'`immagine` associata a questa icona del dock.
+Sets the `image` associated with this dock icon.
