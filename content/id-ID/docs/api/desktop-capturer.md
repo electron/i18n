@@ -1,8 +1,8 @@
-# desktopmenangkap
+# penangkapDesktop
 
 > Akses informasi tentang sumber media yang dapat digunakan untuk menangkap audio dan video dari desktop menggunakan API [ ` navigator.mediaDevices.getUserMedia `].
 
-Proses:[Renderer](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 Contoh berikut menunjukkan bagaimana menangkap video dari jendela desktop yang judulnya adalah`Elektron `:
 
@@ -63,13 +63,13 @@ Untuk menangkap video dari sumber yang disediakan oleh ` desktopCapturer </ 0> k
    }}
 `</pre> 
 
-## Metode
+## Methods
 
 The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
 
 <h3><code>desktopCapturer.getSources (opsi, callback)`</h3> 
 
-* `pilihan` Objek 
+* `pilihan` Benda 
   * `jenis `String [] - Kumpulan String yang mencantumkan jenis sumber desktop yang akan ditangkap, jenis yang tersedia adalah`layar `dan`jendela </ 0>.</li>
 <li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
 </ul></li>
