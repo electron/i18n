@@ -161,7 +161,7 @@ Rilis ini dipublikasikan ke [npm](https://www.npmjs.com/package/electron) di baw
 3. Hapus tanda centang pada `prerelease` kotak centang jika anda menerbitkan rilis stabil; biarkan diperiksa untuk rilis beta.
 4. Klik 'Simpan draf'. **Jangan klik 'Publikasikan rilis'!**
 5. Tunggu sampai semua bangunan berlalu sebelum melanjutkan.
-6. Anda dapat menjalankan `npm run release --validateRelease` untuk memverifikasi semua file yang dibutuhkan telah dibuat untuk rilis.
+6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
 ## Gabungkan cabang sementara
 
