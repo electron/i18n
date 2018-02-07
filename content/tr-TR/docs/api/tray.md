@@ -72,6 +72,7 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
+* `position` [Point](structures/point.md) - event'ın pozisyonu
 
 Tray simgesi tıklandığında çıkar.
 
@@ -161,17 +162,28 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - event'ın pozisyonu
+
+Emitted when the mouse moves in the tray icon.
+
 ### Örnek Metodlar
 
-The `Tray` sınıfı aşağıdaki yöntemleri içerir:
+The `Tray` class has the following methods:
 
 #### `tray.destroy()`
 
-Tepsi simgesini derhal imha eder.
+Destroys the tray icon immediately.
 
 #### `tray.setImage(image)`
 
-* `image` ([NativeImage](native-image.md) | String)
+* `image` ([DoğalGörüntü](native-image.md) | Dizi)
 
 Sets the `image` associated with this tray icon.
 
@@ -185,17 +197,17 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Bu tepsi simgesinin üzerine gelen metni ayarlar.
+Sets the hover text for this tray icon.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Durum çubuğunda tepsi simgesinin bir kenara görünen başlığını ayarlar.
+Sets the title displayed aside of the tray icon in the status bar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
+* `mod` String - Highlight mode with one of the following values: 
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
   * `always` - Always highlight the tray icon.
   * `never` - Never highlight the tray icon.
@@ -223,34 +235,34 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `ayarlar` Nesne 
+* `seçenekler` Nesne 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` Dize - (İsteğe Bağlı)
+  * `title` String
+  * `content` String
 
-Bir tepsi balonunu görüntüler.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menü (İsteğe bağlı)
-* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
 The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menü
+* `menu` Menu
 
-Bu simgenin bağlam menüsünü ayarlar.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
+Returns `Boolean` - Whether the tray icon is destroyed.
