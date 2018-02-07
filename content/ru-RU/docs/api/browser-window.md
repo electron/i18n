@@ -266,7 +266,7 @@ Emitted when window session is going to end due to force shutdown or machine res
 
 #### Событие: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Вызывается, когда страница "не отвечает".
 
 #### Событие: 'responsive'
 
@@ -274,11 +274,11 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Событие: 'blur'
 
-Emitted when the window loses focus.
+Вызывается, когда окно теряет фокус.
 
 #### Событие: 'focus'
 
-Emitted when the window gains focus.
+Вызывается, когда на окне фокусируются.
 
 #### Событие: 'show'
 
@@ -409,7 +409,7 @@ Returns `BrowserWindow` - The window that is focused in this application, otherw
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Возвращает `BrowserWindow` - окно, которое владеет указанным `webContents`.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
@@ -421,7 +421,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Возвращает `BrowserWindow` - окно с указанным `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -437,7 +437,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a Chrome extension by name.
+Удаляет расширение Chrome с указанным именем.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -463,7 +463,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a DevTools extension by name.
+Удаляет расширение DevTools с указанным именем.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -543,7 +543,7 @@ Shows the window but doesn't focus on it.
 
 #### `win.hide()`
 
-Hides the window.
+Скрывает окно.
 
 #### `win.isVisible()`
 
@@ -970,9 +970,9 @@ Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Возвращает `Boolean` - был ли вызов успешным.
 
-On Windows and Linux always returns `true`.
+В Windows и Linux всегда возвращает `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
@@ -988,16 +988,16 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Возвращает `Boolean` - успешно ли добавлены кнопки
 
 Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-The `buttons` is an array of `Button` objects:
+`buttons` является массивом объектов `Button`:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - значок, отображаемый на панели инструментов эскизов.
   * `click` Function
   * `tooltip` String (опиционально) - текст всплывающей подсказки на кнопке.
   * `flags` String[] (опиционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
@@ -1013,7 +1013,7 @@ The `buttons` is an array of `Button` objects:
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - Область окна
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
@@ -1080,15 +1080,15 @@ Sets whether the window should be visible on all workspaces.
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**Примечание:** Данный API всегда возвращает false в Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
-* `ignore` Boolean
+* `ignore` Логическое значение
 * `options` Object (опционально) 
   * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
-Makes the window ignore all mouse events.
+Включает для окна игнорирование событий от мыши.
 
 All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
 
@@ -1096,7 +1096,7 @@ All mouse events happened in this window will be passed to the window below this
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Предотвращает захват содержимого окна другими приложениями.
 
 On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
 
@@ -1114,11 +1114,11 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Возвращает `BrowserWindow` - родительское окно.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Возвращает `BrowserWindow[]` - все дочерние окна.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
@@ -1164,13 +1164,13 @@ Adds a vibrancy effect to the browser window. Passing `null` or an empty string 
 
 Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Экспериментально*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Экспериментально*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
