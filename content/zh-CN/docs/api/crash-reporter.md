@@ -37,6 +37,7 @@ crashReporter.start({
   * `uploadToServer` 布尔型(可选) - 控制是否将崩溃日志发送给服务器，默认为`true`.
   * `ignoreSystemCrashHandler` 布尔型(可选) - 默认为`false`.
   * `extra` 对象(可选) - 一个随崩溃日志发送的对象. 只有字符串属性能够被正确发送. 不支持发送嵌套对象，且属性名称和属性值必须小于64个字符长度.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 你需要调用任何其他的`crashReporter` API，您必须调用此方法. 在每个需要收集崩溃日志的进程 (主进程 / 渲染器进程) 中，也必须先调用此方法. 从不同的进程调用时, 可以传不同的配置给 ` crashReporter. start `。
 
@@ -89,24 +90,34 @@ crashReporter.start({
 
 **注意：** 这个API仅可从主进程调用。
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - 参数键，长度必须小于64个字符
-* ` value `字符串参数值, 长度必须少于64个字符。指定 ` null ` 或 ` undefined ` 将从参数中删除该键。
+* `value` String - Parameter value, must be less than 64 characters long.
 
-设置一个在发送崩溃报告时将额外包含的参数。 当调用 `start` 时, 除了通过 `extra` 选项设置的值之外, 此处指定值也将被发送。 此 API 仅在 macOS 上可用, start 首次调用后, 如果您希望在在 Linux 和 Windows 上添加或更新额外参数, 您可以更新 `extra` 选项并再次调用 `start` 。
+设置一个在发送崩溃报告时将额外包含的参数。 The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+
+### `crashReporter.removeExtraParameter(key)` *macOS*
+
+* `key` String - 参数键，长度必须小于64个字符
+
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+
+### `crashReporter.getParameters()`
+
+See all of the current parameters being passed to the crash reporter.
 
 ## 崩溃报告内容
 
-崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` String - Electron 的版本.
-* `platform` String - 例如 'win32'.
-* `process_type` String - 例如 'renderer'.
-* `guid` String - 例如 '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - `package.json` 里的版本号.
-* `_productName` String - `crashReporter` `options` 对象中的产品名字
-* `prod` String - 基础产品名字. 在这种情况下为 Electron.
-* `_companyName` String - `crashReporter` `options` 对象中的公司名称
-* `upload_file_minidump` File - `minidump` 格式的崩溃报告
+* `ver` String - The version of Electron.
+* `platform` String - e.g. 'win32'.
+* `process_type` String - e.g. 'renderer'.
+* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` String - The version in `package.json`.
+* `_productName` String - The product name in the `crashReporter` `options` object.
+* `prod` String - Name of the underlying product. In this case Electron.
+* `_companyName` String - The company name in the `crashReporter` `options` object.
+* `upload_file_minidump` File - The crash report in the format of `minidump`.
 * All level one properties of the `extra` object in the `crashReporter` `options` object.
