@@ -98,8 +98,8 @@ Writes the `title` and `url` into the clipboard as a bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
-  bookmark: 'Electron 首頁'
+  text: 'https://electronjs.org',
+  bookmark: 'Electron Homepage'
 })
 ```
 
