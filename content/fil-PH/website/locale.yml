@@ -1,4 +1,4 @@
-tagline: Bumuo ng cross na platform desktop na mga app na may JavaScript, HTML, at CSS
+tagline: Bumuo ng platform desktop na mga app na may JavaScript, HTML, at CSS
 nav:
   docs: Docs
   blog: Blog
@@ -91,11 +91,11 @@ clipboard:
   copy: Kopyahin
   copy_to_clipboard: Kopyahin sa Clipboard
   copied: Nakopya
-or: o
+or: ang or
 pages:
   '/':
     title: Electron | Bumuo ng cross platform descktop na mga app na may JavaScript, HTML, at CSS.
-    description: 'Bumuo ng platform desktop na mga app na may JavaScript, HTML, at CSS.'
+    description: 'Bumuo ng cross na platform desktop na mga app na may JavaScript, HTML, at CSS.'
   '/apps':
     title: Electron na mga App
     description: Mga App na nabuo sa Electron
