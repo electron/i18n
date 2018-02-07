@@ -33,7 +33,7 @@ Vrací:
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
 
-## Methods
+## Metody
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
