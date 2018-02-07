@@ -322,11 +322,11 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 戻り値：
 
 * `event` Event
-* `request` オブジェクト 
+* `request` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` オブジェクト 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -345,7 +345,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 戻り値：
 
 * `event` Event
-* `result` オブジェクト 
+* `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -688,7 +688,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` (*実験的*)
 
 * `ignore` Boolean
 
