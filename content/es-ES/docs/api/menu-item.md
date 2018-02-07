@@ -2,7 +2,7 @@
 
 > Agregue elementos a los menús y menús de contexto de la aplicación nativa.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Vea [`Menú`](menu.md) para obtener ejemplos.
 
@@ -10,9 +10,9 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
 
 * `opciones` Object 
   * `click` Función (opcional) - Será llamado con `click(menuItem, browserWindow, event)` cuando se hace click en el elemento del menú. 
-    * `Elemento del menú` Elemento del menú
+    * `menuItem` Elemento del menú
     * `Ventana de navegador` Ventana de navegador
-    * `evento` Evento
+    * `event` Evento
   * `rol` Cadena (opcional) - Define la acción del elemento del menú, cuando se especifica el `click` la propiedad será ignorada. Vea [roles](#roles).
   * `tipo` Cadena (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
   * `etiqueta` Cadena - (opcional)
@@ -36,14 +36,14 @@ Los valores de `etiqueta` y `acelerador` son opcionales mientras se usa un `rol`
 
 La propiedad `role` puede tener los siguientes valores:
 
-* `deshacer`
-* `rehacer`
-* `cortar`
-* `copiar`
-* `pegar`
+* `undo`
+* `redo`
+* `cut`
+* `copy`
+* `paste`
 * `pegar y coincidir con el estilo`
 * `seleccionar todo`
-* `eliminar`
+* `delete`
 * `minimizar` - Minimiza la ventana actual
 * `cerrar` - cierra la ventana actual
 * `cerrar`- cierra la aplicación
@@ -72,9 +72,9 @@ Los siguientes roles adicionales están disponibles para macOS:
 * `selectprevioustab` - Map to the `selectPreviousTab` action
 * `mergeallwindows` - Map to the `mergeAllWindows` action
 * `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `ventana` - El submenú es un menú de la "ventana"
+* `ayuda` - el submenú es un menú de "ayuda"
+* `Servicios` - El submenú es un menú de "servicios"
 
 Cuando se especifica un `rol` en macOS, la `etiqueta` y el `acelerador` son solo opciones que afectarán a los elementos del menú. Todas las demás opciones serán ignoradas.
 
