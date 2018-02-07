@@ -965,23 +965,23 @@ Removes the specified path from DevTools workspace.
 * `options` Object (facultatif) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Ouvre les devtools.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Ferme les devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Retourne `Boolean` - Si les devtools sont ouvert.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Retourne `Boolean` - Si les devtools ont le focus.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Active/désactive les outils développeur.
 
 #### `contents.inspectElement(x, y)`
 
@@ -1066,8 +1066,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**requis**)
+* `y` Integer (**requis**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
 * `globalY` Integer
