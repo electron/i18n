@@ -25,7 +25,7 @@ Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
 ### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
 * `partisyon` String
-* `mga opsyon` Layunin 
+* `mga opsyon` Mga bagay (opsyonal) 
   * `cache` Boolean - Maaaring paganahin ang cache.
 
 Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay maaaring bumalik: sa kabilang banda ay maging bago `Sesyon` ang instansya ay maaaring gumawa kasama ang `mga opsyon`.
@@ -125,12 +125,13 @@ Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na
 
 Ang `proxyRules` ay dapat sumunod sa panuntunan:
 
-    proxyRules = schemeProxies[";"<schemeProxies>]
-    schemeProxies = [<urlScheme>"="]<proxyURIList>
-    urlScheme = "http" | "https" | "ftp" | "socks"
-    proxyURIList = <proxyURL>[","<proxyURIList>]
-    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-    
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
 
 Halimbawa:
 
@@ -218,10 +219,11 @@ Hindi pinapagana ang anumang network emulation ay na aktibo para sa `session`. N
   * `kahilingan` Mga Bagay 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `error` String - Pagpapatunay na result galing sa chromium.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function 
     * `verificationResult` Integer - Balyo ay maaring isang sertipiko na error codes galing sa [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa sertifikong error codes, ang mga sumusunod na espesyal na codes ay magagamit. 
-      * `` - Ay nagpapahiwatig sa tagumpay at pag-disable sa Certificate Transperancy verification.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Nagpapahiwatig sa kabigu-an.
       * `-3` - Gumagamit ng pagpapatunay galing sa chromium.
 
@@ -245,13 +247,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `ang tagahawak` Function 
+* `ang tagahawak` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents pag-request ng pahintulot.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` Boolean - Pagpayag o pag-tanggi sa pahintulot
 
-Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` ay maaring bigyan pahintulot ang `callback(false)` ay tatangihan ito.
+Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` ay maaring bigyan pahintulot ang `callback(false)` ay tatangihan ito. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
