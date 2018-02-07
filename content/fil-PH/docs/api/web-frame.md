@@ -30,7 +30,7 @@ Returns `Number` - The current zoom factor.
 
 * `antas` Numero - antas ng Zoom
 
-Binabago ang antas ng pag-zoom para sa tinitiyak na antas. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit.
 
 ### `webFrame.getZoomLevel()`
 
