@@ -41,7 +41,7 @@
     "build:stats": "node script/stats.js",
     "build:module": "node script/build-module.js",
     "build:readme": "node script/readme.js",
-    "update-source-content": "node script/update-source-content.sh",
+    "update-source-content": "script/update-source-content.sh",
     "test": "npm run test-only",
     "test-only": "mocha && standard --fix",
     "prepack": "check-for-leaks",
