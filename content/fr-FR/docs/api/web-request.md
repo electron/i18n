@@ -84,7 +84,7 @@ The `callback` has to be called with an `response` object.
 * `filter` Object - (optional) 
   * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles d'URL.
 * `listener` Function 
-  * `details` Object 
+  * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
@@ -103,7 +103,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-* `details` Object 
+* `details` Objet 
   * `id` Integer
   * `url` String
   * `method` String
@@ -184,7 +184,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `filter` Object - (optional) 
   * `urls` String[] - Tableau de modèles d'URL qui sera utilisé pour filtrer les requêtes qui ne correspondent pas aux modèles d'URL.
 * `listener` Function 
-  * `details` Object 
+  * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
@@ -192,6 +192,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - La description de l'erreur.
 
 The `listener` will be called with `listener(details)` when an error occurs.
