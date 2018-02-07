@@ -690,13 +690,13 @@ Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay 
 * `callback` Punsyon 
   * `zoomFactor` Numero
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+Nagpapadala ng kahilingan upang makakuha ng kasalukuyang factor ng pag-zoom, `callback `ay tinatawag na `callback(zoomFactor)`.
 
-#### `contents.setZoomLevel(level)`
+#### `mga nilalaman.setZoomLevel(antas)`
 
-* `level` Number - Zoom level
+* `antas` Numero - antas ng Zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Binabago ang antas ng pag-zoom para sa tinitiyak na antas. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 #### `contents.getZoomLevel(callback)`
 
