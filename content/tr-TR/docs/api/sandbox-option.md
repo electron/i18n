@@ -117,7 +117,7 @@ Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak ku
 - `child_process`
 - `electron` 
   - `crashReporter`
-  - `uzak`
+  - `remote`
   - `ipcRenderer`
   - `webFrame`
 - `fs`
