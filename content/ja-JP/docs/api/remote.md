@@ -102,14 +102,15 @@ console.log(app)
 
 e.g.
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
