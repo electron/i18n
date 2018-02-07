@@ -39,7 +39,7 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `copy`
+* `कॉपी करें`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
