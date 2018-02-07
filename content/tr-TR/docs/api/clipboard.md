@@ -81,15 +81,15 @@ Panoya `text`'i RTF olarak yazar.
 
 `Object` 'i geri getirir:
 
-* `başlık` Dizi
-* `url` Dize
+* `title` String
+* `url` String
 
 Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren bir nesne döndürür. Sayfa işaretçisi erişilemez olduğunda `title` ve `url` değerleri boş dizeler olacaktır.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
-* `başlık` Dizi
-* `url` Dize
+* `title` String
+* `url` String
 * `type` String (isteğe bağlı)
 
 `title` ve `url`'yi panoya sayfa işaretçisi olarak yazar.
@@ -98,7 +98,7 @@ Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren b
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
