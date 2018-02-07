@@ -25,7 +25,7 @@ The `session` module has the following methods:
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `cache` Boolean - Whether to enable cache.
 
 Returns `Session` - A session instance from `partition` string. When there is an existing `Session` with the same `partition`, it will be returned; otherwise a new `Session` instance will be created with `options`.
@@ -56,7 +56,7 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Instance Events
+### Beispiel Events
 
 The following events are available on instances of `Session`:
 
@@ -80,7 +80,7 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Methods
+### Beispiel Methoden
 
 The following methods are available on instances of `Session`:
 
@@ -99,7 +99,7 @@ Clears the session’s HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -189,7 +189,7 @@ Sets download saving directory. By default, the download directory will be the `
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
+* `optionen` Object 
   * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
   * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
   * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
@@ -313,7 +313,7 @@ Returns `Blob` - The blob data associated with the `identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
+* `optionen` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
@@ -332,7 +332,7 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 
 Clears the session’s HTTP authentication cache.
 
-### Instance Properties
+### Fall Eigenschaften
 
 The following properties are available on instances of `Session`:
 
