@@ -56,7 +56,7 @@ benefits:
   debugging_and_profiling: 调试 & 性能分析
   windows_installers: Windows 安装程序
 get_started:
-  title: 开始吧
+  title: 入门
   description: 若要开始使用 Electron，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 API，以及生成的安装程序。
 explore:
   title: 探索 Electron 的 API
