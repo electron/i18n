@@ -2,7 +2,7 @@
 
 > Ibigay at kontrolin ang mga web page.
 
-Proseso:[Main](../glossary.md#main-process)
+Proseso: [Main](../glossary.md#main-process)
 
 `WebContents ` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay responsable sa pag-render at pagkontrol sa isang web page at bagay na ari-arian ng [`BrowserWindow`](browser-window.md). Isang halimbawa ng pag-access sa `webContents` bagay:
 
@@ -16,12 +16,12 @@ hayaan ang mga nilalaman =manalo.webContents
 console.log (mga nilalaman)
 ```
 
-## Pamamaraan
+## Mga Paraan
 
 Ang mga pamamaraan na ito ay Maaaring ma-access mula sa module na ` webContents`:
 
 ```javascript
-const {webContents} = nangangailangan ('elektron')
+const {webContents} = require('electron')
 console.log(webContents)
 ```
 
@@ -43,99 +43,99 @@ Ibinabalik ang `WebContents` - Halimbawa ng WebContents na may ibinigay na ID.
 
 > Ibigay at kontrolin ang mga nilalaman na halimbawa ng BrowserWindow.
 
-Proseso: [pangunahin](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
-### Halimbawa ng Mga Kaganapan
+### Halimbawa ng mga Event
 
-#### Kaganapan: 'ginawa-tapusin-dala'
+#### Event: 'did-finish-load'
 
 Binubuwag kapag ang nabigasyon ay tapos na, i.e. ang spinner ng tab ay tumigil Umiikot, at ang `onload` kaganapan ay ipinadala.
 
-#### Kaganapan: 'ginawa-mabibigo-dala'
+#### Event: 'did-fail-load'
 
-Ibinabalik:
+Ibinabalika ang:
 
-* `kaganapan`Kaganapan
-* `pagkakamalingCode`kabuuan
-* `Paglalarawan ng pagkakamali`tali
-* `napatunayan sa Url`tali
-* `ay pangunahing kuwadro` Boolean
+* `event` na Pangyayari
+* `errorCode` Integer
+* `errorDescription` String
+* `validatedURL` String
+* `isMainFrame` Boolean
 
 Ang kaganapang ito ay tulad ng `did-finish-load` ngunit inilalabas kapag nabigo ang pag load o kinansela, hal. `window.stop() ` ay ginagamit. Ang buong listahan ng mga error code at ang kanilang mga kahulugan ay magagamit [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-#### Kaganapan: 'ginawa-frame-finish-load'
+#### Event: 'did-frame-finish-load'
 
-Pagbabalik ng:
+Ibinabalika ang:
 
-* `kaganapan` Kaganapan
+* `event` na Pangyayari
 * `ay pangunahing kuwadro` Boolean
 
 Napalabas kapag ang frame ay nagawa na ang nabigasyon.
 
-#### Kaganapan: 'did-start-loading'
+#### Event: 'did-start-loading'
 
 Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay nagsimulang umikot.
 
-#### Kaganapan: 'did-stop-loading'
+#### Event: 'did-stop-loading'
 
 Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay tumigil sa pagikot.
 
-#### Kaganapan: 'ginawa-kumuha-tugon-detalye'
+#### Event: 'did-get-response-details'
 
-Ibinabalik ang:
+Ibinabalika ang:
 
-* `kaganapan` kaganapan
-* `katayuan` Boolean
+* `event` Event
+* `status` Boolean
 * `newURL` String
-* `orihinalURL` String
+* `originalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referer` String
-* `header` Bagay
-* `resourceType` Tali
+* ang `referer` String
+* `headers` Objek
+* `resourceType` String
 
 Pinapalabas kapag may mga detalye tungkol sa hiniling na mapagkukunan at magagamit sa `katayuan` ay nagpapahiwatig sa socket connection upang i-download ang mapagkukunan.
 
-#### Kaganapan: 'did-get-redirect-request'
+#### Event: 'did-get-redirect-request'
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `oldURL` Pisi
+* `oldURL` String
 * `newURL` String
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 * `httpResponseCode` Integer
 * `requestMethod` String
-* `referer` String
+* ang `referer` String
 * `header` Bagay
 
 Pinapalabas kapag natanggap ang pag-redirect habang humihiling ng mapagkukuhanan.
 
-#### Kaganapan: 'dom-ready'
+#### Event: 'dom-ready'
 
-Ibinabalik:
+Ibinabalika ang:
 
-* `kaganapan` Kaganapan
+* `event` Event
 
 Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
-#### Kaganapan: 'pahina-favicon-updated'
+#### Event: 'page-favicon-updated'
 
-Ibinabalik:
+Ibinabalika ang:
 
-* `kaganapan` Kaganapan
-* `favicons` String [] - Mga array ng mga URL
+* `event` Event
+* `favicons` String[] - Hanay ng mga URL
 
 Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
-#### Kaganapan: 'bagong-bintana'
+#### Event: 'new-window'
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `url` Pisi
-* `frameName` Pisi
-* `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
+* `url` String
+* `frameName` String
+* `disposition` String- Pwedeng `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `mga pagpipilian` Object - Ang mga pagpipilian na gagamitin para sa paglikha ng bagong `BrowserWindow`.
 * `Mga karagdagang tampok` String [] - Ang di-karaniwang mga tampok (mga tampok na hindi hinahawakan sa pamamagitan ng Kromo o Elektron) na ibinigay sa `window.open()`.
 
@@ -155,14 +155,14 @@ myBrowserWindow.webContents.on('bagong-window', (event, url) => {
 })
 ```
 
-#### Kaganapan: 'mag-navigate'
+#### Event: 'will-navigate'
 
-Ibabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `url` Pisi
+* `url` String
 
-Napalabas kapag nais ng isang user o ng pahina na magsimulang mag-navigate. Maaari itong mangyari kung kailan ang bagay na `bintana.lokasyon` ay nagbago o ang isang gumagamit ay nag-click ng isang link sa pahina.
+Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. Ito'y pwedeng mangyari kapag ang `window.location` ng objek ay nabago o ang kiniclick ng user ang link sa page.
 
 Ang kaganapang ito ay hindi naglalabas kapag ang navigation ay nagsimula sa programming kasama ng mga API ay tulad ng `webContents.loadURL` at `webContents.back`.
 
@@ -170,32 +170,32 @@ Hindi rin ito nagpapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa
 
 Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
-#### Kaganapan: 'ginawa-navigate'
+#### Event: 'did-navigate'
 
-Ibinabalik:
-
-* `kaganapan` Kaganapan
-* `url` Pisi
-
-Nilalabas kapag ang nabigasyon ay natapos na.
-
-Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa mga link ng anchor o pag-update ng `bintana.lokasyon.hash`. Gamit ang `ginawa-navigate-sa-pahina` kaganapan para sa layuning ito.
-
-#### Kaganapan: 'ginawa-navigate-in-page'
-
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `url` Pisi
+* `url` String
+
+Nilalabas kapag natapos na ang nabigasyon.
+
+Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
+
+#### Event: 'did-navigate-in-page'
+
+Ibinabalika ang:
+
+* `kaganapan` kaganapan
+* `url` Tali
 * `ay pangunahing kuwadro` Boolean
 
-Inilalabas kapag nangyari ang pag-navigate sa pahina.
+Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
 
-Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
 
 #### Kaganapan: 'will-prevent-unload'
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
 
@@ -222,32 +222,32 @@ manalo.webContents.on('will-prevent-unload', (kaganapan) => {
 })
 ```
 
-#### Kaganapan: 'nag-crash'
+#### Event: 'crashed'
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `pinatay` Boolean
+* `killed` Ang Boolean
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
 
-#### Kaganapan: 'plugin-nag-crash'
+#### Event: 'plugin-crashed'
 
-Ibinabalik:
+Ibinabalika ang:
 
-* `kaganapan` Kaganapan
-* `pangalan` String
-* `Bersyon` Pisi
+* `kaganapan` kaganapan
+* `name` String
+* `version` String
 
 Lumalabas kapag ang proseso ng plugin ay nag-crash.
 
-#### Kaganapan: 'nawasak'
+#### Event: 'destroyed'
 
 Nagpapalabas kapag ang `webContents` ay nawasak.
 
 #### Kaganapan: 'bago-input-kaganapan'
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
 * `input` Bagay - Input properties 
@@ -276,93 +276,93 @@ manalo.webContents.on('bago-input-kaganapan', (kaganapan, input) => {
 })
 ```
 
-#### Kaganapan: 'devtools-binuksan'
+#### Event: 'devtools-opened'
 
-Nilalabas kapag ang DevTools ay nabuksan.
+Ilabas kapag ang mga DevTool ay nabuksan.
 
-#### Kaganapan: 'devtools-sarado'
+#### Event: 'devtools-closed'
 
-Nilalabas kapag ang DevTools ay sarado.
+Ilabas kapag ang mga DevTool ay nasarado.
 
-#### Kaganapan: 'devtools-nakatuon'
+#### Event: 'devtools-focused'
 
-Nilalabas kapag ang DevTools ay nakatuon/binuksan.
+Ilabas kapag ang mga DevTool ay napukos / nabuksan.
 
-#### Kaganapan: 'certificate-error'
+#### Mga event: 'certificate-error'
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `url` Pisi
-* `mali` Pisi - The error code
-* `sertipiko` [Sertipiko](structures/certificate.md)
-* `tumawag muli` Function 
+* `url` Tali
+* `error` String - Ang code ng error
+* `certificate` [Certificate](structures/certificate.md)
+* `mulingtawag` Function 
   * `isTrusted` Boolean - ay nagpapahiwatig kung ang sertipiko ay maaaring ituring na pinagkakatiwalaan
 
 Naipalalabas kapag nabigo upang i-verify ang `sertipiko` para sa `url`.
 
 Ang paggamit ay pareho sa [ang kaganapan `certificate-error` ng `app` ](app.md#event-certificate-error).
 
-#### Kaganapan: 'select-client-certificate'
+#### Event: 'select-client-certificate'
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `url` URL
-* `certificateList` [Sertipiko[]](structures/certificate.md)
-* `callback` Function 
+* `url` Ang URL
+* `certificateList` [Certificate[]](structures/certificate.md)
+* `callback` Punsyon 
   * `sertipiko` [Sertipiko](structures/certificate.md) - Dapat ay isang sertipiko mula sa ibinigay na listahan
 
-Naipalalabas kapag hiniling ang sertipiko ng kliyente.
+Lalabas kapag ang sertipiko ng kliyente ay hiniling.
 
 Ang paggamit ay pareho sa [ang kaganapan `piliin-client-sertipiko`ng `app`](app.md#event-select-client-certificate).
 
-#### Kaganapan: 'pag-login'
+#### Event: 'login'
 
-Ibinabalik:
+Ibinabalika ang:
 
-* `kaganapan` Kaganapan
-* `hiling` Bagay 
-  * `paraan` Pisi
-  * `url` URL
-  * `referrer` URL
-* `authInfo` Layunin 
-  * `isProxy` Boolean
-  * `scheme` Pisi
-  * `host` Pisi
+* `event` Ang event
+* `kahilingan` Bagay 
+  * `method` String
+  * `url` Ang URL
+  * `referrer`Ang URL
+* `ang authInfo` Bagay 
+  * `isProxy` Ang Boolean
+  * `scheme` Ang string
+  * `host` String
   * `port` Integer
-  * `realm` Pisi
-* `muling tumawag` Function 
-  * `username` Pisi
-  * `password` Pisi
+  * `realm` String
+* `callback` Function 
+  * `username` String
+  * `password` String
 
-Naipalalabas kapag ang `webContents` ay nais gawin ang pangunahing auth.
+Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
 Ang paggamit ay pareho sa [ang kaganapan `login` ng `app`](app.md#event-login).
 
-#### Kaganapan: 'natagpuan-sa-pahina'
+#### Event: 'found-in-page'
 
-Ibinabalik:
+Ibinabalika ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `resulta` Bagay 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
-  * `tugma` Integer - Bilang ng Mga Tugma.
-  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
+  * `activeMatchOrdinal` Integer - Posisyon ng aktibong katugma.
+  * `matches` Integer - Bilang ng mga Tugma.
+  * `selectionArea` Objek - Mga coordinate ng unang tugmang parte.
   * `finalUpdate` Boolean
 
 Naipalalabas kapag ang resulta ay magagamit para sa [`webContents.findInPage`] humiling.
 
-#### Kaganapan: 'media-started-playing'
+#### Event: 'media-started-playing'
 
-Naipalalabas kapag nagsimula ng maglaro ang media.
+Ilabas kapag ang medya ay nagsimula.
 
-#### Kaganapan: 'media-paused'
+#### Event: 'media-paused'
 
-Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
+Ilabas kapag ang medya ay nahinto o natapos na.
 
-#### Kaganapan: 'ginawa-baguhin-tema-kulay'
+#### Event: 'did-change-theme-color'
 
 Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil sa nakakaharap ng isang meta tag:
 
@@ -370,63 +370,63 @@ Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil s
 <meta name='theme-color' content='#ff0000'>
 ```
 
-Ibinabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
-#### Kaganapan: 'update-target-url'
+#### Event: 'update-target-url'
 
-Pagbabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `url` Tali
+* `url` String
 
-Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
+Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
 
 #### Kaganapan: 'cursor-changed'
 
-Pagbabalik:
+Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `type` String
-* `image` NativeImage (optional)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `uri` Pisi
+* `imahe` NativeImage (opsyonal)
+* `scale` Lumutang (opsyonal) - scaling factor para sa mga pasadyang cursor
+* `sukat` [Sukat](structures/size.md) (opsyonal) - ang sukat ng `imahe`
+* `hotspot` [Punto](structures/point.md) (opsyonal) - mga coordinate ng hotspot ng pasadyang cursor
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Naipalalabas kapag ang uri ng cursor ay nagbago. Ang `uri` maaring maging parameter `default`, `crosshair`, `pointer`, `text`, `maghintay`, `tulungan`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `ilipat`, `vertical-text`, `cell`, `context-menu`, `alias`, `pagunlad`, `nodrop`, `kopya`, `none`, `hindi pwede`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `pasadya`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Kung ang `uri` ng parameter ay `pasadya`, ang `imahe` ng parameter ang hahawak sa pinasadyang cursor ng imahe sa isang `NativeImage`, at `scale`, `laki` at `hotspot` at hawak ang karagdagang impormasyon tungkol sa mga pasadyang cursor.
 
 #### Kaganapan: 'context-menu'
 
-Pagbabalik:
+Ibinabalika ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `params` Bagay 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
+  * `linkURL` Pisi - ang link ng URL na nakapaloob sa node sa menu ng konteksto ay tinawag sa.
+  * `linkText` Pisi - Teksto na nauugnay sa link. Maaaring walang laman ang pisi kung ang mga nilalaman ng link ay isang imahe.
+  * `pageURL` Pisi - ang URL ng tuktok na antas ng pahina na ang menu ng konteksto ay nananawagan.
+  * `frameURL` Pisi - Ang URL ng subframe na ang menu ng konteksto ay nananawagan sa.
+  * `srcURL` Pisi - pinagmulang URL para sa elemento na ang menu ng konteksto ay tinawag sa. Ang mga elemento na may mga source URL ay mga imahe, audio at video.
+  * `mediaType` Pisi - Uri ng node sa menu ng konteksto ay tinawag sa. Maaaring `walang`, `imahe`, `audio`, `video`, `canvas`, `file` o `plugin`.
+  * `hasImageContents` Boolean - Kung ang menu ng konteksto ay ginagamit sa isang imahe na may mga walang laman na nilalaman.
+  * `isEditable` Boolean - Kung ang konteksto ay maaring i-edit.
+  * `selectionText` Pisi - Teksto ng pagpili na ang menu ng konteksto ay nananawagan.
+  * `titleText` Pisi - Pamagat o alt teksto ng pagpili na ang konteksto ay tinawag sa.
+  * `misspelledWord` Pisi - Ang maling salita sa ilalim ng cursor, kung mayroon man.
+  * `frameCharset` Pisi - Ang encoding ng karakter ng frame kung saan hiniling ang menu.
+  * `inputFieldType` Pisi - Kung ang konteksto ng menu ay sinasabing sa isang patlang na input, ang uri ng patlang na iyon. Ang posibleng mga halaga ay `wala`, `plainText`, `password`, `iba pang`.
+  * ` menuSourceType` Pisi - Ipasok ang pinagmulan na nagsasagawa ng konteksto ng menu. Maaaring `wala`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+  * `mediaFlags` Bagay - Ang mga bandila para sa elemento ng media ang menu ng konteksto ay nananawagan. 
+    * `inError` Boolean - Kung ang elemento ng media ay bumagsak.
+    * `isPaused` Boolean - Kung ang elemento ng media ay nakahinto.
+    * `ayMuted` Boolean - Kung naka-mute ang elemento ng media.
+    * `hasAudio` Boolean - Kung ang elemento ng media ay may audio.
+    * `isLooping` Boolean - Kung ang elemento ng media ay looping.
     * `isControlsVisible` Boolean - Whether the media element's controls are visible.
     * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
     * `canRotate` Boolean - Whether the media element can be rotated.
@@ -475,7 +475,7 @@ app.on ('handa', () => {
 
 Pagbabalik:
 
-* `kaganapan`Kaganapan
+* `kaganapan` Kaganapan
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -528,12 +528,12 @@ Pagbabalik:
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-### Mga Paraan ng Halimbawa
+### Instance Methods
 
 #### `contents.loadURL(url[, options])`
 
 * `url` Tali
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga pagpipilian` Bagay (opsyonal) 
   * `httpReferrer` String(opsyonal) - Ang tagabigay ng HTTP url.
   * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
   * `extraHeaders` String(opsyonal) - Sobrang ulunan ay pinaghihiwalay sa "\n"
@@ -815,7 +815,7 @@ Ipasok ang `teksto` sa nakatutok na elemento.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Ang nilalaman na maaring suriin, ay dapat may laman.
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga pagpipilian` Bagay (opsyonal) 
   * `abanti` Boolean - (opsyonal) Kung mananaliksik ka ng paabanti o patalikod, defaults sa `true`.
   * `findNext` Boolean - (opsyonal) Kung ang operasyon isang kahilingan o isang pagsasagawang kasunod, mga defaults sa `false`.
   * `matchCase` Boolean - (opsyonal) Kung saan ang paghahanap ay dapat case-sensitive, mga defaults sa `false`.
@@ -875,7 +875,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga pagpipilian` Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -890,7 +890,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `mga pagpipilian` Bagay 
+* `mga opsyon` Bagay 
   * `marginsType` Integer - (opsyonal) Itinatakda ang uri ng mga margin na gagamitin. Gumagamit ng 0 para sa naka-default na margin, 1 para sa walang margin, at 2 para sa pinakamaliit na maaaring gawing margin.
   * `pageSize` String - (opsyonal) Itinatakda ang sukat ng page ng nalilikhang PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
   * `printBackground` Boolean - (opsyonal) Pwedeng i-imprinta ang mga background ng CSS.
@@ -962,7 +962,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga pagpipilian` Bagay (opsyonal) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1199,7 +1199,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Humahalimbawa sa bahagi nito
+### Mga Katangian ng Instance
 
 #### `contents.id`
 
