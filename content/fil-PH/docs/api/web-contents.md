@@ -513,18 +513,18 @@ Maaaring gamitin ang kaganapang ito upang i-configure ang `webPreferences` para 
 Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `WebContents` WebContents - Ang mga nilalaman ng bisita ng web na ginagamit ang `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+Naipalalabas kapag ang isang `<webview>` ay naka-attach sa mga nilalaman ng web na ito.
 
-#### Event: 'console-message'
+#### Kaganapan'console-mensahe'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `level` Integer
-* `mensahe` Tali
-* `line` Integer
-* `sourceId` String
+* `mensahe` Pisi
+* `linya` Integer
+* `sourceId` Pisi
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
