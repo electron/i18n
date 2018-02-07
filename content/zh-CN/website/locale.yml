@@ -139,9 +139,7 @@ _404:
   if_this_is_an_error: 如果这是个错误
   please_file_an_issue: 请发一个issue
 search:
-  description:
-    start: 查找Electron资源
-    docs: <a href="/search/docs"> 文档 </a>
-    npm: <a href="/search/npmPackages"> npm 包 </a>
-    and: 和
-    repos: <a href="/search/repos"> GitHub 仓库 </a>
+  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_docs: Find Electron resources from documentation.
+  description_npm: Find Electron resources from npm packages.
+  description_repos: Find Electron resources from GitHub repos.
