@@ -33,9 +33,9 @@
 
 从监听器数组中移除监听 `channel` 的指定 `listener`。
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (optional)
+* `channel` String
 
 移除所有的监听器，当指定 `channel` 时只移除与其相关的所有监听器。
 
@@ -61,9 +61,17 @@
 
 **注意:** 发送同步消息将会阻塞整个渲染进程，你应该避免使用这种方式 - 除非你知道你在做什么。
 
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`
+
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-就像 `ipcRenderer.send`，不同的是消息会被发送到 host 页面上的 `<webview>` 元素，而不是主进程。
+Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
