@@ -12,7 +12,7 @@
 
 > 创建OS(操作系统)桌面通知
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 `Notification` 是 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)
 
@@ -28,7 +28,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `选项` 对象 
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示
   * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面
@@ -39,7 +39,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
   * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
   * ` actions `[ NotificationAction [] ](structures/notification-action.md) (可选) 要添加到通知中的操作。 请在 ` NotificationAction ` 文档 中的查看可用操作和限制* macOS *
 
-### 事件
+### 实例事件
 
 用 `new Notification` 创建的对象触发以下事件：
 
@@ -61,7 +61,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 在用户单击通知时触发。
 
-#### 事件：close
+#### 事件： 'close'
 
 返回:
 
@@ -103,11 +103,11 @@ Dismisses the notification.
 
 ### Playing Sounds
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+在 macOS 上, 您可以指定在显示通知时要播放的声音的名称。 除了自定义声音文件之外, 还可以使用任何默认声音 ("系统首选项" > "声音")。 请确保声音文件是在应用程序包(例如, ` YourApp.app/Contents/Resources`) 内存在副本, 或者是下列位置之一:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+有关详细信息, 请参见 [` NSSound `](https://developer.apple.com/documentation/appkit/nssound) 文档。
