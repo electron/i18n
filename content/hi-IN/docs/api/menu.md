@@ -100,7 +100,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
-### Main process
+### मुख्य प्रक्रिया
 
 An example of creating the application menu in the main process with the simple template API:
 
