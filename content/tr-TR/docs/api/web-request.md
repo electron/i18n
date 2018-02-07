@@ -34,13 +34,14 @@ Aşağıdaki yöntemler `WebRequest`'in örneklerinde mevcuttur:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filter` Nesne 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -57,7 +58,7 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `filter` Object 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
@@ -67,6 +68,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
   * `id` Integer
   * `url` String
   * `method` String
+  * `webContentsId` Integer (optional)
   * `resourceType` Dize
   * `timestamp` Double
   * `requestHeaders` Object
@@ -79,13 +81,14 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Nesne 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
     * `requestHeaders` Object
@@ -94,20 +97,21 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `filter` Nesne 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function
 
 İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
 
 * `details` Nesne 
-  * `kimlik` dizesi
+  * `id` Integer
   * `url` String
   * `method` String
+  * `webContentsId` Integer (optional)
   * `resourceType` Dize
   * `timestamp` Double
   * `statusLine` String
-  * `statusCode` Integer
+  * `statusCode` Tamsayı
   * `responseHeaders` Object
 * `callback` Function 
   * `response` Object 
@@ -119,36 +123,38 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `filter` Nesne 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Yanıtın disk önbelleğinden getirilip getirilmediğini gösterir.
-    * `statusCode` Integer
+    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `statusCode` Tamsayı
     * `statusLine` String
 
 Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` ile birlikte çağırılacaktır. HTTP istekleri için bu, durum satırı ve yanıt başlıklarının mevcut olduğu anlamına gelmektedir.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `filter` Nesne 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
-    * `id` String
+    * `id` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
     * `redirectURL` String
-    * `statusCode` Integer
-    * `ip` String (isteğe bağlı) - Gönderilen isteğin olduğu sunucu IP adresi.
+    * `statusCode` Tamsayı
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
@@ -156,34 +162,36 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `filter` Nesne 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` String
+    * `webContentsId` Integer (optional)
+    * `resourceType` Dize
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
-    * `statusCode` Integer
+    * `statusCode` Tamsayı
     * `statusLine` String
 
 Bir istek tamamlandığında `listener` `listener(details)` ile birlikte çağırılacaktır.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `filter` Nesne 
+* `filter` Object - (optional) 
   * `urls` String[] - Filtre uygulamak için kullanılacak URL kalıpları dizisi URL modelleriyle eşleşmeyen istekler.
 * `listener` Function 
   * `details` Nesne 
     * `id` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - Hata açıklaması.
+    * `error` String - The error description.
 
 Bir hata oluştuğunda `listener` `listener(details)` ile birlikte çağırılacaktır.
