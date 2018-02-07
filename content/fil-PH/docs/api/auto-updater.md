@@ -2,20 +2,15 @@
 
 > Paganahin ang app na awtomatikong mag-update ang kanilang sarili.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
-Ang`autoUpdater`modyul ay nagbibigay ng isang interface para sa [Squirrel](https://github.com/Squirrel) na balangkas.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Maaari mong mabilis na ilunsad ang isang multi-platform release server para sa pamamahagi ng iyong applikasyon sa pamamagitan ng paggamit ng isa sa mga proyektong ito:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts):*Ang smart release server para sa iyong mga applikasyon, gamit ang Github bilang isang backend. Nag a update ng automatiko sa Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server):* Isang ganap at tampok, na mayroong sariling naka-host release server para sa mga aplikason ng electron, magkabagay sa auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server):* Isang simpleng node.js server para sa Squirrel.Mac at Squirrel.Windows na kung saan gumagamit ng inilabas ng Github*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server):*Isang simpleng PHP na applikasyon para sa Squirrel.Windows na nagbabasa ng mga update mula sa isang folder. Sinusuportahan ng mga update sa delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Babala sa plataporma
-
-Bagama't ang `autoUpdater` ay nagbibigay ng isang magkaparehong API para sa iba't ibang plataporma, mayroon pa rin ilang mga bahagyang pagkakaiba sa bawat plataporma.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,69 +28,65 @@ Ang installer na nabuo gamit ang Squirrel ay lilikha ng isang shortcut icon na m
 
 Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o sa kahit anong static file ng host. Maari mong basahin ang dokumento ng [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)para makakuha pa ng higat pang detalye tungkol sa kung paano gumagana ang Squirrel.Windows.
 
-### Linux
-
-Walang nakalagay na suporta para sa auto-updater para sa Linux, kaya't inirerekomenda na gamitin ang distribution's package manager para i-update ang iyong app.
-
 ## Pangyayari
 
-Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
+The `autoUpdater` object emits the following events:
 
-### Pangyayari: 'error'
+### Event: 'error'
 
-Magbabalik ng:
+Pagbabalik:
 
 * `error` Error
 
-Lumabas kapag mayroong mali habang ina-update.
+Emitted when there is an error while updating.
 
-### Pangyayari:'checking-for-update'
+### Event: 'checking-for-update'
 
-Lumalabas kapag sinusuri kung ang update ay nagsimula na.
+Emitted when checking if an update has started.
 
-### Pangyayari: 'update-available'
+### Event: 'update-available'
 
-Lumalabas kapag mayroong pagbabago. Ang pag-update ay awtomatikong na-download.
+Emitted when there is an available update. The update is downloaded automatically.
 
-### Pangyayari: 'update-not-available'
+### Event: 'update-not-available'
 
-Napalabas kapag walang available na pag-update.
+Emitted when there is no available update.
 
-### Pangyayari: 'update-downloaded'
+### Event: 'update-downloaded'
 
-Magbabalik ng:
+Pagbabalik:
 
-* `event` Event
-* `releaseNotes` Lupid
-* `releaseNotes` Lubid
-* `releaseDate` Petsa
-* `updateURL` Lubid
+* `kaganapan`Kaganapan
+* `releaseNotes` String
+* `releaseName` String
+* `releaseDate` Date
+* `updateURL` String
 
-Lumalabas kung ang update ay nadownload na.
+Emitted when an update has been downloaded.
 
-Tanging Windows lamang`releaseName` is available.
+On Windows only `releaseName` is available.
 
 ## Pamamaraan
 
-Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
-* `requestHeaders` Onject *macOS* (opsyonal) - kahilingan sa ulunan ng HTTP.
+* `url` Tali
+* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
-Tinatakda ang `url` at nagpapasimula ng auto-updater.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Bumalik `String` - Ang kasalukuyang update feed URL.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gamitin itong API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Uulitin ang app at iinstall ang mga update pagkatapos itong ma download. Ito ay dapat lamang tawagin pagkatapos ng `update-downloaded` ay lumabas na.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-**Tandaan:** Ang `autoUpdater.quitAndInstall()`ay isasara ang lahat ng naunang applikasyon sa windows at maglalabas ng mga `bago-itigil` na pangyayari`app`pagkatapos nito. Ito ay kaiba mula sa normal na quit event sequence.
+**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
