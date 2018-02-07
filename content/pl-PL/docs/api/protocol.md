@@ -29,7 +29,7 @@ The `protocol` module has the following methods:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
-* `options` Object (optional) 
+* `options` Obiekt (opcjonalne) 
   * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` Obiekt 
+  * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Obiekt 
+  * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -137,7 +137,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Obiekt 
+  * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -147,7 +147,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` Obiekt (opcjonalne) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Funkcja (opcjonalne) 
@@ -160,6 +160,64 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 For POST requests the `uploadData` object must be provided.
+
+### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+
+* `scheme` String
+* `handler` Function 
+  * `żądanie` Obiekt 
+    * `url` String
+    * `headers` Object
+    * `referrer` String
+    * `method` String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Funkcja (opcjonalne) 
+  * `error` Error
+
+Registers a protocol of `scheme` that will send a `Readable` as a response.
+
+The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+
+Przykład:
+
+```javascript
+const {protocol} = require('electron')
+const {PassThrough} = require('stream')
+
+function createStream (text) {
+  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  rv.push(text)
+  rv.push(null)
+  return rv
+}
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback({
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html'
+    },
+    data: createStream('<h5>Response</h5>')
+  })
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+
+```javascript
+const {protocol} = require('electron')
+const fs = require('fs')
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback(fs.createReadStream('index.html'))
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
@@ -181,7 +239,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `scheme` String
 * `handler` Function 
-  * `request` Obiekt 
+  * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -197,7 +255,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Obiekt 
+  * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -213,7 +271,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Obiekt 
+  * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -229,7 +287,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Obiekt 
+  * `żądanie` Obiekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -239,13 +297,30 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` Obiekt (opcjonalne) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Funkcja (opcjonalne) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+
+### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+
+* `scheme` String
+* `handler` Function 
+  * `żądanie` Obiekt 
+    * `url` String
+    * `headers` Object
+    * `referrer` String
+    * `method` String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Funkcja (opcjonalne) 
+  * `error` Error
+
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
