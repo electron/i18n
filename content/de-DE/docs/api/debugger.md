@@ -61,15 +61,15 @@ Send given command to the debugging target.
 
 #### Event: 'detach'
 
-* `event` Event
-* `reason` String - Reason for detaching debugger.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Event: 'message'
 
-* `event` Event
-* `method` String - Method name.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>method` String - Method name.
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever debugging target issues instrumentation event.
