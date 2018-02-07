@@ -1121,7 +1121,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Funktion - `(error) => {}`. 
   * ` Fehler </ 0> Fehler</li>
 </ul></li>
 </ul>
