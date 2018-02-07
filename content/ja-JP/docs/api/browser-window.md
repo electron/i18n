@@ -98,7 +98,7 @@ The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
-### プラットフォーム通知
+### プラットフォームごとの通知
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
@@ -997,7 +997,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - ツールバーサムネイルで表示されるアイコン。 
   * `click` Function
   * `tooltip` String (optional) - ボタンのツールチップのテキスト。
   * `flags` String[] (optional) - 特定の状態や行動を制御する ボタン。デフォルトでは、 `['enabled']`。
@@ -1170,7 +1170,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` (*実験的*)
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
