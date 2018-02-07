@@ -29,7 +29,7 @@ app.on('ready', () => {
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - 注册 schemes 为标准schemes。
-* `options` Object (可选) 
+* `选项` Object (可选) 
   * `secure` Boolean (可选) - `true` 注册scheme为安全scheme。 默认 `false`.
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
@@ -66,13 +66,13 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `filePath` String (optional)
 * `completion` Function (可选) 
   * `error` Error
@@ -94,7 +94,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (可选) 
   * `error` Error
@@ -124,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `data` String (optional)
 * `completion` Function (可选) 
   * `error` Error
@@ -171,7 +171,7 @@ For POST requests the `uploadData` object must be provided.
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (可选) 
   * `error` Error
@@ -230,7 +230,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -244,7 +244,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `filePath` String
 * `completion` Function (可选) 
   * `error` Error
