@@ -688,7 +688,7 @@ Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay 
 #### `mga nilalaman.getZoomFactor(callback)`
 
 * `callback` Punsyon 
-  * `zoomFactor` Number
+  * `zoomFactor` Numero
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
 
