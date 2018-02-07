@@ -38,14 +38,14 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` Cuerda
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `respuesta` Object 
       * `cancelar` Booleano (opcional)
       * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
@@ -64,15 +64,15 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
 
-* `details` Object 
-  * `id` Integer
+* `details` Objeto 
+  * `id` Íntegro
   * `url` String
   * `method` Cuerda
   * `webContentsId` Integer (optional)
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
-* `llamada de vuelta` Función 
+* `callback` Función 
   * `respuesta` Object 
     * `cancelar` Booleano (opcional)
     * `Encabezados de solicitud` Objecto (opcional) - Cuando se provean, las solicitudes serán hechas con este encabezado.
@@ -85,7 +85,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` Cuerda
     * `webContentsId` Integer (optional)
@@ -104,7 +104,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
 El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
 
 * `details` Object 
-  * `id` Integer
+  * `id` Íntegro
   * `url` String
   * `method` Cuerda
   * `webContentsId` Integer (optional)
@@ -113,7 +113,7 @@ El `oyente` será cancelado con `listener(details, callback)` cuando la respuest
   * `statusLine` String
   * `Estatus de código` entero
   * `headers de respuesta` objeto
-* `llamada de vuelta` Función 
+* `callback` Función 
   * `respuesta` Object 
     * `cancelar` Booleano
     * `Encabezados de respuesta` Objecto (opcional) - Cuando se provean, el servidor se asume que será respondido con estos encabezados.
@@ -127,7 +127,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` Cuerda
     * `webContentsId` Integer (optional)
@@ -146,7 +146,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` Cuerda
     * `webContentsId` Integer (optional)
@@ -166,7 +166,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` Cuerda
     * `webContentsId` Integer (optional)
@@ -185,7 +185,7 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `urls` Cadena[] - Arreglo de patrones de URL que serán usado para filtrar las solicitudes que no coincidan con estos patrones URL.
 * `oyente` Función 
   * `details` Object 
-    * `id` Integer
+    * `id` Íntegro
     * `url` String
     * `method` Cuerda
     * `webContentsId` Integer (optional)
