@@ -99,7 +99,7 @@ The `nativeImage` module has the following methods, all of which return an insta
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+回傳 `NativeImage`
 
 Creates an empty `NativeImage` instance.
 
@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 * `imageName` String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+回傳 `NativeImage`
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
 
@@ -212,7 +212,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+回傳 [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
