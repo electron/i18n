@@ -39,7 +39,7 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `copy`
+* `копіювати`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
@@ -78,7 +78,7 @@ The following additional roles are available on macOS:
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
 
-### Instance Properties
+### Властивості Екземпляра
 
 The following properties are available on instances of `MenuItem`:
 
