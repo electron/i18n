@@ -5,9 +5,9 @@
 
 ## Supporto Piattaforma / Azione
 
-| Tipo di Azione | Supporto Piattaforma | Uso del `testo`                      | `testo` predefinito | Limitazioni                                                                                                                                                           |
-| -------------- | -------------------- | ------------------------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pulsante`     | macOS                | Usato come etichetta per il pulsante | "Mostra"            | Massimo di un pulsante, se ne sono forniti molti è usato solo l'ultimo. Questa azione è anche incompatibile con `haRisposto` e sarà ignorata se `haRisposto` è`true`. |
+| Tipo di Azione | Supporto Piattaforma | Uso del `testo`                      | `testo` predefinito | Limitazioni                                                                                                                                                          |
+| -------------- | -------------------- | ------------------------------------ | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pulsante`     | macOS                | Usato come etichetta per il pulsante | "Mostra"            | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Pulsante supportato su macOS
 
