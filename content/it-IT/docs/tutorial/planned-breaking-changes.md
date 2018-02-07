@@ -13,7 +13,7 @@ app.getAppMemoryInfo()
 app.getAppMetrics()
 ```
 
-## `BrowserWindow`
+## `FinestraBrowser`
 
 ```js
 // Deprecated
