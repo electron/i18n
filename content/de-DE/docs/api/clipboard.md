@@ -98,7 +98,7 @@ Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
