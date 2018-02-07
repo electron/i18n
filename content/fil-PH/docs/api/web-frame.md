@@ -97,7 +97,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga pagpipilian` Bagay (opsyonal) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
@@ -134,7 +134,7 @@ Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaa
 
 ### `webFrame.getResourceUsage()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
