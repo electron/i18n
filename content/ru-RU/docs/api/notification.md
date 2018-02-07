@@ -53,7 +53,7 @@ Objects created with `new Notification` emit the following events:
 
 Emitted when the notification is shown to the user, note this could be fired multiple times as a notification can be shown multiple times through the `show()` method.
 
-#### Event: 'click'
+#### Событие: 'click'
 
 Возвращает:
 
