@@ -36,7 +36,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -72,7 +72,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `response` Object 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
