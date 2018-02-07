@@ -2,7 +2,7 @@
 
 > Tarayıcı oturumları, çerezler, önbellek, proxy ayarlarını, vb. yönetin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `oturum` modülü, yeni `Oturum` nesneleri oluşturmak için kullanılabilir.
 
@@ -25,7 +25,7 @@ console.log(ses.getUserAgent())
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `seçenekler` Object (isteğe bağlı) 
+* `seçenekler` Obje (opsiyonel) 
   * `cache` Boolean - Whether to enable cache.
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
@@ -46,7 +46,7 @@ Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 
 > Bir oturumun özelliklerini alın ve ayarlayın.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `oturum` modülünde bir `Oturum` nesnesi oluşturabilirsiniz:
 
@@ -56,13 +56,13 @@ const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Örnek Olaylar
+### Örnek Events
 
 Aşağıdaki olaylar `Session` durumun da kullanılabilir:
 
 #### Etkinlik: 'indirilecek'
 
-* `event` Olay
+* `olay` Olay
 * `item` [DownloadItem](download-item.md)
 * `webContents` [webİçerikleri](web-contents.md)
 
@@ -80,13 +80,13 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Örnek yöntemler
+### Sınıf örneği metodları
 
 Aşağıdaki yöntemler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.getCacheSize(callback)`
 
-* `callback` Fonksiyon 
+* `geri aramak` Function 
   * `boyut` Integer - Önbellek boyutu bayt cinsinden kullanılır.
 
 Geri arama oturumun geçerli önbellek boyutu ile çağrılır.
@@ -99,11 +99,11 @@ Oturumun HTTP önbelleğini temizler.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `seçenekler` Object (isteğe bağlı) 
+* `seçenekler` Obje (opsiyonel) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (isteğe bağlı) - İşlem bittiğinde çağırıldı.
+* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
 Web depolama alanları verilerini siler.
 
@@ -176,7 +176,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 #### `ses.resolveProxy(url, callback)`
 
 * `url` URL
-* `callback` Fonksiyon 
+* `geri aramak` Function 
   * `proxy` String
 
 `url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
@@ -215,13 +215,13 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
 
 #### `ses.setCertificateVerifyProc(proc)`
 
-* `proc` Fonksiyon 
+* `proc` Function 
   * `istek` Nesne 
     * `hostname` String
     * `certificate` [sertifika](structures/certificate.md)
     * `verificationResult` String - Verification result from chromium.
     * `errorCode` Integer - Error code.
-  * `callback` Fonksiyon 
+  * `geri aramak` Function 
     * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
       * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Arızayı gösterir.
@@ -250,7 +250,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 * `halledici` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
-  * `callback` Fonksiyon 
+  * `geri aramak` Function 
     * `permissionGranted` Boolean - İzin verme veya reddetme
 
 Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. To clear the handler, call `setPermissionRequestHandler(null)`.
@@ -268,7 +268,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
+* `callback` Function (isteğe bağlı) - İşlem bittiğinde çağırıldı.
 
 Ana çözümleyici önbelleğini temizler.
 
@@ -290,7 +290,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
-* `userAgent` String
+* `userAgent` Dizgi
 * `acceptLanguages` String (optional)
 
 `userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
@@ -306,7 +306,7 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Fonksiyon 
+* `geri aramak` Function 
   * `result` Buffer - Blob data.
 
 `Blob` döner - `identifier` ile ilişkili blob verisi.
@@ -328,11 +328,11 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `geri çağırma` Fonksiyon (isteğe bağlı) - İşlem tamamlandığında çağrılır
+* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır
 
 Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
-### Örnek özellikleri
+### Örnek Özellikleri
 
 Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
