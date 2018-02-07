@@ -39,7 +39,7 @@ Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont 
 
 ### Événement : 'before-quit'
 
-Retourne :
+Renvoie :
 
 * `event` Event
 
@@ -61,7 +61,7 @@ Consultez la description de l’événement `window-all-closed` pour voir les di
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
@@ -111,11 +111,50 @@ Retourne :
 
 Une activité d'utilisateur peut être poursuivie seulement dans une application qui a le même identifiant d'équipe développeur que l'application d'origine de la source d'activité et qui prend en charge le type d'activité. La prise en charge d’activité types est spécifiée dans le `Info.plist` de l'application sous la clé `NSUserActivityType`.
 
-### Événement : 'new-window-for-tab' *macOS*
+### Event: 'will-continue-activity' *macOS*
+
+Retourne :
+
+* `event` Événement
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
+
+### Event: 'continue-activity-error' *macOS*
 
 Retourne :
 
 * `event` Event
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - A string with the error's localized description.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+
+### Event: 'activity-was-continued' *macOS*
+
+Retourne :
+
+* `event` Événement
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+
+### Event: 'update-activity-state' *macOS*
+
+Retourne :
+
+* `event` Événement
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
+### Événement : 'new-window-for-tab' *macOS*
+
+Retourne :
+
+* `event` Événement
 
 Émis lorsque l’utilisateur clique sur le bouton nouvel onglet native macOS. Le bouton nouvel onglet n’est visible que si l'actuel `BrowserWindow` a un `tabbingIdentifier`
 
@@ -123,8 +162,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `window` BrowserWindow
+* `event` Événement
+* `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un [browserWindow](browser-window.md) perd le focus.
 
@@ -132,8 +171,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `window` BrowserWindow
+* `event` Événement
+* `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un [browserWindow](browser-window.md) gagne le focus.
 
@@ -141,8 +180,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `window` BrowserWindow
+* `event` Événement
+* `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un nouveau [browserWindow](browser-window.md) est créé.
 
@@ -150,8 +189,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `webContents` WebContents
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
 
 Émis lorsqu'un nouveau [webContents](web-contents.md) est créé.
 
@@ -159,7 +198,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - Le code d'erreur
@@ -187,7 +226,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -211,9 +250,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `request` Objet 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -281,18 +320,18 @@ Toutes les fenêtres se ferment immédiatement sans prévenir l’utilisateur et
 ### `app.relaunch([options])`
 
 * `options` Object (facultatif) 
-  * `args` String[] - (facultatif)
-  * `execPath` String (facultatif)
+  * `args` String[] - (optional)
+  * `execPath` String (optional)
 
-Relance l’application lorsque l’instance en cours se termine.
+Relaunches the app when current instance exits.
 
-Par défaut, la nouvelle instance utilisera le même répertoire de travail et les arguments de ligne de commande avec l’instance actuelle. Si `args` est spécifié, `args` sera passé comme argument de ligne de commande à la place. Lorsque `execPath` est spécifié, `execPath` sera exécuté pour redémarrer à la de l’application actuelle.
+By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
-Notez bien que cette méthode ne ferme pas l'application, vous devez appeler `app.quit` ou `app.exit` après avoir appelé `app.relaunch` pour faire redémarrer votre application.
+Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
-Quand `app.relaunch` est appelé plusieurs fois, plusieurs instances vont être appelées après que l'instance actuelle soit fermée.
+When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
 
-Voici un exemple qui redémarre une nouvelle instance immédiatement en ajoutant un nouvel argument de ligne de commande à la nouvelle instance :
+An example of restarting current instance immediately and adding a new command line argument to the new instance:
 
 ```javascript
 const {app} = require('electron')
@@ -303,48 +342,49 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
+Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
 
 ### `app.focus()`
 
-Sur Linux, met le focus sur la première fenêtre visible. Sur MacOS, rend l'application active. Sur windows met le focus sur la première fenêtre de l'application.
+On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
 
 ### `app.hide()` *macOS*
 
-Masque toutes les fenêtres d’application sans les minimiser.
+Hides all application windows without minimizing them.
 
 ### `app.show()` *macOS*
 
-Montre les fenêtres de l'application après qu'elles aient été cachées. Ne met pas automatiquement le focus sur ces dernières.
+Shows application windows after they were hidden. Does not automatically focus them.
 
 ### `app.getAppPath()`
 
-Retourne `String` - Répertoire courant de l'application.
+Returns `String` - The current application directory.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Retourne `String` - Un chemin vers un répertoire spécial ou un fichier associé au `nom`. En cas d’échec, une `Erreur` est générée.
+Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-Vous pouvez demander les chemins suivants sous le nom :
+You can request the following paths by the name:
 
-* `home` Répertoire d'accueil de l'utilisateur.
-* `appData` Dossiers de donnée des applications pour chaque utilisateur, qui pointe par défaut vers: 
-  * `%APPDATA%` sur Windows
-  * `$XDG_CONFIG_HOME` ou `~/.config` sur Linux
-  * `~/Library/Application Support` sur macOS
-* `userData` Le dossier pour stocker les fichiers de configuration de votre application, qui par défaut est le dossier `appData` avec le nom de votre application.
-* `temp` Dossier temporaire.
-* `exe` Le fichier exécutable actuel.
-* `module` La bibliothèque de `libchromiumcontent`.
-* `desktop` Le dossier du Bureau de l’utilisateur actuel.
-* `documents` Dossier "Mes Documents" d'un utilisateur.
-* `downloads` Dossier pour les téléchargements de l’utilisateur.
-* `music` Dossier de musique de l’utilisateur.
-* `pictures` Dossier des images de l’utilisateur.
-* `videos` Dossier des vidéos de l’utilisateur.
-* `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
+* `home` User's home directory.
+* `appData` Per-user application data directory, which by default points to: 
+  * `%APPDATA%` on Windows
+  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
+  * `~/Library/Application Support` on macOS
+* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
+* `temp` Temporary directory.
+* `exe` The current executable file.
+* `module` The `libchromiumcontent` library.
+* `desktop` The current user's Desktop directory.
+* `documents` Directory for a user's "My Documents".
+* `downloads` Directory for a user's downloads.
+* `music` Directory for a user's music.
+* `pictures` Directory for a user's pictures.
+* `videos` Directory for a user's videos.
+* `logs` Directory for your app's log folder.
+* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -353,19 +393,19 @@ Vous pouvez demander les chemins suivants sous le nom :
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 sur *Linux*, 32x32 sur *Windows*, non pris en charge sur *macOS*.
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Récupère une icône associée à un chemin.
+Fetches a path's associated icon.
 
-Sous *Windows*, il y a 2 sortes d’icônes :
+On *Windows*, there a 2 kinds of icons:
 
-* Icônes associées à certaines extensions de fichier, comme `.mp3`, `.png`, etc.
-* Icônes à l’intérieur du fichier lui-même, comme les `.exe`, `.dll`, `.ico`.
+* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
 
-Sur *Linux* et *macOS*, les icônes dépendent de l'application associée au type MIME du fichier.
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
 ### `app.setPath(name, path)`
 
@@ -374,9 +414,9 @@ Sur *Linux* et *macOS*, les icônes dépendent de l'application associée au typ
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
 
-Vous pouvez remplacer uniquement les chemins d’un `name` défini dans `app.getPath`.
+You can only override paths of a `name` defined in `app.getPath`.
 
-Par défaut, les cookies et la cache des pages web seront stockés dans le répertoire `userData`. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
 
 ### `app.getVersion()`
 
@@ -384,7 +424,7 @@ Returns `String` - The version of the loaded application. If no version is found
 
 ### `app.getName()`
 
-Retourne `String` - Le nom de l'application, qui est écrit dans le fichier `package.json` .
+Returns `String` - The current application's name, which is the name in the application's `package.json` file.
 
 Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
@@ -392,7 +432,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Remplace le nom de l'application actuelle.
+Overrides the current application's name.
 
 ### `app.getLocale()`
 
@@ -400,21 +440,21 @@ Returns `String` - The current application locale. Possible return values are do
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Remarque :** Sous Windows, vous devrez l’appeler après que l'événement `prêt` soit émit.
+**Note:** On Windows you have to call it after the `ready` events gets emitted.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Ajoute le `path` à la liste des documents récents.
+Adds `path` to the recent documents list.
 
-Cette liste est contrôlée par le système d'exploitation. Sous Windows, vous pouvez consulter la liste à partir de la barre des tâches et sous macOS, vous pouvez la consulter à partir du menu dans le dock.
+This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Efface la liste des documents récents.
+Clears the recent documents list.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
@@ -428,7 +468,7 @@ On Windows you can provide optional parameters path, the path to your executable
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
-L'API utilise en interne le registre de Windows ainsi que LSSetDefaultHandlerForURLScheme.
+The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -446,7 +486,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Retourne `Boolean`
+Returns `Boolean`
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -456,11 +496,11 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Tableau d'objets `Task`
+* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
-`tasks` est un tableau d’objets [`Task`](structures/task.md).
+`tasks` is an array of [`Task`](structures/task.md) objects.
 
 Returns `Boolean` - Si l'appel a réussi.
 
@@ -557,7 +597,7 @@ app.setJumpList([
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
-Retourne `Boolean`.
+Returns `Boolean`.
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -606,7 +646,20 @@ Creates an `NSUserActivity` and sets it as the current activity. The activity is
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Retourne `String` - le type de l’activité en cours d’exécution.
+Returns `String` - The type of the currently running activity.
+
+### `app.invalidateCurrentActivity()` *macOS*
+
+* `type` String - Uniquely identifies the activity. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `type` String - Uniquely identifies the activity. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
@@ -620,7 +673,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Function 
-  * `result` Integer - Résultat de l'importation.
+  * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -644,7 +697,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
@@ -719,14 +772,22 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Objet 
-  * `applicationName` String (optional) - Nom de l'application.
-  * `applicationVersion` String (optional) - Version de l'application.
-  * `copyright` String (optional) - Information copyright.
-  * `credits` String (optional) - Information crédit.
-  * `version` String (optional) - Numéro de version de l'application.
+  * `applicationName` String (optional) - The app's name.
+  * `applicationVersion` String (optional) - The app's version.
+  * `copyright` String (optional) - Copyright information.
+  * `credits` String (optional) - Credit information.
+  * `version` String (optional) - The app's build version number.
 
 Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
@@ -741,17 +802,29 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `value` String - L'argument à ajouter à la ligne de commande
+* `value` String - The argument to append to the command line
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** Ceci n'affecte pas `process.argv`.
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
-Cette méthode peut seulement être appelée avant que app soit prêt.
+This method can only be called before app is ready.
+
+### `app.isInApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
@@ -761,50 +834,50 @@ When `critical` is passed, the dock icon will bounce until either the applicatio
 
 When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Retourne `Integer` un ID représentant la requête.
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Annule le rebond de l'`id`.
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Fait rebondir la pile de téléchargements si le chemin d'accès se trouve le dossier Téléchargements.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Définit la chaîne de caractères à afficher dans la zone du badge du dock.
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Retourne `String` - Le texte du badge du dock.
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Masque l’icône du dock.
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-Affiche l’icône du dock.
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-Retourne `Boolean` - Si l'icône du dock est visible. L'appel `app.dock.show()` est asynchrone, donc cette méthode peut ne pas retourner true immédiatement après cet appel.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Définit le [menu du dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) de l'application.
+Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Définit l’`image` associée à l'icône du dock.
+Sets the `image` associated with this dock icon.
