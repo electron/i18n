@@ -117,7 +117,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Ipasok ang `teksto` sa nakatutok na elemento.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
