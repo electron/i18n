@@ -138,14 +138,14 @@ Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle
   * `saltaTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
   * `kiosk` Booleano (opzionale) - Modalità kiosk. Di default è `false`.
   * `titolo` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
-  * `icona` ([ImmagineNativa](native-image.md) | Stringa) (opzionale) - L'icona della finestra. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
+  * `icona` ([ImmagineNativa](native-image.md) | Stringa) (opzionale) - L'icona della finestra. Su Windows si raccomanda di usare le icone `ICO` per ottenere migliori effetti visuali, puoi anche lasciarlo indefinito, così sarà usata l'icona eseguibile.
+  * `mostra` Booleano (opzionale) - Se la finestra potrebbe essere mostrata quando creata. Di default è `true`.
+  * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra Framemeno](frameless-window.md). Di default è `true`.
+  * `genitorr` FinestraBrowser (opzionale) - Specifica finestre genitoriali. Di default è `nullo`.
+  * `modale` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
+  * `accettaPrimoMouse` Booleano (opzionale) - Se la visuale web accetta un singolo evento mouse giù che simultaneamente attiva la finestra. Di default è `false`.
+  * `disabilitaAutoNascondiCursore` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
+  * `autoNascondiMenuBarra` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che la chiave `Alt` sia premuta. Di default è `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
   * `backgroundColor` String (optional) - Window's background color as Hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.

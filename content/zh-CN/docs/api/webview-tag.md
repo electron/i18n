@@ -793,7 +793,7 @@ Emitted when media starts playing.
 
 ### Event: 'media-paused'
 
-Emitted when media is paused or done playing.
+当媒体文件暂停或播放完成的时候触发
 
 ### Event: 'did-change-theme-color'
 

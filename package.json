@@ -43,7 +43,7 @@
     "build:stats": "node script/stats.js",
     "build:module": "node script/build-module.js",
     "build:readme": "node script/readme.js",
-    "update-source-content": "node script/update-source-content.sh",
+    "update-source-content": "script/update-source-content.sh",
     "test": "npm run test-only",
     "test-only": "mocha && standard --fix",
     "prepack": "check-for-leaks",
@@ -51,6 +51,6 @@
     "pretest": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "electronLatestStableTag": "v1.7.12",
-  "electronMasterBranchCommit": "1545a95782fde4af3b77d8f5bf743f57c783467d"
+  "electronLatestStableTag": "v1.8.2",
+  "electronMasterBranchCommit": "e3f1d90854715a9718ccd7bb6422e039d2f42ebb"
 }
