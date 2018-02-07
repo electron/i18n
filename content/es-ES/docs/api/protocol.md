@@ -29,7 +29,7 @@ El módulo `protocolo` tiene los siguientes métodos:
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `esquemas` Cadenas[] - Esquema personalizado a ser registrado como un esquema estándar.
-* `options` Objecto (opcional) 
+* `opciones` Objecto (opcional) 
   * `seguro` Booleano (opcional) - `verdad` al registrar un esquema como seguro. Por defecto es `falso`.
 
 Un esquema estandar se adhiere a lo que el RFC3986 llama [Sintaxis URI genérica](https://tools.ietf.org/html/rfc3986#section-3). Por ejemplo `http` y `https` son esquemas estándar, mientras `archivo` no lo es.
@@ -161,13 +161,71 @@ Por defecto la solicitud HTTP reutilizará la sesión actual. Si quiere que soli
 
 Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
 
+### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+
+* `esquema` Cadena
+* `manejador` Función 
+  * `request` Object 
+    * `url` String
+    * `headers` Objeto
+    * `referrer` Cadena
+    * `method` Cuerda
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `llamada de vuelta` Función 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Función (opcional) 
+  * `error` Error
+
+Registers a protocol of `scheme` that will send a `Readable` as a response.
+
+The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+
+Ejemplo:
+
+```javascript
+const {protocol} = require('electron')
+const {PassThrough} = require('stream')
+
+function createStream (text) {
+  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  rv.push(text)
+  rv.push(null)
+  return rv
+}
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback({
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html'
+    },
+    data: createStream('<h5>Response</h5>')
+  })
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+
+```javascript
+const {protocol} = require('electron')
+const fs = require('fs')
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback(fs.createReadStream('index.html'))
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `esquema` Cadena
 * `completion` Función (opcional) 
   * `error` Error
 
-Anula el registro del protocolo predeterminado de `esquema`.
+Unregisters the custom protocol of `scheme`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
@@ -175,7 +233,7 @@ Anula el registro del protocolo predeterminado de `esquema`.
 * `llamada de vuelta` Función 
   * `error` Error
 
-La `retrollamada` será cancelada con un booleano que indique si ya es un controlador para `esquema`.
+The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
@@ -191,7 +249,7 @@ La `retrollamada` será cancelada con un booleano que indique si ya es un contro
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nuevo protocolo lo cual enviará un archivo como respuesta.
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -207,7 +265,7 @@ Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nu
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador de protocolo, lo cual envía una `Cadena` como respuesta.
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
@@ -245,7 +303,24 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlador del protocolo, el cual envía una nueva solicitud HTTP como respuesta.
+Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+
+### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+
+* `esquema` Cadena
+* `manejador` Función 
+  * `request` Object 
+    * `url` String
+    * `headers` Objeto
+    * `referrer` Cadena
+    * `method` Cuerda
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `llamada de vuelta` Función 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Función (opcional) 
+  * `error` Error
+
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
@@ -253,4 +328,4 @@ Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlado
 * `completion` Función (opcional) 
   * `error` Error
 
-Elimina el interceptor instalado para el `scheme` y restaura su controlador original.
+Remove the interceptor installed for `scheme` and restore its original handler.
