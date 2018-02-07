@@ -1,6 +1,6 @@
-# Notification
+# Notifikace
 
-> Create OS desktop notifications
+> Vytvořte desktopové notifikace
 
 Process: [Main](../glossary.md#main-process)
 
@@ -10,7 +10,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> Vytvořte desktopové notifikace
 
 Process: [Main](../glossary.md#main-process)
 
