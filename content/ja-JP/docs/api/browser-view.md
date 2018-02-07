@@ -8,7 +8,7 @@
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-## Example
+## サンプル
 
 ```javascript
 // メインプロセス
@@ -56,11 +56,11 @@ Returns `BrowserView` - The view with the given `id`.
 
 Objects created with `new BrowserView` have the following properties:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` (*実験的*)
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Experimental*
+#### `view.id` (*実験的*)
 
 A `Integer` representing the unique ID of the view.
 
@@ -68,18 +68,18 @@ A `Integer` representing the unique ID of the view.
 
 Objects created with `new BrowserView` have the following instance methods:
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` (*実験的*)
 
 * `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` (*実験的*)
 
 * `bounds` [Rectangle](structures/rectangle.md) 
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` (*実験的*)
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
