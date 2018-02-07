@@ -7,7 +7,7 @@
 
 | Tipo de Acción | Apoyo de Plataformas | Uso de `texto`                   | `texto` Predetermnado | Limitaciones                                                                                                                                                         |
 | -------------- | -------------------- | -------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `botón`        | macOS                | Usado como la etiqueta del botón | "Mostrar"             | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| `button`       | macOS                | Usado como la etiqueta del botón | "Mostrar"             | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Botón de apoyo en macOS
 
