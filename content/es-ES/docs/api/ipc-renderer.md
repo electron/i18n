@@ -31,7 +31,7 @@ Agrega una función `listener` para el evento. Este `listener` es invocado solo 
 * `channel` Cadena
 * `listener` Función
 
-Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
+Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
 
 ### `ipcRenderer.removeAllListeners(channel)`
 
@@ -74,4 +74,4 @@ Sends a message to a window with `windowid` via `channel`
 * `channel` Cadena
 * `...args` any[]
 
-Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
+Es como `ipcRenderer.send` pero el evento se enviará al `<webview>`elemento en la página host en vez de el proceso principal.
