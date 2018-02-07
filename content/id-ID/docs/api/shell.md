@@ -34,8 +34,8 @@ Buka file yang diberikan dengan cara default desktop.
 
 ### `shell.openExternal (url [, pilihan, callback])`
 
-* ` url </ 0> String</li>
-<li><code>pilihan` Objek (opsional) *macOS* 
+* `url` String - max 2081 characters on windows, or the function returns false
+* `pilihan` Objek (opsional) *macOS* 
   * `Aktifkan` Aljabar Boolean - `benar` untuk membawa aplikasi dibuka latar depan. Default adalah `benar`.
 * `callback` Fungsi (opsional) - Jika ditentukan akan tampil terbuka secara asinkron. *macOS* 
   * ` error </ 0> Kesalahan</li>
