@@ -1,4 +1,4 @@
-# Unterstützt Chrome Befehlszeilenoptionen
+# Unterstützte Chrome-Befehlszeilenoptionen
 
 > Command line switches supported by Electron.
 
