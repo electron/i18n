@@ -16,7 +16,7 @@ let contents = win.webContents
 console.log(contents)
 ```
 
-## Methods
+## Metodi
 
 These methods can be accessed from the `webContents` module:
 
@@ -322,11 +322,11 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Restituiti:
 
 * `evento` Evento
-* `richiesta` Object 
+* `richiesta` Oggetto 
   * `metodo` Stringa
   * `url` URL
   * `prescrivente` URL
-* `infoautore` Object 
+* `infoautore` Oggetto 
   * `èProxy` Booleano
   * `schema` Stringa
   * `ospite` Stringa
@@ -345,7 +345,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Restituiti:
 
 * `evento` Evento
-* `result` Object 
+* `result` Oggetto 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -404,7 +404,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Restituiti:
 
 * `evento` Evento
-* `params` Object 
+* `params` Oggetto 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -828,7 +828,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] richiesta. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -890,7 +890,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -1034,7 +1034,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parameters` Oggetto 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
@@ -1054,7 +1054,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `event` Oggetto 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1105,7 +1105,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Oggetto 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1118,7 +1118,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Funzione - `(error) => {}`. 
   * `errore` Errore
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
