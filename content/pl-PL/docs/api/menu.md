@@ -226,9 +226,9 @@ macOS has a completely different style of application menu from Windows and Linu
 
 On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
-* `window`
-* `help`
-* `services`
+* `okno`
+* `pomoc`
+* `usługi`
 
 ### Standard Menu Item Actions
 
@@ -256,7 +256,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Przykłady
 
-Template:
+Szablon:
 
 ```javascript
 [
@@ -278,7 +278,7 @@ Menu:
 - 5
 ```
 
-Template:
+Szablon:
 
 ```javascript
 [
