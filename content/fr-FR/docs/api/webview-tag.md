@@ -468,7 +468,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Objet 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -774,7 +774,7 @@ Fired when the renderer process is crashed.
 
 ### Événement : 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Déclenché lorsque le processus du gpu crash.
 
 ### Événement : 'plugin-crashed'
 
@@ -783,11 +783,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+Déclenché lorsqu’un processus de plugin crash.
 
 ### Événement : 'destroyed'
 
-Fired when the WebContents is destroyed.
+Déclenché lorsque le WebContents est détruit.
 
 ### Événement : 'media-started-playing'
 
@@ -803,7 +803,7 @@ Retourne :
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
