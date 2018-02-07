@@ -700,12 +700,12 @@ Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki 
 
 #### `mga nilalaman.getZoomLevel (callback)`
 
-* `callback` Punsyon 
-  * `zoomLevel` Number
+* `callback` Tungkulin 
+  * `zoomLevel` Numero
 
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,`callback`ay tinatawag na `callback(zoomLevel)`.
 
-#### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `mga nilalaman.setZoomLevelLimits (pinakamaliit na Antas, pinakamataas na Antas)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
