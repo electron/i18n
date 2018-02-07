@@ -18,7 +18,7 @@ Processo: [Principale](../glossary.md#main-process)
 
 It creates a new `Notification` with native properties as set by the `options`.
 
-### Static Methods
+### Metodi Statici
 
 The `Notification` class has the following static methods:
 
@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown
   * `subtitle` String - (optional) A subtitle for the notification, which will be displayed below the title. *macOS*
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle
