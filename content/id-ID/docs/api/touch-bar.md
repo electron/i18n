@@ -29,28 +29,28 @@ Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 Berikut adalah contoh sederhana bar sentuhan pada mesin slot permainan dengan tombol dan beberapa label.
 
 ```javascript
-const {aplikasi, BrowserWindow, sentuhBar} = wajib('electron')
+const {app, BrowserWindow, TouchBar} = require('electron')
 
-const {SentuhBarLabel, SentuhBarTombol, SentuhBarSpacer} = SentuhBar
+const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
 
-biarkan berputar = salah
+let spinning = false
 
 // Reel labels
-const reel1 = baru SentuhBarLabel()
-const reel2 = baru SentuhBarLabel()
-const reel3 = baru SentuhBarLabel()
+const reel1 = new TouchBarLabel()
+const reel2 = new TouchBarLabel()
+const reel3 = new TouchBarLabel()
 
-// putar hasil label
-const hasil = baru SentuhBarLabel()
+// Spin result label
+const result = new TouchBarLabel()
 
-// Putar tombol
-const putar = baru SentuhBarTombol({
+// Spin button
+const spin = new TouchBarButton({
   label: '
 ```
 
 ### Menjalankan contoh di atas
 
-Untuk menjalankan contoh di atas, Anda memerlukan (asumsi Anda sudah punya akses terminal di direktori yang Anda ingin untuk menjalankan contoh):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Simpan file di atas ke komputer Anda sebagai `touchbar.js`
 2. Instal elektron melalui `npm menginstal elektron`
