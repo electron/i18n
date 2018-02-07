@@ -25,7 +25,7 @@ El módulo `sesión` tiene los siguientes métodos:
 ### `session.fromPartition(partition[, options])`
 
 * `Paritición` Cadena
-* `options` Object 
+* `opciones` Objecto (opcional) 
   * `cache` Booleano - En el caso de activar la memoria cache.
 
 Regresa `Sesión` - Una reunión de la cadena `partición`. Cuando hay una `Sesión` existente con la misma `partición`, se devolverá; de otra manera, una nueva instancia `Sesión` será creada con `opciones`.
@@ -46,7 +46,7 @@ Un objeto `Sesión`, el objeto de sesión de la aplicación por defecto.
 
 > Obtener y configurar las propiedades de una sesión.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Puede crear un objeto `Sesión` en el módulo `sesión`:
 
@@ -99,7 +99,7 @@ Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Objecto (opcional) 
+* `opciones` Objecto (opcional) 
   * `origen` Cadena - (opcional) Debe seguir la representación de `window.location.origin` `scheme://host:port`.
   * `Almacenajes` Cadena[] - (opcional) Los almacenes para borra, puede contener: `Caché de la aplicación`, `cookies`, `Archivos de sistema`, `indexdb`, `Almacenamiento local`, `Caché compartido`, `websql`, `serviceworkers`
   * `quotas` Cadena[] - (opcional) El tipo de acciones que borrar, puede contener: `temporary`, `persistent`, `syncable`.
@@ -125,12 +125,13 @@ Cuando `pacScript` y `proxyRules` están junto, la opción `proxyRules` es ignor
 
 Las `proxyRules` tienen las siguientes reglas abajo:
 
-    proxyRules = schemeProxies[";"<schemeProxies>]
-    schemeProxies = [<urlScheme>"="]<proxyURIList>
-    urlScheme = "http" | "https" | "ftp" | "socks"
-    proxyURIList = <proxyURL>[","<proxyURIList>]
-    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-    
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
 
 Por ejemplo:
 
@@ -188,7 +189,7 @@ Configura el directorio de descargas. Por defecto, el directorio de descargas se
 
 #### `ses.enableNetworkEmulation(options)`
 
-* `options` Object 
+* `opciones` Object 
   * `fuera de linea` Booleano (opcional) - cuando la red emulada es interrumpida. por defecto es falso.
   * `Latencia` Doble (opcional) - RTT en ms. Por defecto es 0 lo cual deshabilitará la regulación de la latencia.
   * `downloadThroughput` Doble (opcional) - Velocidad de descarga en Bps. Por defecto es 0 que deshabilitará la regulación de descarga.
@@ -218,10 +219,11 @@ Deshabilita cualquier emulación de red activa durante la `sesión`. Resetea a l
   * `request` Object 
     * `hostname` Cadena
     * `certificate` [certificate](structures/certificate.md)
-    * `error` Cadena - Verificación de resultado de Chromium.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `llamada de vuelta` Función 
     * `verificationResult` Entero - Valor que puede ser uno de los códigos de error certificado de [aquí](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Además de los códigos de error certificado, los siguientes códigos especiales pueden ser usados. 
-      * `` - indiva el éxito y desactiva la certificación de la verificación de transparencia.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Indica falla.
       * `-3` - Usa el resultado de verificación de chromium.
 
@@ -245,13 +247,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `manejador` Función 
+* `manejador` Function | null 
   * `contenido web` [contenido web](web-contents.md) - contenido web solicitando el permiso.
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
   * `llamada de vuelta` Función 
     * `permiso concedido` Booleano - Permiso o denegado de permiso
 
-Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará.
+Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -311,7 +313,7 @@ Devuelve `Blob` - Los datos blob asociados con el `identificador`.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Object 
+* `opciones` Object 
   * `ruta` Cadena - ruta de acceso absoluta de la descarga.
   * `Cadeba URL` Cadena[] - Cadena de URL completa para la descarga.
   * `mimeType` Cadena (opcional)
