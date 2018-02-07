@@ -2,7 +2,7 @@
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 `uygulama` modülünün `hazır` olayı belirtilmeden bu modülü kullanamazsınız yada bu modüle gerek olmaz.
 
