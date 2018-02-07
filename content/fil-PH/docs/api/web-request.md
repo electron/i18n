@@ -38,11 +38,11 @@ The following methods are available on instances of `WebRequest`:
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `ang mga detalye` Bagay 
-    * `id` na Integer
+    * `id` Integer
     * `url` Tali
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -65,11 +65,11 @@ The `callback` has to be called with an `response` object.
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `ang mga detalye` Bagay 
-  * `id` na Integer
+  * `id` Integer
   * `url` Tali
   * `method` String
   * `webContentsId` Integer (optional)
-  * `resourceType` Tali
+  * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Function 
@@ -85,11 +85,11 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `ang mga detalye` Bagay 
-    * `id` na Integer
+    * `id` Integer
     * `url` Tali
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -104,11 +104,11 @@ The `listener` will be called with `listener(details)` just before a request is 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `ang mga detalye` Bagay 
-  * `id` na Integer
+  * `id` Integer
   * `url` Tali
   * `method` String
   * `webContentsId` Integer (optional)
-  * `resourceType` Tali
+  * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
@@ -127,11 +127,11 @@ The `callback` has to be called with an `response` object.
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `ang mga detalye` Bagay 
-    * `id` na Integer
+    * `id` Integer
     * `url` Tali
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -146,11 +146,11 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `ang mga detalye` Bagay 
-    * `id` na Integer
+    * `id` Integer
     * `url` Tali
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -166,11 +166,11 @@ The `listener` will be called with `listener(details)` when a server initiated r
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `ang mga detalye` Bagay 
-    * `id` na Integer
+    * `id` Integer
     * `url` Tali
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
@@ -185,11 +185,11 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `ang mga detalye` Bagay 
-    * `id` na Integer
+    * `id` Integer
     * `url` Tali
     * `method` String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.
