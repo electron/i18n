@@ -30,7 +30,7 @@ crashReporter.start({
 
 ### `crashReporter.start(options)`
 
-* `options` Object 
+* `选项` Object - 过滤器对象，包含过滤参数 
   * `companyName` 字符串 - 公司名称 (可选).
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` 字符串(可选) - 默认为 `app.getName()`.
@@ -109,15 +109,15 @@ See all of the current parameters being passed to the crash reporter.
 
 ## 崩溃报告内容
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+崩溃报告将发送下面 `multipart/form-data` `POST` 型的数据给 `submitURL`:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* `ver` String - Electron 的版本.
+* `platform` String - 例如 'win32'.
+* `process_type` String - 例如 'renderer'.
+* `guid` String - 例如 '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` String - `package.json` 里的版本号.
+* `_productName` String - `crashReporter` `options` 对象中的产品名字
+* `prod` String - 基础产品名字. 在这种情况下为 Electron.
+* `_companyName` String - `crashReporter` `options` 对象中的公司名称
+* `upload_file_minidump` File - `minidump` 格式的崩溃报告
 * All level one properties of the `extra` object in the `crashReporter` `options` object.
