@@ -1,4 +1,4 @@
-# lumikha ng bahay-alalawa
+# webFrame
 
 > Customize the rendering of the current web page.
 
@@ -82,7 +82,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` Ang string
+* `scheme` String
 
 Registers the `scheme` as secure scheme.
 
@@ -90,13 +90,13 @@ Secure schemes do not trigger mixed content warnings. For example, `https` and `
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
-* `scheme` Ang string
+* `scheme` String
 
 Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
-* `scheme` Ang string
+* `scheme` String
 * `mga pagpipilian` Mga bagay (opsyonal) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
@@ -123,7 +123,7 @@ Ipasok ang `teksto` sa nakatutok na elemento.
 
 * `code` String
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
-* `tumawag muli` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
+* `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
   * `resulta` Anuman
 
 Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.
@@ -134,7 +134,7 @@ Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaa
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
