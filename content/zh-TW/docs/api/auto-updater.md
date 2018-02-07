@@ -2,7 +2,7 @@
 
 > 讓應用程式能自動更新版本。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 **You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
@@ -40,19 +40,19 @@ The `autoUpdater` object emits the following events:
 
 Emitted when there is an error while updating.
 
-### Event: 'checking-for-update'
+### 事件: 'checking-for-update'
 
 Emitted when checking if an update has started.
 
-### Event: 'update-available'
+### 事件: 'update-available'
 
 Emitted when there is an available update. The update is downloaded automatically.
 
-### Event: 'update-not-available'
+### 事件: 'update-not-available'
 
 Emitted when there is no available update.
 
-### Event: 'update-downloaded'
+### 事件: 'update-downloaded'
 
 回傳:
 
