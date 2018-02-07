@@ -6,7 +6,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `segmentStyle` Cadena - (opcional) Estilo de los segmentos: 
     * `automatic` - Por defecto. La apariencia del control segmentados se determina basado en el tipo de ventana en la cual el control se muestra y en la posición dentro de la ventana.
     * `rounded` - El control se muestra utilizando el estilo redondeado.
