@@ -30,7 +30,7 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 <h3><code> Pemberitahuan baru ( [pilihan] ) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
-<li><code>pilihan` Objek 
+<li><code>pilihan` Benda 
 
 * ` judul </ 0>  String - Judul untuk pemberitahuan, yang akan ditampilkan di bagian atas jendela pemberitahuan saat ditampilkan</li>
 <li><code> subtitle </ 0>  String - (opsional) Sebuah subjudul untuk pemberitahuan, yang akan ditampilkan di bawah judul. <em> macos </ 1></li>
@@ -50,9 +50,9 @@ Mengembalikan ` Boolean </ 0> - Apakah pemberitahuan desktop didukung pada siste
 
 <p><strong> Catatan: </ 0> Beberapa acara hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
 
-<h4>Acara : 'show'</h4>
+<h4>Acara: 'show'</h4>
 
-<p>Pengembalian:</p>
+<p>Returns:</p>
 
 <ul>
 <li><code>peristiwa` Peristiwa
@@ -72,18 +72,21 @@ Emitted saat notifikasi diklik oleh pengguna.
 
 Pengembalian:
 
-* `peristiwa` Peristiwa
+* `event</ 0> Acara</li>
+</ul>
 
-Emitted saat notifikasi ditutup dengan intervensi manual dari pengguna.
+<p>Emitted saat notifikasi ditutup dengan intervensi manual dari pengguna.</p>
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+<p>This event is not guaranteed to be emitted in all cases where the notification
+is closed.</p>
 
-#### Acara : 'balas' * macos </ 0></h4> 
+<h4>Acara : 'balas' <em> macos </ 0></h4>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `peristiwa` Peristiwa
-* ` balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
+<ul>
+<li><code>event</ 0> Acara</li>
+<li><code> balasan</ 0>  String - String yang dimasukkan pengguna ke kolom dibarisan balasan</li>
 </ul>
 
 <p>Emitted saat pengguna mengklik tombol "Balas" pada notifikasi dengan <code> telah di balas: benar </ 0> .</p>
@@ -93,11 +96,11 @@ Pengembalian:
 <p>Pengembalian:</p>
 
 <ul>
-<li><code>peristiwa` Peristiwa
+<li><code>event` Acara
 * ` masukkan </ 0>  Nomor - Indeks tindakan yang diaktifkan</li>
 </ul>
 
-<h3>Metode Instance</h3>
+<h3>Metode Contoh</h3>
 
 <p>Objek yang dibuat dengan <code> Notifikasi baru </ 0> memiliki metode contoh berikut:</p>
 
@@ -113,11 +116,13 @@ shown notification and create a new one with identical properties.</p>
   
   ### Memutar Suara
   
-  On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+  Di macos , Anda dapat menentukan nama suara yang ingin Anda putar saat pemberitahuan ditampilkan. Salah satu suara default (di bawah Preferensi Sistem> Suara) dapat digunakan, selain file suara khusus. Pastikan file suara disalin di bawah kumpulan aplikasi (misalnya, `App kamu .app/isi/sumber daya </ 0> ), atau salah satu dari lokasi berikut:</p>
+
+<ul>
+<li><code>~ / Perpustakaan / Suara`</li> 
   
-  * `~ / Perpustakaan / Suara`
   * `/ Perpustakaan / Suara`
   * `/ Jaringan / Perpustakaan / Suara`
-  * `/ Sistem / Perpustakaan / Suara`
+  * `/ Sistem / Perpustakaan / Suara`</ul> 
   
-  See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+  Lihat dokumen  NS suara </ 0> untuk informasi lebih lanjut.</p>
