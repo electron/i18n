@@ -1,8 +1,8 @@
-# uzak
+# remote
 
 > Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
-Süreç:[Renderer](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
 `remote` modülü ana işlem ve oluşturucu işlem (web sayfası) arasında kolay bir süreçler arası iletişim yolu (IPC) sunar.
 
