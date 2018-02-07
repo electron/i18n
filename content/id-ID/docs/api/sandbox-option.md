@@ -19,14 +19,14 @@ Perbedaan lainnya adalah perender yang disanbox tidak memodifikasi API bawaan Ja
 Untuk membuat jendela yang disanbox, secara sederhana saja lewatkan nilai `sandbox: true` ke `webPreferences`:
 
 ```js
-let win
+let win 
 app.on('ready', () => {
-  win = new BrowserWindow({
-    webPreferences: {
-      sandbox: true
-    }
-  })
-  win.loadURL('http://google.com')
+   win = new BrowserWindow({     
+     webPreferences: {       
+        sandbox: true     
+      }   
+    })   
+   win.loadURL('http://google.com') 
 })
 ```
 
@@ -39,7 +39,7 @@ Untuk mengaktifkan sandbox yang dipaksa oleh OS pada `BrowserWindow` atau `webvi
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // tidak perlu untuk melewatkan `sandbox: true` karena `--enable-sandbox` diaktifkan.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -55,7 +55,7 @@ Adalah tidak mungkin untuk memiliki OS sandbox yang aktif hanya untuk beberapa p
 
 Jika Anda perlu mencampur peranti yang disandbox dan yang tidak-disandboxed dalam satu aplikasi, cukup hilangkan argumen `--enable-sandbox`. Tanpa argumen ini, jendela yang dibuat dengan `sandbox: true` masih akan memiliki node.js yang dinonaktifkan dan berkomunikasi hanya melalui IPC, yang mana dengan sendirinya sudah mendapatkan keuntungan dari keamanan POV.
 
-## Pemuatan Awal
+## Preload
 
 Sebuah aplikasi dapat membuat penyesuaian pada perender yang disandbox menggunakan skrip pramuat. Berikut adalah contohnya:
 
@@ -117,9 +117,9 @@ Saat ini fungsi `require` yang disediakan dalam lingkup pramuat memaparkan modul
 
 - `child_process`
 - `electron` 
-  - `kecelakaan reporter`
+  - `kerusakanReporter`
   - `remot`
-  - `ipc Renderer`
+  - `ipcRenderer`
   - `webBingkai`
 - `fs`
 - `os`
