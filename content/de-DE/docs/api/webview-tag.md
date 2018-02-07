@@ -137,7 +137,7 @@ When this attribute is present the guest page will have web security disabled. W
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
 Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
@@ -334,10 +334,10 @@ Returns `String` - The user agent for guest page.
 
 Injects CSS into the guest page.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
+* `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
@@ -444,7 +444,9 @@ Inserts `text` to the focused element.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -473,8 +475,8 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
 * `callback` Funktion 
-  * `error` Error
-  * `data` Buffer
+  * ` Fehler </ 0> Fehler</li>
+<li><code>data` Buffer
 
 Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
@@ -529,10 +531,10 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Rückgabewert:
+Kehrt zurück:
 
-* `url` String
-* `isMainFrame` Boolean
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -542,7 +544,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -553,7 +555,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `isMainFrame` Boolean
 
@@ -569,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `status` Boolean
 * `newURL` String
@@ -584,7 +586,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `oldURL` String
 * `newURL` String
@@ -598,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `title` String
 * `explicitSet` Boolean
@@ -607,7 +609,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `favicons` String[] - Array of URLs.
 
@@ -623,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `level` Integer
 * `message` String
@@ -643,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `result` Object 
   * `requestId` Integer
@@ -666,10 +668,10 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Rückgabewert:
+Kehrt zurück:
 
-* `url` String
-* `frameName` String
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new `BrowserWindow`.
 
@@ -691,64 +693,68 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Rückgabewert:
+Kehrt zurück:
 
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+<p>Emitted when a user or the page wants to start navigation. It can happen when
+the <code>window.location` object is changed or a user clicks a link in the page.</p> 
+  This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+  
+  It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+  
+  Calling `event.preventDefault()` does **NOT** have any effect.
+  
+  ### Event: 'did-navigate'
+  
+  Kehrt zurück:
+  
+  * ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+<p>Emitted when a navigation is done.</p>
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+<p>This event is not emitted for in-page navigations, such as clicking anchor links
+or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
+    ### Event: 'did-navigate-in-page'
+    
+    Kehrt zurück:
+    
+    * `isMainFrame` Boolean
+    * ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+<p>Emitted when an in-page navigation happened.</p>
 
-### Event: 'did-navigate'
-
-Rückgabewert:
-
-* `url` String
-
-Emitted when a navigation is done.
-
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-### Event: 'did-navigate-in-page'
-
-Rückgabewert:
-
-* `isMainFrame` Boolean
-* `url` String
-
-Emitted when an in-page navigation happened.
-
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
-
-### Event: 'close'
-
-Fired when the guest page attempts to close itself.
-
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
-
-```javascript
+<p>When in-page navigation happens, the page URL changes but does not cause
+navigation outside of the page. Examples of this occurring are when anchor links
+are clicked or when the DOM <code>hashchange` event is triggered.</p> 
+      ### Event: 'close'
+      
+      Fired when the guest page attempts to close itself.
+      
+      The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+      
+      ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('close', () => {
   webview.src = 'about:blank'
 })
 ```
-
-### Event: 'ipc-message'
-
-Rückgabewert:
-
-* `channel` String
-* `args` Array
-
-Fired when the guest page has sent an asynchronous message to embedder page.
-
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
-
-```javascript
+  
+  ### Event: 'ipc-message'
+  
+  Kehrt zurück:
+  
+  * `channel` String
+  * `args` Array
+  
+  Fired when the guest page has sent an asynchronous message to embedder page.
+  
+  With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+  
+  ```javascript
 // In embedder page.
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
@@ -776,9 +782,9 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Rückgabewert:
+Kehrt zurück:
 
-* `name` String
+* `name` Zeichenfolge
 * `version` String
 
 Fired when a plugin process is crashed.
@@ -797,7 +803,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `themeColor` String
 
@@ -809,20 +815,21 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Rückgabewert:
+Kehrt zurück:
 
-* `url` String
+*  URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-### Event: 'devtools-opened'
+<h3>Event: 'devtools-opened'</h3>
 
-Emitted when DevTools is opened.
+<p>Emitted when DevTools is opened.</p>
 
-### Event: 'devtools-closed'
+<h3>Event: 'devtools-closed'</h3>
 
-Emitted when DevTools is closed.
+<p>Emitted when DevTools is closed.</p>
 
-### Event: 'devtools-focused'
+<h3>Event: 'devtools-focused'</h3>
 
-Emitted when DevTools is focused / opened.
+<p>Emitted when DevTools is focused / opened.</p>
