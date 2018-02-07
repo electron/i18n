@@ -1,4 +1,4 @@
-# ang remote
+# kamuntik
 
 > Gamitin ang mga modyul ng pangunahing proseso mula sa proseso ng tagabigay.
 
@@ -136,7 +136,7 @@ Nagbabalik ang [`BrowserWindow`](browser-window.md) - Ang window na kung saan na
 
 Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina ng web na ito.
 
-### `remote.getGlobal(pangalan)`
+### `remote.getGlobal(name)`
 
 * `name` String
 
