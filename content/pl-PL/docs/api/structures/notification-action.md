@@ -5,9 +5,9 @@
 
 ## Platform / Action Support
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Ograniczenia                                                                                                                                                        |
-| ----------- | ---------------- | -------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `przycisk`  | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incomptible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Action Type | Platform Support | Usage of `text`                  | Default `text` | Ograniczenia                                                                                                                                                         |
+| ----------- | ---------------- | -------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `przycisk`  | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Button support on macOS
 
