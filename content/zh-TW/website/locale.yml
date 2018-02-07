@@ -140,7 +140,7 @@ _404:
   please_file_an_issue: 請提出議題。
 search:
   description:
-    start: Find Electron resources from
+    start: 找出 Electron 相關資源，包括
     docs: <a href="/search/docs">文件</a>
     npm: <a href="/search/npmPackages">npm 套件</a>
     and: 及
