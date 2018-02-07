@@ -242,7 +242,7 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (選用)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
@@ -436,7 +436,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
