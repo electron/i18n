@@ -18,7 +18,7 @@ The `webFrame` module has the following methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `kadahilanan`Numero - Zoom factor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
