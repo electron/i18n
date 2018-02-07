@@ -28,7 +28,7 @@ Sebagai contoh, kita bisa menciptakan permintaan yang sama untuk 'github.com' se
 permintaan Const = net.request ({metode: 'Mendapatkan', protokol: ' https:', nama host: 'github.com', port: 443, jalan: '/'})
 ```
 
-### Instance Events
+### Contoh peristiwa
 
 #### Event: 'respon'
 
