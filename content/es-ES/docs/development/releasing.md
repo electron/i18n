@@ -160,7 +160,7 @@ Esta versión es publicada para [npm] https://www.npmjs.com/package/electron) ba
 3. Deseleccione la casilla de `prerelease` si está publicando una versión estable; dejela seleccionada si es una versión beta.
 4. Haga click en 'Salvar borrador'. **N haga click en 'publicar versión'!**
 5. Espero por todas las estructuras por pasar por los procedimientos.
-6. Puede correr el `npm run release --validateRelease` para verificar que todos los archivos requeridos pueden ser creados para la publicación.
+6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
 ## Unir rama temporal
 
