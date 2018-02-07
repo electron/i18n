@@ -84,7 +84,7 @@ Correspond au moment où le loader de l'onglet arrête de tourner.
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -100,7 +100,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -132,7 +132,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 * `frameName` String
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
@@ -159,7 +159,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis quand un utilisateur ou la page veut démarrer la navigation. Cela peut arriver quand l'objet `window.location` est modifié ou un utilisateur clique sur un lien dans la page.
@@ -174,7 +174,7 @@ Appeler `event.preventDefault()` permet d'éviter la navigation.
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis lorsqu'une navigation est faite.
@@ -185,7 +185,7 @@ Cet événement n'est également pas émis pour les navigations à l'intérieur 
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 * `isMainFrame` Boolean
 
@@ -197,7 +197,7 @@ En cas de navigation dans la page, l'URL de la page change mais ne provoque pas 
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsqu’un écouteur de l'événement `beforeunload` tente d’annuler un déchargement de la page.
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `killed` Boolean
 
 Émis lorsque le processus renderer crash ou est interrompu.
@@ -292,7 +292,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 * `error` String - Le code d'erreur
 * `certificate` [Certificate](structures/certificate.md)
@@ -321,8 +321,8 @@ L'utilisation est pareil que [l'événement `select-client-certificate` de `app`
 
 Retourne :
 
-* `event` Event
-* `request` Object 
+* `event` Événement
+* `request` Objet 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -372,14 +372,14 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
 #### Événement : 'update-target-url'
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
@@ -388,16 +388,16 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `type` String
-* `image` NativeImage (optional)
-* `scale` Float (optional) - scaling factor for the custom cursor
-* `size` [Size](structures/size.md) (optional) - the size of the `image`
-* `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot
+* `image` NativeImage (facultatif)
+* `scale` Float (facultatif) - Facteur de mise à l'échelle pour le curseur personnalisé
+* `size` [Size](structures/size.md) (facultatif) - La taille de l'`image`
+* `hotspot` [Point](structures/point.md) (facultatif) - Coordonnées du point actif du curseur personnalisé
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
+Émis lorsque le type du curseur change. Le paramètre `type` peut être `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing`, `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a `NativeImage`, and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Si le paramètre `type` est `custom`, le paramètre `image` aura l'image du curseur personnalisé dans un `NativeImage`, et `scale`, `size` et `hotspot` auront les informations complémentaires à propos du curseur personnalisé.
 
 #### Événement : 'context-menu'
 
@@ -405,12 +405,12 @@ Retourne :
 
 * `event` Event
 * `params` Objet 
-  * `x` Integer - x coordinate
-  * `y` Integer - y coordinate
-  * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
-  * `linkText` String - Text associated with the link. May be an empty string if the contents of the link are an image.
-  * `pageURL` String - URL of the top level page that the context menu was invoked on.
-  * `frameURL` String - URL of the subframe that the context menu was invoked on.
+  * `x` Integer - coordonnée x
+  * `y` Integer - coordonée y
+  * `linkURL` String - L'URL du lien qui englobe le nœud du menu contextuel.
+  * `linkText` String - Texte associé au lien. Peut être une chaîne de caractère vide si le contenu du lien est une image.
+  * `pageURL` String - L'URL de la page haut niveau d'où le menu contextuel a été invoqué.
+  * `frameURL` String - L'URL de la subframe d'où le menu contextuel a été invoqué.
   * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
   * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
   * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
@@ -421,36 +421,36 @@ Retourne :
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
-  * `mediaFlags` Object - The flags for the media element the context menu was invoked on. 
-    * `inError` Boolean - Whether the media element has crashed.
-    * `isPaused` Boolean - Whether the media element is paused.
-    * `isMuted` Boolean - Whether the media element is muted.
-    * `hasAudio` Boolean - Whether the media element has audio.
-    * `isLooping` Boolean - Whether the media element is looping.
-    * `isControlsVisible` Boolean - Whether the media element's controls are visible.
-    * `canToggleControls` Boolean - Whether the media element's controls are toggleable.
-    * `canRotate` Boolean - Whether the media element can be rotated.
-  * `editFlags` Object - These flags indicate whether the renderer believes it is able to perform the corresponding action. 
-    * `canUndo` Boolean - Whether the renderer believes it can undo.
-    * `canRedo` Boolean - Whether the renderer believes it can redo.
-    * `canCut` Boolean - Whether the renderer believes it can cut.
-    * `canCopy` Boolean - Whether the renderer believes it can copy
-    * `canPaste` Boolean - Whether the renderer believes it can paste.
-    * `canDelete` Boolean - Whether the renderer believes it can delete.
-    * `canSelectAll` Boolean - Whether the renderer believes it can select all.
+  * `mediaFlags` Object - Les attributs de l'élément multimédia que le menu contextuel a invoqué. 
+    * `inError` Boolean - Si l'élément multimédia a crash.
+    * `isPaused` Boolean - Si l'élément multimédia est en pause.
+    * `isMuted` Boolean - Si l'élément multimédia est mis en sourdine.
+    * `hasAudio` Boolean - Si l'élément multimédia émet un son audio.
+    * `isLooping` Boolean - Si l'élément multimédia est en boucle.
+    * `isControlsVisible` Boolean - Si les contrôles de l'élément multimédia sont visibles.
+    * `canToggleControls` Boolean - Si les contrôles de l'élément multimédia sont toggleable.
+    * `canRotate` Boolean - Si l'élément multimédia peut être pivoté.
+  * `editFlags` Object - Ces attributs indiquent si le moteur de rendu pense être en mesure d'effectuer l'action correspondante. 
+    * `canUndo` Boolean - Si le moteur de rendu pense pouvoir aller en arrière.
+    * `canRedo` Boolean - Si le moteur de rendu pense pouvoir aller en avant.
+    * `canCut` Boolean - Si le moteur de rendu pense pouvoir couper.
+    * `canCopy` Boolean - Si le moteur de rendu pense pouvoir copier
+    * `canPaste` Boolean - Si le moteur de rendu pense pouvoir coller.
+    * `canDelete` Boolean - Si le moteur de rendu pense pouvoir supprimer.
+    * `canSelectAll` Boolean - Si le moteur de rendu pense pouvoir tout sélectionner.
 
-Emitted when there is a new context menu that needs to be handled.
+Émis lorsqu'un nouveau menu contextuel a besoin d'être pris en charge.
 
 #### Événement : 'select-bluetooth-device'
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
 
-Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
+Émis lorsque le périphérique bluetooth a besoin d'être selectionné lors de l'appel de `navigator.bluetooth.requestDevice`. Pour utiliser l'api `navigator.bluetooth`, `webBluethooth` doit être activé. Si `event.preventDefault` n'est pas appelé, le premier périphérique disponible sera sélectionné. `callback` doit être appelé avec `deviceId` à sélectionner, en passant une chaîne de caractère vide au `callback` annulera la requête.
 
 ```javascript
 const {app, webContents} = require('electron')
@@ -475,9 +475,9 @@ app.on('ready', () => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `dirtyRect` [Rectangle](structures/rectangle.md)
-* `image` [NativeImage](native-image.md) - The image data of the whole frame.
+* `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
@@ -557,7 +557,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Retourne `String` - l'URL de la page web courante.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -570,31 +570,31 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Retourne `String` - le titre de la page web courante.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Retourne `Boolean` - si la page web est détruite.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Met au premier plan la page web.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Retourne `Boolean` - si la page web est au premier plan.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Retourne `Boolean` - Si la page web est toujours en train de charger des ressources.
 
 #### `contents.isLoadingMainFrame()`
 
-Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
+Retourne `Boolean` - Si la frame principale (et pas seulement un iframe ou frames qu'il contient) sont toujours en chargement.
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Retourne `Boolean` - Si la page web est en attente d'une première réponse de la principale ressource de la page.
 
 #### `contents.stop()`
 
@@ -602,11 +602,11 @@ Arrête toute navigation en attente.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Recharge la page web courante.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Recharge la page courante et ignore le cache.
 
 #### `contents.canGoBack()`
 
@@ -664,7 +664,7 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injects CSS into the current web page.
+Injecte du CSS dans la page web actuelle.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -869,7 +869,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Récupère la liste des imprimantes système.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
