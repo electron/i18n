@@ -227,7 +227,7 @@ Les objets crées avec `new BrowserWindow` émettent les évennements suivants :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `title` String
 
 Émis lorsque le document a changé son titre, appeller `event.preventDefault()` empêchera le titre de la fenêtre native de changer.
@@ -236,7 +236,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeunload` et `unload` du DOM. Appeller `event.preventDefault()` annulera la fermeture.
 
@@ -258,85 +258,85 @@ window.onbeforeunload = (e) => {
 
 #### Événement : 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Émis lorsque la fenêtre est fermée. Après avoir reçu cet évenement, vous devriez enlever la référence à la fenêtre et éviter de l'utiliser à nouveau.
 
 #### Événement : 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Émis lorsque la session va se terminer à cause d'une redémarage, un éteignage forcé ou une déconnexion.
 
 #### Événement : 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Émis lorsque la page web cesse de répondre.
 
 #### Événement : 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Émis lorsque la page web répond à nouveau.
 
 #### Événement : 'blur'
 
-Emitted when the window loses focus.
+Émis lorsque la fenêtre perd le focus.
 
 #### Événement : 'focus'
 
-Emitted when the window gains focus.
+Émis lorsque la fenêtre obtient le focus.
 
 #### Événement : 'show'
 
-Emitted when the window is shown.
+Émis lorsque la fenêtre est affichée.
 
 #### Événement : 'hide'
 
-Emitted when the window is hidden.
+Émis lorsque la fenêtre est masquée.
 
 #### Événement : 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Émis lorsque la page web à été chargée (tout en n'était pas affichée) et la fenêtre peut être affichée sans flash visuel.
 
 #### Événement : 'maximize'
 
-Emitted when window is maximized.
+Émis lorsque la fenêtre est agrandie.
 
 #### Événement : 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Émis lorsque la fenêtre quitte un état maximisé.
 
 #### Événement : 'minimize'
 
-Emitted when the window is minimized.
+Émis lorsque la fenêtre est réduite.
 
 #### Événement : 'restore'
 
-Emitted when the window is restored from a minimized state.
+Émis lorsque la fenêtre est restaurée à partir d’un état réduit.
 
 #### Événement : 'resize'
 
-Emitted when the window is being resized.
+Émis lorsque la fenêtre est redimensionnée.
 
 #### Événement : 'move'
 
-Emitted when the window is being moved to a new position.
+Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Note** : Sous macOS, cet événement est simplement un alias de `moved`.
 
 #### Événement : 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
 #### Événement : 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Émis lorsque la fenêtre passe à un état de plein écran.
 
 #### Événement : 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Émis lorsque la fenêtre revient d'un état de plein écran.
 
 #### Événement : 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre entre dans un état de plein écran déclenchée par l’API HTML.
 
 #### Événement : 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 
 #### Événement : 'app-command' *Windows*
 
@@ -362,32 +362,32 @@ win.on('app-command', (e, cmd) => {
 
 #### Événement : 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Émis lorsque l’événement scroll de la souris a commencé.
 
 #### Événement : 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Émis lorsque l’événement scroll de la souris est terminée.
 
 #### Événement : 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
 
 #### Événement : 'swipe' *macOS*
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `direction` String
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
 #### Événement : 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Émis lorsque la fenêtre ouvre une feuille.
 
 #### Événement : 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Émis lorsque la fenêtre a fermé une feuille.
 
 #### Événement : 'new-window-for-tab' *macOS*
 
@@ -519,11 +519,11 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Ramène la fenêtre au premier plan.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Supprime le focus de la fenêtre.
 
 #### `win.isFocused()`
 
@@ -535,15 +535,15 @@ Returns `Boolean` - Whether the window is destroyed.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Affiche la fenêtre et la ramène au premier plan.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Affiche la fenêtre, mais ne la ramène pas au premier plan.
 
 #### `win.hide()`
 
-Hides the window.
+Masque la fenêtre.
 
 #### `win.isVisible()`
 
@@ -559,7 +559,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Réduit la fenêtre à sa taille initiale.
 
 #### `win.isMaximized()`
 
@@ -571,7 +571,7 @@ Minimizes the window. On some platforms the minimized window will be shown in th
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Restaure la fenêtre depuis l'état réduit à son état précédent.
 
 #### `win.isMinimized()`
 
@@ -581,7 +581,7 @@ Returns `Boolean` - Whether the window is minimized.
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Définit si la fenêtre doit être en mode plein écran.
 
 #### `win.isFullScreen()`
 
@@ -622,9 +622,9 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Redimensionne et déplace la fenêtre vers les limites fournies
 
 #### `win.getBounds()`
 
@@ -633,7 +633,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -645,7 +645,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window to `width` and `height`.
 
@@ -657,7 +657,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -691,7 +691,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Définit si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
 
 #### `win.isResizable()`
 
@@ -701,7 +701,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -747,7 +747,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -769,13 +769,13 @@ Returns `Boolean` - Whether the window is always on top of other windows.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Déplace la fenêtre vers le centre de l’écran.
 
 #### `win.setPosition(x, y[, animate])`
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -798,7 +798,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (facultatif)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -825,7 +825,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Entre ou quitte le mode kiosk.
 
 #### `win.isKiosk()`
 
@@ -996,7 +996,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Objet 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - L'icône s'affichant dans la miniature dans la barre d'outils.
   * `click` Function
   * `tooltip` String (facultatif) - Le texte dans l'info-bulle du bouton.
   * `flags` String[] (facultatif) - Contrôle les états et comportements spécifiques du bouton. `['enabled']` par défaut.
@@ -1012,7 +1012,7 @@ Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - La région de la fenêtre
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
@@ -1123,7 +1123,7 @@ Returns `BrowserWindow[]` - All child windows.
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Contrôle s'il faut masquer le curseur lors de la saisie.
 
 #### `win.selectPreviousTab()` *macOS*
 
