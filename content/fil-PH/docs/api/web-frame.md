@@ -55,7 +55,7 @@ Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi visual) na antas ng zoom.
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
