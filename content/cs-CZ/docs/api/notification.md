@@ -6,7 +6,7 @@ Process: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
-If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
+Pokud chcete ukazovat notifikace z renderer procesu, měli byste použít [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Class: Notification
 
@@ -73,7 +73,7 @@ This event is not guarunteed to be emitted in all cases where the notification i
 
 #### Event: 'reply' *macOS*
 
-Returns:
+Vrací:
 
 * `event` Event
 * `reply` String - The string the user entered into the inline reply field
@@ -82,7 +82,7 @@ Emitted when the user clicks the "Reply" button on a notification with `hasReply
 
 #### Event: 'action' *macOS*
 
-Returns:
+Vrací:
 
 * `event` Event
 * `index` Number - The index of the action that was activated
