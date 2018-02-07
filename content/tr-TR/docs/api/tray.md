@@ -2,7 +2,7 @@
 
 > Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Tray` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dir.
 
@@ -56,11 +56,11 @@ Eğer diğer platformlarda da tamamen aynı davranışları sergilemeye devam et
 
 ### `new Tray(image)`
 
-* `image` ([DoğalGörüntü](native-image.md) | Dizi)
+* `image` ([NativeImage](native-image.md) | String)
 
 Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
-### Örnek Events
+### Örnek etkinlikler
 
 `Tray` modülü aşağıdaki olayları yayar:
 
@@ -116,14 +116,14 @@ Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Event
+* `event` Olay
 * `files` String[] - Düşürülen dosyaların yolları.
 
 Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Event
+* `event` Olay
 * `text` String - Düşürülen yazı stringi
 
 Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
@@ -173,17 +173,17 @@ Fare tepsi simgesinden çıktığında ortaya çıkar.
 
 Emitted when the mouse moves in the tray icon.
 
-### Örnek Metodlar
+### Örnek Yöntemleri
 
-The `Tray` class has the following methods:
+The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
 #### `tray.destroy()`
 
-Destroys the tray icon immediately.
+Tepsi simgesini derhal imha eder.
 
 #### `tray.setImage(image)`
 
-* `image` ([DoğalGörüntü](native-image.md) | Dizi)
+* `image` ([NativeImage](native-image.md) | String)
 
 Sets the `image` associated with this tray icon.
 
@@ -197,17 +197,17 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+Bu tepsi simgesinin üzerine gelen metni ayarlar.
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar.
+Durum çubuğunda tepsi simgesinin bir kenara görünen başlığını ayarlar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mod` String - Highlight mode with one of the following values: 
+* `mode` String - Highlight mode with one of the following values: 
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
   * `always` - Always highlight the tray icon.
   * `never` - Never highlight the tray icon.
@@ -240,29 +240,29 @@ win.on('hide', () => {
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Bir tepsi balonunu görüntüler.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menü (İsteğe bağlı)
+* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
 
 The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menü
 
-Sets the context menu for this icon.
+Bu simgenin bağlam menüsünü ayarlar.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-The `bounds` of this tray icon as `Object`.
+`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
