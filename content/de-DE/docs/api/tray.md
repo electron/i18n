@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### Beispiel Events
 
 The `Tray` module emits the following events:
 
@@ -173,7 +173,7 @@ Emitted when the mouse exits the tray icon.
 
 Emitted when the mouse moves in the tray icon.
 
-### Instance Methods
+### Beispiel Methoden
 
 The `Tray` class has the following methods:
 
@@ -235,7 +235,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `optionen` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
   * `title` String
   * `content` String
