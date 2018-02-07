@@ -1,8 +1,8 @@
-# crashReporter
+# kalabog ng tagapagbalita
 
 > Ipasa ang crash reports para ma kontrol ang server
 
-Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
+Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang mga ito ay halimbawa ng awtomatikong pag pasa ng mga crash report patungo sa remote server:
 
@@ -23,13 +23,13 @@ Para pag set up sa server para tanggapin at iproseso ang mga bagsak na ulat, puw
 
 Ang mga ulat na bumagsak ay naka save sa isang lokal na application-specifc temp direktoryo folder. Para sa `PangalanngProdukto`sa`PangalanMo`, bagsak na ulat ay nakaimbak sa isang folder pangalan `PangalanMo Bagsak` loob ng temp directory. Puwede mong i-customize ang temp directory lokasyon para sa iyong app sa pagtawag ng `app.setPath('temp','/my/custom/temp')` API bago mag start ang mga bagsak na ulat.
 
-## Pamamaraan
+## Mga Paraan
 
 Ang `crashReporter`module ay merong sumusunod na paraan:
 
 ### `crashReporter.start(options)`
 
-* `mga pagpipilian` Bagay 
+* `mga opsyon` Bagay 
   * `PangalanngKompanya`String(optional)
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.
