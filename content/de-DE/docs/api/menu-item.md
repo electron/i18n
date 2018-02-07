@@ -8,7 +8,7 @@ See [`Menu`](menu.md) for examples.
 
 ### `new MenuItem(options)`
 
-* `options` Object 
+* `optionen` Object 
   * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
@@ -39,7 +39,7 @@ See [`Menu`](menu.md) for examples.
   * `undo`
   * `redo`
   * `cut`
-  * `copy`
+  * `kopieren`
   * `paste`
   * `pasteandmatchstyle`
   * `selectall`
@@ -78,7 +78,7 @@ See [`Menu`](menu.md) for examples.
   
   When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored.
   
-  ### Instance Properties
+  ### Fall Eigenschaften
   
   The following properties are available on instances of `MenuItem`:
   
