@@ -777,13 +777,13 @@ Pinapatupad ang utos sa pag-edit ` palitan ` sa web page.
 
 #### `mga nilalaman. ibalik ang maling pagbaybay(teksto)`
 
-* `text` String
+* `teksto` string
 
-Executes the editing command `replaceMisspelling` in web page.
+Pinapatupad ang utos sa pag-edit ` palitan ang maling pagbaybay ` sa web page.
 
-#### `contents.insertText(text)`
+#### `mga nilalaman.ipasok ang teksto(teksto)`
 
-* `text` String
+* `teksto` String
 
 Inserts `text` to the focused element.
 
