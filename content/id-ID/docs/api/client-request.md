@@ -2,7 +2,7 @@
 
 > Membuat permintaan HTTP/HTTPS.
 
-Proses:  Utama </ 0></p> 
+Process: [Main](../glossary.md#main-process)
 
 `ClientRequest` mengimplementasikan antarmuka [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams) dan karena itu [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
