@@ -320,7 +320,7 @@ Belirtilen mutlak dizine gider.
 
 ### `<webview>.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` Dizgi
 
 Konuk sayfasının kullanıcı aracısını geçersiz kılar.
 
@@ -418,19 +418,19 @@ Sayfada düzenleme komutu olan `unselect`'i yerine getirir.
 
 ### `<webview>.replace(text)`
 
-* `text` Dizi
+* `text` String
 
 Sayfada düzenleme komutu olan `replace`'i yerine getirir.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` Dizi
+* `text` String
 
 Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 ### `<webview>.insertText(text)`
 
-* `text` Dizi
+* `text` String
 
 Odaklanılan öğeye `text`'i yerleştirir.
 
@@ -491,9 +491,9 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` herhangi[]
+* `...args` any[]
 
-İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
 See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
@@ -519,7 +519,7 @@ Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'd�
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
+Sayfadan seçilen sözcüğü arayan bir pop-up sözlük gösterir.
 
 ### `<webview>.getWebContents()`
 
@@ -578,9 +578,9 @@ Dönüşler:
 * `originalURL` Dize
 * `httpResponseCode` Tamsayı
 * `requestMethod` Dize
-* `referrer` String
+* `referrer` Dize
 * `headers` Nesne
-* `resourceType` Dize
+* `resourceType` String
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
@@ -791,11 +791,11 @@ Fired when the WebContents is destroyed.
 
 ### Olay: Medya oynamaya başladı
 
-Medya oynatılmaya başladığında yayınlanır.
+Medya oynamaya başladığında belirir.
 
 ### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatıldığında yaydır.
+Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
 
 ### Olay: tema rengi değiştirildi
 
