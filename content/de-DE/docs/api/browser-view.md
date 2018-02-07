@@ -80,6 +80,6 @@ Objects created with `new BrowserView` have the following instance methods:
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Experimentell*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
