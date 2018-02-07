@@ -19,7 +19,7 @@ Modul ` sesi ` memiliki metode berikut:
 ### `sesi.daripartisi(partisi[, pilihan])`
 
 * `partisi` Tali
-* `pilihan` Objek (opsional) 
+* `pilihan` Objek (pilihan) 
   * `cache` Boolean - Baik untuk mengaktifkan cache.
 
 Kembali ` Sesi </ 0> - Contoh sesi dari <code> partisi </ 0> senar. Bila sudah ada
@@ -29,7 +29,7 @@ Jika ` partisi ` dimulai dengan ` bertahan: `, halaman akan menggunakan sesi per
 
 Untuk membuat sebuah `Sesi` dengan `pilihan`, Anda harus memastikan `Sesi` dengan `partisi` yang tidak pernah digunakan sebelumnya. Tidak ada cara untuk mengubah `pilihan` yang sudah ada `Sesi` sasaran.
 
-## Properti/peralatan
+## properti
 
 Modul `sesi` terdapat properti sebagai berikut:
 
@@ -49,7 +49,7 @@ Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 const {session} = require('electron') const ses = session.fromPartition('persist:name') console.log(ses.getUserAgent())
 ```
 
-### Perihal contoh
+### Contoh peristiwa
 
 Peristiwa berikut tersedia pada contoh `Sesi`:
 
@@ -67,7 +67,7 @@ Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` t
 const {session} = require('electron') session.defaultSession.on (' akan-download', (acara, item, webContents) = > {event.preventDefault() require('request')(item.getURL(), (data) = > {require('fs').writeFileSync ('/ di suatu tempat', data)})})
 ```
 
-### Metode Contoh
+### Metode contoh
 
 Metode berikut tersedia pada contoh `Sesi`:
 
@@ -80,17 +80,17 @@ Callback dipanggil dengan ukuran cache sesi saat ini.
 
 #### `ses.clearCache(callback)`
 
-* `memanggil kembali` Fungsi - terpanggil ketika operasi selesai
+* `callback` Fungsi - Disebut saat operasi selesai
 
 Membersihkan sesi-sesi HTTP cache.
 
-#### `ses.clearStorageData([pilihan-pilihan, panggilan kembali])`
+#### `ses.clearStorageData([options, panggilan kembali])`
 
 * `pilihan-pilihan` Objek (pilihan) 
   * `asal` Senar - (pilihan) Harus mengikuti `jendela.lokasi.asal`’s representasi `scheme://host:port`.
   * `penyimpanan` Senar[] - (pilihan) Jenis penyimpanan yang bisa dihapus, bisa berisi: `chacheaplikasi`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `kuota` Senar[] - (pilihan) Jenis kuota untuk menghapus, dapat berisi: `sementara`, `gigih`, `syncable`.
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
+* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
 
 Menghapus data penyimpanan web.
 
@@ -100,11 +100,11 @@ Menulis data DOMStorage yang tidak tertulis ke disk.
 
 #### `ses.setProxy(config, panggilan kembali)`
 
-* `konfigurasi` Objek 
+* `konfigurasi` Obyek 
   * `pacScript` Senar - URL yang terkait dengan file PAC.
   * `proxyRules` Senar - Aturan yang menunjukkan proxy mana yang akan digunakan.
   * `proxyBypassRules` Senar - Aturan yang menunjukkan URL mana yang seharusnya dengan melewati pengaturan proxy.
-* `callback` Fungsi - Disebut saat operasi selesai.
+* `memanggil kembali` Fungsi - terpanggil ketika operasi selesai.
 
 Mengatur pengaturan proxy.
 
@@ -160,7 +160,7 @@ The `proxyBypassRules` is a comma separated list of rules described below:
   
   Perhitingan lokal address. Pengertian dari `<local>` adalah diantaranya perhitungan host satu: "127.0.0.1", "::1", "localhost".
 
-#### `ses.resolveProxy (url, callback)`
+#### `ses.resolveProxy(url, panggilan kembali)`
 
 * `url` URL
 * `callback` Fungsi 
@@ -174,7 +174,7 @@ Menyelesaikan informasi proksi untuk `url`. `Callback` akan dipanggil dengan `ca
 
 Set download menyimpan direktori. Secara default, direktori download akan `Download` di bawah folder app masing-masing.
 
-#### `ses.enableNetworkEmulation (pilihan)`
+#### `ses.enableNetworkEmulation(options)`
 
 * `pilihan` Obyek 
   * `offline` Boolean (opsional) - Apakah untuk meniru jaringan listrik. Default ke false.
@@ -268,7 +268,7 @@ Ini tidak akan mempengaruhi yang ada `WebContents`, dan setiap `WebContents` dap
 
 Mengembalikan `String` - user agent untuk sesi ini.
 
-#### `ses.getBlobData (pengenal, callback)`
+#### `ses.getBlobData(identifier, panggilan kembali)`
 
 * `pengenal` String - UUID berlaku.
 * `callback` Fungsi 
@@ -290,14 +290,14 @@ Mengembalikan `gumpalan` - gumpalan data yang terkait dengan `pengenal`.
 
 Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache (pilihan [, callback])`
+#### `ses.clearAuthCache(options[, panggilan kembali])`
 
 * `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai
 
 Membersihkan cache otentikasi HTTP sesi.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh-contoh dari `sesi`:
 
