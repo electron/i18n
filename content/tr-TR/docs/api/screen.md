@@ -57,7 +57,7 @@ app.on('ready', () => {
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `newDisplay` [Display](structures/display.md)
 
 `newDisplay` eklendiğinde ortaya çıkar.
@@ -66,7 +66,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `oldDisplay` [Display](structures/display.md)
 
 `oldDisplay` kaldırıldığında yayılır.
@@ -75,7 +75,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
