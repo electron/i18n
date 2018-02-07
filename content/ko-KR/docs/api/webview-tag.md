@@ -571,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Returns:
+반환:
 
 * `status` Boolean
 * `newURL` String
@@ -586,7 +586,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Returns:
+반환:
 
 * `oldURL` String
 * `newURL` String
@@ -600,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+반환:
 
 * `title` String
 * `explicitSet` Boolean
@@ -668,7 +668,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+반환:
 
 * `url` String
 * `frameName` String
@@ -778,7 +778,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+반환:
 
 * PrinterInfo Object
 * `version` String
@@ -799,7 +799,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+반환:
 
 * `themeColor` String
 
