@@ -136,17 +136,17 @@ Esso crea una nuova `FinestraBrowser` con proprietà native come impostato dalle
   * `schermointero` Booleano (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
   * `schermointero` Booleano (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
-  * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
-  * `kiosk` Boolean (optional) - The kiosk mode. Default is `false`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
+  * `saltaTaskbar` Booleano (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
+  * `kiosk` Booleano (opzionale) - Modalità kiosk. Di default è `false`.
+  * `titolo` Stringa (opzionale) Titolo di default della finestra. Di default è `"Electron"`.
+  * `icona` ([ImmagineNativa](native-image.md) | Stringa) (opzionale) - L'icona della finestra. Su Windows si raccomanda di usare le icone `ICO` per ottenere migliori effetti visuali, puoi anche lasciarlo indefinito, così sarà usata l'icona eseguibile.
+  * `mostra` Booleano (opzionale) - Se la finestra potrebbe essere mostrata quando creata. Di default è `true`.
+  * `frame` Booleano (opzionale) - Specifica `false` per creare una [Finestra Framemeno](frameless-window.md). Di default è `true`.
+  * `genitorr` FinestraBrowser (opzionale) - Specifica finestre genitoriali. Di default è `nullo`.
+  * `modale` Booleano (opzionale) - Se si tratta di una finestra modale. Funziona solo se la finestra è figlia. Di default è `false`.
+  * `accettaPrimoMouse` Booleano (opzionale) - Se la visuale web accetta un singolo evento mouse giù che simultaneamente attiva la finestra. Di default è `false`.
+  * `disabilitaAutoNascondiCursore` Booleano (opzionale) - Se nascondere il cursore in digitazione. Di default è `false`.
+  * `autoNascondiMenuBarra` Booleano (opzionale) - Nascondi automaticamente la barra dei menu senza che la chiave `Alt` sia premuta. Di default è `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
   * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
@@ -390,7 +390,7 @@ Emitted when the window has closed a sheet.
 
 Emitted when the native new tab button is clicked.
 
-### Static Methods
+### Metodi Statici
 
 The `BrowserWindow` class has the following static methods:
 
@@ -993,8 +993,8 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+* `Pulsante` Oggetto 
+  * `icona` [ImmagineNativa](native-image.md) - L'icona mostrata nella barra degli strumenti miniaturizzata.
   * `click` Funzione
   * `aiuto` Stringa (opzionale) - Il testo del pulsante di aiuto.
   * `bandiere` Stringa[] (opzionale) - Controlla specifici comportamenti e stati del pulsante. Di default é `['abilitato']`.
@@ -1022,7 +1022,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is ``.
