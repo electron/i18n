@@ -6,7 +6,7 @@ Proceso: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### Ejecutar el ejemplo anterior
 
-Para ejecutar el ejemplo anterior, se necesita (asumiendo que el terminal está abierto en el directorio en donde se desea ejecutar el ejemplo):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Guardar el archivo anterior en la computadora como `touchbar.js`
 2. Instalar Electron a través de `npm install electron`
