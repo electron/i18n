@@ -2,9 +2,9 @@
 
 > Crear y controlar vistas.
 
-**Note:**: La API de BrowserView es experimental y puede ser cambiada o elindad enl futuro versiones de Electron.
+**Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `BrowserView` puede ser usado para incrustar contenido web adicional en `BrowserWindow`. Es como una ventana hija, excepto que esta relativamente posicionada respecto a su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
 
@@ -26,7 +26,7 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Experimental*
@@ -34,11 +34,21 @@ view.webContents.loadURL('https://electron.atom.io')
 * `opciones` Objecto (opcional) 
   * Objeto `webPreferences` (opcional) - vea [BrowserWindow](browser-window.md).
 
-### Métodos Estáticos
+### Métodos estáticos
+
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Entero
+* `id` Íntegro
 
 Devuelve `BrowserView` - La vista con el proveido `id`.
 
@@ -60,7 +70,7 @@ Los objetos creados con `new BrowserView` tiene los siguientes métodos de insta
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `width` Boolean - If `true`, la anchura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
   * `height` Boolean - If `true`, la altura de la vista se expanderá y se encogerá junto a la ventana. Por defecto `false`.
 

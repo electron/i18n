@@ -2,11 +2,11 @@
 
 > Buatlah TouchBar layout untuk aplikasi asli macOS
 
-Proses: [ Utama](../tutorial/quick-start.md#main-process)
+Proses: [utama](../tutorial/quick-start.md#main-process)
 
 ### `baru TouchBar(options)` *Experimental*
 
-* `pilihan` Obyek 
+* `pilihan` Benda 
   * `item` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) []
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (opsional)
 
@@ -16,7 +16,7 @@ Buatlah bar sentuhan baru dengan item tertentu. Gunakan `BrowserWindow.setTouchB
 
 **Tip:** Jika Anda tidak memiliki sebuah MacBook dengan bar sentuhan, Anda dapat menggunakan [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) untuk menguji penggunaan bar sentuhan dalam aplikasi Anda.
 
-### Instance Properties
+### Contoh properti
 
 Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 
@@ -29,28 +29,28 @@ Berikut cara yang tersedia pada contoh-contoh dari `TouchBar`:
 Berikut adalah contoh sederhana bar sentuhan pada mesin slot permainan dengan tombol dan beberapa label.
 
 ```javascript
-const {aplikasi, BrowserWindow, sentuhBar} = wajib('electron')
+const {app, BrowserWindow, TouchBar} = require('electron')
 
-const {SentuhBarLabel, SentuhBarTombol, SentuhBarSpacer} = SentuhBar
+const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
 
-biarkan berputar = salah
+let spinning = false
 
 // Reel labels
-const reel1 = baru SentuhBarLabel()
-const reel2 = baru SentuhBarLabel()
-const reel3 = baru SentuhBarLabel()
+const reel1 = new TouchBarLabel()
+const reel2 = new TouchBarLabel()
+const reel3 = new TouchBarLabel()
 
-// putar hasil label
-const hasil = baru SentuhBarLabel()
+// Spin result label
+const result = new TouchBarLabel()
 
-// Putar tombol
-const putar = baru SentuhBarTombol({
+// Spin button
+const spin = new TouchBarButton({
   label: '
 ```
 
 ### Menjalankan contoh di atas
 
-Untuk menjalankan contoh di atas, Anda memerlukan (asumsi Anda sudah punya akses terminal di direktori yang Anda ingin untuk menjalankan contoh):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Simpan file di atas ke komputer Anda sebagai `touchbar.js`
 2. Instal elektron melalui `npm menginstal elektron`

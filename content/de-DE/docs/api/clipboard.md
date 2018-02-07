@@ -82,23 +82,23 @@ Schreibt den `text` im Rich Text Format (RTF) in die Zwischenablage.
 Gibt das `Object` zurück:
 
 * `title` String
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Gibt ein Objekt, dass die Keys `title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.
-
-### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
-
-* `title` String
-* `url` String
-* `type` String (optional)
-
-Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
-
-**Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
-
-```js
+<p>Gibt ein Objekt, dass die Keys <code>title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.</p> 
+  ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
+  
+  * `title` String
+  * ` URL </ 0>  Zeichenfolge</li>
+<li><code>type` String (optional)
+  
+  Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
+  
+  **Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
+  
+  ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
@@ -166,7 +166,6 @@ Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
   * `rtf` String (optional)
   * `bookmark` String (optional) - Der Titel von der URL bei `text`.
 * `type` String (optional)
-
 ```javascript
 const {clipboard} = require('electron')
 clipboard.write({text: 'test', html: '<b>test</b>'})

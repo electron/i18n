@@ -14,7 +14,9 @@ Cả hai phiên bản `ia32`(`x86`) và `x64` (`amd64`) được hỗ trợ cho 
 
 ### Linux
 
-Các phiên bản `ia32` (`i686`) và `x64` (`amd64`) của Electron đã được xây dựng sẳn trên Ubuntu 12.04, phiên bản `arm` được xây dựng trên ARM v7 với hard-float ABI và NEON cho Debian Wheezy.
+The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+
+[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 

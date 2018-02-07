@@ -2,7 +2,7 @@
 
 > Realice operaciones de copiar y pegar en el portapapeles del sistema.
 
-Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
+Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 El siguiente ejemplo muestra cómo escribir una cadena en el portapapeles:
 
@@ -31,9 +31,9 @@ El módulo `portapapeles` tiene los siguientes métodos:
 
 Devuelve `Cadena` - El contenido en el portapapeles como texto sin formato.
 
-### `clipboard.writeText(texto[, type])`
+### `clipboard.writeText(text[, type])`
 
-* `texto` Cadena
+* `texto` String
 * `type` Cadena (opcional)
 
 Escribe el `texto` en el portapapeles como texto sin formato.
@@ -72,14 +72,14 @@ Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
-* `text` Cadena
+* `texto` Cadena
 * `type` Cadena (opcional)
 
 Escribe el `text` en el portapapeles en RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `title` Cadena
 * `url` Cadena
@@ -98,7 +98,7 @@ Escribe el `título` y la `url` en el portapapeles como un marcador.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
@@ -109,7 +109,7 @@ Devuelve `Cadena` - El texto en el portapapeles de búsqueda. Este método usa I
 
 ### `clipboard.writeFindText(text)` *macOS*
 
-* `text` Cadena
+* `texto` Cadena
 
 Escribe el `text` en el portapapeles de búsqueda como texto sin formato. Este método usa IPC síncrono cuando se llama desde el proceso de renderizado.
 
@@ -127,7 +127,7 @@ Devuelve `Cadena[] ` - Una matriz de formatos admitidos para el portapapeles `ty
 
 ### `clipboard.has(format[, type])` *Experimental*
 
-* `formato` Cadena
+* `format` Cadena
 * `type` Cadena (opcional)
 
 Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
@@ -139,11 +139,11 @@ console.log(clipboard.has('<p>selection</p>'))
 
 ### `clipboard.read(format)` *Experimental*
 
-* `format` Cadena
+* `formato` Cadena
 
 Devuelve `String` - Lee el tipo de `formato` del portapapeles.
 
-### `clipboard.readBuffer(formato)` *Experimental*
+### `clipboard.readBuffer(format)` *Experimental*
 
 * `formato` Cadena
 

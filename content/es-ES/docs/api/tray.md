@@ -2,7 +2,7 @@
 
 > Añadir los iconos y menús contextuales al área de notificación del sistema.
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `Tray` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -56,7 +56,7 @@ Si se quiere mantener los mismos comportamientos en todas las plataformas, no se
 
 ### `new Tray(image)`
 
-* `image` ([NativeImage](native-image.md) | Cadena)
+* `image` ([NativeImage](native-image.md) | String)
 
 Crea un nuevo icono de bandeja asociado con la `image`.
 
@@ -66,12 +66,13 @@ El módulo `Tray` emite los siguientes eventos:
 
 #### Evento: "click"
 
-* `event` Evento 
+* `event` Event 
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Los límites del icono de bandeja
+* `position` [Point](structures/point.md) - La posición del evento
 
 Emitido cuando se hace clic en el icono de bandeja.
 
@@ -88,7 +89,7 @@ Emitido cuando se hace clic derecho en el icono de bandeja.
 
 #### Evento: "double-click"*macOS* *Windows*
 
-* `event` Evento 
+* `evento` Evento 
   * `altKey` Booleano
   * `shiftKey` Booleano
   * `ctrlKey` Booleano
@@ -115,14 +116,14 @@ Emitido cuando cualquier elemento arrastrado es dejado en el icono de bandeja.
 
 #### Evento: 'drop-files' *macOS*
 
-* `evento` Evento
+* `event` Evento
 * `files` String[] - Las rutas de los archivos dejados en la bandeja.
 
 Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 
 #### Evento: 'drop-text' *macOS*
 
-* `evento` Evento
+* `event` Event
 * `text` Cadena - la cadena del texto dejado
 
 Emitido cuando el texto arrastrado es arrojado en el icono de bandeja.
@@ -160,6 +161,17 @@ Emitido cuando el ratón entra en el icono de la bandeja.
 * `position` [Point](structures/point.md) - La posición del evento
 
 Emitido cuando el ratón sale del icono de la bandeja.
+
+#### Event: 'mouse-move' *macOS*
+
+* `event` Evento 
+  * `altKey` Booleano
+  * `shiftKey` Booleano
+  * `ctrlKey` Booleano
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - La posición del evento
+
+Emitted when the mouse moves in the tray icon.
 
 ### Métodos de Instancia
 
@@ -223,10 +235,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `opciones` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` Cadena
+  * `content` String
 
 Muestra un globo de la bandeja.
 

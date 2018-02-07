@@ -38,13 +38,13 @@ const request = net.request({
 
 #### Event: 'response'
 
-Returns:
+Vrací:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
 #### Event: 'login'
 
-Returns:
+Vrací:
 
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Event: 'error'
 
-Returns:
+Vrací:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Returns:
+Vrací:
 
 * `statusCode` Integer
 * `method` String

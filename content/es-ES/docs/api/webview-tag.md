@@ -98,7 +98,7 @@ Cuando este atributo esté presente, la página de invitado en `webview` tendrá
 
 Cuando este atributo está presente, la página de invitado en `webview` podrá usar complementos del buscador. Los complementos están desactivados por defecto.
 
-### `precarga`
+### `precargado`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -138,10 +138,10 @@ Cuando este atributo está presente, la página de invitado tendrá la seguridad
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
+Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
 
 Este valor solo puede ser modificado antes que la primera navegación, ya que la sesión de un proceso de renderizado activo no puede cambiar. Intentos subsecuentes de modificar el valor fallarán con la excepción de DOM.
 
@@ -240,12 +240,12 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Objecto (opcional) 
-  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
-  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
+* `opciones` Object (opcional) 
+  * `httpReferrer` String (opcional) - Un url de HTTP referencial.
+  * `userAgent` String (opcional) - Un agente de usuario originando el pedido.
+  * `extraHeaders` String (opcional) - Cabeceras extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opcional)
-  * `baseURLForDataURL` Cadena (opcional) - url base (con arrastrar separadores de camino) para archivos a ser cargados por la data del url. Esto es necesitado únicamente si el `url` especificado es data de url y necesia cargar otros archivos.
+  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. el `http://` or `file://`.
 
@@ -293,7 +293,7 @@ Devuelve `Boolean` - Aunque la página de invitado pueda ir a `offset`.
 
 ### `<webview>.clearHistory()`
 
-Limpia el historial de navegación.
+Borra el historial de navegación.
 
 ### `<webview>.goBack()`
 
@@ -313,11 +313,11 @@ Navega a el índice absoluto específico.
 
 * `offset` Íntegro
 
-Navega a la compensación especifica desde la "entrada actual".
+Navega hacia el offset especificado desde "la entrada actual".
 
 ### `<webview>.isCrashed()`
 
-Devuelve `Boolean` - Aunque el proceso del renderizador se haya arruinado.
+Devuelve `Boolean` - Si el proceso de renderizado ha fallado.
 
 ### `<webview>.setUserAgent(userAgent)`
 
@@ -335,14 +335,14 @@ Devuelve `String` - El agente usuario para la página de invitado.
 
 Inyecta CSS en la página de invitado.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `codigo` String
-* `userGesture` Boolean - Por defecto `false`.
-* `llamada de vuelta` Función (opcional) - La llamada luego del guión ha sido ejecutada. 
-  * `result` Cuaquiera
+* `userGesture` Boolean (optional) - Default `false`.
+* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
+  * `resultado` Cualquiera
 
-Evaluar `code` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
+Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
 ### `<webview>.openDevTools()`
 
@@ -362,8 +362,8 @@ Devuelve `Boolean` - Aunque la ventana de DevTools de la página de invitado est
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Íntegro
-* `y` Íntegro
+* `x` Integer
+* `y` Integer
 
 Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitado.
 
@@ -419,61 +419,63 @@ Ejecuta el comando de edición `unselect` en página.
 
 ### `<webview>.replace(text)`
 
-* `texto` String
+* `texto` Cadena
 
 Ejecuta el comando de edición `replace` en página.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `texto` Cadena
+* `text` Cadena
 
 Ejecuta el comando de edición `replaceMisspelling` en página.
 
 ### `<webview>.insertText(text)`
 
-* `texto` Cadena
+* `texto` String
 
-Inserta `texto` al elemento centrado.
+Inserta `texto` en el elemento enfocado.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` Cadena - Contenido para ser buscado, no debe ser vaciado.
-* `options` Objecto (opcional) 
-  * `forward` Boolean - (opcional) Aunque busques adelante o hacia atrás, por defecto a `true`.
-  * `findNext` Boolean - (opcional) Aunque la operación sea primero pedida o seguida por defecto a `false`.
-  * `matchCase` Boolean - (opcional) Aunque la búsqueda deba ser sensible a letra, por defecto a `false`.
-  * `wordStart` Boolean - (opcional) Aunque mires solo al principio de las palabras.. Por defecto a `falso`.
-  * `medialCapitalAsWordStart` Boolean - (opcional) Cuando Combinas con`wordStart`, acepta un partido en la mitad d una palabra si el partido comienza con una letra mayúscula seguida por un símbolo, no letra, minúscula. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
+* `text` String - El contenido para ser buscado, no debe quedar en blanco.
+* `opciones` Object (opcional) 
+  * `forward` Boolean - (opcional) Si buscar hacia adelante o hacia atrás. Por defecto es `true`.
+  * `findNext` Boolean - (optional) Si la operación se solicita de primero o después. Por defecto es `false`.
+  * `matchCase` Boolean - (optional) Si la búsqueda es en mayúsculas o minúsculas. Por defecto es `false`.
+  * `wordStart` Boolean - (optional) Si solo se desea ver al comienzo de las palabras. Por defecto es `false`.
+  * `medialCapitalAsWordStart` Boolean - (opcional) Cuando se combina con `wordStart`, acepta una coincidencia en el medio de una palabra si la coincidencia comienza con una letra mayúscula seguida de una minúscula o algún caracter que no se letra. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
-Empieza un pedido para encontrar todas las coincidencias para el `text` en la página web y devuelve un `Integer` representando id pedido para la solicitud. El resultado del pedido puede ser obtenido al subscribirse al evento [`found-in-page`](webview-tag.md#event-found-in-page).
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `acción` Cadena - Especifica la acción que tendrá lugar al finalizar [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) pedido. 
+* `acción` String - Especifica la acción que se llevará a cabo cuando finalice [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
   * `clearSelection` - Borrar la selección.
   * `keepSelection` - Traduce la selección en una selección normal.
-  * `activateSelection` - Enfoque y haga click en el nodo de selección.
+  * `activateSelection` - Enfoca y hace clic en el nodo de selección.
 
 Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 ### `<webview>.print([options])`
 
-* `options` Objecto (opcional) 
-  * `silent` Boolean (opcional) - No le pide al usuario ajustes de impresión. Por defecto es `false`.
+* `opciones` Object (opcional) 
+  * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
+  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 
 Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Object 
-  * `marginsType` Íntegro (opcional) Especifica el tipo de márgenes a usar. Usa por defecto el margen 0, 1 para ningún margen y 2 para el margen mínimo.
-  * `pageSize` Cadena - (opcional) Especifica el tamaño de página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
-  * `printBackground` Boolean - (opcional) Aunque imprima fondos CSS.
-  * `printSelectionOnly` Boolean - (opcional) Aunque imprima solo la selección.
+* `opciones` Object 
+  * `marginsType` Integer - (opcional) Especifica el tipo de márgenes que se va a usar. Utiliza 0 para el margen por defecto, 1 para ningún margen y 2 para el margen mínimo.
+  * `pageSize` String - (opcional) Especifica el tamaño de la página del PDF generado. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
+  * `printBackground` Boolean - (opcional) Si se imprime o no los fondos CCS.
+  * `printSelectionOnly` Boolean - (opcional) Si solo se imprime la selección.
   * `landscape` Boolean - (opcional) `true` para paisajes, `false` para retratos.
-* `llamada de vuelta` Función 
+* `callback` Función 
   * `error` Error
   * `data` Buffer
 
@@ -482,7 +484,7 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada
-* `llamada de vuelta` Función 
+* `callback` Función 
   * `image` [NativeImage](native-image.md)
 
 Captura una instantánea de la página de `webview`. Al igual que `webContents.capturePage([rect, ]callback)`.
@@ -490,9 +492,9 @@ Captura una instantánea de la página de `webview`. Al igual que `webContents.c
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Cadena
-* `...args` cualquiera[]
+* `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. El proceso de renderizado puede manejar el mensaje escuchando al evento `channel` con el módulo `ipcRenderer`.
+Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. El proceso de renderizado puede manejar el mensaje escuchando al evento `channel` con el módulo `ipcRenderer`.
 
 Ver [webContents.send](web-contents.md#webcontentssendchannel-args) para ejemplos.
 
@@ -506,19 +508,19 @@ Ver [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent)
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Número - Factor zoom.
+* `factor` Number - Zoom factor.
 
-Cambia el factor zoom al factor específico. El factor zoom está dividido en porcentaje por 100, así que 300% = 3.0.
+Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Número - Nivel de zoom
+* `nivel` Número - Nivel de Zoom
 
-Cambia el nivel de zoom al nivel específico. El tamaño original es 0 y cada incremento por encima o por debajo representa acercarse en un 20% más largo o más pequeño, por defecto limita de 300% y 50% del tamaño original, respectivamente.
+Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
+Muestra un diccionario que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()`
 
@@ -532,7 +534,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 
 Devuelve:
 
-* `url` String
+* `url` Cadena
 * `isMainFrame` Boolean
 
 Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
@@ -573,7 +575,7 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador termina de gi
 Devuelve:
 
 * `status` Boolean
-* `newURL` String
+* `nuevoURL` String
 * `originalURL` String
 * `httpResponseCode` Entero
 * `requestMethod` String
@@ -589,7 +591,7 @@ Devuelve:
 
 * `viejoURL` String
 * `newURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Disparado cuando una redirección fue recibida mientras se solicitaba una fuente.
 
@@ -597,7 +599,7 @@ Disparado cuando una redirección fue recibida mientras se solicitaba una fuente
 
 Disparado cuando el documento en el frame dado es cargado.
 
-### Evento: 'page-title-updated'
+### Evento: "page-title-updated"
 
 Devuelve:
 
@@ -610,15 +612,15 @@ Disparado cuando el título de la página es establecido durante la navegación.
 
 Devuelve:
 
-* `favicons` Cadena[] - Arreglo para URLs.
+* `favicons` String[] - matriz de URLs.
 
 Disparado cuando la página recibe urls de favicon.
 
-### Evento: 'enter-html-full-screen'
+### Evento: "enter-html-full-screen"
 
 Disparado cuando la página entra en pantalla entera i¿y es activado por HTML API.
 
-### Evento: 'leave-html-full-screen'
+### Evento: "leave-html-full-screen"
 
 Disparado cuando la página deja la pantalla completa activada por HTML API.
 
@@ -648,9 +650,9 @@ Devuelve:
 
 * `resultado` Object 
   * `requestId` Íntegro
-  * `activeMatchOrdinal` Íntegro - Posición de un partido activo.
-  * `matches` Íntegro - Número de Coincidencias.
-  * `selectionArea` Objeto - Coordinación de la primera región de casualidad.
+  * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
+  * `matches` Integer - Número de coincidencias.
+  * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
   * `finalUpdate` Boolean
 
 Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
@@ -669,7 +671,7 @@ console.log(requestId)
 
 Devuelve:
 
-* `url` String
+* `url` Cadena
 * `frameName` Cadena
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Objeto - Las opciones que deberían ser usados para crear el nuevo `BrowserWindow`.
@@ -718,7 +720,7 @@ Este evento no es emitido para navegaciones dentro de la página, como hacerle c
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
@@ -812,7 +814,7 @@ Emitido cuando el color de tema de una página cambia. Esto usualmente se debe a
 
 Devuelve:
 
-* `url` String
+* `url` Cadena
 
 Emitido cuando el mouse se mueve sobre un link o el teclado se mueve el concentrado a un link.
 

@@ -1,39 +1,39 @@
-# systemPreferences
+# mga kagustuhan sa sistema
 
 > Kuhanin ang mga kagustuhan ng sistema.
 
-Proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 ```javascript
-const {systemPreferences} = require('electron')
+const {systemPreferences} = nangangailangan ('elektron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Mga Pangyayari
+## Mga event
 
 Ang `systemPreferences` na object ay naglalabas ng sumusunod na mga pangyayari:
 
 ### Pangyayari: 'accent-color-changed' *Windows*
 
-Ibinabalika ang:
+Pagbabalik sa:
 
-* `event` na Pangyayari
+* `kaganapan` Kaganapan
 * `newColor` na String - Ang bagong kulay ng RGBA na itinatakda ng tagagamit bilang kanilang pansistemang accent na kulay.
 
 ### Pangyayari: 'color-changed' *Windows*
 
-Ibinabalik ang:
+Ibinabalika ang:
 
-* `event` na Pangyayari
+* `kaganapan`Kaganapan
 
 ### Pangyayari: 'inverted-color-scheme-changed' *Windows*
 
-Ibinabalik ang:
+Ibinabalika ang:
 
-* `event` na Pangyayari
+* `event` Event
 * `invertedColorScheme` na Boolean - `true` kapag ang isang binaliktad na pamamaraan ng pagkulay, tulad isang mataas na antas ng temang pangkontrast, ay ginagagami, `false` kapag hindi.
 
-## Mga Pamamaraan
+## Mga Method
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
@@ -60,7 +60,7 @@ Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay 
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` na Function 
+* `callback` Ang Punsyon 
   * `event` na String
   * `userInfo` na Object
 
@@ -77,14 +77,14 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
-* `id` na Integer
+* `id` Integer
 
 Tinatanggal ang nagsa-subscribe kasama ang `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` na String
-* `tumawag muli` Punsyon 
+* `callback` Punsyon 
   * `event` na String
   * `userInfo` na Object
 
@@ -92,7 +92,7 @@ Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` pa
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` na Integer
+* `id` Integer
 
 Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula sa `NSNotificationCenter`.
 
@@ -101,9 +101,9 @@ Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula
 * `key` na String
 * `type` na String - pwedeng `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Ibinabalik ang `any` - Ang halaga ng `key` sa mga kagustuhan ng sistema.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `key` at mga `type` ay:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -119,13 +119,19 @@ Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `ke
 * `type` na String - Tinitingnan ang [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` na String
 
-Itakda ang halaga ng `key` sa mga kagustuhan ng sistema.
+Set the value of `key` in `NSUserDefaults`.
 
 Tandaan na dapat tugma ang `type` sa akwal na uri ng `value`. Ang isang nabubukod ay ibinabato kapag hindi ito tugma.
 
-Ang API na ito ay gumagamit ng `NSUserDefaults` sa macOS. Ang ilang sikat na `key` at mga `type` ay:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
+
+### `systemPreferences.removeUserDefault(key)` *macOS*
+
+* `key` na String
+
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 

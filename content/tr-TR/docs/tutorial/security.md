@@ -18,28 +18,23 @@ Mevcut Chromium özelliklerini güncellediğimiz sistemin bize sağladıklarıyl
 
 ## Yukarıdaki önerileri dikkate alma
 
-Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik sorunu var demektir. Örneğin, bir[`BrowserWindow`](browser-window) içerisinde gösterilen uzak bir web sitesi düşünün. Bir saldırgan bir şekilde bahsi geçen içeriği değiştirebilirse (kaynağa direkt olarak saldırarak ya da uygulamanız ve gerçek hedef arasına geçerek), kullanıcının cihazındaki yerel kodu çalıştırabilir.
+Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik sorunu var demektir. Örneğin, bir[`BrowserWindow`](../api/browser-window.md) içerisinde gösterilen uzak bir web sitesi düşünün. Bir saldırgan bir şekilde bahsi geçen içeriği değiştirebilirse (kaynağa direkt olarak saldırarak ya da uygulamanız ve gerçek hedef arasına geçerek), kullanıcının cihazındaki yerel kodu çalıştırabilir.
 
-> :warning: Node.js entegrasyonu açıkken hiçbir durumda uzaktan kod yüklemeyin ve çalıştırmayın. Bunun yerine, Node.js kodunu çalıştırmak için sadece yerel dosyaları (uygulamanızla birlikte gelen) kullanın. Uzaktan içeriği görüntülemek için, [`webview`](web-view) etiketini kullanın ve `nodeIntegration` ı etkisiz hale getirdiğinizden emin olun.
+> :warning: Node.js entegrasyonu açıkken hiçbir durumda uzaktan kod yüklemeyin ve çalıştırmayın. Bunun yerine, Node.js kodunu çalıştırmak için sadece yerel dosyaları (uygulamanızla birlikte gelen) kullanın. Uzaktan içeriği görüntülemek için, [`webview`](../api/web-view) etiketini kullanın ve `nodeIntegration` ı etkisiz hale getirdiğinizden emin olun.
 
-#### Yapılacaklar: Güvenlik Önerileri
+## Electron Security Warnings
 
-Bu kusursuz değildir, ancak en azından aşağıdakileri denemelisiniz:
+From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
-* [Sadece güvenli içeriği yükleyin](#only-load-secure-content)
-* [Uzaktan içeriği görüntülemek için Node.js entegrasyonunu bütün işleyicilerde etkisiz hale getirin](#disable-node.js-integration-for-remote-content)
-* [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content)
-* [Uzak içeriği yükleyen tüm oturumlarda `ses.setPermissionRequestHandler()` kullanın](#handle-session-permission-requests-from-remote-content)
-* [`webSecurity` i kapatmayın](#do-not-disable-websecurity)
-* [Bir `Content-Security-Policy`](#define-a-content-security-policy) belirleyin ve sınırlayıcı kurallar koyun (örneğin `script-src 'self'`)
-* [Geçersiz kıl ve devredışı bırak `eval`](#override-and-disable-eval) , dizelerin kod olarak yürütülmesine izin verir.
-* [`allowRunningInsecureContent` i `true` a ayarlamayın](#do-not-set-allowRunningInsecureContent-to-true)
-* [Deneysel özellikleri aktifleştirmeyin](#do-not-enable-experimental-features)
-* [`blinkFeatures` kullanmayın](#do-not-use-blinkfeatures)
-* [WebViews:`allowpopups` kullanmayın](#do-not-use-allowpopups)
-* [WebViews: Ayarlar ve parametreleri bütün `<webview>` etiketlerde doğrulayın](#verify-webview-options-before-creation)
+You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
 
-## Sadece Güvenli İçeriği Yükleyin
+## Yapılacaklar: Güvenlik Önerileri
+
+This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+
+1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+
+## 1) Only Load Secure Content
 
 Uygulamanıza dahil edilmemiş her kaynak `HTTPS` gibi bir güvenlik protokolü kullanılarak yüklenmelidir. Başka bir deyişle, `HTTP` gibi güvensiz protokoller kullanmayın. Benzer şekilde `WS` yerine `WSS`, `FTP` yerine `FTPS` vb. kullanın.
 
@@ -69,9 +64,9 @@ browserWindow.loadURL('https://my-website.com')
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## Uzaktan İçeriği Görüntülemek İçin Node.js Entegrasyonunu Bütün İşleyicilerde Etkisiz Hale Getirin
+## 2) Disable Node.js Integration for Remote Content
 
-Uzaktan içeriği yükleyen her işleyicide ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), ya da [`WebView`](web-view)) Node.js entegrasyonunu kapamak çok önemlidir. Burada amaç uzak içeriğe verilen yetkileri sınırlayarak, bir saldırganın sitenizde JavaScript çalıştırabilmesini olabildiğince zor hale getirmektir.
+It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. Burada amaç uzak içeriğe verilen yetkileri sınırlayarak, bir saldırganın sitenizde JavaScript çalıştırabilmesini olabildiğince zor hale getirmektir.
 
 Bundan sonra, belirli sunuculara ek izinler verebilirsiniz. Örneğin, `https://my-website.com/" a yönelen bir BrowserWindow açıyorsanız, web sitesine sadece ihtiyacı olan yetkileri verebilirsiniz.
 
@@ -119,7 +114,7 @@ window.readConfig = function () {
 }
 `</pre> 
 
-## Uzak İçerik için Bağlam İzolasyonunu Etkinleştirmek
+## 3) Enable Context Isolation for Remote Content
 
 Bağlam izolasyonu, geliştiricilerin önceden yüklenmiş komut dosyalarında ve Electron API'lerinde özel bir JavaScript bağlamında kod çalıştırmasına olanak sağlayan bir Elektron özelliğidir. Pratikte, `Array.prototype.push` veya `JSON.parse` gibi genel nesnelerin, oluşturucu işleminde çalışan komutlarla değiştirilemediği anlamına gelir.
 
@@ -165,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## Uzaktan İçeriklerde Oturum İzni İstemlerini Düzenleyin
+## 4) Handle Session Permission Requests From Remote Content
 
 Chrome kullanırken izin istemlerini görmüş olabilirsiniz: Bir web sitesi bir özelliği kullanmak istediğinde kullanıcının onaylaması için ortaya çıkarlar (bildirimlere benzer).
 
@@ -197,134 +192,11 @@ session
   })
 ```
 
-## Bir İçerik Güvenliği İlkesi Belirleyin
-
-İçerik Güvenliği İlkesi (Content Security Policy, CSP) cross-site-scripting ve veri aşılama saldırılarına karşı koruyucu bir katmandır. Electron'a yüklediğiniz her sitede bulunmasını tavsiye ederiz.
-
-### Neden?
-
-CSP, sunum yapan sunucuya kaynakların kısıtlanmasına ve kontrol edilmesine izin verir. Verilen web sayfası için elektron yüklenebilir. `https://your-page.com` kaynak kodlu senaryoları tanımladığın kaynaklardan yüklemesine izin ver `https://evil.attacker.com` çalıştırılmasına izin verilmemelidir. CSP tanımlamak, uygulamalarınızın güvenliğini artırmanın kolay bir yolu.
-
-### Nasıl?
-
-` Content-Security-Policy </ 1> HTTP başlığına <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy"> elektronik saygı duyar </ 0>
-ve ilgili <code><meta>` etiketini içerir.
-
-Aşağıdaki CSP, Electron'un şu andaki komut dosyalarını web sitesinden ve ` apis.mydomain.com </ 0> adresinden.</p>
-
-<pre><code class="txt">// Yanlış
-Content-Security-Policy: '*'
-
-// Doğru
-Content-Security-Policy: script-src 'self' https://apis.mydomain.com
-`</pre> 
-
-## Geçersiz kıl ve Devre Dışı Bırak `eval`
-
-`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
-
-### Neden?
-
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. Bu ne zaman zorunlu bir yöntemdir önceden bilinmeyen kodu değerlendirmeliyiz. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
-
-Genel olarak, `` eval () </ 0> işlevini tamamen devre dışı bırakmaktan daha kolaydır. Böylece, buna ihtiyacınız yoksa, devre dışı bırakmak iyi bir fikirdir.</p>
-
-<h3>Nasıl?</h3>
-
-<pre><code class="js">// ESLint will warn about any use of eval(), even this one
-// eslint-disable-next-line
-window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
-}
-``</pre> 
-
-## `allowRunningInsecureContent` i `true` a Ayarlamayın
+## 5) Do Not Disable WebSecurity
 
 *Tavsiye edilen ayar Electron'da varsayılandır*
 
-Electron varsayılan olarak, `HTTPS` üzerinden yüklenen websitelerine güvenliksiz kaynaklardan (`HTTP`) gelen betikler, CSS veya eklentileri yüklemeye izin verir. `allowRunningInsecureContent` i `true` a ayarlamak bu korumayı engeller.
-
-Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
-
-### Neden?
-
-Basitçe açıklayacak olursak, `HTTPS` üzerinden içerik yüklemek veri trafiğini şifreleyerek, yüklenen kaynakların güvenilirliğini ve bütünlüğünü sağlar. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#only-display-secure-content) bölümüne bakabilirsiniz.
-
-### Nasıl?
-
-```js
-// Yanlış
-const mainWindow = new BrowserWindow({
- webPreferences: {
-  allowRunningInsecureContent: true
- }
-})
-```
-
-```js
-// Doğru
-const mainWindow = new BrowserWindow ({})
-```
-
-## Deneysel Özellikleri Aktifleştirmeyin
-
-*Tavsiye edilen ayar Electron'da varsayılandır*
-
-Deneyimli kullanıcılar deneysel Chromium özelliklerini `experimentalFeatures` be `experimentalCanvasFeatures` kullanarak aktifleştirebilir.
-
-### Neden?
-
-Deneysel özellikler adı üzerinde deneyseldirler ve bütün Chromium kullanıcılarında açık değildirler. Dahası, bunların Electon üzerindeki etkileri bütün olarak test edilmemiştir.
-
-Geçerli kullanım senaryoları mevcut olmakla birlikte ne yaptığınızdan emin değilseniz bu özelliği açmanız önerilmez.
-
-### Nasıl?
-
-```js
-// Yanlış
-const mainWindow = new BrowserWindow({
- webPreferences: {
-  experimentalFeatures: true
- }
-})
-```
-
-```js
-// Doğru
-const mainWindow = new BrowserWindow ({})
-```
-
-## `blinkFeatures` Kullanmayın
-
-*Tavsiye edilen ayar Electron'da varsayılandır*
-
-Blink Chromium'un işleyici motorunun isminden gelir. `experimentalFeatures` da olduğu gibi `blinkFeatures` özelliği de geliştiricilere varsayılan olarak kapalı olan bazı özellikleri açar.
-
-### Neden?
-
-Genel olarak, bir özellik varsayılan olarak açık değilse ardıında bazı sebepler vardır. Belirli özelliklerin geçerli kullanım senaryoları mecvuttur. Bir geliştirici olarak, bir özelliği neden açmanız gerektiğini, sonuçlarını ve bunların uygulamanızın güvenliğini nasıl etkilediğinizi tam olarak bilmeniz gerekmektedir. Bu özellikleri keyfi bir şekilde kesinlikle açmamalısınız.
-
-### Nasıl?
-
-```js
-// Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    blinkFeatures: ['ExecCommandInJavaScript']
-  }
-})
-```
-
-```js
-// Doğru 
-const mainWindow = new BrowserWindow()
-```
-
-## Do Not Disable WebSecurity
-
-*Tavsiye edilen ayar Electron'da varsayılandır*
-
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), or [`WebView`](web-view)) disables crucial security features.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) disables crucial security features.
 
 Üretim uygulamalarında `webSecurity` 'yi etkisiz hale getirmeyin.
 
@@ -356,13 +228,134 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## ` allowpopups'u Kullanmayın </ 0>
-</h2>
+## 6) Define a Content Security Policy
 
-<p><em>Tavsiye edilen ayar Electron'da varsayılandır</em></p>
+İçerik Güvenliği İlkesi (Content Security Policy, CSP) cross-site-scripting ve veri aşılama saldırılarına karşı koruyucu bir katmandır. Electron'a yüklediğiniz her sitede bulunmasını tavsiye ederiz.
 
-<p>
-<a href="web-view"><code> WebViews </ 0> kullanıyorsanız, sayfalara ve komut dizelerine
+### Neden?
+
+CSP, sunum yapan sunucuya kaynakların kısıtlanmasına ve kontrol edilmesine izin verir. Verilen web sayfası için elektron yüklenebilir. `https://your-page.com` kaynak kodlu senaryoları tanımladığın kaynaklardan yüklemesine izin ver `https://evil.attacker.com` çalıştırılmasına izin verilmemelidir. CSP tanımlamak, uygulamalarınızın güvenliğini artırmanın kolay bir yolu.
+
+### Nasıl?
+
+` Content-Security-Policy </ 1> HTTP başlığına <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy"> elektronik saygı duyar </ 0>
+ve ilgili <code><meta>` etiketini içerir.
+
+Aşağıdaki CSP, Electron'un şu andaki komut dosyalarını web sitesinden ve ` apis.mydomain.com </ 0> adresinden.</p>
+
+<pre><code class="txt">// Yanlış
+Content-Security-Policy: '*'
+
+// Doğru
+Content-Security-Policy: script-src 'self' https://apis.mydomain.com
+`</pre> 
+
+## 7) Override and Disable `eval`
+
+`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
+
+### Neden?
+
+The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. Bu ne zaman zorunlu bir yöntemdir önceden bilinmeyen kodu değerlendirmeliyiz. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+
+Genel olarak, `` eval () </ 0> işlevini tamamen devre dışı bırakmaktan daha kolaydır. Böylece, buna ihtiyacınız yoksa, devre dışı bırakmak iyi bir fikirdir.</p>
+
+<h3>Nasıl?</h3>
+
+<pre><code class="js">// ESLint will warn about any use of eval(), even this one
+// eslint-disable-next-line
+window.eval = global.eval = function () {
+  throw new Error(`Sorry, this app does not support window.eval().`)
+}
+``</pre> 
+
+## 8) Do Not Set `allowRunningInsecureContent` to `true`
+
+*Tavsiye edilen ayar Electron'da varsayılandır*
+
+Electron varsayılan olarak, `HTTPS` üzerinden yüklenen websitelerine güvenliksiz kaynaklardan (`HTTP`) gelen betikler, CSS veya eklentileri yüklemeye izin verir. `allowRunningInsecureContent` i `true` a ayarlamak bu korumayı engeller.
+
+Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
+
+### Neden?
+
+Basitçe açıklayacak olursak, `HTTPS` üzerinden içerik yüklemek veri trafiğini şifreleyerek, yüklenen kaynakların güvenilirliğini ve bütünlüğünü sağlar. Detaylı bilgi için [Sadece güvenli içeriği yükleyin](#only-display-secure-content) bölümüne bakabilirsiniz.
+
+### Nasıl?
+
+```js
+// Yanlış
+const mainWindow = new BrowserWindow({
+ webPreferences: {
+  allowRunningInsecureContent: true
+ }
+})
+```
+
+```js
+// Doğru
+const mainWindow = new BrowserWindow ({})
+```
+
+## 9) Do Not Enable Experimental Features
+
+*Tavsiye edilen ayar Electron'da varsayılandır*
+
+Deneyimli kullanıcılar deneysel Chromium özelliklerini `experimentalFeatures` be `experimentalCanvasFeatures` kullanarak aktifleştirebilir.
+
+### Neden?
+
+Deneysel özellikler adı üzerinde deneyseldirler ve bütün Chromium kullanıcılarında açık değildirler. Dahası, bunların Electon üzerindeki etkileri bütün olarak test edilmemiştir.
+
+Geçerli kullanım senaryoları mevcut olmakla birlikte ne yaptığınızdan emin değilseniz bu özelliği açmanız önerilmez.
+
+### Nasıl?
+
+```js
+// Yanlış
+const mainWindow = new BrowserWindow({
+ webPreferences: {
+  experimentalFeatures: true
+ }
+})
+```
+
+```js
+// Doğru
+const mainWindow = new BrowserWindow ({})
+```
+
+## 10) Do Not Use `blinkFeatures`
+
+*Tavsiye edilen ayar Electron'da varsayılandır*
+
+Blink Chromium'un işleyici motorunun isminden gelir. `experimentalFeatures` da olduğu gibi `blinkFeatures` özelliği de geliştiricilere varsayılan olarak kapalı olan bazı özellikleri açar.
+
+### Neden?
+
+Genel olarak, bir özellik varsayılan olarak açık değilse ardıında bazı sebepler vardır. Belirli özelliklerin geçerli kullanım senaryoları mecvuttur. Bir geliştirici olarak, bir özelliği neden açmanız gerektiğini, sonuçlarını ve bunların uygulamanızın güvenliğini nasıl etkilediğinizi tam olarak bilmeniz gerekmektedir. Bu özellikleri keyfi bir şekilde kesinlikle açmamalısınız.
+
+### Nasıl?
+
+```js
+// Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    blinkFeatures: ['ExecCommandInJavaScript']
+  }
+})
+```
+
+```js
+// Doğru 
+const mainWindow = new BrowserWindow()
+```
+
+## 11) Do Not Use `allowpopups`
+
+*Tavsiye edilen ayar Electron'da varsayılandır*
+
+` WebViews </ 0> kullanıyorsanız, sayfalara ve komut dizelerine
 yeni pencereleri açmak için <code><webview>` gereklidir. ` allowpopups </ 0> özniteliği
 kullanarak yeni <a href="browser-window"><code> BrowserWindows </ 1> oluşturmalarına olanak tanır
 <code> window.open () </ 0>  <code> WebViews </ 0> 'e, aksi takdirde yeni
@@ -384,7 +377,7 @@ you know it needs that feature.</p>
 <webview src="page.html"></webview>
 `</pre> 
 
-## Bitirmeden Önce WebView Ayarlarını Doğrulayın
+## 12) Verify WebView Options Before Creation
 
 Node.js entegrasyonuna sahip olmayan bir oluşturucu işleminde oluşturulan bir WebView etkinleştirildiğinde entegrasyonu etkinleştirmeyecektir. Bununla birlikte, bir WebView kendi ` webPreferences </ 0> ile her zaman bağımsız bir oluşturucu işlemi oluşturun.</p>
 

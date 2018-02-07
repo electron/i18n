@@ -15,6 +15,7 @@
 * [Разпространяване на разработените приложения](tutorial/application-distribution.md)
 * [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Application Packaging](tutorial/application-packaging.md)
 * [Употреба на Node модули](tutorial/using-native-node-modules.md)
 * [Отстраняване на грешки](tutorial/debugging-main-process.md)

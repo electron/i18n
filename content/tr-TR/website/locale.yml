@@ -139,9 +139,7 @@ _404:
   if_this_is_an_error: Bu bir hata ise
   please_file_an_issue: lütfen sorunu bulunuz.
 search:
-  description:
-    start: Find Electron resources from
-    docs: <a href="/search/docs">documentation</a>
-    npm: <a href="/search/npmPackages">npm packages</a>
-    and: ve
-    repos: <a href="/search/repos">GitHub repos</a>
+  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_docs: Find Electron resources from documentation.
+  description_npm: Find Electron resources from npm packages.
+  description_repos: Find Electron resources from GitHub repos.

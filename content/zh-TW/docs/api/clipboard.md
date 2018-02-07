@@ -98,7 +98,7 @@ Writes the `title` and `url` into the clipboard as a bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron 首頁'
 })
 ```
@@ -153,7 +153,7 @@ Returns `Buffer` - Reads `format` type from the clipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (選用)
 
 Writes the `buffer` into the clipboard as `format`.
 

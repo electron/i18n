@@ -2,7 +2,7 @@
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ## Utilizando el proceso de renderizado
 
@@ -12,7 +12,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `Notification` es un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -28,12 +28,12 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Objeto 
+* `opciones` Objeto 
   * `title` Cadena - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación
   * `subtitle` Cadena - (opcional) Un subtítulo para la notificación, la cual aparecerá debajo del título. *macOS*
   * `body` Cadena - El cuerpo del texto de la notificación, el cual aparecerá debajo del título o subtítulo
   * `silent` Booleano - (opcional) Si se emite o no un sonido de notificación del sistema operativo cuando aparece la notificación
-  * `icon` [NativeImage](native-image.md) - (opcional) Un icono para usarse en la notificación
+  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
   * `hasReply` Booleano - (opcional) Si se agrega o no una opción de respuesta insertada en la notificación. *macOS*
   * `replyPlaceholder` Cadena- (opcional) El marcador de posición para escribir en el campo insertado de entrada de respuesta. *macOS*
   * `sound` Cadena - (opcional) El nombre del archivo de sonido que se reproduce cuando se muestra la notificación. *macOS*
@@ -61,7 +61,7 @@ Devuelve:
 
 Se emite cuando el usuario hace clic en la notificación.
 
-#### Evento: "close"
+#### Evento: 'close'
 
 Devuelve:
 
@@ -69,7 +69,7 @@ Devuelve:
 
 Se emite cuando se cierra la notificación por medio de la intervención manual del usuario.
 
-No se garantiza que este evento se emita en todos los casos donde se cierre la notificación.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### Evento: "reply" *macOS*
 
@@ -94,6 +94,12 @@ Los objetos creados con `new Notification` tienen los siguientes métodos de ins
 #### `notification.show()`
 
 Muestra inmediatamente la notificación al usuario, por favor tenga en cuenta que esto significa que a diferencia de la implementación HTML5 Notification, solamente creando una instancia `new Notification` no lo muestra inmediatamente al usuario. Es necesario llamar a este método antes de que el sistema operativo lo muestre en pantalla.
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### Reproducción de Sonidos
 

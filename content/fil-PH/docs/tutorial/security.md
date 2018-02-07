@@ -18,28 +18,23 @@ Parang ang aming kasalukuyang sistema ng pag-update ng bahagi sa Chromium ay mak
 
 ## Pag-ignora ng Paaalala na nasa Itaas
 
-Ang isang isyu ay nangyayari tuwing makakatanggap ka ng code galing sa malayo na patutunguhan at ma-execute ito ng lokal. Bilang halimbawa, isaalang-alang ang bahagyang website na ipnapakita sa loob ng [`BrowserWindow`](browser-window). Kung ang isang attacker ay makakabago ng nasabing nilalaman (alinmang aatakehin nito ang direktang nilalaman o sa pamamagitan ng pag-upo sa pagitan ng iyong app at ang aktwal na patutunguhan), kaya nilang mag-execute na natibong code sa machine ng taga gamit.
+Ang isang isyu ay nangyayari tuwing makakatanggap ka ng code galing sa malayo na patutunguhan at ma-execute ito ng lokal. Bilang halimbawa, isaalang-alang ang bahagyang website na ipnapakita sa loob ng [`BrowserWindow`](../api/browser-window.md). Kung ang isang attacker ay makakabago ng nasabing nilalaman (alinmang aatakehin nito ang direktang nilalaman o sa pamamagitan ng pag-upo sa pagitan ng iyong app at ang aktwal na patutunguhan), kaya nilang mag-execute na natibong code sa machine ng taga gamit.
 
-> :babala: Sa anumang pangyayari ay hindi ka maaaring mag-load at mag-execute ng remote code kasama ng Node.js integrasyong napagana. Sa halip, gamitin lamang ang lokal na mga file (nakabalot kasama ang iyong aplikasyon) para ma-execute ang Node.js na code. Para maipakita ang bahagyang nilalaman, gamiting ang [`webview`](web-view) na tag para makasiguradong hindi gumana ang `nodeIntegration`.
+> :babala: Sa anumang pangyayari ay hindi ka maaaring mag-load at mag-execute ng remote code kasama ng Node.js integrasyong napagana. Sa halip, gamitin lamang ang lokal na mga file (nakabalot kasama ang iyong aplikasyon) para ma-execute ang Node.js na code. Para maipakita ang bahagyang nilalaman, gamiting ang [`webview`](../api/web-view) na tag para makasiguradong hindi gumana ang `nodeIntegration`.
 
-#### Checklist: Security Recommendations
+## Electron Security Warnings
 
-Hindi ito bulletproof: gayunpaman, kailangan kang tumangka sa mga sumusunod:
+From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
-* [Mag load lamang ng siguradong nilalaman](#only-load-secure-content)
-* [Huwang paganahin ang Node.js na integrasyon sa lahat ng mga renderer na maipakita ang bahagyang nilalaman.](#disable-node.js-integration-for-remote-content)
-* [Paganahin ang kontekstong pagkakabukod na ipinakita ang bahagyang nilalaman.](#enable-context-isolation-for-remote-content)
-* [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#handle-session-permission-requests-from-remote-content)
-* [Huwang i-disable ang `webSecurity`](#do-not-disable-websecurity)
-* [Tukuyin ang`Nilalaman-Seguridad-Patakaran`](#define-a-content-security-policy)at gamitin ang mahigpit na panuntunan (halimbawa `script-src 'self'`)
-* [I-override at huwag paganahin ang `eval`](#override-and-disable-eval), na nagpapahintulot ng mga string na mag-execute bilang code.
-* [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#do-not-set-allowRunningInsecureContent-to-true)
-* [Huwag paganahin ang mga experimental na katangian](#do-not-enable-experimental-features)
-* [Huwag gamitin ang `blinkFeatures`](#do-not-use-blinkfeatures)
-* [WebViews: Huwag gamitin ang `allowpopups`](#do-not-use-allowpopups)
-* [WebViews: I-verify ang mga opsyun at mga param sa lahat ng `<webview>`mga tag](#verify-webview-options-before-creation)
+You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
 
-## Mag-load Lamang ng Ligtas na Nilalaman
+## Checklist: Security Recommendations
+
+This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+
+1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+
+## 1) Only Load Secure Content
 
 Alinmang mga mapagkukunan na hindi kasama sa iyong aplikasyon ay dapat ma-load gamit ang ligtas na protocol gaya ng `HTTPS`. Sa ibang salita, huwag gumamit ng hindi ligtas na mga protocol gaya ng `HTTP`. Kapareho, inirekomenda namin ang paggamit ng `WSS` higit sa`WS`, `FTPS` higit sa `FTP`, at iba pa.
 
@@ -69,9 +64,9 @@ browserWindow.loadURL('https://my-website.com')
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## Huwag Paganahin ang Node.js integrasyon para sa Bahagyang Nilalaman
+## 2) Disable Node.js Integration for Remote Content
 
-Ito ang paramount na hindi mo pinagana ang Node.js integrasyon sa anumang renderer ng ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) na mag-load ng bahagyang nilalaman. Ang layunin ay ma-limit ang mga lakas na iginawad sa bahagyang nilalaman, kaya ginawang kapansin-pansin na mas mahirap para sa isang ataker na mapinsala ang gumagamit at magkaroon sila ng kakayahan maka-execute ng JavaScript sa iyong website.
+It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. Ang layunin ay ma-limit ang mga lakas na iginawad sa bahagyang nilalaman, kaya ginawang kapansin-pansin na mas mahirap para sa isang ataker na mapinsala ang gumagamit at magkaroon sila ng kakayahan maka-execute ng JavaScript sa iyong website.
 
 Pagkatapos nito, iginagawad ng karagdagang pahintulot para sa tiyak na mga host. Halimbawa, kung nagbukas ka ng BrowserWindow na tinuturo sa `https://my-website.com/", mabibigyan mo ang website na iyan ng eksaktong kakayahan na kailangan, pero wala na.
 
@@ -117,7 +112,7 @@ window.readConfig = function () {
 }
 ```
 
-## Paganahin ang Kontekstong Pagkakabukod para sa Bahagyang Nilalaman
+## 3) Enable Context Isolation for Remote Content
 
 Ang kontekstong pagbubukod ay isang Electron na tampok na nagpapahintulot sa mga developer na magpatakbo ng code sa preload na mga manuskrito at mga API ng Electron sa dedikadong JavaScript na conteksto. Sa pagsasanay, ibig sabihin nito ay ang pandaigdigang mga bagay gaya ng `Array.prototype.push` o `JSON.parse` ay hindi na maaaring baguhin ng mga manuskritong pinatakbo sa proseso ng renderer.
 
@@ -163,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## Mamahala ng Sesyon Pahintulot sa mga Kahilingan galing sa Bahagyang Nilalaman
+## 4) Handle Session Permission Requests From Remote Content
 
 Maaaring nakita mo na ang pahintulot ng kahilingan habang gumagamit ng Chrome: Ito ay nagpa-popup sa tuwing ang website ay magtatangkang gumamit ng tampok na mayrron ang gumagamit para mano-manong aprubahan (gaya ng mga abiso)
 
@@ -195,7 +190,42 @@ sesyon
   })
 ```
 
-## Tukuyin ang Nilalaman ng Patakarang Pangseguridad
+## 5) Do Not Disable WebSecurity
+
+*Ang rekomendasyon ay default ng Electron*
+
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) disables crucial security features.
+
+Huwag paganahin ang `webSecurity` sa mga application ng produksyon.
+
+### Bakit?
+
+Ang disable `webSecurity` ay hindi paganahin ang patakaran ng parehong pinanggalingan at itatakda `allowRunningInsecureContent` ang ari-arian sa `true`. Sa madaling salita, pinapayagan nito ang pagpapatupad ng hindi secure na code mula sa iba't ibang mga domain.
+
+### Paano?
+
+```js
+// Masama
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    webSecurity: false
+  }
+})
+```
+
+```js
+// Mabuti
+const mainWindow = new BrowserWindow()
+```
+
+```html
+<!-- Hindi Kaaya-aya --><webview disablewebsecurity src="page.html"></webview>
+
+<! -- Kaaya-aya -->
+<webview src="page.html"></webview>
+```
+
+## 6) Define a Content Security Policy
 
 Ang NIlalaman ng Patakarang Pangsegurado (CSP) ay isang karagdagang layer ng proteksyon laban sa cross-site na manuskritong atake at data iniksyong atake. Inirekomenda namin na ang mga ito ay paganahin sa anumang website na iyong ma-load sa loob ng Electron.
 
@@ -217,7 +247,7 @@ Nilalaman-Seguridad-Patakaran: '*'
 Nilalaman-Seguridad-Patakaran: script-src 'self' https://apis.mydomain.com
 ```
 
-## I-override at I-disable `eval`
+## 7) Override and Disable `eval`
 
 Ang `eval()` ay isang core JavaScript na pamamaraan na naggpapahintulot ng exekusyon sa JavaScript galing sa isang string. Ang pag-disable nito ay makaka-disable ng kakayahan ng iyong app para suriin ang JavaScript na hindi unang kilala.
 
@@ -237,9 +267,9 @@ window.eval = global.eval = function () {
 }
 ```
 
-## Do Not Set `allowRunningInsecureContent` to `true`
+## 8) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Recommendation is Electron's default*
+*Ang rekomendasyon ay default ng Electron*
 
 By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -261,11 +291,11 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Mabuti
 const mainWindow = new BrowserWindow({})
 ```
 
-## Do Not Enable Experimental Features
+## 9) Do Not Enable Experimental Features
 
 *Ang rekomendasyon ay default ng Electron*
 
@@ -293,7 +323,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## Wag Gamitin `blinkFeatures`
+## 10) Do Not Use `blinkFeatures`
 
 *Ang rekomendasyon ay default ng Electron*
 
@@ -319,43 +349,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## Huwag Paganahin ang WebSecurity
-
-*Ang rekomendasyon ay default ng Electron*
-
-Maaaring nahulaan mo na ang pag-disable sa `webSecurity` na ari-arian sa a proseso ng renderer ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) ay hindi pinapagana ang mahalaga katangian ng seguridad.
-
-Huwag paganahin ang `webSecurity` sa mga application ng produksyon.
-
-### Bakit?
-
-Ang disable `webSecurity` ay hindi paganahin ang patakaran ng parehong pinanggalingan at itatakda `allowRunningInsecureContent` ang ari-arian sa `true`. Sa madaling salita, pinapayagan nito ang pagpapatupad ng hindi secure na code mula sa iba't ibang mga domain.
-
-### Paano?
-
-```js
-// Masama
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    webSecurity: false
-  }
-})
-```
-
-```js
-// Mabuti
-const mainWindow = new BrowserWindow()
-```
-
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
-```
-
-## Wag Gamitin `allowpopups`
+## 11) Do Not Use `allowpopups`
 
 *Ang rekomendasyon ay default ng Electron*
 
@@ -368,14 +362,13 @@ Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan 
 ### Paano?
 
 ```html
-<!-- Bad -->
-<webview allowpopups src="page.html"></webview>
+<!-- Hindi Kaaya-aya --><webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<! -- Kaaya-aya -->
 <webview src="page.html"></webview>
 ```
 
-## I-verify ang Mga Pagpipilian sa WebView Bago Lumikha
+## 12) Verify WebView Options Before Creation
 
 Ang isang WebView na nilikha sa isang proseso ng renderer na walang pagsasama ng Node.js pinagana hindi makapag-enable ang pagsasama mismo. Gayunpaman, ang isang WebView ay laging lumikha ng isang malayang proseso ng pag-render na may sariling `webPreferences`.
 

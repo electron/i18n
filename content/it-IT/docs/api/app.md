@@ -111,6 +111,45 @@ Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Un'attività dell'utente può essere continuata solo in un app con lo stesso Team ID dello sviluppatore come fonte app dell'attività e che supporti il tipo di attività. I tipi di attività supportati sono specificati nell'`Info.plist` dell'app sotto la chiave `NSTipoAttivitàUtente`.
 
+### Event: 'will-continue-activity' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
+
+### Event: 'continue-activity-error' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - A string with the error's localized description.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+
+### Event: 'activity-was-continued' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+
+### Event: 'update-activity-state' *macOS*
+
+Restituiti:
+
+* `evento` Evento
+* `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
 ### Evento: 'nuova-finestra-per-scheda' *macOS*
 
 Restituiti:
@@ -124,7 +163,7 @@ Emesso quando l'utente clicca il pulsante macOS nativo nuova scheda. Il pulsante
 Restituiti:
 
 * `evento` Evento
-* `finestra` FinestraBrowser
+* `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 
@@ -133,7 +172,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è sfocata.
 Restituiti:
 
 * `evento` Evento
-* `finestra` FinestraBrowser
+* `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 
@@ -142,7 +181,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è focalizzata.
 Restituiti:
 
 * `evento` Evento
-* `finestra` FinestraBrowser
+* `window` [BrowserWindow](browser-window.md)
 
 Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 
@@ -151,7 +190,7 @@ Emesso quando una [Finestrabrowser](browser-window.md) è creata.
 Restituiti:
 
 * `evento` Evento
-* `Contenutiweb` ContenutiWeb
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
 Emesso quando un nuovo [ContenutoWeb](web-contents.md) è creato.
 
@@ -348,6 +387,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 * `musica` La directory per la musica dell'utente.
 * `immagini` La directory per le immagini dell'utente.
 * `video` La directory per i video dell'utente.
+* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Percorso intero alla versione di sistema del plugin Pepper Flash.
 
 ### `app.ottieniIconaFile(percorso[, opxioni], callback)`
@@ -420,7 +460,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Pulisce la lista documenti recenti.
     
-    ### `app.impostacomeProtocolloClientDefault(protocol[, percorso,args])` *macOS* *Windows*
+    ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
     
     * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`. Se vuoi che la tua app gestisca i link `electron://` chiama questo metodo con `electron` come parametro.
     * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
@@ -492,7 +532,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Se le `categorie` sono `nulle` la precedentemente impostata Jump List (se esistente) sarà rimpiazzata dalla Jump List standard per l'app (gestita da Windows).
     
-    **Nota:** Se un oggetto `CategoriaJumpList` non ha nè la proprietà `tipo` nè quella `nome` le proprietà si impostano che il `tipo` sia sicuramente `task`. Se la proprietà `nome` è impostata ma la proprietà `tipo` è omessa il `tipo` sarà considerato `personalizzato`.
+    **Note:** Se un oggetto `SalaCategoriaLista` non ha nè `tipo` nè `nome` impostati il suo tipo diviene `predefinito`. Se la proprietà `nome` é impostata ma la proprietà `tipo` é omessa, il `tipo` sarà considerato`modificato`.
     
     **Note:** Gli utenti possono rimuovere gli elementi dalle categorie personalizzate, e Windows non permetterà ad un elemento rimosso di essere ri-aggiunto in una categoria personalizzata fino a **dopo** la successiva chiamata di successo a `app.impostaJumpList(categorie)`. Qualsiasi tentativo di aggiunta di un elemento rimosso ad una categoria personalizzata prima che questo risulterà nell'intera categoria personalizzata sarà omesso dalla Jump List. La lista degli elementi rimossi può essere ottenuta usando `app.ottieniImpostazioniJumpList()`.
     
@@ -615,6 +655,19 @@ Crea un'`NSAttivitàUtente` e la imposta come attività corrente. L'attività è
 
 Restituisce `Stringa` - Il tipo di attività al momento in esecuzione.
 
+### `app.invalidateCurrentActivity()` *macOS*
+
+* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `tipo` Stringa - Unicamente identifica l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Oggetto - Stato app specifico al magazzino per usare da altro dispositivo.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+
 ### `app.impostaModelloIdAppUtente(id)` *Windows*
 
 * `id` Stringa
@@ -651,7 +704,7 @@ Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di ogge
 
 Restituisce [`ProcessoMetrico[]`](structures/process-metric.md): Insieme di oggetti `ProcessoMetrico` corrispondenti alle statistiche di utilizzo della memoria e della cpu di tutti i processi associati con l'app.
 
-### `app.ottieniStatoFunzioniGpu()`
+### `app.getGPUFeatureStatus()`
 
 Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
@@ -726,6 +779,14 @@ app.impostaImpostazioniElementoAccesso({
 
 Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
 ### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
 
 * `opzioni` Oggetto 
@@ -759,6 +820,18 @@ Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quota
 Abilita la modalità scatola dei giochi mischiata nell'app.
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
+
+### `app.isInApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 

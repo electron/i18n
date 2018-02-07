@@ -6,7 +6,7 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSpacer(seçenekler)` *Deneysel*
 
-* `ayarlar` Nesne 
+* `seçenekler` Nesne 
   * `boyut` Dizge (isteğe bağlı) - Aralayıcı boyutu, olası değerler şunlardır: 
     * `small` Maddeler arasında küçük aralayıcı.
     * `büyük` Maddeler arasında geniş aralayıcı.

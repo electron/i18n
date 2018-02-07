@@ -2,7 +2,7 @@
 
 > Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Tray` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)'dir.
 
@@ -56,11 +56,11 @@ Eğer diğer platformlarda da tamamen aynı davranışları sergilemeye devam et
 
 ### `new Tray(image)`
 
-* `image` ([DoğalGörüntü](native-image.md) | Dizi)
+* `image` ([NativeImage](native-image.md) | String)
 
 Tray ile ilişkili yeni bir simge oluşturulur`image`.
 
-### Örnek Events
+### Örnek etkinlikler
 
 `Tray` modülü aşağıdaki olayları yayar:
 
@@ -72,6 +72,7 @@ Tray ile ilişkili yeni bir simge oluşturulur`image`.
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Tray ikonunun sınırları
+* `position` [Point](structures/point.md) - event'ın pozisyonu
 
 Tray simgesi tıklandığında çıkar.
 
@@ -115,14 +116,14 @@ Sürüklenen herhangi bir nesne tray simgesine düştüğünde ortaya çıkar.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Event
+* `event` Olay
 * `files` String[] - Düşürülen dosyaların yolları.
 
 Sürüklenen dosyalar yaydıklarında tray simgesine düşer.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Event
+* `event` Olay
 * `text` String - Düşürülen yazı stringi
 
 Sürüklenen metin tepsi simgesine düştüğünde ortaya çıkar.
@@ -161,7 +162,18 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
-### Örnek Metodlar
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - event'ın pozisyonu
+
+Emitted when the mouse moves in the tray icon.
+
+### Örnek Yöntemleri
 
 The `Tray` sınıfı aşağıdaki yöntemleri içerir:
 
@@ -223,10 +235,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `ayarlar` Nesne 
+* `seçenekler` Nesne 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` Dize - (İsteğe Bağlı)
+  * `title` String
+  * `content` String
 
 Bir tepsi balonunu görüntüler.
 

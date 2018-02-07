@@ -2,19 +2,19 @@
 
 > Yerel uygulama menüleri ve bağlam menüleri oluşturun.
 
-Süreç: [Main](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 ### `yeni Menü()`
 
 Yeni bir menü oluşturun.
 
-### Statik Yöntemler
+### Statik Metodlar
 
 `menu` sınıfı aşağıdaki statik yöntemlere sahiptir:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menü
+* `menu` Menü | boş
 
 MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üst menüsü olarak ayarlanır.
 
@@ -24,7 +24,7 @@ MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üs
 
 #### `Menu.getApplicationMenu()`
 
-`Menu` Döndürülür - Uygulama menüsü, ayarlanmışsa veya `null` ise, ayarlanmamışsa.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
@@ -46,17 +46,17 @@ Genellikle `template` yalnızca bir [MenuItem](menu-item.md) oluşturmak için b
 
 Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar oluşturulan menü öğelerinin özellikleri olacaktır.
 
-### Örnek Yöntemleri
+### Örnek Metodlar
 
 `menu` nesnesi aşağıdaki örnek yöntemlerine sahiptir:
 
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` TarayıcıPenceresi (isteğe bağlı) - Varsayılan odaklanmış pencere.
-* `seçenekler` Hedef (isteğe bağlı) 
+* `seçenekler` Obje (opsiyonel) 
   * `x` Sayı (isteğe bağlı) - Varsayılan, geçerli fare imleci konumudur. Eğer `y` bildirilmişse, bildirilmelidir.
   * `y` Sayı (isteğe bağlı) Varsayılan geçerli fare imleci konumudur. Eğer `x` bildirilmişse, bildirilmelidir.
-  * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `true`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `false` olarak ayarlayın. Varsayılan değer `false`.
+  * `async` Boolean (isteğe bağlı) - Bu yöntemin hemen çağrılmasını sağlamak için `true`, menü seçildikten veya kapatıldıktan sonra geri dönmek için `false` olarak ayarlayın. Varsayılanı `false` olarak belirler.
   * `positioningItem` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
 
 Bu menüyü `browserWindow` 'nde bir bağlam menüsü olarak açar.
@@ -73,6 +73,12 @@ Bu menüyü `browserWindow` 'nde bir bağlam menüsü olarak açar.
 
 Menüye `menuItem` ekler.
 
+#### `menu.getMenuItemById(id)`
+
+* `kimlik` dizesi
+
+Returns `MenuItem` the item with the specified `id`
+
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Tamsayı
@@ -80,7 +86,7 @@ Menüye `menuItem` ekler.
 
 `menuItem` 'ı menünün `pos` konumuna yerleştirir.
 
-### Örnek Özellikleri
+### Örnek Özellikler
 
 `menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
@@ -94,7 +100,7 @@ Her `Menu` birden fazla [`MenuItem`](menu-item.md) den oluşur ve her `MenuItem`
 
 `Menu` sınıfı yalnızca ana işlemde kullanılabilir, ancak [`remote`](remote.md) modül vasıtasıyla oluşturma işleminde de kullanabilirsiniz.
 
-### Ana süreç
+### Ana işlem
 
 Ana süreçte uygulama menüsünü basit şablon API'si ile oluşturmak için bir örnek:
 
@@ -142,7 +148,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -264,12 +270,13 @@ Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni 
 
 Menü:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Şablonlar:
 
@@ -286,11 +293,13 @@ Menü:
 
 Menü:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```

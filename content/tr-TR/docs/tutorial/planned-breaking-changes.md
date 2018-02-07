@@ -4,7 +4,7 @@ Takip eden liste, Electron 2.0'da kaldırılacak API'leri içerir.
 
 Bu sürümün ne zaman ortaya çıkacağına dair herhangi bir zaman çizelgesi mevcut değildir ancak kullanımdan kaldırılma uyarıları en az 90 gün önceden eklenecektir.
 
-## `app`
+## `uygulama`
 
 ```js
 // Kullanım Dışı

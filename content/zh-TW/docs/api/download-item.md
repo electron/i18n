@@ -2,7 +2,7 @@
 
 > Control file downloads from remote sources.
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
@@ -96,7 +96,7 @@ Resumes the download that has been paused.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 

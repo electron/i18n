@@ -2,12 +2,12 @@
 
 > Kontrol dosyası uzak kaynaklardan yükleme yapar.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `DownloadItem` Electron içindeki indirme öğesini temsil eden bir `EventEmitter`'dir. O `oturumun` `will-download` olayı içinde kullanılır ve kullanıcıların indirilen öğeyi kontrol etmesine izin verir.
 
 ```javascript
-// Ana işlem içinde.
+// Ana süreçte.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -35,13 +35,13 @@ Kaydetme yolunu ayarlayın ve Electron'un bir kaydetme istememesi için yol gös
 })
 ```
 
-### Örnek Events
+### Örnek olayları
 
 #### Event: 'updated'
 
-Dönüşler:
+Döndürür:
 
-* `event` Event
+* `event` Olay
 * `state` String
 
 İndirme güncellendiğinde ve bitmediğinde yayınlanır.
@@ -66,7 +66,7 @@ Dönüşler:
 * `cancelled` - İndirme iptal edildi.
 * `interrupted` - İndirme kesintiye uğradı ve devam edemez.
 
-### Örnek yöntemler
+### Örnek Metodlar
 
 `downloadItem` nesnesi aşağıdaki yöntemleri içerir:
 
@@ -96,7 +96,7 @@ Durdurulmuş indirmeyi devam ettirir.
 
 #### `downloadItem.canResume()`
 
-İndirmenin devam edip edemeyeceğine dair `Boolean` döndürür.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 

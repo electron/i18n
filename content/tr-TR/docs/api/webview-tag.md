@@ -2,7 +2,7 @@
 
 > Harici web içeriğini yalıtılmış bir çerçeve ve işlemde görüntüleme.
 
-Süreç: [Render etme](../tutorial/quick-start.md#renderer-process)
+İşlem: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 'Misafir' içeriğini (web sayfaları gibi) Electron uygulamanıza gömmek için `webview` etiketini kullanın. Misafir içeriği, `webview` kapsayıcısı tarafından kapsanır. Uygulamanızdaki gömülmüş bir sayfa, konuk içeriğinin nasıl düzenlendiğini ve oluşturulduğunu denetler.
 
@@ -137,10 +137,10 @@ Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bı
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. `persist:` öneki yoksa, sayfa bir bellek içi oturum kullanacaktır. Aynı `partition` bölümü atayarak, aynı oturumda birden çok sayfa paylaşabilir. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
+Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. hiçbir ` persist`: öneki yoksa, sayfa bellek içi oturumu. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
 
 Bu değer yalnızca ilk gezinmeden önce değiştirilebilir, çünkü oturum aktif bir oluşturucu sürecindeyken değiştiremezsiniz. Ardından, değeri bir DOM hatası ile başarısız olur.
 
@@ -239,12 +239,12 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `ayarlar` Obje (isteğe bağlı) 
+* `seçenekler` Obje (opsiyonel) 
   * `httpReferrer` Dizgi (isteğe bağlı) - Bir HTTP başvuru bağlantısı.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsiyonel)
-  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
+  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, örneğin: `http://` ya da `file://`.
 
@@ -266,7 +266,7 @@ Returns `Boolean` - Misafir sayfası, sayfanın ana kaynağından gelecek bir il
 
 ### `<webview>.dur()`
 
-Bekleyen gezinmeyi durdurur.
+Bekleyen gezinmeleri durdurur.
 
 ### `<webview>.yeniden yükle()`
 
@@ -292,7 +292,7 @@ Returns `Boolean` - Misafir sayfası `offset`'e gidebiliyorsa.
 
 ### `<webview>.clearHistory()`
 
-Gezinme geçmişini temizle.
+Gezinme geçmişini temizler.
 
 ### `<webview>.goBack()`
 
@@ -312,7 +312,7 @@ Belirtilen mutlak dizine gider.
 
 * `offset` Tamsayı
 
-"Geçerli girişten" belirtilen aralıkta gezinir.
+"Yürürlükteki girdi"den belirtilmiş göreli konuma (offsete) gider.
 
 ### `<webview>.isCrashed()`
 
@@ -320,7 +320,7 @@ Belirtilen mutlak dizine gider.
 
 ### `<webview>.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` Dizgi
 
 Konuk sayfasının kullanıcı aracısını geçersiz kılar.
 
@@ -334,12 +334,12 @@ Returns `String` - Misafir sayfası için kullanıcı aracı.
 
 CSS'i misafir sayfasının içine yerleştirir.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Dizi
-* `userGesture` Boolean - Varsayılan `false`.
-* `geri arama` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
-  * `result` Herhangi bir
+* `code` String
+* `userGesture` Boolean (optional) - Default `false`.
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+  * `result` Any
 
 Sayfadaki `code`'u değerlendirir. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
 
@@ -361,8 +361,8 @@ Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığın
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Tamsayı
-* `y` Tamsayı
+* `x` Integer
+* `x` Integer
 
 Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
 
@@ -418,70 +418,72 @@ Sayfada düzenleme komutu olan `unselect`'i yerine getirir.
 
 ### `<webview>.replace(text)`
 
-* `text` Dizi
+* `text` String
 
 Sayfada düzenleme komutu olan `replace`'i yerine getirir.
 
 ### `<webview>.replaceMisspelling(text)`
 
-* `text` Dizi
+* `text` String
 
 Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 ### `<webview>.insertText(text)`
 
-* `text` Dizi
+* `text` String
 
-Odaklanılan öğeye `text`'i yerleştirir.
+Odaklanmış öğeye `metin` ekler.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` Dizi - Aranacak içerik; boş olmamalıdır.
-* `seçenekler` Obje (isteğe bağlı) 
-  * `forward` Boolean - (isteğe bağlı) İleriye ya da geriye doğru aranırsa, `true` varsayılan olur.
-  * `findNext` Boolean - (isteğe bağlı) İşlem ilk istek ya da devamı ise, `false` varsayılan olur.
-  * `matchCase` Boolean - (isteğe bağlı) Arama harfe duyarlı olmalıysa, `false` varsayılan olur.
-  * `wordStart` Boolean - (isteğe bağlı) Kelimelerin sadece başına bakılmalıysa, `false` varsayılan olur.
-  * `medialCapitalAsWordStart` Boolean - (isteğe bağlı) `wordStart` ile birleştirildiğinde, eşleşme büyük bir harfle başlayıp küçük harfle ya da harfsiz devam ediyorsa, kelimenin ortasındaki bir eşleşmeyi kabul eder. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
+* `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
+* `seçenekler` Obje (opsiyonel) 
+  * `forward` Boolean - (isteğe bağlı) İleriye veya geriye doğru arama yapılacağı, varsayılan olarak `true`'dur.
+  * `findNext` Boolean - (İsteğe bağlı) İşlemin ilk istek veya takip isteği olduğu, varsayılan olarak `false`'tur.
+  * `matchCase` Boolean - (İsteğe bağlı) Aramanın büyük-küçük harfe duyarlı olup olmayacağı, varsayılan olarak `false`'dur.
+  * `wordStart` Boolean - (isteğe bağlı) Sadece kelime başlarına bakılıp bakılmayacağı, varsayılan olarak `false`'tur.
+  * `medialCapitalAsWordStart` Boolean - (İsteğe bağlı) `wordStart` ile birleştirildiğinde, eğer eşleşme büyük harfle başlayıp küçük harf veya harf olmayan ifadeyle devam ediyorsa, eşleşmeyi kabul eder. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
-Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başlatır ve istek için kullanılan istek kimlik numarasını temsil eden bir `Tamsayı` döndürür. İsteğin sonucu [`found-in-page`](webview-tag.md#event-found-in-page) etkinliğine katılınarak elde edilebilinir.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `eylem` String - Bitişte, yerini alacak olayı belirtir [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) istek. 
-  * `clearSelection` - Seçimi silin.
-  * `keepSelection` - Seçimi, normal bir seçime tercüme eder.
-  * `activateSelection` - Seçim node'una odaklanır ve tıklar.
+* `hareket` String - Bitişte, yerini alacak olayı belirtir [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) istek. 
+  * `clearSelection` - Seçimi temizler.
+  * `keepSelection` - Seçimi normal bir seçime çevirir.
+  * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
 `action` ile sağlanan `webview` için herhangi `findInPage` isteğini durdurur.
 
 ### `<webview>.print([options])`
 
-* `ayarlar` Obje (isteğe bağlı) 
-  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sorma, `false` varsayılandır.
-  * `printBackground` Boolean (isteğe bağlı) - Ayrıca arka plan rengini ve web sayfasının görüntüsünü yazdırır. `false` varsayılandır.
-  * `deviceName` String (isteğe bağlı) - Kullanılacak yazıcının ismini ayarla. `''` varsayılandır.
+* `seçenekler` Obje (opsiyonel) 
+  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
+  * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
+  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
 
 `webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `ayarlar` Nesne 
-  * `marginsType` Integer - (isteğe bağlı) Kullanılacak kenar tipini belirler. Varsayılan kenar için 0, kenarsız olması için 1 ve en az kenar için 2'yi kullanır.
-  * `pageSize` String - (isteğe bağlı) Oluşturulan PDF'nin sayfa boyutunu belirler. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
-  * `printBackground` Boolean - (isteğe bağlı) CSS arka planı yazdırılacaksa.
-  * `printSelectionOnly` Boolean - (isteğe bağlı) - Sadece seçim yeri yazdırılırsa.
+* `seçenekler` Nesne 
+  * `marginsType` Tamsayı - (İsteğe bağlı) Kullanılacak kenar boşlukları tipini belirler. Varsayılan kenar boşluğu için 0'ı , kenar boşluğu kullanmamak için 1'i , minimum kenar boşluğu için 2'yi kullanır.
+  * `pageSize` Dizgi - (İsteğe bağlı) üretilecek PDF'in sayfa boyutunu belirler. `A3`, `A4`, `A%`, `Legal`, `Letter`, `Tabloid` veya mikron formatında `height` ve `width` içeren bir nesne olabilir.
+  * `printBackground` Boolean - (İsteğe bağlı) CSS arkaplanlarının yazdırılıp yazdırılmayacağı.
+  * `printSelectionOnly` Boolean - (İsteğe bağlı) Sadece seçimin yazdırılıp yazdırılmayacağı.
   * `landscape` Boolean - (isteğe bağlı) manzara için `true`, portre için `false`.
-* `geri arama` Fonksiyon 
-  * `error` Hata 
+* `geri aramak` Function 
+  * `error` Error
   * `data` Buffer
 
 `webview`'ün web sayfasını PDF olarak yazdırır, tıpkı `webContents.printToPDF(options, callback)` gibi.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfadaki alınacak bölge
-* `geri arama` Fonksiyon 
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı
+* `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
 `webview` sayfasının anlık görüntüsünü alır. Tıpkı `webContents.capturePage([rect, ]callback)` gibi.
@@ -491,7 +493,7 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Renderer işlemi, mesajları `ipcRenderer` modülü ile `channel` etkinliğini dinleyerek halledebilir.
+İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. Renderer işlemi, mesajları `ipcRenderer` modülü ile `channel` etkinliğini dinleyerek halledebilir.
 
 Örnekler için [webContents.send](web-contents.md#webcontentssendchannel-args) 'i ziyaret edin.
 
@@ -505,19 +507,19 @@ Web sayfasındaki `metin` için tüm eşleşmeleri bulmak için bir istek başla
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Yakınlaştırma fakötrü.
+* `factor` Number - Yakınlaştırma faktörü.
 
-Yakınlaştırma değerini belirtilen değere değiştirir. Yakışlaştırma değeri, yakınlaştırma yüzdesi bölü 100'dür, bu yüzden %300 = 3.0.
+Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
 ### `<webview>.setZoomLevel(level)`
 
 * `level` Number - Yakınlaştırma seviyesi
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artış veya azalış, orijinal boyutun %300'ü ve %50'si olan varsayılan değerler içerisinde %20'lik bir büyümeyi veya küçülmeyi temsil eder.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
+Sayfadan seçilen sözcüğü arayan bir pop-up sözlük gösterir.
 
 ### `<webview>.getWebContents()`
 
@@ -576,7 +578,7 @@ Dönüşler:
 * `originalURL` Dize
 * `httpResponseCode` Tamsayı
 * `requestMethod` Dize
-* `referrer` String
+* `referrer` Dize
 * `headers` Nesne
 * `resourceType` Dize
 
@@ -600,7 +602,7 @@ Verilen karedeki belge yüklendiğinde tetiklenir.
 
 Dönüşler:
 
-* `başlık` Dizi
+* `title` String
 * `explicitSet` Boolean
 
 Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
@@ -609,7 +611,7 @@ Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya ur
 
 Dönüşler:
 
-* `favicons` String[] - URL'lerin dizilişleri.
+* `favicons` Dize[] - URL dizisi.
 
 Sayfa favicon url'lerini aldığında tetiklenir.
 
@@ -647,9 +649,9 @@ Dönüşler:
 
 * `sonuç` Nesne 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
-  * `matches` Integer - Eşleşmelerin sayısı.
-  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
+  * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
+  * `matches` Tamsayı - Numaraların eşleştirilmesi.
+  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
 Bir sonuç [`webview.findInPage`](webview-tag.md#webviewtagfindinpage) isteği için geçerli hale geldiğinde tetiklenir.
@@ -724,7 +726,7 @@ Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
-### Etkinlik: 'kapat'
+### Etkinlik: 'kapalı'
 
 Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
 

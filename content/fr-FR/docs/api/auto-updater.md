@@ -4,18 +4,13 @@
 
 Processus : [Principal](../glossary.md#main-process)
 
-Le module `autoUpdater` fournit une interface pour le framework [Squirrel](https://github.com/Squirrel).
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Vous pouvez lancer rapidement un serveur multi-plateforme de publication pour distribuer votre application en utilisant l'un de ces projets :
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts) : *Un serveur simple pur vos applications, utilisant GitHub comme backend. Mise à jour automatique avec Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server) : *Un serveur complet et auto-hébergé pour les applications Electron, compatible avec auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server) : *Un simple serveur node.js pour Squirrel.Mac et Squirrel.Windows utilisant les versions publiées sur GitHub*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server) : *Une simple application PHP pour Squirrel.Windows qui lit les mises à jour depuis un dossier. Prend en charge les mies à jour delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Avertissement sur les plateformes
-
-Bien que `autoUpdater` fournit une API uniforme pour différentes plateformes, il y a encore quelques différences subtiles sur chaque plateforme.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,10 +28,6 @@ L'installateur généré avec Squirrel va créer une icône de raccourci avec un
 
 Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 ou tout autre hôte de fichiers statiques. Vous pouvez lire les documents de [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) pour obtenir plus de détails sur le fonctionnement de Squirrel.Windows.
 
-### Linux
-
-Il n'existe pas de prise en charge pour les mises à jours automatique sur Linux, il est donc recommandé d'utiliser le gestionnaire de paquets de distribution pour mettre à jour votre application.
-
 ## Événements
 
 L'objet `autoUpdater` émet les événements suivants :
@@ -45,7 +36,7 @@ L'objet `autoUpdater` émet les événements suivants :
 
 Retourne :
 
-* `error` Erreur
+* `error` Error
 
 Émis lorsqu’il y a une erreur pendant la mise à jour.
 
@@ -65,7 +56,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date

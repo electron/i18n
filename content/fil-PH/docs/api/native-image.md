@@ -1,8 +1,8 @@
-# nativeImage
+# gupitin ng maikli ang mga litrato
 
 > Gumawa ng trey, pantalan, at aplikasyon na icon gamit ang PNG o JPG files.
 
-Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file paths o `NativeImage` mga pagkakataon. Ang walang laman na imahe ay gagamitin kung `null` ay maipasa.
 
@@ -32,15 +32,15 @@ Sa kasalukuyan `PNG` and `JPEG` ipormat ng imahe ay suportad. `PNG` ay inirereko
 Sa Windows, pwede ka ring mag load ng `ICO` icons galing sa file paths. Para pinakamahusay na biswal na kalidad, nirerekomenda ang pag sama sa mga sumusunod na laki sa:
 
 * Maliit na icon 
- * 16x16 (100% DPI scale)
+ * 16x16 (100% DPI scale) 
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
- * 32x32 (200% DPI scale)
+ * 32x32 (200% DPI scale) 
 * Malaking Icon 
- * 32x32 (100% DPI scale) 
+ * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
  * 48x48 (150% DPI scale)
- * 64x64 (200% DPI scale) 
+ * 64x64 (200% DPI scale)
 * 256x256
 
 Itsek ang *Size requirements* na seksyon sa [ artikulong ito](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
@@ -137,13 +137,36 @@ Returns `NativeImage`
 
 Gumawa ng bagong `NativeImage` instance mula `dataURL`. 
 
+### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
+
+* `imageName` String
+* `hslShift` Number[]
+
+Returns `NativeImage`
+
+Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+
+The `hslShift` is applied to the image with the following rules
+
+* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
+* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
+ 0 = remove all color.  
+ 0.5 = leave unchanged.  
+ 1 = fully saturate the image. 
+* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
+ 0 = remove all lightness (make all pixels black).  
+ 0.5 = leave unchanged.  
+ 1 = full lightness (make all pixels white).
+
+This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+
 ## Class: NativeImage
 
 > Bumabalot ng imahe katulad ng trey, pantala, ang aplikasyon na icon. 
 
-Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
+Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Instance Methods
+### Halimbawa ng mga pamamaraan
 
 Ang mga sumusunod na paraan ay magagamit sa mga pagkakataong `NativeImage` klase : 
 
@@ -222,8 +245,7 @@ Kung sana ang `height` or the `width` ay tinutukoy ang kasalukuyang ration ng as
 
 Nagbabalik `Float` - Ang ratio ng aspeto ng imahe.
 
-#### `image.addRepresentation(options)
-`
+#### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - Ang scale factor para idagdag sa prinisentang imahe para. * `width` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `height` Integer (optional) - Defaults to 0. Ito ay kailangan if ang bitmap buffer ay tinutukoy bilang `buffer`. * `buffer` Buffer (optional) - Ang buffer ay naglalaman ng mga hilaw na datos ng larawan. * `dataURL` String (optional) - An data URL ay naglalaman ng alinman sa base 64 naka encode PNG o JPEG na imahe.
 

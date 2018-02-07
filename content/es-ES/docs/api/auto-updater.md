@@ -2,20 +2,15 @@
 
 > Permite que las aplicaciones que se actualicen automáticamente.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-El modulo `autoUpdater` provee una interfaz para el framework [Squirrel](https://github.com/Squirrel).
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Puedes iniciar rápidamente un servidor multiplataforma para distribuir tu aplicación utilizando uno de estos proyectos:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): * Un servidor de lanzamiento inteligente para tus aplicaciones, usando GitHub como Backend. Se auto actualiza con Squirrel(Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): * Un destacado destacado servidor de lanzamiento alojado para aplicaciones en electron, compatible con el auto actualizador*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): * Un simple servidor en node.js para Squirrel.Mac y Squirrel.Windows el cual usa GitHub releases*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Una simple aplicacion PHP para Squirrel.Windows la cual lee las actualizaciones desde una carpeta. Admite las actualizaciones delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Noticias de plataforma
-
-A pesar que `autoUpdater` provee una API uniforme para diferentes plataformas, aun algunas diferencias sutiles en cada plataforma.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -32,10 +27,6 @@ Cuando usas [electron-winstraller](https://github.com/electron/windows-installer
 El instalador generado con [Squirrel](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) se creara un acceso directo a un icono con una `Application User Model ID` en el formato igual a este ` com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE` ejemplos: `com.squirrel.slack.Slack` y <1>com.squirrel.code.Code</1> Tu debes usar el mismo ID de tu aplicación con `app.setAppUserModelId` API, de lo contrario Windows no podría ejecutarlo correctamente en la barra de tareas.
 
 A diferencia de Squirrel, Mac OS, Windows puede recibir actualizaciones sobre S3 o cualquier otro lhst de archivos estático, puedes leer la documentación de [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) para obtener más detalles sobre el funcionamiento de esto.
-
-### Linux
-
-Esto no esta construido para soportar auto-updater sobre Linux, es recomendable que hagas uso del administrador de paquete de tu distribución para tu app.
 
 ## Eventos
 
@@ -81,7 +72,7 @@ El objeto `autoUpdater` tiene los siguientes métodos:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
+* `url` Cadena
 * `requestHeaders` Object *macOS* (optional) - HTTP request headers.
 
 Configura el `url` e inicializa la actualización automática.

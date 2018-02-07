@@ -98,7 +98,7 @@ console.log(clipboard.readText('selection'))
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```

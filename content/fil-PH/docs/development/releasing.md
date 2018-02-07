@@ -160,7 +160,7 @@ Ang release na to ay nailathala sa [npm] (https://www.npmjs.com/package/electron
 3. Tanggalan ng tsek ang `prerelease` checkbox kung kayo ay maglalathala ng isang matatag na release; iwanan itong naka tsek para sa beta release.
 4. Ipindutin ang 'Save draft'. **Do not click 'Publish release'!**
 5. Antayin ang lahat ng build na pumasa bago magpatuloy.
-6. Maari mong paganahin ang `npm run release --validateRelease` para ma i-verify na ang lahat na kailangan files para makagawa ng para sa release.
+6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
 ## Pagsamahin ang mga sangay ng pansamantala
 

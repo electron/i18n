@@ -2,7 +2,7 @@
 
 > Pamahalaan ang mga sesyon ng browser, mga cookie, cache, mga setting ng proxy, etc.
 
-Ang Proseso: [Pangunahin](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 Ang `sesyon` modyul ay maaaring gamitin para gumawa ng bagong `Sesyon` ng mga layunin.
 
@@ -18,14 +18,14 @@ const ses = win.webContents.session
 console.log(ses.getUserAgent())
 ```
 
-## Mga pamamaraan
+## Mga Paraan
 
 Ang `sesyon` ng modyul ay ang mga sumusunod na pamamaraan:
 
 ### `sesyon.galingPartisyon(partisyon[, mga opsyon])`
 
 * `partisyon` String
-* `mga opsyon` Layunin 
+* `mga pagpipilian` Mga bagay (opsyonal) 
   * `cache` Boolean - Maaaring paganahin ang cache.
 
 Ibalik ang `Sesyon` - Isang mungkahi ng sesyon mula sa `partisyon` ng string. Kapag merong umiiral sa `sesyon` ng may kaparehong `partisyon`, ito ay maaaring bumalik: sa kabilang banda ay maging bago `Sesyon` ang instansya ay maaaring gumawa kasama ang `mga opsyon`.
@@ -34,7 +34,7 @@ Kung ang `partisyon` ay nagsisimula kasama ang `pananatili:`, ang pahina ay guma
 
 Para gumawa ng isang `sesyon` kasama ng `mga option`, siguraduhin mo rin ang `Sesyon` kasama ang `partisyon` na hindi pa ginamit nuon. Walang ibang paraan para baguhin ang `mga opsyon` bilang isang umiiiral na `Sesyon` ng layunin.
 
-## Mga katangian
+## Mga Katangian
 
 Ang `sesyon` ng module ay may sinusunod na katangian:
 
@@ -46,7 +46,7 @@ Isang `sesyon` ng layunin, ang depult ng sesyon na layunin ng app.
 
 > Kumuwa at magtakda ng mga katangian ng isang sesyon.
 
-Ang proseso ng: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 Maaari kang gumawa ng isang `Sesyon` ng layunin sa `sesyon` ng module:
 
@@ -56,13 +56,13 @@ const ses = sesyon.galingpartisyon('persist:name')
 console.log(ses.getUserAgent())
 ```
 
-### Halimbawa ng mga Kaganapan
+### Halimbawa ng mga event
 
 Ang mga sumusunod na mga kaganapan ay magagamit sa mga pagkakataon ng `Sesyon`:
 
 #### Kaganapan: 'Ay-madadownload'
 
-* `kaganapan` Kaganapan
+* `kaganapan`Kaganapan
 * `aytem` [I-downloadangaytem](download-item.md)
 * `mga nilalaman ng web` [Mga nilalaman ng Web](web-contents.md)
 
@@ -80,26 +80,26 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Mga halimbawa ng pamamaraan
+### Mga pamamaraan ng pagkakataon
 
 Nag sumusunod na pamamaraan ay magagamit para sa halimbawa ng `Session`:
 
 #### `ses.getCacheSize(callback)`
 
-* `tumawag muli` Function 
+* `callback` Punsyon 
   * `size` Integer - Nagamit na laki cache sa bytes.
 
 Pagwatag-muli ay nananawagan sa mga sesyons sa kasalukuyang laki ng cache.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Tinatawag kung ang operason ay tapos na
+* `callback` Function - Tinatawag kung ang operasyon ay tapos na
 
 Nililimas ang sesyon ng HTTP cache.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `options` Bagay (opsyonal) 
   * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
@@ -117,7 +117,7 @@ Pagsulat nag anumang di-nakusulat na DOMStorage na datos para sa disk.
   * `pacScript` String - Ang URL na kasama na may PAC file.
   * `proxyRules` String - Mga panuntunan na nagsasad kung no lang mga proxies na gagamitan.
   * `proxyBypassRules` String - Mga panuntunan na nagpapahiwatig kung saan ang URLs ay dapat i-bypass ang mga setting ng proxy.
-* `callback` Function - Tinatawag kung ang operasyon ay tapos na.
+* `callback` Function - Tinatawag kung ang operason ay tapos na.
 
 Nagtatakda ng mga settings na proxy.
 
@@ -125,12 +125,13 @@ Kung ang `pacScript` at `proxyRules` ay kasabay na ibinigay, ang `proxyRules` na
 
 Ang `proxyRules` ay dapat sumunod sa panuntunan:
 
-    proxyRules = schemeProxies[";"<schemeProxies>]
-    schemeProxies = [<urlScheme>"="]<proxyURIList>
-    urlScheme = "http" | "https" | "ftp" | "socks"
-    proxyURIList = <proxyURL>[","<proxyURIList>]
-    proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
-    
+```sh
+proxyRules = schemeProxies[";"<schemeProxies>]
+schemeProxies = [<urlScheme>"="]<proxyURIList>
+urlScheme = "http" | "https" | "ftp" | "socks"
+proxyURIList = <proxyURL>[","<proxyURIList>]
+proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+```
 
 Halimbawa:
 
@@ -175,7 +176,7 @@ Ang `proxyBypassRules` ay comma na hiwalay na listahan ng panuntunan na iniliraw
 #### `ses.resolveProxy(url, callback)`
 
 * `url` Ang URL
-* `tumawag muli` Function 
+* `callback` Function 
   * `proxy` String
 
 Malulutas ang impormasyon para sa `url`. Ang `callback` ay tatawagin na may `callback(proxy)` kung saan ang hiling ay gagawin.
@@ -186,9 +187,9 @@ Malulutas ang impormasyon para sa `url`. Ang `callback` ay tatawagin na may `cal
 
 Nagtatakda ng download saving na diktoryo. Bilang default, ang download na diktoryo ay magiging `Downloads` sa ilalim ng kaukulang app na folder.
 
-#### `ses.enableNetworkEmulation(opsyons)`
+#### `ses.enableNetworkEmulation(options)`
 
-* `mga pagpipilian` Mga Bagay 
+* `mga opsyon` Bagay 
   * `offline` Boolean (opsyonal) - Kung saan i-emulate ang network outage. Defaults sa huwad.
   * `latency` Double (opsyonal) - RTT in ms. Defaults sa 0 kung saan ito ay hindi pinagana ng latency throttling.
   * `downloadThroughput` Double (opsyonal) - Pag-download ng rate sa Bps. Defaults sa 0 kung saan hindi pinagana ang download throttling.
@@ -215,13 +216,14 @@ Hindi pinapagana ang anumang network emulation ay na aktibo para sa `session`. N
 #### `ses.setCertificateVerifyProc(proc)`
 
 * `proc` Function 
-  * `kahilingan` Mga Bagay 
+  * `kahilingan` Bagay 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `error` String - Pagpapatunay na result galing sa chromium.
+    * `verificationResult` String - Verification result from chromium.
+    * `errorCode` Integer - Error code.
   * `callback` Function 
     * `verificationResult` Integer - Balyo ay maaring isang sertipiko na error codes galing sa [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)Bukod sa sertifikong error codes, ang mga sumusunod na espesyal na codes ay magagamit. 
-      * `` - Ay nagpapahiwatig sa tagumpay at pag-disable sa Certificate Transperancy verification.
+      * `` - Indicates success and disables Certificate Transparency verification.
       * `-2` - Nagpapahiwatig sa kabigu-an.
       * `-3` - Gumagamit ng pagpapatunay galing sa chromium.
 
@@ -245,13 +247,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `ang tagahawak` Function 
+* `ang tagahawak` Function | null 
   * `webContents` [WebContents](web-contents.md) - WebContents pag-request ng pahintulot.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` Boolean - Pagpayag o pag-tanggi sa pahintulot
 
-Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` ay maaring bigyan pahintulot ang `callback(false)` ay tatangihan ito.
+Nagtatakda sa handler kung saan magagamit upang tumugon sa pahintulot na kahilingan para sa `session`. Calling `callback(true)` ay maaring bigyan pahintulot ang `callback(false)` ay tatangihan ito. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
 const {session} = require('electron')
@@ -304,14 +306,14 @@ Nagbabalik `String` - Ang gugamit na ahente para sa sesyon na ito.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `tumawag muli` Function 
+* `callback` Function 
   * `result` Buffer - Blob data.
 
 Nagbabalik `Blob` - The blob na datos ay na-uugnay na may `identifier`.
 
 #### `ses.createInterruptedDownload(opsyons)`
 
-* `mga pagpipilian` Mga Bagay 
+* `options` Bagay 
   * `path` String - Ganap na path para sa download.
   * `urlChain` String[] - Completong URL chain para sa download.
   * `mimeType` String (opsyonal)
@@ -326,11 +328,11 @@ Nagpapahintulot ng pagpapatuloy sa `cancelled` o `interrupted` downloads galing 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (opsyonal) - Tinawag kung ang operason ay tapos na
+* `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na
 
 Nililimas ang sesyon ng HTTP authentication cache.
 
-### Humahalimbawa sa bahagi nito ay
+### Mga Katangian ng Instance
 
 Ang mga sumusunod na ari-arian ay magagamit sa mga pagkakataon ng `Session`:
 

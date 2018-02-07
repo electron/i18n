@@ -12,21 +12,21 @@ Una `VistaBrowser` può essere usato per incorporare contenuti web aggiuntivi ne
 
 ```javascript
 // Nel processo principale.
-const {VistaBrowser, FinestraBrowser} = richiedi('electron')
+const {BrowserView, BrowserWindow} = require('electron')
 
-vinci = nuova FinestraBrowser({larghezza: 800, altezza: 600})
-vinci.su('chiuso', () => {
-  vinci = nullo
+let win = new BrowserWindow({width: 800, height: 600})
+win.on('closed', () => {
+  win = null
 })
 
-visualizza = nuova VistaBrowswr({
-  Preferenzeweb: {
-    Integrazionenodo: false
+let view = new BrowserView({
+  webPreferences: {
+    nodeIntegration: false
   }
 })
-vinci.impostaVistaBrowser(vista)
-vista.impostaRimbalzi({ x: 0, y: 0, larghezza: 300, altezza: 300 })
-vista.Contenutiweb.caricaURL('https://electron.atom.io')
+win.setBrowserView(view)
+view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `nuova VistaBrowser([options])` *Sperimentale*
@@ -36,13 +36,23 @@ vista.Contenutiweb.caricaURL('https://electron.atom.io')
 
 ### Metodi Statici
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `VistaBrowser.daId(id)`
 
 * `id` Numero Intero
 
 Restituisce `VistaBrowser` - La vista con l'`id` dato.
 
-### Proprietà Istanze
+### Proprietà Istanza
 
 Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
 

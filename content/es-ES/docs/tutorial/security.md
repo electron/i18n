@@ -18,28 +18,23 @@ Sentimos que el sistema actual de actualización de el componente Chromium alcan
 
 ## Ignorando Consejos
 
-Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. Como un ejemplo, considera una página web remota siendo mostrada dentro de un [`BrowserWindow`](browser-window). Si un atacante, de alguna manera, logra cambiar dicho contenido (atacando la fuente directamente o estableciéndose entre tu aplicación y el destino actual), ellos serán capaces de ejecutar el código nativo en la máquina de usuario.
+Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. Como un ejemplo, considera una página web remota siendo mostrada dentro de un [`BrowserWindow`](../api/browser-window.md). Si un atacante, de alguna manera, logra cambiar dicho contenido (atacando la fuente directamente o estableciéndose entre tu aplicación y el destino actual), ellos serán capaces de ejecutar el código nativo en la máquina de usuario.
 
-> :warning: Debajo de ninguna circunstancia deberías cargar y ejecutar el código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetado juntos con tu aplicación) para ejecutar el código Node.js. Para mostrar contenido remoto, usa el tag [`webview`](web-view) y asegúrate de desactivar el `nodeIntegration`.
+> :warning: Debajo de ninguna circunstancia deberías cargar y ejecutar el código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetado juntos con tu aplicación) para ejecutar el código Node.js. Para mostrar contenido remoto, usa el tag [`webview`](../api/web-view) y asegúrate de desactivar el `nodeIntegration`.
 
-#### Lista: Recomendaciones de Seguridad
+## Electron Security Warnings
 
-Esto no es aprueba de balas, pero debería intentar lo siguiente al menos:
+From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
-* [Solo carga contenido seguro](#only-load-secure-content)
-* [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#disable-node.js-integration-for-remote-content)
-* [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#enable-context-isolation-for-remote-content)
-* [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#handle-session-permission-requests-from-remote-content)
-* [No desactives `webSecurity`](#do-not-disable-websecurity)
-* [Define un `Content-Security-Policy`](#define-a-content-security-policy) y usa reglas extrictas (i.e. `script-src 'self'`)
-* [Sobrescribe y desactiva `eval`](#override-and-disable-eval), lo que permite que las cadenas sean ejecutadas como código.
-* [No establezca `allowRunningInsecureContent` a `true`](#do-not-set-allowRunningInsecureContent-to-true)
-* [No active ajustes experimentales](#do-not-enable-experimental-features)
-* [No use `blinkFeatures`](#do-not-use-blinkfeatures)
-* [Visor web: no use `allowpopups`](#do-not-use-allowpopups)
-* [WebViews: Verifique las opciones y parámetros de todos los `<webview>` tags](#verify-webview-options-before-creation)
+You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
 
-## Solo Carga Contenido Seguro
+## Lista: Recomendaciones de Seguridad
+
+This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+
+1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+
+## 1) Only Load Secure Content
 
 Cualquier recurso no incluido con tu aplicación debería ser cargado usando un protocolo de seguridad como `HTTPS`. En otras palabras, no uses protocolos inseguros como `HTTP`. Similarmente, recomendamos el uso de `WSS` antes de `WS`, `FTPS` sobre `FTP`, y así sucesivamente.
 
@@ -49,7 +44,7 @@ Cualquier recurso no incluido con tu aplicación debería ser cargado usando un 
 
 1) Autentica el servidor remoto, asegurando que tu aplicación conecte al anfitrión correcto en vez de un falsificador. 2) Asegura integridad de data, afirmando que la data no fue modificada mientras estaba en tránsito entre tu aplicación y el anfitrión. 3) Encripta el tráfico entre tu usuario y el anfitrión destinatario, haciéndolo más difícil escuchar a escondidas las información establecida entre tu aplicación y el anfitrión.
 
-### ¿Còmo?
+### ¿Cómo?
 
 ```js
 // Bad
@@ -69,9 +64,9 @@ browserWindow.loadURL('https://my-website.com')
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## Desactiva la Integración Node.js para contenido remoto
+## 2) Disable Node.js Integration for Remote Content
 
-Es necesario que desactives la integración Node.js en cualquier renderizador ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) que cargue contenido remoto. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
+It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
 
 Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si estás abriendo un BrowserWindow direccionado a `https://my-website.com/", puedes darle a esa página web las habilidades exactas que necesita, pero no más.
 
@@ -120,7 +115,7 @@ window.readConfig = function () {
 }
 ```
 
-## Activa aislamiento de contexto para contenido remoto
+## 3) Enable Context Isolation for Remote Content
 
 Aislamiento de contexto es un ajuste de Electron que permite a los desarrolladores ejecutar códigos en guiones de pre carga y en APIs de Electron en un contexto dedicado de JavaScript. En práctica, eso significa que los objetos globales como `Array.prototype.push` o `JSON.parse` no puede ser modificado por guiones por guiones ejecutándose en el proceso de renderizado.
 
@@ -166,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## Otorga pedidos de permiso de sesión en el contenido remoto
+## 4) Handle Session Permission Requests From Remote Content
 
 Tu puedes haber visto pedidos de permiso mientras usas Chrome: Ellos avisan lo que sea que la página intente usar como una característica que el usuario tiene que aprobar manualmente (como notificaciones).
 
@@ -198,7 +193,43 @@ session
   })
 ```
 
-## Define un contenido de política de seguridad
+## 5) Do Not Disable WebSecurity
+
+*La recomendación por defecto es Electrón*
+
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) disables crucial security features.
+
+No deshabilite `webSecurity` en aplicaciones de producción.
+
+### ¿Por què?
+
+Desactivar `webSecurity` deshabilitará la política de mismo-origen y establecer la propiedad `allowRunningInsecureContent` a `true`. En otras palabras, permite la ejecución de código inseguro desde diferentes dominios.
+
+### ¿Còmo?
+
+```js
+// Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    webSecurity: false
+  }
+})
+```
+
+```js
+// Good
+const mainWindow = new BrowserWindow()
+```
+
+```html
+<!-- Bad -->
+<webview disablewebsecurity src="page.html"></webview>
+
+<!-- Good -->
+<webview src="page.html"></webview>
+```
+
+## 6) Define a Content Security Policy
 
 Un Contenido de Política de Seguridad (CSP) es una capa adicional de protección contra los ataques cross-site-scripting attacks y ataques de inyecciones de data. Recomendamos que ellos estén activados por cualquier página web cargada dentro de Electron.
 
@@ -220,7 +251,7 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-## Override and Disable `eval`
+## 7) Override and Disable `eval`
 
 `eval()` es un método principal de JavaScript que permite la ejecución de JavaScript desde una cadena. Desactivar esto desactivará la habilidad de tu aplicación de evaluar el JavaScript que no es conocido en avance.
 
@@ -240,9 +271,9 @@ window.eval = global.eval = function () {
 }
 ```
 
-## No establecer `allowRunningInsecureContent` a `true`
+## 8) Do Not Set `allowRunningInsecureContent` to `true`
 
-*La recomendación es el defecto del electrón*
+*La recomendación por defecto es Electrón*
 
 Por defecto, Electron ahora le permitirá a sitios web descargados por medio de `HTTPS` descargar y ejecutar guiones, CSS o complementos de fuentes inseguras (<0<HTTP</code>). Establecer la propiedad `allowRunningInsecureContent` a `true` deshabilita esa protección.
 
@@ -252,7 +283,7 @@ Descargar la inicial HTML de un sitio web mediante `HTTPS` e intentar descargar 
 
 En pocas palabras, descargar contenido mediante `HTTPS` asegura la autenticidad e integridad de los recursos cargados mientras se cifrar el tráfico como tal. Ver la sección en [only displaying secure content](#only-display-secure-content) para más detalles.
 
-### ¿Cómo?
+### ¿Còmo?
 
 ```js
 // Bad
@@ -268,7 +299,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## No habilite funciones experimentales
+## 9) Do Not Enable Experimental Features
 
 *La recomendación por defecto es Electrón*
 
@@ -296,9 +327,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## Do Not Use `blinkFeatures`
+## 10) Do Not Use `blinkFeatures`
 
-*La recomendación es el defecto del electrón*
+*La recomendación por defecto es Electrón*
 
 Blink es el nombre del motor de renderizado detrás de Chromium. Como con `experimentalFeatures`, la propiedad `blinkFeatures` le permite a los desarrolladores habilitar funciones que han sido deshabilitadas por defecto.
 
@@ -322,45 +353,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## No Deshabilite WebSecurity
+## 11) Do Not Use `allowpopups`
 
-*La recomendación es el defecto del electrón*
-
-Usted debe haber adivinado para este momento que al deshabilitar la propiedad `webSecurity` en un procesador de renderizado ([`BrowserWindow`](browser-window), [`BrowserView`](browser-view), o [`WebView`](web-view)) deshabilita funciones de seguridad elementales.
-
-No deshabilite `webSecurity` en aplicaciones de producción.
-
-### ¿Por què?
-
-Desactivar `webSecurity` deshabilitará la política de mismo-origen y establecer la propiedad `allowRunningInsecureContent` a `true`. En otras palabras, permite la ejecución de código inseguro desde diferentes dominios.
-
-### ¿Cómo?
-
-```js
-// Bad
-const mainWindow = new BrowserWindow({
-  webPreferences: {
-    webSecurity: false
-  }
-})
-```
-
-```js
-// Good
-const mainWindow = new BrowserWindow()
-```
-
-```html
-<!-- Bad -->
-<webview disablewebsecurity src="page.html"></webview>
-
-<!-- Good -->
-<webview src="page.html"></webview>
-```
-
-## No haga Uso de `allowpopups`
-
-*La recomendación es el defecto del electrón*
+*La recomendación por defecto es Electrón*
 
 Si usted está usando [`WebViews`](web-view), tal vez necesite las páginas y guiones cargados en su etiqueta `<webview>` para abrir nuevas ventanas. El atributo `allowpopups` los habilita para crear un nuevo [`BrowserWindows`](browser-window) usando el método `window.open()`. De distinta forma, `WebViews` no están permitidos para crear nuevas ventanas.
 
@@ -378,7 +373,7 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 <webview src="page.html"></webview>
 ```
 
-## Verificar Opciones de WebView antes de la Creación
+## 12) Verify WebView Options Before Creation
 
 Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
@@ -390,7 +385,7 @@ Como los WebViews viven en el DOM, ellos pueden ser creados por un guión ejecut
 
 Electron habilita a desarrolladores a inhabilitar varias funciones de seguridad que controlan un proceso de renderizado. En la mayoría de los casos, desarrolladores no necesitas deshabilitar ninguno de esas funciones - y usted debería por lo tanto no permitir configuraciones diferentes para etiquetas [`<WebView>`](web-view) creadas recientemente.
 
-### ¿Cómo?
+### ¿Còmo?
 
 Antes de que una etiqueta [`<WebView>`](web-view) sea anexada, Electron disparará el evento `will-attach-webview` en el organizador `webContents`. Utilice el evento para prevenir la creación de WebViews con opciones posiblemente inseguras.
 

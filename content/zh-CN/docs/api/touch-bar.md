@@ -2,17 +2,17 @@
 
 > 为原生macOS应用创建TouchBar布局
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+进程：[主进程](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
-* `options` Object 
+* `选项` 对象 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
 用指定的项目创建一个新的触摸栏。 使用`BrowserWindow.setTouchBar`将 `TouchBar`添加到窗口。
 
-**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
+**注意:** TouchBar API目前为实验性质，可能会更改或删除。
 
 **提示：**如果您没有带Touch Bar的MacBook，则可以使用[ Touch Bar Simulator ](https://github.com/sindresorhus/touch-bar-simulator)来测试应用中的Touch Bar使用情况。
 
@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### Running the above example
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Save the above file to your computer as `touchbar.js`
 2. Install Electron via `npm install electron`

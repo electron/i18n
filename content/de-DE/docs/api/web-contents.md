@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-### Instance Events
+### Beispiel Events
 
 #### Event: 'did-finish-load'
 
@@ -55,8 +55,8 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Rückgabewert:
 
-* `event` Event
-* `errorCode` Integer
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
@@ -67,8 +67,8 @@ This event is like `did-finish-load` but emitted when the load failed or was can
 
 Rückgabewert:
 
-* `event` Event
-* `isMainFrame` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>isMainFrame` Boolean
 
 Emitted when a frame has done navigation.
 
@@ -84,8 +84,8 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Rückgabewert:
 
-* `event` Event
-* `status` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>status` Boolean
 * `newURL` String
 * `originalURL` String
 * `httpResponseCode` Integer
@@ -100,8 +100,8 @@ Emitted when details regarding a requested resource are available. `status` indi
 
 Rückgabewert:
 
-* `event` Event
-* `oldURL` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
 * `httpResponseCode` Integer
@@ -115,16 +115,18 @@ Emitted when a redirect is received while requesting a resource.
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Emitted when the document in the given frame is loaded.
+<p>Emitted when the document in the given frame is loaded.</p>
 
-#### Event: 'page-favicon-updated'
+<h4>Event: 'page-favicon-updated'</h4>
 
-Rückgabewert:
+<p>Rückgabewert:</p>
 
-* `event` Event
-* `favicons` String[] - Array of URLs
+<ul>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code>favicons` String[] - Array of URLs
 
 Emitted when page receives favicon urls.
 
@@ -132,9 +134,9 @@ Emitted when page receives favicon urls.
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `frameName` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>frameName` String
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which will be used for creating the new `BrowserWindow`.
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
@@ -159,8 +161,8 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>url` String
 
 Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
 
@@ -174,36 +176,37 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when a navigation is done.
+<p>Emitted when a navigation is done.</p>
 
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+<p>This event is not emitted for in-page navigations, such as clicking anchor links
+or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
+  #### Event: 'did-navigate-in-page'
+  
+  Rückgabewert:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
+  
+  Emitted when an in-page navigation happened.
+  
+  When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+  
+  #### Event: 'will-prevent-unload'
+  
+  Rückgabewert:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-#### Event: 'did-navigate-in-page'
-
-Rückgabewert:
-
-* `event` Event
-* `url` String
-* `isMainFrame` Boolean
-
-Emitted when an in-page navigation happened.
-
-When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
-
-#### Event: 'will-prevent-unload'
-
-Rückgabewert:
-
-* `event` Event
-
-Emitted when a `beforeunload` event handler is attempting to cancel a page unload.
-
-Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
-
-```javascript
+<p>Emitted when a <code>beforeunload` event handler is attempting to cancel a page unload.</p> 
+    Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+    
+    ```javascript
 const {BrowserWindow, dialog} = require('electron')
 const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
@@ -226,8 +229,8 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Rückgabewert:
 
-* `event` Event
-* `killed` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
 
@@ -235,8 +238,8 @@ Emitted when the renderer process crashes or is killed.
 
 Rückgabewert:
 
-* `event` Event
-* `name` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>name` Zeichenfolge
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -249,8 +252,8 @@ Emitted when `webContents` is destroyed.
 
 Rückgabewert:
 
-* `event` Event
-* `input` Object - Input properties 
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>input` Object - Input properties 
   * `type` String - Either `keyUp` or `keyDown`
   * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
   * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
@@ -292,9 +295,9 @@ Emitted when DevTools is focused / opened.
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
-* `error` String - The error code
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Funktion 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted
@@ -307,8 +310,8 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 Rückgabewert:
 
-* `event` Event
-* `url` URL
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Funktion 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list
@@ -321,8 +324,8 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Rückgabewert:
 
-* `event` Event
-* `request` Object 
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>request` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -344,8 +347,8 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Rückgabewert:
 
-* `event` Event
-* `result` Object 
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -370,21 +373,27 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 #### Event: 'update-target-url'
 
 Rückgabewert:
 
-* `event` Event
-* `url` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Emitted when mouse moves over a link or the keyboard moves the focus to a link.
+<p>Emitted when mouse moves over a link or the keyboard moves the focus to a link.</p>
 
-#### Event: 'cursor-changed'
+<h4>Event: 'cursor-changed'</h4>
 
-Rückgabewert:
+<p>Rückgabewert:</p>
 
-* `event` Event
-* `type` String
+<ul>
+<li><code> Ereignis </ 0>  Ereignis</li>
+<li><code>type` String
 * `image` NativeImage (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor
 * `size` [Size](structures/size.md) (optional) - the size of the `image`
@@ -398,8 +407,8 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Rückgabewert:
 
-* `event` Event
-* `params` Object 
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>params` Object 
   * `x` Integer - x coordinate
   * `y` Integer - y coordinate
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -440,8 +449,8 @@ Emitted when there is a new context menu that needs to be handled.
 
 Rückgabewert:
 
-* `event` Event
-* `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Funktion 
   * `GeräteName` Zeichenfolge
 
@@ -470,8 +479,8 @@ app.on('ready', () => {
 
 Rückgabewert:
 
-* `event` Event
-* `dirtyRect` [Rectangle](structures/rectangle.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
@@ -494,8 +503,8 @@ Emitted when the devtools window instructs the webContents to reload
 
 Rückgabewert:
 
-* `event` Event
-* `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
 * `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
@@ -504,12 +513,32 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-### Instance Methods
+#### Event: 'did-attach-webview'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Event: 'console-message'
+
+Rückgabewert:
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+
+### Beispiel Methoden
 
 #### `contents.loadURL(url[, options])`
 
-* `url` String
-* `options` Object (optional) 
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>optionen` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -526,15 +555,15 @@ webContents.loadURL('https://github.com', options)
 
 #### `contents.downloadURL(url)`
 
-* `url` String
+* ` URL </ 0>  Zeichenfolge</li>
+</ul>
 
-Initiates a download of the resource at `url` without navigating. The `will-download` event of `session` will be triggered.
-
-#### `contents.getURL()`
-
-Returns `String` - The URL of the current web page.
-
-```javascript
+<p>Initiates a download of the resource at <code>url` without navigating. The `will-download` event of `session` will be triggered.</p> 
+  #### `contents.getURL()`
+  
+  Returns `String` - The URL of the current web page.
+  
+  ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('http://github.com')
@@ -663,7 +692,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
 
 * `ignore` Boolean
 
@@ -790,14 +819,16 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -846,12 +877,14 @@ Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+* `callback` Function (optional) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -861,15 +894,15 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `optionen` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
 * `callback` Funktion 
-  * `error` Error
-  * `data` Buffer
+  * ` Fehler </ 0> Fehler</li>
+<li><code>data` Buffer
 
 Prints window's web page as PDF with Chromium's preview printing custom settings.
 
@@ -933,7 +966,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1056,7 +1089,6 @@ For the `mouseWheel` event, the `event` object also have following properties:
 * `accelerationRatioY` Integer
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
-
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`
@@ -1090,11 +1122,12 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
 * `callback` Funktion - `(error) => {}`. 
-  * `error` Error
+  * ` Fehler </ 0> Fehler</li>
+</ul></li>
+</ul>
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
-
-```javascript
+<p>Returns <code>Boolean` - true if the process of saving page has been initiated successfully.</p> 
+    ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 
@@ -1115,11 +1148,10 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `optionen` Object 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
-
 #### `contents.isOffscreen()`
 
 Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
@@ -1170,7 +1202,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Fall Eigenschaften
 
 #### `contents.id`
 

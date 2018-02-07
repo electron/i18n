@@ -2,7 +2,7 @@
 
 > 在渲染进程中使用主进程模块。
 
-进程: [ Renderer](../glossary.md#renderer-process)
+进程: [渲染进程](../glossary.md#renderer-process)
 
 ` remote ` 模块为渲染进程（web页面）和主进程通信（IPC）提供了一种简单方法。
 
@@ -103,14 +103,15 @@ Returns `any` - The object returned by `require(module)` in the main process. �
 
 例如:
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js

@@ -2,12 +2,12 @@
 
 > Kontrol unduhan file dari sumber jauh.
 
-Proses:  Utama </ 0></p> 
+Process: [Main](../glossary.md#main-process)
 
 ` DownloadItem </ 0> adalah <code> acara Emitter </ 0> yang mewakili item unduhan di Elektron .
 Ini digunakan dalam event <code> will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
 
-<pre><code class="javascript">// Dalam proses utamanya.
+<pre><code class="javascript">// In the main process.
 const {jendela Browser} = memerlukan (' electron ') misalkan win = jendela baru Browser () win.webContents.session.on ('will-download', ( event , item, webContents) = & gt; {
    // Set save path, membuat Elektron tidak meminta dialog simpan.
   item.setSavePath ('/ tmp / save.pdf') item.on ('util', (acara, negara bagian) = & gt; {jika (negara === 'terputus') {console.log ('Download terputus & dapat kembali ')} jika lain (negara ===' berkembang ') {jika (item.isPaused ()) {console.log (' Downl ownload berhenti ')} lain {console.log (' menerima byte: $ {item .getReceivedBytes ()} ')}}}) item.once (' dilakukan ', (acara, negara bagian) = & gt; {jika (negara ===' selesai ') {console.log (' Download berhasil ')} lain {console.log ('Download gagal: $ {state}')}})})
@@ -37,8 +37,8 @@ Pengembalian:
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code> negara </ 0>  String</li>
+<li><code>acara` Acara
+* ` negara </ 0>  String</li>
 </ul>
 
 <p>Emitted saat download dalam status terminal. Ini termasuk unduhan yang selesai, unduhan yang dibatalkan (melalui <code> downloadItem.cancel () </ 0> ), dan undingan terputus yang tidak dapat dilanjutkan.</p>
@@ -81,9 +81,9 @@ Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunaka
 
 <h4><code>download Item.bisa lanjut ()`</h4> 
         
-        Lanjut ` Boolean </ 0> - Apakah proses download bisa dilanjutkan.</p>
-
-<h4><code>download Item.batal ()`</h4> 
+        Returns `Boolean` - Whether the download can resume.
+        
+        #### `download Item.batal ()`
         
         Membatalkan operasi unduh.
         

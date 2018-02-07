@@ -2,7 +2,7 @@
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 ## Oluşturucu işleminde kullanma
 
@@ -12,13 +12,13 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
-### Statik yöntemler
+### Statik Metodlar
 
 `Notification` sınıfının statik yöntemleri aşağıdaki gibidir:
 
@@ -28,18 +28,18 @@ Süreç: [Ana](../glossary.md#main-process)
 
 ### `new Notification([options])` *Experimental*
 
-* `ayarlar` Nesne 
+* `seçenekler` Nesnesi 
   * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı
   * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
   * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
   * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
-  * `icon` [NativeImage](native-image.md) - (İsteğe bağlı) Bildirimde kullanılacak simgeyi tanımlar
+  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (İsteğe bağlı) Bildirimler için satır içi cevap seçeneği eklemek isteyip istemediğinizi gösterir. *macOS*
   * `replyPlaceholder` Dizi - (İsteğe Bağlı) - Satır içerisindeki açıklama alanları için yer tutucu özelliği vardır. *macOS*
   * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (İsteğe Bağlı) Bildirimlere eylem eklenebilir. Lütfen `NotificationAction` belgelerinde mevcut eylem ve sınırlamarı okuyunuz. *macOS*
 
-### Örnek etkinlikler
+### Örnek Events
 
 `yeni Bildirim` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
@@ -53,11 +53,11 @@ Dönüşler:
 
 Bildirim kullanıcıya gösterildiğinde yayınlanır, `show()` metodu ile birden çok kez gösterilebileceğinden, bunun birden çok kez tetiklenebileceğini unutmayın.
 
-#### Etkinlik: 'tıkla'
+#### Olay: 'click'
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Event
 
 Bildirim kullanıcı tarafından aratıldığında yayılıyor.
 
@@ -65,17 +65,17 @@ Bildirim kullanıcı tarafından aratıldığında yayılıyor.
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 
 Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
-Bu olayın, bildirimin kapalı olduğu tüm durumlarda ileteceği garanti edilmez.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### Event: 'reply' *macOS*
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `reply` Dize - Kullanıcının satır içi açıklama kısmına girdiği dize
 
 Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
@@ -84,16 +84,22 @@ Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bi
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `index` Numara - Etkin olan eylem dizinini gösterir
 
-### Örnek yöntemleri
+### Sınıf örneği metodları
 
 `new Notification` ile oluşturulan nesnelerin aşağıdaki örnek yöntemleri vardır:
 
 #### `notification.show()`
 
 Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamasının aksine, `new Notification` ın basit bir örneğini hemen kullanıcıya göstermediğini, OS'nin bunu görüntülemeden önce bu yöntemi aramanız gerektiğini unutmayın.
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### Çalınan sesler
 

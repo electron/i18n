@@ -2,10 +2,10 @@
 
 > Obtener las preferencias del sistema.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ```javascript
-const {systemPreferences} = requiere('electron')
+const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
@@ -17,25 +17,25 @@ El objeto de los`sistemasdePreferencias`emiten los siguietes eventos:
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `nuevoColor` Cadena - El nuevo color RGBA que el usuario asignó para ser su color de acento del sistema.
 
 ### Event: 'color-changed' *Windows*
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 
 ### Evento: 'color-invertido-esquema-cambiado' *Windows*
 
 Devuelve:
 
-* `evento` Evento
+* `event` Evento
 * `EsquemaColorinvertido` Boolean ' `verdad` si un color de esquema invertido, como un tema de alto contraste, está siendo usando, o de lo contrario `falso`.
 
 ## Métodos
 
-### `Preferenciasdesistema.esModoOscuro()` *macOS*
+### `systemPreferences.isDarkMode()` *macOS*
 
 Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
 
@@ -60,7 +60,7 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `evento` Cadena
-* `llamada de vuelta` Función 
+* `callback` Función 
   * `evento` Cadena
   * `userInfo` Objeto
 
@@ -84,7 +84,7 @@ Remueve el subscriptor con el `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `evento` Cadena
-* `llamada de vuelta` Función 
+* `callback` Función 
   * `evento` Cadena
   * `userInfo` Objeto
 
@@ -92,7 +92,7 @@ Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defec
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Íntegro
+* `id` Integer
 
 Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
 
@@ -101,9 +101,9 @@ Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotifica
 * `llave` Cadena
 * `type` Cadena - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary`
 
-Devuelve `any` - El valor de `key` en las preferencias del sistema.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -119,13 +119,19 @@ Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
 * `type` Cadena - Ver [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos]
 * `value` Cadena
 
-Establecer el valor de `key` en las preferencias del sistema.
+Set the value of `key` in `NSUserDefaults`.
 
 Nota que `type` debería coincidir el tipo actual de `value`. Una excepción es arrojada si no es así.
 
-Este API usa `NSUserDefaults` en macOS. Algunas `key` y `type` populares son:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
+
+### `systemPreferences.removeUserDefault(key)` *macOS*
+
+* `llave` Cadena
+
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 

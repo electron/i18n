@@ -5,9 +5,9 @@
 
 ## Platform / Action Support
 
-| Action Type | Platform Support | Usage of `text` | Default `text` | Limitations                                                                                           |
-| ----------- | ---------------- | --------------- | -------------- | ----------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | 버튼의 라벨로 사용됨     | "Show"         | 여러개의 버튼이 제공된 경우, 마지막으로 사용 한 것이 최대중 하나의 버튼입니다. 이 액션 또한 `hasReply`와 상반되고,`hasReply` 가 `true`일 때 무시 됩니다. |
+| Action Type | Platform Support | Usage of `text` | Default `text` | Limitations                                                                                                                                                          |
+| ----------- | ---------------- | --------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`    | macOS            | 버튼의 라벨로 사용됨     | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Button support on macOS
 

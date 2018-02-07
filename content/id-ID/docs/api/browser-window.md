@@ -33,8 +33,10 @@ Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi un
 
 <p>Untuk aplikasi yang kompleks, <code> siap-show </ 0>  acara bisa dipancarkan terlambat, membuat aplikasi merasa lambat. Dalam kasus ini, sebaiknya segera tampilkan jendela, dan gunakan latar belakang < 0> warna latar belakang </ 0> ke latar belakang aplikasi Anda:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') biarkan menang = new BrowserWindow ( {backgroundColor: '# 2e2c29'} ) win.loadURL ('https://github.com')
+<pre><code class="javascript">const {BrowserWindow} = membutuhkan ('elektron')
 
+let win = new BrowserWindow({backgroundColor: '#2e2c29'})
+win.loadURL('https://github.com')
 `</pre> 
 
 Preview untuk aplikasi yang menggunakan ` siap-untuk-menunjukkan </ 0> peristiwa, masih disarankan untuk melakukan <code> backgroundColor </ 0> untuk aplikasi yang lebih asli.</p>
@@ -84,10 +86,10 @@ The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p>
 <h2>Kelas: BrowserWindow</h2>
 
 <blockquote>
-  <p>Buat dan kendalikan jendela browser.</p>
+  <p>mengatasi  dan kendalikan jendela peramban</p>
 </blockquote>
 
-<p>Proses: <a href="../glossary.md#main-process"> Utama </ 0></p>
+<p>Process: <a href="../glossary.md#main-process">Main</a></p>
 
 <p><code> BrowserWindow </ 0> adalah
  <a href="http://nodejs.org/api/events.html#events_class_events_eventemitter"> EventEmitter </ 1> .</p>
@@ -117,6 +119,7 @@ The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p>
     * `alwaysOnTop` Boolean (opsional) - Apakah jendela harus selalu berada di atas jendela lainnya Defaultnya adalah `false`.
     * `layar penuh` Boolean (opsional) - Apakah jendela harus tampil di layar penuh. Secara eksplisit set ke `false` tombol fullscreen akan disembunyikan atau dinonaktifkan di macOS. Defaultnya adalah ` false </ 0> .</li>
 <li><code>fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. Di macOS, juga apakah tombol perbesar/zoom harus beralih penuh mode layar atau memaksimalkan jendela. Defaultnya adalah `true`.
+    * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
     * `skipTaskbar` Boolean (opsional) - Apakah akan menampilkan jendela di taskbar. Default adalah `false`.
     * `kios` Boolean (opsional) - Mode kios. Defaultnya adalah `false`.
     * `title` String (opsional) - Judul jendela default. Defaultnya adalah `"Elektron"`.
@@ -129,8 +132,9 @@ The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p>
     * `disableAutoHideCursor` Boolean (opsional) - Apakah akan menyembunyikan kursor saat mengetik. Defaultnya adalah `palsu`.
     * `autoHideMenuBar` Boolean (opsional) - Auto menyembunyikan bilah menu kecuali `Alt` kunci ditekan Defaultnya adalah `palsu`.
     * `enableLargerThanScreen` Boolean (opsional) - Aktifkan jendela yang akan diubah ukurannya lebih besar. dari layar Defaultnya adalah `palsu`.
-    * `backgroundColor` String (opsional) - Warna latar belakang jendela sebagai nilai heksadesimal, seperti `#66CD00` atau `#FFF` atau `#80FFFFFF` (alfa didukung). Default adalah `#FFF` (putih).
+    * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default adalah `#FFF` (putih).
     * `hasShadow` Boolean (opsional) - Apakah jendela seharusnya memiliki bayangan. Hanya ini diimplementasikan di macos Defaultnya adalah `benar`.
+    * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
     * `Tema gelap` Boolean (opsional) - Pasukan menggunakan tema gelap untuk jendela, hanya bekerja beberapa lingkungan desktop GTK3. Defaultnya adalah `false`.
     * `transparent` Boolean (opsional) - Membuat jendela [transparan](frameless-window.md). Defaultnya adalah `palsu`.
     * `ketik` String (opsional) - Jenis jendela, default adalah jendela normal. Lihat lebih lanjut tentang ini di bawah ini.
@@ -170,8 +174,8 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `experimentalFeatures` Boolean (opsional) - Mengaktifkan fitur eksperimental Chromium. Defaultnya adalah `false`.
       * `experimentalCanvasFeatures` Boolean (tangan) - Memungkinkan eksperimental Chromium fitur kanvas Defaultnya adalah `false`.
       * `scrollBounce` Boolean (opsional) - Mengaktifkan efek gulir gips (karet banding) macos Defaultnya adalah `false`.
-      * `blinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti `CSSVariables, KeyboardEventKey` untuk mengaktifkannya. Daftar lengkap fitur yang didukung string dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) mengajukan.
-      * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+      * `blinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti `CSSVariables, KeyboardEventKey` untuk mengaktifkannya. Daftar lengkap fitur yang didukung string dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) mengajukan.
+      * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
       * `defaultFontFamily` Object (optional) - Menetapkan font default untuk font-family. 
         * `standar` String (opsional) - Default ke `Times New Roman`.
         * `serif` String (opsional) - Default ke `Times New Roman`.
@@ -183,8 +187,8 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `defaultMonospaceFontSize` Integer (opsional) - Default ke `13`.
       * `minimumFontSize` Integer (opsional) - Default ke ``.
       * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
-      * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. Hal ini juga mempengaruhi \[API Visibilitas Laman\]\[#page-visibility\]. Default ke ` true </ 0> .</li>
-<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0> . Lihat
+      * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. This also affects the [Page Visibility API](#page-visibility). Default ke ` true </ 0> .</li>
+<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0>. Lihat
  tutorial rendering <a href="../tutorial/offscreen-rendering.md"> offscreen </ 0> untuk lebih jelasnya.</li>
 <li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload ` berjalan masih akan memiliki akses penuh ke jendela ` document `dan` window` namun akan menggunakan set sendiri JavaScript builtins ( `Array`, `Objek`, `JSON`, dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron API hanya akan tersedia di ` preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
@@ -205,7 +209,7 @@ Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Iso
   * Pada Windows , jenis yang mungkin adalah ` toolbar </ 0> .</li>
 </ul>
 
-<h3>Instance Events</h3>
+<h3>Contoh peristiwa</h3>
 
 <p>Objek yang dibuat dengan <code> BrowserWindow baru </ 0> memancarkan acara berikut:</p>
 
@@ -216,8 +220,8 @@ Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Iso
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code> title </ 0>  String</li>
+<li><code>acara` Acara
+  * ` judul </ 0> String</li>
 </ul>
 
 <p>Emitted ketika dokumen tersebut mengubah namanya, memanggil <code> event.preventDefault () </ 0> 
@@ -228,11 +232,9 @@ akan mencegah perubahan dari jendela asli.</p>
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-</ul>
-
-<p>Emitted saat jendela akan ditutup. Ini dipancarkan sebelum
- <code> beforeunload </ 0> dan <code> membongkar </ 0>  acara DOM. Memanggil <code> event.preventDefault () </ 0> 
+<li><code>acara` Acara</ul> 
+  
+  Emitted saat jendela akan ditutup. Ini dipancarkan sebelum `` beforeunload </ 0> dan <code> membongkar </ 0>  acara DOM. Memanggil <code> event.preventDefault () </ 0> 
 akan membatalkan penutupan.</p>
 
 <p>Biasanya Anda ingin menggunakan handler <code> beforeunload </ 0> untuk menentukan apakah jendela harus ditutup, yang juga akan dipanggil saat jendela dimuat ulang. Di Elektron , mengembalikan nilai selain <code> tidak terdefinisi </ 0> akan membatalkan penutupan. Sebagai contoh:</p>
@@ -244,69 +246,73 @@ akan membatalkan penutupan.</p>
    // nilai non-void diam-diam akan membatalkan penutupan.
   // Dianjurkan untuk menggunakan API dialog agar pengguna mengkonfirmasi penutupan
    // aplikasi.
-  e.returnValue = false}
-`</pre> 
-    #### Acara : 'ditutup'
-    
-    Emitted saat jendela tertutup. Setelah menerima acara ini, Anda harus menghapus referensi ke jendela dan tidak menggunakannya lagi.
-    
-    #### Event : 'session-end' * Windows </ 0></h4> 
-    
-    Emitted saat window session akan berakhir karena force shutdown atau restart mesin atau session log off.
-    
-    #### Acara : 'tidak responsif'
-    
-    Emitted saat halaman web menjadi tidak responsif.
-    
-    #### Acara: 'responsif'
-    
-    Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
-    
-    #### Acara: 'blur'
-    
-    Emitted saat jendela kehilangan fokus.
-    
-    #### Acara: 'fokus'
-    
-    Emitted saat window gain fokus.
-    
-    #### Acara: 'show'
-    
-    Emitted saat jendela ditunjukkan.
-    
-    #### Acara: 'sembunyikan'
-    
-    Emitted saat jendela tersembunyi.
-    
-    #### Acara: 'siap tampil'
-    
-    Emitted ketika halaman web telah diberikan (sementara tidak ditampilkan) dan jendela dapat ditampilkan tanpa lampu kilat visual.
-    
-    #### Acara: 'maksimalkan'
-    
-    Emitted saat jendela dimaksimalkan.
-    
-    #### Acara : 'nonmaximize'
-    
-    Emitted saat jendela keluar dari keadaan maksimal.
-    
-    #### Acara : 'minimalkan'
-    
-    Emitted saat jendela diminimalkan.
-    
-    #### Acara : 'pulihkan'
-    
-    Emitted saat jendela dipulihkan dari keadaan diminimalkan.
-    
-    #### Acara : 'ubah ukuran'
-    
-    Dipancarkan saat jendela diubah ukurannya.
-    
-    #### Acara : 'pindah'
-    
-    Emitted saat jendela sedang dipindahkan ke posisi baru.
-    
-    ** Catatan </ 0> : Pada macOS , acara ini hanya alias ` pindah </ 1> .</p>
+  e.returnValue = false // equivalent to `return false` but not recommended
+}
+``</pre> 
+  
+  ***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+  
+  #### Acara : 'ditutup'
+  
+  Emitted saat jendela tertutup. Setelah menerima acara ini, Anda harus menghapus referensi ke jendela dan tidak menggunakannya lagi.
+  
+  #### Event : 'session-end' * Windows </ 0></h4> 
+  
+  Emitted saat window session akan berakhir karena force shutdown atau restart mesin atau session log off.
+  
+  #### Acara : 'tidak responsif'
+  
+  Emitted saat halaman web menjadi tidak responsif.
+  
+  #### Acara: 'responsif'
+  
+  Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
+  
+  #### Acara: 'blur'
+  
+  Emitted saat jendela kehilangan fokus.
+  
+  #### Acara: 'fokus'
+  
+  Emitted saat window gain fokus.
+  
+  #### Acara : 'show'
+  
+  Emitted saat jendela ditunjukkan.
+  
+  #### Acara: 'sembunyikan'
+  
+  Emitted saat jendela tersembunyi.
+  
+  #### Acara: 'siap tampil'
+  
+  Emitted ketika halaman web telah diberikan (sementara tidak ditampilkan) dan jendela dapat ditampilkan tanpa lampu kilat visual.
+  
+  #### Acara: 'maksimalkan'
+  
+  Emitted saat jendela dimaksimalkan.
+  
+  #### Acara : 'nonmaximize'
+  
+  Emitted saat jendela keluar dari keadaan maksimal.
+  
+  #### Acara : 'minimalkan'
+  
+  Emitted saat jendela diminimalkan.
+  
+  #### Acara : 'pulihkan'
+  
+  Emitted saat jendela dipulihkan dari keadaan diminimalkan.
+  
+  #### Acara : 'ubah ukuran'
+  
+  Dipancarkan saat jendela diubah ukurannya.
+  
+  #### Acara : 'pindah'
+  
+  Emitted saat jendela sedang dipindahkan ke posisi baru.
+  
+  ** Catatan </ 0> : Pada macOS , acara ini hanya alias ` pindah </ 1> .</p>
 
 <h4>Acara : 'pindah' <em> macOS </ 0></h4>
 
@@ -333,8 +339,9 @@ akan membatalkan penutupan.</p>
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code> perintah </ 0>  String</li>
+<li><code>event` Acara</li> 
+  
+  * ` perintah </ 0>  String</li>
 </ul>
 
 <p>Emitted when an <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx">App Command</a>
@@ -350,7 +357,6 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
      win.webContents.goBack ()
    }})
 `</pre> 
-    
     #### Acara : 'gulir-sentuh-mulai' * macOS </ 0></h4> 
     
     Emitted saat scroll wheel event phase sudah dimulai.
@@ -367,8 +373,8 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
     
     Pengembalian:
     
-    * ` event </ 0>  Acara</li>
-<li><code> arah </ 0>  String</li>
+    * `acara` Acara
+    * ` arah </ 0>  String</li>
 </ul>
 
 <p>Emitted on 3-finger swipe. Petunjuk yang mungkin ada <code>atas `,` kanan `, `turun `, ` kiri `.</p> 
@@ -402,30 +408,36 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
       
       Mengembalikan`BrowserWindow` - Jendela yang memiliki`contentContents `.
       
+      #### `BrowserWindow.fromBrowserView(browserView)`
+      
+      * `browserView` [BrowserView](browser-view.md)
+      
+      Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+      
       #### `BrowserWindow.fromId (id)`
       
-      * ` id </ 0>  Integer</li>
-</ul>
-
-<p>Kembali <code> BrowserWindow ` - Jendela dengan ` id ` yang diberikan.</p> 
-        #### `BrowserWindow.addExtension (jalur)`
-        
-        * ` path </ 0>  String</li>
+      * `identitas` Integer
+      
+      Kembali ` BrowserWindow ` - Jendela dengan ` id ` yang diberikan.
+      
+      #### `BrowserWindow.addExtension (jalur)`
+      
+      * ` path </ 0>  String</li>
 </ul>
 
 <p>Menambahkan ekstensi Chrome yang terletak di <code> path `, dan mengembalikan nama ekstensi.</p> 
-          Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
-          
-          ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-          
-          #### `BrowserWindow.removeExtension(name)`
-          
-          * `nama` String
-          
-          Hapus ekstensi Chrome dengan nama.
-          
-          ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-          
+        Metode ini juga tidak akan kembali jika manifes ekstensi hilang atau tidak lengkap.
+        
+        ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+        
+        #### `BrowserWindow.removeExtension(name)`
+        
+        * ` nama </ 0>  String</li>
+</ul>
+
+<p>Hapus ekstensi Chrome dengan nama.</p>
+
+<p><strong> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
           #### `BrowserWindow.getExtensions ()`
           
           Mengembalikan`Objek ` - Kunci adalah nama ekstensi dan setiap nilai Objek yang berisi`nama ` dan ` versi `propert.
@@ -446,45 +458,45 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
             
             #### `BrowserWindow.removeDevToolsExtension (nama)`
             
-            * `nama` String
-            
-            Hapus ekstensi DevTools dengan nama.
-            
-            ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-            
-            #### `BrowserWindow.getDevToolsExtensions ()`
-            
-            Mengembalikan`Objek ` - Kunci adalah nama ekstensi dan setiap nilai Objek yang berisi`nama ` dan ` versi `propert.
-            
-            Untuk memeriksa apakah ada ekstensi DevTools, Anda dapat menjalankan yang berikut ini:
-            
-            ```javascript
+            * ` nama </ 0>  String</li>
+</ul>
+
+<p>Hapus ekstensi DevTools dengan nama.</p>
+
+<p><strong> Catatan: </strong> API ini tidak dapat dipanggil sebelum event <code> ready ` dari modul ` app ` dipancarkan.</p> 
+              #### `BrowserWindow.getDevToolsExtensions ()`
+              
+              Mengembalikan`Objek ` - Kunci adalah nama ekstensi dan setiap nilai Objek yang berisi`nama ` dan ` versi `propert.
+              
+              Untuk memeriksa apakah ada ekstensi DevTools, Anda dapat menjalankan yang berikut ini:
+              
+              ```javascript
 biarkan diinstal = {BrowserWindow}getDevToolsExtensions () hasOwnProperty ('devtron')
 console.log (terpasang)
 ```
-        
-        ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
-        
-        ### Instance Properties
-        
-        Objek yang dibuat dengan`BrowserWindow baru ` memiliki properti berikut:
-        
-        ```javascript
+          
+          ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app ` dipancarkan.
+          
+          ### Contoh properti
+          
+          Objek yang dibuat dengan`BrowserWindow baru ` memiliki properti berikut:
+          
+          ```javascript
 const {BrowserWindow} = membutuhkan ('elektron')
 // Dalam contoh ini `win` adalah contoh kami
 let win = new BrowserWindow ({width: 800, height: 600})
 win.loadURL ('https://github.com')
 ```
-    
-    #### `win.webContents`
-    
-    Objek ` WebContents ` yang dimiliki jendela ini. Semua acara terkait halaman web dan operasi akan dilakukan lewat itu.
-    
-    Lihat dokumentasi[ `webContents` ](web-contents.md)untuk metodenya dan acara.
-    
-    #### `win.id`
-    
-    A ` Integer </ 0> mewakili ID unik jendela.</p>
+      
+      #### `win.webContents`
+      
+      Objek ` WebContents ` yang dimiliki jendela ini. Semua acara terkait halaman web dan operasi akan dilakukan lewat itu.
+      
+      Lihat dokumentasi[ `webContents` ](web-contents.md)untuk metodenya dan acara.
+      
+      #### `win.id`
+      
+      A ` Integer </ 0> mewakili ID unik jendela.</p>
 
 <h3>Metode Instance</h3>
 
@@ -493,84 +505,96 @@ win.loadURL ('https://github.com')
 <p><strong>Catatan:</strong> Beberapa metode hanya tersedia pada sistem operasi tertentu dan diberi label seperti itu.</p>
 
 <h4><code>win.destroy()`</h4> 
-    
-    Angkatan menutup jendela, ` membongkar </ 0> dan <code> beforeunload </ 0>  event tidak akan dipancarkan untuk halaman web, dan <code> dekat </ 0>  acara juga tidak akan dipancarkan untuk jendela ini, tetapi menjamin <code> ditutup </ 0>  acara akan dipancarkan.</p>
+      
+      Angkatan menutup jendela, ` membongkar </ 0> dan <code> beforeunload </ 0>  event tidak akan dipancarkan untuk halaman web, dan <code> dekat </ 0>  acara juga tidak akan dipancarkan untuk jendela ini, tetapi menjamin <code> ditutup </ 0>  acara akan dipancarkan.</p>
 
 <h4><code>win.close ()`</h4> 
-    
-    Cobalah untuk menutup jendela. Ini memiliki efek yang sama dengan pengguna yang secara manual mengklik tombol tutup jendela. Halaman web bisa membatalkan close sekalipun. Lihat  acara tutup </ 0> .</p> 
-    
-    #### `win.focus ()`
-    
-    Berfokus pada jendela.
-    
-    #### `win.blur ()`
-    
-    Berfokus pada jendela.
-    
-    #### `win.isFocused ()`
-    
-    Mengembalikan ` Boolean </ 0> - Apakah jendela terfokus.</p>
+      
+      Cobalah untuk menutup jendela. Ini memiliki efek yang sama dengan pengguna yang secara manual mengklik tombol tutup jendela. Halaman web bisa membatalkan close sekalipun. Lihat  acara tutup </ 0> .</p> 
+      
+      #### `win.focus ()`
+      
+      Berfokus pada jendela.
+      
+      #### `win.blur ()`
+      
+      Berfokus pada jendela.
+      
+      #### `win.isFocused ()`
+      
+      Mengembalikan ` Boolean </ 0> - Apakah jendela terfokus.</p>
 
 <h4><code>win.isDestroyed ()`</h4> 
-    
-    Mengembalikan ` Boolean </ 0> - Apakah jendela rusak</p>
+      
+      Mengembalikan ` Boolean </ 0> - Apakah jendela rusak</p>
 
 <h4><code>win.show ()`</h4> 
-    
-    Menunjukkan dan memberi fokus pada jendela.
-    
-    #### `win.showInactive ()`
-    
-    Menunjukkan jendela tapi tidak memusatkan perhatian padanya.
-    
-    #### `win.hide ()`
-    
-    Sembunyikan jendela.
-    
-    #### `win.isVisible ()`
-    
-    Mengembalikan ` Boolean </ 0> - Apakah jendela terlihat oleh pengguna.</p>
+      
+      Menunjukkan dan memberi fokus pada jendela.
+      
+      #### `win.showInactive ()`
+      
+      Menunjukkan jendela tapi tidak memusatkan perhatian padanya.
+      
+      #### `win.hide ()`
+      
+      Sembunyikan jendela.
+      
+      #### `win.isVisible ()`
+      
+      Mengembalikan ` Boolean </ 0> - Apakah jendela terlihat oleh pengguna.</p>
 
 <h4><code>win.isModal ()`</h4> 
-    
-    Mengembalikan ` Boolean </ 0> - Apakah jendela saat ini adalah jendela modal.</p>
+      
+      Mengembalikan ` Boolean </ 0> - Apakah jendela saat ini adalah jendela modal.</p>
 
 <h4><code>win.maximize ()`</h4> 
-    
-    Memaksimalkan jendela. Ini juga akan menunjukkan (tapi tidak fokus) jendela jika belum ditampilkan.
-    
-    #### `win.unmaximize ()`
-    
-    Unmaximizes jendela.
-    
-    #### `win.isMaximized ()`
-    
-    Mengembalikan ` Boolean </ 0> - Apakah jendela dimaksimalkan.</p>
+      
+      Memaksimalkan jendela. Ini juga akan menunjukkan (tapi tidak fokus) jendela jika belum ditampilkan.
+      
+      #### `win.unmaximize ()`
+      
+      Unmaximizes jendela.
+      
+      #### `win.isMaximized ()`
+      
+      Mengembalikan ` Boolean </ 0> - Apakah jendela dimaksimalkan.</p>
 
 <h4><code>win.minimize ()`</h4> 
-    
-    Meminimalkan jendela. Pada beberapa platform jendela yang diminimalkan akan ditampilkan di Dock .
-    
-    #### `win.restore ()`
-    
-    Mengembalikan jendela dari keadaan diminimalkan ke keadaan sebelumnya.
-    
-    #### `win.isMinimized ()`
-    
-    Mengembalikan ` Boolean </ 0> - Apakah jendela diminimalkan.</p>
+      
+      Meminimalkan jendela. Pada beberapa platform jendela yang diminimalkan akan ditampilkan di Dock .
+      
+      #### `win.restore ()`
+      
+      Mengembalikan jendela dari keadaan diminimalkan ke keadaan sebelumnya.
+      
+      #### `win.isMinimized ()`
+      
+      Mengembalikan ` Boolean </ 0> - Apakah jendela diminimalkan.</p>
 
 <h4><code>win.setFullScreen (bendera)`</h4> 
-    
-    * ` bendera </ 0>  Boolean</li>
-</ul>
-
-<p>Menetapkan apakah jendela harus dalam mode fullscreen.</p>
-
-<h4><code>win.isFullScreen ()`</h4> 
+      
+      * `bendera` Boolean
+      
+      Menetapkan apakah jendela harus dalam mode fullscreen.
+      
+      #### `win.isFullScreen ()`
+      
       Mengembalikan ` Boolean </ 0> - Apakah jendela dalam mode layar penuh.</p>
 
-<h4><code> win.setAspectRatio (aspectRatio [, extraSize]) </ 0>  <em> macos </ 1></h4>
+<h4><code>win.setSimpleFullScreen(flag)` *macOS*</h4> 
+      
+      * ` bendera </ 0>  Boolean</li>
+</ul>
+
+<p>Enters or leaves simple fullscreen mode.</p>
+
+<p>Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).</p>
+
+<h4><code>win.isSimpleFullScreen()` *macOS*</h4> 
+        Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+        
+        #### ` win.setAspectRatio (aspectRatio [, extraSize]) </ 0>  <em> macos </ 1></h4>
 
 <ul>
 <li><code> aspectRatio </ 0> Float - Rasio aspek untuk mempertahankan sebagian dari tampilan konten.</li>
@@ -595,29 +619,29 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
 
 <p>Menutup panel <a href="https://en.wikipedia.org/wiki/Quick_Look"> Quick Look </ 0> yang sedang terbuka .</p>
 
-<h4><code>win.setBounds (batas [, bernyawa])`</h4> 
-      
-      * `batas` [Empat persegi panjang](structures/rectangle.md)
-      * `animate` Boolean (optional) *macOS*
-      
-      Mengubah ukuran dan memindahkan jendela ke batas yang tersedia
-      
-      #### `win.getBounds ()`
-      
-      Kembali ` Rectangle </ 0></p>
-
-<h4><code>win.setContentBounds (batas [, bernyawa])`</h4> 
-      
-      * `batas` [Empat persegi panjang](structures/rectangle.md)
-      * ` bernyawa </ 0>  Boolean (opsional) <em> macos </ 1></li>
-</ul>
-
-<p>Mengubah ukuran dan memindahkan area klien jendela (misalnya halaman web) ke batas yang tersedia.</p>
-
-<h4><code>win.getContentBounds ()`</h4> 
-        Kembali ` Rectangle </ 0></p>
-
-<h4><code>win.setSize (lebar, tinggi [, bernyawa])`</h4> 
+<h4><code>win.setBounds (batas [, bernyawa])`
+        
+        * `batas` [Empat persegi panjang](structures/rectangle.md)
+        * `animate` Boolean (optional) *macOS*
+        
+        Mengubah ukuran dan memindahkan jendela ke batas yang tersedia
+        
+        #### `win.getBounds ()`
+        
+        Kembali [`Rectangle`](structures/rectangle.md)
+        
+        #### `win.setContentBounds (batas [, bernyawa])`
+        
+        * `batas` [Empat persegi panjang](structures/rectangle.md)
+        * `animate` Boolean (optional) *macOS*
+        
+        Mengubah ukuran dan memindahkan area klien jendela (misalnya halaman web) ke batas yang tersedia.
+        
+        #### `win.getContentBounds ()`
+        
+        Kembali [`Rectangle`](structures/rectangle.md)
+        
+        #### `win.setSize (lebar, tinggi [, bernyawa])`
         
         * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
@@ -765,7 +789,7 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
                 
                 #### `win.setTitle(title)`
                 
-                * ` title </ 0>  String</li>
+                * ` judul </ 0> String</li>
 </ul>
 
 <p>Perubahan judul jendela asli <code>judul`.</p> 
@@ -792,38 +816,38 @@ win.setSheetOffset(toolbarRect.height)
               
               #### `win.flashFrame(bendera)`
               
-              * `bendera` Boolean
-              
-              Mulai atau berhenti berkedip kedip jendela untuk menarik perhatian pengguna.
-              
-              #### `win.setSkipTaskbar(skip)`
-              
-              * `melompat` Boolean
-              
-              Membuat jendela tidak tampil di taskbar.
-              
-              #### `win.setKiosk(flag)`
-              
-              * `bendera` Boolean
-              
-              Masuk atau keluar dari mode kiosk.
-              
-              #### `win.isKiosk()`
-              
-              Kembali `Boolean` - Apakah jendela dalam kiosk mode.
-              
-              #### `win.getNativeWindowHandle()`
-              
-              Kembali `Buffer` - spesifik platform handle dari window.
-              
-              Jenis pegangan yang asli adalah `HWND` pada Windows, `NSView *` pada `jendela` (`lama unsigned`) di Linux dan macOS.
-              
-              #### `win.hookWindowMessage (pesan, callback)` *Windows*
-              
-              * ` pesan </ 0> Integer</li>
+              * ` bendera </ 0>  Boolean</li>
+</ul>
+
+<p>Mulai atau berhenti berkedip kedip jendela untuk menarik perhatian pengguna.</p>
+
+<h4><code>win.setSkipTaskbar(skip)`</h4> 
+                * `melompat` Boolean
+                
+                Membuat jendela tidak tampil di taskbar.
+                
+                #### `win.setKiosk(flag)`
+                
+                * `bendera` Boolean
+                
+                Masuk atau keluar dari mode kiosk.
+                
+                #### `win.isKiosk()`
+                
+                Kembali `Boolean` - Apakah jendela dalam kiosk mode.
+                
+                #### `win.getNativeWindowHandle()`
+                
+                Kembali `Buffer` - spesifik platform handle dari window.
+                
+                Jenis pegangan yang asli adalah `HWND` pada Windows, `NSView *` pada `jendela` (`lama unsigned`) di Linux dan macOS.
+                
+                #### `win.hookWindowMessage (pesan, callback)` *Windows*
+                
+                * ` pesan </ 0> Integer</li>
 <li><code>callback ` Fungsi
-              
-              Mengait pesan windows The ` callback </ 0> disebut ketika pesan diterima di WndProc.</p>
+                
+                Mengait pesan windows The ` callback </ 0> disebut ketika pesan diterima di WndProc.</p>
 
 <h4><code> win.isWindowMessageHooked (pesan) </ 0>  <em> Windows </ 1></h4>
 
@@ -832,8 +856,8 @@ win.setSheetOffset(toolbarRect.height)
 </ul>
 
 <p>Mengembalikan <code>Boolean` - `true` atau `false` tergantung pada apakah pesan itu ketagihan.
-              
-              #### ` win.unhookWindowMessage (pesan) </ 0>  <em> Windows </ 1></h4>
+                
+                #### ` win.unhookWindowMessage (pesan) </ 0>  <em> Windows </ 1></h4>
 
 <ul>
 <li><code> pesan </ 0> Integer</li>
@@ -846,54 +870,54 @@ win.setSheetOffset(toolbarRect.height)
 <p>Lepaskan semua pesan di jendela.</p>
 
 <h4><code>win.setRepresentedFilename (filename)` *macos*
-              
-              * `filename` String
-              
-              Menetapkan nama path dari file yang diwakili jendela, dan ikon file akan muncul di bilah judul jendela.
-              
-              #### `win.getRepresentedFilename()` *macos*
-              
-              Mengembalikan ` String ` - Pathname dari file yang diwakili jendela.
-              
-              #### `win.setDocumentEdited(diedit)` *macos*
-              
-              * ` diedit </ 0> Boolean</li>
+                
+                * `filename` String
+                
+                Menetapkan nama path dari file yang diwakili jendela, dan ikon file akan muncul di bilah judul jendela.
+                
+                #### `win.getRepresentedFilename()` *macos*
+                
+                Mengembalikan ` String ` - Pathname dari file yang diwakili jendela.
+                
+                #### `win.setDocumentEdited(diedit)` *macos*
+                
+                * ` diedit </ 0> Boolean</li>
 </ul>
 
 <p>Specifies whether the window’s document has been edited, and the icon in title
 bar will become gray when set to <code>true`.</p> 
-                #### `win.isDocumentEdited()` *macos*
-                
-                Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
-                
-                #### `win.focusOnWebView ()`
-                
-                #### `win.blurWebView ()`
-                
-                #### `win.capturePage ([rect,] callback)`
-                
-                * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
+                  #### `win.isDocumentEdited()` *macos*
+                  
+                  Mengembalikan `Boolean` - Apakah dokumen jendela telah diedit.
+                  
+                  #### `win.focusOnWebView ()`
+                  
+                  #### `win.blurWebView ()`
+                  
+                  #### `win.capturePage ([rect,] callback)`
+                  
+                  * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
 <li><code>callback` Fungsi 
-                  * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+                    * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
 <p>Sama seperti <code>webContents.capturePage ([rect,]callback)`.</p> 
-                    #### `win.loadURL (url [, options])`
-                    
-                    * `url` String
-                    * `pilihan` Objek (opsional) 
-                      * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
+                      #### `win.loadURL (url [, options])`
+                      
+                      * `url` String
+                      * `pilihan` Objek (opsional) 
+                        * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
 <li><code> userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
 <li><code> extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
-                      * ` postData </ 0> ( <a href="structures/upload-raw-data.md"> UploadRawData [] </ 1> | <a href="structures/upload-file.md"> UploadFile [] </ 2> | <a href="structures/upload-file-system.md"> UploadFileSystem [] </ 3> | <a href="structures/upload-blob.md"> UploadBlob [] </ 4> ) - (opsional)</li>
+                        * ` postData </ 0> ( <a href="structures/upload-raw-data.md"> UploadRawData [] </ 1> | <a href="structures/upload-file.md"> UploadFile [] </ 2> | <a href="structures/upload-file-system.md"> UploadFileSystem [] </ 3> | <a href="structures/upload-blob.md"> UploadBlob [] </ 4> ) - (opsional)</li>
 <li><code> baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
-                    
-                    Sama seperti ` webContents.loadURL (url [, options]) `.
-                    
-                    `url` dapat berupa alamat jauh (misalnya `http://`) atau jalur ke lokal File HTML menggunakan protokol `file://`.
-                    
-                    Untuk memastikan bahwa file URL diformat, dianjurkan untuk menggunakan Node ini ` url.format </ 0> 
+                      
+                      Sama seperti ` webContents.loadURL (url [, options]) `.
+                      
+                      `url` dapat berupa alamat jauh (misalnya `http://`) atau jalur ke lokal File HTML menggunakan protokol `file://`.
+                      
+                      Untuk memastikan bahwa file URL diformat, dianjurkan untuk menggunakan Node ini ` url.format </ 0> 
 Metode:</p>
 
 <pre><code class="javascript">biarkan url = require('url').format({
@@ -904,8 +928,8 @@ Metode:</p>
 
 win.loadURL(url)
 `</pre> 
-                    
-                    Anda dapat memuat URL menggunakan permintaan ` POST </ 0> dengan data yang dikodekan URL dengan melakukan hal berikut:</p>
+                      
+                      Anda dapat memuat URL menggunakan permintaan ` POST </ 0> dengan data yang dikodekan URL dengan melakukan hal berikut:</p>
 
 <pre><code class="javascript">win.loadURL ('http: // localhost: 8000 / post', {
    postData: [{
@@ -914,65 +938,75 @@ win.loadURL(url)
    }],
    extraHeaders: aplikasi 'Content-Type: / x-www-form-urlencoded '})
 `</pre> 
-                    
-                    #### `win.reload ()`
-                    
-                    Sama seperti ` webContents.reload </ 0> .</p>
+                      
+                      #### `win.reload ()`
+                      
+                      Sama seperti ` webContents.reload </ 0> .</p>
 
 <h4><code>win.setMenu(menu)` *Linux* *Windows*</h4> 
-                    
-                    * `menu` Menu | batal
-                    
-                    Menetapkan ` menu ` bar menu jendela, pengaturan untuk ` nol ` akan menghapus menu bar.
-                    
-                    #### `win.setProgressBar (kemajuan [, pilihan])`
-                    
-                    * ` kemajuan ` Double
-                    * `pilihan` Objek (opsional) 
-                      * `mode` String *Windows* - Mode untuk progress bar. Bisa `tidak ada`, `normal`, `tak tentu`, `kesalahan`, atau `dijeda`.
-                    
-                    Menetapkan nilai kemajuan di bilah kemajuan. Kisaran valid adalah [0, 1.0].
-                    
-                    Hapus bilah kemajuan saat kemajuan <0; Ubah ke mode tak tentu saat mencapai kemajuan> 1.
-                    
-                    Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` *.desktop ` ke ` desktopName ` di ` package.json `. Secara default, ini akan mengasumsikan ` app.getName (). Desktop </ 0> .</p>
+                      
+                      * `menu` Menu | batal
+                      
+                      Menetapkan ` menu ` bar menu jendela, pengaturan untuk ` nol ` akan menghapus menu bar.
+                      
+                      #### `win.setProgressBar (kemajuan [, pilihan])`
+                      
+                      * ` kemajuan ` Double
+                      * `pilihan` Objek (opsional) 
+                        * `mode` String *Windows* - Mode untuk progress bar. Bisa `tidak ada`, `normal`, `tak tentu`, `kesalahan`, atau `dijeda`.
+                      
+                      Menetapkan nilai kemajuan di bilah kemajuan. Kisaran valid adalah [0, 1.0].
+                      
+                      Hapus bilah kemajuan saat kemajuan <0; Ubah ke mode tak tentu saat mencapai kemajuan> 1.
+                      
+                      Pada platform Linux, hanya mendukung lingkungan desktop Unity, Anda perlu menentukan nama file ` *.desktop ` ke ` desktopName ` di ` package.json `. Secara default, ini akan mengasumsikan ` app.getName (). Desktop </ 0> .</p>
 
 <p>Pada Windows , mode bisa dilewati. Nilai yang diterima adalah <code>none`, `normal`, `tak tentu`, `kesalahan`, dan `dijeda`. Jika Anda memanggil `setProgressBar` tanpa a mode set (tapi dengan nilai dalam kisaran yang valid), `normal` akan diasumsikan.
-                    
-                    #### `win.setOverlayIcon (overlay, deskripsi)` *Windows*
-                    
-                    * `overlay` [NativeImage](native-image.md) - ikon untuk ditampilkan di bagian bawah sudut kanan ikon taskbar. Jika parameter ini `null`, hamparannya dibersihkan
-                    * `deskripsi` String - deskripsi yang akan diberikan pada Aksesibilitas pembaca layar
-                    
-                    Mengatur 16 x 16 piksel overlay ke ikon taskbar saat ini, biasanya digunakan untuk sampaikan semacam status aplikasi atau secara pasif memberitahukan pengguna.
-                    
-                    #### `win.setHasShadow (hasShadow)` *macos*
-                    
-                    * `hasShadow` Boolean
-                    
-                    Menetapkan apakah jendela harus memiliki bayangan. Pada Windows dan Linux tidak melakukan apapun.
-                    
-                    #### `win.hasShadow()` *macos *
-                    
-                    Mengembalikan `Boolean` - Apakah jendela memiliki bayangan.
-                    
-                    Pada Windows dan Linux selalu kembali `benar`.
-                    
-                    #### `win.setThumbarButtons (tombol)` *Windows*
-                    
-                    * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
-                    
-                    Mengembalikan `Boolean` - Apakah tombol berhasil ditambahkan
-                    
-                    Tambahkan toolbar thumbnail dengan serangkaian tombol yang ditentukan ke gambar thumbnail sebuah jendela di tata letak tombol taskbar. Mengembalikan objek `Boolean` apakah thumbnail telah berhasil ditambahkan.
-                    
-                    Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena terbatasnya ruang. Setelah Anda menyiapkan toolbar thumbnail, toolbar tidak dapat dihapus karena keterbatasan platform. Tapi Anda bisa memanggil API dengan array kosong untuk membersihkan tombol.
-                    
-                    `Tombol` adalah array dari objek `Button`:
-                    
-                    * `Tombol` Obyek 
-                      * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
-                      * ` klik </ 0> Fungsi</li>
+                      
+                      #### `win.setOverlayIcon (overlay, deskripsi)` *Windows*
+                      
+                      * `overlay` [NativeImage](native-image.md) - ikon untuk ditampilkan di bagian bawah sudut kanan ikon taskbar. Jika parameter ini `null`, hamparannya dibersihkan
+                      * `deskripsi` String - deskripsi yang akan diberikan pada Aksesibilitas pembaca layar
+                      
+                      Mengatur 16 x 16 piksel overlay ke ikon taskbar saat ini, biasanya digunakan untuk sampaikan semacam status aplikasi atau secara pasif memberitahukan pengguna.
+                      
+                      #### `win.setHasShadow (hasShadow)` *macos*
+                      
+                      * `hasShadow` Boolean
+                      
+                      Menetapkan apakah jendela harus memiliki bayangan. Pada Windows dan Linux tidak melakukan apapun.
+                      
+                      #### `win.hasShadow()` *macos *
+                      
+                      Mengembalikan `Boolean` - Apakah jendela memiliki bayangan.
+                      
+                      Pada Windows dan Linux selalu kembali `benar`.
+                      
+                      #### `win.setOpacity(opacity)` *Windows* *macOS*
+                      
+                      * `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+                      
+                      Sets the opacity of the window. On Linux does nothing.
+                      
+                      #### `win.getOpacity()` *Windows* *macOS*
+                      
+                      Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+                      
+                      #### `win.setThumbarButtons (tombol)` *Windows*
+                      
+                      * `tombol` [ThumbarButton[]](structures/thumbar-button.md)
+                      
+                      Mengembalikan `Boolean` - Apakah tombol berhasil ditambahkan
+                      
+                      Tambahkan toolbar thumbnail dengan serangkaian tombol yang ditentukan ke gambar thumbnail sebuah jendela di tata letak tombol taskbar. Mengembalikan objek `Boolean` apakah thumbnail telah berhasil ditambahkan.
+                      
+                      Jumlah tombol di toolbar thumbnail seharusnya tidak lebih besar dari 7 karena terbatasnya ruang. Setelah Anda menyiapkan toolbar thumbnail, toolbar tidak dapat dihapus karena keterbatasan platform. Tapi Anda bisa memanggil API dengan array kosong untuk membersihkan tombol.
+                      
+                      `Tombol` adalah array dari objek `Button`:
+                      
+                      * `Tombol` Obyek 
+                        * `ikon` [NativeImage](native-image.md) - Ikon ditampilkan di thumbnail toolbar.
+                        * ` klik </ 0> Fungsi</li>
 <li><code> tooltip </ 0>  String (opsional) - Teks tooltip tombol.</li>
 <li><code> flag </ 0>  String [] (opsional) - Mengontrol keadaan dan perilaku tombol tertentu. Secara default, itu adalah <code> ['enabled'] </ 0> .</li>
 </ul></li>
@@ -990,18 +1024,18 @@ win.loadURL(url)
 </ul>
 
 <h4><code>win.setThumbnailClip (wilayah)` *Windows*</h4> 
-                        * `wilayah` [Rectangle](structures/rectangle.md) - Wilayah jendela
-                        
-                        Mengatur area jendela untuk ditampilkan saat gambar thumbnail ditampilkan saat melayang di atas jendela di taskbar. Anda dapat menyetel thumbnail untuk seluruh jendela dengan menentukan daerah kosong: `{x: 0, y: 0, lebar: 0, tinggi: 0}`.
-                        
-                        #### `win.setThumbnailToolTip(toolTip)` *Windows*
-                        
-                        * ` judul </ 0> String</li>
-</ul>
-
-<p>Menetapkan toolTip yang ditampilkan saat melayang di atas thumbnail jendela di taskbar.</p>
-
-<h4><code>win.setAppDetails(options)` *Windows*</h4> 
+                          * `wilayah` [Rectangle](structures/rectangle.md) - Wilayah jendela
+                          
+                          Mengatur area jendela untuk ditampilkan saat gambar thumbnail ditampilkan saat melayang di atas jendela di taskbar. Anda dapat menyetel thumbnail untuk seluruh jendela dengan menentukan daerah kosong: `{x: 0, y: 0, lebar: 0, tinggi: 0}`.
+                          
+                          #### `win.setThumbnailToolTip(toolTip)` *Windows*
+                          
+                          * `toolTip` String
+                          
+                          Menetapkan toolTip yang ditampilkan saat melayang di atas thumbnail jendela di taskbar.
+                          
+                          #### `win.setAppDetails(options)` *Windows*
+                          
                           * `pilihan` Obyek 
                             * `appId` String (opsional) - jendela [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Itu harus diatur, jika tidak pilihan lain tidak akan berpengaruh.
                             * `appId` String (opsional) - jendela [App User Model Id](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
@@ -1059,9 +1093,11 @@ win.loadURL(url)
                           
                           **Catatan:** API ini selalu kembali palsu pada Windows.
                           
-                          #### `win.setIgnoreMouseEvents(ignore)`
+                          #### `win.setIgnoreMouseEvents(ignore[, options])`
                           
                           * `mengabaikan` Boolean
+                          * `pilihan` Objek (opsional) 
+                            * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
                           
                           Membuat jendela mengabaikan semua kejadian mouse.
                           
@@ -1101,6 +1137,32 @@ win.loadURL(url)
                           
                           Mengontrol apakah akan menyembunyikan kursor saat mengetik.
                           
+                          #### `win.selectPreviousTab()` *macOS*
+                          
+                          Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+                          
+                          #### `win.selectNextTab()` *macOS*
+                          
+                          Selects the next tab when native tabs are enabled and there are other tabs in the window.
+                          
+                          #### `win.mergeAllWindows()` *macOS*
+                          
+                          Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+                          
+                          #### `win.moveTabToNewWindow()` *macOS*
+                          
+                          Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+                          
+                          #### `win.toggleTabBar()` *macOS*
+                          
+                          Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+                          
+                          #### `win.addTabbedWindow(browserWindow)` *macOS*
+                          
+                          * `browserWindow` BrowserWindow
+                          
+                          Adds a window as a tab on this window, after the tab for the window instance.
+                          
                           #### `win.setVibrancy(type)` *macOS*
                           
                           * `jenis` String - dapat `berbasis penampilan`, `terang`, `gelap`, `titlebar`, `pilihan`, `menu`, `popover`, `sidebar`, `menengah-cahaya` atau `ultra gelap`. Lihat [dokumentasi macOS](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc) untuk rincian lebih lanjut.
@@ -1118,5 +1180,8 @@ win.loadURL(url)
                           #### `win.setBrowserView (browserView)` *Eksperimental*
                           
                           * `browserView` [BrowserView](browser-view.md)
+                          #### `win.getBrowserView()` *Experimental*
+                          
+                          Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
                           
                           **Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.

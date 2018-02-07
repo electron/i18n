@@ -35,7 +35,7 @@ Ang mga sumusunid na kaganapan ay maaring gamitin sa mga halimbawa ng `Cookies`:
 
 #### Kaganapan: 'nagbago'
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `cookie` [Cookie](structures/cookie.md) - Ang "cookie" na binago
 * `sanhi` String - Ang mga sanhi ng mga pagbabago sa isa't isa sa mga sumusunod na mga halaga: 
   * `explicit` - Ang cookie ay direktang nagbago sa pamamagitan ng pagkilos ng isang mamimili.
@@ -60,7 +60,7 @@ Ang mga sumusunod ay maaring gamitin sa mga halimbawa na `Cookies`:
   * `path` String (opsyunal) - Ang nakuhang cookies na nagtugma ang patungohan `path`.
   * `secure` Boolesn (opsyunal) - Nafilter na cookies ng kanilang Secure na ari-arian.
   * `session` Booelan (opsyunal) - Efilter ang sesyon o ang nagpapatuloy na cookies.
-* `tumawag muli` Punsyon 
+* `callback` Function 
   * `error` Error
   * `cookies` [Cookie](structures/cookie.md) - ang isang array ng mga bagay ng cookie.
 
@@ -77,7 +77,7 @@ Magpadala ng hiling para nakuha ang lahat ng cookies na nagtugma sa `detalye`, `
 <li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
   * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
   * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
-* `tumawag muli` Punsyon 
+* `callback` Function 
   * `error` Error
 
 Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(error)` na kumpleto.

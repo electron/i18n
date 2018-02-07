@@ -5,9 +5,9 @@
 
 ## Apoyo de Plataforma / Acción
 
-| Tipo de Acción | Apoyo de Plataformas | Uso de `texto`                   | `texto` Predetermnado | Limitaciones                                                                                                                                                |
-| -------------- | -------------------- | -------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `botón`        | macOS                | Usado como la etiqueta del botón | "Mostrar"             | Máximo de un botón, si se ofrecen varios sólo se usa el último. Esta acción también es incomptible con `hasReply` y se va a omitir si `hasReply` es `true`. |
+| Tipo de Acción | Apoyo de Plataformas | Uso de `texto`                   | `texto` Predetermnado | Limitaciones                                                                                                                                                         |
+| -------------- | -------------------- | -------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`       | macOS                | Usado como la etiqueta del botón | "Mostrar"             | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Botón de apoyo en macOS
 

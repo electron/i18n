@@ -4,18 +4,13 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-`autoUpdater` モジュールは [Squirrel](https://github.com/Squirrel) フレームワークのためのインターフェイスを提供します
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-これらのプロジェクトの 1 つを使用して、アプリケーションを配布するため、マルチプラット フォーム リリース サーバーを迅速に起動できます。
+## Platform Notices
 
-* [ナッツ](https://github.com/GitbookIO/nuts): 1 A スマート リリース サーバー、アプリケーションのバックエンドとして GitHub を使ってします。リス (Mac ・ Windows) と自動更新</em>
-* [電子リリース サーバー](https://github.com/ArekSredzki/electron-release-server): *A 完全におすすめの電子アプリケーションの自動アップデートと互換性のあるリリース サーバーを自己ホスト型*
-* [リスの更新サーバー](https://github.com/Aluxian/squirrel-updates-server): *Squirrel.Mac と Squirrel.Windows GitHub のリリースを使用しての簡単な node.js サーバー*
-* [リス リリース サーバー](https://github.com/Arcath/squirrel-release-server): 1 A フォルダーから更新プログラムを読み取り、Squirrel.Windows の単純な PHP アプリケーション。 デルタ更新プログラムをサポートしています</em>。
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## プラットフォームごとの通知
-
-Though `autoUpdater` provides a uniform API for different platforms, there are still some subtle differences on each platform.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -32,10 +27,6 @@ Windows では、`自動アップデーター` を生成する [電子 winstalle
 リスで生成されたインストーラーは、1 com.squirrel.PACKAGE_ID の形式で [アプリケーションのユーザー モデル ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) を持つショートカット アイコンを作成します。YOUR_EXE_WITHOUT_DOT_EXE</code>、例は、`com.squirrel.slack.Slack` と `com.squirrel.code.Code`。 `App.setAppUserModelId` API を使用してアプリケーションに同じ ID を使用する必要が、それ以外の場合、Windows はアプリをタスク バーに正しく固定することができません。
 
 Squirrel.Mac とは異なり、Windows は S3 またはその他の静的ファイルのホストに更新プログラムをホストできます。 Squirrel.Windows のしくみについての詳細を取得する [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) のドキュメントを読むことができます。
-
-### Linux
-
-Linux では、自動アップデーターの組み込みサポートがないので、ディストリビューションのパッケージ マネージャーを使用してアプリを更新することをお勧め。
 
 ## イベント
 

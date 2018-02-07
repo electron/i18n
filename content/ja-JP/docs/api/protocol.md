@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -103,7 +103,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+サンプル:
 
 ```javascript
 const {protocol} = require('electron')
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -137,13 +137,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` オブジェクト 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -160,6 +160,64 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 For POST requests the `uploadData` object must be provided.
+
+### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+
+* `scheme` String
+* `handler` Function 
+  * `request` Object 
+    * `url` String
+    * `headers` Object
+    * `referrer` String
+    * `method` String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (optional) 
+  * `error` Error
+
+Registers a protocol of `scheme` that will send a `Readable` as a response.
+
+The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+
+サンプル:
+
+```javascript
+const {protocol} = require('electron')
+const {PassThrough} = require('stream')
+
+function createStream (text) {
+  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  rv.push(text)
+  rv.push(null)
+  return rv
+}
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback({
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html'
+    },
+    data: createStream('<h5>Response</h5>')
+  })
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+
+```javascript
+const {protocol} = require('electron')
+const fs = require('fs')
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback(fs.createReadStream('index.html'))
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
@@ -181,7 +239,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -197,7 +255,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -213,7 +271,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -229,13 +287,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` オブジェクト 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -246,6 +304,23 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+
+### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+
+* `scheme` String
+* `handler` Function 
+  * `request` Object 
+    * `url` String
+    * `headers` Object
+    * `referrer` String
+    * `method` String
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (optional) 
+  * `error` Error
+
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 

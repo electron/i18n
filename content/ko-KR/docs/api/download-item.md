@@ -39,7 +39,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### Event: 'updated'
 
-Returns:
+반환:
 
 * `event` Event
 * `state` String
@@ -96,7 +96,7 @@ Resumes the download that has been paused.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 

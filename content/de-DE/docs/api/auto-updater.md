@@ -4,25 +4,17 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-Das ` autoUpdater </ 0> -Modul bietet eine Schnittstelle für das
- <a href="https://github.com/Squirrel"> Squirrel </ 1> -Framewor</p>
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-<p>Sie können schnell einen Multi-Plattform-Release-Server zum Verteilen Ihrer Anwendung mithilfe eines dieser Projekte starten:</p>
+## Platform Notices
 
-<ul>
-<li><a href="https://github.com/GitbookIO/nuts"> Nüsse </ 0> : <em> Ein intelligenter Freigabeserver für Ihre Anwendungen, der GitHub als Backend verwendet. Automatische Updates mit Squirrel (Mac & amp;  Windows ) </ 1></li>
-<li><a href="https://github.com/ArekSredzki/electron-release-server"> electron -release-server </ 0> : <em> Ein voll ausgestatteter, selbst gehosteter Release-Server für elektronische Anwendungen, kompatibel mit Auto-Updater </ 1></li>
-<li><a href="https://github.com/Aluxian/squirrel-updates-server"> squirrel-updates-server </ 0> : <em> Ein einfacher node.js-Server für Squirrel.Mac und Squirrel.Windows, der GitHub-Releases verwendet </ 1></li>
-<li><a href="https://github.com/Arcath/squirrel-release-server"> squirrel-release-server </ 0> : <em> Eine einfache PHP-Anwendung für Squirrel.Windows, die Updates von einem Ordner liest. Unterstützt Delta-Updates. </ 0></li>
-</ul>
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-<h2>Plattformhinweise</h2>
+In addition, there are some subtle differences on each platform:
 
-<p>Obwohl <code> autoUpdater </ 0> eine einheitliche API für verschiedene Plattformen bietet, gibt es auf jeder Plattform noch einige feine Unterschiede.</p>
+### macOS
 
-<h3>macOS</h3>
-
-<p>macOS , die <code> AutoUpdater </ 0> Modul wird auf gebaut <a href="https://github.com/Squirrel/Squirrel.Mac"> Squirrel.Mac </ 1> , Sie keine spezifische Softwareinstallation erforderlich bedeutet es funktioniert. Für serverseitige Anforderungen können Sie <a href="https://github.com/Squirrel/Squirrel.Mac#server-support"> Serverunterstützung </ 0> lesen . Beachten Sie, dass <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35"> App-Transportsicherheit </ 0> (ATS) für alle Anforderungen gilt, die im Rahmen des Aktualisierungsprozesses vorgenommen werden. Apps, die ATS deaktivieren müssen, können den Schlüssel <code> NSAllowsArbitraryLoads </ 0> zu ihrer App hinzufügen
+macOS , die ` AutoUpdater </ 0> Modul wird auf gebaut <a href="https://github.com/Squirrel/Squirrel.Mac"> Squirrel.Mac </ 1> , Sie keine spezifische Softwareinstallation erforderlich bedeutet es funktioniert. Für serverseitige Anforderungen können Sie <a href="https://github.com/Squirrel/Squirrel.Mac#server-support"> Serverunterstützung </ 0> lesen . Beachten Sie, dass <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35"> App-Transportsicherheit </ 0> (ATS) für alle Anforderungen gilt, die im Rahmen des Aktualisierungsprozesses vorgenommen werden. Apps, die ATS deaktivieren müssen, können den Schlüssel <code> NSAllowsArbitraryLoads </ 0> zu ihrer App hinzufügen
  .</p>
 
 <p><strong> Hinweis: </ 0> Ihre Anwendung muss für automatische Updates auf macOS signiert sein . Dies ist eine Voraussetzung von <code> Squirrel.Mac </ 1> .</p>
@@ -43,17 +35,13 @@ Das ` autoUpdater </ 0> -Modul bietet eine Schnittstelle für das
 <p>Im Gegensatz zu Squirrel.Mac kann Windows Updates auf S3 oder einem anderen statischen Dateihost hosten.
 Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Windows"> Squirrel.Windows </ 0> lesen , um mehr über die Funktionsweise von Squirrel.Windows zu erfahren.</p>
 
-<h3>Linux</h3>
-
-<p>Es gibt keine integrierte Unterstützung für automatische Aktualisierung unter Linux. Daher wird empfohlen, den Paketmanager der Distribution zu verwenden, um Ihre App zu aktualisieren.</p>
-
 <h2>Veranstaltungen</h2>
 
 <p>Das <code> autoUpdater </ 0> -Objekt gibt die folgenden Ereignisse aus:</p>
 
 <h3>Ereignis : "Fehler</h3>
 
-<p>Kehrt zurück:</p>
+<p>Rückgabewert:</p>
 
 <ul>
 <li><code> Fehler </ 0> Fehler</li>
@@ -75,7 +63,7 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <h3>Ereignis : 'Update-Download'</h3>
 
-<p>Kehrt zurück:</p>
+<p>Rückgabewert:</p>
 
 <ul>
 <li><code> Ereignis </ 0>  Ereignis</li>

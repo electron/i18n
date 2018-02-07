@@ -15,6 +15,7 @@
 * [एप्लीकेशन वितरण](tutorial/application-distribution.md)
 * [मैक एप्प स्टोर सबमिशन गाइड](tutorial/mac-app-store-submission-guide.md)
 * [विंडोज स्टोर गाइड](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [एप्लीकेशन पैकेजिंग](tutorial/application-packaging.md)
 * [मूल नोड मोड्यूल का इस्तेमाल](tutorial/using-native-node-modules.md)
 * [मुख्य प्रक्रिया दोषमुक्ति](tutorial/debugging-main-process.md)

@@ -9,12 +9,13 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 ## Mga Gabay
 
 * [Glosaryo ng mga termino](glossary.md)
-* [Mga suportadong plataporma](tutorial/supported-platforms.md)
+* [Mga Suportadong Plataporma](tutorial/supported-platforms.md)
 * [Seguridad](tutorial/security.md)
 * [Bersyon](tutorial/electron-versioning.md)
 * [Pamamahagi ng aplikasyon](tutorial/application-distribution.md)
-* [Gabay sa pagsumite sa Mac App Store](tutorial/mac-app-store-submission-guide.md)
+* [Gabay sa pagsmite sa Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Gabay sa Windows Store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Packaging ng aplikasyon](tutorial/application-packaging.md)
 * [Gamit ang sariling mga modyul ng node](tutorial/using-native-node-modules.md)
 * [Pagde-debug ng pangunahing proseso](tutorial/debugging-main-process.md)
@@ -29,9 +30,9 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 ## Pagtuturo
 
-* [Mabilisang Pagsisimula](tutorial/quick-start.md)
-* [Pagsama sa Desktop Environment](tutorial/desktop-environment-integration.md)
-* [Pagtukoy sa mga ganap Online/Offline](tutorial/online-offline-events.md)
+* [Madali na pagsisimula](tutorial/quick-start.md)
+* [Ang Pag-iintegrate ng Desktop Environment](tutorial/desktop-environment-integration.md)
+* [Online/Offline Pagtukoy ng mga Kaganapan](tutorial/online-offline-events.md)
 * [REPL](tutorial/repl.md)
 * [Mga abisong natibo](tutorial/notifications.md)
 
@@ -39,56 +40,56 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 
 * [Sinopsis](api/synopsis.md)
 * [Mga pangprocessong bagay](api/process.md)
-* [Suportadong mga Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Nagbabago sa kapaligiran](api/environment-variables.md)
+* [Suportado ng Chrome ang Command Line Switches](api/chrome-command-line-switches.md)
+* [Environment Variables ](api/environment-variables.md)
 
 ### Pagtangkilik sa kalakaran ng DOM:
 
-* [`Kikil ` Bagay](api/file-object.md)
-* [`<webview>` Pananda](api/webview-tag.md)
-* [` bintana. buksan ` Tungkulin](api/window-open.md)
+* [`Kikilin` Bagay](api/file-object.md)
+* [`<webview>` Tag](api/webview-tag.md)
+* [`window.Buksan` Fuction](api/window-open.md)
 
 ### Mga modyul para sa pangunahing proseso:
 
-* [app](api/app.md)
-* [awtoUpdeyter](api/auto-updater.md)
+* [ang app](api/app.md)
+* [autoUpdater](api/auto-updater.md)
 * [Kulayan ang kapaligiran](api/browser-view.md)
-* [Kulayan ang bintana](api/browser-window.md)
-* [pagsubaybay ng nilalaman](api/content-tracing.md)
-* [I-display ang native dialogs upang mabuksan ang naka save na files, alerting, at iba pa.](api/dialog.md)
-* [putulin ng maikli ang global](api/global-shortcut.md)
+* [Ang Browser ng Window](api/browser-window.md)
+* [contentTracing](api/content-tracing.md)
+* [ang dialog](api/dialog.md)
+* [globalShortcut](api/global-shortcut.md)
 * [mamili sa App](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Talaulaman](api/menu.md)
-* [Menultem](api/menu-item.md)
+* [Ang Menu](api/menu.md)
+* [MenuItem](api/menu-item.md)
 * [ang net](api/net.md)
 * [ang powerMonitor](api/power-monitor.md)
 * [ang powerSaveBlocker](api/power-save-blocker.md)
 * [ang protokol](api/protocol.md)
 * [sesyon](api/session.md)
-* [mga kagustuhan sa sistema](api/system-preferences.md)
+* [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
 ### Modulo para sa renderer ng proseso (bahay-alalawa sa pahina):
 
-* [pagkakahuli sa tuktok ng desk](api/desktop-capturer.md)
-* [ipcrenderer](api/ipc-renderer.md)
-* [kamuntik](api/remote.md)
-* [lumikha ng bahay-alalawa](api/web-frame.md)
+* [desktopCapturer](api/desktop-capturer.md)
+* [ipcRenderer](api/ipc-renderer.md)
+* [ang remote](api/remote.md)
+* [webFrame](api/web-frame.md)
 
 ### Modulo para sa parehong proseso:
 
-* [iipit sa tabla](api/clipboard.md)
-* [kalabog ng tagapagbalita](api/crash-reporter.md)
-* [gupitin ng maikli ang mga litrato](api/native-image.md)
+* [clipboard](api/clipboard.md)
+* [crashReporter](api/crash-reporter.md)
+* [nativeImage](api/native-image.md)
 * [magtabi](api/screen.md)
-* [kabibi](api/shell.md)
+* ["Shell"](api/shell.md)
 
 ## Pag-unlad
 
-* [Paraan sa pagkukudigo](development/coding-style.md)
-* [Paggamit ng kumakalat na-format C++ Code](development/clang-format.md)
+* [Istilo ng Code](development/coding-style.md)
+* [Gamit ang clang-format sa C++ Code](development/clang-format.md)
 * [Pagsusuri](development/testing.md)
 * [Ang Direktoryo ng Istraktura ng "Source Code"](development/source-code-directory-structure.md)
 * [Alituntunin ng mga diperensya ng NW.js (dating ukol sa-webkit)](development/atom-shell-vs-node-webkit.md)

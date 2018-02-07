@@ -1,8 +1,8 @@
-# desktopCapturer
+# pagkakahuli sa tuktok ng desk
 
 > Ang "access" ay impormasyon tungkol sa mga pinagmulan ng "media" na maaaring magamit upang makunan ng "audio" at "video" galing sa "desktop" gamit ang [`navigator.mediaDevices.getUserMedia`]API.
 
-Proseso:[Tagabigay](../glossary.md#renderer-process)
+Mga proseso: [Renderer](../glossary.md#renderer-process)
 
 Ang sumunod na halimbawa ay nagpapakita kung paano kumuha sa bidyo galing sa "desktop window" na ang pamagat ay `Electron`:
 
@@ -26,14 +26,18 @@ desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             maxHeight: 720
           }
         }
-      }, handleStream, handleError)
+      })
+      .then((stream) => handleStream(stream))
+      .catch((e) => handleError(e))
       return
     }
   }
 })
 
 function handleStream (stream) {
-  document.querySelector('video').src = URL.createObjectURL(stream)
+  const video = document.querySelector('video')
+  video.srcObject = stream
+  video.onloadedmetadata = (e) => video.play()
 }
 
 function handleError (e) {
@@ -60,16 +64,16 @@ const constraints = {
 }
 ```
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang modyul sa `desktopCapturer` ay mayroong mga sumusunod na paraan:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `mga opsyon` Bagay 
+* `mga pagpipilian` Bagay 
   * `types` String[] - Ang array ng "Strings" na naglilista ng iba't-ibang uri ng mga "source" ng "desktop" na kukunin, ang mga maaaring gamitin na uri ay `screen` at `window`.
   * `thumbnailSize` [Ang laki](structures/size.md) (opsyonal) - ang laki ng media sourceay thumbnail dapat sukatan. Default ay `150` x `150`.
-* `tumawag muli` Punsyon 
+* `callback` Punsyon 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 

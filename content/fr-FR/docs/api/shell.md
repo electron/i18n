@@ -36,7 +36,7 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String
+* `url` String - max 2081 characters on windows, or the function returns false
 * `options` Object (facultatif) *macOS* 
   * `activate` Boolean - `true` pour mettre l'application ouverte au premier-plan. La valeur par défaut est `true`.
 * `callback` Function (facultatif) - Si spécifié, l'ouverture sera fera de façon asynchrone. *macOS* 

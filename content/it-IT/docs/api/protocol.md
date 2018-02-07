@@ -1,4 +1,4 @@
-# protocol
+# protocollo
 
 > Register a custom protocol and intercept existing protocol requests.
 
@@ -22,7 +22,7 @@ app.on('ready', () => {
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## Methods
+## Metodi
 
 The `protocol` module has the following methods:
 
@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -103,7 +103,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Esempio:
 
 ```javascript
 const {protocol} = require('electron')
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -137,13 +137,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
-    * `redirectRequest` Object 
+    * `redirectRequest` Oggetto 
       * `url` Stringa
       * `metodo` Stringa
       * `session` Object (optional)
@@ -160,6 +160,64 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 By default the HTTP request will reuse the current session. If you want the request to have a different session you should set `session` to `null`.
 
 For POST requests the `uploadData` object must be provided.
+
+### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+
+* `schema` Stringa
+* `handler` Funzione 
+  * `richiesta` Oggetto 
+    * `url` Stringa
+    * `headers` Object
+    * `referrer` String
+    * `metodo` Stringa
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Funzione 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (optional) 
+  * `errore` Errore
+
+Registers a protocol of `scheme` that will send a `Readable` as a response.
+
+The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+
+Esempio:
+
+```javascript
+const {protocol} = require('electron')
+const {PassThrough} = require('stream')
+
+function createStream (text) {
+  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  rv.push(text)
+  rv.push(null)
+  return rv
+}
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback({
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html'
+    },
+    data: createStream('<h5>Response</h5>')
+  })
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+
+It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+
+```javascript
+const {protocol} = require('electron')
+const fs = require('fs')
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback(fs.createReadStream('index.html'))
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
@@ -181,7 +239,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -197,7 +255,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -213,7 +271,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -229,13 +287,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
-    * `redirectRequest` Object 
+    * `redirectRequest` Oggetto 
       * `url` Stringa
       * `metodo` Stringa
       * `session` Object (optional)
@@ -246,6 +304,23 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+
+### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+
+* `schema` Stringa
+* `handler` Funzione 
+  * `richiesta` Oggetto 
+    * `url` Stringa
+    * `headers` Object
+    * `referrer` String
+    * `metodo` Stringa
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Funzione 
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+* `completion` Function (optional) 
+  * `errore` Errore
+
+Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 

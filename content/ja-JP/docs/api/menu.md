@@ -14,7 +14,7 @@
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 macOSではアプリケーション メニューとして `menu` を設定します。Windows と Linuxでは、`menu` は各ウィンドウの上部のメニューとして設定されます。
 
@@ -24,7 +24,7 @@ macOSではアプリケーション メニューとして `menu` を設定しま
 
 #### `Menu.getApplicationMenu()`
 
-`Menu`を返します - セットされていればメニューを、セットされていなければ`null`を返します。
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **注:**返される `メニュー` のインスタンスは、メニュー項目の動的な追加または削除をサポートしていません。 [インスタンス プロパティ](#instance-properties) は動的に変更ができます。
 
@@ -72,6 +72,12 @@ Closes the context menu in the `browserWindow`.
 * `menuItem` MenuItem
 
 Appends the `menuItem` to the menu.
+
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -142,7 +148,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -264,12 +270,13 @@ Template:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -286,11 +293,13 @@ Template:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```

@@ -72,6 +72,7 @@ Le module `Tray` émet les événements suivants :
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Les limites de l'icône
+* `position` [Point](structures/point.md) - la position de l’événement
 
 Émis lorsque l’utilisateur clique sur l’icône.
 
@@ -115,14 +116,14 @@ Le module `Tray` émet les événements suivants :
 
 #### Événement : 'drop-files' *macOS*
 
-* `event` Event
+* `event` Événement
 * `files` String[] - les chemins d’accès des fichiers déposés.
 
 Émis lorsque des fichiers sont glissés et déposés sur l’icône.
 
 #### Événement : 'drop-text' *macOS*
 
-* `event` Event
+* `event` Événement
 * `text` String - le texte déposé
 
 Émis lorsqu'un texte est déposé sur l’icône.
@@ -160,6 +161,17 @@ Le module `Tray` émet les événements suivants :
 * `position` [Point](structures/point.md) - la position de l’événement
 
 Émis lorsque la souris sort de la zone de l’icône.
+
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - la position de l’événement
+
+Emitted when the mouse moves in the tray icon.
 
 ### Méthodes d’instance
 
@@ -223,10 +235,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `options` Objet 
   * `icon` ([NativeImage](native-image.md) | String) - (facultatif)
-  * `title` String - (facultatif)
-  * `content` String - (facultatif)
+  * `title` String
+  * `content` String
 
 Affiche une bulle dans la barre d'État.
 

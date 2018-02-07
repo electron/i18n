@@ -2,7 +2,7 @@
 
 > Lakukan operasi copy dan paste pada clipboard sistem.
 
-Proses:  Utama </ 0> ,  Renderer </ 1></p> 
+Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Contoh berikut menunjukkan cara menulis string ke clipboard:
 
@@ -15,7 +15,7 @@ Pada sistem X Window, ada juga clipboard pilihan. Untuk memanipulasinya, Anda ha
 <pre><code class="javascript">const {clipboard} = require ('electron') clipboard.writeText ('Example String ', 'selection') console.log (clipboard.readText ('selection'))
 `</pre> 
 
-## Metode
+## Methods
 
 The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
@@ -29,8 +29,8 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai teks biasa.</p>
 
 <h3><code>clipboard.menulis tek (teks [, tipe])`</h3> 
-  * ` teks </ 0>  String</li>
-<li><code> ketik </ 0>  String (opsional)</li>
+  * `teks` String
+  * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Menuliskan <code> teks </ 0> ke clipboard sebagai teks biasa.</p>
@@ -68,26 +68,26 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai RTF.</p>
 
 <h3><code>clipboard.writeRTF (teks [, jenis])`</h3> 
-              * ` teks </ 0>  String</li>
-<li><code> ketik </ 0>  String (opsional)</li>
+              * `teks` String
+              * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Menuliskan <code> teks </ 0> ke clipboard di RTF.</p>
 
-<h3><code> clipboard.readBookmark () </ 0>  <em> macos </ 1>  <em> Windows </ 1></h3>
-
-<p>Mengembalikan <code>Objek`:</p> 
-                * ` judul </ 0> String</li>
-<li><code>url` String
+<h3><code>clipboard.readBookmark()` *macOS * * Windows*</h3> 
+                Mengembalikan `Objek`:
                 
-                Mengembalikan objek yang berisi ` judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
+                * ` judul</ 0>  String</li>
+<li><code> url </ 0> Tali</li>
+</ul>
+
+<p>Mengembalikan objek yang berisi <code> judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
 
 <h3><code> clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
 
 <ul>
-<li><code> judul</ 0>  String</li>
-<li><code>url` String</li> 
-                
+<li><code> judul </ 0> String</li>
+<li><code>url` Tali
                 * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
@@ -95,23 +95,22 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <p><strong> Catatan: </ 0> Sebagian besar aplikasi di Windows tidak mendukung penandaan bookmark ke dalamnya sehingga Anda dapat menggunakan <code> clipboard.write </ 1> untuk menulis teks bookmark dan fallback ke clipboard.</p>
 
-<pre><code class="js">clipboard.write ({
-   text: 'https: // electron .atom.io',
-   bookmark: ' Beranda Elektron '})
+<pre><code class="js">clipboard.write({
+  text: 'https://electronjs.org',
+  bookmark: 'Electron Homepage'
+})
 `</pre> 
-                  ### ` clipboard.readFindText () </ 0>  <em> macos </ 1></h3>
+                  ### `clipboard.readFindText()` *macOS*
+                  
+                  Mengembalikan ` String </ 0> - Teks pada papan gambar yang ditemukan. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer. Nilai cache dibaca ulang dari papan gambar anyar setiap kali aplikasi diaktifkan.</p>
 
-<p>Mengembalikan <code> String </ 0> - Teks pada papan gambar yang ditemukan. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer. Nilai cache dibaca ulang dari papan gambar anyar setiap kali aplikasi diaktifkan.</p>
+<h3><code>clipboard.writeFindText(text)` *macOS*</h3> 
+                  
+                  * `teks` String
+                  
+                  Menuliskan ` teks </ 0> ke dalam papan tulis yang ditemukan sebagai teks biasa. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer.</p>
 
-<h3><code> clipboard.writeFindText (teks) </ 0>  <em> macos </ 1></h3>
-
-<ul>
-<li><code> teks </ 0>  String</li>
-</ul>
-
-<p>Menuliskan <code> teks </ 0> ke dalam papan tulis yang ditemukan sebagai teks biasa. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer.</p>
-
-<h3><code>clipboard.clear ( [type] )`
+<h3><code>clipboard.clear ( [type] )`</h3> 
                   
                   * ` ketik </ 0>  String (opsional)</li>
 </ul>

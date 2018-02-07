@@ -14,7 +14,7 @@ A classe `menu` tem os seguintes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Define `menu` como o menu de aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
 
@@ -24,7 +24,7 @@ Passing `null` will remove the menu bar on Windows and Linux but has no effect o
 
 #### `Menu.getApplicationMenu()`
 
-Retorna `Menu` - O menu de aplicativo, se definido, ou `null`, se não estiver definido.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -72,6 +72,12 @@ Fecha o menu de contexto em `browserWindow`.
 * `menuItem` MenuItem
 
 Acrescenta o `menuItem` ao menu.
+
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.Insert(pos, menuItem)`
 
@@ -142,7 +148,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -164,7 +170,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Editar menu
+  // Edit menu
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -176,7 +182,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Janela menu
+  // Window menu
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -264,12 +270,13 @@ Modelo:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Modelo:
 
@@ -286,11 +293,13 @@ Modelo:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```

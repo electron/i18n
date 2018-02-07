@@ -50,7 +50,7 @@ Abaixo estão marcos na história do Electron.
 
 | :calendar:         | :tada:                                                                                                         |
 | ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| **Abril 2013**     | [Atom Shell é iniciado](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
+| **Abril de 2013**  | [Atom Shell é iniciado](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
 | **Maio de 2014**   | [Atom Shell tem código fonte aberto](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).            |
 | **Abril de 2015**  | [Atom Shell é renomeado para Electron](https://github.com/electron/electron/pull/1389).                        |
 | **Maio de 2016**   | [Electron versão `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                          |

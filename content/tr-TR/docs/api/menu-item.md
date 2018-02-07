@@ -2,17 +2,17 @@
 
 > Yerel uygulama menülerine ve bağlam menülerine öğeler ekleyin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 [`Menu`](menu.md) örnekleri için bkz.
 
 ### `new MenuItem(options)`
 
-* `options` Nesnesi 
+* `seçenekler` Nesne 
   * `click` Function (isteğe bağlı) - menuye basıldığı zaman `fonksiyon click(menuItem, browserWindow, event) ile birlikte` çağırılmış olacak. 
-    * `menuItem` MenuItem
+    * `menuItem` MenüÖğesi
     * `browserWindow` BrowserWindow
-    * `event` Event
+    * `event` Olay
   * `role` String (isteğe bağlı) - `click` özelliğinin yok sayılacağı belirtildiği zaman menu öğesinin eylemini belirtir. [roles](#roles) bkz.
   * `type` String (isteğe bağlı) - `normal`, `separator`, `submenu`, `checkbox` veya `radio` olabilir.
   * `label` String - (isteğe bağlı)
@@ -36,14 +36,14 @@ Bir `click` fonksiyonu içinde davranışını el ile uygulamaya çalışmaktans
 
 `role` özelliği aşağıdaki değerlere sahiptir:
 
-* `undo`
-* `redo`
-* `cut`
-* `copy`
+* `geri almak`
+* `yeniden yapmak`
+* `kes`
+* `kopyala`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
-* `delete`
+* `sil`
 * ` minimize ` - Geçerli pencereyi simge durumuna küçültme
 * `close` - Geçerli pencereyi kapatma
 * ` quit ` - Uygulamadan çıkma
@@ -67,13 +67,18 @@ Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 * `stopspeaking` - `stopSpeaking` eylemine eşleme
 * `front` - `arrangeInFront` eylemine eşleme
 * `zoom` - `performZoom` eylemine eşleme
+* `toggletabbar` - Map to the `toggleTabBar` action
+* `selectnexttab` - Map to the `selectNextTab` action
+* `selectprevioustab` - Map to the `selectPreviousTab` action
+* `mergeallwindows` - Map to the `mergeAllWindows` action
+* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
 * ` window ` - Alt menü bir "Pencere" menüsüdür
 * `help` - Alt menü bir "Yardım" menüsüdür
 * `services` - Alt menü bir "Servisler" menüsüdür
 
 MacOS'ta bir `role` belirtirken, menü öğesini etkileyecek seçenekler yalnızca `label` ve `accelerator`'dür. Diğer tüm seçenekler yok sayılır.
 
-### Örnek özellikleri
+### Örnek Özellikleri
 
 Aşağıdaki özellikler `MenuItem` örneklerinde mevcuttur:
 

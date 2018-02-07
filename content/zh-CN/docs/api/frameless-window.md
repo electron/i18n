@@ -77,6 +77,23 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
+### Forwarding
+
+Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+
+```javascript
+let win = require('electron').remote.getCurrentWindow()
+let el = document.getElementById('clickThroughElement')
+el.addEventListener('mouseenter', () => {
+  win.setIgnoreMouseEvents(true, {forward: true})
+})
+el.addEventListener('mouseleave', () => {
+  win.setIgnoreMouseEvents(false)
+})
+```
+
+This makes the web page click-through when over `el`, and returns to normal outside it.
+
 ## 可拖拽区
 
 默认情况下, 无框窗口是 non-draggable 的。 应用程序需要指定 `-webkit-app-region: drag` 在 CSS 中告诉Electron哪个区域是可拖拽的 (像 OS 的标准标题栏), 并且应用程序也可以使用 ` -webkit-app-region: no-drag ` 来排除 draggable region 中的 non-draggable 区域。 请注意, 当前只支持矩形形状。

@@ -2,20 +2,15 @@
 
 > Uygulamaları kendiliğinden güncelleme yapmak için etkinleştirin.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
-`autoUpdater` modülü [Squirrel](https://github.com/Squirrel) frameworkü için bir arayüz sağlar.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Uygulamaları dağıtmak için bir çoklu platform yayın sunucusunu bu projelerden birini kullanarak hızlıca başlatabilirsiniz:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): *Uygulamalarınız için bir akıllı serbest bırakma sunucusudur ve Github'ı backend olarak kullanır. Squirrel ile otomatik güncelleştirmeler (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *Tam özellikli, elektron uygulamaları için kendinden barındırmalı serbest bırakma sunucusu, otomatik güncelleme ile uyumludur.*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Squirrel için basit bir node.js sunucusu. Mac ve Squirrel. Windows için GitHub sürümleri kullanılıyor*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): * Squirrel için basit bir PHP uygulamasıdır. Windows güncelleştirmeleri bir klasörden okur. Delta güncelleştirmeleri destekler.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Platform bildirimleri
-
-`autoUpdater` farklı platformlar için tekdüze bir API sağlamasına rağmen hala her platformda ince farklılıklar vardır.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,17 +28,13 @@ Yükleyici Squirrel ile [Application User Model ID](https://msdn.microsoft.com/e
 
 Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer herhangi bir statik dosya ana sisteminde tutabilir. Squirrel.Windows'un nasıl çalıştığı hakkında daha fazla bilgi almak için [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) belgelerini okuyabilirsiniz.
 
-### Linux
-
-Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
-
 ## Events
 
 `autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
-### Event: 'error'
+### Olay: 'error'
 
-Returns:
+Dönüşler:
 
 * `error` Error
 
@@ -63,9 +54,9 @@ Mevcut bir güncelleme yokken ortaya çıkan.
 
 ### Event: 'update-downloaded'
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -81,7 +72,7 @@ Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
+* `url` Dize
 * `requestHeaders` nesnesi *macOS* (isteğe bağlı) - HTTP başıkları ister.
 
 `url`'i belirler ve otomatik güncelleyici başlar.

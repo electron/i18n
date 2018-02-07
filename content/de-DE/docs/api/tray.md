@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Instance Events
+### Beispiel Events
 
 The `Tray` module emits the following events:
 
@@ -72,6 +72,7 @@ The `Tray` module emits the following events:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the tray icon is clicked.
 
@@ -115,15 +116,15 @@ Emitted when any dragged items are dropped on the tray icon.
 
 #### Event: 'drop-files' *macOS*
 
-* `event` Event
-* `files` String[] - The paths of the dropped files.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Event
-* `text` String - the dropped text string
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>text` String - the dropped text string
 
 Emitted when dragged text is dropped in the tray icon.
 
@@ -161,7 +162,18 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-### Instance Methods
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - The position of the event
+
+Emitted when the mouse moves in the tray icon.
+
+### Beispiel Methoden
 
 The `Tray` class has the following methods:
 
@@ -223,10 +235,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `optionen` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Displays a tray balloon.
 

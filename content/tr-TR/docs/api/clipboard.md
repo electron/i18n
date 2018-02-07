@@ -1,8 +1,8 @@
-# pano
+# clipboard
 
 > Kopyalama ve yapıştırma işlemlerini sistem panosunda gerçekleştirin.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Aşağıdaki örnek bir dizeyi panoya nasıl yazacağınızı gösterir:
 
@@ -19,7 +19,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Metodlar
+## Yöntemler
 
 Pano modülü aşağıdaki yöntemleri içerir:
 
@@ -33,21 +33,21 @@ Pano modülü aşağıdaki yöntemleri içerir:
 
 ### `clipboard.writeText(text[, type])`
 
-* `text` Dizi
+* `text` String
 * `type` String (isteğe bağlı)
 
 Panoya `text`'i düz yazı olarak yazar.
 
 ### `clipboard.readHTML([type])`
 
-* `type` Dize (isteğe bağlı)
+* `type` String (isteğe bağlı)
 
 `String` döndürür - Panodaki içeriği işaretlenmiş olarak.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 Yazar `markup` panoya.
 
@@ -60,7 +60,7 @@ Yazar `markup` panoya.
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 `image`'i panoya yazar.
 
@@ -81,14 +81,14 @@ Panoya `text`'i RTF olarak yazar.
 
 `Object` 'i geri getirir:
 
-* `başlık` Dizi
+* `title` String
 * `url` Dize
 
 Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren bir nesne döndürür. Sayfa işaretçisi erişilemez olduğunda `title` ve `url` değerleri boş dizeler olacaktır.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
-* `başlık` Dizi
+* `title` String
 * `url` Dize
 * `type` String (isteğe bağlı)
 
@@ -98,7 +98,7 @@ Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren b
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
@@ -109,13 +109,13 @@ clipboard.write({
 
 ### `clipboard.writeFindText(text)` *macOS*
 
-* `text` Dizi
+* `text` String
 
 `text` komutu içerisindeki metin karton bulma alanına düz yazı olarak yazılır. Oluşturucu işleminden çağrılan bu yöntem senkron IPC kullanır.
 
 ### `clipboard.clear([type])`
 
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 Pano içeriğini temizler.
 
@@ -128,7 +128,7 @@ Pano içeriğini temizler.
 ### `clipboard.has(format[, type])` *Deneysel*
 
 * `format` String
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 `Boolean` - Panoda belirtilen `format` komutunun desteklenip desteklenmediğini gösterir.
 
@@ -152,7 +152,7 @@ console.log(clipboard.has('<p>selection</p>'))
 ### `clipboard.writeBuffer (biçim, arabellek [, tür])` *Deneysel*
 
 * `format` String
-* `arabellek` Arabelleği
+* `arabellek` Arabellek
 * `type` String (isteğe bağlı)
 
 `buffer`' ı `format` olarak panoya yazar.
@@ -165,7 +165,7 @@ console.log(clipboard.has('<p>selection</p>'))
   * `image` [NativeImage](native-image.md) (isteğe bağlı)
   * `rtf` Dizi (İsteğe Bağlı)
   * `bookmark` Dizi (İsteğe bağlı) - `text` ' da url nin başlığı yer alır.
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 ```javascript
 const {clipboard} = require('electron')

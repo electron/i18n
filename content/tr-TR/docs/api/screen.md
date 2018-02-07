@@ -2,7 +2,7 @@
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
-İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 `uygulama` modülünün `hazır` olayı belirtilmeden bu modülü kullanamazsınız yada bu modüle gerek olmaz.
 
@@ -57,7 +57,7 @@ app.on('ready', () => {
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `newDisplay` [Display](structures/display.md)
 
 `newDisplay` eklendiğinde ortaya çıkar.
@@ -66,7 +66,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `oldDisplay` [Display](structures/display.md)
 
 `oldDisplay` kaldırıldığında yayılır.
@@ -75,7 +75,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `olay` Olay
+* `event` Olay
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 

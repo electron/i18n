@@ -1,45 +1,48 @@
-# desktopmenangkap
+# penangkapDesktop
 
 > Akses informasi tentang sumber media yang dapat digunakan untuk menangkap audio dan video dari desktop menggunakan API [ ` navigator.mediaDevices.getUserMedia `].
 
-Proses:[Renderer](../glossary.md#renderer-process)
+Proses: [Renderer](../glossary.md#renderer-process)
 
 Contoh berikut menunjukkan bagaimana menangkap video dari jendela desktop yang judulnya adalah`Elektron `:
 
 ```javascript
 // Dalam proses renderer.
-desktopCapturer.getSources ({types: ['window', 'screen']}, (kesalahan, sumber) = & gt; {
-   jika (error) melempar error
-   untuk (let i = 0; i & lt; sources.length; ++ i) {
-     jika (sumber [i] .name === 'Elektron') {
-       navigator.mediaDevices.getUserMedia ({
-         audio: salah,
-         video: {
-           wajib: {
-             chromeMediaSource: 'desktop',
-             chromeMediaSourceId: sumber [i] .id,
-             minWidth: 1280,
-             maxWidth: 1280,
-             minHeight: 720,
-             maxHeight: 720
-           }
-         }
-       }, handleStream, handleError)
-       kembali
-     }
-   }
+const {desktopCapturer} = require('electron')
+
+desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
+  if (error) throw error
+  for (let i = 0; i < sources.length; ++i) {
+    if (sources[i].name === 'Electron') {
+      navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+          mandatory: {
+            chromeMediaSource: 'desktop',
+            chromeMediaSourceId: sources[i].id,
+            minWidth: 1280,
+            maxWidth: 1280,
+            minHeight: 720,
+            maxHeight: 720
+          }
+        }
+      })
+      .then((stream) => handleStream(stream))
+      .catch((e) => handleError(e))
+      return
+    }
+  }
 })
 
 function handleStream (stream) {
-   document.querySelector ('video'). src = URL.createObjectURL (arus)
+  const video = document.querySelector('video')
+  video.srcObject = stream
+  video.onloadedmetadata = (e) => video.play()
 }
 
-fungsi handleError (e) {
-   console.log (e)
+function handleError (e) {
+  console.log(e)
 }
- 
-Konteks | Permintaan Konteks
-XPath: / pre / code
 ```
 
 Untuk menangkap video dari sumber yang disediakan oleh ` desktopCapturer </ 0> kendala yang dilewatkan ke [ <code> navigator.mediaDevices.getUserMedia </ 0> ] harus menyertakan
@@ -60,18 +63,18 @@ Untuk menangkap video dari sumber yang disediakan oleh ` desktopCapturer </ 0> k
    }}
 `</pre> 
 
-## Metode
+## Methods
 
 The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
 
 <h3><code>desktopCapturer.getSources (opsi, callback)`</h3> 
 
-* `pilihan` Objek 
+* `pilihan` Benda 
   * `jenis `String [] - Kumpulan String yang mencantumkan jenis sumber desktop yang akan ditangkap, jenis yang tersedia adalah`layar `dan`jendela </ 0>.</li>
 <li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
 </ul></li>
 <li><code>callback` Fungsi 
-    * `error` Kesalahan
+    * Kesalahan `kesalahan`
     *  sumber </ 0>  <a href="structures/desktop-capturer-source.md"> DesktopCapturerSource [] </ 1></li>
 </ul></li>
 </ul>

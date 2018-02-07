@@ -51,7 +51,7 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 * `method` Dizi - Yöntem Adı, uzaktan hata ayıklama protokolü tarafından belirlenen yöntemlerden biri olmalıdır.
 * `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
-* `geri arama` İşlev (opsiyonel) - Yanıt 
+* `callback` İşlev (opsiyonel) - Yanıt 
   * `error` Nesne - Komutun Başarısız olduğunu gösteren hata mesajı.
   * `result` Herhangi - Uzaktan Hata Ayıklama protokolünde komut açıklamasının "returns" özelliğiyle tanımlanan tepki.
 
@@ -61,14 +61,14 @@ Verilen komutu hata ayıklama hedefine gönderin.
 
 #### Etkinlik: 'ayırmak'
 
-* `olay` Olay
+* `event` Olay
 * `reason` String - Hata ayıklayıcıyı ayırma nedeniniz.
 
 Hata ayıklama oturumu sona erdiğinde yayan. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Etkinlik: 'mesaj'
 
-* `olay` Olay
+* `event` Olay
 * `method` String - Yöntem adı.
 * `params` Object - Olay parametreleri 'parametreler' özniteliği uzaktan hata ayıklama protokolünde.
 

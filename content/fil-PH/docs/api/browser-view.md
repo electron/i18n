@@ -4,14 +4,14 @@
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalaman ng web patungo sa isang `BrowserWindow`. Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
-## Halimbawa
+## Mga halimbawa
 
 ```javascript
-// Sa mga pangunahing proseso.
+// Ang pangunahing pag-proseso.
 const {BrowserView, BrowserWindow} = kailangan('electron')
 
 hayaang manalo = bagong BrowserWindow({width: 800, height: 600})
@@ -26,15 +26,25 @@ hayaang makita = bagong BrowserView({
 })
 win.setBrowserView(tingnan)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Experimental*
 
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga pagpipilian` Bagay (opsyonal) 
   * `webPreferences` Bagay (opsyonal) - Tingnan ang [BrowserWindow](browser-window.md).
 
-### Mga statik na pamamaraan
+### Mga istatikong pamamaraan
+
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
@@ -42,7 +52,7 @@ view.webContents.loadURL('https://electron.atom.io')
 
 Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
 
-### Humahalimbawa sa bahagi nito
+### Mga Katangian ng Instansya
 
 Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
 
@@ -54,13 +64,13 @@ Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na it
 
 Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
 
-### Mga pamamaraan ng pagkakataon
+### Mga halimbawa ng pamamaraan
 
 Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `mga pagpipilian` Bagay 
+* `mga opsyon` Bagay 
   * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
   * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
 

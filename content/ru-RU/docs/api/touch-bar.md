@@ -12,7 +12,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Примечание:** TouchBar API в настоящее время является экспериментальным и может быть изменен или удален в будущих версиях Electron.
 
 **Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### Running the above example
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Save the above file to your computer as `touchbar.js`
 2. Install Electron via `npm install electron`

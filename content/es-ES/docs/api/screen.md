@@ -2,7 +2,7 @@
 
 > Recuperar información acerca del tamaño de la pantalla, posiciones del cursor, posiciones, etc.
 
-Proceso: [Principal](../glossary.md#main-process), [Renderizado](../glossary.md#renderer-process)
+Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 No puedes requerir o usar este módulo hasta que el evento `ready` de el módulo `app` sea emitido.
 

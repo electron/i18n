@@ -2,33 +2,33 @@
 
 > Sistem tercihlerini al.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Events
+## Etkinlikler
 
 `systemPreferences` nesnesi aşağıdaki olayları yayar:
 
 ### Event: 'accent-color-changed' *Windows*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `newColor` String - Kullanıcının sistemine atadığı yeni RGBA vurgu rengi.
 
 ### Event: 'color-changed' *Windows*
 
-Returns:
+Dönüşler:
 
-* `event` Event
+* `olay` Olay
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
-Returns:
+Dönüşler:
 
 * `event` Event
 * `invertedColorScheme` Boolean - Ters renk şeması yüksek kontrastlı bir tema gibi kullanılıyorsa `true`, kullanılmıyorsa değer `false` olacaktır.
@@ -60,7 +60,7 @@ Sayfalar arasında kaydırma ayarı açık olup olmadığına dair `Boolean` dö
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `geri aramak` Function 
   * `event` String
   * `userInfo` Object
 
@@ -77,14 +77,14 @@ Bu başlığının altında API `NSDistributedNotificationCenter`'e abone olur, 
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
-* `id` Integer
+* `id` tamsayı
 
 Aboneyi `id` ile kaldırır.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `geri aramak` Function 
   * `event` String
   * `userInfo` Object
 
@@ -92,7 +92,7 @@ Aboneyi `id` ile kaldırır.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Integer
+* `id` tamsayı
 
 `unsubscribeNotification` gibidir fakat aboneyi `NSNotificationCenter`'den çıkarır.
 
@@ -101,9 +101,9 @@ Aboneyi `id` ile kaldırır.
 * `key` String
 * `type` String - `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary` olabilir
 
-Sistem tercihlerindeki `key`'in değerini `any` olarak döndürür.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şöyledir:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -119,13 +119,19 @@ API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şö
 * `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] bakın
 * `value` String
 
-Sistem tercihlerindeki `key`'in değerini ayarlar.
+Set the value of `key` in `NSUserDefaults`.
 
 `type`'ın `value`'nin gerçek türü ile eşleşmesi gerektiğini unutmayın. Eğer uyuşmazlarsa bir hata fırlatılacaktır.
 
-API macOS'da `NSUserDefaults` kullanır. Bazı popüler `key` ve `type`'lar şöyledir:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
+
+### `systemPreferences.removeUserDefault(key)` *macOS*
+
+* `key` String
+
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 

@@ -35,14 +35,14 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 })
 ```
 
-### Instance Events
+### Beispiel Events
 
 #### Event: 'updated'
 
 Rückgabewert:
 
-* `event` Event
-* `state` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>state` String
 
 Emitted when the download has been updated and is not done.
 
@@ -55,8 +55,8 @@ The `state` can be one of following:
 
 Rückgabewert:
 
-* `event` Event
-* `state` String
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>state` String
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### Instance Methods
+### Beispiel Methoden
 
 The `downloadItem` object has the following methods:
 
@@ -96,7 +96,7 @@ Resumes the download that has been paused.
 
 #### `downloadItem.canResume()`
 
-Resumes `Boolean` - Whether the download can resume.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 

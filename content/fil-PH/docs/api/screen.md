@@ -2,7 +2,7 @@
 
 > Kunin ang impormasyon tungkol sa laki ng screen, display, cursor posisyon, at iba pa.
 
-Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
+Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
@@ -28,27 +28,27 @@ Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
 ### Pangyayari: 'display-added'
 
-Magbabalik ng:
+Pagbabalik:
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `newDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Magbabalik ng:
+Pagbabalik:
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `oldDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Magbabalik ng:
+Pagbabalik:
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 

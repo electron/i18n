@@ -4,18 +4,13 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-` autoUpdater`模块提供一个接口给[ Squirrel](https://github.com/Squirrel)框架
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-你可以使用这些项目之一进行快速启动多平台发布服务器以分发应用程序:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts): *为你的应用程序提供智能版本服务器, 使用GitHub作为后端。使用Squirrel(Mac和Windows) 自动更新*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server): *功能齐全, 自主托管的electron应用程序的发布服务器, 兼容自动更新器*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *对于使用 GitHub 版本的 Squirrel.Mac 和 Squirrel.Windows 的一个简单的 node.js 服务器*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *一个简单的 Squirrel.Windows 的 PHP 应用程序，它从文件夹读取更新。并支持增量更新</1> *
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## 平台相关的提示
-
-虽然 `autoUpdater` 模块提供了一套各平台通用的接口，但是在每个平台间依然会有一些微小的差异。
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,15 +28,11 @@
 
 与 Squirrel.Mac 不同，Windows 版可以将更新文件放在 S3 或者其他静态主机上。 你可以阅读 [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)的文档来获得更多详细信息。
 
-### Linux
-
-在Linux上没有自动更新器的内置支持, 因此建议使用分发包的包管理器来更新您的应用程序。
-
 ## 事件
 
 `autoUpdater` 对象会触发以下的事件:
 
-### Event: 'error'
+### error事件：
 
 返回:
 

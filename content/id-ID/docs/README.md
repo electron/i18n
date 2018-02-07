@@ -15,6 +15,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Distribusi Aplikasi](tutorial/application-distribution.md)
 * [Panduan Pengiriman Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Panduan Toko Windows](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Kemasan Aplikasi](tutorial/application-packaging.md)
 * [Menggunakan Modul Node Asli](tutorial/using-native-node-modules.md)
 * [Proses Utama Debugging](tutorial/debugging-main-process.md)
@@ -24,7 +25,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Menggunakan Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Pengujian pada Sistem CI tanpa kepala (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Rendering di luar layar](tutorial/offscreen-rendering.md)
-* [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+* [Cara pintas keyboard](tutorial/keyboard-shortcuts.md)
 * [Memperbarui Aplikasi](tutorial/updates.md)
 
 ## Tutorial

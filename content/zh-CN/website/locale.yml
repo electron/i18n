@@ -4,21 +4,21 @@ nav:
   blog: 博客
   community: 社区
   apps: 应用
-  userland: Userland
+  userland: 用户生态
   releases: 版本发布
   contact: 联系我们
   languages: 语言
-  code_of_conduct: 行为守则
+  code_of_conduct: 行为准则
   search: 搜索
 docs:
   title: Electron 文档
   description: 在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或查看 <a href="/docs/faq"> 常见问题 </a>。
   guides: 指南
   api_reference: API 参考
-  advanced: 高级选项
+  advanced: 高级
   footer:
     propose_change: 改进此文档
-    version_history: 版本历史记录
+    version_history: 版本历史
     translate: 翻译此文档
     view_all_docs: 在一页查看所有文档
 languages:
@@ -27,9 +27,9 @@ languages:
   current: 当前所选
 community:
   title: Electron 社区
-  description: '工具, boilerplates, 视频, 以及更多的Electron的 <a href="https://github.com/sindresorhus/awesome-electron">awesome </a> 开源贡献者。查找或添加离您近的 <a href="/community#meetups"> 聚会 </a>。'
+  description: '工具, 模板, 视频, 以及更多的Electron的 <a href="https://github.com/sindresorhus/awesome-electron">awesome </a> 开源贡献者。查找或添加离您近的 <a href="/community#meetups"> 聚会 </a>。'
   tools: 工具
-  boilerplates: Boilerplates模板
+  boilerplates: 模板
   components: 组件
   videos: 视频
   meetups: 线下交流会
@@ -44,7 +44,7 @@ web_technologies:
   description: Electron 基于 Chromium 和 Node.js, 让你可以使用 HTML, CSS 和 JavaScript 构建应用。
 open_source:
   title: 开源
-  description: Electron 是一个由 GitHub 和由贡献者组成的活跃社区维护的开源项目。
+  description: Electron 是一个由 GitHub 及众多贡献者组成的活跃社区共同维护的开源项目。
 cross_platform:
   title: 跨平台
   description: Electron 兼容 Mac, Windows 和 Linux， 它构建的应用可在这三个操作系统上面运行。
@@ -53,10 +53,10 @@ benefits:
   automatic_updates: 自动更新
   native_menus_and_notifications: 原生的菜单和通知
   crash_reporting: 崩溃报告
-  debugging_and_profiling: 调试 & 性能分析
+  debugging_and_profiling: 调试和性能分析
   windows_installers: Windows 安装程序
 get_started:
-  title: 开始吧
+  title: 入门
   description: 若要开始使用 Electron，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 API，以及生成的安装程序。
 explore:
   title: 探索 Electron 的 API
@@ -91,7 +91,7 @@ clipboard:
   copy: 复制
   copy_to_clipboard: 复制到剪贴板
   copied: 已复制
-or: 或者
+or: or
 pages:
   '/':
     title: Electron | 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。
@@ -100,7 +100,7 @@ pages:
     title: Electron 应用
     description: 使用 Electron 构建的应用
   '/docs':
-    title: 文档
+    title: ' 文档 '
     description: 最新的 Electron 的指南和 API 参考文档
   '/docs/all':
     title: 所有的 Electron 的文档
@@ -122,12 +122,12 @@ pages:
   '/releases':
     title: 版本发布
   '/contact':
-    title: 联络
+    title: 联系我们
     description: 在Twitter、Slack、GitHub 或通过电子邮件与电子团队取得联系。
   '/languages':
     title: 语言
   '/userland':
-    title: 用户区
+    title: 用户生态
   '/devtron':
     title: Devtron
     description: Devtron 是一个开源工具，可以帮助您检查、监视和调试您的 Electron 应用程序。建立在强大的 Chrome 开发者工具之上。
@@ -139,9 +139,7 @@ _404:
   if_this_is_an_error: 如果这是个错误
   please_file_an_issue: 请发一个issue
 search:
-  description:
-    start: 查找Electron资源
-    docs: <a href="/search/docs"> 文档 </a>
-    npm: <a href="/search/npmPackages"> npm 包 </a>
-    and: 和
-    repos: <a href="/search/repos"> GitHub 仓库 </a>
+  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_docs: Find Electron resources from documentation.
+  description_npm: Find Electron resources from npm packages.
+  description_repos: Find Electron resources from GitHub repos.

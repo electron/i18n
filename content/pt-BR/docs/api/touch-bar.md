@@ -16,7 +16,7 @@ Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar
 
 **Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
 
-### Propriedades da Instância
+### Propriedades de Instância
 
 The following properties are available on instances of `TouchBar`:
 
@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### Running the above example
 
-To run the example above, you'll need to (assuming you've got a terminal open in the dirtectory you want to run the example):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Save the above file to your computer as `touchbar.js`
 2. Install Electron via `npm install electron`

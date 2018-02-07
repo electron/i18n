@@ -12,7 +12,7 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `click` Fonction (optionnel) - Sera appelé avec `click(menuItem, browserWindow, event)` lorsque l'élément du menu est cliqué. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
-    * `event` Event
+    * `event` Événement
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String - (optional)
@@ -67,6 +67,11 @@ The following additional roles are available on macOS:
 * `stopspeaking` - Map to the `stopSpeaking` action
 * `front` - Map to the `arrangeInFront` action
 * `zoom` - Map to the `performZoom` action
+* `toggletabbar` - Map to the `toggleTabBar` action
+* `selectnexttab` - Map to the `selectNextTab` action
+* `selectprevioustab` - Map to the `selectPreviousTab` action
+* `mergeallwindows` - Map to the `mergeAllWindows` action
+* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
 * `window` - The submenu is a "Window" menu
 * `help` - The submenu is a "Help" menu
 * `services` - The submenu is a "Services" menu

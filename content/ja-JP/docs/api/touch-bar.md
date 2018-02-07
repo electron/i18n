@@ -35,22 +35,22 @@ const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
-// スロットのリールの役目を果たす label
+// Reel labels
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// スロットの結果を表示する label
+// Spin result label
 const result = new TouchBarLabel()
 
-// スロットを回すボタン
+// Spin button
 const spin = new TouchBarButton({
   label: '
 ```
 
 ### 上記のサンプルを実行する
 
-上記のサンプルを実行するには、（予めターミナルで適当なディレクトリを開いた上で）以下の操作を行ってください。
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. 上記のコードを `touchbar.js` として保存する
 2. `npm install electron` と入力し、 Electron をインストールします

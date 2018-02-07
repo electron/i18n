@@ -33,9 +33,9 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 Removes the specified `listener` from the listener array for the specified `channel`.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (optional)
+* `channel` String
 
 Removes all listeners, or those of the specified `channel`.
 
@@ -60,6 +60,14 @@ Send a message to the main process synchronously via `channel`, you can also sen
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
 **Примечание:** Отправка синхронного сообщения будет блокировать все процессы визуализации, если вы не знаете что делаете никогда не используйте его.
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

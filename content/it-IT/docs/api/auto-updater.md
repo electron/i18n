@@ -4,18 +4,13 @@
 
 Processo: [Principale](../glossary.md#main-process)
 
-Il modulo `autoAggiornatore` fornisce un'un'interfaccia per il framework [Squirrel](https://github.com/Squirrel).
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Puoi brevemente lanciare un rilascio su più piattaforme del server per distribuire la tua app usando uno dei seguenti progetti:
+## Platform Notices
 
-* [nut](https://github.com/GitbookIO/nuts): *Un software release intelligente per le tue app, usando GitHub come sfondo. Auto-aggiornamenti con Squirrel (Mac & Windows)*
-* [electron-rilascio-server](https://github.com/ArekSredzki/electron-release-server): *Un totalmente accessoriato auto-ospitato rilascio server per le app electron, compatibile con l'auto-aggiornatore*
-* [squirrel-aggiornamenti-server](https://github.com/Aluxian/squirrel-updates-server): *Un semplice server node.js per Squirrel.Mac e Squirrel.Windows che usa i rilasci GitHub*
-* [squirrel-rilascio-server](https://github.com/Arcath/squirrel-release-server): *Una semplice applicazione PHP per Squirrel.Windows che legge gli aggiornamenti da una cartella. Supporta aggiornamenti delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Avvisi di piattaforma
-
-`autoAggiornatore` fornisce una API uniforme per varie piattaforme, ci sono alcune differenze sottili su ogni piattaforma.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -32,10 +27,6 @@ Su Windows si deve installare la propria app in una macchina utente prima di pot
 <p>L'installatore generato con Squirrel creerà un'icona scorciatoia con un <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx">ID Modello Applicazione Utente</a> nel formato di<code>com.squirrel.PACCHETTO_ID.TUO_EXE_SENZA_DOT_EXE` esempi sono `com.squirrel.allenta.Allenta` e `com.squirrel.codice.Codice`. Devi usare lo stesso ID per la tua app con la API `app.impostaModelloIdAppUtente`, altrimenti Windows non potrà pinnare la tua app propriamente nella task bar.
 
 Diversamente da Squirrel.Mac, Windows può ospitare aggiornamenti si S3 o alcuni altri file ospiti statici. Puoi leggere i documenti do [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) per ottenere ulteriori dettagli su come lavora Squirrel.Windows.
-
-### Linux
-
-Non esiste un supporto incorporato per l'auto-Aggiornatore, si raccomanda l'uso del pacchetto gestionale di distribuzione all'aggiornamento della propria app.
 
 ## Eventi
 

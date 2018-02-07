@@ -1,4 +1,4 @@
-# ipcRenderer
+# ipcrenderer
 
 > Makipag-usap ng sabay-sabay mula sa prosesong tagasalin hanggang sa pangunahing proseso.
 
@@ -8,38 +8,38 @@ Ang modyul ng `ipcRenderer` ay ang instansya ng uri ng [EventEmitter](https://no
 
 Tingnan ang [ipcMain](ipc-main.md) para sa mga halimbawa ng code.
 
-## Pamamaraan
+## Mga Paraan
 
 Ang modyul ng `ipcRenderer` ay mayroon ng mga sumusunod na pamamaraan para makinig sa mga event at magpadala ng mga mensahe:
 
 ### `ipcRenderer.on(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Punsyon
+* `listener` Function
 
-Nakikinig sa `channel`, kapag ang bagong mensahe ay dumarating ang `listener` ay tatawagin pati ang `listener(event, args....)`.
+Makinig sa `channel`, kapag ang bagong mensaheng dumating sa `listener` ay tinawag pati ang `listener(event, args...)`.
 
 ### `ipcRenderer.once(tsanel, tagapakinig)`
 
 * `channel` String
-* `listener` Punsyon
+* `listener` Function
 
-Nagdadagdag ng isang beses na punsyon ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
+Nagdadagdag ng isang beses na function ng `listener` para sa event. Ang `listener` na ito ay naihalo lamang sa susunod na ang isang mensahe ay naipadala sa `channel`, ito ay aalisin pagkatapos nito.
 
 ### `ipcRenderer.removeListener(tsanel, tagapakinig)`
 
 * `channel` String
 * `listener` Punsyon
 
-Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
+Tatanggalin ang mga tinukoy na `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (opsyonal)
+* `channel` String
 
 Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 
-### `ipcRenderer.send(channel[,arg1][,arg2][, ...])`
+### `ipcRenderer.send(channel[,arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
@@ -48,7 +48,7 @@ Magpadala ng mensahe sa pangunahing proseso ng magkahiwalay sa pamamagitan ng `c
 
 Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `channel` na may modyul ng `ipcMain`.
 
-### `ipcRenderer.sendSync(channel[, arg1][,arg2][, ...])`
+### `ipcRenderer.sendSync(channel[,arg1][,arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
@@ -60,6 +60,14 @@ Magpadala ng mensahe sa pangunahing proseso ng magkasabay sa pamamagitan ng `cha
 Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `channel` na may modyul ng `ipcMain`, at tumugon sa pamamagitan ng pagtatakda ng `event.returnValue`.
 
 **Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` anuman[]
+
+Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[,arg1][, arg2][, ...])`
 

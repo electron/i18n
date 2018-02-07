@@ -2,7 +2,7 @@
 
 > Intercept and modify the contents of a request at various stages of its lifetime.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
@@ -28,23 +28,24 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 })
 ```
 
-### Mga pamamaraan ng pagkakataon
+### Mga Halimbawa ng Sistematikong Paraan
 
 The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
-    * `url` String
+    * `url` Tali
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Tali
     * `timestamp` Double
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `tumawag muli` Punsyon 
+  * `callback` Function 
     * `response` Bagay 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -57,9 +58,9 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon
+* `listener` Function
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
@@ -67,10 +68,11 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `id` Integer
   * `url` String
   * `method` String
+  * `webContentsId` Integer (optional)
   * `resourceType` Tali
   * `timestamp` Double
   * `requestHeaders` Object
-* `tumawag muli` Punsyon 
+* `callback` Ang Punsyon 
   * `response` Bagay 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
@@ -79,14 +81,15 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` String
     * `method` String
-    * `resourceType` Tali
+    * `webContentsId` Integer (optional)
+    * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -94,22 +97,23 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Punsyon
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `ang mga detalye` Bagay 
-  * `id` String
+  * `id` Integer
   * `url` String
   * `method` String
-  * `resourceType` Tali
+  * `webContentsId` Integer (optional)
+  * `resourceType` String
   * `timestamp` Double
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
-* `tumawag muli` Punsyon 
+* `callback` na Function 
   * `response` Bagay 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
@@ -119,14 +123,15 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Ang Punsyon 
   * `ang mga detalye` Bagay 
     * `id` Integer
-    * `url` String
+    * `url` Tali
     * `method` String
-    * `resourceType` Tali
+    * `webContentsId` Integer (optional)
+    * `resourceType` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -137,13 +142,14 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Ang Punsyon 
   * `ang mga detalye` Bagay 
-    * `id` String
-    * `url` String
+    * `id` Integer
+    * `url` Tali
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Tali
     * `timestamp` Double
     * `redirectURL` String
@@ -156,13 +162,14 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Tali
     * `timestamp` Double
     * `responseHeaders` Object
@@ -174,13 +181,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `salain` Bagay 
+* `salain` Object - (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Ang Punsyon 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` String
     * `method` String
+    * `webContentsId` Integer (optional)
     * `resourceType` Tali
     * `timestamp` Double
     * `fromCache` Boolean
