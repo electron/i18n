@@ -105,7 +105,7 @@ Boş bir `NativeImage` örneği oluşturur.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` Dizi
+* dizi `yolu`
 
 `NativeImage` döndürür
 
@@ -164,51 +164,51 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Örnek yöntemleri
+### Örnek Metodlar
 
-The following methods are available on instances of the `NativeImage` class:
+Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.toPNG([options])`
 
 * `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `PNG` kodlanmış verisini içeririr.
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` tamsayı (**required**) - 0 - 100 arasında.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün `JPEG` kodlanmış verisini içeririr.
 
 #### `image.toBitmap([options])`
 
 * `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisinin kopyasını içeririr.
 
 #### `image.toDataURL([options])`
 
-* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
-Returns `String` - The data URL of the image.
+`String` döndürür - Görüntünün veri URL'si.
 
 #### `image.getBitmap([options])`
 
-* `options` Obje (İsteğe Bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
+* `options` Obje (isteğe bağlı) * `scaleFactor` Double (İsteğe bağlı) - Varsayılan değer 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+`Buffer` döndürür - Bir [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün raw bitmap pixel verisini içeririr.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+`getBitmap()` ve `toBitmap()` arasındaki fark, `getBitmap()` bitmap verilerini kopyalamamaktadır; bu nedenle, döndürülen arabelleği güncel olay döngüsü işaretinde hemen kullanmalısınız, aksi takdirde veriler değiştirilebilir veya imha edilebilir.
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. MacOS' ta `NSImage` örneğine bir işaretçi iade edilecektir.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+İşaretlenen işaretçinin, bir kopyanın yerine alttaki yerel görüntünün zayıf bir işaretçi olduğuna dikket edin, böylelikle *must* nin `nativeImage` etrafında tutulmasını sağlıyorsunuz.
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+`Boolean` - Görüntünün boş olup olmadığını gösterir.
 
 #### `image.getSize()`
 
@@ -218,32 +218,32 @@ Returns [`Size`](structures/size.md)
 
 * `option` Boolean
 
-Marks the image as a template image.
+Görüntüyü şablon görüntüsü olarak işaretler.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+`Boolean` - Görüntünün şablon görüntüsü olup olmadığını gösterir.
 
 #### `image.crop(rect)`
 
-* `rect` [Rectangle](structures/rectangle.md) - The area of the image to crop
+* `rect` [Dikdörtgen](structures/rectangle.md) - Kırpılacak resimin alanı
 
-Returns `NativeImage` - The cropped image.
+Returns `NativeImage` - Kırpılan resim.
 
 #### `image.resize(options)`
 
-* `options` Object * `width` Integer (optional) - Defaults to the image's width. * `height` Integer (optional) - Defaults to the image's height * `quality` String (optional) - The desired quality of the resize image. Possible values are `good`, `better` or `best`. The default is `best`. These values express a desired quality/speed tradeoff. They are translated into an algorithm-specific method that depends on the capabilities (CPU, GPU) of the underlying platform. It is possible for all three methods to be mapped to the same algorithm on a given platform.
+* `options` obje * `width` tamsayı(İsteğe bağlı) - Resmin varsayılan genişliğidir. * `height` Tamsayı (isteğe bağlı) - Resmin varsayılan yüksekliğidir. * `quality` dizi (isteğe bağlı) - Yeniden boyutlandırılan resmin istenen görüntü kalitesini gösterir. Olası değerler `good`, `better` or `best`. Varsayılan değer `best`. Bu değerler elde edilmek istenen kalite/hız dengesini ifade eder. Altta yatan platformun yeteneklerine (CPU, GPU) bağlı algoritmaya özgü bir yöntemle çevrilirler. Her üç yöntemin önceden belirlenmiş bir platformda aynı algoritma ile eşleştirilmesi mümkündür.
 
-Returns `NativeImage` - The resized image.
+`NativeImage` Döndürür - Yeniden boyutlanmış resim.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Sadece `height` veya `width` belirtilirse yeniden boyutlandırılmış resimde mevcut en boy oranı korunur.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+`Float` Döner - Resmin en boy oranı.
 
 #### `image.addRepresentation(options)`
 
-* `options` Object * `scaleFactor` Double - The scale factor to add the image representation for. * `width` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `height` Integer (optional) - Defaults to 0. Required if a bitmap buffer is specified as `buffer`. * `buffer` Buffer (optional) - The buffer containing the raw image data. * `dataURL` String (optional) - The data URL containing either a base 64 encoded PNG or JPEG image.
+* `options` obje * `scaleFactor` Çift - Gösterilen resimdeki ölçek faktörü. `width` tamsayı (isteğe bağlı) - Varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. `height` Tamsayı (İsteğe bağlı) - varsayılan değer 0. Bir bitmap arabelleği `buffer` belirtilirse gereklidir. * `buffer` Arabellek (isteğe bağlı) - Ham resim verilerini içeren arabelleği ifade eder. * `dataURL` Dizi (isteğe bağlı) - Taban 64 lük sistem ile kodlanmış JPEG ve PNG resmi içeren URL.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Belirli ölçek faktörü için bir görüntü gösterimi ekleyin. Bu kullanılabilir görüntüye açıkca farklı ölçek faktörü gösterimleri eklemek için kullanılabilir. Bu boş görüntülerde çağrılabilir.
