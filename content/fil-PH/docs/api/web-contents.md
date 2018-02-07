@@ -710,16 +710,16 @@ Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Deprecated:** Tumawag `setVisualZoomLevelLimits` sa halip na itakda ang visual zoom ng mga limitasyon sa antas. Ang paraan na ito ay aalisin sa Elektron 2.0.
 
-#### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `mga nilalaman.setVisualZoomLevelLimits(pinakamababang antas, pinakamataas na antas)`
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
 
 Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 
-#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+#### `mga nilalaman.setVisualZoomLevelLimits (pinakamababang antas, pinakamataas na antas)`
 
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
