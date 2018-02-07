@@ -79,26 +79,26 @@ Acrescenta o `menuItem` ao menu.
 
 Returns `MenuItem` the item with the specified `id`
 
-#### `menu.insert(pos, menuItem)`
+#### `menu.Insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` MenuItem
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Insere o `menuItem` na posição `pos` do menu.
 
 ### Propriedades de Instância
 
-`menu` objects also have the following properties:
+Objetos `menu` também possuem as seguintes propriedades:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Um array `MenuItem[]` contendo os itens do menu.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
 
 ## Exemplos
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
 
 ### Processo principal
 
@@ -198,7 +198,7 @@ Menu.setApplicationMenu(menu)
 
 ### Processo de renderização
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
 
 ```html
 <!-- index.html -->
@@ -232,7 +232,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 ### Ações padronizadas para Item de Menu
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+O macOS fornece ações padronizadas para alguns itens de menu, como `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### Nome do Menu Principal
 
@@ -256,7 +256,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemplos
 
-Template:
+Modelo:
 
 ```javascript
 [
@@ -278,7 +278,7 @@ Menu:
 - 5
 ```
 
-Template:
+Modelo:
 
 ```javascript
 [
