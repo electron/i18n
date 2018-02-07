@@ -98,7 +98,7 @@ Escribe el `título` y la `url` en el portapapeles como un marcador.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
