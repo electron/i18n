@@ -1,213 +1,213 @@
-# Releasing
+# Paglalathala
 
-This document describes the process for releasing a new version of Electron.
+Ang dokumentong ito ay naglalarawan sa proseso ng paglalathala ng bagong bersyon ng Electron.
 
-## Determine which branch to release from
+## Tukuyin kung sa aling sangay maglalathala
 
-- **If releasing beta,** run the scripts below from `master`.
-- **If releasing a stable version,** run the scripts below from `1-7-x` or `1-6-x`, depending on which version you are releasing for.
+- **Kung naglalathala mula sa beta,** paganahin ang mga skript sa baba mula sa `master`.
+- **Kung naglalathala mula sa matatag na bersyon,** paganahin ang mga skript sa baba `1-7-x` o `1-6-x`, depende kung saang bersyon ka maglalathala
 
-## Find out what version change is needed
+## Alamin kung anong bersyon ang kinakailangan
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+Paganahin ang `npm run prepare-release -- --notesOnly` upang tingnan ang mga awtomatikong nilikhang mga kopya sa paglalathala. Ang mga nailalathalang mga kopya ay dapat nakakatulong sa inyong tukuyin kung ito ba ay isang pangunahin, menor, patch o bersyong pagbabago na beta. Basahin ang [Mga Panuntunan sa Pagbabao ng Bersyon](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
 
-## Run the prepare-release script
+## Paganahin ang prepare-release na skript
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+Gagawin ng prepare release na skript ang mga sumusunod: 1. Tingnan kung ang isang paglalathala ay nakaproseso na at kung totoo, titigil ito. 2. Lumikha ng sangay ng paglalathala. 3. I-bump ang numero ng bersyon sa maraming mga file. Tingnan ang [bump commit na ito](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) bilang isang halimbawa. 4. Lumikha ng isang ilalabas na draft sa Github gamit ang awtomatikong nalilikhang mga panlathalang kopya. 5. Pindutin ang panlathalang sangay. 6. Tawagin ang mga API upang paganahin ang mga panlathalang mga build.
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+Kapag nalaman mo na kung aling uri ng bersyon ang kinakailangan, paganahin ang `prepare-release` na skript kasama ang mga argumentong umaayon sa iyong mga kinakailangan: - `[major|minor|patch|beta]` upang ibahin ang isa sa mga bilang ng bersyon, o - `--stable` upang ipaalam na ito ang matatag na bersyon.
 
-Например:
+Halimbawa:
 
-### Major version change
+### Pangunahing Pagbabago sa Bersyon
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### Menor na Pagbabago sa Bersyon
 
 ```sh
 npm run prepare-release -- minor
 ```
 
-### Patch version change
+### Patch na Pagbabago sa Bersyon
 
 ```sh
 npm run prepare-release -- patch
 ```
 
-### Beta version change
+### Beta na Pagbabago sa Bersyon
 
 ```sh
 npm run prepare-release -- beta
 ```
 
-### Promote beta to stable
+### Gawing Matatag ang Beta
 
 ```sh
 npm run prepare-release -- --stable
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## Maghintay ng mga build :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+Ang `prepare-release` na skript ay magpapagana sa mga the build sa pamamagitan ng mga API na tawag. Upang subaybayan ang pagbi-build, tingnan ang mga sumusunod na mga pahina:
 
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) for Mac App Store
-- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) for OS X
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-mas-x64-release/activity) para sa Mac App Store
+- [mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity](https://mac-ci.electronjs.org/blue/organizations/jenkins/electron-osx-x64-release/activity) para sa OS X
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) para sa Linux
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para sa Windows
 
-## Compile release notes
+## Pagsama-samahin ang mga panlathalang kopya
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+Ang pagsulat ng mga panlathalang mga kopya ay isang paraan upang panatilihing abala ang iyong sarili habang ang mga build ay gumagana pa. Para sa paunang sining, tingnan ang mga lathala sa [pahina ng mga lathala](https://github.com/electron/electron/releases).
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Mga Mungkahi: - Ang bawat nailistang item ay dapat nakabatay sa isang PR sa electron/electron, hindi isang issue, o isang PR mula sa ibang repo katulad ng libcc. - Hindi na kailangan gumamit ng link markup kapag binabatayan ang mga PR. Ang mga string katulad ng `#123` ay awtomatikong sinasalin ang mga link sa github.com. - Upang tingnan ang bersyon ng Chromium, V8, at Node sa bawat bersyon ng Electron, bisitahin ang [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
-### Patch releases
+### Mga patch na lathala
 
-For a `patch` release, use the following format:
+Para sa isang `patch` na lathala, gamitin ang sumusunod na format:
 
 ```sh
-## Bug Fixes
+## Mga Kaayusan sa Bug
 
-* Fixed a cross-platform thing. #123
+* Naayos ang isang cross-platform na bagay. #123
 
 ### Linux
 
-* Fixed a Linux thing. #123
+* Naayos ang isang Linux na bagay. #123
 
 ### macOS
 
-* Fixed a macOS thing. #123
+* Naayos ang isang macOS na bagay. #123
 
 ### Windows
 
-* Fixed a Windows thing. #1234
+* Naayos ang isang Windows na bagay. #1234
 ```
 
-### Minor releases
+### Menor na mga lathala
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+Para sa isang `minor` na lathala, e.g. `1.8.0`, gamitin ang format na ito:
 
 ```sh
-## Upgrades
+## Mga Upgrade
 
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Na-upgrade mula sa Node `oldVersion` papuntang `newVersion`. #123
 
-## API Changes
+## API na mga Pagbabago
 
-* Changed a thing. #123
+* Binago ang isang bagay. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Binago ang isang Linux na bagay. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* Binago ang isang macOS na bagay. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Binago ang isang Windows na bagay. #123
 ```
 
-### Major releases
+### Pangunahing mga Lathala
 
 ```sh
-## Upgrades
+## Mga Upgrade
 
-- Upgraded from Chromium `oldVersion` to `newVersion`. #123
-- Upgraded from Node `oldVersion` to `newVersion`. #123
+- Na-upgrade mula Chromium `oldVersion` papuntang `newVersion`. #123
+- Na-upgrade mula Node `oldVersion` papuntang `newVersion`. #123
 
-## Breaking API changes
+## Pag-iisa-isa sa mga API na pagbabago
 
-* Changed a thing. #123
+* Binago ang isang bagay. #123
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Binago ang isang Linux na bagay. #123
 
 ### macOS
 
-* Changed a macOS thing. #123
+* Binago ang isang macOS na bagay. #123
 
 ### Windows
 
-* Changed a Windows thing. #123
+* Binago ang isang Windows na bagay. #123
 
-## Other Changes
+## Iba pang mga pagbabago
 
-- Some other change. #123
+- Ilan pang mga pagbabao. #123
 ```
 
-### Beta releases
+### Mga Beta na Lathala
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+Gamitin ang kaparehong format gaya ng iminungkahi sa itaas, pero idagdag ang sumusunod na paalala sa simula ng changelog:
 
 ```sh
-**Note:** This is a beta release and most likely will have have some instability and/or regressions.
+**Tandaan:** Ito ay isang beta na lathala at hindi maiiwasang magkaroon ng ilang mga hindi pagkatatag at/o mga regresyon.
 
-Please file new issues for any bugs you find in it.
+Mangyaring maglabas ng mga bagong issue para sa mga bug na makikita ninyo dito.
 
-This release is published to [npm](https://www.npmjs.com/package/electron) under the `beta` tag and can be installed via `npm install electron@beta`.
+Ang lathalang ito ay inilathala sa [npm](https://www.npmjs.com/package/electron) sa ilalim ng `beta` na tag at pwedeng i-install sa pamamagitan ng `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## Baguhin ang panlathalang draft
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
-2. Edit the release and add release notes.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Click 'Save draft'. **Do not click 'Publish release'!**
-5. Wait for all builds to pass before proceeding.
-6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
+1. Bisitahin ang [pahina ng mga lathala](https://github.com/electron/electron/releases) at makikita mo ang isang bagong draft na lathala na may placeholder na mga kopyang panlathala.
+2. Baguhin ang lathala at idagdag ang mga kopyang panlathala.
+3. Tanggalin ang tsek sa `prerelease` na checkbox kapag naglalabas ka ng matatag na lathala; pabayaan itong naka-tsek sa mga beta na lathala.
+4. I-click ang 'Save draft'. **Wag i-click ang 'Publish release'!**
+5. Hintaying dumaan ang lahat ng mga build bago magpatuloy.
+6. Pwede mong paganahin ang `npm run release --validateRelease` upang patunayan na ang lahat ng iyong mga kinakailangang file ay nalikha na para sa paglathala
 
-## Merge temporary branch
+## Pag-isahin ang temporaryong sangay
 
-Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
+Kapag natapos na ang mga release build, pag-isahin ang `release` na sangay pabalik sa pinagmulang sangay panlathala gamit ang `merge-release` na skript. Kapag ang sangay ay hindi kayang pag-isahin pabalik, ang skript na ito ay awtomatikong nire-rebase ang `release' na sangay at pinipilit ang mga pagbabago na nagpapagana ulit sa mga release build, ibig sabihin nito kailangan mong maghintay sa mga release build na gumana ulit bago ka makapagpatuloy.
 
-### Merging back into master
+### Pag-iisa pabalik sa master
 
 ```sh
 npm run merge-release -- master
 ```
 
-### Merging back into old release branch
+### Pag-iisa pabalik sa dating panlathalang sangay
 
 ```sh
 npm run merge-release -- 1-7-x
 ```
 
-## Publish the release
+## I-publish ang lathala
 
-Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+Kapag matagumpay ang pag-iisa, paganahin ang `release` na skript gamit ang `npm run release` upang tapusin ang proseso ng paglathala. Gagawin ng script ang mga sumusunod: 1. I-build ang proyekto upang patunayan ang tamang numero ng bersyon na inilathala. 2. I-download ang mga binary at lumikha ng mga node header at ng .lib linker na ginagamit sa Windows sa pamamagitan ng node-gyp upang gumawa ng mga native na modyul. 3. Lumikha at mag-upload ng mga SHASUMS na file na naiimbak sa S3 para sa mga node file. 4. Lumikha at mag-upload ng SHASUMS256.txt na file na naiimbak sa GitHub na lathala. 5. Patunayan na lahat ng kinakailangang file ay naroon sa GitHub at S3 at may tamang mga checksum na tinutukoy sa SHASUMS na mga file. 6. I-publish ang lathala sa GitHub 7. Tanggalin ang `release` na sangay.
 
-## Publish to npm
+## I-publish sa npm
 
-Once the publish is successful, run `npm run publish-to-npm` to publish to release to npm.
+Kapag matagumpay ang paglathala, paganahin ang `npm run publish-to-npm` upang i-publish ang lathala sa npm.
 
-## Fix missing binaries of a release manually
+## Manu-manong ayusin ang mga nawawalang mga binary ng isang lathala
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+Sa kaso ng isang nasirang lathala dahil sa mga sirang CI machine, baka kakailanganin nating i-upload ulit ang mga binary para sa isang na-publish na lathala.
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+Ang unang hakbang ay pumunta sa [Mga Lathala](https://github.com/electron/electron/releases) na pahina at tanggalin ang mga nasirang binary gamit ang `SHASUMS256.txt` na checksum file.
 
-Then manually create distributions for each platform and upload them:
+Pagkatapos, manu-manong gumawa ng mga distribusyon para sa bawat plataporma at i-upload ang mga ito:
 
 ```sh
-# Checkout the version to re-upload.
+# Suriin ang bersyon na i-upload ulit.
 git checkout vTHE.RELEASE.VERSION
 
-# Do release build, specifying one target architecture.
+# Gawin ang release build, habang tinutukoy ang isang target na arkitektura.
 ./script/bootstrap.py --target_arch [arm|x64|ia32]
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+# Payagan ang pag-o-overwrite ng isang na-publish na lathala.
 ./script/upload.py --overwrite
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+Pagkatapos ng pag-upload muli ng lahat ng mga distribusyon, i-publish muli ito upang ma-upload ang checksum file:
 
 ```sh
 npm run release
