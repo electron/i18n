@@ -2,7 +2,7 @@
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 ## Oluşturucu işleminde kullanma
 
@@ -12,13 +12,13 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 > İşletim Sistemi masaüstü bildirimlerini oluştur
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
-### Statik yöntemler
+### Statik Metodlar
 
 `Notification` sınıfının statik yöntemleri aşağıdaki gibidir:
 
@@ -28,7 +28,7 @@ Süreç: [Ana](../glossary.md#main-process)
 
 ### `new Notification([options])` *Experimental*
 
-* `seçenekler` Nesne 
+* `seçenekler` Nesnesi 
   * `başlık` Metin - Bildirim penceresinin üst kısmında gösterilecek bildirim başlığı
   * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
   * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
@@ -39,7 +39,7 @@ Süreç: [Ana](../glossary.md#main-process)
   * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
   * `actions` [NotificationAction[]](structures/notification-action.md) - (İsteğe Bağlı) Bildirimlere eylem eklenebilir. Lütfen `NotificationAction` belgelerinde mevcut eylem ve sınırlamarı okuyunuz. *macOS*
 
-### Örnek etkinlikler
+### Örnek Events
 
 `yeni Bildirim` ile yaratılan nesneler aşağıdaki olayları belirtir:
 
@@ -49,15 +49,15 @@ Süreç: [Ana](../glossary.md#main-process)
 
 Dönüşler:
 
-* `event` Olay
+* `olay` Olay
 
 Bildirim kullanıcıya gösterildiğinde yayınlanır, `show()` metodu ile birden çok kez gösterilebileceğinden, bunun birden çok kez tetiklenebileceğini unutmayın.
 
-#### Etkinlik: 'tıkla'
+#### Olay: 'click'
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 Bildirim kullanıcı tarafından aratıldığında yayılıyor.
 
@@ -87,7 +87,7 @@ Dönüşler:
 * `event` Olay
 * `index` Numara - Etkin olan eylem dizinini gösterir
 
-### Örnek yöntemleri
+### Sınıf örneği metodları
 
 `new Notification` ile oluşturulan nesnelerin aşağıdaki örnek yöntemleri vardır:
 
@@ -103,11 +103,11 @@ Dismisses the notification.
 
 ### Çalınan sesler
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+Macos'ta, bildirim görüntülendiği zaman çalmak istediğiniz sesin adını belirtebilirsiniz. Varsayılan seslerden herhangi biri ( Sistem tercihleri altında > Ses) özel ses dosyalarına ekstra olarak kullanılabilir. Ses dosyalarının uygulama paketi altında (e.g., `YourApp.app/Contents/Resources`) yada aşağıdaki yerlerden birinde kopyalanmış olduğundan emin olun:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Daha fazla bilgi için [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) dosyalarına bakın.
