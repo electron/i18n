@@ -912,22 +912,22 @@ const {BrowserWindow} = require ('electron') const fs = require ('fs') let win =
     * `x` Integer
     * `y` Integer
     
-    Starts inspecting element at position (`x`, `y`).
+    Mulai memeriksa elemen pada posisi (`x`, `y`).
     
-    #### `contents.inspectServiceWorker()`
+    #### `konten.inspectServiceWorker()`
     
-    Opens the developer tools for the service worker context.
+    Membuka alat pengembang untuk konteks pekerja layanan.
     
-    #### `contents.send(channel[, arg1][, arg2][, ...])`
+    #### `contents.send (saluran [, arg1][, arg2][, ...])`
     
     * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
-      The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+      Proses renderer dapat menangani pesan dengan mendengarkan `channel` dengan modul `ipcRenderer`.
       
-      An example of sending messages from the main process to the renderer process:
+      Contoh pengiriman pesan dari proses utama ke proses renderer:
       
       ```javascript
 // In the main process.
@@ -956,21 +956,21 @@ app.on('ready', () => {
 </html>
 ```
 
-#### `contents.enableDeviceEmulation(parameters)`
+#### `contents.enableDeviceEmulation(parameter)`
 
-* `parameters` Obyek 
-  * `screenPosition` String - Specify the screen type to emulate (default: `Desktop`) 
-    * `desktop` - Desktop screen type
-    * `mobile` - Mobile screen type
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
+* `parameter` Obyek 
+  * `screenPosition` String - Tentukan jenis layar yang akan ditiru (default: `Desktop`) 
+    * `desktop` - Jenis layar desktop
+    * `ponsel` - Jenis layar seluler
+  * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile)
+  * `viewPosition` [Point](structures/point.md) - Posisikan tampilan di layar (screenPosition == mobile) (default: `{x: 0, y: 0}`)
+  * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: ``)
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
-  * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+  * `fitToView` Boolean - Apakah pandangan yang ditiru harus diperkecil jika diperlukan agar sesuai dengan ruang yang tersedia (default: `false`)
+  * `offset` [Point](structures/point.md) - Offset tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: `{x: 0, y: 0}`)
+  * `skala` Float - Skala tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: ` 1 `)
 
-Enable device emulation with the given parameters.
+Aktifkan emulasi perangkat dengan parameter yang diberikan.
 
 #### `contents.disableDeviceEmulation()`
 
@@ -982,13 +982,13 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+Mengirim masukan `event` ke halaman. **Catatan:** `BrowserWindow` yang berisi konten perlu difokuskan untuk `sendInputEvent ()` untuk bekerja.
 
-For keyboard events, the `event` object also have following properties:
+Untuk acara keyboard, objek `event` juga memiliki properti berikut:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` String (**required**) - Karakter yang akan dikirim sebagai acara keyboard. Sebaiknya gunakan kode kunci yang valid di [Accelerator](accelerator.md).
 
-For mouse events, the `event` object also have following properties:
+Untuk acara mouse, objek `event` juga memiliki properti berikut:
 
 * `x` Integer (**required**)
 * `y` Integer (**required**)
@@ -999,7 +999,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-For the `mouseWheel` event, the `event` object also have following properties:
+Untuk event `mouseWheel`, objek `event` juga memiliki properti berikut:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1009,22 +1009,22 @@ For the `mouseWheel` event, the `event` object also have following properties:
 * `accelerationRatioY` Integer
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
-#### `contents.beginFrameSubscription([onlyDirty ,]callback)`
+#### `<code>dirtyRect` [Rectangle](structures/rectangle.md)</code>
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (opsional) - Default ke `false`
 * `callback` Fungsi 
   * `frameBuffer` Buffer
   * `dirtyRect` [Persegi panjang](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Mulailah berlangganan untuk acara presentasi dan bingkai yang diambil, `callback` akan dipanggil dengan `callback(frameBuffer, dirtyRect)` bila ada acara presentasi.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+`frameBuffer` adalah `Buffer` yang berisi data piksel mentah. Pada kebanyakan mesin, data pixel secara efektif disimpan dalam format BGRA 32bit, namun sebenarnya Representasi tergantung pada endianitas prosesor (paling modern Prosesornya sedikit-endian, pada mesin dengan prosesor big-endian data ada dalam format ARGB 32bit).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+`dirtyRect` adalah objek dengan properti `x, y, width, height` yang menggambarkan bagian mana dari halaman yang dicat ulang. Jika `onlyDirty` diatur ke `true`, `frameBuffer` akan hanya berisi daerah repainted. `onlyDirty` default ke `false`.
 
 #### `contents.endFrameSubscription()`
 
-End subscribing for frame presentation events.
+Akhiri berlangganan untuk presentasi peristiwa.
 
 #### `contents.startDrag(item)`
 
@@ -1032,34 +1032,34 @@ End subscribing for frame presentation events.
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
-Sets the `item` as dragging item for current drag-drop operation, `file` is the absolute path of the file to be dragged, and `icon` is the image showing under the cursor when dragging.
+Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
 
-#### `contents.savePage(fullPath, saveType, callback)`
+#### `contents.savePage (fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
+* `fullPath` String - Jalur file lengkap.
 * `saveType` String - Specify the save type. 
-  * `HTMLOnly` - Save only the HTML of the page.
-  * `HTMLComplete` - Save complete-html page.
-  * `MHTML` - Save complete-html page as MHTML.
+  * `HTMLOnly` - Simpan hanya HTML halaman.
+  * `HTMLComplete` - Simpan halaman lengkap-html.
+  * `MHTML` - Simpan halaman lengkap-html sebagai MHTML.
 * `callback` Function - `(error) => {}`. 
   * Kesalahan `kesalahan`
 
-Returns `Boolean` - true if the process of saving page has been initiated successfully.
+Mengembalikan `Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.
 
 ```javascript
 const {BrowserWindow} = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` *macos*
 
 Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
 
 #### `contents.setSize(options)`
 
-Set the size of the page. This is only supported for `<webview>` guest contents.
+Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
 
 * `pilihan` Obyek 
-  * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`nonaktifkanukurkembalitamu`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
+  * `normal` Objek (opsional) - Ukuran normal halaman. Ini bisa digunakan di kombinasi dengan [`disableguestresize`](web-view-tag.md#disableguestresize) atribut untuk mengubah ukuran isi guestview secara manual. 
     * ` width </ 0>  Integer</li>
 <li><code> tinggi </ 0>  Integer</li>
 </ul></li>
@@ -1089,52 +1089,52 @@ Set the size of the page. This is only supported for `<webview>` guest contents.
       
       #### `contents.getFrameRate()`
       
-      Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+      Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
       
       #### `contents.invalidate()`
       
-      Schedules a full repaint of the window this web contents is in.
+      Jadwal repaint penuh dari jendela isi web ini masuk.
       
-      If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+      Jika *offscreen rendering* diaktifkan akan membuat frame tidak valid dan menghasilkan yang baru satu melalui acara `'paint' `.
       
       #### `contents.getWebRTCIPHandlingPolicy()`
       
-      Returns `String` - Returns the WebRTC IP Handling Policy.
+      Mengembalikan `String` - Mengembalikan Kebijakan Penanganan IP WebRTC.
       
       #### `contents.setWebRTCIPHandlingPolicy(policy)`
       
-      * `policy` String - Specify the WebRTC IP Handling Policy. 
-        * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-        * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-        * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-        * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+      * `policy` String - Tentukan Kebijakan Penanganan IP WebRTC. 
+        * `default ` - Mengekspos IP publik dan lokal pengguna. Ini adalah defaultnya tingkah laku. Bila kebijakan ini digunakan, WebRTC berhak untuk menghitung semua antarmuka dan mengikat mereka untuk menemukan antarmuka publik.
+        * `default_public_interface_only` - Mengekspos IP publik pengguna, namun tidak paparkan IP lokal pengguna. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
+        * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
+        * `disable_non_proxied_udp` - Tidak mengekspos IP publik atau lokal. Saat kebijakan ini digunakan, WebRTC hanya boleh menggunakan TCP untuk menghubungi teman sebaya atau server kecuali jika server proxy mendukung UDP.
       
-      Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+      Menetapkan kebijakan penanganan IP WebRTC memungkinkan Anda mengendalikan IP mana saja terpapar melalui WebRTC. Lihat [BrowserLeaks](https://browserleaks.com/webrtc) untuk keterangan lebih lanjut.
       
       #### `contents.getOSProcessId()`
       
-      Returns `Integer` - The `pid` of the associated renderer process.
+      Mengembalikan `Integer` - `pid` dari proses renderer yang terkait.
       
       ### Contoh properti
       
       #### `contents.id`
       
-      A `Integer` representing the unique ID of this WebContents.
+      A `Integer` mewakili ID unik dari Konten Web ini.
       
       #### `contents.session`
       
-      A [`Session`](session.md) used by this webContents.
+      [`Sesi`](session.md) digunakan oleh webContents ini.
       
       #### `contents.hostWebContents`
       
-      A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+      Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebContents`.
       
       #### `contents.devToolsWebContents`
       
-      A `WebContents` of DevTools for this `WebContents`.
+      `WebContents` dari DevTools untuk ini `WebContents`.
       
-      **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+      **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
       
       #### `contents.debugger`
       
-      A [Debugger](debugger.md) instance for this webContents.
+      Contoh [Debugger](debugger.md) untuk webContents ini.
