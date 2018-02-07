@@ -96,8 +96,9 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 Например:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```bash
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 
