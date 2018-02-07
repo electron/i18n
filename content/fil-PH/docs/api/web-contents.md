@@ -767,9 +767,9 @@ Pinapatupad ang utos sa pag-edit `selectAll` sa pahina ng web.
 
 #### `mga nilalaman.unselect()`
 
-Executes the editing command `unselect` in web page.
+Pinapatupad ang utos sa pag-edit `unselect` sa pahina ng web.
 
-#### `contents.replace(text)`
+#### `mga nilalaman.replace(text)`
 
 * `text` String
 
