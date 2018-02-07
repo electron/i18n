@@ -39,7 +39,7 @@ Para habilitar la caja de arena impuesta por el OS en `BrowserWindow` o por el p
 ```js
 let win
 app.on('ready', () => {
-  // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
+  // no hay necesidad de pasar`sandbox: true` ya que `--enable-sandbox` fue habilitada.
   win = new BrowserWindow()
   win.loadURL('http://google.com')
 })
@@ -55,7 +55,7 @@ No es posible tener el OS caja de arena activo solo por algunos renderizadores, 
 
 Si usted necesita mezclar renderizadores dentro y fuera de la caja de arena en una aplicación simplemente omita el argumento `--enable-sandbox`. Sin este argumento, ventanas creadas con `sandbox: true` todavía tendrán deshabilitado node.js y podrán comunicarse solo via IPC, que ya es una ganancia de seguridad POV en si misma.
 
-## Precargado
+## Precarga
 
 Una aplicación puede hacer personalizaciones a los renderizadores de las cajas de arena usando un script precargado. Aquí hay un ejemplo:
 
