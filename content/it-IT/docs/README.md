@@ -15,6 +15,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [Distribuzione delle applicazioni](tutorial/application-distribution.md)
 * [Guida alla pubblicazione su Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guida a Windows Store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Packaging delle applicazioni](tutorial/application-packaging.md)
 * [Uso dei moduli nativi di Node](tutorial/using-native-node-modules.md)
 * [Debug del processo principale](tutorial/debugging-main-process.md)
@@ -51,9 +52,9 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 ### Moduli del processo principale:
 
 * [app](api/app.md)
-* [autoUpdater](api/auto-updater.md)
+* [autoAggiornatore](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [BrowserWindow](api/browser-window.md)
+* [FinestraBrowser](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
