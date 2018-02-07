@@ -19,8 +19,8 @@ const {jendela Browser} = memerlukan (' electron ') misalkan win = jendela baru 
 
 Pengembalian:
 
-* ` event </ 0>  Acara</li>
-<li><code> negara </ 0>  String</li>
+* `peristiwa` Peristiwa
+* ` negara </ 0>  String</li>
 </ul>
 
 <p>Emitted saat download telah di perbarui dan belum selesai.</p>
@@ -37,8 +37,8 @@ Pengembalian:
 <p>Pengembalian:</p>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code> negara </ 0>  String</li>
+<li><code>peristiwa` Peristiwa
+* ` negara </ 0>  String</li>
 </ul>
 
 <p>Emitted saat download dalam status terminal. Ini termasuk unduhan yang selesai, unduhan yang dibatalkan (melalui <code> downloadItem.cancel () </ 0> ), dan undingan terputus yang tidak dapat dilanjutkan.</p>
@@ -81,9 +81,9 @@ Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunaka
 
 <h4><code>download Item.bisa lanjut ()`</h4> 
         
-        Lanjut ` Boolean </ 0> - Apakah proses download bisa dilanjutkan.</p>
-
-<h4><code>download Item.batal ()`</h4> 
+        Returns `Boolean` - Whether the download can resume.
+        
+        #### `download Item.batal ()`
         
         Membatalkan operasi unduh.
         
