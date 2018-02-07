@@ -169,7 +169,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 ### 实例方法
 
-The following methods are available on instances of the `NativeImage` class:
+以下方法可用于 ` NativeImage ` 类的实例:
 
 #### `image.toPNG([options])`
 
