@@ -20,7 +20,7 @@ The `webFrame` module has the following methods:
 
 * `kadahilanan`Numero - Zoom factor.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
