@@ -526,7 +526,7 @@ Ibinabalik ang:
 * `linya` Integer
 * `sourceId` Pisi
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hindi ipapalabas para sa mga window na may *offscreen rendering* na pinapagana.
 
 ### Instance Methods
 
