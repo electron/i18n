@@ -742,30 +742,30 @@ Pinapatupad ang utos sa pag-edit `hiwa` sa pahina ng web.
 
 Ang pagpapatupad ng utos sa pag-edit `kopya` sa pahina ng web.
 
-#### `contents.copyImageAt(x, y)`
+#### `mga nilalaman.copyImageAt(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Copy the image at the given position to the clipboard.
+Kopyahin ang larawan sa ibinigay na posisyon sa clipboard.
 
-#### `contents.paste()`
+#### `mga nilalaman.paste()`
 
-Executes the editing command `paste` in web page.
+Pinapatupad ang utos sa pag-edit `paste` sa pahina ng web.
 
-#### `contents.pasteAndMatchStyle()`
+#### `mga nilalaman.pasteAndMatchStyle()`
 
-Executes the editing command `pasteAndMatchStyle` in web page.
+Ang pagpapatupad ng utos sa pag-edit `pasteAndMatchStyle` sa pahina ng web.
 
-#### `contents.delete()`
+#### `mga nilalaman.delete()`
 
-Executes the editing command `delete` in web page.
+Pinapatupad ang utos sa pag-edit `tanggalin` sa pahina ng web.
 
-#### `contents.selectAll()`
+#### `mga nilalaman.selectAll()`
 
-Executes the editing command `selectAll` in web page.
+Pinapatupad ang utos sa pag-edit `selectAll` sa pahina ng web.
 
-#### `contents.unselect()`
+#### `mga nilalaman.unselect()`
 
 Executes the editing command `unselect` in web page.
 
