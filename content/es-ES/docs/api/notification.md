@@ -2,7 +2,7 @@
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ## Utilizando el proceso de renderizado
 
@@ -12,7 +12,7 @@ Si quieres mostrar notificaciones desde un proceso de renderizado se debe utiliz
 
 > Crea las notificaciones de escritorio del sistema operativo
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `Notification` es un [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -61,7 +61,7 @@ Devuelve:
 
 Se emite cuando el usuario hace clic en la notificación.
 
-#### Evento: "close"
+#### Evento: 'close'
 
 Devuelve:
 
@@ -103,11 +103,11 @@ Dismisses the notification.
 
 ### Reproducción de Sonidos
 
-On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
+En macOS, se puede especificar el nombre del sonido que se desee reproducir cuando se muestre la notificación. Cualquier sonido por defecto, además de los archivos de sonido personalizados, (en Preferencias del sistema > Sonido) puede ser utilizados. Asegúrese de que el archivo de sonido sea copiado en el paquete de la aplicación (por ejemplo, `YourApp.app/Contents/Resources`), o uno de los siguientes direcciones:
 
 * `~/Library/Sounds`
 * `/Library/Sounds`
 * `/Network/Library/Sounds`
 * `/System/Library/Sounds`
 
-See the [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) docs for more information.
+Ver la documentación [`NSSound`](https://developer.apple.com/documentation/appkit/nssound) para más información.
