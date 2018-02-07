@@ -38,22 +38,22 @@ Returns `Number` - The current zoom level.
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `pinakamaliitna Antas` na Numero
+* `Pinakamataas na Antas` na Numero
 
 **Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `pinakamaliitna Antas` na Numero
+* `Pinakamataas na Antas` na Numero
 
-Sets the maximum and minimum pinch-to-zoom level.
+Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `pinakamaliitna Antas` na Numero
+* `Pinakamataas na Antas` na Numero
 
 Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
