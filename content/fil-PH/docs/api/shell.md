@@ -36,10 +36,10 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String
+* `url` String - max 2081 characters on windows, or the function returns false
 * `mga pagpipilian` Mga bagay (opsyonal) *macOS* 
   * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
-* `tumawag muli` "Function" (opsyunal) - Kung ang tiyak na "function" ay gagana nang hindi sabay-sabay. *macOS* 
+* `callback` "Function" (opsyunal) - Kung ang tiyak na "function" ay gagana nang hindi sabay-sabay. *macOS* 
   * `error` Error
 
 Pagbabalik sa `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
