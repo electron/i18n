@@ -407,4 +407,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+यह सूचि केवल खतरों को कम से कम करने के लिए, यह उन्हें हटाती नहीं है |अगर आपका लक्ष्य एक वेबसाइट को प्रदर्शित करना है, तो एक ब्राउज़र ज्यादा सुरक्षित विकल्प है |
