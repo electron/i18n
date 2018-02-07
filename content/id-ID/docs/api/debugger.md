@@ -32,7 +32,7 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
   protokol debugging jarak jauh.</li>
 <li><code> perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
 <li><code>callback` Fungsi (opsional) - Respon 
-    *  kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
+    * ` kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
 <li><code> mengulang </ 0> Setiap - Respon yang didefinisikan oleh atribut 'kembali' dari
   deskripsi perintah dalam protokol debugging jarak jauh.</li>
 </ul></li>
@@ -45,8 +45,8 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
 <h4>Acara : 'melepaskan'</h4>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code> alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+<li><code>peristiwa` Peristiwa
+    * ` alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
 </ul>
 
 <p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
@@ -55,8 +55,8 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
 <h4>Acara : 'pesan'</h4>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code> metode </ 0> String - nama metode.</li>
+<li><code>peristiwa` Peristiwa
+    *  metode </ 0> String - nama metode.</li>
 <li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
  dalam protokol debugging jarak jauh.</li>
 </ul>
