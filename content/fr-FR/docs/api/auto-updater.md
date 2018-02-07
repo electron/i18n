@@ -30,7 +30,7 @@ Contrairement à Squirrel.Mac, Windows peut héberger des mises à jour sur S3 o
 
 ## Événements
 
-The `autoUpdater` object emits the following events:
+L'objet `autoUpdater` émet les événements suivants :
 
 ### Événement : 'error'
 
@@ -38,55 +38,55 @@ Retourne :
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Émis lorsqu’il y a une erreur pendant la mise à jour.
 
-### Event: 'checking-for-update'
+### Événement : 'checking-for-update'
 
-Emitted when checking if an update has started.
+Émis lors de la vérification du commencement d'une mise à jour.
 
-### Event: 'update-available'
+### Événement : 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+Émis lorsqu’il y a une mise à jour disponible. La mise à jour est téléchargé automatiquement.
 
-### Event: 'update-not-available'
+### Événement : 'update-not-available'
 
-Emitted when there is no available update.
+Émis quand il n’y a aucune mise à jour disponible.
 
-### Event: 'update-downloaded'
+### Événement : 'update-downloaded'
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Émis lorsqu'une mise à jour a été téléchargée.
 
-On Windows only `releaseName` is available.
+Sur Windows, seulement `releaseName` est disponible.
 
 ## Méthodes
 
-The `autoUpdater` object has the following methods:
+L'objet `autoUpdater` dispose des méthodes suivantes :
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders` Object *macOS* (facultatif) - En-têtes de requête HTTP.
 
-Sets the `url` and initialize the auto updater.
+Définit l'`url` et initialise l'auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Retourne `String` - L'URL de flux des mises à jour.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` avant d’utiliser cette API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
 
-**Note:** `autoUpdater.quitAndInstall()` will close all application windows first and only emit `before-quit` event on `app` after that. This is different from the normal quit event sequence.
+**Remarque :** `autoUpdater.quitAndInstall()` va d'abord fermer toutes les fenêtres de l'application et émettre seulement après ça l'événement `before-quit` sur `app`. Ceci est différent de la séquence de fermeture habituelle.
