@@ -681,7 +681,7 @@ Bumalik `Boolean` - Kung naka-mute ang pahinang ito.
 
 #### `mga nilalaman.setZoomFactor(kadahilanan)`
 
-* `factor` Number - Zoom factor.
+* `kadahilanan`Numero - Zoom factor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
