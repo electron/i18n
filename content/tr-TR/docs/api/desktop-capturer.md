@@ -26,14 +26,18 @@ desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             maxHeight: 720
           }
         }
-      }, handleStream, handleError)
+      })
+      .then((stream) => handleStream(stream))
+      .catch((e) => handleError(e))
       return
     }
   }
 })
 
 function handleStream (stream) {
-  document.querySelector('video').src = URL.createObjectURL(stream)
+  const video = document.querySelector('video')
+  video.srcObject = stream
+  video.onloadedmetadata = (e) => video.play()
 }
 
 function handleError (e) {
@@ -66,11 +70,11 @@ const constraints = {
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `ayarlar` Nesne 
+* `seçenekler` Nesne 
   * `types` Dizi[] - Yakalanacak masaüstü kaynaklarının türlerini listeleyen dizelerin bir dizisi, kullanılabilir türleri `screen` ve `window`' dir.
   * `thumbnailSize` [Size](structures/size.md) (İsteğe Bağlı) - Ortam kaynağı küçük resminin boyutlandırılacağı boyut. Varsayılan `150` x `150`.
-* `geri arama` Fonksiyon 
-  * `error` Hata 
+* `callback` Fonksiyon 
+  * `error` Hata
   * `kaynaklar`[DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
 Bittiğinde tüm mevcut masaüstü medya kaynakları hakkıda bilgi toplamaya başlar ve `callback(error, sources)`ı arar.
