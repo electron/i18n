@@ -2,7 +2,7 @@
 
 > Registra un protocolo personalizado e intercepta solicitudes de protocolos existente.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que el protocolo `file://`:
 
@@ -69,10 +69,10 @@ app.on('ready', () => {
 * `manejador` Función 
   * `request` Objeto 
     * `url` Cadena
-    * `referrer` Cadena
+    * `referrer` String
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `filePath` Cadena (opcional)
 * `completion` Función (opcional) 
   * `error` Error
@@ -93,8 +93,8 @@ Por defecto el `esquema` es tratado como `http:`, que es analizado diferente que
     * `url` Cadena
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opcional)
 * `completion` Función (opcional) 
   * `error` Error
@@ -123,8 +123,8 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `url` String
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `data` String (optional)
 * `completion` Función (opcional) 
   * `error` Error
@@ -141,13 +141,13 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
     * `url` String
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+    * `subir información` [Subir Información[]](structures/upload-data.md)
   * `callback` Función 
     * `redirectRequest` Object 
       * `url` String
       * `method` Cuerda
       * `session` Object (optional)
-      * `uploadData` Objecto (opcional) 
+      * `uploadData` Object (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Función (opcional) 
@@ -170,8 +170,8 @@ Para solicitudes POST el objeto `uploadData` debe ser proporcionado.
     * `headers` Objeto
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Función (opcional) 
   * `error` Error
@@ -225,31 +225,31 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `completion` Función (opcional) 
   * `error` Error
 
-Unregisters the custom protocol of `scheme`.
+Anula el registro del protocolo predeterminado de `esquema`.
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `esquema` Cadena
-* `llamada de vuelta` Función 
+* `callback` Función 
   * `error` Error
 
-The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+La `retrollamada` será cancelada con un booleano que indique si ya es un controlador para `esquema`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
 * `manejador` Función 
   * `request` Object 
-    * `url` String
+    * `url` Cadena
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `filePath` String
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a file as a response.
+Intercepta el protocolo `esquema` y usa `controlador` como el controlador del nuevo protocolo lo cual enviará un archivo como respuesta.
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
@@ -259,24 +259,24 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `data` String (optional)
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a `String` as a response.
+Intercepta el protocolo `esquema` y usa `controlador` como el nuevo controlador de protocolo, lo cual envía una `Cadena` como respuesta.
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
 * `manejador` Función 
   * `request` Object 
-    * `url` String
+    * `url` Cadena
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `buffer` Buffer (optional)
 * `completion` Función (opcional) 
   * `error` Error
@@ -291,31 +291,31 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `redirectRequest` Object 
       * `url` String
       * `method` Cuerda
       * `session` Object (optional)
-      * `uploadData` Objecto (opcional) 
+      * `uploadData` Object (opcional) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Función (opcional) 
   * `error` Error
 
-Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
+Intercepta el protocolo `scheme` y utiliza el `handler` como el nuevo controlador del protocolo, el cual envía una nueva solicitud HTTP como respuesta.
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `esquema` Cadena
 * `manejador` Función 
   * `request` Object 
-    * `url` String
+    * `url` Cadena
     * `headers` Objeto
     * `referrer` Cadena
     * `method` Cuerda
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `llamada de vuelta` Función 
+    * `subir información` [Subir Información[]](structures/upload-data.md)
+  * `callback` Función 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Función (opcional) 
   * `error` Error
@@ -328,4 +328,4 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 * `completion` Función (opcional) 
   * `error` Error
 
-Remove the interceptor installed for `scheme` and restore its original handler.
+Elimina el interceptor instalado para el `scheme` y restaura su controlador original.
