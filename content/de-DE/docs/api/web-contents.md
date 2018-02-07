@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-### Instance Events
+### Beispiel Events
 
 #### Event: 'did-finish-load'
 
@@ -162,22 +162,21 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
-<li><code> URL </ 0>  Zeichenfolge</li>
-</ul>
+<li><code>url` String
 
-<p>Emitted when a user or the page wants to start navigation. It can happen when
-the <code>window.location` object is changed or a user clicks a link in the page.</p> 
-  This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
-  
-  It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-  
-  Calling `event.preventDefault()` will prevent the navigation.
-  
-  #### Event: 'did-navigate'
-  
-  Rückgabewert:
-  
-  * ` Ereignis </ 0>  Ereignis</li>
+Emitted when a user or the page wants to start navigation. It can happen when the `window.location` object is changed or a user clicks a link in the page.
+
+This event will not emit when the navigation is started programmatically with APIs like `webContents.loadURL` and `webContents.back`.
+
+It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+Calling `event.preventDefault()` will prevent the navigation.
+
+#### Event: 'did-navigate'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
 <li><code> URL </ 0>  Zeichenfolge</li>
 </ul>
 
@@ -185,29 +184,29 @@ the <code>window.location` object is changed or a user clicks a link in the page
 
 <p>This event is not emitted for in-page navigations, such as clicking anchor links
 or updating the <code>window.location.hash`. Use `did-navigate-in-page` event for this purpose.</p> 
-    #### Event: 'did-navigate-in-page'
-    
-    Rückgabewert:
-    
-    * ` Ereignis </ 0>  Ereignis</li>
+  #### Event: 'did-navigate-in-page'
+  
+  Rückgabewert:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
 <li><code> URL </ 0>  Zeichenfolge</li>
 <li><code>isMainFrame` Boolean
-    
-    Emitted when an in-page navigation happened.
-    
-    When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
-    
-    #### Event: 'will-prevent-unload'
-    
-    Rückgabewert:
-    
-    * ` Ereignis </ 0>  Ereignis</li>
+  
+  Emitted when an in-page navigation happened.
+  
+  When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
+  
+  #### Event: 'will-prevent-unload'
+  
+  Rückgabewert:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
 </ul>
 
 <p>Emitted when a <code>beforeunload` event handler is attempting to cancel a page unload.</p> 
-      Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
-      
-      ```javascript
+    Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
+    
+    ```javascript
 const {BrowserWindow, dialog} = require('electron')
 const win = new BrowserWindow({width: 800, height: 600})
 win.webContents.on('will-prevent-unload', (event) => {
@@ -225,50 +224,50 @@ win.webContents.on('will-prevent-unload', (event) => {
   }
 })
 ```
-  
-  #### Event: 'crashed'
-  
-  Rückgabewert:
-  
-  * ` Ereignis </ 0>  Ereignis</li>
+
+#### Event: 'crashed'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
 <li><code>killed` Boolean
-  
-  Emitted when the renderer process crashes or is killed.
-  
-  #### Event: 'plugin-crashed'
-  
-  Rückgabewert:
-  
-  * ` Ereignis </ 0>  Ereignis</li>
+
+Emitted when the renderer process crashes or is killed.
+
+#### Event: 'plugin-crashed'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
 <li><code>name` Zeichenfolge
-  * `version` String
-  
-  Emitted when a plugin process has crashed.
-  
-  #### Event: 'destroyed'
-  
-  Emitted when `webContents` is destroyed.
-  
-  #### Event: 'before-input-event'
-  
-  Rückgabewert:
-  
-  * ` Ereignis </ 0>  Ereignis</li>
+* `version` String
+
+Emitted when a plugin process has crashed.
+
+#### Event: 'destroyed'
+
+Emitted when `webContents` is destroyed.
+
+#### Event: 'before-input-event'
+
+Rückgabewert:
+
+* ` Ereignis </ 0>  Ereignis</li>
 <li><code>input` Object - Input properties 
-    * `type` String - Either `keyUp` or `keyDown`
-    * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-    * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
-  
-  Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
-  
-  To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
-  
-  ```javascript
+  * `type` String - Either `keyUp` or `keyDown`
+  * `key` String - Equivalent to [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `code` String - Equivalent to [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `isAutoRepeat` Boolean - Equivalent to [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `shift` Boolean - Equivalent to [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `control` Boolean - Equivalent to [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `alt` Boolean - Equivalent to [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  * `meta` Boolean - Equivalent to [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+
+Emitted before dispatching the `keydown` and `keyup` events in the page. Calling `event.preventDefault` will prevent the page `keydown`/`keyup` events and the menu shortcuts.
+
+To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcuts):
+
+```javascript
 const {BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -380,7 +379,7 @@ Rückgabewert:
 <li><code>color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 #### Event: 'update-target-url'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code> URL </ 0>  Zeichenfolge</li>
@@ -390,7 +389,7 @@ Kehrt zurück:
 
 <h4>Event: 'cursor-changed'</h4>
 
-<p>Kehrt zurück:</p>
+<p>Rückgabewert:</p>
 
 <ul>
 <li><code> Ereignis </ 0>  Ereignis</li>
@@ -406,7 +405,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>params` Object 
@@ -448,7 +447,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -478,7 +477,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>dirtyRect` [Rectangle](structures/rectangle.md)
@@ -502,7 +501,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -516,7 +515,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-Kehrt zurück:
+Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>webContents` WebContents - The guest web contents that is used by the `<webview>`.
@@ -525,7 +524,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-Kehrt zurück:
+Rückgabewert:
 
 * `level` Integer
 * `message` String
@@ -534,12 +533,12 @@ Kehrt zurück:
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-### Instance Methods
+### Beispiel Methoden
 
 #### `contents.loadURL(url[, options])`
 
 * ` URL </ 0>  Zeichenfolge</li>
-<li><code>options` Object (optional) 
+<li><code>optionen` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -693,7 +692,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
 
 * `ignore` Boolean
 
@@ -820,7 +819,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -880,7 +879,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md)
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -895,7 +894,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `optionen` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -967,7 +966,7 @@ Removes the specified path from DevTools workspace.
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1149,7 +1148,7 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Set the size of the page. This is only supported for `<webview>` guest contents.
 
-* `options` Object 
+* `optionen` Object 
   * `normal` Object (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](web-view-tag.md#disableguestresize) attribute to manually resize the webview guest contents. 
     * `width` Integer
     * `height` Integer
@@ -1203,7 +1202,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 Returns `Integer` - The `pid` of the associated renderer process.
 
-### Instance Properties
+### Fall Eigenschaften
 
 #### `contents.id`
 
