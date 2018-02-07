@@ -2,7 +2,7 @@
 
 > Çökme raporlarını uzak sunucuya gönderin.
 
-Süreç: [Ana](../glossary.md#main-process), [Oluşturucu](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Aşağıda bir çökme durumunun otomatik olarak uzak sunucuya gönderilmesinin bir örneği var:
 
@@ -24,13 +24,13 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 
 Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. `isminizin` `ürünü` için çökme raporları `İsminiz Crashes` dizinimde /temp dizini altında tutulacaktır. Bu geçici dizinin yolunu `app.setPath('temp', '/my/custom/temp')` şeklinde kendinize göre ayarlayabilirsiniz.
 
-## Metodlar
+## Yöntemler
 
 `crashReporter` modülü aşağıdaki metodlara sahiptir:
 
 ### `crashReporter.start(options)`
 
-* `options` Nesne 
+* `seçenekler` Object 
   * `companyName` Katar (opsiyonel)
   * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
   * `productName` Katar (opsiyonel) - Varsayılan olarak `app.getName()`.
@@ -110,15 +110,15 @@ See all of the current parameters being passed to the crash reporter.
 
 ## Çökme Raporu verisi
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+Çökme raporlarlayıcısı aşağıdaki verileri `submitURL` adresine `multipart/form-data` `POST` olarak yollayacaktır:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `ver` Katar - Electron versiyonu.
+* `platform` Katar - örneğin. 'win32'.
+* `process_type` Katar - örneğin. 'renderer'.
+* `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` Katar - `package.json` içerisindeki versiyon.
+* `_productName` Katar - `crashReporter` `options` objesi içerisindeki ürün ismi.
+* `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
+* `_companyName` Katar - `crashReporter` `options` objesi içerisindeki şirket ismi.
+* `upload_file_minidump` Dosya - `minidump` formatında çökme raporu.
+* `crashReporter``options` objesi içerisindeki `extra`'nın tüm birinci seviye özellikleri.
