@@ -8,9 +8,9 @@ Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
 
 * `mga pagpipilian` Bagay 
   * `availableColors` String[] (optional) - Pagkakasunod-sunod ng mga linya ng kulay para ipakitang bilang posibleng kulay na mapili.
-  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
-  * `change` Function (optional) - Function to call when a color is selected. 
-    * `color` String - The color that the user selected from the picker
+  * `selectedColor` String (optional) - Ang napiling kulay sa tagapili, i.e `#ABCDEF`.
+  * `baguhin` Function (optional) - tungkuling taga tawag kung merong kulay na mapili. 
+    * `color` String - Ang kulay na napili ng gumagamit sa pilian
 
 ### Humahalimbawa sa bahagi nito
 
