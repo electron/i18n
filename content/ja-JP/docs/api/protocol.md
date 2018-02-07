@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -103,7 +103,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+サンプル:
 
 ```javascript
 const {protocol} = require('electron')
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -137,13 +137,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` オブジェクト 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -180,7 +180,7 @@ Registers a protocol of `scheme` that will send a `Readable` as a response.
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
-Example:
+サンプル:
 
 ```javascript
 const {protocol} = require('electron')
@@ -239,7 +239,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -255,7 +255,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -271,7 +271,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` オブジェクト 
+  * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
