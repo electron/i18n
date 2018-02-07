@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -268,7 +268,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
 ```sh
 <br />- 1
@@ -291,7 +291,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
 ```sh
 <br />- ---
