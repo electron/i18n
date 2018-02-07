@@ -4,7 +4,7 @@
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalaman ng web patungo sa isang `BrowserWindow`. Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
 
@@ -12,21 +12,21 @@ Ang isang `BrowserView` ay maaaring magamit para i-embed ang karagdagang nilalam
 
 ```javascript
 // Sa mga pangunahing proseso.
-const {BrowserView, BrowserWindow} = kailangan('electron')
+const {BrowserView, BrowserWindow} = require('electron')
 
-hayaang manalo = bagong BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({width: 800, height: 600})
 win.on('closed', () => {
-  manalo = null
+  win = null
 })
 
-hayaang makita = bagong BrowserView({
+let view = new BrowserView({
   webPreferences: {
     nodeIntegration: false
   }
 })
-win.setBrowserView(tingnan)
+win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Experimental*
@@ -36,40 +36,50 @@ view.webContents.loadURL('https://electron.atom.io')
 
 ### Mga statik na pamamaraan
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* `id` na Integer
 
-Nagbabalik ang `BrowserView` - Ang pagtanaw sa ibinigay na mga `id`.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Humahalimbawa sa bahagi nito
 
-Mga bagay na ginawa na may `new BrowserView`ay may mga sumusunod na katangian:
+Objects created with `new BrowserView` have the following properties:
 
 #### `view.webContents` *Experimental*
 
-Ang isang [`WebContents`](web-contents.md) na bagay na pag-aari ng tanawin na ito.
+A [`WebContents`](web-contents.md) object owned by this view.
 
 #### `view.id` *Experimental*
 
-Ang isang `integer` kumakatawan sa natatanging ID ng tanawin.
+A `Integer` representing the unique ID of the view.
 
 ### Mga pamamaraan ng pagkakataon
 
-Mga bagay na ginawa na may `new BrowserView` ay may mga sumusunod na mga pamamaraan ng pagkakataon:
+Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.setAutoResize(options)` *Experimental*
 
 * `mga pagpipilian` Bagay 
-  * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
-  * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
+  * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
+  * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
 #### `view.setBounds(bounds)` *Experimental*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Binabago ang laki at inililipat ang view mula sa ibinibigay na hangganan na may kaugnayan sa window.
+Resizes and moves the view to the supplied bounds relative to the window.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
-* `color` String - Ang kulay sa form ng `#aarrggbb` o sa `#argb`. Ang channel ng alpha ay opsyonal.
+* `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
