@@ -15,6 +15,7 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 * [Distribuce aplikací](tutorial/application-distribution.md)
 * [Mac App Store podání Průvodce](tutorial/mac-app-store-submission-guide.md)
 * [Aplikace Windows Obchodu](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Aplikace balení](tutorial/application-packaging.md)
 * [Používání nativních Node modulů](tutorial/using-native-node-modules.md)
 * [Ladění hlavního procesu](tutorial/debugging-main-process.md)
