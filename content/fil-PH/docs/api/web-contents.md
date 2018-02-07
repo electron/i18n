@@ -771,11 +771,11 @@ Pinapatupad ang utos sa pag-edit `unselect` sa pahina ng web.
 
 #### `mga nilalaman.replace(text)`
 
-* `text` String
+* `text` tali
 
-Executes the editing command `replace` in web page.
+Pinapatupad ang utos sa pag-edit ` palitan ` sa web page.
 
-#### `contents.replaceMisspelling(text)`
+#### `mga nilalaman. ibalik ang maling pagbaybay(teksto)`
 
 * `text` String
 
