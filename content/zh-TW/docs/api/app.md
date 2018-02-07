@@ -2,7 +2,7 @@
 
 > 控制你的應用程式事件生命週期。
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 The following example shows how to quit the application when the last window is closed:
 
@@ -158,7 +158,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### 事件: 'browser-window-blur'
 
 回傳:
 
@@ -167,7 +167,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
-### Event: 'browser-window-focus'
+### 事件: 'browser-window-focus'
 
 回傳:
 
@@ -176,7 +176,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### 事件: 'browser-window-created'
 
 回傳:
 
@@ -185,7 +185,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### 事件: 'web-contents-created'
 
 回傳:
 
@@ -231,7 +231,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (選用)
 
 Emitted when a client certificate is requested.
 
@@ -279,7 +279,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### 事件: 'gpu-process-crashed'
 
 回傳:
 
@@ -288,7 +288,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Emitted when the gpu process crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### 事件: 'accessibility-support-changed' *macOS* *Windows*
 
 回傳:
 
@@ -311,7 +311,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (選用)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -320,8 +320,8 @@ All windows will be closed immediately without asking user and the `before-quit`
 ### `app.relaunch([options])`
 
 * `options` Object (選用) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+  * `args` String[] - (選用)
+  * `execPath` String (選用)
 
 Relaunches the app when current instance exits.
 
@@ -350,7 +350,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+將所有應用程式視窗隱藏但沒有將視窗縮到最小。
 
 ### `app.show()` *macOS*
 
@@ -366,7 +366,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+您可以通過名稱請求以下路徑：
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -393,7 +393,7 @@ You can request the following paths by the name:
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux* 上是 48x48, *Windows* 上是 32x32，不支援 *macOS*。
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -432,7 +432,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+重寫當前應用程式的名稱。
 
 ### `app.getLocale()`
 
@@ -450,15 +450,15 @@ Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` *macOS* *Windows*
+### `app.addRecentDocument(path)` *macOS* *Windows*
 
-Clears the recent documents list.
+清除最近使用的文件清單。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -473,8 +473,8 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -483,8 +483,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean`
 
@@ -689,7 +689,7 @@ By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain
 
 This method can only be called before app is ready.
 
-### `app.getAppMemoryInfo()` *Deprecated*
+### `app.getAppMemoryInfo()` *別再用了*
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app. **Note:** This method is deprecated, use `app.getAppMetrics()` instead.
 
@@ -737,7 +737,7 @@ If you provided `path` and `args` options to `app.setLoginItemSettings` then you
 * `wasOpenedAsHidden` Boolean - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is only supported on macOS.
 * `restoreState` Boolean - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is only supported on macOS.
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**注意:** 這個 API 不會影響 [MAS 建置](../tutorial/mac-app-store-submission-guide.md)。
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
@@ -766,7 +766,7 @@ app.setLoginItemSettings({
 })
 ```
 
-**Note:** This API has no effect on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+**注意:** 這個 API 不會影響 [MAS 建置](../tutorial/mac-app-store-submission-guide.md)。
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
@@ -808,7 +808,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *試驗中* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
