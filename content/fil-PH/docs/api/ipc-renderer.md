@@ -33,9 +33,9 @@ Nagdadagdag ng isang beses na punsyon ng `listener` para sa event. Ang `listener
 
 Tinatanggal ang mga tinukoy `listener` mula sa hanay ng mga tagapakinig para sa tinukoy na `channel`.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (opsyonal)
+* `channel` String
 
 Tinatanggal ang lahat ng mga tagapakinig, o ang mga tinukoy sa `channel`.
 
@@ -61,9 +61,17 @@ Ang pangunahing proseso ay hinahawakan ito sa pamamagitan ng pakikinig para sa `
 
 **Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
 
-### `ipcRenderer.sendToHost(channel[,arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` anuman[]
+
+Sends a message to a window with `windowid` via `channel`
+
+### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` anuman[]
 
-Katulad ng `ipcRenderer.send` ngunit ang event ay ipapadala sa `<webview>` bahagi sa pahina ng host sa halip na sa pangunahing proseso.
+Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in the host page instead of the main process.
