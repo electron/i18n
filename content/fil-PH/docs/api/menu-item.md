@@ -10,9 +10,9 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
 
 * `mga pagpipilian` Bagay 
   * `i-klik` Punsyon (opsyonal) - Ay tatawagin na may `i-klik ang(menuItem, browserWindow, event)` kapag ang aytem ng menu ay na-klik na. 
-    * `menuItem` ang MenuItem
+    * `menuItem`MenuItem
     * `browserWindow` ang BrowserWindow
-    * `kaganapan`Kaganapan
+    * `kaganapan` Kaganapan
   * `role` String (opsyonal) - tukuyin ang aksyon ng mga aytem ng menu, kapag tinukoy ang katangian `click` ay hindi na papansinin. Tingnan ang [roles](#roles).
   * `type` String (opsyonal) - Ay maaaring `normal`, `separator`, `submenu`, `checkbox` o `radio`.
   * `label` String - (opsyonal)
@@ -36,14 +36,14 @@ Ang mga halaga ng `label` at `accelerator` ay opsyonal kapag ginagamit ang`role`
 
 Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 
-* `ang ibalik sa dating ginawa`
-* `gawin-ulit`
-* `putulin`
+* `undo`
+* `redo`
+* `cut`
 * `kopyahin`
-* `idikit`
+* `paste`
 * `istilongidikitatipares`
 * `piliinlahat`
-* `idilit`
+* `delete`
 * `minimize` - Paliitin ang kasalukuyang window
 * `close` - Isara ang kasalukuyang window
 * `quit` - Alisin ang aplikasyon
@@ -72,13 +72,13 @@ Ang mga sumusunod na karagdagang mga tungkulin ay makukuha sa macOS:
 * `selectprevioustab` - Map to the `selectPreviousTab` action
 * `mergeallwindows` - Map to the `mergeAllWindows` action
 * `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
-* `window` - The submenu is a "Window" menu
-* `help` - The submenu is a "Help" menu
-* `services` - The submenu is a "Services" menu
+* `window` - Ang submenu ay isang menu ng "Window"
+* `help` - Ang submenu ay isang menu ng "Help"
+* `services` - Ang submenu ay isang menu ng "Services"
 
 Kapag tinutukoy ang isang `role` sa macOS, ang `label` at ang `accelerator` ay ang tanging opsyon na makaka-apekto sa aytem ng menu. Lahat ng ibang opsyon ay hindi papansinin.
 
-### Mga Katangian ng Instansya
+### Mga Katangian ng Instance
 
 Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
