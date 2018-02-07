@@ -373,7 +373,7 @@ Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil s
 Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `kulay` (String | null) - Ang kulay ng tema ay nasa format na '#rrggbb'. Ito ay `null` kapag walang kulay ng tema na naka-set.
 
 #### Event: 'update-target-url'
 
@@ -508,7 +508,7 @@ Maaaring gamitin ang kaganapang ito upang i-configure ang `webPreferences` para 
 
 **Tandaan:** Ang tinutukoy na `preload` Ang opsyon ng script ay lilitaw bilang `preloadURL` (hindi `preload`) nasa `webPreferences` bagay na inilalabas sa kaganapang ito.
 
-#### Event: 'did-attach-webview'
+#### Kaganapan: 'ginawa-ilakip-webview'
 
 Ibinabalika ang:
 
