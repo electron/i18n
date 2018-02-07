@@ -673,11 +673,11 @@ Huwag pansinin ang mga shorcut menu ng aplikasyon habang ang mga nilalaman ng we
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+I-mute ang audio sa kasalukuyang web na page.
 
-#### `contents.isAudioMuted()`
+#### `mga nilalaman.ng AudioMuted()`
 
-Returns `Boolean` - Whether this page has been muted.
+Bumalik `Boolean` - Kung naka-mute ang pahinang ito.
 
 #### `contents.setZoomFactor(factor)`
 
