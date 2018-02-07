@@ -160,7 +160,7 @@ Tips: - Each listed item should reference a PR on electron/electron, not an issu
 3. 如果要发布稳定版本, 请取消选中 `prerelease` 复选框。让它检查测试版。
 4. 点击 'Save draft'. **不要点 'Publish release'!**
 5. 等待所有生成通过, 然后再继续。
-6. 您可以运行 `npm run release --validateRelease` 来验证是否已为该版本创建了所有所需的文件。
+6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
 ## 合并临时分支
 
