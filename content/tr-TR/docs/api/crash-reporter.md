@@ -37,6 +37,7 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
   * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
   * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
   * `extra` Obje (opsiyonel) - Raporla beraber yollanabilir şekilde tanımlayabileceğiniz bir obje. Sadece katar tipinde özellikler düzgün şekilde yollanır. Iç içe objeler desteklenmez, özellik isimleri ve değerleri 64 karakterden küçük olmalıdır.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 `crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
 
@@ -90,24 +91,34 @@ Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start
 
 **Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
-* `value` Katar - Parametre değeri, 64 karakterden az olmalıdır. `null` veya `undefined` girildiği durumda ek parametrelerden anahtar silinir.
+* `value` String - Parameter value, must be less than 64 characters long.
 
-Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. Burada verilmiş değerler, `start` çağırıldığında `ekstra` tarafından belirlenir ve ek olarak yollanır. Bu API sadece macOS için mevcuttur. Eğer Linux ve Windows için de ek parametre ekleme/düzenlemek istiyorsanız, `start`'tan sonra yeniden düzenlenmiş `ekstra` seçeneği ile `start`'ı tekrar başlatın.
+Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+
+### `crashReporter.removeExtraParameter(key)` *macOS*
+
+* `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
+
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+
+### `crashReporter.getParameters()`
+
+See all of the current parameters being passed to the crash reporter.
 
 ## Çökme Raporu verisi
 
-Çökme raporlarlayıcısı aşağıdaki verileri `submitURL` adresine `multipart/form-data` `POST` olarak yollayacaktır:
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` Katar - Electron versiyonu.
-* `platform` Katar - örneğin. 'win32'.
-* `process_type` Katar - örneğin. 'renderer'.
-* `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
-* `_version` Katar - `package.json` içerisindeki versiyon.
-* `_productName` Katar - `crashReporter` `options` objesi içerisindeki ürün ismi.
-* `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
-* `_companyName` Katar - `crashReporter` `options` objesi içerisindeki şirket ismi.
-* `upload_file_minidump` Dosya - `minidump` formatında çökme raporu.
-* `crashReporter``options` objesi içerisindeki `extra`'nın tüm birinci seviye özellikleri.
+* `ver` String - The version of Electron.
+* `platform` String - e.g. 'win32'.
+* `process_type` String - e.g. 'renderer'.
+* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'
+* `_version` String - The version in `package.json`.
+* `_productName` String - The product name in the `crashReporter` `options` object.
+* `prod` String - Name of the underlying product. In this case Electron.
+* `_companyName` String - The company name in the `crashReporter` `options` object.
+* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* All level one properties of the `extra` object in the `crashReporter` `options` object.
