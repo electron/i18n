@@ -2,7 +2,7 @@
 
 > Create tray, dock, and application icons using PNG or JPG files.
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 In Electron, for the APIs that take images, you can pass either file paths or `NativeImage` instances. An empty image will be used when `null` is passed.
 
@@ -162,7 +162,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
