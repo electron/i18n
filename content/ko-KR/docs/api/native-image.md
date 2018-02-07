@@ -162,7 +162,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 > Natively wrap images such as tray, dock, and application icons.
 
-프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
+프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
 ### Instance Methods (인스턴스 메소드)
 
