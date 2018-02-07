@@ -25,7 +25,7 @@ In den meisten Fällen, sollte man alles im `ready` Eventhandler machen.
 
 ### Ereignis: 'ready'
 
-Rückgabewert:
+Kehrt zurück:
 
 * `launchInfo` Object *macOS*
 
@@ -41,135 +41,177 @@ Wenn du keinen einzigen Listener für dieses Event nutzt und alle Fenster geschl
 
 Rückgabewert:
 
-* `event` Event
+* ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen. Durch einen Aufruf von `event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.
+<p>Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen.
+Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.</p> 
+  **Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* nach der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
+  
+  ### Ereignis: 'before-quit'
+  
+  Kehrt zurück:
+  
+  * ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-**Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* nach der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
+<p>Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen.
+Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.</p> 
+    Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
+    
+    ### Ereignis: 'quit'
+    
+    Rückgabewert:
+    
+    * ` Ereignis </ 0>  Ereignis</li>
+<li><code>exitCode` Integer
+    
+    Wird ausgelöst wenn die App beendet wird.
+    
+    ### Ereignis: 'open-file' *macOS*
+    
+    Rückgabewert:
+    
+    * ` Ereignis </ 0>  Ereignis</li>
+<li><code>path` String
+    
+    Wird ausgelöst wenn der Nutzer versucht eine Datei mit der App zu öffnen. The `open-file` Event wird auch ausgelöst wenn die App bereits offen ist und das Betriebssystem die App nochmal zum Öffnen einer Datei benutzen will. `open-file` wird auch ausgelöst wenn eine Datei auf das Dock-Icon der App gezogen wird (macOS) und die App noch nicht gestartet ist. Behandle das `open-file` Event so früh wie möglich in deiner App um diesen Fall zu berücksichtigen (Also definitiv bevor das `ready` Event ausgelöst wird).
+    
+    Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
+    
+    On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+    
+    ### Event: 'open-url' *macOS*
+    
+    Rückgabewert:
+    
+    * ` Ereignis </ 0>  Ereignis</li>
+<li><code> URL </ 0>  Zeichenfolge</li>
+</ul>
 
-### Ereignis: 'before-quit'
+<p>Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Die <code>Info.plist` Date muss das URL Schema mittels des `CFBundleURLTypes` Keys definieren und der `NSPrincipalClass` Key muss den Wert `AtomApplication` haben.</p> 
+      Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
+      
+      ### Event: 'activate' *macOS*
+      
+      Rückgabewert:
+      
+      * ` Ereignis </ 0>  Ereignis</li>
+<li><code>hasVisibleWindows` Boolean
+      
+      Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen können dieses Event auslösen. So zum Beispiel das Starten der App zum ersten mal als solches, eine Wiederbenutzung der App während sie bereits läuft oder einfach ein Klick auf das Dock oder Tastbar Icon der App.
+      
+      ### Event: 'continue-activity' *macOS*
+      
+      Rückgabewert:
+      
+      * ` Ereignis </ 0>  Ereignis</li>
+<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+      * `userInfo` Object - Contains app-specific state stored by the activity on another device.
+      
+      Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+      
+      A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+      
+      ### Event: 'will-continue-activity' *macOS*
+      
+      Rückgabewert:
+      
+      * ` Ereignis </ 0>  Ereignis</li>
+<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+      
+      Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+      
+      ### Event: 'continue-activity-error' *macOS*
+      
+      Rückgabewert:
+      
+      * ` Ereignis </ 0>  Ereignis</li>
+<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+      * `error` String - A string with the error's localized description.
+      
+      Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+      
+      ### Event: 'activity-was-continued' *macOS*
+      
+      Rückgabewert:
+      
+      * ` Ereignis </ 0>  Ereignis</li>
+<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+      * `userInfo` Object - Contains app-specific state stored by the activity.
+      
+      Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+      
+      ### Event: 'update-activity-state' *macOS*
+      
+      Rückgabewert:
+      
+      * ` Ereignis </ 0>  Ereignis</li>
+<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+      * `userInfo` Object - Contains app-specific state stored by the activity.
+      
+      Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+      
+      ### Event: 'new-window-for-tab' *macOS*
+      
+      Rückgabewert:
+      
+      * ` Ereignis </ 0>  Ereignis</li>
+</ul>
 
-Rückgabewert:
-
-* `event` Event
-
-Wird ausgelöst bevor die App anfängt, ihre Fenster zu schließen. Durch einen Aufruf von `event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.
-
-Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
-
-### Ereignis: 'quit'
-
-Rückgabewert:
-
-* `event` Event
-* `exitCode` Integer
-
-Wird ausgelöst wenn die App beendet wird.
-
-### Ereignis: 'open-file' *macOS*
-
-Rückgabewert:
-
-* `event` Event
-* `path` String
-
-Wird ausgelöst wenn der Nutzer versucht eine Datei mit der App zu öffnen. The `open-file` Event wird auch ausgelöst wenn die App bereits offen ist und das Betriebssystem die App nochmal zum Öffnen einer Datei benutzen will. `open-file` wird auch ausgelöst wenn eine Datei auf das Dock-Icon der App gezogen wird (macOS) und die App noch nicht gestartet ist. Behandle das `open-file` Event so früh wie möglich in deiner App um diesen Fall zu berücksichtigen (Also definitiv bevor das `ready` Event ausgelöst wird).
-
-Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
-
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
-
-### Event: 'open-url' *macOS*
-
-Rückgabewert:
-
-* `event` Event
-* `url` String
-
-Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Die `Info.plist` Date muss das URL Schema mittels des `CFBundleURLTypes` Keys definieren und der `NSPrincipalClass` Key muss den Wert `AtomApplication` haben.
-
-Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
-
-### Event: 'activate' *macOS*
-
-Rückgabewert:
-
-* `event` Event
-* `hasVisibleWindows` Boolean
-
-Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen können dieses Event auslösen. So zum Beispiel das Starten der App zum ersten mal als solches, eine Wiederbenutzung der App während sie bereits läuft oder einfach ein Klick auf das Dock oder Tastbar Icon der App.
-
-### Event: 'continue-activity' *macOS*
-
-Rückgabewert:
-
-* `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
-
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
-
-### Event: 'new-window-for-tab' *macOS*
-
-Rückgabewert:
-
-* `event` Event
-
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
-
-### Event: 'browser-window-blur'
-
-Rückgabewert:
-
-* `event` Event
-* `window` BrowserWindow
-
-Emitted when a [browserWindow](browser-window.md) gets blurred.
-
-### Event: 'browser-window-focus'
-
-Rückgabewert:
-
-* `event` Event
-* `window` BrowserWindow
-
-Emitted when a [browserWindow](browser-window.md) gets focused.
-
-### Event: 'browser-window-created'
-
-Rückgabewert:
-
-* `event` Event
-* `window` BrowserWindow
-
-Emitted when a new [browserWindow](browser-window.md) is created.
-
-### Event: 'web-contents-created'
-
-Rückgabewert:
-
-* `event` Event
-* `webContents` WebContents
-
-Emitted when a new [webContents](web-contents.md) is created.
-
-### Event: 'certificate-error'
-
-Rückgabewert:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `url` String
-* `error` String - The error code
-* `certificate` [Certificate](structures/certificate.md)
-* `callback` Funktion 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
-
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
-
-```javascript
+<p>Emitted when the user clicks the native macOS new tab button. The new
+tab button is only visible if the current <code>BrowserWindow` has a `tabbingIdentifier`</p> 
+        ### Event: 'browser-window-blur'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>window` [BrowserWindow](browser-window.md)
+        
+        Emitted when a [browserWindow](browser-window.md) gets blurred.
+        
+        ### Event: 'browser-window-focus'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>window` [BrowserWindow](browser-window.md)
+        
+        Emitted when a [browserWindow](browser-window.md) gets focused.
+        
+        ### Event: 'browser-window-created'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>window` [BrowserWindow](browser-window.md)
+        
+        Emitted when a new [browserWindow](browser-window.md) is created.
+        
+        ### Event: 'web-contents-created'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+        
+        Emitted when a new [webContents](web-contents.md) is created.
+        
+        ### Event: 'certificate-error'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+        * ` URL </ 0>  Zeichenfolge</li>
+<li><code>error` String - The error code
+        * `certificate` [Certificate](structures/certificate.md)
+        * `callback` Funktion 
+          * `isTrusted` Boolean - Whether to consider the certificate as trusted
+        
+        Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+        
+        ```javascript
 const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
@@ -182,23 +224,23 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
   }
 })
 ```
-
-### Event: 'select-client-certificate'
-
-Rückgabewert:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-* `url` URL
-* `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Funktion 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
-
-Emitted when a client certificate is requested.
-
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
-
-```javascript
+    
+    ### Event: 'select-client-certificate'
+    
+    Rückgabewert:
+    
+    * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+    * `url` URL
+    * `certificateList` [Certificate[]](structures/certificate.md)
+    * `callback` Funktion 
+      * `certificate` [Certificate](structures/certificate.md) (optional)
+    
+    Emitted when a client certificate is requested.
+    
+    The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+    
+    ```javascript
 const {app} = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
@@ -211,8 +253,8 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Rückgabewert:
 
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
   * `url` URL
@@ -244,8 +286,8 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Rückgabewert:
 
-* `event` Event
-* `killed` Boolean
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>killed` Boolean
 
 Emitted when the gpu process crashes or is killed.
 
@@ -253,8 +295,8 @@ Emitted when the gpu process crashes or is killed.
 
 Rückgabewert:
 
-* `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
@@ -280,7 +322,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `args` String[] - (optional)
   * `execPath` String (optional)
 
@@ -323,7 +365,7 @@ Returns `String` - The current application directory.
 
 ### `app.getPath(name)`
 
-* `name` String
+* `name` Zeichenfolge
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
@@ -344,19 +386,19 @@ You can request the following paths by the name:
 * `music` Directory for a user's music.
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
+* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
-
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
 * `callback` Funktion 
-  * `error` Error
-  * `icon` [NativeImage](native-image.md)
+  * ` Fehler </ 0> Fehler</li>
+<li><code>icon` [NativeImage](native-image.md)
 
 Fetches a path's associated icon.
 
@@ -369,7 +411,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` String
+* `name` Zeichenfolge
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
@@ -390,7 +432,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 ### `app.setName(name)`
 
-* `name` String
+* `name` Zeichenfolge
 
 Überschreibt den Namen der aktuellen Anwendung.
 
@@ -414,7 +456,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 Clears the recent documents list.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
@@ -468,11 +510,10 @@ Returns `Boolean` - Whether the call succeeded.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Gibt das `Object` zurück:
 
 * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
-
 ### `app.setJumpList(categories)` *Windows*
 
 * `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
@@ -608,6 +649,19 @@ Creates an `NSUserActivity` and sets it as the current activity. The activity is
 
 Returns `String` - The type of the currently running activity.
 
+### `app.invalidateCurrentActivity()` *macOS*
+
+* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -616,7 +670,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `optionen` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Funktion 
@@ -644,7 +698,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
@@ -670,13 +724,13 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `optionen` Object (optional) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Gibt das `Object` zurück:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean - `true` if the app is set to open as hidden at login. This setting is only supported on macOS.
@@ -719,9 +773,17 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `optionen` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
@@ -752,6 +814,18 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 Enables mixed sandbox mode on the app.
 
 This method can only be called before app is ready.
+
+### `app.isInApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
