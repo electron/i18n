@@ -78,26 +78,27 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <p>Mengembalikan <code>Objek`:</p> 
                 * ` judul </ 0> String</li>
-<li><code>url` String
-                
-                Mengembalikan objek yang berisi ` judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
+<li><code> url </ 0> String</li>
+</ul>
+
+<p>Mengembalikan objek yang berisi <code> judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
 
 <h3><code> clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
 
 <ul>
 <li><code> judul</ 0>  String</li>
-<li><code>url` String</li> 
-                
-                * ` ketik </ 0>  String (opsional)</li>
+<li><code> url </ 0> String</li>
+<li><code> ketik </ 0>  String (opsional)</li>
 </ul>
 
 <p>Menulis <code> judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
 
 <p><strong> Catatan: </ 0> Sebagian besar aplikasi di Windows tidak mendukung penandaan bookmark ke dalamnya sehingga Anda dapat menggunakan <code> clipboard.write </ 1> untuk menulis teks bookmark dan fallback ke clipboard.</p>
 
-<pre><code class="js">clipboard.write ({
-   text: 'https: // electron .atom.io',
-   bookmark: ' Beranda Elektron '})
+<pre><code class="js">clipboard.write({
+  text: 'https://electronjs.org',
+  bookmark: 'Electron Homepage'
+})
 `</pre> 
                   ### ` clipboard.readFindText () </ 0>  <em> macos </ 1></h3>
 
