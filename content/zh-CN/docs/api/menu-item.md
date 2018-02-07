@@ -39,7 +39,7 @@
 * `undo`
 * `redo`
 * `cut`
-* `copy`
+* `复制`
 * `paste`
 * `pasteandmatchstyle`
 * `selectall`
