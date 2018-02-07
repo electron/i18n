@@ -30,7 +30,7 @@ Squirrel.Mac とは異なり、Windows は S3 またはその他の静的ファ�
 
 ## イベント
 
-The `autoUpdater` object emits the following events:
+`autoUpdater` オブジェクトは以下のイベントを発生させます。
 
 ### イベント: 'error'
 
@@ -38,21 +38,21 @@ The `autoUpdater` object emits the following events:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+更新中にエラーがあるときに出力されます。
 
-### Event: 'checking-for-update'
+### イベント: 'checking-for-update'
 
-Emitted when checking if an update has started.
+更新が始まったかどうかをチェックするときに放出されます。
 
-### Event: 'update-available'
+### イベント: 'update-available'
 
-Emitted when there is an available update. The update is downloaded automatically.
+利用可能な更新がある場合に生成されます。更新プログラムが自動的にダウンロードされます。
 
-### Event: 'update-not-available'
+### イベント: 'update-not-available'
 
-Emitted when there is no available update.
+利用可能な更新がない場合に出力されます。
 
-### Event: 'update-downloaded'
+### イベント: 'update-downloaded'
 
 戻り値：
 
@@ -64,16 +64,16 @@ Emitted when there is no available update.
 
 Emitted when an update has been downloaded.
 
-On Windows only `releaseName` is available.
+Windowsでは `releaseName` のみ利用可能です。
 
 ## メソッド
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` オブジェクトには以下のメソッドがあります
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
 * `url` String
-* `requestHeaders` Object *macOS* (optional) - HTTP request headers.
+* `requestHeaders`*MacOS* (オプション) - HTTP リクエスト ヘッダーをオブジェクトします。
 
 Sets the `url` and initialize the auto updater.
 
@@ -83,7 +83,7 @@ Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+更新プログラムがあるかどうかをサーバーに要求します。この API を使用する前に `setFeedURL` を呼び出す必要があります。
 
 ### `autoUpdater.quitAndInstall()`
 
