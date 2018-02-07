@@ -103,14 +103,15 @@ Returns `any` - The object returned by `require(module)` in the main process. �
 
 例如:
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
