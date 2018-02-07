@@ -2,7 +2,7 @@
 
 > 在一个独立的 frame 和进程里显示外部 web 内容。
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+进程: [ Renderer](../tutorial/quick-start.md#renderer-process)
 
 使用 ` webview ` 标签在Electron 应用中嵌入 "外来" 内容 (如 网页)。外来"内容包含在 ` webview ` 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
@@ -97,7 +97,7 @@ Assigning `src` its own value will reload the current page.
 
 当有此属性时， `webview`中的访客页将有能力去使用浏览器的插件，Plugins 默认是禁用的。
 
-### `preload`
+### `预加载`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -239,12 +239,12 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (可选) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+* `选项` Object (可选) 
+  * `httpReferrer` String (可选) - HTTP来源网址
+  * `userAgent` String (可选) - 发起请求的 userAgent.
+  * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (可选)
+  * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 `webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
 
@@ -437,7 +437,7 @@ Executes editing command `replaceMisspelling` in page.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (可选) 
+* `选项` Object (可选) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
@@ -459,7 +459,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (可选) 
+* `选项` Object (可选) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -468,13 +468,13 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Object 
+* `选项` Object 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean - (optional) Whether to print selection only.
   * `landscape` Boolean - (optional) `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
   * `data` Buffer
 
@@ -483,19 +483,19 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+捕获 `requestFullScreen` 的页面的一个快照，类似于 `webContents.capturePage([rect, ]callback)`。
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` String
 * `...args` any[]
 
-通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+通过` channel `向渲染器进程发送异步消息，可以发送任意参数。 渲染进程可以通过 `ipcRenderer` 模块去监听 `channel` 事件，从而处理发过来的这些信息
 
-See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
+示例请进传送门： [webContents.send](web-contents.md#webcontentssendchannel-args) 
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -527,7 +527,7 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 ## DOM 事件
 
-The following DOM events are available to the `webview` tag:
+`webview` 标签具有以下有效的 DOM 事件：
 
 ### Event: 'load-commit'
 
@@ -536,11 +536,11 @@ The following DOM events are available to the `webview` tag:
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+发生load 加载时触发。 这包括当前文档中的导航以及子框架文档级加载(subframe document-level loads)，但不包括异步资源加载。
 
 ### Event: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+导航完成时触发，即选项卡的旋转器将停止旋转，并指派` onload `事件后。（译者：网页加载的过程中，并不是所有的浏览器都是转圈圈，而且浏览器版本不同，加载效果也有可能不一样。其中 ie 和 chrome 是转圈圈，safari 是进度条，firefox是一个小点左右来回移动--20180103）
 
 ### Event: 'did-fail-load'
 
@@ -551,7 +551,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 
 
 ### Event: 'did-frame-finish-load'
 
@@ -726,7 +726,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-### 事件：close
+### 事件： 'close'
 
 Fired when the guest page attempts to close itself.
 
