@@ -459,7 +459,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga pagpipilian` Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -578,7 +578,7 @@ Pagbabalik:
 * `originalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
-* ang `referer` String
+* `referer` String
 * `headers` Objek
 * `resourceType` String
 
@@ -697,7 +697,7 @@ Pagbabalik:
 
 * `url` Tali
 
-Napalabas kapag nais ng isang user o ng pahina na magsimulang mag-navigate. Maaari itong mangyari kung kailan ang bagay na `bintana.lokasyon` ay nagbago o ang isang gumagamit ay nag-click ng isang link sa pahina.
+Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. Ito'y pwedeng mangyari kapag ang `window.location` ng objek ay nabago o ang kiniclick ng user ang link sa page.
 
 This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
@@ -711,9 +711,9 @@ Pagbabalik:
 
 * `url` Tali
 
-Nilalabas kapag ang nabigasyon ay natapos na.
+Nilalabas kapag natapos na ang nabigasyon.
 
-Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa mga link ng anchor o pag-update ng `bintana.lokasyon.hash`. Gamit ang `ginawa-navigate-sa-pahina` kaganapan para sa layuning ito.
+Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
 
 ### Event: 'did-navigate-in-page'
 
@@ -722,9 +722,9 @@ Pagbabalik:
 * `isMainFrame` Boolean
 * `url` Tali
 
-Inilalabas kapag nangyari ang pag-navigate sa pahina.
+Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
 
-Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
 
 ### Event: 'close'
 
@@ -791,11 +791,11 @@ Fired when the WebContents is destroyed.
 
 ### Event: 'media-started-playing'
 
-Naipalalabas kapag nagsimula ng maglaro ang media.
+Ilabas kapag ang medya ay nagsimula.
 
 ### Event: 'media-paused'
 
-Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
+Ilabas kapag ang medya ay nahinto o natapos na.
 
 ### Event: 'did-change-theme-color'
 
@@ -815,16 +815,16 @@ Pagbabalik:
 
 * `url` Tali
 
-Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
+Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
 
 ### Event: 'devtools-opened'
 
-Nilalabas kapag ang DevTools ay nabuksan.
+Ilabas kapag ang mga DevTool ay nabuksan.
 
 ### Event: 'devtools-closed'
 
-Nilalabas kapag ang DevTools ay sarado.
+Ilabas kapag ang mga DevTool ay nasarado.
 
 ### Event: 'devtools-focused'
 
-Nilalabas kapag ang DevTools ay nakatuon/binuksan.
+Ilabas kapag ang mga DevTool ay napukos / nabuksan.
