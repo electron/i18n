@@ -15,6 +15,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 * [Applicatie distributie](tutorial/application-distribution.md)
 * [Mac App Store indiening gids](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store gids](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Applicatie Packaging](tutorial/application-packaging.md)
 * [Het gebruik van inheemse knooppunt modules](tutorial/using-native-node-modules.md)
 * [De debugging van het basisproces](tutorial/debugging-main-process.md)
