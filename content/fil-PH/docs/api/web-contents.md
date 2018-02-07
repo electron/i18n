@@ -724,23 +724,23 @@ Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi visual) na antas ng zoom.
 
-#### `contents.undo()`
+#### `mga nilalaman.undo()`
 
-Executes the editing command `undo` in web page.
+Pinapatupad ang command sa pag-edit `undo` sa pahina ng web.
 
-#### `contents.redo()`
+#### `mga nilalaman.redo()`
 
-Executes the editing command `redo` in web page.
+Pinapatupad ang command sa pag-edit `gawing muli` sa pahina ng web.
 
-#### `contents.cut()`
+#### `mga nilalaman.cut()`
 
-Executes the editing command `cut` in web page.
+Pinapatupad ang utos sa pag-edit `hiwa` sa pahina ng web.
 
-#### `contents.copy()`
+#### `mga nilalaman.copy()`
 
-Executes the editing command `copy` in web page.
+Ang pagpapatupad ng utos sa pag-edit `kopya` sa pahina ng web.
 
 #### `contents.copyImageAt(x, y)`
 
