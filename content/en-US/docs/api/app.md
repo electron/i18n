@@ -149,6 +149,53 @@ ID as the activity's source app and that supports the activity's type.
 Supported activity types are specified in the app's `Info.plist` under the
 `NSUserActivityTypes` key.
 
+### Event: 'will-continue-activity' _macOS_
+
+Returns:
+
+* `event` Event
+* `type` String - A string identifying the activity. Maps to
+  [`NSUserActivity.activityType`][activity-type].
+
+Emitted during [Handoff][handoff] before an activity from a different device wants
+to be resumed. You should call `event.preventDefault()` if you want to handle
+this event.
+
+### Event: 'continue-activity-error' _macOS_
+
+Returns:
+
+* `event` Event
+* `type` String - A string identifying the activity. Maps to
+  [`NSUserActivity.activityType`][activity-type].
+* `error` String - A string with the error's localized description.
+
+Emitted during [Handoff][handoff] when an activity from a different device
+fails to be resumed.
+
+### Event: 'activity-was-continued' _macOS_
+
+Returns:
+
+* `event` Event
+* `type` String - A string identifying the activity. Maps to
+  [`NSUserActivity.activityType`][activity-type].
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted during [Handoff][handoff] after an activity from this device was successfully
+resumed on another one.
+
+### Event: 'update-activity-state' _macOS_
+
+Returns:
+
+* `event` Event
+* `type` String - A string identifying the activity. Maps to
+  [`NSUserActivity.activityType`][activity-type].
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted when [Handoff][handoff] is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
 ### Event: 'new-window-for-tab' _macOS_
 
 Returns:
@@ -164,7 +211,7 @@ tab button is only visible if the current `BrowserWindow` has a
 Returns:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 Emitted when a [browserWindow](browser-window.md) gets blurred.
 
@@ -173,7 +220,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 Returns:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
@@ -182,7 +229,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 Returns:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
@@ -191,7 +238,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 Returns:
 
 * `event` Event
-* `webContents` WebContents
+* `webContents` [WebContents](web-contents.md)
 
 Emitted when a new [webContents](web-contents.md) is created.
 
@@ -411,6 +458,7 @@ You can request the following paths by the name:
 * `music` Directory for a user's music.
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
+* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin`  Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -495,7 +543,7 @@ bar, and on macOS you can visit it from dock menu.
 
 Clears the recent documents list.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your
   app to handle `electron://` links, call this method with `electron` as the
@@ -748,6 +796,22 @@ is eligible for [Handoff][handoff] to another device afterward.
 
 Returns `String` - The type of the currently running activity.
 
+### `app.invalidateCurrentActivity()` _macOS_
+
+* `type` String - Uniquely identifies the activity. Maps to
+  [`NSUserActivity.activityType`][activity-type].
+
+Invalidates the current [Handoff][handoff] user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` _macOS_
+
+* `type` String - Uniquely identifies the activity. Maps to
+  [`NSUserActivity.activityType`][activity-type].
+* `userInfo` Object - App-specific state to store for use by another device.
+
+Updates the current activity if its type matches `type`, merging the entries from
+`userInfo` into its current `userInfo` dictionary.
+
 ### `app.setAppUserModelId(id)` _Windows_
 
 * `id` String
@@ -789,7 +853,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md):  Array of `ProcessMet
 
 Returns [`ProcessMetric[]`](structures/process-metric.md):  Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
@@ -890,6 +954,15 @@ technologies, such as screen readers, has been detected. See
 https://www.chromium.org/developers/design-documents/accessibility for more
 details.
 
+### `app.setAccessibilitySupportEnabled(enabled)` _macOS_ _Windows_
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more
+details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
 ### `app.setAboutPanelOptions(options)` _macOS_
 
 * `options` Object
@@ -926,6 +999,26 @@ correctly.
 Enables mixed sandbox mode on the app.
 
 This method can only be called before app is ready.
+
+### `app.isInApplicationsFolder()` _macOS_
+
+Returns `Boolean` - Whether the application is currently running from the
+systems Application folder.  Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` _macOS_
+
+Returns `Boolean` - Whether the move was successful.  Please note that if
+the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow
+the user to confirm the operation you may do so using the
+[`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the
+move to fail.  For instance if the user cancels the authorization dialog this
+method returns false.  If we fail to perform the copy then this method will
+throw an error.  The message in the error should be informative and tell
+you exactly what went wrong
 
 ### `app.dock.bounce([type])` _macOS_
 
