@@ -91,7 +91,7 @@ clipboard:
   copy: 复制
   copy_to_clipboard: 复制到剪贴板
   copied: 已复制
-or: 或者
+or: or
 pages:
   '/':
     title: Electron | 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。
@@ -100,7 +100,7 @@ pages:
     title: Electron 应用
     description: 使用 Electron 构建的应用
   '/docs':
-    title: 文档
+    title: ' 文档 '
     description: 最新的 Electron 的指南和 API 参考文档
   '/docs/all':
     title: 所有的 Electron 的文档
@@ -122,12 +122,12 @@ pages:
   '/releases':
     title: 版本发布
   '/contact':
-    title: 联络
+    title: 联系我们
     description: 在Twitter、Slack、GitHub 或通过电子邮件与电子团队取得联系。
   '/languages':
     title: 语言
   '/userland':
-    title: 用户区
+    title: 用户生态
   '/devtron':
     title: Devtron
     description: Devtron 是一个开源工具，可以帮助您检查、监视和调试您的 Electron 应用程序。建立在强大的 Chrome 开发者工具之上。
