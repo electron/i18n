@@ -14,7 +14,7 @@ A classe `menu` tem os seguintes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Define `menu` como o menu de aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
 
@@ -24,7 +24,7 @@ Passing `null` will remove the menu bar on Windows and Linux but has no effect o
 
 #### `Menu.getApplicationMenu()`
 
-Retorna `Menu` - O menu de aplicativo, se definido, ou `null`, se não estiver definido.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -73,26 +73,32 @@ Fecha o menu de contexto em `browserWindow`.
 
 Acrescenta o `menuItem` ao menu.
 
-#### `menu.Insert(pos, menuItem)`
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
+
+#### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` MenuItem
 
-Insere o `menuItem` na posição `pos` do menu.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Propriedades de Instância
 
-Objetos `menu` também possuem as seguintes propriedades:
+`menu` objects also have the following properties:
 
 #### `menu.items`
 
-Um array `MenuItem[]` contendo os itens do menu.
+A `MenuItem[]` array containing the menu's items.
 
-Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
+Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
 ## Exemplos
 
-A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
 ### Processo principal
 
@@ -142,7 +148,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -164,7 +170,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Editar menu
+  // Edit menu
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -176,7 +182,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Janela menu
+  // Window menu
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -192,7 +198,7 @@ Menu.setApplicationMenu(menu)
 
 ### Processo de renderização
 
-Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -226,7 +232,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 ### Ações padronizadas para Item de Menu
 
-O macOS fornece ações padronizadas para alguns itens de menu, como `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### Nome do Menu Principal
 
@@ -250,7 +256,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemplos
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -264,14 +270,15 @@ Modelo:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -286,11 +293,13 @@ Modelo:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```
