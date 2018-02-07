@@ -14,7 +14,7 @@ const {shell} = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Methods
+## Metodi
 
 The `shell` module has the following methods:
 
