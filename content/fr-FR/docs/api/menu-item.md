@@ -12,7 +12,7 @@ Voir [`Menu`](menu.md) pour des exemples.
   * `click` Fonction (optionnel) - Sera appelé avec `click(menuItem, browserWindow, event)` lorsque l'élément du menu est cliqué. 
     * `menuItem` MenuItem
     * `browserWindow` BrowserWindow
-    * `event` Event
+    * `event` Événement
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String - (optional)
