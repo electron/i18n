@@ -2,7 +2,7 @@
 
 > Kontrolin ang "downloads" ng payl galing sa "remote sources".
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 `DownloadItem` ay isang `EventEmitter` na kumakatawan sa "download item" sa Elektron. Ito ay ginagamit sa `will-download` na nangyayari sa klase ng `Session`, at hinahayaan ang mga gumagamit na kontrolin ang "download item".
 
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Pagbabalik:
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `state` String
 
 Ito ay lumalabas kapag ang "download" ay kinakailangan baguhin at itatakda ang mga bagong impormasyon na nakapaloob dito, at kung ito ay hindi tapos.
@@ -55,7 +55,7 @@ Ang `state` ay maaaring isa sa mga sumusunod:
 
 Pagbabalik:
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `state` String
 
 Ang mga ito ay lumalabas kapag ang "download" ay nasa estado ng terminal. Kasama dito ang matagumpay na "download", inihintong "download" (via `downloadItem.cancel()`), at itinigil ngunit hindi ma maaaring ituloy na "download".
@@ -96,7 +96,7 @@ Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
 
 #### `downloadItem.canResume()`
 
-Muling paggana ng `Boolean` - Ang "download" ay maaaring paganahin muli.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
