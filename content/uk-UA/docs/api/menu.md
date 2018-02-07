@@ -86,7 +86,7 @@ Returns `MenuItem` the item with the specified `id`
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Instance Properties
+### Властивості Екземпляра
 
 `menu` objects also have the following properties:
 
