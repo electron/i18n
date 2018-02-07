@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Processo: [Renderizzatore](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -221,7 +221,7 @@ win.on('resize', () => {
 })
 ```
 
-## Methods
+## Metodi
 
 The `webview` tag has the following methods:
 
@@ -450,7 +450,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) request. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) richiesta. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -468,7 +468,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `opzioni` Object 
+* `opzioni` Oggetto 
   * `marginsType` Integer - (optional) Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String - (optional) Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean - (optional) Whether to print CSS backgrounds.
@@ -647,7 +647,7 @@ webview.addEventListener('console-message', (e) => {
 
 Restituiti:
 
-* `result` Object 
+* `result` Oggetto 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
