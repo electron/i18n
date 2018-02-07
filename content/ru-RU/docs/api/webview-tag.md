@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* Строка `code`
+* `code` String
 * `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (опционально) - вызывается после выполнения сценария. 
   * `result` Any
@@ -507,7 +507,7 @@ See [webContents.sendInputEvent](web-contents.md#webcontentssendinputeventevent)
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - маштаб.
+* `factor` Number - фактор увилечения.
 
 Изменяет указанный масштаб. Коэффициент масштабирования является процент масштабирования, делится на 100, поэтому 300% = 3.0.
 
