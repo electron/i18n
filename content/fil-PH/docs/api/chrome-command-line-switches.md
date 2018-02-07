@@ -1,4 +1,4 @@
-# Suportado ng Chrome ang Command Line Switches
+# Suportadong mga Chrome Command Line Switches
 
 > Ang Command line switches ay sinusuportahan ng Electron.
 
