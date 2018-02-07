@@ -494,7 +494,7 @@ Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([r
 * `channel` Cadena
 * `...args` cualquiera[]
 
-Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
+Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the `ipcRenderer` module.
 
 See [webContents.send](web-contents.md#webcontentssendchannel-args) for examples.
 
@@ -520,7 +520,7 @@ Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada i
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
+Muestra un diccionario que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()`
 
@@ -535,7 +535,7 @@ The following DOM events are available to the `webview` tag:
 Devuelve:
 
 * `url` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -550,7 +550,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
@@ -558,7 +558,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Fired when a frame has done navigation.
 
@@ -575,7 +575,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 Devuelve:
 
 * `status` Boolean
-* `newURL` String
+* `nuevoURL` String
 * `originalURL` String
 * `httpResponseCode` Entero
 * `requestMethod` String
@@ -590,8 +590,8 @@ Fired when details regarding a requested resource is available. `status` indicat
 Devuelve:
 
 * `viejoURL` String
-* `newURL` String
-* `isMainFrame` Boolean
+* `nuevoURL` String
+* `EsElFramePrincipal` Boolean
 
 Fired when a redirect was received while requesting a resource.
 
@@ -720,12 +720,12 @@ Este evento no es emitido para navegaciones dentro de la página, como hacerle c
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
 
-Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de esto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
 ### Evento: 'close'
 
@@ -824,7 +824,7 @@ Emitido cuando DevTools es abierto.
 
 ### Evento: 'devtools-closed'
 
-Emitido cuando Devtools es cerrado.
+Emitido cuando DevTools es cerrado.
 
 ### Evento: 'devtools-focused'
 
