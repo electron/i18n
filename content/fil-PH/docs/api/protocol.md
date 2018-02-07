@@ -22,14 +22,14 @@ app.on('ready', () => {
 
 **Note:** Ang lahat ng mga pamamaraan maliban kung tinukoy ay maaari lamang gamitin pagkatapos ng event ng `ready` sa modyul ng `app` ay lumabas.
 
-## Pamamaraan
+## Mga Paraan
 
 Ang modyul ng `protocol` ay mayroon ng mga sumusunod na mga pamamaraan:
 
-### `ang protocol.registerStandardSchemes(schemes[, options])`
+### `protocol.registerStandardSchemes(schemes[, options])`
 
 * `schemes` String[] - Ang pasadyang panukala na magiging rehistrado bilang mga standard na panukala.
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga opsyon` Mga bagay (opsyonal) 
   * `secure` Boolean (opsyonal) - `true` para irehistro ang panukala bilang ligtas. Ang default ay `false`.
 
 Ang isang standard na panukala ay sumusunod sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga standard na panukala, samantalang ang `file` ay hindi.
@@ -66,15 +66,15 @@ app.on('ready', () => {
 ### `ang protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
 
 * `scheme` Ang string
-* `ang tagahawak` Ang Punsyon 
+* `ang tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` String
-    * ang `referer` String
+    * `url` Tali
+    * `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `ganting-tawag` Punsyon 
+  * `callback` Punsyon 
     * ang `filePath` String (opsyonal)
-* `ang pagkumpleto` Ang Punsyon (opsyonal) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Irerehistro ang isang protokol ng `scheme` na ipapadala ang file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
@@ -88,15 +88,15 @@ Batay sa default ang `scheme` ay tinatrato katulad ng `http`, kung saan ay sinus
 ### `ang protocol.registerBufferProtocol(panukala, tagahawak[, pagkumpleto])`
 
 * `scheme` Ang string
-* `ang tagahawak` Punsyon 
+* `ang tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` String
+    * `url` Tali
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
-* `ang pagkumpleto` Ang Punsyon (opsyonal) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Ay irerehistro ang isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
@@ -117,14 +117,14 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 ### `ang protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
 
-* `scheme` String
-* `ang tagahawak` Function 
+* `scheme` Ang string
+* `ang tagahawak` function 
   * `kahilingan` Bagay 
     * `url` Tali
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `data` String (opsyonal)
 * `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
@@ -135,8 +135,8 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
 
 ### `ang protocol.registerHttpProtocol(panukala, tagahawak[, pagkumpleto])`
 
-* `scheme` String
-* `ang tagahawak` Function 
+* `scheme` Ang string
+* `ang tagahawak` na Function 
   * `kahilingan` Bagay 
     * `url` Tali
     * ang `referer` String
@@ -144,13 +144,13 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `ang redirectRequest` Bagay 
-      * `url` Tali
+      * `url` String
       * `method` String
       * `session` Bagay (opsyonal)
       * `ang uploadData` Mga bagay (opsyonal) 
         * `contentType` String - Ang uri ng MIME ng mga nilalaman.
         * `data` String - Mga nilalaman na ipapadala.
-* `ang pagkumpleto` Function (opsyonal) 
+* `ang pagkumpleto` Ang Punsyon (opsyonal) 
   * `error` Error
 
 Registers a protocol of `scheme` that will send an HTTP request as a response.
@@ -163,11 +163,11 @@ For POST requests the `uploadData` object must be provided.
 
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `ang tagahawak` Function 
+* `scheme` Ang string
+* `ang tagahawak` Punsyon 
   * `kahilingan` Bagay 
-    * `url` Tali
-    * `header` Bagay
+    * `url` String
+    * `headers` Objek
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
@@ -221,30 +221,30 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` String
+* `scheme` Ang string
 * `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme, callback)`
+### `protocol.isProtocolHandled(scheme,callback)`
 
-* `scheme` String
-* `callback` Function 
+* `scheme` Ang string
+* `callback` Ang Punsyon 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `ang tagahawak` Function 
+* `scheme` Ang string
+* `ang tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Ang Punsyon 
     * `filePath` String
 * `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
@@ -253,10 +253,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `ang tagahawak` Function 
+* `scheme` Ang string
+* `ang tagahawak` Punsyon 
   * `kahilingan` Bagay 
-    * `url` Tali
+    * `url` String
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
@@ -269,10 +269,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
-* `scheme` String
+* `scheme` Ang string
 * `ang tagahawak` Function 
   * `kahilingan` Bagay 
-    * `url` Tali
+    * `url` String
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
@@ -285,10 +285,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `ang tagahawak` Function 
+* `scheme` Ang string
+* `ang tagahawak` Punsyon 
   * `kahilingan` Bagay 
-    * `url` Tali
+    * `url` String
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
@@ -307,15 +307,15 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `ang tagahawak` Function 
+* `scheme` Ang string
+* `ang tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
-    * `header` Bagay
+    * `headers` Objek
     * ang `referer` String
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Ang Punsyon 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
@@ -324,7 +324,7 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
-* `scheme` String
+* `scheme` Ang string
 * `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
