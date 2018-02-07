@@ -27,9 +27,9 @@ languages:
   current: 当前所选
 community:
   title: Electron 社区
-  description: '工具, boilerplates, 视频, 以及更多的Electron的 <a href="https://github.com/sindresorhus/awesome-electron">awesome </a> 开源贡献者。查找或添加离您近的 <a href="/community#meetups"> 聚会 </a>。'
+  description: '工具, 模板, 视频, 以及更多的Electron的 <a href="https://github.com/sindresorhus/awesome-electron">awesome </a> 开源贡献者。查找或添加离您近的 <a href="/community#meetups"> 聚会 </a>。'
   tools: 工具
-  boilerplates: Boilerplates模板
+  boilerplates: 模板
   components: 组件
   videos: 视频
   meetups: 线下交流会
@@ -44,7 +44,7 @@ web_technologies:
   description: Electron 基于 Chromium 和 Node.js, 让你可以使用 HTML, CSS 和 JavaScript 构建应用。
 open_source:
   title: 开源
-  description: Electron 是一个由 GitHub 和由贡献者组成的活跃社区维护的开源项目。
+  description: Electron 是一个由 GitHub 及众多贡献者组成的活跃社区共同维护的开源项目。
 cross_platform:
   title: 跨平台
   description: Electron 兼容 Mac, Windows 和 Linux， 它构建的应用可在这三个操作系统上面运行。
@@ -53,7 +53,7 @@ benefits:
   automatic_updates: 自动更新
   native_menus_and_notifications: 原生的菜单和通知
   crash_reporting: 崩溃报告
-  debugging_and_profiling: 调试 & 性能分析
+  debugging_and_profiling: 调试和性能分析
   windows_installers: Windows 安装程序
 get_started:
   title: 入门
