@@ -41,7 +41,7 @@ Returns `Number` - The current zoom level.
 * `pinakamaliitna Antas` na Numero
 * `Pinakamataas na Antas` na Numero
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Deprecated:** Tumawag `setVisualZoomLevelLimits` sa halip na itakda ang visual zoom ng mga limitasyon sa antas. Ang paraan na ito ay aalisin sa Elektron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
