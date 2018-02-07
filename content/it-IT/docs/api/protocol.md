@@ -1,4 +1,4 @@
-# protocol
+# protocollo
 
 > Register a custom protocol and intercept existing protocol requests.
 
@@ -22,7 +22,7 @@ app.on('ready', () => {
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## Methods
+## Metodi
 
 The `protocol` module has the following methods:
 
@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -103,7 +103,7 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Esempio:
 
 ```javascript
 const {protocol} = require('electron')
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -137,13 +137,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
-    * `redirectRequest` Object 
+    * `redirectRequest` Oggetto 
       * `url` Stringa
       * `metodo` Stringa
       * `session` Object (optional)
@@ -165,7 +165,7 @@ For POST requests the `uploadData` object must be provided.
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `headers` Object
     * `referrer` String
@@ -180,7 +180,7 @@ Registers a protocol of `scheme` that will send a `Readable` as a response.
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
-Example:
+Esempio:
 
 ```javascript
 const {protocol} = require('electron')
@@ -239,7 +239,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -255,7 +255,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -271,7 +271,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
@@ -287,13 +287,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `referrer` String
     * `metodo` Stringa
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funzione 
-    * `redirectRequest` Object 
+    * `redirectRequest` Oggetto 
       * `url` Stringa
       * `metodo` Stringa
       * `session` Object (optional)
@@ -309,7 +309,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schema` Stringa
 * `handler` Funzione 
-  * `richiesta` Object 
+  * `richiesta` Oggetto 
     * `url` Stringa
     * `headers` Object
     * `referrer` String
