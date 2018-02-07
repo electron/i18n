@@ -60,7 +60,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Funkcja 
   * `event` String
   * `userInfo` Object
 
@@ -84,7 +84,7 @@ Removes the subscriber with `id`.
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Funkcja 
   * `event` String
   * `userInfo` Object
 
@@ -175,7 +175,7 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
+* `kolor` String - One of the following values: 
   * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
   * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
   * `3d-highlight` - Highlight color for three-dimensional display elements.
