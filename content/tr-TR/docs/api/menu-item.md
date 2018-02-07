@@ -67,9 +67,14 @@ Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 * `stopspeaking` - `stopSpeaking` eylemine eşleme
 * `front` - `arrangeInFront` eylemine eşleme
 * `zoom` - `performZoom` eylemine eşleme
-* ` window ` - Alt menü bir "Pencere" menüsüdür
-* `help` - Alt menü bir "Yardım" menüsüdür
-* `services` - Alt menü bir "Servisler" menüsüdür
+* `toggletabbar` - Map to the `toggleTabBar` action
+* `selectnexttab` - Map to the `selectNextTab` action
+* `selectprevioustab` - Map to the `selectPreviousTab` action
+* `mergeallwindows` - Map to the `mergeAllWindows` action
+* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
+* `window` - The submenu is a "Window" menu
+* `help` - The submenu is a "Help" menu
+* `services` - The submenu is a "Services" menu
 
 MacOS'ta bir `role` belirtirken, menü öğesini etkileyecek seçenekler yalnızca `label` ve `accelerator`'dür. Diğer tüm seçenekler yok sayılır.
 
