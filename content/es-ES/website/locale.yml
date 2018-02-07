@@ -143,5 +143,5 @@ search:
     start: Encontrar recursos de Electron de
     docs: <a href="/search/docs">documentation</a>
     npm: <a href="/search/npmPackages">npm packages</a>
-    and: y
+    and: "y"
     repos: <a href="/search/repos">GitHub repos</a>
