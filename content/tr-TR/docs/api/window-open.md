@@ -10,7 +10,7 @@ Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçenekler
 
 ### `window.open(url[, frameName][, features])`
 
-* `url` Dize
+* `url` String
 * `frameName` String (opsiyonel)
 * `features` String (opsiyonel)
 
