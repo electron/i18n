@@ -785,12 +785,12 @@ Pinapatupad ang utos sa pag-edit ` palitan ang maling pagbaybay ` sa web page.
 
 * `teksto` String
 
-Inserts `text` to the focused element.
+Ipasok ang `teksto` sa nakatutok na elemento.
 
-#### `contents.findInPage(text[, options])`
+#### `mga nilalaman.findInPage (teksto [, mga pagpipilian])`
 
-* `text` String - Content to be searched, must not be empty.
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
+* `mga pinagpipilian` Bagay (opsyonal) 
   * `forward` Boolean - (optional) Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean - (optional) Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean - (optional) Whether search should be case-sensitive, defaults to `false`.
