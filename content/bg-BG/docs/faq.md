@@ -47,47 +47,47 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Прозореца/tray на моето приложение изчезна след няколко минути.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Това се случва, когато променливата, която се използва за съхраняване на прозореца/tray бива изчистена от паметта.
 
-If you encounter this problem, the following articles may prove helpful:
+Ако ви се случи такъв проблем, следващата статия може да ви бъде от помощ:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Управление на паметта](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Обхват на променливите](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Ако търсите бързо решение, може да направите променливите глобални, като промените своят код от това:
 
 ```javascript
 const {app, Tray} = require('electron')
 app.on('ready', () => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+   const tray = new Tray('/path/to/icon.png')
+   tray.setTitle('hello world')
 })
 ```
 
-to this:
+на това:
 
 ```javascript
 const {app, Tray} = require('electron')
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+   tray = new Tray('/path/to/icon.png')
+   tray.setTitle('hello world')
 })
 ```
 
 ## Каква е причината да не мога да ползвам библиотеки като jQuery/RequereJS/Meteor/AngularJS?
 
-За правилната работа на Electron е необходима интеграция с платформата Node.js, която добавя специфични ключови думи към DOM дървото. Някой от тези ключови думи са `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+За правилната работа на Electron е необходима интеграция с платформата Node.js, която добавя специфични ключови думи към DOM дървото. Някой от тези ключови думи са `module`, `exports`, `require`. Това предизвиква проблеми за някои библиотеки тъй като те искат да вкарат ключови думи със същите имена.
 
-To solve this, you can turn off node integration in Electron:
+За да решите този проблем, изключете интеграцията на node в Електрон:
 
 ```javascript
-// In the main process.
+// В главния процес.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
-  webPreferences: {
-    nodeIntegration: false
-  }
+   webPreferences: {
+     nodeIntegration: false
+   }
 })
 win.show()
 ```
