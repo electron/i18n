@@ -882,7 +882,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
 * `callback` Function (opsyonal) 
   * tagumpay` Boolean - Nagpapahiwatig ng tagumpay ng naka-print na tawag.
 
-Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+Nagpiprint ng pahina ng web sa mga window. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
 Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
