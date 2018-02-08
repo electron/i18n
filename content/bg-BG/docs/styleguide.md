@@ -112,7 +112,7 @@
 * `по избор` Integer (по избор) - Друго описание на параметъра...
 ```
 
-Заглавието може да бъде в нива `#` или `#` в зависимост от това дали е метод за модул или за клас.
+Заглавието може да бъде в нива `###` или `####` в зависимост от това дали е метод за модул или за клас.
 
 За модулите, `имеНаОбект` е името на модула. За класовете, то трябва да бъде името на инстанцията на класа и не трябва да бъде същото като името на модула.
 
@@ -133,37 +133,37 @@
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Или от персонален тип като този от Електрон [`WebContent`](api/web-contents.md)
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
+Ако един аргумент или метод, който е уникален за определени платформи, то тези платформи са отбелязани с помощта на интервали с долна черта "_" след типа на данните. Стойностите могат да бъдат `macOS`, `Windows` или `Linux`.
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (по избор) _macOS_ _Windows_ - Анимация за нещо.
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+Аргументи от тип `Array` трябва да опише какви елементи може да включва в описанието по-долу.
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+Описанието за аргументи от тип `Function` трябва ясно да обясни как може да се нарече и да опише списъка на параметрите, които ще бъдат прехвърлени към него.
 
-### Events
+### Събития
 
-The events chapter must be in following form:
+Глава методи трябва да бъде в следния вид:
 
 ```markdown
-### Event: 'wake-up'
+### Събитие: 'wake-up'
 
-Returns:
+Връща:
 
 * `time` String
 
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+Заглавието може да бъде в нива `###` или `####` в зависимост от това дали е събитие за модул или за клас.
 
-The arguments of an event follow the same rules as methods.
+Аргументите на събитието следват същите правила като правилата за методи.
 
-### Properties
+### Свойства
 
-The properties chapter must be in following form:
+Глава свойства трябва да бъде в следния вид:
 
 ```markdown
 ### session.defaultSession
@@ -171,8 +171,8 @@ The properties chapter must be in following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+Заглавието може да бъде в нива `###` или `####` в зависимост от това дали е свойство за модул или за клас.
 
-## Documentation Translations
+## Превод на документацията
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Виж [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
