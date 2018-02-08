@@ -72,50 +72,38 @@
 * Една страница може да има множество класове.
 * Конструкторите трябва да бъдат изброени със заглавия от ниво `#`.
 * [Статични методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) трябва да бъдат изброени под глава `### Статични методи`.
-* [Незабавни методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) трябва да бъдат изброени под глава `### Незабавни методи`.
+* [Инстантни методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) трябва да бъдат изброени под глава `### Инстантни методи`.
 * Всички методи, които връщат стойност, трябва да започнат своето описание с "Връща `[ТИП]` - описание на върнатото" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+  * Ако методът връща `Обект`, то неговата структура може да бъде описана с двоеточие ":", последвано от нов ред, следвано от несортиран списък със свойства, описани в същия стил на функционалните параметри.
+* Инстантни събития трябва да бъдат изброени под глава `### Инстантни събития`.
+* Инстантни свойства трябва да бъдат изброени под глава `### Инстантни свойства` . 
+  * Инстантни свойства трябва да започват с "А [Тип на свойството]"
 
-Using the `Session` and `Cookies` classes as an example:
+Използваме на класове `Session` и `Cookies` като един пример:
 
 ```markdown
 # session
 
-## Methods
+## Методи
 
 ### session.fromPartition(partition)
 
-## Properties
+## Свойства
 
 ### session.defaultSession
 
-## Class: Session
+## Клас: Session
 
-### Instance Events
+### Инстантни събития
 
-#### Event: 'will-download'
+#### Събитие: 'will-download'
 
-### Instance Methods
-
-#### `ses.getCacheSize(callback)`
-
-### Instance Properties
-
-#### `ses.cookies`
-
-## Class: Cookies
-
-### Instance Methods
-
-#### `cookies.get(filter, callback)`
+### Инстантни методи
 ```
 
-### Methods
+### Методи
 
-The methods chapter must be in the following form:
+Глава методи трябва да бъде в следния вид:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
