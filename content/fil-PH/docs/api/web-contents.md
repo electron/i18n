@@ -373,7 +373,7 @@ Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil s
 Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `kulay` (String | null) - Ang kulay ng tema ay nasa format na '#rrggbb'. Ito ay `null` kapag walang kulay ng tema na naka-set.
 
 #### Event: 'update-target-url'
 
@@ -508,25 +508,25 @@ Maaaring gamitin ang kaganapang ito upang i-configure ang `webPreferences` para 
 
 **Tandaan:** Ang tinutukoy na `preload` Ang opsyon ng script ay lilitaw bilang `preloadURL` (hindi `preload`) nasa `webPreferences` bagay na inilalabas sa kaganapang ito.
 
-#### Event: 'did-attach-webview'
+#### Kaganapan: 'ginawa-ilakip-webview'
 
 Ibinabalika ang:
 
 * `kaganapan` Kaganapan
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `WebContents` WebContents - Ang mga nilalaman ng bisita ng web na ginagamit ang `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+Naipalalabas kapag ang isang `<webview>` ay naka-attach sa mga nilalaman ng web na ito.
 
-#### Event: 'console-message'
+#### Kaganapan'console-mensahe'
 
-Ibinabalika ang:
+Ibinabalik ang:
 
 * `level` Integer
-* `mensahe` Tali
-* `line` Integer
-* `sourceId` String
+* `mensahe` Pisi
+* `linya` Integer
+* `sourceId` Pisi
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hindi ipapalabas para sa mga window na may *offscreen rendering* na pinapagana.
 
 ### Instance Methods
 
@@ -822,9 +822,9 @@ Pagsingit `text` para sa nakapukos na elemento.
   * `wordStart` Boolean - (opsyonal) Kung saan maghahanap ka lang ng simula ng salita. mga defaults sa `false`.
   * `medialCapitalAsWordStart` Boolean - (opsyonal) Kung ang pinagsama na may `wordStart`, tinatanggap ang kapareha sa gitna ng salita at kung ang kapareha nag nagsimula ng malaking titik at sinundan ng maliit na titik o walang-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
-Returns `Integer` - The request id used for the request.
+Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
-Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
