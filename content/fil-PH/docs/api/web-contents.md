@@ -880,7 +880,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
 * `callback` Function (opsyonal) 
-  * success` Boolean - Indicates success of the print call.
+  * tagumpay` Boolean - Nagpapahiwatig ng tagumpay ng naka-print na tawag.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
