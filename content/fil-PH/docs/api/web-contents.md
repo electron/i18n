@@ -851,19 +851,19 @@ console.log(requestId)
 * `tumawag muli` Punsyon 
   * `imahe` [NativeImage](native-image.md)
 
-Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. Ang `imahe` ay isang halimbawa ng [NativeImage](native-image.md) na nag-iimbak ng data ng snapshot. Umupo `rect` ay kukunin ang buong nakikitang pahina.
 
 #### `contents.hasServiceWorker(callback)`
 
 * `callback` Ang Punsyon 
   * `hasWorker` Boolean
 
-Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
+Sinusuri kung ang anumang ServiceWorker ay nakarehistro at nagbabalik ng isang boolean bilang tugon sa `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
 * `callback` Ang Punsyon 
-  * `success` Boolean
+  * `tagumpay` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
 
