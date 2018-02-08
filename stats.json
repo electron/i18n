@@ -16,14 +16,14 @@
     "name": "Bulgarian",
     "code": "bg",
     "phrases": "8679",
-    "translated": "355",
+    "translated": "382",
     "approved": "3",
     "words": "78122",
-    "words_translated": "1469",
+    "words_translated": "1609",
     "words_approved": "6",
-    "translated_progress": 1,
+    "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": "76"
+    "qa_issues": "84"
   },
   {
     "name": "Chinese Simplified",
