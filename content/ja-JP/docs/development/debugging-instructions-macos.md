@@ -8,7 +8,7 @@ JavaScriptアプリケーションによらないと思われるクラッシュ�
 
 * **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
 
-## Electronへのアタッチとデバッグ
+## Electronへの接続とデバッグ
 
 To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
 
