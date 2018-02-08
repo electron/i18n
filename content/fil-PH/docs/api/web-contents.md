@@ -865,17 +865,17 @@ Sinusuri kung ang anumang ServiceWorker ay nakarehistro at nagbabalik ng isang b
 * `callback` Ang Punsyon 
   * `tagumpay` Boolean
 
-Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
+Unregister ang anumang ServiceWorker kung kasalukuyan at nagbabalik ng isang boolean bilang tugon sa `callback` kapag ang pangako ng JS ay natupad o hindi totoo kapag ang pangako ng JS ay tinanggihan.
 
-#### `contents.getPrinters()`
+#### `mga nilalaman.getPrinters()`
 
-Get the system printer list.
+Kunin ang listahan ng sistema ng printer.
 
-Returns [`PrinterInfo[]`](structures/printer-info.md)
+Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options], [callback])`
+#### `mga nilalaman.print([options], [callback])`
 
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
