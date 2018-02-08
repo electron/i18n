@@ -1,4 +1,4 @@
-# `<webview>` Tag
+# `<webview>`Етикет
 
 > Display external web content in an isolated frame and process.
 
