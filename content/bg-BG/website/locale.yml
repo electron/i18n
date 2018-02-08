@@ -64,12 +64,12 @@ explore:
 download_from_github: Изтегляне от GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Вижте всички издания</a> в GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  title: "Опитайте приложението за <a href='https://github.com/electron/electron-quick-start' target='_blank'> Бърз старт</a>, за да видите Електрон в действие:"
+  description: Минимално Електрон приложение с полезни означения.
+  clone: Клониране на хранилището за Бърз Старт
+  go_into_repo: Отидете в хранилището
+  install_deps: Инсталирайте зависимостите и подкарайте
+  dive_deeper: Или се потопете дълбоко и прочетете <a href='/docs'> документацията</a>.
 need_help:
   title: Нужда от помощ?
   description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
