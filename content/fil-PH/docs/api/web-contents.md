@@ -911,9 +911,9 @@ Bilang default, ang isang walang laman na `mga pagpipilian` ay itinuturing na:
 ```javascript
 {
   marginsType: 0,
-  printBackground: false,
-  printSelectionOnly: false,
-  landscape: false
+  printBackground: huwad,
+  printSelectionOnly: huwad,
+  tanawin: huwad
 }
 ```
 
