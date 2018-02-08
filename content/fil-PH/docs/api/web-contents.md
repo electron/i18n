@@ -882,11 +882,11 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md)
 * `callback` Function (opsyonal) 
   * tagumpay` Boolean - Nagpapahiwatig ng tagumpay ng naka-print na tawag.
 
-Nagpiprint ng pahina ng web sa mga window. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
+Nagpiprint ng pahina ng web sa mga window. Kapag ang `tahimik` ay naka-set sa `totoo`, ang Elektron ay pipiliin ang sistema ng default na printer kung ang `deviceName` ay walang laman at ang mga default na magtatakda para sa pag-print.
 
-Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+Pagtawag sa `window.print()` sa pahina ng web ay katumbas ng pagtawag sa `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-print sa isang bagong pahina.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -917,7 +917,7 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-print sa isang bagong pahina.
 
 An example of `webContents.printToPDF`:
 
