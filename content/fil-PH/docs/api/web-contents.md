@@ -824,14 +824,14 @@ Pagsingit `text` para sa nakapukos na elemento.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
-Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. Ang resulta ng kahilingan ay maaaring makuha sa pamamagitan ng pag-subscribe sa [`found-in-page`](web-contents.md#event-found-in-page) kaganapan.
 
-#### `contents.stopFindInPage(action)`
+#### `mga nilalaman.stopFindInPage(aksyon)`
 
-* `aksyon` String - Specifies the action to take place when ending [`webContents.findInPage`] kahilingan. 
+* `aksyon` String - Tinutukoy ang aksyon upang maganap kapag nagtatapos [`webContents.findInPage`] kahilingan. 
   * `clearSelection` - Tanggalin ang mga napili.
-  * `keepSelection` - I-translate ang mga napili para maging normal.
-  * `activateSelection` - Ipukos at iclick ang node ng napili.
+  * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
+  * `activateSelect` - Tumuon at i-click ang node ng pagpili.
 
 Stops any `findInPage` request for the `webContents` with the provided `action`.
 
