@@ -4,38 +4,16 @@
 
 ## Заглавия
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Всяка страница трябва да има единствено заглавие с ниво `#` в горната си част.
+* Главите в същата страница трябва да има заглавия с ниво `#`.
+* Под-главите трябва да увеличат броя на `#` в заглавието според дълбочината им.
+* Всички думи в заглавието на страницата трябва да бъдат капитализирани, освен съюзи като "на", "и".
+* Само първата дума от заглавието на дадена глава трябва да бъде капитализирана.
 
-Using `Quick Start` as example:
+Използване на `Бързо стартиране` като пример:
 
 ```markdown
-# Quick Start
-
-...
-
-## Main process
-
-...
-
-## Renderer process
-
-...
-
-## Run your app
-
-...
-
-### Run as a distribution
-
-...
-
-### Manually downloaded Electron binary
-
-...
+# Бързо стартиране ... ## Основен процес ... ## Рендериращ процес ... ## Изпълни твоето приложение ... ### Изпълни като дистрибутор ... ### Ръчно изтегли бинарния Електрон ...
 ```
 
 For API references, there are exceptions to this rule.
