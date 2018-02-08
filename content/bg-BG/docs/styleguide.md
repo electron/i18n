@@ -16,25 +16,25 @@
 # Бързо стартиране ... ## Основен процес ... ## Рендериращ процес ... ## Изпълни твоето приложение ... ### Изпълни като дистрибутор ... ### Ръчно изтегли бинарния Електрон ...
 ```
 
-For API references, there are exceptions to this rule.
+За API насоки има изключения от това правило.
 
-## Markdown rules
+## Markdown правила
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Използване на `sh` вместо `cmd` в блокове от код (поради синтактичните подчертавания).
+* Редовете трябва да са завършени в 80 колони.
+* Без вложени списъци с повече от 2 нива (поради рендерирането на Markdown).
+* Всички `js` и `javascript` блокове от код са ограничени с [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Използване на думи
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Използвате "ще" вместо "щеше", когато описвате резултат.
+* Предпочете "в ___ процеса" вместо "на".
 
-## API references
+## Функционална документация
 
-The following rules only apply to the documentation of APIs.
+Следващите правила се отнасят само за функционалната документация (API).
 
-### Page title
+### Заглавие на страницата
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
