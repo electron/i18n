@@ -115,31 +115,31 @@ pages:
     title: Курсове
     description: Насоки и курсове за последната версия на Електрон
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Блог за Електрон
+    description: Всички последни новини от екипа и общността на Електрон.
   '/community':
     title: Общество
   '/releases':
     title: Издания
   '/contact':
     title: Контакти
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Свържете се с екипа на Електрон през Twitter, Slack, GitHub или чрез email поща.
   '/languages':
     title: Езици
   '/userland':
     title: Потребителска страна
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron е инструмент с отворен код, който ти помага да инспектираш, следиш и търсиш грешки в твоето Електрон приложение. Devtron е създаден на основата на страхотния Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron е рамка с отворен код за лесно писане на интеграционни тестове за вашето Електрон приложение. Spectron е създадена на основата на ChromeDriver и WebDriverIO.
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: Страницата не е намерена.
+  if_this_is_an_error: Ако това е грешка
+  please_file_an_issue: моля, изпратете въпрос.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_all: Намери Електрон ресурси от <a href="/search/docs"> документация</a>, <a href="/search/npmPackages"> npm пакети</a> и <a href="/search/repos"> GitHub хранилища</a>.
   description_docs: Find Electron resources from documentation.
   description_npm: Find Electron resources from npm packages.
   description_repos: Find Electron resources from GitHub repos.
