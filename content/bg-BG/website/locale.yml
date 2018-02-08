@@ -44,23 +44,23 @@ web_technologies:
   description: Електрон използва Chromium и Node.js, за да може вие да изградите вашето приложение с HTML, CSS и JavaScript.
 open_source:
   title: Отворен код
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  description: Електрон е проект с отворен код, поддържан от GitHub и активна общност от съдружници.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: Междуплатформен
+  description: Съвместим с Mac, Windows и Linux, Електрон приложенията са изградени и вървят на три платформи.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: Трудните части се правят лесно
+  automatic_updates: Автоматична актуализация
+  native_menus_and_notifications: Родни менюта и уведомления
+  crash_reporting: Докладване за сривове
+  debugging_and_profiling: Търсене на грешки и профилиране
+  windows_installers: Инсталатор за Windows
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: Начало
+  description: За да започнете с Електрон, вижте ресурсите по-долу. Научете как да обвиваме вашето уеб приложение с Електрон, достъп до всички APIs и генериране на инсталатори.
 explore:
-  title: Explore the Electron APIs
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  title: Проучете API-ят на Електрон
+  description: "<a href='https://github.com/electron/electron-api-demos'> Демонстративните приложения с Електрон API</a> интерактивно показват най-важните характеристики на Електрон API. Вижте какво е възможно с Електрон с примерен код и полезни съвети за изграждане на вашето приложение."
 download_from_github: Изтегляне от GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Вижте всички издания</a> в GitHub
 quick_start:
