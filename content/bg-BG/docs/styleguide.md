@@ -108,32 +108,30 @@
 ```markdown
 ### `objectName.methodName(required[, optional]))`
 
-* `required` String - A parameter description.
-* `optional` Integer (optional) - Another parameter description.
-
-...
+* `задължителен` String - Описание на параметъра.
+* `по избор` Integer (по избор) - Друго описание на параметъра...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+Заглавието може да бъде в нива `#` или `#` в зависимост от това дали е метод за модул или за клас.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+За модулите, `имеНаОбект` е името на модула. За класовете, то трябва да бъде името на инстанцията на класа и не трябва да бъде същото като името на модула.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+Например методите на класа `Session` под модул `session` трябва да използват `ses` като `имеНаОбект`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+Незадължителни аргументи са записани с квадратни скоби `[]` които обграждат незадължителен аргумент, както се изисква и запетая, ако този незадължителен аргумент следва друг аргумент:
 
 ```sh
-required[, optional]
+задължително [, по избор]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Под метода е записана по-подробна информация за всеки от аргументите. Типът на аргумента е описан от общите типове:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Или от персонален тип като този от Електрон [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows`, or `Linux`.
 
