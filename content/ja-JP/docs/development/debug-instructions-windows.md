@@ -6,11 +6,11 @@ JavaScriptアプリケーションによらないと思われるクラッシュ�
 
 * **Electronのデバッグビルド**: 最も簡単な方法は、[ビルド手順 (Windows) ](build-instructions-windows.md)にリストされているツールと必要な環境を使って、自分でビルドをする方法です。 Electronを直接ダウンロードしてアタッチしデバッグすることは簡単ですが、Electronは高度に最適化されているためデバッグが困難であることに気付きます。デバッガーはすべての変数の内容は表示できませんし、インラインに展開されたり、末尾再帰やその他のコンパイラーによる最適化により実行パスは奇妙に見えるはずです。
 
-* **Visual Studio with C++ Tools**: 無料のコミュニティ版Visual Studio 2013と2015で利用できます。 Once installed, [configure Visual Studio to use GitHub's Electron Symbol server](setting-up-symbol-server.md). It will enable Visual Studio to gain a better understanding of what happens inside Electron, making it easier to present variables in a human-readable format.
+* **Visual Studio with C++ Tools**: 無料のコミュニティ版Visual Studio 2013と2015で利用できます。 インストール後[GithubのElectron シンボルサーバーを使うための設定を行います](setting-up-symbol-server.md)。 これによりVisual StudioがElectron内で起こっていることをより理解できるようになり、人が読める形式で現在の変数を表示することができます。
 
-* **ProcMon**: The [free SysInternals tool](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx) allows you to inspect a processes parameters, file handles, and registry operations.
+* **ProcMon**: [無料の SysInternals ツール](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)を使うことでプロセスパラメーター、ファイル操作、レジストリ操作を検査することができます。
 
-## Electronへのアタッチとデバッグ
+## Electronへの接続とデバッグ
 
 To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
 
