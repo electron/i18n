@@ -902,11 +902,11 @@ Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-prin
 
 Ang pagpiprint ng pahina ng web ng window bilang PDF kasama ng kromo sa pag preview ng imprenta ng pasadyang mga nagtatakda.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+Ang `callback` ay tatawagan na may `callback(error, data)` sa pagkumpleto. Ang `data` ay isang `Buffer` na naglalaman ng nabuong datos ng PDF.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Ang `tanawin` hindi papansinin kung ang `@pahina` CSS sa-panuntunan ay ginagamit sa pahina ng web.
 
-By default, an empty `options` will be regarded as:
+Bilang default, ang isang walang laman na `mga pagpipilian` ay itinuturing na:
 
 ```javascript
 {
