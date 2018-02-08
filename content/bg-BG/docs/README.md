@@ -11,22 +11,22 @@
 * [Речник на термините](glossary.md)
 * [Поддържани платформи](tutorial/supported-platforms.md)
 * [Сигурност](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
+* [Версии](tutorial/electron-versioning.md)
 * [Разпространяване на разработените приложения](tutorial/application-distribution.md)
 * [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
 * [Snapcraft Guide](tutorial/snapcraft-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
+* [Пакетиране на приложението](tutorial/application-packaging.md)
 * [Употреба на Node модули](tutorial/using-native-node-modules.md)
-* [Отстраняване на грешки](tutorial/debugging-main-process.md)
-* [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
+* [Debug на главния процес](tutorial/debugging-main-process.md)
+* [Използване на Selenium и Web Driver](tutorial/using-selenium-and-webdriver.md)
 * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Използване на Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Обновяване на приложенията](tutorial/updates.md)
 
 ## Уроци
 
@@ -41,9 +41,9 @@
 * [Обзор](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Променливи на средата](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Персонални DOM елементи:
 
 * [`File` Object](api/file-object.md)
 * [`<webview>` Tag](api/webview-tag.md)
