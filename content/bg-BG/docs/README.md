@@ -18,7 +18,7 @@
 * [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Пакетиране на приложението](tutorial/application-packaging.md)
 * [Употреба на Node модули](tutorial/using-native-node-modules.md)
-* [Debug на главния процес](tutorial/debugging-main-process.md)
+* [Намиране на грешки в главния процес](tutorial/debugging-main-process.md)
 * [Използване на Selenium и Web Driver](tutorial/using-selenium-and-webdriver.md)
 * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
 * [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
