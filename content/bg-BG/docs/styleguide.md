@@ -36,11 +36,11 @@
 
 ### Заглавие на страницата
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+Всяка страница трябва да използвате името на самия обект, върнат от `require('electron')` като заглавието, `BrowserWindow`, `autoUpdater` и `session`.
 
-Under the page title must be a one-line description starting with `>`.
+Под заглавието на страницата трябва да има един ред с описание, започващо с `>`.
 
-Using `session` as example:
+Използваме `session` като пример:
 
 ```markdown
 # session
