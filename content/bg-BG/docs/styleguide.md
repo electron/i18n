@@ -45,35 +45,35 @@
 ```markdown
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Управлява сесиите в браузъра, бисквитките, кеша, proxy настройките и др.
 ```
 
-### Module methods and events
+### Модулни методи и събития
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+За модулите, които не са класове, техните методи и събития трябва да бъдат изброени под главите `## Методи` и `## Събития`.
 
-Using `autoUpdater` as an example:
+Използваме `autoUpdater` като пример:
 
 ```markdown
 # autoUpdater
 
-## Events
+## Събития
 
-### Event: 'error'
+### Събитие: 'error'
 
-## Methods
+## Методи
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Класове
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* API класове или класове, които са част от модулите трябва да бъдат изброени под главата `## Клас: ИмеНаКласа`.
+* Една страница може да има множество класове.
+* Конструкторите трябва да бъдат изброени със заглавия от ниво `#`.
+* [Статични методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) трябва да бъдат изброени под глава `### Статични методи`.
+* [Незабавни методи](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) трябва да бъдат изброени под глава `### Незабавни методи`.
+* Всички методи, които връщат стойност, трябва да започнат своето описание с "Връща `[ТИП]` - описание на върнатото" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### Instance Properties` chapter. 
