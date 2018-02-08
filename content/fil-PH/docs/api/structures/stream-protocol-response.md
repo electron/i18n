@@ -1,4 +1,4 @@
-# StreamProtocolResponse Object
+# StreamProtokolPagtugon Bagay
 
 * `statusCode` Number - The HTTP response code
 * `headers` Object - An object containing the response headers
