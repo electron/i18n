@@ -6,7 +6,7 @@ Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https
 
 ## Estructura del código fuente
 
-```sh
+```diff
 Electron
 ├── atom/ - C++ source code.
 |   ├── app/ - System entry code.
@@ -27,6 +27,7 @@ Electron
 |       loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |           Electron's built-in modules.
+├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - Source code copied from Chromium. Vea abajo.
 Default_app ├── / - página de predeterminada para mostrar cuando el Electron se inicia sin |   proporciona una aplicación.
 ├── docs/ - Documentations.
@@ -45,7 +46,7 @@ Default_app ├── / - página de predeterminada para mostrar cuando el Elect
 
 ## `/chromium_src`
 
-Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son parte de la capa de contenido. Por ejemplo, para implementar Pepper API, necesitamos un poco de cableado similar a lo que hace Chrome oficial. Podríamos tener que compilar las fuentes relevantes como una parte de [libcc](../glossary.md#libchromiumcontent) pero más a menudo no requerimos todas las características (algunas tienden a ser cosas del propietario o de análisis) así que solo tomamos parte del código. Estos podrían haber fácilmente sido parches en libcc, pero en el momento en que estos se escribieron el objetivo de libcc fue mantener parches muy mínimos y los cambios de chromium_src tienden a ser grandes. Además, tenga en cuenta que estos parches nunca se pueden subir de nivel a diferencia de otros parches libcc que mantenemos ahora.
+The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Estructura de otros directorios
 
