@@ -22,5 +22,5 @@ electron --inspect=5858 your/app
 
 你需要使用支援 V8 inspector 通訊協定的 debugger。
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
+- 在 Chrome 網址列輸入 `chrome://inspect`，可以由顯示的清單中選取要偵查的 Electron 應用程式。
 - [在 VSCode 中 Debug 主處理序](debugging-main-process-vscode.md)
