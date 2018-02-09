@@ -18,72 +18,72 @@
 
 ## 先不管上面那些建議
 
-由遠端取得程式碼並在本機執行就會有安全議題。 As an example, consider a remote website being displayed inside a [`BrowserWindow`](../api/browser-window.md). 如果攻擊者有辦法改變上述內容 (可能是直接攻擊來源，或是藏在你的應用程式與實際目的地中間)，他們就有機會在使用者的機器上執行原生程式。
+由遠端取得程式碼並在本機執行就會有安全議題。 假設在 [`BrowserWindow`](../api/browser-window.md) 中顯示一個遠端網站， 如果攻擊者有辦法改變網站內容 (可能是直接攻擊來源，或是藏在你的應用程式與伺服器中間)，他們就有機會在使用者的機器上執行原生程式。
 
 > :warning: 無論如何，你都不該在啟用 Node.js 整合的情況下，由遠端載入並執行程式碼。 如果需要執行 Node.js 程式碼，請只用本機檔案 (跟你的應用程式打包在一起的那些)。 如果要顯示遠端內容，請用 [`webview`](../api/web-view) 標籤，並確定已經停掉 `nodeIntegration`。
 
 ## Electron 安全性警告
 
-由 Electron 2.0 版開始，開發者會在開發主控台中看到警告及建議事項。 They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
+由 Electron 2.0 版開始，開發者會在開發主控台中看到警告訊息及建議事項。 只限於二進位檔名是 Electron 時才會顯示這些訊息，因為這代表看主控台的就是開發者。
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+你也可以在 `process.env` 或 `window` 中設定 `ELECTRON_ENABLE_SECURITY_WARNINGS` 或 `ELECTRON_DISABLE_SECURITY_WARNINGS` 來強制開啟或關閉這些警告訊息。
 
-## Checklist: Security Recommendations
+## 檢查清單: 安全性建議事項
 
 This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
 
 1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) 只載入安全的內容
 
 Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
-### Why?
+### 為什麼?
 
 `HTTPS` has three main benefits:
 
 1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
 
-### How?
+### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 browserWindow.loadURL('http://my-website.com')
 
-// Good
+// 正確寫法
 browserWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- 錯誤示範 -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- 正確寫法 -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) 針對遠端內容停用 Node.js 整合功能
 
 It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
 
 After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
-### Why?
+### 為什麼?
 
 A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
 
-### How?
+### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// 正確用法
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -95,10 +95,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- 錯誤示範 -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- 正確寫法 -->
 <webview src="page.html"></webview>
 ```
 
@@ -121,7 +121,7 @@ Context isolation is an Electron feature that allows developers to run code in p
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
-### Why?
+### 為什麼?
 
 Context isolation allows each the scripts on running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
 
@@ -129,10 +129,10 @@ While still an experimental Electron feature, context isolation adds an addition
 
 At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
-### How?
+### 怎麼做?
 
 ```js
-// Main process
+// 主執行序
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
@@ -167,11 +167,11 @@ You may have seen permission requests while using Chrome: They pop up whenever t
 
 The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
 
-### Why?
+### 為什麼?
 
 By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
 
-### How?
+### 怎麼做?
 
 ```js
 const { session } = require('electron')
@@ -182,12 +182,12 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // Approves the permissions request
+      // 准許權限請求
       callback(true)
     }
 
     if (!url.startsWith('https://my-website.com')) {
-      // Denies the permissions request
+      // 拒絕權限請求
       return callback(false)
     }
   })
@@ -201,14 +201,14 @@ You may have already guessed that disabling the `webSecurity` property on a rend
 
 Do not disable `webSecurity` in production applications.
 
-### Why?
+### 為什麼?
 
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
-### How?
+### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -217,15 +217,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 正確寫法
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- 錯誤示範 -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- 正確寫法 -->
 <webview src="page.html"></webview>
 ```
 
@@ -233,21 +233,21 @@ const mainWindow = new BrowserWindow()
 
 A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
 
-### Why?
+### 為什麼?
 
 CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your applications security.
 
-### How?
+### 怎麼做?
 
 Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
 
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
 ```txt
-// Bad
+// 錯誤示範
 Content-Security-Policy: '*'
 
-// Good
+// 正確寫法
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
@@ -255,13 +255,13 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 `eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
 
-### Why?
+### 為什麼?
 
 The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
-### How?
+### 怎麼做?
 
 ```js
 // ESLint will warn about any use of eval(), even this one
@@ -279,14 +279,14 @@ By default, Electron will now allow websites loaded over `HTTPS` to load and exe
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
-### Why?
+### 為什麼?
 
 Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
 
-### How?
+### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -295,7 +295,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 正確寫法
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -305,16 +305,16 @@ const mainWindow = new BrowserWindow({})
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
-### Why?
+### 為什麼?
 
 Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Futhermore, their impact on Electron as a whole has likely not been tested.
 
 Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
 
-### How?
+### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -323,7 +323,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 正確寫法
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -333,14 +333,14 @@ const mainWindow = new BrowserWindow({})
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
-### Why?
+### 為什麼?
 
 Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
 
-### How?
+### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 const mainWindow = new BrowserWindow({
   webPreferences: {
     blinkFeatures: ['ExecCommandInJavaScript']
@@ -349,7 +349,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 正確寫法
 const mainWindow = new BrowserWindow()
 ```
 
@@ -359,17 +359,17 @@ const mainWindow = new BrowserWindow()
 
 If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
-### Why?
+### 為什麼?
 
 If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](browser-window) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
 
-### How?
+### 怎麼做?
 
 ```html
-<!-- Bad -->
+<!-- 錯誤示範 -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- 正確寫法 -->
 <webview src="page.html"></webview>
 ```
 
@@ -379,13 +379,13 @@ A WebView created in a renderer process that does not have Node.js integration e
 
 It is a good idea to control the creation of new [`WebViews`](web-view) from the main process and to verify that their webPreferences do not disable security features.
 
-### Why?
+### 為什麼?
 
 Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
 Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](web-view) tags.
 
-### How?
+### 怎麼做?
 
 Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
 
