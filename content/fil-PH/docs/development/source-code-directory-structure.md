@@ -6,7 +6,7 @@ Kinakailangan mong maging pamilyar sa [Chromium's multi-process architecture](ht
 
 ## Ang Istraktura ng "Source Code"
 
-```sh
+```diff
 Electron
 ├── atom/ - C++ source code.
 |   ├── app/ - System entry code.
@@ -24,6 +24,7 @@ Electron
 |   |   └── api/ - Ang pagpapatupad ng proseso ng "renderer" ng "APIs".
 |   └── common/ - Ang parehong pangunahin at mga proseso ng "renderer" ay gumamit ng "code", |       kasama ang ilang "utility functions" at "code" para maisama sa mensahe ng "node" |       umiikot sa loob ng "Chromium's message loop".
 |       └── api/ - Ang pagpapatupad ng parehong APIs, ang mga pundasyon ng |           mga modyul na "built-in" sa Elektron.
+├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - Ang "source code" na kinokopya galing sa Chromium. Tingnan sa ibaba.
 ├── default_app/ - Ang pahina na "default" ay nagpapakita kapag ang Elektron ay nag-umpisa nang walang
 |   binibigay na "app".
@@ -42,7 +43,7 @@ Electron
 
 ## `/chromium_src`
 
-Ang mga payl sa `/chromium_src` ay maaaring maging mga piraso ng Chromium na hindi kabilang sa "layer" nito. Halimbawa, upang maipatupad ang "Pepper API", tayo ay nangangailangan ng ilang "wiring" na pareho sa kung ano ang ginagawa sa opisyal na "Chrome". Maaari tayong magtayo ng mga mahahalagang "source" na may kinalaman bilang parte ng [libcc](../glossary.md#libchromiumcontent), ngunit kadalasan, hindi naman natin kailangan ang lahat ng mga tinatampok (maaaring ang iba ay sa nagmamay-ari nito, tulad ng mga bagay na analitiko) kaya kinukuha lang natin ang ilang bahagi ng "code". Ang mga ito ay madaling matatakpan sa "libcc", ngunit kapag dumating ang oras na ito'y nakasulat, ang layunin ng "libcc" ay mapanatili ang minimal na mga "patch" at ang mga pagbabago sa chromium_src ay marahil na lumaki. Tandaan din na ang mga "patch" ay 'di na maaari pang "upstream" 'di tulad ng ibang mga "libcc patch" na ating pinapanatili ngayon.
+The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Ang Istraktura ng Iba pang mga Direktoryo
 
