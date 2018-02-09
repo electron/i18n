@@ -46,11 +46,11 @@ IPC е абревиатура за Между Процесорна Комуни�
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Акроним за Apple Mac App Store. За повече подробности за представяне на вашето приложение на MAS вижте [Mac App Store ръководство](tutorial/mac-app-store-submission-guide.md).
 
-### native modules
+### родния модули
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used just as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Родни модули (наричани [addons](https://nodejs.org/api/addons.html) в Node.js) са модули, написани на C или C++, които могат да бъдат заредени в Node.js или Електрон, използвайки функцията require(). Функциите от тези родни модули могат да се използват точно както ако бяха обикновени Node.js модули. Те се използват главно за осигурява интерфейс между JavaScript код в Node.js и C/C ++ библиотеки.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
