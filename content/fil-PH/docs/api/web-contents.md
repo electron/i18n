@@ -1055,12 +1055,12 @@ Huwag paganahin ang pagtulad ng aparato na pinagana ng `webContents.enableDevice
 #### `mga nilalaman.sendInputEvent(kaganapan)`
 
 * `kaganapan` Bagay 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
-  * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+  * `uri` String (**kinakailangan**) - Ang uri ng kaganapan, maaaring `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` `mouseMove`, `keyDown`, `keyUp`, `char`.
+  * `modifier` String[] - Isang hanay ng mga modifier ng kaganapan, maaaring isama `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock` `numLock`, `kaliwa`, `kanan`.
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+Nagpapadala ng input `kaganapan` sa pahina. **Tandaan:** Ang `BrowserWindow` na naglalaman ng mga nilalaman na kailangang nakatuon para sa `sendInputEvent()` upang gumana.
 
-For keyboard events, the `event` object also have following properties:
+Para sa mga kaganapan sa keyboard, ang `kaganapan` ang bagay ay mayroon ding mga sumusunod na katangian:
 
 * `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
 
