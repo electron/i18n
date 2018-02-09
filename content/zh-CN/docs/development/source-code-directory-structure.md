@@ -6,7 +6,7 @@ Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部�
 
 ## 源代码的目录结构
 
-```sh
+```diff
 Electron
 ├── atom/ - C++ 源代码.
 |   ├── app/ - 系统入口代码.
@@ -27,6 +27,7 @@ Electron
 |       事件循环中时用到的工具函数和代码.
 |       └── api/ - 同时被主进程和渲染进程使用到的 API 的实现
 |           以及 Electron 内置模块的基础设施.
+├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - Source code copied from Chromium. 参见下文。
 ├── default_app/ - 在没有提供应用程序的情况下
 |   启动 Electron 的默认页面.
@@ -46,7 +47,7 @@ Electron
 
 ## `/chromium_src`
 
-`/chromium_src` 中的文件更多地是Chromium的片段而不是内容层面的部分。 For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## 其它目录的结构
 
