@@ -922,19 +922,19 @@ Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-prin
 Isang halimbawa ng `webContents.printToPDF`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = nangangailangan('elektron')
 const fs = require('fs')
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('http://github.com')
+hayaan ang panalo = bagong BrowserWindow ({lapad: 800, taas: 600})
+win.loadURL ('http://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  // Use default printing options
-  win.webContents.printToPDF({}, (error, data) => {
-    if (error) throw error
-    fs.writeFile('/tmp/print.pdf', data, (error) => {
-      if (error) throw error
-      console.log('Write PDF successfully.')
+manalo.webContents.on('did-finish-load', () = > {
+  / / Gamitin ang mga default na pagpipilian sa pag-print
+  manalo.webContents.printToPDF({}, (error, data) = > {
+    kung ang (error) itapon ang error
+    fs.writeFile('/tmp/print.pdf', data, (error) = > {
+      kung ang (error) itapon ang error
+      console.log('Matagumpay na sumulat ng PDF.')
     })
   })
 })
