@@ -1095,9 +1095,9 @@ Para sa `mouseWheel` kaganapan, ang `kaganapan` ay mayroon ding mga sumusunod na
 
 Simulan ang pag-subscribe para sa mga kaganapan sa pagtatanghal at makuha ang mga frame, ang `callback` ay tatawagan na may `callback(frameBuffer, dirtyRect)` kapag mayroong isang kaganapan ng pagtatanghal.
 
-Ang `frameBuffer` ay isang `Buffer` na naglalaman ng raw data ng pixel. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+Ang `frameBuffer` ay isang `Buffer` na naglalaman ng raw data ng pixel. Sa karamihan ng mga makina, ang pixel data ay epektibong naka-imbak sa 32bit BGRA format, ngunit ang aktwal na representasyon ay depende sa endianness ng processor (pinaka modernong mga processor ay maliit-endian, sa mga machine na may malaking-endian processors ang data ay nasa 32bit ARB format).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+Ang `dirtyRect` ay isang bagay na may `x, y, lapad, taas ` ang mga katangian na iyon ay naglalarawan kung aling bahagi ng pahina ay pinahiran. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
