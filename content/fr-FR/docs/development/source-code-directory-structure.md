@@ -6,7 +6,7 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
 
 ## Structure du Code Source
 
-```sh
+```diff
 Electron
 ├── atom/ - Code Source C++.
 |   ├── app/ - Code d'entrée du système.
@@ -27,6 +27,7 @@ Electron
 |       message de Node dans la boucle de message de Chromium.
 |       └── api/ - L'implementation d'API communes, et les fondations
 |           des modules intégrés d'Electron.
+├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - Source code copied from Chromium. See below.
 ├── default_app/ - La page par default a montrer quand Electron a démarré sans
 |   fournir une application.
