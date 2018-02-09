@@ -121,17 +121,17 @@ child.once('ready-to-show', () => {
 * `options` Object (опціонально) 
   * `width` Integer (опціонально) - Ширина вікна в пікселях. За замовчуванням `800`.
   * `height` Integer (опціонально) - Висота вікна в пікселях. За замовчуванням `600`.
-  * `x` Integer (опціонально) (**обов'язково** якщо y використовується) - Ліве зміщення вікна від екрану. За замовчуванням вікно центрується.
-  * `y` Integer (опціонально) (**обов'язково** якщо x використовується) - Зміщення вікна від верху екрану. За замовчуванням вікно центрується.
+  * `x` Integer (опціонально) (**обов'язково** якщо використовується y) - Ліве зміщення вікна від екрану. За замовчуванням вікно центрується.
+  * `y` Integer (опціонально) (**обов'язково** якщо використовується x) - Зміщення вікна від верху екрану. За замовчуванням вікно центрується.
   * `useContentSize` Boolean (опціонально) - `width` та `height` будуть використовуватися як розміри веб-сторінки, що означає що фактичні розміри вікна будуть включати розміри рамки і будуть трошки більшими. За замовчуванням `false`.
   * `center` Boolean (опціонально) - Показати вікно в центрі екрану.
   * `minWidth` Integer (опціонально) - Мінімальна ширина вікна. За замовчуванням ``.
   * `minHeight` Integer (опціонально) - Мінімальна висота вікна. За замовчуванням ``.
   * `maxWidth` Integer (опціонально) - Максимальна ширина вікна. За замовчуванням немає обмежень.
   * `maxHeight` Integer (опціонально) - Максимальна висота вікна. За замовчуванням немає обмежень.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
+  * `resizable` Boolean (опціонально) - Чи дозволяти змінювати розміри вікна. За замовчуванням `true`.
+  * `movable` Boolean (опціонально) - Чи дозволяти пересувати вікно. Не реалізовано на Linux. За замовчуванням `true`.
+  * `minimizable` Boolean (опціонально) - Чи дозволяти згортати вікно. Не реалізовано на Linux. За замовчуванням `true`.
   * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
   * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
   * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
