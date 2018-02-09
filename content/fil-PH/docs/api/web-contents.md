@@ -919,7 +919,7 @@ Bilang default, ang isang walang laman na `mga pagpipilian` ay itinuturing na:
 
 Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-print sa isang bagong pahina.
 
-An example of `webContents.printToPDF`:
+Isang halimbawa ng `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
