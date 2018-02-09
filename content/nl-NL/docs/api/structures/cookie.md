@@ -6,6 +6,6 @@
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
 * `path` String (optioneel) - Het pad van de cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
+* `httpOnly` Boolean (optioneel) - of de cookie is gemarkeerd als alleen HTTP.
 * `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
 * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
