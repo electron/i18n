@@ -1,4 +1,4 @@
-# BluetoothDevice Object
+# Обект BluetoothDevice
 
-* `deviceName` String
-* `deviceId` String
+* `deviceName` String - Име на устройството
+* `deviceId` String - Идентификационен номер на устройството
