@@ -965,15 +965,15 @@ Tinatanggal ang landas na tinutukoy mula sa DevTools workspace.
 * `opsyon` Bagay (opsyonal) 
   * `mode` String - Binubuksan ang mga devtools na may tinukoy na estado ng dock, ay maaaring maging `kanan`, `ibaba`, `undocked`, `detach`. Mga Default na huling ginagamit sa estado ng dock. Sa `undocked` mode posible na i-dock pabalik. Sa `detach` mode ito ay hindi.
 
-Opens the devtools.
+Binubuksan ang mga devtools.
 
-#### `contents.closeDevTools()`
+#### `mga nilalaman.closeDevTools()`
 
-Closes the devtools.
+Nagsasara ang mga devtools.
 
-#### `contents.isDevToolsOpened()`
+#### `mga nilalaman.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Ibinabalik `Boolean` - Kung binuksan ang devtools.
 
 #### `contents.isDevToolsFocused()`
 
