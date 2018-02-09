@@ -3,7 +3,7 @@
 * `тип` String (по избор) - Едно от следните: 
   * `task` - Задачата ще стартира приложение с конкретни аргументи.
   * `separator` - Може да бъде използвано за отделни елементи в категорията на стандартни `Tasks`.
-  * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
+  * `file` - Връзката на файл ще отвори файл с помощта на приложение, което е създало Jump списъка, за да работи приложението, то трябва да бъде регистрирано като манипулатор за типа на файла (въпреки че тя не е нужно да бъде манипулатора по подразбиране).
 * `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
 * `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
