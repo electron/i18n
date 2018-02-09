@@ -6,6 +6,6 @@
 * `hostOnly` Boolean (по избор) - Показва дали бисквитката може да се използва само от приемника (host-only).
 * `path` String (по избор) - Пътя на бисквитката.
 * `secure` Boolean (по избор) - Показва дали бисквитката е маркирана на сигурна.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `httpOnly` Boolean (по избор) - Показва дали бисквитката е маркирана само за HTTP употреба.
+* `session` Boolean (по избор) - Показва дали бисквитката е свързана със сесия или е постоянна, записана с крайна дата за използване.
+* `expirationDate` Double (по избор) - Крайната дата за използване на бисквитката, като датата е записана в секунди по пример на UNIX. Тази стойност не може да се използва със сесийни бисквитки.
