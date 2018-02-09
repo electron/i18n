@@ -115,7 +115,7 @@ window.readConfig = function () {
 }
 ```
 
-## 3) Enable Context Isolation for Remote Content
+## 3) 針對遠端內容啟用內容隔離功能
 
 Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
@@ -142,26 +142,24 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Preload script
+// 預載腳本
 
-// Set a variable in the page before it loads
+// 在網頁載入前設定變數
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// 載入的頁面將無法存取這個變數，只有在這個 context 下才能存取
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // 會印出 'undefined'，因為 window.foo 只能在主 context 中用
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // 會印出 'bar'，因為 window.bar 可以在這個 context 中用
   console.log(window.bar)
 })
 ```
 
-## 4) Handle Session Permission Requests From Remote Content
+## 3) 處理來自遠端內容的 Session 權限請求
 
 You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
 
@@ -195,11 +193,11 @@ session
 
 ## 5) 不用停用 WebSecurity
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) disables crucial security features.
 
-Do not disable `webSecurity` in production applications.
+不要在上線的應用程式中停用 `webSecurity`。
 
 ### 為什麼?
 
@@ -273,7 +271,7 @@ window.eval = global.eval = function () {
 
 ## 8) 不要將 `allowRunningInsecureContent` 設為 `true`
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -301,7 +299,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Enable Experimental Features
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
@@ -329,7 +327,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) 不要用 `blinkFeatures`
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -355,7 +353,7 @@ const mainWindow = new BrowserWindow()
 
 ## 11) 不要用 `allowpopups`
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
