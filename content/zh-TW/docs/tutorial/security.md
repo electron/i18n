@@ -193,7 +193,7 @@ session
   })
 ```
 
-## 5) Do Not Disable WebSecurity
+## 5) 不用停用 WebSecurity
 
 *Recommendation is Electron's default*
 
@@ -229,9 +229,9 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## 6) Define a Content Security Policy
+## 6) 定義內容安全性原則
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+內容安全性原則 (Content Security Policy; 縮寫 CSP) 是用來防止跨網站指令碼 (Cross-Site Scripting; 縮寫 XSS) 攻擊及資料注入攻擊的機制。 我們建議你在所有會由 Electron 載入的網站都啟用這個機制。
 
 ### 為什麼?
 
@@ -239,7 +239,7 @@ CSP allows the server serving content to restrict and control the resources Elec
 
 ### 怎麼做?
 
-Electron respects [the `Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and the respective `<meta>` tag.
+Electron 會遵照 [`Content-Security-Policy` HTTP 標頭](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) 及相應的 `<meta>` 標籤規範。
 
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
@@ -251,7 +251,7 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-## 7) Override and Disable `eval`
+## 7) 覆寫並停用 `eval`
 
 `eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
 
@@ -271,7 +271,7 @@ window.eval = global.eval = function () {
 }
 ```
 
-## 8) Do Not Set `allowRunningInsecureContent` to `true`
+## 8) 不要將 `allowRunningInsecureContent` 設為 `true`
 
 *Recommendation is Electron's default*
 
