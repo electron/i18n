@@ -975,22 +975,22 @@ Nagsasara ang mga devtools.
 
 Ibinabalik `Boolean` - Kung binuksan ang devtools.
 
-#### `contents.isDevToolsFocused()`
+#### `mga nilalaman.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Ibinabalik `Boolean` - Kung ang view ng devtools ay nakatuon.
 
-#### `contents.toggleDevTools()`
+#### `mga nilalaman.toggleDevTools()`
 
-Toggles the developer tools.
+Inilipat ang mga kasangkapan ng nag-develop.
 
-#### `contents.inspectElement(x, y)`
+#### `mga nilalaman.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+Sinimulan ang pag-inspeksyon ng elemento sa posisyon (`x`, `y`).
 
-#### `contents.inspectServiceWorker()`
+#### `mga nilalaman.inspectServiceWorker()`
 
 Opens the developer tools for the service worker context.
 
