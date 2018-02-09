@@ -327,7 +327,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) 不要用 `blinkFeatures`
 
 *Recommendation is Electron's default*
 
@@ -353,7 +353,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) Do Not Use `allowpopups`
+## 11) 不要用 `allowpopups`
 
 *Recommendation is Electron's default*
 
@@ -373,7 +373,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 <webview src="page.html"></webview>
 ```
 
-## 12) Verify WebView Options Before Creation
+## 12) 建立 WebView 前先檢查選項
 
 A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
