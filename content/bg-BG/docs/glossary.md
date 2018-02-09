@@ -92,16 +92,16 @@ Squirrel е системна рамка с отворен код, която п�
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 е двигателя с отворен код, разработен от Google и задвижващ JavaScript кода. Той е написана на C++ и се използва в Google Chrome. V8 може да работи самостоятелно, или да бъде вграден във всяко C++ приложение.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Електрон изгражда V8 като част от Chromium и след това насочва Node към този V8 при изграждането му.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Номера на V8 версията винаги отговарят на тази на Google Chrome. Chrome 59 включва V8 5.9, Chrome 58 включва V8 5.8 и т. н.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
-### webview
+### уеб изглед
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`WebView` етикетите се използват за вграждане на "гостуващо" съдържание (като например външни уеб страници) във вашето Електрон приложение. Те са подобни на `iframe`, но се различават по това че всяко webview (уеб изглед) се изпълнява в отделен процес. Не разполага със същите разрешения като вашата уеб страница и всички взаимодействия между приложението и вградено съдържание ще бъде асинхронно. Това поддържа вашето приложение в безопасност от вградените съдържания.
