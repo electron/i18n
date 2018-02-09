@@ -1020,22 +1020,22 @@ app.on('handa', () = > {
 ```
 
 ```html
-<!-- index.html -->
+<! - index.html - >
 <html>
 <body>
   <script>
-    require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message)  // Prints 'whoooooooh!'
+    nangangailangan('elektron').ipcRenderer.on('ping', (kaganapan, mensahe) => {
+      console.log(mensahe) // Prints 'whoooooooh!'
     })
   </script>
 </body>
 </html>
 ```
 
-#### `contents.enableDeviceEmulation(parameters)`
+#### `mga nilalaman.enableDeviceEmulation(mga parameters)`
 
-* `parameters` Bagay 
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
+* `mga parameter` Bagay 
+  * `screenPosisyon` String - Tukuyin ang uri ng screen upang tularan (default: `desktop`) 
     * `desktop` - Desktop screen type
     * `mobile` - Mobile screen type
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
