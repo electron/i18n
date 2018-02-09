@@ -14,6 +14,6 @@
 За да може допълнителните съобщителни бутони да работят под macOS, вашето приложение трябва да изпълни следващите критерии.
 
 * Приложението е подписано
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* Приложението има свой собствен `NSUserNotificationAlertStyle` сложено на `alert` в `info.plist`.
 
-If either of these requirements are not met the button simply won't appear.
+Ако някое от тези критерии не е изпълнен, бутона просто няма да се появи.
