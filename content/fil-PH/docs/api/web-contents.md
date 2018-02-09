@@ -1044,17 +1044,17 @@ app.on('handa', () = > {
   * `viewSize` [Sukat](structures/size.md) - Itakda ang emulated at tignan ang laki (walang laman ang ibig sabihin nito ay walang override)
   * `fitToView` Boolean - Kung ang emulated view ay dapat na pinaliit kung kinakailangan upang umangkop sa magagamit na espasyo (default: `huwad`)
   * `offset` [Point](structures/point.md) - Offset ng emulated view sa loob ng puwang na magagamit (hindi angkop upang tingnan ang mode) (default: `{x: 0, y: 0}`)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+  * `scale` Lumutang - Sukat ng emulated view sa loob ng magagamit na espasyo (hindi angkop upang tignan ang mode) (default: `1`)
 
-Enable device emulation with the given parameters.
+Paganahin ang aparato pagtulad sa ibinigay na mga parameter.
 
-#### `contents.disableDeviceEmulation()`
+#### `mga nilalaman.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+Huwag paganahin ang pagtulad ng aparato na pinagana ng `webContents.enableDeviceEmulation`.
 
-#### `contents.sendInputEvent(event)`
+#### `mga nilalaman.sendInputEvent(kaganapan)`
 
-* `event` Bagay 
+* `kaganapan` Bagay 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
