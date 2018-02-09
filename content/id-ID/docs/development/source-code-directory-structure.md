@@ -6,7 +6,7 @@ Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](https://
 
 ## Struktur Sumber Kode
 
-```sh
+```diff
 Electron
 ├── atom/ - C++ sumber kode.
 |   ├── app / - Sistem daftar kode.
@@ -27,6 +27,7 @@ Electron
 |       loop ke loop pesan Chromium.
 |       └── api/ - Pelaksanaan API umum, dan yayasan
 |           Modul built-in Electron.
+├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
 ├── default_app / - Halaman default untuk ditampilkan saat Electron dimulai tanpa
 |   menyediakan sebuah aplikasi.
@@ -46,7 +47,7 @@ Electron
 
 ## `/chromium_src`
 
-File di `/chromium_src` cenderung menjadi potongan Chromium yang bukan bagian dari lapisan konten. Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan sumber sebagai bagian dari [libcc](../glossary.md#libchromiumcontent) tapi kebanyakan Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik, barang analisis) jadi kami hanya mengambil bagian dari kode. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan chromium_src cenderung menjadi yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa ditingkatkan seperti yang lainnya patch libcc yang kita pertahankan sekarang.
+The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Struktur Direktori Lain
 
