@@ -7,6 +7,6 @@
 * `subject` [CertificatePrincipal](certificate-principal.md) - Основание на издателя
 * `subjectName` String - Общо наименование на основанието
 * `serialNumber` String - Шестнайсетичен (hex) номер представен като низ
-* `validStart` Number - Start date of the certificate being valid in seconds
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `validStart` Number - Начална дата на валидност на сертификата представена в секунди
+* `validExpiry` Number - Крайна дата на валидност на сертификата представена в секунди
+* `fingerprint` String - Пръстов отпечатък на сертификата
