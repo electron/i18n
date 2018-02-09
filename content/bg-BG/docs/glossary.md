@@ -52,21 +52,21 @@ IPC е абревиатура за Между Процесорна Комуни�
 
 Родни модули (наричани [addons](https://nodejs.org/api/addons.html) в Node.js) са модули, написани на C или C++, които могат да бъдат заредени в Node.js или Електрон, използвайки функцията require(). Функциите от тези родни модули могат да се използват точно както ако бяха обикновени Node.js модули. Те се използват главно за осигурява интерфейс между JavaScript код в Node.js и C/C ++ библиотеки.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Родните Node модули се поддържат от Eлектрон, но тъй като Eлектрон е много вероятно да използва различна V8 версия от бинарната Node инсталация във вашата система, вие трябва ръчно да укажете местоположението на Електрон в заглавието при изграждането на родните модули.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Виж също [Използват родния Node модули](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft система за инсталационни скриптове е скрипт задвижващ авторски инструмент за инсталация при Microsoft Windows. Той е създаден от комбинация на лицензи за свободен софтуер и е широко използвана алтернатива на търговски патентовани продукти като InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) поддържа NSIS като изграждаща цел.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (рендиране извън екрана) може да се използва за зареждане на голяма страница във фонов режим, като след това показването ѝ ще бъде много по-бързо. OSR ви позволява да направите страница без да се показва на екрана.
 
-### process
+### процес
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Процесът е инстанция на компютърна програма, която се изпълнява. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
 
 In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
 
