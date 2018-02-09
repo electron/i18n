@@ -1062,12 +1062,12 @@ Nagpapadala ng input `kaganapan` sa pahina. **Tandaan:** Ang `BrowserWindow` na 
 
 Para sa mga kaganapan sa keyboard, ang `kaganapan` ang bagay ay mayroon ding mga sumusunod na katangian:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` String (**kinakailangan**) - Ang karakter na ipapadala bilang kaganapan ng keyboard. Dapat lamang gamitin ang wastong mga key code [Accelerator](accelerator.md).
 
-For mouse events, the `event` object also have following properties:
+Para sa mga kaganapan ng mouse, ang `kaganapan` ang bagay na mayroon ding mga sumusunod na katangian:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**kailangan**)
+* `y` Integer (**kailangan**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`
 * `globalX` Integer
 * `globalY` Integer
