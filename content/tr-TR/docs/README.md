@@ -15,7 +15,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Uygulama Dağıtımı](tutorial/application-distribution.md)
 * [Mac App Store'a Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md)
 * [Windows Uygulama Mağazası'na Gönderme Kılavuzu](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Snapcraft Rehberi](tutorial/snapcraft-guide.md)
 * [Uygulama Paketleme](tutorial/application-packaging.md)
 * [Yerel Düğüm Modüllerini Kullanmak](tutorial/using-native-node-modules.md)
 * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
