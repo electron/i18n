@@ -6,6 +6,6 @@
   * `recent` - Показва списък от файлове, наскоро отвори от приложението, името на категорията и неговите елементи са определени от Windows. Елементи могат да бъдат добавени към тази категория индиректно използвайки `app.addRecentDocument(path)`.
   * `custom` - Показва задачите или връзките с файлове, `name` трябва да се определи от приложението.
 * `name` String (по избор) - Трябва да се определи, ако `type` е `custom`, в противен случай трябва да се пропусне.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+* `items` JumpListItem[] (по избор) - Списък от [`JumpListItem`](jump-list-item.md) обекти ако `type` е `tasks` или `custom`, в противен случай трябва да се пропусне.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Забележка:** Ако обекта `JumpListCategory` няма нито `type`, нито `name` свойство, тогава неговия `type` се приема за `tasks`. Ако свойството на `name` е зададено, но `type` е пропуснато, тогава `type` се приема да бъде `custom`.
