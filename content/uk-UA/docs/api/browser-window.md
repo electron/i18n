@@ -142,12 +142,12 @@ child.once('ready-to-show', () => {
   * `skipTaskbar` Boolean (опціонально) - Чи показувати вікно на панелі завдань. За замовчуванням `false`.
   * `kiosk` Boolean (опціонально) - Повноекранний режим браузера. За замовчуванням `false`.
   * `title` String (опціонально) - Заголовок вікна за замовчуванням. За замовчуванням `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. On Windows it is recommended to use `ICO` icons to get best visual effects, you can also leave it undefined so the executable's icon will be used.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
-  * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
+  * `icon` ([NativeImage](native-image.md) | String) (опціонально) - Піктограма вікна. На Windows рекомендовано використовувати `ICO` піктограми, щоб отримати найкращі візуальні ефекти, ви також можете залишити її невизначеною, тоді використається піктограма виконуваного файлу.
+  * `show` Boolean (опціонально) - Чи показувати вікно після створення. За замовчуванням `true`.
+  * `frame` Boolean (опціонально) - Вкажіть `false` для створення [Вікна без Рамки](frameless-window.md). За замовчуванням `true`.
+  * `parent` BrowserWindow (опціонально) - Вкажіть батьківське вікно. За замовчуванням `null`.
+  * `modal` Boolean (опціонально) - Чи вікно є модальним. Працює тільки якщо вікно є дочірнім. За замовчуванням `false`.
+  * `acceptFirstMouse` Boolean (опціонально) - Чи веб-вигляд приймає подію кліку мишки, яка активує вікно. За замовчуванням `false`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
