@@ -62,7 +62,7 @@ Whenever you make changes to Electron source code, you'll need to re-run the bui
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Just append `.only` to any `describe` or `it` function call:
+يمكنك جعل مجموعة اختبار تشغيل أسرع بعزل اختبار محدد أو كتلة كنت تعمل حاليا على استخدام ميزة [اختبارات الحصري](https://mochajs.org/#exclusive-tests) في موكا. Just append `.only` to any `describe` or `it` function call:
 
 ```js
 describe.only('some feature', function () {

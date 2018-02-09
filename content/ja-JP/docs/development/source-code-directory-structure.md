@@ -8,7 +8,7 @@ You may need to become familiar with [Chromium's multi-process architecture](htt
 
 ```sh
 Electron
-├── atom/ - C++ source code.
+├── atom/ - C++ で書かれたコード
 |   ├── app/ - System entry code.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   main process things. This talks to the renderer to manage web pages.
@@ -27,18 +27,18 @@ Electron
 |       loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |           Electron's built-in modules.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Chromium からコピーされたコード。 See below.
 ├── default_app/ - The default page to show when Electron is started without
 |   providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
+├── docs/ - ドキュメント
+├── lib/ - JavaScript で書かれたコード
 |   ├── browser/ - Javascript main process initialization code.
 |   |   └── api/ - Javascript API implementation.
 |   ├── common/ - JavaScript used by both the main and renderer processes
 |   |   └── api/ - Javascript API implementation.
 |   └── renderer/ - Javascript renderer process initialization code.
 |       └── api/ - Javascript API implementation.
-├── spec/ - Automatic tests.
+├── spec/ - 自動テスト
 ├── electron.gyp - Building rules of Electron.
 └── common.gypi - Compiler specific settings and building rules for other
     components like `node` and `breakpad`.

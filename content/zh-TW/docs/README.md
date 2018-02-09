@@ -15,7 +15,7 @@
 * [應用程式發佈](tutorial/application-distribution.md)
 * [Mac App Store 上架導引](tutorial/mac-app-store-submission-guide.md)
 * [Windows Store 上架導引](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Snapcraft 導引](tutorial/snapcraft-guide.md)
 * [應用程式打包](tutorial/application-packaging.md)
 * [使用原生 Node 模組](tutorial/using-native-node-modules.md)
 * [Debug 主處理序](tutorial/debugging-main-process.md)

@@ -1,4 +1,4 @@
-# `<webview>` Tag
+# `<webview>`Етикет
 
 > Display external web content in an isolated frame and process.
 
@@ -221,7 +221,7 @@ win.on('resize', () => {
 })
 ```
 
-## Methods
+## Методи
 
 The `webview` tag has the following methods:
 

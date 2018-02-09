@@ -1,98 +1,98 @@
-# често задавани въпроси за Electron
+# Често задавани въпроси за Електрон
 
 ## Защо наблюдавам проблеми при инсталацията на Electron?
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Получихме информация, че при опит за инсталация с помощта на командата `npm install electron`, често се наблюдават серия от грешки в конзолата.
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or just wait a bit and try installing again.
+В голяма част от случаите, тези грешки са резултат от проблеми в мрежовата инфраструктура на потребителите и нямат отношение към кода на `electron` пакетите. Ако наблюдавате грешки съдържащи кодовете : `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` както и `ETIMEDOUT` са индикатор за мрежови проблеми. Най-добрият подход за решаването на тези трудности е свързан със смяната на мрежата, чрез която дистрибутирате пакетите или да изчакате неопределен период от време и да повторите опита си за инсталация.
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+Можете също така да опитате да изтеглите Електрон директно от [electron/electron/releases](https://github.com/electron/electron/releases) в случай че инсталацията с `npm` се провали.
 
 ## Кога да очакваме актуализация на продукта към последна версия на Chrome?
 
-Обикновенно можете да очаквате актуализация в рамките на до две седмици след официалното пускане на стабилна версия на Chrome. Имайте предвид, че в зависимост от количеството работа свързано с актуализацията на версията, са възможни забавяния.
+Обикновено можете да очаквате актуализация в рамките на до две седмици след официалното пускане на стабилна версия на Chrome. Имайте предвид, че в зависимост от количеството работа свързано с актуализацията на версията, са възможни забавяния.
 
-Only the stable channel of Chrome is used. If an important fix is in beta or dev channel, we will back-port it.
+Само стабилната линия на Chrome е използвана. Ако важна поправка е в линиите beta или dev, ние ще го свържем.
 
-For more information, please see the [security introduction](tutorial/security.md).
+За повече информация моля вижте [въвеждане в сигурността](tutorial/security.md).
 
 ## Кога да очакваме актуализация на продукта към последна версия на Node.js?
 
-When a new version of Node.js gets released, we usually wait for about a month before upgrading the one in Electron. So we can avoid getting affected by bugs introduced in new Node.js versions, which happens very often.
+Когато нова версия на Node.js бъде пусната, ние обикновено изчакваме около месец преди да я използваме в Електрон. Така че можем да избегнем бъгове, въведени в новите версии на Node.js, което се случва много често.
 
-New features of Node.js are usually brought by V8 upgrades, since Electron is using the V8 shipped by Chrome browser, the shiny new JavaScript feature of a new Node.js version is usually already in Electron.
+Нови функции от Node.js обикновено са принесени при обновяване на V8, тъй като Електрон използва V8, доставен от браузър Chrome, най-новите JavaScript функции от последната версия на Node.js обикновено са вече в Електрон.
 
 ## Какъв е механизъма за предаване на данни между отделните страници на приложението?
 
-To share data between web pages (the renderer processes) the simplest way is to use HTML5 APIs which are already available in browsers. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+За споделяне на данни между уеб страници (рендериращи процеси) най-простият начин е да използвате HTML5 APIs, които вече са достъпни в браузъри. Добри кандидати са [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) и [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Или можете да използвате IPC система, която е специфична за Електрон, за съхраняване на обекти в основния процес като глобални променливи, а след това да имате достъп до тях от рендерирането чрез свойството `remote` на модул `electron`:
 
 ```javascript
-// In the main process.
+// В главния процес.
 global.sharedObject = {
-  someProperty: 'default value'
+   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
+// В страница 1.
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// In page 2.
+// В страница 2.
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## Прозореца/tray на моето приложение изчезна след няколко минути.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Това се случва, когато променливата, която се използва за съхраняване на прозореца/tray бива изчистена от паметта.
 
-If you encounter this problem, the following articles may prove helpful:
+Ако ви се случи такъв проблем, следващата статия може да ви бъде от помощ:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Управление на паметта](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Обхват на променливите](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Ако търсите бързо решение, може да направите променливите глобални, като промените своят код от това:
 
 ```javascript
 const {app, Tray} = require('electron')
 app.on('ready', () => {
-  const tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+   const tray = new Tray('/path/to/icon.png')
+   tray.setTitle('hello world')
 })
 ```
 
-to this:
+на това:
 
 ```javascript
 const {app, Tray} = require('electron')
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/icon.png')
-  tray.setTitle('hello world')
+   tray = new Tray('/path/to/icon.png')
+   tray.setTitle('hello world')
 })
 ```
 
 ## Каква е причината да не мога да ползвам библиотеки като jQuery/RequereJS/Meteor/AngularJS?
 
-За правилната работа на Electron е необходима интеграция с платформата Node.js, която добавя специфични ключови думи към DOM дървото. Някой от тези ключови думи са `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+За правилната работа на Electron е необходима интеграция с платформата Node.js, която добавя специфични ключови думи към DOM дървото. Някой от тези ключови думи са `module`, `exports`, `require`. Това предизвиква проблеми за някои библиотеки тъй като те искат да вкарат ключови думи със същите имена.
 
-To solve this, you can turn off node integration in Electron:
+За да решите този проблем, изключете интеграцията на node в Електрон:
 
 ```javascript
-// In the main process.
+// В главния процес.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow({
-  webPreferences: {
-    nodeIntegration: false
-  }
+   webPreferences: {
+     nodeIntegration: false
+   }
 })
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+Но ако желаете да продължите да използвате Node.js и API на Електрон, то трябва да преименувате ключовите думи преди да добавите други библиотеки:
 
 ```html
 <head>
@@ -106,34 +106,34 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## Грешка от типа `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+При използване на Електрон с вграден модул можете да срещнете грешка като този:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Това се случва защото имате локално инсталиран [npm `electron` module](https://www.npmjs.com/package/electron) или инсталиран глобално, който замества вграден модул на Електрон.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+За да проверите дали използвате правилния вграден модул, можете да отпечатате пътя на `electron` модула:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+и след това проверете дали той е в следния вид:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Ако видите нещо като `node_modules/electron/index.js`, тогава трябва да премахнете npm `electron` модула, или да го преименувате.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Обаче, ако използвате вградения модул но все още получавате грешка, най-вероятно получавате модула от грешния процес. На пример, `electron.app` може да бъде използван само от главния процес, докато `electron.webFrame` е достъпен само от рендериращия процес.

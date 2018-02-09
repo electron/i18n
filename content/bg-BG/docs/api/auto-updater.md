@@ -28,7 +28,7 @@ The installer generated with Squirrel will create a shortcut icon with an [Appli
 
 Unlike Squirrel.Mac, Windows can host updates on S3 or any other static file host. You can read the documents of [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) to get more details about how Squirrel.Windows works.
 
-## Events
+## Събития
 
 The `autoUpdater` object emits the following events:
 
@@ -66,7 +66,7 @@ Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
-## Methods
+## Методи
 
 The `autoUpdater` object has the following methods:
 
