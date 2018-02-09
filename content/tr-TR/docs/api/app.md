@@ -1,4 +1,4 @@
-# uygulama
+# Uygulama
 
 > Uygulamanızın etkinlik ömrünü kontrol edin.
 
@@ -111,7 +111,7 @@ Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://dev
 
 Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı geliştirici Ekip ID'si olan ve etkinliğin türünü destekleyen bir uygulamada devam edilebilir. Desteklenen etkinlik türleri, uygulamanın `Info.plist` öğesinde `NSUserActivityTypes` anahtarının altında belirtilir.
 
-### Event: 'will-continue-activity' *macOS*
+### Olay: 'will-continue-activity' *macOS*
 
 Dönüşler:
 
