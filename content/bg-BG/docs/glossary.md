@@ -82,13 +82,13 @@ OSR (рендиране извън екрана) може да се използ
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel е системна рамка с отворен код, която позволява на Електрон приложенията да се обновяват автоматично, когато има издадени нови версии. Виж [autoUpdater](api/auto-updater.md) API за повече информация как да започнем работа с Squirrel.
 
-### userland
+### потребителска страна
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Терминът идват от Unix обяността, където "userland" или "userspace" се отнасят за програми, които се изпълняват извън сърцевината на операционната система. В последно време, терминът бива популяризиран в Node и npm общностите, за да покаже разликата между същностните функции на Node и пакетираните функции публикувани в npm регистъра от много по-голямата потребителска общност, от там и термина "потребителска страна".
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Като Node така и Електрон е фокусиран върху малък набор от интерфейси, които осигуряват всички необходими примитиви за разработване на десктоп/настолни приложения за множество платформи. Тази дизайн философия позволява Електрон да остане гъвкав инструмент без да бъде прекалено ограничителен за това как трябва да се използва. Потребителската страна дава възможност на потребителите да създават и споделят инструменти, които осигуряват допълнителна функционалност, която липсва в "ядро" на Електрон.
 
 ### V8
 
