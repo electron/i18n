@@ -1041,9 +1041,9 @@ app.on('handa', () = > {
   * `screenSize` [Sukat](structures/size.md) - Itakda ang emulated na laki ng screen (screenPosisyon == mobile)
   * `viewPosition` [Point](structures/point.md) - Iposisyon ang view sa screen (screenPosisyon == mobile) (default: `{x: 0, y: 0}`)
   * `deviceScaleFactor` Integer - Itakda ang aparato ng scale factor (kung zero ang default orihinal na kadahilanan ng sukat ng aparato) (default: ``)
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
-  * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
+  * `viewSize` [Sukat](structures/size.md) - Itakda ang emulated at tignan ang laki (walang laman ang ibig sabihin nito ay walang override)
+  * `fitToView` Boolean - Kung ang emulated view ay dapat na pinaliit kung kinakailangan upang umangkop sa magagamit na espasyo (default: `huwad`)
+  * `offset` [Point](structures/point.md) - Offset ng emulated view sa loob ng puwang na magagamit (hindi angkop upang tingnan ang mode) (default: `{x: 0, y: 0}`)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
 
 Enable device emulation with the given parameters.
