@@ -992,7 +992,7 @@ Sinimulan ang pag-inspeksyon ng elemento sa posisyon (`x`, `y`).
 
 #### `mga nilalaman.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+Binubuksan ang mga kasangkapan ng nag-develop para sa konteksto ng serbisyo ng manggagawa.
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
@@ -1001,20 +1001,20 @@ Opens the developer tools for the service worker context.
 
 Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
-The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+Ang proseso ng tagapag-render ay maaaring panghawakan ang mensahe sa pamamagitan ng pakikinig sa `channel` kasama ang `ipcRenderer` modyul.
 
-An example of sending messages from the main process to the renderer process:
+Isang halimbawa ng pagpapadala ng mga mensahe mula sa pangunahing proseso sa tagapag-render ng proseso:
 
 ```javascript
 // Sa mga pangunahing proseso.
-const {app, BrowserWindow} = require('electron')
-let win = null
+const {app, BrowserWindow} = nangangailangan('elektron')
+hayaan ang panalo = null
 
-app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
-  win.loadURL(`file://${__dirname}/index.html`)
-  win.webContents.on('did-finish-load', () => {
-    win.webContents.send('ping', 'whoooooooh!')
+app.on('handa', () = > {
+  manalo = bagong BrowserWindow ({lapad: 800, taaa: 600})
+  manalo.loadURL(`file://${__dirname}/index.html`)
+  manalo.webContents.on('did-finish-load', () = > {
+    manalo.webContents.magpadala('ping', 'whoooooooh!')
   })
 })
 ```
