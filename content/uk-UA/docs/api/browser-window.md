@@ -132,11 +132,11 @@ child.once('ready-to-show', () => {
   * `resizable` Boolean (опціонально) - Чи дозволяти змінювати розміри вікна. За замовчуванням `true`.
   * `movable` Boolean (опціонально) - Чи дозволяти пересувати вікно. Не реалізовано на Linux. За замовчуванням `true`.
   * `minimizable` Boolean (опціонально) - Чи дозволяти згортати вікно. Не реалізовано на Linux. За замовчуванням `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
-  * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
-  * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. За замовчуванням `false`.
+  * `maximizable` Boolean (опціонально) - Чи дозволяти розгортати вікно. Не реалізовано на Linux. За замовчуванням `true`.
+  * `closable` Boolean (опціонально) - Чи дозволяти закривати вікно. Не реалізовано на Linux. За замовчуванням `true`.
+  * `focusable` Boolean (опціонально) - Чи можна передати фокус вікну. За замовчуванням `true`. На Windows встановлення `focusable: false` також передбачає встановлення `skipTaskbar: true`. На Linux встановлення `focusable: false` припиняє взаємодію вікна з середовищем, так що вікно завжди буде залишатися поверх всіх робочих областей.
+  * `alwaysOnTop` Boolean (опціонально) - Чи вікно завжди має залишатися поверх всіх вікон. За замовчуванням `false`.
+  * `fullscreen` Boolean (опціонально) - Чи вікно має відображатися в повноекранному режимі. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. За замовчуванням `false`.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
