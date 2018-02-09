@@ -1,8 +1,8 @@
 # 安全性、原生功能及你的責任
 
-As web developers, we usually enjoy the strong security net of the browser - the risks associated with the code we write are relatively small. Our websites are granted limited powers in a sandbox, and we trust that our users enjoy a browser built by a large team of engineers that is able to quickly respond to newly discovered security threats.
+身為網頁開發人員，我們常常受惠於瀏覽器建立的強大安全網，我們的程式再怎麼搞，所能引起的風險都微乎其微。 我們的網站被限制在獨立的沙盒環境中運作，我們相信使用者都習慣於享受由龐大工程師團隊開發維護的瀏覽器，能在第一時間快速處理新發現的安全性威脅。
 
-而在使用 Electron 時，千萬要記住一點: Electron 並不是網頁瀏覽器。 它讓你能用熟悉的網頁技術打造出功能完善的桌面應用程式，只不過你的程式碼具有更大的能力。 JavaScript 能存取檔案系統，使用者 Shell 等等。 This allows you to build high quality native applications, but the inherent security risks scale with the additional powers granted to your code.
+而在使用 Electron 時，千萬要記住一點: Electron 並不是網頁瀏覽器。 它讓你能用熟悉的網頁技術打造出功能完善的桌面應用程式，只不過你的程式碼具有更大的能力。 JavaScript 能存取檔案系統，使用者 Shell 等等。 你能做出高品質的原生應用程式，但是你的程式碼被賦與的能力越強，相對的安全性問題也會越重。
 
 請謹記在心，顯示不能完全信任的來源產生的任意內容會有極大的安全風險，Electron 也沒打算處理。 事實上，流行的 Electron 應用程式 (Atom, Slack, Visual Studio Code 等) 幾乎都只顯示本機的內容 (或受信任、安全且沒跟 Node 整合的遠端內容) ，如果你的應用程式會執行網路上抓來的程式碼，你要負責確保那些程式碼中不會有惡意內容。
 
@@ -14,17 +14,17 @@ As web developers, we usually enjoy the strong security net of the browser - the
 
 雖然 Electron 致力於盡快支援新版的 Chromium，但開發人員都應該知道，升級是件嚴肅的事，可能要手動修改數十，甚至上百個檔案。 以現有的資源及貢獻程度來看，Electron 通常沒辦法跟到最新版的 Chromium，可能會落後數日或數週。
 
-We feel that our current system of updating the Chromium component strikes an appropriate balance between the resources we have available and the needs of the majority of applications built on top of the framework. 我們真的很想聽到大家又把 Electron 應用在什麼特別的地方。 隨時歡迎各位提出 Pull Request 或是其他貢獻。
+我們認為現在的 Chromium 元件升級機制，已經在有限資源及多數桌面應用程式需求之間取得平衡。 我們真的很想聽到大家又把 Electron 應用在什麼特別的地方。 隨時歡迎各位提出 Pull Request 或是其他貢獻。
 
 ## 先不管上面那些建議
 
-由遠端取得程式碼並在本機執行就會有安全議題。 As an example, consider a remote website being displayed inside a [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+由遠端取得程式碼並在本機執行就會有安全議題。 As an example, consider a remote website being displayed inside a [`BrowserWindow`](../api/browser-window.md). 如果攻擊者有辦法改變上述內容 (可能是直接攻擊來源，或是藏在你的應用程式與實際目的地中間)，他們就有機會在使用者的機器上執行原生程式。
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](../api/web-view) tag and make sure to disable the `nodeIntegration`.
+> :warning: 無論如何，你都不該在啟用 Node.js 整合的情況下，由遠端載入並執行程式碼。 如果需要執行 Node.js 程式碼，請只用本機檔案 (跟你的應用程式打包在一起的那些)。 如果要顯示遠端內容，請用 [`webview`](../api/web-view) 標籤，並確定已經停掉 `nodeIntegration`。
 
-## Electron Security Warnings
+## Electron 安全性警告
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
+由 Electron 2.0 版開始，開發者會在開發主控台中看到警告及建議事項。 They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
 You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
 
@@ -392,14 +392,14 @@ Before a [`<WebView>`](web-view) tag is attached, Electron will fire the `will-a
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
+    // 拿掉用不著的預載腳本，或是確認它們的位置是安全正確的
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Disable Node.js integration
+    // 停用 Node.js 整合
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
+    // 驗證將要載入的 URL
     if (!params.src.startsWith('https://yourapp.com/')) {
       event.preventDefault()
     }
