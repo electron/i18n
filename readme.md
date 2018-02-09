@@ -33,10 +33,10 @@ The following languages are currently being translated, but we can
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
 - [język polski (Polish)](https://crowdin.com/project/electron/pl)
 - [Việt Nam (Vietnamese)](https://crowdin.com/project/electron/vi)
+- [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [Nederlands (Dutch)](https://crowdin.com/project/electron/nl)
-- [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 <!-- end language-table -->
