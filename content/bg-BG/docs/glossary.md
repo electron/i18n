@@ -66,19 +66,19 @@ OSR (рендиране извън екрана) може да се използ
 
 ### процес
 
-Процесът е инстанция на компютърна програма, която се изпълнява. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+Процесът е инстанция на компютърна програма, която се изпълнява. Електрон приложенията, които използват [main](#main-process) и един или много [renderer](#renderer-process) процеси всъщност изпълняват няколко програми едновременно.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+В Node.js и Електрон всеки работещ процес е обект от `process`. Този обект е глобален, като предоставя информация и контрол над, текущия процес. Тъй като е глобален, той винаги е достъпен за приложенията без да използвате require().
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Виж още: [process](#main-process), [render process](#renderer-process)
 
-### renderer process
+### рендериращ/изобразяващ процес
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Рендер процеса е браузър прозорец във вашето приложение. За разлика от основния/main процес, може да имате няколко рендер процеса и всеки да се изпълнява в отделно. Те също могат да бъдат и скрити.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+В нормални браузъри, уеб страниците обикновено работят в изолирана/sandboxed околна среда и не им е разрешен достъп до локални ресурси. Потребителите на Електрон обаче имат възможността да използват Node.js API функции в уеб страниците, което им позволява да си взаимодействат с по-долните слоеве на операционната система.
 
-See also: [process](#process), [main process](#main-process)
+Виж още: [process](#process), [render process](#main-process)
 
 ### Squirrel
 
