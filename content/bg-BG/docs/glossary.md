@@ -10,15 +10,15 @@ ASAR е абревиатура от Atom Shell Archive Format или ядрен 
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [беше](https://github.com/electron-archive/brightray) статична библиотека, която прави [libchromiumcontent](#libchromiumcontent) по-лесен за употреба в приложения. В момента е непрепоръчителен за употреба и е слят в програмния код на Електрон.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Библиотеката за изпълнение на C код (CRT) е част от стандартната C++ библиотека, която включва ISO C99 стандартната библиотека. Visual C ++ библиотеките, които поддържат CRT роден код за разработка или смесен роден, управляем код и чисто управляем код за .NET програмиране.
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Диск изображение за Apple е опаковачен формат, използван от macOS. DMG файлове са често използвани за разпространение на "инсталаторни" приложения. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
