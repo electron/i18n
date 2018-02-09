@@ -6,7 +6,7 @@ Electron의 소스 코드는 몇 개의 파트로 분리되어 있습니다. 그
 
 ## 소스 코드 구조
 
-```sh
+```diff
 Electron
 ├── atom/ - C++ 소스 코드.
 |   ├── app/ - 시스템 엔트리 코드.
@@ -24,6 +24,7 @@ Electron
 |   └── common/ - 메인과 렌더러 프로세스에서 모두 사용하는 코드, 몇가지 유틸리티
 |       함수들이 포함되어 있고 node의 메시지 루프와 Chromium의 메시지 루프를 통합.
 |       └── api/ - 공통 API 구현들, 기초 Electron 빌트-인 모듈들.
+├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - Source code copied from Chromium. See below.
 ├── default_app/ - Electron에 앱이 제공되지 않았을 때 보여지는 기본 페이지.
 ├── docs/ - 참조 문서.
