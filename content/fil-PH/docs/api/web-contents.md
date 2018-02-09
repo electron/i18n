@@ -963,7 +963,7 @@ Tinatanggal ang landas na tinutukoy mula sa DevTools workspace.
 #### `contents.openDevTools([mga pagpipilian])`
 
 * `opsyon` Bagay (opsyonal) 
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+  * `mode` String - Binubuksan ang mga devtools na may tinukoy na estado ng dock, ay maaaring maging `kanan`, `ibaba`, `undocked`, `detach`. Mga Default na huling ginagamit sa estado ng dock. Sa `undocked` mode posible na i-dock pabalik. Sa `detach` mode ito ay hindi.
 
 Opens the devtools.
 
