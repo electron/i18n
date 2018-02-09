@@ -944,13 +944,13 @@ manalo.webContents.on('did-finish-load', () = > {
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Nagdadagdag ng tinukoy na landas sa DevTools workspace. Dapat gamitin pagkatapos ng DevTools paglikha:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.webContents.on('devtools-opened', () => {
-  win.webContents.addWorkSpace(__dirname)
+const {BrowserWindow} = nangangailangan('elektron')
+hayaan ang panalo = bagong BrowserWindow()
+manalo.webContents.on('devtools-binuksan', () = > {
+  manalo.webContents.addWorkSpace(__ dirname)
 })
 ```
 
@@ -958,11 +958,11 @@ win.webContents.on('devtools-opened', () => {
 
 * `path` String
 
-Removes the specified path from DevTools workspace.
+Tinatanggal ang landas na tinutukoy mula sa DevTools workspace.
 
-#### `contents.openDevTools([options])`
+#### `contents.openDevTools([mga pagpipilian])`
 
-* `options` Bagay (opsyonal) 
+* `opsyon` Bagay (opsyonal) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
