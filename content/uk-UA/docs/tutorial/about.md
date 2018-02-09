@@ -16,7 +16,7 @@ Electron is maintained by a team at GitHub as well as a group of [active contrib
 
 [Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
 
-### Updating Dependencies
+### Оновлення Залежностей
 
 Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
 
