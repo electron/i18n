@@ -18,25 +18,25 @@ Brightray [беше](https://github.com/electron-archive/brightray) статич
 
 ### DMG
 
-Диск изображение за Apple е опаковачен формат, използван от macOS. DMG файлове са често използвани за разпространение на "инсталаторни" приложения. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Диск изображение за Apple е опаковачен формат, използван от macOS. DMG файлове са често използвани за разпространение на "инсталаторни" приложения. [електрон-builder](https://github.com/electron-userland/electron-builder) поддържа `dmg` като изграждаща цел.
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Редактор за въвеждане на метод (Input Method Editor). Програма, която позволява на потребителите да вкарват букви и символи, които не са част от тяхната клавиатура. Например, това позволява на потребителите на латинска клавиатура да въвеждат китайски, японски, корейски и индийски символи.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC е абревиатура за Между Процесорна Комуникация (Inter-Process Communication). Електрон използва IPC да изпрати сериализирани JSON съобщения между [основния](#main-process) процес и [рендериращия](#renderer-process) процес.
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+Споделена Библиотека, която включва [Chromium Content module](https://www.chromium.org/developers/content-module) и всички негови зависимости (например, Blink, [V8](#v8), и т.н.). Наричана също "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### main process
+### основен процес
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+Основният процес, обикновено е файл с име `main.js`, като той е входната точка за всяко Електрон приложение. Той контролира "живота" на приложението, от отваряне до затваряне. Той също така управлява родни за устройството елементи като меню, лента с менюта, док, табла/Tray и др. Основният процес е отговорен за създаването на всеки нов процес на рендиране в приложението. Пълният Node API е вграден.
 
 Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
