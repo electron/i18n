@@ -120,7 +120,7 @@ Dönüşler:
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
-### Event: 'continue-activity-error' *macOS*
+### Olay: 'continue-activity-error' *macOS*
 
 Dönüşler:
 
