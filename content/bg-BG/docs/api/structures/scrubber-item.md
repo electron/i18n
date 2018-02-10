@@ -1,4 +1,4 @@
-# ScrubberItem Object
+# Обект ScrubberItem
 
-* `label` String - (optional) The text to appear in this item
-* `icon` NativeImage - (optional) The image to appear in this item
+* `label` String - (по избор) Текстът, който се показва в този елемент
+* `icon` NativeImage - (по избор) Изображението, което се появява в този елемент
