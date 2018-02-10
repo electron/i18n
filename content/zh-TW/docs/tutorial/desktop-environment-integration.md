@@ -241,7 +241,7 @@ win.setDocumentEdited(true)
 
 ## 將檔案拖出視窗
 
-For certain kinds of apps that manipulate on files, it is important to be able to drag files from Electron to other apps. To implement this feature in your app, you need to call `webContents.startDrag(item)` API on `ondragstart` event.
+對於需要處理檔案的應用程式而言，能否將檔案由 Electron 拖放到其他應用程式很重要。 要在你的應用程式中實現這項功能，需要在 `ondragstart` 事件發生時呼叫 `webContents.startDrag(item)` API。
 
 在網頁中:
 
