@@ -1,6 +1,6 @@
 # `<webview>` 標籤
 
-> Display external web content in an isolated frame and process.
+> 在獨立的頁框及處理序中顯示外部網頁內容。
 
 處理序: [畫面轉譯器](../tutorial/quick-start.md#renderer-process)
 
