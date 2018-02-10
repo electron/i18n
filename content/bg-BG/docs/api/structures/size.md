@@ -1,4 +1,4 @@
-# Size Object
+# Обект Size
 
-* `width` Number
-* `height` Number
+* `width` Number - Ширина
+* `height` Number - Дължина
