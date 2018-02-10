@@ -1,16 +1,16 @@
 # Notification
 
-> Create OS desktop notifications
+> 產生作業系統桌面通知。
 
 进程: [主进程](../glossary.md#main-process)
 
-## Using in the renderer process
+## 在畫面轉譯處理序中使用
 
 If you want to show Notifications from a renderer process you should use the [HTML5 Notification API](../tutorial/notifications.md)
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> 產生作業系統桌面通知。
 
 进程: [主进程](../glossary.md#main-process)
 
@@ -101,7 +101,7 @@ If the notification has been shown before, this method will dismiss the previous
 
 Dismisses the notification.
 
-### Playing Sounds
+### 播放聲音
 
 On macOS, you can specify the name of the sound you'd like to play when the notification is shown. Any of the default sounds (under System Preferences > Sound) can be used, in addition to custom sound files. Be sure that the sound file is copied under the app bundle (e.g., `YourApp.app/Contents/Resources`), or one of the following locations:
 
