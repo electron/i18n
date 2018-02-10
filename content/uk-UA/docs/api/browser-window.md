@@ -213,24 +213,24 @@ child.once('ready-to-show', () => {
 
 * На Linux, допустимі значення `desktop`, `dock`, `toolbar`, `splash`, `notification`.
 * На macOS, допустимі типи є `desktop`, `textured`. 
-  * The `textured` type adds metal gradient appearance (`NSTexturedBackgroundWindowMask`).
-  * The `desktop` type places the window at the desktop background window level (`kCGDesktopWindowLevel - 1`). Note that desktop window will not receive focus, keyboard or mouse events, but you can use `globalShortcut` to receive input sparingly.
-* On Windows, possible type is `toolbar`.
+  * Тип `textured` додає вигляд металевого градієнта (`NSTexturedBackgroundWindowMask`).
+  * Тип `desktop` розміщує вікно на рівні фону робочого столу (`kCGDesktopWindowLevel - 1`). Зауважте, що вікно робочого столу не отримає фокус, події клавіаутри чи мишки, але ви можете використати `globalShortcut`, щоб отримати бідний ввід.
+* На Windows, допустимим типом є `toolbar`.
 
-### Instance Events
+### Події Екземпляру
 
-Objects created with `new BrowserWindow` emit the following events:
+Об'єкти створені за допомогою `new BrowserWindow` викликають наступні події:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**Примітка:** Деякі події доступні тільки на певних операційних системах і відповідно позначені як такі.
 
-#### Event: 'page-title-updated'
+#### Подія: 'page-title-updated'
 
 Повертає:
 
 * `event` Event
 * `title` String
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Викликається коли документ змінює заголовок, виклик `event.preventDefault()` буде запобігати зміні нативного заголовку вікна.
 
 #### Подія: 'close'
 
@@ -238,7 +238,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Викликається коли вікно збирається закриватися. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
 
 Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Наприклад:
 
