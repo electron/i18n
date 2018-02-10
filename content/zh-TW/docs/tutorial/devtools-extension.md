@@ -22,7 +22,7 @@ To load an extension in Electron, you need to download it in Chrome browser, loc
     * macOS 中是 `~/Library/Application Support/Google/Chrome/Default/Extensions`。
 4. 將擴充功能的路徑傳給 `BrowserWindow.addDevToolsExtension` API，以 React Developer Tools 為例，大概會是: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**注意:** `BrowserWindow.addDevToolsExtension` API 無法在應用程式模組的 ready 事件發生前叫用。
 
 The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
 
