@@ -1,8 +1,8 @@
 ## Class: DownloadItem
 
-> Control file downloads from remote sources.
+> 控制由遠端來源下載的檔案。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `DownloadItem` is an `EventEmitter` that represents a download item in Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
