@@ -1,6 +1,6 @@
 # powerSaveBlocker
 
-> Block the system from entering low-power (sleep) mode.
+> 防止系統進入低耗電 (睡眠) 模式。
 
 處理序: [主處理序](../glossary.md#main-process)
 
