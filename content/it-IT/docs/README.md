@@ -54,7 +54,7 @@ Ci sono domande che vengono poste molto spesso. Prova a vedere qui prima di prop
 * [app](api/app.md)
 * [autoAggiornatore](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
-* [FinestraBrowser](api/browser-window.md)
+* [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [dialog](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
