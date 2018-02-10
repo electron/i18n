@@ -1,6 +1,6 @@
 # 環境變數
 
-> Control application configuration and behavior without changing code.
+> 控制應用程式設定及行為，而不用修改任何程式碼。
 
 Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
 
@@ -11,14 +11,14 @@ $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Windows 主控台範例:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## Production Variables
+## 正式上線變數
 
 The following environment variables are intended primarily for use at runtime in packaged Electron applications.
 
@@ -50,7 +50,7 @@ Don't attach to the current console session.
 
 Don't use the global menu bar on Linux.
 
-## Development Variables
+## 開發變數
 
 The following environment variables are intended primarily for development and debugging purposes.
 
