@@ -72,7 +72,7 @@ app.dock.setMenu(dockMenu)
 
 ## 使用者工作 (Windows)
 
-On Windows you can specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+在 Windows 中你可以自訂捷徑清單中的「`工作`」類別，引述 MSDN 的說明:
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
@@ -84,7 +84,7 @@ On Windows you can specify custom actions in the `Tasks` category of JumpList, a
 
 Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+要設定應用程式的使用者工作，可以使用 [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
 
 ```javascript
 const {app} = require('electron')
@@ -157,11 +157,11 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher 捷徑 (Linux)
+## Unity 啟動器 (Launcher) 捷徑 (Linux)
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Audacious 的 Launcher 捷徑:**
+**Audacious 的啟動器捷徑:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
