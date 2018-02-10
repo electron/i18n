@@ -10,9 +10,9 @@ W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa
 
 ### Proces Renderowania
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Każda strona internetowa w Electronie działa w swoim własnym procesie, który nazywa się **proces renderowania**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+W normalnych przeglądarkach, strony internetowe są zazwyczaj uruchamiane w tzw. piaskownicy i nie posiadają dostępu do natywnych zasobów. Użytkownicy Electrona mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na interakcje z systemem operacyjnym na niższym poziomie.
 
 ### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 
