@@ -218,15 +218,15 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+別忘了呼叫 `flashFrame(false)` 關掉閃爍功能。 上面的範例，當 focus 到視窗時就會觸發，不過你可能會想要在 timeout 或其他事件發生時停止閃爍。
 
-## Represented File of Window (macOS)
+## 視窗的代表檔案 (macOS)
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+在 macOS 中，可以設定視窗的代表檔案，那個檔案的圖示就會顯示在標題列中，使用者按住 Command 或 Control 再點擊標題，就會顯示路徑 快顯選單。
 
 You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
 
-**Represented file popup menu:**
+**代表檔案快顯選單:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
