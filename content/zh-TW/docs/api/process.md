@@ -1,6 +1,6 @@
-# 處理序
+# process
 
-> Extensions to process object.
+> process 物件的擴充。
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
