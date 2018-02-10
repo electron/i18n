@@ -39,8 +39,8 @@
 ## Функционална документация
 
 * [Обзор](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Обект Process](api/process.md)
+* [Поддържани превключващи команди на Chrome](api/chrome-command-line-switches.md)
 * [Променливи на средата](api/environment-variables.md)
 
 ### Персонални DOM елементи:
