@@ -1,6 +1,6 @@
 ## Class: MenuItem
 
-> Add items to native application menus and context menus.
+> 將項目加進原生應用程式選單及內容功能表。
 
 进程: [主进程](../glossary.md#main-process)
 
