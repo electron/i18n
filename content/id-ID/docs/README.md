@@ -15,7 +15,7 @@ Ada banyak pertanyaan yang sering diajukan. Lihat ini sebelum membuat masalah:
 * [Distribusi Aplikasi](tutorial/application-distribution.md)
 * [Panduan Pengiriman Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Panduan Toko Windows](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Indonesia](tutorial/snapcraft-guide.md)
 * [Kemasan Aplikasi](tutorial/application-packaging.md)
 * [Menggunakan Modul Node Asli](tutorial/using-native-node-modules.md)
 * [Proses Utama Debugging](tutorial/debugging-main-process.md)
