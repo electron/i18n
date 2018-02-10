@@ -1,4 +1,4 @@
-# aplicación
+# app
 
 > Controle el ciclo de vida de los eventos de su aplicación.
 
