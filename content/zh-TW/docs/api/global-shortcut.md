@@ -1,6 +1,6 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> 在應用程式沒有取得鍵盤焦點的情況下偵測鍵盤事件。
 
 處理序: [主處理序](../glossary.md#main-process)
 
