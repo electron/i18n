@@ -1,4 +1,4 @@
 # CrashReport オブジェクト
 
-* `date` 文字列
-* `ID` 整数
+* `date` String
+* `ID` Integer
