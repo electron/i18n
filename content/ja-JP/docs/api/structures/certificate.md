@@ -7,6 +7,6 @@
 * `subject` [CertificatePrincipal](certificate-principal.md) - 発行先
 * `subjectName` String - 発行先のコモンネーム
 * `serialNumber` String - 文字列表記の16進数
-* `validExpiry` Number - 有効な証明書の開始日の秒数
-* `validExpiry` Number - 有効な証明書の終了日の秒数
+* `validExpiry` Number - 有効な証明書になる開始日の秒数
+* `validExpiry` Number - 有効な証明書でなくなる終了日の秒数
 * `fingerprint` String - 証明書のフィンガープリント
