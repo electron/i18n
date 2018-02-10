@@ -1,12 +1,12 @@
 # Pierwsze Kroki
 
-Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScript przez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako wariant środowiska wykonawczego Node.js, który jest skupiony na programach komputerowych zamiast serwerów sieci web.
+Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScript przez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako odmiana środowiska wykonawczego Node.js, która jest skupiona na programach komputerowych zamiast na serwerach sieci web.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Zamiast tego Electron używa stron internetowych jako GUI, więc możesz też myśleć o tym jak o minimalnej przeglądarce Chromium, sterowanej przez JavaScript.
 
 ### Proces Główny
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa się **proces główny**. Skrypt, który jest wykonywany w procesie głównym może wyświetlać GUI poprzez tworzenie stron internetowych.
 
 ### Proces Renderowania
 
