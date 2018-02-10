@@ -1,4 +1,4 @@
-# nativeImage
+# NativeImage
 
 > Crea iconos de bandeja, base y aplicación usando archivos PNG o JPG.
 
