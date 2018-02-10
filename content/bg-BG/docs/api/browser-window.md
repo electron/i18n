@@ -225,7 +225,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+Връща:
 
 * `event` Event
 * `title` String
@@ -234,7 +234,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-Returns:
+Връща:
 
 * `event` Event
 
@@ -340,7 +340,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Връща:
 
 * `event` Event
 * `command` String
@@ -374,7 +374,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Връща:
 
 * `event` Event
 * `direction` String
