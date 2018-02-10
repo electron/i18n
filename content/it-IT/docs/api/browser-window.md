@@ -1,4 +1,4 @@
-# FinestraBrowser
+# BrowserWindow
 
 > Crea e controlla finestre browser.
 
