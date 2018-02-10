@@ -238,19 +238,19 @@ child.once('ready-to-show', () => {
 
 * `event` Event
 
-Викликається коли вікно збирається закриватися. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Викликається коли вікно збирається закриватися. ВИкликається перед подія `beforeunload` і `unload` DOMу. Виклик `event.preventDefault()` буде скасовувати закриття вікна.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Наприклад:
+Зазвичай ви захочете використати обробник `beforeunload`, щоб вирішити чи закривати вікно, який також викликається коли вікно перезавантажується. В Electron, повернення будь-якого значення відмінного від `undefined` буде скасовувати закриття. Наприклад:
 
 ```javascript
 window.onbeforeunload = (e) => {
   console.log('I do not want to be closed')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  // На відміну від звичайного браузера це повідомлення буде відображене користувачу, повернення
+  // будь-якого значення буде мовчки скасовувати закриття вікна.
+  // Рекомендується використати API діалогу, щоб дозволити користувачу підтвердити закриття
+  // застосунку.
+  e.returnValue = false // аналогічно до `return false` але не рекомендовано
 }
 ```
 
