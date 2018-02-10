@@ -563,7 +563,7 @@ Unmaximizes the window.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Возвращает `Boolean` - если окно развернуто.
 
 #### `win.minimize()`
 
@@ -575,7 +575,7 @@ Restores the window from minimized state to its previous state.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Возвращает `Boolean` - если окно свернуто.
 
 #### `win.setFullScreen(flag)`
 
