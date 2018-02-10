@@ -22,7 +22,7 @@ app.on('ready', () => {
 })
 ```
 
-## プラットフォーム通知
+## プラットフォームごとの通知
 
 On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
 
@@ -50,7 +50,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `プラス`
 * `スペース`
 * `タブ`
-* `バックスペース`
+* `Backspace`
 * `Delete`
 * `Insert`
 * `Return` (またはエイリアスとして `Enter`)
