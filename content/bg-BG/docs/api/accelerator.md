@@ -1,21 +1,20 @@
-# Accelerator
+# Ускорител
 
-> Define keyboard shortcuts.
+> Определяне на клавишни комбинации.
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Ускорители са низове, които могат да съдържат множество модификатори и ключови кодове, комбинирани със символа `+`, като се използват за определяне на клавишни комбинации в приложението.
 
-Examples:
+Примери:
 
-* `CommandOrControl+A`
-* `CommandOrControl+Shift+Z`
+* `CommandOrControl + A`
+* `CommandOrControl + Shift + Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+Клавишните комбинации са регистрирани с модула [`globalShortcut`](global-shortcut.md), използвайки метода [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), т.е.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
-
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+   // Слуша за 'CommandOrControl+Y' клависна команда.
   globalShortcut.register('CommandOrControl+Y', () => {
     // Do stuff when Y and either Command/Control is pressed.
   })
