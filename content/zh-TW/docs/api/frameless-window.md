@@ -1,6 +1,6 @@
 # 無框視窗
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> 開啟沒有工作列、邊框及其他像 Chrome 元素的視窗。
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
