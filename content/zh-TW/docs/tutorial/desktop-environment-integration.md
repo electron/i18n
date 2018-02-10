@@ -10,7 +10,7 @@
 
 ## 最近的文件 (Windows & macOS)
 
-Windows and macOS provide easy access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows 及 macOS 提供了捷徑清單或 Dock 選單功能，方便快速存取應用程式最近開啟過的文件。
 
 **捷徑清單 (JumpList):**
 
@@ -20,14 +20,14 @@ Windows and macOS provide easy access to a list of recent documents opened by th
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+要將檔案加到最近文件清單中，可以使用 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API 清空最近文件清單:
 
 ```javascript
 const {app} = require('electron')
