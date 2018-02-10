@@ -1,21 +1,21 @@
 # app
 
-> Control your application's event lifecycle.
+> Контролира жизнения цикъл със събития на вашето приложение.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main / Главен](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+Следния пример показва как да излезем от приложението, когато последния прозорец се затвори:
 
 ```javascript
 const {app} = require('electron')
 app.on('window-all-closed', () => {
-  app.quit()
+   app.quit()
 })
 ```
 
 ## Събития
 
-The `app` object emits the following events:
+Обектът `app` излъчва следните събития:
 
 ### Event: 'will-finish-launching'
 
