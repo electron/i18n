@@ -49,7 +49,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `~`, `!`, `@`, `#`, `$`, などのような句読点
 * `プラス`
 * `スペース`
-* `タブ`
+* `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
