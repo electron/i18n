@@ -2,7 +2,7 @@
 
 > Достъп и промяна на потребителска сесия.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main / Главен](../glossary.md#main-process)
 
 Инстанция на класа `Cookies` можете да достъпите с помощта на свойството `cookies` на класа `Session`.
 
