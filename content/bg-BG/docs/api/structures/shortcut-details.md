@@ -1,9 +1,9 @@
-# ShortcutDetails Object
+# Обект ShortcutDetails
 
-* `target` String - The target to launch from this shortcut.
-* `cwd` String (optional) - The working directory. Default is empty.
-* `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
-* `description` String (optional) - The description of the shortcut. Default is empty.
-* `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
-* `iconIndex` Number (optional) - The resource ID of icon when `icon` is a DLL or EXE. Default is 0.
-* `appUserModelId` String (optional) - The Application User Model ID. Default is empty.
+* `target` String - Целта, която трябва да се стартира от този пряк път.
+* `cwd` String (по избор) - Работещата директория. Стойността на тази променлива по подразбиране е празна.
+* `args` String (по избор) - Аргументите, които трябва да бъдат приложени към `target`, когато се стартира от този пряк път. Стойността на тази променлива по подразбиране е празна.
+* `description` String (по избор) - Описанието на този пряк път. Стойността на тази променлива по подразбиране е празна.
+* `icon` String (по избор) - Пътят до иконата. Може да е DLL или EXE. `icon` и `iconIndex` трябва да бъдат зададени заедно. Стойността на тази променлива по подразбиране е празна, което кара системата да използва иконата на целта/target.
+* `iconIndex` Number (по избор) - Уникалният идентификатор на ресурса на иконата, когато `icon` е DLL или EXE. Стойността на тази променлива по подразбиране е 0.
+* `appUserModelId` String (по избор) - Уникалният идентификатор над потребителския модел на приложението (Application User Model ID). Стойността на тази променлива по подразбиране е празна.
