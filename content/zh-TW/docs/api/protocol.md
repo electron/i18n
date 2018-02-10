@@ -1,8 +1,8 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> 註冊自訂通訊協定並攔截原有的通訊協定請求。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
