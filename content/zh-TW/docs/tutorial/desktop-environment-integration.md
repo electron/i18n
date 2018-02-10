@@ -38,15 +38,15 @@ app.clearRecentDocuments()
 
 要在 Windows 上使用這項功能，你的應用程式必須註冊為該檔案類型的處理常式 (Handler)。不然就算將檔案加入清單了，也不會出現在捷徑清單中。 你可以在[應用程式註冊](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx)中找到如何註冊應用程式的資訊。
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+當使用者點了捷徑清單的檔案後，系統會啟動你應用程式的新執行個體，並將該檔案的檔名路徑帶入命令列參數。
 
 ### macOS 注意事項
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+當檔案由最近的文件選單中被點擊，`app` 模組的 `open-file` 事件會被觸發。
 
 ## 自訂 Dock 選單 (macOS)
 
-macOS enables developers to specify a custom menu for the dock, which usually contains some shortcuts for commonly used features of your application:
+macOS 讓開發者可以自訂 Dock 選單，選單中通常會有常用功能的捷徑。
 
 **Terminal.app 的 Dock 選單:**
 
@@ -157,7 +157,7 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity Launcher Shortcuts (Linux)
+## Unity Launcher 捷徑 (Linux)
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
