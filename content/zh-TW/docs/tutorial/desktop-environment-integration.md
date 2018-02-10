@@ -52,7 +52,7 @@ macOS 讓開發者可以自訂 Dock 選單，選單中通常會有常用功能�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png" height="354" width="341" />
 
-To set your custom dock menu, you can use the `app.dock.setMenu` API, which is only available on macOS:
+透過 `app.dock.setMenu` API 就能自訂你的選單，這個 API 只適用於 macOS:
 
 ```javascript
 const {app, Menu} = require('electron')
@@ -161,7 +161,7 @@ win.setThumbarButtons([])
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
-**Launcher shortcuts of Audacious:**
+**Audacious 的 Launcher 捷徑:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
