@@ -14,7 +14,7 @@ Windows 及 macOS 提供了捷徑清單或 Dock 選單功能，方便快速存�
 
 **捷徑清單 (JumpList):**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![捷徑清單最近的檔案](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **應用程式 Dock 選單:**
 
@@ -121,7 +121,7 @@ app.setUserTasks([])
 
 **Windows Media Player 的縮圖工具列:**
 
-![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![播放器](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 可以使用 [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) 設定你應用程式的縮圖工具列:
 
@@ -149,7 +149,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+要清除縮圖工具列按鈕，只要在呼叫 `BrowserWindow.setThumbarButtons` 時帶入空陣列就行了:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -159,7 +159,7 @@ win.setThumbarButtons([])
 
 ## Unity 啟動器捷徑 (Linux)
 
-In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+在 Unity 中，你可以修改 `.desktop` 檔案，將自訂的內容加進啟動器，細節可參考[將捷徑加進啟動器](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher)。
 
 **Audacious 的啟動器捷徑:**
 
@@ -167,17 +167,17 @@ In Unity, you can add custom entries to its launcher via modifying the `.desktop
 
 ## 工作列進度顯示 (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+在 Windows 中，工作列按鈕可用來顯示工作進度。這個功能讓使用者不用切回視窗就能看到進度資訊。
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+在 macOS 中，進度列會顯示為 Docker 圖示的一部分。
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Unity DE 也有類似的功能，讓你指定啟動器中的進度列。
 
 **工作列按鈕的進度列:**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![工作列進度列](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-To set the progress bar for a Window, you can use the [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
+要設定視窗的進度列，可以使用 [BrowserWindow.setProgressBar](../api/browser-window.md#winsetprogressbarprogress) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -187,7 +187,7 @@ win.setProgressBar(0.5)
 
 ## 工作列圖示重疊 (Windows)
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+在 Windows 中，工作列按鈕上可以疊一個小圖示，顯示應用程式的狀態，引述 MSDN 的說明:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
