@@ -177,13 +177,13 @@ child.once('ready-to-show', () => {
     * `session` [Session](session.md#class-session) (опціонально) - Встановлює сесію, яку використовує сторінка. Замість того щоб передавати об'єкт Session напряму, ви можете також використовувати опцію `partition`, яка приймає стрічку розділу. Коли передається і `session` і `partition`, `session` буде мати перевагу. За замовчуванням звичайна сесія.
     * `partition` String (опціонально) - Встановлює сесію, яка використовується сторінкою відповідно до стрічок розділу сесії. Якщо `partition` починається з `persist:`, сторінка буде використовувати стійку сесію доступну всім сторінкам застосунку з однаковим `partition`. Якщо префікс `persist:` відсутній, сторінка буде використовувати сесію пам'яті. Призначаючи однаковий `partition`, декілька сторінок можуть спільно використовувати однакову сесію. За замовчуванням звичайна сесія.
     * `zoomFactor` Number (опціонально) - Коефіцієнт масштабуванням за замовчуванням, `3.0` відповідає `300%`. За замовчуванням `1.0`.
-    * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-    * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. За замовчуванням `true`.
-    * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-    * `images` Boolean (optional) - Enables image support. Default is `true`.
-    * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-    * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-    * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
+    * `javascript` Boolean (опціонально) - Вмикає підтримку JavaScript. За замовчуванням `true`.
+    * `webSecurity` Boolean (опціонально) - Коли `false`, вимикається політику походження з того ж джерела (зазвичай використовується тестуванням веб-сайтів людьми), і встановить `allowRunningInsecureContent` в `true` якщо ця опція не була встановлена користувачем. За замовчуванням `true`.
+    * `allowRunningInsecureContent` Boolean (опціонально) - Дозволяє HTTPS сторінці виконувати JavaScript, CSS чи плагіни з HTTP URLів. За замовчуванням `false`.
+    * `images` Boolean (опціонально) - Вмикає підтримку картинок. За замовчуванням `true`.
+    * `textAreasAreResizable` Boolean (опціонально) - Дозволяє змінювати розміри елемента TextArea. За замовчуванням `true`.
+    * `webgl` Boolean (опціонально) - Вмикає пітримку WebGL. За замовчуванням `true`.
+    * `webaudio` Boolean (опціонально) - Вмикає підтримку WebAudio. За замовчуванням `true`.
     * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
     * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
     * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
