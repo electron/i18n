@@ -15,7 +15,7 @@
 * [Разпространяване на разработените приложения](tutorial/application-distribution.md)
 * [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Snapcraft ръководство](tutorial/snapcraft-guide.md)
 * [Пакетиране на приложението](tutorial/application-packaging.md)
 * [Употреба на Node модули](tutorial/using-native-node-modules.md)
 * [Намиране на грешки в главния процес](tutorial/debugging-main-process.md)
@@ -24,7 +24,7 @@
 * [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Използване на Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Рендиране извън екрана](tutorial/offscreen-rendering.md)
 * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
 * [Обновяване на приложенията](tutorial/updates.md)
 
