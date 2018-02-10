@@ -1,6 +1,6 @@
 # nativeImage
 
-> Create tray, dock, and application icons using PNG or JPG files.
+> 使用 PNG 或 JPG 檔建立系統匣、Dock 及應用程式圖示。
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 
@@ -31,12 +31,12 @@ Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended bec
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
-* Small icon 
+* 小圖示 
  * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
  * 32x32 (200% DPI scale)
-* Large icon 
+* 大圖示 
  * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
  * 48x48 (150% DPI scale)
@@ -80,7 +80,7 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## 樣版圖片
 
 Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
