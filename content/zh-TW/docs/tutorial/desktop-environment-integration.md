@@ -224,13 +224,13 @@ win.flashFrame(true)
 
 在 macOS 中，可以設定視窗的代表檔案，那個檔案的圖示就會顯示在標題列中，使用者按住 Command 或 Control 再點擊標題，就會顯示路徑 快顯選單。
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+你也可以設定視窗的編輯狀態，就可以由檔案圖示分辨出文件是否在這個視窗中修改過。
 
 **代表檔案快顯選單:**
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png" height="232" width="663" />
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+要設定視窗的代表檔案可以使用 [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) 及 [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
