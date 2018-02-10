@@ -1,6 +1,6 @@
 # ipcRenderer
 
-> Communicate asynchronously from a renderer process to the main process.
+> 由畫面轉譯處理序到主處理序的非同步通訊。
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
