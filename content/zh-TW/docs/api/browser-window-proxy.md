@@ -1,6 +1,6 @@
 ## Class: BrowserWindowProxy
 
-> Manipulate the child browser window
+> 處理子瀏覽器視窗。
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
