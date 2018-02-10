@@ -1,6 +1,6 @@
 # 在無周邊 CI 系統上測試 (Travis CI, Jenkins)
 
-因為 Electron 是架構在 Chromium 上的，需要顯示驅動程式才能運作。 If Chromium can't find a display driver, Electron will simply fail to launch - and therefore not executing any of your tests, regardless of how you are running them. Testing Electron-based apps on Travis, Circle, Jenkins or similar Systems requires therefore a little bit of configuration. In essence, we need to use a virtual display driver.
+因為 Electron 是架構在 Chromium 上的，需要顯示驅動程式才能運作。 如果 Chromium 找不到顯示驅動程式，Electron 根本就不能啟動，無法執行任何你的測試案例，無論你是用什麼方式執行都一樣。 要在 Travis, Circle, Jenkins 或類似的系統上測試 Electron 應用程式，需要一些額外設定。 實際上，我們需要使用虛擬顯示驅動程式。
 
 ## 設定虛擬顯示伺服器
 
@@ -40,4 +40,4 @@ Circle CI 很威，[已經設定好 xvfb 及 `$DISPLAY`，不用再額外設定�
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+AppVeyor 是在 Windows 上跑的，直接支援 Selenium, Chromium, Electron 及類似的工具，不需額外設定。
