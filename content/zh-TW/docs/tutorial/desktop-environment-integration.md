@@ -20,14 +20,14 @@ Windows 及 macOS 提供了捷徑清單或 Dock 選單功能，方便快速存�
 
 <img src="https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png" height="353" width="428" />
 
-要將檔案加到最近文件清單中，可以使用 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+要將檔案加到最近的文件清單中，可以使用 [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
 
 ```javascript
 const {app} = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API 清空最近文件清單:
+你也可以使用 [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API 清空最近的文件清單:
 
 ```javascript
 const {app} = require('electron')
@@ -36,7 +36,7 @@ app.clearRecentDocuments()
 
 ### Windows 注意事項
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx).
+要在 Windows 上使用這項功能，你的應用程式必須註冊為該檔案類型的處理常式 (Handler)。不然就算將檔案加入清單了，也不會出現在捷徑清單中。 你可以在[應用程式註冊](https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121(v=vs.85).aspx)中找到如何註冊應用程式的資訊。
 
 When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
 
