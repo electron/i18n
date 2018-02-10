@@ -82,7 +82,7 @@ app.dock.setMenu(dockMenu)
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+不像 macOS 的 Dock 選單真的是選單，Windows 的使用者工作比較像是捷徑，使用者點了工作後，程式會被以指定的參數執行。
 
 要設定應用程式的使用者工作，可以使用 [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
 
@@ -100,14 +100,14 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, just call `app.setUserTasks` with an empty array:
+要清除工作清單，只要在呼叫 `app.setUserTasks` 時帶入空陣列就行了:
 
 ```javascript
 const {app} = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+就算應用程式關閉了，使用者工作還是會繼續顯示。因此工作用到的圖示及應用程式路徑應該要一直存在，直到應用程式被移除。
 
 ## 縮圖工具列
 
@@ -157,7 +157,7 @@ let win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Unity 啟動器 (Launcher) 捷徑 (Linux)
+## Unity 啟動器捷徑 (Linux)
 
 In Unity, you can add custom entries to its launcher via modifying the `.desktop` file, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
@@ -195,7 +195,7 @@ On Windows a taskbar button can use a small overlay to display application statu
 
 ![工作列按鈕重疊](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+要設定視窗的圖示重疊，可以使用 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
