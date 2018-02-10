@@ -111,9 +111,9 @@ app.setUserTasks([])
 
 ## 縮圖工具列
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+你可以在 Windows 應用程式的工作列配置中加入包含指定按鈕的縮圖工具列。 讓使用者不用還原或啟動視窗就能執行特定的視窗指令。
 
-From MSDN, it's illustrated:
+在 MSDN 中說明如下:
 
 > This toolbar is simply the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
 > 
@@ -123,7 +123,7 @@ From MSDN, it's illustrated:
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+可以使用 [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) 設定你應用程式的縮圖工具列:
 
 ```javascript
 const {BrowserWindow} = require('electron')
