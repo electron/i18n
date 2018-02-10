@@ -29,11 +29,11 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` Object *macOS*
 
-Това събитие бива излъчено, когато Електрон е завършил своята инициализация. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Това събитие бива излъчено, когато Електрон е завършил своята инициализация. На macOS `launchInfo` притежава `userInfo` на `NSUserNotification`, която е било използвано за отваряне на приложението, ако приложението е било стартирано от центъра за уведомяване (Notification Center). Можете да използвате `app.isReady()`, за да проверите дали това събитие вече е било излъчено.
 
-### Event: 'window-all-closed'
+### Събитие: 'window-all-closed'
 
-Emitted when all windows have been closed.
+Излъчено, когато всички прозорци на приложението са се затворили.
 
 If you do not subscribe to this event and all windows are closed, the default behavior is to quit the app; however, if you subscribe, you control whether the app quits or not. If the user pressed `Cmd + Q`, or the developer called `app.quit()`, Electron will first try to close all the windows and then emit the `will-quit` event, and in this case the `window-all-closed` event would not be emitted.
 
