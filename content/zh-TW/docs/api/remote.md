@@ -1,6 +1,6 @@
 # remote
 
-> Use main process modules from the renderer process.
+> 在畫面轉譯處理序中使用主處理序模組。
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
