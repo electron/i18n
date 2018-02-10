@@ -1,6 +1,6 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> 顯示系統原生對話框，以便開啟檔案、儲存檔案，發出警告等。
 
 處理序: [主處理序](../glossary.md#main-process)
 
