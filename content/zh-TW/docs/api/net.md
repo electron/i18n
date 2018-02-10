@@ -1,6 +1,6 @@
 # net
 
-> Issue HTTP/HTTPS requests using Chromium's native networking library
+> 使用 Chromium 原生網路程式庫發出 HTTP/HTTPS 請求。
 
 處理序: [主處理序](../glossary.md#main-process)
 
