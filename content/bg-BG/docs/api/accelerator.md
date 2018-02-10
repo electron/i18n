@@ -16,47 +16,47 @@ const {app, globalShortcut} = require('electron')
 app.on('ready', () => {
    // Слуша за 'CommandOrControl+Y' клависна команда.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+     // Изпълнява се, когато Y и Command/Control са натиснати.
   })
 })
 ```
 
-## Platform notice
+## Известие от платформата
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+На Linux и Windows, клавиша `Command` няма ефект, така че използвайте `CommandOrControl`, която представлява `Command` на macOS и `Control` на Linux и Windows, за да дефинирате някои ускорители.
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+Използвайте `Alt` вместо `Option`. Клавиша `Option` съществува само на macOS, докато клавиша `Alt` е достъпнен за всички платформи.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+Клавиша `Super` е свързан с клавиша `Windows` на Windows и Linux, а клавиша `Cmd` на macOS.
 
-## Available modifiers
+## Достъпни модификатори
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (или `Cmd` на кратко)
+* `Control` (или `Ctrl` на кратко)
+* `CommandOrControl` (или `CmdOrCtrl` на кратко)
 * `Alt`
 * `Option`
 * `AltGr`
 * `Shift`
 * `Super`
 
-## Available key codes
+## Достъпни клавиши
 
-* `` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
-* `Plus`
+* от `` до `9`
+* от `A` до `Z`
+* от `F1` до `F24`
+* Пунктуационни клавиши като `~`, `!`, `@`, `#`, `$`, и др.
+* `+`
 * `Space`
 * `Tab`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return` (or `Enter` as alias)
-* `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
-* `Escape` (or `Esc` for short)
-* `VolumeUp`, `VolumeDown` and `VolumeMute`
-* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`
+* `Return` (или `Enter`)
+* Стрелките `Up`, `Down`, `Left` и `Right`
+* `Home` и `End`
+* `PageUp` и `PageDown`
+* `Escape` (или `Esc` на кратко)
+* `VolumeUp`, `VolumeDown` и `VolumeMute`
+* `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` и `MediaPlayPause`
 * `PrintScreen`
