@@ -15,7 +15,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Pamamahagi ng aplikasyon](tutorial/application-distribution.md)
 * [Gabay sa pagsmite sa Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Gabay sa Windows Store](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Gabay na snapkrap](tutorial/snapcraft-guide.md)
 * [Packaging ng aplikasyon](tutorial/application-packaging.md)
 * [Gamit ang sariling mga modyul ng node](tutorial/using-native-node-modules.md)
 * [Pagde-debug ng pangunahing proseso](tutorial/debugging-main-process.md)
