@@ -14,7 +14,7 @@
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-取得できる可能性のある値:
+取りうる値:
 
 * `disabled_software` - ソフトウェアのみ。ハードウェアアクセラレーションは無効 (黄色)
 * `disabled_off` - 無効 (赤)
