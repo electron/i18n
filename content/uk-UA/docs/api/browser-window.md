@@ -294,45 +294,45 @@ window.onbeforeunload = (e) => {
 
 #### Подія: 'maximize'
 
-Викликається коли вікно розгортається.
+Викликається коли вікно максимізується.
 
 #### Подія: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Викликається коли вікно виходить з максимізованого режиму.
 
 #### Подія: 'minimize'
 
-Emitted when the window is minimized.
+Викликається коли вікно згортається.
 
 #### Подія: 'restore'
 
-Emitted when the window is restored from a minimized state.
+Викликається коли вікно розгортається.
 
 #### Подія: 'resize'
 
-Emitted when the window is being resized.
+Викликається коли вікно змінює розмір.
 
 #### Подія: 'move'
 
-Emitted when the window is being moved to a new position.
+Викликається коли вікно переміщується в нове місце.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Примітка**: На macOS ця подія є іншою назвою `moved`.
 
 #### Подія: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Викликається один раз коли вікно переміщується в нове місце.
 
 #### Подія: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Викликається коли вікно входить в повноекранний режим.
 
 #### Подія: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Викликається коли вікно виходить з повноекранного режиму.
 
 #### Подія: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Викрикається коли вікно входить в повноекранний режим через HTML API.
 
 #### Подія: 'leave-html-full-screen'
 
