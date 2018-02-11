@@ -383,33 +383,33 @@ win.on('app-command', (e, cmd) => {
 
 #### Подія: 'sheet-begin' *macOS*
 
-Викликаєтсья коли вікно відкривається як сторінка.
+Викликаєтсья коли вікно відкриває сторінку.
 
 #### Подія: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Викликається коли вікно закриває сторінку.
 
 #### Подія: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+Викликається коли під час натискання нативної кнопки створення нової вкладки.
 
 ### Статичні Методи
 
-The `BrowserWindow` class has the following static methods:
+Клас `BrowserWindow` має наступні статичні методи:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Повертає `BrowserWindow[]` - Масив всіх відкритих браузерних вікон.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+Повертає `BrowserWindow` - Вікно, яке має фокус, в іншому випадку повертає `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Повертає `BrowserWindow` - Вікно, яке володіє переданим `webContents`.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
