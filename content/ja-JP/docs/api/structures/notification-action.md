@@ -14,6 +14,6 @@
 macOSで追加の通知ボタンを動作させるには、アプリは以下の要件を満たす必要があります。
 
 * アプリが署名済みであること
-* アプリ内の `info.plist` の `NSUserNotificationAlertStyle` が `alert` に設定されている
+* `info.plist` でアプリの `NSUserNotificationAlertStyle` が `alert` に設定されていること。
 
-以上の要件が満たされていないとボタンは表示されません
+上記いずれかの要件が満たされていないとボタンは単純に表示されません。
