@@ -825,7 +825,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将引发错误。 错误中的信息应该是信息性的，并告知具体问题。
 
 ### `app.dock.bounce([type])` *macOS*
 
