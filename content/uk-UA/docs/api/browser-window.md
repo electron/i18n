@@ -415,23 +415,23 @@ win.on('app-command', (e, cmd) => {
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Повертає `BrowserWindow | null` - Вікно, яке володіє переданим `browserView`. Якщо переданий вигляд не прикріплений ні до якого вікна, повертається `null`.
 
 #### `BrowserWindow.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Повертає `BrowserWindow` - Вікно з переданим `id`.
 
 #### `BrowserWindow.addExtension(path)`
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+Додає розширення Chrome розміщене по `path`, і повертає назву розширення.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Метод не поверне нічого, якщо маніфест розширення втрачено чи незавершено.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -439,13 +439,13 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a Chrome extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -455,9 +455,9 @@ Adds DevTools extension located at `path`, and returns extension's name.
 
 The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Метод не поверне нічого, якщо маніфест розширення втрачено чи незавершено.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -465,7 +465,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -480,7 +480,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
 ### Властивості Екземпляра
 
