@@ -43,37 +43,37 @@ app.on('window-all-closed', () => {
 
 * `event` Сътитие
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Излъчва се преди приложението да започне да затваря всички те си прозорци. Изпълнявайки `event.preventDefault()` ще предотврати поведението по подразбиране, което е терминиране на приложението.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Забележка:** Ако изключването на приложението е било започнато от `autoUpdater.quitAndInstall()` тогава `before-quit` е излъчено *след* излъчването на събитието `close` на всички прозорци и ги затварят.
 
-### Event: 'will-quit'
-
-Връща:
-
-* `event` Event
-
-Emitted when all windows have been closed and the application will quit. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
-
-See the description of the `window-all-closed` event for the differences between the `will-quit` and `window-all-closed` events.
-
-### Event: 'quit'
+### Събитие: 'will-quit'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
+
+Излъчено, когато всички прозорци са вече затворени и приложението ще се изключи. Изпълнявайки `event.preventDefault()` ще предотврати поведението по подразбиране, което е терминиране на приложението.
+
+Вижте описанието на събитие `window-all-closed` за разликите между събитията `will-quit` и `window-all-closed`.
+
+### Събитие: 'quit'
+
+Връща:
+
+* `event` Събитие
 * `exitCode` Integer
 
-Emitted when the application is quitting.
+Излъчено, когато приложението бива изключено.
 
-### Event: 'open-file' *macOS*
+### Събитие: 'open-file' *macOS*
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `path` String
 
-Emitted when the user wants to open a file with the application. The `open-file` event is usually emitted when the application is already open and the OS wants to reuse the application to open the file. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Излъчено, когато потребителят иска да отвори файл с приложението. Събитието `open-file` обикновено се излъчва, когато приложението е вече отворено и операционната система иска повторно отваряне на приложението за да отвари файла. `open-file` също се излъчва, когато даден файл е изпуснат върху док и приложение все още не е отворено. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
 
 You should call `event.preventDefault()` if you want to handle this event.
 
