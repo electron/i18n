@@ -353,7 +353,7 @@ window.onbeforeunload = (e) => {
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // Переходить назад коли юзер натискає кнопку назад
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
@@ -362,15 +362,15 @@ win.on('app-command', (e, cmd) => {
 
 #### Подія: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Викликається коли колесо починає крутитися.
 
 #### Подія: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Викликається коли колесо закінчує крутитися.
 
 #### Подія: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Викликається коли при прокручуванні досягається край елемента.
 
 #### Подія: 'swipe' *macOS*
 
@@ -379,11 +379,11 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Викликаєтсья відбувається жест трома пальцями. Можливі напрямки: `up`, `right`, `down`, `left`.
 
 #### Подія: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Викликаєтсья коли вікно відкривається як сторінка.
 
 #### Подія: 'sheet-end' *macOS*
 
