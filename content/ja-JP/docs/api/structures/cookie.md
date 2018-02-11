@@ -2,10 +2,10 @@
 
 * `name` String - Cookieの名前。
 * `value` String - Cookieの値。
-* `domain` String (optional) - Cookieのドメイン。
-* `hostOnly` Boolean (optional) - CookieがホストのみのCookieであるか。
+* `domain` String (任意) - Cookieのドメイン。
+* `hostOnly` Boolean (任意) - CookieがホストのみのCookieであるか。
 * `path` String (optional) - Cookieのパス。
-* `secure` Boolean (optional) - CookieにSecure属性がついているか。
-* `httpOnly` Boolean (optional) - CookieにHttpOnly属性がついているか。
-* `session` Boolean (optional) - CookieがセッションCookieまたは有効期限のある永続的Cookieであるか。
-* `expirationDate` Double (optional) - UNIX時間の秒数によるCookieの有効期限。セッションCookieでは設定されません。
+* `secure` Boolean (任意) - CookieにSecure属性がついているか。
+* `httpOnly` Boolean (任意) - CookieにHttpOnly属性がついているか。
+* `session` Boolean (任意) - CookieがセッションCookieまたは有効期限のある永続的Cookieであるか。
+* `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。セッションCookieでは設定されません。
