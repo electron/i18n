@@ -48,7 +48,7 @@ $ python script\build.py -c D
 
 Después de que la construcción está hecha, usted puede encontrar `electron.exe` con el nombre `out\D` (objetivo de depuración) o como `out\R` (objetivo de lanzamiento).
 
-## Estructuras en 32bit
+## Arquitectura 32bit
 
 Para construir para el objetivo de 32bit, necessita pasar `--target_arch=ia32` cuando se corra el script de salida:
 
