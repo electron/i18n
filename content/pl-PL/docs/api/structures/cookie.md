@@ -2,10 +2,10 @@
 
 * `name` String - Nazwa pliku cookie.
 * `value` String - Wartość pliku cookie.
-* `domain` String (optional) - The domain of the cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
-* `path` String (optional) - The path of the cookie.
-* `secure` Boolean (optional) - Whether the cookie is marked as secure.
-* `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.
-* `session` Boolean (optional) - Whether the cookie is a session cookie or a persistent cookie with an expiration date.
-* `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+* `domain` String (opcjonalne) - Domena ciasteczka.
+* `hostOnly` Boolean (opcjonalne) - Czy ciasteczko jest tylko hostującym ciasteczkiem.
+* `path` String (opcjonalne) - Ścieżka ciasteczka.
+* `secure` Boolean (opcjonalne) - Czy ciasteczko jest oznaczone jako bezpieczne.
+* `httpOnly` Boolean (opcjonalne) - Czy ciasteczko jest oznaczone jako HTTP.
+* `session` Boolean (opcjonalne) - Czy ciasteczko jest ciasteczkiem sesji czy trwałym ciasteczkiem z datą ważności.
+* `expirationDate` Double (ocjonalne) - Data ważności ciasteczka wyrażona w sekundach od epoki UNIX. Nie podana dla ciasteczek sesji.
