@@ -262,39 +262,39 @@ window.onbeforeunload = (e) => {
 
 #### Подія: 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Викликається коли вікно збирається закритися через примусове вимкнення чи перезавантаження машини чи вилогінюваня.
 
 #### Подія: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Викликається коли сторінка не відповідає.
 
 #### Подія: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Викликається коли сторінка знову починає відповідати.
 
 #### Подія: 'blur'
 
-Emitted when the window loses focus.
+Викликається коли вікно втрачає фокус.
 
 #### Подія: 'focus'
 
-Emitted when the window gains focus.
+Викликається коли вікно отримує фокус.
 
 #### Подія: 'show'
 
-Emitted when the window is shown.
+Викликається коли вікно показується.
 
 #### Подія: 'hide'
 
-Emitted when the window is hidden.
+Викликається коли вікно приховується.
 
 #### Подія: 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Викликається коли веб-сторінка зрендерена (поки не показується) і може бути відображена без візуального спалаху.
 
 #### Подія: 'maximize'
 
-Emitted when window is maximized.
+Викликається коли вікно розгортається.
 
 #### Подія: 'unmaximize'
 
