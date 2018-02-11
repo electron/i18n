@@ -238,7 +238,7 @@ child.once('ready-to-show', () => {
 
 * `event` Event
 
-Викликається коли вікно збирається закриватися. ВИкликається перед подія `beforeunload` і `unload` DOMу. Виклик `event.preventDefault()` буде скасовувати закриття вікна.
+Викликається коли вікно збирається закриватися. Викликається перед подія `beforeunload` і `unload` DOMу. Виклик `event.preventDefault()` буде скасовувати закриття вікна.
 
 Зазвичай ви захочете використати обробник `beforeunload`, щоб вирішити чи закривати вікно, який також викликається коли вікно перезавантажується. В Electron, повернення будь-якого значення відмінного від `undefined` буде скасовувати закриття. Наприклад:
 
@@ -258,7 +258,7 @@ window.onbeforeunload = (e) => {
 
 #### Подія: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Викликаєтсья коли вікно закрите. Після того як ви отримали цю подію, ви маєте видалити посилання вікна і більшк його не використовувати.
 
 #### Подія: 'session-end' *Windows*
 
