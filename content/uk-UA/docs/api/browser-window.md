@@ -336,7 +336,7 @@ window.onbeforeunload = (e) => {
 
 #### Подія: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Викликається коли вікно виходить з повноекранного режиму через HTML API.
 
 #### Подія: 'app-command' *Windows*
 
@@ -345,9 +345,9 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Відбувається коли викликається [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Це зазвичай пов'язано з медіа клавішами чи браузерними командами, такими як кнопка "Назад" вбудованими в деякі мишки на Windows.
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Команди пишуться маленькими буквами, підчерки замінені на дефіси і пропускається префікс `APPCOMMAND_`. Наприклад, `APPCOMMAND_BROWSER_BACKWARD` викликається як `browser-backward`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
