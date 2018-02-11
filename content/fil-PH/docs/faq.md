@@ -94,10 +94,10 @@ Ngunit kung nais mong panatilihin ang mga kakayahan ng paggamit ng Node.js at El
 ```html
 <head>
 <script>
-window.nodeRequire = require;
-delete window.require;
-delete window.exports;
-delete window.module;
+window.nodeKailangan = kailangan
+Magtanggal ng window.kailangan;
+Magtanggal ng window.palabasin
+Magtanggal ng window.modyul;
 </script>
 <script type="text/javascript" src="jquery.js"></script>
 </head>
