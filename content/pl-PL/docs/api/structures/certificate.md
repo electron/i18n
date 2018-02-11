@@ -1,9 +1,9 @@
 # Certyfikat Obiektu
 
 * `dane` String - zakodowane dane PEM
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certyfikat - Certyfikat wystawcy (jeśli nie jest to swój podpis)
+* `issuer` [CertificatePrincipal](certificate-principal.md) - kapitał wystawcy
+* `issuerName` String - nazwa wystawcy
+* `issuerCert` Certyfikat - wystawca certyfikatu (jeśli nie jest podpisany)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Podmiot główny
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string
