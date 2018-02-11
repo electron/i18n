@@ -19,7 +19,7 @@
 * `disabled_software` - ソフトウェアのみ。ハードウェアアクセラレーションは無効 (黄色)
 * `disabled_off` - 無効 (赤)
 * `disabled_off_ok` - 無効 (黄色)
-* `disabled_software` - ソフトウェアのみ。ハードウェアアクセラレーションは使用不可 (黄色)
+* `unavailable_software` - ソフトウェアのみ。ハードウェアアクセラレーションは使用不可 (黄色)
 * `unavailable_off` - 使用不可 (赤)
 * `unavailable_off_ok` - 使用不可 (黄色)
 * `enabled_readback` - ハードウェアでアクセラレーションされていますが、低パフォーマンス (黄色)
