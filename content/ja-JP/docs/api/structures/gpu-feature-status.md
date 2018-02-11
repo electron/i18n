@@ -3,10 +3,10 @@
 * `2d_canvas` String - キャンバス
 * `flash_3d` String - フラッシュ
 * `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile
-* `gpu_compositing` String - Compositing
-* `multiple_raster_threads` String - Multiple Raster Threads
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers
+* `flash_stage3d_baseline` String - Flash Stage3D 標準プロファイル
+* `gpu_compositing` String - 合成
+* `multiple_raster_threads` String - 多重ラスタースレッド
+* `native_gpu_memory_buffers` String - ネイティブのGpuMemoryBuffers
 * `rasterization` String - Rasterization
 * `video_decode` String - Video Decode
 * `video_encode` String - Video Encode
