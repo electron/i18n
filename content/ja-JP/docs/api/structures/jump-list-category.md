@@ -8,4 +8,4 @@
 * `name` String (任意) - `type` が `custom` の場合は必ず設定し、それ以外は省略すべきです。
 * `items` JumpListItem[] (任意) - `type` が `tasks` もしくは `custom` の場合は [`JumpListItem`](jump-list-item.md) のオブジェクトの配列、それ以外は省略すべきです。
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**注:** `JumpListCategory` オブジェクトが `type` プロパティも　`name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティが設定されているが、`type` プロパティが省略された場合、`type` は `custom` と見做されます。
