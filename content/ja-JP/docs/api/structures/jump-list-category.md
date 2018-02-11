@@ -1,10 +1,10 @@
 # JumpListCategory オブジェクト
 
-* `type` String (任意) - 次のいずれか: 
-  * `tasks` - このカテゴリのアイテムは、標準の `Tasks` カテゴリに配置されます。 このようなカテゴリが1つだけあると、ジャンプリストの下部に常に表示されます。
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
+* `type` String (任意) - 以下のいずれか: 
+  * `tasks` - このカテゴリの項目は、標準の `Tasks` カテゴリに配置されます。 このようなカテゴリが1つだけあると、ジャンプリストの下部に常に表示されます。
+  * `frequent` - アプリによってよく開くファイルの一覧が表示されます。カテゴリの名前と項目はWindowsによって設定されます。
+  * `recent` - アプリによって最近開いたファイルの一覧が表示されます。カテゴリの名前と項目はWindowsによって設定されます。 間接的に `app.addRecentDocument(path)` を使うことで、項目がこのカテゴリに追加されることがあります。
+  * `custom` - タスクやファイルのリンクを表示します。`name` は必ずアプリによって設定されなければなりません。
 * `name` String (任意) - `type` が `custom` の場合は必ず設定し、それ以外は省略すべきです。
 * `items` JumpListItem[] (任意) - `type` が `tasks` もしくは `custom` の場合は [`JumpListItem`](jump-list-item.md) のオブジェクトの配列、それ以外は省略すべきです。
 
