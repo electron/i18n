@@ -1,7 +1,7 @@
 # UploadFileSystem オブジェクト
 
-* `type` String - `fileSystem`.
-* `filsSystemURL` String - アップロード用のデータを読み取るファイルシステムURL。
-* `offset` Integer - デフォルトは``です。
-* `length` Integer - `offset`から読み取るバイト数。 デフォルトは``です。
-* `modificationTime` Double - 最終変更時刻のUNIX時間。
+* `type` String - `fileSystem`。
+* `filsSystemURL` String - アップロードするデータを読み取るFileSystemのURL。
+* `offset` Integer - ``がデフォルト。
+* `length` Integer - `offset`から読み取るバイト数。 ``がデフォルト。
+* `modificationTime` Double - 最終変更したUNIX時間での秒数。
