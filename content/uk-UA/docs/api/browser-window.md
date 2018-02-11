@@ -437,13 +437,13 @@ win.on('app-command', (e, cmd) => {
 
 * `name` String
 
-Remove a Chrome extension by name.
+Видалити розширення Chrome по імені.
 
 **Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Повертає `Object` - Ключами є назви розширень і кожне значення є об'єктом, що містить властивості `name` і `version`.
 
 **Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
@@ -469,9 +469,9 @@ Remove a DevTools extension by name.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Повертає `Object` - Ключами є назви розширень і кожне значення є об'єктом, що містить властивості `name` і `version`.
 
-To check if a DevTools extension is installed you can run the following:
+Щоб перевірити чи розширення DevTools встановлено, ви можете виконати наступне:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -647,11 +647,11 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 * `height` Integer
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes the window to `width` and `height`.
+Змінює розміри вікна на `width` і `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Повертає `Integer[]` - Містить ширину і висоту вікна.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -707,7 +707,7 @@ Sets whether the window can be moved by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be moved by user.
 
-On Linux always returns `true`.
+На Linux завжди повертає `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -719,7 +719,7 @@ Sets whether the window can be manually minimized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually minimized by user
 
-On Linux always returns `true`.
+На Linux завжди повертає `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -731,7 +731,7 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+На Linux завжди повертає `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -753,7 +753,7 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+На Linux завжди повертає `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
