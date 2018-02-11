@@ -1,5 +1,5 @@
 # SegmentedControlSegment オブジェクト
 
-* `label` String - (optional) このセグメントに表示されるテキスト
-* `icon` NativeImage - (optional) このセグメントに表示される画像
-* `enabled` Boolean - (optional) このセグメントが選択可能かどうか。デフォルト：true
+* `label` String - (任意) このセグメントに表示されるテキスト
+* `icon` NativeImage - (任意) このセグメントに表示される画像
+* `enabled` Boolean - (任意) このセグメントが選択可能かどうか。初期値: true
