@@ -5,9 +5,9 @@
 
 ## プラットフォーム / 動作サポート
 
-| 動作タイプ    | サポートプラットフォーム | `text` の用途 | デフォルト`text` | 制限事項                                                                                                                                                                 |
-| -------- | ------------ | ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button` | macOS        | ボタンのラベル    | "Show"      | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| 動作タイプ    | サポートプラットフォーム | `text` の用途 | 初期 `text` | 制限事項                                                                                                                                                                 |
+| -------- | ------------ | ---------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button` | macOS        | ボタンのラベル    | "Show"    | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### MacOSでのボタンサポート
 
