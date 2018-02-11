@@ -527,7 +527,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**注:** `JumpListCategory` オブジェクトが `type` プロパティも　`name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティが設定されているが、`type` プロパティが省略された場合、`type` は `custom` と見做されます。
+**注:** `JumpListCategory` オブジェクトが `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティが設定されているが、`type` プロパティが省略された場合、`type` は `custom` と見做されます。
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
