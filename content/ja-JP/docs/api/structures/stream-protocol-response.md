@@ -1,5 +1,5 @@
-# StreamProtocolResponse Object
+# StreamProtocolResponse オブジェクト
 
-* `statusCode` Number - The HTTP response code
-* `headers` Object - An object containing the response headers
-* `data` ReadableStream - A Node.js readable stream representing the response body
+* `statusCode` Number - HTTPレスポンスコード
+* `headers` Object - レスポンスヘッダーに含まれるオブジェクト
+* `data` ReadableStream - レスポンスボディを表すNode.jsで読み取り可能なストリーム
