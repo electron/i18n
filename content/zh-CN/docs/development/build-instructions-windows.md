@@ -15,7 +15,7 @@
 
 构建 Electron 完全由命令行脚本完成，无法通过 Visual Studio 完成。 您可以使用任何编辑器开发 Electron，但将来将会使用 Visual Studio 构建支持。
 
-**注意:** 即使 ual Studio 不用于构建，但是仍然**需要**，因为我们需要它提供的构建工具链。
+**注意:** 即使 Visual Studio 不用于构建，但是仍然**需要**，因为我们需要它提供的构建工具链。
 
 ## 获取代码
 
@@ -60,7 +60,7 @@ $ python script\bootstrap.py -v --target_arch=ia32
 
 ## Visual Studio 项目
 
-要生成Visual Studio项目，可以传递 `--msvs` 参数：
+要生成 Visual Studio 项目，可以传递 `--msvs` 参数：
 
 ```powershell
 $ python script\bootstrap.py --msvs
