@@ -73,22 +73,22 @@ app.on('window-all-closed', () => {
 * `event` Събитие
 * `path` String
 
-Излъчено, когато потребителят иска да отвори файл с приложението. Събитието `open-file` обикновено се излъчва, когато приложението е вече отворено и операционната система иска повторно отваряне на приложението за да отвари файла. `open-file` също се излъчва, когато даден файл е изпуснат върху док и приложение все още не е отворено. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+Излъчено, когато потребителят иска да отвори файл с приложението. Събитието `open-file` обикновено се излъчва, когато приложението е вече отворено и операционната система иска повторно отваряне на приложението за да отвари файла. `open-file` също се излъчва, когато даден файл е изпуснат върху док и приложение все още не е отворено. Не забравяйте да слушате за събитието `open-file` много рано в стартирането на приложението, за да се справите с този случай (дори преди събитието `ready` да е излъчено).
 
-You should call `event.preventDefault()` if you want to handle this event.
+Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
-On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+На Windows трябва да се анализира `process.argv` (в главния процес), за да получите filepath.
 
-### Event: 'open-url' *macOS*
+### Събитие: 'open-url' *macOS*
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+Излъчено, когато потребителя желае да отвори URL с приложението. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
 
-You should call `event.preventDefault()` if you want to handle this event.
+Трябва да извикате `event.preventDefault()` ако желаете да се справите с това събитие.
 
 ### Event: 'activate' *macOS*
 
