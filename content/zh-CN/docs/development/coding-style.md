@@ -4,6 +4,22 @@
 
 您可以运行 `npm run lint` 来显示 `cpplint` 和`eslint` 检测到的任何样式问题。
 
+## General Code
+
+* End files with a newline.
+* Place requires in the following order: 
+  * Built in Node Modules (such as `path`)
+  * Built in Electron Modules (such as `ipc`, `app`)
+  * Local Modules (using relative paths)
+* Place class properties in the following order: 
+  * Class methods and properties (methods starting with a `@`)
+  * Instance methods and properties
+* Avoid platform-dependent code: 
+  * Use `path.join()` to concatenate filenames.
+  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+* Using a plain `return` when returning explicitly at the end of a function. 
+  * Not `return null`, `return undefined`, `null`, or `undefined`
+
 ## C + + 和 Python
 
 对于 C++ 和 Python, 我们遵循 Chromium 的[编码风格](https://www.chromium.org/developers/coding-style). 你可以使用 [clang-format](clang-format.md) 来自动格式化 C++ 代码. 你可以使用 `script/cpplint.py` 来检验文件是否符合要求。
@@ -11,6 +27,12 @@
 我们现在使用的 Python 版本是 Python 2.7。
 
 C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它们。 一个起步的好地方是 Chromium 的 [重要的抽象概念和数据库结构](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) 文档. 该文档提到一些特殊类型，范围类型(超出范围时自动释放其内存), 记录机制等。
+
+## 文档
+
+* Write [remark](https://github.com/remarkjs/remark) markdown style
+
+You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
 ## JavaScript
 
