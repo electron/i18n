@@ -66,9 +66,9 @@ console.log(ses.getUserAgent())
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+当 Electron 刚要在`webContents`中下载`item<0>的时候触发。</p>
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+<p>Calling <code>event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
 
 ```javascript
 const {session} = require('electron')
