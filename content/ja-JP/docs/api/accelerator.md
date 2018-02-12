@@ -1,23 +1,23 @@
 # アクセラレータ
 
-> 使用可能なキーボードショートカット
+> キーボードショートカットを定義します。
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+アクセラレータは、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
 
-例：
+例:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+以下のようにショートカットは [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) メソッドを使って [`globalShortcut`](global-shortcut.md) モジュールに登録されます。
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // 'CommandOrControl+Y' ショートカットリスナーに登録します。
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // Y と Command/Control のいずれかが押下されると、処理を行います。
   })
 })
 ```
