@@ -4,6 +4,22 @@ Electron için kodlama stili rehberleri.
 
 `cpplint` ve `eslint` tarafından tespit edilen durumları görmek için `npm run lint` çalıştırabilirsiniz.
 
+## General Code
+
+* End files with a newline.
+* Place requires in the following order: 
+  * Built in Node Modules (such as `path`)
+  * Built in Electron Modules (such as `ipc`, `app`)
+  * Local Modules (using relative paths)
+* Place class properties in the following order: 
+  * Class methods and properties (methods starting with a `@`)
+  * Instance methods and properties
+* Avoid platform-dependent code: 
+  * Use `path.join()` to concatenate filenames.
+  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+* Using a plain `return` when returning explicitly at the end of a function. 
+  * Not `return null`, `return undefined`, `null`, or `undefined`
+
 ## C++ and Python
 
 C++ ve Python için Chromium'un [Kodlama stili](https://www.chromium.org/developers/coding-style)'ni takip ediyoruz. C+++ kodlarını otomatik olarak formatlamak için clang-format</0 kullanabilirsiniz. Aynı zamanda `script/cpplint.py` betiği de tüm dosyalar buna uyuyuyor mu kontrol eder.</p> 
@@ -11,6 +27,12 @@ C++ ve Python için Chromium'un [Kodlama stili](https://www.chromium.org/develop
 Şu an kullandığımız Python versiyonu 2.7.
 
 C++ kodu Chromium'un soyutlamalarını ve tiplerini bolca kullanır. Bunlara hakim olmanız tavsiye edilir. Başlangıç için [Önemli soyutlamalar ve Veri Yapıları](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) dökumanına bakabilirsiniz. Bu belge bazı özel tipleri, scope'lanmış tipleri (scope dışına çıkınca otomatik olarak salınırlar.), kayıt etme mekanizmalarını anlatır.
+
+## Dokümantasyon
+
+* Write [remark](https://github.com/remarkjs/remark) markdown style
+
+You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
 ## JavaScript
 
