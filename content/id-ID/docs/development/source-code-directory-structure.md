@@ -47,17 +47,29 @@ Electron
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+File di ` / chromium_src </ code> cenderung menjadi potongan Chromium yang bukan bagian dari
+lapisan konten Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel
+mirip dengan yang dilakukan Chrome resmi. We could have built the relevant
+sources as a part of <a href="../glossary.md#libchromiumcontent">libcc</a> but most
+often we don't require all the features (some tend to be proprietary,
+analytics stuff) so we just took parts of the code. These could have easily
+been patches in libcc, but at the time when these were written the goal of
+libcc was to maintain very minimal patches and chromium_src changes tend to be
+big ones. Also, note that these patches can never be upstreamed unlike other
+libcc patches we maintain now.</p>
 
-## Struktur Direktori Lain
+<h2>Struktur Direktori Lain</h2>
 
-* **skrip** - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan, pengujian, dll.
-* **alat** - Skrip pembantu yang digunakan oleh file gyp, tidak seperti `skrip`, skrip diletakkan disini jangan pernah dipanggil oleh pengguna secara langsung.
+<ul>
+<li><strong>skrip</strong> - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan,
+pengujian, dll.</li>
+<li><strong>alat</strong> - Skrip pembantu yang digunakan oleh file gyp, tidak seperti <code>skrip`, skrip diletakkan disini jangan pernah dipanggil oleh pengguna secara langsung.</li> 
+
 * **vendor** - sumber kode dari dependensi pihak ketiga, kami tidak menggunakannya `third_party` sebagai nama karena akan membingungkannya dengan direktori yang sama di Pohon sumber kode Chromium.
 * **node_modules** - Modul simpul pihak ketiga digunakan untuk bangunan.
 * **keluar** - Direktori keluaran sementara `ninja`.
 * **dist** - Direktori sementara dibuat oleh skrip `script/create-dist.py` saat membuat distribusi.
-* **external_binaries** - Download binari kerangka pihak ketiga yang jangan mendukung bangunan dengan `gyp`.
+* **external_binaries** - Download binari kerangka pihak ketiga yang jangan mendukung bangunan dengan `gyp`.</ul> 
 
 ## Menjaga Git Submodul Up to Date
 
