@@ -1,14 +1,17 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# Panduan Snapcraft (Ubuntu Software Pusat & amp; Lebih)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+Panduan ini memberikan informasi tentang bagaimana mengemas aplikasi Elektron Anda untuk lingkungan Snapcraft manapun, termasuk Ubuntu Software Center.
 
 ## Latar Belakang dan Persyaratan
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Bersama dengan komunitas Linux yang lebih luas, Canonical bertujuan untuk memperbaiki banyak masalah instalasi perangkat lunak yang umum dengan  ` snapcraft </ code> </a> proyek. Snaps adalah paket perangkat lunak kemasan yang mencakup kebutuhan
+dependensi, auto-update, dan bekerja pada semua distribusi Linux utama tanpa modifikasi sistem.</p>
 
-There are three ways to create a `.snap` file:
+<p>Ada tiga cara untuk membuat file <code> .snap </ code>:</p>
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+<p>1) Menggunakan <a href="https://github.com/electron-userland/electron-forge"> <code> electron-forge </ code> </a> atau <a href="https://github.com/electron-userland/electron-builder"> <code> pembangun elektron </ code> </a>, kedua alat yang disertakan dengan <code> snap </ code> dukung di luar kotak. Ini adalah pilihan termudah.
+2) Menggunakan <code> electron-installer-snap </ code>, yang mengambil <code> electron-packager </ code> 's output.
+3) Using an already created <code>.deb` package.</p> 
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
