@@ -4,6 +4,22 @@ Berikut adalah pedoman gaya untuk penulisan coding di Electron.
 
 Anda dapat menjalankan `npm run lint` untuk menunjukkan macam gaya yang terdeteksi oleh `cpplint` dan `eslint`.
 
+## General Code
+
+* End files with a newline.
+* Place requires in the following order: 
+  * Built in Node Modules (such as `path`)
+  * Built in Electron Modules (such as `ipc`, `app`)
+  * Local Modules (using relative paths)
+* Place class properties in the following order: 
+  * Class methods and properties (methods starting with a `@`)
+  * Instance methods and properties
+* Avoid platform-dependent code: 
+  * Use `path.join()` to concatenate filenames.
+  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+* Using a plain `return` when returning explicitly at the end of a function. 
+  * Not `return null`, `return undefined`, `null`, or `undefined`
+
 ## C ++ dan Python
 
 Untuk C ++ dan Python, kita mengikuti [Gaya coding](https://www.chromium.org/developers/coding-style) Chromium. Anda dapat menggunakan [clang-format](clang-format.md) untuk memformat kode C ++ secara otomatis. Ada juga script `script/cpplint.py` untuk memeriksa apakah semua file sesuai.
@@ -11,6 +27,12 @@ Untuk C ++ dan Python, kita mengikuti [Gaya coding](https://www.chromium.org/dev
 Versi Python yang kita gunakan sekarang adalah Python 2.7.
 
 Kode C ++ menggunakan banyak abstraksi dan tipe Chromium, jadi disarankan untuk berkenalan dengan mereka. Tempat yang baik untuk memulai adalah dokumen Chromium 's [Struktur Data dan Abstraksi penting ](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures). Dokumen tersebut menyebutkan beberapa jenis khusus, lingkup jenis-jenis (yang secara otomatis melepaskan ingatan mereka saat berada diluar lingkup), mekanisme logging dll.
+
+## Dokumentasi
+
+* Write [remark](https://github.com/remarkjs/remark) markdown style
+
+You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
 ## JavaScript
 
