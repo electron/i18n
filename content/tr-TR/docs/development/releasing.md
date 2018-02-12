@@ -162,25 +162,9 @@ Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elect
 5. Devam etmeden önce bütün yapılar geçene kadar bekleyin.
 6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
-## Geçici şube birleştirme
-
-Yayımlama sürümleri bittikten sonra `release` bölümünü asıl kaynak yayım bölümüne `merge-release` kullanarak birleştirin. Bölüm başarılı bir şekilde birleştirilemiyorsa bu yazı otomatik olarak `release` bölümünü rebase eder ve sürüm yapılarını tetikleyen yeniden oluşturma değişikliklerini uygular, tekrar oluşturur, tekrar devam etmeden önce bu da sürüm yapılarının çalışması için beklemek zorunda kalacağınız anlamına gelir.
-
-### master ile tekrar birleştirmek
-
-```sh
-npm run merge-release -- master
-```
-
-### Eski yayım sürümüne birleştirme
-
-```sh
-npm run merge-release -- 1-7-x
-```
-
 ## Sürümü yayınla
 
-Birleştirme tamamen tamamlandığında `release` yazılımını `npm run release` komutu ile çalıştırarak yayımlanma sürecini bitirebilirsiniz. Bu yazılım şunu yapacaktır: 1. Yayınlanan sürüm numarasının doğruluğunu onaylamak için projeyi oluşturun. 2. Çiftleri indirin ve yerel modülleri oluşturmak için düğüm üstbilgilerini ve Windows'ta kullanılan .lib bağlayıcıyı node-gyp ile oluşturun. 3. SHASUMS'ları oluştur ve node dosyaları için S3'e yükle. 4. SHASUMS256.txt dosyasını oluştur ve GitHub yayımına yükle. 5. Gerekli dosyaların hepsinin GitHub ve S3'te bulundğunu doğrulayın ve SHASUMS dosyalarında olduğu gibi doğru sağlama vardır. 6. Yayımı GitHub'da yayınla 7. `release` bölümünü sil.
+Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. Bu yazılım şunu yapacaktır: 1. Yayınlanan sürüm numarasının doğruluğunu onaylamak için projeyi oluşturun. 2. Çiftleri indirin ve yerel modülleri oluşturmak için düğüm üstbilgilerini ve Windows'ta kullanılan .lib bağlayıcıyı node-gyp ile oluşturun. 3. SHASUMS'ları oluştur ve node dosyaları için S3'e yükle. 4. SHASUMS256.txt dosyasını oluştur ve GitHub yayımına yükle. 5. Gerekli dosyaların hepsinin GitHub ve S3'te bulundğunu doğrulayın ve SHASUMS dosyalarında olduğu gibi doğru sağlama vardır. 6. Yayımı GitHub'da yayınla 7. `release` bölümünü sil.
 
 ## npm'e yayımla
 
