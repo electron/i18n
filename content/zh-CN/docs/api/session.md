@@ -100,8 +100,8 @@ Callback会被调用，参数是session的当前缓存大小。
 #### `ses.clearStorageData([options, callback])`
 
 * `选项` Object (可选) 
-  * `origin` String (可选项) 这个值应该按照 `window.location.origin` 的形式：`协议://主机名:端口`
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`
+  * `storages` String[] - (可选项) 要清除的存储类型，可以为以下几种: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
 
