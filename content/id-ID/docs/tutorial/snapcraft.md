@@ -51,29 +51,30 @@ Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron-userla
         └── version
 `</pre> 
 
-### Step 2: Running `electron-installer-snap`
+### Langkah 2: Menjalankan ` electron-installer-snap </ code></h3>
 
-Dari terminal yang memiliki ` snapcraft </ code> di <code> PATH </ code>, jalankan <code> electron-installer-snap </ code> dengan hanya parameter yang dibutuhkan <code> - src </ code>, yang merupakan lokasi paket Anda Aplikasi elektron dibuat pada langkah pertama.</p>
+<p>Dari terminal yang memiliki <code> snapcraft </ code> di <code> PATH </ code>, jalankan <code> electron-installer-snap </ code> dengan hanya parameter yang dibutuhkan <code> - src </ code>, yang merupakan lokasi paket Anda Aplikasi elektron dibuat pada langkah pertama.</p>
 
 <pre><code class="sh">npx electron-installer-snap --src=out/myappname-linux-x64
 `</pre> 
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+Jika Anda memiliki jaringan pipa yang ada, Anda dapat menggunakan `` electron-installer-snap </ code> pemrograman. Untuk informasi lebih lanjut, lihat <a href="https://docs.snapcraft.io/build-snaps/syntax">dokumentasi Snapcraft API</a>.</p>
 
-```js
-const snap = require('electron-installer-snap')
+<pre><code class="js">const snap = require('electron-installer-snap')
 
 snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
-```
+``</pre> 
 
-## Using an Existing Debian Package
+## Menggunakan Paket Debian yang Ada
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Snapcraft mampu mengambil file ` .deb </ code> yang ada dan mengubahnya menjadi file <code> .snap </ code>. Pembuatan snap dikonfigurasi menggunakan <code> snapcraft.yaml </ code>
+file yang menggambarkan sumber, dependensi, deskripsi, dan blok bangunan inti lainnya.</p>
 
-### Step 1: Create a Debian Package
+<h3>Langkah 1: Buat Paket Debian</h3>
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+<p>Jika Anda belum memiliki paket <code> .deb </ code>, gunakan <code> electron-installer-snap </ code> mungkin jalan yang lebih mudah untuk membuat paket snap. However, multiple solutions
+for creating Debian packages exist, including <a href="https://github.com/electron-userland/electron-forge"><code>electron-forge`</a>, [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
 ### Step 2: Create a snapcraft.yaml
 
