@@ -22,17 +22,22 @@ Masalah keamanan ada setiap kali Anda menerima kode dari remote tujuan dan menja
 
 > : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten jauh, gunakan [tampilan web` tag dan pastikan untuk menonaktifkan `nodeIntegrasi](../api/web-view).
 
-## Electron Security Warnings
+## Peringatan Keamanan Elektronika
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
+Dari Electron 2.0, pengembang akan melihat peringatan dan rekomendasi yang dicetak ke konsol pengembang. Mereka hanya menunjukkan op ketika nama binernya adalah Electron, menunjukkan bahwa pengembang saat ini melihat konsol.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+Anda dapat memaksa atau menonaktifkan peringatan ini dengan menyetel ` ELECTRON_ENABLE_SECURITY_WARNINGS </ code> atau <code> ELECTRON_DISABLE_SECURITY_WARNINGS </ code> pada
+objek <code> process.env </ code> atau <code>> </ code>.</p>
 
-## Daftar Periksa: Rekomendasi keamanan
+<h2>Daftar Periksa: Rekomendasi keamanan</h2>
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+<p>Ini bukan antipeluru, tapi paling tidak, Anda harus mengikuti langkah-langkah ini
+tingkatkan keamanan aplikasi Anda.</p>
 
-1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+<p>1) <a href="#only-load-secure-content">Only load secure content</a>
+2) <a href="#disable-node.js-integration-for-remote-content">Disable the Node.js integration in all renderers that display remote content</a>
+3) <a href="#enable-context-isolation-for-remote-content">Enable context isolation in all renderers that display remote content</a>
+4) <a href="#handle-session-permission-requests-from-remote-content">Use <code>ses.setPermissionRequestHandler()` in all sessions that load remote content</a> 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
 ## 1) Only Load Secure Content
 
