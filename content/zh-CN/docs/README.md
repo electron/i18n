@@ -15,7 +15,7 @@
 * [应用程序的分发](tutorial/application-distribution.md)
 * [Mac App Store 应用程序提交指南](tutorial/mac-app-store-submission-guide.md)
 * [Windows 商店指南](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Snapcraft 指南](tutorial/snapcraft-guide.md)
 * [应用程序打包](tutorial/application-packaging.md)
 * [使用 Node 原生模块](tutorial/using-native-node-modules.md)
 * [主进程调试](tutorial/debugging-main-process.md)
