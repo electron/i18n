@@ -73,20 +73,18 @@ file yang menggambarkan sumber, dependensi, deskripsi, dan blok bangunan inti la
 
 <h3>Langkah 1: Buat Paket Debian</h3>
 
-<p>Jika Anda belum memiliki paket <code> .deb </ code>, gunakan <code> electron-installer-snap </ code> mungkin jalan yang lebih mudah untuk membuat paket snap. However, multiple solutions
-for creating Debian packages exist, including <a href="https://github.com/electron-userland/electron-forge"><code>electron-forge`</a>, [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+<p>Jika Anda belum memiliki paket <code> .deb </ code>, gunakan <code> electron-installer-snap </ code> mungkin jalan yang lebih mudah untuk membuat paket snap. Namun, beberapa solusi untuk membuat paket Debian ada, termasuk <a href="https://github.com/electron-userland/electron-forge"> <code> electron-forge </ code> </a>,<a href="https://github.com/electron-userland/electron-builder"> <code> pembangun elektron </ kode> </a> atau <a href="https://github.com/unindented/electron-installer-debian"> <code> electron-installer-debian </ code> </a>.</p>
 
-### Step 2: Create a snapcraft.yaml
+<h3>Langkah 2: Buat snapcraft.yaml</h3>
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+<p>Untuk informasi lebih lanjut tentang pilihan konfigurasi yang tersedia, lihat
+<a href="https://docs.snapcraft.io/build-snaps/syntax"> dokumentasi tentang sintaks snapcraft </a>.Mari kita lihat sebuah contoh:</p>
 
-```yaml
-name: myApp
-version: 2.0.0
-summary: A little description for the app.
-description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+<pre><code class="yaml">nama: myApp
+versi: 2.0.0
+ringkasan: Sedikit deskripsi untuk aplikasi
+deskripsi: |
+Kamu tahu apa? Aplikasi ini luar biasa! Itu semua untuk anda. Ada yang mengatakan itu membuat Anda muda, bahkan mungkin bahagia.
 
 grade: stable
 confinement: classic
@@ -123,23 +121,21 @@ apps:
     # libappindicator has readable resources.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
-```
+`</pre> 
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it simply passes information on to the app's binary:
+Seperti yang Anda lihat, kode <kode> snapcraft.yaml </ code> menginstruksikan sistem untuk meluncurkan sebuah file disebut ` peluncuran elektron </ code>. Dalam contoh ini, informasi itu hanya lewat ke biner aplikasi:</p>
 
-```sh
-#!/bin/sh
+<pre><code class="sh">#!/bin/sh
 
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
-```
+`</pre> 
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Atau, jika Anda membuat ` snap </ code> dengan <code> strict </ code> confinement, Andandapat menggunakan perintah <code> desktop-launch </ code>:</p>
 
-```yaml
-apps:
+<pre><code class="yaml">aplikasi:
   myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # Perbaiki jalur TMPDIR untuk Kerangka / Elemen Kromium untuk memastikannya
+    # libappindicator memiliki sumber yang mudah dibaca.
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
-```
+`</pre>
