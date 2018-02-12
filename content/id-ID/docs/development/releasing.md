@@ -163,25 +163,9 @@ Rilis ini dipublikasikan ke [npm](https://www.npmjs.com/package/electron) di baw
 5. Tunggu sampai semua bangunan berlalu sebelum melanjutkan.
 6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
-## Gabungkan cabang sementara
-
-Setelah rilis selesai, gabungkan cabang `release` kembali cabang pelepasan sumber menggunakan `merge-release` naskah. Jika cabang tidak berhasil digabung kembali script ini akan otomatis rebase cabang `release` dan dorong perubahan yang akan memicu pelepasan membangun lagi, yang berarti Anda harus menunggu rilis dibangun untuk dijalankan lagi sebelum melanjutkan.
-
-### Bergabung kembali ke master
-
-```sh
-npm menjalankan mempersiapkan-release -- master
-```
-
-### Bergabung kembali ke cabang pelepasan lama
-
-```sh
-npm run merge-release -- 1-7-x
-```
-
 ## Publikasikan rilisnya
 
-Setelah penggabungan selesai dengan sukses, jalankan `release` naskah melalui `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download binari dan buat header simpul dan linker .lib yang digunakan pada Windows oleh node-gyp untuk membangun modul asli. 3. Buat dan upload file SHASUMS yang tersimpan di S3 untuk file simpul. 4. Buat dan upload file SHASUMS256.txt yang tersimpan di rilis GitHub. 5. Validasi semua file yang dibutuhkan ada di GitHub dan S3 dan miliki checksum yang benar seperti yang ditentukan dalam file SHASUMS. 6. Publikasikan rilis di GitHub 7. Menghapus `rilis` cabang.
+Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download binari dan buat header simpul dan linker .lib yang digunakan pada Windows oleh node-gyp untuk membangun modul asli. 3. Buat dan upload file SHASUMS yang tersimpan di S3 untuk file simpul. 4. Buat dan upload file SHASUMS256.txt yang tersimpan di rilis GitHub. 5. Validasi semua file yang dibutuhkan ada di GitHub dan S3 dan miliki checksum yang benar seperti yang ditentukan dalam file SHASUMS. 6. Publikasikan rilis di GitHub 7. Menghapus `rilis` cabang.
 
 ## Publikasikan ke npm
 
