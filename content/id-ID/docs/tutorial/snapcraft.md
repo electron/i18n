@@ -11,32 +11,30 @@ dependensi, auto-update, dan bekerja pada semua distribusi Linux utama tanpa mod
 
 <p>1) Menggunakan <a href="https://github.com/electron-userland/electron-forge"> <code> electron-forge </ code> </a> atau <a href="https://github.com/electron-userland/electron-builder"> <code> pembangun elektron </ code> </a>, kedua alat yang disertakan dengan <code> snap </ code> dukung di luar kotak. Ini adalah pilihan termudah.
 2) Menggunakan <code> electron-installer-snap </ code>, yang mengambil <code> electron-packager </ code> 's output.
-3) Using an already created <code>.deb` package.</p> 
+3) Menggunakan paket <code> .deb </ code> yang sudah dibuat.</p>
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+<p>Dalam semua kasus, Anda perlu menginstal <code> snapcraft </ code>. Kita
+merekomendasikan membangun di Ubuntu 16.04 (atau LTS saat ini).</p>
 
-```sh
-snap install snapcraft --classic
-```
+<pre><code class="sh">snap install snapcraft - kelas
+`</pre> 
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Sementara * mungkin </ em> untuk menginstal ` snapcraft </ code> di macos menggunakan Homebrew, itu tidak bisa membangun paket <code> snap </ code> dan berfokus pada pengelolaan paket di toko.</p>
 
-## Using `electron-installer-snap`
+<h2>Menggunakan <code> electron-installer-snap </ code></h2>
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+<p>Modul ini bekerja seperti <a href="https://github.com/electron/windows-installer"> <code> electron-winstaller </ code> </a> dan serupa modul dalam lingkup yang terbatas pada bangunan paket snap. Anda bisa menginstal dengan:</p>
 
-```sh
-npm install --save-dev electron-installer-snap
-```
+<pre><code class="sh">npm install --simpan-dev electron-installer-snap
+`</pre> 
 
 ### Langkah 1: Kemas Aplikasi Elektron Anda
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron-userland/electron-packager) (atau alat serupa). Pastikan untuk menghapus ` node_modules </ code> yang tidak Anda butuhkan di komputer Anda Aplikasi terakhir, karena setiap modul yang sebenarnya tidak Anda butuhkan hanya akan meningkat ukuran aplikasi anda.</p>
 
-Outputnya harus terlihat kira-kira seperti ini:
+<p>Outputnya harus terlihat kira-kira seperti ini:</p>
 
-```text
-.
+<pre><code class="text">.
 └── dist
     └── app-linux-x64
         ├── LICENSE
@@ -51,15 +49,14 @@ Outputnya harus terlihat kira-kira seperti ini:
         ├── resources
         ├── snapshot_blob.bin
         └── version
-```
+`</pre> 
 
 ### Step 2: Running `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+Dari terminal yang memiliki ` snapcraft </ code> di <code> PATH </ code>, jalankan <code> electron-installer-snap </ code> dengan hanya parameter yang dibutuhkan <code> - src </ code>, yang merupakan lokasi paket Anda Aplikasi elektron dibuat pada langkah pertama.</p>
 
-```sh
-npx electron-installer-snap --src=out/myappname-linux-x64
-```
+<pre><code class="sh">npx electron-installer-snap --src=out/myappname-linux-x64
+`</pre> 
 
 If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
 
