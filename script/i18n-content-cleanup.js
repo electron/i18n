@@ -17,12 +17,12 @@ langs.forEach((lang) => {
     return !fs.existsSync(enFile)
   }).forEach((filePath) => {
     const toDelete = path.join(contentPath(lang), filePath)
-    // fs.unlink(toDelete, (err) => {
-    //   if (err) {
-    //     console.error(`Error deleting ${toDelete}`)
-    //   } else {
-    //     console.log(`Deleted ${toDelete}`)
-    //   }
-    // })
+    fs.unlink(toDelete, (err) => {
+      if (err) {
+        console.error(`Error deleting ${toDelete}`)
+      } else {
+        console.log(`Deleted ${toDelete}`)
+      }
+    })
   })
 })

@@ -42,6 +42,7 @@
     "build:module": "node script/build-module.js",
     "build:readme": "node script/readme.js",
     "update-source-content": "script/update-source-content.sh",
+    "content-cleanup": "node script/i18n-content-cleanup.js",
     "test": "npm run test-only",
     "test-only": "mocha && standard --fix",
     "prepack": "check-for-leaks",

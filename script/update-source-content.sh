@@ -14,6 +14,7 @@ git clone "https://github.com/electron/electron-i18n" module
 cd module
 npm install
 npm run collect
+npm run content-cleanup
 
 if [ "$(git status --porcelain)" = "" ]; then
   echo "no new content found; goodbye!"
