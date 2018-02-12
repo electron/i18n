@@ -30,7 +30,7 @@ Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas th
 
 The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
 
-## 使用可能な修飾子
+## 利用可能な修飾キー
 
 * `Command` (または略して `Cmd`)
 * `Control` (または略して `Ctrl`)
@@ -46,7 +46,7 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `` から `9`
 * `A` から `Z`
 * `F1` から `F24`
-* `~`, `!`, `@`, `#`, `$`, などのような句読点
+* `~`、`!`、`@`、`#`、`$` などの記号。
 * `プラス`
 * `スペース`
 * `Tab`
