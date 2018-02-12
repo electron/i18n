@@ -51,7 +51,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ### Ana Süreç İçin Modüller:
 
-* [uygulama](api/app.md)
+* [Uygulama](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -101,6 +101,9 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
 * [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
 * [Stil Kılavuz Dokümantasyonu](styleguide.md)
+* [Contributing to Electron](../CONTRIBUTING.md)
+* [Issues](development/issues.md)
+* [Pull Requests](development/pull-requests.md)
 * [Chromium yükseltiliyor](development/upgrading-chromium.md)
 * [Chromium Geliştirme](development/chromium-development.md)
 * [V8 Geliştirme](development/v8-development.md)
