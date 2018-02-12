@@ -248,7 +248,7 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-## 7) Override and Disable `eval`
+## 7) Ganti dan Nonaktifkan `eval`
 
 `eval()` adalah metode JavaScript inti yang memungkinkan eksekusi JavaScript dari sebuah string. Menonaktifkan kemampuan aplikasi anda untuk mengevaluasi JavaScript yang tidak diketahui sebelumnya.
 
@@ -296,7 +296,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 9) Tidak Mengaktifkan Fitur Eksperimental
 
 *Recommendation is Electron's default*
 
@@ -324,11 +324,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) Jangan Gunakan ` blinkFeatures </ code></h2>
 
-*Recommendation is Electron's default*
+<p><em>Recommendation is Electron's default</em></p>
 
-Blink is the name of the rendering engine behind Chromium. Sebagai properti `blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.
+<p>Blink is the name of the rendering engine behind Chromium. Sebagai properti <code>blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.</p> 
 
 ### Mengapa?
 
@@ -349,11 +349,11 @@ const mainWindow = new BrowserWindow({
 Baik const mainWindow = BrowserWindow() baru
 ```
 
-## 11) Do Not Use `allowpopups`
+## 11) Jangan Gunakan ` allowpopups </ code></h2>
 
-*Recommendation is Electron's default*
+<p><em>Recommendation is Electron's default</em></p>
 
-Jika Anda menggunakan [`WebView`](web-view), Anda mungkin perlu halaman dan script dimuat dalam tag `<webview>` untuk membuka jendela baru. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`](browser-window) menggunakan metode `window.open()`. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.
+<p>Jika Anda menggunakan <a href="web-view"><code>WebView`</a>, Anda mungkin perlu halaman dan script dimuat dalam tag `<webview>` untuk membuka jendela baru. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`](browser-window) menggunakan metode `window.open()`. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.</p> 
 
 ### Mengapa?
 
@@ -365,7 +365,7 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 <!--buruk--> <webview allowpopups src="page.html"></webview> <!--baik--> <webview src="page.html"></webview>
 ```
 
-## 12) Verify WebView Options Before Creation
+## 12) Verifikasi Pilihan WebView Sebelum Penciptaan
 
 Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. Namun, WebView akan selalu membuat proses renderer independen dengan sendiri `webPreferences`.
 
