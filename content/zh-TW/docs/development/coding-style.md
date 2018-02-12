@@ -20,7 +20,7 @@
 * Using a plain `return` when returning explicitly at the end of a function. 
   * Not `return null`, `return undefined`, `null`, or `undefined`
 
-## C++ and Python
+## C++ 和 Python
 
 編寫 C++ 及 Python 程式時，我們遵循 Chromium 的 [程式碼撰寫風格](https://www.chromium.org/developers/coding-style)。 You can use [clang-format](clang-format.md) to format the C++ code automatically. There is also a script `script/cpplint.py` to check whether all files conform.
 
@@ -44,9 +44,9 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
   * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) instead of `function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
 
-## Naming Things
+## 命名
 
-Electron APIs uses the same capitalization scheme as Node.js:
+Electron API 使用跟 Node.js 相同的大小寫規則:
 
 * When the module itself is a class like `BrowserWindow`, use `CamelCase`.
 * When the module is a set of APIs, like `globalShortcut`, use `mixedCase`.
