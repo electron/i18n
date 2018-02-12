@@ -37,18 +37,18 @@ Kemas aplikasi menggunakan [ paket elektron ](https://github.com/electron-userla
 <pre><code class="text">.
 └── dist
     └── app-linux-x64
-        ├── LICENSE
+        ├── LISENSI
         ├── LICENSES.chromium.html
         ├── content_shell.pak
-        ├── app
+        ├── aplikasi
         ├── icudtl.dat
         ├── libgcrypt.so.11
         ├── libnode.so
-        ├── locales
+        ├── lokal
         ├── natives_blob.bin
-        ├── resources
+        Sumber daya
         ├── snapshot_blob.bin
-        └── version
+        Versi └──
 `</pre> 
 
 ### Langkah 2: Menjalankan ` electron-installer-snap </ code></h3>
@@ -86,18 +86,18 @@ ringkasan: Sedikit deskripsi untuk aplikasi
 deskripsi: |
 Kamu tahu apa? Aplikasi ini luar biasa! Itu semua untuk anda. Ada yang mengatakan itu membuat Anda muda, bahkan mungkin bahagia.
 
-grade: stable
-confinement: classic
+grade: stabil
+kurungan: klasik
 
-parts:
-  slack:
+bagian:
+  kendur:
     plugin: dump
-    source: my-deb.deb
-    source-type: deb
-    after:
+    sumber: my-deb.deb
+    tipe sumber: deb
+    setelah:
 
       - desktop-gtk2
-    stage-packages:
+    paket panggung:
       - libasound2
       - libgconf2-4
       - libnotify4
@@ -107,18 +107,18 @@ parts:
       - libpulse0
       - libxss1
       - libxtst6
-  electron-launch:
+  peluncuran elektron:
     plugin: dump
-    source: files/
-    prepare: |
-      chmod +x bin/electron-launch
+    sumber: file /
+    siapkan:
+      chmod + x bin / peluncuran elektron
 
-apps:
+aplikasi:
   myApp:
-    command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
-    desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    perintah: bin / peluncuran elektron $ SNAP / usr / lib / myApp / myApp
+    desktop: usr / share / applications / myApp.desktop
+    # Perbaiki jalur TMPDIR untuk Kerangka / Elemen Kromium untuk memastikannya
+    # libappindicator memiliki sumber yang mudah dibaca.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 `</pre> 
