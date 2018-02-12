@@ -22,13 +22,13 @@ app.on('ready', () => {
 })
 ```
 
-## プラットフォームごとの通知
+## プラットフォームに関する注意事項
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+LinuxとWindowsの場合、`Command` キーは効果がないため、アクセラレータを定義するため、macOSでは `Command`、LinuxとWindowsでは `Control` を表す `CommandOrControl` を使うようにしてください。
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+`Option` の代わりに `Alt` を使うようにしてください。`Option` キーはmacOSにしか存在しませんが、`Alt` キーは全てのプラットフォームで利用可能です。
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super` キーは、WindowsとLinuxの場合、`Windows` キー、macOSの場合、`Cmd` にマッピングされます。
 
 ## 利用可能な修飾キー
 
