@@ -27,7 +27,7 @@ Electron
 |       loop ke loop pesan Chromium.
 |       └── api/ - Pelaksanaan API umum, dan yayasan
 |           Modul built-in Electron.
-├── brightray/ - Thin shim over libcc that makes it easier to use.
+├── brightray / - Thin shim over libcc yang membuatnya lebih mudah digunakan.
 ├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
 ├── default_app / - Halaman default untuk ditampilkan saat Electron dimulai tanpa
 |   menyediakan sebuah aplikasi.
@@ -49,14 +49,10 @@ Electron
 
 File di ` / chromium_src </ code> cenderung menjadi potongan Chromium yang bukan bagian dari
 lapisan konten Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel
-mirip dengan yang dilakukan Chrome resmi. We could have built the relevant
-sources as a part of <a href="../glossary.md#libchromiumcontent">libcc</a> but most
-often we don't require all the features (some tend to be proprietary,
-analytics stuff) so we just took parts of the code. These could have easily
-been patches in libcc, but at the time when these were written the goal of
-libcc was to maintain very minimal patches and chromium_src changes tend to be
-big ones. Also, note that these patches can never be upstreamed unlike other
-libcc patches we maintain now.</p>
+mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan
+sumber sebagai bagian dari <a href="../glossary.md#libchromiumcontent"> libcc </a> namun sebagian besar
+Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik,
+analytics stuff) jadi kami hanya mengambil bagian dari kode. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan kromium_src cenderung yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa diupgrade seperti yang lainnya patch libcc yang kita pertahankan sekarang.</p>
 
 <h2>Struktur Direktori Lain</h2>
 
