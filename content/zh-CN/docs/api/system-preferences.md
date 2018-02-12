@@ -37,7 +37,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+返回`Boolean`，表示系统是否处于Dark模式
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
