@@ -4,6 +4,22 @@ Estas son las pautas de estilo para la codificación en Electron.
 
 Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede ejecutar `npm run lint`.
 
+## General Code
+
+* End files with a newline.
+* Place requires in the following order: 
+  * Built in Node Modules (such as `path`)
+  * Built in Electron Modules (such as `ipc`, `app`)
+  * Local Modules (using relative paths)
+* Place class properties in the following order: 
+  * Class methods and properties (methods starting with a `@`)
+  * Instance methods and properties
+* Avoid platform-dependent code: 
+  * Use `path.join()` to concatenate filenames.
+  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+* Using a plain `return` when returning explicitly at the end of a function. 
+  * Not `return null`, `return undefined`, `null`, or `undefined`
+
 ## C++ y Python
 
 Para C++ y Python, seguimos el [estilo de código](https://www.chromium.org/developers/coding-style) de Chromium. Puede usar el formato [clang-format](clang-format.md) para el código C++ automáticamente. También hay un script `script/cpplint.py` para comprobar si todos los archivos se cumplen con los requisitos.
@@ -11,6 +27,12 @@ Para C++ y Python, seguimos el [estilo de código](https://www.chromium.org/deve
 La versión de Python que estamos utilizando actualmente es Python 2.7.
 
 El código de C ++ utiliza una gran cantidad de abstracciones y tipos de Chromium, por lo que se recomienda familiarizarse con ellos. Un buen lugar para empezar es el documento de Chromium [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures). El documento menciona algunos tipos especiales, tipos de ámbito (que liberan automáticamente su memoria cuando salen del ámbito), mecanismos de registro etc.
+
+## Documentación
+
+* Write [remark](https://github.com/remarkjs/remark) markdown style
+
+You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
 ## JavaScript
 
