@@ -169,14 +169,14 @@ Subukan na huwag mawalan ng pag-asa. Kung sa palagay mo ay hindi makatarungan an
 
 ### Ikalabin-isang hakbang: Landing
 
-In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
+Upang makarating, isang pull request ang kailangang suriin at maaprubahan ng hindi bababa sa isang May-ari ng Electron Code at pumasa sa CI. Pagkatapos nito, kung walang mga pagtutol mula sa iba pang mga taga-ambag, ang kahilingan ng pull ay maaaring pagsama.
 
-Congratulations and thanks for your contribution!
+Binabati kita at salamat sa iyong kontribusyon!
 
 ### Patuloy na Pagsubok sa Pagsasamasama
 
-Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
+Ang bawat pull request ay nasubok sa patuloy na Integrasyon (CI) na sistema kumpirmahin na gumagana ito sa mga suportadong platform ng Electron.
 
-Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
+Sa isip, ang kahilingan ng pull ay lilipas ("maging berde") sa lahat ng mga platform ng CI. Nangangahulugan ito na ang lahat ng mga pagsusulit ay pumasa at walang mga pagkakamali. Gayunpaman, ito ay hindi bihira para sa imprastraktura ng CI mismo upang mabigo sa tiyak na platform o para sa mga tinatawag na "flaky" na pagsusulit upang mabigo ("maging pula"). Ang bawat CI Ang kabiguan ay dapat manu-manong sinuri upang matukoy ang dahilan.
 
-CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+Ang CI ay awtomatikong nagsisimula kapag binuksan mo ang kahilingan ng pull, ngunit lamang [Releasers ](https://github.com/orgs/electron/teams/releasers/members) maaaring muling simulan ang isang pagpapatakbo ng CI. Kung naniniwala ka na ang CI ay nagbibigay ng maling negatibong, hilingin sa isang Releaser na muling simulan ang mga pagsubok.
