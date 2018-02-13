@@ -26,24 +26,23 @@ Ketika membuka isu di `electron/electron` pelacak isu, pengguna akan di tampilka
 
 ```markdown
 <!-- 
-Terimakasih karena telah membuka isu! A few things to keep in mind:
+Terimakasih karena telah membuka isu! Beberapa hal yang perlu di perhatikan:
 
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
+- Pelacak isu hanya untuk Bug dan fitur permintaan.
+- Sebelum melaporkan Bug, silahkan coba mereproduksi masalah anda terhadap versi terbaru dari electron.
+-Jika anda membutuhkan saran secara umum, gabung di Slack kami: http://atom-slack.herokuapp.com 
 -->
 
-* Electron version:
-* Operating system:
+*Versi Electron
+*Sistem Operasi
 
-### Expected behavior
+### Kebiasaan yang diharapkan
 
-<!-- What do you think should happen? -->
+<!--Apa menurut anda yang akan terjadi? -->
 
-### Actual behavior
+### Perilaku Aktual
 
-<!-- What actually happens? -->
+<!-- Apa yang sebenarnya terjadi? -->
 
 ### How to reproduce
 
