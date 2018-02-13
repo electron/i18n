@@ -84,21 +84,21 @@ $ npm run clean-build
 
 ## Verificación
 
-Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
+Vea [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Problemas
+## Solución de problemas
 
-### Comando xxxx no encontrado
+### Comand xxxx not found
 
-Si encuentra un error como `Comando xxxx no encontrado`, intente usar la consola `Comando rápido VS2015` para ejecutar los scripts construidos.
+Si encuentra un error como `Comand xxxx not found`, intente usar la `Consola de Comandos de VS2015` para ejecutar los scripts de compilacion.
 
-### Error de compilamienta interno falta: C1001
+### Fatal internal compiler error: C1001
 
-Asegúrese que tiene la última versión de Visual Estudio instalada.
+Asegúrese de que tiene instalada la última versión de Visual Studio.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-Si mientras se crea con Cygwin, se puede observar el fallo de `bootstrap.py` con el siguiente error:
+Mientras compila con Cygwin, puede observar que falla `bootstrap.py` con el siguiente error:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,15 +115,15 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-Esto es causado por un error usando Cygwin Python y el nodo Win32 juntos. La solución es usar el Win32 Python para ejecutar rápidamente el script (Asumiendo que ha instalado python como `C:\Python27`):
+Esto es causado por un error usando juntos Cygwin Python y Node Win32. La solución es usar Python Win32 para ejecutar el script bootstrap (Asumiendo que ha instalado python en `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: No se puede abrir el archivo de entrada 'kernel32.lib'
+### LNK1181: cannot open input file 'kernel32.lib'
 
-Intente reinstalar 32bit Node.js.
+Intente reinstalar Node.js 32bit.
 
 ### Error: ENOENT, estatus 'C:\Users\USERNAME\AppData\Roaming\npm'
 
