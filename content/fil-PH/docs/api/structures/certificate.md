@@ -1,7 +1,7 @@
 # Layunin ng Sertipiko
 
-* `data` na String - Naka-encode nadatos ng PEM
-* `issuer`[CertificatePrincipal](certificate-principal.md) - Prinsipal na Issuer
+* `data` na String - Naka-encode na datos ng PEM
+* `issuer`[CertificatePrincipal](certificate-principal.md) - Prinsipal na tagaisyu
 * `issuerName` na String - Karaniwang Pangalan ng Issuer
 * `issuerCert` Sertipiko - sertipiko ng Issuer (kung hindi sariling lagda)
 * `subject`[CertificatePrincipal](certificate-principal.md) - Prinsipal na paksa
