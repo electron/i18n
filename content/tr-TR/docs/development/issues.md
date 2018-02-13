@@ -50,13 +50,13 @@ Bir sorunu açtığınız için teşekkür ederiz! Akılda tutulması gereken bi
 
 Bu hatayı hızlı bir şekilde gözden geçirmek için en doğru yöntem, klonlanıp çalıştırılabilecek bir REPOSITORY sağlamaktır.
 
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
+Https://github.com/electron/electron-quick-start'u forklayabilir ve değişliklerinizle şubeye bir bağlantı ekleyebilirsiniz.
 
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
+Bir URL girerseniz, lütfen repo örneğinizi kopyalamak / ayarlamak / çalıştırmak için gerekli komutları listeleyin. Örneğin,
 
   $ git clone $YOUR_URL -b $BRANCH
   $ npm install
-  $ npm start || electron .
+  $ npm start || electron.
 
 -->
 ```
