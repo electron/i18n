@@ -9,11 +9,11 @@ Siga las indicaciones a continuación para construir Electron en Windows.
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Herramientas de depuración para Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) Si planea crear una distribución completa considerando que `symstore.exe` es usado para la creación de la biblioteca de símbolos para lo archivos `.pdb`.
+* [Herramientas de depuración para Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) Si piensa crear una distribución completa ya que `symstore.exe` es usado para la creación de biblioteca de símbolos basadas en archivos `.pdb`.
 
-Si no tiene una instalación de Windows actualmente, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
+Si actualmente no tiene una instalación de Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
 
-Electron se construye casi completamente con script de comandos de linea y no puede ser hecho con Visual Studio. Puede desarrollar Electron con cualquier editor pero el soporte para la construcción con Visual Studio vendrá en el futuro.
+Electron se construye casi completamente con script de comandos de linea y no puede ser generado con Visual Studio. Puede desarrollar Electron con cualquier editor pero el soporte para construir con Visual Studio vendrá en el futuro.
 
 **Nota:** A pesar de que Visual Studio no es usado para la construcción, todavía se **requiere** debido a que necesitamos la cadena de herramientas que este provee para construir.
 
