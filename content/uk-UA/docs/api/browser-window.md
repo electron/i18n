@@ -451,9 +451,9 @@ win.on('app-command', (e, cmd) => {
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Додає розширення для розробника, яке знаходиться в `path` і повертає його ім'я.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Розширення буде запам'ятоване, тому ви можете викликати це API тільки один раз, це API не для програмного використання. Якщо ви спробуєте додати розширення, яке вже було завантажене, цей метод не виконається і залогує попередження в консоль.
 
 Метод не поверне нічого, якщо маніфест розширення втрачено чи незавершено.
 
@@ -463,7 +463,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 * `name` String
 
-Remove a DevTools extension by name.
+Видалити розширення для розробника по імені.
 
 **Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
@@ -484,7 +484,7 @@ console.log(installed)
 
 ### Властивості Екземпляра
 
-Objects created with `new BrowserWindow` have the following properties:
+Об'єкт створений за допомогою `new BrowserWindow` має наступні властивості:
 
 ```javascript
 const {BrowserWindow} = require('electron')
