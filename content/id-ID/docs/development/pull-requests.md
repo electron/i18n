@@ -53,47 +53,47 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Langkah 4: Kode
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+Kebanyakan Pull request dibuka berlawanan dengan `electron/electron` repositori termasuk perubahan ke C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, tempat dokumentasi berada `docs/api/` atau tes di `spec/` folder.
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+Mohon pastikan untuk menjalankan `npm run lint` dari waktu ke waktu di setiap perubahan kode Untuk memastikan bahwa mereka mengikuti style kode projek.
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+Lihat [coding style](https://electronjs.org/docs/development/coding-style) untuk informasi lebih lanjut mengenai latihan yang baik ketika memedofikasi kode dalam beberapa bagian projek.
 
-### Step 5: Commit
+### Langkah 5: Mempercayakan
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+Hal ini direkomendasikan untuk membuat perubahan pada pengelompokkan secara logika dalam individu mempercayakan. Banyak kontributor menemukan cara yang lebih mudah untuk mereview perubahan yang terpisah di antara beberapa commit. Tidak ada batasan jumlah commit di dalam Pull request.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+Perhatikan bahwa commit yang bebeapa kali sering terjepit ketika commit tersebut di masukkan.
 
-#### Commit message guidelines
+#### Panduan pesan Commit
 
-A good commit message should describe what changed and why.
+Sebuah pesan commit yang bagus harus menjelaskan perubahan apa dan mengapa.
 
-1. The first line should:
+1. Baris pertama harus:
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * mengandung deskripsi yang singkat tentang perubahan ( Disarankan 50 karakter atau kurang dan tidak lebih dari 72 karakter)
+  * masukkan semuanya dengan huruf kecil dengan pengecualian kata benda, akronim dan kata yang berhubungan dengan kode, seperti fungsi/ nama variabel
     
     Contoh:
   
-  * `updated osx build documentation for new sdk`
+  * `osx membangun dokumentasi untuk sdk baru diperbaharui`
   
-  * `fixed typos in atom_api_menu.h`
+  * `memperbaiki kesalahan penulisan di atom_api_menu.h`
 
-2. Keep the second line blank.
+2. Biarkan baris kedua kosong.
 
-3. Wrap all other lines at 72 columns.
+3. Jadikan semua baris pada 72 kolom.
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+Lihat [Artikel ini](https://chris.beams.io/posts/git-commit/) untuk contoh lainnya mengenai bagaimana cara membuat pesan git commit yang bagus.
 
-### Step 6: Rebase
+### Langkah 6: Rebase
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+Setelah anda commit perubahan anda, merupakan ide yang bagus untuk menggunakan `gitrebase` (bukan `git merge`) untuk mensikronkan pekerjaan anda dengan repositori utama.
 
 ```sh
 $ git fetch upstream
@@ -102,9 +102,9 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### Langkah 7: Tes
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Perbaikan Bug dan fitur harus selalu di awali dengan tes. Sebuah [pedoman testing](https://electronjs.org/docs/development/testing) telah disediakan untuk membuat proses lebih mudah. Looking at other tests to see how they should be structured can also help.
 
 Before submitting your changes in a pull request, always run the full test suite. To run the tests:
 
