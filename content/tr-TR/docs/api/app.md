@@ -828,9 +828,9 @@ const exeName = path.basename(process.execPath)
   
   `Boolean` Taşınmanın başarılı olup olmadığın geri bildirimini sağlar. Eylem başarılı olursa, uygulamanızdan çıkıp yeniden başlatacağını lütfen unutmayın.
   
-  No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+  Kullanıcının [`dialog`](dialog.md) API kullanarak yapmış olduğunuz işlemi onaylamasını istiyorsanız, onay kutusu varsayılan olarak gösterilmeyecektir.
   
-  **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+  **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
   
   ### `app.dock.bounce([type])` *macOS*
   
