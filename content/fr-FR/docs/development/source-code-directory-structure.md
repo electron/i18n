@@ -27,8 +27,8 @@ Electron
 |       message de Node dans la boucle de message de Chromium.
 |       └── api/ - L'implementation d'API communes, et les fondations
 |           des modules intégrés d'Electron.
-├── brightray/ - Thin shim over libcc that makes it easier to use.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── brightray/ - Shim mince au-dessus de la libcc qui facilite son utilisation.
+├── chromium_src/ - Code Source copié depuis Chromium. Voir plus bas.
 ├── default_app/ - La page par default a montrer quand Electron a démarré sans
 |   fournir une application.
 ├── docs/ - Documentations.
@@ -47,7 +47,7 @@ Electron
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+Les fichiers dans `/chromium_src` ont tendance à être des morceaux de Chromium qui ne font pas partie de la couche de contenu. Par exemple, pour implémenter l'API Pepper, nous avons besoin d'un câblage similaire à ce que fait Chrome. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Structure d'autres Dossiers
 
