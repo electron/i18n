@@ -2,7 +2,7 @@
 
 ## Diskusi
 
-Salah satu masalah upgrade adalah membangun semua Elektron dengan satu salinan dari V8 untuk memastikan kompatibilitas. Hal ini penting karena hulu Node dan [libchromiumcontent](upgrading-chromium.md) keduanya menggunakan versi V8 mereka sendiri.
+One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. Hal ini penting karena hulu Node dan [libchromiumcontent](upgrading-chromium.md) keduanya menggunakan versi V8 mereka sendiri.
 
 Upgrade Node jauh lebih mudah daripada meng-upgrade libchromiumcontent, jadi lebih sedikit konflik muncul jika seseorang mengupgrade konten libchromium terlebih dahulu, kemudian memilih rilis Node hulu yang V8 terdekat dengannya.
 
