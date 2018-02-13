@@ -1,4 +1,4 @@
-# Pull Requests
+# Paghatak ng Request
 
 * [Dependencies](#dependencies)
 * [Setting up your local environment](#setting-up-your-local-environment) 
