@@ -73,8 +73,8 @@ Açık kaynak kodlarında tartışmalar sıklıkla görülür. Bazı katılımc�
 
 Ne çok kısa açıklamalar ne de çok fazla ayrıntı pek işe yaramaz ve profesyonelce olmaz. Çoğu kimseye bu tür tutumu sinir bozucu ve düşmanca bulur.
 
-Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirlerine ilerleme konusunda yardım etmeleri önerilir. Geçersiz olduğunuzu düşündüğünüz veya hatalı bir bilgi içeren bir sorunla karşılaşırsanız, destek kısımında bunun neden bu şekilde olduğunuzu açıklayın ve yanlış olabileceğinden emin olmaya istekli olun. By doing so, we can often reach the correct outcome faster.
+Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirlerine ilerleme konusunda yardım etmeleri önerilir. Geçersiz olduğunu düşündüğünüz veya hatalı bilgi içeren bir sorunla karşılaşırsanız, ek destek bölümünde *neden<0> böyle düşündüğünüz açıklayın ve yanlış olabileceğinizi kabullenmeyi de göz önünde bulundurun. Bunu yaparak, çoğunlukla doğru sonuca daha hızlı ulaşabiliriz.</p> 
 
 ## Bir hata raporu çözümlendir
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Çoğu sorun bir çekme isteği açarak çözülür. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
