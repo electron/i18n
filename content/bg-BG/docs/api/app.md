@@ -235,22 +235,22 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Излъчено, когато е поискан клиентски сертификат.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url` съответства на използваната навигация, която изисква клиентския сертификат, а `callback` може да бъде извикан със стойност, филтрирана от списъка. Използването на `event.preventDefault()` предотвратява използването на първия запазен сертификат от приложението.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
-  event.preventDefault()
-  callback(list[0])
+   event.preventDefault()
+   callback(list[0])
 })
 ```
 
-### Event: 'login'
+### Събитие: 'login'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
@@ -266,27 +266,27 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Излъчено, когато `webContents` иска да направи базово удостоверяване.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Поведението по подразбиране е да отмените всички удостоверявания, за да промените това трябва да предотвратите поведението по подразбиране с `event.preventDefault()` и извикване на `callback(username, password)` с идентификационните данни.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
-  event.preventDefault()
-  callback('username', 'secret')
+   event.preventDefault()
+   callback('username', 'secret')
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Събитие: 'gpu-process-crashed'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Излъчено, когато GPU процес е спрян или убит.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
