@@ -26,9 +26,9 @@ Kapag nagbukas kanang bagong isyu sa `elektron/elektron` isyu tracker, mga gumag
 
 ```markdown
 &It;!--
-Salamat sa pagbukas nang isyu! A few things to keep in mind:
+Salamat sa pagbukas nang isyu! Ilang bagay na dapat tandaan:
 
-- The issue tracker is only for bugs and feature requests.
+- Ang isyu tracker ay para sa bugs at tampok na hiling.
 - Before reporting a bug, please try reproducing your issue against
   the latest version of Electron.
 - If you need general advice, join our Slack: http://atom-slack.herokuapp.com
