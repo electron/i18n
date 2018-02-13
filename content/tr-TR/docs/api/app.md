@@ -1,10 +1,10 @@
-# Uygulama
+# uygulama
 
-> Uygulamanızın etkinlik ömrünü kontrol edin.
+> Uygulamanızın olay yaşam döngüsünü kontrol edin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-Aşağıdaki örnek, son pencere kapatıldığı zaman uygulamadan nasıl çıkılacağını göstermektedir:
+Aşağıdaki örnek, son pencere kapatıldığında uygulamadan nasıl çıkılacağını göstermektedir:
 
 ```javascript
 const {app} = require('electron')
