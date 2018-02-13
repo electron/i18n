@@ -149,17 +149,17 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 Marahil ay makakakuha ka ng feedback o mga kahilingan para sa mga pagbabago sa iyong pull request. Ito ay isang malaking bahagi ng proseso ng pagsumite kaya huwag masiraan ng loob! Ang ilang mga kontribyutor ay maaaring mag-sign off sa pull request kaagad. Ang iba ay maaaring magkaroon ng detalyadong mga komento o puna. Ito ay isang mahalagang bahagi ng proseso upang suriin kung ang mga pagbabago ay tama at kinakailangan.
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+Upang gumawa ng mga pagbabago sa isang umiiral na pull request, gawin ang mga pagbabago sa iyong lokal na sangay, magdagdag ng bagong gumawa sa mga pagbabagong iyon, at itulak ang mga ito sa iyong fork. Awtomatikong i-update ng GitHub ang pull request.
 
 ```sh
-$ git add my/changed/files
+$ git idagdag ang akin /nabago/mga file
 $ git commit
 $ git push origin my-branch
 ```
 
-There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
+Mayroong isang bilang ng mga mas advanced na mekanismo para sa pamamahala ng gumawa ng paggamit `git rebase` na maaaring magamit, ngunit hindi lampas sa saklaw ng patnubay na ito.
 
-Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
+Huwag mag-post ng komento sa kahilingan ng pull upang i-ping ang mga reviewer kung ikaw ay naghihintay ng isang sagot sa isang bagay. Kung nakatagpo ka ng mga salita o mga acronym na tila hindi pamilyar, sumangguni sa [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
 #### Pag-apruba at Kahilingan sa Pagbabago ng Workflow
 
