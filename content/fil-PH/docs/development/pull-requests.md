@@ -1,6 +1,6 @@
 # Pull Requests
 
-* [Dependencies](#dependencies)
+* [Mga Dependency](#dependencies)
 * [Setting up your local environment](#setting-up-your-local-environment) 
   * [Unang hakbang: Fork](#step-1-fork)
   * [Ikalawang hakbang: Bumuo](#step-2-build)
