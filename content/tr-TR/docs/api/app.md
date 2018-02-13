@@ -130,13 +130,13 @@ Dönüşler:
 
 [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında farklı bir cihazdaki bir etkinliğin başarısız olması durumunda ortaya çıkıyor.
 
-### Event: 'activity-was-continued' *macOS*
+### Etkinlk: 'activity-was-continued' *macOS*
 
 Dönüşler:
 
 * `event` Event
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
 
@@ -146,7 +146,7 @@ Dönüşler:
 
 * `event` Event
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
