@@ -95,7 +95,7 @@ Les objets créés avec `new Notification` ont les méthodes d'instance suivante
 
 Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela signifie, contrairement à l'implémentation des Notifications HTML5, que simplement instancier un `new Notification` ne va pas afficher immédiatement la notification à l'utilisateur. Pour que l'OS l'affiche à l'écran, vous devez appeler cette méthode.
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+Si la notification a déjà été affichée auparavant, cette méthode rejettera la notification précédemment affichée et en créera une nouvelle avec des propriétés identiques.
 
 #### `notification.close()`
 
