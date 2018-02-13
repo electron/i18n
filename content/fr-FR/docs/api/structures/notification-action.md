@@ -5,9 +5,9 @@
 
 ## Support Plateforme / Action
 
-| Type d'action | Support Plateforme | Usage du `text`               | `text` par défaut | Limitations                                                                                                                                                          |
-| ------------- | ------------------ | ----------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`      | macOS              | Utilisé comme label du bouton | "Show"            | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Type d'action | Support Plateforme | Usage du `text`               | `text` par défaut | Limitations                                                                                                                                                                                         |
+| ------------- | ------------------ | ----------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`      | macOS              | Utilisé comme label du bouton | "Show"            | Un bouton maximum, si plusieurs boutons sont fournis, uniquement le dernier sera utilisé. Cette action est également incompatible avec `hasReply` et sera ignorée si `hasReply` a la valeur `true`. |
 
 ### Support des boutons sur macOS
 
