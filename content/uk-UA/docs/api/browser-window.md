@@ -555,43 +555,43 @@ win.loadURL('https://github.com')
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Розгортає вікно. Це також покаже (але не надасть фокус) вікно, якщо воно ще не відображається.
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Виводить вікно з максимізованого режиму.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Повертає `Boolean` - Чи вікно знаходить в максимізованому режимі.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Згортає вікно. На деяких платформах згорнуте вікно буде показане на панелі задач.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Відновлює згорнуті вікна до попереднього стану.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Повертає `Boolean` - Чи вікно згорнуте.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Встановлює чи вікно повинне бути в повноекранному режимі.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Повертає `Boolean` - Чи вікно в повноекранному режимі.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Входить в чи виходить з простого повноекранного режиму.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
