@@ -105,4 +105,4 @@ W przypadku wolnego połączenia z internetem, zalecane jest użycie flagi `--ve
 npm install --verbose electron
 ```
 
-W przypadku, gdy musisz wymusić ponowne pobranie sumy kontrolnej oraz danych, ustaw zmienną środowiskową `force_no_cache` na wartość `true`.
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
