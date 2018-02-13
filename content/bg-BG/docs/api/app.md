@@ -156,22 +156,22 @@ app.on('window-all-closed', () => {
 
 * `event` Събитие
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+Излъчено, когато потребителя натисне върху роден бутон за нов таб на macOS. Бутонът за нов таб е видим ако сегашния `BrowserWindow` има `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Събитие: 'browser-window-blur'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+Излъчено, когато [browserWindow](browser-window.md) стане замъглен - вече не е на фокус.
 
-### Event: 'browser-window-focus'
+### Събитие: 'browser-window-focus'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `window` [BrowserWindow](browser-window.md)
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
