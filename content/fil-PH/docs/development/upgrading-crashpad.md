@@ -3,7 +3,7 @@
 1. Kuning ang bersyon ng crashpad na gagamitin namin.
     
     - `libcc/src/third_party/crashpad/README.chromium` magkakaroon ng linya `Rebisyon:` na may checksum
-    - Kailangan nating tingnan ang kaukulang sangay.
+    - We need to check out the corresponding branch.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
     - Tingnan ang sangay na may rebisyon na may checksum: 
