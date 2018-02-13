@@ -67,7 +67,7 @@ Le processus main récupère cela en écoutant les `channel` avec le module `ipc
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`
+Envoi un message à une fenêtre avec `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
