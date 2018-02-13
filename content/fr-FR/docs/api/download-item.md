@@ -96,7 +96,7 @@ Reprend le téléchargement qui a été mis en pause.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Retourne `Boolean` - Si le téléchargement peut être repris.
 
 #### `downloadItem.cancel()`
 
