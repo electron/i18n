@@ -14,19 +14,19 @@ Untuk masalah apapun, pada dasarnya ada tiga cara seorang individu dapat berkont
 
 1. Dengan membuka diskusi untuk permasalahan: Jika anda yakin anda telah menemukan bug baru di elektron, anda harus melaporkannya dengan cara membuat isu baru di `electron/electron` pelacak masalah/isu.
 2. Dengan membantu menyelesaikan masalah: Anda dapat melakukan dengan salah satu cara ini yaitu menyediakan rincian bantu ( Sebuah tes yang menguji guna membuktikan adanya Bug) atau dengan cara menyediakan saran ke ajukan permasalahan.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+3. Dengan membantu menyelesaikan masalah: Hal tersebut bisa dilakukan dengan cara mendemontrasikan masalah tersebut bukan sebuah Bug atau sudah diperbaiki; namun lebih sering lagi, dengan membuka pull request yang mengganti sumber di `electron/electron` dengan cara yang konkret dan mudah ditinjau.
 
 ## Pertanyaan Umum
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
+Karena tingkat aktivitas di `electron/electron` repositori sangat tinggi, pertanyaan dan permintaan untuk bantuan umum menggunakan elektron harus langsung menghubungi [saluran komunitas yang lenggang](https://atomio.slack.com) atau [forum](https://discuss.atom.io/c/electron).
 
 ## Mengirimkan Laporan Bug
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+Ketika membuka isu di `electron/electron` pelacak isu, pengguna akan di tampilkan dengan templete yang harus di isi.
 
 ```markdown
-<!--
-Thanks for opening an issue! A few things to keep in mind:
+<!-- 
+Terimakasih karena telah membuka isu! A few things to keep in mind:
 
 - The issue tracker is only for bugs and feature requests.
 - Before reporting a bug, please try reproducing your issue against
