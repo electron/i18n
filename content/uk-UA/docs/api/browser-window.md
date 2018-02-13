@@ -593,11 +593,11 @@ win.loadURL('https://github.com')
 
 Входить в чи виходить з простого повноекранного режиму.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Простий повноекранний режим емулює нативну поведінку повноекранного режиму до версії Mac OS X Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Повертає `Boolean` - Чи вікно в простому повноекранному режимі.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
