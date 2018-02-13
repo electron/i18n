@@ -53,11 +53,11 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Ikaapat na hakbang: Code
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+Karamihan sa mga hinatak na kahilingan ay binubuksan laban sa `electron/electron` na sisidlan ay kasama ang mga pagbabago sa alinman sa C/C ++ code sa `atom /` o `brightray/` mga folder, ang JavaScript code sa folder na `lib/`, ang dokumentasyon sa `docs/api/` o pagsusulit sa folder na `spec/`.
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+Siguraduhing magpatakbo ng `npm run lint` mula sa oras-oras sa anumang mga pagbabago sa code upang matiyak na sinusunod nila ang estilo ng code ng proyekto.
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+Tingnan ang [coding style](https://electronjs.org/docs/development/coding-style) para sa higit pang impormasyon tungkol sa pinakamahusay na kasanayan kapag binabago ang code sa iba't ibang bahagi ng mga proyekto.
 
 ### Ikalimang hakbang: Magtapat
 
