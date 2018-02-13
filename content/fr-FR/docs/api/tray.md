@@ -162,7 +162,7 @@ Le module `Tray` émet les événements suivants :
 
 Émis lorsque la souris sort de la zone de l’icône.
 
-#### Event: 'mouse-move' *macOS*
+#### Événement : 'mouse-move' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
@@ -171,7 +171,7 @@ Le module `Tray` émet les événements suivants :
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - la position de l’événement
 
-Emitted when the mouse moves in the tray icon.
+Émis lorsque la souris bouge dans la zone de l’icône.
 
 ### Méthodes d’instance
 
