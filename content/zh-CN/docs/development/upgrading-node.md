@@ -2,7 +2,7 @@
 
 ## 讨论
 
-一个升级的问题是建设所有的电子与单一副本的 V8, 以确保兼容性。 这一点很重要, 因为上游节点和 [ libchromiumcontent ](upgrading-chromium.md) 都使用自己的 V8 版本。
+One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. 这一点很重要, 因为上游节点和 [ libchromiumcontent ](upgrading-chromium.md) 都使用自己的 V8 版本。
 
 升级节点比升级 libchromiumcontent 容易得多, 因此, 如果首先升级 libchromiumcontent, 然后选择最接近它的 V8 的上游节点版本, 就会发生较少的冲突。
 
