@@ -780,11 +780,11 @@ const exeName = path.basename(process.execPath)
   
   ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
   
-  * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+  * Mantıksal `enabled` [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) görüntülemeyi etkinleştirir veya devre dışı bırakır
   
-  Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+  Manuel olarak Chrome'un erişilebilirlik desteğini etkinleştirir, erişilebilirlik anahtarını uygulama ayarlarındaki kullanıcılara göstermesine izin verir. daha fazla bilgi için https://www.chromium.org/developers/design-documents/accessibility. Varsayılan: Devre dışı.
   
-  **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+  **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
   
   ### `app.setAboutPanelOptions(ayarlar)` *macOS*
   
