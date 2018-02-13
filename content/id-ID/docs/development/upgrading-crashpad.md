@@ -3,7 +3,7 @@
 1. Dapatkan versi crashpad yang akan kita gunakan.
     
     - `libcc/src/third_party/crashpad/README.chromium` akan memiliki garis `Revisi:` dengan checksum
-    - Kita perlu memeriksa cabang yang sesuai.
+    - We need to check out the corresponding branch.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
     - `git klon https://chromium.googlesource.com/crashpad/crashpad`
     - Periksa cabang dengan checksum revisi: 
