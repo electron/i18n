@@ -61,22 +61,22 @@ Tingnan ang [coding style](https://electronjs.org/docs/development/coding-style)
 
 ### Ikalimang hakbang: Magtapat
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+Inirerekomenda na panatilihing lohikal ang iyong mga pagbabago sa loob ng indibidwal na gumawa. Maraming taga-ambag na mas madaling suriin ang mga pagbabago na nahati sa maraming mga gumagawa. Walang limitasyon sa bilang ng mga gumagawa sa isang hinahatak na kahilingan.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+Tandaan na ang maramihang mga gumagawa ay madalas na na-nasquashed kapag sila ay nakarating.
 
 #### Magsagawa ng mga alituntunin ng mensahe
 
-A good commit message should describe what changed and why.
+Ang isang mabuting mensahe ng gumawa ay dapat maglarawan kung ano ang nagbago at kung bakit.
 
-1. The first line should:
+1. Ang unang linya ay dapat na:
   
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+  * naglalaman ng isang maikling paglalarawan ng pagbabago (mas mabuti na 50 karakter o mas mababa, at hindi hihigit sa 72 na karakter)
   * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
     
     Mga Halimbawa:
