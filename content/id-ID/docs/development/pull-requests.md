@@ -1,7 +1,7 @@
-# Pull Requests
+# Ajukan Permintaan
 
-* [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
+* [Ketergantungan](#dependencies)
+* [Atur ulang lingkungan lokal anda](#setting-up-your-local-environment) 
   * [Step 1: Fork](#step-1-fork)
   * [Step 2: Build](#step-2-build)
   * [Step 3: Branch](#step-3-branch)
@@ -18,7 +18,7 @@
   * [Step 11: Landing](#step-10-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
-## Setting up your local environment
+## Atur ulang lingkungan lokal anda
 
 ### Step 1: Fork
 
