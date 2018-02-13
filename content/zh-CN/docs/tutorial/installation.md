@@ -105,5 +105,4 @@ sudo npm install electron --unsafe-perm=true
 npm install --verbose electron
 ```
 
-如果需要强制重新下载文件, 并且 SHASUM 文件将 ` force_no_cache ` 环境变量设置为 ` true `。  
-(译者追加: 国内可使用淘宝镜像或者cnpm安装)
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
