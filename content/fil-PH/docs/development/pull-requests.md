@@ -112,19 +112,19 @@ Bago isumite ang iyong mga pagbabago sa kahilingan ng pull, laging patakbuhin an
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Tiyaking ang linter ay hindi nag-uulat ng anumang mga isyu at ang lahat ng mga pagsusulit ay pumasa. Mangyaring huwag magsumite ng mga patch na nabigo sa alinman na mga check.
 
-If you are updating tests and just want to run a single spec to check it:
+Kung nag-a-update ka ng mga pagsusulit at gusto mong magpatakbo ng isang pagsasapalaran upang suriin ito:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+Ang mga nasa itaas ay tatakbo lamang sa pagsasapalaran na tumutugma sa ` menu `, na kapaki-pakinabang para sa sinuman na nagtatrabaho sa mga pagsubok na kung hindi man ay sa dulo ng ang ikot ng pagsubok.
 
 ### Ikawalong hakbang: Itulak
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Kapag ang iyong mga gawa ay handa na upang pumunta - sa paglipas ng mga pagsubok at linting - simulan ang proseso ng pagbubukas ng paghiling ng pull sa pamamagitan ng pagtulak sa iyong working branch sa iyong tinidor sa GitHub.
 
 ```sh
 $ git push origin my-branch
@@ -132,11 +132,11 @@ $ git push origin my-branch
 
 ### Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+Mula sa loob ng GitHub, ang pagbubukas ng isang bagong kahilingan sa pull request ay magpapakita sa iyo ng isang template na dapat mapunan:
 
 ```markdown
 <!--
-Thank you for your pull request. Please provide a description above and review
+Salamat sa iyong kahilingan sa pull. Please provide a description above and review
 the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
