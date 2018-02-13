@@ -105,4 +105,4 @@ Em redes mais lentas, pode ser aconselhável usar opção `--verbose` para exibi
 npm install --verbose electron
 ```
 
-Se você precisar forçar um novo download do recurso e do arquivo SHANSUM, defina a variável de ambiente `force_no_cache` com o valor `true`.
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
