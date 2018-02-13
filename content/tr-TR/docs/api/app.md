@@ -148,22 +148,22 @@ Dönütler:
 * xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
 
-[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. Transfer edilecek durumu güncellemeniz gerekiyorsa hemen `event.preventDefault()` girişi yapmanız, yeni bir `userInfo` sözlüğü oluşturmanız ve `app.updateCurrentActiviy()` zamanında aramanız gerekir. Otherwise the operation will fail and `continue-activity-error` will be called.
+[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. Transfer edilecek durumu güncellemeniz gerekiyorsa hemen `event.preventDefault()` girişi yapmanız, yeni bir `userInfo` sözlüğü oluşturmanız ve `app.updateCurrentActiviy()` zamanında aramanız gerekir. Aksi halde işlem başarısız olur ve `continue-activity-error` çağrılır.
 
-### Olay: 'new-window-for-tab' *macOS*
+### Etkinlik: 'new-window-for-tab' *macOS*
 
-Dönüşler:
+Dönütler:
 
-* `event` Olay
+* `event` Etkinlik
 
-Kullanıcı yerel macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin bir `tabbingIdentifier`'ı varsa görünür olur
+Yerel kullanıcı macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin `tabbingIdentifier` olması durumunda görünür
 
 ### Olay: 'browser-window-blur'
 
 Dönüşler:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `browserView` [BrowserView](browser-window.md)
 
 Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
@@ -172,7 +172,7 @@ Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 Dönüşler:
 
 * `event` Olay
-* `window` [BrowserWindow](browser-window.md)
+* `browserView` [BrowserView](browser-window.md)
 
 Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 
@@ -181,7 +181,7 @@ Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 Dönüşler:
 
 * `event` Olay
-* `window` [BrowserWindow](browser-window.md)
+* `browserView` [BrowserView](browser-window.md)
 
 Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
@@ -383,7 +383,7 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 * `Müzik`Bir kullanıcının "Müziklerim" dizini.
 * `pictures` Bir kullanıcının "Resimlerim" dizini.
 * `videos` Bir kullanıcının "Videolarım" dizini.
-* `logs` Directory for your app's log folder.
+* Uygulamanızın günlük klasörü için `logs` dizini.
 * `pepperFlashSystemPlugin` Pepper Flash eklentisinin sistemdeki versiyonuna giden dosya yolu.
 
 ### `app.getFileIcon(path[, options], callback)`
