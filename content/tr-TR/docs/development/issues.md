@@ -26,11 +26,10 @@ Herhangi bir sorun için temelde bireyin katkı sağlayabileceği üç yöntem v
     
     ```markdown
 & Lt;! -
-Bir sorunu açtığınız için teşekkür ederiz! A few things to keep in mind:
+Bir sorunu açtığınız için teşekkür ederiz! Akılda tutulması gereken birkaç şey: 
 
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
+- Sorun izleyici yalnızca hatalar ve özellik istekleri içindir.
+- Bir hata bildirmeden önce lütfen Electron'un en son sürümünde sorununuzu tekrar deneyin.
 - If you need general advice, join our Slack: http://atom-slack.herokuapp.com
 -->
 
