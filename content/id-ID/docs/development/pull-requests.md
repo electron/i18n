@@ -31,27 +31,27 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### Langkah 2: Membangun
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+Mulai dengan langkah dan dependensi sedikit berbeda tergantung pada sistem operasi Anda. Lihat detail panduan lebih rinci di Building Electron Locally:
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Membuat di MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Membuat di Linux](https://electronjs.org/docs/development/build-instructions-linux)
+* [Membuat di Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Setelah anda membuat projek secara lokal, anda telah siap untuk membuat perubahan!
 
-### Step 3: Branch
+### Langkah 3: Cabang
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+Untuk membuat lingkungan anda tetap terorganisir, buat cabang lokal untuk membantu pekerjaan anda. Ini seharusnya menjadi cabang yang langsung ke `master` cabang.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## Membuat Perubahan
 
-### Step 4: Code
+### Langkah 4: Kode
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` or `brightray/` folders, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
