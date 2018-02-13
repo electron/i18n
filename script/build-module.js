@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+require('make-promises-safe')
 require('require-yaml')
 
 const walk = require('walk-sync')
@@ -11,6 +12,7 @@ const locales = require('../lib/locales')
 const hrefType = require('href-type')
 const URL = require('url')
 const packageJSON = require('../package.json')
+const GithubSlugger = require('github-slugger')
 const getIds = require('get-crowdin-file-ids')
 
 const contentDir = path.join(__dirname, '../content')
@@ -35,7 +37,7 @@ async function parseDocs () {
 
   console.time('parsed docs in')
   const markdownFiles = walk.entries(contentDir)
-    .filter(file => file.relativePath.endsWith('.md'))
+    .filter(file => file.relativePath.endsWith('.md') && !file.relativePath.includes('README'))
   console.log(`processing ${markdownFiles.length} files in ${Object.keys(locales).length} locales`)
   let docs = await Promise.all(markdownFiles.map(parseFile))
 
@@ -79,57 +81,57 @@ async function parseFile (file) {
 
   // parse markdown to HTML
   file.markdown = fs.readFileSync(file.fullPath, 'utf8')
-  const parsed = await hubdown(file.markdown)
 
-  // derive props from the HTML
-  const $ = cheerio.load(parsed.content || '')
-  file.title = $('h1').first().text().trim() ||
-    $('h2').first().text().replace('Class: ', '')
-  file.description = $('blockquote').first().text().trim()
+  file.sections = await Promise.all(
+    splitMd(file.markdown).map(async (section) => {
+      const parsed = await hubdown(section.body)
+      const $ = cheerio.load(parsed.content || '')
+      file.title = file.title ||
+                  $('h1').first().text().trim() ||
+                  $('h2').first().text().replace('Class: ', '')
+      file.description = file.description ||
+                        $('blockquote').first().text().trim()
 
-  const dirname = path.dirname(file.href)
+      // fix HREF for relative links
+      $('a').each((i, el) => {
+        const href = $(el).attr('href')
+        const type = hrefType(href)
+        if (type !== 'relative' && type !== 'rooted') return
+        const dirname = path.dirname(file.href)
+        const newHref = convertToUrlSlash(
+          path.resolve(dirname, href.replace(/\.md/, ''))
+        )
+        $(el).attr('href', newHref)
+      })
 
-  // fix HREF for relative links
-  $('a').each((i, el) => {
-    const href = $(el).attr('href')
-    const type = hrefType(href)
+      // fix SRC for relative images
+      $('img').each((i, el) => {
+        const baseUrl = 'https://cdn.rawgit.com/electron/electron'
+        const dirname = path.dirname(file.href)
+        let src = $(el).attr('src')
+        const type = hrefType(src)
+        if (type !== 'relative' && type !== 'rooted') return
 
-    if (type !== 'relative' && type !== 'rooted') return
+        // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
+        src = convertToUrlSlash(path.resolve(dirname, src))
 
-    const newHref = convertToUrlSlash(
-                      path.resolve(dirname, href.replace(/\.md/, ''))
-                    )
+        const newSrc = file.isApiDoc
+          ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
+          : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
 
-    $(el).attr('href', newHref)
-  })
+        const parsed = URL.parse(newSrc)
+        parsed.path = path.normalize(parsed.path)
 
-  // fix SRC for relative images
-  $('img').each((i, el) => {
-    const baseUrl = 'https://cdn.rawgit.com/electron/electron'
-    let src = $(el).attr('src')
-    const type = hrefType(src)
+        $(el).attr('src', URL.format(parsed))
+      })
 
-    if (type !== 'relative' && type !== 'rooted') return
+      // return $('body').html()
+      section.html = $('body').html()
 
-    // turn `../images/foo/bar.png` into `/docs/images/foo/bar.png`
+      return section
+    }))
 
-    src = convertToUrlSlash(
-            path.resolve(dirname, src)
-          )
-
-    let newSrc = file.isApiDoc
-      ? [baseUrl, packageJSON.electronLatestStableTag, src].join('/')
-      : [baseUrl, packageJSON.electronMasterBranchCommit, src].join('/')
-
-    newSrc = newSrc.replace(/[^:](\/\/)/g, '/')
-
-    const parsed = URL.parse(newSrc)
-    parsed.path = path.normalize(parsed.path)
-
-    $(el).attr('src', URL.format(parsed))
-  })
-
-  file.html = $('body').html()
+  file.html = file.sections.map(section => section.html).join('\n')
 
   // remove leftover file props from walk-sync
   delete file.mode
@@ -140,6 +142,33 @@ async function parseFile (file) {
 
   // remove empty values
   return cleanDeep(file)
+}
+
+function splitMd (md) {
+  const slugger = new GithubSlugger()
+  const sections = []
+  let section = { name: null, body: [] }
+  let inCodeBlock = false
+  const isHeading = (line) => (!inCodeBlock && line.trim().startsWith('#'))
+
+  md.split('\n').forEach((curr, i, lines) => {
+    if (curr.startsWith('```')) {
+      inCodeBlock = !inCodeBlock
+    }
+    if (isHeading(curr)) {
+      section.name = slugger.slug(curr)
+    }
+    section.body.push(curr)
+
+    let next = lines[i + 1]
+    if (next === undefined || isHeading(next)) {
+      section.body = section.body.join('\n')
+      sections.push(section)
+      section = { name: null, body: [] }
+    }
+  })
+
+  return sections
 }
 
 parseDocs().then(docs => {

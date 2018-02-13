@@ -1,3 +1,5 @@
+require('make-promises-safe')
+
 const chai = require('chai')
 chai.should()
 chai.use(require('chai-date-string'))
@@ -28,7 +30,7 @@ describe('i18n.docs', () => {
   })
 
   it('does not contain <html>, <head>, or <body> tag in compiled html', () => {
-    const {html} = i18n.docs['en-US']['/docs/api/accelerator']
+    const html = i18n.docs['en-US']['/docs/api/accelerator'].html
     html.should.be.a('string')
     html.should.contain('<p>')
     html.should.not.contain('<html>')
@@ -49,6 +51,36 @@ describe('i18n.docs', () => {
   //   filenames.should.include('/docs/tutorial/versioning')
   //   filenames.should.not.include('/docs/tutorial/electron-versioning')
   // })
+
+  describe('sections', () => {
+    it('breaks up HTML into sections, for language-toggling on the website', () => {
+      const {sections} = i18n.docs['en-US']['/docs/api/accelerator']
+      sections.should.be.an('array')
+      sections.length.should.be.above(0)
+      sections.every(section => section.name && section.html).should.eq(true)
+    })
+
+    it('does not contain empty sections', () => {
+      const locales = Object.keys(i18n.docs)
+      locales.length.should.be.above(0)
+      locales.forEach(locale => {
+        const docHrefs = Object.keys(i18n.docs[locale])
+        docHrefs.length.should.be.above(0)
+        docHrefs.forEach(href => {
+          const doc = i18n.docs[locale][href]
+          doc.sections.length.should.be.above(0)
+          doc.sections.forEach(section => {
+            // expect(section.name, )
+            expect(section.name, `${locale} ${href} has a section without a name`).to.be.a('string')
+            section.name.length.should.be.above(0)
+
+            expect(section.html, `${locale} ${href} has a section without html`).to.be.a('string')
+            section.html.length.should.be.above(0)
+          })
+        })
+      })
+    }).timeout(5000)
+  })
 })
 
 describe('i18n.website', () => {
@@ -93,7 +125,10 @@ describe('API Docs', () => {
     app.slug.should.equal('app')
     app.category.should.equal('api')
     app.markdown.should.be.a('string')
-    app.html.should.be.a('string')
+    app.html.should.be.an('string')
+    app.html.length.should.be.above(0)
+    app.sections.should.be.an('array')
+    app.sections.length.should.be.above(0)
   })
 
   it('trims API descriptions', () => {

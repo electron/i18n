@@ -81,11 +81,11 @@
     "name": "Filipino",
     "code": "fil",
     "phrases": "8850",
-    "translated": "7847",
-    "approved": "119",
+    "translated": "7849",
+    "approved": "121",
     "words": "79935",
-    "words_translated": "70015",
-    "words_approved": "1179",
+    "words_translated": "70019",
+    "words_approved": "1183",
     "translated_progress": 87,
     "approved_progress": 1,
     "qa_issues": "269"
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "8850",
-    "translated": "6435",
+    "translated": "6462",
     "approved": "49",
     "words": "79935",
-    "words_translated": "47442",
+    "words_translated": "47682",
     "words_approved": "301",
     "translated_progress": 59,
     "approved_progress": 0,
-    "qa_issues": "1891"
+    "qa_issues": "1902"
   },
   {
     "name": "German",
@@ -133,14 +133,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "8850",
-    "translated": "8520",
+    "translated": "8522",
     "approved": "11",
     "words": "79935",
-    "words_translated": "76599",
+    "words_translated": "76632",
     "words_approved": "68",
     "translated_progress": 95,
     "approved_progress": 0,
-    "qa_issues": "4773"
+    "qa_issues": "4774"
   },
   {
     "name": "Italian",
@@ -263,14 +263,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "8850",
-    "translated": "8051",
+    "translated": "8069",
     "approved": "2",
     "words": "79935",
-    "words_translated": "72109",
+    "words_translated": "72449",
     "words_approved": "2",
     "translated_progress": 90,
     "approved_progress": 0,
-    "qa_issues": "3898"
+    "qa_issues": "3907"
   },
   {
     "name": "Ukrainian",
