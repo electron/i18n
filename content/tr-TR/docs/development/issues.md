@@ -14,19 +14,19 @@ Herhangi bir sorun için temelde bireyin katkı sağlayabileceği üç yöntem v
 
 1. Konuyu tartışmaya açmak: Eğer bir sorun bulduğunuza inanıyorsanız, `elektron/elektron` sayı izleyicisini açarak bunu rapor edin.
 2. Sorunun öncelikli bir hale getirilmesine yardımcı olmak: Bunu ya detaylandırarak (hata gösteren bir yeniden üretilebilir sınama durumu) ya da sorunu gidermek için öneriler sunarak sağlayın.
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+3. Bu sorunu gidermek için yardımcı olmak: Bunu bir hata olmadığını ya da düzeldiğini göstererek; fakat da çok somut ve incelenebilir biçimde ` elektron / elektron </ 0> 'da kaynağında görünmesini sağlayın.</li>
+</ol>
 
-## Genel Yardım İstemek
+<h2>Genel Yardım İsteğinde Bulunmak</h2>
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
-
-## Hata raporu gönderme
-
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
-
-```markdown
-<!--
-Thanks for opening an issue! A few things to keep in mind:
+<p>Çünkü, etkinlik düzeyi <code>Elektron/elektron` deposundaki aktivite düzeyi çok yüksek olduğundan, soru sorarak veya elektron kullanarak genel yardım talepleri [topluluk bölümü Kanal](https://atomio.slack.com) veya [forum](https://discuss.atom.io/c/electron) yönelik olmalıdır.</p> 
+    ## Hata raporu gönderme
+    
+    Sorun izleyici içinde yeni bir başlık açarken `electron/electron`, kullanıcılar tarafından doldurulması gereken bir şablon sunulacaktır.
+    
+    ```markdown
+& Lt;! -
+Bir sorunu açtığınız için teşekkür ederiz! A few things to keep in mind:
 
 - The issue tracker is only for bugs and feature requests.
 - Before reporting a bug, please try reproducing your issue against
