@@ -822,11 +822,11 @@ const exeName = path.basename(process.execPath)
   
   ### `app.isInApplicationsFolder()` *macOS*
   
-  Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+  `Boolean` Uygulamanın şu anda Sistemler Uygulama klasöründen çalışıp çalışmadığı dönüt veriri. `app.moveToApplicationsFolder()` ile birlikte kullanın
   
   ### `app.moveToApplicationsFolder()` *macOS*
   
-  Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+  `Boolean` Taşınmanın başarılı olup olmadığın geri bildirimini sağlar. Eylem başarılı olursa, uygulamanızdan çıkıp yeniden başlatacağını lütfen unutmayın.
   
   No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
   
