@@ -30,25 +30,25 @@ Bir sorunu açtığınız için teşekkür ederiz! Akılda tutulması gereken bi
 
 - Sorun izleyici yalnızca hatalar ve özellik istekleri içindir.
 - Bir hata bildirmeden önce lütfen Electron'un en son sürümünde sorununuzu tekrar deneyin.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
+- Genel bir tavsiyeye ihtiyacınız varsa, Slack'e katılın: http://atom-slack.herokuapp.com
 -->
 
-* Electron version:
-* Operating system:
+* Elektron versiyonu:
+* İşletim sistemi:
 
-### Expected behavior
+### Beklenti
 
-<!-- What do you think should happen? -->
+<!-- Sizce ne olmalı? -->
 
-### Actual behavior
+### Gerçek davranış
 
-<!-- What actually happens? -->
+<!-- Aslında ne oluyor? -->
 
-### How to reproduce
+### Nasıl yeniden üretilir?
 
 <!--
 
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
+Bu hatayı hızlı bir şekilde gözden geçirmek için en doğru yöntem, klonlanıp çalıştırılabilecek bir REPOSITORY sağlamaktır.
 
 You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
 
