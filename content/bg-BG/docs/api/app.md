@@ -174,46 +174,46 @@ app.on('window-all-closed', () => {
 * `event` Събитие
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+Излъчено, когато [browserWindow](browser-window.md) стане на фокус.
 
-### Event: 'browser-window-created'
+### Събитие: 'browser-window-created'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+Излъчено, когато е създаден нов [browserWindow](browser-window.md).
 
-### Event: 'web-contents-created'
+### Събитие: 'web-contents-created'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+Излъчено, когато е създаден нов [webContents](web-contents.md).
 
-### Event: 'certificate-error'
+### Събитие: 'certificate-error'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `webContents` [WebContents](web-contents.md)
 * `url` String
-* `error` String - The error code
+* `error` String - Кодът на грешката
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` Function 
-  * `isTrusted` Boolean - Whether to consider the certificate as trusted
+  * `isTrusted` Boolean - Показва дали може да се вярва на сертификата
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+Излъчено, когато има проблем с потвърждението на `certificate` за конкретния `url`, за да вярвате на сертификата трябва да прекъснете държанието по подразбиране с `event.preventDefault()` и извикване на `callback(true)`.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
-  if (url === 'https://github.com') {
-    // Verification logic.
+   if (url === 'https://github.com') {
+     // Логика за потвърждение.
     event.preventDefault()
     callback(true)
   } else {
