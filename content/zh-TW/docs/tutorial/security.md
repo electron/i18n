@@ -36,7 +36,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 
 ## 1) 只載入安全的內容
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommed the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### 為什麼?
 
@@ -305,7 +305,7 @@ Advanced users of Electron can enable experimental Chromium features using the `
 
 ### 為什麼?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Futhermore, their impact on Electron as a whole has likely not been tested.
+Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
 
 Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
 
