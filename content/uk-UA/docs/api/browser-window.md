@@ -495,63 +495,63 @@ win.loadURL('https://github.com')
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Об'єкт `WebContents`, який належить даному вікну. Всі пов'язані з веб-сторінкою події та операції будуть виконуватися через нього.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Дивись [документацію `webContents`](web-contents.md) для інформації про методи та події.
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+`Integer`, яке представляє унікальний ID вікна.
 
 ### Методи Екземпляра
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Об'єкт створений за допомогою `new BrowserWindow` має наступні методи:
 
 **Примітка:** Деякі методи доступні тільки на певних операціїних системах і позначені як такі.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Примусово закриває вікно, події `unload` та `beforeunload` для веб-сторінки не будуть викликані і подія `close` також не буде викликана для вікна, але гарантовано викличеться подія `closed`.
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Спробує закрити вікно. Має такий самий ефект, ніби користувач вручну натисне на кнопку закривання вікна. Хоча веб-сторінка може скасувати закривання. Дивись [подію close](#event-close).
 
 #### `win.focus()`
 
-Focuses on the window.
+Надає фокус вікну.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Забирає фокус з вікна.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Повертає `Boolean` - Чи вікно має фокус.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Повертає `Boolean` - Чи вікно знищено.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Показує і дає фокус вікну.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Показує вікно, але не дає йому фокус.
 
 #### `win.hide()`
 
-Hides the window.
+Приховує вікно.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Повертає `Boolean` - Чи вікно видиме користувачу.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Повертає `Boolean` - Чи поточне вікно є модальним.
 
 #### `win.maximize()`
 
