@@ -26,7 +26,7 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -41,14 +41,15 @@ let win
 app.on('ready', () => {
   // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
 `app.commandLine.appendSwitch('--enable-sandbox')` 'yı aramanın yeterli olmadığını unutmayın, electron/node başlangıç kodlarını,chromium sandbox ayarlarında değişiklik yapmak mümkün olduktan sonra çalıştırır. Değiştirme komuta dizisi üzerinden electron'a aktarılmalı:
 
-    electron --enable-sandbox app.js
-    
+```sh
+electron --enable-sandbox app.js
+```
 
 OS sandbox 'ı sadece bazı oluşturucular için aktifleştirmek mümkün değildir, eğer `--enable-sandbox` etkinse normal elektron pencereleri oluşturulamaz.
 
@@ -67,7 +68,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -102,18 +103,23 @@ function customWindowOpen (url, ...args) {
 
 Bir tarayıcı paketini oluşturmak ve bir ön yükleme komut dosyası olarak kullanmak için aşağıdakine benzer bir şey kullanılmalıdır:
 
-    browserify preload/index.js \
-      -x electron \
-      -x fs \
-      --insert-global-vars=__filename,__dirname -o preload.js
-    
+```sh
+  browserify preload/index.js \
+    -x electron \
+    -x fs \
+    --insert-global-vars=__filename,__dirname -o preload.js
+```
 
 `-X` bayrağı, halihazırda önyükleme alanında bulunan gerekli tüm modüllerle birlikte kullanılmalıdır, ve bunun için browserify 'a kapsayıcı `require` fonksiyonunu kullanmasını söyler. `--insert-global-vars`; `process`, `Buffer` ve `setImmediate` 'nin kapsamlı alandan alındıklarından da emin olur ( normalde browserify bunun için kod yerleştirir).
 
 Şu anda, önyükleme aşamasından sağlanan `require` fonksiyonu aşağıdaki modülleri göstermektedir:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `electron` 
+  - `crashReporter`
+  - `remote`
+  - `ipcRenderer`
+  - `webFrame`
 - `fs`
 - `os`
 - `timers`

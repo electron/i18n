@@ -2,7 +2,7 @@
 
 > Çökme raporlarını uzak sunucuya gönderin.
 
-Süreç: [Ana](../glossary.md#main-process), [Oluşturucu](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Aşağıda bir çökme durumunun otomatik olarak uzak sunucuya gönderilmesinin bir örneği var:
 
@@ -24,19 +24,20 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 
 Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. `isminizin` `ürünü` için çökme raporları `İsminiz Crashes` dizinimde /temp dizini altında tutulacaktır. Bu geçici dizinin yolunu `app.setPath('temp', '/my/custom/temp')` şeklinde kendinize göre ayarlayabilirsiniz.
 
-## Metodlar
+## Yöntemler
 
 `crashReporter` modülü aşağıdaki metodlara sahiptir:
 
 ### `crashReporter.start(options)`
 
-* `options` Nesne 
+* `seçenekler` Object 
   * `companyName` Katar (opsiyonel)
   * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
   * `productName` Katar (opsiyonel) - Varsayılan olarak `app.getName()`.
   * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
   * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
   * `extra` Obje (opsiyonel) - Raporla beraber yollanabilir şekilde tanımlayabileceğiniz bir obje. Sadece katar tipinde özellikler düzgün şekilde yollanır. Iç içe objeler desteklenmez, özellik isimleri ve değerleri 64 karakterden küçük olmalıdır.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
 
 `crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
 
@@ -90,12 +91,22 @@ Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start
 
 **Not:** Bu API sadece ana süreç tarafından çağrılabilir.
 
-### `crashReporter.setExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
-* `value` Katar - Parametre değeri, 64 karakterden az olmalıdır. `null` veya `undefined` girildiği durumda ek parametrelerden anahtar silinir.
+* `value` String - Parameter value, must be less than 64 characters long.
 
-Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. Burada verilmiş değerler, `start` çağırıldığında `ekstra` tarafından belirlenir ve ek olarak yollanır. Bu API sadece macOS için mevcuttur. Eğer Linux ve Windows için de ek parametre ekleme/düzenlemek istiyorsanız, `start`'tan sonra yeniden düzenlenmiş `ekstra` seçeneği ile `start`'ı tekrar başlatın.
+Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+
+### `crashReporter.removeExtraParameter(key)` *macOS*
+
+* `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
+
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+
+### `crashReporter.getParameters()`
+
+See all of the current parameters being passed to the crash reporter.
 
 ## Çökme Raporu verisi
 

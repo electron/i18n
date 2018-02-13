@@ -95,8 +95,9 @@ Une liste de serveurs séparés par des virgules pour lesquels l'authentificatio
 
 Par exemple :
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```bash
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 puis toute `url` finissant par `example.com`, `foobar.com`, `baz` se verra appliquer une authentification intégrée. Sans préfixe `*` l'URL doit correspondre parfaitement.
 

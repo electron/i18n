@@ -29,14 +29,14 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Instance Events
+### Beispiel Events
 
 The following events are available on instances of `Cookies`:
 
 #### Event: 'changed'
 
-* `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed
+* ` Ereignis </ 0>  Ereignis</li>
+<li><code>cookie` [Cookie](structures/cookie.md) - The cookie that was changed
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.
   * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
@@ -61,8 +61,8 @@ The following methods are available on instances of `Cookies`:
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `callback` Funktion 
-  * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * ` Fehler </ 0> Fehler</li>
+<li><code>cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
 Sends a request to get all cookies matching `details`, `callback` will be called with `callback(error, cookies)` on complete.
 
@@ -78,20 +78,21 @@ Sends a request to get all cookies matching `details`, `callback` will be called
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Funktion 
-  * `error` Error
+  * ` Fehler </ 0> Fehler</li>
+</ul></li>
+</ul>
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
-
-#### `cookies.remove(url, name, callback)`
-
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
-* `callback` Function
-
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
-
-#### `cookies.flushStore(callback)`
-
-* `callback` Function
-
-Writes any unwritten cookies data to disk.
+<p>Sets a cookie with <code>details`, `callback` will be called with `callback(error)` on complete.</p> 
+    #### `cookies.remove(url, name, callback)`
+    
+    * `url` String - The URL associated with the cookie.
+    * `name` String - The name of cookie to remove.
+    * `callback` Function
+    
+    Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+    
+    #### `cookies.flushStore(callback)`
+    
+    * `callback` Function
+    
+    Writes any unwritten cookies data to disk.

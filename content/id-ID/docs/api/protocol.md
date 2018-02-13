@@ -2,7 +2,7 @@
 
 > Mampu melaksanakan tugas yang diberikan sepenuhnya.
 
-Proses:  Utama </ 0></p> 
+Process: [Main](../glossary.md#main-process)
 
 Contoh penerapan protokol yang memiliki efek yang sama seperti protokol `file://`:
 
@@ -12,14 +12,14 @@ const {app, protocol} = require ('electron') const path = require ('path') app.o
 
 ** Catatan: ** Semua metode kecuali yang ditentukan hanya dapat digunakan setelah event ` ready ` dari modul ` app ` dipancarkan.
 
-## Metode
+## Methods
 
 Modul ` protocol ` memiliki beberapa metode berikut:
 
-### `protocol.registerStandardSchemes (skema [, pilihan])`
+### `protocol.registerStandardSchemes(schemes[, options])`
 
 * ` skema ` String [] - Skema kustom untuk didaftarkan sebagai skema standar.
-* `pilihan` Objek (opsional) 
+* `options` Objek (pilihan) 
   * ` aman </ 0> Boolean (opsional) - <code> true </ 0> untuk mendaftarkan skema ini sebagai aman Default <code> false </ 0>.</li>
 </ul></li>
 </ul>
@@ -55,147 +55,25 @@ protocol.registerStandardSchemes (['atom']) app.on('siap', () => {protocol.regis
 * `skema` String
 * `handler` Fungsi 
   * `permintaan` Obyek 
-    * `url` String
-    * `pengarah` String
+    * ` url </ 0> String</li>
+<li><code>pengarah` Tali
     * `method` String
-    * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Fungsi 
+    * `filePath` String (opsional)
+* `penyelesaian` Fungsi (opsional) 
+  * ` error </ 0> Kesalahan</li>
 </ul></li>
-<li><code>callback` Fungsi 
-      * `filePath` String (opsional)
-  * `penyelesaian` Fungsi (opsional) 
-    * `error` Kesalahan
-  
-  Mendaftarkan protokol `skema` yang akan mengirim file sebagai tanggapan. `handler` akan disebut dengan `handler(permintaan, callback)` ketika `permintaan` akan dibuat dengan `skema`. `selesai` akan dipanggil dengan `selesai (null)` ketika `skema` berhasil didaftarkan atau `selesai(error)` ketika gagal.
-  
-  Untuk menangani `permintaan`, `panggilan balik` harus dipanggil dengan jalur file atau objek yang memiliki properti `path`, misalnya `callback(filePath)` atau `callback({path: filePath})`.
-  
-  Ketika `callback` dipanggil tanpa nomor, angka, atau objek yang memiliki properti `kesalahan`, `permintaan` akan gagal dengan `kesalahan` nomor yang Anda tentukan. Untuk nomor kesalahan yang tersedia, silakan lihat [daftar kesalahan bersih](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
-  
-  Secara default `skema` diperlakukan seperti `http:`, yang diurai berbeda dari protokol yang mengikuti "sintaks URI generik" seperti `file:`, jadi Anda mungkin ingin memanggil `protocol.registerStandardSchemes` agar skema Anda diperlakukan sebagai skema standar.
-  
-  ### `protocol.registerBufferProtocol (skema, handler [, completion])`
-  
-  * `skema` String
-  * `handler` Fungsi 
-    * `permintaan` Obyek 
-      * `url` String
-      * `pengarah` String
-      * `method` String
-      * `uploadData` [UploadData[]](structures/upload-data.md)
-    * `callback` Fungsi 
-      * `penyangga` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsional)
-  * `penyelesaian` Fungsi (opsional) 
-    * `error` Kesalahan
-  
-  Mendaftarkan protokol `skema` yang akan mengirim `Buffer` sebagai tanggapan.
-  
-  Penggunaannya sama dengan `registerFileProtocol`, kecuali bahwa `callback` harus dipanggil dengan objek `Buffer` atau objek yang memiliki `data`, `mimeType`, dan `charset` properti.
-  
-  Contoh:
-  
-  ```javascript
-const {protocol} = require ('electron') 
+</ul>
 
-protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mimeType: 'text / html', data: Buffer.from ('<h5>Response</h5> ')})}, (error) = > {if (error) console.error (' Gagal mendaftar protokol ')})
-```
-
-### `protocol.registerStringProtocol (skema, handler [, completion])`
-
-* `skema` String
-* `handler` Fungsi 
-  * `permintaan` Obyek 
-    * `url` String
-    * `pengarah` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fungsi 
-    * `data` String (opsional)
-* `penyelesaian` Fungsi (opsional) 
-  * `error` Kesalahan
-
-Mendaftarkan protokol `skema` yang akan mengirim `String` sebagai tanggapan.
-
-Penggunaan adalah sama dengan `registerFileProtocol`, kecuali bahwa `callback` harus disebut dengan baik `String` atau sebuah benda yang memiliki `Data`, `mimeType`, dan `charset` properti.
-
-### `protocol.registerHttpProtocol(skema, handler[, completion])`
-
-* `skema` String
-* `handler` Fungsi 
-  * `permintaan` Obyek 
-    * `url` String
-    * `pengarah` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fungsi 
-    * `redirectRequest` Obyek 
-      * `url` String
-      * `method` String
-      * `sesi` Objek (opsional)
-      * `uploadData` Objek (opsional) 
-        * `contentType` String - jenis konten MIME.
-        * `data` String - Konten yang akan dikirim.
-* `penyelesaian` Fungsi (opsional) 
-  * `error` Kesalahan
-
-Mendaftarkan protokol `skema` yang akan mengirim permintaan HTTP sebagai tanggapan.
-
-Penggunaannya sama dengan ` registerFileProtocol`, kecuali bahwa `callback` harus dipanggil dengan objek ` redirectRequest` yang memiliki `url`, ` method `, `rujukan `, `uploadData` dan`sesi`.
-
-Secara default permintaan HTTP akan menggunakan kembali sesi saat ini. Jika Anda menginginkan meminta untuk memiliki sesi yang berbeda Anda harus menetapkan `sesi`ke`null`.
-
-Agar POST meminta objek `uploadData` harus disediakan.
-
-### `protocol.uninterceptProtocol (skema [, penyelesaian])`
-
-* `skema` String
-* `penyelesaian` Fungsi (opsional) 
-  * `error` Kesalahan
-
-Unregisters protokol kustom `skema`.
-
-### `protocol.isProtocolHandled(scheme, panggilan kembali)`
-
-* `skema` String
-* `callback` Fungsi 
-  * `error` Kesalahan
-
-The`callback ` akan dipanggil dengan boolean yang menunjukkan apakah ada sudah menjadi handler untuk skema ``.
-
-### `protocol.interceptFileProtocol(skema, handler[,completion])`
-
-* `skema` String
-* `handler` Fungsi 
-  * `permintaan` Obyek 
-    * `url` String
-    * `pengarah` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fungsi 
-    * `fullPath` String
-* `penyelesaian` Fungsi (opsional) 
-  * `error` Kesalahan
-
-Sisipkan `skema` dan gunakan ` handler ` sebagai penangan baru protokol yang mengirimkan file sebagai tanggapan.
-
-### `protocol.interceptFileProtocol(skema, handler[,completion])`
-
-* `skema` String
-* `handler` Fungsi 
-  * `permintaan` Obyek 
-    * `url` String
-    * `pengarah` String
-    * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fungsi 
-    * ` rtf </ 0> String (opsional)</li>
-</ul></li>
-</ul></li>
-<li><code>penyelesaian` Fungsi (opsional) 
-      * `error` Kesalahan
+<p>Mendaftarkan protokol <code>skema` yang akan mengirim file sebagai tanggapan. `handler` akan disebut dengan `handler(permintaan, callback)` ketika `permintaan` akan dibuat dengan `skema`. `selesai` akan dipanggil dengan `selesai (null)` ketika `skema` berhasil didaftarkan atau `selesai(error)` ketika gagal.</p> 
+    Untuk menangani `permintaan`, `panggilan balik` harus dipanggil dengan jalur file atau objek yang memiliki properti `path`, misalnya `callback(filePath)` atau `callback({path: filePath})`.
     
-    Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.
+    Ketika `callback` dipanggil tanpa nomor, angka, atau objek yang memiliki properti `kesalahan`, `permintaan` akan gagal dengan `kesalahan` nomor yang Anda tentukan. Untuk nomor kesalahan yang tersedia, silakan lihat [daftar kesalahan bersih](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
     
-    ### `protocol.interceptBufferProtocol(skema, handler[, completion])`
+    Secara default `skema` diperlakukan seperti `http:`, yang diurai berbeda dari protokol yang mengikuti "sintaks URI generik" seperti `file:`, jadi Anda mungkin ingin memanggil `protocol.registerStandardSchemes` agar skema Anda diperlakukan sebagai skema standar.
+    
+    ### `protocol.registerBufferProtocol (skema, handler [, completion])`
     
     * `skema` String
     * `handler` Fungsi 
@@ -206,13 +84,165 @@ Sisipkan `skema` dan gunakan ` handler ` sebagai penangan baru protokol yang men
         * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
-          * `penyangga` Buffer (opsional)
+          * `penyangga` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsional)
       * `penyelesaian` Fungsi (opsional) 
-        * `error` Kesalahan
+        * Kesalahan `kesalahan`
       
-      Sisipkan `skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.
+      Mendaftarkan protokol `skema` yang akan mengirim `Buffer` sebagai tanggapan.
       
-      ### `protocol.interceptHttpProtocol (skema, handler [, completion])`
+      Penggunaannya sama dengan `registerFileProtocol`, kecuali bahwa `callback` harus dipanggil dengan objek `Buffer` atau objek yang memiliki `data`, `mimeType`, dan `charset` properti.
+      
+      Contoh:
+      
+      ```javascript
+const {protocol} = require ('electron') 
+
+protocol.registerBufferProtocol ('atom', (request, callback) = > {callback ({mimeType: 'text / html', data: Buffer.from ('<h5>Response</h5> ')})}, (error) = > {if (error) console.error (' Gagal mendaftar protokol ')})
+```
+  
+  ### `protocol.registerStringProtocol (skema, handler [, completion])`
+  
+  * `skema` String
+  * `handler` Fungsi 
+    * `permintaan` Obyek 
+      * `url` String
+      * `pengarah` String
+      * `method` String
+      * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+        * ` rtf </ 0> String (opsional)</li>
+</ul></li>
+</ul></li>
+<li><code>penyelesaian` Fungsi (opsional) 
+          * Kesalahan `kesalahan`
+        
+        Mendaftarkan protokol `skema` yang akan mengirim `String` sebagai tanggapan.
+        
+        Penggunaan adalah sama dengan `registerFileProtocol`, kecuali bahwa `callback` harus disebut dengan baik `String` atau sebuah benda yang memiliki `Data`, `mimeType`, dan `charset` properti.
+        
+        ### `protocol.registerHttpProtocol(skema, handler[, completion])`
+        
+        * `skema` String
+        * `handler` Fungsi 
+          * `permintaan` Obyek 
+            * ` url </ 0> String</li>
+<li><code>pengarah` String
+            * `method` String
+            * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+              * `redirectRequest` Obyek 
+                * ` url </ 0> String</li>
+<li><code>method` String
+                * `sesi` Objek (opsional)
+                * `uploadData` Objek (opsional) 
+                  * `contentType` String - jenis konten MIME.
+                  * `data` String - Konten yang akan dikirim.
+          * `penyelesaian` Fungsi (opsional) 
+            * Kesalahan `kesalahan`
+          
+          Mendaftarkan protokol `skema` yang akan mengirim permintaan HTTP sebagai tanggapan.
+          
+          Penggunaannya sama dengan ` registerFileProtocol`, kecuali bahwa `callback` harus dipanggil dengan objek ` redirectRequest` yang memiliki `url`, ` method `, `rujukan `, `uploadData` dan`sesi`.
+          
+          Secara default permintaan HTTP akan menggunakan kembali sesi saat ini. Jika Anda menginginkan meminta untuk memiliki sesi yang berbeda Anda harus menetapkan `sesi`ke`null`.
+          
+          Agar POST meminta objek `uploadData` harus disediakan.
+          
+          ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
+          
+          * `skema` String
+          * `handler` Fungsi 
+            * `permintaan` Obyek 
+              * `url` String
+              * `header` Obyek
+              * `pengarah` String
+              * `method` String
+              * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+                * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+            * `penyelesaian` Fungsi (opsional) 
+              * Kesalahan `kesalahan`
+            
+            Registers a protocol of `scheme` that will send a `Readable` as a response.
+            
+            The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+            
+            Contoh:
+            
+            ```javascript
+const {protocol} = require('electron')
+const {PassThrough} = require('stream')
+
+function createStream (text) {
+  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  rv.push(text)
+  rv.push(null)
+  return rv
+}
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback({
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html'
+    },
+    data: createStream('<h5>Response</h5>')
+  })
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+        
+        It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+        
+        ```javascript
+const {protocol} = require('electron')
+const fs = require('fs')
+
+protocol.registerStreamProtocol('atom', (request, callback) => {
+  callback(fs.createReadStream('index.html'))
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
+})
+```
+    
+    ### `protocol.uninterceptProtocol (skema [, penyelesaian])`
+    
+    * `skema` String
+    * `penyelesaian` Fungsi (opsional) 
+      * Kesalahan `kesalahan`
+    
+    Unregisters protokol kustom `skema`.
+    
+    ### `protocol.isProtocolHandled(scheme, panggilan kembali)`
+    
+    * `skema` String
+    * `callback` Fungsi 
+      * Kesalahan `kesalahan`
+    
+    The`callback ` akan dipanggil dengan boolean yang menunjukkan apakah ada sudah menjadi handler untuk skema ``.
+    
+    ### `protocol.interceptFileProtocol(skema, handler[,completion])`
+    
+    * `skema` String
+    * `handler` Fungsi 
+      * `permintaan` Obyek 
+        * ` url </ 0> String</li>
+<li><code>pengarah` String
+        * `method` String
+        * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+          * `fullPath` String
+      * `penyelesaian` Fungsi (opsional) 
+        * Kesalahan `kesalahan`
+      
+      Sisipkan `skema` dan gunakan ` handler ` sebagai penangan baru protokol yang mengirimkan file sebagai tanggapan.
+      
+      ### `protocol.interceptFileProtocol(skema, handler[,completion])`
       
       * `skema` String
       * `handler` Fungsi 
@@ -222,23 +252,75 @@ Sisipkan `skema` dan gunakan ` handler ` sebagai penangan baru protokol yang men
           * `method` String
           * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
-<li><code>panggilan balik` Fungsi 
-            * `redirectRequest` Sasaran 
-              * `url` String
-              * `method` String
-              * `sesi` Objek (opsional)
-              * `uploadData` Objek (pilihan) 
-                * `contentType` String - jenis konten MIME.
-                * `data` String - Konten yang akan dikirim.
+<li><code>callback` Fungsi 
+            * `data` String (opsional)
         * `penyelesaian` Fungsi (opsional) 
-          * `error` Kesalahan
+          * Kesalahan `kesalahan`
         
-        Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.
+        Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirim `String` sebagai tanggapan.
         
-        ### `protocol.uninterceptProtocol(skema[, penyelesaian])`
+        ### `protocol.interceptBufferProtocol(skema, handler[, completion])`
         
         * `skema` String
-        * `penyelesaian` Fungsi (opsional) 
-          * `error` Kesalahan
-        
-        Hapus interceptor dipasang untuk `skema` dan mengembalikan handler aslinya.
+        * `handler` Fungsi 
+          * `permintaan` Obyek 
+            * `url` String
+            * `pengarah` String
+            * `method` String
+            * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+              * `penyangga` Buffer (opsional)
+          * `penyelesaian` Fungsi (opsional) 
+            * Kesalahan `kesalahan`
+          
+          Sisipkan `skema` dan gunakan <0 handler</code> sebagai penangan baru protokol yang mengirimkan `Buffer` sebagai tanggapan.
+          
+          ### `protocol.interceptHttpProtocol (skema, handler [, completion])`
+          
+          * `skema` String
+          * `handler` Fungsi 
+            * `permintaan` Obyek 
+              * ` url </ 0> String</li>
+<li><code>pengarah` String
+              * `method` String
+              * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+                * `redirectRequest` Obyek 
+                  * ` url </ 0> String</li>
+<li><code>method` String
+                  * `sesi` Objek (opsional)
+                  * `uploadData` Objek (opsional) 
+                    * `contentType` String - jenis konten MIME.
+                    * `data` String - Konten yang akan dikirim.
+            * `penyelesaian` Fungsi (opsional) 
+              * Kesalahan `kesalahan`
+            
+            Sisipkan `skema` dan gunakan `handler` sebagai penangan baru protokol yang mengirimkan permintaan HTTP baru sebagai tanggapan.
+            
+            ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
+            
+            * `skema` String
+            * `handler` Fungsi 
+              * `permintaan` Obyek 
+                * `url` String
+                * `header` Obyek
+                * `pengarah` String
+                * `method` String
+                * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+                  * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+              * `penyelesaian` Fungsi (opsional) 
+                * Kesalahan `kesalahan`
+              
+              Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+              
+              ### `protocol.uninterceptProtocol(skema[, penyelesaian])`
+              
+              * `skema` String
+              * `penyelesaian` Fungsi (opsional) 
+                * Kesalahan `kesalahan`
+              
+              Hapus interceptor dipasang untuk `skema` dan mengembalikan handler aslinya.

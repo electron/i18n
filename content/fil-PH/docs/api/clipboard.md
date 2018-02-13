@@ -1,8 +1,8 @@
-# clipboard
+# iipit sa tabla
 
 > Magsagawa ng mga kopya at idikit ang mga operasyon sa clipboard ng system.
 
-Proseso:[Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
+Proseso:[Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
 
@@ -22,7 +22,7 @@ clipboard.writeText('Halimbawa String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Pamamaraan
+## Mga Paraan
 
 Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
@@ -34,7 +34,10 @@ Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
 Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
 
-### `clipboard.writeText(teksto[, i-type])`
+### `clipboard.writeText(text[, type])
+ 
+
+`
 
 * `text` String
 * `type` String (opsiyonal)
@@ -49,7 +52,10 @@ Pagsulat ng `text` as klipboard bilang tekstong walang format.
 
 Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format. 
 
-### `clipboard.writeHTML(markup[, type])`
+### `clipboard.writeHTML(markup[, type])
+ 
+
+`
 
 * `markup` String
 * `type` String (opsiyonal)
@@ -62,7 +68,10 @@ Pagsulat ng `markup` sa klipboard.
 
 Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klipbord. 
 
-### `klipboard.writeImage(image[,i-type])`
+### `clipboard.writeImage(image[, type])
+ 
+
+`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (opsiyonal)
@@ -75,21 +84,22 @@ Pagsulat `image` sa klipboard.
 
 Returns `String` - Ang nilalaman ng klipboard bilang RTF.
 
-### `clipboard.writeRTF(text[ ,i-type])
+### `clipboard.writeRTF(text[, type])
+ 
 
 `
 
-* `text` String 
+* `text` String
 * `type` String (opsiyonal)
 
 Pagsulat ng `text` sa klipboard bilang RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `title` String
-* `url` String
+* `url` Tali
 
 Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa bookmark sa klipbord. Ang `title` and `url` values ay walang laman na string kapag ang bookmark ay hindi magagamit. 
 
@@ -105,12 +115,12 @@ Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io',
+  text: 'https://electronjs.org',
   bookmark: 'Electron Homepage'
 })
 ```
 
-### `clipboard.readFindText()` *macOS* 
+### `clipboard.readFindText()` *macOS*
 
 Returns `String` - ang texksto sa find pasteboard. Ang paraan na ito ay gumagamit ng mga kasabay na IPC kapag tinawag mula sa proseso ng tagasalin. Ang cached value ay muling babasahin mula sa find pasteboard tuwing ang application na ito ay isinaaktibo.
 
@@ -147,13 +157,13 @@ const {clipboard} = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(format)` *Experimental* 
 
 * `format` String
 
 Returns `String` - Reads `format` uri mula sa klipboard. 
 
-### `clipboard.readBuffer(format)` *Experimental* 
+### `clipboard.readBuffer(format)` *Experimental*
 
 * `format` String
 
@@ -167,10 +177,7 @@ Returns `Buffer` - Reads `format` uri mula sa klipboard.
 
 Pagsulat ng `buffer` sa klipboard bilang `format`.
 
-### `clipboard.write(data[, type])
- 
-
-`
+### `clipboard.write(data[, type])`
 
 * `datos` Bagay 
   * `text` String (opsiyonal)

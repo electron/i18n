@@ -33,7 +33,7 @@ Retourne `Boolean` - Si le système actuel prend en charge les notification bure
   * `subtitle` String - (facultatif) Un sous-titre pour la notification, qui s'affichera en dessous du titre. *macOS*
   * `body` String - Le corps de texte de la notification, qui s'affichera sous le titre ou le sous-titre
   * `silent` Boolean - (facultatif) Émet ou non le signal sonore d'une notification lors de l'affichage de la notification
-  * `icon` [NativeImage](native-image.md) - (facultatif) Icone à utiliser dans la notification
+  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
   * `hasReply` Boolean - (facultatif) Ajoute ou non une ligne de réponse en option à la notification. *macOS*
   * `replyPlaceholder` String - (facultatif) Le texte d'exemple à afficher dans le champ de saisie de réponse. *macOS*
   * `sound` String - (facultatif) Le nom du fichier son à jouer lorsque la notification est affichée. *macOS*
@@ -69,7 +69,7 @@ Renvoie :
 
 Émis lorsque la notification est fermée manuellement par l'utilisateur.
 
-Cet événement ne garantit pas d'être émis dans tous les cas de fermeture de la notification.
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### Événement : 'reply' *macOS*
 
@@ -94,6 +94,12 @@ Les objets créés avec `new Notification` ont les méthodes d'instance suivante
 #### `notification.show()`
 
 Affiche immédiatement la notification à l'utilisateur, veuillez notez que cela signifie, contrairement à l'implémentation des Notifications HTML5, que simplement instancier un `new Notification` ne va pas afficher immédiatement la notification à l'utilisateur. Pour que l'OS l'affiche à l'écran, vous devez appeler cette méthode.
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### Lire un son
 

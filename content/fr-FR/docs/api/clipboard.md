@@ -97,7 +97,7 @@ Retourne un objet contenant les clés `title` et `url` représentant le marque-p
 
 ```js
 clipboard.write({
-  text: 'https://electron.atom.io', 
+  text: 'https://electronjs.org', 
   bookmark: 'Electron Homepage'
 })
 ```
@@ -158,7 +158,7 @@ Retourne un `Buffer` - Lit le type de `format` depuis le presse-papiers.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` Objet 
   * `text` String (facultatif)
   * `html` String (facultatif)
   * `image` [NativeImage](native-image.md) (facultatif)

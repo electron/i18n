@@ -35,11 +35,11 @@ Retourne :
 
 Émis lorsque toutes les fenêtres ont été fermées.
 
-Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont fermées, le comportement par défaut consiste à quitter l'application. Toutefois, si vous vous abonnez, vous pouvez contrôler le fait que l'application se ferme ou non. Si l'utilisateur appuie sur `Cmd + Q`, ou le développeur appelle `app.quit()`, Electron essaie d'abord de fermer toutes les fenêtres et puis émet l'événement `will-quit` et dans ce cas, l'événement `window-all-closed` ne sera pas émit.
+Si vous n'être pas abonné à cet événement et que toutes les fenêtres sont fermées, le comportement par défaut consiste à quitter l'application. Toutefois, si vous vous abonnez, vous pouvez contrôler le fait que l'application se ferme ou non. Si l'utilisateur appuie sur `Cmd + Q`, ou le développeur appelle `app.quit()`, Electron essaie d'abord de fermer toutes les fenêtres et puis émet l'événement `will-quit` et dans ce cas, l'événement `window-all-closed` ne sera pas émis.
 
 ### Événement : 'before-quit'
 
-Retourne :
+Renvoie :
 
 * `event` Event
 
@@ -61,7 +61,7 @@ Consultez la description de l’événement `window-all-closed` pour voir les di
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `exitCode` Integer
 
 Émis lorsque l'application se quitte.
@@ -111,11 +111,50 @@ Retourne :
 
 Une activité d'utilisateur peut être poursuivie seulement dans une application qui a le même identifiant d'équipe développeur que l'application d'origine de la source d'activité et qui prend en charge le type d'activité. La prise en charge d’activité types est spécifiée dans le `Info.plist` de l'application sous la clé `NSUserActivityType`.
 
-### Événement : 'new-window-for-tab' *macOS*
+### Event: 'will-continue-activity' *macOS*
+
+Retourne :
+
+* `event` Événement
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Vous devrez appeler `event.preventDefault()` si vous souhaitez gérer cet événement.
+
+### Event: 'continue-activity-error' *macOS*
 
 Retourne :
 
 * `event` Event
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - A string with the error's localized description.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+
+### Event: 'activity-was-continued' *macOS*
+
+Retourne :
+
+* `event` Événement
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+
+### Event: 'update-activity-state' *macOS*
+
+Retourne :
+
+* `event` Événement
+* `type` String - Une chaîne de caractère identifiant l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
+### Événement : 'new-window-for-tab' *macOS*
+
+Retourne :
+
+* `event` Événement
 
 Émis lorsque l’utilisateur clique sur le bouton nouvel onglet native macOS. Le bouton nouvel onglet n’est visible que si l'actuel `BrowserWindow` a un `tabbingIdentifier`
 
@@ -123,8 +162,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `window` BrowserWindow
+* `event` Événement
+* `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un [browserWindow](browser-window.md) perd le focus.
 
@@ -132,8 +171,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `window` BrowserWindow
+* `event` Événement
+* `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un [browserWindow](browser-window.md) gagne le focus.
 
@@ -141,8 +180,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `window` BrowserWindow
+* `event` Événement
+* `window` [BrowserWindow](browser-window.md)
 
 Émis lorsqu'un nouveau [browserWindow](browser-window.md) est créé.
 
@@ -150,8 +189,8 @@ Retourne :
 
 Retourne :
 
-* `event` Event
-* `webContents` WebContents
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
 
 Émis lorsqu'un nouveau [webContents](web-contents.md) est créé.
 
@@ -159,7 +198,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - Le code d'erreur
@@ -187,7 +226,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
@@ -211,9 +250,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `request` Objet 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -311,7 +350,7 @@ Sur Linux, met le focus sur la première fenêtre visible. Sur MacOS, rend l'app
 
 ### `app.hide()` *macOS*
 
-Masque toutes les fenêtres d’application sans les minimiser.
+Masque toutes les fenêtres de l'application sans les minimiser.
 
 ### `app.show()` *macOS*
 
@@ -344,6 +383,7 @@ Vous pouvez demander les chemins suivants sous le nom :
 * `music` Dossier de musique de l’utilisateur.
 * `pictures` Dossier des images de l’utilisateur.
 * `videos` Dossier des vidéos de l’utilisateur.
+* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Chemin d’accès complet à la version du système du plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -414,7 +454,7 @@ Cette liste est contrôlée par le système d'exploitation. Sous Windows, vous p
 
 Efface la liste des documents récents.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
@@ -608,6 +648,19 @@ Creates an `NSUserActivity` and sets it as the current activity. The activity is
 
 Retourne `String` - le type de l’activité en cours d’exécution.
 
+### `app.invalidateCurrentActivity()` *macOS*
+
+* `type` String - Uniquely identifies the activity. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `type` String - Uniquely identifies the activity. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -628,13 +681,13 @@ Imports the certificate in pkcs12 format into the platform certificate store. `c
 
 Disables hardware acceleration for current app.
 
-This method can only be called before app is ready.
+Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
 
-This method can only be called before app is ready.
+Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.getAppMemoryInfo()` *Deprecated*
 
@@ -644,7 +697,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
@@ -719,6 +772,14 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Objet 
@@ -752,6 +813,18 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 Enables mixed sandbox mode on the app.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
+
+### `app.isInApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 

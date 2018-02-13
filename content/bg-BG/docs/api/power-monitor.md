@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Събития
 
 The `powerMonitor` module emits the following events:
 

@@ -72,6 +72,7 @@ The `Tray` module emits the following events:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the tray icon is clicked.
 
@@ -161,6 +162,17 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - The position of the event
+
+Emitted when the mouse moves in the tray icon.
+
 ### Métodos de Instância
 
 The `Tray` class has the following methods:
@@ -175,7 +187,7 @@ Destroys the tray icon immediately.
 
 Sets the `image` associated with this tray icon.
 
-#### `tray.setPressedImage(image)` *macOS*
+#### `tray.setPressedImage(image)` no *macOS*
 
 * `image` [NativeImage](native-image.md)
 
@@ -187,13 +199,13 @@ Sets the `image` associated with this tray icon when pressed on macOS.
 
 Sets the hover text for this tray icon.
 
-#### `tray.setTitle(title)` *macOS*
+#### `tray.setTitle(title)` no *macOS*
 
 * `title` String
 
 Sets the title displayed aside of the tray icon in the status bar.
 
-#### `tray.setHighlightMode(mode)` *macOS*
+#### `tray.setHighlightMode(mode)` no *macOS*
 
 * `mode` String - Highlight mode with one of the following values: 
   * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
@@ -225,8 +237,8 @@ win.on('hide', () => {
 
 * `opções` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Displays a tray balloon.
 

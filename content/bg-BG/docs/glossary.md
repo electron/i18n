@@ -1,12 +1,12 @@
-# Glossary
+# Речник
 
-This page defines some terminology that is commonly used in Electron development.
+Тази страница определя обща терминология, която се използва често в разработването с Електрон.
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR е абревиатура от Atom Shell Archive Format или ядрен формат за архивиране. [asar](https://github.com/electron/asar) архив е просто подобен на `tar` формат, който съдържа файлове в един единствен файл. Електрон може да чете произволни файлове от него без разопаковане на целия файл.
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+Формата ASAR бе създаден основно да подобри производителността на Windows... TODO
 
 ### Brightray
 

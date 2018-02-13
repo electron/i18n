@@ -69,7 +69,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
 * `browserWindow` Buscador Windows (opcional)
-* `options` Object 
+* `opciones` Object 
   * `título` cadena (opcional)
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
   * `buttonLabel` cadena (optional) - Etiqueta predeterminada para el botón de confirmación, cuando esta se deja vacía la etiqueta predeterminada será usada.
@@ -91,7 +91,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
 * `browserWindow` BrowserWindow (opcional)
-* `options` Object 
+* `opciones` Object 
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` Cadena[] (opcional) - Arreglo de textos por botones. En Windows, un arreglo vacío resultará en un botón con la etiqueta "OK".
   * `defaultId` Íntegro (opcional) - El índice del botón en el arreglo de los botones, el cual será selecto por defecto cuando el mensaje de la caja se abra.
@@ -128,7 +128,7 @@ Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `a
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
 * `browserWindow` Buscador Windows (opcional)
-* `options` Object 
+* `opciones` Object 
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` Cadena - El mensaje a mostrar al usuario.
 * `callback` Función

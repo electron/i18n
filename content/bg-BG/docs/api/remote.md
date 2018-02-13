@@ -90,7 +90,7 @@ const app = require('electron').remote.app
 console.log(app)
 ```
 
-## Methods
+## Методи
 
 The `remote` module has the following methods:
 
@@ -102,14 +102,15 @@ Returns `any` - The object returned by `require(module)` in the main process. Mo
 
 e.g.
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // main process: main/index.js
@@ -141,7 +142,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
-## Properties
+## Свойства
 
 ### `remote.process`
 

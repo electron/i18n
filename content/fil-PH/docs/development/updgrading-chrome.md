@@ -1,1 +1,0 @@
-Ilipat sa <upgrading-chromium.md>

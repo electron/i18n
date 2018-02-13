@@ -2,7 +2,7 @@
 
 > El archivo de control descarga desde fuentes remotas.
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 `DownloadItem` es un `EventEmitter` que representa un elemento descargado en Electron. Se utiliza en el evento `will-download` de la clase `Session`, y permite a los usuarios controlar el elemento descargado.
 
@@ -55,7 +55,7 @@ El `state` puede ser uno de los siguientes:
 
 Devuelve:
 
-* `event` Evento
+* `evento` Evento
 * `state` Cadena
 
 Aparece cuando la descarga está en un estado terminal. Esto incluye una descarga completa, una descarga cancelada (a través de `downloadItem.cancel()`), y una descarga interrumpida que no puede ser reanudada.
@@ -96,7 +96,7 @@ Reanuda la descarga que ha sido pausada.
 
 #### `downloadItem.canResume()`
 
-Reanuda `Boolean` - Si la descarga puede reanudarse o no.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 

@@ -2,7 +2,7 @@
 
 > Permintaan dan modifikasi cookie sesi.
 
-Proses:  Utama </ 0></p> 
+Process: [Main](../glossary.md#main-process)
 
 Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> properti dari <code> Sesi </ 0> .</p>
 
@@ -24,9 +24,9 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <h4>Acara: 'berubah'</h4>
 
 <ul>
-<li><code> event </ 0>  Acara</li>
-<li><code>cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah</li> 
+<li><code>peristiwa` Peristiwa</li> 
 
+* `cookie`[ Cookie ](structures/cookie.md) - Cookie yang telah diubah
 * `sebab` String - Penyebab perubahan dengan salah satu dari nilai berikut: 
   * ` eksplisit </ 0> - Cookie diubah secara langsung oleh tindakan konsumen.</li>
 <li><code> menimpa </ 0> - Cookie dihapus secara otomatis karena operasi insert yang overwrote itu.</li>
@@ -53,7 +53,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <li><code>aman`Boolean (opsional) - Filter cookie oleh properti Aman mereka.
       * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
     * `callback` Fungsi 
-      * `error` Kesalahan
+      * Kesalahan `kesalahan`
       * `cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
     
     Mengirimkan permintaan agar semua cookie yang cocok dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error, cookies) </ 0> secara lengkap.</p>
@@ -71,7 +71,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 <li><code> kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. Jika dihilangkan maka cookie menjadi cookie sesi dan tidak akan disimpan di antara sesi.</li>
 </ul></li>
 <li><code>callback` Fungsi 
-        * `error` Kesalahan
+        * Kesalahan `kesalahan`
       
       Menetapkan cookie dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error) </ 0> secara 
 lengkap.</p>

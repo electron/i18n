@@ -1,4 +1,4 @@
 # شئِ مصرف پردازنده
 
 * `درصد مصرف پردازنده` عدد - مقداری از پردازنده که از آخرین فراخوانی getCPUUsage مصرف شده است بر حسب درصد. اولین فراخوانی 0 را بر می گرداند.
-* `معلق ماندن بر ثانیه` عدد - میانگین تعداد دفعاتی که پردازنده بلااستفاده بوده است بر ثانیه. محاسبه از زمان آخرین فراخوانی به getCPUUsage. اولین فراخوانی 0 را بر میگرداند.
+* `idleWakeupsPerSecond` Number - The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.

@@ -33,9 +33,9 @@
 
 `channel` 의 listener 배열에서 지정한 `listener`를 제거합니다.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` String (optional)
+* `channel` String
 
 모든 listener를 제거하거나 지정된 `channel`의 listener를 제거합니다.
 
@@ -60,6 +60,14 @@ main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니�
 main 프로세스가 `ipcMain` 모듈로 `channel`을 수신하여 처리합니다. 그리고 `event.returnValue`를 설정하는 것으로 응답합니다.
 
 **참고:** 동기 메시지를 보내는 것은 전체 renderer 프로세스를 차단합니다. 만약 무엇이 동작하는지 알지 못한다면 이것을 사용해선 안됩니다.
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` String
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

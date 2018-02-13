@@ -15,6 +15,7 @@
 * [Розповсюдження Програм](tutorial/application-distribution.md)
 * [Інструкція Додання в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Інструкція Додання в Windows Store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Пакування Застосунків](tutorial/application-packaging.md)
 * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
 * [Налагодження Основного Процесу](tutorial/debugging-main-process.md)

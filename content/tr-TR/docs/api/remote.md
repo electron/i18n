@@ -1,8 +1,8 @@
-# uzak
+# remote
 
 > Oluşturucu işlemindeki ana işlem modüllerini kullanın.
 
-Süreç:[Renderer](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
 `remote` modülü ana işlem ve oluşturucu işlem (web sayfası) arasında kolay bir süreçler arası iletişim yolu (IPC) sunar.
 
@@ -101,14 +101,15 @@ Returns `any` - The object returned by `require(module)` in the main process. Mo
 
 Örnek
 
-    project/
-    ├── main
-    │   ├── foo.js
-    │   └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+project/
+├── main
+│   ├── foo.js
+│   └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // ana işlem: main/index.js

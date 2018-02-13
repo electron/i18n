@@ -2,7 +2,7 @@
 
 > Tambahkan ikon dan menu konteks ke area pemberitahuan sistem.
 
-Proses:  Utama </ 0></p> 
+Process: [Main](../glossary.md#main-process)
 
 `Tray` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -32,7 +32,7 @@ Jika Anda ingin menyimpan tepat perilaku yang sama pada semua platform, Anda tid
 
 Buatlah sebuah ikon tray baru yang terkait dengan `image`.
 
-### Instance Events
+### Contoh peristiwa
 
 Modul `Tray` memancarkan peristiwa berikut:
 
@@ -44,6 +44,7 @@ Modul `Tray` memancarkan peristiwa berikut:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `batas` [Persegi panjang](structures/rectangle.md) - batas-batas ikon tray
+* `posisi` [Point](structures/point.md) - posisi acara
 
 Emitted saat ikon baki diklik.
 
@@ -87,14 +88,14 @@ Emitted bila ada item yang diseret dijatuhkan pada ikon baki.
 
 #### Event: 'drop-file' *macOS*
 
-* ` event </ 0>  Acara</li>
-<li><code>file` String [] - path file menjatuhkan.
+* `acara` Acara
+* `file` String [] - path file menjatuhkan.
 
 Disuarakan saat file terseret dijatuhkan di ikon baki.
 
 #### Event: 'drop-teks' *macOS*
 
-* ` event </ 0>  Acara</li>
+* `event</ 0> Acara</li>
 <li><code>teks` String - string teks menjatuhkan
 
 Dibunyikan apabila menyeret teks jatuh dalam ikon tray.
@@ -133,6 +134,17 @@ Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
 Dibunyikan apabila operasi drag yang memasuki ikon tray.
 
+#### Event: 'mouse-move' *macOS*
+
+* `peristiwa` Peristiwa 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `posisi` [Point](structures/point.md) - posisi acara
+
+Emitted when the mouse moves in the tray icon.
+
 ### Metode Instance
 
 Itu `net` modul memiliki metode berikut:
@@ -161,7 +173,7 @@ Mengatur `gambar` yang terkait dengan ikon baki ini.
   
   #### `tray.setTitle(judul) ` *macos*
   
-  * ` title </ 0>  String</li>
+  * ` judul</ 0>  String</li>
 </ul>
 
 <p>Menetapkan judul yang ditampilkan di samping ikon baki di bilah status.</p>
@@ -197,33 +209,32 @@ win.on ('hide', () = > {
 
 * `pilihan` Obyek 
   * `ikon` ([NativeImage](native-image.md) | String) - (opsional)
-  * ` title </ 0> String - (contoh)</li>
-<li><code> konten </ 0> String - (contoh)</li>
-</ul></li>
-</ul>
+  * ` judul</ 0>  String</li>
+<li><code>content` String
 
-<p>Menampilkan balon baki.</p>
+Menampilkan balon baki.
 
-<h4><code>tray.popUpContextMenu([menu, position])` *macOS* *Windows*</h4> 
-    * ` teks ` String (opsional)
-    * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
-    
-    Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
-    
-    Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
-    
-    #### `tray.setContextMenu (menu)`
-    
-    * `menu` Menu
-    
-    Menetapkan menu konteks untuk ikon ini.
-    
-    #### `tray.getBounds()` *macOS * * Windows*
-    
-    Kembali [`Rectangle`](structures/rectangle.md)
-    
-    `Batas` dari ikon baki ini sebagai `Objek`.
-    
-    #### `tray.isDestroyed()`
-    
-    Mengembalikan `Boolean` - Apakah ikon baki rusak.
+#### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+
+* ` teks ` String (opsional)
+* `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
+
+Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
+
+Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
+
+#### `tray.setContextMenu (menu)`
+
+* `menu` Menu
+
+Menetapkan menu konteks untuk ikon ini.
+
+#### `tray.getBounds()` *macOS * * Windows*
+
+Kembali [`Rectangle`](structures/rectangle.md)
+
+`Batas` dari ikon baki ini sebagai `Objek`.
+
+#### `tray.isDestroyed()`
+
+Mengembalikan `Boolean` - Apakah ikon baki rusak.

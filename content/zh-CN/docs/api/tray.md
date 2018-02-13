@@ -60,7 +60,7 @@ app.on('ready', () => {
 
 创建与` image `关联的新任务栏图标。
 
-### 事件
+### 实例事件
 
 `Tray` 对象会发出以下事件:
 
@@ -72,6 +72,7 @@ app.on('ready', () => {
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `position` [Point](structures/point.md) - The position of the event
 
 当该图标被点击时触发。
 
@@ -161,6 +162,17 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - The position of the event
+
+Emitted when the mouse moves in the tray icon.
+
 ### 实例方法
 
 The `Tray` class has the following methods:
@@ -223,10 +235,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `选项` Object 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Displays a tray balloon.
 
@@ -247,7 +259,7 @@ Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+返回 [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this tray icon as `Object`.
 

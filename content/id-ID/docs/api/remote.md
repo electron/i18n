@@ -2,7 +2,7 @@
 
 > Gunakan modul proses utama dari proses renderer.
 
-Proses: [Renderer](../glossary.md#renderer-process)
+Proses:[Renderer](../glossary.md#renderer-process)
 
 The `remote` Modul menyediakan cara sederhana untuk melakukan komunikasi antar proses (IPC) antara proses renderer (halaman web) dan proses utama.
 
@@ -102,14 +102,15 @@ Mengembalikan `sembarang` - Objek dikembalikan oleh `require (module)` pada pros
 
 misalnya
 
-    proyek/
-    ├── utama
-    │ ├── foo.js
-    │ └── index.js
-    ├── package.json
-    └── renderer
-        └── index.js
-    
+```sh
+proyek/
+├── utama
+│ ├── foo.js
+│ └── index.js
+├── package.json
+└── renderer
+    └── index.js
+```
 
 ```js
 // proses utama: main/index.js
@@ -135,14 +136,14 @@ Mengembalikan [`BrowserWindow`](browser-window.md) - Jendela tempat halaman web 
 
 Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
 
-### `remote.getGlobal (nama)`
+### `remote.getGlobal(name)`
 
-* `nama` String
+* ` nama </ 0>  String</li>
+</ul>
 
-Mengembalikan `sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.
-
-## properti
-
-### `remote.process`
-
-Objek `proses` dalam proses utama. Ini sama dengan `remote.getGlobal('proses')` namun di-cache.
+<p>Mengembalikan <code>sembarang` - Variabel global`nama` (misalnya `global[name]`) di utama proses.</p> 
+    ## properti
+    
+    ### `remote.process`
+    
+    Objek `proses` dalam proses utama. Ini sama dengan `remote.getGlobal('proses')` namun di-cache.

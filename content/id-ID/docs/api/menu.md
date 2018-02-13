@@ -2,7 +2,7 @@
 
 > Buat menu aplikasi asli dan menu konteks.
 
-Proses:  Utama </ 0></p> 
+Process: [Main](../glossary.md#main-process)
 
 ### `menu Menu()`
 
@@ -14,22 +14,22 @@ Kelas ` BrowserWindow ` memiliki metode statis berikut:
 
 #### `Menu.set Aaplikasi Menu (menu)`
 
-* ` menu </ 0> Menu</li>
-</ul>
+* `menu` Menu | batal
 
-<p>Set <code> menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
+Set ` menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
  <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
 
-<p>Melewati <code>null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.</p> 
-  ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app `dipancarkan.
-  
-  #### `Menu.getApplicationMenu()`
-  
-  Mengembalikan `Menu` - menu aplikasi, jika set, atau `null`, jika tidak ditetapkan.
-  
-  **Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
-  
-  #### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em> macos </ 1></h4>
+<p>Melewati <code>null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
+
+** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app `dipancarkan.
+
+#### `Menu.getApplicationMenu()`
+
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+
+**Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
+
+#### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em> macos </ 1></h4>
 
 <ul>
 <li><code> aksi </ 0>  Tali</li>
@@ -42,68 +42,161 @@ Kelas ` BrowserWindow ` memiliki metode statis berikut:
 untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 
 <h4><code>Menu.membangun dari Template (template)`
-  
-  * `template` MenuItemConstructorOptions[]
-  
-  Mengembalikan `menu`
-  
-  Umumnya, `template` hanyalah sebuah array dari `options` untuk membangun a [MenuItem](menu-item.md). Penggunaannya bisa diacu di atas.
-  
-  Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
-  
-  ### Metode Instance
-  
-  The `menu` object has the following instance methods:
-  
-  #### `menu.popup([browserWindow, options])`
-  
-  * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
-  * `pilihan` Objek (opsional) 
-    * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
+
+* `template` MenuItemConstructorOptions[]
+
+Mengembalikan `menu`
+
+Umumnya, `template` hanyalah sebuah array dari `options` untuk membangun a [MenuItem](menu-item.md). Penggunaannya bisa diacu di atas.
+
+Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
+
+### Metode Instance
+
+The `menu` object has the following instance methods:
+
+#### `menu.popup([browserWindow, options])`
+
+* `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
+* `pilihan` Objek (opsional) 
+  * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
 <li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
-    * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0>.</li>
+  * `async` Boolean (opsional) - Atur ke `true` agar metode ini segera dipanggil, `false` untuk kembali setelah menu dipilih atau ditutup. Default ke ` false </ 0> .</li>
 <li><code>positioningItem`Nomor (opsional) *macOS* - Indeks item menu ke diposisikan di bawah kursor mouse pada koordinat yang ditentukan. Default adalah -1.
-  
-  Menutup menu konteks di `browserWindow`.
-  
-  #### `menu.closePopup([browserWindow])`
-  
-  * `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
-  
-  Menutup menu konteks di `browserWindow`.
-  
-  #### `menu.append(menuItem) menuItem`
-  
-  * `menuItem` MenuItem
-  
-  Appends the `menuItem` to the menu.
-  
-  #### `menu.insert(pos, menuItem)`
-  
-  * `pos` Integer
-  * `menu` Menu
-  
-  Sisipkan `menuItem` ke posisi `pos` pada menu.
-  
-  ### Instance Properties
-  
-  `menu` objek juga memiliki properti berikut:
-  
-  #### `menu.items`
-  
-  A `MenuItem[]` array containing the menu's items.
-  
-  Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
-  
-  ## Contoh
-  
-  Kelas `Utama` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
-  
-  ### Proses utama
-  
-  Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
-  
-  ```javascript
+
+Menutup menu konteks di `browserWindow`.
+
+#### `menu.closePopup([browserWindow])`
+
+* `browserWindow` BrowserWindow (opsional) - Default adalah jendela yang terfokus.
+
+Menutup menu konteks di `browserWindow`.
+
+#### `menu.append(menuItem) menuItem`
+
+* `menu` Menu
+
+Appends the `menuItem` to the menu.
+
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
+
+#### `menu.insert(pos, menuItem)`
+
+* `pos` Integer
+* `menuItem` MenuItem
+
+Sisipkan `menuItem` ke posisi `pos` pada menu.
+
+### Contoh properti
+
+`menu` objek juga memiliki properti berikut:
+
+#### `menu.items`
+
+A `MenuItem[]` array containing the menu's items.
+
+Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
+
+## Contoh
+
+Kelas `Utama` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
+
+### Proses utama
+
+Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
+
+```javascript
+const {app, Menu} = require('electron')
+
+const template = [
+  {
+    label: 'Edit',
+    submenu: [
+      {role: 'undo'},
+      {role: 'redo'},
+      {type: 'separator'},
+      {role: 'cut'},
+      {role: 'copy'},
+      {role: 'paste'},
+      {role: 'pasteandmatchstyle'},
+      {role: 'delete'},
+      {role: 'selectall'}
+    ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      {role: 'reload'},
+      {role: 'forcereload'},
+      {role: 'toggledevtools'},
+      {type: 'separator'},
+      {role: 'resetzoom'},
+      {role: 'zoomin'},
+      {role: 'zoomout'},
+      {type: 'separator'},
+      {role: 'togglefullscreen'}
+    ]
+  },
+  {
+    role: 'window',
+    submenu: [
+      {role: 'minimize'},
+      {role: 'close'}
+    ]
+  },
+  {
+    role: 'help',
+    submenu: [
+      {
+        label: 'Learn More',
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
+      }
+    ]
+  }
+]
+
+if (process.platform === 'darwin') {
+  template.unshift({
+    label: app.getName(),
+    submenu: [
+      {role: 'about'},
+      {type: 'separator'},
+      {role: 'services', submenu: []},
+      {type: 'separator'},
+      {role: 'hide'},
+      {role: 'hideothers'},
+      {role: 'unhide'},
+      {type: 'separator'},
+      {role: 'quit'}
+    ]
+  })
+
+  // Edit menu
+  template[1].submenu.push(
+    {type: 'separator'},
+    {
+      label: 'Speech',
+      submenu: [
+        {role: 'startspeaking'},
+        {role: 'stopspeaking'}
+      ]
+    }
+  )
+
+  // Window menu
+  template[3].submenu = [
+    {role: 'close'},
+    {role: 'minimize'},
+    {role: 'zoom'},
+    {type: 'separator'},
+    {role: 'front'}
+  ]
+}
+
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
@@ -181,12 +274,13 @@ Template:
 
 Menu:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -203,11 +297,13 @@ Template:
 
 Menu:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```

@@ -160,7 +160,7 @@ Use the same formats as the ones suggested above, but add the following note at 
 3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
 4. 'Save draft' 를 클릭하세요. **'Publish release' 를 누르면 안됩니다!**
 5. 모든 빌드가 통과할 때 까지 기다리세요.
-6. You can run `npm run release --validateRelease` to verify that all of the required files have been created for the release.
+6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
 ## 임시 브랜치 병합
 

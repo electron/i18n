@@ -14,7 +14,9 @@ Sowohl `ia32` (`x86`) als auch `x64` (`amd64`)-Dateien werden zum Download angeb
 
 ### Linux
 
-Die vorkompilierten `ia32` (`i686`) und `x64` (`amd64`) Dateien von Electron wurden unter Ubuntu 12.04 erstellt, die `arm` Datei wurde auf ARM v7 mit hard-float ABI und NEON für Debian Wheezy kompiliert.
+The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+
+[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/tutorial/planned-breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
 
 Ob die vorkompilierten Dateien auf einer Distribution laufen, hängt davon ab, ob die Distribution die Bibliotheken enthält, die auf der Build-Plattform verwendet wurden. Deshalb ist nur für Ubuntu 12.04 garantiert, dass es funktioniert, aber die folgenden Plattformen wurden ebenfalls bestätigt, kompatibel mit den vorkompilierten Dateien zu sein:
 

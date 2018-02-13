@@ -2,7 +2,7 @@
 
 > Información de acceso sobre los recursos de medios que pueden ser utilizados para capturar audio y video desde el escritorio utilizando la API [`navigator.mediaDevices.getUserMedia`] API.
 
-Proceso: [Renderizador](../glossary.md#renderer-process)
+Proceso: [Renderer](../glossary.md#renderer-process)
 
 En el siguiente ejemplo se muestra cómo capturar vídeo desde una ventana de escritorio cuyo título es `Electron`:
 
@@ -26,14 +26,18 @@ desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             maxHeight: 720
           }
         }
-      }, handleStream, handleError)
+      })
+      .then((stream) => handleStream(stream))
+      .catch((e) => handleError(e))
       return
     }
   }
 })
 
 function handleStream (stream) {
-  document.querySelector('video').src = URL.createObjectURL(stream)
+  const video = document.querySelector('video')
+  video.srcObject = stream
+  video.onloadedmetadata = (e) => video.play()
 }
 
 function handleError (e) {
@@ -66,7 +70,7 @@ El módulo `desktopCapturer` tiene los siguientes métodos:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `options` Object 
+* `opciones` Object 
   * `types` String[] - Un arreglo de cadenas que crea una lista de los tipos de fuentes de escritorio para ser capturadas. Los tipos disponibles son `screen` y `window`.
   * `thumbnailSize` [Size](structures/size.md) (opcional) - El tamaño de la vista previa de la fuente al cual debe ser modificado. Por defecto es `150` x `150`.
 * `callback` Función 

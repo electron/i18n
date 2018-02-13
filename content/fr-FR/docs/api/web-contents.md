@@ -84,7 +84,7 @@ Correspond au moment où le loader de l'onglet arrête de tourner.
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `status` Boolean
 * `newURL` String
 * `originalURL` String
@@ -100,7 +100,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `oldURL` String
 * `newURL` String
 * `isMainFrame` Boolean
@@ -132,7 +132,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 * `frameName` String
 * `disposition` String - Peut être `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` et `other`.
@@ -159,7 +159,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis quand un utilisateur ou la page veut démarrer la navigation. Cela peut arriver quand l'objet `window.location` est modifié ou un utilisateur clique sur un lien dans la page.
@@ -174,7 +174,7 @@ Appeler `event.preventDefault()` permet d'éviter la navigation.
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis lorsqu'une navigation est faite.
@@ -185,7 +185,7 @@ Cet événement n'est également pas émis pour les navigations à l'intérieur 
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 * `isMainFrame` Boolean
 
@@ -197,7 +197,7 @@ En cas de navigation dans la page, l'URL de la page change mais ne provoque pas 
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 
 Émis lorsqu’un écouteur de l'événement `beforeunload` tente d’annuler un déchargement de la page.
 
@@ -226,7 +226,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `killed` Boolean
 
 Émis lorsque le processus renderer crash ou est interrompu.
@@ -292,7 +292,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 * `error` String - Le code d'erreur
 * `certificate` [Certificate](structures/certificate.md)
@@ -321,8 +321,8 @@ L'utilisation est pareil que [l'événement `select-client-certificate` de `app`
 
 Retourne :
 
-* `event` Event
-* `request` Object 
+* `event` Événement
+* `request` Objet 
   * `method` String
   * `url` URL
   * `referrer` URL
@@ -370,11 +370,16 @@ Retourne :
 <meta name='theme-color' content='#ff0000'>
 ```
 
+Retourne :
+
+* `event` Événement
+* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+
 #### Événement : 'update-target-url'
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `url` String
 
 Émis lorsque la souris passe sur un lien ou le clavier déplace le focus vers un lien.
@@ -383,7 +388,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `type` String
 * `image` NativeImage (facultatif)
 * `scale` Float (facultatif) - Facteur de mise à l'échelle pour le curseur personnalisé
@@ -440,7 +445,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
   * `deviceId` String
@@ -470,7 +475,7 @@ app.on('ready', () => {
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
@@ -503,6 +508,26 @@ Emitted when a `<webview>`'s web contents is being attached to this web contents
 This event can be used to configure `webPreferences` for the `webContents` of a `<webview>` before it's loaded, and provides the ability to set settings that can't be set via `<webview>` attributes.
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
+
+#### Event: 'did-attach-webview'
+
+Retourne :
+
+* `event` Event
+* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+
+Emitted when a `<webview>` has been attached to this web contents.
+
+#### Événement : 'console-message'
+
+Retourne :
+
+* `level` Integer
+* `message` String
+* `line` Integer
+* `sourceId` String
+
+Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
 ### Méthodes d’instance
 
@@ -797,7 +822,9 @@ Insère le `text` à l'élément ciblé.
   * `wordStart` Boolean - (optional) Whether to look only at the start of words. defaults to `false`.
   * `medialCapitalAsWordStart` Boolean - (optional) When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
-Starts a request to find all matches for the `text` in the web page and returns an `Integer` representing the request id used for the request. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+Returns `Integer` - The request id used for the request.
+
+Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
 
 #### `contents.stopFindInPage(action)`
 
@@ -846,12 +873,14 @@ Récupère la liste des imprimantes système.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md)
 
-#### `contents.print([options])`
+#### `contents.print([options], [callback])`
 
 * `options` Object (facultatif) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
+* `callback` Function (facultatif) 
+  * success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
@@ -1076,7 +1105,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Objet 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 

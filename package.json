@@ -44,6 +44,7 @@
     "build:module": "node script/build-module.js",
     "build:readme": "node script/readme.js",
     "update-source-content": "script/update-source-content.sh",
+    "content-cleanup": "node script/i18n-content-cleanup.js",
     "test": "npm run test-only",
     "test-only": "mocha && standard --fix",
     "prepack": "check-for-leaks",
@@ -52,5 +53,5 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "electronLatestStableTag": "v1.8.2",
-  "electronMasterBranchCommit": "e3f1d90854715a9718ccd7bb6422e039d2f42ebb"
+  "electronMasterBranchCommit": "eba9abdbe56ac04a0ee197e22a8afd7c196fd30b"
 }

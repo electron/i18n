@@ -26,14 +26,18 @@ desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             maxHeight: 720
           }
         }
-      }, handleStream, handleError)
+      })
+      .then((stream) => handleStream(stream))
+      .catch((e) => handleError(e))
       return
     }
   }
 })
 
 function handleStream (stream) {
-  document.querySelector('video').src = URL.createObjectURL(stream)
+  const video = document.querySelector('video')
+  video.srcObject = stream
+  video.onloadedmetadata = (e) => video.play()
 }
 
 function handleError (e) {
@@ -66,12 +70,12 @@ The `desktopCapturer` module has the following methods:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `options` Object 
+* `optionen` Object 
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
 * `callback` Funktion 
-  * `error` Error
-  * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
+  * ` Fehler </ 0> Fehler</li>
+<li><code>sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
 Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
 

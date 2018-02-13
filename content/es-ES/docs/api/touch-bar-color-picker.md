@@ -6,7 +6,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
 
 ### `Nuevo seleccionador de color de la barra táctil(opciones)` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `Colores disponibles` Cadena[] (opcional) - arreglo de códigos hexadecimales de los colores a aparecer como colores posibles a seleccionar.
   * `Color seleccionado` Cadena (opcional) - El código de color hexadecimal en el seleccionador, ejemplo `#ABCDEF`.
   * `cambiar` Funcion (opcional) - Función a llamar cuando el color está seleccionado. 

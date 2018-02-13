@@ -14,7 +14,7 @@ Process: [Main](../glossary.md#main-process)
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
@@ -24,7 +24,7 @@ Passing `null` will remove the menu bar on Windows and Linux but has no effect o
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -73,6 +73,12 @@ Pops up this menu as a context menu in the `browserWindow`.
 
 Appends the `menuItem` to the menu.
 
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
+
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
@@ -94,7 +100,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
 
-### Главный процесс
+### Основной (main) процесс
 
 An example of creating the application menu in the main process with the simple template API:
 
@@ -142,7 +148,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -264,12 +270,13 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 Меню:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Шаблон:
 
@@ -286,11 +293,13 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 Меню:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```

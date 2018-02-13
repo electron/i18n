@@ -15,7 +15,8 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 * [Veröffentlichung der Anwendung](tutorial/application-distribution.md)
 * [Veröffentlichung im Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Veröffentlichung im Windows Store](tutorial/windows-store-guide.md)
-* [Anwendungspakete erstellen](tutorial/application-packaging.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Anwendungspakete](tutorial/application-packaging.md)
 * [Verwendung von Native Node Modules](tutorial/using-native-node-modules.md)
 * [Debugging des Hauptprozesses](tutorial/debugging-main-process.md)
 * [Verwendung von Selenium und WebDriver](tutorial/using-selenium-and-webdriver.md)
@@ -79,7 +80,7 @@ Bevor Sie ein neues Thema ansprechen, schauen Sie bitte vorher in der Liste der 
 
 ### Module für beide Prozesse:
 
-* [clipboard](api/clipboard.md)
+* [Zwischenablage (clipboard)](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
 * [screen](api/screen.md)

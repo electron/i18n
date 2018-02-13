@@ -2,20 +2,15 @@
 
 > Aktifkan aplikasi untuk memperbarui dirinya secara otomatis.
 
-Proses: [Utama](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
-Modul `autoUpdater` menyediakan sebuah antarmuka untuk [kerangka Squirrel](https://github.com/Squirrel).
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Anda dapat dengan cepat meluncurkan server pelepasan multi platform untuk mendistribusikannya aplikasi dengan menggunakan salah satu proyek ini:
+## Platform Notices
 
-* [kacang](https://github.com/GitbookIO/nuts): * Server pelepasan cerdas untuk aplikasi Anda, menggunakan GitHub sebagai backend. Pembaruan otomatis dengan Squirrel (Mac & Windows)*
-* [elektron-release-server](https://github.com/ArekSredzki/electron-release-server): * Fitur lengkap, host rilis self-host untuk aplikasi elektron, kompatibel dengan auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *Server node.js sederhana untuk Squirrel.Mac dan Squirrel.Windows yang menggunakan rilis GitHub*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *Aplikasi PHP sederhana untuk Squirrel.Windows yang membaca update dari sebuah folder. Mendukung pembaruan delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Pemberitahuan platform
-
-Meskipun `autoUpdater` menyediakan API seragam untuk berbagai platform, ada Masih ada beberapa perbedaan halus pada setiap platform.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -32,10 +27,6 @@ Bila menggunakan [electron-winstaller](https://github.com/electron/windows-insta
 Installer yang dihasilkan dengan Squirrel akan membuat shortcut icon dengan [ID Model Aplikasi Pengguna](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) dalam format `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, contohnya adalah `com.squirrel.slack.Slack` dan `com.squirrel.code.Code`. Anda harus menggunakan ID yang sama untuk aplikasi Anda dengan API `app.setAppUserModelId`, jika tidak Windows akan melakukannya tidak bisa pin aplikasi Anda dengan benar di task bar.
 
 Tidak seperti Squirrel.Mac, Windows dapat menginangi update pada S3 atau host file statis lainnya. Anda bisa membaca dokumen [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) untuk mendapatkan rincian lebih lanjut tentang bagaimana Squirrel.Windows bekerja.
-
-### Linux
-
-Tidak ada dukungan built-in untuk auto-updater di Linux, jadi dianjurkan untuk melakukannya gunakan manajer paket distribusi untuk memperbarui aplikasi Anda.
 
 ## Acara
 
@@ -65,7 +56,7 @@ Emitted saat tidak ada update yang tersedia.
 
 Pengembalian:
 
-* `acara` Acara
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Tanggal
@@ -81,8 +72,8 @@ Objek `autoUpdater` memiliki metode berikut:
 
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 
-* `url` String
-* `requestHeader` Objek *macOS* (opsional) - header permintaan HTTP.
+* ` url </ 0> String</li>
+<li><code>requestHeader` Objek *macOS* (opsional) - header permintaan HTTP.
 
 Menetapkan `url` dan menginisialisasi updater otomatis.
 

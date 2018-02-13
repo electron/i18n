@@ -1,21 +1,16 @@
-# autoUpdater
+# awtoUpdeyter
 
 > Paganahin ang app na awtomatikong mag-update ang kanilang sarili.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
-Ang`autoUpdater`modyul ay nagbibigay ng isang interface para sa [Squirrel](https://github.com/Squirrel) na balangkas.
+**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
-Maaari mong mabilis na ilunsad ang isang multi-platform release server para sa pamamahagi ng iyong applikasyon sa pamamagitan ng paggamit ng isa sa mga proyektong ito:
+## Platform Notices
 
-* [nuts](https://github.com/GitbookIO/nuts):*Ang smart release server para sa iyong mga applikasyon, gamit ang Github bilang isang backend. Nag a update ng automatiko sa Squirrel (Mac & Windows)*
-* [electron-release-server](https://github.com/ArekSredzki/electron-release-server):* Isang ganap at tampok, na mayroong sariling naka-host release server para sa mga aplikason ng electron, magkabagay sa auto-updater*
-* [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server):* Isang simpleng node.js server para sa Squirrel.Mac at Squirrel.Windows na kung saan gumagamit ng inilabas ng Github*
-* [squirrel-release-server](https://github.com/Arcath/squirrel-release-server):*Isang simpleng PHP na applikasyon para sa Squirrel.Windows na nagbabasa ng mga update mula sa isang folder. Sinusuportahan ng mga update sa delta.*
+Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
-## Babala sa plataporma
-
-Bagama't ang `autoUpdater` ay nagbibigay ng isang magkaparehong API para sa iba't ibang plataporma, mayroon pa rin ilang mga bahagyang pagkakaiba sa bawat plataporma.
+In addition, there are some subtle differences on each platform:
 
 ### macOS
 
@@ -33,17 +28,13 @@ Ang installer na nabuo gamit ang Squirrel ay lilikha ng isang shortcut icon na m
 
 Hindi gaya ng sa Squirrel.Mac, ang Windows ay kayang mag-host ng update sa S3 o sa kahit anong static file ng host. Maari mong basahin ang dokumento ng [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)para makakuha pa ng higat pang detalye tungkol sa kung paano gumagana ang Squirrel.Windows.
 
-### Linux
-
-Walang nakalagay na suporta para sa auto-updater para sa Linux, kaya't inirerekomenda na gamitin ang distribution's package manager para i-update ang iyong app.
-
 ## Pangyayari
 
 Ang `autoUpdater` maglalabas ng mga ganitong pangyayari:
 
-### Pangyayari: 'error'
+### Event: 'error'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `error` Error
 
@@ -63,9 +54,9 @@ Napalabas kapag walang available na pag-update.
 
 ### Pangyayari: 'update-downloaded'
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `event` Event
+* `kaganapan`Kaganapan
 * `releaseNotes` Lupid
 * `releaseNotes` Lubid
 * `releaseDate` Petsa

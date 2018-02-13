@@ -26,7 +26,7 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -41,20 +41,21 @@ let win
 app.on('ready', () => {
   // no hay necesidad de pasar`sandbox: true` ya que `--enable-sandbox` fue habilitada.
   win = new BrowserWindow()
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
 Note que esto no es suficiente para llamar `app.commandLine.appendSwitch('--enable-sandbox')` como Electron/nodo código de inicio corre después si es posible para hacer cambios a la configuración de la caja de aren de Chromium. El cambio debe ser pasado por la linea de comando de electron:
 
-    electron --enable-sandbox app.js
-    
+```sh
+electron --enable-sandbox app.js
+```
 
 No es posible tener el OS caja de arena activo solo por algunos renderizadores, si `--enable-sandbox` está habilitado, no se puede crear una ventana normal de Electron.
 
 Si usted necesita mezclar renderizadores dentro y fuera de la caja de arena en una aplicación simplemente omita el argumento `--enable-sandbox`. Sin este argumento, ventanas creadas con `sandbox: true` todavía tendrán deshabilitado node.js y podrán comunicarse solo via IPC, que ya es una ganancia de seguridad POV en si misma.
 
-## Precargado
+## Precarga
 
 Una aplicación puede hacer personalizaciones a los renderizadores de las cajas de arena usando un script precargado. Aquí hay un ejemplo:
 
@@ -67,7 +68,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -105,18 +106,23 @@ Cosas importantes que notar en el script precargado:
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 
-    browserify preload/index.js \
-      -x electron \
-      -x fs \
-      --insert-global-vars=__filename,__dirname -o preload.js
-    
+```sh
+  browserify preload/index.js \
+    -x electron \
+    -x fs \
+    --insert-global-vars=__filename,__dirname -o preload.js
+```
 
 La bandera `-x`debe ser usada con cualquier modulo requerido que ya está expuesto en un ambiente precargado, y le dice a browserify que use la función que la encierra `require` para ello. `--insert-global-vars` Asegurará que `process`, `Buffer` y `setImmediate` también sean llevado para el ambiente cerrado (normalmente browsefiry inyecta códigos para ellos).
 
 Actualmente la function `require` proveída en el ambiente de precargado expone los siguiente módulos:
 
 - `child_process`
-- `electron` (crashReporter, remoto and ipcRenderer)
+- `electron` 
+  - `crashReporter`
+  - `remote`
+  - `ipcRenderer`
+  - `webFrame`
 - `fs`
 - `os`
 - `contadores`

@@ -15,6 +15,7 @@
 * [การเผยแพร่แอพพลิเคชั่น](tutorial/application-distribution.md)
 * [คู่มือการส่งแม็คแอพสโตร์ (Mac App Store)](tutorial/mac-app-store-submission-guide.md)
 * [คู่มือการส่งวินโดวส์สโตร์ (Windows Store)](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [การแพ็กเกจแอพพลิเคชั่น](tutorial/application-packaging.md)
 * [การใช้โมดูล Node ที่เนทีฟ](tutorial/using-native-node-modules.md)
 * [การดีบัคกระบวนการหลัก](tutorial/debugging-main-process.md)

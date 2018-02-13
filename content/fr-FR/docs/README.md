@@ -15,6 +15,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Distribution de l'Application](tutorial/application-distribution.md)
 * [Guide de Soumission Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guide Windows Store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Créer une archive](tutorial/application-packaging.md)
 * [Utiliser des Modules Natifs de Node](tutorial/using-native-node-modules.md)
 * [Debugger Processus Principal](tutorial/debugging-main-process.md)
@@ -25,7 +26,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Tests sur les systèmes CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Rendu hors de l'écran](tutorial/offscreen-rendering.md)
 * [Raccourcis clavier](tutorial/keyboard-shortcuts.md)
-* [Mettre à jour l'application](tutorial/updates.md)
+* [Mettre à jour des applications](tutorial/updates.md)
 
 ## Tutoriels
 

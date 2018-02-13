@@ -1,4 +1,4 @@
-# Suportado ng Chrome ang Command Line Switches
+# Suportadong mga Chrome Command Line Switches
 
 > Ang Command line switches ay sinusuportahan ng Electron.
 
@@ -96,8 +96,9 @@ Ang kuwit ang nag hihiwalay sa listahan ng mga servers para paganahin ang integr
 
 Halimbawa:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```bash
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 ang anumang `url` na nagtatapos sa `example.com`,`foobar.com`, `baz` ay isinaalang-alang Para sa pinagsama-samang pag papatunay. Walang `*` ang prefix ng url ay kailangang tugmang-tugma.
 

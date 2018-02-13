@@ -1,14 +1,14 @@
-# `<webview>` Tag
+# `<webview>` Pananda
 
 > Ipakita ang panlabas na nilalaman ng web sa mga liblib na anyu at proseso.
 
-Proseso:[Tagabigay](../tutorial/quick-start.md#renderer-process)
+Mga proseso: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Gumamit ng `webview` tag sa embed na 'panauhin' nilalaman(tulad ng pahina sa web) sa iyong Electron app. Ang nilalaman ng panauhin ay may nakalagay sa loob ng container na `webview`. Ang naka-embed na pahina sa loob ng iyong app kontrol kung paano ang nilalaman ng panauhin ay nailatag at naibigay.
 
 Hindi tulad ng `iframe`, ang `webview` ay tumatakbo sa hiwalay na proseso kaysa ginagamit mong app. Ito ay walang parehang pahintulot tulad ng web na pahina at ang lahat ng mga interaskyon pagitan sa iyong app ang naka-embed na nilalaman ay magiging asinkrunos. Ito ay pinapanatili ang iyong app na ligtas sa mga naka-embed na nilalaman. **Paalala:** Lahat ng paraan ay tinatawag sa webview galing sa unang pahina na nangangailangan a asinkrunos na tawag papunta sa pangunahing proseso.
 
-## Halimbawa
+## Mga halimbawa
 
 Para i-embed ang pahina ng web sa iyong app, Idagdag ang `webview` tag sa iyong app's na taga-embed na pahina (Ito ang app na pahina na makikita sa panauhin na nilalaman). Sa kanyang pinakasimpleng porma, ang `webview` tag kasama ang `src` sa pahina ng web at css na estilo na ikontrol ang itsura ng `webview` container:
 
@@ -137,10 +137,10 @@ Habang itong katangian mayroon ang pahina ng panauhin hindi pinagana ang segurid
 
 ```html
 <webview src="https://github.com" partition="persist:github"></webview>
-<webview src="https://electron.atom.io" partition="electron"></webview>
+<webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Itakda ang sesyon na ginamit sa pahina. Kapag `partition` ay nagsimula sa `persist:`, ang pahina ay gagamit ng masugid na sesyon na magagamit sa lahat ng pahina sa app na may kaparihang `partition`. kung wala naman `persist:` na panlapi, ang pahina ay gagamit na in-memory na sesyon. Sa pag-aatas ng kaparihang `partition`, maramihang pahina ang pwede maibahagi sa parehang sesyon. Kung ang `partition` ay di pa na set pagkatapos ang default na sesyon ng app ay magagamit.
+Itakda ang sesyon na ginamit sa pahina. Kapag `partition` ay nagsimula sa `persist:`, ang pahina ay gagamit ng masugid na sesyon na magagamit sa lahat ng pahina sa app na may kaparihang `partition`. kung wala ang unlaping `persist`, ang pahina ay gagamit ng isang nasa memoryang sesyon. Sa pag-aatas ng kaparehong `partition`, maramihang mga pahina ang maaaring magsalo-salo sa magkaparehong sesyon. Kung ang `partition` ay di pa na set pagkatapos ang default na sesyon ng app ay magagamit.
 
 Itong balyo lang ang pwede mabago bago ang unang nabigasyon, mula sa sesyon sa aktibong tagabahagi ang proseso ay di magbabago. Kasunod na pagtatangka na baguhin ang balyo ay mabibigo na may DOM eksepsyon.
 
@@ -227,7 +227,7 @@ Nag `webview` na tag ay may mga susmusunod na pamamaraan:
 
 **Paalala:** Ang webview na elemento ay dapat makarga bago gamitin ang mga pamamaraan.
 
-**Halimbawa**
+**Mga halimbawa**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -239,12 +239,12 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` Ang URL
-* `mga pagpipilian` Mga bagay (opsyonal) 
-  * `httpReferrer` String(opsyonal) - Ang tagabigay ng HTTP url.
-  * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
-  * `extraHeaders` String(opsyonal) - Sobrang ulunan ay pinaghihiwalay sa "\n"
-  * `postData`([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional) Context | Request Context
-  * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kailangan kung ang tinutukoy ng `url` iy isang datos ng url at kailangan maikarga sa ibang dokumento.
+* `mga opsyon` Bagay (opsyonal) 
+  * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
+  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
+  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (opsyonal)
+  * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
 Kakargahin ang `url` sa webview, ang `url` ay dapat magkaroon ng protokol na panlapi, e.g ang `http://` or `file://`.
 
@@ -266,7 +266,7 @@ Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay naghihintay ng unang-sagot
 
 ### `<webview>.stop()`
 
-Nagtitigil ng anumang nakabingbing na nabigasyon.
+Hinihinto ang anumang nakabinbing nabigasyon.
 
 ### `<webview>.reload()`
 
@@ -292,7 +292,7 @@ Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay makakapunta sa `offset`.
 
 ### `<webview>.clearHistory()`
 
-Linisin ang kasaysayan ng nabigasyon.
+Nililimas ang kasaysayan ng pag-navigate.
 
 ### `<webview>.goBack()`
 
@@ -312,11 +312,11 @@ Ang nabigasyon sa tinutukoy na lubos na index.
 
 * `offset` Integer
 
-Ang nabigasyon sa tinutukoy na offset galing sa "kasalukuyang entri".
+Naka-navigate sa tinukoy na offset mula sa "kasalukuyang entry".
 
 ### `<webview>.isCrashed()`
 
-Nagbabalik `Boolean` - Kung saan ang proseso ng tagapagbigay ay nasira.
+Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 ### `<webview>.setUserAgent(userAgent)`
 
@@ -330,18 +330,18 @@ Nagbabalik `String` - Ang gumagamit na ahente para sa pahina ng panauhin.
 
 ### `<webview>.insertCSS(css)`
 
-* `css` String
+* `css` Pisi
 
 Paglagay ng CSS sa pahina ng panauhin.
 
-### `<webview>.executeJavaScript(code, userGesture, callback)`
+### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean - Default `false`.
-* `pagbalik tawag` Gumagana (opsyonal) - Tinawag pagkatapos ang iskrip ay ginawa. 
-  * `result` Any
+* `userGesture` Boolean (optional) - Default `false`.
+* `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
+  * `resulta` Anuman
 
-Sinusuri `code` sa pahina. Kung `userGesture` ay nakatakda, ito ay lilikha ng konteksto ng kilos ng gugamit sa pahina. HTML APIs tulad ng `requestFullScreen`, na nangangailangan ng aksyon sa gugamit, ay maaring kumuha ng kalamangan para sa opsyon ng otomasyon.
+Sinusuri ang mga `code` sa pahina. Kung `userGesture` ay nakatakda, ito ay lilikha ng konteksto ng kilos ng gugamit sa pahina. HTML APIs tulad ng `requestFullScreen`, na nangangailangan ng aksyon sa gugamit, ay maaring kumuha ng kalamangan para sa opsyon ng otomasyon.
 
 ### `<webview>.openDevTools()`
 
@@ -432,23 +432,25 @@ Paggawa ng pag-edit sa utos na `replaceMisspelling` sa pahina.
 
 * `text` String
 
-Pagsingit `text` para sa nakapukos na elemento.
+Ipasok ang `teksto` sa nakatutok na elemento.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Ang nilalaman na maaring suriin, ay dapat may laman.
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
+* `options` Bagay (opsyonal) 
   * `abanti` Boolean - (opsyonal) Kung mananaliksik ka ng paabanti o patalikod, defaults sa `true`.
   * `findNext` Boolean - (opsyonal) Kung ang operasyon isang kahilingan o isang pagsasagawang kasunod, mga defaults sa `false`.
   * `matchCase` Boolean - (opsyonal) Kung saan ang paghahanap ay dapat case-sensitive, mga defaults sa `false`.
   * `wordStart` Boolean - (opsyonal) Kung saan maghahanap ka lang ng simula ng salita. mga defaults sa `false`.
   * `medialCapitalAsWordStart` Boolean - (opsyonal) Kung ang pinagsama na may `wordStart`, tinatanggap ang kapareha sa gitna ng salita at kung ang kapareha nag nagsimula ng malaking titik at sinundan ng maliit na titik o walang-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
-Simulan ng kahilingan para makahanap ng lahat ng magkapareha para sa `text` sa pahina ng web ang nagbalik sa `integer` kumakatawan sa kahilingan na id na naggamit para sa kahilingan. Ang resulta ng mga kahilingan ay maaring makuha sa pag-subscribe sa [`matatagpuan-sa-pahina`](webview-tag.md#event-found-in-page) na kaganapan.
+Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
+
+Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `aksyon` String - Tinitiyak ang aksyon na mangyayari sa katapusan [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) hiling. 
+* `aksyon` String - Tinitiyak ang aksyon na mangyayari sa katapusan [`<webview>.findInPage`](webview-tag.md#webviewtagfindinpage) kahilingan. 
   * `clearSelection` - Tanggalin ang mga napili.
   * `keepSelection` - I-translate ang mga napili para maging normal.
   * `activateSelection` - Ipukos at iclick ang node ng napili.
@@ -457,7 +459,7 @@ Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang
 
 ### `<webview>.print([options])`
 
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -466,13 +468,13 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `mga pagpipilian` Bagay 
+* `options` Bagay 
   * `marginsType` Integer - (opsyonal) Itinatakda ang uri ng mga margin na gagamitin. Gumagamit ng 0 para sa naka-default na margin, 1 para sa walang margin, at 2 para sa pinakamaliit na maaaring gawing margin.
   * `pageSize` String - (opsyonal) Itinatakda ang sukat ng page ng nalilikhang PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
   * `printBackground` Boolean - (opsyonal) Pwedeng i-imprinta ang mga background ng CSS.
   * `printSelectionOnly` Boolean - (opsyonal) Pwedeng i-imprinta ang mga napili lamang.
   * `landscape` Boolean - (opsyonal) `true` para sa landscape, `false` para sa portrait.
-* `tumawag muli` Punsyon 
+* `callback` Ang Punsyon 
   * `error` Error
   * `data` Buffer
 
@@ -481,7 +483,7 @@ Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printTo
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin
-* `tumawag muli` Punsyon 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([rect, ]callback)`.
@@ -505,15 +507,15 @@ Tignan ang [webContents.sendInputEvent](web-contents.md#webcontentssendinputeven
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Numero - paktor ng zoom.
+* `kadahilanan`Numero - Zoom factor.
 
-Binabago ang paktor ng zoom sa tiyak na paktor. Ang paktor ng zoom ay porsyento ng zoom na hinati sa 100, kaya 300% = 3.0.
+Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
 
 ### `<webview>.setZoomLevel(level)`
 
-* `level` Numero - Lebel ng zoom
+* `antas` Numero - antas ng Zoom
 
-Binabago ang lebel ng zoom sa tiyak na lebel. Ang orihinal na sukat ay 0 at ang bawat increment na lampas o kulang ay nagrerepresenta ng 20% na laki o liit sa naka-default na limit na 300% at 50% sa orihinal na sukat, pagkakasunod-sunod.
+Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit.
 
 ### `.showDefinitionForSelection()` *macOS*
 
@@ -529,87 +531,87 @@ Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
 
 ### Event: 'load-commit'
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `url` String
-* `isMainFrame` Boolean
+* `url` Tali
+* `ay pangunahing kuwadro` Boolean
 
 Itinitigil agad kapag nacommit ang load. Sinasama nito ang nabigasyon na nasa kasalukuyang dokumento pati na ang mga load ng subframe na nasa lebel ng dokumento, pero di kasama ang mga load ng asynchronous resource.
 
-### Event: 'did-finish-load'
+### Kaganapan: 'ginawa-tapusin-dala'
 
 Itigil kapag natapos na ang nabigasyon, i.e. ang taga-ikot ng tab ay huminto sa pag-ikot, at ang event na `onload` ay na-dispatch.
 
-### Event: 'did-fail-load'
+### Kaganapan: 'ginawa-mabibigo-dala'
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `errorCode` Integer
-* `errorDescription` String
-* `validatedURL` String
+* `pagkakamalingCode`kabuuan
+* `Paglalarawan ng pagkakamali`tali
+* `napatunayan sa Url`tali
 * `isMainFrame` Boolean
 
 Ang event na ito ay tulad ng `did-finish-load`, pero natigil nung nag-fail ang load o nakansela, e.g. `window.stop()` ay na-invoke.
 
-### Event: 'did-frame-finish-load'
+### Kaganapan: 'ginawa-frame-finish-load'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `isMainFrame` Boolean
 
 Itigil kapag natapos na ang nabigasyon ng frame.
 
-### Event: 'did-start-loading'
+### Kaganapan: 'did-start-loading'
 
 Tumutugon sa mga puntos ng oras kung kailan nagsimulang umikot ang taga-ikot ng tab.
 
-### Event: 'did-stop-loading'
+### Kaganapan: 'did-stop-loading'
 
 Tumutugon sa mga puntos ng oras kung kailan huminto sa pag-ikot ang taga-ikot ng tab.
 
-### Event: 'did-get-response-details'
+### Kaganapan: 'ginawa-kumuha-tugon-detalye'
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `status` Boolean
+* `katayuan` Boolean
 * `newURL` String
-* `originalURL` String
+* `orihinalURL` String
 * `httpResponseCode` Integer
 * `requestMethod` String
 * ang `referer` String
-* `headers` Objek
-* `resourceType` String
+* `header` Bagay
+* `resourceType` Tali
 
 Itigil kapag ang mga detalye tungol sa hinihinging resource ay nahanap na. Ang `status` ay tumutukoy sa socket connection sa pagdownload ng resource.
 
-### Event: 'did-get-redirect-request'
+### Kaganapan: 'did-get-redirect-request'
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `oldURL` String
+* `oldURL` Pisi
 * `newURL` String
 * `isMainFrame` Boolean
 
 Itigil kapag nakatanggap ng redirect habang himihingi ng resource.
 
-### Event: 'dom-ready'
+### Kaganapan: 'dom-ready'
 
 Itigil kapag ang dokumento ng sinasabing frame ay na-load.
 
 ### Event: 'page-title-updated'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `title` String
 * `explicitSet` Boolean
 
 Itigil kapag ang titulo ng page ay naitakdang habang naka-nabigasyon. Ang `explicitSet` ay di totoo kapag ang titulo ay nabuo mula sa file url.
 
-### Event: 'page-favicon-updated'
+### Kaganapan: 'pahina-favicon-updated'
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `favicons` String[] - Hanay ng mga URL.
+* `favicons` String [] - Mga array ng mga URL.
 
 Itigil kapag nakatanggap ang page ng mga url na favicon.
 
@@ -623,7 +625,7 @@ Itigil kapag ang page ay hindi na naka-fullscreen na dulot ng HTML API.
 
 ### Event: 'console-message'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `level` Integer
 * `message` String
@@ -641,15 +643,15 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Kaganapan: 'natagpuan-sa-pahina'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `resulta` Bagay 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Posisyon ng aktibong katugma.
-  * `matches` Integer - Bilang ng mga Tugma.
-  * `selectionArea` Objek - Mga coordinate ng unang tugmang parte.
+  * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
+  * `tugma` Integer - Bilang ng Mga Tugma.
+  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
 
 Itigil kung meron ng resulta sa hinihingi ng [`webview.findInPage`](webview-tag.md#webviewtagfindinpage).
@@ -664,13 +666,13 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Kaganapan: 'bagong-bintana'
 
-Magbabalik ng:
+Ibinabalika ang:
 
-* `url` String
-* `frameName` String
-* `disposition` String- Pwedeng `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `url` Tali
+* `frameName` Pisi
+* `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
 * `options` Objek - Ang mga opsyon na kailangang gamitin para makagawa ng bagong `BrowserWindow`.
 
 Itigil kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
@@ -689,9 +691,9 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Kaganapan: 'mag-navigate'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `url` String
 
@@ -703,9 +705,9 @@ Ito ay hindi rin ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-cl
 
 Tinatawag ang `event.preventDefault()` na may **NOT** mga epekto.
 
-### Event: 'did-navigate'
+### Kaganapan: 'ginawa-navigate'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `url` String
 
@@ -713,16 +715,16 @@ Nilalabas kapag natapos na ang nabigasyon.
 
 Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
 
-### Event: 'did-navigate-in-page'
+### Kaganapan: 'ginawa-navigate-in-page'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `isMainFrame` Boolean
 * `url` String
 
-Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
+Inilalabas kapag nangyari ang pag-navigate sa pahina.
 
-Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
 ### Event: 'close'
 
@@ -739,7 +741,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `channel` String
 * `args` Array
@@ -766,7 +768,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Kaganapan: 'nag-crash'
 
 Itigil kapag ang nag-crash ang proseso na nagsumite.
 
@@ -774,30 +776,30 @@ Itigil kapag ang nag-crash ang proseso na nagsumite.
 
 Itigil kapag ang ang proseso ng gpu ay nag-crash.
 
-### Event: 'plugin-crashed'
+### Kaganapan: 'plugin-nag-crash'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `name` String
-* `version` String
+* `Bersyon` Pisi
 
 Itigil kapag ang proseso na plug-in ay nagcrash.
 
-### Event: 'destroyed'
+### Kaganapan: 'nawasak'
 
 Itigil kapag ang nasira ang mga WebContent.
 
-### Event: 'media-started-playing'
+### Kaganapan: 'media-started-playing'
 
 Ilabas kapag ang medya ay nagsimula.
 
-### Event: 'media-paused'
+### Kaganapan: 'media-paused'
 
 Ilabas kapag ang medya ay nahinto o natapos na.
 
-### Event: 'did-change-theme-color'
+### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `themeColor` String
 
@@ -807,22 +809,22 @@ Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-i
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Kaganapan: 'update-target-url'
 
-Magbabalik ng:
+Ibinabalika ang:
 
 * `url` String
 
-Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
+Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
 
-### Event: 'devtools-opened'
+### Kaganapan: 'devtools-binuksan'
 
 Ilabas kapag ang mga DevTool ay nabuksan.
 
-### Event: 'devtools-closed'
+### Kaganapan: 'devtools-sarado'
 
 Ilabas kapag ang mga DevTool ay nasarado.
 
-### Event: 'devtools-focused'
+### Kaganapan: 'devtools-nakatuon'
 
 Ilabas kapag ang mga DevTool ay napukos / nabuksan.

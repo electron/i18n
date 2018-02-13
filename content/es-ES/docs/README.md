@@ -15,15 +15,16 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Distribución de aplicaciones](tutorial/application-distribution.md)
 * [Guía de publicación en la Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guía de Windows Store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Empaquetado de la aplicación](tutorial/application-packaging.md)
-* [Uso de Módulos Nativos de Node](tutorial/using-native-node-modules.md)
+* [Uso de módulos nativos de Node](tutorial/using-native-node-modules.md)
 * [Depuración del proceso principal](tutorial/debugging-main-process.md)
 * [Uso de Selenium y WebDriver](tutorial/using-selenium-and-webdriver.md)
 * [Extensión de herramientas de desarrollo](tutorial/devtools-extension.md)
 * [Uso del Plugin de Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Uso del plugin MDL Widevine](tutorial/using-widevine-cdm-plugin.md)
 * [Pruebas de sistemas de CI sin cabeceras (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Representación fuera de pantalla](tutorial/offscreen-rendering.md)
+* [Representación fuera de la pantalla](tutorial/offscreen-rendering.md)
 * [Atajos del teclado](tutorial/keyboard-shortcuts.md)
 * [Actualización de aplicaciones](tutorial/updates.md)
 
@@ -39,12 +40,12 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [Sinopsis](api/synopsis.md)
 * [Objeto de proceso](api/process.md)
-* [Soporte para los interruptores de la linea de comando de Chrome](api/chrome-command-line-switches.md)
+* [Opciones de linea de commandos de Chrome soportadas](api/chrome-command-line-switches.md)
 * [Variables de entorno](api/environment-variables.md)
 
 ### Elementos de DOM personalizados:
 
-* [`Archivo` Objeto](api/file-object.md)
+* [`File` Object](api/file-object.md)
 * [`<webview>` Etiqueta](api/webview-tag.md)
 * [Función `window.open`](api/window-open.md)
 
@@ -100,6 +101,6 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Instrucciones de depuración (Windows)](development/debug-instructions-windows.md)
 * [Configurando el Symbol Server en el depurador](development/setting-up-symbol-server.md)
 * [Documentación guía de estilos](styleguide.md)
-* [Actualizando Chrome](development/upgrading-chromium.md)
+* [Actualizando Chomium](development/upgrading-chromium.md)
 * [Desarrollo de Chromium](development/chromium-development.md)
 * [Desarrollo de V8](development/v8-development.md)

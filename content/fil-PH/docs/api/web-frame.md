@@ -1,4 +1,4 @@
-# lumikha ng bahay-alalawa
+# webFrame
 
 > Customize the rendering of the current web page.
 
@@ -18,9 +18,9 @@ The `webFrame` module has the following methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `kadahilanan`Numero - Zoom factor.
 
-Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
+Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
@@ -28,9 +28,9 @@ Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level
+* `antas` Numero - antas ng Zoom
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit.
 
 ### `webFrame.getZoomLevel()`
 
@@ -38,24 +38,24 @@ Returns `Number` - The current zoom level.
 
 ### `webFrame.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `pinakamaliitna Antas` na Numero
+* `Pinakamataas na Antas` na Numero
 
-**Deprecated:** Call `setVisualZoomLevelLimits` instead to set the visual zoom level limits. This method will be removed in Electron 2.0.
+**Deprecated:** Tumawag `setVisualZoomLevelLimits` sa halip na itakda ang visual zoom ng mga limitasyon sa antas. Ang paraan na ito ay aalisin sa Elektron 2.0.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `pinakamaliitna Antas` na Numero
+* `Pinakamataas na Antas` na Numero
 
-Sets the maximum and minimum pinch-to-zoom level.
+Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
 
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
-* `minimumLevel` Number
-* `maximumLevel` Number
+* `pinakamaliitna Antas` na Numero
+* `Pinakamataas na Antas` na Numero
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi visual) na antas ng zoom.
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 
@@ -82,7 +82,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 ### `webFrame.registerURLSchemeAsSecure(scheme)`
 
-* `scheme` Ang string
+* `scheme` String
 
 Registers the `scheme` as secure scheme.
 
@@ -90,14 +90,14 @@ Secure schemes do not trigger mixed content warnings. For example, `https` and `
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
-* `scheme` Ang string
+* `scheme` String
 
 Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
-* `scheme` Ang string
-* `mga pagpipilian` Mga bagay (opsyonal) 
+* `scheme` String
+* `mga pagpipilian` Bagay (opsyonal) 
   * `secure` Boolean - (optional) Default true.
   * `bypassCSP` Boolean - (optional) Default true.
   * `allowServiceWorkers` Boolean - (optional) Default true.
@@ -117,13 +117,13 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Ipasok ang `teksto` sa nakatutok na elemento.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
-* `tumawag muli` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
+* `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
   * `resulta` Anuman
 
 Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.

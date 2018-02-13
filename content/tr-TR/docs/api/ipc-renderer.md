@@ -8,14 +8,14 @@
 
 Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 
-## Metodlar
+## Yöntemler
 
 `ipcRenderer` modülü olayları dinlemek ve mesaj göndermek için aşağıdaki yöntemi içerir:
 
 ### `ipcRenderer.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` fonksiyon
+* `listener` Fonksiyon
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
@@ -29,26 +29,26 @@ Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir m
 ### `ipcRenderer.removeListener(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon
+* `listener` Function
 
-Belirtilen `channel` öğesini belirtilen `listener` dizisinden kaldırır.
+Belirtilen `listener` öğesini `channel` öğesi için kaldırır.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` dizi (isteğe bağlı)
+* `channel` Dizesi
 
 Tüm dinleyicileri kaldırır veya `channel` dizesini kaldırır.
 
-### `ipcRenderer.send(kanal[, arguman1][, arguman2][, ...])`
+### `ipcRenderer.send(channel[, arguman1][, arguman2][, ...])`
 
 * `channel` Dizesi
-* `...args` herhangi[]
+* `...args` any[]
 
 `channel` üzerinden ana işleme asenkron olarak mesaj ve keyfi argümanlar gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
 Ana işlem `channel` ile `ipcMain` modülünü dinleyerek işleme koyar.
 
-### `ipcRenderer.sendSync(channel[, arguman1][, arguman2][, ...])`
+### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
 * `...args` herhangi[]
@@ -61,9 +61,17 @@ Ana işlem `channel` öğesini `ipcMain` modülüyle birlikte ve `event.returnVa
 
 **Note:** Senkronize bir ileti göndermek, eğer ne yaptığınızı bilmiyorsanız kullanamayacağınız sürece tüm işleyici işlemini engeller.
 
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` Dizesi
+* `...args` herhangi[]
+
+Sends a message to a window with `windowid` via `channel`
+
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` any[]
+* `...args` herhangi[]
 
 `ipcRenderer.send` gibi ancak olay ana işlem yerine ana sayfadaki `<webview>` öğesine gönderilecektir.

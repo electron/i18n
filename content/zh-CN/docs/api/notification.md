@@ -12,7 +12,7 @@
 
 > 创建OS(操作系统)桌面通知
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 `Notification` 是 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)
 
@@ -28,18 +28,18 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `选项` 对象 
   * ` title `String - 通知的标题, 将在通知窗口的顶部显示
   * ` subtitle `String (可选) 通知的副标题, 将显示在标题下面。* macOS *
   * ` body `String 通知的正文文本, 将显示在标题或副标题下面
   * ` silent `Boolean (可选) 在显示通知时是否发出 OS 提示音
-  * ` icon`[ NativeImage ](native-image.md) (可选) 该通知的图标
+  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
   * ` hasReply `Boolean (可选) 是否向通知中添加内联答复选项。 * macOS *
   * ` replyPlaceholder `String (可选) 内联答复输入字段中的占位符。* macOS *
   * `sound `String (可选) 显示通知时播放的声音文件的名称。* macOS *
   * ` actions `[ NotificationAction [] ](structures/notification-action.md) (可选) 要添加到通知中的操作。 请在 ` NotificationAction ` 文档 中的查看可用操作和限制* macOS *
 
-### 事件
+### 实例事件
 
 用 `new Notification` 创建的对象触发以下事件：
 
@@ -61,7 +61,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 在用户单击通知时触发。
 
-#### 事件：close
+#### 事件： 'close'
 
 返回:
 
@@ -69,7 +69,7 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 
 当用户手动关闭通知时触发
 
-当通知关闭后，这个事件不能保证在所有情况下都会触发。
+This event is not guaranteed to be emitted in all cases where the notification is closed.
 
 #### Event: 'reply' *macOS*
 
@@ -94,6 +94,12 @@ Returns ` Boolean `-无论当前系统是否支持桌面通知
 #### `notification.show()`
 
 立即显示通知给用户，请注意这一点不同于 HTML5通知实现，只实例化一个 `new Notification` 不会马上显示给用户，你需要在OS将要显示它之前调用这个方法将显示它。
+
+If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+
+#### `notification.close()`
+
+Dismisses the notification.
 
 ### Playing Sounds
 

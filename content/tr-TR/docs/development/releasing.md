@@ -160,7 +160,7 @@ Bu sürüm, 'beta' etiketinin altında [npm](https://www.npmjs.com/package/elect
 3. Kararlı bir yayın yayınlıyorsanız `yayın öncesi` onay kutusunun işaretini kaldırın; beta yayımları için işaretli bırakın.
 4. 'Save draft' a tıklayın. **'Publish release'e tıklamayın!**
 5. Devam etmeden önce bütün yapılar geçene kadar bekleyin.
-6. `npm run release --validateRelease` komutunu çalıştırarak yayımlama için gerekli bütün dosyaların oluşturulduğundan emin olabilirsiniz.
+6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
 ## Geçici şube birleştirme
 

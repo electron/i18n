@@ -1,6 +1,6 @@
 # PrinterInfo Object
 
-* `name` String
+* `name` Zeichenfolge
 * `description` String
 * `status` Number
 * `isDefault` Boolean

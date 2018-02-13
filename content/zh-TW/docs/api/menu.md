@@ -2,7 +2,7 @@
 
 > Create native application menus and context menus.
 
-處理序: [主處理序](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -14,7 +14,7 @@ The `menu` class has the following static methods:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
@@ -24,7 +24,7 @@ Passing `null` will remove the menu bar on Windows and Linux but has no effect o
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu` - The application menu, if set, or `null`, if not set.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
@@ -73,6 +73,12 @@ Closes the context menu in the `browserWindow`.
 
 Appends the `menuItem` to the menu.
 
+#### `menu.getMenuItemById(id)`
+
+* `id` String
+
+Returns `MenuItem` the item with the specified `id`
+
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
@@ -103,7 +109,7 @@ const {app, Menu} = require('electron')
 
 const template = [
   {
-    label: '編輯',
+    label: 'Edit',
     submenu: [
       {role: 'undo'},
       {role: 'redo'},
@@ -117,7 +123,7 @@ const template = [
     ]
   },
   {
-    label: '檢視',
+    label: 'View',
     submenu: [
       {role: 'reload'},
       {role: 'forcereload'},
@@ -141,8 +147,8 @@ const template = [
     role: 'help',
     submenu: [
       {
-        label: '深入學習',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        label: 'Learn More',
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -164,11 +170,11 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // 編輯選單
+  // Edit menu
   template[1].submenu.push(
     {type: 'separator'},
     {
-      label: '語音',
+      label: 'Speech',
       submenu: [
         {role: 'startspeaking'},
         {role: 'stopspeaking'}
@@ -176,7 +182,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window 選單
+  // Window menu
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -262,14 +268,15 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Template:
 
@@ -284,13 +291,15 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```

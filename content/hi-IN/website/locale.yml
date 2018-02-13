@@ -100,7 +100,7 @@ pages:
     title: इलेक्ट्रॉन एप्प्स
     description: इलेक्ट्रॉन पर निर्मित एप्प्स
   '/docs':
-    title: दस्तावेज़ीकरण
+    title: दस्तावेजीकरण
     description: नवीनतम इलेक्ट्रॉन रिलीज़ के लिए गाइड्स और ऐपीआई रेफरेंस दस्तावेज़ीकरण
   '/docs/all':
     title: सभी इलेक्ट्रॉन दस्तावेज़!
@@ -139,9 +139,7 @@ _404:
   if_this_is_an_error: यदि यह कोई त्रुटि है
   please_file_an_issue: कृपया समस्या दर्ज करें ।
 search:
-  description:
-    start: से इलेक्ट्रॉन संसाधन खोजें |
-    docs: <a href="/search/docs">दस्तावेजीकरण</a>
-    npm: <a href="/search/npmPackages">एनपीएम पैकेजेस</a>
-    and: और
-    repos: <a href="/search/repos">गिटहब रेपोस</a>
+  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_docs: Find Electron resources from documentation.
+  description_npm: Find Electron resources from npm packages.
+  description_repos: Find Electron resources from GitHub repos.

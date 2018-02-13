@@ -1,147 +1,145 @@
-tagline: Build cross platform desktop apps with JavaScript, HTML, and CSS
+tagline: Изграждане на приложения за множество платформи с JavaScript, HTML и CSS
 nav:
   docs: Документация
   blog: Блог
   community: Общество
   apps: Приложения
-  userland: Userland
+  userland: Потребителска страна
   releases: Издания
   contact: Контакти
   languages: Езици
-  code_of_conduct: Code of Conduct
-  search: Search
+  code_of_conduct: Кодекс за поведение
+  search: Търсене
 docs:
-  title: Electron Documentation
-  description: See all of the <a href="/docs/all">docs on one page</a> or check out the <a href="/docs/faq">FAQ</a>.
+  title: Електрон документация
+  description: Вижте всички <a href="/docs/all"> документи на една страница</a> или проверете на <a href="/docs/faq"> често задавани въпроси</a>.
   guides: Ръководства
-  api_reference: API Reference
-  advanced: Advanced
+  api_reference: Функционална документация
+  advanced: Допълнителни настройки
   footer:
-    propose_change: Improve this doc
+    propose_change: Подобряване на този документ
     version_history: История на версиите
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    translate: Превеждане на този документ
+    view_all_docs: Всички документи на една страница
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: Изберете Вашият език
+  translation_progress: Процес на превеждане
+  current: текущата селекция
 community:
   title: Обществото на Electron
-  description: 'Tools, boilerplates, videos, and more from Electron''s <a href="https://github.com/sindresorhus/awesome-electron">awesome</a> open-source contributors. Find or add <a href="/community#meetups">meetups</a> near you.'
+  description: 'Инструменти, шаблони, видео клипове и още от <a href="https://github.com/sindresorhus/awesome-electron"> страхотните</a> отворен-код сътрудници на Електрон. Намери или добави <a href="/community#meetups"> срещи</a> близо до теб.'
   tools: Инструменти
-  boilerplates: Boilerplates
+  boilerplates: Шаблони
   components: Компоненти
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  videos: Видео клипове
+  meetups: Срещи
+  awesome_notice: Този списък е генериран от хранилището на<a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus страхотен Електрон</a>. <br>Нещо липсва? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> направи предложение</a>.
+  meetup_notice: За да добавите среща, редактиране <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> направи предложение</a>.
 electron_is_easy:
   title: По-лесно е, отколкото си мислите
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  description: Ако можете да създадете уеб сайт, то можете да създадете и настолно приложение. Електрон е система за създаване на настолни приложения, използвайки интернет технологии като JavaScript, HTML и CSS. Електрон се грижи за трудните неща, за да можете вие да се фокусирате върху същността на вашето приложение.
+  video_link: Гледай видеото
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: Интернет Технологии
+  description: Електрон използва Chromium и Node.js, за да може вие да изградите вашето приложение с HTML, CSS и JavaScript.
 open_source:
-  title: Open Source
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: Отворен код
+  description: Електрон е проект с отворен код, поддържан от GitHub и активна общност от съдружници.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: Междуплатформен
+  description: Съвместим с Mac, Windows и Linux, Електрон приложенията са изградени и вървят на три платформи.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: Трудните части се правят лесно
+  automatic_updates: Автоматична актуализация
+  native_menus_and_notifications: Родни менюта и уведомления
+  crash_reporting: Докладване за сривове
+  debugging_and_profiling: Търсене на грешки и профилиране
+  windows_installers: Инсталатор за Windows
 get_started:
-  title: Get started
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  title: Начало
+  description: За да започнете с Електрон, вижте ресурсите по-долу. Научете как да обвиваме вашето уеб приложение с Електрон, достъп до всички APIs и генериране на инсталатори.
 explore:
-  title: Explore the Electron APIs
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  title: Проучете API-ят на Електрон
+  description: "<a href='https://github.com/electron/electron-api-demos'> Демонстративните приложения с Електрон API</a> интерактивно показват най-важните характеристики на Електрон API. Вижте какво е възможно с Електрон с примерен код и полезни съвети за изграждане на вашето приложение."
 download_from_github: Изтегляне от GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Вижте всички издания</a> в GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
-  description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
-  go_into_repo: Go into the repository
-  install_deps: Install the dependencies and run
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  title: "Опитайте приложението за <a href='https://github.com/electron/electron-quick-start' target='_blank'> Бърз старт</a>, за да видите Електрон в действие:"
+  description: Минимално Електрон приложение с полезни означения.
+  clone: Клониране на хранилището за Бърз Старт
+  go_into_repo: Отидете в хранилището
+  install_deps: Инсталирайте зависимостите и подкарайте
+  dive_deeper: Или се потопете дълбоко и прочетете <a href='/docs'> документацията</a>.
 need_help:
   title: Нужда от помощ?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:electron@github.com">electron@github.com</a>.
+  description: Задайте въпроси във форум <a href='https://discuss.atom.io/c/electron'>Дискусии</a> или нашия канал в <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следвайте ни <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter, за да научите важни съобщения. Имате ли нужда от личен диалог? Поща <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
   languages: Езици
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+  languages: Локализирано съдържание от нашата страхотна глобална общност от разработчици.
+help_translate: "Помогнете за превода"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: Вижте често задаваните въпроси
 apps:
   title: Приложения, изградени с Electron
   description: С Electron създаването на десктоп приложение за вашата компания или идея е лесно. Първоначално разработен за <a href='https://atom.io' target='_blank'>Atom редактора</a> на GitHub, Electron се използва за създаване на приложения от компании като Microsoft, Facebook, Slack и Docker.
-  view_more: View more apps
-  submit_your_own: submit your own
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  view_more: Вижте повече приложения
+  submit_your_own: представи свои собствени
+  something_missing: Липсва ли нещо?
+  edit_this_app: Редактиране на това приложение.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
-or: or
+  copy: Копирай
+  copy_to_clipboard: Копиране в клипборда
+  copied: Копиран
+or: или
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Електрон | Изграждане на приложения за множество платформи с JavaScript, HTML и CSS.
+    description: 'Изграждане на приложения за множество платформи с JavaScript, HTML и CSS.'
   '/apps':
-    title: Electron Apps
-    description: Apps Built on Electron
+    title: Електрон приложения
+    description: Приложения, изградени с Електрон
   '/docs':
     title: Документация
-    description: Guides and API reference documentation for the latest Electron release
+    description: Напътствия и API насочваща документация за последната излязла версия на Електрон
   '/docs/all':
     title: Цялата документация на Electron!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Всички напътствия за Електрон и API документация на една страница, изследователска страница.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: API насочваща документация за последната излязла версия на Електрон
   '/docs/development':
     title: Разработка
-    description: Developing with Electron
+    description: Разработване с Електрон
   '/docs/tutorial':
-    title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    title: Курсове
+    description: Насоки и курсове за последната версия на Електрон
   '/blog':
-    title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    title: Блог за Електрон
+    description: Всички последни новини от екипа и общността на Електрон.
   '/community':
     title: Общество
   '/releases':
     title: Издания
   '/contact':
     title: Контакти
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Свържете се с екипа на Електрон през Twitter, Slack, GitHub или чрез email поща.
   '/languages':
     title: Езици
   '/userland':
-    title: Userland
+    title: Потребителска страна
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron е инструмент с отворен код, който ти помага да инспектираш, следиш и търсиш грешки в твоето Електрон приложение. Devtron е създаден на основата на страхотния Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron е рамка с отворен код за лесно писане на интеграционни тестове за вашето Електрон приложение. Spectron е създадена на основата на ChromeDriver и WebDriverIO.
 _404:
-  page_not_found: Page not found.
-  if_this_is_an_error: If this is an error
-  please_file_an_issue: please file an issue.
+  page_not_found: Страницата не е намерена.
+  if_this_is_an_error: Ако това е грешка
+  please_file_an_issue: моля, изпратете въпрос.
 search:
-  description:
-    start: Find Electron resources from
-    docs: <a href="/search/docs">documentation</a>
-    npm: <a href="/search/npmPackages">npm packages</a>
-    and: and
-    repos: <a href="/search/repos">GitHub repos</a>
+  description_all: Намери Електрон ресурси от <a href="/search/docs"> документация</a>, <a href="/search/npmPackages"> npm пакети</a> и <a href="/search/repos"> GitHub хранилища</a>.
+  description_docs: Намери Електрон ресурси от документацията.
+  description_npm: Намери Електрон ресурси от npm пакети.
+  description_repos: Намери Електрон ресурси от GitHub хранилища.

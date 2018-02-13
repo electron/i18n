@@ -92,8 +92,9 @@ A comma-separated list of servers for which integrated authentication is enabled
 
 Ad esempio:
 
-    --auth-server-whitelist='*example.com, *foobar.com, *baz'
-    
+```bash
+--auth-server-whitelist='*example.com, *foobar.com, *baz'
+```
 
 then any `url` ending with `example.com`, `foobar.com`, `baz` will be considered for integrated authentication. Without `*` prefix the url has to match exactly.
 

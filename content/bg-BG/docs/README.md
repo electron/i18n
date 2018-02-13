@@ -11,21 +11,22 @@
 * [Речник на термините](glossary.md)
 * [Поддържани платформи](tutorial/supported-platforms.md)
 * [Сигурност](tutorial/security.md)
-* [Versioning](tutorial/electron-versioning.md)
+* [Версии](tutorial/electron-versioning.md)
 * [Разпространяване на разработените приложения](tutorial/application-distribution.md)
 * [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
-* [Application Packaging](tutorial/application-packaging.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Пакетиране на приложението](tutorial/application-packaging.md)
 * [Употреба на Node модули](tutorial/using-native-node-modules.md)
-* [Отстраняване на грешки](tutorial/debugging-main-process.md)
-* [Работа със Selenium Web Driver](tutorial/using-selenium-and-webdriver.md)
+* [Намиране на грешки в главния процес](tutorial/debugging-main-process.md)
+* [Използване на Selenium и Web Driver](tutorial/using-selenium-and-webdriver.md)
 * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
-* [Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [Използване на Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
-* [Updating Applications](tutorial/updates.md)
+* [Обновяване на приложенията](tutorial/updates.md)
 
 ## Уроци
 
@@ -40,15 +41,15 @@
 * [Обзор](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
+* [Променливи на средата](api/environment-variables.md)
 
-### Custom DOM Elements:
+### Персонални DOM елементи:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [Обект `File`](api/file-object.md)
+* [`<webview>`Етикет](api/webview-tag.md)
+* [Функция `window.open`](api/window-open.md)
 
-### Основни процеси:
+### Модули за основния процес:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
@@ -70,7 +71,7 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Визуализиращи процеси (Web страници):
+### Модули за визуализиращи процеси (Web страници):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
@@ -91,15 +92,15 @@
 * [Как да използваме clang форматиране при работа със C++ код](development/clang-format.md)
 * [Тестване](development/testing.md)
 * [Структура на проекта](development/source-code-directory-structure.md)
-* [Technical Differences to NW.js (formerly node-webkit)](development/atom-shell-vs-node-webkit.md)
-* [Build System Overview](development/build-system-overview.md)
-* [Build Instructions (macOS)](development/build-instructions-osx.md)
-* [Build Instructions (Windows)](development/build-instructions-windows.md)
-* [Build Instructions (Linux)](development/build-instructions-linux.md)
-* [Debug Instructions (macOS)](development/debugging-instructions-macos.md)
-* [Debug Instructions (Windows)](development/debug-instructions-windows.md)
-* [Setting Up Symbol Server in debugger](development/setting-up-symbol-server.md)
-* [Documentation Styleguide](styleguide.md)
-* [Upgrading Chromium](development/upgrading-chromium.md)
-* [Chromium Development](development/chromium-development.md)
-* [Разработка на V8](development/v8-development.md)
+* [Технически разлики с NW.js (познато преди като node-webkit)](development/atom-shell-vs-node-webkit.md)
+* [Обзор на системата за изграждане](development/build-system-overview.md)
+* [Инструкции за изграждане (macOS)](development/build-instructions-osx.md)
+* [Инструкции за изграждане (Windows)](development/build-instructions-windows.md)
+* [Инструкции за изграждане (Linux)](development/build-instructions-linux.md)
+* [Инструкции за намиране на грешки (macOS)](development/debugging-instructions-macos.md)
+* [Инструкции за намиране на грешки (Windows)](development/debug-instructions-windows.md)
+* [Настройване на Symbol сървър при търсене на грешки](development/setting-up-symbol-server.md)
+* [Стилове за писане на Electron документацията](styleguide.md)
+* [Обновяване на Chromium](development/upgrading-chromium.md)
+* [Разработка с Chromium](development/chromium-development.md)
+* [Разработка с V8](development/v8-development.md)

@@ -71,7 +71,7 @@ console.log(dialog)
   ### `dialog.showSaveDialog([browserWindow, ]seçenekleri[, callback])`
   
   * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
-  * `ayarlar` Nesne 
+  * `seçenekler` Nesne 
     * `title` Dize (isteğe bağlı)
     * `defaultPath`dizi (isteğe bağlı) -Varsayılan olarak kullanılacak mutlak dizin yolu, mutlak dosya yolu veya dosya adı.
     * `buttonLabel` Dize (isteğe bağlı) - Onay tuşu için özel etiket, boş bırakıldığında varsayılan etiket kullanılacaktır.
@@ -80,7 +80,7 @@ console.log(dialog)
     * `nameFieldLabel` dize (isteğe bağlı) *macOS* - Dosya adı metin alanının önünde görüntülenen metin için özel etiket.
     * `showsTagField`Boolean (isteğe bağlı) *macOS* - Etiket giriş kutusunu göster, varsayılan olarak ` doğru </ 0> 'dır.</li>
 </ul></li>
-<li><code>geri arama` Fonksiyon (isteğe bağlı) 
+<li><code>callback` Fonksiyon (isteğe bağlı) 
       * `dosya adı` dize
     
     Iade`dize`kullanıcı tarafından seçilen dosyanın yolu, bir geri arama sağlanırsa, ` tanımsız</ 0> değerini iade eder.</p>
@@ -94,7 +94,7 @@ console.log(dialog)
 <h3><code>diyalog.gösterilecekMesajKutusu([browserWindow, ]seçenekler[, geri arama])`</h3> 
     
     * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
-    * `ayarlar` Nesne 
+    * `seçenekler` Nesne 
       * `tip` dize(isteğe bağlı) - olabilir `"yok"`, `"bilgi"`, `"hata"`, `"sorun"` ya da `"uyarı"`. Windows üzerinden,` "soru" </ 0>, <code> "bilgi" ` ile aynı simgeyi görüntüler, ` "simgesi" </ 0> seçeneğini kullanarak bir simge belirlemediğiniz sürece. MacOS üzerinden,<code>"uyarı"` ve `"hata"` her ikisi de aynı uyarı simgesini gösterir.
       * `düğmeleri` dize[] (isteğe bağlı) -Düğmeler için metin dizisi. Windows'ta, boş bir dizi, "Tamam" etiketli bir düğme ile sonuçlanır.
       * `varsayılan Kimlik` tamsayı(isteğe bağlı)-Düğmeler dizisindeki düğme dizini, ileti kutusu açıldığında varsayılan olarak seçilir.
@@ -107,7 +107,7 @@ console.log(dialog)
       * `cancelId` Integer (isteğe bağlı) - Diyalogu iptal etmek için kullanılacak düğmenin indeksi,` Esc </ 0> tuşu ile. Varsayılan olarak bu, etiket olarak "iptal" veya "hayır" ile ilk düğmeye atanır. Böyle bir etiketli düğme yoksa ve bu seçenek ayarlanmamışsa, <code>0`dönüş değeri veya geri arama yanıtı olarak kullanılacaktır. Bu seçenek Windows'ta yok sayılır.
       * `noLink` Boolean (isteğe bağlı) - Windows Elektron' da `buttons`' dan hangisinin ortak düğmeler olduğunu ve diğer iletişim kutusundaki komutların bağlantılarını anlamaya çalışacağız ("İptal" veya "Evet" gibi). Bu işlem diyaloğun modern Windows aplikasyonu tarzında çıkmasını sağlar. Bu davranış hoşunuza gitmiyorsa, `noLink` `true` ayarlayabilirsiniz.
       * `normalizeAccessKeys` Boolean (İsteğe Bağlı) - Platformlar arasında klavye erişim anahtarlarını normalize eder. Varsayılan `false`'dur. Bunun etkinleştirilmesi, klavye kısayol erişim anahtarının yerleştirilmesi için düğme etiketlerinde `&` kullanıldığını ve etiketlerin her platformda doğru şekilde çalışacak şekilde dönüştürüleceğini varsayar, `&` karakterler macOS'ta kaldırılır, Linux'ta `_` olarak dönüştürülür ve Windows'ta dokunulmaz bırakılır. Örneğin; `Vie&w` düğme etiketi Linux' ta `Vie_w` ve macOS' ta `View` olarak dönüştürülecektir, Windows ve Linux' ta `Alt-W` yoluyla seçilebilir.
-    * `geri arama` Fonksiyon (isteğe bağlı) 
+    * `callback` Fonksiyon (isteğe bağlı) 
       * `response` Number - Tıklanan düğmenin yolu
       * `checkboxChecked` Boolean - `checkboxLabel` onay kutusu işaretli olarak ayarlanmış olmalıdır. Aksi halde `false`.
     
@@ -131,7 +131,7 @@ console.log(dialog)
     ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
     
     * `browserWindow` Tarayıcı Penceresi (isteğe bağlı)
-    * `ayarlar` Nesne 
+    * `seçenekler` Nesne 
       * `certificate` [Certificate](structures/certificate.md) - Sertifika için güven ve önemi belirtir.
       * `message` String - Kullanıcı tarafından görüntülenecek mesajı belirtir.
     * `callback` Fonksiyon

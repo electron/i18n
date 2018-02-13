@@ -74,7 +74,7 @@ need_help:
   title: Нужна помощь?
   description: Задайте вопроссы на канале <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Нужно приватно связаться? Email <a href="mailto:electron@github.com">electron@github.com</a>.
 headings:
-  languages: Языки
+  languages: Languages
 taglines:
   languages: Локализованное содержимое от нашего удивительного сообщества разработчиков по всему миру.
 help_translate: "Помочь перевести"
@@ -100,7 +100,7 @@ pages:
     title: Приложения Electron
     description: Приложения, созданные на Electron
   '/docs':
-    title: Документация
+    title: Документации
     description: Руководства и API справочной документации для последнего релиза Electron
   '/docs/all':
     title: Все документы Electron!
@@ -139,9 +139,7 @@ _404:
   if_this_is_an_error: Если это ошибка,
   please_file_an_issue: пожалуйста, сообщите о проблеме.
 search:
-  description:
-    start: Поиск информации по Electron в
-    docs: <a href="/search/docs">документации</a>
-    npm: <a href="/search/npmPackages">npm пакетах</a>
-    and: и
-    repos: <a href="/search/repos">GitHub репозиториях</a>
+  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_docs: Find Electron resources from documentation.
+  description_npm: Find Electron resources from npm packages.
+  description_repos: Find Electron resources from GitHub repos.

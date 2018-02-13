@@ -31,11 +31,11 @@ Agrega una función `listener` para el evento. Este `listener` es invocado solo 
 * `channel` Cadena
 * `listener` Función
 
-Elimina el `listener` especificado del arreglo del oyente para el `channel` especificado.
+Elimina el `listener` especificado del arreglo listener para el `channel` especificado.
 
-### `ipcRenderer.removeAllListeners([channel])`
+### `ipcRenderer.removeAllListeners(channel)`
 
-* `channel` Cadena (opcional)
+* `channel` Cadena
 
 Elimina todos los oyentes, o aquellos del `channel` especificado.
 
@@ -60,6 +60,14 @@ Envía un mensaje al proceso principal sincrónicamente a través de `channel`, 
 El proceso principal lo controla escuchando para `channel` con el módulo `ipcMain`, y responde al configurar `event.returnValue`.
 
 **Nota:** Enviar un mensaje sincrónico bloqueará el proceso todo el proceso de renderizado, nunca se debe utilizar a menos que se sepa lo que está haciendo.
+
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+
+* `windowId` Number
+* `channel` Cadena
+* `...args` any[]
+
+Sends a message to a window with `windowid` via `channel`
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

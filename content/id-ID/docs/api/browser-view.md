@@ -4,27 +4,37 @@
 
 **Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
 
-Proses: [Utama](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 A `lihat browser` dapat digunakan untuk menyematkan konten web tambahan ke `jendela Browse`. Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif tag `lihat web`.
 
 ## Contoh
 
 ```javascript
-// Dalam proses utamanya.
-const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electron.atom.io')
+// In the main process.
+const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `baru lihat browser([options])` *Eksperimental*
 
-* `pilihan` Objek (opsional) 
+* `pilihan` Objek (pilihan) 
   * `refrensi web` Objek (contoh) - Lihat [jendela Browser](browser-window.md).
 
 ### Metode Statis
 
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+
 #### `Lihat Browser.fromId(id)`
 
-* `id` Bilangan bulat
+* `identitas` Integer
 
 Kembali `lihat Browser` - Tampilan dengan `id` yang diberikan.
 
@@ -40,13 +50,13 @@ Sebuah [`isi Web`](web-contents.md) objek yang dimiliki oleh pandangan ini.
 
 A `bilangan bulat` mewakili ID unik dari tampilan.
 
-### Metode contoh
+### Metode Contoh
 
 Objek yang dibuat dengan `lihat Browser baru` memiliki metode contoh berikut:
 
 #### `lihat.set otomatis ubah ukuran (pilihan)` *Eksperimental*
 
-* `pilihan` Objek 
+* `pilihan` Obyek 
   * `lebar` Boolean - Jika `benar`, lebar tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `false` secara default.
   * `tinggi` Boolean - Jika `benar `, tinggi tampilan akan tumbuh dan menyusut bersamaan dengan jendela. `salah` secara default.
 

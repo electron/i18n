@@ -4,14 +4,14 @@
 
 **Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 `BrowserView`, `BrowserWindow`'a ek ağ içeriği gömmek için kullanılır. Çocuk pencere gibidir ama sahibi pencereye göre göreceli konumlandırılır. `webview` etiketine bir alternatif olarak düşünülebilir.
 
 ## Örnek
 
 ```javascript
-// Ana süreçte.
+// Ana işlem içinde.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -26,23 +26,33 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([options])` *Deneysel*
 
-* `options` Obje (opsiyonel) 
+* `seçenekler` Object (isteğe bağlı) 
   * `webPreferences` Obje (opsiyonel) - [BrowserWindow](browser-window.md)'a bakın.
 
-### Statik Metodlar
+### Statik Yöntemler
+
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [webİçerikleri](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Tamsayı
+* `id` tamsayı
 
 `BrowserView` döner - `id` ile birlikte girilen view.
 
-### Örnek Özellikleri
+### Örnek özellikleri
 
 `new BrowserView` şeklinde yaratılan objeler, aşağıdaki özelliklere sahiptir:
 
@@ -54,13 +64,13 @@ Bu view tarafından sahip olunan bir [`WebContents`](web-contents.md).
 
 View'in eşsiz ID'sini temsil eden bir `Tamsayı`.
 
-### Sınıf örneği metodları
+### Örnek yöntemler
 
 `new BrowserView` ile yaratılan objeler aşağıdaki metodlara sahiptir:
 
 #### `view.setAutoResize(options)` *Deneysel*
 
-* `options` Obje 
+* `seçenekler` Nesne 
   * `width` Boolean - `true` ise, view'in uzunluğu pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
   * `height` Boolean - `true` ise, view'in yüksekliği pencere ile birlikte büyür ve küçülür. Varsayılan değeri `false`.
 

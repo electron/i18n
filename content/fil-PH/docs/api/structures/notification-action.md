@@ -5,9 +5,9 @@
 
 ## Platform / Suporta ng Aksyon
 
-| Uri ng Aksyon | Suporta ng Platform | Kagamitan ng `text`                | Default `text` | Mga limitasyon                                                                                                                                                                          |
-| ------------- | ------------------- | ---------------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pindutan`    | macOS               | Ginagamit bilang tanda ng pindutan | "Ipakita"      | Pinakamarami ay isang pindutan, kung marami ang inilagay ang huli ang dapat gamitin. Ang aksyon na ito ay hindi tugma pag may `hasReply` at hindi papansinin kung `hasReply` ay `true`. |
+| Uri ng Aksyon | Suporta ng Platform | Kagamitan ng `text`                | Default `text` | Limitasyons                                                                                                                                                          |
+| ------------- | ------------------- | ---------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pindutan`    | macOS               | Ginagamit bilang tanda ng pindutan | "Ipakita"      | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Suporta ng pindutan sa macOS
 

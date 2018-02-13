@@ -139,9 +139,7 @@ _404:
   if_this_is_an_error: もしこれがエラーであれば、
   please_file_an_issue: Issue にてお知らせください。
 search:
-  description:
-    start: Find Electron resources from
-    docs: <a href="/search/docs">ドキュメント</a>
-    npm: <a href="/search/npmPackages">npm パッケージ</a>
-    and: and
-    repos: <a href="/search/repos"> GitHub リポジトリ</a>
+  description_all: <a href="/search/docs">ドキュメント</a>や <a href="/search/npmPackages">npm パッケージ</a>、<a href="/search/repos">GitHub リポジトリ</a>から Electron に関するリソースを検索できます。
+  description_docs: ドキュメントから Electron に関する情報を検索
+  description_npm: npm パッケージから Electron に関するリソースを検索
+  description_repos: GitHub リポジトリから Electron に関するリソースを検索

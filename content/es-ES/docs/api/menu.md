@@ -2,19 +2,19 @@
 
 > Crea menús de aplicaciones nativas y menús contextuales.
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
 Crea un nuevo menú.
 
-### Métodos estáticos
+### Métodos Estáticos
 
 La clase `menú` tiene los siguientes métodos estáticos:
 
 #### `Menu.setApplicationMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux, el `menu` se configurará como menú superior de cada ventana.
 
@@ -24,7 +24,7 @@ Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efec
 
 #### `Menu.getApplicationMenu()`
 
-Devuelve `Menu` - El menú de la aplicación si se configura, o `null`, si no se configura.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 **Nota:** La instancia devuelta `Menu` no soporta adiciones dinámicas o la eliminación de elementos del menú. [Instance properties](#instance-properties) todavía puede ser modificada dinámicamente.
 
@@ -53,7 +53,7 @@ El objeto`menu` tiene los siguientes métodos de instancia:
 #### `menu.popup([browserWindow, options])`
 
 * `browserWindow` BrowserWindow (opcional) - Por defecto es la ventana enfocada.
-* `options` Objeto (opcional) 
+* `opciones` Objecto (opcional) 
   * `x` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
   * `y` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
   * `async` Boolean (opcional) - Se establece a `true` para devolver este método llamado inmediatamente. `false` para devolver luego de que el menú ha sido seleccionado o cerrado. Por defecto es `false`.
@@ -72,6 +72,12 @@ Cierra el menú de contexto en la `browserWindow`.
 * `menuItem` Elemento del menú
 
 Anexa el `menuItem` al menú.
+
+#### `menu.getMenuItemById(id)`
+
+* `id` Cadena
+
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
@@ -142,7 +148,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
   }
@@ -164,7 +170,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Editar menú
+  // Edit menu
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -176,7 +182,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Menú de ventana
+  // Window menu
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
@@ -264,12 +270,13 @@ Plantilla:
 
 Menú:
 
-    <br />- 1
-    - 2
-    - 3
-    - 4
-    - 5
-    
+```sh
+<br />- 1
+- 2
+- 3
+- 4
+- 5
+```
 
 Plantilla:
 
@@ -284,13 +291,15 @@ Plantilla:
 ]
 ```
 
-Menu:
+Menú:
 
-    <br />- ---
-    - a
-    - b
-    - c
-    - ---
-    - 1
-    - 2
-    - 3
+```sh
+<br />- ---
+- a
+- b
+- c
+- ---
+- 1
+- 2
+- 3
+```

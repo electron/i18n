@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Tworzy nową ikonę skojarzoną z `image`.
 
-### Instance Events
+### Wydarzenia instancji
 
 Moduł `Tray` emituje następujące zdarzenia:
 
@@ -72,6 +72,7 @@ Moduł `Tray` emituje następujące zdarzenia:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - The bounds of tray icon
+* `position` [Point](structures/point.md) - The position of the event
 
 Emitted when the tray icon is clicked.
 
@@ -161,6 +162,17 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
+#### Event: 'mouse-move' *macOS*
+
+* `wydarzenie` Wydarzenie 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `position` [Point](structures/point.md) - The position of the event
+
+Emitted when the mouse moves in the tray icon.
+
 ### Metody instancji
 
 The `Tray` class has the following methods:
@@ -225,8 +237,8 @@ win.on('hide', () => {
 
 * `options` Obiekt 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Wyświetla dymek w zasobniku systemowym.
 

@@ -14,7 +14,7 @@ const {shell} = require('electron')
 shell.openExternal('https://github.com')
 ```
 
-## Metodlar
+## Yöntemler
 
 The `shell` modülünün aşağıdaki yöntemleri vardır:
 
@@ -36,11 +36,11 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` Dize
-* `ayarlar` Obje (isteğe bağlı) *macOS* 
+* `url` String - max 2081 characters on windows, or the function returns false
+* `seçenekler` Obje (opsiyonel) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `geri arama` Function (optional) - If specified will perform the open asynchronously. *macOS* 
-  * `error` Hata 
+* `geri aramak` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `error` Error
 
 `Boolean` döner - uygulamanın URL açmaya uygun olup olmaması. Eğer geri çağırma belirtildiyse her zaman true döner.
 

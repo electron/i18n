@@ -15,6 +15,7 @@
 * [アプリケーションの配布](tutorial/application-distribution.md)
 * [Mac App Storeへの公開ガイド](tutorial/mac-app-store-submission-guide.md)
 * [Windowsストア ガイド](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [アプリケーションのパッケージ化](tutorial/application-packaging.md)
 * [ネイティブのNodeモジュールを使用する](tutorial/using-native-node-modules.md)
 * [メインプロセスのデバッグ](tutorial/debugging-main-process.md)

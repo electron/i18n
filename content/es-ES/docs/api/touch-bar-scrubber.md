@@ -6,7 +6,7 @@ Proceso: [principal](../tutorial/quick-start.md#main-process)
 
 ### `Nuevo depurador de la barra táctil(opciones)` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `elementos` [elemento a depurar[]](structures/scrubber-item.md) - Un arreglo de elementos a depurar
   * `seleccionar` Función - llamado cuando el usuario toca un elemento que no era el último elemento tocado 
     * `seleccionar índice` Entero - El índice del elemento que el usuario seleccionó

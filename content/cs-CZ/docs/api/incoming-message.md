@@ -10,7 +10,7 @@ Process: [Main](../glossary.md#main-process)
 
 #### Event: 'data'
 
-Returns:
+Vrací:
 
 * `chunk` Buffer - A chunk of response body's data.
 
@@ -26,7 +26,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 #### Event: 'error'
 
-Returns:
+Vrací:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 

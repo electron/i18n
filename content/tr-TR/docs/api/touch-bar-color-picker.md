@@ -6,7 +6,7 @@
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
-* `ayarlar` Nesne 
+* `seçenekler` Nesne 
   * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
   * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
   * `değiştir` Fonksiyon (isteğe bağlı) - Bir renk seçildiğinde aranacak fonksiyon. 

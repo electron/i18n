@@ -2,7 +2,7 @@
 
 > Magdagdag ng mga icons at mga context menu sa notification area ng sistema.
 
-Ang proseso: [Main](../glossary.md#main-process)
+Proseso:[Main](../glossary.md#main-process)
 
 Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -55,11 +55,11 @@ Kung gusto mong panatilihin ang parehong pag-uugali sa lahat ng plataporma, dapa
 
 Lumilikha ng isang panibagong tray icon na may kaugnayan sa mga`imahe`.
 
-### Halimbawa ng mga Event
+### Mga Halimbawa ng Pangyayari
 
 Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
 
-#### Event: 'click'
+#### Event: 'klik'
 
 * `event` Event 
   * `altKey` Boolean
@@ -67,6 +67,7 @@ Ang `Tray`module ay maglalabas ng mga sumusunod na mga event:
   * `ctrlKey` Boolean
   * `metaKey` Boolean
 * `bounds` [Rectangle](structures/rectangle.md) - Ang hangganan ng tray icon
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
 
 Emitted kapag nag click ang tray icon.
 
@@ -117,7 +118,7 @@ Emitted kapag ang dragged na mga file ay ibinagsak sa tray icon.
 
 #### Event: 'drop-text' *macOS*
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `text` String -ang mga binitiwang text string
 
 Emitted kapag ang dragged text ay ibinagsak sa tray icon.
@@ -155,6 +156,17 @@ Emitted kapag ang mouse ay pumapasok sa tray icon.
 * `posisyon` [Point](structures/point.md) - Ang posisyon ng event
 
 Emitted kapag ang mouse ay lumalabas sa tray icon.
+
+#### Event: 'mouse-move' *macOS*
+
+* `event` Event 
+  * `altKey` Boolean
+  * `shiftKey` Boolean
+  * `ctrlKey` Boolean
+  * `metaKey` Boolean
+* `posisyon` [Point](structures/point.md) - Ang posisyon ng event
+
+Emitted when the mouse moves in the tray icon.
 
 ### Halimbawa ng mga pamamaraan
 
@@ -218,10 +230,10 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `mga opsyon` Object 
+* `mga opsyon` Bagay 
   * `icon` ([NativeImage](native-image.md) | String) - (optional)
-  * `title` String - (optional)
-  * `content` String - (optional)
+  * `title` String
+  * `content` String
 
 Nagdidisplay ng isang tray balloon.
 

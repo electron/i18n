@@ -111,6 +111,45 @@ Emitido durante [Handoff](https://developer.apple.com/library/ios/documentation/
 
 Uma atividade do usuário pode ser continuada apenas em uma aplicação que tem o mesmo Team ID do desenvolvedor como o aplicativo fonte da atividade e que suporta o tipo da atividade. Tipos de atividade suportadas são especificadas no `Info.plist` do aplicativo sob a chave `NSUserActivityTypes`.
 
+### Event: 'will-continue-activity' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Você deve chamar `event.preventDefault()` caso queira manipular esse evento.
+
+### Event: 'continue-activity-error' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `error` String - A string with the error's localized description.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+
+### Event: 'activity-was-continued' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+
+### Event: 'update-activity-state' *macOS*
+
+Retorna:
+
+* `event` Event
+* `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
 ### Evento: 'new-window-for-tab' no *macOS*
 
 Retorna:
@@ -124,7 +163,7 @@ Emitido quando o usuáro clica no botão de nova guia nativo do macOS. O botão 
 Retorna:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 Emitido quando uma [browserWindow](browser-window.md) é desfocada.
 
@@ -133,7 +172,7 @@ Emitido quando uma [browserWindow](browser-window.md) é desfocada.
 Retorna:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 Emitido quando [browserWindow](browser-window.md) é focado.
 
@@ -142,7 +181,7 @@ Emitido quando [browserWindow](browser-window.md) é focado.
 Retorna:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 Emitido quando um novo [browserWindow](browser-window.md) é criado.
 
@@ -151,7 +190,7 @@ Emitido quando um novo [browserWindow](browser-window.md) é criado.
 Retorna:
 
 * `event` Event
-* `webContents` WebContents
+* `webContents` [WebContents](web-contents.md)
 
 Emitido quando um novo [webContents](web-contents.md) é criado.
 
@@ -164,7 +203,7 @@ Retorna:
 * `url` String
 * `error` String - O código do erro
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Função 
+* `callback` Function 
   * `isTrusted` Boolean - Define considerar o certificado como confiável
 
 Emitido quando a verificação do `certificate` para o `url` falha, para confiar no certificado você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(true)`.
@@ -191,7 +230,7 @@ Retorna:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Função 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (opcional)
 
 Emitido quando um certificado de cliente é solicitado.
@@ -223,7 +262,7 @@ Retorna:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Função 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -311,7 +350,7 @@ No Linux, foca na primeira janela visível. No macOS, torna o aplicativo a aplic
 
 ### `app.hide()` no *macOS*
 
-Oculta todas as janelas do aplicativo sem minimizá-las.
+Oculta todas as janelas do aplicativo sem minimizar-las. 
 
 ### `app.show()` no *macOS*
 
@@ -344,12 +383,13 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `music` Diretório para a música de um usuário.
 * `pictures` Diretório para as imagens de um usuário.
 * `videos` Diretório para os vídeos de um usuário.
+* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Caminho completo até a versão do sistema do plugin Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (opcional) 
+* `opções` Objeto (opcional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -414,7 +454,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 Clears the recent documents list.
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
@@ -553,7 +593,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Função 
+* `callback` Function 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -604,9 +644,22 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
 
-### `app.getCurrentActivityType()` *macOS*
+### `app.getCurrentActivityType()` no *macOS*
 
 Returns `String` - The type of the currently running activity.
+
+### `app.invalidateCurrentActivity()` no *macOS*
+
+* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `type` String - Uniquely identifies the activity. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - App-specific state to store for use by another device.
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
@@ -619,7 +672,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `opções` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Função 
+* `callback` Function 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -644,7 +697,7 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
 
@@ -719,7 +772,15 @@ app.setLoginItemSettings({
 
 Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
+
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
+### `app.setAboutPanelOptions(options)` no *macOS*
 
 * `opções` Object 
   * `applicationName` String (optional) - The app's name.
@@ -753,6 +814,18 @@ Enables mixed sandbox mode on the app.
 
 This method can only be called before app is ready.
 
+### `app.isInApplicationsFolder()` no *macOS*
+
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+
+### `app.moveToApplicationsFolder()` no *macOS*
+
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+
 ### `app.dock.bounce([type])` *macOS*
 
 * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
@@ -763,47 +836,47 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 Returns `Integer` an ID representing the request.
 
-### `app.dock.cancelBounce(id)` *macOS*
+### `app.dock.cancelBounce(id)` no *macOS*
 
 * `id` Inteiro
 
 Cancel the bounce of `id`.
 
-### `app.dock.downloadFinished(filePath)` *macOS*
+### `app.dock.downloadFinished(filePath)` no *macOS*
 
 * `filePath` String
 
 Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
-### `app.dock.setBadge(text)` *macOS*
+### `app.dock.setBadge(text)` no *macOS*
 
 * `text` String
 
 Sets the string to be displayed in the dock’s badging area.
 
-### `app.dock.getBadge()` *macOS*
+### `app.dock.getBadge()` no *macOS*
 
 Returns `String` - The badge string of the dock.
 
-### `app.dock.hide()` *macOS*
+### `app.dock.hide()` no *macOS*
 
 Hides the dock icon.
 
-### `app.dock.show()` *macOS*
+### `app.dock.show()` no *macOS*
 
 Shows the dock icon.
 
-### `app.dock.isVisible()` *macOS*
+### `app.dock.isVisible()` no *macOS*
 
 Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
-### `app.dock.setMenu(menu)` *macOS*
+### `app.dock.setMenu(menu)` no *macOS*
 
 * `menu` [Menu](menu.md)
 
 Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
-### `app.dock.setIcon(image)` *macOS*
+### `app.dock.setIcon(image)` no *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 

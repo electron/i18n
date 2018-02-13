@@ -5,9 +5,9 @@
 
 ## Platform / Eylem Desteği
 
-| Eylem türü | Destek Platformu | `Metnin` Kullanımı              | Varsayılan `metin` | Kısıtlamalar                                                                                                                                                |
-| ---------- | ---------------- | ------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tuş`      | macOS            | Tuş için etiket gibi kullanıldı | "Göster"           | Maksimum bir düğme, eğer birden çok gösterilirse sadece sonuncu kullanılır. Bu eylem `hasReply` ile de uyumsuzdur ve `hasReply` `true` ise göz ardı edilir. |
+| Eylem türü | Destek Platformu | `Metnin` Kullanımı              | Varsayılan `metin` | Kısıtlamalar                                                                                                                                                         |
+| ---------- | ---------------- | ------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tuş`      | macOS            | Tuş için etiket gibi kullanıldı | "Göster"           | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### MacOS Destek Düğmesi
 

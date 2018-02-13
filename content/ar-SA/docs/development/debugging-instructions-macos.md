@@ -81,12 +81,15 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+للانتهاء من تصحيح الأخطاء في هذه المرحلة، قم بتشغيل `عملية تستمر`. يمكنك أيضا متابعة حتى يتم ضرب خط معين في هذا الموضوع (`الموضوع حتى 100`). سيتم تشغيل هذا الأمر الموضوع في الإطار الحالي حتى يصل إلى خط 100 في هذا الإطار أو يتوقف إذا كان يترك الإطار الحالي.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+الآن، إذا كنت تفتح أدوات المطور للإلكترون واستدعاء سsetName/0>، مرة أخرى سوف تصل نقطة توقف.</p>
 
-### Further Reading
+<h3>مزيد من القراءة</h3>
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+<p>LLDB is a powerful tool with a great documentation. To learn more about it, consider
+Apple's debugging documentation, for instance the <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2">LLDB Command Structure Reference</a>
+or the introduction to <a href="https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html">Using LLDB as a Standalone Debugger</a>.</p>
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+<p>You can also check out LLDB's fantastic <a href="http://lldb.llvm.org/tutorial.html">manual and tutorial</a>, which
+will explain more complex debugging scenarios.</p>

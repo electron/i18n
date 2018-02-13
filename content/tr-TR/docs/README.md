@@ -15,6 +15,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Uygulama Dağıtımı](tutorial/application-distribution.md)
 * [Mac App Store'a Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md)
 * [Windows Uygulama Mağazası'na Gönderme Kılavuzu](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Uygulama Paketleme](tutorial/application-packaging.md)
 * [Yerel Düğüm Modüllerini Kullanmak](tutorial/using-native-node-modules.md)
 * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
@@ -50,7 +51,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ### Ana Süreç İçin Modüller:
 
-* [app](api/app.md)
+* [uygulama](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -61,7 +62,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [ipcMain](api/ipc-main.md)
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
-* [net](api/net.md)
+* [ağ](api/net.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
@@ -89,7 +90,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 * [Kodlama Stili](development/coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](development/clang-format.md)
-* [Test ediliyor](development/testing.md)
+* [Test Etme](development/testing.md)
 * [Kaynak Kodu Dizin Yapısı](development/source-code-directory-structure.md)
 * [NW.js (eski adı node-webkit)'le Teknik Farklılıkları](development/atom-shell-vs-node-webkit.md)
 * [Sistem Genel Bakışı Oluşturma](development/build-system-overview.md)
@@ -100,6 +101,6 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
 * [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
 * [Stil Kılavuz Dokümantasyonu](styleguide.md)
-* [Chromium yükseltme](development/upgrading-chromium.md)
+* [Chromium yükseltiliyor](development/upgrading-chromium.md)
 * [Chromium Geliştirme](development/chromium-development.md)
 * [V8 Geliştirme](development/v8-development.md)

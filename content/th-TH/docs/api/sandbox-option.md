@@ -26,7 +26,7 @@ app.on('ready', () => {
       sandbox: true
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -41,14 +41,15 @@ let win
 app.on('ready', () => {
   // no need to pass `sandbox: true` since `--enable-sandbox` was enabled.
   win = new BrowserWindow()
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
 Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to chromium sandbox settings. The switch must be passed to electron on the command-line:
 
-    electron --enable-sandbox app.js
-    
+```sh
+electron --enable-sandbox app.js
+```
 
 It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
 
@@ -67,7 +68,7 @@ app.on('ready', () => {
       preload: 'preload.js'
     }
   })
-  w.loadURL('http://google.com')
+  win.loadURL('http://google.com')
 })
 ```
 
@@ -105,18 +106,23 @@ Important things to notice in the preload script:
 
 To create a browserify bundle and use it as a preload script, something like the following should be used:
 
-    browserify preload/index.js \
-      -x electron \
-      -x fs \
-      --insert-global-vars=__filename,__dirname -o preload.js
-    
+```sh
+  browserify preload/index.js \
+    -x electron \
+    -x fs \
+    --insert-global-vars=__filename,__dirname -o preload.js
+```
 
 The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
 
 Currently the `require` function provided in the preload scope exposes the following modules:
 
 - `child_process`
-- `electron` (crashReporter, remote and ipcRenderer)
+- `electron` 
+  - `crashReporter`
+  - `ระยะไกล`
+  - `ipcRenderer`
+  - `webFrame`
 - `fs`
 - `os`
 - `timers`

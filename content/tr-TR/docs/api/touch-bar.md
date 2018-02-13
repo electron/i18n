@@ -2,21 +2,21 @@
 
 > Yerel macOS uygulamaları için TouchBar düzenlemeleri oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
-* `seçenekler` Nesne 
+* `seçenekler` Nesnesi 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md)) (optional)
 
 Belirli öğelerle yeni bir dokunmatik çubuk oluşturun. Bir pencereye `TouchBar` eklemek için `BrowserWindow.setTouchBar` kullanmalısınız.
 
-**Not:** TouchBar API şu anda deneyseldir ve gelecekteki Electron sürümlerinde değişebilir veya kaldırılabilir.
+**Not:** TouchBar API'si şu anda deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
 
 **İpucu:** Eğer MacBook'unuzda Touch Bar yoksa, uygulamanızda Touch Bar kullanımını test etmek için [Touch Bar Simülatör](https://github.com/sindresorhus/touch-bar-simulator)'ünü kullanabilirsiniz.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
 
@@ -50,7 +50,7 @@ const spin = new TouchBarButton({
 
 ### Yukarıdaki örneğin çalıştırılması
 
-Yukarıdaki örneği çalıştırmak için yapmanız gerekenler (örneği çalıştırmak istediğiniz dizinde açık bir uçbirim olduğu varsayılarak):
+To run the example above, you'll need to (assuming you've got a terminal open in the directory you want to run the example):
 
 1. Yukarıdaki dosyayı `touchbar.js` olarak bilgisayarınıza kaydedin
 2. `npm install electron` aracılığıyla Electron'u yükleyin

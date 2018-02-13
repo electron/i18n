@@ -4,7 +4,7 @@
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
 
-线程：[主进程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 `BrowserView`被用来让`BrowserWindow`嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
 
@@ -26,15 +26,25 @@ let view = new BrowserView({
 })
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-view.webContents.loadURL('https://electron.atom.io')
+view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `new BrowserView([可选])` *实验功能*
 
-* `options` Object (可选) 
+* `选项` Object (可选) 
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
 
 ### 静态方法
+
+#### `BrowserView.getAllViews()`
+
+Returns `BrowserView[]` - An array of all opened BrowserViews.
+
+#### `BrowserView.fromWebContents(webContents)`
+
+* `webContents` [WebContents](web-contents.md)
+
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
@@ -60,13 +70,13 @@ view.webContents.loadURL('https://electron.atom.io')
 
 #### `view.setAutoResize(options)` *实验功能*
 
-* `options` Object 
+* `选项` Object 
   * `width` Boolean - 如果为`true`，视图宽度跟随窗口变化. 默认为 `false`.
   * `height` Boolean - 如果为`true`，视图高度跟随窗口变化. 默认为 `false`.
 
 #### `view.setBounds(bounds)` *实验功能*
 
-* ` bounds`[ 矩形 ](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md)
 
 调整视图的大小，并将它移动到窗口边界
 

@@ -7,7 +7,7 @@
 在Electron中，`DownloadItem` 是一个代表下载项目的`EventEmitter`。 它用于`will-download`事件以及`Session`类，并且允许用户控制下载项目。
 
 ```javascript
-// 在主进程.
+// 在主进程中.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
@@ -96,7 +96,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 #### `downloadItem.canResume()`
 
-恢复布尔值 - 是否可以恢复下载。
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 

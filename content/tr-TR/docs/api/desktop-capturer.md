@@ -2,7 +2,7 @@
 
 > [`navigator.mediaDevices.getUserMedia`] API' sini kullanarak masaüstünden ses ve video yakalamak için kullanılabilecek medya kaynaklarıyla ilgili bilgilere erişin.
 
-Süreç:[ İşleyici](../glossary.md#renderer-process)
+İşlem: [Renderer](../glossary.md#renderer-process)
 
 Aşağıdaki örnek, ` Electron` isimli masaüstü penceresinden nasıl ekran kaydedilebileceğini göstermektedir:
 
@@ -26,14 +26,18 @@ desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             maxHeight: 720
           }
         }
-      }, handleStream, handleError)
+      })
+      .then((stream) => handleStream(stream))
+      .catch((e) => handleError(e))
       return
     }
   }
 })
 
 function handleStream (stream) {
-  document.querySelector('video').src = URL.createObjectURL(stream)
+  const video = document.querySelector('video')
+  video.srcObject = stream
+  video.onloadedmetadata = (e) => video.play()
 }
 
 function handleError (e) {
@@ -60,17 +64,17 @@ const constraints = {
 }
 ```
 
-## Metodlar
+## Yöntemler
 
 `desktopCapturer` modülü aşağıdaki yöntemleri içerir:
 
 ### `desktopCapturer.getSources(options, callback)`
 
-* `ayarlar` Nesne 
+* `seçenekler` Nesnesi 
   * `types` Dizi[] - Yakalanacak masaüstü kaynaklarının türlerini listeleyen dizelerin bir dizisi, kullanılabilir türleri `screen` ve `window`' dir.
   * `thumbnailSize` [Size](structures/size.md) (İsteğe Bağlı) - Ortam kaynağı küçük resminin boyutlandırılacağı boyut. Varsayılan `150` x `150`.
-* `geri arama` Fonksiyon 
-  * `error` Hata 
+* `geri aramak` Function 
+  * `error` Error
   * `kaynaklar`[DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
 Bittiğinde tüm mevcut masaüstü medya kaynakları hakkıda bilgi toplamaya başlar ve `callback(error, sources)`ı arar.

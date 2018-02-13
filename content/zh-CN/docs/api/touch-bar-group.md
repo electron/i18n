@@ -1,6 +1,6 @@
-## Class: TouchBarGroup
+## 类: TouchBarGroup
 
-> Create a group in the touch bar for native macOS applications
+> 为本地mac os创建一个触控条组
 
 线程：[主线程](../tutorial/quick-start.md#main-process)
 

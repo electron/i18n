@@ -15,6 +15,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Dystrybuowanie Aplikacji](tutorial/application-distribution.md)
 * [Dodawanie aplikacji do Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Dodawanie aplikacji do Windows Store](tutorial/windows-store-guide.md)
+* [Snapcraft Guide](tutorial/snapcraft-guide.md)
 * [Pakowanie Aplikacji](tutorial/application-packaging.md)
 * [Używanie Natywnych Modułów Node.JS](tutorial/using-native-node-modules.md)
 * [Debugowanie Głównego Wątku](tutorial/debugging-main-process.md)
@@ -24,7 +25,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
 * [Używanie Pluginu Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
-* [Skróty klawiszowe](tutorial/keyboard-shortcuts.md)
+* [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
 * [Aktualizowanie aplikacji](tutorial/updates.md)
 
 ## Poradniki

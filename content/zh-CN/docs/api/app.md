@@ -111,6 +111,45 @@ app.on('window-all-closed', () => {
 
 只有具有支持相应的活动类型并且相同的开发团队 ID 作为启动程序时，用户行为才会进行。 所支持活动类型已在应用的 `Info.plist` 中的 `NSUserActivityTypes` 里明确定义。
 
+### Event: 'will-continue-activity' *macOS*
+
+返回:
+
+* `event` Event
+* ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
+
+### Event: 'continue-activity-error' *macOS*
+
+返回:
+
+* `event` Event
+* ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
+* `error` String - A string with the error's localized description.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+
+### Event: 'activity-was-continued' *macOS*
+
+返回:
+
+* `event` Event
+* ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
+
+### Event: 'update-activity-state' *macOS*
+
+返回:
+
+* `event` Event
+* ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
+* `userInfo` Object - Contains app-specific state stored by the activity.
+
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+
 ### 事件: 'new-window-for-tab' *macOS*
 
 返回:
@@ -124,7 +163,7 @@ app.on('window-all-closed', () => {
 返回:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 在 [ browserWindow ](browser-window.md) 失去焦点时发出。
 
@@ -133,7 +172,7 @@ app.on('window-all-closed', () => {
 返回:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 在 [ browserWindow ](browser-window.md) 获得焦点时发出。
 
@@ -142,7 +181,7 @@ app.on('window-all-closed', () => {
 返回:
 
 * `event` Event
-* `window` BrowserWindow
+* `window` [BrowserWindow](browser-window.md)
 
 在创建新的 [ browserWindow ](browser-window.md) 时发出。
 
@@ -151,7 +190,7 @@ app.on('window-all-closed', () => {
 返回:
 
 * `event` Event
-* `webContents` WebContents
+* `webContents` [WebContents](web-contents.md)
 
 在创建新的 [ webContents ](web-contents.md) 时发出。
 
@@ -189,7 +228,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* ` url `URL
+* `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
 * `callback` Function 
   * `certificate` [证书](structures/certificate.md) (可选)
@@ -280,7 +319,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### `app.relaunch([options])`
 
-* `options` Object (可选) 
+* `选项` Object (可选) 
   * `args` String[] - (可选)
   * `execPath` String (可选)
 
@@ -344,12 +383,13 @@ app.exit(0)
 * `music` 用户音乐目录的路径
 * `pictures` 用户图片目录的路径
 * `videos` 用户视频目录的路径
+* `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Pepper Flash插件所在目录
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (可选) 
+* `选项` Object (可选) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -414,7 +454,7 @@ app.exit(0)
 
 清空最近打开的文档列表
 
-### `app.setAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - 协议的名称, 不包含 `://`。 如果您希望应用程序处理 `electron://` 的链接, 请将 ` electron ` 作为该方法的参数.
 * ` path `String (可选) * Windows *-默认为 ` process.execPath `
@@ -468,7 +508,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 ` Object `:
+返回 `Object`:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -608,6 +648,19 @@ app.on('ready', () => {
 
 返回 `String` - 正在运行的 activity 的类型
 
+### `app.invalidateCurrentActivity()` *macOS*
+
+* `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
+
+Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+
+### `app.updateCurrentActivity(type, userInfo)` *macOS*
+
+* `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
+* `userInfo` Object - 应用程序特定状态，供其他设备使用
+
+Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
@@ -616,7 +669,7 @@ app.on('ready', () => {
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `选项` Object 
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
 * `callback` Function 
@@ -644,7 +697,7 @@ app.on('ready', () => {
 
 返回 [`ProcessMetric[]`](structures/process-metric.md): `ProcessMetric` 对象的数组，它统计了应用内所有进程的内存和cpu的使用情况.
 
-### `app.getGpuFeatureStatus()`
+### `app.getGPUFeatureStatus()`
 
 返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
 
@@ -670,13 +723,13 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (可选) 
+* `选项` Object (可选) 
   * ` path `String (可选) * Windows *-要比较的可执行文件路径。默认为 ` process. execPath `。
   * ` 参数 `String [] (可选) * Windows *-要比较的命令行参数。默认为空数组。
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置正确的参数。
 
-返回 `Object`:
+返回 ` Object `:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
 * ` openAsHidden ` Boolean - 如果应用程序在登录时设置为隐藏, 则为 ` true `。此设置仅在 macOS 上支持。
@@ -720,9 +773,17 @@ app.setLoginItemSettings({
 Returns `Boolean` - 如果开启了Chrome的辅助功能, 则返回 `true`，其他情况返`false`。 如果使用了辅助技术（例如屏幕阅读），该 API 将返回 `true</0。 查看更多细节，请查阅
 https://www.chromium.org/developers/design-documents/accessibility</p>
 
-<h3><code>app.setAboutPanelOptions(options)` *macOS*</h3> 
+<h3><code>app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*</h3> 
 
-* `options` Object 
+* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+
+### `app.setAboutPanelOptions(options)` *macOS*
+
+* `选项` Object 
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
@@ -753,6 +814,18 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 在应用程序上启用混合沙盒模式。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
+
+### `app.isInApplicationsFolder()` *macOS*
+
+返回 ` Boolean `- 应用程序当前是否在系统应用程序文件夹运行。 可以搭配 ` app. moveToApplicationsFolder () `使用
+
+### `app.moveToApplicationsFolder()` *macOS*
+
+返回 ` Boolean `-移动是否成功。 请注意, 当您的应用程序移动成功, 它将退出并重新启动。
+
+默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
+
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
