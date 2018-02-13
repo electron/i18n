@@ -101,7 +101,7 @@ Avant de créer un ticket, vérifiez que votre problème n'a pas déjà sa répo
 * [Instructions de Debug (Windows)](development/debug-instructions-windows.md)
 * [Installer un Serveur de Symbol dans le debugger](development/setting-up-symbol-server.md)
 * [Documentation Styleguide](styleguide.md)
-* [Contributing to Electron](../CONTRIBUTING.md)
+* [Contribuer à Electron](../CONTRIBUTING.md)
 * [Issues](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
 * [Mettre à jour Chromium](development/upgrading-chromium.md)
