@@ -25,22 +25,22 @@ $ git clone https://github.com/electron/electron.git
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos de proyecto. Note que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
+El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos de proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Edificio
+## Compilando
 
-Compilar objetivos de Release y Debug:
+Compilar ambas versiones Release y Debug:
 
 ```powershell
 $ python script\build.py
 ```
 
-También puede construir un objetivo de depuración:
+También puede solo construir la version Debug:
 
 ```powershell
 $ python script\build.py -c D
