@@ -104,27 +104,27 @@ This ensures that your working branch has the latest changes from `electron/elec
 
 ### Langkah 7: Tes
 
-Perbaikan Bug dan fitur harus selalu di awali dengan tes. Sebuah [pedoman testing](https://electronjs.org/docs/development/testing) telah disediakan untuk membuat proses lebih mudah. Looking at other tests to see how they should be structured can also help.
+Perbaikan Bug dan fitur harus selalu di awali dengan tes. Sebuah [pedoman testing](https://electronjs.org/docs/development/testing) telah disediakan untuk membuat proses lebih mudah. Lihat tes lainnya untuk mengetahui bagaimana tes harus terstruktur dan juga bermanfaat.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Sebelum mengirimkan perubahan anda di pull request, selalu jalankan full test suite. Untuk menjalankan tes:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+Pastikan bahwa linter tidak ada masalah apapun pada saat tes selesai. Mohon tidak mengirimkan patch yang gagal atau belum di cek.
 
-If you are updating tests and just want to run a single spec to check it:
+Jika anda sedang memperbaharui tes dan ingin menjalankan satu spec untuk memeriksanya:
 
 ```sh
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+Hal di atas hanya akan berjalan di spec modul yang cocok `menu`, yang bermanfaat untuk siapa saja yang sedang bekerja untuk tes yang seharusnya berada di akhir siklus pengujian.
 
-### Step 8: Push
+### Langkah 8: Push
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+Setelah commit anda siap -- dengan melewati tes dan linting -- mulai proses untuk membuka Pull request dengan push cabang hasil kerja anda ke fork anda di GitHub.
 
 ```sh
 $ git push origin my-branch
