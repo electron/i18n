@@ -15,14 +15,14 @@
   * [Ikasiyam na hakbang: Pagbukas ng Kahilingan ng Pull](#step-8-opening-the-pull-request)
   * [Ikasampong hakbang: Talakayin at I-update](#step-9-discuss-and-update) 
     * [Pag-apruba at Kahilingan sa Pagbabago ng Workflow](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+  * [Ikalabin-isang hakbang: Landing](#step-10-landing)
+  * [Patuloy na Pagsubok sa Pagsasamasama](#continuous-integration-testing)
 
 ## Ang pag-set up ng sariling lokal na kapaligiran
 
 ### Unang hakbang: Fork
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+Ibunsod ang proyekto [on GitHub](https://github.com/electron/electron) at i-clone ang iyong fork na lokal.
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -33,13 +33,13 @@ $ git fetch upstream
 
 ### Ikalawang hakbang: Bumuo
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+Gumawa ng mga hakbang at mga dependencies ay bahagyang naiiba na nagdedepende sa iyong operating system. Tingnan ang mga detalyadong gabay sa pagtatayo ng Electron sa isang local:
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-osx)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Pagbuo sa MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Pagbuo sa Linux](https://electronjs.org/docs/development/build-instructions-linux)
+* [Pagbuo sa Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Sa sandaling naitayo mo ang proyekto nang lokal, handa ka nang magsimulang gumawa ng mga pagbabago!
 
 ### Ikatlong hakbang: Sangay
 
@@ -167,13 +167,13 @@ All pull requests require approval from a [Code Owner](https://github.com/orgs/e
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
-### Step 11: Landing
+### Ikalabin-isang hakbang: Landing
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### Patuloy na Pagsubok sa Pagsasamasama
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
