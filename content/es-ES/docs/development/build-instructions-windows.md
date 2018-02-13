@@ -46,21 +46,21 @@ También puede solo construir la version Debug:
 $ python script\build.py -c D
 ```
 
-Después de que la construcción está hecha, usted puede encontrar `electron.exe` con el nombre `out\D` (objetivo de depuración) o como `out\R` (objetivo de lanzamiento).
+Después de que acabe la compilación, puede encontrar `electron.exe` en `out\D` (version debug) o en `out\R` (version release).
 
 ## Arquitectura 32bit
 
-Para construir para el objetivo de 32bit, necessita pasar `--target_arch=ia32` cuando se corra el script de salida:
+Para construir una versión de 32bit, necesita pasar `--target_arch=ia32` cuando ejecute el script bootstrap:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-Los otros pasos de construcción son exactamente los mismos.
+El resto de los pasos son exactamente los mismos.
 
 ## Proyecto de Visual Studio
 
-Para generar un proyecto Visual Studio, se puede pasar el parámetro `--msvs`:
+Para generar un proyecto Visual Studio, se puede pasar el argumento `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -68,7 +68,7 @@ $ python script\bootstrap.py --msvs
 
 ## Limpieza
 
-Para limpiar archivos construidos:
+Para limpiar los archivos construidos:
 
 ```powershell
 $ npm run clean
@@ -80,9 +80,9 @@ Para limpiar solo los directorios `out` y `dist`:
 $ npm run clean-build
 ```
 
-**Nota:** Ambos comandos de limpieza requieren que se corra `bootstrap` de nuevo antes de la construcción.
+**Nota:** Ambos comandos de limpieza requieren que se ejecute `bootstrap` antes de construir de nuevo.
 
-## Pruebas
+## Verificación
 
 Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
 
