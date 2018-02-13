@@ -1,7 +1,7 @@
-# Paghatak ng Request
+# Pull Requests
 
 * [Dependencies](#dependencies)
-* [Ang pag-set up ng sariling lokal na kapaligiran](#setting-up-your-local-environment) 
+* [Setting up your local environment](#setting-up-your-local-environment) 
   * [Unang hakbang: Fork](#step-1-fork)
   * [Ikalawang hakbang: Bumuo](#step-2-build)
   * [Ikatlong hakbang: Sangay](#step-3-branch)
