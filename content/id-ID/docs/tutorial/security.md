@@ -51,7 +51,7 @@ tingkatkan keamanan aplikasi Anda.</p>
 
 <h2>1) Hanya memuat konten aman</h2>
 
-<p>Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti <code>HTTPS`. Dengan kata lain, jangan gunakan tidak aman protokol seperti `HTTP`. Demikian pula, kami menyarankan untuk menggunakan `WSS` atas `WS`, `FTPS` melalui `FTP`, dan sebagainya.
+<p>Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti <code>HTTPS`. Dengan kata lain, jangan gunakan tidak aman protokol seperti `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### Mengapa?
 
@@ -199,7 +199,7 @@ session
 
 ## 5) Jangan Nonaktifkan Keamanan Web
 
-*Recommendation is Electron's default*
+*Rekomendasi adalah elektron 's default*
 
 Anda mungkin sudah menduga bahwa menonaktifkan property ` webSecurity </ code> pada a proses renderer (<a href="../api/browser-window.md"> <code> BrowserWindow </ code> </a>,<a href="../api/browser-view.md"> <code> BrowserView </ code> </a>, atau <a href="../api/web-view"> <code> WebView </ code> </a>) menonaktifkan penting
 fitur keamanan.</p>
@@ -219,7 +219,8 @@ Buruk const mainWindow = BrowserWindow baru ({webPreferences: {
 ```
 
 ```js
-Baik const mainWindow = BrowserWindow() baru
+// Good
+const mainWindow = new BrowserWindow()
 ```
 
 ```html
@@ -304,7 +305,7 @@ Advanced users of Electron can enable experimental Chromium features using the `
 
 ### Mengapa?
 
-Fitur eksperimental adalah, seperti nama yang disarankan, eksperimental dan belum diaktifkan untuk semua pengguna Chromium. Selanjutnya, mereka berdampak pada Electron secara keseluruhan kemungkinan belum diuji.
+Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
 
 Ada kasus penggunaan yang sah, tapi kecuali anda tahu apa yang anda lakukan, sebaiknya anda tidak mengaktifkan properti ini.
 
@@ -346,7 +347,8 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-Baik const mainWindow = BrowserWindow() baru
+// Good
+const mainWindow = new BrowserWindow()
 ```
 
 ## 11) Jangan Gunakan ` allowpopups </ code></h2>
@@ -362,7 +364,7 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 ### Bagaimana?
 
 ```html
-<!--buruk--> <webview allowpopups src="page.html"></webview> <!--baik--> <webview src="page.html"></webview>
+<webview allowpopups src="page.html"></webview> <webview src="page.html"></webview>
 ```
 
 ## 12) Verifikasi Pilihan WebView Sebelum Penciptaan
