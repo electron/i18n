@@ -136,18 +136,18 @@ Mula sa loob ng GitHub, ang pagbubukas ng isang bagong kahilingan sa pull reques
 
 ```markdown
 <!--
-Salamat sa iyong kahilingan sa pull. Please provide a description above and review
-the requirements below.
+Salamat sa iyong kahilingan sa pull. Mangyaring magbigay ng isang paglalarawan sa itaas at repasuhin
+ang mga kinakailangan sa ibaba.
 
-Bug fixes and new features should include tests and possibly benchmarks.
+Ang mga pag-aayos ng bug at mga bagong tampok ay dapat na magsama ng mga pagsubok at posibleng mga benchmark.
 
 Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 
-### Step 10: Discuss and update
+### Ikasampung hakbang: Talakayin at i-update
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+Marahil ay makakakuha ka ng feedback o mga kahilingan para sa mga pagbabago sa iyong pull request. Ito ay isang malaking bahagi ng proseso ng pagsumite kaya huwag masiraan ng loob! Ang ilang mga kontribyutor ay maaaring mag-sign off sa pull request kaagad. Ang iba ay maaaring magkaroon ng detalyadong mga komento o puna. Ito ay isang mahalagang bahagi ng proseso upang suriin kung ang mga pagbabago ay tama at kinakailangan.
 
 To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
