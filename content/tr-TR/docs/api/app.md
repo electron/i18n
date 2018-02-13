@@ -830,7 +830,7 @@ const exeName = path.basename(process.execPath)
   
   Kullanıcının [`dialog`](dialog.md) API kullanarak yapmış olduğunuz işlemi onaylamasını istiyorsanız, onay kutusu varsayılan olarak gösterilmeyecektir.
   
-  **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+  **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. Örneğin, kullanıcı yetkilendirme iletişim kutusunu iptal ederse, bu yöntem hata verir. Eğer kopyayı gerçekleştiremezsek bu yöntem bir hata verecektir. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
   
   ### `app.dock.bounce([type])` *macOS*
   
