@@ -77,19 +77,19 @@ Ang isang mabuting mensahe ng gumawa ay dapat maglarawan kung ano ang nagbago at
 1. Ang unang linya ay dapat na:
   
   * naglalaman ng isang maikling paglalarawan ng pagbabago (mas mabuti na 50 karakter o mas mababa, at hindi hihigit sa 72 na karakter)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
+  * maging ganap sa lowercase na may pagbubukod ng mga tamang nouns, acronyms, at ang mga salita na tumutukoy sa code, tulad ng mga pangalan ng function / variable
     
     Mga Halimbawa:
   
-  * `updated osx build documentation for new sdk`
+  * `na-update na dokumentasyon ng build osx para sa bagong sdk`
   
   * `fixed typos in atom_api_menu.h`
 
-2. Keep the second line blank.
+2. Panatilihing blangko ang ikalawang linya.
 
-3. Wrap all other lines at 72 columns.
+3. I-wrap ang lahat ng iba pang mga linya sa 72 na mga haligi.
 
-See [this article](https://chris.beams.io/posts/git-commit/) for more examples of how to write good git commit messages.
+Tingnan ang [this article](https://chris.beams.io/posts/git-commit/) para sa higit pang mga halimbawa kung paano sumulat ng mga magandang git commit messages.
 
 ### Ikaanim na hakbang: Rebase
 
