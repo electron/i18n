@@ -105,4 +105,4 @@ Pada jaringan yang lebih lambat, disarankan untuk menggunakan flag `--verbose` u
 memasang npm --verbose electron
 ```
 
-Jika Anda perlu memaksa download ulang aset tersebut dan file SHASUM menyetel variabel lingkungan  force_no_cache </ 0> ke <code> true </ 0> .</p>
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
