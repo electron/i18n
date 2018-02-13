@@ -86,22 +86,22 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `event` Event
 * `url` String
 
-ユーザがアプリケーションでURLを開こうとしたときに発生します。 Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+ユーザがアプリケーションでURLを開こうとしたときに発生します。 アプリケーションの `Info.plist` ファイルで `CFBundleURLTypes` キーの中にURLスキームを定義し、`NSPrincipalClass` に `AtomApplication` を設定しなければなりません。
 
-このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
+このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
 ### イベント: 'activate' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+アプリケーションがアクティブになったときに発生します。 アプリケーションが最初に起動される、既に実行中のときにアプリケーションを再起動しようとする、アプリケーションのドックやタスクバーのアイコンをクリックするなど、いろいろなアクションがこのイベントの引き金となり得ます。
 
 ### イベント: 'continue-activity' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -436,7 +436,7 @@ Overrides the current application's name.
 
 ### `app.getLocale()`
 
-Returns `String` - 現在のアプリケーションロケール。可能な戻り値は[here](locales.md)に記録されています。
+戻り値 `String` - 現在のアプリケーションのロケール。可能性のある戻り値は [ここ](locales.md) に記されています。
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
@@ -860,11 +860,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-ドックのアイコンを非表示にする
+ドックのアイコンを非表示にします。
 
 ### `app.dock.show()` *macOS*
 
-ドックのアイコンを表示する
+ドックのアイコンを表示します。
 
 ### `app.dock.isVisible()` *macOS*
 
