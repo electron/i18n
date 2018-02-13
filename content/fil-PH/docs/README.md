@@ -102,7 +102,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Pag-se-set up ng Simbolo ng Debugger](development/setting-up-symbol-server.md)
 * [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
 * [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
+* [Isyu](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
 * [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
 * [Pagpapaunlad ng Chromium](development/chromium-development.md)
