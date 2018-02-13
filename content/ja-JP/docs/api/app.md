@@ -29,7 +29,7 @@ app.on('window-all-closed', () => {
 
 * `launchInfo` Object *macOS*
 
-Electronが初期化処理を完了したときに発生します。 MacOS では、`launchInfo` は、通知センターから起動された場合、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` 情報を保持しています。 また、このイベントが既に発生しているかどうかをチェックする `app.isReady()` を呼び出すことができます。
+Electronが初期化処理を完了したときに発生します。 macOSでは、通知センターから起動された場合、`launchInfo` は、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持しています。 `app.isReady()` を呼び出すことで、このイベントが既に発生しているかを確認することができます。
 
 ### イベント: 'window-all-closed'
 
