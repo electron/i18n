@@ -18,15 +18,15 @@ Para sa anumang isyu, merong mga panimula at tatlong pamamaraan na idibidwal na 
 
 ## Humingi nang pangkalahatang tulong
 
-Because the level of activity in the `electron/electron` repository is so high, questions or requests for general help using Electron should be directed at the [community slack channel](https://atomio.slack.com) or the [forum](https://discuss.atom.io/c/electron).
+Dahil ang antas nang aktibidad nasa `elektron/elektron` imbakan ay napakataas, mga tanong o hiling para sa pangkalahatang tulong sa paggamit elektron ay dapat na direktang sa [kommunidad malubay na channel](https://atomio.slack.com) o ang [forum](https://discuss.atom.io/c/electron).
 
 ## Pagsusumite sa bug report
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+Kapag nagbukas kanang bagong isyu sa `elektron/elektron` isyu tracker, mga gumagamit ay maipapakita na may isang template na dapat mapunan.
 
 ```markdown
-<!--
-Thanks for opening an issue! A few things to keep in mind:
+&It;!--
+Salamat sa pagbukas nang isyu! A few things to keep in mind:
 
 - The issue tracker is only for bugs and feature requests.
 - Before reporting a bug, please try reproducing your issue against
