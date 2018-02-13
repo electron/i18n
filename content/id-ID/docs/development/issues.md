@@ -44,32 +44,31 @@ Terimakasih karena telah membuka isu! Beberapa hal yang perlu di perhatikan:
 
 <!-- Apa yang sebenarnya terjadi? -->
 
-### How to reproduce
+### Bagaimana cara memproduksi
 
 <!--
+Kesempatan terbaik anda untuk menemukan Bug ini secara cepat adalah dengan menyediakan REPOSITORI yang bisa di klon dan berfungsi.
 
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
+Kamu dapat menarik file di https://github.com/electron/electron-quick-start dan termasuk link untuk cabang dengan perubahan yang telah anda buat.
 
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
+Jika anda menyediakan URL, mohon masukkan perintah yang dibutuhkan untuk mengklon/pengaturan/jalankan repo anda, contoh
 
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
+$ git clone $YOUR_URL -b $BRANCH   
+$ npm install   
+$ npm start || electron .
 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Jika anda yakin bahwa anda telah menemukan Bug di electron, mohon isi formulir ini sesuai kemampuan terbaik anda.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+Dua hal yang paling penting dari informasi yang dibutuhkan untuk mengevaluasi laporan adalah Sebuah penjelasan tentang Bug dan sebuah tes kasus yang simpel untuk membuatnya kembali. Lebih mudah untuk memperbaiki Sebuah Bug jika Bug tersebut dapat direproduksi kembali.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Lihat [ Bagaimana cara membuat contoh yang minimal, komplit dan yang bisa di verifikasi ](https://stackoverflow.com/help/mcve).
 
 ## Mendahulukan Laporan Bug
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Ini hal yang wajar untuk membuka isu dan memulai diskusi. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
