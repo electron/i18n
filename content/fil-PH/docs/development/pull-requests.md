@@ -1,10 +1,10 @@
 # Paghatak ng Request
 
 * [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
+* [Ang pag-set up ng sariling lokal na kapaligiran](#setting-up-your-local-environment) 
+  * [Unang hakbang: Fork](#step-1-fork)
+  * [Ikalawang hakbang: Bumuo](#step-2-build)
+  * [Ikatlong hakbang: Sangay](#step-3-branch)
 * [Making Changes](#making-changes) 
   * [Step 4: Code](#step-4-code)
   * [Step 5: Commit](#step-5-commit) 
@@ -18,9 +18,9 @@
   * [Step 11: Landing](#step-10-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
-## Setting up your local environment
+## Ang pag-set up ng sariling lokal na kapaligiran
 
-### Step 1: Fork
+### Unang hakbang: Fork
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -31,7 +31,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### Ikalawang hakbang: Bumuo
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
 
@@ -41,7 +41,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 
 Once you've built the project locally, you're ready to start making changes!
 
-### Step 3: Branch
+### Ikatlong hakbang: Sangay
 
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
 
