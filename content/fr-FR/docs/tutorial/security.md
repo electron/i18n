@@ -18,9 +18,9 @@ Nous estimons que notre système actuel de mise à jour de Chromium présente un
 
 ## Ignorer les conseils ci-dessus
 
-Il existe un problème de sécurité chaque fois que vous recevez le code d’une destination distante et l’exécutez localement. A titre d'exemple, considérons un site Web distant affiché à l'intérieur d'une fenêtre de navigateur [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Il existe un problème de sécurité chaque fois que vous recevez le code d’une destination distante et l’exécutez localement. A titre d'exemple, considérons un site Web distant affiché à l'intérieur d'une fenêtre de navigateur [`BrowserWindow`](../api/browser-window.md). Si un attaquant parvient d'une manière ou d'une autre à modifier ce contenu (soit en attaquant directement la source, soit en restant assis entre votre application et la destination réelle), il pourra exécuter du code natif sur la machine de l'utilisateur.
 
-> :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`webview`](../api/web-view) tag and make sure to disable the `nodeIntegration`.
+> :warning: en aucune circonstance vous devriez charger et exécuter du code distant avec l'intégration de Node.js activé. Utilisez plutôt les fichiers locaux (empaquetés avec votre application) pour exécuter le code de Node. Pour afficher du contenu distant, utilisez la balise [`webview`](../api/web-view) et assurez-vous de désactiver le `nodeIntegration`.
 
 ## Electron Security Warnings
 
