@@ -215,25 +215,25 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
    if (url === 'https://github.com') {
      // Логика за потвърждение.
     event.preventDefault()
-    callback(true)
-  } else {
-    callback(false)
-  }
+     callback(true)
+   } else {
+     callback(false)
+   }
 })
 ```
 
-### Event: 'select-client-certificate'
+### Събитие: 'select-client-certificate'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (по избор)
 
-Emitted when a client certificate is requested.
+Излъчено, когато е поискан клиентски сертификат.
 
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
