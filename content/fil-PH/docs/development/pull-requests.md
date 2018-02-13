@@ -93,20 +93,20 @@ Tingnan ang [this article](https://chris.beams.io/posts/git-commit/) para sa hig
 
 ### Ikaanim na hakbang: Rebase
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+Kapag nakagawa ka ng iyong mga pagbabago, magandang ideya na gamitin ang `git rebase ` (hindi ` git merge `) upang i-synchronize ang iyong trabaho sa pangunahing repository.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+Tinitiyak nito na ang iyong working branch ay may mga pinakabagong pagbabago mula sa ` electron / electron `.
 
 ### Ikapitong hakbang: Pagsubok
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+Ang mga pag-aayos ng bug at mga tampok ay dapat laging may mga pagsubok. A [testing guide](https://electronjs.org/docs/development/testing) ay upang gawing mas madali ang proseso. Naghahanap sa iba pang mga pagsubok upang makita kung paano sila Dapat ay nakabalangkas din ay maaaring makatulong.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Bago isumite ang iyong mga pagbabago sa kahilingan ng pull, laging patakbuhin ang buong test suite. Upang patakbuhin ang mga pagsusulit:
 
 ```sh
 $ npm run test
