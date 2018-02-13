@@ -2,7 +2,7 @@
 
 ## Discussão
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatability. Isso é importante por causa do Node and [libchromiumcontent](upgrading-chromium.md) usam suas próprias versões do V8.
+One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. Isso é importante por causa do Node and [libchromiumcontent](upgrading-chromium.md) usam suas próprias versões do V8.
 
 Atualizar o Node é muito mais fácil que atualizar o libchromiumcontent, pois há menos conflitos que atualizar o libchromiumcontent primeiro, em seguida, escolhe o versão do Node próximo ao V8.
 
@@ -43,7 +43,7 @@ We need to generate a patch file from each patch applied to V8.
 
 1. Get a copy of Electron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
+2. Executar `script/update` to get the latest libcc 
   - This will be time-consuming
 3. Remove our copies of the old Node v8 patches 
   - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
