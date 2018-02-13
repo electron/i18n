@@ -76,4 +76,4 @@ Kontributor sangat disarankan untuk memecahkan isu secara bersama dan membantu s
 
 ## Memecahkan Laporan Bug
 
-Kebanyakan isu diselesaikan dengan membuka Pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Kebanyakan isu diselesaikan dengan membuka Pull request. Proses untuk membuka dan mereview Pull request sama dengan proses untuk membuka dan triaging isu, namun disertai dengan tinjauan dan alur kerja persetujuan yang diperlukan untuk mengusulkan perubahan untuk memenuhi kualitas minimal dan pedoman proyek electron.
