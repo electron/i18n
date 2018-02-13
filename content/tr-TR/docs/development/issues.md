@@ -77,4 +77,4 @@ Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirler
 
 ## Bir hata raporu çözümlendir
 
-Çoğu sorun bir çekme isteği açarak çözülür. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Çoğu sorun bir çekme isteği açarak çözülür. Bir çekme isteğini açma ve inceleme süreci, açılış ve triyaj konularına benzer ancak, önerilen değişikliklerin Electron projesinin asgari kalitesini ve işlevsel yönergelerini karşılamasını sağlayan gerekli inceleme ve onay iş akışını da beraberinde getirir.
