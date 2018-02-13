@@ -63,13 +63,13 @@ Bir URL girerseniz, lütfen repo örneğinizi kopyalamak / ayarlamak / çalışt
 
 Elektron'da bir hata bulduğunuzu düşünüyorsanız, lütfen bu formu en iyi şekilde doldurun.
 
-Raporu değerlendirmek önemli olan önemli iki şey var; hata açıklaması yapmak ve yeniden oluşturmak için basit bir test yapmak. It easier to fix a bug if it can be reproduced.
+Raporu değerlendirmek önemli olan önemli iki şey var; hata açıklaması yapmak ve yeniden oluşturmak için basit bir test yapmak. Yeniden üretilebiliyorsa, bir hatayı düzeltmek daha kolaydır.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Bkz.  Minimum, Tam ve Doğrulanabilir örnek nasıl oluşturulur? </ 0>.</p> 
 
 ## Bir hata raporu düzenle
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Açık kaynak kodlarında tartışmalar sıklıkla görülür. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
