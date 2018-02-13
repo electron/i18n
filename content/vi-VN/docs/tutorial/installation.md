@@ -105,4 +105,4 @@ Với những mạng chậm, bạn nên sử dụng `--verbose` để hiển th�
 npm install --verbose electron
 ```
 
-Nếu bạn cần buộc phải tải lại các tập tin và SHASUM hãy đặt biến môi trường `force_no_cache` thành `true`.
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
