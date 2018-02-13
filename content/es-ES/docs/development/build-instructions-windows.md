@@ -15,9 +15,9 @@ Si actualmente no tiene una instalación de Windows, [dev.microsoftedge.com](htt
 
 Electron se construye casi completamente con script de comandos de linea y no puede ser generado con Visual Studio. Puede desarrollar Electron con cualquier editor pero el soporte para construir con Visual Studio vendrá en el futuro.
 
-**Nota:** A pesar de que Visual Studio no es usado para la construcción, todavía se **requiere** debido a que necesitamos la cadena de herramientas que este provee para construir.
+**Nota:** A pesar de que Visual Studio no es usado para construir, todavía se **requiere** debido a que necesitamos las herramientas que provee para construir.
 
-## Obteniendo Código
+## Obteniendo el código
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Note que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
+El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos de proyecto. Note que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
 ```powershell
 $ cd electron
