@@ -103,7 +103,7 @@ May mga katanungan na madalas na tinatanong. Suriin muna ito bago lumikha ng bag
 * [Dekumentasyon ng patnubay ng Estilo](styleguide.md)
 * [Contributing to Electron](../CONTRIBUTING.md)
 * [Issues](development/issues.md)
-* [Paghatak ng Request](development/pull-requests.md)
+* [Pull Requests](development/pull-requests.md)
 * [Pagpapaganda ng Chromium](development/upgrading-chromium.md)
 * [Pagpapaunlad ng Chromium](development/chromium-development.md)
 * [V8 Pag-unlad](development/v8-development.md)
