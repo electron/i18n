@@ -1,6 +1,6 @@
 # crashReporter
 
-> Submit crash reports to a remote server.
+> 將當機報告送給遠端伺服器。
 
 處理序: [主處理序](../glossary.md#main-process), [畫面轉譯器](../glossary.md#renderer-process)
 

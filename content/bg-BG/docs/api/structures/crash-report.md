@@ -1,4 +1,4 @@
-# CrashReport Object
+# Обект CrashReport
 
-* `date` String
-* `ID` Integer
+* `date` String - Дата на доклада за проблеми
+* `ID` Integer - Идентификационен номер на доклада за проблеми

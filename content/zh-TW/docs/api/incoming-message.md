@@ -1,6 +1,6 @@
 ## Class: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> 處理 HTTP/HTTPS 請求的回應。
 
 處理序: [主處理序](../glossary.md#main-process)
 

@@ -105,4 +105,4 @@ En redes más lentas, puede ser aconsejable utilizar el flag `--verbose` de mane
 npm install --verbose electron
 ```
 
-Si necesitas forzar que se vuelvan a descargar el asset y el archivo SHASUM, fija la variable de entorno `force_no_cache` a `true`.
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.

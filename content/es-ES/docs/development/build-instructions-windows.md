@@ -5,19 +5,19 @@ Siga las indicaciones a continuación para construir Electron en Windows.
 ## Pre-requisitos
 
 * Windows 7 / Servidor 2008 R2 o superior
-* Visual Studio 2015 actualización 3 - [descargar VS 2015 edición de la comunidad gratis](https://www.visualstudio.com/vs/older-downloads/)
+* Visual Studio 2015 actualización 3 - [descargar VS 2015 edición gratuita para la comunidad](https://www.visualstudio.com/vs/older-downloads/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Herramientas de depuración para Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) Si planea crear una distribución completa considerando que `symstore.exe` es usado para la creación de la biblioteca de símbolos para lo archivos `.pdb`.
+* [Herramientas de depuración para Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) Si piensa crear una distribución completa ya que `symstore.exe` es usado para la creación de biblioteca de símbolos basadas en archivos `.pdb`.
 
-Si no tiene una instalación de Windows actualmente, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
+Si actualmente no tiene una instalación de Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
 
-Electron se construye casi completamente con script de comandos de linea y no puede ser hecho con Visual Studio. Puede desarrollar Electron con cualquier editor pero el soporte para la construcción con Visual Studio vendrá en el futuro.
+Electron se construye casi completamente con script de comandos de linea y no puede ser generado con Visual Studio. Puede desarrollar Electron con cualquier editor pero el soporte para construir con Visual Studio vendrá en el futuro.
 
-**Nota:** A pesar de que Visual Studio no es usado para la construcción, todavía se **requiere** debido a que necesitamos la cadena de herramientas que este provee para construir.
+**Nota:** A pesar de que Visual Studio no es usado para construir, todavía se **requiere** debido a que necesitamos las herramientas que provee para construir.
 
-## Obteniendo Código
+## Obteniendo el código
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -25,42 +25,42 @@ $ git clone https://github.com/electron/electron.git
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias es necesario compilar y crear la estructura de archivos de proyecto. Note que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
+El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos de proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Edificio
+## Compilando
 
-Compilar objetivos de Release y Debug:
+Compilar ambas versiones Release y Debug:
 
 ```powershell
 $ python script\build.py
 ```
 
-También puede construir un objetivo de depuración:
+También puede solo construir la version Debug:
 
 ```powershell
 $ python script\build.py -c D
 ```
 
-Después de que la construcción está hecha, usted puede encontrar `electron.exe` con el nombre `out\D` (objetivo de depuración) o como `out\R` (objetivo de lanzamiento).
+Después de que acabe la compilación, puede encontrar `electron.exe` en `out\D` (version debug) o en `out\R` (version release).
 
-## Estructuras en 32bit
+## Arquitectura 32bit
 
-Para construir para el objetivo de 32bit, necessita pasar `--target_arch=ia32` cuando se corra el script de salida:
+Para construir una versión de 32bit, necesita pasar `--target_arch=ia32` cuando ejecute el script bootstrap:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-Los otros pasos de construcción son exactamente los mismos.
+El resto de los pasos son exactamente los mismos.
 
 ## Proyecto de Visual Studio
 
-Para generar un proyecto Visual Studio, se puede pasar el parámetro `--msvs`:
+Para generar un proyecto Visual Studio, se puede pasar el argumento `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -68,7 +68,7 @@ $ python script\bootstrap.py --msvs
 
 ## Limpieza
 
-Para limpiar archivos construidos:
+Para limpiar los archivos construidos:
 
 ```powershell
 $ npm run clean
@@ -80,25 +80,25 @@ Para limpiar solo los directorios `out` y `dist`:
 $ npm run clean-build
 ```
 
-**Nota:** Ambos comandos de limpieza requieren que se corra `bootstrap` de nuevo antes de la construcción.
+**Nota:** Ambos comandos de limpieza requieren que se ejecute `bootstrap` antes de construir de nuevo.
 
-## Pruebas
+## Verificación
 
-Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
+Vea [Build System Overview: Tests](build-system-overview.md#tests)
 
-## Problemas
+## Solución de problemas
 
-### Comando xxxx no encontrado
+### Comand xxxx not found
 
-Si encuentra un error como `Comando xxxx no encontrado`, intente usar la consola `Comando rápido VS2015` para ejecutar los scripts construidos.
+Si encuentra un error como `Comand xxxx not found`, intente usar la `Consola de Comandos de VS2015` para ejecutar los scripts de compilacion.
 
-### Error de compilamienta interno falta: C1001
+### Fatal internal compiler error: C1001
 
-Asegúrese que tiene la última versión de Visual Estudio instalada.
+Asegúrese de que tiene instalada la última versión de Visual Studio.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-Si mientras se crea con Cygwin, se puede observar el fallo de `bootstrap.py` con el siguiente error:
+Mientras compila con Cygwin, puede observar que falla `bootstrap.py` con el siguiente error:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,24 +115,24 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-Esto es causado por un error usando Cygwin Python y el nodo Win32 juntos. La solución es usar el Win32 Python para ejecutar rápidamente el script (Asumiendo que ha instalado python como `C:\Python27`):
+Esto es causado por un error usando juntos Cygwin Python y Node Win32. La solución es usar Python Win32 para ejecutar el script bootstrap (Asumiendo que ha instalado python en `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 ```
 
-### LNK1181: No se puede abrir el archivo de entrada 'kernel32.lib'
+### LNK1181: cannot open input file 'kernel32.lib'
 
-Intente reinstalar 32bit Node.js.
+Intente reinstalar Node.js 32bit.
 
 ### Error: ENOENT, estatus 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Simplemente hacer ese directorio [ debería solucionar el problema](https://stackoverflow.com/a/25095327/102704):
+Simplemente creaando ese directorio [debería solucionar el problema](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
 ```
 
-### node-gyp no es reconocido como un comando interno o externo
+### node-gyp is not recognized as an internal or external command
 
-Debe obtener este error si está usando constructos Git Bash para la construcción, en vez debe usar PowerShell o el comando rápido VS2015.
+Debe obtener este error si está usando Git Bash para la compilación, en cambio debería usar PowerShell o la ventana de comandos de VS2015.

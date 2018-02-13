@@ -22,21 +22,36 @@ Masalah keamanan ada setiap kali Anda menerima kode dari remote tujuan dan menja
 
 > : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. Untuk menampilkan konten jauh, gunakan [tampilan web` tag dan pastikan untuk menonaktifkan `nodeIntegrasi](../api/web-view).
 
-## Electron Security Warnings
+## Peringatan Keamanan Elektronika
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
+Dari Electron 2.0, pengembang akan melihat peringatan dan rekomendasi yang dicetak ke konsol pengembang. Mereka hanya menunjukkan op ketika nama binernya adalah Electron, menunjukkan bahwa pengembang saat ini melihat konsol.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+Anda dapat memaksa atau menonaktifkan peringatan ini dengan menyetel ` ELECTRON_ENABLE_SECURITY_WARNINGS </ code> atau <code> ELECTRON_DISABLE_SECURITY_WARNINGS </ code> pada
+objek <code> process.env </ code> atau <code>> </ code>.</p>
 
-## Daftar Periksa: Rekomendasi keamanan
+<h2>Daftar Periksa: Rekomendasi keamanan</h2>
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+<p>Ini bukan antipeluru, tapi paling tidak, Anda harus mengikuti langkah-langkah ini
+tingkatkan keamanan aplikasi Anda.</p>
 
-1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+<p>1) <a href="#only-load-secure-content"> Isi muatan aman saja </a>
+2) <a href="#disable-node.js-integration-for-remote-content"> Nonaktifkan integrasi Node.js di semua penyaji yang menampilkan konten jauh </a>
+3) <a href="#enable-context-isolation-for-remote-content"> Aktifkan isolasi konteks di semua penyaji yang menampilkan konten jauh </a>
+4) <a href="#handle-session-permission-requests-from-remote-content"> Gunakan <code> ses.setPermissionRequestHandler () </ code> di semua sesi yang memuat konten jarak jauh </a>
+5) <a href="#do-not-disable-websecurity"> Jangan menonaktifkan <code> webSecurity </ code> </a>
+6) <a href="#define-a-content-security-policy"> Tentukan <code> Content-Security-Policy </ code> </a>
+  dan gunakan aturan pembatasan (yaitu <code> script-src 'self' </ code>)
+7) <a href="#override-and-disable-eval"> Mengabaikan dan menonaktifkan <code> eval </ code> </a>
+, yang memungkinkan string untuk dieksekusi sebagai kode.
+8) <a href="#do-not-set-allowRunningInsecureContent-to-true"> Jangan set <code> allowRunningInsecureContent </ code> ke <code> true </ code> </a>
+9) <a href="#do-not-enable-experimental-features"> Jangan aktifkan fitur eksperimental </a>
+10) <a href="#do-not-use-blinkfeatures"> Jangan gunakan <code> blinkFeatures </ code> </a>
+11) <a href="#do-not-use-allowpopups"> WebViews: Jangan gunakan <code> allowpopups </ code> </a>
+12) <a href="#verify-webview-options-before-creation"> WebViews: Verifikasi opsi dan params dari semua tag <code> & lt; webview & gt; </ code> </a></p>
 
-## 1) Only Load Secure Content
+<h2>1) Hanya memuat konten aman</h2>
 
-Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti `HTTPS`. Dengan kata lain, jangan gunakan tidak aman protokol seperti `HTTP`. Demikian pula, kami menyarankan untuk menggunakan `WSS` atas `WS`, `FTPS` melalui `FTP`, dan sebagainya.
+<p>Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat dengan menggunakan protokol yang aman seperti <code>HTTPS`. Dengan kata lain, jangan gunakan tidak aman protokol seperti `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### Mengapa?
 
@@ -54,23 +69,26 @@ Buruk browserWindow.loadURL ('http://my-website.com') / / baik browserWindow.loa
 <!--buruk--> <script crossorigin src="http://cdn.com/react.js"></script> <link rel="stylesheet" href="http://cdn.com/style.css"><!--baik--> <script crossorigin src="https://cdn.com/react.js"></script> <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) Nonaktifkan Integrasi Node.js untuk Konten Jarak Jauh
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
+Yang terpenting adalah Anda menonaktifkan integrasi Node.js di renderer manapun ( `` BrowserWindow </ code> </a>, <a href="../api/browser-view.md"> <code > BrowserView </ code> </a>, atau
+<a href="../api/web-view"> <code> WebView </ code> </a>) yang memuat konten jarak jauh. Tujuannya adalah untuk membatasi
+kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.</p>
 
-Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://my-website.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.
+<p>Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://my-website.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.</p>
 
-### Mengapa?
+<h3>Mengapa?</h3>
 
-Cross-site scripting (XSS) serangan yang lebih berbahaya jika seorang penyerang dapat melompat keluar dari proses penyaji dan mengeksekusi kode pada komputer pengguna. Cross-site scripting serangan yang cukup umum - dan masalah sementara, kekuatan mereka biasanya terbatas untuk bermain-main dengan situs web yang mereka jalankan. Menonaktifkan integrasi Node.js membantu mencegah XSS dari yang meningkat menjadi serangan "Eksekusi Kode Jarak Jauh "(RCE).
+<p>Cross-site scripting (XSS) serangan yang lebih berbahaya jika seorang penyerang dapat melompat keluar dari proses penyaji dan mengeksekusi kode pada komputer pengguna.
+Cross-site scripting serangan yang cukup umum - dan masalah sementara, kekuatan mereka biasanya terbatas untuk bermain-main dengan situs web yang mereka jalankan.
+Menonaktifkan integrasi Node.js membantu mencegah XSS dari yang meningkat menjadi serangan "Eksekusi Kode Jarak Jauh "(RCE).</p>
 
-### Bagaimana?
+<h3>Bagaimana?</h3>
 
-```js
-// Buruk
+<pre><code class="js">// Buruk
 const mainWindow = baru BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
-```
+``</pre> 
 
 ```js
 // Bagus
@@ -101,7 +119,7 @@ window.bacaConfig = fungsi () {
 }
 ```
 
-## 3) Enable Context Isolation for Remote Content
+## 3) Aktifkan Isolasi Konteks untuk Konten Jarak Jauh
 
 Konteks isolasi adalah fitur Electron yang memungkinkan pengembang untuk menjalankan kode di script preload dan API Electron dalam konteks JavaScript yang berdedikasi. Di praktek itu berarti itu global benda seperti `Array.prototype.push` atau`JSON.parse` tidak dapat dimodifikasi oleh skrip berjalan dalam renderer proses.
 
@@ -147,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## 4) Handle Session Permission Requests From Remote Content
+## 4) Menangani permintaan izin sesi dari konten jauh
 
 Anda mungkin telah melihat permintaan izin saat menggunakan Chrome: Mereka muncul setiap kali situs web mencoba untuk menggunakan fitur yang harus disetujui pengguna secara manual (seperti pemberitahuan).
 
@@ -179,13 +197,14 @@ session
   })
 ```
 
-## 5) Do Not Disable WebSecurity
+## 5) Jangan Nonaktifkan Keamanan Web
 
-*Recommendation is Electron's default*
+*Rekomendasi adalah elektron 's default*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) disables crucial security features.
+Anda mungkin sudah menduga bahwa menonaktifkan property ` webSecurity </ code> pada a proses renderer (<a href="../api/browser-window.md"> <code> BrowserWindow </ code> </a>,<a href="../api/browser-view.md"> <code> BrowserView </ code> </a>, atau <a href="../api/web-view"> <code> WebView </ code> </a>) menonaktifkan penting
+fitur keamanan.</p>
 
-Tidak menonaktifkan `webSecurity` dalam aplikasi produksi.
+<p>Tidak menonaktifkan <code>webSecurity` dalam aplikasi produksi.
 
 ### Mengapa?
 
@@ -200,14 +219,15 @@ Buruk const mainWindow = BrowserWindow baru ({webPreferences: {
 ```
 
 ```js
-Baik const mainWindow = BrowserWindow() baru
+// Good
+const mainWindow = new BrowserWindow()
 ```
 
 ```html
 <!--buruk--> <webview disablewebsecurity src="page.html"></webview> <!--baik--> <webview src="page.html"></webview>
 ```
 
-## 6) Define a Content Security Policy
+## 6) Tentukan Kebijakan Keamanan Konten
 
 Kebijakan kemanan konten (CSP) adalah lapisan perlindungan tambahan terhadap serangan cross-site scripting dan serangan injeksi data. Kami merekomendasikan bahwa mereka dapat diaktifkan oleh setiap situs web yang anda muat dalam Electron.
 
@@ -229,7 +249,7 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-## 7) Override and Disable `eval`
+## 7) Ganti dan Nonaktifkan `eval`
 
 `eval()` adalah metode JavaScript inti yang memungkinkan eksekusi JavaScript dari sebuah string. Menonaktifkan kemampuan aplikasi anda untuk mengevaluasi JavaScript yang tidak diketahui sebelumnya.
 
@@ -277,7 +297,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 9) Tidak Mengaktifkan Fitur Eksperimental
 
 *Recommendation is Electron's default*
 
@@ -285,7 +305,7 @@ Advanced users of Electron can enable experimental Chromium features using the `
 
 ### Mengapa?
 
-Fitur eksperimental adalah, seperti nama yang disarankan, eksperimental dan belum diaktifkan untuk semua pengguna Chromium. Selanjutnya, mereka berdampak pada Electron secara keseluruhan kemungkinan belum diuji.
+Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
 
 Ada kasus penggunaan yang sah, tapi kecuali anda tahu apa yang anda lakukan, sebaiknya anda tidak mengaktifkan properti ini.
 
@@ -305,11 +325,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) Jangan Gunakan ` blinkFeatures </ code></h2>
 
-*Recommendation is Electron's default*
+<p><em>Recommendation is Electron's default</em></p>
 
-Blink is the name of the rendering engine behind Chromium. Sebagai properti `blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.
+<p>Blink is the name of the rendering engine behind Chromium. Sebagai properti <code>blinkFeatures` dengan `experimentalFeatures`, memungkinkan pengembang untuk mengaktifkan fitur yang telah dinonaktifkan secara default.</p> 
 
 ### Mengapa?
 
@@ -327,14 +347,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-Baik const mainWindow = BrowserWindow() baru
+// Good
+const mainWindow = new BrowserWindow()
 ```
 
-## 11) Do Not Use `allowpopups`
+## 11) Jangan Gunakan ` allowpopups </ code></h2>
 
-*Recommendation is Electron's default*
+<p><em>Recommendation is Electron's default</em></p>
 
-Jika Anda menggunakan [`WebView`](web-view), Anda mungkin perlu halaman dan script dimuat dalam tag `<webview>` untuk membuka jendela baru. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`](browser-window) menggunakan metode `window.open()`. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.
+<p>Jika Anda menggunakan <a href="web-view"><code>WebView`</a>, Anda mungkin perlu halaman dan script dimuat dalam tag `<webview>` untuk membuka jendela baru. Atribut `allowpopups` memungkinkan mereka untuk menciptakan baru [`BrowserWindows`](browser-window) menggunakan metode `window.open()`. `WebViews` sebaliknya tidak diperbolehkan untuk membuat jendela baru.</p> 
 
 ### Mengapa?
 
@@ -343,10 +364,10 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 ### Bagaimana?
 
 ```html
-<!--buruk--> <webview allowpopups src="page.html"></webview> <!--baik--> <webview src="page.html"></webview>
+<webview allowpopups src="page.html"></webview> <webview src="page.html"></webview>
 ```
 
-## 12) Verify WebView Options Before Creation
+## 12) Verifikasi Pilihan WebView Sebelum Penciptaan
 
 Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. Namun, WebView akan selalu membuat proses renderer independen dengan sendiri `webPreferences`.
 

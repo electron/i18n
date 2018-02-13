@@ -1,17 +1,17 @@
-## Class: TouchBarButton
+## 类：TouchBarButton
 
-> Create a button in the touch bar for native macOS applications
+> 为mac os应用在touch bar中创建一个按钮组件
 
 进程：[主进程](../tutorial/quick-start.md#main-process)
 
-### `new TouchBarButton(options)` *Experimental*
+### `new BrowserView(可选)` *实验功能*
 
 * `options` Object 
-  * `label` String (optional) - Button text.
-  * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
-  * `icon` [NativeImage](native-image.md) (optional) - Button icon.
-  * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
-  * `click` Function (optional) - Function to call when the button is clicked.
+  * ` label `String (可选) 按钮文本。
+  * ` backgroundColor `String (可选) - 按钮背景颜色以十六进制格式，例如 ` #ABCDEF `。
+  * `icon` [NativeImage](native-image.md) (可选)
+  * ` iconPosition `String (可选) - 可以是 ` left `、` right` 或 ` overlay `。
+  * ` click `function (可选) - 单击按钮时调用的函数。
 
 ### 实例属性
 

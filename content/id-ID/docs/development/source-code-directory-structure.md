@@ -6,7 +6,7 @@ Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](https://
 
 ## Struktur Sumber Kode
 
-```sh
+```diff
 Electron
 ├── atom/ - C++ sumber kode.
 |   ├── app / - Sistem daftar kode.
@@ -27,6 +27,7 @@ Electron
 |       loop ke loop pesan Chromium.
 |       └── api/ - Pelaksanaan API umum, dan yayasan
 |           Modul built-in Electron.
+├── brightray / - Thin shim over libcc yang membuatnya lebih mudah digunakan.
 ├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
 ├── default_app / - Halaman default untuk ditampilkan saat Electron dimulai tanpa
 |   menyediakan sebuah aplikasi.
@@ -46,17 +47,25 @@ Electron
 
 ## `/chromium_src`
 
-File di `/chromium_src` cenderung menjadi potongan Chromium yang bukan bagian dari lapisan konten. Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan sumber sebagai bagian dari [libcc](../glossary.md#libchromiumcontent) tapi kebanyakan Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik, barang analisis) jadi kami hanya mengambil bagian dari kode. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan chromium_src cenderung menjadi yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa ditingkatkan seperti yang lainnya patch libcc yang kita pertahankan sekarang.
+File di ` / chromium_src </ code> cenderung menjadi potongan Chromium yang bukan bagian dari
+lapisan konten Misalnya untuk menerapkan Pepper API, kita memerlukan beberapa kabel
+mirip dengan yang dilakukan Chrome resmi. Kita bisa membangun yang relevan
+sumber sebagai bagian dari <a href="../glossary.md#libchromiumcontent"> libcc </a> namun sebagian besar
+Seringkali kita tidak memerlukan semua fitur (beberapa cenderung berpemilik,
+analytics stuff) jadi kami hanya mengambil bagian dari kode. Ini bisa dengan mudah telah patch di libcc, tapi pada saat ini ditulis tujuan libcc adalah mempertahankan patch minimal dan perubahan kromium_src cenderung yang besar. Juga, perhatikan bahwa tambalan ini tidak pernah bisa diupgrade seperti yang lainnya patch libcc yang kita pertahankan sekarang.</p>
 
-## Struktur Direktori Lain
+<h2>Struktur Direktori Lain</h2>
 
-* **skrip** - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan, pengujian, dll.
-* **alat** - Skrip pembantu yang digunakan oleh file gyp, tidak seperti `skrip`, skrip diletakkan disini jangan pernah dipanggil oleh pengguna secara langsung.
+<ul>
+<li><strong>skrip</strong> - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan,
+pengujian, dll.</li>
+<li><strong>alat</strong> - Skrip pembantu yang digunakan oleh file gyp, tidak seperti <code>skrip`, skrip diletakkan disini jangan pernah dipanggil oleh pengguna secara langsung.</li> 
+
 * **vendor** - sumber kode dari dependensi pihak ketiga, kami tidak menggunakannya `third_party` sebagai nama karena akan membingungkannya dengan direktori yang sama di Pohon sumber kode Chromium.
 * **node_modules** - Modul simpul pihak ketiga digunakan untuk bangunan.
 * **keluar** - Direktori keluaran sementara `ninja`.
 * **dist** - Direktori sementara dibuat oleh skrip `script/create-dist.py` saat membuat distribusi.
-* **external_binaries** - Download binari kerangka pihak ketiga yang jangan mendukung bangunan dengan `gyp`.
+* **external_binaries** - Download binari kerangka pihak ketiga yang jangan mendukung bangunan dengan `gyp`.</ul> 
 
 ## Menjaga Git Submodul Up to Date
 

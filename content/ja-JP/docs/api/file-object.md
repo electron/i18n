@@ -8,7 +8,7 @@ Example of getting a real path from a dragged-onto-the-app file:
 
 ```html
 <div id="holder">
-  Drag your file here
+  ファイルをここにドロップしてください
 </div>
 
 <script>

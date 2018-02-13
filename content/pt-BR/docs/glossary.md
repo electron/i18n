@@ -4,33 +4,33 @@ Esta página define alguns termos usados frequentemente no desenvolvimento com E
 
 ### ASAR
 
-ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive Format). Um arquivo de [asar](https://github.com/electron/asar) é um simples `tar` formato que juntas os arquivos para um único arquivo. Electron pode ler arquivos arbitrários sem descompactar o arquivo inteiro.
+ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive Format). Um arquivo de [asar](https://github.com/electron/asar) é um simples `piche`-como o formato que concatena arquivos em um único arquivo. Electron can read arbitrary files from it without unpacking the whole file.
 
-O formato ASAR foi criado principalmente para melhorar o desempenho no Windows...
+O formato ASAR foi criado principalmente para melhorar o desempenho no Windows Live
 
 ### Brightray
 
-Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática tornava o uso de [libchromiumcontent](#libchromiumcontent) mais fácil. É agora obsoleta e foi incorporada na base de código do Electron.
+Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática tornava o uso de [libchromiumcontent](#libchromiumcontent) mais fácil. É agora obsoleta e foi incorporada na base de código do Electron. bot.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. As bibliotecas do Visual C++ que implementam o CRT apoiar o desenvolvimento de código nativo e misto de código nativo e gerenciado e código gerenciado puro para desenvolvimento .NET.
 
 ### DMG
 
-Uma imagem de disco da Apple é um formato de embalagem usado pelo macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Uma imagem de disco da Apple é um formato de embalagem usado pelo macOS. Instalador. [elétron-Construtor](https://github.com/electron-userland/electron-builder) apoia `dmg` como um destino de compilação.
 
 ### IME
 
-Editor de Método de Entrada. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Editor de Método de Entrada. Um programa que permite aos usuários inserir caracteres e símbolos não encontrados no seu teclado. Por exemplo, isso permite que usuários do latinos teclados para entrada de caracteres chinês, japonês e koreano.
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC significa comunicação entre processos. Elétron usa IPC para enviar mensagens JSON serializadas entre os processos [principais](#main-process) e [renderizador](#renderer-process).
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Também conhecido como "libcc".
+Uma biblioteca compartilhada que inclui o [módulo de conteúdo de cromo](https://www.chromium.org/developers/content-module) e todas as suas dependências (por exemplo, Blink, [V8](#v8), etc.). Também conhecido como "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 

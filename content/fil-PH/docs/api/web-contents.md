@@ -919,22 +919,22 @@ Bilang default, ang isang walang laman na `mga pagpipilian` ay itinuturing na:
 
 Gamitin ang `pahina-pahinga-bago: laging;` istilo ng CSS upang pilitin na i-print sa isang bagong pahina.
 
-An example of `webContents.printToPDF`:
+Isang halimbawa ng `webContents.printToPDF`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const {BrowserWindow} = nangangailangan('elektron')
 const fs = require('fs')
 
-let win = new BrowserWindow({width: 800, height: 600})
-win.loadURL('http://github.com')
+hayaan ang panalo = bagong BrowserWindow ({lapad: 800, taas: 600})
+win.loadURL ('http://github.com')
 
-win.webContents.on('did-finish-load', () => {
-  // Use default printing options
-  win.webContents.printToPDF({}, (error, data) => {
-    if (error) throw error
-    fs.writeFile('/tmp/print.pdf', data, (error) => {
-      if (error) throw error
-      console.log('Write PDF successfully.')
+manalo.webContents.on('did-finish-load', () = > {
+  / / Gamitin ang mga default na pagpipilian sa pag-print
+  manalo.webContents.printToPDF({}, (error, data) = > {
+    kung ang (error) itapon ang error
+    fs.writeFile('/tmp/print.pdf', data, (error) = > {
+      kung ang (error) itapon ang error
+      console.log('Matagumpay na sumulat ng PDF.')
     })
   })
 })
@@ -944,13 +944,13 @@ win.webContents.on('did-finish-load', () => {
 
 * `path` String
 
-Adds the specified path to DevTools workspace. Must be used after DevTools creation:
+Nagdadagdag ng tinukoy na landas sa DevTools workspace. Dapat gamitin pagkatapos ng DevTools paglikha:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow()
-win.webContents.on('devtools-opened', () => {
-  win.webContents.addWorkSpace(__dirname)
+const {BrowserWindow} = nangangailangan('elektron')
+hayaan ang panalo = bagong BrowserWindow()
+manalo.webContents.on('devtools-binuksan', () = > {
+  manalo.webContents.addWorkSpace(__ dirname)
 })
 ```
 
@@ -958,41 +958,41 @@ win.webContents.on('devtools-opened', () => {
 
 * `path` String
 
-Removes the specified path from DevTools workspace.
+Tinatanggal ang landas na tinutukoy mula sa DevTools workspace.
 
-#### `contents.openDevTools([options])`
+#### `contents.openDevTools([mga pagpipilian])`
 
-* `options` Bagay (opsyonal) 
-  * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+* `opsyon` Bagay (opsyonal) 
+  * `mode` String - Binubuksan ang mga devtools na may tinukoy na estado ng dock, ay maaaring maging `kanan`, `ibaba`, `undocked`, `detach`. Mga Default na huling ginagamit sa estado ng dock. Sa `undocked` mode posible na i-dock pabalik. Sa `detach` mode ito ay hindi.
 
-Opens the devtools.
+Binubuksan ang mga devtools.
 
-#### `contents.closeDevTools()`
+#### `mga nilalaman.closeDevTools()`
 
-Closes the devtools.
+Nagsasara ang mga devtools.
 
-#### `contents.isDevToolsOpened()`
+#### `mga nilalaman.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Ibinabalik `Boolean` - Kung binuksan ang devtools.
 
-#### `contents.isDevToolsFocused()`
+#### `mga nilalaman.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Ibinabalik `Boolean` - Kung ang view ng devtools ay nakatuon.
 
-#### `contents.toggleDevTools()`
+#### `mga nilalaman.toggleDevTools()`
 
-Toggles the developer tools.
+Inilipat ang mga kasangkapan ng nag-develop.
 
-#### `contents.inspectElement(x, y)`
+#### `mga nilalaman.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`).
+Sinimulan ang pag-inspeksyon ng elemento sa posisyon (`x`, `y`).
 
-#### `contents.inspectServiceWorker()`
+#### `mga nilalaman.inspectServiceWorker()`
 
-Opens the developer tools for the service worker context.
+Binubuksan ang mga kasangkapan ng nag-develop para sa konteksto ng serbisyo ng manggagawa.
 
 #### `contents.send(channel[, arg1][, arg2][, ...])`
 
@@ -1001,81 +1001,81 @@ Opens the developer tools for the service worker context.
 
 Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. Ang mga argumento ay maaaring ilalathala ng baha-bahagi sa loob ng JSON at dahil dito walang mga punsyon o ugnay-ugnay na modelo ang maaaring isama.
 
-The renderer process can handle the message by listening to `channel` with the `ipcRenderer` module.
+Ang proseso ng tagapag-render ay maaaring panghawakan ang mensahe sa pamamagitan ng pakikinig sa `channel` kasama ang `ipcRenderer` modyul.
 
-An example of sending messages from the main process to the renderer process:
+Isang halimbawa ng pagpapadala ng mga mensahe mula sa pangunahing proseso sa tagapag-render ng proseso:
 
 ```javascript
 // Sa mga pangunahing proseso.
-const {app, BrowserWindow} = require('electron')
-let win = null
+const {app, BrowserWindow} = nangangailangan('elektron')
+hayaan ang panalo = null
 
-app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
-  win.loadURL(`file://${__dirname}/index.html`)
-  win.webContents.on('did-finish-load', () => {
-    win.webContents.send('ping', 'whoooooooh!')
+app.on('handa', () = > {
+  manalo = bagong BrowserWindow ({lapad: 800, taaa: 600})
+  manalo.loadURL(`file://${__dirname}/index.html`)
+  manalo.webContents.on('did-finish-load', () = > {
+    manalo.webContents.magpadala('ping', 'whoooooooh!')
   })
 })
 ```
 
 ```html
-<!-- index.html -->
+<! - index.html - >
 <html>
 <body>
   <script>
-    require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message)  // Prints 'whoooooooh!'
+    nangangailangan('elektron').ipcRenderer.on('ping', (kaganapan, mensahe) => {
+      console.log(mensahe) // Prints 'whoooooooh!'
     })
   </script>
 </body>
 </html>
 ```
 
-#### `contents.enableDeviceEmulation(parameters)`
+#### `mga nilalaman.enableDeviceEmulation(mga parameters)`
 
-* `parameters` Bagay 
-  * `screenPosition` String - Specify the screen type to emulate (default: `desktop`) 
+* `mga parameter` Bagay 
+  * `screenPosisyon` String - Tukuyin ang uri ng screen upang tularan (default: `desktop`) 
     * `desktop` - Desktop screen type
-    * `mobile` - Mobile screen type
-  * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile)
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`)
-  * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: ``)
-  * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-  * `fitToView` Boolean - Whether emulated view should be scaled down if necessary to fit into available space (default: `false`)
-  * `offset` [Point](structures/point.md) - Offset of the emulated view inside available space (not in fit to view mode) (default: `{x: 0, y: 0}`)
-  * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`)
+    * `mobile` - Uri ng screen ng mobile
+  * `screenSize` [Sukat](structures/size.md) - Itakda ang emulated na laki ng screen (screenPosisyon == mobile)
+  * `viewPosition` [Point](structures/point.md) - Iposisyon ang view sa screen (screenPosisyon == mobile) (default: `{x: 0, y: 0}`)
+  * `deviceScaleFactor` Integer - Itakda ang aparato ng scale factor (kung zero ang default orihinal na kadahilanan ng sukat ng aparato) (default: ``)
+  * `viewSize` [Sukat](structures/size.md) - Itakda ang emulated at tignan ang laki (walang laman ang ibig sabihin nito ay walang override)
+  * `fitToView` Boolean - Kung ang emulated view ay dapat na pinaliit kung kinakailangan upang umangkop sa magagamit na espasyo (default: `huwad`)
+  * `offset` [Point](structures/point.md) - Offset ng emulated view sa loob ng puwang na magagamit (hindi angkop upang tingnan ang mode) (default: `{x: 0, y: 0}`)
+  * `scale` Lumutang - Sukat ng emulated view sa loob ng magagamit na espasyo (hindi angkop upang tignan ang mode) (default: `1`)
 
-Enable device emulation with the given parameters.
+Paganahin ang aparato pagtulad sa ibinigay na mga parameter.
 
-#### `contents.disableDeviceEmulation()`
+#### `mga nilalaman.disableDeviceEmulation()`
 
-Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+Huwag paganahin ang pagtulad ng aparato na pinagana ng `webContents.enableDeviceEmulation`.
 
-#### `contents.sendInputEvent(event)`
+#### `mga nilalaman.sendInputEvent(kaganapan)`
 
-* `event` Bagay 
-  * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp`, `char`.
-  * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+* `kaganapan` Bagay 
+  * `uri` String (**kinakailangan**) - Ang uri ng kaganapan, maaaring `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel` `mouseMove`, `keyDown`, `keyUp`, `char`.
+  * `modifier` String[] - Isang hanay ng mga modifier ng kaganapan, maaaring isama `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock` `numLock`, `kaliwa`, `kanan`.
 
-Sends an input `event` to the page. **Note:** The `BrowserWindow` containing the contents needs to be focused for `sendInputEvent()` to work.
+Nagpapadala ng input `kaganapan` sa pahina. **Tandaan:** Ang `BrowserWindow` na naglalaman ng mga nilalaman na kailangang nakatuon para sa `sendInputEvent()` upang gumana.
 
-For keyboard events, the `event` object also have following properties:
+Para sa mga kaganapan sa keyboard, ang `kaganapan` ang bagay ay mayroon ding mga sumusunod na katangian:
 
-* `keyCode` String (**required**) - The character that will be sent as the keyboard event. Should only use the valid key codes in [Accelerator](accelerator.md).
+* `keyCode` String (**kinakailangan**) - Ang karakter na ipapadala bilang kaganapan ng keyboard. Dapat lamang gamitin ang wastong mga key code [Accelerator](accelerator.md).
 
-For mouse events, the `event` object also have following properties:
+Para sa mga kaganapan ng mouse, ang `kaganapan` ang bagay na mayroon ding mga sumusunod na katangian:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
-* `button` String - The button pressed, can be `left`, `middle`, `right`
+* `x` Integer (**kailangan**)
+* `y` Integer (**kailangan**)
+* `pindutan` String - Ang pindutan ng pinindot, ay maaaring `kaliwa`, `gitna`, `kanan`
 * `globalX` Integer
 * `globalY` Integer
 * `movementX` Integer
 * `movementY` Integer
 * `clickCount` Integer
 
-For the `mouseWheel` event, the `event` object also have following properties:
+Para sa `mouseWheel` kaganapan, ang `kaganapan` ay mayroon ding mga sumusunod na katangian:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1086,18 +1086,18 @@ For the `mouseWheel` event, the `event` object also have following properties:
 * `hasPreciseScrollingDeltas` Boolean
 * `canScroll` Boolean
 
-#### `contents.beginFrameSubscription([onlyDirty ,]callback)`
+#### `mga nilalaman.beginFrameSubscription([onlyDirty ,]tumawagmuli)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`
+* `onlyDirty` Boolean (opsyonal) - Mga Default sa `huwad`
 * `callback` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Parihaba](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Simulan ang pag-subscribe para sa mga kaganapan sa pagtatanghal at makuha ang mga frame, ang `callback` ay tatawagan na may `callback(frameBuffer, dirtyRect)` kapag mayroong isang kaganapan ng pagtatanghal.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+Ang `frameBuffer` ay isang `Buffer` na naglalaman ng raw data ng pixel. Sa karamihan ng mga makina, ang pixel data ay epektibong naka-imbak sa 32bit BGRA format, ngunit ang aktwal na representasyon ay depende sa endianness ng processor (pinaka modernong mga processor ay maliit-endian, sa mga machine na may malaking-endian processors ang data ay nasa 32bit ARB format).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+Ang `dirtyRect` ay isang bagay na may `x, y, lapad, taas ` ang mga katangian na iyon ay naglalarawan kung aling bahagi ng pahina ay pinahiran. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 

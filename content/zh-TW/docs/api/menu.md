@@ -1,6 +1,6 @@
 ## Class: Menu
 
-> Create native application menus and context menus.
+> 建立原生應用程式選單及內容功能表。
 
 进程: [主进程](../glossary.md#main-process)
 

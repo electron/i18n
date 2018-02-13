@@ -1,6 +1,6 @@
 # systemPreferences
 
-> Get system preferences.
+> 取得系統喜好設定。
 
 进程: [主进程](../glossary.md#main-process)
 

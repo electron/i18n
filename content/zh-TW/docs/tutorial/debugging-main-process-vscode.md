@@ -32,6 +32,6 @@ $ code electron-quick-start
 
 ### 3. Debug
 
-在 `main.js` 中設定一些中斷點，然後在 [Debug 視景](https://code.visualstudio.com/docs/editor/debugging) 中啟動 Debug。你應該能看到程式執行到中斷點時停下來。
+在 `main.js` 中設定一些中斷點，然後在 [Debug 視景](https://code.visualstudio.com/docs/editor/debugging) 中開始 debug。你應該能看到程式執行到中斷點時停下來。
 
-這裡有一個預先設定好的專案，你可以直接下載並在 VSCode 中 Debug: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+這裡有一個預先設定好的專案，你可以直接下載並在 VSCode 中 debug: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

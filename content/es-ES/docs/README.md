@@ -82,7 +82,7 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
-* [nativeImage](api/native-image.md)
+* [NativeImage](api/native-image.md)
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
@@ -101,6 +101,9 @@ Hay preguntas que se hacen de manera frecuente. Revise esto antes de crear una c
 * [Instrucciones de depuración (Windows)](development/debug-instructions-windows.md)
 * [Configurando el Symbol Server en el depurador](development/setting-up-symbol-server.md)
 * [Documentación guía de estilos](styleguide.md)
-* [Actualizando Chomium](development/upgrading-chromium.md)
+* [Contributing to Electron](../CONTRIBUTING.md)
+* [Issues](development/issues.md)
+* [Pull Requests](development/pull-requests.md)
+* [Actualizando Chrome](development/upgrading-chromium.md)
 * [Desarrollo de Chromium](development/chromium-development.md)
 * [Desarrollo de V8](development/v8-development.md)

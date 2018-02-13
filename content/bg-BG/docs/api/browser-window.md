@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main / Главен](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -110,7 +110,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main / Главен](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -225,7 +225,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 #### Event: 'page-title-updated'
 
-Returns:
+Връща:
 
 * `event` Event
 * `title` String
@@ -234,7 +234,7 @@ Emitted when the document changed its title, calling `event.preventDefault()` wi
 
 #### Event: 'close'
 
-Returns:
+Връща:
 
 * `event` Event
 
@@ -340,7 +340,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Връща:
 
 * `event` Event
 * `command` String
@@ -374,7 +374,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Връща:
 
 * `event` Event
 * `direction` String
@@ -998,18 +998,18 @@ The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
-  * `click` Function
-  * `tooltip` String (optional) - The text of the button's tooltip.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `click` Function - Функцията, която се изпълнява при натискане на бутона
+  * `tooltip` String (по избор) - Пояснителният текст на бутона.
+  * `flags` String[] (по избор) - Контролира специални състояния и държание на бутона. Стойността му по подразбиране е `['enabled']`.
 
-The `flags` is an array that can include following `String`s:
+`flags` e масив, който може да включва следните `String` стойности:
 
-* `enabled` - The button is active and available to the user.
-* `disabled` - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-* `dismissonclick` - When the button is clicked, the thumbnail window closes immediately.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `enabled` - Бутонът е активен и достъпни за потребителя.
+* `disabled` - Бутонът е забранен. Той е налице, но има визуално показва, че потребителя не може да му въздейства.
+* `dismissonclick` - Когато бутонът е натиснат, миниатюрният прозорец се затваря веднага.
+* `nobackground` - Границите на бутона не се изчертават, използва само изображение.
+* `hidden` - Бутонът не се показва на потребителя.
+* `noninteractive` - Бутонът е използваем, но не е интерактивен; няма да бъде изчертано натиснатото състояние на бутона. Тази стойност е предназначена за случаи, когато бутона се използва в нотификация.
 
 #### `win.setThumbnailClip(region)` *Windows*
 

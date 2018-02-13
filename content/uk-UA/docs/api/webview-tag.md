@@ -598,7 +598,7 @@ Fired when a redirect was received while requesting a resource.
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### Подія: 'page-title-updated'
 
 Повертає:
 

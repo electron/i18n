@@ -105,4 +105,4 @@ In langsameren Netzwerken ist es ratsam den `--verbose`-Flag zu benutzen um den 
 npm install --verbose electron
 ```
 
-Müssen Sie die Ressourcen und die SHASUM-Datei erneut manuell herunterladen, dann setzen Sie die Umgebungsvariable `force_no_cache` auf `true`.
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.

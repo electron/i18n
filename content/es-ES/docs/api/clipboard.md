@@ -1,6 +1,6 @@
-# portapapeles
+# clipboard
 
-> Realice operaciones de copiar y pegar en el portapapeles del sistema.
+> Realiza las operaciones de copiar y pegar en el portapapeles del sistema.
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 

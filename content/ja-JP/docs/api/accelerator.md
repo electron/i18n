@@ -1,36 +1,36 @@
 # アクセラレータ
 
-> 使用可能なキーボードショートカット
+> キーボードショートカットを定義します。
 
-Accelerators are Strings that can contain multiple modifiers and key codes, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+アクセラレータは、`+` によって結合された複数の修飾キーとキーコードを含む文字列で、アプリケーション全体でキーボードショートカットを定義するために使われます。
 
-例：
+例:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Shortcuts are registered with the [`globalShortcut`](global-shortcut.md) module using the [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) method, i.e.
+以下のようにショートカットは [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) メソッドを使って [`globalShortcut`](global-shortcut.md) モジュールに登録されます。
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+Y' shortcut listener.
+  // 'CommandOrControl+Y' ショートカットリスナーに登録します。
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Do stuff when Y and either Command/Control is pressed.
+    // Y と Command/Control のいずれかが押下されると、処理を行います。
   })
 })
 ```
 
-## プラットフォーム通知
+## プラットフォームに関する注意事項
 
-On Linux and Windows, the `Command` key does not have any effect so use `CommandOrControl` which represents `Command` on macOS and `Control` on Linux and Windows to define some accelerators.
+LinuxとWindowsの場合、`Command` キーは効果がないため、アクセラレータを定義するため、macOSでは `Command`、LinuxとWindowsでは `Control` を表す `CommandOrControl` を使うようにしてください。
 
-Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
+`Option` の代わりに `Alt` を使うようにしてください。`Option` キーはmacOSにしか存在しませんが、`Alt` キーは全てのプラットフォームで利用可能です。
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+`Super` キーは、WindowsとLinuxの場合、`Windows` キー、macOSの場合、`Cmd` にマッピングされます。
 
-## 使用可能な修飾子
+## 利用可能な修飾キー
 
 * `Command` (または略して `Cmd`)
 * `Control` (または略して `Ctrl`)
@@ -46,11 +46,11 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `` から `9`
 * `A` から `Z`
 * `F1` から `F24`
-* `~`, `!`, `@`, `#`, `$`, などのような句読点
-* `プラス`
-* `スペース`
-* `タブ`
-* `バックスペース`
+* `~`、`!`、`@`、`#`、`$` などの記号。
+* `Plus`
+* `Space`
+* `Tab`
+* `Backspace`
 * `Delete`
 * `Insert`
 * `Return` (またはエイリアスとして `Enter`)

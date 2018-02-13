@@ -6,7 +6,7 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 
 ## Kaynak Kod Yapısı
 
-```sh
+```diff
 ├── atom/ - C++ kaynak kodu.
 |   ├── app / - Sistem giriş kodu.
 |   ├── tarayıcı / - ana penceresinde, kullanıcı Arabirimi ve tüm dahil önyüz |   |   ana süreç işler. Bu web sayfaları yönetmek için Oluşturucu için görüşmeler.
@@ -22,6 +22,7 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 |   |   └── API / - işleyici uygulanması süreç API'leri.
 |   └── ortak / - ana ve işleyici işlemler tarafından kullanılan kod |       bazı yardımcı programı işlevleri ve düğümün mesaj tümleştirmek için kod da dahil olmak üzere |       Krom'ın ileti döngüsü döngüsü.
 |       └── API / - ortak API'leri ve temelleri |           Elektron'ın dahili modülleri.
+├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src / - kaynak kodu krom kopyalanır. Aşağıya bakınız.
 ├── default_app / - varsayılan sayfa olmadan elektron başladığında göstermek için |   bir app-mek şartıyla.
 ├── Dokümanlar / - belgeleri.
@@ -38,7 +39,7 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 
 ## `/chromium_src`
 
-Belgili tanımlık eğe içinde `/ chromium_src` içerik katman yer almayan adet krom olma eğilimindedirler. Örneğin, biber API uygulamak için bazı kablolama benzer resmi krom ne için ihtiyacımız var. Biz [libcc](../glossary.md#libchromiumcontent) bir parçası olarak ilgili kaynaklar inşa ancak en sık tüm özellikleri gerektirmeyen (bazı özel mülk, olma eğilimi analytics in) sadece kod parçaları aldım. Bunlar kolay libcc, yamalarındaki olabilirdi ama bunlar ne zaman yazılmıştı zaman libcc amacı çok az yamalar korumak için ve chromium_src değişiklikleri büyük olanlar olma eğilimindedirler. Ayrıca, bu düzeltme ekleri upstreamed biz şimdi korumak diğer libcc yamalar aksine hiç olabileceğine dikkat edin.
+The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we just took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## Diğer Dizinlerin Yapısı
 

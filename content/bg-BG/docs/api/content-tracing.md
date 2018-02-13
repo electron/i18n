@@ -2,7 +2,7 @@
 
 > Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
 
-Process: [Main](../glossary.md#main-process)
+Процес: [Main / Главен](../glossary.md#main-process)
 
 This module does not include a web interface so you need to open `chrome://tracing/` in a Chrome browser and load the generated file to view the result.
 
@@ -55,7 +55,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 `categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-Examples:
+Примери:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,

@@ -1,4 +1,4 @@
-# Point Object
+# Обект Point
 
-* `x` Number
-* `y` Number
+* `x` Number - Хоризонтална координата
+* `y` Number - Вертикална координата

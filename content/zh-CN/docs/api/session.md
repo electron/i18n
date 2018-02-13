@@ -66,9 +66,9 @@ console.log(ses.getUserAgent())
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+当 Electron 刚要在`webContents`中下载`item<0>的时候触发。</p>
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+<p>调用<code>event.preventDefault()`方法，将会停止下载，并且在进程的next tick中，`item`将不再可用。
 
 ```javascript
 const {session} = require('electron')
@@ -82,26 +82,26 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 
 ### 实例方法
 
-The following methods are available on instances of `Session`:
+在`Session`实例对象中，有以下方法:
 
 #### `ses.getCacheSize(callback)`
 
 * `callback` Function 
-  * `size` Integer - Cache size used in bytes.
+  * `size` Integer 缓存大小（单位：bytes）
 
-Callback is invoked with the session's current cache size.
+Callback会被调用，参数是session的当前缓存大小。
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* 回调函数`callback`会在操作完成之后被调用。
 
-Clears the session’s HTTP cache.
+清除session的HTTP缓存。
 
 #### `ses.clearStorageData([options, callback])`
 
 * `选项` Object (可选) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
+  * `origin` String - (可选项) 这个值应该按照 `window.location.origin` 的形式: `协议://主机名:端口`
+  * `storages` String[] - (可选项) 要清除的存储类型，可以为以下几种: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
   * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
 * `callback` Function (optional) - Called when operation is done.
 

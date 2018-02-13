@@ -162,25 +162,9 @@ Esta versión es publicada para [npm] https://www.npmjs.com/package/electron) ba
 5. Espero por todas las estructuras por pasar por los procedimientos.
 6. You can run `npm run release -- --validateRelease` to verify that all of the required files have been created for the release.
 
-## Unir rama temporal
-
-Una vez que las compilaciones de versión hayan finalizado, fusione la rama `release` dentro de la rama de versión de origen utilizando el script `merge-release`. Si la rama no puede fusionarse con éxito, este script fusionará mediante cambio de base la rama `release` e insertará los cambios, los cuales activarán las compilaciones de versión nuevamente, lo que significa que se necesitará esperar a que las compilaciones de versión se ejecute nuevamente antes de proceder.
-
-### Fusionando nuevamente en el maestro
-
-```sh
-npm run merge-release -- master
-```
-
-### Fusionar de vuelta dentro de la rama anterior
-
-```sh
-npm run merge-release -- 1-7-x
-```
-
 ## Publica el lanzamiento
 
-Una vez que la fusión haya finalizado con éxito, ejecute el script `release` a través de `npm run release` para finalizar el proceso de lanzamiento. Este script hará lo siguiente: 1. Compile el proyecto para validar que se está lanzando el número de versión correcto. 2. Descargue los binarios y genere los encabezados de los nodos y el enlazador .lib utilizado en Windows por node-gyp para compilar módulos nativos. 3. Cree y cargue los archivos SHASUMS almacenados en S3 para los archivos de nodo. 4. Cree y cargue el archivo SHASUMS256.txt almacenado en la versión de GitHub. 5. Valide que todos los archivos requeridos estén presentes en GitHub y S3 y que tengan las sumas de comprobación correctas como se especifica en los archivos SHASUMS. 6. Publica la versión en GitHub 7. Elimine la rama `release`.
+Once the release builds have finished, run the `release` script via `npm run release` to finish the release process. Este script hará lo siguiente: 1. Compile el proyecto para validar que se está lanzando el número de versión correcto. 2. Descargue los binarios y genere los encabezados de los nodos y el enlazador .lib utilizado en Windows por node-gyp para compilar módulos nativos. 3. Cree y cargue los archivos SHASUMS almacenados en S3 para los archivos de nodo. 4. Cree y cargue el archivo SHASUMS256.txt almacenado en la versión de GitHub. 5. Valide que todos los archivos requeridos estén presentes en GitHub y S3 y que tengan las sumas de comprobación correctas como se especifica en los archivos SHASUMS. 6. Publica la versión en GitHub 7. Elimine la rama `release`.
 
 ## Publicar en npm
 

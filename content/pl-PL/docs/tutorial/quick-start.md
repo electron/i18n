@@ -1,18 +1,18 @@
 # Pierwsze Kroki
 
-Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScript przez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako wariant środowiska wykonawczego Node.js, który jest skupiony na programach komputerowych zamiast serwerów sieci web.
+Electron umożliwia ci tworzenie aplikacji komputerowych przy użyciu czystego JavaScript przez zapewnienie środowiska wykonawczego z bogatymi natywnymi interfejsami API (systemu operacyjnego). Możesz to sobie wyobrazić jako odmiana środowiska wykonawczego Node.js, która jest skupiona na programach komputerowych zamiast na serwerach sieci web.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Zamiast tego Electron używa stron internetowych jako GUI, więc możesz też myśleć o tym jak o minimalnej przeglądarce Chromium, sterowanej przez JavaScript.
 
 ### Proces Główny
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages.
+W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa się **proces główny**. Skrypt, który jest wykonywany w procesie głównym może wyświetlać GUI poprzez tworzenie stron internetowych.
 
 ### Proces Renderowania
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Każda strona internetowa w Electronie działa w swoim własnym procesie, który nazywa się **proces renderowania**.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+W normalnych przeglądarkach, strony internetowe są zazwyczaj uruchamiane w tzw. piaskownicy i nie posiadają dostępu do natywnych zasobów. Użytkownicy Electrona mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na interakcje z systemem operacyjnym na niższym poziomie.
 
 ### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 

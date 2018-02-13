@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 Процес: [Main](../glossary.md#main-process)
 
-### Instance Events
+### Події Екземпляру
 
 #### Event: 'did-finish-load'
 

@@ -1,6 +1,6 @@
 # contentTracing
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> 由 Chromium 的內容模組收集追蹤資料，以便找出效能瓶頸及過慢的作業。
 
 處理序: [主處理序](../glossary.md#main-process)
 

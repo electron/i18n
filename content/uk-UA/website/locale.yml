@@ -139,7 +139,7 @@ _404:
   if_this_is_an_error: Якщо це помилка, 
   please_file_an_issue: будь ласка, повідомте про проблему.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: Знайти ресурси Electron з <a href="/search/docs">документації</a>, <a href="/search/npmPackages">npm пакунків</a> і <a href="/search/repos">GitHub репозиторіїв</a>.
+  description_docs: Знайти ресурси Electron з документації.
+  description_npm: Знайти ресурси Electron з npm пакунків.
+  description_repos: Знайти ресурси Electron з GitHub репозиторіїв.

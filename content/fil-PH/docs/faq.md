@@ -94,10 +94,10 @@ Ngunit kung nais mong panatilihin ang mga kakayahan ng paggamit ng Node.js at El
 ```html
 <head>
 <script>
-window.nodeRequire = require;
-delete window.require;
-delete window.exports;
-delete window.module;
+window.nodeKailangan = kailangan
+Magtanggal ng window.kailangan;
+Magtanggal ng window.palabasin
+Magtanggal ng window.modyul;
 </script>
 <script type="text/javascript" src="jquery.js"></script>
 </head>
@@ -124,7 +124,7 @@ aliwin.log(require.resolve('electron'))
 at pagkatapos ay suriin kung ito ay nasa sumusunod na form:
 
 ```sh
-"/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
+"/tunguhan/papunta/Elektron.app/Nilalaman/pinagkunan/atom.asar/renderer/api/lib/inilabas/elektron.js'
 ```
 
 Kung ito ay tulad ng `node_modules/electron/index.js`, kailangan mo na alinman alisin ang npm`electron` module, o palitan ang pangalan nito.

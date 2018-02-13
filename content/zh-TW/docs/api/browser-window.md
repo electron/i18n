@@ -1,8 +1,8 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> 建立及控制瀏覽器視窗。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ```javascript
 // 在主處理序裡。
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> 建立及控制瀏覽器視窗。
 
 进程: [主进程](../glossary.md#main-process)
 

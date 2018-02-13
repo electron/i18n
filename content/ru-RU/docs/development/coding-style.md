@@ -4,6 +4,22 @@
 
 Вы пожете запустить `npm run lint` для того чтобы получить список проблемных мест по стилю кода, найденных с помощью `cpplint` и `eslint`.
 
+## General Code
+
+* End files with a newline.
+* Place requires in the following order: 
+  * Built in Node Modules (such as `path`)
+  * Built in Electron Modules (such as `ipc`, `app`)
+  * Local Modules (using relative paths)
+* Place class properties in the following order: 
+  * Class methods and properties (methods starting with a `@`)
+  * Instance methods and properties
+* Avoid platform-dependent code: 
+  * Use `path.join()` to concatenate filenames.
+  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+* Using a plain `return` when returning explicitly at the end of a function. 
+  * Not `return null`, `return undefined`, `null`, or `undefined`
+
 ## C++ и Python
 
 Для C++ и Python мы следуем [стилю кодирования](https://www.chromium.org/developers/coding-style) Chromium. Для автоматического форматирования кода на C++ вы можете использовать [clang-format](clang-format.md). Есть также скрипт `script/cpplint.py`, позволяющий проверить, что все файлы соответствуют стилю.
@@ -11,6 +27,12 @@
 Версией Python, которую мы используем в настоящее время, является Python 2.7.
 
 Код C++ использует многожество абстракций и типов Chrome, поэтому рекомендуется ознакомиться с ними. Хорошее место чтобы начать это [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) из документации по Chromium. The document mentions some special types, scoped types (that automatically release their memory when going out of scope), logging mechanisms etc.
+
+## Документация
+
+* Write [remark](https://github.com/remarkjs/remark) markdown style
+
+You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
 ## JavaScript
 

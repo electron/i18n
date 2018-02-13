@@ -148,7 +148,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 * ` type `String-标识活动的字符串。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * `userInfo` Object - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. 如果需要更新要传输的状态, 应立即调用 ` 事件. preventDefault () `, 构造新的 ` 用户信息 ` 字典, 并及时调用 ` 应用程序 updateCurrentActiviy () `。 否则, 操作将失败, 并且将调用 ` 继续-活动-错误 `。
 
 ### 事件: 'new-window-for-tab' *macOS*
 
@@ -383,7 +383,7 @@ app.exit(0)
 * `music` 用户音乐目录的路径
 * `pictures` 用户图片目录的路径
 * `videos` 用户视频目录的路径
-* `logs` Directory for your app's log folder.
+* ` logs `应用程序的日志文件夹
 * `pepperFlashSystemPlugin` Pepper Flash插件所在目录
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -659,7 +659,7 @@ Invalidates the current [Handoff](https://developer.apple.com/library/ios/docume
 * `type` String - 活动的唯一标识。 映射到 [` NSUserActivity. activityType `](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。
 * `userInfo` Object - 应用程序特定状态，供其他设备使用
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+当其类型与 ` type ` 匹配时更新当前活动, 将项目从 ` 用户信息 ` 合并到其当前 ` 用户信息 ` 字典中。
 
 ### `app.setAppUserModelId(id)` *Windows*
 
@@ -775,7 +775,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 <h3><code>app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*</h3> 
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 
 Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
 
@@ -825,7 +825,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将引发错误。 错误中的信息应该是信息性的，并告知具体问题。
 
 ### `app.dock.bounce([type])` *macOS*
 

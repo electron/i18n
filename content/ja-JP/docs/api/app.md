@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-最後のウィンドウが閉じられたときにアプリケーションを終了する方法を次の例に示します:
+以下の例では最後のウインドウが閉じられたときにアプリケーションを終了する方法を示します。
 
 ```javascript
 const {app} = require('electron')
@@ -15,93 +15,93 @@ app.on('window-all-closed', () => {
 
 ## イベント
 
-`app`オブジェクトは次のイベントを発生させます。
+`app` オブジェクトでは以下のイベントが発生します。
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションの起動プロセスの基本部分が完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では`NSApplication` の `applicationWillFinishLaunching`に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定、クラッシュレポーターと自動アップデーターを起動します。
+アプリケーションが基本的な起動処理を完了したときに発生します。 WindowsとLinuxでは、`will-finish-launching` イベントは `ready` イベントと同じですが、macOSでは、このイベントは、`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
 
-ほとんどの場合、`ready` イベントハンドラーであらゆる処理を記述するべきです。
+ほとんどの場合、`ready` イベントハンドラーですべてのことを行うようにするべきです。
 
 ### イベント: 'ready'
 
-戻り値：
+戻り値:
 
 * `launchInfo` Object *macOS*
 
-Electronの初期化処理が終わった時に発生します。 MacOS では、`launchInfo` は、通知センターから起動された場合、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` 情報を保持しています。 また、このイベントが既に発生しているかどうかをチェックする `app.isReady()` を呼び出すことができます。
+Electronが初期化処理を完了したときに発生します。 macOSでは、通知センターから起動された場合、`launchInfo` は、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` を保持しています。 `app.isReady()` を呼び出すことで、このイベントが既に発生しているかを確認することができます。
 
 ### イベント: 'window-all-closed'
 
 すべてのウィンドウが閉じられたときに発生します。
 
-もしこのイベントをハンドルしていないときは、すべてのウィンドウが閉じられたときのデフォルト動作はアプリケーションの終了になります。イベントをハンドルすれば、アプリケーションを終了する(quit)かどうかを制御することが出来ます。 もし、ユーザーが`Cmd + Q`を押下したか、開発者が`app.quit()`を呼び出した際、Electronはすべてのウィンドウを閉じて、`will-quit`イベントを発生させます。この場合は、`window-all-closed`イベントは発生しないことになります。
+このイベントを購読せずに全てのウインドウを閉じた場合、既定の動作としてアプリは終了します。しかし、このイベントを購読している場合は、アプリを終了するかどうかを制御することができます。 ユーザが `Cmd + Q` を押下したり、開発者が `app.quit()` を呼び出したりした場合、Electronは最初に全てのウインドウを閉じようとした後、`will-quit` イベントを発生させますが、この場合では、`window-all-closed` イベントは発生しないことになります。
 
 ### イベント: 'before-quit'
 
-戻り値：
+戻り値:
 
 * `event` Event
 
-アプリケーションがウィンドウを閉じようとする前に発生します。`event.preventDefault()`を呼び出すことで、デフォルト動作 (アプリケーションの終了)が起こらないように出来ます。
+アプリケーションがウインドウを閉じようとする前に発生します。`event.preventDefault()` を呼び出すことで、アプリケーションが終了する既定の動作をキャンセルすることができます。
 
-**注:** アプリケーションの終了が`autoUpdater.quitAndInstall()`から発生されている場合は、`before-quit`イベントは、すべてのウィンドウに`close`イベントが送られてウィンドウが閉じられた*後に*発生することになります。
+**注:** アプリケーションの終了が `autoUpdater.quitAndInstall()` によって開始された場合、全てのウインドウで `close` イベントを発生させ、それらが閉じた*後* に `before-quit` が発生します。
 
 ### イベント: 'will-quit'
 
-戻り値：
+戻り値:
 
 * `event` Event
 
-すべてのウィンドウが閉じられ、アプリケーションが終了する前に送られます。 `event.preventDefault()`を呼び出すことでデフォルト動作(アプリケーションの終了; terminate)を阻止することが出来ます。
+全てのウインドウが閉じられ、アプリケーションが終了しようとしたときに発生します。`event.preventDefault()` を呼び出すことで、アプリケーションが終了する既定の動作をキャンセルすることができます。
 
-`will-quit`と`window-all-closed`の違いを確認するためにも、`window-all-closed`イベントの説明もお読みください。
+`will-quit` と `window-all-closed` イベントの差異を確認するためには、`window-all-closed` イベントの説明もお読みください。
 
 ### イベント: 'quit'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `exitCode` Integer
 
-アプリケーションの終了時に発生します。
+アプリケーションが終了するときに発生します。
 
 ### イベント: 'open-file' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `path` String
 
-ユーザーがファイルを開こうとした際に発生します。 この`open-file`イベントは、アプリケーションがすでに起動しており、OSがアプリケーションにファイルを開くよう再利用する際に発生します。 `open-file`は、アプリケーションが起動していないときに、ドック上のアイコンにファイルをドロップした際にも発生します。 そういったケースに対応できるように、アプリケーション起動の早い段階で`open-file`イベントをハンドル する用にしてください。(`ready`イベント発生前でも良いです。)
+ユーザがアプリケーションでファイルを開こうとしたときに発生します。 `open-file` イベントは、通常、アプリケーションが既に開いていて、OSがファイルを開くために再利用しようとしたときに発生します。 `open-file`は、ドックにファイルをドロップし、アプリケーションがまだ実行されていないときにも発生します。 このようなケースに対処するために、アプリケーション起動時の非常に早い段階 ( `ready` イベントが発生するよりも前) で `open-file` イベントを監視するようにしてください。
 
-このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
+このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
-Windowsでは、ファイル名はメインプロセスの`process.argv`に渡されます。
+Windowsでは、ファイルパスを取得するために、(メインプロセスの) `process.argv` を解析しなければなりません。
 
 ### イベント: 'open-url' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `url` String
 
-Emitted when the user wants to open a URL with the application. Your application's `Info.plist` file must define the url scheme within the `CFBundleURLTypes` key, and set `NSPrincipalClass` to `AtomApplication`.
+ユーザがアプリケーションでURLを開こうとしたときに発生します。 アプリケーションの `Info.plist` ファイルで `CFBundleURLTypes` キーの中にURLスキームを定義し、`NSPrincipalClass` に `AtomApplication` を設定しなければなりません。
 
-このイベントをハンドルする際は、`event.preventDefault()`を呼び出さなければなりません。
+このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
 ### イベント: 'activate' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Emitted when the application is activated. Various actions can trigger this event, such as launching the application for the first time, attempting to re-launch the application when it's already running, or clicking on the application's dock or taskbar icon.
+アプリケーションがアクティブになったときに発生します。 アプリケーションが最初に起動される、既に実行中のときにアプリケーションを再起動しようとする、アプリケーションのドックやタスクバーのアイコンをクリックするなど、いろいろなアクションがこのイベントの引き金となり得ます。
 
 ### イベント: 'continue-activity' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -113,7 +113,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'will-continue-activity' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -122,7 +122,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'continue-activity-error' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -132,7 +132,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'activity-was-continued' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -142,7 +142,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'update-activity-state' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -152,7 +152,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 ### イベント: 'new-window-for-tab' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 
@@ -160,7 +160,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### イベント: 'browser-window-blur'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -169,7 +169,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### イベント: 'browser-window-focus'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -178,7 +178,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### イベント: 'browser-window-created'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -187,7 +187,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### イベント: 'web-contents-created'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -224,7 +224,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### イベント: 'select-client-certificate'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -248,7 +248,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### イベント: 'login'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -290,7 +290,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### イベント: 'accessibility-support-changed' *macOS* *Windows*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -436,11 +436,11 @@ Overrides the current application's name.
 
 ### `app.getLocale()`
 
-Returns `String` - 現在のアプリケーションロケール。可能な戻り値は[here](locales.md)に記録されています。
+戻り値 `String` - 現在のアプリケーションのロケール。可能性のある戻り値は [ここ](locales.md) に記されています。
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Note:**Windows の `準備ができて` のイベントが出力される後を呼び出すことがあります。
+**注:** Windows の場合、`ready` イベントが発生した後で呼び出すようにしてください。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -527,7 +527,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**注:** `JumpListCategory` オブジェクトが `type` プロパティも `name` プロパティも設定されなかった場合、`type` は `tasks` と見做されます。 `name` プロパティが設定されているが、`type` プロパティが省略された場合、`type` は `custom` と見做されます。
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -860,11 +860,11 @@ Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-ドックのアイコンを非表示にする
+ドックのアイコンを非表示にします。
 
 ### `app.dock.show()` *macOS*
 
-ドックのアイコンを表示する
+ドックのアイコンを表示します。
 
 ### `app.dock.isVisible()` *macOS*
 

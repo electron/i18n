@@ -1,8 +1,8 @@
-# RemovePassword Object
+# Обект RemovePassword
 
 * `type` String - `password`.
-* `origin` String (optional) - When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.
-* `scheme` String (optional) - Scheme of the authentication. Can be `basic`, `digest`, `ntlm`, `negotiate`. Must be provided if removing by `origin`.
-* `realm` String (optional) - Realm of the authentication. Must be provided if removing by `origin`.
-* `username` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
-* `password` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
+* `origin` String (по избор) - Когато това свойство е изпратено, информацията за удостоверение свързана с произхода ще бъде само премахната, в противен случай, целия кеш ще бъде изчистен.
+* `scheme` String (по избор) - Схема за удостоверяване. Може да бъде `basic`, `digest`, `ntlm`, `negotiate`. Трябва да бъде предоставена, ако отстраним по `origin`.
+* `realm` String (по избор) - Обхват ха удостоверяването. Трябва да бъде предоставено, ако отстраним `origin`.
+* `username` String (по избор) - Идентификационни данни за удостоверяването. Трябва да бъде предоставено ако отстраним `origin`.
+* `password` String (по избор) - Идентификационни данни за удостоверяването. Трябва да бъде предоставено ако отстраним `origin`.

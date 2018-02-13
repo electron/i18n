@@ -1,6 +1,6 @@
 # webFrame
 
-> Customize the rendering of the current web page.
+> 自訂目前網頁的畫面轉譯功能。
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 

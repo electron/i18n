@@ -2,7 +2,7 @@
 
 ## Pagtatalakay
 
-Isang problema ay ang paggawa ng lahat ng Electron sa isang kopya ng V8 para masigurado ang compatabilidad nito. Ito ay mahalaga dahil ang upstrem Node at [libchromiumcontent](upgrading-chromium.md) ay parehong gumagamit ng sariling version ng V8.
+One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. Ito ay mahalaga dahil ang upstrem Node at [libchromiumcontent](upgrading-chromium.md) ay parehong gumagamit ng sariling version ng V8.
 
 Ang pag-uupgrade ng Node ay mas madali kaysa pag-uupgrade ng libchromiumcontent, dahil maliit lang ang nagiging problema kapag unang nag-uupgrade ng libchromiumcontent, at ang pagpili ng bagong upstream Node na mas malapit sa V8.
 
@@ -27,7 +27,7 @@ Sa madaling salita, ang kinakaylangan nating gawin ay:
 1. Siguraduhin na `master` sa `electron/node` ay may updated na release tags galing sa `nodejs/node`
 2. Gumawa ng sangay sa https://github.com/electron/node: `electron-node-vX.X.X` kung saan galing ang base na ginamit mo sa branching ay ang tag na kailangan para sa update 
   - `vX.X.X` Dapat gumamit ng bersyon ng node na tugma sa aming kasalukayang bersyon ng chromium
-3. Gumamit ulit sa aming mga commits galing sa nakaraang bersyon ng node na aming ginagamit (`vY.Y.Y`) hanggang `v.X.X.X` 
+3. Gumamit ulit sa aming mga commits galing sa nakaraang bersyon ng node na aming ginagamit (`vY.Y.Y`) ang to `v.X.X.X` 
   - Suriin ang mga release tag at piliin ang range of commits na kailangan nating muling i-aplay
   - Ang range para sa Cherry-pick commit: 
     1. Suriin pareho `vY.Y.Y` & `v.X.X.X`
@@ -43,7 +43,7 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
 
 1. Kumuha ng kopya ng Elektron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. I-run ang `script/update` para makakuha ng panibagong libcc 
+2. Tumakbo `script/update` para makakuha ng panibagong libcc 
   - Kinakailangan ito ng mahabang oras
 3. Tanggalin ang lumang kopya ng ating Node v8 patches 
   - (Sa libchromiumcontent repo) Basahin ang `patches/v8/README.md` upang makita kung anong patchfiles ang nilikha sa nakaraang update
@@ -97,7 +97,7 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
       electron$ script/bootstrap.py -d
       electron$ script/build.py -c -D
 
-## Mga Paalala
+## Mga Tala
 
 - ang libcc at V8 ay itinuturing bilang isang solong yunit
 - Pinapanatili ng Node ang sariling fork ng V8 

@@ -15,7 +15,7 @@
 * [Разпространяване на разработените приложения](tutorial/application-distribution.md)
 * [Публикуване на приложение в Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Публикуване на приложение в Windows store](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Snapcraft ръководство](tutorial/snapcraft-guide.md)
 * [Пакетиране на приложението](tutorial/application-packaging.md)
 * [Употреба на Node модули](tutorial/using-native-node-modules.md)
 * [Намиране на грешки в главния процес](tutorial/debugging-main-process.md)
@@ -24,7 +24,7 @@
 * [Използване на Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Използване на Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+* [Рендиране извън екрана](tutorial/offscreen-rendering.md)
 * [Клавишни комбинации](tutorial/keyboard-shortcuts.md)
 * [Обновяване на приложенията](tutorial/updates.md)
 
@@ -39,8 +39,8 @@
 ## Функционална документация
 
 * [Обзор](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
+* [Обект Process](api/process.md)
+* [Поддържани превключващи команди на Chrome](api/chrome-command-line-switches.md)
 * [Променливи на средата](api/environment-variables.md)
 
 ### Персонални DOM елементи:
@@ -101,6 +101,9 @@
 * [Инструкции за намиране на грешки (Windows)](development/debug-instructions-windows.md)
 * [Настройване на Symbol сървър при търсене на грешки](development/setting-up-symbol-server.md)
 * [Стилове за писане на Electron документацията](styleguide.md)
+* [Допринасяне към Електрон](../CONTRIBUTING.md)
+* [Проблеми](development/issues.md)
+* [Заявки за сливане](development/pull-requests.md)
 * [Обновяване на Chromium](development/upgrading-chromium.md)
 * [Разработка с Chromium](development/chromium-development.md)
-* [Разработка с V8](development/v8-development.md)
+* [Разработка на V8](development/v8-development.md)

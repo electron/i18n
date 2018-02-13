@@ -22,7 +22,7 @@ Node.js の新しいバージョンがリリースされたあと、Electron の
 
 通常、Node.js の新しい機能は V8 のアップグレードによってもたらされますが、Electron は Chromiumに搭載されている V8 を使用しているので、新しい Node.js に入ったばかりのピカピカに新しい JavaScript 機能は Electron ではたいてい既に導入されています。
 
-## ウェブページ間のデータを共有する方法は?
+## Web ページ間でデータを共有するにはどうすればよいのですか？
 
 ウェブページ（レンダラープロセス）間のデータを共有するために最も単純な方法は、ブラウザですでに提供されているHTML5 APIを使用することです。 良い候補として、[Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)があります。
 
@@ -36,25 +36,25 @@ global.sharedObject = {
 ```
 
 ```javascript
-// ページ１内
+// ページ1 内
 require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 ```
 
 ```javascript
-// ページ２内
+// ページ2 内
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
 ## 何分か経つとアプリの Window/tray が消えてしまいます
 
-これは、Window/trayを格納するのに使用している変数がガベージコレクトされたときに発生します。
+Window/trayを格納するのに使用している変数がガベージコレクトされたときに発生します。
 
-この問題に遭遇した時には、次のドキュメントを読むことをお勧めします。
+以下のドキュメントが参考になるはずです。
 
 * [メモリ管理](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [変数スコープ](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-もし簡単に修正したい場合は、コードを以下のように修正して変数をグローバルにすると良いでしょう：
+もし簡単に修正したい場合は、コードを以下のように修正して変数をグローバルにすると良いでしょう。以下の部分を
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-を、こう変更します：
+以下のように変更します。
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -104,7 +104,6 @@ delete window.module;
 </script>
 <script type="text/javascript" src="jquery.js"></script>
 </head>
-
 ```
 
 ## `require('electron').xxx`が定義されていません。
@@ -130,7 +129,7 @@ console.log(require.resolve('electron'))
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-もし `node_modules/electron/index.js`という形式になっていれば、npm`electron`モジュールを取り除くか、これをリネームする必要があります。
+もし `node_modules/electron/index.js`という形式になっていれば、npmの `electron`モジュールを取り除くか、これをリネームする必要があります。
 
 ```sh
 npm uninstall electron

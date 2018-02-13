@@ -1,6 +1,6 @@
 ## Class: WebRequest
 
-> Intercept and modify the contents of a request at various stages of its lifetime.
+> 在請求的不同時機攔截並修改其內容。
 
 进程: [主进程](../glossary.md#main-process)
 

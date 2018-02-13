@@ -1,6 +1,6 @@
 # powerMonitor
 
-> Monitor power state changes.
+> 監視電源狀態變更。
 
 處理序: [主處理序](../glossary.md#main-process)
 

@@ -1,6 +1,6 @@
 ## Class: BrowserView
 
-> Create and control views.
+> 建立和控制視景。
 
 **注意:** BrowserView API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 

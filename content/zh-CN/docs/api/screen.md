@@ -51,7 +51,7 @@ app.on('ready', () => {
 
 ## 事件
 
-The `screen` module emits the following events:
+`screen`模块触发以下事件:
 
 ### Event: 'display-added'
 
@@ -60,7 +60,7 @@ The `screen` module emits the following events:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+当新的窗口`newDisplay`被添加的时候触发。
 
 ### Event: 'display-removed'
 
@@ -69,7 +69,7 @@ Emitted when `newDisplay` has been added.
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+当旧的窗口`oldDisplay`被移除的时候触发。
 
 ### Event: 'display-metrics-changed'
 
@@ -83,34 +83,34 @@ Emitted when one or more metrics change in a `display`. The `changedMetrics` is 
 
 ## 方法
 
-The `screen` module has the following methods:
+`screen`模块有以下方法:
 
 ### `screen.getCursorScreenPoint()`
 
 Returns [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+当前鼠标的绝对位置。
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+返回`Integer`，表示菜单栏的高度 (单位：像素)
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+返回主窗口[`Display`](structures/display.md)
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+返回一个窗口数组[`Display[]`](structures/display.md)，表示当前可用的窗口。
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+返回离指定点最近的一个窗口[`Display`](structures/display.md)
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+返回离指定的图形最密切相交一个窗口[`Display`](structures/display.md)

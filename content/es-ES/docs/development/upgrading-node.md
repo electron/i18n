@@ -2,7 +2,7 @@
 
 ## Discusión
 
-Un problema para la actualización es construir todo Electrón solo con una copia de V8 para asegurar la compatibilidad. Esto es importante debido a que tanto el nodo ascendente y el [libchromiumcontent](upgrading-chromium.md) usan sus propias versiones de V8.
+One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. Esto es importante debido a que tanto el nodo ascendente y el [libchromiumcontent](upgrading-chromium.md) usan sus propias versiones de V8.
 
 Actualizar el Nodo es mucho más fácil que actualizar el contenido de Libchromium, por lo que se producen menos problemas si se actualiza primero el contenido de Libchromium, y luego se elige la versión del Nodo ascendente cuyo V8 está más cerca de él.
 
@@ -43,7 +43,7 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
 
 1. Consigue una copia de la bifurcación libcc de Electron 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Ejecuta `script/update` para obtener el último libcc 
+2. Ejecute `script/actualización` para obtener el último libcc 
   - Esto te consumirá mucho tiempo
 3. Remueve nuestras copias del viejo parche del Nodo V8 
   - (En el repo de libchromiumcontent) Lee `patches/v8/README.md`para ver cuáles archivos de parches fueron creados durante la última actualización

@@ -1,8 +1,8 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> 註冊自訂通訊協定並攔截原有的通訊協定請求。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
@@ -187,7 +187,7 @@ const {protocol} = require('electron')
 const {PassThrough} = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough()  // PassThrough is also a Readable stream
+  const rv = new PassThrough()  // PassThrough 也是一個 Readable 的 stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -202,7 +202,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('通訊協定註冊失敗')
 })
 ```
 
@@ -215,7 +215,7 @@ const fs = require('fs')
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('通訊協定註冊失敗')
 })
 ```
 
@@ -316,7 +316,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (選用)
 * `completion` Function (選用) 
   * `error` Error
 

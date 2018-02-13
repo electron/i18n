@@ -105,4 +105,4 @@ sudo npm install electron --unsafe-perm= doğru
 npm yükle --verbose electron
 ```
 
-SHASUM ve öğeyi yeniden indirmeye zorlamak istiyorsanız `force_no_cache` değişkenini `true` olarak ayarlayın.
+If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.

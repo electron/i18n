@@ -4,9 +4,9 @@ Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/exte
 
 ## 如何載入 DevTools 擴充功能
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+本文件將略述手動載入擴充功能的過程。 你也可以試看看 [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer) 這個直接由 Chrome 線上應用程式商店下載擴充功能的第三方工具。
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+要 Electron 中載入擴充功能，你需要將其下載到 Chrome 瀏覽器中，找出檔案路徑，再呼叫 `BrowserWindow.addDevToolsExtension(extension)` API 將其載入。
 
 以 [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) 為例:
 
@@ -22,9 +22,9 @@ To load an extension in Electron, you need to download it in Chrome browser, loc
     * macOS 中是 `~/Library/Application Support/Google/Chrome/Default/Extensions`。
 4. 將擴充功能的路徑傳給 `BrowserWindow.addDevToolsExtension` API，以 React Developer Tools 為例，大概會是: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**注意:** `BrowserWindow.addDevToolsExtension` API 無法在應用程式模組的 ready 事件發生前叫用。
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+擴充功能的名稱是 `BrowserWindow.addDevToolsExtension` 的回傳值，你可以將擴充功能的名稱帶入`BrowserWindow.removeDevToolsExtension` API ，將其卸載。
 
 ## 支援的 DevTools 擴充功能
 
@@ -42,6 +42,6 @@ Electron 只支援有限的 `chrome.*` API，某些用到不支援 `chrome.*` AP
 
 ### DevTools 擴充功能沒反應時該怎麼辦?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+首先請確定擴充功能還有人維護，有些擴充功能甚至不能在最近的 Chrome 瀏覽器上執行，我們對這種情形也無能為力。
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+接著請到 Electron 的議題清單中開一張 bug 單，描述擴充功能是怎樣無法如期運作。

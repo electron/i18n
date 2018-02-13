@@ -1,6 +1,6 @@
-# proceso
+# process
 
-> Extensiones al objeto en proceso.
+> Extensiones al objeto process.
 
 Procesos: [principal](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 

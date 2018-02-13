@@ -531,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+Връща:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -544,7 +544,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+Връща:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -555,7 +555,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Returns:
+Връща:
 
 * `isMainFrame` Boolean
 
@@ -571,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Returns:
+Връща:
 
 * `status` Boolean
 * `newURL` String
@@ -586,7 +586,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Returns:
+Връща:
 
 * `oldURL` String
 * `newURL` String
@@ -600,7 +600,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+Връща:
 
 * `title` String
 * `explicitSet` Boolean
@@ -609,7 +609,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+Връща:
 
 * `favicons` String[] - Array of URLs.
 
@@ -625,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+Връща:
 
 * `level` Integer
 * `message` String
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+Връща:
 
 * `result` Object 
   * `requestId` Integer
@@ -668,7 +668,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+Връща:
 
 * `url` String
 * `frameName` String
@@ -693,7 +693,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Returns:
+Връща:
 
 * `url` String
 
@@ -707,7 +707,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+Връща:
 
 * `url` String
 
@@ -717,7 +717,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+Връща:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -741,7 +741,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+Връща:
 
 * `channel` String
 * `args` Array
@@ -778,7 +778,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+Връща:
 
 * `name` String
 * `version` String
@@ -799,7 +799,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+Връща:
 
 * `themeColor` String
 
@@ -811,7 +811,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+Връща:
 
 * `url` String
 

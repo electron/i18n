@@ -15,7 +15,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Uygulama Dağıtımı](tutorial/application-distribution.md)
 * [Mac App Store'a Gönderme Kılavuzu](tutorial/mac-app-store-submission-guide.md)
 * [Windows Uygulama Mağazası'na Gönderme Kılavuzu](tutorial/windows-store-guide.md)
-* [Snapcraft Guide](tutorial/snapcraft-guide.md)
+* [Snapcraft Rehberi](tutorial/snapcraft-guide.md)
 * [Uygulama Paketleme](tutorial/application-packaging.md)
 * [Yerel Düğüm Modüllerini Kullanmak](tutorial/using-native-node-modules.md)
 * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
@@ -51,7 +51,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 
 ### Ana Süreç İçin Modüller:
 
-* [uygulama](api/app.md)
+* [Uygulama](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
@@ -101,6 +101,9 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Hata Ayıklama Talimatları (Windows)](development/debug-instructions-windows.md)
 * [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
 * [Stil Kılavuz Dokümantasyonu](styleguide.md)
+* [Contributing to Electron](../CONTRIBUTING.md)
+* [Sorunlar](development/issues.md)
+* [Pull Requests](development/pull-requests.md)
 * [Chromium yükseltiliyor](development/upgrading-chromium.md)
 * [Chromium Geliştirme](development/chromium-development.md)
 * [V8 Geliştirme](development/v8-development.md)

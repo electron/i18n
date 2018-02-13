@@ -3,7 +3,7 @@
 1. Kullanacağınız carshpad sürümünü edinin.
     
     - ` libcc / src / third_party / crashpad / README.chromium </ 0> satırında <code> Revizyon: </ 0> ile bir sağlaması bulunur</li>
-<li>İlgili şubeyi kontrol etmemiz gerekiyor.</li>
+<li>We need to check out the corresponding branch.</li>
 <li>google kilit panelini kopyala</li>
 <li><code>git clone https://chromium.googlesource.com/crashpad/crashpad`
     - şubeyi sağlama yaparak kontrol edin 

@@ -9,18 +9,18 @@ nav:
   contact: 연락처
   languages: 언어
   code_of_conduct: 윤리 강령
-  search: Search
+  search: 검색
 docs:
   title: Electron 문서
-  description: 모든 문서는<a href="/docs/all">여기</a>에서 확인할 수 있고 <a href="/docs/faq"> FAQ</a>를 확인하세요.
+  description: 모든 문서는 <a href="/docs/all">여기</a>에서 확인할 수 있고 <a href="/docs/faq"> FAQ</a>를 확인하세요.
   guides: 안내서
   api_reference: API 참조 문서
   advanced: 고급
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: 이 문서를 개선합니다.
+    version_history: 버전 역사
+    translate: 이 문서를 번역해주세요.
+    view_all_docs: 한 페이지에 모든 문서
 languages:
   choose_language: 이 웹사이트를 볼 언어를 선택하세요
   translation_progress: 번역 진행 단계
@@ -88,9 +88,9 @@ apps:
   something_missing: 뭔가 누락되었나요?
   edit_this_app: 이 앱을 수정하세요.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: 복사
+  copy_to_clipboard: 클립보드에 복사하기
+  copied: 복사됨
 or: or
 pages:
   '/':
@@ -140,6 +140,6 @@ _404:
   please_file_an_issue: 이슈를 첨부해주세요.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
+  description_docs: 문서에서 Electron 소스들을 찾아보세요
   description_npm: Find Electron resources from npm packages.
   description_repos: Find Electron resources from GitHub repos.

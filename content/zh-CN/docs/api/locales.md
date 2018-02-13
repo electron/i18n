@@ -1,4 +1,4 @@
-# 本地化
+# 本土化
 
 > 通过 `app.getLocale()`来获取本地值
 
@@ -43,9 +43,9 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | fil    | Filipino                |
 | fo     | Faroese                 |
 | fr     | French                  |
-| fr-CA  | French (Canada)         |
+| fr-CA  | 法语（加拿大）                 |
 | fr-CH  | French (Switzerland)    |
-| fr-FR  | French (France)         |
+| fr-FR  | 法语（法国）                  |
 | fy     | Frisian                 |
 | ga     | Irish                   |
 | gd     | Scots Gaelic            |
@@ -71,7 +71,7 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | kk     | Kazakh                  |
 | km     | Cambodian               |
 | kn     | Kannada                 |
-| ko     | Korean                  |
+| ko     | 韩语                      |
 | ku     | Kurdish                 |
 | ky     | Kyrgyz                  |
 | la     | 拉丁语                     |
@@ -135,7 +135,7 @@ Electron 使用 Chromium 的`l10n_util` 库来获取 locale，可能的值如下
 | xh     | Xhosa                   |
 | yi     | Yiddish                 |
 | yo     | Yoruba                  |
-| zh     | Chinese                 |
-| zh-CN  | Chinese (Simplified)    |
+| zh     | 中文                      |
+| zh-CN  | 中文（简体）                  |
 | zh-TW  | 中文（繁体）                  |
 | zu     | Zulu                    |

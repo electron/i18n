@@ -3,7 +3,7 @@
 1. Télécharger la version de crashpad que nous allons utiliser.
     
     - `libcc/src/third_party/crashpad/README.chromium` aura une ligne `Revision:` avec un checksum
-    - Nous avons besoin de vérifier la branche correspondante.
+    - We need to check out the corresponding branch.
     - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
     - Check out the branch with the revision checksum: 

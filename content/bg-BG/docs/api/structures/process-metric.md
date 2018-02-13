@@ -1,6 +1,6 @@
-# ProcessMetric Object
+# Обект ProcessMetric
 
-* `pid` Integer - Process id of the process.
-* `type` String - Process type (Browser or Tab or GPU etc).
-* `memory` [MemoryInfo](memory-info.md) - Memory information for the process.
-* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `pid` Integer - Уникален идентификатор на съответния процес.
+* `type` String - Тип процес (браузър или таб или GPU и др.).
+* `memory` [MemoryInfo](memory-info.md) - Информация за процеса.
+* `cpu` [CPUUsage](cpu-usage.md) - Употреба на процесора.

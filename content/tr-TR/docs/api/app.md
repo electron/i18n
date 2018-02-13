@@ -1,10 +1,10 @@
 # uygulama
 
-> Uygulamanızın etkinlik ömrünü kontrol edin.
+> Uygulamanızın olay yaşam döngüsünü kontrol edin.
 
 Süreç: [Ana](../glossary.md#main-process)
 
-Aşağıdaki örnek, son pencere kapatıldığı zaman uygulamadan nasıl çıkılacağını göstermektedir:
+Aşağıdaki örnek, son pencere kapatıldığında uygulamadan nasıl çıkılacağını göstermektedir:
 
 ```javascript
 const {app} = require('electron')
@@ -111,7 +111,7 @@ Farklı bir cihazdan bir etkinlik sürdürmek istediğinde [Handoff](https://dev
 
 Bir kullanıcı etkinliği yalnızca, etkinliğin kaynak uygulamasıyla aynı geliştirici Ekip ID'si olan ve etkinliğin türünü destekleyen bir uygulamada devam edilebilir. Desteklenen etkinlik türleri, uygulamanın `Info.plist` öğesinde `NSUserActivityTypes` anahtarının altında belirtilir.
 
-### Event: 'will-continue-activity' *macOS*
+### Olay: 'will-continue-activity' *macOS*
 
 Dönüşler:
 
@@ -120,7 +120,7 @@ Dönüşler:
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
-### Event: 'continue-activity-error' *macOS*
+### Olay: 'continue-activity-error' *macOS*
 
 Dönüşler:
 

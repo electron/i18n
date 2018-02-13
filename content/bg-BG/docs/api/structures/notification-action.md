@@ -1,19 +1,19 @@
-# NotificationAction Object
+# Обект NotificationAction
 
-* `type` String - The type of action, can be `button`.
-* `text` String - (optional) The label for the given action.
+* `type` String - Типът действие може да бъде `button`.
+* `text` String - (по избор) Етикета на даденото действие.
 
-## Platform / Action Support
+## Платформа / Поддръжка на действията
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                          |
-| ----------- | ---------------- | -------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Тип действие | Поддържана платформа | Използване на `text`            | `text` по подразбиране | Ограничения                                                                                                                                                                      |
+| ------------ | -------------------- | ------------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `бутон`      | macOS                | Използван като етикет на бутона | "Покажи"               | Най-много един бутон. При подаване н множество бутони, само последния ще бъде използван. Това действие е несъвместимо с `hasReply` и ще бъде игнорирано ако `hasReply` е `true`. |
 
-### Button support on macOS
+### Поддръжка на бутони под macOS
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+За да може допълнителните съобщителни бутони да работят под macOS, вашето приложение трябва да изпълни следващите критерии.
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `info.plist`.
+* Приложението е подписано
+* Приложението има свой собствен `NSUserNotificationAlertStyle` сложено на `alert` в `info.plist`.
 
-If either of these requirements are not met the button simply won't appear.
+Ако някое от тези критерии не е изпълнен, бутона просто няма да се появи.
