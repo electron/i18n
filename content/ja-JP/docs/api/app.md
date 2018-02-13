@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-最後のウィンドウが閉じられたときにアプリケーションを終了する方法を次の例に示します:
+以下の例では最後のウインドウが閉じられたときにアプリケーションを終了する方法を示します:
 
 ```javascript
 const {app} = require('electron')
@@ -15,21 +15,21 @@ app.on('window-all-closed', () => {
 
 ## イベント
 
-`app`オブジェクトは次のイベントを発生させます。
+`app` オブジェクトでは以下のイベントが発生します。
 
 ### イベント: 'will-finish-launching'
 
-アプリケーションの起動プロセスの基本部分が完了したときに発生します。 Windows と Linux上では、`will-finish-launching` イベントは `ready` イベントと同じです。macOS上では`NSApplication` の `applicationWillFinishLaunching`に相当します。 通常、ここでは `open-file` および `open-url` イベントのリスナーを設定、クラッシュレポーターと自動アップデーターを起動します。
+アプリケーションが基本的な起動処理を完了したときに発生します。 WindowsとLinuxでは、`will-finish-launching` イベントは `ready` イベントと同じですが、macOSでは、このイベントは、`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
 
-ほとんどの場合、`ready` イベントハンドラーであらゆる処理を記述するべきです。
+ほとんどの場合、`ready` イベントハンドラーですべてのことを行うようにするべきです。
 
 ### イベント: 'ready'
 
-戻り値：
+戻り値:
 
 * `launchInfo` Object *macOS*
 
-Electronの初期化処理が終わった時に発生します。 MacOS では、`launchInfo` は、通知センターから起動された場合、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` 情報を保持しています。 また、このイベントが既に発生しているかどうかをチェックする `app.isReady()` を呼び出すことができます。
+Electronが初期化処理を完了したときに発生します。 MacOS では、`launchInfo` は、通知センターから起動された場合、アプリケーションを開くのに使用された `NSUserNotification` の `userInfo` 情報を保持しています。 また、このイベントが既に発生しているかどうかをチェックする `app.isReady()` を呼び出すことができます。
 
 ### イベント: 'window-all-closed'
 
