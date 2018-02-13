@@ -68,12 +68,12 @@ Lihat [ Bagaimana cara membuat contoh yang minimal, komplit dan yang bisa di ver
 
 ## Mendahulukan Laporan Bug
 
-Ini hal yang wajar untuk membuka isu dan memulai diskusi. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Ini hal yang wajar untuk membuka isu dan memulai diskusi. Beberapa kontributor mungkin memiliki pendapat yang berbeda, termasuk apakah itu kebiasaan Bug atau fitur. Diskusi ini adalah bagian dari proses dan harus tetap fokus, bermanfaat dan profesional.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Respon singkat yang menyediakan baik itu penambahan konteks maupun mendukung detail, dianggap tidak bermanfaat ataupun profesional. Terlalu banyak, respon juga mengganggu dan kurang menyenangkan.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Kontributor sangat disarankan untuk memecahkan isu secara bersama dan membantu satu sama lain dalam membuat perkembangan. Jika mendapat sebuah isu yang anda rasa tidak valid, atau mengandung informasi yang tidak benar, jelaskan *mengapa* anda merasa seperti itu dengan konteks pendukung tambahan, dan mampu meyakinkan bahwa anda salah. Dengan melakukan hal tersebut, kita sering mencapai solusi permasalahan yang benar dan cepat.
 
 ## Memecahkan Laporan Bug
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Kebanyakan isu diselesaikan dengan membuka Pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
