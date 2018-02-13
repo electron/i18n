@@ -102,7 +102,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Hata Ayıklayıcı'daki Sembol Sunucu Kurulumu](development/setting-up-symbol-server.md)
 * [Stil Kılavuz Dokümantasyonu](styleguide.md)
 * [Contributing to Electron](../CONTRIBUTING.md)
-* [Issues](development/issues.md)
+* [Sorunlar](development/issues.md)
 * [Pull Requests](development/pull-requests.md)
 * [Chromium yükseltiliyor](development/upgrading-chromium.md)
 * [Chromium Geliştirme](development/chromium-development.md)
