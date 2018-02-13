@@ -13,7 +13,7 @@
 Herhangi bir sorun için temelde bireyin katkı sağlayabileceği üç yöntem vardır:
 
 1. Konuyu tartışmaya açmak: Eğer bir sorun bulduğunuza inanıyorsanız, `elektron/elektron` sayı izleyicisini açarak bunu rapor edin.
-2. Sorunun öncelikli bir hale getirilmesine yardımcı olmak: Bu ya detaylandırarak (hata gösteren bir yeniden üretilebilir sınama durumu) ya da sorunu gidermek için öneriler sunarak sağlayın.
+2. Sorunun öncelikli bir hale getirilmesine yardımcı olmak: Bunu ya detaylandırarak (hata gösteren bir yeniden üretilebilir sınama durumu) ya da sorunu gidermek için öneriler sunarak sağlayın.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
 ## Genel Yardım İstemek
