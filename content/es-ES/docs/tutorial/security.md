@@ -36,7 +36,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 
 ## 1) Only Load Secure Content
 
-Cualquier recurso no incluido con tu aplicación debería ser cargado usando un protocolo de seguridad como `HTTPS`. En otras palabras, no uses protocolos inseguros como `HTTP`. Similarmente, recomendamos el uso de `WSS` antes de `WS`, `FTPS` sobre `FTP`, y así sucesivamente.
+Cualquier recurso no incluido con tu aplicación debería ser cargado usando un protocolo de seguridad como `HTTPS`. En otras palabras, no uses protocolos inseguros como `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### ¿Por què?
 
@@ -307,7 +307,7 @@ Usuarios avanzados de Electron pueden habilitar funciones experimentales Chromiu
 
 ### ¿Por què?
 
-Funciones experimentales son, como el nombre lo dice, experimentales y no han sido habilitadas por todos los usuarios Chromium. Además, su impacto general en Electron seguramente no ha sido puesto a prueba.
+Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
 
 Casos de uso legítimo existen, pero excepto que usted sepa lo que está haciendo, usted no debería habilitar esta propiedad.
 
