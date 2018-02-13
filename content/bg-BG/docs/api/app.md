@@ -288,11 +288,11 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Излъчено, когато GPU процес е спрян или убит.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Събитие: 'accessibility-support-changed' *macOS* *Windows*
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
