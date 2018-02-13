@@ -43,7 +43,7 @@ Sa sandaling naitayo mo ang proyekto nang lokal, handa ka nang magsimulang gumaw
 
 ### Ikatlong hakbang: Sangay
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+Upang mapanatili ang iyong kapaligiran sa pag-unlad, lumikha ng mga lokal na sangay at hawakan ang iyong trabaho. Ang mga ito ay dapat na naka direkta sa branched off ng `master` sangay.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
