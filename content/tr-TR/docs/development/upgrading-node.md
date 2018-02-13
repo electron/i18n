@@ -2,7 +2,7 @@
 
 ## Tartışma
 
-Bir yükseltme sorunu, uyumluluğu sağlamak için tüm Elektronları V8'in tek bir kopyasıyla oluşturuyor. Bu önemlidir çünkü upstream Node ve [libchromiumcontent](upgrading-chromium.md) her ikisi de kendi V8 sürümlerini kullanır.
+One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. Bu önemlidir çünkü upstream Node ve [libchromiumcontent](upgrading-chromium.md) her ikisi de kendi V8 sürümlerini kullanır.
 
 Node'u Yükseltme, libchromiumcontent'i yükseltmekten çok daha kolaydır; bu nedenle birincisi libchromiumcontenti yükseltir ve daha sonra V8'ine en yakın olan upstream Node sürümünü seçerse daha az çatışma ortaya çıkar.
 
@@ -27,7 +27,7 @@ Electron'un bağımlılıklarının tamamı V8'in aynı kopyasını oluşturup k
 1. `electron/node` üzerindeki `master` öğesinin `nodejs/node` adresindeki yayın etiketlerinin güncellendiğinden emin olun
 2. Https://github.com/electron/node 'da bir dal oluşturun: `electron-node-vX.X.X` burada oluşturduğunuz dal tabanı, istenen güncelleme için etikettir 
   - `vX.X.X` Mevcut chromium versiyonuyla uyumlu bir node sürümünü kullanmalısınız
-3. Kabullerimizi kullandığımız önceki düğüm sürümünden yeniden uygulayın (`vY.Y.Y`) dan `v.X.X.X` 
+3. Kabullerimizi kullandığımız önceki düğüm sürümünden yeniden uygulayın (`vY.Y.Y`) to `v.X.X.X` 
   - Yayın etiketini kontrol edin ve tekrar uygulamak için gereken taahhüt aralığını seçin
   - Cherry-pick seçme aralığı: 
     1. İkisine birden bakın `vY.Y.Y` & `v.X.X.X`
