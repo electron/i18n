@@ -113,7 +113,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'will-continue-activity' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -122,7 +122,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'continue-activity-error' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -132,7 +132,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'activity-was-continued' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -142,7 +142,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'update-activity-state' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -152,7 +152,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 ### イベント: 'new-window-for-tab' *macOS*
 
-戻り値：
+戻り値:
 
 * `event` Event
 
@@ -160,7 +160,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### イベント: 'browser-window-blur'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -169,7 +169,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### イベント: 'browser-window-focus'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -178,7 +178,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### イベント: 'browser-window-created'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -187,7 +187,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### イベント: 'web-contents-created'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -224,7 +224,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### イベント: 'select-client-certificate'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -248,7 +248,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### イベント: 'login'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -290,7 +290,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### イベント: 'accessibility-support-changed' *macOS* *Windows*
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -440,7 +440,7 @@ Overrides the current application's name.
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Note:**Windows の `準備ができて` のイベントが出力される後を呼び出すことがあります。
+**注:** Windows の場合、`ready` イベントが発生した後で呼び出すようにしてください。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
