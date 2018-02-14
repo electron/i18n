@@ -412,19 +412,19 @@ app.exit(0)
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Презаписва стойността на `path` към специална папка или файл свързан с `name`. Ако пътят определя директория, която не съществува, директорията ще бъде създаден от този метод. При неуспех `Error` е хвърлена.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Можете само да презапишете пътищата на `name`, дефинирани в `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+По подразбиране бисквитките и кеша на уеб страниците ще бъдат съхранени в `userData` директорията. Ако искате да промените това местоположение, трябва да презапишете пътя `userData` преди събитието `ready` на `app` модула да се излъчи.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Връща `String` - Версията на зареденото приложение. Ако няма намерена версия в `package.json` файла на приложението, връща се версията на текущия пакет или изпълнител.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Връща `String` - Името на текущото приложение, което е името във файла `package.json` на приложението.
 
 Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
