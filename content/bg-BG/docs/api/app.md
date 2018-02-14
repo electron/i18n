@@ -325,13 +325,13 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Рестартира приложението, когато сегашната му инстанция се затвори.
 
-По подразбиране, новата инстанция на приложението ще използва същата работна папка и командни аргументи също като сегашната инстанция. Когато `args` е специфицирано, `args` ще бъдат изпратени като нови командни аргументи. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+По подразбиране, новата инстанция на приложението ще използва същата работна папка и командни аргументи също като сегашната инстанция. Когато `args` е специфицирано, `args` ще бъдат изпратени като нови командни аргументи. Когато `execPath` е зададен, `execPath` ще бъде изпълнен за подновяването на текущото приложение.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Забележете, че когато се изпълнява, този метод не изключва приложението, трябва да изпълните `app.quit` или `app.exit` след извикването на `app.relaunch`, за да направите рестартиране на приложението.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Когато `app.relaunch` е изпълнено няколко пъти, множество инстанции ще се стартират след изключване на текущата инстанция.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Пример за рестартиране текущата инстанция веднага и добавяне на нов команден аргумент за новата инстанция:
 
 ```javascript
 const {app} = require('electron')
