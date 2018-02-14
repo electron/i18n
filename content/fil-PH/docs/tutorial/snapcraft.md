@@ -1,10 +1,10 @@
 # Snapcraft Guide (Ubuntu Software Center & More)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+Ang gabay na ito ay nagbibigay ng impormasyon kung paano i-package ang iyong application sa Electron para sa anumang kapaligiran ng Snapcraft, kabilang ang Ubuntu Software Center.
 
-## Background and Requirements
+## Background at Mga Kinakailangan
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Kasama ang mas malawak na komunidad ng Linux, ang Canonical ay naglalayong ayusin ang marami sa karaniwang problema sa pag-install ng software sa [`snapcraft`](https://snapcraft.io/) na proyekto. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
 There are three ways to create a `.snap` file:
 
