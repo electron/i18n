@@ -376,36 +376,36 @@ app.exit(0)
 * `userData` Папката, която пази конфигурационните файлове на вашето приложение, която по подразбиране е папката `appData`, допълнена с името на вашето приложение.
 * `temp` Временна папка.
 * `exe` Текущата изпълнима папка.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `module` Библиотеката `libchromiumcontent`.
+* `desktop` Текущата настолна папка на потребителя.
+* `documents` Папката на потребителя за "My Documents".
+* `downloads` Папка за свалянията на потребителя.
+* `music` Папка за музиката на потребителя.
+* `pictures` Папка за снимките на потребителя.
+* `videos` Папка за видеота на потребителя.
+* `logs` Папка за логовете на вашето приложение.
+* `pepperFlashSystemPlugin` Пълният път до системната версия на Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (по избор) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Хваща асоциираната икона за съответния път.
 
-On *Windows*, there a 2 kinds of icons:
+На *Windows*, има 2 типа икони:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Икони асоциирани с конкретни разширения на файлове, като `.mp3`, `.png`, др.
+* Икони в самия файл, като `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* и *macOS*, иконите зависят от асоциацията им с конкретния mime тип на файла.
 
 ### `app.setPath(name, path)`
 
