@@ -1,14 +1,14 @@
-# Installation
+# Pag-install
 
-> Tips for installing Electron
+> Mga tip para sa pag-install ng Electron
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+Upang mag-install ng prebuilt Electron binaries, gamitin ang [` npm `](https://docs.npmjs.com/). Ang ginustong paraan ay ang pag-install ng Electron bilang isang dependency sa pag-unlad sa iyong app:
 
 ```sh
 npm instol elektron -- isave-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Tingnan ang [ Electron versioning doc ](electron-versioning.md) para sa impormasyon kung paano pamahalaan ang mga bersyon ng Electron sa iyong mga app.
 
 ## Global Installation
 
