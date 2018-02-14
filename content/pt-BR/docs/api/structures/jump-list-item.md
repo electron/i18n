@@ -1,11 +1,11 @@
 # JumpListItem Object
 
 * `tipo` String (opcional) - Um dos seguintes: 
-  * `task` - Uma tarefa iniciará um aplicativo com argumentos específicos.
-  * `separador` - pode ser usado para separar itens na categoria de `tarefas` padrão.
-  * `arquivo` - um arquivo link será aberto um arquivo usando o app que criou a lista de atalhos, para isso funcionar o app deve ser registrado como um manipulador para o tipo de arquivo (embora não precisa ser o manipulador padrão).
-* `caminho` String (opcional) - caminho do arquivo para abrir, só deve ser definido se o `tipo` é o `arquivo`.
-* `programa` String (opcional) - caminho do programa para executar, geralmente você deve especificar `process.execPath` que abre o programa atual. Só deve ser definido se o `type` é `task`.
+  * `task` - Uma tarefa vai carregar um aplicativo com argumentos específicos.
+  * `separator` - Pode ser usado para separar itens na categoria padrão `Tasks`.
+  * `file` - O arquivo link será aberto um arquivo usando o app que criou a lista de atalhos, para isso funcionar o app deve ser registrado como um manipulador para o tipo de arquivo (embora não precisa ser o manipulador padrão).
+* `path` String (opcional) - Caminho do arquivo para abrir, só deve ser definido se o `type` é `file`.
+* `program` String (opcional) - Caminho do programa para executar, geralmente você deve especificar `process.execPath` que abre o programa atual. Só deve ser definido se o `type` é `task`.
 * `args` String (opcional) - Os argumentos de linha de comando quando o `program` é executado. Só deve ser definido se o `type` é `task`.
 * `título` String (opcional) - O texto a ser exibido para o item na lista de salto. Só deve ser definido se o `type` é `task`.
 * `Descrição` String (opcional) - Descrição da tarefa (exibida em uma dica de ferramenta). Só deve ser definido se o `type` é `task`.
