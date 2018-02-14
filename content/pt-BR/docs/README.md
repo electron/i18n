@@ -15,7 +15,7 @@ Há varias perguntas já feitas, Confira isto antes de criar uma nova pergunta:
 * [Distribuição de Aplicativos](tutorial/application-distribution.md)
 * [Guia para Mac App Store](tutorial/mac-app-store-submission-guide.md)
 * [Guia para o Windows Store](tutorial/windows-store-guide.md)
-* [Brasil](tutorial/snapcraft-guide.md)
+* [Guia do Snapcraft](tutorial/snapcraft-guide.md)
 * [Empacotamento de Aplicativos](tutorial/application-packaging.md)
 * [Usando Módulos Nativos do Node](tutorial/using-native-node-modules.md)
 * [Processo Principal de Depuração](tutorial/debugging-main-process.md)
