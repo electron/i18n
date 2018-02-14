@@ -2,7 +2,7 @@
 
 > 產生作業系統桌面通知。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ## 在畫面轉譯處理序中使用
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > 產生作業系統桌面通知。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 `Notification` 是個 [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)。
 
