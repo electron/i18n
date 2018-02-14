@@ -40,9 +40,9 @@ Bago mag ulat ng isang bug, pakiusap subukan mag reproduce nang iyong isyu laban
 
 &It;!-- Anong sa tingin nyo ang mangyayari? -->
 
-### Actual behavior
+### Aktwal na pag-uugali
 
-<!-- What actually happens? -->
+&It;!-- Ano talaga ang mangyayari? -->
 
 ### How to reproduce
 
