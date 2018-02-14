@@ -49,9 +49,9 @@ window.addEventListener('keyup', doSomething, true)
 
 注意，第三個參數 `true` 代表這個監聽器會比其他監聽器先收到按鍵事件，因此別人不能先呼叫 `stopPropagation()`。
 
-The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
+網頁中的 `keydown` 及 `keyup` 事件觸發前，會先送出 [`before-input-event`](../api/web-contents.md#event-before-input-event) 事件。 可用來攔截、處理沒出現在選單上的自訂快捷鍵。
 
-If you don't want to do manual shortcut parsing there are libraries that do advanced key detection such as [mousetrap](https://github.com/ccampbell/mousetrap).
+如果你不想要自己解析快速鍵，已經有程式庫能做進階按鍵偵測，例如 [mousetrap](https://github.com/ccampbell/mousetrap)。
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
