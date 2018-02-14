@@ -4,9 +4,9 @@ Ang gabay na ito ay nagbibigay ng impormasyon kung paano i-package ang iyong app
 
 ## Background at Mga Kinakailangan
 
-Kasama ang mas malawak na komunidad ng Linux, ang Canonical ay naglalayong ayusin ang marami sa karaniwang problema sa pag-install ng software sa [`snapcraft`](https://snapcraft.io/) na proyekto. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+Kasama ang mas malawak na komunidad ng Linux, ang Canonical ay naglalayong ayusin ang marami sa karaniwang problema sa pag-install ng software sa [`snapcraft`](https://snapcraft.io/) na proyekto. Ang mga snaps ay containerized software packages na kinabibilangan ng kinakailangan ng mga dependency, auto-update, at gumagana sa lahat ng mga pangunahing distribusyon ng Linux nang walang pagbabago ng system.
 
-There are three ways to create a `.snap` file:
+Mayroong tatlong paraan upang lumikha ng file na `.snap`:
 
 1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
 
