@@ -29,17 +29,16 @@ Kapag nagbukas kanang bagong isyu sa `elektron/elektron` isyu tracker, mga gumag
 Salamat sa pagbukas nang isyu! Ilang bagay na dapat tandaan:
 
 - Ang isyu tracker ay para sa bugs at tampok na hiling.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
+Bago mag ulat ng isang bug, pakiusap subukan mag reproduce nang iyong isyu laban sa pinakabagong  bersyon ng Elektron.
+-Kung kailangan mo ng pangkalahatang isyu, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
 -->
 
-* Electron version:
-* Operating system:
+*Elektron bersyon:
+*Operating system:
 
-### Expected behavior
+###Inaasahang pag-uugali
 
-<!-- What do you think should happen? -->
+&It;!-- Anong sa tingin nyo ang mangyayari? -->
 
 ### Actual behavior
 
