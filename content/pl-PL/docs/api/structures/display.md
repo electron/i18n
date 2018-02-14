@@ -1,7 +1,7 @@
-# Display Object
+# Obiekt Display
 
-* `id` Number - Unique identifier associated with the display.
-* `rotation` Number - Can be 0, 90, 180, 270, represents screen rotation in clock-wise degrees.
+* `id` Number - Unikalny indetyfikator powiązany z wyświetlaczem.
+* `rotation` Number - może być 0, 90, 180, 270, reprezentuje obrót w stopniach według ruchu wskazówek zegaru ekranu.
 * `scaleFactor` Number - Output device's pixel scale factor.
 * `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
