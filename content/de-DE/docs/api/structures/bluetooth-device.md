@@ -1,4 +1,4 @@
 # BluetoothDevice Objekt
 
-* `deviceName` Zeichenfolge
+* `GeräteName` String
 * `GeräteName` Zeichenfolge
