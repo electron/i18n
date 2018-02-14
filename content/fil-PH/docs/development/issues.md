@@ -1,4 +1,4 @@
-# Issues In Electron
+# Mga isyu ng Elektron
 
 # Isyu
 
@@ -51,16 +51,16 @@ Ang pinakamahusay na pagkakataon ng pagkuha ng bug na ito ay tingnan ng mabilis 
 
 Maari mong itapon https://github.com/elektron/elektron-guick-start at isama ang link sa iyong pagbabago.
 
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
+Kung magbigay kanang ERL, pakiusap ilista ang mga command kinakailangan upang i clone/setup/run your repo e.g.
 
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
+$ git clone $YOUR_URL -b $BRANCH
+$ npm install
+$ npm start || elektron.
 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Kung naniniwala ka na nahanap mo na ang bug sa loob nang Elektron, pakiusap punan mo ang form sa abot ng iyong makakaya.
 
 The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
 
