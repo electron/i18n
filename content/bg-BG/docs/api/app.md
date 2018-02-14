@@ -342,40 +342,40 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Връща `Boolean` - `true` ако Електрон завърши инициализирането, `false` в противен случай.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+На Linux се фокусира върху първия видим прозорец. На macOS прави приложението активно приложение. На Windows се фокусира върху първия прозорец на приложението.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Скрива всички прозорци на приложението без да ги минимизира.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Показва прозорците на приложението, след като те са били скрити. Не се фокусира върху тях автоматично.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Връща `String` - Текущата папка на приложението.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Връща `String` - Път към специална папка или файл, асоцииран с `name`. При грешка бива хвърлен `Error`.
 
-You can request the following paths by the name:
+Може да заявите следните пътища по име:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
+* `home` Потребителската начална/home папка.
+* `appData` Папката на приложението за всеки потребител, която по подразбиране сочи към: 
+  * `%APPDATA%` на Windows
+  * `$XDG_CONFIG_HOME` или `~/.config` на Linux
+  * `~/Library/Application Support` на macOS
+* `userData` Папката, която пази конфигурационните файлове на вашето приложение, която по подразбиране е папката `appData`, допълнена с името на вашето приложение.
+* `temp` Временна папка.
+* `exe` Текущата изпълнима папка.
 * `module` The `libchromiumcontent` library.
 * `desktop` The current user's Desktop directory.
 * `documents` Directory for a user's "My Documents".
