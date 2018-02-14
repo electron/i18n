@@ -1,4 +1,4 @@
 # Obyek CrashReport
 
 * `tangggal` String
-* `Identitas` Integer
+* `ID` Integer
