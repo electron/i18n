@@ -1,4 +1,4 @@
-# IOCounters Object
+# IOCounters Objekt
 
 * `readOperationCount` Zahl - Anzahl der I/O Lesevorgänge.
 * `writeOperationCount` Zahl - Anzahl der I/O Schreibvorgänge.
