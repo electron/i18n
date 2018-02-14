@@ -289,7 +289,7 @@ window.onbeforeunload = (e) => {
 
 #### 事件: 'ready-to-show'
 
-当页面已经渲染完成(但是还没有显示) 并且窗口可以被现实时触发
+当页面已经渲染完成(但是还没有显示) 并且窗口可以被显示时触发
 
 #### 事件: 'maximize'
 
@@ -975,9 +975,9 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number - 介于0.0 ( 完全透明 ) 和1.0 ( 完全不透明 ) 之间
 
-Sets the opacity of the window. On Linux does nothing.
+设置窗口的不透明度，在Linux系统上无效
 
 #### `win.getOpacity()` *Windows* *macOS*
 
