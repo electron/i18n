@@ -44,13 +44,12 @@ Bago mag ulat ng isang bug, pakiusap subukan mag reproduce nang iyong isyu laban
 
 &It;!-- Ano talaga ang mangyayari? -->
 
-### How to reproduce
+### Paano magparami
 
-<!--
+&It;!--
+Ang pinakamahusay na pagkakataon ng pagkuha ng bug na ito ay tingnan ng mabilis ay upang magbigay ng imbakan na maaring kopyahin at patakbuhin.
 
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
-
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
+Maari mong itapon https://github.com/elektron/elektron-guick-start at isama ang link sa iyong pagbabago.
 
 If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
 
