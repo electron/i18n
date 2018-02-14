@@ -8,25 +8,25 @@ Kasama ang mas malawak na komunidad ng Linux, ang Canonical ay naglalayong ayusi
 
 Mayroong tatlong paraan upang lumikha ng file na `.snap`:
 
-1) Gamit ang [`electron-forge`](https://github.com/electron-userland/electron-forge) o [` electron-builder`](https://github.com/electron-userland/electron-builder), parehong mga tool na may `snap` na suportado sa labas ng kahon. Ito ang pinakamadaling opsyon. 2) Paggamit ng ` electron-installer-snap `, na tumatagal ang output ng ` electron-packager `. 3) Using an already created `.deb` package.
+1) Gamit ang [`electron-forge`](https://github.com/electron-userland/electron-forge) o [` electron-builder`](https://github.com/electron-userland/electron-builder), parehong mga tool na may `snap` na suportado sa labas ng kahon. Ito ang pinakamadaling opsyon. 2) Paggamit ng ` electron-installer-snap `, na tumatagal ang output ng ` electron-packager `. 3) Gamit ang nilikha na `.deb` na package.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+Sa lahat ng kaso, kakailanganin mong mai-install ang tool na `snapcraft`. Inirerekumenda namin na ang paggawa sa Ubuntu 16.04 (o sa kasalukuyang LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Habang ito ay *is posible *to install`snapcraft ` sa macOS gamit ang Homebrew, ito ay hindi nakakagawa ng mga packages ng `snap ` at nakatuon sa pamamahala ng mga packages sa tindahan.
 
-## Using `electron-installer-snap`
+## Paggamit ng ` electron-installer-snap `
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+Ang module ay gumagana tulad ng [` electron-winstaller `](https://github.com/electron/windows-installer) at katulad mga module sa saklaw nito ay limitado sa pagbuo ng mga snap na packages. Maaari mong i-install ito sa:
 
 ```sh
 npm install --save-dev electron-installer-snap
 ```
 
-### Step 1: Package Your Electron Application
+### Unang hakbang: Package ng Iyong Application sa Electron
 
 Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
 
