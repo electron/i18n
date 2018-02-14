@@ -4,7 +4,7 @@
 
 ## 局域快速鍵
 
-You can use the [Menu](../api/menu.md) module to configure keyboard shortcuts that will be triggered only when the app is focused. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+你可以使用 [Menu](../api/menu.md) 模組來設定鍵盤快速鍵，這些快速鍵只有在你的應用程式被 focus 到時才會觸發。 要這麼做，請在建立 [MenuItem](../api/menu-item.md) 時指定 [`accelerator`] 屬性。
 
 ```js
 const {Menu, MenuItem} = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-It's easy to configure different key combinations based on the user's operating system.
+要依照使用者作業系統的不同而設定不同的按鍵組合，也很容易。
 
 ```js
 {
@@ -27,7 +27,7 @@ It's easy to configure different key combinations based on the user's operating 
 
 ## 全域快速鍵
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+你可以使用 [globalShortcut](../api/global-shortcut.md) 模組來偵測鍵盤事件，就算目 focus 並不在你的應用程式中也能作用。
 
 ```js
 const {app, globalShortcut} = require('electron')
@@ -41,13 +41,13 @@ app.on('ready', () => {
 
 ## BrowserWindow 內的快速鍵
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+如果你想要處理 [BrowserWindow](../api/browser-window.md) 裡的鍵盤快速鍵，可以在畫面轉譯處理序中的 windows 物件上監聽 `keyup` 及 `keydown` 事件。
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+注意，第三個參數 `true` 代表這個監聽器會比其他監聽器先收到按鍵事件，因此別人不能先呼叫 `stopPropagation()`。
 
 The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
