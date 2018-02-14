@@ -2,7 +2,7 @@
 
 > 讓應用程式能自動更新版本。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 **You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
 
