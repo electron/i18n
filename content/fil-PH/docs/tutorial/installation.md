@@ -12,21 +12,21 @@ Tingnan ang [ Electron versioning doc ](electron-versioning.md) para sa impormas
 
 ## Global Installation
 
-You can also install the `electron` command globally in your `$PATH`:
+Maaari mo ring i-install ang utos ng ` electron ` globally sa iyong ` $PATH `:
 
 ```sh
 npm install electron -g
 ```
 
-## Customization
+## Pag-customize
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+Kung gusto mong baguhin ang arkitektura na na-download (hal., ` ia32 ` sa isang ` x64 ` machine), maaari mong gamitin ang flag ng ` --arko ` sa pag-install ng npm o itakda ang Variable na ` npm_config_arch `:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Bilang karagdagan sa pagpapalit ng arkitektura, maaari mo ring tukuyin ang platform (hal., ` win32 `, ` linux `, atbp.) gamit ang flag ng `--platform `:
 
 ```shell
 npm install --platform=win32 electron
@@ -34,13 +34,13 @@ npm install --platform=win32 electron
 
 ## Proxies
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+Kung kailangan mong gumamit ng HTTP proxy maaari mong [ itakda ang mga variable ng kapaligiran ](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
 ## Custom Mirrors and Caches
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Sa panahon ng pag-install, ang module ng ` electron ` ay tatawag sa [`electron-download`](https://github.com/electron-userland/electron-download) upang i-download ang prebuilt binaries ng Electron para sa iyong platform. Magagawa ito sa pamamagitan ng pakikipag-ugnay sa GitHub release ang pahina ng pag-download (` https://github.com/electron/electron/releases/tag/v$VERSION `, kung saan ` $VERSION ` ay ang eksaktong bersyon ng Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Kung hindi mo ma-access ang GitHub o kailangan mong magbigay ng custom build, ay maaaring gawin mo ito sa alinman sa pagbibigay ng salamin o isang umiiral na direktoryo ng cache.
 
 #### Mirror
 
