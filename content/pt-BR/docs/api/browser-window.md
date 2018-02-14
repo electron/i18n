@@ -389,7 +389,7 @@ Emitted when the window opens a sheet.
 
 Emitted when the window has closed a sheet.
 
-#### Evento: 'new-window-for-tab' no *macOS*
+#### Evento: 'new-window-for-tab' *macOS*
 
 Emitted when the native new tab button is clicked.
 
