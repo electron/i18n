@@ -138,7 +138,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - アクティビティによって蓄積されたアプリ固有の状態が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティが他のデバイスで継続することに成功した後で発生します。
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
 
 ### イベント: 'update-activity-state' *macOS*
 
@@ -496,7 +496,7 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
+* `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
