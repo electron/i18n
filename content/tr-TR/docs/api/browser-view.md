@@ -38,13 +38,13 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+`BrowserView[]` - açılan tüm BrowserViews dizisinin değerini gönderir.
 
-#### `BrowserView.fromWebContents(webContents)`
+#### `BrowserWiew.fromWebContents(webContents)`
 
 * `webContents` [webİçerikleri](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Dönüt `BrowserView | null`-BrowserView içeriği tarafından bir BrowserView ait sahip olmayan, verilen `webContents` veya `null` sahip.
 
 #### `BrowserView.fromId(id)`
 
