@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### Unang hakbang: Package ng Iyong Application sa Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Tiyaking alisin ang `node_modules ` na hindi mo kailangan sa iyong huling aplikasyon, dahil ang anumang module na hindi mo talaga kailangan ay tataasan lamang ang laki ng iyong aplikasyon.
+I-package ang application gamit ang [ electron-packager ](https://github.com/electron-userland/electron-packager) (o isang katulad na kasangkapan). Tiyaking alisin ang `node_modules ` na hindi mo kailangan sa iyong huling aplikasyon, dahil ang anumang module na hindi mo talaga kailangan ay tataasan lamang ang laki ng iyong aplikasyon.
 
 Ang output ay dapat magmukhang halos katulad nito:
 
@@ -73,19 +73,19 @@ Ang snapcraft ay may kakayahang kumuha ng isang umiiral na `.deb ` file at gwain
 
 ### Unang hakbang: Lumikha ng isang Debian Package
 
-Kung wala kang package na `.deb `, gamit ang ` electron-installer-snap ` maaaring maging isang mas madaling landas upang lumikha ng mga package ng snap. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+Kung wala kang package na `.deb `, gamit ang ` electron-installer-snap ` maaaring maging isang mas madaling landas upang lumikha ng mga package ng snap. Gayunpaman, maraming mga solusyon para sa paglikha ng mga package ng Debian na umiiral, kabilang ang [` elektron-hiling `](https://github.com/electron-userland/electron-forge), [` elektron-tagabuo `](https://github.com/electron-userland/electron-builder) o [` elektron-installer-debian `](https://github.com/unindented/electron-installer-debian).
 
-### Step 2: Create a snapcraft.yaml
+### Ikalawang hakbang: Gumawa ng snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+Para sa higit pang impormasyon sa magagamit na mga opsyon sa pagsasaayos, tingnan ang [documentation on the snapcraft syntax ](https://docs.snapcraft.io/build-snaps/syntax). Tingnan natin ang halimbawa:
 
 ```yaml
-name: myApp
-version: 2.0.0
-summary: A little description for the app.
-description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+pangalan: myApp
+bersyon: 2.0.0
+buod: Isang maliit na paglalarawan para sa app.
+paglalarawan: |
+ Alam mo ba? Ang app na ito ay kamangha-mangha! Ginagawa nito ang lahat ng mga bagay
+ para sa iyo. Ang ilan ay nagsasabi na ito ay nagpapanatili sa iyong kabataan, marahil kahit na masaya.
 
 grade: stable
 confinement: classic
@@ -124,7 +124,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it simply passes information on to the app's binary:
+Tulad ng makikita mo, ang ` snapcraft.yaml ` ay nagtuturo sa system na ilunsad ang isang file tinatawag na ` electron-launch`. Sa halimbawang ito, ipinapasa lamang nito ang impormasyon sa binary ng app:
 
 ```sh
 #!/bin/sh
@@ -132,7 +132,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+Bilang alternatibo, kung ikaw ay nagtatayo ng iyong ` snap ` na may `strict` na confinement, maaaring mong gamitin ang command na ` desktop-launch`:
 
 ```yaml
 apps:
