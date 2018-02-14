@@ -68,10 +68,7 @@ async function parseFile (file) {
   // build a reference to the source
   file.githubUrl = `https://github.com/electron/electron/tree/master${file.href}.md`
 
-  if (file.locale !== 'en-US') {
-    // goto exactly translate URL
-    file.translateUrl = `https://crowdin.com/translate/electron/${ids[`master/content/en-US${file.href}.md`]}/en-${locales[file.locale].stats.code}`
-  }
+  file.crowdinFileId = ids[`master/content/en-US${file.href}.md`]
 
   // convenience booleans for use in templates
   file.isTutorial = file.category === 'tutorial'

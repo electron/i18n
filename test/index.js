@@ -184,9 +184,9 @@ describe('API Structures', () => {
     doc.categoryFancy.should.equal('API Structures')
     doc.isApiStructureDoc.should.equal(true)
   })
-  it('Crowdin translate URL', () => {
+  it('Crowdin file ID', () => {
     const doc = i18n.docs['fr-FR']['/docs/api/structures/gpu-feature-status']
-    doc.translateUrl.should.equal('https://crowdin.com/translate/electron/128/en-fr')
+    doc.crowdinFileId.should.equal('128')
   })
 })
 
