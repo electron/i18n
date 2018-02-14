@@ -3,7 +3,7 @@
 * `id` Number - Unikalny indetyfikator powiązany z wyświetlaczem.
 * `rotation` Number - może być 0, 90, 180, 270, reprezentuje obrót w stopniach według ruchu wskazówek zegaru ekranu.
 * `scaleFactor` Number - Output device's pixel scale factor.
-* `touchSupport` String - Can be `available`, `unavailable`, `unknown`.
+* `touchSupport` String - może przyjmować wartości `available`, `unavailable`, `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
