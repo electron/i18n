@@ -52,13 +52,13 @@ Ang output ay dapat magmukhang halos katulad nito:
 
 ### Ikalawang hakbang: Pagpapatakbo ng `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+Mula sa terminal na may `snapcraft ` sa `PATH`, patakbuhin ang `electron-installer-snap ` gamit lamang ang kinakailangang parameter `--src `, na kung saan ay ang lokasyon ng iyong packaged na application na electron na nilikha sa unang hakbang.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+Kung mayroon kang isang umiiral na build pipeline, maaari mong gamitin ang ` electron-installer-snap ` sa programming. Para sa higit pang impormasyon, tingnan ang [ Snapcraft API docs ](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
@@ -67,13 +67,13 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## Paggamit ng isang Umiiral na Debian Package
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Ang snapcraft ay may kakayahang kumuha ng isang umiiral na `.deb ` file at gwain itong isang file na `.snap `. Ang paglikha ng snap ay isinaayos gamit ang isang ` snapcraft.yaml ` file na naglalarawan ng mga pinagkukunan, mga dependency, paglalarawan, at iba pang mga core building blocks.
 
-### Step 1: Create a Debian Package
+### Unang hakbang: Lumikha ng isang Debian Package
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+Kung wala kang package na `.deb `, gamit ang ` electron-installer-snap ` maaaring maging isang mas madaling landas upang lumikha ng mga package ng snap. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
 ### Step 2: Create a snapcraft.yaml
 
