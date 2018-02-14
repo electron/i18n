@@ -174,7 +174,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+[browserWindow](browser-window.md) がフォーカスを得たときに発生します。
 
 ### イベント: 'browser-window-created'
 
@@ -183,7 +183,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+新しい [browserWindow](browser-window.md) が生成されたときに発生します。
 
 ### イベント: 'web-contents-created'
 
@@ -192,7 +192,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+新しい [webContents](web-contents.md) が生成されたときに発生します。
 
 ### イベント: 'certificate-error'
 
