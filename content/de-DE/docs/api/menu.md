@@ -1,4 +1,4 @@
-## Class: Menu
+## Klasse: Menü
 
 > Create native application menus and context menus.
 
@@ -6,11 +6,11 @@ Prozess: [Haupt](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Neues Menü anlegen.
 
 ### Static Methods
 
-The `menu` class has the following static methods:
+Die `Menu`-Klasse hat die folgenden statischen Methoden:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -59,7 +59,7 @@ The `menu` object has the following instance methods:
   * `async` Boolean (optional) - Set to `true` to have this method return immediately called, `false` to return after the menu has been selected or closed. Defaults to `false`.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
 
-Pops up this menu as a context menu in the `browserWindow`.
+Dieses Menü öffnet als Kontextmenü im `Browserfenster`.
 
 #### `menu.closePopup([browserWindow])`
 
@@ -96,7 +96,7 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-## Examples
+## Beispiele
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
@@ -254,7 +254,7 @@ The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `p
 
 When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
-### Examples
+### Beispiele
 
 Template:
 
