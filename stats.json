@@ -81,13 +81,13 @@
     "name": "Filipino",
     "code": "fil",
     "phrases": "8850",
-    "translated": "7870",
-    "approved": "176",
+    "translated": "7958",
+    "approved": "265",
     "words": "79935",
-    "words_translated": "70267",
-    "words_approved": "1892",
-    "translated_progress": 87,
-    "approved_progress": 2,
+    "words_translated": "71354",
+    "words_approved": "2983",
+    "translated_progress": 89,
+    "approved_progress": 3,
     "qa_issues": "271"
   },
   {
@@ -211,14 +211,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "8850",
-    "translated": "2801",
+    "translated": "2802",
     "approved": "77",
     "words": "79935",
-    "words_translated": "16814",
+    "words_translated": "16841",
     "words_approved": "153",
     "translated_progress": 21,
     "approved_progress": 0,
-    "qa_issues": "831"
+    "qa_issues": "832"
   },
   {
     "name": "Russian",
@@ -237,14 +237,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "8850",
-    "translated": "7984",
+    "translated": "7987",
     "approved": "153",
     "words": "79935",
-    "words_translated": "71262",
+    "words_translated": "71278",
     "words_approved": "1681",
     "translated_progress": 89,
     "approved_progress": 2,
-    "qa_issues": "3143"
+    "qa_issues": "3145"
   },
   {
     "name": "Thai",
