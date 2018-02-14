@@ -44,13 +44,13 @@ npm install --platform=win32 electron
 
 #### 鏡像
 
-你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 The url used by `electron-download` is composed as follows:
+你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 `electron-download` 用來下載的 Url 是這樣組出來的:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-例如使用位於中國的鏡像:
+假如我們要使用位於中國的鏡像站:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -58,17 +58,17 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### 快取
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+或是，你也可以蓋過本機快取。 `electron-download` 會將下載的檔案放在本機目錄做為快取，以免浪費你的網路頻寬。 你可以使用這個快取目錄來提供客製版的 Electron，或是在完全沒有網路的環境下執行。
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` 或 `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+在使用舊版 Electron 的環境中，快取可能放在 `~/.electron` 裡。
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+你也可以透過 `ELECTRON_CACHE` 環境變數蓋過本機快取位置的預設值。
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+快取內容包含檔案官方的 Zip 檔及純文字檢查碼檔案，一般的快取看起來像這樣:
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -91,7 +91,7 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 如果用 `npm` 怎樣都裝不起來的話，你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+如果安裝過程遇到 `EACCESS` 錯誤而失敗，代表可能要 [修正你 npm 的權限](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。
 
 If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
