@@ -1,6 +1,6 @@
 ## Class: TouchBarColorPicker
 
-> Create a color picker in the touch bar for native macOS applications
+> 讓 macOS 原生應用程式在 Touch Bar 中建立色彩選擇器。
 
 處理序: [主處理序](../tutorial/quick-start.md#main-process)
 
