@@ -68,7 +68,7 @@ Tingnan[Paano makagawa ng minimal, Kumpleto, at Napatunayan halimbawa](https://s
 
 ## Pagsasagawa sa bug report
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Karaniwan nito para sa mga bukas na isyu upang makasali sa diskusyon. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
