@@ -28,9 +28,9 @@ npm install --save-dev electron-installer-snap
 
 ### Unang hakbang: Package ng Iyong Application sa Electron
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will just increase your application's size.
+Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Tiyaking alisin ang `node_modules ` na hindi mo kailangan sa iyong huling aplikasyon, dahil ang anumang module na hindi mo talaga kailangan ay tataasan lamang ang laki ng iyong aplikasyon.
 
-The output should look roughly like this:
+Ang output ay dapat magmukhang halos katulad nito:
 
 ```text
 .
@@ -50,7 +50,7 @@ The output should look roughly like this:
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Ikalawang hakbang: Pagpapatakbo ng `electron-installer-snap`
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
