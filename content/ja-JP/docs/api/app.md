@@ -107,26 +107,26 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - 別のデバイスのアクティビティによって蓄積されたアプリ固有の状態が含まれています。
 
-別のデバイスからのアクティビティを再開しようとしたときに [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) している間に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
+別のデバイスからのアクティビティを継続しようとしたときに [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) している間に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+ユーザのアクティビティはアクティビティ元のアプリと同一の開発者チームIDを持ち、アクティビティタイプをサポートするアプリでしか継続させることができません。 サポートされるアクティビティタイプは、アプリの `Info.plist` の `NSUserActivityTypes` キーで指定されています。
 
-### Event: 'will-continue-activity' *macOS*
-
-戻り値:
-
-* `event` Event
-* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
-
-### Event: 'continue-activity-error' *macOS*
+### イベント: 'will-continue-activity' *macOS*
 
 戻り値:
 
 * `event` Event
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
-* `error` String - A string with the error's localized description.
+
+別のデバイスからのアクティビティを継続しようとする前に [ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) している間に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
+
+### イベント: 'continue-activity-error' *macOS*
+
+戻り値:
+
+* `event` Event
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `error` String - エラーのローカライズされた説明としての文字列。
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
 
