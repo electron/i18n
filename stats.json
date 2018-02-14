@@ -16,14 +16,14 @@
     "name": "Bulgarian",
     "code": "bg",
     "phrases": "8850",
-    "translated": "1293",
+    "translated": "1344",
     "approved": "3",
     "words": "79935",
-    "words_translated": "8056",
+    "words_translated": "8421",
     "words_approved": "6",
     "translated_progress": 10,
     "approved_progress": 0,
-    "qa_issues": "349"
+    "qa_issues": "372"
   },
   {
     "name": "Chinese Simplified",
@@ -81,11 +81,11 @@
     "name": "Filipino",
     "code": "fil",
     "phrases": "8850",
-    "translated": "7869",
-    "approved": "175",
+    "translated": "7870",
+    "approved": "176",
     "words": "79935",
-    "words_translated": "70260",
-    "words_approved": "1885",
+    "words_translated": "70267",
+    "words_approved": "1892",
     "translated_progress": 87,
     "approved_progress": 2,
     "qa_issues": "271"
@@ -238,13 +238,13 @@
     "code": "es-ES",
     "phrases": "8850",
     "translated": "7984",
-    "approved": "152",
+    "approved": "153",
     "words": "79935",
     "words_translated": "71262",
-    "words_approved": "1666",
+    "words_approved": "1681",
     "translated_progress": 89,
     "approved_progress": 2,
-    "qa_issues": "3144"
+    "qa_issues": "3143"
   },
   {
     "name": "Thai",
@@ -263,27 +263,27 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "8850",
-    "translated": "8076",
+    "translated": "8109",
     "approved": "2",
     "words": "79935",
-    "words_translated": "72585",
+    "words_translated": "72933",
     "words_approved": "2",
-    "translated_progress": 90,
+    "translated_progress": 91,
     "approved_progress": 0,
-    "qa_issues": "3910"
+    "qa_issues": "3928"
   },
   {
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "8850",
-    "translated": "2808",
+    "translated": "2842",
     "approved": "172",
     "words": "79935",
-    "words_translated": "17758",
+    "words_translated": "18124",
     "words_approved": "822",
     "translated_progress": 22,
     "approved_progress": 1,
-    "qa_issues": "1089"
+    "qa_issues": "1100"
   },
   {
     "name": "Vietnamese",
