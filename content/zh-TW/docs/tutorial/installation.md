@@ -93,16 +93,16 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 如果安裝過程遇到 `EACCESS` 錯誤而失敗，代表可能要 [修正你 npm 的權限](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+如果上述錯誤持續發生，可能需要把 [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) 旗標設為 true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+在網路速度較慢的環境中，建議搭配 `--verbose` 旗標以便看到下載進度:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+如果你想要強制重新下載二進位檔案及 SHASUM 檔，可以將 `force_no_cache` 環境變數設為 `true`。
