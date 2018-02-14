@@ -79,7 +79,7 @@ Se você deseja manipular esse evento, você deve chamar `event.preventDefault()
 
 No Windows, você tem que analisar `process.argv` (no processo principal) para obter o filepath.
 
-### Evento: 'open-url' no *macOS*
+### Evento: 'open-url' *macOS*
 
 Retorna:
 
@@ -90,7 +90,7 @@ Emitido quando o usuário deseja abrir um URL com a aplicação. O arquivo `Info
 
 Se você deseja manipular esse evento, você deve chamar `event.preventDefault()`.
 
-### Evento: 'activate' no *macOS*
+### Evento: 'activate' *macOS*
 
 Retorna:
 
@@ -99,7 +99,7 @@ Retorna:
 
 Emitido quando a aplicação é ativada. Várias ações podem disparar esse evento, tais como iniciando o aplicativo pela primeira vez, a tentativa de re-iniciar o aplicativo quando ele já está sendo executado, ou clicando no ícone de barra de tarefas ou doca do aplicativo.
 
-### Evento: 'continue-activity' no *macOS*
+### Evento: 'continue-activity' *macOS*
 
 Retorna:
 
