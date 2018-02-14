@@ -2,7 +2,7 @@
 
 > 在請求的不同時機攔截並修改其內容。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
