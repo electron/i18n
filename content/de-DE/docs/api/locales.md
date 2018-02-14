@@ -6,10 +6,10 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 
 | Sprachcode | Language Name             |
 | ---------- | ------------------------- |
-| af         | Afrikaans                 |
+| af         | Afrikanisch               |
 | am         | Amharic                   |
-| ar         | Arabic                    |
-| az         | Azerbaijani               |
+| ar         | Arabisch                  |
+| az         | Aserbaidschanisch         |
 | be         | Belarusian                |
 | bg         | Bulgarian                 |
 | bh         | Bihari                    |
