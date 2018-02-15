@@ -97,7 +97,7 @@ console.log(app)
 
 * `module` Dizgi
 
-`any` - ana işlemde `require(module)` tarafından çevirilen nesne. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+`any` - ana işlemde `require(module)` tarafından çevirilen nesne. Göreceli yollarıyla belirtilen modüller ana işlemin giriş noktasına göreli olarak çözümlenir.
 
 Örnek
 
@@ -129,11 +129,11 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+[`BrowserWindow`](browser-window.md) - bu web sayfasının ait olduğu pencereyi döndürür.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+[`WebContents`](web-contents.md) - bu web sayfasının web içeriğini çevirir.
 
 ### `remote.getGlobal(name)`
 
@@ -145,4 +145,4 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Ana süreçteki `process` nesne. Bu,`remote.getGlobal('process')` ile aynıdır, ancak önbelleğe alınmıştır.
