@@ -144,17 +144,14 @@ console.log(image)
 
 NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. Olası değerlerin bir listesi için [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) bölümüne bakın.
 
-The `hslShift` is applied to the image with the following rules
+`hslShift` görüntü uygulaması aşağıdaki gibi uygulanır
 
-* `hsl_shift[0]` (hue): The absolute hue value for the image - 0 and 1 map to 0 and 360 on the hue color wheel (red).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values:  
- 0 = remove all color.  
- 0.5 = leave unchanged.  
- 1 = fully saturate the image. 
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values:  
- 0 = remove all lightness (make all pixels black).  
- 0.5 = leave unchanged.  
- 1 = full lightness (make all pixels white).
+* `hsl_shift[0]` (renk tonu): Görüntünün mutlak renk tonu değeri - 0 ve 1, renk tonu tekerleğinde (kırmızı) 0 ve 360'a denk gelir.
+* aşağıdaki anahtar değerler: <1 />     0 = tüm rengi kaldırın. <1 />     0.5 = değişmeden bırakın. <1 />     1 = resme tamamen uygulayın. 
+* `hsl_shift [2]` (açık renk): Görüntüdeki açıklık değerleri     aşağıdaki anahtarlarla değişir:   
+     0 = tüm açıklığı kaldırın (tüm pikselleri siyah yapın).   
+     0.5 = değişmeden bırakın.   
+     1 = tam açıklık (tüm pikselleri beyaz yapın).
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
