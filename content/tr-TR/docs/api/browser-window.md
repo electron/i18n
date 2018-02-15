@@ -1132,19 +1132,19 @@ Yerel sekmeler etkinleştirildiğinde ve pencerede başka sekmeler olduğunda ö
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Yerel sekmeler etkinleştirildiğinde ve pencerede başka sekmeler olduğunda sonraki sekmeyi seçer.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Yerel sekmeler etkinleştirildiğinde ve birden fazla açık pencere olduğunda, tüm pencereleri birden çok sekme ile tek bir pencerede birleştirir.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Yerel sekmeler etkinleştirilmişse ve geçerli pencerede birden fazla sekme varsa geçerli sekmeyi yeni bir pencereye taşır.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Yerel sekmeler etkinleştirilmişse ve geçerli pencerede yalnızca bir sekme varsa, sekme çubuğunun görünürlüğünü değiştirir.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
