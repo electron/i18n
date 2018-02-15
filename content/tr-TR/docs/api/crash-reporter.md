@@ -37,7 +37,7 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
   * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
   * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
   * `extra` Obje (opsiyonel) - Raporla beraber yollanabilir şekilde tanımlayabileceğiniz bir obje. Sadece katar tipinde özellikler düzgün şekilde yollanır. Iç içe objeler desteklenmez, özellik isimleri ve değerleri 64 karakterden küçük olmalıdır.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`)
+  * `crashesDirectory` Dizge (isteğe bağlı) - Kilitleme raporlarını geçici olarak saklamak için dizin (yalnızca kilitlenme raporlayıcı `process.crashReporter.start` başlatıldığında kullanılır)
 
 `crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
 
@@ -94,11 +94,11 @@ Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `key` Dizge - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
-Çökme raporu ile birlikte gönderilmesi için ek bir parametre girin. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Çökme raporu ile birlikte gönderilmesi için bir ek parametre girin. Burada belirtilen değerler, `start` çağrıldığında `extra` seçeneği ile belirlenen değerlere ek olarak gönderilir. Bu API yalnızca macOS'ta bulunur; `start`'e ilk kez telefon açtıktan sonra Linux ve Windows'ta ek parametrelerin eklenmesi / güncellenmesi gerekiyorsa `start`'yi güncellenmiş `extra` seçenekleri ile tekrar arayabilirsiniz.
 
-### `crashReporter.removeExtraParameter(key)` *macOS*
+### `crashReporter.removeExtraParameter(key)` Linux *macOS*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
