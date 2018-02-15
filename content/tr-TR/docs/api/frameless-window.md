@@ -92,7 +92,7 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+Bu, web sayfasını `el` üzerinde tıklandığında aktifleşir ve bunun dışında olursa normal duruma döner.
 
 ## Sürüklenebilir bölge
 
