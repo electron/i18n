@@ -412,7 +412,7 @@ Doğal yeni sekme tuşunun tıklanıldığını ifade eder.
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Belirtilen `BrowserWindow | null` - Belirtilen `browserView`'ye sahip olan pencere. Verilen görünüm herhangi bir pencereye eklenmezse `null`'yi döndürür.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -1086,7 +1086,7 @@ Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamakt
 
 * `ignore` Boolean
 * `seçenekler` Obje (opsiyonel) 
-  * `forward` Mantıksal (isteğe bağlı) *Windows* - Doğru olursa fareyi hareket ettirin Chromium'a mesaj göndererek `mouseleave` gibi fare ile ilgili etkinlikleri etkinleştirin. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Mantıksal (isteğe bağlı) *Windows* - Doğru olursa fareyi hareket ettirin Chromium'a mesaj göndererek `mouseleave` gibi fare ile ilgili etkinlikleri etkinleştirin. Only used when `ignore` is true. `ignore` yanlışsa, yönlendirme bu değerden bağımsız olarak daima devre dışı bırakılır.
 
 Pencerenin tüm fare olaylarını yok saymasını sağlar.
 
