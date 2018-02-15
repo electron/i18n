@@ -58,7 +58,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatywnie możesz nadpisać lokalną pamięć podręczną. `electron-download` zapiszę w pamięci podręcznej pobrane pliki birnarne w lokalnym katalogu, aby nie przeciążać Twojego połączenia. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternatywnie możesz nadpisać lokalną pamięć podręczną. `electron-download` zapiszę w pamięci podręcznej pobrane pliki birnarne w lokalnym katalogu, aby nie przeciążać Twojego połączenia. Możesz użyć tego katalogu pamięci podręcznej, aby przekazać niestandardowe kompilacje Electron'a lub uniknąć korzystania z połączenia internetowego.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -91,7 +91,7 @@ W większości przypadków, błędy te są wynikiem problemów z połączeniem i
 
 Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/releases](https://github.com/electron/electron/releases), jeśli instalacja poprzez `npm` zawodzi.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Jeśli instalacja powoduje błąd `EACCESS`, być może musisz naprawić [uprawnienia npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 Jeżeli powyższe błędy nie ustępują, flaga [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm), może wymagać ustawienia wartości "true":
 
@@ -105,4 +105,4 @@ W przypadku wolnego połączenia z internetem, zalecane jest użycie flagi `--ve
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+W przypadku, gdy musisz wymusić ponowne pobranie sumy kontrolnej oraz danych, ustaw zmienną środowiskową `force_no_cache` na wartość `true`.
