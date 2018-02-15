@@ -199,7 +199,7 @@ Aşağıdaki yöntemler, `NativeImage` sınıfının örneklerinde bulunur:
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. MacOS' ta `NSImage` örneğine bir işaretçi iade edilecektir.
+`Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) görüntünün temel yerel işaretçisine C işaretçisini saklar. MacOS' ta `NSImage` örneğine bir işaretçi iade edilecektir.
 
 İşaretlenen işaretçinin, bir kopyanın yerine alttaki yerel görüntünün zayıf bir işaretçi olduğuna dikket edin, böylelikle *must* nin `nativeImage` etrafında tutulmasını sağlıyorsunuz.
 
@@ -209,11 +209,11 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Çevirme [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
-* `option` Boolean
+* `option` Mantıksal
 
 Görüntüyü şablon görüntüsü olarak işaretler.
 
