@@ -49,7 +49,7 @@ Istnieją wyjątki od tej reguły dla odwołań do API.
 
 ## Wybieranie słów
 
-* Use "will" over "would" when describing outcomes.
+* Używaj "will" zamiast "would" kiedy opisujesz wyniki.
 * Prefer "in the ___ process" over "on".
 
 ## API references
@@ -70,9 +70,9 @@ Używając `session` jako przykład:
 > Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy, itd.
 ```
 
-### Module methods and events
+### Metody i zdarzenia modułu
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Metody i zdarzenia modułu, który nie jest klasą muszą być wypisane pod `## metody` oraz `## zdarzenia`.
 
 Używając `autoUpdater` jako przykładu:
 
@@ -211,4 +211,4 @@ Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to met
 
 ## Tłumaczenia dokumentacji
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Zobacz [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
