@@ -978,11 +978,11 @@ Pencerenin bir karartıya sahip olup olmadığını ayarlamaktadır. Windows ve 
 
 * `opacity` Değer - 0.0 (tamamen şeffaf) ile 1.0 (tamamen opak) arasında
 
-Sets the opacity of the window. On Linux does nothing.
+Pencerenin opaklığını ayarlar. Linux'ta bu ayar yapılamaz.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+`opacity` Değer - 0.0 (tamamen şeffaf) ile 1.0 (tamamen opak) arasında
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1086,7 +1086,7 @@ Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamakt
 
 * `ignore` Boolean
 * `seçenekler` Obje (opsiyonel) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Mantıksal (isteğe bağlı) *Windows* - Doğru olursa fareyi hareket ettirin Chromium'a mesaj göndererek `mouseleave` gibi fare ile ilgili etkinlikleri etkinleştirin. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Pencerenin tüm fare olaylarını yok saymasını sağlar.
 
@@ -1128,7 +1128,7 @@ Yazarken imlecin ne zaman kaybolacağını kontrol eder.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Yerel sekmeler etkinleştirildiğinde ve pencerede başka sekmeler olduğunda önceki sekmeyi seçer.
 
 #### `win.selectNextTab()` *macOS*
 
