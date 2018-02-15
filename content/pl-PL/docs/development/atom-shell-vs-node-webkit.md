@@ -1,8 +1,8 @@
 # Techniczne różnice pomiędzy elektronami i NW.js (dawniej węzłami-webkit)
 
-**Uwaga: Electron wcześniej nosił Atom powłoki.**
+**Uwaga: Electron wcześniej nazywał się Atom Shell.**
 
-Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
+Jak NW.js Electron zapewnia platformę do pisania desktopowych aplikacji w technologi JavaScript, HTML oraz ma węzeł integracji, aby udzielić dostępu do niskiego poziomu systemu od strony sieci web.
 
 Ale istnieją również zasadnicze różnice między dwa projekty, które sprawiają, że elektron jest całkowicie oddzielnym produktem od NW.js:
 
