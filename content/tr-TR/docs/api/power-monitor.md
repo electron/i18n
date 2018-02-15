@@ -31,7 +31,7 @@ Sistem askıya alındığında yayıldı.
 
 Sistem devam ettiğinde yayılan.
 
-### Event: 'on-ac' *Windows*
+### Etinlik: 'on-ac' *Windows*
 
 Sistem AC güç değiştiğinde yayılan.
 
