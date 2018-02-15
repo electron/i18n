@@ -293,13 +293,13 @@ GPUプロセスがクラッシュしたり、強制終了されたりしたと�
 戻り値:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - Chromeのユーザ補助機能が有効な場合は `true`、そうでない場合は `false`。
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Chromeのユーザ補助機能が変更されると発生します。 このイベントはスクリーンリーダーのような支援技術が有効にされたり、無効にされたりしたときに発火します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
 ## メソッド
 
-The `app` object has the following methods:
+`app` オブジェクトには以下のメソッドがあります。
 
 **Note:** Some methods are only available on specific operating systems and are labeled as such.
 
