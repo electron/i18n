@@ -235,7 +235,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 クライアント証明書が要求されたときに発生します。
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url` がクライアント証明書を要求しているナビゲーションエントリーに対応していれば、リストからフィルターされたエントリーで `callback` を呼び出すことができます。 `event.preventDefault()` を使うことで、アプリケーションがストアから最初の証明書を使うのをキャンセルできます。
 
 ```javascript
 const {app} = require('electron')
