@@ -38,19 +38,19 @@ Jeżeli używasz serwera HTTP Proxy, możesz [użyć tych zmiennych środowiskow
 
 ## Custom Mirrors and Caches
 
-Podczas instalacji moduł `electron'a` zawoła [`electron-download`](https://github.com/electron-userland/electron-download), aby pobrać wstępnie zbudowane pliki binarne Electron'a dla Twojej platformy. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Podczas instalacji moduł `electron'a` zawoła [`electron-download`](https://github.com/electron-userland/electron-download), aby pobrać wstępnie zbudowane pliki binarne Electron'a dla Twojej platformy. Wykona to poprzez skontaktowanie się stroną wydanych wersji w domenie GitHub'a (`https://github.com/electron/electron/releases/tag/v$VERSION` gdzie `$VERSION` to dokładna wersja Electron'a).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Jeśli nie można uzyskać dostępu witryny GitHub lub należy podać niestandardowe kompilacji, możesz to zrobić przez zapewnienie lustra lub istniejącego katalogu pamięci podręcznej.
 
 #### Mirror
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. Adres url używany przez `electron-download` składa się w następujący sposób:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Na przykład aby użyć China mirror:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -58,7 +58,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternatywnie możesz nadpisać lokalną pamięć podręczną. `electron-download` zapiszę w pamięci podręcznej pobrane pliki birnarne w lokalnym katalogu, aby nie przeciążać Twojego połączenia. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
