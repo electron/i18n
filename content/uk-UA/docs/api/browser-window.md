@@ -601,10 +601,10 @@ win.loadURL('https://github.com')
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Float - Співвідношення сторін для певної частини контенту.
+* `extraSize` [Size](structures/size.md) - Додатковий розмір, який не повинен включатися при збереженні співвідношення сторін.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Це примусить вікна зберігати співвідношення сторін. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
 Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
 
@@ -617,14 +617,14 @@ Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Закриває поточну панель [Швидкого Перегляду](https://en.wikipedia.org/wiki/Quick_Look).
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Змінює розмір і переміщує вікно до переданої межі
 
 #### `win.getBounds()`
 
@@ -635,7 +635,7 @@ Resizes and moves the window to the supplied bounds
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Змінює розмір і переміщує клієнтську область (наприклад веб-сторінку) до переданої межі.
 
 #### `win.getContentBounds()`
 
@@ -659,39 +659,39 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 * `height` Integer
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Змінює розмір клієнтської області (наприклад веб-сторінки) до `width` та `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Повертає `Integer[]` - Містить ширину і висоту клієнтської області.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Встановлює мінімальні розміри вікна в `width` і `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Повертає `Integer[]` - Містить мінімальні ширину і висоту вікна.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Встановлює максимальні розміри вікна в `width` і `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Повертає `Integer[]` - Містить максимальні ширину і висоту вікна.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Встановлює чи користувач може вручну змінювати розміри вікна.
 
 #### `win.isResizable()`
 
