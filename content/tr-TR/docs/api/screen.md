@@ -79,7 +79,7 @@ Dönüşler:
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Bir veya daha fazla metrik `display` değiştiğinde yayılıyor. `changedMetrics`, değişiklikleri açıklayan dizeler dizgisidir. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Bir veya daha fazla metrik `display` değiştiğinde yayılıyor. `changedMetrics`, değişiklikleri açıklayan dizeler dizgisidir. Olası değişiklikler `bounds`, `workArea`, `scaleFactor` ve `rotation`'dir.
 
 ## Metodlar
 
