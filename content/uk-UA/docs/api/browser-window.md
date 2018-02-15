@@ -695,17 +695,17 @@ Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Повертає `Boolean` - Чи користувач може вручну змінювати розміри вікна.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Встановлює чи користувач може переміщувати вікно. На Linux не робить нічого.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Повертає `Boolean` - Чи користувач може переміщувати вікно.
 
 На Linux завжди повертає `true`.
 
@@ -713,11 +713,11 @@ Returns `Boolean` - Whether the window can be moved by user.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Встановлює чи користувач може вручну згортати вікно. На Linux не робить нічого.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Повертає `Boolean` - Чи користувач може вручну згортати вікно
 
 На Linux завжди повертає `true`.
 
@@ -725,11 +725,11 @@ Returns `Boolean` - Whether the window can be manually minimized by user
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Встановлює чи користувач може вручну максимізувати вікно. На Linux не робить нічого.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Повертає `Boolean` - Чи користувач може вручну максимізувати вікно.
 
 На Linux завжди повертає `true`.
 
@@ -747,29 +747,29 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Встановлює чи користувач може вручну закривати вікно. На Linux не робить нічого.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Повертає `Boolean` - Чи користувач може вручну закривати вікно.
 
 На Linux завжди повертає `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (опціонально) *macOS* - Включає значення `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, та ~~`dock`~~ (Застаріло). За замовчуванням `floating`. Дивіться [документацію macOS ](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) для деталей.
+* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. За замовчуванням ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Повертає `Boolean` - Чи вікно завжди поверх інших вікон.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Переміщує вікно в центр екрану.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -781,19 +781,19 @@ Moves window to the center of the screen.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Повертає `Integer[]` - Містить поточну позицію вікна.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Змінює заголовок нативного вікна на `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Повертає `String` - Заголовок нативного вікна.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Примітка:** Заголовок веб-сторінки може відрізнятися від заголовку нативного вікна.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -830,7 +830,7 @@ Enters or leaves the kiosk mode.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Повертає `Boolean` - Чи вікно в повноекранному режимі браузера.
 
 #### `win.getNativeWindowHandle()`
 
