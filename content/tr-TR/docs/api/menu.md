@@ -24,7 +24,7 @@ MacOS'ta uygulama `menu` ayarlar. Windows ve Linux'ta `menu`, her pencerenin üs
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Döner `Menu | null` - Uygulama menüsü, ayarlanmışsa veya `null` ayarlanmamışsa.
 
 **Note:** Döndürülen `Menu` örneği dinamik eklemeyi veya menü öğelerinin kaldırılmasını desteklemez. [Instance properties](#instance-properties) hala kullanılabilir dinamik olarak değiştirilebilir.
 
@@ -77,7 +77,7 @@ Menüye `menuItem` ekler.
 
 * `kimlik` dizesi
 
-Returns `MenuItem` the item with the specified `id`
+Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
 
 #### `menu.insert(pos, menuItem)`
 
