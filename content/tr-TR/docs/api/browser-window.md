@@ -590,11 +590,11 @@ Pencerenin tam ekran modunda olup olmadığını ayarlar.
 
 Basit tam ekran moduna giriş veya çıkış yapar.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Basit tam ekran modu, Mac OS X'den önce Lion (10.7) sürümlerinde bulunan yerel tam ekran davranışını seçer.
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+`Boolean` - pencerenin basit (Leon öncesi) tam ekran modunda olup olmadığını raporlar.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -976,7 +976,7 @@ Pencerenin bir karartıya sahip olup olmadığını ayarlamaktadır. Windows ve 
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Değer - 0.0 (tamamen şeffaf) ile 1.0 (tamamen opak) arasında
 
 Sets the opacity of the window. On Linux does nothing.
 
