@@ -251,7 +251,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Note**: `window.onbeforeunload = handler` ve `window.addEventListener('beforeunload', handler)` davranışları arasında ince bir fark var. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
 
 #### Etkinlik: 'kapatıldı'
 
@@ -588,7 +588,7 @@ Pencerenin tam ekran modunda olup olmadığını ayarlar.
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Basit tam ekran moduna giriş veya çıkış yapar.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
