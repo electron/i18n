@@ -50,9 +50,9 @@ Istnieją wyjątki od tej reguły dla odwołań do API.
 ## Wybieranie słów
 
 * Używaj "will" zamiast "would" kiedy opisujesz wyniki.
-* Prefer "in the ___ process" over "on".
+* Preferuj "in the ___ process" poand "on".
 
-## API references
+## Odwołania API
 
 Poniższe reguły zaliczają się tylko dla dokumentacji API.
 
