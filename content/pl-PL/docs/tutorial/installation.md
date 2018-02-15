@@ -8,7 +8,7 @@ W celu zainstalowania prekompilowanych plików Electrona, użyj [`npm`](https://
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Zobacz [dokumentacje wersjonowania Eletronc'a](electron-versioning.md), aby dowiedzieć więcej o zarządzaniu wersjami Electron'a w twoich aplikacjach.
 
 ## Instalacja globalna
 
@@ -26,7 +26,7 @@ Jeśli chcesz zmienić architekturę pobieranych pakietów (np. `ia32` na maszyn
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Dodatkowo, możesz także określić platformę (np. `win32`, `linux`, itd.), używając flagi `--platform`:
 
 ```shell
 npm install --platform=win32 electron
