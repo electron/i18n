@@ -1172,6 +1172,6 @@ Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefin
 
 #### `win.getBrowserView()` *Deneysel*
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+`BrowserView | null` - ekli bir Browsererview'e çevirir. Hiçbiri bağlı değilse `null`'e çevirir.
 
 **Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.
