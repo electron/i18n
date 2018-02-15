@@ -233,7 +233,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (任意)
 
-Emitted when a client certificate is requested.
+クライアント証明書が要求されたときに発生します。
 
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
