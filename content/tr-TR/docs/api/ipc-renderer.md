@@ -63,7 +63,7 @@ Ana işlem `channel` öğesini `ipcMain` modülüyle birlikte ve `event.returnVa
 
 ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `windowId` Sayı
 * `channel` Dizesi
 * `...args` herhangi[]
 
