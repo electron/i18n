@@ -254,7 +254,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `geri aramak` Function 
     * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. To clear the handler, call `setPermissionRequestHandler(null)`.
+Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. İşleyiciyi temizlemek için `setPermissionRequestHandler(null)`'i çağırın.
 
 ```javascript
 const {session} = require('electron')
@@ -275,7 +275,7 @@ Ana çözümleyici önbelleğini temizler.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` Dizgi - Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunucular listesi.
 
 Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilgilerini göndermeyi veya göndermemeyi ayarlar.
 
@@ -283,16 +283,16 @@ Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilg
 const {session} = require('electron')
 // consider any url ending with `example.com`, `foobar.com`, `baz`
 // for integrated authentication.
-session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
+session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz')
 
-// consider all urls for integrated authentication.
+// entegre kimlik doğrulama için tüm Url'lerin doğruluğunu kanıtlar.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` Dizgi
-* `acceptLanguages` String (optional)
+* `acceptLanguages` Dize (isteğe bağlı)
 
 `userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
 
@@ -306,9 +306,9 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` Dizgi - Valid UUID.
 * `geri aramak` Function 
-  * `result` Buffer - Blob data.
+  * `result` Tampon - Blob verileri.
 
 `Blob` döner - `identifier` ile ilişkili blob verisi.
 
