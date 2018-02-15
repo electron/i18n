@@ -266,9 +266,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+`webContents` がBasic認証を要求すると発生します。
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+既定の動作では、全ての認証を取り消しますが、これを変更するには、`event.preventDefault()` で既定の動作をキャンセルして、資格情報と共に `callback(username, password)` を呼び出すようにしてください。
 
 ```javascript
 const {app} = require('electron')
@@ -281,12 +281,12 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### イベント: 'gpu-process-crashed'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+GPUプロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
 ### イベント: 'accessibility-support-changed' *macOS* *Windows*
 
