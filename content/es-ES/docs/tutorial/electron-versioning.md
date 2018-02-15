@@ -52,7 +52,7 @@ Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categ
 * **Incrementos en la versión de parches** 
     * actualizaciones en la versión de parches de node.js
     * parches de chromium relacionados con el arreglo de problemas
-    * Arreglo de problemas de electron
+    * Corrección de fallos de Electron
 
 Note que la mayoría de las actualizaciones de chromium serán consideras como rompientes. Arreglos que pueden hacerse por la puerta de atrás es probable que sean escogidos como parches.
 
