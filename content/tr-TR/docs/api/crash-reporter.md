@@ -102,13 +102,13 @@ Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+Kilitlenme raporuyla birlikte gönderilemeyeceği için mevcut parametreler grubundan fazladan bir parametre kaldırın.
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+Çökme raportörüne gönderilen şu anki parametrelerin tümünü görün.
 
-## Çökme Raporu verisi
+## Çökme Raporu Verisi
 
 Çökme raporlarlayıcısı aşağıdaki verileri `submitURL` adresine `multipart/form-data` `POST` olarak yollayacaktır:
 
@@ -121,4 +121,4 @@ See all of the current parameters being passed to the crash reporter.
 * `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
 * `_companyName` Katar - `crashReporter` `options` objesi içerisindeki şirket ismi.
 * `upload_file_minidump` Dosya - `minidump` formatında çökme raporu.
-* `crashReporter``options` objesi içerisindeki `extra`'nın tüm birinci seviye özellikleri.
+* `extra` nesnesinin `crashReporter` `options` nesnesindeki tüm birincil düzey özellikleri.
