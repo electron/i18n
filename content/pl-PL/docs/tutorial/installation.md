@@ -38,7 +38,7 @@ Jeżeli używasz serwera HTTP Proxy, możesz [użyć tych zmiennych środowiskow
 
 ## Custom Mirrors and Caches
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Podczas instalacji moduł `electron'a` zawoła [`electron-download`](https://github.com/electron-userland/electron-download), aby pobrać wstępnie zbudowane pliki binarne Electron'a dla Twojej platformy. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
 
 If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
 
