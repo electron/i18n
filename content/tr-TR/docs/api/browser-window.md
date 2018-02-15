@@ -134,7 +134,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
   * `alwaysOnTop` Boolean (isteğe bağlı) - Pencerenin her zaman diğer pencerelerin üstünde kalıp kalmaması gerekliliği. Varsayılan `false`'dur.
   * `fullscreen` Boolean (isteğe bağlı) - Pencerenin tam ekranda gösterilip gösterilmeyeceği. MacOS'ta özellikle değer `false` olarak ayarlandığında tam ekran düğmesi görünmez veya devre dışı olacaktır. Varsayılan `false`'dur.
   * `fullscreenable` Boolean (isteğe bağlı) - Pencerenin tam ekrana moduna alınıp alınamayacağı. MacOs'ta, Ekranı Kapla/Yakınlaştır düğmesinin tam ekran modunu veya Ekranı Kapla penceresini değiştirip değiştirmeyeceği de belirtmektedir. Varsayılanı `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
+  * `simpleFullscreen` Mantıksal (isteğe bağlı) - macOS'ta Lion öncesi tam ekran kullanın. Varsayılan değer `false`.
   * `skipTaskbar` Boolean (isteğe bağlı) - Pencerenin görev çubuğunda görünüp görünmeyeceği. Varsayılan `false`'dur.
   * `kiosk` Boolean (isteğe bağlı) - Kiosk modu. Varsayılan `false`'dur.
   * `title` String (isteğe bağlı) - Varsayılan pencere başlığı. Varsayılan `"Electron"`dur.
@@ -209,7 +209,7 @@ Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks 
 `type` seçeneğinin olası değerleri ve davranışları platform bağımlıdır. Olası değerler şunlardır:
 
 * Linux'ta olası türler `masaüstü`, `dock`, `araç çubuğu`, `splash`, `bildirim`'dir.
-* MacOS'ta olası değerler `masaüstü`, `dokulu`. 
+* MacOS'ta olası değerler `masaüstü`, `dokulandırılmış`. 
   * ` dokulu` türü metal eğimi görünümünü ekler (` NSTexturedBackgroundWindowMask`).
   * `Masaüstü` modeli, pencereyi masaüstü arka planındaki pencere seviyesine yerleştirir (`kCGDesktopWindowLevel - 1`). Masaüstü penceresi klavye veya farenin durumunu odak olarak kaydetmeyecektir. Ancak veri girişini tedbirli bir şekilde yapmak için `globalShortcut` kullanabilirisinz.
 * Windows'ta mümkün olan model `toolbar` 'dır.
@@ -247,7 +247,7 @@ window.onbeforeunload = (e) => {
   // olmayan bir boşluk sessizce kapanmayı iptal eder.
   // Kullanıcının diyalog API ' ı kullanarak uygulamayı kapatması sağlanması
   // önerilmektedir.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  e.returnValue = false // equivalent to `return false` ancak önerilmez
 }
 ```
 
