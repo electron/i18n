@@ -322,9 +322,9 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
   * `uzunluk` Integer - Karşıdan yükleme toplam uzunluk.
   * `lastModified` String - Son değiştirilen başlık değeri.
   * `eTag` String - ETag başlık değeri.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `startTime` Çift (isteğe bağlı) - indirmenin UNİX epoch'tan sonraki birkaç saniye içinde başlama zamanı.
 
-Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
+Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
 #### `ses.clearAuthCache(options[, callback])`
 
