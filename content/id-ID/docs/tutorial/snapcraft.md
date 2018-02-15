@@ -10,8 +10,7 @@ dependensi, auto-update, dan bekerja pada semua distribusi Linux utama tanpa mod
 <p>Ada tiga cara untuk membuat file <code> .snap </ code>:</p>
 
 <p>1) Menggunakan <a href="https://github.com/electron-userland/electron-forge"> <code> electron-forge </ code> </a> atau <a href="https://github.com/electron-userland/electron-builder"> <code> pembangun elektron </ code> </a>, kedua alat yang disertakan dengan <code> snap </ code> dukung di luar kotak. Ini adalah pilihan termudah.
-2) Menggunakan <code> electron-installer-snap </ code>, yang mengambil <code> electron-packager </ code> 's output.
-3) Menggunakan paket <code> .deb </ code> yang sudah dibuat.</p>
+2) Using <code>electron-installer-snap`, which takes `electron-packager`'s output. 3) Menggunakan paket ` .deb </ code> yang sudah dibuat.</p>
 
 <p>Dalam semua kasus, Anda perlu menginstal <code> snapcraft </ code>. Kita
 merekomendasikan membangun di Ubuntu 16.04 (atau LTS saat ini).</p>
