@@ -5,11 +5,11 @@
 
 ## Platform / Action Support
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text` | Limitations                                                                                                                                                          |
+| Action Type | Platform Support | Usage of `text`                  | Default `text` | Einschränkungen                                                                                                                                                      |
 | ----------- | ---------------- | -------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `button`    | macOS            | Used as the label for the button | "Show"         | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
-### Button support on macOS
+### Button Unterstützung auf macOS
 
 In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
