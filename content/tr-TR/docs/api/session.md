@@ -166,9 +166,9 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
@@ -178,7 +178,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `url` URL
 * `geri aramak` Function 
-  * `proxy` String
+  * `proxy` Dizgi
 
 `url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
 
@@ -218,19 +218,19 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
 
 * `proc` Function 
   * `istek` Nesne 
-    * `hostname` String
+    * `hostname` Dizgi
     * `certificate` [sertifika](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` Dizgi - Kromdan doğrulama sonucu.
+    * `errorCode` Tamsayı - Hata kodu.
   * `geri aramak` Function 
     * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
 `session` için sertifika doğrulama proc'unu ayarlar, `proc` ne zaman sunucu sertifika doğrulaması istenirse`proc(request, callback)` ile çağırılacak. Arama `geri çağırma(0)` sertfikayı kabul eder, arama `geri çağırma(-2)` reddeder.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+`setCertificateVerifyProc(null)` çağırmak varsayılan sertifika doğrulama işlemine döner.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -248,7 +248,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `halledici` Function | null 
+* `halledici` İşlev | boş 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
