@@ -4,13 +4,13 @@
 
 Jak NW.js Electron zapewnia platformę do pisania desktopowych aplikacji w technologi JavaScript, HTML oraz ma węzeł integracji, aby udzielić dostępu do niskiego poziomu systemu od strony sieci web.
 
-Ale istnieją również zasadnicze różnice między dwa projekty, które sprawiają, że elektron jest całkowicie oddzielnym produktem od NW.js:
+Ale istnieją również zasadnicze różnice między tymi dwoma projektami, które sprawiają, że elektron jest całkowicie oddzielnym produktem od NW.js:
 
 **1. wpis aplikacji**
 
-W NW.js punkt wejścia głównego aplikacji to strona sieci web lub skrypt JS. Określ plik html lub js w ` plików package.json` i jest on otwarty w oknie przeglądarki jako główne okno aplikacji (w przypadku html entrypoint) lub gdy skrypt jest wykonany.
+W NW.js punkt wejścia głównego aplikacji to strona sieci web lub skrypt JS. Określ plik html lub js w pliku `package.json` i jest on otwarty w oknie przeglądarki jako główne okno aplikacji (w przypadku html entrypoint) lub gdy skrypt jest wykonany.
 
-W Electron, głównym punktem jest skrypt JavaScript. Zamiast podawać adres URL bezpośrednio, możesz ręcznie tworzyć okno przeglądarki i ładować pliki HTML przy użyciu interfejsu API. Musisz również słuchać wydarzeń w oknie aby decydować kiedy zamknąć aplikacje.
+W Electron, głównym punktem jest skrypt JavaScript. Zamiast podawać adres URL bezpośrednio, możesz ręcznie tworzyć okno przeglądarki i ładować pliki HTML przy użyciu interfejsu API. Musisz również nasłuchiwać zdarzeń w oknie aby decydować kiedy zamknąć aplikacje.
 
 Electron dziala bardziej jak w czasie wykonywania Node.js Interfejsy API elektronu są na niższym poziomie, więc możesz używać go do testowania zamiast [PhantomJS](http://phantomjs.org/).
 
