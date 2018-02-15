@@ -24,9 +24,9 @@ console.log(ses.getUserAgent())
 
 ### `session.fromPartition(partition[, options])`
 
-* `partition` String
+* `partition` Dizgi
 * `seçenekler` Obje (opsiyonel) 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Mantıksal - Önbelleği etkinleştirip etkinleştirmeyeceğini belirtir.
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
 
@@ -100,32 +100,33 @@ Oturumun HTTP önbelleğini temizler.
 #### `ses.clearStorageData([options, callback])`
 
 * `seçenekler` Obje (opsiyonel) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `origin` Dizge - (isteğe bağlı) `window.location.origin` temsili için `scheme://host:port` takip etmelidir.
   * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
-
-Web depolama alanları verilerini siler.
-
-#### `ses.flushStorageData()`
-
-Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
-
-#### `ses.setProxy(config, callback)`
-
-* `konfigurasyon` Nesne 
-  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
-  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
-
-Proxy ayarlarını yap.
-
-`pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
-
-`proxyRules` aşağıdaki kurallara uymak zorundadır:
-
-```sh
+  * `quotas` String[]</code> - (isteğe bağlı) Temizlenecek kota türleri şunları içerebilir: `temporary`, `persistent`, `syncable</0>.</li>
+</ul></li>
+<li>Fonksiyon <code>geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
+  
+  Web depolama alanları verilerini siler.
+  
+  #### `ses.flushStorageData()`
+  
+  Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
+  
+  #### `ses.setProxy(config, callback)`
+  
+  * `konfigurasyon` Nesne 
+    * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
+    * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
+    * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
+  * `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
+  
+  Proxy ayarlarını yap.
+  
+  `pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
+  
+  `proxyRules` aşağıdaki kurallara uymak zorundadır:
+  
+  ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
 schemeProxies = [<urlScheme>"="]<proxyURIList>
 urlScheme = "http" | "https" | "ftp" | "socks"
