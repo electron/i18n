@@ -137,12 +137,12 @@ console.log(image)
 
 ### `nativeImage.createFromNamedImage(imageName[, hslShift])` *macOS*
 
-* `imageName` String
+* `imageName` Dizge
 * `hslShift` Number[]
 
-`NativeImage` döndürür
+`NativeImage` Çevir
 
-Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
+NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği oluşturur. Olası değerlerin bir listesi için [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) bölümüne bakın.
 
 The `hslShift` is applied to the image with the following rules
 
