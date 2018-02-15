@@ -40,12 +40,12 @@ Używając `Quick Start` jako przykładu:
 
 Istnieją wyjątki od tej reguły dla odwołań do API.
 
-## Markdown rules
+## Reguły Markdown
 
 * Używaj `sh` zamiast `cmd` w code blocks (z powodu podświetlacza składni).
 * Linie powinny być zawinięte na 80 kolumnie.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Nie zagnieżdżaj więcej niż 2 poziomy listy. (we względu na moduł renderujący markdown).
+* Wszystkie bloki kodu `js` i `javascript` są-lintowane z [standard-markdown](http://npm.im/standard-markdown).
 
 ## Wybieranie słów
 
