@@ -9,7 +9,7 @@ nav:
   contact: تماس با ما
   languages: زبان‌ ها
   code_of_conduct: منشور اخلاقی
-  search: Search
+  search: جستجو
 docs:
   title: مستندات الکترون
   description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
@@ -32,7 +32,7 @@ community:
   boilerplates: برنامه ی آماده
   components: کامپوننت ها
   videos: فیلم ها
-  meetups: ملاقات‌ ها
+  meetups: ملاقات‌ها
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 electron_is_easy:
