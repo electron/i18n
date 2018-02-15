@@ -1150,7 +1150,7 @@ Yerel sekmeler etkinleştirilmişse ve geçerli pencerede yalnızca bir sekme va
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Bu pencerede pencere örneği sekmesinden sonra bir pencere sekmesini ekler.
 
 #### `win.setVibrancy(type)` *macOS*
 
