@@ -8,7 +8,7 @@
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Note:** Oluşturucu / DevTools'da `window.screen`, ayrılmış bir DOM özelliği olduğundan, `let {screen} = require('electron')` komutu çalışmaz.
 
 Tüm ekranı kaplayan bir pencere oluşturmanın örneği:
 
@@ -71,7 +71,7 @@ Dönüşler:
 
 `oldDisplay` kaldırıldığında yayılır.
 
-### Event: 'display-metrics-changed'
+### Etkinlik: 'display-metrics-changed'
 
 Dönüşler:
 
@@ -79,7 +79,7 @@ Dönüşler:
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Bir veya daha fazla metrik `display` değiştiğinde yayılıyor. `changedMetrics`, değişiklikleri açıklayan dizeler dizgisidir. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Metodlar
 
