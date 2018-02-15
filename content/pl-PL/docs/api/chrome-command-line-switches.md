@@ -2,7 +2,7 @@
 
 > Przełączniki linii komand wspierane przez Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+[App.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) można użyć, aby dołączyć je w skrypcie głównym aplikacji, zanim zostaną wyemitowane zdarzenie [ready](app.md#event-ready) modułu [aplikacji](app.md):
 
 ```javascript
 const {app} = require('electron')
@@ -10,21 +10,21 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Twój kod aplikacji...
 })
 ```
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Zignoruj limit połączeń dla `domains` w liście oddzielonej przecinkiem.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Wyłącz zapisywanie żądań HTTP w pamięci podręcznej.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Wyłącz protokoły HTTP/2 oraz SPDY/3.1.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
