@@ -75,8 +75,7 @@ app.on('ready', () => {
 ve preload.js:
 
 ```js
-Bu dosya, bir javascript içeriği oluşturulduğunda yüklenir. It runs in a
-// private scope that can access a subset of electron renderer APIs. Herhangi bir cismi global kapsamda sızdırmamaya özen gösterip dikkatli olmalıyız!
+Bu dosya, bir javascript içeriği oluşturulduğunda yüklenir. Elektron oluşturucu API'larının bir alt kümesine erişebilen // özel bir kapsamda çalışır. Küresel çapta herhangi bir nesnenin sızmamasına dikkat etmeliyiz!
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
 
