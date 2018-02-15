@@ -887,11 +887,11 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (опціонально) - Межі для захоплення
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+Те саме що і `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
@@ -900,10 +900,10 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опціонально)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Same as `webContents.loadURL(url[, options])`.
+Те саме що і `webContents.loadURL(url[, options])`.
 
 The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
@@ -933,7 +933,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Те саме що і `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
@@ -970,19 +970,19 @@ Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Повертає `Boolean` - Чи вікно має тінь.
 
-On Windows and Linux always returns `true`.
+На Windows та Linux завжди повертає `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
 
-Sets the opacity of the window. On Linux does nothing.
+Задає непрозорість вікна. На Linux не робить нічого.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Повертає `Number` - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -994,7 +994,7 @@ Add a thumbnail toolbar with a specified set of buttons to the thumbnail image o
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-The `buttons` is an array of `Button` objects:
+`buttons` масив об'єктів `Button`:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - Піктограма для показу на палені мініатюр.
@@ -1066,7 +1066,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Повертає `Boolean` - Чи панель меню видима.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
@@ -1104,7 +1104,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Змінює чи вікно може мати фокус.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
@@ -1124,7 +1124,7 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Вказує чи приховувати курсор під час друку.
 
 #### `win.selectPreviousTab()` *macOS*
 
