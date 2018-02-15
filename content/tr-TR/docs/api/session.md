@@ -140,9 +140,9 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 * `foopy:80` - Tüm URL'ler için HTTP proxy `foopy:80`'yi kullanın.
 * `foopy:80,bar,direct://` - tüm URL'ler için HTTP proxy `foopy:80` kullanın, `foopy:80` kullanılamıyorsa `bar`'e kadar başarısız olur ve bundan sonra proxy kullanamaz.
 * `socks4://foopy` - Tüm URL'ler için SOCKS v4 proxy `foopy:1080`'yi kullanın.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy,socks5://bar.com` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` yoksa SOCKS5 proxy `bar.com`'e başarısız olunur.
+* `http=foopy,direct://` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` kullanılamazsa proxy kullanmayın.
+* `http=foopy;socks=foopy2` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve diğer tüm URL'ler için `socks4://foopy2` kullanın.
 
 `proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
 
@@ -150,19 +150,19 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
     Belirli bir alanın son ekiyle eşleşir.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Örnekler: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
   IP adresi değişmez olan URL'leri eşleştirin.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
