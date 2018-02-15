@@ -8,4 +8,4 @@
 * [Optymalizowanie Breakpoint'ów](https://github.com/v8/v8/wiki/TurboFan)
 * [V8 GDB Debugging](https://github.com/v8/v8/wiki/GDB-JIT-Interface)
 
-See also [Chromium Development](chromium-development.md)
+Zobacz również [Obsługa Natywnych Modułów Node](chromium-development.md)
