@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "8850",
-    "translated": "588",
+    "translated": "348",
     "approved": "0",
     "words": "79935",
-    "words_translated": "3953",
+    "words_translated": "1769",
     "words_approved": "0",
-    "translated_progress": 4,
+    "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": "177"
+    "qa_issues": "98"
   },
   {
     "name": "Bulgarian",
@@ -198,14 +198,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "8850",
-    "translated": "1984",
+    "translated": "2019",
     "approved": "49",
     "words": "79935",
-    "words_translated": "10384",
+    "words_translated": "10622",
     "words_approved": "83",
-    "translated_progress": 12,
+    "translated_progress": 13,
     "approved_progress": 0,
-    "qa_issues": "463"
+    "qa_issues": "477"
   },
   {
     "name": "Portuguese, Brazilian",
@@ -225,23 +225,23 @@
     "code": "ru",
     "phrases": "8850",
     "translated": "3900",
-    "approved": "117",
+    "approved": "136",
     "words": "79935",
     "words_translated": "25087",
-    "words_approved": "363",
+    "words_approved": "535",
     "translated_progress": 31,
     "approved_progress": 0,
-    "qa_issues": "1343"
+    "qa_issues": "1328"
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "8850",
     "translated": "7982",
-    "approved": "153",
+    "approved": "154",
     "words": "79935",
     "words_translated": "71182",
-    "words_approved": "1681",
+    "words_approved": "1684",
     "translated_progress": 89,
     "approved_progress": 2,
     "qa_issues": "3142"
@@ -263,27 +263,27 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "8850",
-    "translated": "8115",
+    "translated": "8123",
     "approved": "2",
     "words": "79935",
-    "words_translated": "72978",
+    "words_translated": "73101",
     "words_approved": "2",
     "translated_progress": 91,
     "approved_progress": 0,
-    "qa_issues": "3930"
+    "qa_issues": "3933"
   },
   {
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "8850",
-    "translated": "2842",
+    "translated": "2892",
     "approved": "172",
     "words": "79935",
-    "words_translated": "18124",
+    "words_translated": "18582",
     "words_approved": "822",
-    "translated_progress": 22,
+    "translated_progress": 23,
     "approved_progress": 1,
-    "qa_issues": "1100"
+    "qa_issues": "1114"
   },
   {
     "name": "Vietnamese",
