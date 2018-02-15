@@ -153,9 +153,9 @@ NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği olu
      0.5 = değişmeden bırakın.   
      1 = tam açıklık (tüm pikselleri beyaz yapın).
 
-This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
+Bu, `[-1, 0, 1]` resmi tamamen beyaz yapar ve bu da `[-1, 1, 0]` görüntüyü tamamen siyah yapar.
 
-## Class: NativeImage
+## Sınıf: NativeImage
 
 > Yerel olarak tepsi resimlerini sar, liman aplikasyon ikonları.
 
