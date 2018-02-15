@@ -206,7 +206,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `callback` Function 
   * `isTrusted` Boolean - 証明書を信頼できるものと見なすかどうか
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+`url` に対する `certificate` の検証に失敗したときに発生します。証明書を信頼するためには、`event.preventDefault()` で既定の動作をキャンセルして、`callback(true)` を呼び出すようにしてください。
 
 ```javascript
 const {app} = require('electron')
@@ -231,7 +231,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (任意)
 
 Emitted when a client certificate is requested.
 
