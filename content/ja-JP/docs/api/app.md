@@ -301,7 +301,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 `app` オブジェクトには以下のメソッドがあります。
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**注:** いくつかのメソッドは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 ### `app.quit()`
 
