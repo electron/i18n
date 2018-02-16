@@ -466,9 +466,9 @@ app.exit(0)
 
 На Windows, можете да добавите допълнителни параметри по избор, пътят към вашия изпълним файл и args - масив от аргументи, които да бъдат използвани от вашето приложение при стартирането му.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Забележка:** На macOS можете да регистрирате само протоколи, които са били добавени към `info.plist` на вашето приложение. Тези стойности не могат да бъдат променени по време на изпълнение на приложението. Можете обаче да промените файла с обикновен текстов редактор или скрипт по време на изграждане на рпиложението. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) за подробности.
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+API използва системния регистър на Windows и LSSetDefaultHandlerForURLScheme вътрешно.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
@@ -476,7 +476,7 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 * `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
 * `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
@@ -502,7 +502,7 @@ Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desk
 
 `tasks` is an array of [`Task`](structures/task.md) objects.
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
 **Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
 
@@ -705,7 +705,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 
