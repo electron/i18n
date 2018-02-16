@@ -22,15 +22,15 @@ Il existe un problème de sécurité chaque fois que vous recevez le code d’un
 
 > :warning: en aucune circonstance vous devriez charger et exécuter du code distant avec l'intégration de Node.js activé. Utilisez plutôt les fichiers locaux (empaquetés avec votre application) pour exécuter le code de Node. Pour afficher du contenu distant, utilisez la balise [`webview`](../api/web-view) et assurez-vous de désactiver le `nodeIntegration`.
 
-## Electron Security Warnings
+## Avertissements de sécurité d'Electron
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show op when the binary's name is Electron, indicating that a developer is currently looking at the console.
+A partir d'Electron 2.0, les développeurs recevront des avertissements et recommandations directement dans la console de développement. Elles n'apparaissent que lorsque le nom du binaire est Electron, ce qui indique d'un développeur est en train d'inspecter la console.
 
-You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
+Vous pouvez forcer l'activation ou la désactivation ces avertissements en définissant `ELECTRON_ENABLE_SECURITY_WARNINGS` ou `ELECTRON_DISABLE_SECURITY_WARNINGS` sur `process.env` ou sur l’objet `window`.
 
-## Checklist: Security Recommendations
+## Checklist : recommandations de sécurité
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+Cette liste n'est pas 100% parfaite, mais vous devriez au moins suivre ces quelques étapes pour améliorer la sécurité de votre application.
 
 1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
 
