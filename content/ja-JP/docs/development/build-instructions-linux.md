@@ -13,7 +13,7 @@ Linux 版 Electron のビルドについては、以下のガイドラインに�
 Ubuntu では、以下のライブラリをインストールしてください
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -23,7 +23,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
 RHEL / CentOS では、以下のライブラリをインストールしてください
 
 ```sh
-$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -32,7 +32,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
 Fedora では、以下のライブラリをインストールしてください
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
