@@ -1,4 +1,4 @@
-## Sınıf: Tray
+## Sınıf: Tepsi
 
 > Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
@@ -162,7 +162,7 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
-#### Event: 'mouse-move' *macOS*
+#### Olay: 'mouse-move' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
@@ -249,7 +249,7 @@ Bir tepsi balonunu görüntüler.
 
 Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` yalnızca Windows'ta kullanılabilir ve varsayılan olarak (0, 0) değerindedir.
 
 #### `tray.setContextMenu(menu)`
 
