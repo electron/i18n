@@ -648,7 +648,7 @@ webview.addEventListener('console-message', (e) => {
 Dönüşler:
 
 * `sonuç` Nesne 
-  * `requestId` Integer
+  * `requestId` Tamsayı
   * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
   * `matches` Tamsayı - Numaraların eşleştirilmesi.
   * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
