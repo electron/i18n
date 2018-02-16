@@ -7,10 +7,10 @@ Süreç: [Ana](../tutorial/quick-start.md#main-process)
 ### `new TouchBarPopover(options)` *Experimental*
 
 * `seçenekler` Nesne 
-  * `label` String (optional) - Popover button text.
-  * `icon` [NativeImage](native-image.md) (optional) - Popover button icon.
-  * `items` [TouchBar](touch-bar.md) (optional) - Items to display in the popover.
-  * `showCloseButton` Boolean (optional) - `true` to display a close button on the left of the popover, `false` to not show it. Default is `true`.
+  * `label` Dizge (isteğe bağlı) - açılır düğme metni.
+  * `icon` [NativeImage](native-image.md) (isteğe bağlı) - Açılır düğme simgesi.
+  * `items` [TouchBar](touch-bar.md) (isteğe bağlı) - Açılır pencerede görüntülenecek öğeler.
+  * `showCloseButton` Mantıksal (isteğe bağlı) - açılır pencerenin solundaki kapat düğmesini görüntülemek için `true`, göstermek için `false`. Varsayılan `true`'tür.
 
 ### Örnek özellikleri
 
