@@ -331,7 +331,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 `app.relaunch` が複数回呼び出された場合、現在のインスタンスが終了した後、複数のインスタンスが開始されます。
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+現在のインスタンスをすぐに再起動し、新しいコマンドライン引数を新しいインスタンスに追加する例:
 
 ```javascript
 const {app} = require('electron')
@@ -342,38 +342,38 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+戻り値 `Boolean` - Electronの初期化が完了した場合、`true`、そうでない場合、`false`。
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Linuxでは、最初の可視ウインドウにフォーカスを当てます。macOSではアプリケーションをアクティブなアプリにします。Windowsでは、アプリケーションの最初のウインドウにフォーカスを当てます。
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+最小化することなくアプリケーションのすべてのウインドウを非表示にします。
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+非表示にされたアプリケーションのウインドウを表示します。自動的にフォーカスは当たりません。
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+戻り値 `String` - 現在のアプリケーションのディレクトリ。
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。失敗した場合、`Error` がスローされます。
 
-You can request the following paths by the name:
+以下のパスを名前で要求することができます。
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
+* `home` ユーザのホームディレクトリ。
+* `appData` 既定のユーザ毎のアプリケーションデータディレクトリ。 
+  * Windowsの場合、`%APPDATA%`
+  * Linuxの場合、`$XDG_CONFIG_HOME` もしくは `~/.config`
+  * macOSの場合、`~/Library/Application Support`
+* `userData` アプリの設定ファイルが保存されるディレクトリで、既定ではアプリの名前で追加された `appData` のディレクトリ。
 * `temp` Temporary directory.
 * `exe` The current executable file.
 * `module` The `libchromiumcontent` library.
@@ -436,7 +436,7 @@ Overrides the current application's name.
 
 ### `app.getLocale()`
 
-戻り値 `String` - 現在のアプリケーションのロケール。可能性のある戻り値は [ここ](locales.md) に記されています。
+戻り値 `String` - 現在のアプリケーションのロケール。返却される可能性のある値は [ここ](locales.md) に記されています。
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
