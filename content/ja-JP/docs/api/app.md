@@ -412,7 +412,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+`name` に関連付けられた特別なディレクトリもしくはファイルの `path` を上書きします。 パスとして存在しないディレクトリが指定された場合、このメソッドによってディレクトリが作成されます。 失敗した場合、`Error` がスローされます。
 
 You can only override paths of a `name` defined in `app.getPath`.
 
