@@ -16,14 +16,14 @@
     "name": "Bulgarian",
     "code": "bg",
     "phrases": "8850",
-    "translated": "1447",
+    "translated": "1471",
     "approved": "3",
     "words": "79935",
-    "words_translated": "9264",
+    "words_translated": "9534",
     "words_approved": "6",
     "translated_progress": 11,
     "approved_progress": 0,
-    "qa_issues": "400"
+    "qa_issues": "412"
   },
   {
     "name": "Chinese Simplified",
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "8850",
-    "translated": "6553",
+    "translated": "6642",
     "approved": "49",
     "words": "79935",
-    "words_translated": "48826",
+    "words_translated": "50172",
     "words_approved": "301",
-    "translated_progress": 61,
+    "translated_progress": 62,
     "approved_progress": 0,
-    "qa_issues": "1938"
+    "qa_issues": "1980"
   },
   {
     "name": "German",
@@ -159,10 +159,10 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "8850",
-    "translated": "3235",
+    "translated": "3280",
     "approved": "135",
     "words": "79935",
-    "words_translated": "17639",
+    "words_translated": "18101",
     "words_approved": "368",
     "translated_progress": 22,
     "approved_progress": 0,
@@ -263,14 +263,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "8850",
-    "translated": "8322",
+    "translated": "8388",
     "approved": "2",
     "words": "79935",
-    "words_translated": "75086",
+    "words_translated": "75645",
     "words_approved": "2",
-    "translated_progress": 93,
+    "translated_progress": 94,
     "approved_progress": 0,
-    "qa_issues": "4040"
+    "qa_issues": "4080"
   },
   {
     "name": "Ukrainian",
