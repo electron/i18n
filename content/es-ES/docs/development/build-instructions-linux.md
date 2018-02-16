@@ -109,7 +109,7 @@ Para limpiar los archivos de compilación:
 $ npm run clean
 ```
 
-Para limpiar solo los directorios `fuera` y `dist`:
+Para limpiar solo los directorios `out` y `dist`:
 
 ```sh
 $ npm run clean-build
