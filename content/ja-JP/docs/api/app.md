@@ -307,21 +307,21 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 すべてのウインドウを閉じようとします。 `before-quit` イベントが最初に発生します。 すべてのウインドウを閉じることに成功した場合、`will-quit` イベントが発生し、既定ではアプリケーションは終了します。
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+このメソッドは、すべての `beforeunload` および `unload` イベントハンドラーが正しく実行されることを保証します。 `beforeunload` イベントハンドラーで `false` を返すことによって、ウインドウが終了処理をキャンセルすることができます。
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (任意)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+`exitCode` ですぐに終了します。`exitCode` の初期値は0です。
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+ユーザに確認することなくすべてのウインドウがすぐに閉じられ、`before-quit` および `will-quit` イベントは発生しません。
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (任意) 
+  * `args` String[] - (任意)
+  * `execPath` String (任意)
 
 Relaunches the app when current instance exits.
 
