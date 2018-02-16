@@ -411,13 +411,13 @@ Retourne :
   * `linkText` String - Texte associé au lien. Peut être une chaîne de caractère vide si le contenu du lien est une image.
   * `pageURL` String - L'URL de la page haut niveau d'où le menu contextuel a été invoqué.
   * `frameURL` String - L'URL de la subframe d'où le menu contextuel a été invoqué.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
+  * `srcURL` String - URL source de l’élément sur lequel le menu contextuel a été appelé. Les éléments portant des URLs sources peuvent être des images, sons ou vidéos.
+  * `mediaType` String - Type du nœud sur lequel le menu contextuel a été appelé. Peut être `none`, `image`, `audio`, `vidéo`, `toile`, `fichier` ou `plugin`.
+  * `hasImageContents` Boolean - Si le menu contextuel a été invoqué sur une image au contenu non-vide ou non.
+  * `isEditable` Boolean - Si le contexte est modifiable ou non.
+  * `selectionText` String - Texte de la sélection sur laquelle le menu contextuel a été invoqué.
+  * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
+  * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
   * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
   * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
   * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
