@@ -1,4 +1,4 @@
-## Class: TouchBarColorPicker
+## Sınıf: TouchBarColorPicker
 
 > MacOS uygulamaları için dokunmatik çubuk içinde bir renk seçici oluşturun
 
@@ -7,8 +7,8 @@
 ### `new TouchBarColorPicker(options)` *Experimental*
 
 * `seçenekler` Nesne 
-  * `availableColors` String[] (optional) - Array of hex color strings to appear as possible colors to select.
-  * `selectedColor` String (optional) - The selected hex color in the picker, i.e `#ABCDEF`.
+  * `availableColors` String[] (isteğe bağlı) - Seçilecek olası renkler olarak görünecek altılı renk dizeleri dizisi.
+  * `selectedColor` Dizge (isteğe bağlı) - Seçicide seçili altı renk, yani `#ABCDEF`.
   * `değiştir` Fonksiyon (isteğe bağlı) - Bir renk seçildiğinde aranacak fonksiyon. 
     * `renk` Metin - Kullanıcının seçiciden seçtiği renk
 
@@ -22,4 +22,4 @@ Renk seçicinin kullanılabilir renklerini gösteren bir `String[]` dizini. Bu d
 
 #### `touchBarColorPicker.selectedColor`
 
-Renk seçicinin seçili rengini temsil eden `String` hex kod. Bu değeri değiştirmek dokunma çubuğundaki renk seçiciyi derhal günceller.
+Renk seçicinin seçili rengini temsil eden `String` hex kod. Bu değeri değiştirmek dokunma çubuğundaki renk seçiciyi hemen günceller.
