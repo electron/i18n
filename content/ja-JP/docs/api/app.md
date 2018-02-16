@@ -323,13 +323,13 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
   * `args` String[] - (任意)
   * `execPath` String (任意)
 
-Relaunches the app when current instance exits.
+現在のインスタンスが終了したときに、アプリを再起動します。
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+既定では新しいインスタンスは現在のインスタンスと同じ作業ディレクトリおよびコマンドライン引数を使用します。 `args` が指定された場合、`args` がコマンドライン引数として代わりに引き渡されます。 `execPath` が指定された場合、`execPath` が再起動のため現在のアプリに代わって実行されます。
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+このメソッドは実行されているアプリを終了しないことに注意してください。アプリを再起動するには、`app.relaunch` を呼び出した後、`app.quit` または `app.exit` を呼び出さなければなりません。
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+`app.relaunch` が複数回呼び出された場合、現在のインスタンスが終了した後、複数のインスタンスが開始されます。
 
 An example of restarting current instance immediately and adding a new command line argument to the new instance:
 
