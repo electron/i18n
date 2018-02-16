@@ -119,11 +119,11 @@ Writes any unwritten DOMStorage data to disk.
   * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
 * `callback` Function - Called when operation is done.
 
-Sets the proxy settings.
+Indique les paramètres de proxy.
 
 When `pacScript` and `proxyRules` are provided together, the `proxyRules` option is ignored and `pacScript` configuration is applied.
 
-The `proxyRules` has to follow the rules below:
+Les `proxyRules` doivent suivre les règles ci-dessous :
 
 ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
@@ -143,35 +143,35 @@ Par exemple :
 * `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
 * `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
 
-The `proxyBypassRules` is a comma separated list of rules described below:
+Le `proxyBypassRules` est une liste de règles séparées par des virgules, comme décrites ci-dessous :
 
 * `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
   
-  Match all hostnames that match the pattern HOSTNAME_PATTERN.
+  Correspond à tous les noms d'hôte qui correspondent au pattern HOSTNAME_PATTERN.
   
   Exemples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
-    Match a particular domain suffix.
+    Correspond à un suffixe de domaine particulier.
     
     Exemples: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
-  Match URLs which are IP address literals.
+  Correspond aux URLs qui sont des adresses IP littérales.
   
   Exemples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Correspond à n'importe quelle URL qui est une IP littérale, comprise dans la fourchette d'adresse donnée. La portée IP est spécifiée avec la notation CIDR.
   
   Exemples: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
-  Match local addresses. The meaning of `<local>` is whether the host matches one of: "127.0.0.1", "::1", "localhost".
+  Correspond aux adresses locales. Le sens de `<local>` indique si l'hôte correspond à une des valeurs suivantes: "127.0.0.1", "::1", "localhost".
 
 #### `ses.resolveProxy(url, callback)`
 
@@ -179,26 +179,26 @@ The `proxyBypassRules` is a comma separated list of rules described below:
 * `callback` Function 
   * `proxy` String
 
-Resolves the proxy information for `url`. The `callback` will be called with `callback(proxy)` when the request is performed.
+Résout les informations du proxy pour l'`url`. Le `callback` sera appelé avec `callback(proxy)` lorsque la requête est effectuée.
 
 #### `ses.setDownloadPath(path)`
 
-* `path` String - The download location
+* `path` String - Emplacement de téléchargement
 
-Sets download saving directory. By default, the download directory will be the `Downloads` under the respective app folder.
+Paramètre le répertoire de sauvegarde des téléchargements. Par défaut, le répertoire des téléchargements sera `Downloads` dans le dossier de l'application respective.
 
 #### `ses.enableNetworkEmulation(options)`
 
 * `options` Objet 
-  * `offline` Boolean (optional) - Whether to emulate network outage. Defaults to false.
-  * `latency` Double (optional) - RTT in ms. Defaults to 0 which will disable latency throttling.
-  * `downloadThroughput` Double (optional) - Download rate in Bps. Defaults to 0 which will disable download throttling.
-  * `uploadThroughput` Double (optional) - Upload rate in Bps. Defaults to 0 which will disable upload throttling.
+  * `offline` Boolean (optionnel) - S'il faut simuler une extinction du réseau ou non. Est positionné sur False par défaut.
+  * `latency` Double (optional) - RTT en ms. Par défaut à 0, ce qui désactive la limitation de latence.
+  * `downloadThroughput` Double (optionnel) - Taux de téléchargement en Bps. Par défaut à 0, ce qui désactive la limitation de téléchargement.
+  * `uploadThroughput` Double (optionnel) - Taux d'émission en Bps. Par défaut à 0, ce qui désactive la limitation d'émission.
 
-Emulates network with the given configuration for the `session`.
+Emule le réseau avec la configuration donnée pour la `session`.
 
 ```javascript
-// To emulate a GPRS connection with 50kbps throughput and 500 ms latency.
+// Pour émuler une connexion GPRS avec un débit de 50kbps et une latence de 500 ms.
 window.webContents.session.enableNetworkEmulation({
   latency: 500,
   downloadThroughput: 6400,
