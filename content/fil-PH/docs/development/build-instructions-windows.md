@@ -17,7 +17,7 @@ Ang pagbuo ng Elektron ay nangyayari lamang sa "command-line scripts" at hindi m
 
 **Tandaan:** Kahit pa ang "Visual Studio" ay 'di ginagamit sa pagbuo ng Elektron, ito ay **kailangan** pa rin upang magamit ang kinakailangan na "toolchains" galing dito.
 
-## Ang Pagkuha ng "Code"
+## Pagkuha ng code
 
 ```powershell
 $ git clone https://github.com/electron/electron.git
@@ -25,14 +25,14 @@ $ git clone https://github.com/electron/electron.git
 
 ## "Bootstrapping"
 
-Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin ang ginagamit na `ninja` para sa pagbuo ng "Electron", ay humahadlang upang walang proyekto ng "Visual Studio" ang mabuo dito.
+Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng proyekto sa files. Pansinin ang ginagamit na `ninja` para sa pagbuo ng "Electron", ay humahadlang upang walang proyekto ng "Visual Studio" ang mabuo dito.
 
 ```powershell
 $ cd electron
 $ python script\bootstrap.py -v
 ```
 
-## Ang Pagbubuo
+## Pagbuo
 
 Ang pagbuo ng parehong pinupuntirya na "Release" at "Debug":
 
@@ -66,7 +66,7 @@ Para makabuo ng proyekto ng "Visual Studio", maaaring idaan sa "parameter" na `-
 $ python script\bootstrap.py --msvs
 ```
 
-## Ang Paglilinis
+## Paglilinis
 
 Upang malinis ang binubuong files:
 
@@ -82,11 +82,11 @@ $ npm run clean-build
 
 Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
 
-<h2>Mga Pag-susuri</h2>
+<h2>Mga Pagsusuri</h2>
 
 <p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
 
-<h2>"Troubleshooting"</h2>
+<h2>Paghahanap ng Problema</h2>
 
 <h3>"Command xxxx" ay 'di mahanap</h3>
 
