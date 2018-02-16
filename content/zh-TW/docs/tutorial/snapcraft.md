@@ -96,7 +96,7 @@ parts:
     source-type: deb
     after:
 
-      - desktop-gtk2
+      - desktop-gtk3
     stage-packages:
       - libasound2
       - libgconf2-4
@@ -117,8 +117,8 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # 修正 Chromium Framework/Electron 的 TMPDIR 路徑，確保
-    # libappindicator 有可供讀取的資源。
+    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+    # libappindicator has readable resources.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
