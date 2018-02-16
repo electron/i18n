@@ -85,18 +85,18 @@ ringkasan: Sedikit deskripsi untuk aplikasi
 deskripsi: |
 Kamu tahu apa? Aplikasi ini luar biasa! Itu semua untuk anda. Ada yang mengatakan itu membuat Anda muda, bahkan mungkin bahagia.
 
-grade: stabil
-kurungan: klasik
+grade: stable
+confinement: classic
 
-bagian:
-  kendur:
+parts:
+  slack:
     plugin: dump
-    sumber: my-deb.deb
-    tipe sumber: deb
-    setelah:
+    source: my-deb.deb
+    source-type: deb
+    after:
 
-      - desktop-gtk2
-    paket panggung:
+      - desktop-gtk3
+    stage-packages:
       - libasound2
       - libgconf2-4
       - libnotify4
@@ -106,18 +106,18 @@ bagian:
       - libpulse0
       - libxss1
       - libxtst6
-  peluncuran elektron:
+  electron-launch:
     plugin: dump
-    sumber: file /
-    siapkan:
-      chmod + x bin / peluncuran elektron
+    source: files/
+    prepare: |
+      chmod +x bin/electron-launch
 
-aplikasi:
+apps:
   myApp:
-    perintah: bin / peluncuran elektron $ SNAP / usr / lib / myApp / myApp
-    desktop: usr / share / applications / myApp.desktop
-    # Perbaiki jalur TMPDIR untuk Kerangka / Elemen Kromium untuk memastikannya
-    # libappindicator memiliki sumber yang mudah dibaca.
+    command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
+    desktop: usr/share/applications/myApp.desktop
+    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
+    # libappindicator has readable resources.
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 `</pre> 
