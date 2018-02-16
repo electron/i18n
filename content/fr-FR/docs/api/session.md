@@ -1,12 +1,12 @@
 # session
 
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+> Gère les sessions du navigateur, les cookies, le cache, les paramètres de proxy, etc.
 
 Processus : [Main](../glossary.md#main-process)
 
-The `session` module can be used to create new `Session` objects.
+Le module `session` peut être utilisé pour créer des objets `Session`.
 
-You can also access the `session` of existing pages by using the `session` property of [`WebContents`](web-contents.md), or from the `session` module.
+Vous pouvez également accéder à la `session` des pages existantes à l’aide de la propriété `session` des [`WebContents`](web-contents.md), ou le module `session`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -66,9 +66,9 @@ Les événements suivants sont disponibles pour les instances de `Session` :
 * `item` [DownloadItem](download-item.md)
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when Electron is about to download `item` in `webContents`.
+Émis lorsque Electron est sur le point de télécharger `item` dans `webContents`.
 
-Calling `event.preventDefault()` will cancel the download and `item` will not be available from next tick of the process.
+Faire appel à `Event.preventDefault ()` annule le téléchargement et `item` ne sera pas disponible dans le battement suivant du processus.
 
 ```javascript
 const {session} = require('electron')
@@ -87,13 +87,13 @@ Les méthodes suivantes sont disponibles pour les instances de `Session` :
 #### `ses.getCacheSize(callback)`
 
 * `callback` Function 
-  * `size` Integer - Cache size used in bytes.
+  * `taille` Integer - Taille du cache utilisé en octets.
 
-Callback is invoked with the session's current cache size.
+Le callback est appelé avec la taille de cache actuelle de la session.
 
 #### `ses.clearCache(callback)`
 
-* `callback` Function - Called when operation is done
+* `callback` Function - Appelée lorsque l’opération est effectuée
 
 Efface le cache HTPP de la session.
 
@@ -328,9 +328,9 @@ Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - Called when operation is done
+* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée
 
-Clears the session’s HTTP authentication cache.
+Vide le cache d'authentification HTTP de la session.
 
 ### Instance Properties
 
