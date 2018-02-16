@@ -13,7 +13,7 @@ Follow the guidelines below for building Electron on Linux.
 Na Ubuntu zainstalować należy następujące biblioteki:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -23,7 +23,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
 Na RHEL / CentOS, zainstaluj następujące biblioteki:
 
 ```sh
-$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -32,7 +32,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
 Na Fedora, zainstalować należy poniższe biblioteki:
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
