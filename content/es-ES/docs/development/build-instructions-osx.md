@@ -83,6 +83,6 @@ $ npm run clean-build
 
 **Nota:** Ambos comandos limpios requieren un `arranque` de nuevo después de ser compilados.
 
-## Pruebas
+## Verificación
 
 Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
