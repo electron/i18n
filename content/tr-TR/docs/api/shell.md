@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+`shell` modülü, masaüstü entegrasyonuyla ilgili işlevler sunar.
 
 Bir URL'yi kullanıcının varsayılan tarayıcısında açmaya örnek:
 
@@ -20,7 +20,7 @@ The `shell` modülünün aşağıdaki yöntemleri vardır:
 
 ### `shell.showItemInFolder(fullPath)`
 
-* `fullPath` String
+* `fullPath` Dizgi
 
 `Boolean` Döndürür - Öğenin başarıyla gösterilip gösterilmediği
 
@@ -28,7 +28,7 @@ Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı se
 
 ### `shell.openItem(fullPath)`
 
-* `fullPath` String
+* `fullPath` Dizgi
 
 `Boolean` Döndürür - Öğenin başarılı bir şekilde açılıp açılmadığı.
 
@@ -48,7 +48,7 @@ Verilen harici protokol URL'sini masaüstünde varsayılan şekilde açın. (Ör
 
 ### `shell.moveItemToTrash(fullPath)`
 
-* `fullPath` String
+* `fullPath` Dizgi
 
 `Boolean` Döndürür - Öğenin çöp kutusuna başarıyla taşınıp taşınmadığı
 
