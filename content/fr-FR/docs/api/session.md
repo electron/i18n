@@ -95,17 +95,17 @@ Le callback est appelé avec la taille de cache actuelle de la session.
 
 * `callback` Function - Appelée lorsque l’opération est effectuée
 
-Efface le cache HTPP de la session.
+Efface le cache HTTP de la session.
 
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Object (facultatif) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `origin` String - (optionnel) Devrait suivre la représentation de `window.location.origin` : `scheme://host:port`.
   * `storages` String[] - (optional) The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* `callback` Function (optional) - Called when operation is done.
+  * `quotas` String[] - (optionnel) Le type de quotas à vider, peut contenir: `temporary`, `persistent`, `syncable`.
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
 
-Clears the data of web storages.
+Efface les données de stockage du web.
 
 #### `ses.flushStorageData()`
 
@@ -248,7 +248,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 #### `ses.setPermissionRequestHandler(handler)`
 
 * `handler` Function | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents requesting the permission.
+  * `webContents` [WebContents](web-contents.md) - WebContents qui demandent la permission.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` Boolean - Allow or deny the permission
@@ -268,7 +268,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - Called when operation is done.
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
 
 Vide le cache de résolution de l'hôte.
 
