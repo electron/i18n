@@ -374,16 +374,16 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
   * Linuxの場合、`$XDG_CONFIG_HOME` もしくは `~/.config`
   * macOSの場合、`~/Library/Application Support`
 * `userData` アプリの設定ファイルが保存されるディレクトリで、既定ではアプリの名前で追加された `appData` のディレクトリ。
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
+* `temp` 一時ディレクトリ。
+* `exe` 現在の実行ファイル。
+* `module` `libchromiumcontent` ライブラリ。
+* `desktop` 現在のユーザのデスクトップディレクトリ。
+* `documents` ユーザの"マイドキュメント"のディレクトリ。
+* `downloads` ユーザのダウンロードのディレクトリ。
+* `music` ユーザのミュージックのディレクトリ。
+* `pictures` ユーザのピクチャのディレクトリ。
+* `videos` ユーザのビデオのディレクトリ。
+* `logs` アプリのログフォルダのディレクトリ。
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
