@@ -13,7 +13,7 @@ Siga las indicaciones a continuación para construir Electron en Linux.
 En Ubuntu, instala las siguientes librerías: 
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -23,7 +23,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
 En RHEL / CentOS, instala las siguientes librerías:
 
 ```sh
-$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -32,7 +32,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
 En Fedora, instala las siguientes librerías:
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -40,7 +40,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Otras distribuciones pueden ofrecer paquetes similares para instalación a través de gestores de paquetes como pacman. O uno puede compilar desde el código fuente.
 
-## Obteniendo Código
+## Obteniendo el código
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## Inicialización
 
-El comando de inicialización descargará el conjunto de archivos necesarios y creará archivos de proyecto. Debe tener Python 2.7.x para que el comando funcione. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando `ninja` para compilar Electron no hay `Makefile` generado.
+El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Debe tener Python 2.7.x para que el comando funcione. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando `ninja` para compilar Electron no hay `Makefile` generado.
 
 ```sh
 $ cd electron
@@ -77,7 +77,7 @@ Y para compilar cruzadamente para objetivos `arm` o `ia32`, debe pasar el parám
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Construcción
+## Compilando
 
 Si desea compilar metas `Release` y `Debug`:
 
@@ -103,19 +103,19 @@ Después que la construcción está lista, también puede encontrar depurado bin
 
 ## Limpieza
 
-Para limpiar archivos construidos:
+Para limpiar los archivos de compilación:
 
 ```sh
 $ npm run clean
 ```
 
-Para limpiar solo los directorios `out` y `dist`:
+Para limpiar solo los directorios `fuera` y `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Nota:** Ambos comandos de limpieza requieren ejecutar la `inicialización` nuevamente después de la construcción.
+**Nota:** Ambos comandos limpios requieren un `arranque` de nuevo después de ser compilados.
 
 ## Problemas
 
@@ -127,7 +127,7 @@ El precompilado `clang` tratará enlazar a `libtinfo.so.5`. Dependiendo de la ar
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Pruebas
+## Verificación
 
 Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
 
