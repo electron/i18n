@@ -1,6 +1,6 @@
 ## Klasa: Menu
 
-> Create native application menus and context menus.
+> Twórz natywne menu aplikacji oraz kontekstowe menu.
 
 Proces: [Main](../glossary.md#main-process)
 

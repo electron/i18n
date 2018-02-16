@@ -14,7 +14,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
 
 İşlem: [Ana](../glossary.md#main-process)
 
-`Notification` is an [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter).
+`Notification` modülü [EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter) sınıfının bir örneğidir.
 
 `options` ile belirlenen yerel özelliklere sahip yeni bir `Notification` oluşturur.
 
@@ -33,7 +33,7 @@ Bir oluşturucu işleminden bildirimleri göstermek istiyorsanız [HTML5 Bildiri
   * `altyazı` Metin - (isteğe bağlı) Başlığın altında görüntülenen bildirim için bir altyazı. *macOS*
   * `gövde` Metin - Bildirimin gövde metni, başlık veya altyazı altında görüntülenecektir
   * `sessiz` Boolean - (isteğe bağlı) Bildirim gösterilirken bir İşetim Sistemi bildirim sesi yayınlayıp yayınlamayacağım
-  * `icon` (String | [NativeImage](native-image.md)) - (optional) An icon to use in the notification
+  * `icon` (String | [NativeImage](native-image.md)) Bildirimde kullanılacak simgeyi tanımlar
   * `hasReply` Boolean - (İsteğe bağlı) Bildirimler için satır içi cevap seçeneği eklemek isteyip istemediğinizi gösterir. *macOS*
   * `replyPlaceholder` Dizi - (İsteğe Bağlı) - Satır içerisindeki açıklama alanları için yer tutucu özelliği vardır. *macOS*
   * `sound` Dizi - (İsteğe Bağlı) Bildirim geldiğinde çalacak ses dosyasının adı yer alır.*macOS*
@@ -69,9 +69,9 @@ Dönüşler:
 
 Bildirim, kullanıcı tarafından manuel müdahale edilerek kapatıldığında ortaya çıkar.
 
-This event is not guaranteed to be emitted in all cases where the notification is closed.
+Bu olayın, bildirimin kapalı olduğu tüm durumlarda bildirim vermesi garanti edilmez.
 
-#### Event: 'reply' *macOS*
+#### Etkinlik: 'hızlı kaydır' *macOS*
 
 Dönüşler:
 
@@ -80,7 +80,7 @@ Dönüşler:
 
 Bir bildirimin yayınlanması için kullanıcının `hasReply: true` olan bir bildirimde "yanıtla" düğmesini tıklaması gerekir.
 
-#### Event: 'action' *macOS*
+#### Etkinlik: 'hızlı kaydır' *macOS*
 
 Dönüşler:
 
@@ -95,11 +95,11 @@ Dönüşler:
 
 Bildirimi kullanıcıya anında gösterir, lütfen bu, HTML5 Bildirim uygulamasının aksine, `new Notification` ın basit bir örneğini hemen kullanıcıya göstermediğini, OS'nin bunu görüntülemeden önce bu yöntemi aramanız gerektiğini unutmayın.
 
-If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+Bildirim daha önce gösterilmişse, bu yöntem önceden gösterilen bildirimi reddedecek ve aynı özelliklere sahip yeni bir bildirim oluşturacaktır.
 
 #### `notification.close()`
 
-Dismisses the notification.
+Bildirimleri yoksay.
 
 ### Çalınan sesler
 

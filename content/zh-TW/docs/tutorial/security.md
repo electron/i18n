@@ -30,19 +30,19 @@
 
 ## 檢查清單: 安全性建議事項
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+不是說這樣就能金槍不入，但至少你應該依照下列步驟來提升你應用程式的安全性。
 
 1) [只載入安全的內容](#only-load-secure-content) 2) [停用任何會顯示遠端內容的畫面轉譯處理序中的 Node.js 整合功能](#disable-node.js-integration-for-remote-content) 3) [在所有會顯示遠端內容的畫面轉譯處理序中啟用內容隔離功能](#enable-context-isolation-for-remote-content) 4) [在所有會載入遠端內容的 Session 中使用`ses.setPermissionRequestHandler()`](#handle-session-permission-requests-from-remote-content) 5) [不要停用 `webSecurity`](#do-not-disable-websecurity) 6) [定義 `Content-Security-Policy`](#define-a-content-security-policy) 並啟用嚴格規則 (i.e. `script-src 'self'`) 7) [覆寫並停用 `eval`](#override-and-disable-eval)，否則一般字串有可能被當成程式執行。 8) [不要將 `allowRunningInsecureContent` 設為 `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [不要啟用實驗性功能](#do-not-enable-experimental-features) 10) [不要使用 `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: 不要用 `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: 檢查所有 `<webview>` 標籤的選項及參數](#verify-webview-options-before-creation)
 
 ## 1) 只載入安全的內容
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+任何不是包在你應用程式中的資源，應該使用安全的通訊協定來載入，例如 `HTTPS`。 也就是說別用 `HTTP` 這類不安全的通訊協定。 基於相同理由，我們建議使用 `WSS` 而不是 `WS`、`FTPS` 而不是 `FTP`，其於類推。
 
 ### 為什麼?
 
-`HTTPS` has three main benefits:
+使用 `HTTPS` 有三大好處:
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) 能驗證遠端伺服器，確保你的應用程式連到正確的網站，而不是連到假網站。 2) 能確保資料完整性，確定資料沒有在應用程式及主機溝通的過程中被修改。 3) 它加密你的使用者及目的地主機間傳送的資料，讓他人難以竊聽到傳送的資訊。
 
 ### 怎麼做?
 
@@ -405,4 +405,4 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。
+再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目的只是要顯示網站，那麼瀏覽器會是比較安全的選項。

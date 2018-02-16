@@ -32,7 +32,7 @@ May mga ilang malaking pagbabago mula sa ating 1.x na stratehiya na nakabalangka
 2. Pambungad ng semver-compliant `-beta` tags
 3. Pambungad sa [conventional commit messages](https://conventionalcommits.org/)
 4. Malinaw na pagpapaliwanag sa pagpapanatag ng mga sangay
-5. Ang `master` na branch ay walang bersyon; tanging ang katatagan ng branches lamang ang naglalaman ng mga impormasyon tungkol sa bersyon
+5. The `master` branch is versionless; only stabilization branches contain version information
 
 Tatalakayin natin bawat detalye kung paano gumagana ang git branching, pati ang nmp tagging, at kung ano ang aasahang makikita ng mga developers, at kung paano ka makapagbabago ng backport.
 
@@ -52,7 +52,7 @@ Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagba
 * **Mga karagdagan sa Patch na Bersyon** 
     * mga updates sa bersyon ng node.js patch
     * pagsasaayos ng may kaugnayan sa chromium patches
-    * ang electron ay nagsasaayos ng mga bug
+    * Ang electron ay nagsasaayos ng mga bug
 
 Tandaan na karamihan sa chromium updates ay itinuturing nakakasira. Ang pagsasaayos na pwedeng i-backport ay maaring maging cherry-picked na patches.
 
@@ -86,7 +86,7 @@ Ang mga sumusunod ay ang proseso:
 3. Kung ang partikyular na beta release ay *itinuturing pangkalahatan* na matatag, ito ay muling ilalabas bilang isang matatag na katayuan, papalitan lang ang impormasyon ng bersyon.
 4. Kung may mga pagsasaayos ng bug o para sa seguridad ng patches na kailangan pang gawin pero ang bagong labas ay matatag na, ang mga ito'y ilalapat at ang *patch* na bersyon ay pinapataas nang naaayon hal. `2.0.1`.
 
-Para sa bawat bump na malaki at maliit, dapat aasahan mong makikita ang mga sumusunod:
+For each major and minor bump, you should expect to see something like the following:
 
 ```text
 2.0.0-beta.1
@@ -100,9 +100,9 @@ Para sa bawat bump na malaki at maliit, dapat aasahan mong makikita ang mga sumu
 Isang halimbawa ng lifecycle na makikita sa larawan ay:
 
 * Isang bagong labas na branch ang nilikha na may pinakabagong tampok. Ito ay inilathala bilang `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Ang pag-ayos ng bug ay darating sa master na pwedeng ipack-port sa release branch. Ang patch ay inilapat, at may bagong beta na inilathala bilang `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * Itinuturi ang beta na *pangkalahatang matatag* at ito ay inilathala muli bilang di-beta sa ilalim ng `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Kalaunan, isang araw na walang pagsamantalahan ang inihayag at ang pagsasaayos ay inilapat sa master. Pinapack-port namin ang pag-ayos sa linya ng `2-0-x` at inilabas ang `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha sa mga bagong labas:
 
@@ -121,7 +121,7 @@ Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho 
 
 Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na itinatag sa web-development na ecosystem. Sa konteksto ng Electron, ang tampok na bandila o **malambot na branch** ay dapat magkaroon ng sumusunod na katangian:
 
-* ay pinagana/di pinagana alinman sa runtime, o sa build-time; hindi namin sinusuportahan ang konsepto ng request-scoped na tampok sa bandila
+* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 * ito'y kumukumpleto sa bahagi ng bago at lumang landas ng kodigo para masuportahan ang bagong tampok na *lumalabag* sa kontrata ng tampok na bandila
 * natatanggal agad ang mga tampok na bandila pagkatapos isanib ang ang malambot na branch
 

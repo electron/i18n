@@ -24,9 +24,9 @@ console.log(ses.getUserAgent())
 
 ### `session.fromPartition(partition[, options])`
 
-* `partition` String
+* `partition` Dizgi
 * `seçenekler` Obje (opsiyonel) 
-  * `cache` Boolean - Whether to enable cache.
+  * `cache` Mantıksal - Önbelleği etkinleştirip etkinleştirmeyeceğini belirtir.
 
 `Oturum` Döndürür - `bölümden` bir oturum örneği metini. Aynı `partition`'a sahip olan `Session` varsa, döndürülecektir; aksi taktirde `Session` örneği `options` ile yaratılacaktır.
 
@@ -100,32 +100,33 @@ Oturumun HTTP önbelleğini temizler.
 #### `ses.clearStorageData([options, callback])`
 
 * `seçenekler` Obje (opsiyonel) 
-  * `origin` String - (optional) Should follow `window.location.origin`’s representation `scheme://host:port`.
+  * `origin` Dizge - (isteğe bağlı) `window.location.origin` temsili için `scheme://host:port` takip etmelidir.
   * `storages` String[] - (optional) Temizlenecek depo türleri, aşağıdakileri içerebilir: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`
-  * `quotas` String[] - (optional) The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
-* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
-
-Web depolama alanları verilerini siler.
-
-#### `ses.flushStorageData()`
-
-Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
-
-#### `ses.setProxy(config, callback)`
-
-* `konfigurasyon` Nesne 
-  * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
-  * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
-  * `proxyBypassRules` String - Rules indicating which URLs should bypass the proxy settings.
-* `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
-
-Proxy ayarlarını yap.
-
-`pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
-
-`proxyRules` aşağıdaki kurallara uymak zorundadır:
-
-```sh
+  * `quotas` String[]</code> - (isteğe bağlı) Temizlenecek kota türleri şunları içerebilir: `temporary`, `persistent`, `syncable</0>.</li>
+</ul></li>
+<li>Fonksiyon <code>geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
+  
+  Web depolama alanları verilerini siler.
+  
+  #### `ses.flushStorageData()`
+  
+  Yazılı olmayan herhangi bir DOM depolama verisini diske yazar.
+  
+  #### `ses.setProxy(config, callback)`
+  
+  * `konfigurasyon` Nesne 
+    * `pacScript` String - PAC dosyasıyla ilişkilendirilmiş URL.
+    * `proxyRules` String - Hangi proxy'lerin kullanılacağını belirten kurallar.
+    * `proxyBypassRules` Dizesi - Hangi URL'lerin proxy ayarlarını atlaması gerektiğini belirten kurallar.
+  * `geri çağırma` Fonksiyonu - İşlem tamamlandığında çağırılır.
+  
+  Proxy ayarlarını yap.
+  
+  `pacScript` ve `proxyRules` birlikte sağlandığında `proxyRules` seçeceği göz ardı edilir ve `pacScript` yapılandırması uygulanır.
+  
+  `proxyRules` aşağıdaki kurallara uymak zorundadır:
+  
+  ```sh
 proxyRules = schemeProxies[";"<schemeProxies>]
 schemeProxies = [<urlScheme>"="]<proxyURIList>
 urlScheme = "http" | "https" | "ftp" | "socks"
@@ -135,13 +136,13 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 Örneğin:
 
-* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, and HTTP proxy `foopy2:80` for `ftp://` URLs.
-* `foopy:80` - Use HTTP proxy `foopy:80` for all URLs.
-* `foopy:80,bar,direct://` - Use HTTP proxy `foopy:80` for all URLs, failing over to `bar` if `foopy:80` is unavailable, and after that using no proxy.
-* `socks4://foopy` - Use SOCKS v4 proxy `foopy:1080` for all URLs.
-* `http=foopy,socks5://bar.com` - Use HTTP proxy `foopy` for http URLs, and fail over to the SOCKS5 proxy `bar.com` if `foopy` is unavailable.
-* `http=foopy,direct://` - Use HTTP proxy `foopy` for http URLs, and use no proxy if `foopy` is unavailable.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy:80;ftp=foopy2` - Use HTTP proxy `foopy:80` for `http://` URLs, ve HTTP proxy `foopy2:80` for `ftp://` URLs.
+* `foopy:80` - Tüm URL'ler için HTTP proxy `foopy:80`'yi kullanın.
+* `foopy:80,bar,direct://` - tüm URL'ler için HTTP proxy `foopy:80` kullanın, `foopy:80` kullanılamıyorsa `bar`'e kadar başarısız olur ve bundan sonra proxy kullanamaz.
+* `socks4://foopy` - Tüm URL'ler için SOCKS v4 proxy `foopy:1080`'yi kullanın.
+* `http=foopy,socks5://bar.com` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` yoksa SOCKS5 proxy `bar.com`'e başarısız olunur.
+* `http=foopy,direct://` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve `foopy` kullanılamazsa proxy kullanmayın.
+* `http=foopy;socks=foopy2` - http URL'leri için HTTP proxy `foopy`'yi kullanın ve diğer tüm URL'ler için `socks4://foopy2` kullanın.
 
 `proxyBypassRules` yapısı aşşağıda açıklanan virgülle ayrılmış kurallar listesidir:
 
@@ -149,25 +150,25 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
   
   HOSTNAME_PATTERN kalıbıyla eşleşen tüm ana makine adlarını eşleştirin.
   
-  Examples: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
+  Örnekler: "foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99", "https://x.*.y.com:99"
   
   * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
     
     Belirli bir alanın son ekiyle eşleşir.
     
-    Examples: ".google.com", ".com", "http://.google.com"
+    Örnekler: ".google.com", ".com", "http://.google.com"
 
 * `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
   
   IP adresi değişmez olan URL'leri eşleştirin.
   
-  Examples: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+  Örnekler: "127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
 
 * `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
   
-  Match any URL that is to an IP literal that falls between the given range. IP range is specified using CIDR notation.
+  Belirtilen aralık arasında kalan bir IP sabiti olan herhangi bir URL'yi eşleştirin. IP aralığı CIDR gösterimi kullanılarak belirtilir.
   
-  Examples: "192.168.1.1/16", "fefe:13::abc/33".
+  Örnekler: "192.168.1.1/16", "fefe:13::abc/33".
 
 * `<local>`
   
@@ -177,7 +178,7 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
 * `url` URL
 * `geri aramak` Function 
-  * `proxy` String
+  * `proxy` Dizgi
 
 `url` Urlsinin proksi bilgisini çözümler. `callback`, `callback(proxy)` istek geldiğinde çağrılacaktır.
 
@@ -217,19 +218,19 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
 
 * `proc` Function 
   * `istek` Nesne 
-    * `hostname` String
+    * `hostname` Dizgi
     * `certificate` [sertifika](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` Dizgi - Kromdan doğrulama sonucu.
+    * `errorCode` Tamsayı - Hata kodu.
   * `geri aramak` Function 
     * `doğrulama Sonucu` Tamsayı: Değer sertifika hata kodlarından olabilir [buraya](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Sertifika hata kodlarından ayrı aşağıdaki özel kodlar da kullanılabilir. 
-      * `` - Indicates success and disables Certificate Transparency verification.
+      * `` - Sonucu gösterir ve Sertifika Şeffaflığı doğrulamasını devre dışı bırakır.
       * `-2` - Arızayı gösterir.
       * `-3` - Doğrulama sonucunu Chromium'dan kullanır.
 
 `session` için sertifika doğrulama proc'unu ayarlar, `proc` ne zaman sunucu sertifika doğrulaması istenirse`proc(request, callback)` ile çağırılacak. Arama `geri çağırma(0)` sertfikayı kabul eder, arama `geri çağırma(-2)` reddeder.
 
-Calling `setCertificateVerifyProc(null)` will revert back to default certificate verify proc.
+`setCertificateVerifyProc(null)` çağırmak varsayılan sertifika doğrulama işlemine döner.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -247,13 +248,13 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 
 #### `ses.setPermissionRequestHandler(handler)`
 
-* `halledici` Function | null 
+* `halledici` İşlev | boş 
   * `webContents` [WebContents](web-contents.md) - WebContents izin istiyor.
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `geri aramak` Function 
     * `permissionGranted` Boolean - İzin verme veya reddetme
 
-Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. To clear the handler, call `setPermissionRequestHandler(null)`.
+Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. İşleyiciyi temizlemek için `setPermissionRequestHandler(null)`'i çağırın.
 
 ```javascript
 const {session} = require('electron')
@@ -274,7 +275,7 @@ Ana çözümleyici önbelleğini temizler.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-seperated list of servers for which integrated authentication is enabled.
+* `domains` Dizgi - Tümleşik kimlik doğrulamanın etkinleştirildiği virgülle ayrılmış sunucular listesi.
 
 Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilgilerini göndermeyi veya göndermemeyi ayarlar.
 
@@ -282,16 +283,16 @@ Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilg
 const {session} = require('electron')
 // consider any url ending with `example.com`, `foobar.com`, `baz`
 // for integrated authentication.
-session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
+session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz')
 
-// consider all urls for integrated authentication.
+// entegre kimlik doğrulama için tüm Url'lerin doğruluğunu kanıtlar.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` Dizgi
-* `acceptLanguages` String (optional)
+* `acceptLanguages` Dize (isteğe bağlı)
 
 `userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
 
@@ -305,9 +306,9 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` Dizgi - Valid UUID.
 * `geri aramak` Function 
-  * `result` Buffer - Blob data.
+  * `result` Tampon - Blob verileri.
 
 `Blob` döner - `identifier` ile ilişkili blob verisi.
 
@@ -321,9 +322,9 @@ Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `web
   * `uzunluk` Integer - Karşıdan yükleme toplam uzunluk.
   * `lastModified` String - Son değiştirilen başlık değeri.
   * `eTag` String - ETag başlık değeri.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `startTime` Çift (isteğe bağlı) - indirmenin UNİX epoch'tan sonraki birkaç saniye içinde başlama zamanı.
 
-Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
+Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
 #### `ses.clearAuthCache(options[, callback])`
 

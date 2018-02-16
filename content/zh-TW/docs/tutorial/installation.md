@@ -2,17 +2,17 @@
 
 > Electron 安裝秘訣
 
-To install prebuilt Electron binaries, use [`npm`](https://docs.npmjs.com/). The preferred method is to install Electron as a development dependency in your app:
+可以透過 [`npm`](https://docs.npmjs.com/) 安裝預先建置好的 Electron 二進位檔。建議將 Electron 安裝成你應用程式開發相依套件:
 
 ```sh
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+請參考 [Electron 版號規則文件](electron-versioning.md)，了解該怎麼管理你應用程式中的 Electron 版本。
 
 ## 全域安裝
 
-You can also install the `electron` command globally in your `$PATH`:
+你也可以把 `electron` 安裝成 `$PATH` 下的全域指令:
 
 ```sh
 npm install electron -g
@@ -20,13 +20,13 @@ npm install electron -g
 
 ## 客製化
 
-If you want to change the architecture that is downloaded (e.g., `ia32` on an `x64` machine), you can use the `--arch` flag with npm install or set the `npm_config_arch` environment variable:
+如果你想要更改下載的架構 (例如在 `x64` 主機上跑 `ia32`)，可以使用 npm install 時使用 `--arch` 旗標，或是設定 `npm_config_arch` 環境變數:
 
 ```shell
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+除了更改架構外，你也可以透過 `--platform` 旗標指定平台 (例如 `win32`、 `linux` 等):
 
 ```shell
 npm install --platform=win32 electron
@@ -34,23 +34,23 @@ npm install --platform=win32 electron
 
 ## 代理伺服器
 
-If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
+如果需要使用 HTTP 代理伺服器，可以[設定這些環境變數](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables)。
 
 ## 自訂鏡像及快取
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+安裝過程中，`electron` 模組會叫用 [`electron-download`](https://github.com/electron-userland/electron-download) 來下載符合你平台的 Electron 預建二進位檔。 它會連到 GitHub 的發行下載頁(`https://github.com/electron/electron/releases/tag/v$VERSION`，當中的 `$VERSION` 替換成 Electron 確切的版本) 下載。
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+如果你連不到 GitHub，或是需要使用客製化的版本，可以提供鏡像或是既有的快取目錄來安裝。
 
 #### 鏡像
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+你可以使用環境變數蓋掉 Electron 尋找二位檔的根 URL 及檔名。 `electron-download` 用來下載的 Url 是這樣組出來的:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+假如我們要使用位於中國的鏡像站:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -58,17 +58,17 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### 快取
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+或是，你也可以蓋過本機快取。 `electron-download` 會將下載的檔案放在本機目錄做為快取，以免浪費你的網路頻寬。 你可以使用這個快取目錄來提供客製版的 Electron，或是在完全沒有網路的環境下執行。
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
-* Windows: `$LOCALAPPDATA/electron/Cache` or `~/AppData/Local/electron/Cache/`
+* Windows: `$LOCALAPPDATA/electron/Cache` 或 `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+在使用舊版 Electron 的環境中，快取可能放在 `~/.electron` 裡。
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+你也可以透過 `ELECTRON_CACHE` 環境變數蓋過本機快取位置的預設值。
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+快取內容包含檔案官方的 Zip 檔及純文字檢查碼檔案，一般的快取看起來像這樣:
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -91,18 +91,18 @@ The cache contains the version's official zip file as well as a checksum, stored
 
 如果用 `npm` 怎樣都裝不起來的話，你也可以直接由 [electron/electron/releases](https://github.com/electron/electron/releases) 下載 Electron。
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+如果安裝過程遇到 `EACCESS` 錯誤而失敗，代表可能要 [修正你 npm 的權限](https://docs.npmjs.com/getting-started/fixing-npm-permissions)。
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+如果上述錯誤持續發生，可能需要把 [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) 旗標設為 true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+在網路速度較慢的環境中，建議搭配 `--verbose` 旗標以便看到下載進度:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+如果你想要強制重新下載二進位檔案及 SHASUM 檔，可以將 `force_no_cache` 環境變數設為 `true`。

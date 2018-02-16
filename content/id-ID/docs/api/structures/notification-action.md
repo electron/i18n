@@ -1,6 +1,6 @@
 # NotificationAction Object
 
-* ` ketik </ 0>  String - Tipe tindakan, dapat <code> tombol </ 0> .</li>
+* `type</ 0>  String - Tipe tindakan, bisa dengan <code>button</ 0> .</li>
 <li><code> teks </ 0>  String - (opsional) Label untuk tindakan yang diberikan.</li>
 </ul>
 
@@ -24,7 +24,7 @@
     
     In order for extra notification buttons to work on macOS your app must meet the following criteria.
     
-    * Aplikasi ditandatangani
+    * Aplikasi telah ditandatangani
     * App memilikinya  NSUserNotificationAlertStyle </ 0> disetel ke <code> alert </ 0> di <code> info.plist </ 0> .</li>
 </ul>
 

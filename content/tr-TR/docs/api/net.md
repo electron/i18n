@@ -48,6 +48,6 @@ Bu arada, [HTTP](https://nodejs.org/api/http.html)/[HTTPS](https://nodejs.org/ap
 
 * `options` (Obje| Dizi) - `ClientRequest` Yapıcı seçenekleri.
 
-Returns [`ClientRequest`](./client-request.md)
+Çevir [`ClientRequest`](./client-request.md)
 
 Verilen `options` kullanarak direkt `ClientRequest` yapıcısına iletilen bir [`ClientRequest`](./client-request.md) örneği oluşturur. `net.request` yöntemi, `options` nesnesinde belirtilen kurallar güvenli ve güvensiz HTTP isteklerini vermek için kullanılır.

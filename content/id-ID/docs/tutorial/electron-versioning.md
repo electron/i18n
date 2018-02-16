@@ -32,7 +32,7 @@ Ada beberapa perubahan besar dari strategi 1.x yang kami diuraikan di bawah ini.
 2. Pengenalan semver-compliant `-beta`tag
 3. Pengenalan [pesan komit konvensional](https://conventionalcommits.org/)
 4. Cabang stabilisasi yang didefinisikan dengan jelas
-5. Cabang `master` tidak berversi; Hanya cabang stabilitas yang berisi informasi versi
+5. The `master` branch is versionless; only stabilization branches contain version information
 
 Kami akan membahas secara rinci bagaimana cara kerja git branching, bagaimana penandaan npm bekerja, apa yang diharapkan pengembang untuk dilihat, dan bagaimana seseorang dapat mengubah backport.
 
@@ -52,7 +52,7 @@ Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada katego
 * **Versi Patch** 
     * update patch versi node.js
     * memperbaiki kromium terkait patch
-    * perbaikan bug electron
+    * Perbaikan bug electron
 
 Perhatikan bahwa kebanyakan update kromium akan dianggap melanggar. Perbaikan yang bisa di-backport kemungkinan akan dipilih ceri sebagai tambalan.
 
@@ -86,7 +86,7 @@ Prosesnya adalah sebagai berikut:
 3. Jika rilis beta tertentu *dianggap* stabil, maka akan dirilis ulang sebagai bangunan yang stabil, hanya mengubah informasi versi. misalnya `2.0.0`.
 4. Jika perbaikan bug masa depan atau patch keamanan perlu dilakukan setelah rilis stabil, mereka menerapkannya dan versi *patch* bertambah misalnya `2.0.1`.
 
-Untuk setiap benturan besar dan kecil, Anda harus berharap juga melihat sesuatu seperti berikut ini:
+For each major and minor bump, you should expect to see something like the following:
 
 ```text
 2.0.0-beta.1
@@ -101,9 +101,9 @@ Contoh siklus hidup dalam gambar:
 
 * Cabang rilis baru dibuat yang mencakup rangkaian fitur terbaru. Ini diterbitkan menjadi` 2.0.0-beta.1 </ 0>.
 <img src="../images/versioning-sketch-3.png" alt="" /></li>
-<li>Perbaikan bug masuk ke master yang bisa di-pack ke cabang rilis. Patch ini diterapkan, dan beta baru diterbitkan sebagai <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+<li>A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as <code>2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * Beta dianggap *umumnya stabil* dan diterbitkan lagi sebagai non-beta di bawah `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Kemudian, eksploitasi zero-day terungkap dan sebuah perbaikan diterapkan pada master. Kami memasang port-port ke garis `2-0-x` dan melepaskan `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Beberapa contoh bagaimana berbagai rentang semver akan mengambil rilis baru:
 
@@ -122,7 +122,7 @@ Sebagai pertimbangan di masa depan, kami dapat memperkenalkan satu atau kedua ha
 
 Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembangan web. Dalam konteks Elektron, bendera fitur atau **soft branch** harus memiliki sifat berikut:
 
-* apakah diaktifkan/baik pada saat runtime, atau build-time; kami tidak mendukung konsep bendera fitur yang diberi daftar permintaan
+* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 * itu benar-benar segmen jalur kode baru dan lama; refactoring kode lama untuk mendukung fitur baru *violates* kontrak bendera fitur
 * flag fitur akhirnya dihapus setelah soft-branch digabung
 

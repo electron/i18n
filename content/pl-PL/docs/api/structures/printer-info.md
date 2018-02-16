@@ -1,4 +1,4 @@
-# PrinterInfo Object
+# Obiekt PrinterInfo
 
 * `name` String
 * `description` String
@@ -7,7 +7,7 @@
 
 ## Przykład
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Poniżej znajduje się przykład niektórych dodatkowych opcji, które mogą być ustawione, które mogą się różnić na poszczególnych platformach.
 
 ```javascript
 {

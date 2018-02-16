@@ -1,11 +1,11 @@
-# Pull Requests
+# 合併請求 (PR)
 
 * [Dependencies](#dependencies)
-* [Setting up your local environment](#setting-up-your-local-environment) 
+* [設定本機環境](#setting-up-your-local-environment) 
   * [Step 1: Fork](#step-1-fork)
   * [Step 2: Build](#step-2-build)
   * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
+* [進行修改](#making-changes) 
   * [Step 4: Code](#step-4-code)
   * [Step 5: Commit](#step-5-commit) 
     * [Commit message guidelines](#commit-message-guidelines)
@@ -16,9 +16,9 @@
   * [Step 10: Discuss and Update](#step-9-discuss-and-update) 
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-10-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+  * [持續整合測試](#continuous-integration-testing)
 
-## Setting up your local environment
+## 設定本機環境
 
 ### Step 1: Fork
 
@@ -49,7 +49,7 @@ To keep your development environment organized, create local branches to hold yo
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## 進行修改
 
 ### Step 4: Code
 
@@ -173,7 +173,7 @@ In order to land, a pull request needs to be reviewed and approved by at least o
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### 持續整合測試
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 

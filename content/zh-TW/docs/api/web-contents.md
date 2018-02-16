@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ### 物件事件
 

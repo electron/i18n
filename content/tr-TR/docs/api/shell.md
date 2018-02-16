@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+`shell` modülü, masaüstü entegrasyonuyla ilgili işlevler sunar.
 
 Bir URL'yi kullanıcının varsayılan tarayıcısında açmaya örnek:
 
@@ -20,7 +20,7 @@ The `shell` modülünün aşağıdaki yöntemleri vardır:
 
 ### `shell.showItemInFolder(fullPath)`
 
-* `fullPath` String
+* `fullPath` Dizgi
 
 `Boolean` Döndürür - Öğenin başarıyla gösterilip gösterilmediği
 
@@ -28,7 +28,7 @@ Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı se
 
 ### `shell.openItem(fullPath)`
 
-* `fullPath` String
+* `fullPath` Dizgi
 
 `Boolean` Döndürür - Öğenin başarılı bir şekilde açılıp açılmadığı.
 
@@ -36,10 +36,10 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false
+* `url` Dizge - Windows üzerinde max 2081 karakter veya işlev kopya değerini gönderir
 * `seçenekler` Obje (opsiyonel) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `geri aramak` Function (optional) - If specified will perform the open asynchronously. *macOS* 
+  * `activate` Mantıksal - `true` açık uygulamayı ön plana getirmek için. Varsayılan `true`'dır.
+* `geri aramak` Fonksiyon (isteğe bağlı) - belirtilen açık zaman uyumsuz olarak gerçekleştirir. *macOS* 
   * `error` Error
 
 `Boolean` döner - uygulamanın URL açmaya uygun olup olmaması. Eğer geri çağırma belirtildiyse her zaman true döner.
@@ -48,7 +48,7 @@ Verilen harici protokol URL'sini masaüstünde varsayılan şekilde açın. (Ör
 
 ### `shell.moveItemToTrash(fullPath)`
 
-* `fullPath` String
+* `fullPath` Dizgi
 
 `Boolean` Döndürür - Öğenin çöp kutusuna başarıyla taşınıp taşınmadığı
 
@@ -60,11 +60,11 @@ Bip sesini oynatın.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
-* `shortcutPath` String
+* `shortcutPath` Dizgi
 * `operasyon` Dize (İsteğe bağlı) - Fabrika ayarları şu şekilde `oluştur`Sıradakilerden biri olabilir: 
   * `create` - Yeni kısayol oluşturur, gerekliyse üzerine kaydeder.
   * `update` - Seçilen özellikleri sadece varolon kısayola günceller.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+  * `replace` - Varolan bir kısayolun üzerine yazar, kısayol yoksa başarısız olur.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
 `Boolean` Döndürür - Kısayolun başarıyla oluşturulup oluşturulmadığı
@@ -73,7 +73,7 @@ Bip sesini oynatın.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
-* `shortcutPath` String
+* `shortcutPath` Dizgi
 
 [`ShortcutDetails`](structures/shortcut-details.md) geri al
 

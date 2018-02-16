@@ -1,4 +1,4 @@
-# Guia para a Windows Store
+# Guia para Windows Store
 
 Com o Windows 10, o bom e velho executável win32 ganhou uma nova irmã: A Plataforma Universal do Windows. O novo formato `.appx` não apenas disponibiliza várias APIs poderosas como Cortana e Notificações Push, mas através da Windows Store, também simplifica a instalação e atualização das aplicações.
 

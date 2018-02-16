@@ -40,19 +40,19 @@ Używając `Quick Start` jako przykładu:
 
 Istnieją wyjątki od tej reguły dla odwołań do API.
 
-## Markdown rules
+## Reguły Markdown
 
 * Używaj `sh` zamiast `cmd` w code blocks (z powodu podświetlacza składni).
 * Linie powinny być zawinięte na 80 kolumnie.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Nie zagnieżdżaj więcej niż 2 poziomy listy. (we względu na moduł renderujący markdown).
+* Wszystkie bloki kodu `js` i `javascript` są-lintowane z [standard-markdown](http://npm.im/standard-markdown).
 
 ## Wybieranie słów
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Używaj "will" zamiast "would" kiedy opisujesz wyniki.
+* Preferuj "in the ___ process" poand "on".
 
-## API references
+## Odwołania API
 
 Poniższe reguły zaliczają się tylko dla dokumentacji API.
 
@@ -70,9 +70,9 @@ Używając `session` jako przykład:
 > Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy, itd.
 ```
 
-### Module methods and events
+### Metody i zdarzenia modułu
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Metody i zdarzenia modułu, który nie jest klasą muszą być wypisane pod `## metody` oraz `## zdarzenia`.
 
 Używając `autoUpdater` jako przykładu:
 
@@ -211,4 +211,4 @@ Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to met
 
 ## Tłumaczenia dokumentacji
 
-See [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)
+Zobacz [electron/electron-i18n](https://github.com/electron/electron-i18n#readme)

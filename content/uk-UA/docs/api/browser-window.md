@@ -451,9 +451,9 @@ win.on('app-command', (e, cmd) => {
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Додає розширення для розробника, яке знаходиться в `path` і повертає його ім'я.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+Розширення буде запам'ятоване, тому ви можете викликати це API тільки один раз, це API не для програмного використання. Якщо ви спробуєте додати розширення, яке вже було завантажене, цей метод не виконається і залогує попередження в консоль.
 
 Метод не поверне нічого, якщо маніфест розширення втрачено чи незавершено.
 
@@ -463,7 +463,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 * `name` String
 
-Remove a DevTools extension by name.
+Видалити розширення для розробника по імені.
 
 **Примітка:** Це API не може бути викликане перед викликом події `ready` модуля `app`.
 
@@ -484,7 +484,7 @@ console.log(installed)
 
 ### Властивості Екземпляра
 
-Objects created with `new BrowserWindow` have the following properties:
+Об'єкт створений за допомогою `new BrowserWindow` має наступні властивості:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -495,116 +495,116 @@ win.loadURL('https://github.com')
 
 #### `win.webContents`
 
-A `WebContents` object this window owns. All web page related events and operations will be done via it.
+Об'єкт `WebContents`, який належить даному вікну. Всі пов'язані з веб-сторінкою події та операції будуть виконуватися через нього.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Дивись [документацію `webContents`](web-contents.md) для інформації про методи та події.
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+`Integer`, яке представляє унікальний ID вікна.
 
 ### Методи Екземпляра
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Об'єкт створений за допомогою `new BrowserWindow` має наступні методи:
 
 **Примітка:** Деякі методи доступні тільки на певних операціїних системах і позначені як такі.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Примусово закриває вікно, події `unload` та `beforeunload` для веб-сторінки не будуть викликані і подія `close` також не буде викликана для вікна, але гарантовано викличеться подія `closed`.
 
 #### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Спробує закрити вікно. Має такий самий ефект, ніби користувач вручну натисне на кнопку закривання вікна. Хоча веб-сторінка може скасувати закривання. Дивись [подію close](#event-close).
 
 #### `win.focus()`
 
-Focuses on the window.
+Надає фокус вікну.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Забирає фокус з вікна.
 
 #### `win.isFocused()`
 
-Returns `Boolean` - Whether the window is focused.
+Повертає `Boolean` - Чи вікно має фокус.
 
 #### `win.isDestroyed()`
 
-Returns `Boolean` - Whether the window is destroyed.
+Повертає `Boolean` - Чи вікно знищено.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Показує і дає фокус вікну.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Показує вікно, але не дає йому фокус.
 
 #### `win.hide()`
 
-Hides the window.
+Приховує вікно.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Повертає `Boolean` - Чи вікно видиме користувачу.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Повертає `Boolean` - Чи поточне вікно є модальним.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Розгортає вікно. Це також покаже (але не надасть фокус) вікно, якщо воно ще не відображається.
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Виводить вікно з максимізованого режиму.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Повертає `Boolean` - Чи вікно знаходить в максимізованому режимі.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Згортає вікно. На деяких платформах згорнуте вікно буде показане на панелі задач.
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Відновлює згорнуті вікна до попереднього стану.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Повертає `Boolean` - Чи вікно згорнуте.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Встановлює чи вікно повинне бути в повноекранному режимі.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Повертає `Boolean` - Чи вікно в повноекранному режимі.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Входить в чи виходить з простого повноекранного режиму.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Простий повноекранний режим емулює нативну поведінку повноекранного режиму до версії Mac OS X Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Повертає `Boolean` - Чи вікно в простому повноекранному режимі.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Float - Співвідношення сторін для певної частини контенту.
+* `extraSize` [Size](structures/size.md) - Додатковий розмір, який не повинен включатися при збереженні співвідношення сторін.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Це примусить вікна зберігати співвідношення сторін. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
 
 Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.
 
@@ -617,14 +617,14 @@ Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Закриває поточну панель [Швидкого Перегляду](https://en.wikipedia.org/wiki/Quick_Look).
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Змінює розмір і переміщує вікно до переданої межі
 
 #### `win.getBounds()`
 
@@ -635,7 +635,7 @@ Resizes and moves the window to the supplied bounds
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Змінює розмір і переміщує клієнтську область (наприклад веб-сторінку) до переданої межі.
 
 #### `win.getContentBounds()`
 
@@ -659,53 +659,53 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 * `height` Integer
 * `animate` Boolean (опціонально) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Змінює розмір клієнтської області (наприклад веб-сторінки) до `width` та `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Повертає `Integer[]` - Містить ширину і висоту клієнтської області.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Встановлює мінімальні розміри вікна в `width` і `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Повертає `Integer[]` - Містить мінімальні ширину і висоту вікна.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Встановлює максимальні розміри вікна в `width` і `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Повертає `Integer[]` - Містить максимальні ширину і висоту вікна.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Встановлює чи користувач може вручну змінювати розміри вікна.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Повертає `Boolean` - Чи користувач може вручну змінювати розміри вікна.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Встановлює чи користувач може переміщувати вікно. На Linux не робить нічого.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Повертає `Boolean` - Чи користувач може переміщувати вікно.
 
 На Linux завжди повертає `true`.
 
@@ -713,11 +713,11 @@ Returns `Boolean` - Whether the window can be moved by user.
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Встановлює чи користувач може вручну згортати вікно. На Linux не робить нічого.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Повертає `Boolean` - Чи користувач може вручну згортати вікно
 
 На Linux завжди повертає `true`.
 
@@ -725,11 +725,11 @@ Returns `Boolean` - Whether the window can be manually minimized by user
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Встановлює чи користувач може вручну максимізувати вікно. На Linux не робить нічого.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Повертає `Boolean` - Чи користувач може вручну максимізувати вікно.
 
 На Linux завжди повертає `true`.
 
@@ -747,29 +747,29 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Встановлює чи користувач може вручну закривати вікно. На Linux не робить нічого.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Повертає `Boolean` - Чи користувач може вручну закривати вікно.
 
 На Linux завжди повертає `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `level` String (опціонально) *macOS* - Включає значення `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, та ~~`dock`~~ (Застаріло). За замовчуванням `floating`. Дивіться [документацію macOS ](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) для деталей.
+* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. За замовчуванням ``. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Повертає `Boolean` - Чи вікно завжди поверх інших вікон.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Переміщує вікно в центр екрану.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -781,19 +781,19 @@ Moves window to the center of the screen.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Повертає `Integer[]` - Містить поточну позицію вікна.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Змінює заголовок нативного вікна на `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Повертає `String` - Заголовок нативного вікна.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Примітка:** Заголовок веб-сторінки може відрізнятися від заголовку нативного вікна.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -830,7 +830,7 @@ Enters or leaves the kiosk mode.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Повертає `Boolean` - Чи вікно в повноекранному режимі браузера.
 
 #### `win.getNativeWindowHandle()`
 
@@ -887,11 +887,11 @@ Returns `Boolean` - Whether the window's document has been edited.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (опціонально) - Межі для захоплення
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+Те саме що і `webContents.capturePage([rect, ]callback)`.
 
 #### `win.loadURL(url[, options])`
 
@@ -900,10 +900,10 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (опціонально)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Same as `webContents.loadURL(url[, options])`.
+Те саме що і `webContents.loadURL(url[, options])`.
 
 The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
@@ -933,7 +933,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Те саме що і `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
@@ -970,19 +970,19 @@ Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Повертає `Boolean` - Чи вікно має тінь.
 
-On Windows and Linux always returns `true`.
+На Windows та Linux завжди повертає `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Number - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
 
-Sets the opacity of the window. On Linux does nothing.
+Задає непрозорість вікна. На Linux не робить нічого.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Повертає `Number` - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -994,7 +994,7 @@ Add a thumbnail toolbar with a specified set of buttons to the thumbnail image o
 
 The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
 
-The `buttons` is an array of `Button` objects:
+`buttons` масив об'єктів `Button`:
 
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - Піктограма для показу на палені мініатюр.
@@ -1066,7 +1066,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Повертає `Boolean` - Чи панель меню видима.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
@@ -1104,7 +1104,7 @@ On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows i
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Змінює чи вікно може мати фокус.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
@@ -1124,7 +1124,7 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Вказує чи приховувати курсор під час друку.
 
 #### `win.selectPreviousTab()` *macOS*
 

@@ -373,7 +373,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `Couleur` (String | null)- La couleur du thème est au format « #rrggbb ». Elle est de valeur`null` lorsque aucune couleur de thème n’est définie.
 
 #### Événement : 'update-target-url'
 
@@ -411,16 +411,16 @@ Retourne :
   * `linkText` String - Texte associé au lien. Peut être une chaîne de caractère vide si le contenu du lien est une image.
   * `pageURL` String - L'URL de la page haut niveau d'où le menu contextuel a été invoqué.
   * `frameURL` String - L'URL de la subframe d'où le menu contextuel a été invoqué.
-  * `srcURL` String - Source URL for the element that the context menu was invoked on. Elements with source URLs are images, audio and video.
-  * `mediaType` String - Type of the node the context menu was invoked on. Can be `none`, `image`, `audio`, `video`, `canvas`, `file` or `plugin`.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
-  * `selectionText` String - Text of the selection that the context menu was invoked on.
-  * `titleText` String - Title or alt text of the selection that the context was invoked on.
-  * `misspelledWord` String - The misspelled word under the cursor, if any.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+  * `srcURL` String - URL source de l’élément sur lequel le menu contextuel a été appelé. Les éléments portant des URLs sources peuvent être des images, sons ou vidéos.
+  * `mediaType` String - Type du nœud sur lequel le menu contextuel a été appelé. Peut être `none`, `image`, `audio`, `vidéo`, `toile`, `fichier` ou `plugin`.
+  * `hasImageContents` Boolean - Si le menu contextuel a été invoqué sur une image au contenu non-vide ou non.
+  * `isEditable` Boolean - Si le contexte est modifiable ou non.
+  * `selectionText` String - Texte de la sélection sur laquelle le menu contextuel a été invoqué.
+  * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
+  * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
+  * `frameCharset` String - L'encodage des caractères de la fenêtre sur lequel le menu a été appelé.
+  * `inputFieldType` String - Si le menu contextuel a été appelé sur un champ modifiable, donne le type de ce champ. Les valeurs possibles sont `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` String - Source de l'action qui a appelé le menu contextuel. Peut être `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
   * `mediaFlags` Object - Les attributs de l'élément multimédia que le menu contextuel a invoqué. 
     * `inError` Boolean - Si l'élément multimédia a crash.
     * `isPaused` Boolean - Si l'élément multimédia est en pause.
@@ -479,7 +479,7 @@ Retourne :
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+Émis quand une nouvelle fenêtre est générée. Seule la zone salie est passée dans le buffer.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -493,15 +493,15 @@ win.loadURL('http://github.com')
 
 #### Événement : 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+Émis quand la fenêtre des outils développeur demande aux webContents de se recharger
 
 #### Événement : 'will-attach-webview'
 
 Retourne :
 
 * `event` Event
-* `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferences` Object - Les préférences web qui seront utilisées par la page invitée. Cet objet peut être modifié pour ajuster les préférences pour la page invitée.
+* `params` Object - Les autres `<webview>` paramètres tels que l'URL `src`. Cet objet peut être modifiée pour s'ajuster aux paramètres de la page invitée.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
@@ -509,14 +509,14 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Event: 'did-attach-webview'
+#### Événement : 'will-attach-webview'
 
 Retourne :
 
 * `event` Event
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+Émis quand un `<webview>` a été rattaché à ce contenu web.
 
 #### Événement : 'console-message'
 
@@ -527,7 +527,7 @@ Retourne :
 * `line` Integer
 * `sourceId` String
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Emis quand la fenêtre associée enregistre un message dans la console. Ne sera pas émis pour les fenêtres avec l'*offscreen rendering* activé.
 
 ### Méthodes d’instance
 
@@ -535,10 +535,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `options` Object (facultatif) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
+  * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
+  * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optionnel)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -847,7 +847,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 

@@ -134,7 +134,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
   * `alwaysOnTop` Boolean (isteğe bağlı) - Pencerenin her zaman diğer pencerelerin üstünde kalıp kalmaması gerekliliği. Varsayılan `false`'dur.
   * `fullscreen` Boolean (isteğe bağlı) - Pencerenin tam ekranda gösterilip gösterilmeyeceği. MacOS'ta özellikle değer `false` olarak ayarlandığında tam ekran düğmesi görünmez veya devre dışı olacaktır. Varsayılan `false`'dur.
   * `fullscreenable` Boolean (isteğe bağlı) - Pencerenin tam ekrana moduna alınıp alınamayacağı. MacOs'ta, Ekranı Kapla/Yakınlaştır düğmesinin tam ekran modunu veya Ekranı Kapla penceresini değiştirip değiştirmeyeceği de belirtmektedir. Varsayılanı `true`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
+  * `simpleFullscreen` Mantıksal (isteğe bağlı) - macOS'ta Lion öncesi tam ekran kullanın. Varsayılan değer `false`.
   * `skipTaskbar` Boolean (isteğe bağlı) - Pencerenin görev çubuğunda görünüp görünmeyeceği. Varsayılan `false`'dur.
   * `kiosk` Boolean (isteğe bağlı) - Kiosk modu. Varsayılan `false`'dur.
   * `title` String (isteğe bağlı) - Varsayılan pencere başlığı. Varsayılan `"Electron"`dur.
@@ -147,9 +147,9 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
   * `disableAutoHideCursor` Boolean (isteğe bağlı) - Yazarken imleç gizlenip gizlenmeyecek. Varsayılan değer `false`.
   * `autoHideMenuBar` Boolean (isteğe bağlı) - `Alt` tuşuna basmadığınız sürece menü çubuğunu otomatik olarak gizler. Varsayılan değer `false`.
   * `enableLargerThanScreen` Boolean (isteğe bağlı) - Pencerenin ekran boyutundan daha büyük boyutlandırılmasını etkinleştirin. Varsayılan değer `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Varsayılan değer `#FFF` (beyaz).
-  * `hasShadow` Boolean (isteğe bağlı) - Pencerenin gölge olması gerekip gerekmediğini belirtir. Bu sadece macOS'ta uygulanır. Varsayılan değer `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `backgroundColor` Dizilim (isteğe bağlı) - Pencere arka plan rengi onaltılık bir değer, `#66CD00` veya `#FFF` veya `#80FFFFFF` gibi (alfa desteklidir). Varsayılan değer `#FFF` (beyaz).
+  * `hasShadow` mantıksal (isteğe bağlı) - Pencerenin gölge olması gerekip gerekmediğini belirtir. Bu sadece macOS'ta uygulanır. Varsayılan `true`'dir.
+  * `opacity` Sayı (isteğe bağlı) - Pencerenin başlangıçtaki opaklığını 0.0 (tamamen saydam) ile 1.0 (tamamen opak) arasında ayarlayın. Bu yalnızca Windows ve macOS'ta uygulanır.
   * `darkTheme` Boole (isteğe bağlı) - Pencere için koyu temayı kullanmaya zorlar, yalnızca bazı GTK+3 masaüstü ortamlarında çalışır. Varsayılan değer `yanlış`.
   * ` şeffaf </ 0>  Boole (isteğe bağlı) - Pencereyi <a href="frameless-window.md"> saydam yapar </ 1> . Varsayılan değer <code> yanlış </ 0> .</li>
 <li><code> type </ 0>  sicim (isteğe bağlı) - Pencere türü, varsayılan değer normal pencere. Bunun hakkında daha fazla bilgi için aşağıya bakın.</li>
@@ -198,7 +198,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `defaultMonospaceFontSize` Tamsayı (isteğe bağlı) - Varsayılanı `13` olarak belirler.
     * `minimumFontSize` Tamsayı (isteğe bağlı) - Varsayılanı `` olarak belirler.
     * `defaultEncoding` Dize (isteğe bağlı) - Varsayılanı `ISO-8859-1` olarak belirler.
-    * `backgroundThrottling` Bağlaç (isteğe bağlı) - Sayfa arka plandayken animasyonların ve zamanlayıcıların kısıtlanması. This also affects the [Page Visibility API](#page-visibility). Varsayılanı `true` olarak belirler.
+    * `backgroundThrottling` Bağlaç (isteğe bağlı) - Sayfa arka plandayken animasyonların ve zamanlayıcıların kısıtlanması. Bu da [Page Visibility API](#page-visibility) etkiler. Varsayılanı `true` olarak belirler.
     * `offScreen` Boolean (isteğe bağlı) - Tarayıcı için ekran dışı görüntülemeyi etkinleştirip destekleyip desteklemeyeceğini belirtir penceresi. Varsayılan değer `false`. Bak [için ekran dışı işleme öğretici](../tutorial/offscreen-rendering.md) daha fazla detay.
     * ` contextIsolation` Boolean (isteğe bağlı) - Elektron API'lerini çalıştırıp çalıştırmamak Ayrı bir JavaScript bağlamında belirtilen `önyükleme` komut dosyası. Varsayılanı `false` olarak belirler. `önceden yükleme` Komut Dosyasının Çalıştığı İçerik Olmayacaktır `belge` ve `pencere` dünyasına tam erişime sahip olmakla birlikte kendi JavaScript yerleşikleri kümesi (`Array`, `Objec`, `JSON`, vb.) ve küresel çevreye yapılan herhangi bir değişiklikten izole edilecek yüklenen sayfaya göre. Elektron API'sı yalnızca ` yüklenen` sayfa değil önyükleme komut dosyası. Yüklenen içeriğin `önyükleme` komut dosyasına ve kullanılan herhangi bir Elektron API'sine kurcalamamasını sağlamak için potansiyel olarak güvenilmeyen uzak içeriği yüklerken bu seçenek kullanılmalıdır. Bu seçenek[Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) tarafından kullanılan yöntemi kullanır. Konsol sekmesinin üst kısmındaki birleşik giriş kutusunda 'Electron Yalıtılmış Ortam' girişini seçerek dev araçlarındaki bu içeriğe ulaşabilirsiniz. **Not**: Bu seçenek şu anda deneme amaçlı olup, gelecekteki Electron sürümlerinde değiştirilebilir veya kaldırılabilir.
     * `nativeWindowOpen` Boolean (isteğe bağlı) - Yerli olmayanların kullanılacağı `window.open()`. Varsayılan olarak `yanlış`. **Not**: Bu seçenek şu anda deneysel.
@@ -209,7 +209,7 @@ Minimum veya maksimum pencere boyutunu ` min ile ayarlarken Genişlik` / ` maks 
 `type` seçeneğinin olası değerleri ve davranışları platform bağımlıdır. Olası değerler şunlardır:
 
 * Linux'ta olası türler `masaüstü`, `dock`, `araç çubuğu`, `splash`, `bildirim`'dir.
-* MacOS'ta olası değerler `masaüstü`, `dokulu`. 
+* MacOS'ta olası değerler `masaüstü`, `dokulandırılmış`. 
   * ` dokulu` türü metal eğimi görünümünü ekler (` NSTexturedBackgroundWindowMask`).
   * `Masaüstü` modeli, pencereyi masaüstü arka planındaki pencere seviyesine yerleştirir (`kCGDesktopWindowLevel - 1`). Masaüstü penceresi klavye veya farenin durumunu odak olarak kaydetmeyecektir. Ancak veri girişini tedbirli bir şekilde yapmak için `globalShortcut` kullanabilirisinz.
 * Windows'ta mümkün olan model `toolbar` 'dır.
@@ -247,11 +247,11 @@ window.onbeforeunload = (e) => {
   // olmayan bir boşluk sessizce kapanmayı iptal eder.
   // Kullanıcının diyalog API ' ı kullanarak uygulamayı kapatması sağlanması
   // önerilmektedir.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  e.returnValue = false // equivalent to `return false` ancak önerilmez
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Note**: `window.onbeforeunload = handler` ve `window.addEventListener('beforeunload', handler)` davranışları arasında ince bir fark var. Elektron içinde daha tutarlı bir şekilde çalıştığı için her zaman bir değeri döndürmek yerine `event.returnValue`'i açıkça ayarlamanız önerilir.*
 
 #### Etkinlik: 'kapatıldı'
 
@@ -412,7 +412,7 @@ Doğal yeni sekme tuşunun tıklanıldığını ifade eder.
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Belirtilen `BrowserWindow | null` - Belirtilen `browserView`'ye sahip olan pencere. Verilen görünüm herhangi bir pencereye eklenmezse `null`'yi döndürür.
 
 #### `BrowserWindow.fromId(id)`
 
@@ -588,13 +588,13 @@ Pencerenin tam ekran modunda olup olmadığını ayarlar.
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Basit tam ekran moduna giriş veya çıkış yapar.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Basit tam ekran modu, Mac OS X'den önce Lion (10.7) sürümlerinde bulunan yerel tam ekran davranışını seçer.
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+`Boolean` - pencerenin basit (Leon öncesi) tam ekran modunda olup olmadığını raporlar.
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -976,13 +976,13 @@ Pencerenin bir karartıya sahip olup olmadığını ayarlamaktadır. Windows ve 
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
-* `opacity` Number - between 0.0 (fully transparent) and 1.0 (fully opaque)
+* `opacity` Değer - 0.0 (tamamen şeffaf) ile 1.0 (tamamen opak) arasında
 
-Sets the opacity of the window. On Linux does nothing.
+Pencerenin opaklığını ayarlar. Linux'ta bu ayar yapılamaz.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+`opacity` Değer - 0.0 (tamamen şeffaf) ile 1.0 (tamamen opak) arasında
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1086,7 +1086,7 @@ Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamakt
 
 * `ignore` Boolean
 * `seçenekler` Obje (opsiyonel) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Mantıksal (isteğe bağlı) *Windows* - Doğru olursa fareyi hareket ettirin Chromium'a mesaj göndererek `mouseleave` gibi fare ile ilgili etkinlikleri etkinleştirin. Only used when `ignore` is true. `ignore` yanlışsa, yönlendirme bu değerden bağımsız olarak daima devre dışı bırakılır.
 
 Pencerenin tüm fare olaylarını yok saymasını sağlar.
 
@@ -1128,29 +1128,29 @@ Yazarken imlecin ne zaman kaybolacağını kontrol eder.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Yerel sekmeler etkinleştirildiğinde ve pencerede başka sekmeler olduğunda önceki sekmeyi seçer.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Yerel sekmeler etkinleştirildiğinde ve pencerede başka sekmeler olduğunda sonraki sekmeyi seçer.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Yerel sekmeler etkinleştirildiğinde ve birden fazla açık pencere olduğunda, tüm pencereleri birden çok sekme ile tek bir pencerede birleştirir.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Yerel sekmeler etkinleştirilmişse ve geçerli pencerede birden fazla sekme varsa geçerli sekmeyi yeni bir pencereye taşır.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Yerel sekmeler etkinleştirilmişse ve geçerli pencerede yalnızca bir sekme varsa, sekme çubuğunun görünürlüğünü değiştirir.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Bu pencerede pencere örneği sekmesinden sonra bir pencere sekmesini ekler.
 
 #### `win.setVibrancy(type)` *macOS*
 
@@ -1172,6 +1172,6 @@ Geçerli pencere için touchBar düzenini ayarlar. Specifying `null` or `undefin
 
 #### `win.getBrowserView()` *Deneysel*
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+`BrowserView | null` - ekli bir Browsererview'e çevirir. Hiçbiri bağlı değilse `null`'e çevirir.
 
 **Not:** BrowserView API şu an deneyseldir ve ileriki Electron sürümlerinde değişebilir veya silinebilir.

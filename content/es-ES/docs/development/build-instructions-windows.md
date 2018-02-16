@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos de proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
+El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
 ```powershell
 $ cd electron

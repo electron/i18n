@@ -4,25 +4,25 @@
 
 Beim Ausführen von `npm install electron` können bei einigen Nutzern gelegentlich Installationsfehler auftreten.
 
-In fast allen Fällen sind entstehen diese Fehler wegen Netzwerkproblemen und sind nicht mit dem `electron` npm package verbunden. Fehler wie `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` weisen alle auf ein Problem mit dem Netzwerk hin. Das Problem kann am besten gelöst werden, wenn man das Netzwerk wechselt oder man eine Weile wartet und die Installation erneut versucht.
+In fast allen Fällen sind diese Fehler das Ergebnis von Netzwerkproblemen und nicht von tatsächlichen Problemen mit dem Paket `electron` npm. Fehler wie `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` weisen alle auf ein Problem mit dem Netzwerk hin. Das Problem kann am besten gelöst werden, wenn man das Netzwerk wechselt oder man eine Weile wartet und die Installation erneut versucht.
 
 Man kann auch versuchen, Electron direkt unter [electron/electron/releases](https://github.com/electron/electron/releases) herunterzuladen, falls die Installation über `npm` weiterhin fehlschlägt.
 
-## Wann wird Electron auf die neueste Chrome Version aktualisieren?
+## Wann wird Electron auf die neueste Version von Chrome aktualisiert?
 
-Die Chrome Version von Electron wird in der Regel innerhalb von ein oder zwei Wochen inkrementiert nachdem eine neue stabile Version für Chrome veröffentlicht wird. Diese Schätzung kann nicht garantiert werden und hängt vom Arbeitsaufwand während der Aktualisierung ab.
+Die Chrome Version von Electron wird in der Regel innerhalb von ein oder zwei Wochen Implementiert nachdem eine neue stabile Version für Chrome veröffentlicht wird. Diese Schätzung kann nicht garantiert werden und hängt vom Arbeitsaufwand während der Aktualisierung ab.
 
-Nur der stabile Channel von Chrome wird verwendet. Wenn ein wichtiger Fix im Beta- oder Dev-Channel ist, werden wir es zurückporten.
+Es wird nur der stabile Kanal von Chrome verwendet. Wenn sich ein wichtiger Fix im Beta- oder Dev-Channel befindet, werden wir ihn zurückportieren.
 
 Weitere Informationen finden Sie in der [Einführung zur Sicherheit](tutorial/security.md).
 
-## Wann wird Electron auf die neueste Node.js Version aktualisieren?
+## Wann wird Electron auf die neueste Version von Node.js upgraden?
 
 Wenn eine neue Version von Node.js veröffentlicht wird, warten wir in der Regel etwa einen Monat vor dem Upgrade in Elektron. So können wir vermeiden, die häufigen Bugs in neuen Node.js Versionen mit in Electron einzubinden.
 
 Neue Funktionalitäten von Node.js werden in der Regel durch V8 Upgrades ermöglicht. Da Electron das vom Chrome Browser mitgelieferte V8 verwendet, stehen die neuen JavaScript Funktionalitäten der neuen Node.js Version in der Regel bereits in Electron zur Verfügung.
 
-## Gewusst wie: Teilen von Daten zwischen Webseiten?
+## Wie kann man Daten zwischen Webseiten austauschen?
 
 Um Daten zwischen Web-Seiten (Renderer-Prozesse) zu teilen, ist der einfachste Weg, HTML5-APIs zu verwenden, die bereits in Browsern zur Verfügung stehen. Gute Kandidaten sind [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`LocalStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) und [`SessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 

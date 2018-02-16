@@ -1,4 +1,4 @@
-# Task Object
+# Obiekt Task
 
 * `program` String - Path of the program to execute, usually you should specify `process.execPath` which opens the current program.
 * `arguments` String - The command line arguments when `program` is executed.

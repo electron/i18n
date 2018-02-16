@@ -1,4 +1,4 @@
-## Sınıf: Tray
+## Sınıf: Tepsi
 
 > Sistem bildirim alanına simgeler ve bağlam menüleri ekleyin.
 
@@ -162,7 +162,7 @@ Fare tepsi simgesine girdiğinde ortaya çıkar.
 
 Fare tepsi simgesinden çıktığında ortaya çıkar.
 
-#### Event: 'mouse-move' *macOS*
+#### Olay: 'mouse-move' *macOS*
 
 * `event` Event 
   * `altKey` Boolean
@@ -171,7 +171,7 @@ Fare tepsi simgesinden çıktığında ortaya çıkar.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - event'ın pozisyonu
 
-Emitted when the mouse moves in the tray icon.
+Fare tepsi simgesini hareket ettirdikçe ortaya çıkar.
 
 ### Örnek Yöntemleri
 
@@ -185,13 +185,13 @@ Tepsi simgesini derhal imha eder.
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon.
+Bu tepsi simgesiyle ilişkili `image` 'i ayarlar.
 
 #### `tray.setPressedImage(image)` *macOS*
 
 * `image` [NativeImage](native-image.md)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+MacOS üzerine basıldığında bu tepsi simgesiyle ilişkili `image`'i ayarlar.
 
 #### `tray.setToolTip(toolTip)`
 
@@ -207,14 +207,14 @@ Durum çubuğunda tepsi simgesinin bir kenara görünen başlığını ayarlar.
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` Dizge - Aşağıdaki değerlerden biriyle vurgulama modunu seçin: 
+  * `selection` - Tepsi simgesini tıklattığınızda ve bağlam menüsü açık olduğunda vurgulayın. Varsayılan budur.
+  * `always` - Daima tepsi simgesini vurgulayın.
+  * `never` - Asla tepsi simgesini vurgulamayın.
 
-Sets when the tray's icon background becomes highlighted (in blue).
+Tepsinin simge arka planı vurgulandığında (mavi renkte) ayarlar.
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:** pencere görünürlüğü değiştiğinde `'never'` ve `'always'` modları arasında geçiş yaparak [`BrowserWindow`](browser-window.md) ile `highlightMode` kullanabilirsiniz.
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -236,9 +236,9 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `seçenekler` Nesne 
-  * `icon` ([NativeImage](native-image.md) | String) - (optional)
+  * `icon` ([NativeImage](native-image.md) | String) - (isteğe bağlı)
   * `title` String
-  * `content` String
+  * `content` Dizge
 
 Bir tepsi balonunu görüntüler.
 
@@ -249,7 +249,7 @@ Bir tepsi balonunu görüntüler.
 
 Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` yalnızca Windows'ta kullanılabilir ve varsayılan olarak (0, 0) değerindedir.
 
 #### `tray.setContextMenu(menu)`
 

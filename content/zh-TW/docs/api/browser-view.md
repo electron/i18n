@@ -4,7 +4,7 @@
 
 **注意:** BrowserView API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a `BrowserWindow`. It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 

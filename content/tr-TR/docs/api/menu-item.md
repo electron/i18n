@@ -67,11 +67,11 @@ Aşağıdaki ek roller macOS üzerinde kullanılabilir:
 * `stopspeaking` - `stopSpeaking` eylemine eşleme
 * `front` - `arrangeInFront` eylemine eşleme
 * `zoom` - `performZoom` eylemine eşleme
-* `toggletabbar` - Map to the `toggleTabBar` action
-* `selectnexttab` - Map to the `selectNextTab` action
-* `selectprevioustab` - Map to the `selectPreviousTab` action
-* `mergeallwindows` - Map to the `mergeAllWindows` action
-* `movetabtonewwindow` - Map to the `moveTabToNewWindow` action
+* `toggletabbar` - `toggleTabBar` eylemine eşleşme
+* `selectnexttab` - `selectNextTab` eylemine eşleşme
+* `selectprevioustab` - `selectPreviousTab` eylemine eşleşme
+* `mergeallwindows` - `mergeAllWindows` eylemine eşleşme
+* `movetabtonewwindow` - `moveTabToNewWindow` eylemine eşleşme
 * ` window ` - Alt menü bir "Pencere" menüsüdür
 * `help` - Alt menü bir "Yardım" menüsüdür
 * `services` - Alt menü bir "Servisler" menüsüdür

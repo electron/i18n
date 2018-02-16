@@ -346,7 +346,7 @@ Dönüşler:
 
 * `event` Event
 * `sonuç` Nesne 
-  * `requestId` Integer
+  * `requestId` Tamsayı
   * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
   * `matches` Integer - Eşleşmelerin sayısı.
   * `selectionArea` Object - İlk eşleşme alanının koordinatları.
@@ -373,7 +373,7 @@ Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşıla
 Dönüşler:
 
 * `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `color` (String | null) - Tema rengi '#rrggbb' biçiminde. Tema rengi ayarlanmadığında `null`'dir.
 
 #### Etkinlik: 'update-target-url'
 
@@ -413,14 +413,14 @@ Dönüşler:
   * `frameURL` Dize - Bağlam menüsünün çağrıldığı alt çerçeveye ait URL.
   * `srcURL` Dize - İçerik menüsünde çağrıldığı öğenin kaynak URL' si. Görüntü, ses ve resimler kaynak URL' lerine sahiptirler.
   * `mediaType` Dize - Bağlam menüsünde çağırılan düğüm tipi. `none`, `image`, `audio`, `video`, `canvas`, `file` veya `plugin` olabilir.
-  * `hasImageContents` Boolean - Whether the context menu was invoked on an image which has non-empty contents.
-  * `isEditable` Boolean - Whether the context is editable.
+  * `hasImageContents` Mantıksal - Bağlam menüsünün boş olmayan içeriğe sahip bir resim üzerinde çağrılmasına izin verilmez.
+  * `isEditable` Mantıksal - Bağlamın düzenlenebilir olup olmadığı.
   * `selectionText` Dize - Bağlam menüsünün üzerinde çağırılan seçimin metni.
   * `titleText` Dize - Bağlam menüsü üzerinde çağırılan seçimin alt metni veya başlığı.
   * `misspelledWord` Metin - İmlecin altındaki yanlış yazılan sözcük.
   * `frameCharset` Dize - Menüden çağırılan çerçevenin karakter şifrelemesi.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Olası değerler: `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+  * `inputFieldType` Dizgi - Bağlam menüsü bir girdi alanından çağrıldığında, o alanın türü. Olası değerler: `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` Dizgi - Bağlam menüsünü çağıran giriş kaynağı.`none`, `mouse`, `keyboard`, `touch`, `touchMenu` olabilir.
   * `medya bayrakları` Obje - İçerik menüsünün medya elemanı için yapılmış bayraklar. 
     * `inError` Boolean - Whether the media element has crashed.
     * `isPaused` Boolean - Whether the media element is paused.

@@ -101,9 +101,9 @@ Aboneyi `id` ile kaldırır.
 * `key` String
 * `type` String - `string`, `boolean`, `integer`, `float`, `double`, `url`, `array`, `dictionary` olabilir
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+`any` - `NSUserDefaults` 'te `key` değerini verir.
 
-Some popular `key` and `type`s are:
+Bazı popüler `key` ve `type`'ler:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -119,11 +119,11 @@ Some popular `key` and `type`s are:
 * `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] bakın
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+`NSUserDefaults`'de `key` değerini ayarlayın.
 
 `type`'ın `value`'nin gerçek türü ile eşleşmesi gerektiğini unutmayın. Eğer uyuşmazlarsa bir hata fırlatılacaktır.
 
-Some popular `key` and `type`s are:
+Bazı popüler `key` ve `type`'ler:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -131,7 +131,7 @@ Some popular `key` and `type`s are:
 
 * `key` String
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+`NSUserDefaults`'deki `key`'i kaldırır. Bu, önceden ayarlanmış `key`'ün varsayılan değerini veya genel değerini `setUserDefault` ile geri yüklemek için kullanılabilir.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 

@@ -42,7 +42,7 @@ A diferencia de la mayoría de los proyectos que utilizan `Lanzamiento` y `Depur
 
 Esto solo afecta a los desarrolladores, si solo estás compilando Electron para cambiar la marca usted no estás afectado.
 
-## Pruebas
+## Verificación
 
 Pruebe sus cambios conforme al estilo de codificación del proyecto usando:
 

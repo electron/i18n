@@ -77,9 +77,9 @@ let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
 
-### Forwarding
+### Yönlendir
 
-Ignoring mouse messages makes the web page oblivious to mouse movement, meaning that mouse movement events will not be emitted. On Windows operating systems an optional parameter can be used to forward mouse move messages to the web page, allowing events such as `mouseleave` to be emitted:
+Fare mesajlarını yok saymak, web sayfasını fare hareketi yapmaktan habersiz hale getirir, yani fare hareketi olaylarının yayılamayacağı anlamına gelir. Windows işletim sistemlerinde fare hareket iletilerini web sayfasına iletmek için isteğe bağlı bir parametre `mouseleave` kullanılabilir ve olayların yayımlanmasına izin verilir:
 
 ```javascript
 let win = require('electron').remote.getCurrentWindow()
@@ -92,7 +92,7 @@ el.addEventListener('mouseleave', () => {
 })
 ```
 
-This makes the web page click-through when over `el`, and returns to normal outside it.
+Bu, web sayfasını `el` üzerinde tıklandığında aktifleşir ve bunun dışında olursa normal duruma döner.
 
 ## Sürüklenebilir bölge
 

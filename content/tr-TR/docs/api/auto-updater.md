@@ -4,13 +4,13 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Uygulamanıza güncelleştirmeleri nasıl uygulayacağınız hakkında ayrıntılı bir rehberi [burada](../tutorial/updates.md) bulabilirsiniz.**
 
-## Platform Notices
+## Platform Bildirimleri
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+Şu an için sadece macOS ve Windows desteklenmektedir. Linux'ta otomatik güncelleyici için yerleşik bir destek yok, bu yüzden uygulamanızı güncellemek için dağıtımın paket yöneticisini kullanmanız önerilir.
 
-In addition, there are some subtle differences on each platform:
+Buna ek olarak, bu platformlarda bazı ufak farklar vardır:
 
 ### macOS
 

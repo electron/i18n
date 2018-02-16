@@ -2,7 +2,7 @@
 
 > 建立原生應用程式選單及內容功能表。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ### `new Menu()`
 

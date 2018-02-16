@@ -235,22 +235,22 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Излъчено, когато е поискан клиентски сертификат.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url` съответства на използваната навигация, която изисква клиентския сертификат, а `callback` може да бъде извикан със стойност, филтрирана от списъка. Използването на `event.preventDefault()` предотвратява използването на първия запазен сертификат от приложението.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
-  event.preventDefault()
-  callback(list[0])
+   event.preventDefault()
+   callback(list[0])
 })
 ```
 
-### Event: 'login'
+### Събитие: 'login'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `webContents` [WebContents](web-contents.md)
 * `request` Object 
   * `method` String
@@ -266,72 +266,72 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+Излъчено, когато `webContents` иска да направи базово удостоверяване.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Поведението по подразбиране е да отмените всички удостоверявания, за да промените това трябва да предотвратите поведението по подразбиране с `event.preventDefault()` и извикване на `callback(username, password)` с идентификационните данни.
 
 ```javascript
 const {app} = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
-  event.preventDefault()
-  callback('username', 'secret')
+   event.preventDefault()
+   callback('username', 'secret')
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Събитие: 'gpu-process-crashed'
 
 Връща:
 
-* `event` Event
+* `event` Събитие
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+Излъчено, когато GPU процес е спрян или убит.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Събитие: 'accessibility-support-changed' *macOS* *Windows*
 
 Връща:
 
-* `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `event` Събитие
+* `accessibilitySupportEnabled` Boolean - Когато допълнителната поддръжка на Chrome е включена, стойността на тази променлива е `true`, в противен случай е `false`.
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Излъчено, при промяна на допълнителната поддръжка на Chrome. Това събитие е излъчено, когато помощни технологии, като екранни четци, са разрешени или забранени. Вижте https://www.chromium.org/developers/design-documents/accessibility за повече подробности.
 
 ## Методи
 
-The `app` object has the following methods:
+Обектът `app` има следните методи:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**Забележка:** Някои методи са достъпни само в конкретни операционни системи и са етикетирани като такива.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+Опитва да затвори всички прозорци. Събитието `before-quit` ще бъде излъчено първо. Ако успешно са затворени всички прозорци, събитието `will-quit` ще се излъчи и по подразбиране ще прекрати приложението.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+Този метод гарантира, че всички събития `beforeunload` и `unload` са правилно изпълнени. Възможно е прозорец да откаже да се затвори, като върне `false` в манипулатора на събитието `beforeunload`.
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (по избор)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Излиза веднага с `exitCode`. `exitCode` по подразбиране е 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+Всички прозорци ще бъдат затворени веднага без да бъде питан потребителя, като събитията `before-quit` и `will-quit` няма да бъдат излъчени.
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (по избор) 
+  * `args` String[] - (по избор)
+  * `execPath` String (по избор)
 
-Relaunches the app when current instance exits.
+Рестартира приложението, когато сегашната му инстанция се затвори.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+По подразбиране, новата инстанция на приложението ще използва същата работна папка и командни аргументи също като сегашната инстанция. Когато `args` е специфицирано, `args` ще бъдат изпратени като нови командни аргументи. Когато `execPath` е зададен, `execPath` ще бъде изпълнен за подновяването на текущото приложение.
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+Забележете, че когато се изпълнява, този метод не изключва приложението, трябва да изпълните `app.quit` или `app.exit` след извикването на `app.relaunch`, за да направите рестартиране на приложението.
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+Когато `app.relaunch` е изпълнено няколко пъти, множество инстанции ще се стартират след изключване на текущата инстанция.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+Пример за рестартиране текущата инстанция веднага и добавяне на нов команден аргумент за новата инстанция:
 
 ```javascript
 const {app} = require('electron')
@@ -342,175 +342,175 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Връща `Boolean` - `true` ако Електрон завърши инициализирането, `false` в противен случай.
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+На Linux се фокусира върху първия видим прозорец. На macOS прави приложението активно приложение. На Windows се фокусира върху първия прозорец на приложението.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+Скрива всички прозорци на приложението без да ги минимизира.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+Показва прозорците на приложението, след като те са били скрити. Не се фокусира върху тях автоматично.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+Връща `String` - Текущата папка на приложението.
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Връща `String` - Път към специална папка или файл, асоцииран с `name`. При грешка бива хвърлен `Error`.
 
-You can request the following paths by the name:
+Може да заявите следните пътища по име:
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `home` Потребителската начална/home папка.
+* `appData` Папката на приложението за всеки потребител, която по подразбиране сочи към: 
+  * `%APPDATA%` на Windows
+  * `$XDG_CONFIG_HOME` или `~/.config` на Linux
+  * `~/Library/Application Support` на macOS
+* `userData` Папката, която пази конфигурационните файлове на вашето приложение, която по подразбиране е папката `appData`, допълнена с името на вашето приложение.
+* `temp` Временна папка.
+* `exe` Текущата изпълнима папка.
+* `module` Библиотеката `libchromiumcontent`.
+* `desktop` Текущата настолна папка на потребителя.
+* `documents` Папката на потребителя за "My Documents".
+* `downloads` Папка за свалянията на потребителя.
+* `music` Папка за музиката на потребителя.
+* `pictures` Папка за снимките на потребителя.
+* `videos` Папка за видеота на потребителя.
+* `logs` Папка за логовете на вашето приложение.
+* `pepperFlashSystemPlugin` Пълният път до системната версия на Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (по избор) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+Хваща асоциираната икона за съответния път.
 
-On *Windows*, there a 2 kinds of icons:
+На *Windows*, има 2 типа икони:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Икони асоциирани с конкретни разширения на файлове, като `.mp3`, `.png`, др.
+* Икони в самия файл, като `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* и *macOS*, иконите зависят от асоциацията им с конкретния mime тип на файла.
 
 ### `app.setPath(name, path)`
 
 * `name` String
 * `path` String
 
-Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
+Презаписва стойността на `path` към специална папка или файл свързан с `name`. Ако пътят определя директория, която не съществува, директорията ще бъде създаден от този метод. При неуспех `Error` е хвърлена.
 
-You can only override paths of a `name` defined in `app.getPath`.
+Можете само да презапишете пътищата на `name`, дефинирани в `app.getPath`.
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+По подразбиране бисквитките и кеша на уеб страниците ще бъдат съхранени в `userData` директорията. Ако искате да промените това местоположение, трябва да презапишете пътя `userData` преди събитието `ready` на `app` модула да се излъчи.
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+Връща `String` - Версията на зареденото приложение. Ако няма намерена версия в `package.json` файла на приложението, връща се версията на текущия пакет или изпълнител.
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+Връща `String` - Името на текущото приложение, което е името във файла `package.json` на приложението.
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+Обикновено полето `name` на `package.json` е кратко наименование с малки букви според npm спецификацията за модулите. Обикновено трябва също така да укажете полето `productName`, което е пълното име на вашето приложение, само в главни букви. То ще бъде предпочетено пред `name` от Електрон.
 
 ### `app.setName(name)`
 
 * `name` String
 
-Overrides the current application's name.
+Замества името на текущото приложение.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Връща `String` - Текущия локал на приложението. Възможни връщаните стойности са документирани [тук](locales.md).
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**Забележка:** Когато се разпространявате пакетираното приложение, трябва също така да изпратите и `locales` папката.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Забележка:** На Windows трябва да го извикате след като събитието `ready` бива излъчено.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
 * `path` String
 
-Adds `path` to the recent documents list.
+Добавя `path` към списъка на последните документи.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+Този списък се управлява от операционната система. В Windows можете да посетите списъка от лентата на задачите, а на macOS можете да го посетите от док менюто.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Изчиства списъка на последните документи.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Името на протокола, без `://`. Ако искате вашето приложение да се справят `electron://` връзките, извикайте този метод с `electron` като параметър.
+* `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
+* `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
+Този метод определя текущия изпълнимия файл като манипулатор по подразбиране за протокола (известно още като URI схема). Позволява ви да интегрирате вашето приложение по-дълбоко в операционната система. Веднъж регистрирана, всички връзки с `вашият-протокол://` ще бъдат отворени със сегашния изпълним файл. Цялата връзка, включително и протокола, ще бъде изпратена към вашето приложение, като параметър.
 
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+На Windows, можете да добавите допълнителни параметри по избор, пътят към вашия изпълним файл и args - масив от аргументи, които да бъдат използвани от вашето приложение при стартирането му.
 
-**Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
+**Забележка:** На macOS можете да регистрирате само протоколи, които са били добавени към `info.plist` на вашето приложение. Тези стойности не могат да бъдат променени по време на изпълнение на приложението. Можете обаче да промените файла с обикновен текстов редактор или скрипт по време на изграждане на рпиложението. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) за подробности.
 
-The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally.
+API използва системния регистър на Windows и LSSetDefaultHandlerForURLScheme вътрешно.
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Името на протокола, без `://`.
+* `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
+* `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
+Този метод проверява дали текущия изпълнимия файл като манипулатор по подразбиране за протокола (известен също нато URI схема). Ако е така, той ще премахне приложението като манипулатор по подразбиране.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `protocol` String - Името на протокола, без `://`.
+* `path` String (по избор) *Windows* - По подразбиране е `process.execPath`
+* `args` String [] (по избор) *Windows* - По подразбиране е празен масив
 
-Returns `Boolean`
+Връща `Boolean`
 
-This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
+Този метод проверява дали текущия изпълнимия файл е манипулатор по подразбиране за протокола (известен също нато URI схема). Ако е така, методът ще върне true, в противен случай false.
 
-**Note:** On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking `~/Library/Preferences/com.apple.LaunchServices.plist` on the macOS machine. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Забележка:** На macOS можете да използвате този метод, за да проверите дали приложението е регистрирана като манипулатор по подразбиране за протоколa. Можете също така да проверите това чрез проверка на `~/Library/Preferences/com.apple.LaunchServices.plist` на macOS машина. Моля обърнете се към [документацията на Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) за подробности.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+API използва системния регистър на Windows и LSCopyDefaultHandlerForURLScheme вътрешно.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+* `tasks` [Task[]](structures/task.md) - Масив от `Task` обекти
 
-Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Добавя `tasks` към категорията [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) на преход/JumpList на Windows.
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks` е масив от [`Task`](structures/task.md) обекти.
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Забележка:** Ако искате да персонализирате още повече скок списък (Jump List) използвайте `app.setJumpList(categories)`.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Връща `Object`:
 
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `minItems` Integer - Минималният брой на елементите, които ще бъдат показани в списъка за прескачане (Jump List) (за по-подробно описание на тази стойност вижте [MSDN документацията](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
 
 ### `app.setJumpList(categories)` *Windows*
@@ -705,7 +705,7 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
 Sets the counter badge for current app. Setting the count to `` will hide the badge.
 

@@ -27,4 +27,4 @@ Düğmenin geçerli arka plan rengini temsil eden `String` hex kodu. Bu değeri 
 
 #### `touchBarButton.icon`
 
-A `NativeImage` representing the button's current icon. Changing this value immediately updates the button in the touch bar.
+`NativeImage`, düğmenin geçerli simgesini temsil eder. Bu değeri değiştirmek dokunma çubuğundaki düğmeyi hemen günceller.

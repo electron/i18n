@@ -1,4 +1,4 @@
-# protocol
+# protokol
 
 > Özel bir protokol kaydettirin ve mevcut protokol isteklerini engelleyin.
 
@@ -38,9 +38,8 @@ Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğ
 
 Örneğin, özel protokollü aşağıdaki sayfayı yüklediğinizde, standart şema olarak kaydettiğinizde, resim yüklenmeyecektir çünkü standart olmayan şemalar göreceli URL'leri tanımlayamaz:
 
-```html
-<body>
-  <img src='test.png'>
+```html<body>
+  <img src='test. png'>
 </body>
 ```
 
@@ -73,7 +72,7 @@ app.on('ready', () => {
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `filePath` String (optional)
+    * `execPath` Dizgi (isteğe bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -95,7 +94,7 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (isteğe bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -125,7 +124,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `data` String (optional)
+    * `rtf` Dizge (İsteğe Bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -176,9 +175,9 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Registers a protocol of `scheme` that will send a `Readable` as a response.
+Yanıt olarak `Readable` gönderen bir `scheme` protokolünü kaydeder.
 
-The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
+Kullanımı, diğer `register{Any}Protocol`'e benzer, ancak `callback`'nin bir `Readable` nesne veya `data`, `statusCode` ve `headers` özelliklere sahip bir nesneyle çağrılması gerekir.
 
 Örnek:
 
@@ -206,7 +205,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 })
 ```
 
-It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
+Okunabilir akış API (emits`data`/`end`/`error` events)'ı uygulayan herhangi bir nesneyi iletmek mümkündür. Örneğin, bir dosyanın nasıl geri gönderilebileceği aşağıda açıklanmıştır:
 
 ```javascript
 const {protocol} = require('electron')
@@ -261,7 +260,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `data` String (optional)
+    * `data` Dizge (İsteğe Bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -277,7 +276,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `buffer` Buffer (optional)
+    * `buffer` Arabellek (isteğe bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -316,11 +315,11 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (isteğe bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
-Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
+Mevcut bir protokol işlecinin yerini alması dışında, `protocol.registerStreamProtocol` ile aynı.
 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 

@@ -104,51 +104,51 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 戻り値:
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity on another device.
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `userInfo` Object - 別のデバイスのアクティビティによって蓄積されたアプリ固有の状態が含まれています。
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとしたときに発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
-A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
+ユーザのアクティビティはアクティビティ元のアプリと同一の開発者チームIDを持ち、アクティビティタイプをサポートするアプリでしか継続させることができません。 サポートされるアクティビティタイプは、アプリの `Info.plist` の `NSUserActivityTypes` キーで指定されています。
 
-### Event: 'will-continue-activity' *macOS*
-
-戻り値:
-
-* `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
-
-### Event: 'continue-activity-error' *macOS*
+### イベント: 'will-continue-activity' *macOS*
 
 戻り値:
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `error` String - A string with the error's localized description.
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続しようとする前に発生します。 このイベントを処理する場合、`event.preventDefault()` を呼び出す必要があります。
 
-### Event: 'activity-was-continued' *macOS*
-
-戻り値:
-
-* `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
-
-### Event: 'update-activity-state' *macOS*
+### イベント: 'continue-activity-error' *macOS*
 
 戻り値:
 
 * `event` Event
-* `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `error` String - エラーのローカライズされた説明としての文字列。
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中に別のデバイスからのアクティビティを継続できなかったときに発生します。
+
+### イベント: 'activity-was-continued' *macOS*
+
+戻り値:
+
+* `event` Event
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `userInfo` Object - アクティビティによって蓄積されたアプリ固有の状態が含まれています。
+
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 中にこのデバイスからのアクティビティを他のデバイスで継続させることに成功した後で発生します。
+
+### イベント: 'update-activity-state' *macOS*
+
+戻り値:
+
+* `event` Event
+* `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
+* `userInfo` Object - アクティビティによって蓄積されたアプリ固有の状態が含まれています。
+
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される状態を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' *macOS*
 
@@ -156,7 +156,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 * `event` Event
 
-Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
+ユーザがmacOS標準の新規タブボタンをクリックしたときに発生します。新規タブボタンは現在の `BrowserWindow` に `tabbingIdentifier` が設定されている場合にだけ表示されます。
 
 ### イベント: 'browser-window-blur'
 
@@ -165,7 +165,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets blurred.
+[browserWindow](browser-window.md) のフォーカスが外れたときに発生します。
 
 ### イベント: 'browser-window-focus'
 
@@ -174,7 +174,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a [browserWindow](browser-window.md) gets focused.
+[browserWindow](browser-window.md) がフォーカスを得たときに発生します。
 
 ### イベント: 'browser-window-created'
 
@@ -183,7 +183,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Emitted when a new [browserWindow](browser-window.md) is created.
+新しい [browserWindow](browser-window.md) が生成されたときに発生します。
 
 ### イベント: 'web-contents-created'
 
@@ -192,7 +192,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+新しい [webContents](web-contents.md) が生成されたときに発生します。
 
 ### イベント: 'certificate-error'
 
@@ -206,7 +206,7 @@ Emitted when a new [webContents](web-contents.md) is created.
 * `callback` Function 
   * `isTrusted` Boolean - 証明書を信頼できるものと見なすかどうか
 
-Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+`url` に対する `certificate` の検証に失敗したときに発生します。証明書を信頼するためには、`event.preventDefault()` で既定の動作をキャンセルして、`callback(true)` を呼び出すようにしてください。
 
 ```javascript
 const {app} = require('electron')
@@ -231,11 +231,11 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (任意)
 
-Emitted when a client certificate is requested.
+クライアント証明書が要求されたときに発生します。
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url` がクライアント証明書を要求しているナビゲーションエントリーに対応していれば、リストからフィルターされたエントリーで `callback` を呼び出すことができます。 `event.preventDefault()` を使うことで、アプリケーションがストアから最初の証明書を使うのをキャンセルできます。
 
 ```javascript
 const {app} = require('electron')
@@ -266,9 +266,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Emitted when `webContents` wants to do basic auth.
+`webContents` がBasic認証を要求すると発生します。
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+既定の動作では、全ての認証を取り消しますが、これを変更するには、`event.preventDefault()` で既定の動作をキャンセルして、資格情報と共に `callback(username, password)` を呼び出すようにしてください。
 
 ```javascript
 const {app} = require('electron')
@@ -281,57 +281,57 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### イベント: 'gpu-process-crashed'
 
-戻り値：
+戻り値:
 
 * `event` Event
 * `killed` Boolean
 
-Emitted when the gpu process crashes or is killed.
+GPUプロセスがクラッシュしたり、強制終了されたりしたときに発生します。
 
 ### イベント: 'accessibility-support-changed' *macOS* *Windows*
 
 戻り値:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+* `accessibilitySupportEnabled` Boolean - Chromeのユーザ補助機能が有効な場合は `true`、そうでない場合は `false`。
 
-Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Chromeのユーザ補助機能が変更されると発生します。 このイベントはスクリーンリーダーのような支援技術が有効にされたり、無効にされたりしたときに発火します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
 ## メソッド
 
-The `app` object has the following methods:
+`app` オブジェクトには以下のメソッドがあります。
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**注:** いくつかのメソッドは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+すべてのウインドウを閉じようとします。 `before-quit` イベントが最初に発生します。 すべてのウインドウを閉じることに成功した場合、`will-quit` イベントが発生し、既定ではアプリケーションは終了します。
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+このメソッドは、すべての `beforeunload` および `unload` イベントハンドラーが正しく実行されることを保証します。 `beforeunload` イベントハンドラーで `false` を返すことによって、ウインドウが終了処理をキャンセルすることができます。
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (任意)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+`exitCode` ですぐに終了します。`exitCode` の初期値は0です。
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+ユーザに確認することなくすべてのウインドウがすぐに閉じられ、`before-quit` および `will-quit` イベントは発生しません。
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
-  * `args` String[] - (optional)
-  * `execPath` String (optional)
+* `options` Object (任意) 
+  * `args` String[] - (任意)
+  * `execPath` String (任意)
 
-Relaunches the app when current instance exits.
+現在のインスタンスが終了したときに、アプリを再起動します。
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+既定では新しいインスタンスは現在のインスタンスと同じ作業ディレクトリおよびコマンドライン引数を使用します。 `args` が指定された場合、`args` がコマンドライン引数として代わりに引き渡されます。 `execPath` が指定された場合、`execPath` が再起動のため現在のアプリに代わって実行されます。
 
-Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
+このメソッドは実行されているアプリを終了しないことに注意してください。アプリを再起動するには、`app.relaunch` を呼び出した後、`app.quit` または `app.exit` を呼び出さなければなりません。
 
-When `app.relaunch` is called for multiple times, multiple instances will be started after current instance exited.
+`app.relaunch` を複数回呼び出した場合、現在のインスタンスが終了した後、複数のインスタンスが開始されます。
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+現在のインスタンスをすぐに再起動し、新しいコマンドライン引数を新しいインスタンスに追加する例:
 
 ```javascript
 const {app} = require('electron')
@@ -342,70 +342,70 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+戻り値 `Boolean` - Electronの初期化が完了した場合、`true`、そうでない場合、`false`。
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Linuxでは、最初の可視ウインドウにフォーカスを当てます。macOSではアプリケーションをアクティブなアプリにします。Windowsでは、アプリケーションの最初のウインドウにフォーカスを当てます。
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+最小化することなくアプリケーションのすべてのウインドウを非表示にします。
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+非表示にされたアプリケーションのウインドウを表示します。自動的にフォーカスは当たりません。
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+戻り値 `String` - 現在のアプリケーションのディレクトリ。
 
 ### `app.getPath(name)`
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。失敗した場合、`Error` がスローされます。
 
-You can request the following paths by the name:
+以下のパスを名前で要求することができます。
 
-* `home` User's home directory.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
-* `logs` Directory for your app's log folder.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `home` ユーザのホームディレクトリ。
+* `appData` 既定のユーザ毎のアプリケーションデータディレクトリ。 
+  * Windowsの場合、`%APPDATA%`
+  * Linuxの場合、`$XDG_CONFIG_HOME` もしくは `~/.config`
+  * macOSの場合、`~/Library/Application Support`
+* `userData` アプリの設定ファイルが保存されるディレクトリで、既定ではアプリの名前で追加された `appData` のディレクトリ。
+* `temp` 一時ディレクトリ。
+* `exe` 現在の実行ファイル。
+* `module` `libchromiumcontent` ライブラリ。
+* `desktop` 現在のユーザのデスクトップディレクトリ。
+* `documents` ユーザの"マイドキュメント"のディレクトリ。
+* `downloads` ユーザのダウンロードのディレクトリ。
+* `music` ユーザのミュージックのディレクトリ。
+* `pictures` ユーザのピクチャのディレクトリ。
+* `videos` ユーザのビデオのディレクトリ。
+* `logs` アプリのログフォルダのディレクトリ。
+* `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (任意) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux* の場合、48x48、*Windows*の場合、32x32、macOSの場合はサポートされていません。
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+パスに関連付けられているアイコンを取得します。
 
-On *Windows*, there a 2 kinds of icons:
+*Windows* の場合、2種類のアイコンがあります。
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
+* `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
 
 ### `app.setPath(name, path)`
 
@@ -436,7 +436,7 @@ Overrides the current application's name.
 
 ### `app.getLocale()`
 
-戻り値 `String` - 現在のアプリケーションのロケール。可能性のある戻り値は [ここ](locales.md) に記されています。
+戻り値 `String` - 現在のアプリケーションのロケール。返却される可能性のある値は [ここ](locales.md) に記されています。
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
@@ -496,7 +496,7 @@ The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internall
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
+* `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
 
 Adds `tasks` to the [Tasks](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
 
@@ -638,7 +638,7 @@ Releases all locks that were created by `makeSingleInstance`. This will allow mu
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - App-specific state to store for use by another device.
 * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
 
@@ -650,13 +650,13 @@ Returns `String` - The type of the currently running activity.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 
 Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - Uniquely identifies the activity. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - App-specific state to store for use by another device.
 
 Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.

@@ -71,13 +71,13 @@ Gördüğünüz gibi, işleyici geri aramanın eş zamanlı dönüş değeri bek
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
-  // window was closed...
+  // pencere kapatıldı...
 })
 ```
 
 Ancak, geri aramayı açıkça kaldırana kadar ana süreç tarafından başvuru olarak alındığını unutmayın. Bunu yapmazsanız, pencereniz her seferinde yeniden yüklenildiğinde, her yeniden başlatma için bir sızdıran geri arama yüklenecektir.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+İşleri daha da kötüleştirmek için önceden kurulmuş geri çağrılar bağlamı serbest bırakıldığından, `close` olayı gönderildiğinde ana süreçte istisnalar ortaya çıkacaktır.
 
 Bu sorunu önlemek için, ana işleme aktarılan işleyici geri çağırımlarına yapılan tüm başvuruları temizlendiğinden emin olun. Bu, olay işleyicilerinin temizlenmesi veya ana işleme açık olarak, çıkmakta olan bir oluşturucu işleminden gelen geri arama çağrılarının yapılmasını saydığından emin olmayı içerir.
 
@@ -91,13 +91,13 @@ console.log(app)
 
 ## Metodlar
 
-The `remote` module has the following methods:
+`ağ` modülü aşağıdaki yöntemleri içerir:
 
-### `remote.require(module)`
+### `remote.require(modul)`
 
-* `module` String
+* `module` Dizgi
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+`any` - ana işlemde `require(module)` tarafından çevirilen nesne. Göreceli yollarıyla belirtilen modüller ana işlemin giriş noktasına göreli olarak çözümlenir.
 
 Örnek
 
@@ -129,11 +129,11 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+[`BrowserWindow`](browser-window.md) - bu web sayfasının ait olduğu pencereyi döndürür.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+[`WebContents`](web-contents.md) - bu web sayfasının web içeriğini çevirir.
 
 ### `remote.getGlobal(name)`
 
@@ -145,4 +145,4 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Ana süreçteki `process` nesne. Bu,`remote.getGlobal('process')` ile aynıdır, ancak önbelleğe alınmıştır.

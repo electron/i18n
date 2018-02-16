@@ -1,4 +1,4 @@
-# Issues In Electron
+# Mga isyu ng Elektron
 
 # Isyu
 
@@ -18,7 +18,7 @@ Para sa anumang isyu, merong mga panimula at tatlong pamamaraan na idibidwal na 
 
 ## Humingi nang pangkalahatang tulong
 
-Dahil ang antas nang aktibidad nasa `elektron/elektron` imbakan ay napakataas, mga tanong o hiling para sa pangkalahatang tulong sa paggamit elektron ay dapat na direktang sa [kommunidad malubay na channel](https://atomio.slack.com) o ang [forum](https://discuss.atom.io/c/electron).
+Dahil ang antas nang aktibidad nasa `elektron/elektron` imbakan ay napakataas, mga tanong o hiling para sa pangkalahatang tulong sa paggamit nang elektron ay dapat na direktang sa [kommunidad malubay na channel](https://atomio.slack.com) o ang [forum](https://discuss.atom.io/c/electron).
 
 ## Pagsusumite sa bug report
 
@@ -29,53 +29,51 @@ Kapag nagbukas kanang bagong isyu sa `elektron/elektron` isyu tracker, mga gumag
 Salamat sa pagbukas nang isyu! Ilang bagay na dapat tandaan:
 
 - Ang isyu tracker ay para sa bugs at tampok na hiling.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
+Bago mag ulat ng isang bug, pakiusap subukan mag reproduce nang iyong isyu laban sa pinakabagong  bersyon ng Elektron.
+-Kung kailangan mo ng pangkalahatang isyu, sumali ka sa aming Slack: http://atom-slack.herokuapp.com
 -->
 
-* Electron version:
-* Operating system:
+*Elektron bersyon:
+*Operating system:
 
-### Expected behavior
+###Inaasahang pag-uugali
 
-<!-- What do you think should happen? -->
+&It;!-- Anong sa tingin nyo ang mangyayari? -->
 
-### Actual behavior
+### Aktwal na pag-uugali
 
-<!-- What actually happens? -->
+&It;!-- Ano talaga ang mangyayari? -->
 
-### How to reproduce
+### Paano magparami
 
-<!--
+&It;!--
+Ang pinakamahusay na pagkakataon ng pagkuha ng bug na ito ay tingnan ng mabilis ay upang magbigay ng imbakan na maaring kopyahin at patakbuhin.
 
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
+Maari mong itapon https://github.com/elektron/elektron-guick-start at isama ang link sa iyong pagbabago.
 
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
+Kung magbigay kanang ERL, pakiusap ilista ang mga command kinakailangan upang i clone/setup/run your repo e.g.
 
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
-
-  $ git clone $YOUR_URL -b $BRANCH
-  $ npm install
-  $ npm start || electron .
+$ git clone $YOUR_URL -b $BRANCH
+$ npm install
+$ npm start || elektron.
 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Kung naniniwala ka na nahanap mo na ang bug sa loob nang Elektron, pakiusap punan mo ang form sa abot ng iyong makakaya.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+Ang dalawang pinakamahalagang piraso ng informasyon na kailangan upang suriin ang report ay isang paglalarawan ng bug at ang simpleng pagsubok na kaso upang muling likhain ito. Madali itong ayusin ang bug kung maaari itong magparami.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Tingnan[Paano makagawa ng minimal, Kumpleto, at Napatunayan halimbawa](https://stackoverflow.com/help/mcve).
 
 ## Pagsasagawa sa bug report
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+Karaniwan nito para sa mga bukas na isyu upang makasali sa diskusyon. Ilan sa mga mag-aambag ay maaaring meron ibat-ibang mga opinyon, kabilang ang kung ang pag-uugali ay isang bug o tampok. Ang talakayang ito ay bahagi ng proseso at dapat na maingatan at nakatuon, matutlungin, at propesyonal.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Mga tugon na nagbibigay alinman sa karagdagang konteksto o pagsuporta sa mga detalye ay hindi kapaki-pakinabang o profesyonal. Sa napakarami, ang mga tugon na ito ay nakakainis at hindi magiliw.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Hinihikayat ang mga taga-ambag na lutasin ng magkasama ang mga isyu at tulungan ang isat isa para makagawa ng progreso. Kung naka tagpo kanang isyu na pakiramdam mo ay hindi wasto, o naglalaman ng maling informasyon, ipaliwanag *why* nararamdaman mo ang paraan dito karagdagang suporta na mga konteksto, at handa maging kumbinsido na ikaw ay mali. Sa paggawa nito, madalas naming maabot ang tamang kinalalabasan na mas mabilis.
 
 ## Paglutas sa bug report
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+Kadalasan sa mga isyu ay nalutas sa pamamagitan ng pagbukas ng hilahin ang kahilingan. Ang prosseso sa pagbukas at pagrerepaso sa paghila ng kahilingan ay pareho sa mga nagbukas at pagsasagawa sa mga isyu, pero nagdadala ito ng kainakailangan pagsusuri at pag-apruba na workflow na tiyak na ang ipinanukalang pagbabago ay matugunan ang kalidad at ang mga alintuntunin ng proyekto ng elektron.

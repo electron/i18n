@@ -8,7 +8,7 @@ W celu zainstalowania prekompilowanych plików Electrona, użyj [`npm`](https://
 npm install electron --save-dev
 ```
 
-See the [Electron versioning doc](electron-versioning.md) for info on how to manage Electron versions in your apps.
+Zobacz [dokumentacje wersjonowania Eletronc'a](electron-versioning.md), aby dowiedzieć więcej o zarządzaniu wersjami Electron'a w twoich aplikacjach.
 
 ## Instalacja globalna
 
@@ -26,7 +26,7 @@ Jeśli chcesz zmienić architekturę pobieranych pakietów (np. `ia32` na maszyn
 npm install --arch=ia32 electron
 ```
 
-In addition to changing the architecture, you can also specify the platform (e.g., `win32`, `linux`, etc.) using the `--platform` flag:
+Dodatkowo, możesz także określić platformę (np. `win32`, `linux`, itd.), używając flagi `--platform`:
 
 ```shell
 npm install --platform=win32 electron
@@ -38,19 +38,19 @@ Jeżeli używasz serwera HTTP Proxy, możesz [użyć tych zmiennych środowiskow
 
 ## Custom Mirrors and Caches
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Podczas instalacji moduł `electron'a` zawoła [`electron-download`](https://github.com/electron-userland/electron-download), aby pobrać wstępnie zbudowane pliki binarne Electron'a dla Twojej platformy. Wykona to poprzez skontaktowanie się stroną wydanych wersji w domenie GitHub'a (`https://github.com/electron/electron/releases/tag/v$VERSION` gdzie `$VERSION` to dokładna wersja Electron'a).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Jeśli nie można uzyskać dostępu witryny GitHub lub należy podać niestandardowe kompilacji, możesz to zrobić przez zapewnienie lustra lub istniejącego katalogu pamięci podręcznej.
 
 #### Mirror
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. Adres url używany przez `electron-download` składa się w następujący sposób:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Na przykład aby użyć China mirror:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -58,7 +58,7 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Alternatywnie możesz nadpisać lokalną pamięć podręczną. `electron-download` zapiszę w pamięci podręcznej pobrane pliki birnarne w lokalnym katalogu, aby nie przeciążać Twojego połączenia. Możesz użyć tego katalogu pamięci podręcznej, aby przekazać niestandardowe kompilacje Electron'a lub uniknąć korzystania z połączenia internetowego.
 
 * Linux: `$XDG_CACHE_HOME` or `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
@@ -91,7 +91,7 @@ W większości przypadków, błędy te są wynikiem problemów z połączeniem i
 
 Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/releases](https://github.com/electron/electron/releases), jeśli instalacja poprzez `npm` zawodzi.
 
-If installation fails with an `EACCESS` error you may need to [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+Jeśli instalacja powoduje błąd `EACCESS`, być może musisz naprawić [uprawnienia npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
 Jeżeli powyższe błędy nie ustępują, flaga [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm), może wymagać ustawienia wartości "true":
 
@@ -105,4 +105,4 @@ W przypadku wolnego połączenia z internetem, zalecane jest użycie flagi `--ve
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+W przypadku, gdy musisz wymusić ponowne pobranie sumy kontrolnej oraz danych, ustaw zmienną środowiskową `force_no_cache` na wartość `true`.

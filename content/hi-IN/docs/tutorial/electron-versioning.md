@@ -32,7 +32,7 @@ npm install --save-dev electron@latest
 2. semver-अनुरूप `-beta` टैग से परिचय
 3. [पारंपरिक कमिट संदेशों](https://conventionalcommits.org/) से परिचय
 4. स्पष्ट रूप से परिभाषित स्थिरीकरण शाखायें
-5. `master` शाखा बिना संस्करण के है; केवल स्थिरता शाखाओं के पास संस्करण जानकारी उपलब्ध है
+5. The `master` branch is versionless; only stabilization branches contain version information
 
 गिट शाखा, एनपीएम टैगिंग, डेवलपर्स को कैसी अपेक्षा रखनी चाहिये, और कैसे कोई बैकपोर्ट परिवर्तन करें, इन सब चीजों पर हम विस्तार से बात करेंगे |
 
@@ -86,7 +86,7 @@ npm install --save-dev electron@latest
 3. अगर एक दी गयी बीटा रिलीज़ *सामान्यतः* स्थिर मानी जाती है, तो उसे एक स्थिर बिल्ड के रूप में दोबारा से रिलीज़ किया जायेगा, और केवल संस्करण जानकारी को बदला जायेगा | उदाहरण: `2.0.0` |
 4. अगर भविष्य में एक स्थिर रिलीज़ में बग फिक्सेस या सुरक्षा पैच शामिल करने हो, तो उन्हें शामिल करना होगा और उसकी अनुसार *पैच* संस्करण को बढ़ाना होगा उदाहरण: `2.0.1` |
 
-हर मुख्य और लघु बढ़त पर, आप को कुछ ऐसा दिखेगा:
+For each major and minor bump, you should expect to see something like the following:
 
 ```text
 2.0.0-beta.1
@@ -100,9 +100,9 @@ npm install --save-dev electron@latest
 तस्वीरों में एक जीवनकाल का उदाहरण:
 
 * एक नयी रिलीज़ ब्रांच निर्मित की जाती है जिसमे नवीनतम सुविधाओं का सेट शामिल होता है | इसे `2.0.0-beta.1` के रूप में प्रकाशित किया जाता है | ![](../images/versioning-sketch-3.png)
-* मास्टर में एक बग फिक्स शामिल होता है, जिसे रिलीज़ शाखा में पैक-पोर्ट किया जा सकता है | पैच लगाया जाता है, और नयी बीटा `2.0.0-beta.2` के रूप में प्रकाशित होती है | ![](../images/versioning-sketch-4.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * बीटा को *सामान्यतः स्थिर* मान जाता है और उसे दोबारा नॉन-बीटा के रूप में `2.0.0` के नीचे प्रकाशित किया जाता है | ![](../images/versioning-sketch-5.png)
-* बाद में, एक शून्य-दिवस एक्सप्लॉइट पायी जाती है और मास्टर में एक फिक्स शामिल किया जाता है | हम फिक्स को `2-0-x` पंक्ति में पैक-पोर्ट करते हैं और `2.0.1` को प्रकाशित करते हैं | ![](../images/versioning-sketch-6.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 कुछ उदाहरण कि कैसे semver सीमायें नयी रिलीज़िस चुनती हैं:
 
@@ -121,7 +121,7 @@ npm install --save-dev electron@latest
 
 फीचर ध्वज क्रोमियम में काफी आम हैं, और वेब-डेवलपमेंट वातावरण में बहुत अच्छी तरह से स्थापित हैं | इलेक्ट्रॉन के सन्दर्भ में, एक फीचर ध्वज या **सॉफ्ट ब्रांच** के निम्नलिखित गुण होने चाहियें:
 
-* वह रनटाइम, या बिल्डटाइम के दौरान इनेबल्ड/डिसेबल्ड होना चाहिये; हम रिक्वेस्ट-स्कोपड फीचर ध्वज के सिद्धांत का समर्थन नहीं करते हैं |
+* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 * उसे नये और पुराने कोड पथों को बिल्कुल अलग रखना चाहिये; पुराने कोड को नये फीचर समर्थित के लिए बदलने से फीचर-ध्वज अनुबंध का *उल्लंघन * होता है
 * सॉफ्ट-शाखा के संयोजित होने के बाद फीचर ध्वज अंततः निकाल दिए जाते हैं
 

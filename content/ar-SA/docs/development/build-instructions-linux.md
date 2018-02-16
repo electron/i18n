@@ -13,7 +13,7 @@ Follow the guidelines below for building Electron on Linux.
 On Ubuntu, install the following libraries:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -23,7 +23,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
 On RHEL / CentOS, install the following libraries:
 
 ```sh
-$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -32,7 +32,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
 On Fedora, install the following libraries:
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -137,7 +137,7 @@ The default building configuration is targeted for major desktop Linux distribut
 
 ### Building `libchromiumcontent` locally
 
-Development headers of GTK+ and libnotify.
+To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
 
 1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
 2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)

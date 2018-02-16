@@ -32,7 +32,7 @@ Hay varios cambios mayores desde nuestra estrategia 1.x expresada abajo. Cada ca
 2. Introducción de las etiquetas de semver-compliant `-beta`
 3. Introducción a [mensajes de compromiso convencionales](https://conventionalcommits.org/)
 4. Rama de estabilización claramente definidas
-5. La rama `maestra` no está versionada; solo las ramas de estabilidad contienen versión de la información
+5. The `master` branch is versionless; only stabilization branches contain version information
 
 Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que el desarrollador espera ver, y como se puede hacer cambios por la puerta de atras.
 
@@ -52,7 +52,7 @@ Abajo hay una tabla construyendo un mapa explícitamente con los tipos las categ
 * **Incrementos en la versión de parches** 
     * actualizaciones en la versión de parches de node.js
     * parches de chromium relacionados con el arreglo de problemas
-    * arreglo de problemas de electron
+    * Corrección de fallos de Electron
 
 Note que la mayoría de las actualizaciones de chromium serán consideras como rompientes. Arreglos que pueden hacerse por la puerta de atrás es probable que sean escogidos como parches.
 
@@ -86,7 +86,7 @@ El proceso es el siguiente:
 3. Si una versión beta en particular es *generalmente considerada* como estable, será relanzada como una estructura estable, cambiando solamente la información de la versión. Por ejemplo. `2.0.0`.
 4. Si correcciones de errores futuros o parches de seguridad necesitan ser hechos una vez que el lanzamiento es estable, estos son aplicados y la versión *Con el parche* es incrementada según: ejemplo `2.0.1`.
 
-Para cada cambio mayor o menor, debe esperar ver algo como lo siguiente:
+For each major and minor bump, you should expect to see something like the following:
 
 ```text
 2.0.0-beta.1
@@ -100,9 +100,9 @@ Para cada cambio mayor o menor, debe esperar ver algo como lo siguiente:
 Un ejemplo del ciclo de vida en imágenes:
 
 * Una nueva rama de lanzamientos es creada e incluye el último conjunto de características. Es publicada como `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-* Una corrección de un error viene al maestro que puede ser introducido por la puerta de atrás en la rama de interes. El parche es aplicado y una nueva versión beta es publicada como `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
+* A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 * El beta es considerado *generalmente estable* y es publicado de nuevo como no-beta con el nombre `2.0.0`. ![](../images/versioning-sketch-5.png)
-* Luego, se revela una vulnerabilidad y es reparada y aplicada a la maestra. Nosotros entramos por la puerta de atrás para arreglar para la línea `2-0-x` y el lanzamiento `2.0.1`. ![](../images/versioning-sketch-6.png)
+* Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
 
 Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
@@ -121,7 +121,7 @@ Como consideración futura, podemos introducir uno o ambos de los siguientes:
 
 Banderas de características son prácticas comunes en Chromium, y son bien establecidas en el ecosistema de diseño web. En el contexto de Electron, banderas de características o **ramas suaves** deben seguir las siguientes propiedades:
 
-* está habilitada o deshabilitada en el tiempo de ejecución, o tiempo de estructuración; no soportamos el concepto bandera de característica de petición de cambio
+* it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 * segmenta completamente nuevos y viejos rutas de códigos; refactorizando viejo código para soportar nuevas características *viola* el contrato de las banderas de características
 * banderas de características son removidas eventualmente después de que la rama blanda es absorbida
 

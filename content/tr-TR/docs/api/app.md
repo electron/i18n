@@ -118,7 +118,7 @@ Dönüşler:
 * `event` Event
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
+Farklı bir cihazdan gelen bir etkinlik yeniden başlatılmadan önce [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) o esnada ortaya çıkar. Bu olayla ilgilenmek isterseniz `event.preventDefault()`'i çağırmanız gerekir.
 
 ### Olay: 'continue-activity-error' *macOS*
 
@@ -126,44 +126,44 @@ Dönüşler:
 
 * `event` Event
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `error` String - A string with the error's localized description.
+* `error` dize - hatanın yerelleştirilmiş açıklamasına sahip bir dizedir.
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sırasında farklı bir cihazdaki bir etkinliğin başarısız olması durumunda ortaya çıkıyor.
 
-### Event: 'activity-was-continued' *macOS*
-
-Dönüşler:
-
-* `event` Event
-* `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` Object - Contains app-specific state stored by the activity.
-
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
-
-### Event: 'update-activity-state' *macOS*
+### Etkinlk: 'activity-was-continued' *macOS*
 
 Dönüşler:
 
 * `event` Event
 * `type` String - Etkinliği tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediatelly, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Bu cihazdan bir etkinlik başarıyla yürütüldüğünde [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) o sırada ortaya çıkıyor.
 
-### Olay: 'new-window-for-tab' *macOS*
+### Etkinlik: 'activate' *macOS*
 
-Dönüşler:
+Dönütler:
 
-* `event` Olay
+* `event` Etkinlik
+* xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
+* `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
 
-Kullanıcı yerel macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin bir `tabbingIdentifier`'ı varsa görünür olur
+[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. Transfer edilecek durumu güncellemeniz gerekiyorsa hemen `event.preventDefault()` girişi yapmanız, yeni bir `userInfo` sözlüğü oluşturmanız ve `app.updateCurrentActiviy()` zamanında aramanız gerekir. Aksi halde işlem başarısız olur ve `continue-activity-error` çağrılır.
+
+### Etkinlik: 'new-window-for-tab' *macOS*
+
+Dönütler:
+
+* `event` Etkinlik
+
+Yerel kullanıcı macOS yeni sekme düğmesini tıklattığında ortaya çıkar. Yeni sekme düğmesi, yalnızca geçerli `BrowserWindow` öğesinin `tabbingIdentifier` olması durumunda görünür
 
 ### Olay: 'browser-window-blur'
 
 Dönüşler:
 
 * `event` Event
-* `window` [BrowserWindow](browser-window.md)
+* `browserView` [BrowserView](browser-window.md)
 
 Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 
@@ -172,7 +172,7 @@ Bir [borwserWindow](browser-window.md) bulanıklaştığında ortaya çıkar.
 Dönüşler:
 
 * `event` Olay
-* `window` [BrowserWindow](browser-window.md)
+* `browserView` [BrowserView](browser-window.md)
 
 Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 
@@ -181,7 +181,7 @@ Bir [borwserWindow](browser-window.md)'a odaklanıldığında ortaya çıkar.
 Dönüşler:
 
 * `event` Olay
-* `window` [BrowserWindow](browser-window.md)
+* `browserView` [BrowserView](browser-window.md)
 
 Yeni bir [borwserWindow](browser-window.md) oluşturulduğunda ortaya çıkar.
 
@@ -383,7 +383,7 @@ Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 * `Müzik`Bir kullanıcının "Müziklerim" dizini.
 * `pictures` Bir kullanıcının "Resimlerim" dizini.
 * `videos` Bir kullanıcının "Videolarım" dizini.
-* `logs` Directory for your app's log folder.
+* Uygulamanızın günlük klasörü için `logs` dizini.
 * `pepperFlashSystemPlugin` Pepper Flash eklentisinin sistemdeki versiyonuna giden dosya yolu.
 
 ### `app.getFileIcon(path[, options], callback)`
@@ -653,14 +653,14 @@ app.on('ready', () => {
   
   * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
   
-  Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+  Geçerli [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) kullanıcı etkinliğini geçersiz kılar.
   
-  ### `app.updateCurrentActivity(type, userInfo)` *macOS*
+  ### `systemPapp.updateCurrentActivity(type, userInfo)` *macOS*
   
   * `type` Dizi - Faaliyeti benzersiz bir şekilde tanımlar. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)'a haritalar.
   * `userInfo` nesne - etkinlik tarafından başka bir aygıta depolanmış uygulamaya özel durum içerir.
   
-  Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+  Türü `type` ile eşleşiyorsa geçerli etkinliği günceller, y`userInfo`'den girişleri geçerli `userInfo` sözlüğe birleştirir.
   
   ### `app.setAppUserModelId(id)` *Windows*
   
@@ -780,11 +780,11 @@ const exeName = path.basename(process.execPath)
   
   ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
   
-  * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+  * Mantıksal `enabled` [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) görüntülemeyi etkinleştirir veya devre dışı bırakır
   
-  Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+  Manuel olarak Chrome'un erişilebilirlik desteğini etkinleştirir, erişilebilirlik anahtarını uygulama ayarlarındaki kullanıcılara göstermesine izin verir. daha fazla bilgi için https://www.chromium.org/developers/design-documents/accessibility. Varsayılan: Devre dışı.
   
-  **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+  **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
   
   ### `app.setAboutPanelOptions(ayarlar)` *macOS*
   
@@ -822,15 +822,15 @@ const exeName = path.basename(process.execPath)
   
   ### `app.isInApplicationsFolder()` *macOS*
   
-  Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+  `Boolean` Uygulamanın şu anda Sistemler Uygulama klasöründen çalışıp çalışmadığı dönüt veriri. `app.moveToApplicationsFolder()` ile birlikte kullanın
   
   ### `app.moveToApplicationsFolder()` *macOS*
   
-  Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+  `Boolean` Taşınmanın başarılı olup olmadığın geri bildirimini sağlar. Eylem başarılı olursa, uygulamanızdan çıkıp yeniden başlatacağını lütfen unutmayın.
   
-  No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+  Kullanıcının [`dialog`](dialog.md) API kullanarak yapmış olduğunuz işlemi onaylamasını istiyorsanız, onay kutusu varsayılan olarak gösterilmeyecektir.
   
-  **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+  **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. Örneğin, kullanıcı yetkilendirme iletişim kutusunu iptal ederse, bu yöntem hata verir. Eğer kopyayı gerçekleştiremezsek bu yöntem bir hata verecektir. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
   
   ### `app.dock.bounce([type])` *macOS*
   

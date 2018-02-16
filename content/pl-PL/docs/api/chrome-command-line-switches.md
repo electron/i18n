@@ -2,7 +2,7 @@
 
 > Przełączniki linii komand wspierane przez Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+[App.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) można użyć, aby dołączyć je w skrypcie głównym aplikacji, zanim zostaną wyemitowane zdarzenie [ready](app.md#event-ready) modułu [aplikacji](app.md):
 
 ```javascript
 const {app} = require('electron')
@@ -10,43 +10,43 @@ app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // Your code here
+  // Twój kod aplikacji...
 })
 ```
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Zignoruj limit połączeń dla `domains` w liście oddzielonej przecinkiem.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Wyłącz zapisywanie żądań HTTP w pamięci podręcznej.
 
 ## --disable-http2
 
-Disable HTTP/2 and SPDY/3.1 protocols.
+Wyłącz protokoły HTTP/2 oraz SPDY/3.1.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
-Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
+Flagi związane z debugowaniem, zobacz więcej w poradniku dla debugowania [Main Process](../tutorial/debugging-main-process.md).
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Włącz zdalne debugowanie poprzez HTTP na określonym `port`.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Wymuś użycie maksymalnego miejsca na dysku dla pamięci podręcznej wyrażonej w bajtach.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Określa flagi przekazywane do silnika Node JS. Musi być przekazane podczas uruchamiania Electron'a, jeśli chcesz włączyć `flagi` w głównym procesie.
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Zobacz więcej w [dokumentacji Node'a](https://nodejs.org/api/cli.html) albo uruchom komendę `node --help` w wierszu poleceń aby zobaczyć listę dostępnych flag. Dodatkowo wpisz polecenie `node --v8-options`, aby zobaczyć listę flag które odnoszą się do silnika Node V8 JavaScript.
 
 ## --proxy-server=`address:port`
 

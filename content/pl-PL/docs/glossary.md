@@ -78,7 +78,7 @@ Proces renderowania jest oknem przeglądarki w Twojej aplikacji. W przeciwieńst
 
 W normalnych przeglądarkach, strony internetowe zazwyczaj są zazwyczaj uruchamiane w środowisku piaskownicy i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na interakcje systemu operacyjnego na niższym poziomie.
 
-See also: [process](#process), [main process](#main-process)
+Zobacz także: [proces](#process), [główny proces](#main-process)
 
 ### Squirrel
 

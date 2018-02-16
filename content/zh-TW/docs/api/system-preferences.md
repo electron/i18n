@@ -2,7 +2,7 @@
 
 > 取得系統喜好設定。
 
-进程: [主进程](../glossary.md#main-process)
+處理序: [主處理序](../glossary.md#main-process)
 
 ```javascript
 const {systemPreferences} = require('electron')
