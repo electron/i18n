@@ -32,7 +32,7 @@ Vous pouvez forcer l'activation ou la désactivation ces avertissements en défi
 
 Cette liste n'est pas 100% parfaite, mais vous devriez au moins suivre ces quelques étapes pour améliorer la sécurité de votre application.
 
-1) [Ne télécharger que des contenus sécurisés](#only-load-secure-content) 2) [Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants](#disable-node.js-integration-for-remote-content) 3) [Permettre l'isolation de contexte dans tous les renderers affichant des contenus distants](#enable-context-isolation-for-remote-content) 4) [Utilisez `ses.setPermissionRequestHandler()` dans toutes les sessions affichant des contenus distants](#handle-session-permission-requests-from-remote-content) 5) [Ne désactivez pas `webSecurity`](#do-not-disable-websecurity) 6) [Définissez une `Content-Security-Policy`](#define-a-content-security-policy) et implémentez des règles restrictives (ex: `script-src 'self'`) 7) [Désactivez`eval`](#override-and-disable-eval) , qui permet à des lignes de texte d'être traitées comme du texte. 8) [Ne positionnez pas `allowRunningInsecureContent` sur `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [N'implémentez pas de fonctionnalités expérimentales](#do-not-enable-experimental-features) 10) [N'utilisez pas `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: N'utilisez pas `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Vérifiez les options et paramètres de tous les `<webview>` tags](#verify-webview-options-before-creation)
+1) [Ne télécharger que des contenus sécurisés](#only-load-secure-content) 2) [Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants](#disable-node.js-integration-for-remote-content) 3) [Permettre l'isolation de contexte dans tous les renderers affichant des contenus distants](#enable-context-isolation-for-remote-content) 4) [Utilisez `ses.setPermissionRequestHandler()` dans toutes les sessions affichant des contenus distants](#handle-session-permission-requests-from-remote-content) 5) [Ne désactivez pas `webSecurity`](#do-not-disable-websecurity) 6) [Définissez une `Content-Security-Policy`](#define-a-content-security-policy) et implémentez des règles restrictives (ex: `script-src 'self'`) 7) [Désactivez`eval`](#override-and-disable-eval) , qui permet à des lignes de texte d'être traitées comme du texte. 8) [Ne positionnez pas `allowRunningInsecureContent` sur `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [N'autorisez pas de fonctionnalités expérimentales](#do-not-enable-experimental-features) 10) [N'utilisez pas `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: N'utilisez pas `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Vérifiez les options et paramètres de tous les `<webview>` tags](#verify-webview-options-before-creation)
 
 ## 1) Ne télécharger que des contenus sécurisés
 
@@ -299,17 +299,17 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) N'implémentez pas de fonctionnalités expérimentales
+## 9) N'autorisez pas de fonctionnalités expérimentales
 
 *Cette recommandation est appliquée par défaut sur Electron*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Les utilisateurs avancés d’Electron peuvent activer les fonctionnalités expérimentales de Chrome en utilisant les propriétés `experimentalFeatures` et `experimentalCanvasFeatures`.
 
 ### Pourquoi ?
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+Les fonctionnalités expérimentales, comme leur nom suggère, sont expérimentales et n'ont pas été activées pour tous les utilisateurs de Chromium. De plus, leur impact sur Electron n'a probablement pas été testé et vérifié.
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+Il est parfois légitime de les implémenter, mais à moins que vous sachiez vraiment ce que vous faites, vous ne devriez pas autoriser ces fonctionnalités.
 
 ### Comment ?
 
