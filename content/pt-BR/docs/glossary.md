@@ -4,7 +4,7 @@ Esta página define alguns termos usados frequentemente no desenvolvimento com E
 
 ### ASAR
 
-ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive Format). Um arquivo de [asar](https://github.com/electron/asar) é um simples `piche`-como o formato que concatena arquivos em um único arquivo. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive Format). Um arquivo de [asar](https://github.com/electron/asar) é um simples `tar` formato que juntas os arquivos para um único arquivo. Electron pode ler arquivos arbitrários sem descompactar o arquivo inteiro.
 
 O formato ASAR foi criado principalmente para melhorar o desempenho no Windows...
 
