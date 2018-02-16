@@ -500,8 +500,8 @@ win.loadURL('http://github.com')
 Retourne :
 
 * `event` Event
-* `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
-* `params` Object - The other `<webview>` parameters such as the `src` URL. This object can be modified to adjust the parameters of the guest page.
+* `webPreferences` Object - Les préférences web qui seront utilisées par la page invitée. Cet objet peut être modifié pour ajuster les préférences pour la page invitée.
+* `params` Object - Les autres `<webview>` paramètres tels que l'URL `src`. Cet objet peut être modifiée pour s'ajuster aux paramètres de la page invitée.
 
 Emitted when a `<webview>`'s web contents is being attached to this web contents. Calling `event.preventDefault()` will destroy the guest page.
 
@@ -509,14 +509,14 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Event: 'did-attach-webview'
+#### Événement : 'will-attach-webview'
 
 Retourne :
 
 * `event` Event
-* `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+* `webContents` WebContents - Les contenus web invités qui sont utilisés par `<webview>`.
 
-Emitted when a `<webview>` has been attached to this web contents.
+Émis quand un `<webview>` a été rattaché à ce contenu web.
 
 #### Événement : 'console-message'
 
@@ -527,7 +527,7 @@ Retourne :
 * `line` Integer
 * `sourceId` String
 
-Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+Emis quand la fenêtre associée enregistre un message dans la console. Ne sera pas émis pour les fenêtres avec l'*offscreen rendering* activé.
 
 ### Méthodes d’instance
 
@@ -535,10 +535,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `options` Object (facultatif) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optional)
+  * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
+  * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
+  * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) - (optionnel)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -847,7 +847,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured
+* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
