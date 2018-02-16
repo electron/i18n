@@ -32,17 +32,17 @@ Vous pouvez forcer l'activation ou la désactivation ces avertissements en défi
 
 Cette liste n'est pas 100% parfaite, mais vous devriez au moins suivre ces quelques étapes pour améliorer la sécurité de votre application.
 
-1) [Only load secure content](#only-load-secure-content) 2) [Disable the Node.js integration in all renderers that display remote content](#disable-node.js-integration-for-remote-content) 3) [Enable context isolation in all renderers that display remote content](#enable-context-isolation-for-remote-content) 4) [Use `ses.setPermissionRequestHandler()` in all sessions that load remote content](#handle-session-permission-requests-from-remote-content) 5) [Do not disable `webSecurity`](#do-not-disable-websecurity) 6) [Define a `Content-Security-Policy`](#define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`) 7) [Override and disable `eval`](#override-and-disable-eval) , which allows strings to be executed as code. 8) [Do not set `allowRunningInsecureContent` to `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [Do not enable experimental features](#do-not-enable-experimental-features) 10) [Do not use `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: Do not use `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Verify the options and params of all `<webview>` tags](#verify-webview-options-before-creation)
+1) [Ne télécharger que des contenus sécurisés](#only-load-secure-content) 2) [Désactiver l'intégration de Node.js dans tous les rendus affichant des contenus distants](#disable-node.js-integration-for-remote-content) 3) [Permettre l'isolation de contexte dans tous les rendus affichant des contenus distants](#enable-context-isolation-for-remote-content) 4) [Utilisez `ses.setPermissionRequestHandler()` dans toutes les sessions affichant des contenus distants](#handle-session-permission-requests-from-remote-content) 5) [Ne désactivez pas `webSecurity`](#do-not-disable-websecurity) 6) [Définissez une `Content-Security-Policy`](#define-a-content-security-policy) et implémentez des règles restrictives (ex: `script-src 'self'`) 7) [Désactivez`eval`](#override-and-disable-eval) , qui permet à des lignes de texte d'être traitées comme du texte. 8) [Ne positionnez pas `allowRunningInsecureContent` sur `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [N'implémentez pas de fonctionnalités expérimentales](#do-not-enable-experimental-features) 10) [N'utilisez pas `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: N'utilisez pas `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Vérifiez les options et paramètres de tous les `<webview>` tags](#verify-webview-options-before-creation)
 
-## 1) Only Load Secure Content
+## 1) Ne télécharger que des contenus sécurisés
 
-Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Toutes les ressources non incluses avec votre application doivent être téléchargées à l’aide d’un protocole sécurisé `HTTPS`. En d’autres termes, n’utilisez pas de protocoles non sécurisés tels que `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
 ### Pourquoi ?
 
-`HTTPS` has three main benefits:
+`HTTPS` a trois principaux avantages :
 
-1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
+1) Il authentifie le serveur distant, ce qui certifie que votre application se connecte au bon hôte plutôt qu'a un imitateur. 2) Il assure l'intégrité des données, certifiant que les données n'ont pas été modifiées durant le transit entre l'application et l'hôte. 3) Il encrypte le trafic entre votre l'utilisateur et l'hôte de destination, ce qui complique la tâche de quiconque voudrait épier les informations échangées entre l'hôte et votre application.
 
 ### Comment ?
 
@@ -64,9 +64,9 @@ browserWindow.loadURL('https://my-website.com')
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+Il est crucial que vous désactiviez l'intégration de Node.js dans tous les renderers ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) qui téléchargent des contenus distants. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
 
 After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
