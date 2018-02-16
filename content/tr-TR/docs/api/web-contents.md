@@ -346,7 +346,7 @@ Dönüşler:
 
 * `event` Event
 * `sonuç` Nesne 
-  * `requestId` Integer
+  * `requestId` Tamsayı
   * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
   * `matches` Integer - Eşleşmelerin sayısı.
   * `selectionArea` Object - İlk eşleşme alanının koordinatları.
@@ -373,7 +373,7 @@ Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşıla
 Dönüşler:
 
 * `event` Event
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `color` (String | null) - Tema rengi '#rrggbb' biçiminde. Tema rengi ayarlanmadığında `null`'dir.
 
 #### Etkinlik: 'update-target-url'
 
