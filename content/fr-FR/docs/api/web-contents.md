@@ -373,7 +373,7 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+* `Couleur` (String | null)- La couleur du thème est au format « #rrggbb ». Elle est de valeur`null` lorsque aucune couleur de thème n’est définie.
 
 #### Événement : 'update-target-url'
 
