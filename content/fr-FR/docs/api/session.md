@@ -219,8 +219,8 @@ Disables any network emulation already active for the `session`. Resets to the o
   * `request` Objet 
     * `hostname` String
     * `certificate` [Certificate](structures/certificate.md)
-    * `verificationResult` String - Verification result from chromium.
-    * `errorCode` Integer - Error code.
+    * `verificationResult` String - Résultat de la vérification par Chromium.
+    * `errorCode` Integer - Code d'erreur.
   * `callback` Function 
     * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
       * `` - Indicates success and disables Certificate Transparency verification.
@@ -270,7 +270,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 * `callback` Function (optional) - Called when operation is done.
 
-Clears the host resolver cache.
+Vide le cache de résolution de l'hôte.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
@@ -301,7 +301,7 @@ This doesn't affect existing `WebContents`, and each `WebContents` can use `webC
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Renvoie `String` - L'utilisateur de cette session.
 
 #### `ses.getBlobData(identifier, callback)`
 
@@ -309,19 +309,19 @@ Returns `String` - The user agent for this session.
 * `callback` Function 
   * `result` Buffer - données Blob.
 
-Returns `Blob` - The blob data associated with the `identifier`.
+Retourne `Blob` - Renvoie les données blob associée avec l'`identifier`.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Objet 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `path` String - Chemin d'accès absolu pour le téléchargement.
+  * `urlChain` String[] - Chaîne de caractère complète de l'URL du téléchargement.
+  * `type` String (facultatif)
+  * `offset` Integer - Portée de départ pour le téléchargement.
+  * `length` Integer - Longueur totale du le téléchargement.
+  * `lastModified` String - Valeur Last-Modified du header.
+  * `eTag` String - Valeur du ETag dans le header.
+  * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
 Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
