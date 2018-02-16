@@ -418,9 +418,9 @@ Retourne :
   * `selectionText` String - Texte de la sélection sur laquelle le menu contextuel a été invoqué.
   * `titleText` String - Titre ou texte alternatif de la sélection sur lequel le contexte a été appelé.
   * `misspelledWord` String - Mot mal orthographié sous le curseur, si applicable.
-  * `frameCharset` String - The character encoding of the frame on which the menu was invoked.
-  * `inputFieldType` String - If the context menu was invoked on an input field, the type of that field. Possible values are `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
+  * `frameCharset` String - L'encodage des caractères de la fenêtre sur lequel le menu a été appelé.
+  * `inputFieldType` String - Si le menu contextuel a été appelé sur un champ modifiable, donne le type de ce champ. Les valeurs possibles sont `none`, `plainText`, `password`, `other`.
+  * `menuSourceType` String - Source de l'action qui a appelé le menu contextuel. Peut être `none`, `mouse`, `keyboard`, `touch`, `touchMenu`.
   * `mediaFlags` Object - Les attributs de l'élément multimédia que le menu contextuel a invoqué. 
     * `inError` Boolean - Si l'élément multimédia a crash.
     * `isPaused` Boolean - Si l'élément multimédia est en pause.
@@ -479,7 +479,7 @@ Retourne :
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - Les données de l'image du frame entier.
 
-Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
+Émis quand une nouvelle fenêtre est générée. Seule la zone salie est passée dans le buffer.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -493,7 +493,7 @@ win.loadURL('http://github.com')
 
 #### Événement : 'devtools-reload-page'
 
-Emitted when the devtools window instructs the webContents to reload
+Émis quand la fenêtre des outils développeur demande aux webContents de se recharger
 
 #### Événement : 'will-attach-webview'
 
