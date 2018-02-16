@@ -414,13 +414,13 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 `name` に関連付けられた特別なディレクトリもしくはファイルの `path` を上書きします。 パスとして存在しないディレクトリが指定された場合、このメソッドによってディレクトリが作成されます。 失敗した場合、`Error` がスローされます。
 
-You can only override paths of a `name` defined in `app.getPath`.
+`app.getPath` で定義されている `name` のパスだけを上書きすることができます。
 
-By default, web pages' cookies and caches will be stored under the `userData` directory. If you want to change this location, you have to override the `userData` path before the `ready` event of the `app` module is emitted.
+既定では、WebページのCookieとキャッシュは `userData` ディレクトリに保存されます。 この場所を変更するには、`app` モジュールの `ready` イベントが発生する前に `userData` を上書きする必要があります。
 
 ### `app.getVersion()`
 
-Returns `String` - The version of the loaded application. If no version is found in the application's `package.json` file, the version of the current bundle or executable is returned.
+戻り値 `String` - ロードされたアプリケーションのバージョン。 アプリケーションの `package.json` ファイルにバージョンが見つからない場合、現在のバンドルもしくは実行可能ファイルのバージョンが返却されます。
 
 ### `app.getName()`
 
