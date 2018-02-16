@@ -211,7 +211,7 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 
 #### `ses.disableNetworkEmulation()`
 
-Disables any network emulation already active for the `session`. Resets to the original network configuration.
+Désactive toute émulation de réseau déjà active pour la `session`. Réinitialise vers la configuration réseau originale.
 
 #### `ses.setCertificateVerifyProc(proc)`
 
@@ -222,10 +222,10 @@ Disables any network emulation already active for the `session`. Resets to the o
     * `verificationResult` String - Résultat de la vérification par Chromium.
     * `errorCode` Integer - Code d'erreur.
   * `callback` Function 
-    * `verificationResult` Integer - Value can be one of certificate error codes from [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Apart from the certificate error codes, the following special codes can be used. 
-      * `` - Indicates success and disables Certificate Transparency verification.
-      * `-2` - Indicates failure.
-      * `-3` - Uses the verification result from chromium.
+    * `verificationResult` Integer - La valeur peut être un des codes d'erreur de certificat trouvés [ici](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h). Mis à part les codes d’erreur de certificat, les codes spéciaux suivants peuvent être utilisés. 
+      * `` - Indique la réussite et désactive la vérification de transparence de certificat.
+      * `-2` - Indique l'échec.
+      * `-3` - Utilise le résultat de la vérification de Chromium.
 
 Sets the certificate verify proc for `session`, the `proc` will be called with `proc(request, callback)` whenever a server certificate verification is requested. Calling `callback(0)` accepts the certificate, calling `callback(-2)` rejects it.
 
