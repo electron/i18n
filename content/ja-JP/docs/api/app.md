@@ -384,28 +384,28 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 * `pictures` ユーザのピクチャのディレクトリ。
 * `videos` ユーザのビデオのディレクトリ。
 * `logs` アプリのログフォルダのディレクトリ。
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` システムバージョンのPepper Flashプラグインのフルパス。
 
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (任意) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux* の場合、48x48、*Windows*の場合、32x32、macOSの場合はサポートされていません。
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
-Fetches a path's associated icon.
+パスに関連付けられているアイコンを取得します。
 
-On *Windows*, there a 2 kinds of icons:
+*Windows* の場合、2種類のアイコンがあります。
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
+* `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux* と *macOS* の場合、アイコンはアプリケーションが関連付けられたファイルのMIMEタイプによって変わります。
 
 ### `app.setPath(name, path)`
 
