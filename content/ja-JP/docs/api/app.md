@@ -426,19 +426,19 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 戻り値 `String` - アプリケーションの `package.json` ファイルで名前として設定された現在のアプリケーション名。
 
-通常、`package.json` の `name` フィールドは、npmのモジュール仕様に基づき、小文字だけの短い名前が設定されます。 You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+通常、`package.json` の `name` フィールドは、npmのモジュール仕様に基づき、小文字だけの短い名前が設定されます。 通常、すべて大文字で始まるアプリケーションの名前となる `productName` フィールドも指定してください。Electronによって、`name` よりも優先されます。
 
 ### `app.setName(name)`
 
 * `name` String
 
-Overrides the current application's name.
+現在のアプリケーションの名前を上書きします。
 
 ### `app.getLocale()`
 
 戻り値 `String` - 現在のアプリケーションのロケール。返却される可能性のある値は [ここ](locales.md) に記されています。
 
-**Note:** When distributing your packaged app, you have to also ship the `locales` folder.
+**注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
 **注:** Windows の場合、`ready` イベントが発生した後で呼び出すようにしてください。
 
