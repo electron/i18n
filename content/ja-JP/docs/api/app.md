@@ -424,9 +424,9 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 ### `app.getName()`
 
-Returns `String` - The current application's name, which is the name in the application's `package.json` file.
+戻り値 `String` - アプリケーションの `package.json` ファイルで名前として設定された現在のアプリケーション名。
 
-Usually the `name` field of `package.json` is a short lowercased name, according to the npm modules spec. You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
+通常、`package.json` の `name` フィールドは、npmのモジュール仕様に基づき、小文字だけの短い名前が設定されます。 You should usually also specify a `productName` field, which is your application's full capitalized name, and which will be preferred over `name` by Electron.
 
 ### `app.setName(name)`
 
