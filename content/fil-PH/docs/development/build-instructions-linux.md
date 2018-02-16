@@ -13,7 +13,7 @@ Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
 Sa Ubuntu, "i-install" ang mga susunod na mga "library":
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -23,7 +23,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk2.0-dev \
 Sa RHEL / CentOS, "i-install" ang mga sumusunod na "library":
 
 ```sh
-$ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -32,7 +32,7 @@ $ sudo yum install clang dbus-devel gtk2-devel libnotify-devel \
 Sa Fedora, "i-install" ang mga sumusunod na mga "library":
 
 ```sh
-$ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
                    GConf2-devel nss-devel
@@ -40,7 +40,7 @@ $ sudo dnf install clang dbus-devel gtk2-devel libnotify-devel \
 
 Ang ibang mga distribusyon ay maaaring ipagamit ang parehong "package" para sa "installation" gamit ang "package managers" tulad ng "pacman". Pwede ring ikompayl ang isa galing sa "source code".
 
-## Ang Pagkuha ng "Code"
+## Pagkuha ng code
 
 ```sh
 $ git clone https://github.com/electron/electron
@@ -48,7 +48,7 @@ $ git clone https://github.com/electron/electron
 
 ## "Bootstrapping"
 
-Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Para magtagumpay, dapat meron kang Python 2.7.x para sa skrip. Ang "pagda-download" ng mga tiyak na payl ay maaaring tumagal ang pagpoproseso. Kung papansinin, tayo'y gumagamit ng `ninja` upang buuin ang Electron para hindi magkaroon ng `Makefile`.
+Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng proyekto sa files. Para magtagumpay, dapat meron kang Python 2.7.x para sa skrip. Ang "pagda-download" ng mga tiyak na payl ay maaaring tumagal ang pagpoproseso. Kung papansinin, tayo'y gumagamit ng `ninja` upang buuin ang Electron para hindi magkaroon ng `Makefile`.
 
 ```sh
 $ cd electron
@@ -77,7 +77,7 @@ At para "mai-cross-compile" ang `arm` o `ia32` "targets", kailangan mong idaan a
 $ ./script/bootstrap.py -v --target_arch=arm
 ```
 
-## Ang Pagbubuo
+## Pagbuo
 
 Kung ang nais mo ay bumuo ng parehong `Release` at `Debug` "targets":
 
@@ -101,23 +101,23 @@ $ ./script/build.py -c D
 
 Matapos itong buuin, hanapin ang "`electron` debug binary" sa ilalim ng `out/D`.
 
-## Ang Paglilinis
+## Paglilinis
 
-Upang malinis ang binubuong mga payl:
+Upang malinis ang binubuong files:
 
 ```sh
 $ npm run clean
 ```
 
-Na maglilinis lamang ng mga "directory" na `out` at `dist`:
+Na maglilinis lamang ng mga direktoryong `out` at `dist`:
 
 ```sh
 $ npm run clean-build
 ```
 
-**Paalala:** Ang parehong "codes" para sa paglilinis ay kailangang muling patakbuhin ng `bootstrap</0> bago mabuo.</p>
+Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
 
-<h2>"Troubleshooting"</h2>
+<h2>Paghahanap ng Problema</h2>
 
 <h3>Mga Mali na Maaaring Lumabas Habang ang "Shared Libraries" ay "Loading": libtinfo.so.5</h3>
 
@@ -127,9 +127,9 @@ $ npm run clean-build
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Mga Pag-susuri
+## Mga Pagsusuri
 
-Tingnan ang [Buod ng Pagbuo ng Sistema: Mga Pagsusuri](build-system-overview.md#tests)
+Tingnan ang [ Buod ng Pagbuo ng Sistema: Mga Pagsusuri ](build-system-overview.md#tests)
 
 ## Mga Pinatiunang Paksa
 
