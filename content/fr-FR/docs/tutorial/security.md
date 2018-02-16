@@ -32,11 +32,11 @@ Vous pouvez forcer l'activation ou la désactivation ces avertissements en défi
 
 Cette liste n'est pas 100% parfaite, mais vous devriez au moins suivre ces quelques étapes pour améliorer la sécurité de votre application.
 
-1) [Ne télécharger que des contenus sécurisés](#only-load-secure-content) 2) [Désactiver l'intégration de Node.js dans tous les rendus affichant des contenus distants](#disable-node.js-integration-for-remote-content) 3) [Permettre l'isolation de contexte dans tous les rendus affichant des contenus distants](#enable-context-isolation-for-remote-content) 4) [Utilisez `ses.setPermissionRequestHandler()` dans toutes les sessions affichant des contenus distants](#handle-session-permission-requests-from-remote-content) 5) [Ne désactivez pas `webSecurity`](#do-not-disable-websecurity) 6) [Définissez une `Content-Security-Policy`](#define-a-content-security-policy) et implémentez des règles restrictives (ex: `script-src 'self'`) 7) [Désactivez`eval`](#override-and-disable-eval) , qui permet à des lignes de texte d'être traitées comme du texte. 8) [Ne positionnez pas `allowRunningInsecureContent` sur `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [N'implémentez pas de fonctionnalités expérimentales](#do-not-enable-experimental-features) 10) [N'utilisez pas `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: N'utilisez pas `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Vérifiez les options et paramètres de tous les `<webview>` tags](#verify-webview-options-before-creation)
+1) [Ne télécharger que des contenus sécurisés](#only-load-secure-content) 2) [Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants](#disable-node.js-integration-for-remote-content) 3) [Permettre l'isolation de contexte dans tous les renderers affichant des contenus distants](#enable-context-isolation-for-remote-content) 4) [Utilisez `ses.setPermissionRequestHandler()` dans toutes les sessions affichant des contenus distants](#handle-session-permission-requests-from-remote-content) 5) [Ne désactivez pas `webSecurity`](#do-not-disable-websecurity) 6) [Définissez une `Content-Security-Policy`](#define-a-content-security-policy) et implémentez des règles restrictives (ex: `script-src 'self'`) 7) [Désactivez`eval`](#override-and-disable-eval) , qui permet à des lignes de texte d'être traitées comme du texte. 8) [Ne positionnez pas `allowRunningInsecureContent` sur `true`](#do-not-set-allowRunningInsecureContent-to-true) 9) [N'implémentez pas de fonctionnalités expérimentales](#do-not-enable-experimental-features) 10) [N'utilisez pas `blinkFeatures`](#do-not-use-blinkfeatures) 11) [WebViews: N'utilisez pas `allowpopups`](#do-not-use-allowpopups) 12) [WebViews: Vérifiez les options et paramètres de tous les `<webview>` tags](#verify-webview-options-before-creation)
 
 ## 1) Ne télécharger que des contenus sécurisés
 
-Toutes les ressources non incluses avec votre application doivent être téléchargées à l’aide d’un protocole sécurisé `HTTPS`. En d’autres termes, n’utilisez pas de protocoles non sécurisés tels que `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
+Toutes les ressources non incluses avec votre application doivent être téléchargées à l’aide d’un protocole sécurisé `HTTPS`. En d’autres termes, n’utilisez pas de protocoles non sécurisés tels que `HTTP`. De même, nous vous recommandons d’utiliser `WSS` plutôt `WS`, `FTPS` par `FTP` et ainsi de suite.
 
 ### Pourquoi ?
 
@@ -66,9 +66,9 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) Désactiver l'intégration de Node.js dans tous les renderers affichant des contenus distants
 
-Il est crucial que vous désactiviez l'intégration de Node.js dans tous les renderers ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) qui téléchargent des contenus distants. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+Il est crucial que vous désactiviez l'intégration de Node.js dans tous les renderers ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) qui téléchargent des contenus distants. Le but est de limiter les permissions accordées aux contenus distants, ce qui complique drastiquement la tâche pour un attaquant qui souhaiterait nuire à vos utilisateurs (si jamais cet attaquant réussissait à exécuter du javascript sur votre site).
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+Une fois cela fait, vous pouvez accorder des permissions supplémentaires à des hôtes spécifiques. Par exemple, si vous ouvrez une BrowserWindow ayant `https://my-website.com/" pour cible, vous pouvez ne conférer à ce site que les capacités dont il a besoin pour fonctionner.
 
 ### Pourquoi ?
 
@@ -195,7 +195,7 @@ session
 
 ## 5) Do Not Disable WebSecurity
 
-*Recommendation is Electron's default*
+*Cette recommandation est appliquée par défaut sur Electron*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view)) disables crucial security features.
 
@@ -257,23 +257,23 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### Pourquoi ?
 
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, just like any other code generators, `eval()` is difficult to harden.
+La méthode `eval()` a précisément une seule mission : de compiler une série de caractères comme étant du Javascript, et de l'exécuter. C’est une méthode obligatoire chaque fois que vous avez besoin de compiler du code qui ne peut pas être connu à l'avance. Bien qu’il existe des cas d’utilisation légitimes, à l’instar de n’importe quel autre générateur de code, les protections d'`eval()` sont difficiles à durcir.
 
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
+De manière générale, il est plus facile de désactiver complètement `eval()` plutôt que de le blinder. Ainsi, si vous n’en avez pas besoin, c’est une bonne idée de le désactiver.
 
 ### Comment ?
 
 ```js
-// ESLint will warn about any use of eval(), even this one
+// ESLint vous avertira de toute utilisation d'eval(), même celle-la
 // eslint-disable-next-line
 window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
+  throw new Error(`Désolé, cette application ne supporte pas window.eval().`)
 }
 ```
 
 ## 8) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Recommendation is Electron's default*
+*Cette recommandation est appliquée par défaut sur Electron*
 
 By default, Electron will now allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -281,7 +281,7 @@ Loading the initial HTML of a website over `HTTPS` and attempting to load subseq
 
 ### Pourquoi ?
 
-Simply put, loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#only-display-secure-content) for more details.
+En termes simples, télécharger du contenu via `HTTPS` assure l’authenticité et l’intégrité des ressources téléchargées en cryptant le trafic. Consultez la section sur l' [affichage du contenu sécurisé uniquement](#only-display-secure-content) pour plus de détails.
 
 ### Comment ?
 
@@ -299,9 +299,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 9) N'implémentez pas de fonctionnalités expérimentales
 
-*Recommendation is Electron's default*
+*Cette recommandation est appliquée par défaut sur Electron*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
@@ -327,9 +327,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `blinkFeatures`
+## 10) N'utilisez pas `blinkFeatures`
 
-*Recommendation is Electron's default*
+*Cette recommandation est appliquée par défaut sur Electron*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `blinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -355,7 +355,7 @@ const mainWindow = new BrowserWindow()
 
 ## 11) Do Not Use `allowpopups`
 
-*Recommendation is Electron's default*
+*Cette recommandation est appliquée par défaut sur Electron*
 
 If you are using [`WebViews`](web-view), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](browser-window) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
