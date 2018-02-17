@@ -14,7 +14,7 @@ console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'mu
 Ang Dialog ay binuksan mula sa pangunahing thread ng Electron. Kung gusto mong gamitin ang dialog mula sa renderer na proseso, tandaang i-access ito gamit ang remote:
 
 ```javascript
-const {dialog} = require('electron').remote
+const {dialog} = kailangan('electron').remote
 console.log(dialog)
 ```
 
