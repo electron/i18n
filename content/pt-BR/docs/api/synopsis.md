@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+O processo de renderização não é diferente de uma página web normal, com exceção da capacidade adicional de usar módulos de nó:
 
 ```html
 <!DOCTYPE html>
@@ -34,11 +34,11 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Para executar o seu aplicativo, leia [executar seu aplicativo](../tutorial/quick-start.md#run-your-app).
 
-## Destructuring assignment
+## Atribuição de desestruturação
 
-As of 0.37, you can use [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to make it easier to use built-in modules.
+A partir de 0,37, você pode usar [tarefa de desestruturação](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) para facilitar a utilização módulos internos.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Se você precisar de todo o módulo `electron`, você pode exigi-lo e depois usar desestruturação para acessar os módulos individuais do `electron`.
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Isto equivale ao seguinte código:
 
 ```javascript
 const electron = require('electron')
