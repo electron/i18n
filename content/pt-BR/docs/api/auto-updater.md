@@ -1,12 +1,12 @@
 # autoUpdater
 
-> Enable apps to automatically update themselves.
+> Habilita aplicações a se atualizarem automaticamente.
 
 Processo: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Você pode encontrar um guia detalhado sobre como implementar atualizações em sua aplicação [aqui](../tutorial/updates.md).**
 
-## Platform Notices
+## Avisos de plataforma
 
 Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
