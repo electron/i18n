@@ -24,9 +24,9 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 
 ### `dialog.showOpenDialog([browserWindow, ]mga opsyon[, callback])`
 
-* `browserWindow` BrowserWindow (optional)
+* `browserWindow` BrowserWindow (opsyonal)
 * `mga pagpipilian` Bagay 
-  * `title` String (optional)
+  * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
   * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
@@ -129,9 +129,9 @@ Ang API na ito ay maaaring ligtas kung tawagin bago ang `ready` na event na inil
 
 * `browserWindow` BrowserWindow (opsyonal)
 * `options` Bagay 
-  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
+  * `certificate` [Certificate](structures/certificate.md) - Ang sertipiko ng pagtiwala/pag-import.
   * `message` String - Ang mensaheng ipapakita sa tagagamit.
-* `callback` Function
+* `callback` na Function
 
 Sa macOS, ipinapakita nito ang isang modal na dialog na nagpapakita ng isang mensahe at impormasyon sa sertipiko, at nagbibigay sa gumagamit ng pagpipiliang magtiwala at mag-import ng certificate. Kapag magbibigay ka ng `browserWindow` na argumento, ang dialog ay malalakip sa parent na window, na ginagawa itong modal.
 
