@@ -1,4 +1,4 @@
-# JumpListCategory Object
+# Obiekt JumpListCategory
 
 * `typ` String (optional) - One of the following: 
   * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
