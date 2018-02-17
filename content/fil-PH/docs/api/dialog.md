@@ -104,7 +104,7 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
   * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `` ay gagamitin bilang pabalik na halaga o sagot sa callback. Ang opsyon na ito ay napapabayaan sa Windows.
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
   * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
-* `callback` Function (optional) 
+* `callback` Function (opsyonal) 
   * `response` Numero - ang index ng pipindutin na napindot
   * `checkboxChecked` Boolean - ang binagong estado ng checkbox kapang ang `checkboxLabel` at na-set. Kung hindi, ito ay `false`.
 
@@ -112,11 +112,11 @@ Ibinabalik ang `Integer`, ang index ng napindot na pipindutin, kung ang isang ca
 
 Nagpapakita ng isang mensaheng kahon, inaantala nito ang proseso hanggang nasara na ang mensaheng kahon. Ibinabalik nito ang index ng napindot na pipindutin.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Ang `browserWindow` na argumento ay pinahihintulutan ang dialog na ilakip ang kanyang sarili sa isang parent window, na ginagawa itong modal.
 
 Kung ang isang `callback` ay naipasa, hindi pipigilan ng dialog ang proseso. Ang API na tawag ay magiging asynchronous at ang resulta ay ipapasa gamit ang `callback(response)`.
 
-### `dialog.showErrorBox(title, content)`
+### `dialog.showErrorBox(titulo, nilalaman)`
 
 * `title` String - ang titulo na ipapakita sa kahon ng mali
 * `content` String - Ang tekstong nilalaman na ipapakita sa kahon ng mali
@@ -127,9 +127,9 @@ Ang API na ito ay maaaring ligtas kung tawagin bago ang `ready` na event na inil
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` BrowserWindow (optional)
-* `options` Object 
-  * `certificate` [Certificate](structures/certificate.md) - Ang sertipiko ng pagtiwala/pag-import.
+* `browserWindow` BrowserWindow (opsyonal)
+* `options` Bagay 
+  * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - Ang mensaheng ipapakita sa tagagamit.
 * `callback` Function
 
