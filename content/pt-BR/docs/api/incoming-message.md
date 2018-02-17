@@ -6,7 +6,7 @@ Processo: [Main](../glossary.md#main-process)
 
 `IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Instance Events
+### Eventos de instância
 
 #### Event: 'data'
 
@@ -22,7 +22,7 @@ Indicates that response body has ended.
 
 #### Event: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Emitiu quando uma solicitação foi cancelada durante uma transação HTTP em curso.
 
 #### Event: 'error'
 
@@ -30,7 +30,7 @@ Retorna:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 
-Emitted when an error was encountered while streaming response data events. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
+Emitiu quando ocorreu um erro ao transmitir eventos de dados de resposta. For instance, if the server closes the underlying while the response is still streaming, an `error` event will be emitted on the response object and a `close` event will subsequently follow on the request object.
 
 ### Propriedades da Instância
 
@@ -38,19 +38,19 @@ An `IncomingMessage` instance has the following readable properties:
 
 #### `response.statusCode`
 
-An `Integer` indicating the HTTP response status code.
+Um `Inteiro` indica o estado do código de resposta HTTP.
 
 #### `response.statusMessage`
 
-A `String` representing the HTTP status message.
+Uma `String` representa a mensagem de estado HTTP.
 
 #### `response.headers`
 
 An `Object` representing the response HTTP headers. The `headers` object is formatted as follows:
 
-* All header names are lowercased.
-* Each header name produces an array-valued property on the headers object.
-* Each header value is pushed into the array associated with its header name.
+* Todos os nomes de cabeçalho são em minúsculas.
+* Cada nome de cabeçalho produz uma propriedade de valor de matriz no objeto de cabeçalho.
+* Cada valor do cabeçalho é inserido na matriz associada ao nome do cabeçalho.
 
 #### `response.httpVersion`
 
