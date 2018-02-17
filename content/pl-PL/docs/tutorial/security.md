@@ -74,7 +74,7 @@ After this, you can grant additional permissions for specific hosts. For example
 
 A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
 
-### How?
+### Jak?
 
 ```js
 // Bad
