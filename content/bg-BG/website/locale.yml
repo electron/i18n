@@ -43,7 +43,7 @@ web_technologies:
   title: Интернет Технологии
   description: Електрон използва Chromium и Node.js, за да може вие да изградите вашето приложение с HTML, CSS и JavaScript.
 open_source:
-  title: Отворен код
+  title: С отворен код
   description: Електрон е проект с отворен код, поддържан от GitHub и активна общност от съдружници.
 cross_platform:
   title: Междуплатформен
