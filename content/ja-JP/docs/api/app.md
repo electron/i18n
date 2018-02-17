@@ -510,8 +510,8 @@ Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/l
 
 戻り値 `Object`:
 
-* `minItems` Integer - ジャンプリストに表示されるアイテムの最低数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `minItems` Integer - ジャンプリストに表示されるアイテムの最小の数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - ユーザがジャンプリストのカスタムカテゴリから明示的に削除したアイテムに対応した `JumpListItem` オブジェクトの配列。 These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
 
 ### `app.setJumpList(categories)` *Windows*
 
