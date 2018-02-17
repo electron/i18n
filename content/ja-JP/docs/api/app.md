@@ -594,8 +594,8 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
+  * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
+  * `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
 
 Returns `Boolean`.
 
