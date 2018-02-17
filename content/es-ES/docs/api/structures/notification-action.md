@@ -1,19 +1,19 @@
 # Objeto NotificationAction
 
 * `tipo` String - El tipo de acción, puede ser `botón`.
-* `texto` String - (opcional) La etiqueta de una acción determinada.
+* `texto` String - (opcional) La etiqueta de la acción en cuestión.
 
-## Apoyo de Plataforma / Acción
+## Soporte de Plataforma / Acción
 
-| Tipo de Acción | Apoyo de Plataformas | Uso de `texto`                   | `texto` Predetermnado | Limitaciones                                                                                                                                                         |
-| -------------- | -------------------- | -------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`       | macOS                | Usado como la etiqueta del botón | "Mostrar"             | Maximum of one button, if multiple are provided only the last is used. This action is also incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Tipo de Acción | Soporte de Plataforma | Uso de `texto`                   | `texto` Predeterminado | Limitaciones                                                                                                                                                                 |
+| -------------- | --------------------- | -------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`       | macOS                 | Usado como la etiqueta del botón | "Mostrar"              | Máximo un botón, si se proporcionan múltiples únicamente el último es utilizado. Esta acción también es incompatible con `hasReply` y será ignorada si `hasReply` es `true`. |
 
-### Botón de apoyo en macOS
+### Soporte de botón en macOS
 
-Para que botones extra de notificación funcionen en macOS tu aplicación debe cumplir con los siguientes criterios.
+Para que botones de notificación extra funcionen en macOS, tu aplicación debe cumplir con las siguientes condiciones.
 
-* La aplicación está conectada
+* La aplicación está certificada
 * La aplicación tiene su `NSUserNotificationAlertStyle` en `alert` en el `info.plist`.
 
-Si alguno de estos requisitos no es cumplido el botón simplemente no aparecerá.
+Si alguno de estos requisitos no se cumple el botón simplemente no aparecerá.
