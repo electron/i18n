@@ -1,8 +1,8 @@
 # JumpListItem Objekt
 
-* `Typ` String (optional) - Eine der folgenden Möglichkeiten: 
+* `type` String (optional) - Eine der folgenden Möglichkeiten: 
   * `task` - Task öffnet eine App mit speziellen Werten.
-  * `separator` - Can be used to separate items in the standard `Tasks` category.
+  * `separator` - kann verwendet werden, um Elemente in der Standardkategorie `Tasks` zu trennen.
   * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
 * `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
 * `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
