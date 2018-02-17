@@ -498,19 +498,19 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 * `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
 
-Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) 項目に `tasks` を追加します。
+Windowsでジャンプリストの [タスク](http://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks` は [`Task`](structures/task.md) オブジェクトの配列です。
 
 戻り値 `Boolean` - 呼び出しが成功したかどうか。
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**注:** ジャンプリストをもっとカスタマイズしたい場合は、`app.setJumpList(categories)` を代わりに使用してください。
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+戻り値 `Object`:
 
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `minItems` Integer - ジャンプリストに表示されるアイテムの最低数 (この値の詳細な説明は [MSDN ドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx) を参照してください) 。
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
 
 ### `app.setJumpList(categories)` *Windows*
