@@ -253,7 +253,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 建议始终明确设置`event.returnValue` ，而不是仅返回一个值，因为前者在Electron 内工作更一致。*
 
 #### 事件： 'closed'
 
