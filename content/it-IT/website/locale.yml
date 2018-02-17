@@ -15,7 +15,7 @@ docs:
   description: Vedi tutti i <a href="/docs/all">documenti in un'unica pagina</a> o controlla le <a href="/docs/faq">FAQ</a>.
   guides: Guide
   api_reference: API Reference
-  advanced: Advanced
+  advanced: Avanzato
   footer:
     propose_change: Migliora questo documento
     version_history: Cronologia versioni
@@ -23,7 +23,7 @@ docs:
     view_all_docs: Tutta la documentazione in una pagina
 languages:
   choose_language: Scegli la lingua da usare
-  translation_progress: Avanzamento della traduzione
+  translation_progress: Progresso della traduzione
   current: selezione corrente
 community:
   title: Comunità Electron
@@ -88,13 +88,13 @@ apps:
   something_missing: Something missing?
   edit_this_app: Edit this app.
 clipboard:
-  copy: Copy
-  copy_to_clipboard: Copy to Clipboard
-  copied: Copied
+  copy: Copia
+  copy_to_clipboard: Copia negli appunti
+  copied: Copiato
 or: o
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
+    title: Electron | Costruisci applicazioni desktop multipiattaforma in JavaScript, HTML e CSS.
     description: 'Costruisci applicazioni desktop multipiattaforma in JavaScript, HTML e CSS.'
   '/apps':
     title: Electron Apps
