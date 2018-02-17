@@ -1,20 +1,20 @@
 # ipcMain
 
-> Communicate asynchronously from the main process to renderer processes.
+> Comunica de forma assíncrona o processo principal aos processos de renderização.
 
 Processo: [Main](../glossary.md#main-process)
 
-The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
+The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. Quando usado no processo principal, ele lida com mensagens assíncronas e síncronas enviadas a partir de um processo de renderização (página da web). As mensagens enviadas de um renderizador serão emitidas para este módulo.
 
-## Sending Messages
+## Enviando Mensagens
 
-It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+Também é possível enviar mensagens do processo principal para o processo de renderização, veja [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) para obter mais informações.
 
-* When sending a message, the event name is the `channel`.
-* To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* Ao enviar uma mensagem, o nome do evento é o `channel`.
+* Para responder a uma mensagem síncrona, você precisa de configurar `event.returnValue`.
+* Para enviar uma mensagem assíncrona de volta para o remetente, você pode usar `event.sender.send(...)`.
 
-An example of sending and handling messages between the render and main processes:
+Um exemplo de enviar e manipular mensagens entre os processos de renderização e principais:
 
 ```javascript
 // In main process.
@@ -43,7 +43,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ## Métodos
 
-The `ipcMain` module has the following method to listen for events:
+O módulo `ipcMain` possui o seguinte método para ouvir eventos:
 
 ### `ipcMain.on(channel, listener)`
 
@@ -78,7 +78,7 @@ The `event` object passed to the `callback` has the following methods:
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Defina isto como o valor a ser retornado em uma mensagem síncrona.
 
 ### `event.sender`
 
