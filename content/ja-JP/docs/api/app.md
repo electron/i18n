@@ -597,7 +597,7 @@ app.setJumpList([
   * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
   * `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
 
-Returns `Boolean`.
+戻り値 `Boolean`。
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
