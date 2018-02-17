@@ -152,7 +152,7 @@ sa macOS. Ang default ay <code>false`.
   * `disableAutoHideCursor` Boolean (opsyonal) - Kung itinago ang cursor kapag nagta-type. Ang default ay `false`.
   * `autoHideMenuBar` Boolean (opsyonal) - Awtomatikong itago ang bar ng menu maliban kung ang teklado ng `Alt` ay pinindot. Ang default ay `false`.
   * `enableLargerThanScreen` Boolean (opsyonal) - Paganahin ang window na palakihin ng mas malaki kaysa sa iskrin. Ang default ay `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Ang default ay `#FFF` (puti).
+  * `backgroundColor` String (optional) - Ang kulay ng Window's Background ay nasa hexadecimal na balyu, tulas ng `#66CD00` or `#FFF` or `#80FFFFFF` (ang alpha ay supportado). Ang default ay `#FFF` (puti).
   * `hasShadow` Boolean (opsyonal) - Kung ang window ay mayroong anino. Ito ay ipinapatupad lamang sa macOS. Ang default ay `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (opsyonal) - Puwersahang gumagamit ng madilim na theme para sa window, gumagana lamang sa ilang mga kapaligiran ng GTK+3 desktop. Ang default ay `false`.
