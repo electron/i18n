@@ -414,7 +414,7 @@ win.on('app-command', (e, cmd) => {
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+返回 ` BrowserWindow | null `-拥有给定 ` browserView ` 的窗口。如果给定视图未附加到任何窗口, 则返回 ` null `。
 
 #### `BrowserWindow.fromId(id)`
 
@@ -590,13 +590,13 @@ win.loadURL('https://github.com')
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+进入或离开简单的全屏模式。
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+简单全屏模式模拟 Mac OS X prior to Lion (10.7) 版本中发现的原生全屏行为。
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+返回 `Boolean` - 窗口是否为简单全屏模式(pre-Lion)。
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -981,7 +981,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+返回 `Number` - 介于0.0 ( 完全透明) 和1.0 ( 完全不透明) 之间
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1085,7 +1085,8 @@ Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
 * `ignore` Boolean
 * `选项` Object (可选) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (可选) *Windows* - 如果为 true, 则转发鼠标移动 消息发送到 Chromium，启用与鼠标有关的事件，如` mouseleave </ 0>。
+仅当<code> ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
 忽略窗口内的所有鼠标事件
 
