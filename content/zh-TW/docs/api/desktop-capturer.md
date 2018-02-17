@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> 取得桌面上可透過 [`navigator.mediaDevices.getUserMedia`] API 擷取影片或音訊的媒體來源資訊。
 
 處理序: [畫面轉譯器](../glossary.md#renderer-process)
 
@@ -66,7 +66,7 @@ const constraints = {
 
 ## 方法
 
-The `desktopCapturer` module has the following methods:
+`desktopCapturer` 模組提供了下列方法:
 
 ### `desktopCapturer.getSources(options, callback)`
 
