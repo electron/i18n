@@ -103,7 +103,7 @@ pages:
     title: Documentazione
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
-    title: All the Electron Docs!
+    title: Tutti i documenti di Electron!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
@@ -113,17 +113,17 @@ pages:
     description: Developing with Electron
   '/docs/tutorial':
     title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    description: Guide e tutorial per l'ultima versione di Electron
   '/blog':
     title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    description: Tutte le ultime notizie dal team e dalla community di Electron.
   '/community':
     title: Community
   '/releases':
     title: Versioni
   '/contact':
     title: Contatti
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Entra in contatto con il team di Electron su Twitter, Slack, GitHub o via email.
   '/languages':
     title: Lingue
   '/userland':
@@ -133,7 +133,7 @@ pages:
     description: Devtron è uno strumento open source per aiutarti a ispezionare, monitorare ed eseguire il debug della tua app Electron. Costruito sulla base degli straordinari strumenti di sviluppo di Chrome.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron è un framework open source per scrivere facilmente test di integrazione per la tua app Electron. Costruito sulla base di ChromeDriver e WebDriverIO.
 _404:
   page_not_found: Pagina non trovata.
   if_this_is_an_error: If this is an error
