@@ -108,37 +108,37 @@ Un elenco di server separato da virgole, per il quale è necessaria la delega de
 
 ## --ignore-certificate-errors
 
-Ignores certificate related errors.
+Ignora gli errori di certificato correlati.
 
 ## --ppapi-flash-path=`path`
 
-Sets the `path` of the pepper flash plugin.
+Imposta il `percorso` del plugin flash pepper.
 
 ## --ppapi-flash-version=`version`
 
-Sets the `version` of the pepper flash plugin.
+Imposta la `versione` del plugin flash pepper.
 
 ## --log-net-log=`path`
 
-Enables net log events to be saved and writes them to `path`.
+Consente di salvare gli eventi del registro di rete e li scrive sul percorso.
 
 ## --disable-renderer-backgrounding
 
-Prevents Chromium from lowering the priority of invisible pages' renderer processes.
+Impedisce a Chromium di ridurre la priorità dei processi di rendering delle pagine invisibili.
 
-This flag is global to all renderer processes, if you only want to disable throttling in one window, you can take the hack of [playing silent audio](https://github.com/atom/atom/pull/9485/files).
+Questo flag è globale per tutti i processi di rendering, se si desidera disattivare la limitazione delle richieste in un'unica finestra, si può prendere l'hack di [playing silent audio.](https://github.com/atom/atom/pull/9485/files).
 
 ## --enable-logging
 
-Prints Chromium's logging into console.
+Stampa il logging di Chromium in console.
 
-This switch can not be used in `app.commandLine.appendSwitch` since it is parsed earlier than user's app is loaded, but you can set the `ELECTRON_ENABLE_LOGGING` environment variable to achieve the same effect.
+Questa opzione non può essere utilizzata in `app.commandLine.appendSwitch` poiché viene analizzata prima del caricamento dell' `app` dell utente, ma puoi impostare la variabile di ambiente ELECTRON_ENABLE_LOGGING per ottenere lo stesso effetto.
 
 ## --v=`log_level`
 
-Gives the default maximal active V-logging level; 0 is the default. Normally positive values are used for V-logging levels.
+Fornisce il massimo livello di V-logging attivo predefinito; 0 è il valore predefinito. I valori di norma positivi vengono utilizzati per i livelli di registrazione V (*V-logging levels*).
 
-This switch only works when `--enable-logging` is also passed.
+Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
 
 ## --vmodule=`pattern`
 
@@ -146,4 +146,4 @@ Gives the per-module maximal V-logging levels to override the value given by `--
 
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
-This switch only works when `--enable-logging` is also passed.
+Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
