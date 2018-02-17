@@ -28,7 +28,7 @@ La versione Python che stiamo usando ora è Python 2.7.
 
 Il codice C ++ utilizza molte delle astrazioni e dei tipi di Chromium, quindi è così raccomandato di conoscerli. A good place to start is Chromium's [Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures) document. Il documento menziona alcuni tipi speciali, i tipi di ambito (che rilasciano automaticamente la loro memoria quando escono dal campo di applicazione), i meccanismi di registrazione, ecc.
 
-## Documentation
+## Documentazione
 
 * Write [remark](https://github.com/remarkjs/remark) markdown style
 
