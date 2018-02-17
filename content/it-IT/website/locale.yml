@@ -23,7 +23,7 @@ docs:
     view_all_docs: Tutta la documentazione in una pagina
 languages:
   choose_language: Scegli la lingua da usare
-  translation_progress: Translation Progress
+  translation_progress: Avanzamento della traduzione
   current: selezione corrente
 community:
   title: Comunità Electron
