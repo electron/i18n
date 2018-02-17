@@ -25,7 +25,7 @@ Ang `dialog` na modyul ay mayroong sumusunod na mga pamamaraan:
 ### `dialog.showOpenDialog([browserWindow, ]mga opsyon[, callback])`
 
 * `browserWindow` Ang BrowserWindow (opsyonal)
-* `options` Object 
+* `mga pagpipilian` Bagay 
   * `title` String (opsyonal)
   * `defaultPath` String (opsyonal)
   * `buttonLabel` String (opsyonal) - Karaniwang lebel para sa kompirmasyong pipindutian, na kapag naiwang walang laman, ang default na lebel ang gagamitin.
