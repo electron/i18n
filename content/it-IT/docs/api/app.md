@@ -118,7 +118,7 @@ Restituiti:
 * `evento` Evento
 * `tipo` Stringa - Una stringa che identifica l'l'attività. Mappa a [`NSUtenteAttività.attivitàTipo`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. Se vuoi gestire questo evento dovresti chiamare l'`evento.previeniDefault()`.
+Emesso durante [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) prima che un'attività desideri da un dispositivo diverso essere ripristinata. Se vuoi gestire questo evento dovresti chiamare l'`event.preventDefault()`.
 
 ### Event: 'continue-activity-error' *macOS*
 
