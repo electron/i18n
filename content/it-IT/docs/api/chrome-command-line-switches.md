@@ -36,17 +36,17 @@ Abilita debugging remoto oltre HTTP sulla `porta` specificata.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Forza lo spazio massimo su disco da utilizzare dalla cache del disco, in byte.
 
-## --js-flags=`flags`
+## --js-flags=flags
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Specifica i flag passati all engine Node JS. Deve essere passato all'avvio di Electron, se si desidera abilitare il `flag` nel processo principale (main process).
 
 ```bash
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Vedere la [Documentazione di Node Js](https://nodejs.org/api/cli.html) o lanciare da terminale il comando `node --help` per ottenere la lista dei flag disponibili. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
 
 ## --proxy-server=`address:port`
 
