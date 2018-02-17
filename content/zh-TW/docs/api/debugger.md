@@ -1,6 +1,6 @@
 ## Class: Debugger
 
-> An alternate transport for Chrome's remote debugging protocol.
+> Chrome 遠端 debug 協定的替代傳輸通道。
 
 處理序: [主處理序](../glossary.md#main-process)
 
