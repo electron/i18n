@@ -76,17 +76,17 @@ need_help:
 headings:
   languages: Lingue
 taglines:
-  languages: Localized content from our awesome global developer community.
-help_translate: "Help translate"
+  languages: Contenuti localizzati dalla nostra fantastica comunità di sviluppatori globali.
+help_translate: "Aiuta a tradurre"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: Vedi le domande frequenti
 apps:
   title: Applicazioni costruite con Electron
   description: Con Electron è facile creare un'applicazione desktop per la tua azienda o il tuo prodotto. Inizialmente sviluppato per l'editor di <a href='https://atom.io' target='_blank'>Atom di GitHub</a>, Electron è stato utilizzato per creare applicazioni da aziende quali Microsoft, Facebook, Slack e Docker.
   view_more: Vedi altre applicazioni
   submit_your_own: inviare la tua applicazione
-  something_missing: Something missing?
-  edit_this_app: Edit this app.
+  something_missing: Manca qualcosa?
+  edit_this_app: Modifica questa app.
 clipboard:
   copy: Copia
   copy_to_clipboard: Copia negli appunti
@@ -100,7 +100,7 @@ pages:
     title: Electron Apps
     description: Applicazioni sviluppate con Electron
   '/docs':
-    title: Documentation
+    title: Documentazione
     description: Guides and API reference documentation for the latest Electron release
   '/docs/all':
     title: All the Electron Docs!
