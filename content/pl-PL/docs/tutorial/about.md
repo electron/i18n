@@ -2,11 +2,11 @@
 
 [Electron](https://electronjs.org) jest otwartoźródłową biblioteką, stworzoną przez GitHub, aby umożliwić tworzenie multiplatformowych aplikacji z użyciem języków HTML, CSS oraz JavaScript. Electron osiąga to łącząc [Chromium](https://www.chromium.org/Home) oraz [Node.js](https://nodejs.org) w jednolite środowisko uruchomieniowe, którego aplikacje mogą być wydawane na MacOS, Windows oraz Linux.
 
-Electron powstał w 2013 roku jako framework, z użyciem którego [Atom](https://atom.io), edytor tekstu GitHub'a, został zbudowany. Źródła zarówno edytora jak i frameworku zostały upublicznione wiosną 2014 roku.
+Electron powstał w 2013 roku jako framework, z użyciem którego powstawał [Atom](https://atom.io), edytor tekstu GitHub'a. Źródła zarówno edytora jak i frameworku zostały upublicznione wiosną 2014 roku.
 
 Od tamtego momentu, Electron stał się popularnym narzędziem, używanym przez developerów open source, startupy oraz korporacje. [Zobacz, kto używa Electrona](https://electronjs.org/apps).
 
-Kontynuuj czytanie, aby dowiedzieć się więcej o darczyńcach oraz wydaniach Electrona, albo zacznij tworzyć aplikacje z [Szybkim Startem](quick-start.md) Electrona.
+Kontynuuj czytanie, aby dowiedzieć się więcej o twórcach oraz wydaniach Electrona, albo zacznij tworzyć aplikacje w Electron [Szybki Start](quick-start.md).
 
 ## Zespół oraz współtwórcy
 
@@ -16,9 +16,9 @@ Electron jest rozwijany przez zespół Github i grupę [aktywnych kontrybutorów
 
 [Nowe wydania Electron ](https://github.com/electron/electron/releases) są częste. Wydajemy je, kiedy są znaczące poprawki błędów, nowe API lub kiedy ukazują się zaktualizowane wersje Chromium lub Node.js.
 
-### Aktualizowanie Bibliotek
+### Aktualizacje Bibliotek
 
-Electron Chromium jest zazwyczaj aktualizowana w ciągu jednego lub dwóch tygodni po wydaniu nowej stabilnej wersji, w zależności od aktualizacji.
+Biblioteka Electron w Chromium jest zazwyczaj aktualizowana w ciągu jednego lub dwóch tygodni po wydaniu nowej stabilnej wersji, w zależności od aktualizacji.
 
 Po wydaniu nowej wersji Node.js, Electron zazwyczaj czeka około miesiąca za aktualizacją w celu wydania bardziej stabilnej wersji.
 
