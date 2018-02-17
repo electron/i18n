@@ -138,7 +138,7 @@ child.once('ready-to-show', () => {
   * `alwaysOnTop` Boolean (可选) -窗口是否永远在别的窗口的上面. 默认值为`false`.
   * ` fullscreen ` Boolean (可选) - 窗口是否可以全屏. 当设置为 `false` 时，在 macOS 上全屏的按钮将被隐藏或禁用. 默认值为 `false`.
   * ` fullscreenable ` Boolean (可选) - 窗口是否可以进入全屏状态. 在 macOS上, 最大化/缩放按钮是否可用 默认值为 `true`。
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
+  * `simpleFullscreen` Boolean (可选) - 在 macOS 上使用 pre-Lion 全屏. 默认为`false`.
   * `skipTaskbar` Boolean (可选) - 是否在任务栏中显示窗口. 默认值为`false`.
   * `kiosk` Boolean (可选) - kiosk 模式. 默认值为 `false`.
   * `title` String (可选) - 窗口的默认标题. 默认值为 `"Electron"`.
@@ -151,9 +151,9 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (可选) - 是否在输入时隐藏鼠标. 默认值为`false`.
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
   * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小时, 大于屏幕的尺寸. 默认值为`false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). 默认值为`#FFF` (白色).
+  * `backgroundColor` String (可选) - 窗口的16进制背景颜色, 例如 `#66CD00` 或 `#FFF` 或 `#80FFFFFF` (支持alpha透明度). 默认值为`#FFF` (白色).
   * `hasShadow` Boolean (可选) - 窗口是否有阴影. 仅在 macOS 上支持. 默认值为 `true`.
-  * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
+  * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。仅支持 Windows 和 macOS 。
   * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
   * `transparent` Boolean (可选) - 使窗口 [透明](frameless-window.md). 默认值为 `false`.
   * `type` String (可选) - 窗口的类型, 默认为普通窗口. 下面可以查看更多.
@@ -201,7 +201,7 @@ child.once('ready-to-show', () => {
     * `defaultMonospaceFontSize` Integer (可选) - 默认值为 `13`.
     * ` minimumFontSize ` Integer (可选) - 默认值为 ``.
     * ` defaultEncoding ` String (可选) - 默认值为 `ISO-8859-1`.
-    * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 This also affects the [Page Visibility API](#page-visibility). 默认值为 `true`。
+    * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。 **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
     * `nativeWindowOpen` Boolean (可选) - 是否使用原生的 `window.open()`. 默认为 `false`. **注意:** 该选项目前为实验性质.
@@ -249,11 +249,11 @@ window.onbeforeunload = (e) => {
   // 与通常的浏览器不同,会提示给用户一个消息框,
   //返回非空值将默认取消关闭
   //建议使用对话框 API 让用户确认关闭应用程序.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  e.returnValue = false // 相当于 `return false` ，但是不推荐使用
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
 
 #### 事件： 'closed'
 
