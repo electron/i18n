@@ -16,13 +16,13 @@ npm install --save-dev electron@latest
 
 ## 1.x 版
 
-Electron *< 2.0* 的版本並不符合 [semver](http://semver.org) 規範。 主版號對應到終端使用者 API 變動。 次版號對應到 Chromium 主發行版次。 修訂號對應到新功能或錯誤修正。 這樣雖然對開發人員合併新功能很方便，但對寫應用程式供一般用戶使用的開發人員卻會造成不少困擾。 The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+Electron *< 2.0* 的版本並不符合 [semver](http://semver.org) 規範。 主版號對應到終端使用者 API 變動。 次版號對應到 Chromium 主發行版次。 修訂號對應到新功能或錯誤修正。 這樣雖然對開發人員合併新功能很方便，但對寫應用程式供一般用戶使用的開發人員卻會造成不少困擾。 Slack, Stride, Teams, Skype, VS Code, Atom 及 Desktop 這些主流應用程式的 QA 測試可能曠日廢時，才能維持住高穩定性。 要同時套用新功能並取得錯誤修正的風險很高。
 
-Here is an example of the 1.x strategy:
+這是個 1.x 版定版策略的例子:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+以 `1.8.1` 開發的應用程式無法直接套 `1.8.3` 版的錯誤修正，而略過 `1.8.2` 新增的功能，除非自己維護一組分隻，當中只套用特定的修正。
 
 ## 2.0 版之後
 
