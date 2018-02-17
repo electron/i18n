@@ -59,7 +59,7 @@ Envie uma mensagem ao processo principal de forma síncrona via `channel`, você
 
 The main process handles it by listening for `channel` with `ipcMain` module, and replies by setting `event.returnValue`.
 
-**Note:** Sending a synchronous message will block the whole renderer process, unless you know what you are doing you should never use it.
+**Nota:**O envio de uma mensagem síncrona bloqueará todo o processo de renderização, a menos que você saiba o que está fazendo, você nunca deve usá-lo.
 
 ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
 
